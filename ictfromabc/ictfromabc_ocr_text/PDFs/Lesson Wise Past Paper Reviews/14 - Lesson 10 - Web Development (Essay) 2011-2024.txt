@@ -1,0 +1,3102 @@
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+   2011 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a) Describe the terms “elements” and “attributes” with respect to an HTML document.
+      HTML f,aLkhla iïnkaOfhka "uQ,dx." (Elements) iy "Wm,laIK" (Attributes) hk mo úia;r
+      lrkak.
+
+          Element / uq,dx.
+          An element in HTML is a complete tag structure that defines content and behavior on a webpage. It usually
+          consists of a start tag, content, and an end tag.
+          HTML ys uQ,dx.hla hkq fjí msgqjl wka;¾.;h iy yeisÍu ks¾jpkh lrk iïmQ¾K ge.a jHqyhls'
+          th idudkHfhka wdrïNl ge.hlska" wka;¾.;hlska iy wjika ge.hlska iukaú; fõ'
+
+          Example: <p>This is a paragraph.</p>
+
+          Attribute / Wm,laIK
+          An attribute provides additional information about an HTML element. It is always included in the start tag
+          and consists of a name and a value.
+          HTML uQ,dx.hla ms<sn| wu;r f;dr;=re uq,dx. imhhs' th ieuúgu wdrïNl ge.fha we;=<;a lr
+          we;s w;r kula iy w.hlska iukaú; fõ'
+
+          Example: In <img src="image.jpg" alt="sample image">, src and alt are attributes.
+
+   (b) Identify each of the following as either an element or an attribute and describe their functionality.
+          my; olajd we;s tl tlla uQ,dx.hla fyda Wm,laIKhla fyda f,i y÷kdf.k tajdfha ld¾hhka úia;r
+          lrkak.
+
+                Part                 Type                                                               Description
+                               Element                  Used to break the line of text without starting a new paragraph. <br>
+            (i) br
+                               uq,dx.                   kj fþohla wdrïN fkdlr fm< f¾Ldj leãug Ndú;d lrhs' <br>
+
+                               Attribute                Used inside <a> tags to specify the URL the link should go to.
+            (ii) href
+                               Wm,laIK                  ine¢h hd hq;= <a> tl i|yka lsÍug URL ge.a ;=< Ndú;d fõ'
+
+                               Attribute                Specifies the path of an image file in an <img> tag.
+            (iii) src
+                               Wm,laIK                  <img> ge.hl rEm f.dkqjl ud¾.h kshu lrhs'
+
+                                                        The root element of an HTML document. All content goes inside <html>
+                               Element                  ...</html> tags.
+            (iv) html
+                               uq,dx.                   HTML f,aLkhl uQ, wx.h' ish¨u wka;¾.;hka <html>...</html>
+                                                        ge.a ;=<g hhs'
+RAVINDU BANDARANAYAKE                               -2-                                         #ictfromabc
+
+
+ (c) Consider the following figure which shows a section of a web page of a tour operating company in
+    Sri Lanka. / my; oelafjk rEm igyfkka oelafjk" Y%S ,xldfõ we;s ixpdr fufyhqï iud.ul fjí
+    msgqjl fldgi i,lkak.
+
+
+
+
+    Answer the following questions using the above figure.
+    by; rEm igyk NdÑ; lrñka my; olajd we;s m%Yakj,g ms<s;=re imhkak.
+
+  (i) It is required to format all the paragraphs of the above HTML document in “arial” font, 14 font
+      size and in blue colour. Write the required CSS code segment for the paragraph.
+      by; HTML f,aLkfha ish¨u fþo taßh,a wl=re j¾.h (Arial font), wl=re m%udKh 14 iy ks,a meyefhka
+      yevyqre (Format) .ekaùug wjYHj ;sfí' fþoh i|yd wjYH CSS fla; LKavh ,shd olajkak.
+    p {
+      color: blue;
+      font-family: Arial;
+      font-size: 14px;
+    }
+
+    This CSS targets all <p> elements. It applies
+    fuu CSS ish¨u <p> wx. b,lal lrhs' th wod< jkafka(
+    •   font-family: Arial to set the font / wl=re ieliSug Arial",
+    •   font-size: 14px for text size / fm< m%udKh i|yd 14px",
+    •   color: blue for text color. / fm< j¾Kh i|yd ks,a'
+
+ (ii) Explain the effect of having the following tag in the above HTML document.
+      by; oelafjk HTML f,aLkh ;=< my; oelafjk f,an,h (Tag) u.ska we;s flfrk n,mEu úia;r
+      lrkak.
+    <a href = "elephants.jpg"><img src = "elephants_tnl.jpg"
+    ALT = "Tour to Yala" width = "288cm" height = "156cm"
+    style = "border:none"/></a>
+
+    •   Creates an anchor link.
+        Anchor ine¢hla ks¾udKh lrhs'
+
+    •   When the user clicks on the image icon “elephant-tnl.jpg” an image named “elephant.jpg” is loaded
+        in a different web page. / mßYS,lhd “elephant-tnl.jpg” rEm ksrEmlh u; la,sla l< úg
+        “elephant.jpg” kï rEmhla fjk;a fjí msgqjlg mQrKh fõ'
+    •   If the browser can’t load the image “elephant-tnl.jpg” it displays the alternate text “Tour to Yala”.
+        n%jqirhg “elephant-tnl.jpg” rEmh mQrKh l< fkdyels kï" th “Tour to Yala” hk úl,am fm<
+        fmkajhs'
+    •   The width and the height of the image “elephant-tnl.jpg” are 288cm and 156cm respectively.
+        “elephant-tnl.jpg” rEmfha m<, iy Wi ms<sfj,ska 288cm iy 156cm fõ'
+RAVINDU BANDARANAYAKE                               -3-                                      #ictfromabc
+
+
+     •   Turns off the border.
+         border tl wl%sh lrhs'
+
+ (iii) Write HTML code segment to create the collection of three radio buttons labelled as 'Blue Whale',
+       'Leopard' and 'Elephant' as appeared in the above HTML document.
+       'Blue Whale', 'Leopard' iy 'Elephant' f,i f,an,a lr we;s f¾äfhda fnd;a;ï ;=fkys tl;=j by;
+       HTML f,aLkfha ks¾udKh lsÍu i|yd wjYH HTML fla; LKavh ,shkak.
+     <input type="radio" name="visit" value="Whale"> Blue Whale<br>
+     <input type="radio" name=" visit " value="Leopard"> Leopard<br>
+     <input type="radio" name=" visit " value="Elephant"> Elephant<br>
+
+     type="radio" creates radio buttons.
+     radio buttons ks¾udKh lrhs'
+     name="visit" ensures only one can be selected at a time.
+     jrlg tlla muKla f;dard .; yels nj iy;sl lrhs'
+     value identifies the selected option when submitted.
+     bÈßm;a l< úg f;dard.;a úl,amh value u.ska y÷kd .kS'
+
+ (iv) The company wants to add a table showing the rates as given below with the caption 'Wild Sri Lanka',
+      to the above HTML Document.
+      'Wild Sri eLanka' hk YS¾Ih (Caption) iys;j my; fmkajd we;s wdldrfha ñ, .Kka oelafjk
+      j.=jla by; HTML f,aLkhg we;=<;a lsÍug iud.ug wjYH j we;.
+
+            Days              Price
+             7               US$910
+             10              US$1220
+
+     Write HTML code segment to create the table. e
+     fuu j.=j ks¾udKh lsÍug wjYH HTML fla; LKavh ,shkak.
+     <table border="1">
+     <caption>Wild Sri Lanka</caption>
+     <tr>
+         <th>Days</th>
+         <th>Price</th>
+     </tr>
+     <tr>
+         <td>7</td>
+         <td>US$910</td>
+     </tr>
+     <tr>
+         <td>10</td>
+         <td>US$1220</td>
+     </tr>
+     </table>
+
+     <table> creates the table. / j.=j ks¾udKh lrhs'
+     border="1" adds a simple border. / ir, border tlla tla lrhs'
+     <caption> adds the title “Wild Sri Lanka”. / “Wild Sri Lanka” hk ud;Dldj tla lrhs'
+     <th> elements define header cells for “Days” and “Price”.
+     “Days” iy “Price” i|yd header cells w¾: olajhs'
+
+                                                                                      ( 2011 ESSAY - 02 )
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2012 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a) What would be responses by browser for a paragraph tag and for a break tag in an HTML document?
+      HTML f,aLkhl fþo Wiq,khla (pharagraph) iy levqï Wiq,khla (brake tag) i|yd w;sßlaiqjla
+      (browser) olajk m%;spdr l=ula o?
+
+          Paragraph Tag (<p>):
+          A paragraph tag creates a block-level element. This means that the content within a <p> tag will typically
+          start on a new line, and there will be some vertical space (margin) above and below it, separating it from
+          surrounding content. Browsers usually render text within a paragraph tag with a default font size and line
+          height.
+          Paragraph tag tlla íf,dla uÜgfï uQ,dx.hla ks¾udKh lrhs' fuhska woyia lrkafka <p> ge.hla
+          ;=< wka;¾.;h idudkHfhka kj fma<shlska wdrïN jk w;r" thg by<ska iy my<ska hï isria
+          bvla ^wdka;slhla& we;s w;r th wjg wka;¾.;fhka fjka lrhs' n%õi¾ idudkHfhka fmrksñ wl=re
+          m%udKh iy fraLd Wi iys; fþo ge.hla ;=< fm< úoeyqï lrhs'
+
+          The primary purpose of the <p> tag is to group related text into a distinct paragraph. This structural
+          element helps in organizing content semantically and visually on a webpage, making it more readable.
+          <p> Wiq,kfha uQ,sl wruqK jkafka wod< fm< fjkia fþohlg ldKav lsÍuhs' fuu jHqyd;aul wx.h
+          fjí msgqjl wka;¾.;h w¾:l:kfhka iy oDYHuh jYfhka ixúOdkh lsÍug WmldÍ jk w;r
+          tuÕska th jvd;a lshúh yels fõ'
+
+          Break Tag (<br>):
+          A break tag (<br>) produces a line break. The content following the <br> tag will immediately move to
+          the next line without introducing any extra vertical space between the lines.
+          Break tag <br> tlla f¾Ld ì£ula ksmojhs' <br> Wiq,k wkq.ukh lrk wka;¾.;h f¾Ld w;r
+          wu;r isria bvla y÷kajd §ulska f;drj B<Õ fma<shg jydu .uka lrkq we;'
+
+          The <br> tag is an empty tag used to force a line break within a block of text, such as within a paragraph
+          or a heading, when a new paragraph or a block-level element is not desired. It's often used for short lines
+          of text like addresses or poetry.
+          <br> Wiq,kh hkq kj fþohla fyda íf,dla uÜgfï uQ,dx.hla wjYH fkdjk úg" fþohla fyda YS¾Ihla
+          jeks fm< fldgil f¾Ld ì£ula n, lsÍug Ndú;d lrk ysia Wiq,khls' th fndfyda úg ,smsk fyda
+          lú jeks flá fm< fma<s i|yd Ndú;d fõ'
+
+   (b) What will be displayed when the following HTML code segment is rendered? Clearly indicate blank
+       line(s) in the display, if any, with dotted lines (.......................................).
+       my; oelafjk HTML fla;h úoeyq (render) úg" l=ula ixo¾Ykh jkq we;a o? tu ixo¾Ykfhys ysia f¾Ld
+       (blank lines) we;akï tajd ;s;a bß (.........................................) u.ska meyeÈ,sj olajkak'
+
+          <p>Our evergreen school days<br/>
+          will not come back again</p>
+          <p>From the nursery to high school
+          we learnt the best</p>
+
+          Our evergreen school days
+          will not come back again
+          .........................................
+          From the nursery to high school we learnt the best
+RAVINDU BANDARANAYAKE                                 -5-                                        #ictfromabc
+
+
+    The first <p> tag contains "Our evergreen school days".
+    m<uq <p> ge.fha "Our evergreen school days" wvx.= fõ'
+
+    The <br> tag immediately after "days" forces "will not come back again" to the next line within
+    the same paragraph.
+    "days" uqøKh l< jydu <br> ge.h tu fþoh ;=< B<Õ fma<shg "will not come back again"
+    hkqfjka uqøKh fõ'
+
+    The closing </p> tag for the first paragraph ends that block.
+    m<uq fþoh i|yd jk wjidk </p> ge.h tu fldgi wjika lrhs'
+
+    The second <p> tag starts a new paragraph. This creates default vertical spacing (a blank line represented
+    by the dotted line) between the first paragraph and the second paragraph.
+    fojk <p> ge.h kj fþohla wdrïN lrhs' fuh m<uq fþoh iy fojk fþoh w;r fmrksñ isria
+    mr;rhla ^;s;a f¾Ldfjka ksrEmKh jk ysia f¾Ldjla& ks¾udKh lrhs'
+
+    "From the nursery to high school" is displayed.
+    "From the nursery to high school" o¾Ykh fõ'
+
+    "we learnt the best" continues on same line as it's within the same paragraph and no <br> tag is present.
+    "we learnt the best" hk jpkh tlu fþoh ;=< we;s wdldrhgu tlu fma<sfha È.gu mj;sk w;r
+    <br> ge.hla fkdue;'
+
+    The closing </p> tag for the second paragraph ends that block.
+    fojk fþoh i|yd jid oeófï </p> ge.h tu fldgi wjika lrhs'
+
+ (c) A company named “Agri Sri Lanka” requires a web page as given below.
+     “Agri Sri Lanka” kue;s iud.ulg my; § we;s wdldrfha fjí msgqjla wjYH fõ.
+RAVINDU BANDARANAYAKE                                 -6-                                            #ictfromabc
+
+
+
+     Write an HTML code to produce the above web page. Assume that the name of the image file is
+     "agriSL.jpg". The links, Jay Agro Technologies and Lanka Agri Systems Pvt Ltd. should link to
+     the sites "http://www.jayagrotec.com" and "http://www.lkagrisys.com" respectively.
+     by; fjí msgqj ks¾udKh lr.ekSu i|yd HTML fla;hla ,shkak' wkqrE f.dkqfjys (image file)
+     ku "agriSL.jpg" f,i Wml,amkh lrkak' Jay Agro Technologies iy Lanka Agri Systems Pvt Ltd
+     hk ine÷ï (links) ms<sfj<ska "http://www.jayagrotec.com" iy "http://www.lkagrisys.com" hk
+     wvúj,g ine¢ úh hq;= h'
+
+     <html>
+     <head>
+     <title> AgriSL </title>
+
+     </head>
+     <body>
+     <h1> Agriculture in Sri Lanka </h1>
+     <img src="agriSL.jpg" ALT="Agri SL/>
+
+     <p>Sri Lanka is an agricultural country. Agriculture is one of the main
+     sectors of the Sri Lankan economy.</p>
+     <p>The main plantation crops are</p>
+     <ul>
+
+     <li> tea</li>
+     <li> rubber</li>
+     <li> coconut </li>
+
+     </ul>
+     <p>Links to agricultural firms</p>
+     <a href = "http://www.jayagrotec.com">Jay Agro Technologies</a>
+     <br>
+     <a href = "http://www.lkagrisys.com">Lanka Agri Systems Pvt Ltd.</a>
+     <br>
+     </body>
+     </html>
+
+     <html> and </html>
+     These are root elements of an HTML page. All other content of the webpage is nested within these tags.
+     fïjd HTML msgqjl uQ, wx. fõ' fjí msgqfõ wfkl=;a ish¨u wka;¾.;hka fuu ge.a ;=< ;ekam;a
+     lr we;'
+
+     <head> and </head>
+     This section contains meta-information about the HTML document, which is not directly displayed on
+     the web page itself but is important for browsers and search engines.
+     fuu fldgfia HTML f,aLkh ms<sn| fugd-f;dr;=re wvx.= jk w;r" th fjí msgqfõu fl,skau
+     o¾Ykh fkdjk kuq;a n%õi¾ iy fijqï hka;% i|yd jeo.;a fõ'
+
+     <title>AgriSL</title>
+     This tag defines the title of the web page, which typically appears in the browser's title bar or tab. In this
+     case, the title will be "AgriSL".
+     fuu ge.h fjí msgqfõ title tl ks¾jpkh lrhs" th idudkHfhka n%jqirfha title ;Srefõ fyda tab
+     tfla Èiafõ' fuu wjia:dfõ§" title tl "AgriSL" jkq we;'
+
+     <body> and </body>
+     This section contains visible content of the HTML document, i.e., everything you see on the web page.
+     fuu fldgfia HTML f,aLkfha oDYHudk wka;¾.;h"tkï fjí msgqfõ Tn olsk ish,a, wvx.= fõ'
+RAVINDU BANDARANAYAKE                                -7-                                           #ictfromabc
+
+
+     <h1>Agriculture in Sri Lanka</h1>
+     This is a heading tag. <h1> defines the most important (largest) heading on the page. It will display
+     "Agriculture in Sri Lanka" as a prominent title.
+     fuh YS¾I ge.hls' <h1> msgqfõ we;s jeo.;au ^úYd,;u& YS¾Ih ks¾jpkh lrhs' th "Agriculture
+     in Sri Lanka" m%uqL ud;Dldjla f,i fmkajkq we;'
+
+     <img src="agriSL.jpg" ALT="Agri SL"/>
+     This is an image tag.
+
+     src="agriSL.jpg"
+     The src attribute specifies the path to the image file to be displayed. In this case, the browser will look
+     for a file named "agriSL.jpg" in the same directory as the HTML file.
+     src .=Kdx.h uÕska fmkaúh hq;= rEm f.dkqjg hk ud¾.h kshu lrhs' fuu wjia:dfõ§" n%jqirh
+     HTML f.dkqj we;s kdudj,sfhysu "agriSL.jpg" kï f.dkqjla fidhkq we;'
+
+     ALT="Agri SL"
+     The ALT (alternative text) attribute provides a text description of the image. This text is displayed if the
+     image cannot be loaded (e.g., due to a broken link or slow internet) or is read aloud by screen readers
+     for visually impaired users. (This is optional)
+     ALT (úl,am fm<& .=Kdx.h rEmfha fm< úia;rhla imhhs' rEmh mQrKh l< fkdyels kï ^Wod(
+     ì÷Kq ine¢hla fyda ukao.dó wka;¾cd,h fya;=fjka& fyda oDYHdndê; mßYS,lhska i|yd ;sr
+     lshjkhka úiska Yío kÕd lshjkq ,enqjfyd;a fuu fm< fmkajkq ,efí' ^fuh ffjl,ams;hs&
+
+     <p>Sri Lanka is an agricultural country. Agriculture is one of the main
+     sectors of the Sri Lankan economy.</p>
+     This is a paragraph tag. The text enclosed within <p> and </p> will be displayed as a distinct paragraph
+     of text on the webpage.
+     fuh fþo ge.hls' <p> iy </p> ;=< we;=<;a lr we;s fm< fjí msgqfõ meyeÈ,s fm< fþohla
+     f,i fmkajkq we;'
+
+     <p>The main plantation crops are</p>
+     Another paragraph tag, serving as an introduction to the list of crops.
+     crops ,ehsia;=jg ye¢kaùula f,i fiajh lrk ;j;a fþo ge.hla'
+
+     <ul> and </ul>
+     This is an unordered list tag. It creates a bulleted list of items.
+     fuh wkqms<sfj,g ilia fkdl< ,ehsia;= ge.hls' th nq,Ü iys; whs;u ,ehsia;=jla idohs'
+
+     <li>tea</li>
+     This is a list item tag. Each <li> represents a single item in the unordered list.
+     fuh ,ehsia;= whs;u ge.hls' iEu <li> tllau wkqms<sfj,g fkdoeuQ ,ehsia;=fõ ;ks whs;uhla
+     ksfhdackh lrhs'
+
+     <li>rubber</li>
+     Another list item / ;j;a ,ehsia;= whs;uhla'
+
+     <li>coconut</li>
+     Another list item / ;j;a ,ehsia;= whs;uhla'
+
+     <p>Links to agricultural firms</p>
+     A paragraph tag introducing the section containing external links.
+     ndysr ine¢ wvx.= fldgi y÷kajd fok fþo ge.hla'
+
+     <a href = "http://www.jayagrotec.com">Jay Agro Technologies</a>
+     This is an anchor tag, used to create a hyperlink.
+     fuh wê ine¢hla ks¾udKh lsÍug Ndú;d lrk anchor ge.hls'
+RAVINDU BANDARANAYAKE                                  -8-                                              #ictfromabc
+
+
+     href=http://www.jayagrotec.com
+     The href attribute specifies the URL (Uniform Resource Locator) that the link points to. Clicking on
+     "Jay Agro Technologies" will take the user to "http://www.jayagrotec.com".
+     href .=Kdx.h uÕska ine¢h fhduq lrk URL tl ksYaÑ; lrhs' "Jay Agro Technologies" u;
+     la,sla lsÍfuka mßYS,lhd "http://www.jayagrotec.com" fj; f.k hkq we;'
+
+     Jay Agro Technologies
+     This is the visible text that the user clicks on.
+     mßYS,lhd la,sla lrk oDYHudk fm< fuhhs'
+
+     <br/>
+     This is a break tag. It inserts a line break, forcing the content that follows it to start on a new line. It's an
+     empty tag, meaning it doesn't have a closing tag like </br>. In HTML5, /> is common for self-closing
+     tags, but <br> is also valid.
+     fuh break ge.hls' th f¾Ld ì£ula we;=¿ lrk w;r" th wkq.ukh lrk wka;¾.;h kj
+     fma<shlska wdrïN lsÍug n, lrhs' th ysia ge.hls" tkï thg </br> jeks jid oeófï ge.hla
+     fkdue;' HTML5 ys" /> iajhx-jid oeófï ge. i|yd fmdÿ fõ" kuq;a <br> o j,x.= fõ'
+
+     <a href = "http://www.lkagrisys.com">Lanka Agri Systems Pvt Ltd.</a>
+     Another anchor tag, similar to the one above, linking to "http://www.lkagrisys.com".
+     by; ge.hg iudk ;j;a anchor ge.hla" "http://www.lkagrisys.com" fj; iïnkaO lrhs'
+
+     <br/>
+     Another line break after the second link
+     fojk ine¢fhka miq ;j;a fma<shla ì£u'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2013 WEB DEVELOPMENT ESSAY MARKING
+
+   1. Consider the section of a web page on the Sri Lankan Test Cricket team, given in the Figure:
+      rEmfha § we;s Y%S ,xld fgiaÜ l%slÜ lKavdhfï fjí msgqjl fldgi i,lkak:
+
+
+
+
+                                                                      Figure : Web page
+
+          A partial HTML document of the file "cricket.html" which generates the above web page is given
+          below. Fill in the blanks of the HTML document with the appropriate tags to render the web page.
+          by; fõí msgqj ckkh lrk “cricket.html” f.dkqfõ wdxYsl HTML f,aLkhla my; § we;' fjí
+          msgqj úoeyq lsÍug wod< weuqKqï (tags) fhdod .ksñka HTML f,aLkfha ysia;eka mqrjkak'
+
+          Notes / igyka:
+          1. When the user clicks on the phrase “Sri Lankan national cricket team” it should display the
+             document named “team.html”.
+             “Sri Lankan national cricket team” hk jdlH LKavh u; mßYS,lhd la,sla (click) l< úg
+             “team.html” kï jQ f,aLkh o¾Ykh úh hq;=h'
+          2. Name of the source file of the image displayed on the above webpage is “cricket.jpg”.
+             by; fjí msgqfõ we;s rEmfhys m%Nj f.dkqfjys ku “cricket.jpg” fõ'
+RAVINDU BANDARANAYAKE                        -10-                                  #ictfromabc
+
+
+     3. The link to the image “cricket.jpg” should have an alternative description “cricket”.
+        “cricket.jpg” hk rEmfha ikaOdkh (link) i|yd “cricket” kï jQ úl,am úia;rhla ;sìh hq;=h'
+    <html>
+    <head>
+           <title> Test Cricket </title>
+    </head>
+    <body>
+           <h1>Sri Lankan Test cricket records</h1>
+           <hr>
+           <p>The <a href= “team.html”>
+                 Sri Lankan national cricket team </a>
+                 played their first Test match on 17 February 1982 against England.
+           </p>
+           <p><b>Record Groups</b></p>
+           <ul>
+           <li>Team records</li>
+           <li>Individual records</li>
+           <li>Partnership records</li>
+           </ul>
+
+             <h2>Partnership records</h2>
+
+             <p><img src= “cricket.jpg” alt= “cricket”>
+                   Sri Lanka holds the most number of partnership records in Test
+                   cricket, with the records for the second, third, fourth, and sixth
+                   wickets. South Africa and Pakistan are ranked second with two
+                   records each.
+             </p>
+
+          <table border = “1”>
+                <caption>Highest wicket partnerships</caption>
+                <tr>
+                      <th>Runs</th>
+                      <th>Wicket</th>
+                      <th colspan = "2">Partners</th>
+                </tr>
+                <tr>
+                      <td>335</td>
+                      <td>1st wicket</td>
+                      <td>Marvan Atapattu</td>
+                      <td>Sanath Jayasuriya</td>
+                </tr>
+                <tr>
+                      <td>576</td>
+                      <td>2nd wicket</td>
+                      <td>Sanath Jayasuriya</td>
+                      <td>Roshan Mahanama</td>
+                </tr>
+          </table>
+    </body>
+    </html>
+
+    <a href=" ">
+    Defines a hyperlink that navigates to the URL specified in the href attribute.
+    href .=Kdx.fha ksYaÑ;j olajd we;s URL fj; ixpd,kh lrk wê ine¢hla w¾: olajhs'
+RAVINDU BANDARANAYAKE                        -11-                                   #ictfromabc
+
+
+    <hr>
+    Inserts a horizontal line to separate content sections.
+    wka;¾.; fldgia fjka lsÍu i|yd ;sria f¾Ldjla tla lrhs'
+
+    <img src=" " alt=" ">
+    Displays an image from the src URL and shows alt text if the image can't load.
+    src URL tflka rEmhla fmkajk w;r rEmh mQrKh l< fkdyels kï alt mdGh fmkajhs'
+
+    <caption>
+    Adds a title or description to a table and is placed just inside the <table> tag.
+    j.=jlg ud;Dldjla fyda úia;rhla tla lrk w;r th <table> Wiq,kh ;=<u ;nd we;'
+
+    Note:
+    <h2>Sri Lankan Test cricket records</h2> and <h3>Partnership records</h3>
+    also correct instead of <h1> and <h2> respectively.
+    ms<sfj,ska <h1> iy <h2> fjkqjg <h2>Sri Lankan Test cricket records</h2> iy
+    <h3>Partnership records</h3> f,io fhÈh yelsh'
+
+    <table boder = “2”> is also valid instead of <table boder = “1”>.
+    <table boder = “1”> fjkqjg <table boder = “2”> o ms<s.; yelsh'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2014 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a) Consider the definition list given below rendered by a web browser:
+      fjí w;ßlaiqjla (web browser) u.ska úoeyq (render) lrk ,o my; fmkajd we;s w¾: oelaùï
+      ,ehsia;=j i,ld n,kak(
+
+          CPU
+                      Central Processing Unit
+          ROM
+                      Read Only Memory
+
+          Complete the following HTML code segment to display the above list.
+          by; w¾: oelaùï ,ehsia;=j ixo¾Ykh lsÍu i|yd my; oelafjk HTML fla; LKavh iïmQ¾K
+          lrkak'
+
+            <dl>
+                           <..........................>CPU<..........................>
+                           <..........................>Central Processing Unit<..........................>
+                           <..........................>ROM<..........................>
+                           <..........................>Read Only Memory<..........................>
+            </dl>
+
+          <dl> – Description List
+          This tag starts the description list. It contains pairs of <dt> and <dd> elements.
+          fuu Wiq,kh úia;rd;aul ,ehsia;=j wdrïN lrhs' tys <dt> iy <dd> uQ,dx. hq., wvx.= fõ'
+
+          <dt> – Description Term
+          This tag defines a term or name — what you're describing.
+          fuu Wiq,kh mohla fyda kula w¾: olajhs' tkï Tn úia;r lrk foa fõ'
+
+          <dd> – Description Details
+          This tag gives the definition or explanation of the term in the <dt> tag.
+          fuu Wiq,kh <dt> Wiq,kfha mofha w¾: oelaùu fyda meyeÈ,s lsÍu ,nd fohs'
+          <dl>
+                      <dt>CPU<dt>
+                            < dd>Central Processing Unit<dd >
+                      < dt >ROM< dt >
+                            < dd >Read Only Memory< dd>
+          </dl>
+RAVINDU BANDARANAYAKE                             -12-                                          #ictfromabc
+
+
+ (b) Write the outputs of the following HTML code segments when rendered by a web browser.
+     fjí w;ßlaiqjla u.ska my; olajd we;s HTML fla; LKav úoeyq lrk wdldrh ,shd olajkak'
+
+    (i) <abc>Greetings!</abc>
+
+       Greetings!
+       <abc> is not a valid HTML tag, so the browser ignores it and simply displays the content as normal
+       text. No formatting is applied.
+       <abc> j,x.= HTML Wiq,khla fkdjk neúka" w;sßlaiqj th fkdi,ld yßk w;r wka;¾.;h
+       idudkH mdG f,i fmkajhs' lsisÿ yev;, .ekaùula fhdokq fkd,efí'
+
+    (ii) </u>Greetings!<u>
+
+       Greetings!
+
+       The closing tag </u> comes before the opening tag <u>, so it has no effect. The browser ignores it and
+       display as simple text.
+       </u> closing Wiq,kh <u> opening Wiq,khg fmr tk neúka thg lsisÿ n,mEula we;s l<
+       fkdyel' w;sßlaiqj th fkdi,ld yer ir, mdG f,i fmkajhs'
+
+ (c) Consider the following Output with check boxes rendered by a web browser:
+     fjí w;ßlaiqjla u.ska úoeyq lrk ,o my; fmkajd we;s wdfõlaIK fldgq (check boxes) iys;
+     m%;sodkh i,ld n,kak:
+
+
+
+
+    Complete the following HTML code segment to render the above output.
+    by; olajd we;s m%;sodkh úoeyq lsÍu i|yd my; olajd we;s HTML fla; LKavh iïmQ¾K lrkak'
+
+    <form method = "get"         action = "">
+                   <p>Programming Languages Used: </p>
+                   C <input type="checkbox" name="language" value="C">
+                   Java <input type="checkbox" name="language" value="Java">
+                   Python <input type="checkbox" name="language" value="Python">
+    </form>
+
+     <input type="checkbox"> Creates a checkbox / Checkbox ks¾udKh lrhs'
+                             groups all checkboxes under the same form field name.
+     name="language"
+                             ish¨u checkbox tlu fmdaru lafIa;% kduh hgf;a ldKav lrhs'
+                             Lets you know which option was selected after submission.
+     value="..."
+                             submit lsÍfuka miq f;dard.;a úl,amh Tng oek .ekSug i,iajhs'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2015 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a) Consider the web form given in the figure which has been developed for sending text messages from
+      a web application.
+      fjí fhÿula u.ska mdG mKsjqv (text messages) heùu i|yd ixj¾Okh lrk ,o" my; rEmfhka
+      fmkajd we;s fjí fmdaruh (web form) i,ld n,kak(
+
+
+
+
+                                  Figure: Form used to send text messages
+
+
+          The partial HTML code segment given below is prepared to generate the above form. Complete the
+          code segment to render the above form.
+          my; olajd we;s w¾O HTML fla; LKvh (partial code) by; fjí fmdaruh ckkh lsÍu i|yd
+          ilid we;' by; fmdaruh úoeyq lsßug tu flak LKavh iïmQ¾K lrkak'
+
+              <h2>Send Text Message</h2>
+              <p>Fill in all the fields and click Send Message</p>
+              <form action="" method="POST">
+                 <div class = "a">
+                   <div class = “l"> Phone No.:</div>
+                   <div class = "r"><input type= ...."text".... name="phone" size="20"></div>
+                 </div>
+                   <div class = "a">
+                   <div class = "l">Message:</div>
+                   <div class = "r"><....textarea....name="message" rows="7" cols="30">
+                     </....textarea....></div>
+                 </div>
+                 <div class = "a">
+                   <div class = "r"><input type="submit" value=...."Send your
+                    message"....></div>
+                 </div>
+              </form>
+RAVINDU BANDARANAYAKE                              -14-                                         #ictfromabc
+
+
+    In HTML, the <input type="text"> element is used to collect single-line text input from the user, such as
+    names or email addresses.
+    HTML ys" <input type="text"> uQ,dx.h Ndú;d lrkafka kï fyda úoHq;a ;eme,a ,smsk jeks
+    mßYS,lhdf.ka ;ks fma<s mdG wdodkh tl;= lsÍughs'
+
+    The <textarea> element allows users to enter multi-line text, making it suitable for longer inputs like
+    messages or comments.
+    <textarea> uQ,dx.h mßYS,lhskag nyq fma<s mdG we;=<;a lsÍug bv i,ihs" tuÕska mKsúv fyda woyia
+    jeks È.= wdodk i|yd th iqÿiq fõ'
+
+    The <input type="submit"> element creates a button that, when clicked, submits all the form data
+    (including text and textarea inputs) to a server or specified action.
+    <input type="submit"> uQ,dx.h fnd;a;ula ks¾udKh lrhs" th la,sla l< úg" ish¨u fmdaru o;a; ^
+    text iy textarea wdodk we;=¿j& fiajdodhlhlg fyda ksYaÑ; l%shdjlg bÈßm;a lrhs'
+
+    These elements are commonly used in forms to gather and send user information.
+    fuu uQ,dx. idudkHfhka mßYS,l f;dr;=re /ia lsÍug iy heùug fmdaruj, Ndú;d fõ'
+
+ (b) A well formed syntactically correct HTML code has been developed to render a web page which
+     includes an image of a school. However, the browser does not display the image. Instead, it only
+     displays the text "School" which is given as the 'text' attribute of alt. Give two possible reasons for
+     this behaviour.
+     mdi,l PdhdrEmhla wvx.= fjí msgqjla úoeyq lsÍu i|yd ksjerÈ ldrl Í;s Ndú; lrñka iqksIamkak
+     (well formed) HTML fla;hla ixj¾Okh lr we;' tfy;a fjí w;ßlaiqj (web browser) u.ska
+     mdif,a msx;+rh úoeyq fkdjk w;r alt Wm,laIKh i|yd mdG (text) f,i ,nd § ;snQ “School”
+     muKla m%o¾Ykh úh' fuu p¾hdj mej;Su i|yd fya;= folla olajkak'
+
+    1. Incorrect File Path / f.dkq ud¾.h jerÈ ùu:
+        The src attribute in the <img> tag may have an incorrect file path or filename due to mentioning of
+        the wrong folder location or spelling mistake.
+        f*da,avr ia:dkh jerÈ ùu fyda wlaIr úkHdi fodaI fya;=fjka <img> Wiq,kh ;=< we;s src
+        Wm,laIKhg jerÈ f.dkq ud¾.hla fyda f.dkq kduhla ;sìh yelsh'
+
+    2. Image File Missing / rEm f.dkqj wia:dk.; ù ;sîu(
+        The image file might not be available in the given location or may have been deleted or moved.
+        § we;s ia:dkfha rEm f.dkqj fkd;sìh yelsh" ke;fyd;a uld oud fyda f.k f.dia ;sìh yelsh'
+
+    3. Unsupported Image Format / rEm f.dkq wdlD;sh iydh fkdoelaùu:
+        The image file may be in a format that the browser doesn’t support.
+        rEm f.dkqj ;sfnkafka w;sßlaiqj iydh fkdolajk wdlD;shlska úh yelsh'
+
+    4. Internet Connection Issue / wka;¾cd, iïnkaO;d .eg¿ :
+        If the image is hosted online, it may fail to load due to a network issue or broken link.
+        rEmh ud¾..;j i;aldrl;ajh orkafka kï" cd, .eg¿jla fyda ì÷Kq ine¢hla fya;=fjka th
+        mQrKh ùug wiu;a úh yelsh'
+RAVINDU BANDARANAYAKE                                -15-                                          #ictfromabc
+
+
+ (c) Indicate whether the following CSS rules are syntactically correct or incorrect. If a rule is incorrect
+     write the correct version.
+     my; olajd we;s kS;s" ldrl ß;sj,g wkql+,j ksjerÈ o ke;fyd;a jerÈ o hkak olajkak" hï
+     kS;shla jerÈ kï tys ksjerÈ wdldrh o ,shd olaajkak'
+
+     (i) p {color: red}
+         p {font-type: Arial;}
+
+         Incorrect
+
+         p {font-family: Arial;}
+
+         “font-type” is not valid in CSS. “font-family” should be used.
+         CSS ys “font-type” j,x.= fkdfõ' “font-family” Ndú;d l< hq;=h'
+
+     (ii) body{color: red;}
+          {background-color: yellow;}
+
+         Incorrect
+
+             body{ color: red; background-color: yellow; }
+              or
+             body{color: red;}
+             body{background-color: yellow;}
+
+         The first line is correct: it applies red text color to everything inside the <body>. The second line is
+         incorrect: it does not have a selector (like body), so the browser doesn't know where to apply the
+         background color.
+         m<uq fma<sh ksjerÈhs( th <body> ;=< we;s ish,a,gu r;= j¾Kh fhdohs' fojk fma<sh jerÈhs(
+         thg selector fkdue; ^body jeks&" tneúka n%õirh miqìï j¾Kh fhÈh hq;= ia:dkh fkdokS'
+
+     (iii) h1, h3{color: blue;}
+
+         Correct
+
+         The CSS rule h1, h3 { color: blue; } means that both <h1> and <h3> heading elements will be
+         displayed in blue color. The selector h1, h3 applies the same style to both elements, and the color:
+         blue; declaration sets their text color to blue.
+         CSS Í;sh h1, h3 { color: blue; } hkafkka woyia jkafka <h1> iy <h3> YS¾Il uQ,dx. folu
+         ks,a meyefhka fmkajk njhs' f;aÍïldrlh h1" h3 uQ,dx. folgu tlu ú,dih fhdok w;r
+         color: blue; m%ldYkh tAjdfha mdG j¾Kh ks,a meyehg ilihs'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2012 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a) State the Operation of each HTML code segments given below. Assume that all images and HTML documents
+          are in the same folder.
+         my; fok ,o tla tla HTML fla; nKavhkays l%shdldß;ajh ,shd olajkak' ish¨ HTML f,aLk iy wkqrE
+         (images) tlu f*da,avrfhys wvx.= hehs Wml,amkh lrkak'
+
+     (i) <a href="coverPage.jpg" target = "_blank">Cover Page</a>
+
+          target="_blank" opens the file in a tab new tab/window
+          target="_blank" f.dkqj kj má;a;l (new tab) újD; lrhs'
+
+    (ii) <a href="content.html">Content</a>
+
+          If the target attribute is not specified, the default value is: target="_self". So opens the file in the same tab.
+          Target .=Kdx.h ksYaÑ;j olajd fkdue;s kï" fmrksñ w.h jkqfha( target="_self" fõ' tkï f.dkqj
+          tlu má;a; ;=< újD; lrhs'
+
+   (iii) <a href="figures.html" target = "_self"> <img src = "figures.jpg"/></a>
+
+          target="_self" opens the file in the same tab.
+          target="_self" f.dkqj tlu má;a; ;=< újD; lrhs'
+
+
+   (b) Which of the three mechanisms used to apply styles to HTML elements increases the maintainability
+       of a web site?
+       HTML uQ,dx. i|yd rgd fh§ug Ndú; lrk hdka;%K ;=fkka l=ula fjí wvúhl kv;a;= lsÍfï
+       yelshdj jeä lrhs o?
+
+          External CSS / ndysr CSS
+          External style sheets improve maintainability because styles are kept in a separate file (.css). This allows
+          global changes to be made without editing each HTML file.
+          ú,dihka fjku f.dkqjl (.css) ;nd we;s neúka ndysr ú,di m;% fjí wvúhl kv;a;= lsÍfï yelshdj
+          jeä ÈhqKq lrhs' fuh tla tla HTML f.dkqj ixialrKh fkdlr f.da,Sh fjkialï isÿ lsÍug bv
+          i,ihs'
+RAVINDU BANDARANAYAKE                              -17-                                        #ictfromabc
+
+
+ (c) Consider the following HTML code segment:
+     my; i|yka HTML fla; LKavh i,lkak(
+
+     <body>
+        <h2>How web search engines work</h2>
+        <p>A search engine maintains three processes.
+        </p>
+     </body>
+
+       Write the internal styles required to apply the following styles for the elements in the above code
+       segment.
+eeeeeeeby; § we;s fla; LKavfhys we;s uQ,dx. i|yd my; i|yka rgd fh§ug wjYH wNHka;r rgd
+       (Internal styles) ,shd olajkak'
+
+     Internal CSS styles are CSS rules written within an HTML document using the <style> tag, usually placed
+     inside the <head> section. These styles apply only to that specific HTML page.
+     wNHka;r CSS ú,di hkq HTML f,aLkhla ;=< <style> Wiq,kh Ndú;fhka ,shk ,o CSS Í;s jk
+     w;r" idudkHfhka <head> fldgi ;=< ;nd we;' fuu ú,di wod< jkafka tu ksYaÑ; HTML msgqjg
+     muKs'
+
+     <head>
+       <style type="text/css">
+         h2 {
+            color: red;
+            text-align: center;
+         }
+         p {
+            font-family: "Courier New";
+            font-size: 14px;
+         }
+       </style>
+     </head>
+
+     Note :
+     “14.pt” can be used instead of “14.px”
+     “14.px” fjkqjg “14.pt” Ndú;d l< yel'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2017 WEB DEVELOPMENT ESSAY MARKING
+
+   1. Environmental Institute of Colombo
+      intends to develop a website to provide
+      information on an art competition for
+      students. A web page from this website and
+      another web page with the entry form to
+      register for the competition are shown in
+      the Figure 6.1 and Figure 6.2 respectively.
+      isiqka i|yd mj;ajk Ñ;% ;r.hla ms<sn|
+      f;dr;=re ,nd §u i|yd fld<U mdßißl
+      wdh;kh fjí wvúhla ks¾udKh lsÍug
+      woyia lrhs' tys tla fjí msgqjla yd
+      ;r.dj,shg ,shdmÈxÑ ùu i|yd we;=<;a
+      ùfï fmdaruh iys; ;j;a fjí msgqjla rEmh
+      6.1 yd rEmh 6.2 u.ska ms<sfj<ska oelafjhs'
+                                                                                                     Figure 6.1 : A web page of the website
+
+
+   (a) Using appropriate HTML tags, create an HTML file required to render the web page as shown in
+       Figure 6.1. Your code should satisfy the following requirements.
+        iqÿiq HTML Wiq,k Ndú; lr" rEmh 6.1 ys oelafjk fjí msgqj úoeyq lsÍug wjYH HTML
+        f.dkqjla ks¾udKh lrkak' Tnf.a fla;h my; oelafjk wjYH;d ;Dma; l< hq;= h'
+
+          It is required to format the text of the list in ‘Calibri’
+          font, 14 points high, in red color. The list should be
+          bulleted with squares. Format the list by using internal
+          or external style sheets only.
+           ,ehsia;=fõ (list) we;s mdG uqøK wl=re j¾.h (font)
+           'Calibri' , ,laIH (point) 14 la Wi yd r;= j¾Kfhka
+           wdlD;s lsÍug wjYH fõ' ,ehsia;=fõ fmrksñh (bullet)
+           y;/ia úh hq;= h' wNHka;r fyda ndysr rgd m;%
+           muKla Ndú;fhka ,ehsia;=j wdlD;s l< hq;= h'
+          Further, when a user clicks on the hypertext ‘online
+          entry form’ on the web page, the entry form given in
+          Figure 6.2 should be rendered on a new tab/page.
+          Assume that the name of the HTML file of the web
+          page with the entry form is ‘form.html’.
+          ;j o, mßYS,lhl= fjí msgqfõ we;s 'online entry form'
+          wêfm< (hypertext) la,sla l< úg rEmh 6.2 ys
+          oelafjk we;=<;a ùfï fmdaruh w¨;a má;a;l$msgqjl
+          úoeyq l< hq;= h' we;=<;a ùfï fmdaruh iys; fjí                                                                 Figure 6.2 : Entry form
+          msgqfõ HTML f.dkqfõ ku 'form.html' hehs
+          Wml,amkh lrkak'
+RAVINDU BANDARANAYAKE                                  -19-                                            #ictfromabc
+
+
+     There are three main ways to connect CSS (Cascading Style Sheets) to HTML. They are,
+     CSS (Cascading Style Sheets) HTML fj; iïnkaO lsÍug m%Odk l%u ;=kla ;sfí' tAjd kï"
+
+     1. Inline CSS/ fma<s.; CSS
+     Inline CSS is a method of applying styles directly to individual HTML elements using the style attribute.
+     It is useful for quick, one-off changes, such as changing the color or size of a single element.
+     fma<s.; CSS hkq style .=Kdx.h Ndú;fhka ;ks HTML uQ,dx. j,g iDcqju fudaia;r fh§fï
+     l%uhls' th ;ks uQ,dx.hl j¾Kh fyda m%udKh fjkia lsÍu jeks blauka" tljr fjkialï i|yd
+     m%fhdackj;a fõ'
+
+     However, it's not ideal for larger projects because it makes the HTML code harder to maintain and does
+     not separate content from presentation.
+     flfia fj;;a" th úYd, jHdmD;s i|yd iqÿiq fkdfõ" ukao th HTML fla;h kv;a;= lsÍug wmyiq
+     lrhs'
+
+     2. Internal CSS/ wNHka;r CSS
+     Internal CSS is used when you want to apply styles within the same HTML file. This is done by placing
+     the CSS rules inside a <style> tag within the <head> section of the HTML document. Internal CSS is
+     useful for small websites or single-page designs, where all the styling is relevant only to that page.
+     tlu HTML f.dkqj ;=< ú,di fh§ug wjYH úg wNHka;r CSS Ndú;d fõ' fuh isÿ lrkq ,nkafka
+     HTML f,aLkfha <head> fldgi ;=< <style> Wiq,khla ;=< CSS kS;s ;eîfuks' wNHka;r CSS l=vd
+     fjí wvú fyda ;ks msgq ie,iqï i|yd m%fhdackj;a fõ" tys§ ish¨u fudaia;r wod< jkafka tu msgqjg
+     muKs'
+
+     3. External CSS/ ndysr CSS
+     External CSS, on the other hand, involves writing all the style rules in a separate .css file. That file is then
+     linked to the HTML page using a <link> tag in the <head>. This method is highly efficient for larger
+     websites, especially when multiple pages need to share the same style.
+     wfkla w;g" ndysr CSS hkq ish¨u ú,di kS;s fjku .css f.dkqjl ,sùuhs' bkamiq tu f.dkqj <head>
+     ys <link> Wiq,khla Ndú;fhka HTML msgqjg iïnkaO flfra' fuu l%uh úYd, fjí wvú i|yd
+     b;d ld¾hlaIu fõ" úfYaIfhka fndfyda msgq ioyd tlu ú,dih fnod .ekSug wjYH jQ úg'
+
+     In the given question, answers should be provided using either internal or external CSS only. Let’s see
+     how list formatting can be applied using internal and external CSS.
+     § we;s m%Yakfha§" ms<s;=re wNHka;r fyda ndysr CSS Ndú;fhka muKla iemhsh hq;=h' wNHka;r iy
+     ndysr CSS Ndú;fhka ,ehsia;= ú,di .ekaùu fhÈh yels wdldrh n,uq'
+
+ •   Using internal CSS
+     wNHka;r CSS Ndú;d lsÍu
+
+     <html>
+     <head>
+          <meta charset="utf-8">
+          <title>Information</title>
+          <style type="text/css">
+               li{font-family: calibri;
+                  font-size: 14pt;
+                  color: red;
+                  list-style: square;}
+          </style>
+     </head>
+RAVINDU BANDARANAYAKE                             -20-                                         #ictfromabc
+
+
+
+    • Using external CSS/ ndysr CSS Ndú;d lsÍu
+      To apply external styling, first we need to link the CSS file to the HTML document using the <link>
+      tag within the <head> section. This connects the HTML structure with the external style definitions
+      provided in the CSS file.
+      ndysr ú,di .ekaùu fh§u i|yd" m<uqj CSS f.dkqj <head> fldgfia we;s <link> Wiq,kh
+      Ndú;fhka HTML f,aLkhg iïnkaO l< hq;=h' fuh HTML jHqyh CSS f.dkqfõ imhd we;s
+      ndysr fudaia;r w¾: oelaùï iuÕ iïnkaO lrhs'
+
+       The beginning HTML codes should be written as follows,
+       wdrïNl HTML fla; my; mßÈ ,súh hq;=h"
+
+       <html>
+       <head>
+            <meta charset="utf-8">
+            <title>Information</title>
+            <link rel="stylesheet" type="text/css" href="external.css">
+       </head>
+
+       CSS file should be written as follows,
+       CSS f.dkqj my; mßÈ ,súh hq;=h"
+
+       li{font-family: calibri;
+          font-size: 14pt;
+          color: red;
+          list-style: square;}
+
+       Regardless of whether you use external or internal CSS for the initial styling, the remaining part of
+       the HTML content should be structured as demonstrated in the following code.
+       wdrïNl ú,di .ekaùu i|yd ndysr fyda wNHka;r CSS hk lskï wdldrh Ndú;d l<;a" HTML
+       wka;¾.;fha b;sß fldgi my; fla;fha oelafjk mßÈ jHqy.; l< hq;=h'
+
+       <body>
+            <h1>Student Art Competition</h1>
+            <h2>Theme:Litter on the environment</h2>
+            <h3>PRIZES</h3>
+            <ul>
+                 <li>1st place Rs. 10,000/=</li>
+                 <li>2nd place Rs. 7,500/=</li>
+                 <li>3rd place Rs. 5,000/=</li>
+            </ul>
+            <h3>ENTRY FORM</h3>
+            <p>Please fill and submit this
+               <a href="form.html" target="_blank">online entry form</a>to enter
+               The competition</p>
+       </body>
+       </html>
+RAVINDU BANDARANAYAKE                               -21-                                        #ictfromabc
+
+
+ (b) Using appropriate HTML tags, create an HTML file to render the entry form given in Figure 6.2. The
+     options for ‘Grade Category’ are given in the Figure 6.3. Your code should satisfy the following
+     requirements. When the ‘Clear your Entries’ button is clicked, all the entries of the form should be
+     cleared. Similarly, when the ‘Submit’ button is clicked, the form should be submitted to the server.
+     iqÿiq HTML Wiq,k Ndú; lr" rEmh 6.2 ys we;=<;a ùfï fmdaruh úoeyq lsÍug HTML f.dkqjla
+     ks¾udKh lrkak' rEmh 6.3 ys 'Grade Category' i|yd úl,am § we;' Tnf.a fla;h my; oelafjk
+     wjYH;d ;Dma; l< hq;= h' 'Clear your Entities' fnd;a;u la,sla l< úg" fmdarufhys we;s ish¨ u
+     ksfõYsl (entries) uelS hd (Clear) hq;=hs' tf,iu 'Submit' fnd;a;u la,sla l< úg" fmdaruh fiajdodhlg
+     fhduq úh (Submit) hq;=hs'
+
+
+
+
+          Figure 6.3 : Options for Grade Category
+
+
+    PHP forms are a fundamental part of web development used to collect user input and process it on the
+    server. When the form is submitted, the data is sent to a PHP script via the GET or POST method.
+    PHP fmdaru hkq fjí ixj¾Okfha uQ,sl wx.hla jk w;r th mßYS,l wdodk tl;= lr fiajdodhlfha
+    ieliSug Ndú;d lrhs' fmdaruh bÈßm;a l< úg" o;a; GET fyda POST l%uh yryd PHP ial%smaÜ
+    tllg hjkq ,efí'
+
+    In PHP, the GET and POST methods are two common ways to send form data from the client (browser)
+    to the server.
+    PHP ys" GET iy POST l%u hkq fiajd.%dylhdf.ka ^n%jqirfhka& fiajdodhlhg fmdaru o;a; heùug
+    fmdÿ l%u folls'
+
+                          GET method                                        POST method
+      Sends data through the URL                             Sends data in the HTTP request body
+      URL tl yryd o;a; hjhs                                  HTTP b,a,Sï wka;¾.;fha o;a; hjhs
+                                                            More secure and suitable for sensitive or large
+      Suitable for simple queries or data that doesn’t need
+                                                            data
+      to be hidden.
+                                                            ixfõ§ fyda úYd, o;a; i|yd jvd;a
+      ir, úuiqï fyda ryiH fkdjk o;a; i|yd iqÿiqh'
+                                                            wdrlaIs; iy iqÿiqhs
+
+      Has a size limit                                       No size limit
+      m%udK iSudjla we;                                      m%udK iSudjla ke;
+
+      Can be bookmarked                                      Cannot be bookmarked
+      msgq i,l=Kq l< yel                                     msgq i,l=Kq l< fkdyel
+
+      Repeated requests with same URL have same effect.      Repeated requests can have different effects.
+      tlu URL tl iys; kej; kej; b,a,Sï tlu                   kej; kej; b,a,Sï úúO n,mEï we;s l<
+      n,mEula we;s lrhs'                                     yelsh'
+RAVINDU BANDARANAYAKE                            -22-                                       #ictfromabc
+
+
+    Now, let's see how to implement the given form using HTML,
+    oeka" § we;s fmdaruh HTML Ndú;fhka l%shd;aul lrkafka flfiaoehs n,uq"
+
+    <html>
+    <head>
+       <meta charset="utf-8">
+       <title>Entry Form</title>
+    </head>
+    <body>
+       <h1>Art Competition Online Entry Form 2017</h1>
+       <h3>Theme: Litter on the environment</h3>
+       <form method="get" action="script.php">
+           Name: <input type="text" name="name">
+           <p>
+           Gender:
+           <input type="radio" name="sex" value="male">Male
+           <input type="radio" name="sex" value="female">Female
+           </p>
+
+             <p>Grade Category
+             <select name="ageGroup">
+                 <option value="g1">Grade 1-2</option>
+                 <option value="g2">Grade 3-6</option>
+                 <option value="g3">Grade 7-10</option>
+                 <option value="g4">Grade 11-13</option>
+             </select></p>
+
+             <p>Art media:</p>
+             <input type="checkbox" name="media1" value="Colour">Water Colours<br>
+             <input type="checkbox" name="media2" value="Pencil">Colour pencils<br>
+             <input type="checkbox" name="media3" value="Crayon">Crayon<br>
+             <input type="checkbox" name="media4" value="Chalk">Chalk
+
+           <p><input type="reset" value="Clear your entries"></p>
+           <p><input type="submit" name="Submit"></p>
+       </form>
+    </body>
+    </html>
+
+    The relevant input fields should be included in the form as shown in the HTML code above, ensuring
+    each field aligns with the required structure and purpose.
+    by; HTML fla;fha fmkajd we;s mßÈ wod< wdodk lafIa;% fmdaruhg we;=<;a l< hq;= w;r" tla
+    tla lafIa;%h wjYH jHqyh iy wruqK iuÕ fm<.eiS we;'
+
+    The main difference between checkbox and radio input types in HTML lies in how they allow users to
+    make selections:
+    HTML ys checkbox iy radio wdodk j¾. w;r m%Odk fjki we;af;a mßYS,lhskag f;aÍï lsÍug
+    bv fok wdldrh ;=< h(
+
+    Checkbox allows users to select multiple options independently. It’s commonly used when more than
+    one choice is acceptable.
+    Checkbox mßYS,lhskag iajdëkj nyq úl,am f;dard .ekSug bv i,ihs' tla f;aÍulg jvd ms<s.;
+    yels úg th nyq,j Ndú;d fõ'
+RAVINDU BANDARANAYAKE                                -23-                                          #ictfromabc
+
+
+    Radio buttons allow users to select only one option from a group. All radio buttons with the same name
+    attribute are grouped together, and selecting one will automatically deselect the others. This is ideal for
+    single-choice scenarios like choosing gender or selecting a payment method.
+    Radio button mßYS,lhskag lKavdhulska tla úl,amhla muKla f;dard .ekSug bv i,ihs' tlu name
+    .=Kdx.h iys; ish¨u radio button tlg ldKav.; lr we;s w;r" tlla f;aÍfuka wfkla tAjd
+    iajhxl%Shj f;aÍu bj;a lrkq ,efí' fuh ia;%S mqreI Ndjh f;dard .ekSu fyda f.ùï l%uhla f;dard
+    .ekSu jeks ;ks f;aÍï wjia:d i|yd jvd;a iqÿiqh'
+
+    The select input type in HTML is used to create a drop-down menu that allows users to choose one or
+    multiple options from a list.
+    HTML ys select wdodk j¾.h Ndú;d lrkqfha ,ehsia;=jlska úl,am tlla fyda lsysmhla f;dard .ekSug
+    mßYS,lhskag bv i,ik my,g jefgk ,ehsia;=jla ks¾udKh lsÍug h'
+
+    The submit button is used to send the filled form data to a server for processing. When a user clicks on the
+    submit button, it triggers the form’s action attribute, typically pointing to a server-side script, and sends
+    the data using the specified method.
+    mqrjk ,o fmdaru o;a; ieliSu i|yd fiajdodhlhlg heùug submit button Ndú;d lrhs' mßYS,lfhl=
+    submit la,sla l< úg" th fmdarufha action .=Kdx.h l%shdrïN lrhs" idudkHfhka server-side script
+    tllg fhduq lr" ksYaÑ; l%uh Ndú;fhka o;a; hjhs'
+
+    On the other hand, the reset button is used to clear all input fields in the form, returning them to their
+    original default values. This is useful if a user wants to start over without manually deleting each field’s
+    content. It doesn’t interact with the server or send any data.
+    wfkla w;g" reset fnd;a;u fmdarufha we;s ish¨u wdodk lafIa;% bj;a lsÍug Ndú;d lrhs" tAjd tAjdfha
+    uq,a fmrksñ w.hka fj; wdmiq hjhs' mßYS,lfhl=g tla tla lafIa;%fha wka;¾.;h w;ska uld
+    oeóulska f;drj kej; wdrïN lsÍug wjYH kï fuh m%fhdackj;a fõ' th fiajdodhlh iuÕ wka;¾
+    l%shd fkdlrhs'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2018 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a)(i)State two benefits of using Cascading Style Sheets (CSS).
+        m%.uk rgd m;%sld [Cascading Style Sheets (CSS)] Ndú; lsßfï m%fhdack folla i|yka lrkak'
+
+          •     Web pages can be maintained and updated easily.
+                fjí msgq myiqfjka kv;a;= lsÍu yd hdj;ald,Sk lsÍu l< yelsh'
+          •     Style sheets ensure consistency throughout the website.
+                ú,di m;%sld fjí wvúh mqrd ix.; nj iy;sl lrhs'
+          •     Any document can be re-styled without modifying the original HTML document.
+                uq,a HTML f,aLkh fjkia fkdlr ´kEu f,aLkhla kej; ú,di l< yel'
+          •     Multiple styles can be applied to a single document using multiple style sheets.
+                ú,di m;% fndfydauhla Ndú;fhka" ;ks f,aLkhlg ú,di lsysmhla fhÈh yel'
+          •     More formatting options are provided.
+                yeviõ .ekaùfï úl,am jeä m%udKhla imhd we;'
+          •     Different styles can be presented to different users easily.
+                úúO ú,di" úúO mßYS,lhskag myiqfjka bÈßm;a l< yelsh'
+          •     Pages can be loaded faster due to lightweight code and reduced file sizes.
+                ieye,a¨ fla;h iy wvq lrk ,o f.dkq m%udKhka ksid msgq fõ.fhka mQrKh l< yel'
+          •     Search engine optimization is improved.
+                fijqï hka;% m%Yia;lrKh jeäÈhqKq lr we;'
+          •     Cleaner code is ensured.
+                jvd ksrjq,a fla;hla iy;sl lrhs'
+
+   (ii) Write the output of the following HTML code segment when rendered by a web abrowser.
+        my; oelafjk HTML fla; LKavh fjí w;ßlaiqjla u.ska úoyd olajk úg ,efnk m%;sodkh ,shd
+        olajkak'
+
+          <html>
+          <body>
+          <u> Important Sites </u>
+          <ul>
+            <li><a href="www.nie.lk/index.html"> National Institute of Education </a></li>
+            <li><a href="www.doenets.lk/exam/index.html"> Department of Examinations </a></li>
+          </ul>
+          </body>
+          </html>
+
+          NOTE:
+          Consider the following area as the display area of the browser.
+          w;sßlaiqfõ ixo¾Yl m%foaYh f,i my; m%foaYh i,lkak.
+
+              Important Sites
+                        •      National Institute of Education
+                        •      Department of Examinations
+RAVINDU BANDARANAYAKE                              -25-                                         #ictfromabc
+
+
+    The key HTML tags used in the given code are explained in the table below.
+    ,nd § we;s fla;fha Ndú;d lrk m%Odk HTML Wiq,k my; j.=fõ úia;r lr we;'
+
+                        Tag / Wiq,k                                         Description / úia;rh
+
+                                                               Underlines the text “Important Sites.”
+                             <u>
+                                                           “Important Sites” hk mdGh háka bß olajhs'
+
+                                                             Creates an unordered list to organize links.
+                            <ul>                                ine¢ ixúOdkh lsÍug, unordered
+                                                                      ,ehsia;=jla idokq ,nhs'
+
+                                                            Defines each list item in the unordered list.
+                            <li>                           Unordered ,ehsia;=fõ tla tla ,ehsia;= whs;u
+                                                                          meyeÈ,s lrhs'
+
+                                                              Creates a hyperlink that redirects to the
+           <a href="www.nie.lk/index.html">
+                                                             "National Institute of Education" website.
+                                                            "National Institute of Education" fjí wvúh
+                                                            fj; yrjd hjk wê ine¢hla idokq ,nhs'
+                                                               Creates a hyperlink that redirects to the
+     <a href="www.doenets.lk/exam/index.html">
+                                                              "Department of Examinations" website.
+                                                             "Department of Examinations" fjí wvúh
+                                                            fj; yrjd hjk wê ine¢hla idokq ,nhs'
+
+ (iii) Write the output of the following HTML code segment when rendered by a web browser.
+       my; oelafjk HTML fla; LKavh fjí w;ßlaiqjla u.ska úoyd olajk úg ,efnk m%;sodkh ,shd
+       olajkak'
+
+    <html>
+    <body>
+    <p>
+    <center> Department of Examinations <br> Pelawatta
+    <br> Battaramulla </center></p><hr>
+    </body>
+    </html>
+
+    NOTE:
+    Consider the following area as the display area of the browser
+    w;sßlaiqfõ ixo¾Yl m%foaYh f,i my; m%foaYh i,lkak
+
+
+                                         Department of Examinations
+                                                 Pelawatta
+                                                Battaramulla
+
+
+
+    The key HTML tags used in the given code are explained in the table below:
+    ,nd § we;s fla;fha Ndú;d lrk m%Odk HTML Wiq,k my; j.=fõ úia;r lr we;(
+RAVINDU BANDARANAYAKE                                  -26-                                        #ictfromabc
+
+
+
+     Tag / Wiq,k                            Description / úia;rh
+         <p>                                Defines a paragraph.
+                                            fþohla w¾: olajhs'
+      <center>                     Aligns the text to the center of the page.
+                                       msgqfõ ueog mdG fm<.iajhs'
+        <br>           Inserts a line break, moving the following text to a new line.
+                     mdG kj fma<shlg f.k hñka fma<s fjka lsÍula we;=¿ lrhs'
+        <hr>               Creates a horizontal line to visually separate content.
+                    wka;¾.;h oDYHuh jYfhka fjka lsÍug ;sria f¾Ldjla idohs'
+
+ (b) Consider the following HTML code segment:
+     my; oelafjk HTML fla; LKavh i,lkak:
+
+    <body>
+       <h1> Introduction to Web Technologies </h1>
+       <h3> HTML </h3>
+       <p> HTML is the standard markup language for creating web pages </p>
+    </body>
+
+    Write down the internal Styles required to apply the styles mentioned in the following table for the
+    elements h1 and p in the above code segment.
+    by; fla; LKavfhys we;s h1 iy p uQ,dx. i|yd" my; j.=fõ i|yka rgd fh§ug wjYH wNHka;r
+    rgd (internal styles) ,shd olajkak'
+
+     Element Name            Attribute          Attribute Value
+            h1           color                blue
+                         text-align           centre
+                         font-family          Arial
+             p           background-color     Yellow
+                         font-size            12px
+
+    <style type="text/css">
+                h1{
+                      color: blue;
+                      text-align: center;
+                      font-family: arial;
+                }
+
+                    p{
+                             background-color: yellow;
+                             font-size: 12px;
+                    }
+    </style>
+
+    NOTE:
+    In the given table, "centre" is a typographical error for "center," which is the correct value for the text-
+    align property in CSS, but "centre" is also acceptable due to the typographical mistake in the provided
+    table.
+    ,nd § we;s j.=fõ" "centre" hkq "center" i|yd uqøK fodaIhls" th CSS ys we;s text-align
+    Wm,laIKh i|yd ksjerÈ w.h jk kuq;a imhd we;s j.=fõ uqøK fodaIh fya;=fjka "centre" o
+    ms<s.; yelsh'
+RAVINDU BANDARANAYAKE                               -27-                 #ictfromabc
+
+
+ (c) Consider the HTML form given below rendered by a web browser:
+     fjí w;sßlaiqjla u.ska úoyd olajk my; oelafjk HTML fmdaruh i,lkak'
+
+    This is a registration form used for registering
+    students. It is required to enter Student Name as a text
+    input, select Gender, select District and then click
+    Submit button. Complete the following HTML code
+    segment by filling the spaces to display the form.
+    fuys oelafjkafka isiqka ,shdmÈxÑ lsÍu i|yd Ndú;
+    jk ,shdmÈxÑ lsÍfï wdlD;s m;%hls' isiqjdf.a ku"
+    mdG wdodkhla f,i we;=<;a lr" .eyekq msßñ nj
+    f;dard" Èia;sl% alh f;dard bka miqj Submit fnd;a;u
+    tîu wjYH fõ'
+    wdlD;s m;%h m%o¾Ykh lsÍu i|Nd my; oelafjk
+    fla; LKavfhys we;s ysia;eka mqrjkak'
+
+    <html>
+    <body>
+    <h3>Student Registration </h3>
+    <form action="register.php" method="post">
+    <div>
+       Student Name <input type="text" name="name">
+    </div>
+    <br>
+    <div>
+    Gender
+       <input type="radio" name="gtype" value="male" checked> Male
+       <input type="radio" name="gtype" value="female" checked> Female
+    </div>
+    <br>
+    <div>
+    Selected District :
+    <select name ="city">
+        <option value="Colombo"> Colombo </option>
+        <option value="Jaffna"> Jaffna </option>
+        <option value="Matara"> Matara </option>
+    </select>
+    </div>
+    <br>
+       <input type="submit" name="submit" value="Submit">
+    </form>
+    </body>
+    </html>
+RAVINDU BANDARANAYAKE                           -28-                                           #ictfromabc
+
+
+    Below is an explanation of what each piece of code does.
+    my;ska tla tla fla; fldgia u.ska isÿjk foa meyeÈ,s lr we;'
+
+      Tag /
+                                                    Purpose / wruqK
+      Wiq,k
+                                       Defines the root of an HTML document.
+       html
+                                       HTML f,aLkhl uQ,h ks¾jpkh lrhs'
+
+                                 Contains the visible content of an HTML document.
+       body
+                                 HTML f,aLkhl oDYHudk wka;¾.;h wvx.= fõ'
+
+                                             Defines a heading level 3.
+        h3
+                                       3 jk uÜgfï YS¾Ihla ks¾jpkh lrhs'
+
+                                Defines an HTML form for collecting user input.
+       form
+                        mßYS,l wdodk tl;= lsÍu i|yd HTML fmdaruhla ks¾jpkh lrhs'
+
+                           Acts as a container used to group and style HTML elements.
+       div
+                HTML uQ,dx. iuQy lsÍug iy ú,di .ekaùug Ndú;d lrk nyd¨ula f,i l%shd lrhs'
+
+
+      input                            Defines various types of input controls.
+                                     úúO wdldrfha wdodk md,k ks¾jpkh lrhs'
+
+       text                             Defines a single-line text input field.
+                                   ;ks fma<s mdG wdodk lafIa;%hla ks¾jpkh lrhs'
+
+        br                    Inserts a line break, moving the following text to a new line.
+                               mdG kj fma<shlg f.k hñka f¾Ld ì£ula we;=¿ lrhs'
+
+                   Defines a radio button, allowing the selection of one option from multiple choices.
+      radio          f¾äfhda fnd;a;ula ks¾jpkh lrk w;r f;aÍï lsysmhlska tla úl,amhla
+                                                f;dard.ekSug bv i,ihs'
+
+
+      select                                  Defines a drop-down list.
+                                           m;k ,ehsia;=jla ks¾jpkh lrhs'
+
+      option                           Defines an option in a drop-down list.
+                                     m;k ,ehsia;=jl úl,amhla ks¾jpkh lrhs'
+
+      submit                           Defines a button for submitting a form.
+                             fmdaruhla bÈßm;a lsÍu i|yd fnd;a;ula ks¾jpkh lrhs'
+RAVINDU BANDARANAYAKE                                                                                                                                     #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+  2019 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a)(i) Draw the expected output of the following HTML code segment when rendered by a web browser.
+         fjí w;ßlaiqjla u.ska úoeyq úg my; oelafjk HTML fla; LKavfhka n,dfmdfrd;a;= jk m%;sodkh
+         w¢kak'
+
+          <html>
+          <body>
+          <!--Effects of Social Networking -->
+          <p>Social networking has <br> <u>advantages</u> and disadvantages </p>
+          </body>
+          </html>
+
+          Note: Consider the following area as the display area of the browser.
+          igyk( w;sßlaiqfõ ixo¾Yl m%foaYh f,i my; m%foaYh i,lkak'
+
+            Social networking has
+            advantages and disadvantages
+
+
+
+          Code Explanation / fla; meyeÈ,s lsÍu'
+
+                                          Code                                                                Explanation
+            1. <!---Effects of Social Networking-- >                               This is a comment in html. Therefore, it is
+                                                                                   ignored and not displayed in the output.
+                                                                                   fuh html ys újrKhla f,i ie,fla' tu
+                                                                                   ksid" th fkdi,ld yßk w;r m%;sodkfha
+                                                                                   o¾Ykh fkdfõ'
+
+            2. <p>                                                                 Defines a paragraph of text.
+                                                                                   fþohla we;=,a lrhss'
+
+            3. <br>                                                                Inserts a line break, so the phrase “advantages
+                                                                                   and disadvantages” will be on a new line.
+                                                                                   fma<s fjka lsÍula lrhs" tneúka “advantages
+                                                                                   and disadvantages” hk jdlH LKavh kj
+                                                                                   fma<shl mj;skq we;'
+
+            4. <u>                                                                 Underlines the word “advantages”
+                                                                                   “advantages” hk jpkh háka bß olajhs'
+RAVINDU BANDARANAYAKE                             -30-                                     #ictfromabc
+
+
+(ii) Draw the expected output of the following HTML code segment when rendered by a web browser.
+     fjí w;ßlaiqjla u.ska úoeyq úg my; oelafjk HTML fla; LKavfhka n,dfmdfrd;a;= jk m%;sodkh
+     w¢kak'
+
+    <html>
+    <body>
+    <table border="1">
+    <caption>Schedule</caption>
+    <tr><th>Time</th><th>Event</th></tr>
+    <tr><td>8 am</td><td>Drama</td></tr>
+    <tr><td>10 am</td><td>News</td></tr>
+    <tr><td colspan =2> Lunch</td></tr>
+    </table>
+    </body>
+    </html>
+
+    Note: Consider the following area as the display area of the browser.
+    igyk( w;sßlaiqfõ ixo¾Yl m%foaYh f,i my; m%foaYh i,lkak'
+
+         Schedule
+      Time Event
+      8 am    Drama
+      10 am News
+      Lunch
+
+
+    Code explanation / fla; meyeÈ,s lsÍu'
+
+                      Code                                            Explanation
+     1. <table border="1">                       Creates a table with a visible border.
+                                                 fmfkk border tlla iys; j.=jla idohs'
+
+     2. <caption>Schedule</caption>              Adds the title “Schedule” to the table.
+                                                 “Schedule” hk ud;Dldj j.=jg tla lrhs'
+
+     3. <tr>                                     Defines table rows.
+                                                 j.= fma<s ks¾jpkh lrhs'
+
+     4. <th>                                     Makes "Time" and "Event" bold and centered.
+                                                 "Time" iy "Event" ;o meye iy uOH.; lrhs'
+
+     5. <td>                                     Contains the time and event details.
+                                                 time iy event úia;r wvx.= fõ'
+
+     6. <td colspan="2">Lunch</td>               Merges two columns into one for "Lunch."
+                                                 "Lunch" i|yd ;Sre folla tlg tAldnoaO lrhs'
+RAVINDU BANDARANAYAKE                                -31-                                          #ictfromabc
+
+
+(b)(i) Write two advantages of using external style sheets when creating a web page.
+       fjí msgqjla ks¾udKh lsÍfï§ ndysr ú,di m;a Ndú; lsÍfï jdis folla ,shkak'
+
+     •   To maintain consistency throughout the page.
+         msgqj mqrd wLKav;dj mj;ajd .ekSug'
+
+     •   Makes the code more organized and maintainable.
+         fla;h jvd;a ixúOdkd;aul iy kv;a;= l< yels njg m;a lrhs'
+
+     •   Increased efficiency due to a smaller number of code lines.
+         l=vd fla; ixLHdjla ;sîu fya;=fjka ld¾hlaIu;dj jeä ùu'
+
+     •   External CSS files are cached by the browser, meaning faster loading times for returning visitors.
+         ndysr CSS f.dkq w;sßlaiqj uÕska ksys; lr we;" thska woyia jkafka th wdmiq meñfKk
+         mßYS,lhka i|yd fõ.j;a mQrK ld,hla ,nd fok njhs'
+
+     •   Keeps HTML and CSS separate, making the code cleaner and easier to understand.
+         HTML iy CSS fjk fjku ;nd" fla;h jvd;a msßisÿ iy f;areï .ekSug myiq lrhs'
+
+     •   Better Readability and Scalability.
+         jvd fyd| lshùfï yelshdj iy mßudKh'
+
+     •   The same stylesheet can be used across multiple webpages, ensuring consistent design.
+         tlu ú,di m;%h úúO fjí msgq yryd Ndú;d l< yels w;r" ia:djr ks¾udKhla iy;sl lrhs'
+
+  (ii) Consider the following HTML elements require the styles as given in the table.
+       my; oelafjk HTML uQ,dx.hkag j.=fjys § we;s mßÈ ú,dihka wjYH hehs i,lkak'
+
+
+         Element Name              Attribute            Attribute Value
+                             color                    red
+               P             font-family              Calibri
+                             text-align               justify
+               h1            color                    red
+                             font-family              Calibri
+                             color                    red
+               h2            font-family              Calibri
+                             text-align               justify
+
+     Write an external style sheet in the most efficient way to fulfil the above requirements using only the CSS
+     group selector concept.
+     ú,di ldKav (CSS group selector) ixl,amh muKla fhdod .ksñka by; wjYH;d imqrd,Su i|yd
+     jvd;au ld¾hlaIu l%uhg ndysr ú,di m;la ,shkak'
+
+     In CSS, group selectors allow you to apply the same style to multiple elements by separating them with a
+     comma (,). This reduces repetition and makes your CSS code more efficient.
+     CSS j,§" lKavdhï jrl uÕska Tng uQ,dx. lsysmhla fldudjlska ^"& fjka lsÍfuka tlu ffY,sh
+     fh§ug bv i,ihs' fuh mqkrdj¾;kh wvq lrk w;r Tfí CSS fla;h jvd;a ld¾hlaIu lrhs'
+
+     selector1, selector2, selector3 {property: value;}
+
+     Therefore, the correct code can be written as follows.
+     tneúka ksjerÈ fla;h my; wdldrhg ,súh yel'
+
+     p , h1 , h2 {color: red; font-family: Calibri; }
+     p, h2 {text-align: justify; }
+RAVINDU BANDARANAYAKE                                                -32-                                                          #ictfromabc
+
+
+ (c) The following PHP code is intended to add data into 'name' and 'class' fields of the table named 'student'
+     in the MYSQL database called 'school_db'. User name and password to login to 'school_db' are 'admin'
+     and 'A!2t*' respectively. Complete the PHP code segment by filling the blanks.
+     my; § we;s PHP fla;fhka 'school_db' kï MYSQL o;a; iuqodfhys 'student' kï j.=fjys 'name'
+     iy 'class' lafIa;%j,g o;a; tl;= lsÍug n,dfmdfrd;a;= fõ' 'school_db' j,g msÍu (login) i|yd
+     jk mßYS,l ku iy uqr moh ms<sfj<ska 'admin' iy 'A!2t*' fõ' ysia;eka mqrjd" PHP flal LKavh
+     iïmQ¾K lrkak'
+
+     <?php
+       $conn = new mysqli('locathost', ....................... , ...................... , .......................);
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       }
+        $sql = "......................... into ......................... (......................... , .........................)
+        values ('Piyal', '12-B')";
+
+        if ($conn->query(.........................) ==true) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+       $conn->close();
+     ?>
+
+
+     The correct code can be written as follows.
+     my; wdldrhg ksjerÈ fla;h ,súh yel'
+
+     <?php
+       $conn = new mysqli('localhost', 'admin' , 'A!2t*' , 'school_db' );
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       }
+       $sql = "INSERT into Student (name, class) values ('Piyal', '12-B')";
+       if ($conn->query( $sql ) ==true) {
+           echo "New record created successfully";
+       } else {
+           echo "Error: " . $sql . "<br>" . $conn->error;
+       }
+       $conn->close();
+     ?>
+
+
+     Code explanation / fla; meyeÈ,s lsÍu
+
+                        $conn = new mysqli('localhost','admin','A!2t*','school_db');
+
+      'localhost'                             The server where MySQL is running (usually localhost).
+                                              l%shd;aul jk fiajdodhlh ^idudkHfhka localhost&'
+      'admin'                                 The username for MySQL.
+                                              MySQL i|yd mßYS,l kduh'
+      'A!2t*'                                 The password for MySQL.
+                                              MySQL i|yd uqrmoh'
+      'school_db'                             The database name.
+                                              o;a; iuqodfha ku'
+RAVINDU BANDARANAYAKE                              -33-                                          #ictfromabc
+
+
+
+         if($conn->connect_error){die("Connection failed: ". $conn->connect_error);}
+
+     ($conn->connect_error)       Checks if there was an issue connecting to MySQL.
+                                  MySQL fj; iïnkaO ùfï .eg¨jla ;sfíoehs mÍlaId lrhs'
+     die()                        If an error occurs, stops execution and prints the error message.
+                                  fodaIhla isÿjqjfyd;a" l%shd;aul lsÍu kj;d fodaI mKsúvh uqøKh
+                                  lrhs'
+
+              $sql = "INSERT INTO student (name, class) VALUES ('Piyal', '12-B')";
+
+     "INSERT INTO student"        Specifies we are inserting a new record into the student table.
+                                  kj jd¾;djla student j.=jg we;=<;a lrk nj i|yka lrhs'
+     "(name, class)"              Specifies the columns where data will be inserted.
+                                  o;a; we;=<;a lrk ;Sre kshu lrhs'
+     "VALUES ('Piyal', '12-B')"   Specifies the actual values for the name and class fields.
+                                  ku iy mka;s lafIa;% i|yd i;H w.hka kshu lrhs'
+
+      if ($conn->query( $sql ) === TRUE) { echo "New record created successfully";}
+
+     $conn->query($sql)           Runs the SQL command.
+                                  úOdkh l%shd;aul lrhs'
+     ==true                       If the query runs successfully, this ensures the next block of codes
+                                  executes.
+                                  úuiqu id¾:lj l%shd;aul jkafka kï" fuh ó<Õ fla; fldgi
+                                  l%shd;aul ùu iy;sl lrhs'
+     echo "New record created     If the query was successful, this message confirms the record was
+     successfully";               added.
+                                  úuiqu id¾:l jQfha kï" fuu mKsúvh" jd¾;dj tla l< nj
+                                  ;yjqre lrhs'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+   2020 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a) Draw the expected output of the following code segment when rendered by a web browser.
+      fjí w;ßlaiqjla u.ska úoeyq (render) úg my; fla; LKavfhka wfmalaId flfrk m%;sodkh w¢kak'
+
+          <html>
+          <body>
+          <table border=1>
+                <tr><th>No</th><th>Type</th><th>City</th></tr>
+                <tr><td>1</td><td rowspan=2>High</td><td>Galle</td></tr>
+                <tr><td>2</td><td>Jaffna</td></tr>
+          </table>
+          </body>
+          </html>
+
+          Note : Please consider the edges of the following dotted line box as the display area of web browser.
+          igyk: my; oelafjk ;s;abß iys; fldgqfõ odr fjí w;ßlaiqfõ o¾Ykh jk fldgi f,i i,lkak'
+
+
+
+
+   (b) Consider the following html code in which the lines are numbered to answer the questions in this part.
+       fuu fldgi i|yd ms<s;=re iemhSug fma<s wxlkh lr we;s my; oelafjk html fla;h i,lkak'
+
+             1.          <html>
+             2.          <head>
+             3.                 <style type="text/css">
+             4.                        h1,h2{color:blue;}
+             5.                 </style>
+             6.          </head>
+             7.          <body>
+             8.                 <h1 style="color:green;">Title One</h1>
+             9.                 <h2>Title Two</h2>
+             10.         </body>
+             11.         </html>
+
+     (i) What are the colours of the text in line numbers 8 and 9 when the above code is rendered by browser?
+         fjí w;ßlaiqjla u.ska fla;h úoeyq úg wxl 8 iy 9 jk fma<sj, mdG Èiafjk j¾Khka fudkjdo?
+
+            Line number Text      Colour
+            8           Title One Green
+            9           Title Two Blue
+RAVINDU BANDARANAYAKE                               -35-                                          #ictfromabc
+
+
+ (ii) Write one advantage of defining styles as in line numbers 3,4 and 5 over that of line number 8.
+      fma<s wxl 8 ys olajd we;s f,i ú,di (style) w¾: oelaùug jvd fma<s wxl 3, 4, 5 ys olajd we;s
+      f,i ú,di w¾: oelaùfï we;s tla jdishla ,shd olajkak'
+
+     Separation of concerns / W;aiqlhka fjka lsÍu
+     By defining styles in the <style> block, we separate the content from its presentation. This approach
+     allows for easier maintenance and consistency because styles can be modified in one place and applied to
+     multiple elements. It also enhances reusability across multiple pages or elements within the same page.
+     <style> íf,dla tfla ú,dis;d ks¾jpkh lsÍfuka" wms tys bÈßm;a lsÍfuka wka;¾.;h fjka lrhs'
+     fuu m%fõYh myiq kv;a;= iy wkql+,;dj i|yd bv ,nd fokafka ú,dis;d tl ;eklos fjkia lr
+     uQ,dx. lsysmhla i|yd fhÈh yels neúks' th msgq lsysmhla fyda tlu msgqj ;=< we;s uQ,dx. yryd
+     kej; Ndú; lsÍfï yelshdjo jeä ÈhqKq lrhs'
+
+ (iii) Write only the content of an external style sheet to include the following:
+       my; oelafjk oE wvx.= lsÍu i|yd ndysr ú,di m;l ;sìh yels wka;¾.;h muKla ,shkak'
+
+     a ) the style defined in line number 8 and
+         fma,s wxl 8 ys we;s ú,dis;dj iy
+
+         /* Defining the style for h1 to be green */
+         h1 {
+             color: green;
+         }
+
+     b ) a CSS Id named ‘appear’ to define the style of the font as ‘Arial’
+         wl=re ú,dih (font style) ‘Arial’ f,i oelaùug ‘appear’ kï jQ CSS Id tlla
+
+         /* Defining the style for an element with id 'appear' */
+         #appear {
+             font-family: Arial, sans-serif;
+         }
+
+ (c) The following four PHP code blocks which are labeled as A,B,C and D are taken from a code intended to
+     retrieve data from a database to display on the screen. However, the code blocks are not in correct order.
+     A, B, C iy D f,i f,an,a lr we;s my; oelafjk PHP fla; LKav y;r o;a; iuqodhlska o;a;
+     iuqoaorKh (retrieve) lr ;srh u; m%o¾Ykh lsßfï fla;hlska ,ndf.k we;' tfy;a fuu fla;
+     LKav ksjerÈ wkqms<sfj<g fkdue;'
+
+
+      Label                                   Code Block
+
+                $sql = "SELECT itemcode, name FROM Product";
+        A       $result = $conn->query($sql);
+
+                if ($conn->connect_error) {
+        B              die("Connection failed: " . $conn->connect_error);
+                }
+
+               if ($result->num_rows > 0) {
+                      while($row = $result->fetch_assoc()) {
+                         echo "Code:".$row["itemcode"]."/Item:".$row["name"]."<br>";
+        C             }
+               } else {
+                   echo "0 results";
+               }
+
+        D       $conn = new mysqli("localhost", "admin", "C#a8t", "StoreDB");
+RAVINDU BANDARANAYAKE                                  -36-                                           #ictfromabc
+
+
+  (i) Write the labels of the four code blocks in the correct order inside four blanks of following PHP script.
+      fla; LKavj, olajd we;s f,an, y;r my; PHP fla;fha ysia;eka y;r ;=<s ksjerÈ wkqms<sfj<g
+      ,shd olajkak'
+
+     Correct order is / ksjerÈ wkqms<sfj, : D → B → A → C.
+
+ (ii) If the above code blocks are in the correct order, what is the expected output if the ‘Product’ table has only
+      the following values?
+      ‘Product’ j.=fjys my; oelafjk w.hhka muKla ;sfí kï" iy by; fla; LKav ksjerÈ
+      wkqms<sfj<g we;s úg wfmalaIs; m%;sodkh l=ula o?
+
+     Product
+         itemcode               name
+             P1                  Pen
+             P3                 Book
+
+     Expected Output for the Given Table
+     ,nd § we;s j.=j i|yd wfmalaIs; m%;sodkh
+
+     The Product table has the following values
+     ksIamdok j.=fõ my; w.hka we;(
+
+      itemcode       name
+      P1             Pen
+      P3             Book
+
+     The PHP script will execute the following SQL query
+     PHP ial%smaÜ my; SQL úuiqu l%shd;aul lrhs'
+
+
+     SQL COMMAND
+
+     SELECT itemcode, name
+     FROM Product;
+
+
+     Since there are rows in the table, the while loop in Block C will fetch rows one by one and print them as:
+     j.=fõ fma<s we;s neúka" Block C ys while ¨mh tl fma<s tlska tl ,ndf.k tAjd fufia uqøKh lrhs(
+
+     Code: P1 / Item: Pen
+     Code: P3 / Item: Book
+
+     The output will be / m%;sodkh jkq we;(
+
+     Code:P1/Item:Pen
+     Code:P3/Item:Book
+
+     If there were no rows in the Product table, the output would be "0 results".
+     ksIamdok j.=fõ fma<s fkd;snqfka kï" m%;sodkh "0 results" jkq we;'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+   2021 WEB DEVELOPMENT ESSAY MARKING
+
+1.(a)(i) In the following HTML code,underline the parts containing errors. (Please ignore line numbering.)
+          my; HTML fla;fha fodaI fldgia háka bß w¢kak' (lreKdlr fma<s wxl fkdi,lkak')
+
+
+              1.           <html>
+              2.           <body background-color="green">
+              3.           <hl> Welcome all of you to online ICT Seminar </h1>
+              4.           <a url="#one" >A/L Student Section</a>
+              5.           <p> O/L ICT is not available</a>
+              6.           < -- Section 1 -- >
+              7.           <h4> A/L ICT </h4>
+              8.           <hr><p>Good Morning</p></hr>
+              9.           <br><p> This section is for students </p>
+              10.          </body></html>
+
+
+          Below are the mistakes made in the code.
+          my;ska oelafjkafka fla;fhys isÿlr we;s jer§ï fõ'
+
+                1.        <html>
+                2.        <body background-color="green">
+                3.        <h1> Welcome all of you to online ICT Seminar </h1>
+                4.        <a url="#one" >A/L Student Section</a>
+                5.        <p> O/L ICT is not available</a>
+                6.        < -- Section 1 -- >
+                7.        <h4> A/L ICT </h4>
+                8.        <hr><p>Good Morning</p></hr>
+                9.        <br><p> This section is for students </p>
+                10.       </body></html>
+
+          Below are the errors and corrections in the following code.
+          my;ska oelafjkafka my; fla;fha we;s jer§ï iy ksjerÈ lsÍï fõ'
+
+          •     In line 2, the background-color attribute should be inside the <body> tag.
+                “ <body style="background-color:green;">”
+                2 jk fma<sfha" background-color .=Kdx.h <body> Wiq,kh ;=< ;sìh hq;=h'
+                “ <body style="background-color:green;"> “
+
+          •     In line 5, the closing </a> tag is in the wrong place. It should be after the </p> tag.
+                5 jk fma<sfha" jid oeófï </a> Wiq,kh jerÈ ia:dkhl mj;S' th </p> Wiq,khg miqj ;sìh
+                hq;=h'
+          •     In line 6, the comment < -- Section 1 -- > should be <!-- Section 1 -->
+                6 jk fma<sfha" comment < -- Section 1 -- > fldgi <!-- Section 1 --> f,i fjkia úh hq;=h'
+
+          •     In line 8, the <hr> tag should not have closing tags. It should be <hr> instead of <hr></hr>
+                8 jk fma<sfha" <hr> Wiq,khg jid oeófï Wiq,kh fkd;sìh hq;=h' th <hr> <hr></hr> fjkqjg
+                <hr> muKla úh hq;=h
+RAVINDU BANDARANAYAKE                              -38-                                        #ictfromabc
+
+
+    Below is the complete correct code.
+    my;ska oelafjkafka iïmQ¾K ksjerÈ fla;h fõ'
+
+    <html>
+    <body bgcolor="green">
+      <h1>Welcome all of you to online ICT Seminar</h1>
+      <a href="#one">A/L Student Section</a>
+      <p>O/L ICT is not available</p>
+      <!-- Section 1 -->
+      <h4>A/L ICT</h4>
+      <hr>
+      <p>Good Morning</p>
+      <br>
+      <p>This section is for students</p>
+    </body>
+    </html>
+
+ (ii) Write the relevant correct code lines to make “A/L Student Section” (in line number 4) a hyperlink
+      to “A/L ICT” (in line number 7).
+
+    Line 4
+    <a href= “#one”> A/L Student Section </a>
+
+    Line 7
+    <h4 id = “one”> A/L ICT </h4>
+    <a id = “one”><h4> A/L ICT </h4></a>
+    <a name = “one”><h4> A/L ICT </h4></a>
+
+ (b) Consider the styles in Table 1, to answer the given questions.
+     wid we;s m%Yakj,g ms<s;=re §ug" 1 j.=fõ we;s ú,di (styles) i,lkak'
+
+                                          Table 1
+      Selector                          Description of the Style
+      Class with a class name “art”     Size of the font 14px, Text should be centered
+      “art” kñka hq;a mka;shla          wlaIr j, úYd,;ajh 14px iy mdG uOH.;j
+      Header 1                          Text color is yellow
+
+  (i) It is expected to use the above styles in several web pages on a web site. Write a suitable cascading
+      style sheet to define the styles given in Table 1 to satisfy this requirement.
+      by; ú,di" fjí wvúhl msgq lsysmhlu Ndú;hg .ekSug wfmalaId flf¾' fuu wjYH;djh
+      imqrd.ekaug" by; 1 j.=fõ we;s ú,di w¾: oelaùu i|yd iqÿiq leiaflaäka ú,di m;la (CSS)
+      ,shkak'
+
+    .art { font-size: 14px;           text-align: center; }
+    h1 { color: yellow; }
+
+ (ii) Write the relevant HTML code lines to include the style sheet defined in part (b) (i) into a web page.
+      [Assume that the style sheet created in part (b)(i) is saved with the name neat.]
+      by; (b) (i) § w¾: olajk ,o ú,di m;" fjí msgqjlg we;=<;a Èßug wod< HTML fla; fma<s
+      ,shkak' [by; (b) (i) i|yd ksuejqKq ú,di m; neat kñka iq/ls nj Wml,amkh lrkak']
+
+    <head>
+    <link rel=”stylesheet”           type=”txt/css”       href=”neat.css”>
+    </head>
+RAVINDU BANDARANAYAKE                              -39-                                        #ictfromabc
+
+
+ (c) An output of an HTML code rendered by a browser is shown below.
+     HTML fla;hla fjí w;sßlaiqjla u.ska úoeyq úg my; mßÈ fõ'
+
+       Chess Tournament
+       Category I
+           •     Team A
+           •     Team C
+       Category II
+                 Team B
+                 Team D
+
+       Registration Form
+         Select the team:      Team A
+
+
+
+         Your Comments:
+
+               Food Required       Accommodation Required
+
+           Submit
+
+
+
+
+  (i) The relevant HTML code (incomplete) is given below. Fill the blanks in it in order to get the required
+      output.
+      wod< HTML fla;h ^wiïmQ¾K& my; oelafõ' wjYH m%;sodkh .ekSug yelsjk mßÈ tys we;s
+      ysia;eka iïmQ¾K lrkak'
+
+    <html>
+    <body>
+    <h2>Chess Tournament</h2>
+    <dl>
+     <dt>Category I</dt>
+     <dd>
+      <ul><li>Team A</li><li>Team C</li></ul>
+     </dd>
+     <dt>Category II</dt>
+     <dd>Team B</dd>
+     <dd>Team D</dd>
+    </dl>
+    <h3>Registration Form</h3>
+    <form method="get">
+     <fieldset>
+      <label for="team">Select the team:</label>
+      <select name="team">
+       <option value="a">Team A</option>
+       <option value="b">Team B</option>
+       <option value="c">Team C</option>
+       <option value="d">Team D</option>
+      </select><br><br>
+      <label for="comment">Your Comments:</label>
+      <textarea name="comment" rows="3" cols="30"></textarea><br><br>
+      <input type="checkbox" name="food">
+RAVINDU BANDARANAYAKE                            -40-                                       #ictfromabc
+
+
+      <label for="fr">Food Required</label>
+      <input type="checkbox" name="accom">
+      <label for="ar">Accommodation Required</label><br><br>
+      <input type="submit" value="Submit">
+     </fieldset>
+    </form>
+    </body>
+    </html>
+
+    Below is an explanation of what each piece of code does.
+    my;ska tla tla fla; fldgia u.ska isÿjk foa meyeÈ,s lr we;'
+
+        Tag                               Purpose
+              Defines the root of an HTML document.
+     html
+              HTML f,aLkhl uQ,h ks¾jpkh lrhs'
+              Contains the visible content of an HTML document.
+     body
+              HTML f,aLkhl oDYHudk wka;¾.;h wvx.= fõ'
+              Defines a heading level 2.
+     h2
+              2 jk uÜgfï YS¾Ihla ks¾jpkh lrhs'
+     dl       Defines a description list.
+              úia;r ,ehsia;=jla ks¾jpkh lrhs'
+              Defines a term in a description list.
+     dt       úia;r ,ehsia;=jl mohla ks¾jpkh lrhs'
+     dd       Defines the description of a term in a description list.
+              úia;r ,ehsia;=jl mohl úia;rh ks¾jpkh lrhs'
+              Defines an unordered list.
+     ul       ms<sfj,la fkdue;s ,ehsia;=jla ks¾jpkh lrhs'
+     li       Defines an item in a list.
+              ,ehsia;=jl whs;uhla ks¾jpkh lrhs'
+              Defines an HTML form for collecting user input.
+     form     mßYS,l wdodk tl;= lsÍu i|yd HTML fmdaruhla
+              ks¾jpkh lrhs'
+              Groups related elements in a form.
+     fieldset fmdaruhl iuQy iïnkaO uq,dx.
+     label    Defines a label for an element.
+              iïnkaO uq,dx. i|yd f,an,hla ks¾jpkh lrhs'
+              Defines a drop-down list.
+     select   m;k ,ehsia;=jla ks¾jpkh lrhs'
+     option   Defines an option in a drop-down list.
+              m;k ,ehsia;=jl úl,amhla ks¾jpkh lrhs'
+              Defines a multi-line text input control.
+     textarea nyq fma<s fm< wdodk md,khla ks¾jpkh lrhs'
+     input    Defines various types of input controls.
+              úúO wdldrfha wdodk md,k ks¾jpkh lrhs'
+              Defines a checkbox input control.
+     checkbox msßlaiqï fldgq wdodk md,khla ks¾jpkh lrhs'
+              Defines a button for submitting a form.
+     submit   fmdaruhla bÈßm;a lsÍu i|yd fnd;a;ula ks¾jpkh lrhs'
+
+ (ii) Write the relevant HTML code line to show “Team B” as the default selection for “Select the team”.
+      “Select the team” ioyd fmrksñ f;aÍu (default selection) f,i “Team B” oelaùug wod< HTML
+      fla; fma<sh ,shkak'
+
+    <option value = “b”        selected > Team B </option>
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+   2022 WEB DEVELOPMENT ESSAY MARKING
+
+1. (a) Draw the expected output of the following- HTML code segment when rendered by a web browser.
+       my; i|yka HTML fla; LKavh fjí w;ßlaiqjla (web browser) u.ska úoeyq (render) úg
+       wfmalaIs; m%;sodkh w¢kak'
+
+          <html>
+          <body>
+          <table border=1>
+               <tr><th>Designation</th> <th> Contact Telephone Numbers </th> </tr>
+               <tr><td rowspan=2> Principal</td> <td> 061-2223211 </td> </tr>
+               <tr><td> 067-5557772</td> </tr>
+               <tr> <td> Vice Principal</td> <td> 061-5557771 </td> </tr>
+               <tr> <td colspan=2> Common Phone Number: 019-2233445</td> </tr>
+          </table>
+          </body>
+          </html>
+
+          Note : Consider the following dotted line box as the display area of the browser.
+          igyk : my; lv bßj,ska olajd we;s fldgqj fjí w;ßlaiqfõ m%o¾Yk wjldYh f,i i,lkak'
+
+          Answer :
+
+
+
+
+          Table Structure:
+          •     The table has a border of 1 pixel.
+                j.=jg mslai,a 1 l udhsula we;'
+          •     The first row (<tr>) contains the headers for "Designation" and "Contact Telephone Numbers".
+                m<uq fma<sfha (<tr>) “Designation” iy "Contact Telephone Numbers" i|yd YS¾I wvx.= fõ'
+
+          Principal Contact Numbers:
+          •     The second row starts with a cell (<td>) containing "Principal" that spans two rows (rowspan="2").
+                fojk fma<sh wdrïN jkafka fma<s folla (rowspan="2") olajd úysfok "Principal" wvx.=
+                fldgqjlska (<td>) h'
+          •     The next cell in the second row contains the telephone number 061-2223211.
+                fojk fma<sfha B<Õ fldgqfõ 061-2223211 ÿrl:k wxlh wvx.= fõ'
+RAVINDU BANDARANAYAKE                               -42-                                         #ictfromabc
+
+
+
+     •   The third row contains another telephone number for the Principal, 067-5557772, under the same
+         "Principal" cell from the previous row.
+         ;=kajk fma<sfha úÿy,am;sjrhdf.a ;j;a ÿrl:k wxlhla we;
+
+     Vice Principal Contact Number:
+     •   The fourth row has a cell containing "Vice Principal" and a cell containing the telephone number
+         061-5557771.
+         isõjk fma<sfha “Vice Principal” wvx.= fldgqjla iy 061-5557771 ÿrl:k wxlh wvx.=
+         fldgqjla we;'
+
+     Common Phone Number:
+     •   The last row contains a cell with the text "Common Phone Number: 019-2233445" that spans both
+         columns (colspan="2").
+         wjidk fma<sfh "Common Phone Number: 019-2233445" hk mdGh iys; fldgqjla wvx.= jk
+         w;r th ;Sre folgu úysfoa (colspan="2").
+
+ (b) Rewrite the following HTML code by applying internal CSS with grouping selectors.
+     wNHka;r (internal) CSS iu. iuQy jrl (group selectors) fhdod.ksñka my; i|yka HTML fla;h
+     kep; ,shkak.
+
+    <html>
+    <head> <title>Cascading Style Sheets</title> </head>
+    <body>
+    <h1 style="color:blue;text-align:center"> Introduction to Cascading Style
+    Sheets</h1>
+    <h2 style="color:blue"> CSS can be applied to html documents in three
+    different ways. </h2>
+    </body>
+    </html>
+
+     Answer :
+     <html>
+     <head>
+       <title>Cascading Style Sheets</title>
+       <style>
+         h1, h2 {color: blue;}
+         h1 {text-align: center;}
+       </style>
+     </head>
+     <body>
+       <h1>Introduction to Cascading Style Sheets</h1>
+       <h2>CSS can be applied to HTML documents in three different ways.</h2>
+     </body>
+     </html>
+
+     There are many type of CSS Selectors. Below are some of them.
+     CSS f;aÍï j¾. fndfyduhla ;sfí' tA w;ßka lsysmhla my;ska oelafõ'
+
+     1. Universal Selector (*)
+     The universal selector selects all elements on the page.
+     universal selector msgqfõ we;s ish¨u uq,dx. f;dard .kS'
+
+     * {color: blue;}
+RAVINDU BANDARANAYAKE                                 -43-                                            #ictfromabc
+
+
+     2. Element Selector
+     The element selector selects elements based on their tag name.
+     Element selector tAjdfha Wiq,k kduh u; mokïj uQ,dx. f;dard .kS'
+
+     p {color: blue;}
+
+     3. Class Selector (.)
+     The class selector selects elements with a specific class attribute. It is denoted by a dot (.) followed by
+     the class name.
+     Class selector úfYaIs; mka;s Wm,laIK iys; uQ,dx. f;dard .kS' th ;s;lska (.) miqj mka;s kduh
+     u.ska oelafõ'
+
+     .intro {color: blue;}
+
+     4. ID Selector (#)
+     The ID selector selects an element with a specific id attribute. It is denoted by a hash (#) followed by the
+     ID name.
+     ID selector ksYaÑ; id Wm,laIK iys; uQ,dx.hla f;dard .kS' th yeIa tllska (#) miqj ye÷kqï
+     kdufhka ksrEmKh flf¾'
+
+     #header {color: blue;}
+
+     5. Attribute Selector
+     The attribute selector selects elements based on the presence or value of their attributes.
+     Attribute selector tAjdfha Wm,laIK meje;au fyda w.h u; mokïj uQ,dx. f;dard .kS'
+
+     a[target] {color: blue;}
+     a[target="_blank"] {color: green;}
+
+     6. Group Selector
+     The group selector selects multiple elements and applies the same styles to all of them.
+     Group selector, elements lsysmhla f;dardf.k tA ish,a,gu tlu fudaia;r fhdohs'
+
+     h1, h2, h3 {color: blue;}
+
+     Below are some ways to write CSS.
+     ;jo CSS ,shk wdldr lsysmhla my;ska oelafõ'
+
+     1. Inline CSS
+     Inline CSS is used to apply styles directly to an HTML element using the style attribute.
+     Inline CSS Ndú;d lrkafka style Wm,laIKh Ndú;fhka HTML uQ,dx.hlg fl,skau fudaia;r
+     fh§ugh'
+
+     <p style="color: blue; text-align: center;">This is an inline styled
+     paragraph.</p>
+RAVINDU BANDARANAYAKE                                -44-                                           #ictfromabc
+
+
+
+     2. Internal CSS
+     Internal CSS is used to apply styles within the <style> tag in the <head> section of an HTML document.
+     HTML f,aLkhl <head> fldgfia <style> Wiq,kh ;=< fudaia;r fh§ug wNHka;r CSS Ndú;d
+     lrhs'
+
+     <html>
+     <head>
+       <style>
+         p {
+            color: blue;
+            text-align: center;
+         }
+       </style>
+     </head>
+     <body>
+       <p>This is an internally styled paragraph.</p>
+     </body>
+     </html>
+
+     3. External CSS
+     External CSS is used to apply styles by linking an external stylesheet file using the <link> tag in the
+     <head> section of an HTML document.
+     HTML f,aLkhl <head> fldgfia we;s <link> Wiq,kh Ndú;fhka ndysr stylesheet f.dkqjla
+     iïnkaO lsÍfuka ú,di fh§ug ndysr CSS Ndú;d lrhs'
+
+     <!-- HTML Document -->
+     <html>
+     <head>
+       <link rel="stylesheet" type="text/css" href="styles.css">
+     </head>
+     <body>
+       <p>This is an externally styled paragraph.</p>
+     </body>
+     </html>
+
+     /* styles.css */
+     p {
+       color: blue;
+       text-align: center;
+     }
+RAVINDU BANDARANAYAKE                           -45-                              #ictfromabc
+
+
+  (c) Consider the HTML form given in Figure 1
+      rendered by a web browser.
+      fjí w;ßlaiqjla u.ska úoeyq (render) rEmh 1 ys
+      oelafjk HTML wdlD;s m;%h (form) i,lkak.
+
+    The relevant HTML code (incomplete) is given
+    below. Fill the blanks in it in order to get the
+    output shown in Figure 1.
+    wod< HTML fla;h ^wiïmQ¾K& my; oelafõ'
+    rEmh 1 ys welafjk m%;sodkh ,nd.ekSug yelsjk
+    mßÈ tys we;s ysia;eka iïmQ¾K lrkak'
+
+
+
+     Answer :
+
+     <html>
+     <head>Registration Form</head>
+     <body>
+     <h3>Registration for Examination</h3>
+     <form action ="process.php" method="post">
+     <div> Student Name <input type="text" name="name"></div>
+     <p>
+       <div>
+         Select Examination Module: <p>
+         <input type ="checkbox" name ="module[]" value ="ICT"/>ICT<br>
+         <input type ="checkbox" name ="module[]" value ="English"/>English<br>
+         <input type ="checkbox" name ="module[]" value ="IQ"/>IQ<br>
+       </div>
+         <br>
+       <div>
+         Prefered Medium:
+         <input type ="radio" name ="language" value ="Sinhala" checked />Sinhala
+         <input type ="radio" name ="language" value ="Tamil"/>Tamil
+         <input type ="radio" name ="language" value ="English"/>English
+       </div>
+       <div>
+         <br>
+       Select Test Center:
+         <select name="Center">
+              <option value ="Colombo" selected>Colombo</option>
+              <option value ="Matara">Matara</option>
+              <option value ="Jaffna">Jaffna</option>
+         </select>
+       </div>
+         <br>
+         <input type="submit" name="submit" value="Submit">
+     </form>
+     </body>
+     </html>
+
+     Below are the details about the tags we use while creating a form.
+     my;ska oelafjkafka fmdaruhla iE§fï§ wm úiska Ndú;d lrk Wiq,khka ms,sno úia;r fõ'
+RAVINDU BANDARANAYAKE                                -46-                                           #ictfromabc
+
+
+     1. Form Tag (<form>):
+        <form action="process.php" method="post">
+        The <form> tag is used to create an HTML form for user input. The action attribute specifies the URL
+        where the form data will be sent when the form is submitted. The method attribute specifies the HTTP
+        method (GET or POST) to use when sending form data.
+        <form> Wiq,kh mßYS,l wdodkh i|yd HTML fmdaruhla ks¾udKh lsÍug Ndú;d lrhs' action
+        Wm,laIKh fmdaruh bÈßm;a lrk úg fmdaru o;a; hjkq ,nk URL tl i|yka lrhs' method
+        Wm,laIKh uÕska fmdaru o;a; heùfï§ Ndú;d lsÍug HTTP l%uh (GET fyda POST) i|yka
+        lrhs'
+
+     2. Input Text Field (<input type="text">):
+        <input type="text" name="name">
+        The <input> tag with type="text" creates a single-line text input field. The name attribute specifies the
+        name of the input field, which will be sent as a key-value pair when the form is submitted.
+        type="text" iys; <input> Wm,laIKh ;ks fma<s mdG wdodk lafIa;%hla ks¾udKh lrhs' name
+        Wm,laIKh wdodk lafIa;%fha ku i|yka lrhs" fmdaruh bÈßm;a lrk úg th h;=re-w.h
+        hq.,hla f,i hjkq ,efí'
+
+     3. Checkboxes (<input type="checkbox">):
+        <input type="checkbox" name="module[]" value="ICT"/>ICT<br>
+        The <input> tag with type="checkbox" creates a checkbox input. The name attribute, ending with [],
+        allows multiple checkboxes to be grouped together and sent as an array. The value attribute specifies
+        the value that will be sent to the server if the checkbox is checked.
+        type="checkbox" iys; <input> Wiq,kh msßlaiqï fldgq wdodkhla ks¾udKh lrhs' name >
+        Wm,laIKh" [ ] j,ska wjika jk w;r" msßlaiqï fldgq lsysmhla tlg tl;= lr wrdjla f,i
+        heùug bv i,ihs' value > Wm,laIKh msßlaiqï fldgqj i,l=Kq l<fyd;a fiajdodhlh fj; hjkq
+        ,nk w.h kshu lrhs'
+
+     4. Radio Buttons (<input type="radio">):
+        <input type="radio" name="language" value="Sinhala" checked />Sinhala
+        The <input> tag with type="radio" creates a radio button input. The name attribute groups radio
+        buttons so that only one can be selected at a time. The value attribute specifies the value that will be
+        sent to the server if the radio button is selected. The checked attribute pre-selects this radio button.
+        type="radio" iys; <input> Wiq,kh f¾äfhda fnd;a;ï wdodkhla ks¾udKh lrhs' name >
+        Wm,laIKh f¾äfhda fnd;a;ï iuQy.; lrhs' túg jrlg tlla muKla f;dard.; yel' value
+        .=Kdx.h f¾äfhda fnd;a;u f;dard we;akï fiajdodhlh fj; hjkq ,nk w.h kshu lrhs' mÍlaId
+        l< Wm,laIKh fuu f¾äfhda fnd;a;u fmr-f;dard .kS'
+
+     5. Drop-down List (<select> and <option>):
+        <select name="Center">
+        The <select> tag creates a drop-down list. The name attribute specifies the name of the select element.
+        <select> Wiq,kh m;k ,ehsia;=jla idohs' name Wm,laIKh select uq,dx.h i|yka lrhs'
+
+        <option value="Colombo" selected>Colombo</option>
+        The <option> tag defines an option in the drop-down list. The value attribute specifies the value that
+        will be sent to the server if this option is selected. The selected attribute pre-selects this option.
+        <option> Wiq,kh m;k ,ehsia;=fõ úl,amhla ks¾jpkh lrhs' value Wm,laIKh fuu úl,amh
+        f;dardf.k ;sfí kï fiajdodhlh fj; hjkq ,nk w.h kshu lrhs' f;dard.;a Wm,laIKh fuu
+        úl,amh fmr-f;dard .kS'
+RAVINDU BANDARANAYAKE                             -47-                                       #ictfromabc
+
+
+ (d) The process.php script is invoked after submitting the above form in part (c). After submitting the
+     form, it is required to display the name, medium and test center. Complete the following PHP code
+     segment (process.php) to fulfil this requirement.
+     by; (c) fldgfia i|yka wdlD;s m;%h fhduq (submit) lsÍfuka wk;=/j process.php WmfoaYdj,sh
+     (script) l%shd;aul flf¾' wdlD;s m;%h fhduq lsÍfuka miqj ku (name), udOH (medium) iy úNd.
+     uOHia:dkh (test center) m%o¾Ykh lsÍu wjYH fõ' fuu wjYH;dj imqrd,Su i|yd my; PHP fla;
+     LKavh (process.php) iïmQ¾K lrkak.
+
+      <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         $name = $_…….….…….…["…….…….….…"];
+         $medium = $_…….….…….…["…….…….….…"];
+         $center = $_…….….…….…["…….…….….…"];}
+      echo "<h2> Your Input:</h2>;
+      echo $…….….…….…; echo "<br>";
+      echo $…….….…….…; echo "<br>";
+      echo $…….….…….…; echo "<br>";
+      ?>
+
+     Answer :
+      <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         $name = $_POST["name"];
+         $medium = $_POST["language"];
+         $center = $_POST["Center"];}
+      echo "<h2> Your Input:</h2>;
+      echo $name; echo "<br>";
+      echo $medium; echo "<br>";
+      echo $center; echo "<br>";
+      ?>
+     This PHP script is designed to handle form data submitted via the POST method. When a form is
+     submitted, the data is sent to the server, where this PHP script processes it.
+     fuu PHP ial%smaÜ ks¾udKh lr we;af;a POST l%uh yryd bÈßm;a lrk ,o fmdaru o;a;
+     yeisrùugh' fmdaruhla bÈßm;a l< úg" o;a; fiajdodhlh fj; hjkq ,efí" tys§ fuu PHP
+     ial%smaÜ th ilihs'
+
+     1. Checking Request Method:
+         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         •   $_SERVER["REQUEST_METHOD"] is a superglobal array that returns the request method
+             used to access the page (GET, POST, etc.).
+             $_SERVER["REQUEST_METHOD"] hkq msgqjg m%fõY ùug Ndú;d lrk b,a,Sï l%uh
+             wdmiq ,nd fok iqmsß f.da,Sh wrdjls (GET, POST) wdÈh&'
+         •   The condition checks if the request method is POST, meaning the form was submitted using the
+             POST method.
+             b,a,Sï l%uh POST kï fldkafoaish mÍlaId lrhs" thska woyia jkafka fmdaruh POST l%uh
+             Ndú;fhka bÈßm;a lr we;s njhs'
+RAVINDU BANDARANAYAKE                            -48-                            #ictfromabc
+
+
+    2. Retrieving Form Data:
+       $name = $_POST["name"];
+       $medium = $_POST["language"];
+       $center = $_POST["Center"];
+       •   $_POST is a super global array that holds data submitted via POST method.
+           $_POST hkq POST l%uh yryd bÈßm;a lrk ,o o;a; wvx.= iqmsß f.da,Sh wrdjls'
+       •   $name is assigned the value of the name field from the form.
+           $name yg fmdarufha isg name lafIa;%fha w.h mjrkq ,efí'
+       •   $medium is assigned the value of the language field from the form.
+           $medium yg language lafIa;%fha w.h fmdarufhka mjrkq ,efí'
+       •   $center is assigned the value of the Center field from the form.
+           $center yg fmdarufhka Center lafIa;%fha w.h mjrkq ,efí'
+
+    3. Outputting the Data:
+       echo "<h2>Your Input:</h2>";
+       echo $name; echo "<br>";
+       echo $medium; echo "<br>";
+       echo $center; echo "<br>";
+       •   echo is used to output data to the browser.
+           w;rslaiqjg o;a; m%;sodkh lsÍug echo Ndú;d lrhs'
+       •   <h2>Your Input:</h2>: Outputs a heading "Your Input:".
+           <h2>Your Input:</h2>: "Your Input:" hk YS¾Ihla m%;sodkh lrhs'
+       •   $name, $medium, and $center: Outputs the values of these variables.
+           $name, $medium iy $center fuu úp,Hj, w.hka m%;sodkh lrhs'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+   2020 WEB DEVELOPMENT ESSAY MARKING
+
+1. (a) Draw the expected output of the following HTML code segment when rendered by a webabrowser.
+       my; i|yka HTML fla; LKavh fjí w;ßlaiqjla u.ska úoeyq úg ewfmalaIs; m%;sodkh w¢kak'
+          <html>
+          <body>
+           <ul style="list-style-type:none;">
+            <li>Cricket</li>
+            <li>Football</li>
+            <li>Hockey</li>
+           </ul>
+          <html>
+          <body>
+          Note : Consider the following dotted line box as the display area of the browser.
+          igyk : my; lv bßj,ska olajd we;s fldgqj fjí w;ßlaiqfõ m%o¾Yk wjldYh f,i i,lkak'
+
+              Cricket
+              Football
+              Hockey
+
+
+          Code Explanation – fla; meyeos,s lsrsu
+
+          <ul style="list-style-type:none;">:
+          •     This tag creates an unordered list (bulleted list).
+                fuu Wiq,kh Unordered ,ehsia;=jla ^nq,Ü ,ehsia;=jla& ks¾udKh lrhs'
+          •     The style attribute is used to apply CSS directly to list. The value list-style-type:none;
+                removes the default bullet points that usually precede each list item.
+                CSS iDcqju ,ehsia;=jg fh§ug Style Wm,laIKh Ndú;d lrhs' list-style type:none;
+                idudkHfhka tla tla ,ehsia;= whs;uhg fmr we;s fmrksñ nq,Ü ,l=Kq bj;a lrhs
+          •     <li>Cricket</li>
+                This creates a list item with the text "Cricket".
+                fuh "Cricket" hk mdGh iuÕ ,ehsia;= whs;uhla ks¾udKh lrhs'
+          •     <li>Football</li>
+                This creates another list item with the text "Football."
+                fuh "Football" hk mdGh iuÕ ;j;a ,ehsia;= whs;uhla ks¾udKh lrhs'
+          •     <li>Hockey</li>
+                This creates a third list item with the text "Hockey”.
+                fuh "Hockey" fm< iuÕ ;=kajk ,ehsia;= whs;uhla ks¾udKh lrhs'
+RAVINDU BANDARANAYAKE                           -50-                                      #ictfromabc
+
+
+ (b) A registration form for a speech competition and its labeled HTML source are given in Figures 1.1
+     and 1.2 respectively.
+     lÓl ;r.hla i|yd ,shdmÈxÑùfï fmdaruhla (registration form) iy tys f,an, lrk ,o HTML
+     m%Njh (source) rEmh 1.1 iy rEmh 1.2 u.ska ms<sfj<ska olajd we;.
+
+
+
+
+    <html>
+    <…A…>Back to the nature!</…A…>
+    <…B…>Speech Competition</…B…>
+    <h3>Registration form</h3>
+    <form method="…C…"      …D…="./action_page.php">
+          <label for="name">Name:</label>
+          <input type="…E…" name="name"><br><br>
+          <label for="gender">Gender:</label>
+          <input type="…F…" name="gender" id="male" value="male">
+          <label for="male">Male</label>
+          <input type="…F…" name="gender" id="female" value="female">
+          <label for="female">Female</label> <br><br>
+          <label for=" ">District: </label>
+          <…H… name="district" id="district">
+                <option value="colombo">Colombo</option>
+                <option value="gampaha">Gampaha</option>
+                <option value="kalutara">Kalutara</option>
+          </…H…><br><br>
+          <label for="email">Email:</label>
+          <input type="email" name="email"><br><br>
+          <input type="…I…" name="newsletter" id="newsletter">
+          <label for="newsletter">Subscribe for newsletter?</label><br><br>
+          <input type="…J…" value="Submit">
+    </form
+    <br>
+       <…K…="wpeLogo.jpg" alt="…L…" width="50" height="60">
+       <…M…="https://www.wpe.lk" title="…N…">Western Province Environment</a>
+    </html>
+RAVINDU BANDARANAYAKE                                   -51-                                              #ictfromabc
+
+
+    For each of the labels A to N in the HTML code in Figure 1.2, choose a suitable replacement from
+    the given list. In the answer table, write down the number of the replacement for each label.
+    1.2 rEmfhka oelafjk HTML fla;fha A isg N f;la jQ tla tla f,an,h i|yd iqÿiq wdfoaYlh" §
+    we;s ,ehsia;=fjka f;dard.kak' tla tla f,an,hg wod< wdfoaYlfha wxlh ms<s;=re j.=fõ ,shd olajkak'
+
+    List:
+     1: action           2: a href              3: caption        4: checkbox            5: district
+     6: font             7: h1                  8: h2             9: h3                  10: head
+     11: img src         12: More details       13: name          14: post               15: radio
+     16: select          17: submit             18: text          19: th                 20: WPE logo
+
+    Answer table:
+
+      A:7            B:8             C : 14       D:1            E : 18         F : 15           G:5
+
+      H : 16         I:4             J : 17       K : 11         L : 20         M:2              N : 12
+
+
+ 1. The <form> Tag
+    <form method= "post" action= "./action_page.php">
+    The <form> tag is used to create an HTML form for user input. The action attribute indicates the URL to
+    which the form data will be sent upon submission. In this question, it points to action_page.php in the
+    same directory. The method attribute specifies how the form data should be sent. In this case, post means
+    the data will be sent in the body of the HTTP request, which is suitable for sensitive data.
+    <form> Wiq,kh mßYS,l wdodkh i|yd HTML fmdaruhla ks¾udKh lsÍug Ndú;d lrhs. action
+    Wm,laIKfhka oelafjkafka bÈßm;a lsÍfuka miq fmdaru o;a; hjkq ,nk URL tlhs' fuu m%Yakfha§"
+    th tu kdudj,sfhysu action_page.php fj; fhduq lrhs' method Wm,laIKh uÕska fmdaru o;a;
+    heúh hq;= wdldrh i|yka lrhs' fuu wjia:dfõ§" post hkq ixfõ§ o;a; i|yd iqÿiq HTTP l%uhg
+    o;a; hjkq we;'
+
+ 2. Input Text Field
+    <input type="text" name="name">
+    The <input> element in HTML represents an input field where the user can enter data. The text
+    attribute specifies that this input field should accept plain text input. The name attribute assigns the name
+    "name" to the input field, which is useful for identifying the data when it is submitted to the server.
+    HTML ys <input> uQ,dx.h mßYS,lhdg o;a; we;=<;a l< yels wdodk lafIa;%hla ksfhdackh lrhs'
+    text Wm,laIKh fuu wdodk lafIa;%h text wdodk ms<s.; hq;= nj i|yka lrhs' name Wm,laIKh
+    wdodk lafIa;%hg “name” hk ku ,nd fohs" th fiajdodhlhg bÈßm;a lrk úg o;a; y÷kd .ekSug
+    m%fhdackj;a fõ'
+
+ 3. Radio Buttons
+    <input type ="radio" name="gender" id="male" value="male">
+    The <input> element with type="radio" creates a radio button that allows the user to select one option
+    from a group. The name attribute groups the radio button with others that share the same name, ensuring
+    that only one option can be selected at a time within that group. The id attribute assigns a unique identifier
+    to the radio button, which can be used to label it or reference it in scripts. The value attribute specifies the
+    value that will be submitted to the server if this radio button is selected. Overall, this code represents a
+    radio button for selecting "male" as a gender option.
+    type="radio" iys; <input> Wiq,kh f¾äfhda fnd;a;ula idok w;r tuÕska lKavdhulska tla
+    úl,amhla f;dard .ekSug mßYS,lhdg bv i,ihs' name Wm,laIKh f¾äfhda fnd;a;u tlu ku fnod
+    .kakd wfkla wh iuÕ iuQy lrhs" tu lKavdhu ;=< jrlg tla úl,amhla muKla f;dard .; yels
+    nj iy;sl lrhs' id .=Kdx.h f¾äfhda fnd;a;ug wkkH y÷kd.ekSula ,nd fohs" th f,an,a lsÍug
+    fyda th ial%smaÜ j, i|yka lrhs' value Wm,laIKh fuu f¾äfhda fnd;a;u f;dard we;akï
+    fiajdodhlhg bÈßm;a lrk w.h kshu lrhs' iuia;hla jYfhka" fuu fla;h ia;%S mqreI Ndjh
+    úl,amhla f,i "male" f;aÍu i|yd f¾äfhda fnd;a;ula ksfhdackh lrhs'
+RAVINDU BANDARANAYAKE                                -52-                                           #ictfromabc
+
+
+ 4. The Checkbox
+    < input type= "checkbox" name="newsletter" id="newsletter">
+    The <input> tag with type=checkbox creates a checkbox that allows users to make a binary choice select
+    or deselect. The name attribute assigns a name to the checkbox, which is used to identify the data when
+    the form is submitted to the server.When the checkbox is checked, the value associated with the name
+    attribute will be sent to server upon form submission. If the checkbox is unchecked, no value will be sent.
+    <input type= “checkbox”> uÕska mßYS,lhskag oaúuh f;aÍula lsÍug fyda f;aÍfuka bj;a lsÍug bv
+    i,ik msßlaiqï fldgqjla ks¾udKh lrhs' name Wm,laIKh msßlaiqï fldgqjg kula mjrhs" th
+    fmdaruh fiajdodhlhg bÈßm;a lrk úg o;a; y÷kd .ekSug Ndú;d lrhs' msßlaiqï fldgqj i,l=Kq
+    l< úg" fmdaruh bÈßm;a lsÍfuka miq name Wm,laIKh iuÕ iïnkaê; w.h fiajdodhlhg hjkq
+    ,efí" msßlaiqï fldgqj i,l=Kq fkdl<fyd;a" w.hla fkdhjkq ,efí'
+
+ 5. Label tag
+    <label for = "district">
+    The <label> tag in HTML is used to define a label for an input element, enhancing accessibility and
+    usability.The for attribute associates the label with the input element that has the id of "district".
+    HTML ys <label> Wiq,kh wdodk uQ,dx.hla i|yd f,an,hla ks¾jpkh lsÍug Ndú;d lrhs"
+    m%fõYH;dj iy Wmfhda.S;dj jeä ÈhqKq lrhs' for .=Kdx.h "district" hk id tl we;s wdodk uQ,dx.h
+    iuÕ f,an,h iïnkaO lrhs'
+
+ 6. The Select tag
+    <select name="district" id="district">
+    The <select> tag in HTML creates a dropdown list that allows users to choose one option from a
+    predefined set of options.
+    HTML ys <select> Wiq,kh fmrksñ úl,am lÜg,hlska tla úl,amhla f;dard.ekSug mßYS,lhskag
+    bv fok m;k ,ehsia;=jla ks¾udKh lrhs'
+
+ 7. The Submit button
+    <input type= "submit" value= "submit">
+    The <input type= “submit”> creates a button that, when clicked, submits the form data to the server.
+    type="submit" specifies that the input is a submit button, which triggers the form submission process.
+    value attribute defines the text displayed on the button. In this case, the button will show "submit" to user.
+    <input type= “submit”> fnd;a;ula idohs" th la,sla l< úg" fmdaruh o;a; fiajdodhlhg bÈßm;a
+    lrhs' type="submit" wdodkh bÈßm;a lsÍfï fnd;a;ula nj i|yka lrhs" th fmdaruh bÈßm;a lsÍfï
+    l%shdj,sh wjq¨jhs' value Wm,laIKh fnd;a;u u; Èiajk mdG ks¾jpkh lrhs' fuu wjia:dfõ§"
+    fnd;a;u mßYS,lhdg "Submit” fmkajkq we;'
+
+ 8. The Image tag
+    <img src = "wpeLogo.jpg" alt= "WPElogo" width="50" height="60">
+    The <img> tag in HTML is used to insert an image into a web page.
+    Src attribute specifies the source or path of the image file. In this case, the image file is named
+    "wpeLogo.jpg" and is located in the same directory as the HTML file.Alt This attribute provides an
+    alternative text description of the image. It is used for accessibility purposes, such as when the image
+    cannot be displayed or when a user is using a screen reader.Width and height attributes set the width and
+    height of the image in pixels. They can be used to resize the image without affecting the original image
+    file.In summary, this code inserts an image of the "WPElogo" with a width of 50 pixels and a height of 60
+    pixels into the web page.
+    HTML ys <img> Wiq,kh fjí msgqjlg rEmhla we;=¿ lsÍug Ndú;d lrhs'Src .=Kdx.h rEm f.dkqfõ
+    uQ,dY%h fyda ud¾.h kshu lrhs' fuu wjia:dfjys§" rEm f.dkqj "wpeLogo.jpg" f,i kï lr we;s
+    w;r th HTML f.dkqj f,i tlu kdudj,sfhys msysgd we; Alt: fuu Wm,laIKh rEmfha úl,am
+    mdG úia;rhla imhhs' rEmh m%o¾Ykh l< fkdyels úg fyda mßYS,lfhl= ;sr lshjkhla Ndú;d
+    lrk úg jeks m%fõYH;d wruqKq i|yd th Ndú;d fõ'Width iy Height Wm,laIK uÕska rEmfha
+    m<, iy Wi mslai, j,ska ilihs' uq,a msx;+r f.dkqjg n,mEula fkdlr rEmfha m%udKh fjkia lsÍug
+    tAjd Ndú;d l< yel' idrdxYhla f,i" fuu fla;h mslai, 50l m<,la iy mslai, 60l Wilska hq;a
+    "WPElogo" ys rEmhla fjí msgqjg we;=¿ lrhs'
+RAVINDU BANDARANAYAKE                               -53-                                          #ictfromabc
+
+
+ 9. The <a> tag
+    <a href = "https://www.wpe.lk" title="More details">
+    The <a> tag in HTML is used to create hyperlinks that allow users to navigate to other web pages or
+    resources.
+    HTML ys <a> Wiq,kh Ndú;d lrkakkag fjk;a fjí msgq fyda iïm;a fj; ießieÍug bv i,ik
+    wê ine¢ ks¾udKh lsÍug Ndú;d lrhs'
+
+    Href attribute specifies the URL of the page to which the link points. In this case, clicking the link will
+    take the user to "https://www.wpe.lk".
+    Href Wm,laIKh ine¢h fhduq lrk msgqfõ URL kshu lrhs' fuu wjia:dfõ§" ine¢h la,sla lsÍfuka
+    mßYS,lhd "https://www.wpe.lk" fj; f.k hkq we;'
+
+    Title attribute provides additional information about the link. When a user hovers over the link, the title
+    text "More details" will be displayed as a tooltip, giving context about what to expect when the link is
+    clicked.
+    Title Wm,laIKh ine¢h ms<sn| wu;r f;dr;=re imhhs' mßYS,lfhl= ine¢h u; ießirk úg"
+    ine¢h la,sla l< úg wfmalaId l< hq;= foa ms<sn| ikao¾Nh ,nd foñka""More details" hk ud;Dld
+    mdGh fuj,ï bÕshla f,i fmkajkq we;'
+
+ (c) The action_page.php file mentioned in the given code of Figure 1.2 is shown below.
+     fla;fha (1.2 rEmh) i|yka action_page.php f.dkqj my; olajd we;.
+
+    <?php
+    $servername = "localhost"; $username = "root"; $password = "";
+    $dbname = "environment";
+    // Create a connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Section P
+    $name = $_POST['name']; $gender = $_POST['gender']); $district = $_
+    POST['district']; $email = $_POST[‘email']; $newsletter = $_POST(['news-
+    letter'];
+    // section P end
+    // Section Q
+    $sql = "INSERT INTO applicants (name, gender, district, email,
+    newsletter) VALUES ('$name', '$gender', '$district', '$email',
+    '$newsletter')";
+    // section Q end
+    if ($conn->query($sql) === TRUE) {
+          echo "Data inserted successfully!";
+    } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    // Close the connection
+    mysqli_close($conn);
+    ?>
+
+   Write down the purpose of section P and the purpose of section Q.
+   P fldgfia wruqK iy Q fldgfia wruqK ,shd olajkak'
+
+   P : Retrieve the data, variables entered into the form
+       fmdaruhg we;=<;a lr we;s o;a;" úp,Hhka fj; ,nd .kak'
+
+   Q : Construct the SQL query using those variables. (in P section)
+       tu úp,Hhka Ndúf;hka SQL úuiqu f.dvkÕkak' (P fldgfia )
+RAVINDU BANDARANAYAKE                              -54-                                        #ictfromabc
+
+
+   Code Explanation – fla;fha meyeos,s lsrsu
+   1. Creating the Connection
+      iïnkaO;djh ks¾udKh lsÍu
+       $servername = "localhost"; $username = "root"; $password = "";
+       This Defines the server name, username, and password for the MySQL connection. localhost indicates
+       that the MySQL server is running on the same machine. root is the default username, and the password
+       is empty.
+       fuh MySQL iïnkaO;djh i|yd fiajdodhlfha ku" mßYS,l kduh iy uqrmoh ks¾jpkh lrhs'
+       localhost fmkakqï lrkafka MySQL fiajdodhlh tlu hka;%hl l%shd;aul jk njhs' root hkq
+       iïu; mßYS,l kduh jk w;r uqrmoh ysiah'
+
+       $conn = new mysqli($servername, $username, $password, $dbname);
+       Creates a new connection to the MySQL database using the server name, username, password, and
+       database name.
+       fiajdodhl kduh" mßYS,l kduh" uqrmoh iy o;a; iuqod kduh Ndú;d lrñka MySQL o;a;
+       iuqodhg kj iïnkaO;djhla ks¾udKh lrhs'
+
+   2. Retrieving HTML Form Data - HTML fmdarufha o;a; ,nd .ekSu
+      $name = $_POST['name'];
+      $gender = $_POST['gender']);
+      $district = $_ POST['district'];
+      $email = $_POST[‘email'];
+      $newsletter = $_POST(['newsletter'];
+       •   $name is assigned the value of the name field from the form.
+           $name yg fmdarufha isg name lafIa;%fha w.h mjrkq ,efí'
+       •   $gender is assigned the value of the gender field from the form.
+           $gender yg fmdarufha isg gender lafIa;%fha w.h mjrkq ,efí'
+       •   $district is assigned the value of the district field from the form.
+           $district yg fmdarufha isg district lafIa;%fha w.h mjrkq ,efí'
+       •   $email is assigned the value of the email field from the form.
+           $email yg fmdarufha isg email lafIa;%fha w.h mjrkq ,efí'
+       •   $newsletter is assigned the value of the newsletter field from the form.
+           $newsletter yg fmdarufha isg newsletter lafIa;%fha w.h mjrkq ,efí'
+
+   Section P - P fldgi
+   This section retrieves data from an HTML form using the $_POST superglobal array and stores it in PHP
+   variables
+   fuu fldgi $_POST superglobal array Ndú;fhka HTML fmdaruhlska o;a; ,ndf.k PHP úp,Hhka
+   ;=< .nvd lrhs'
+
+   $_POST Method & $_GET Method
+   The $_POST method is used to send data to the server for processing, typically when submitting forms that
+   create or update resources. The data is sent in the body of HTTP request, making it more secure than GET.
+   $_POST l%uh idudkHfhka iïm;a idok fyda hdj;ald,Sk lrk wdlD;s m;% bÈßm;a lsÍfï§" ieliSu
+   i|yd fiajdodhlh fj; o;a; heùug Ndú;d lrhs' o;a; HTTP b,a,Sfï body fldgig hjkq ,efí"
+   th GET l%uhg jvd wdrlaIs; lrhs'
+
+   The $_GET method is used to retrieve data sent via the URL. When a form is submitted using the GET
+   method, the form data is appended to the URL as query parameters. This method is suitable for requests
+   where data retrieval is needed without modifying server state.
+   GET yryd hjk ,o o;a; ,nd .ekSug $_GET l%uh Ndú;d lrhs' GET l%uh Ndú;fhka fmdaruhla
+   bÈßm;a l< úg" fmdaru o;a; úuiqï mrdñ;s f,i URL fj; tla flf¾' fuu l%uh fiajdodhl
+   ;;a;ajh fjkia fkdlr o;a; ,nd .ekSu wjYH jk b,a,Sï i|yd iqÿiq fõ'
+RAVINDU BANDARANAYAKE                                -55-                                          #ictfromabc
+
+
+   3. Constructing the SQL query using the variables
+      úp,Hhka Ndú;fhka SQL úuiqu f.dvke.Su
+       $sql = "INSERT INTO applicants (name, gender, district, email, newsletter)
+       VALUES ('$name', '$gender', '$district', '$email', '$newsletter')";
+       •   This line constructs an SQL query string to insert data into a database table named applicants.
+           fuu fla;h applicants kï o;a; iuqod j.=jlg o;a; we;=,a lsÍug SQL úuiqï ;ka;=jla idohs'
+       •   The INSERT INTO SQL command specifies that new data will be added to the applicants table.
+           INSERT INTO SQL úOdkh uÕska applicants j.=jg kj o;a; tla lrk nj i|yka lrhs'
+       •   The columns (name, gender, district, email, newsletter) correspond to the fields in the applicants
+           table where the data will be inserted.
+           ;Sre (name, gender, district, email, newsletter) o;a; we;=<;a lrkq ,nk whÿïlrejkaf.a j.=fõ
+           we;s lafIa;%j,g wkqrEm fõ'
+       •   The VALUES part specifies the actual data to be inserted into these columns. The values are fetched
+           from the PHP variables $name, $gender, $district, $email, and $newsletter, which were assigned
+           earlier in Section P.
+           VALUES fldgi fuu ;Srej,g we;=<;a l< hq;= i;H o;a; kshu lrhs' w.hka ,nd.kafka
+           PHP úp,Hhka jk $name, $gender, $district, $email, and $newsletter j,ska jk w;r tAjd P
+           fldgfia l,ska mjrk ,§'
+
+   Section Q / Q fldgi
+   This section constructs an SQL query string for inserting the retrieved data into the applicants table. The
+   SQL INSERT INTO statement is used to insert the values of the form fields into the corresponding columns
+   of the applicants table.
+   fuu fldgi applicants j.=jg ,nd .;a o;a; we;=,;a lsÍu i|yd SQL úuiqï ;ka;=jla idohs' SQL
+   INSERT INTO m%ldYh whÿïlrejkaf.a j.=fõ wkqrEm ;Srej,g fmdaru lafIa;%j, w.hka we;=<;a
+   lsÍug Ndú;d lrhs'
+
+   4. Checking the SQL connection
+      SQL iïnkaO;djh mÍlaId lsÍu
+
+       if ($conn->query($sql) === TRUE) {
+                 echo "Data inserted successfully!";
+       } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+       }
+
+       This Code executes the SQL query using the MySQL connection. If the query is successful, the block
+       inside the if statement runs and Outputs a success message if the data was inserted into the database
+       successfully. Then the else statement runs if the query fails and outputs an error message along with
+       the failed SQL query and the MySQL error message.
+       fuu fla;h MySQL iïnkaO;djh Ndú;fhka SQL úuiqu l%shd;aul lrhs' úuiqu id¾:l kï" if
+       m%ldYh ;=< we;s íf,dla tl l%shd;aul jk w;r o;a; o;a; iuqodhg id¾:lj we;=<;a l<fyd;a
+       id¾:l mKsúvhla m%;sodkh lrhs' úuiqu wid¾:l jqjfyd;a else m%ldYh l%shd;aul jk w;r
+       wid¾:l jQ SQL úuiqu iy MySQL fodaI mKsúvh iuÕ fodaI mKsúvhla m%;sodkh lrhs'
+
+   Summary
+   idrdxYh
+
+   This code takes form data from an HTML page and inserts it into a MySQL database table. It establishes a
+   connection to the database, prepares the SQL query, executes it, and checks for success or failure, outputting
+   the appropriate message. Finally, it closes the database connection.
+   fuu fla;h HTML msgqjlska wdlD;s o;a; ,ndf.k th MySQL o;a; iuqod j.=jlg we;=,a lrhs' th
+   o;a; iuqodhg iïnkaO;djhla we;s lrhs" SQL úuiqu ilia lrhs" th l%shd;aul lrhs" iy id¾:l
+   fyda wid¾:l oehs mÍlaId lrhs" iqÿiq mKsúvh m%;sodkh lrhs' wjidk jYfhka" th o;a; iuqod
+   iïnkaO;djh jid ouhs'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+   2020 WEB DEVELOPMENT ESSAY MARKING
+
+1. (a) A form that a user can use to enter a complaint regarding a good or a service that he/she received is
+       shown in Figure 1.1. The HTML source that was used to make the form is shown in Figure 1.2 with
+       seven blanks ^----------------------&.
+       mßYS,lhl=g Tyq/weh ,o hï NdKavhla fyda fiajdjla fyda .ek meñKs,a,la lsÍug Ndú; l< yels
+       fmdaruhla rEmh 1.1 ys oelafõ' tu fmdaruh iE§ug Ndú; l< HTML m%Njh ysia;eka ^-------------
+       --& y;la o iuÕska rEmh 1.2 ys we;'
+
+
+
+
+                                       Figure 1.1
+
+   (i) Fill the seven blanks of Figure 1.2 to make the code complete.
+       rEmh 1.2 ys fla;h iïmQ¾K lsÍug tys we;s ysia;eka y; mqrjkak'
+RAVINDU BANDARANAYAKE                   -57-                               #ictfromabc
+
+
+
+     <html>
+        <h1>Central Province</h1>
+        <h2>Public concerns form</h2>
+        <hr style="width:30%;text-align:left;margin-left:0">
+
+          <form method="post" ------------------- ="./action_page.php">
+          <h3>Concern</h3>
+          <label for="district">District: </label>
+
+          < ------------------- name="district" id="district">
+
+             <option value="kandy">Kandy</option>
+             <option value="matale">Matale</option>
+             <option value="nuwaraeliya">Nuwara Eliya</option>
+
+          < ------------------- ><br><br>
+
+          <label for="ctype">Type:</label>
+
+          <input type=" ------------------- " name="ctype" id="goods"
+          value="goods">
+          <label for="goods">Goods</label>
+
+          <input type=" ------------------- " name="ctype" id="services"
+          value="services">
+          <label for="services">Services</label><br><br>
+
+          <label for="description">Description:</label>
+          <input type="text" name="description" size="25"><br><br>
+         <hr style="width:30%;text-align:left;margin-left:0">
+
+         <h3>Complainant details</h3>
+          <label for="name">Name:</label>
+          <input type="text" name="name"><br><br>
+          <label for="email">Email:</label>
+          <input type="email" name="email">
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" size="10" pattern="[0-9]{10}"
+          title="Invalid telephone number"required><br><br>
+
+          <input type=" ------------------- " value=" ------------------- ">
+     </form>
+     <br>
+     <img src="flag.jpg" alt="Central province flag" width="50" height="40">
+     <a href="http://www.cpca.lk" title="10, Hill street, Kandy">Central
+     Province Consumer Affairs</a>
+     </html>
+
+                                     Figure 1.2
+RAVINDU BANDARANAYAKE                               -58-                                          #ictfromabc
+
+
+    PHP forms allow users to input data through web pages and send it to a server for processing. These forms
+    typically use the HTML tags such as <form>, along with various input types like text fields, checkboxes,
+    radio buttons, and submit buttons. When a user submits a form, the data is sent to a server-side script for
+    processing.
+    PHP fmdaru uÕska mßYS,lhskag fjí msgq yryd o;a; wdodkh lr ieliSu i|yd fiajdodhlhlg
+    heùug bv i,ihs' fuu fmdaru idudkHfhka <form> jeks HTML Wiq,k fukau text fields, checkboxes,
+    radio buttons iy submit buttons jeks úúO wdodk j¾. Ndú;d lrhs' mßYS,lfhl= fmdaruhla bÈßm;a
+    lrk úg" o;a; ieliSu i|yd server side script tllg hjkq ,efí'
+
+    • GET Method:
+    The GET method appends form data into the URL in name/value pairs. It allows easy sharing or
+    bookmarking since all the data is visible in the URL. However, because data is visible in the URL, it's not
+    secure for sensitive information, such as passwords.
+    GET l%uh uÕska URL tlg kdu$w.h hq., jYfhka fmdaru o;a; tl;= lrhs' ish¨u o;a; URL
+    tfla oDYHudk jk neúka th myiqfjka fnod .ekSug fyda msgq i,l=Kq lsÍug bv i,ihs' flfia
+    fj;;a" URL tfla o;a; oDYHudk jk neúka" uqrmo jeks ixfõ§ f;dr;=re i|yd th wdrlaIs;
+    fkdfõ'
+
+    • POST Method:
+    The POST method sends data in the body of the HTTP request, not in the URL. This makes it more secure
+    for transmitting sensitive information. It’s also better for sending large amounts of data. POST is the
+    preferred method for most form submissions where user privacy is important.
+    POST l%uh uÕska URL tfla fkdj HTTP b,a,Sfï wka;¾.;h ;=< o;a; hjhs' fuh ixfõ§ f;dr;=re
+    iïfm%aIKh lsÍu i|yd jvd;a wdrlaIs; lrhs' úYd, o;a; m%udKhla heùu i|yd o th jvd iqÿiqh'
+    mßYS,l fm!oa.,sl;ajh jeo.;a jk fmdaru i|yd POST jvd;a iqÿiq l%uhhs'
+
+    Let's find the answers for the seven blanks in the question.
+    m%Yakfha we;s ysia ;eka y; i|yd ms<s;=re fufiah'
+
+         1      action
+         2      <select>
+         3      </select>
+         4      radio
+         5      radio
+         6      submit
+         7      submit
+
+ (ii) What happens when the user presses the 'Submit' button on the form?
+      mßYS,lhd fmdarufha Submit fnd;a;u tnQ úg l=ula isÿ fõo@
+
+    When the user presses the submit button in an HTML form, the browser collects all the input data from
+    the form fields and sends it to the server using the method specified in the <form> tag, typically GET or
+    POST method.
+    mßYS,lhd HTML fmdaruhl submit button tnQ úg" fjí w;ßlaiqj fmdaru lafIa;%j,ska ish¨u
+    wdodk o;a; tl;= lr <form> Wiq,kfha ksYaÑ;j olajd we;s l%uh Ndú;d lr fiajdodhlhg hjhs"
+    idudkHfhka GET fyda POST l%uh fõ'
+RAVINDU BANDARANAYAKE                                 -59-                                          #ictfromabc
+
+
+ (iii) What is the benefit of using input type="email" for the email address entry field instead of
+       input type="text"?
+       b-;eme,a ,smskh we;=<;a lrk lafIa;%h i|yd input type=“text” fjkqjg input
+       type=“email” Ndú; lsÍfï jdish l=ulao@
+
+     Using type="email" instead of type="text" in a PHP form input offers several important advantages,
+     especially in terms of user experience and data validation. When a field is set to type="email", modern
+     browsers perform automatic client-side validation. This means they check whether the input follows the
+     standard email format (e.g., contains "@" and a domain like ".com") before the form can be submitted.
+     This reduces the number of incorrect or invalid entries being sent to the server.
+     PHP fmdaru wdodkhl type="text" fjkqjg type="email" Ndú;d lsÍu jeo.;a jdis lsysmhla
+     úfYaIfhka mßYS,l w;aoelSï iy o;a; j,x.=lrKh wkqj ,nd fohs' lafIa;%hla type="email",
+     f,i ilid we;s úg" fjí w;ßlaiqj iajHxl%Shj fiajdodhl-md¾Yaj j,x.=lrKh isÿ lrhs' fuhska
+     woyia lrkafka fmdaruh bÈßm;a lsÍug fmr wdodkh iïu; úoHq;a ;eme,a wdlD;sh wkq.ukh
+     lrkafkao hkak ^Wod( "@" iy ".com" jeks jiula wvx.= fõ& Tjqka mÍlaId lrk njhs' fuh
+     fiajdodhlhg hjk jerÈ fyda wj,x.= we;=<;a lsÍï .Kk wvq lrhs'
+
+ (iv) What can you guess about the purpose of pattern="[0-9]{10}" with respect to the Phone entry
+      field?
+      Phone we;=<;a lsÍfï lafIa;%hg wod<j pattern=“[0-9]{10}” ys wruqK ms<sn|j Tng l=ula
+      wkqudk l< yels o@
+
+     This pattern is used in an HTML input field to validate that the user enters exactly 10 digits, with no
+     spaces, letters, or symbols.
+     ysia;eka" wl=re fyda ixfla; fkdue;sj mßYS,lhd yßhgu b,lalï 10 la we;=<;a lrk nj ;yjqre
+     lsÍug HTML wdodk lafIa;%hl fuu rgdj Ndú;d lrhs'
+
+     - [0-9] specifies that only digits from 0 to 9 are allowed.
+     - [0-9] 0 isg 9 olajd b,lalï muKla wjir § we;s nj i|yka lrhs'
+
+     - {10} means the user can enter only 10 digits. Input with more or fewer digits will not be accepted.
+     - {10} hkafkka woyia lrkafka mßYS,lhdg we;=<;a l< yelafla b,lalï 10la muKla njhs' jeä
+     fyda wvq b,lalï iys; wdodkh ms<s.kq fkd,efí'
+
+     So, a valid input would be something like 0712345678. Inputs like 07123, 07-12345678, or abc1234567
+     would be rejected by the browser before submission.
+     tneúka" j,x.= wdodkhla 0712345678 jeks fohla jkq we;' 07123, 07-12345678 fyda abc1234567
+     jeks fhojqï bÈßm;a lsÍug fmr fjí w;ßlaiqj úiska m%;slafIam lrkq ,efí'
+
+     This kind of client-side validation helps catch errors early, reducing incorrect data submission. It’s
+     especially useful in contact forms, registration pages, or any field that requires a specific phone number
+     format.
+     fuu wdldrfha fiajdodhl-md¾Yaj j,x.=lrKh jerÈ o;a; bÈßm;a lsÍu wvq lrñka" l,ska fodaI
+     y÷kd .ekSug WmldÍ fõ' th iïnkaO;d fmdaru" ,shdmÈxÑ msgq fyda ksYaÑ; ÿrl:k wxl wdlD;shla
+     wjYH ´kEu lafIa;%hl úfYaIfhka m%fhdackj;a fõ'
+
+ (v) What is the purpose of the use of title="10, Hill street, Kandy" in the <img src code line?
+     <img src fla; fma<sfha title="10, Hill street, Kandy" Ndú;fha wruqK l=ulao@
+
+     The title attribute in an <img> tag adds a small popup text that appears when a user hovers the mouse over
+     the image. This can be useful to give extra context, such as the name of the object in the image or a short
+     description.
+     <img> Wiq,khl we;s title .=Kdx.h" mßYS,lfhl= rEmh u; uQislh ;nd we;s úg Èiajk l=vd
+     mdGhla tla lrhs' rEmfha we;s jia;=fõ ku fyda flá úia;rhla jeks wu;r ikao¾Nhla ,nd §ug
+     fuh m%fhdackj;a úh yelsh'
+     Note: In the question, the title attribute was mistakenly placed inside the <a> tag instead of the <img> tag.
+     igyk( m%Yakfha§" title .=Kdx.h <img> Wiq,kh ;=< fjkqjg <a> Wiq,kh ;=< jer§ulska ;nd we;'
+RAVINDU BANDARANAYAKE                               -60-                                          #ictfromabc
+
+
+ (vi) Explain the main purpose of the HTML code extract shown in Figure 1.3.
+      rEmh 1.3 ka fmkajk fla; fldgfia uq,sl wruqK l=ulao@
+
+
+        <?php
+          $host = "localhost";
+          $db_user = "student_user";
+          $db_password = "student_pass";
+          $db_name = "studentDB";
+          $conn = mysqli_connect ($host, $db_user, $db_password,
+          $db_name);
+          if (!$conn) {
+            die("<tr><td colspan='3'>Connection failed:" .
+            mysqli_connect_error () . "</td></tr>");
+            }
+          $sql = "SELECT student_id, first_name, last_name FROM stu-
+          dents";
+          $result = mysqli_query ($conn, $sql) ;
+          if (mysqli_num_rows ($result) > 0) {
+            while ($row = mysqli_fetch_assoc ($result) ) {
+              echo "<tr>
+                   <td>" . $row["student_id"] . "</td>
+                   <td>" . $row["first_name"] . "</td>
+                   <td>" . $row["last_name"] . "</td>
+                   </tr>";
+            }
+          } else {
+            echo "<tr><td colspan='3'>No students found .</td></tr>";
+          }
+          mysqli_close ($conn);
+        ?>
+
+
+    1. Database Connection / o;a; iuqod iïnkaO;djh(
+       The code starts by defining variables for the database host (localhost), username (student_user),
+       password (student_pass), and database name (studentDB). It then tries to connect to the MySQL
+       database using these credentials with the mysqli_connect function.
+       fla;h wdrïN jkafka o;a; iuqod i;aldrl (localhost), mßYS,l kduh (student_user), uqrmoh
+       (student_pass) iy o;a; iuqod kduh (studentDB) i|yd úp,H ks¾jpkh lsÍfuks' bkamiq th
+       mysqli_connect Y%s;h iuÕ fuu wla;m;% Ndú;d lrñka MySQL o;a; iuqodhg iïnkaO ùug
+       W;aidy lrhs'
+
+    2. SQL Query Execution / SQL úuiqï l%shd;aul lsÍu(
+       The main purpose of this PHP code is to connect to a MySQL database named "studentDB" and
+       retrieve student information from the "stu-dents" table. It fetches the student ID, first name, and last
+       name for each student, then displays this data in an HTML table format.
+       fuu PHP fla;fha m%Odk wruqK jkafka "studentDB" kï MySQL o;a; iuqodhlg iïnkaO ù
+       "stu-dents" j.=fjka YsIH f;dr;=re ,nd .ekSuhs' th iEu isiqfjl= i|ydu student ID, first name,
+       iy last name ,nd .kS" miqj fuu o;a; HTML j.= wdlD;shlska fmkajhs'
+
+    3. Fetching and Displaying Data / o;a; ,nd .ekSu iy fmkaùu(
+       The query is executed using mysqli_query. If there are rows returned (i.e., student records exist), the
+       script fetches each row and prints an HTML table row (<tr>) with the student ID, first name, and last
+       name in separate columns.
+       úuiqu mysqli_query Ndú;fhka l%shd;aul fõ' fma<s wdmiq ,nd § we;akï ^tkï" YsIH jd¾;d
+       mj;S&" ial%smaÜ tl iEu fma<shlau ,ndf.k fjku ;Srej, YsIH student ID, first name, iy last
+       name iys; HTML j.= fma<shla (<tr>) uqøKh lrhs'
+RAVINDU BANDARANAYAKE                            -61-                                       #ictfromabc
+
+
+    4. No Data Found / o;a; yuq fkdùh(
+       If the query returns no rows, it prints a single table row stating "No students found."
+       úuiqu fma<s wdmiq ,nd fkdfokafka kï" th "No students found." hkqfjka i|yka ;ks j.= fma<shla
+       uqøKh lrhs'
+
+    5. Closing Connection / iïnkaO;djh jid oeóu(
+       After all the data is fetched and displayed, the database connection is closed using mysqli_close.
+       ish¨u o;a; ,ndf.k m%o¾Ykh l< miq" mysqli_close Ndú;fhka o;a; iuqod iïnkaO;djh jid
+       oukq ,efí'
+

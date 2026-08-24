@@ -1,0 +1,2389 @@
+LESSON 11 PAST PAPERS
+
+A smart environment can be created by having an interconnected network of hardware devices, sensors,
+connectivity and required software, which is often referred to as the /nternet of Things (loT). Which of the
+following statements Is correct about loT?
+ජාලගත දෘඩාංග උපක්‍රම, සංවේදක, සම්බන්ධතාවයන්‌ සහ අවශ්‍ය මෘදුකාංග භාවිතයෙන්‌ සාර්ව Os අන්තරපජාලය ලෙස
+හැඳින්වෙන සුහුරු පරිසරයක්‌ ගොඩනඟා ගත හැක. EHH COs අන්තර්ජාලය පිළිබඳව පහත කවර වගන්තියක්‌ සත්‍ය
+වේද?
+1) Every loT device or item must be connected using UTP cables.
+
+සෑම loT උපක්‍රමයක්‌ © හෝ අයිතමයක්‌ ම UTP රැහැන්‌ මගින්‌ සම්බන්ධ කළ යුතු ය.
+
+2) If any item of the loT setup fails to operate the entire loT setup will be shutdown.
+loT පිහිටුවීමක ඇති කිසියම්‌ හෝ අයිතමයක මෙහෙයුම්‌ අක්‍රීය වූ විට සමස්ත lol පිහිටුවීම ම වසා දැමෙනු ඇත.
+
+3) loT environments cannot be monitored and controlled remotely.
+loT adadaea දුරස්ථව අධීක්ෂණය කිරීම සහ පාලනය කිරීම Be WE නොහැක.
+
+4) Modern smart mobile phones cannot be connected to an loT setup.
+loT පිහිටුවීමකට නවීන සුහුරු දුරකථන සම්බන්ධ කළ නොහැක.
+
+5) The Internet connectivity is not essential for an loT setup to function.
+loT පිහිටුවීමක ක්‍රියාකාරිත්වය සඳහා අන්තර්ජාල සම්බන්ධතාවයක්‌ අත්‍යවශ්‍ය නොවේ. ( 2019 - 12)
+
+What is the primary role of a sensor in an [0 1 device?
+සබැඳි ද්‍රව්‍ය අන්තර්ජාල සංවේදකයක මූලික කාථය කුමක්‌ ද ?
+
+1) To provide outputs and change a state of the environment.
+ප්‍රතිදාන ලබා දී පරිසරයේ නත්වයක්‌ වෙනස්‌ කිරීම.
+2) To ensure interoperability of devices. / උපාංගචල අනේ‍ය්න්‍ය ක්‍රියාකාරීන්වය සහතික කිරීම.
+3) To detect a state change in the environment. / පරිසරයේ තත්ව වෙනසක්‌ දැනගැනීම.
+4) To make decisions based on predetermined rules. / කලින්‌ නියම කළ නීති මත තීරණ ගැනීම.
+5) To generate graphics for the user interface. / පරිශීලක අතුරැ මුහුණන සඳහා චිත්‍රක ගොඩනැගීම.
+(2023 - 50)
+Which of the following is correct?
+පහන කවරක්‌ නිවැරදි වේ ද?
+1) Arduino Uno is the protocol used for setting up simple loT applications.
+ආඩුයිනෝ ඌනෝ යනු සාට්ව ට්‍රව්‍ය අන්තර්ජාල යෙදුම්‌ ඇටවීමට භාවිත කරන නියමාවලියයි.
+
+2) LDR 3010] LED are sensors used in Arduino Uno based [01 applications.
+LDR හා LED යනු, ආඩුයිනෝ cxem5 මත පදනමි © loT යෙදුම්‌ සඳහා භාවිත වන සංවේදක වේ.
+
+3) Serial.begin(9600) provides a valid baud rate to initiate the serial communication between the Arduino
+Uno board and the computer.
+ආඩුයිනෝ ඌනෝ පුවරැවක්‌ හා පරිගණකයක්‌ අතර ශ්‍රේණිගන සන්නිවේදනයකට මුල පිරීමට Serial.begin(9600)
+වලංගු බෝඩි ශීඝතාවක්‌ සපයයි.
+
+4) Since Arduino Uno does not have a hard disk it is not subjected to unauthorized data access.
+ආඩුයිනෝ උනෝට ca2 ඩිස්කයක්‌ නැති නිසා වයට අනවසර දන්ත ප්‍රවේශයන්‌ විඳීමට Be Gand.
+
+5) An ethernet shield must be connected to the four pins between AO — &5 of the ATMega328P
+microcontroller.
+ATMega328P ක්ෂුද්‍ර පාලකයෙහි AO — A5 අනර නුඩු හනරට SDBGEHO පළිහක්‌ සම්බන්ධ කළ යුනුම ය.
+
+( 2024 ~ 48 )
+
+4. Which of the following statements are true?
+SOD කවර වගන්ති නිවැරදි GH දු?
+
+A - Even when analog inputs are given to the digital pins of an Arduino board, they are read as analog
+values.
+ප්‍රතිසම ආදාන, ආඩුයිනෝ ප්‍රවරුවක අංකිත MA) GOD ලබාදෙනු ලැබුව ද, ඒවා කියවෙන්නේ ප්‍රතිසම අගයන්‌ ලෙසය.
+B - The USB port of an Arduino board can also be used to supply DC (direct current) electric power to it.
+ආඩුයිනෝ පුවරුවක USB කෙවෙනිය, එම පුචරැවට සරල ධාරා විද්‍යුත්‌ බලය සැපයීමට ද MAD කළ හැකි ය.
+
+C - To input the room temperature to an Arduino board, the Vout, pin of the LM35 temperature sensor
+could be used.
+කාමර උෂ්ණත්වය ආඩුයිනෝ පුවරුවකට ආදානය BSOO LM35 උෂ්ණත්ව සංවේදකයේ Vou DAO භාවිත කළ
+
+හැකි ය.
+1) A only 2) A and 6 only 3) A and C only 4) B and C only 5) All of the above
+A පමණි AmB පමණි A හා C පමණි 8 හා C පමණි QOD සියල්ලම
+
+( 2025 ~ 44 )
+
+e Consider the following code with labels P-S to answer questions 45 and 46. The code has been designed
+for an Arduino board to switch on/off a motor based on room temperature.
+
+ප්‍රශ්න අංක 45 සහ 46 සඳහා පිළිතුරු සැපයීමට P-S ලේබල සහිත පහත කේත කොටස සලකන්න. ආඩුයිනෝ පුවරැවක්‌
+සඳහා එම කේතය සැලසුම්‌ කර ඇත්තේ කාමර උෂ්ණත්වයට අනුව මෝටරයක්‌ පණගැන්වීමට සහ ඛ්‍රියාවිරහිත
+කරවීමටය.
+
+const int sensorPin = 0 ;
+const int motorPin = 8;
+
+void setup() {
+pinmode(motorPin, P );
+
+7
+
+void loop() {
+int sensorValue = Q (sensorPin);
+float voltage = sensorValue * 5.0 / 1024;
+float temp = voltage * 100;
+if (temp > 40)
+R (5 , HIGH);
+else
+R (5 , Low);
+
+5. Which of the following contains the correct replacements for the labels?
+ලේබල සඳහා නිවැරදි ආදේශක ඇත්තනේ පහන කවරක ද?
+
+1) £ - INPUT, Q -- analogRead, R — digitalWrite, 5 — motorPin
+2) P— INPUT, Q -- digitalWrite, R — analogRead, 5 — motorPin
+3) P— OUTPUT, Q — analogRead, R — digitalWrite, 5 — motorPin
+4) P — OUTPUT, Q — analogRead, R — digitalWrite, S — sensorPin
+5)P-—OUTPUT, Q-digitalWrite, R — analogRead, S — sensorPin
+(2025 - 45 )
+2
+
+6. Which of the following statements are true?
+SOD කවර වගන්ති HDB G ද?
+
+A - The input from the temperature sensor could have been connected to any of the pins A1-A5 as well
+but then the ‘const int sensorPin = A@;’ line in the code should be changed to reflect that change.
+උෂ්ණත්ව සංවේදකයේ ආදානය A1-A5 තුඩුවලින්‌ ඕනෑම තුඩුවකට සම්බන්ධ කිරීමේ හැකියාව තිබුණ ද, එවිට එම
+කේතයේ ‘const int sensorPin = AO;' ලප්ළ පරිදි වෙනස්‌ කළ යුතු ය.
+
+B - The motor should be connected to a GND pin of the Arduino board.
+මෝටරය ආඩුයිනෝ පුවරැවේ GND තුඩුවකට සම්බන්ධ WE QD ය.
+
+C - The above code when correctly completed can be compiled and uploaded through the USB port to
+the Arduino microcontroller by using the ‘Upload’ button in the Arduino IDE.
+ඉහත කේතය නිවැරදිව සම්පූරිණ කිරීමෙන්‌ පසු, Os සම්පාදනය කර Arduino IDE හි ‘Upload’ බොත්තම mde
+කර, USB කෙවෙනිය හරහා ආඩුයිනෝ ක්ෂුද්‍ර පාලකයට උඩුගත කළ හැකි ය.
+
+1) A only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+A පමණි A හා 6 පමණි A හා C පමණි B හා C පමණි ඉහත සියල්ලම
+( 2025 -- 46 )
+
+7. Which of the following statements are true?
+SOD කවර වගන්ති නිවැරදි GH දු?
+
+A - IPv6 is highly suitable for scalability and efficient operation of Internet of Things (1ට |] ).
+සාර්ව ට්‍රව්‍ය අන්තර්පාලයේ පරිමාණය හෙළ නැංවීමට සහ වඩාත්‌ කාරයක්ෂම ක්‍රියාකාරිත්වයට |IPv6 වඩාන්‌
+යෝග්‍යවේ.
+
+8 - Once added to the Arduino board, an Ethernet Shield facilitates the board to connect to the Internet.
+
+ආඩුයිනෝ පුවරුවකට ඊතරනෙට්‌ ශීල්ඩ්‌ එකක්‌ ඈදුව පසු OG DO පුවරුවට අන්තරජාලයට සම්බන්ධ වීමට පහසුකම
+සපයයි.
+
+C - Static IP addresses cannot be used for IOT devices.
+සාර්ව ට්‍රව්‍ය අන්තර්ජාල උපාංග සඳහා ස්ථිතික IP ලිපින භාවිත කළ නොහැක.
+
+1) A only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+A පමණි AmB පමණි Am C පමණි 8 හා C පමණි හත සියල්ලම
+( 2025 -- 47 )
+3
+
+1. (a)
+
+(b)
+
+(c)
+
+2. (a)
+
+An loT setup to water a plant in a greenhouse is shown in Figure 1. A mobile application is used to
+operate the water-releasing tap. As shown, the setup includes a sensor, a controller, and a microcontroller
+(Arduino Board) with a communication module.
+
+හරතාගාරයක ඇති පැළයකට ජලය GSES හැකි IOT ඇටවුමක්‌ රෑපය 1 හි දැක්වේ. ජලය නිකුත්‌ කරන කරාමය
+ක්‍රියාකරවීමට ජංගම යෙදුමක්‌ භාවිත ච්‌. රෑපයේ දක්වා ඇති පරිදි ඇටවුම, සංවේදකයකින්‌, පාලකයකින්‌ සහ
+සන්නිවේදන මොඩ්ියුලයක්‌ සහිත ක්ෂුද්‍ර පාලකයකින්‌ (ආඩියුනෝ පුවරැචකින්‌) සමන්විත ය.
+
+(i) Match the loT components labelled as A, B and C to components described in the scenario.
+A, B සහ C ලෙස නමි කර ඇති [03] සංරචක, සන්දරභයේ විස්තර කර ඇති සංරචක හා ගළපන්න.
+
+(ii) Explain the reason why the arrow M is shown in a single direction.
+M ඊතලය එක්‌ දිශාවකට පමණක්‌ යොමුවන සේ පෙන්වා ඇත්තේ ඇයිදැයි පහදන්න.
+
+While (true) {
+Read Moisture Level as M_L
+If [X]
+
+Ptant &
+Water Tap උ If Tap Closed
+th Mobile User Then [Y]
+
+3 . End if
+e e Else
+ග්‌ ස If Not Tap Closed
+M සස | Then [Z]
+| = End if
+
+End if
+
+Figure / රෑපය 1
+
+The moisture sensor provides 10 levels of moisture intensity with 1 being “the driest’ and 10 being “the
+wettest”; 8 is the desired level to be maintained. The algorithm on the right can be used to automate the
+task of opening the tap when the soil is dry and to stop the water flow when enough watering is done.
+Write down the most suitable entries for the places labelled X, Y and Z. [Note -- While (true) block
+represents the continuous loop function in Arduino]
+
+තෙතමන සංවේදකය, 1 “වඩාත්‌ වියළි” හා 10 “වඩාත්‌ තෙත” ලෙස තෙතමන OOOO 10ක්‌ දන්වයි. පවන්වා ගන යුනු
+අපේක්ෂිත තෙතමන මට්ටම 8 GS. පස වියළි විට කරාමය ස්වයංක්‍රීයව විවෘත කිරීමටත්‌, පසේ ප්‍රමාණවත්‌ ලෙස ජලය
+ඇති විට, ජලය යැවීම නතර කිරීමටත්‌ ඇල්ගොරථීතමයක්‌ දකුණුපසින්‌ පෙන්වා ඇත. OH X, Y සහ Z ලෙස ලේබල කර
+ඇති ස්ථාන සඳහා සුදුසු ප්‍රකාශ ලියා දක්වන්න. [සටහන: While (true) කාණ්ඩය ආඩියුනෝ හි නොනැවතී ධාවනය
+වන ලූපය දක්වයි. ]
+
+What could be monitored in the greenhouse using an LDR sensor?
+
+හරීතාගාරයේ කවරක්‌ අධීක්ෂණය සඳුහා LDR සංවේදකයක්‌ භාවිත කළ හැකි දු?
+( 2022 ESSAY -- 07 [ෘ], [6] ,[c] )
+
+Assume that you are given an Arduino UNO board (Figure 7.1) along with the following items:
+ඔබට ආඩියුනෝ UNO පුවරුවක්‌ (dz 7.1) පහත අයිතම ද සමගින්‌ ලැබී ඇතැයි සලකන්න.
+
+e Passive Infrared Sensor (PIR) for motion detection (Figure 7.2)
+චලනය හදුනාගැනීම සඳහා SEHD අධෝරක්ත සංවේදකයක්‌ (PIR) (රෑපය 7.2)
+e Sensor for ambient light detection / ස්ථානීය ආලෝකය හඳුනාගැනීම සඳහා සංවේදකයක්‌
+e LEDs, Resistors, and a Power supply / අංලෝක විමෝචන ඩයෝඩ, ප්‍රතිරෝධක සහ විදුලිබල සැපයුමක්‌
+
+PIR Sensor
+
+——vcc
+
+——{orp
+
+————|GND
+
+Figure / රෑපය 7.2
+
+Figure / රෑපය 7.1
+
+(i) Identify the parts marked as A, B, C, and D in Figure 7.1 and briefly explain each of their functionalities.
+රෑපය 7.1 හි A, 6, C සහ D ලෙස ලකුණු කර ඇති කොටස්‌ හළුනාගෙන ඒ එකිනෙකෙහි කාරයභාරය සැකෙවින්‌
+පහදන්න.
+
+(il) Assume that you want to build an loT setup that switches an LED light on when motion is detected.
+It is further required to switch on this LED only during night time. Draw a schematic diagram
+connecting the Arduino board and the items given above as necessary in order to build this setup.
+චලනයක්‌ හළඳුනාගත්‌ විට ආලෝක විමෝචන ඩයෝඩයක්‌ දල්වන embO COs අන්තර්පාල ඇටවුමක්‌ සෑදීමට ඔබට
+අවශ්‍ය යැයි සිතන්න. තවද මෙම LED ය දැල්විය යුන්තේ රාත්‍රි කාලයේදී පමණි. මෙම ඇටවුම ගොඩනැගීමට ඔබ
+ආඩියුනෝ පුවරුව සමග QHD දෙන ලද අයිතම නිසි පරදි සම්බන්ධ කරන අයුරැ දැක්වීමට දළ රෑපසටහනක්‌
+
+අඳින්න.
+( 2023 ESSAY -- 07[a] )
+
+3. (a) Figure 7.1 shows the Arduino circuit that Saman implemented to detect a door opening.
+රෑපය 7.1 න්‌ පෙන්වන්නේ දොරක විවෘත විමක්‌ අනාවරණය කරගැනිමට සමන්‌ සෑදූ ආඩුයිනෝ පරිපථයයි.
+
++5u
+|] |||] i ti tt | || | —
+2ze2e¢e225anxaer ~
+Oo ඥූ 2 2
+ATmega32sP
+- a &
+BS s aid x
+ඝ්‌ ඈ ථ ආ Pe BER EP Pn @ සඝ
+| | | | | | |
+16k
+j Reset iS
+9 Sutton
+
+Vv
+
+Figure / රෑපය 7.1
+
+(i) Explain the behaviour and operation of the sensor used in this circuit.
+පරිපථයේ භාවිත කරන සන්වේදකයේ හැසිරීම සහ ක්‍රියාකාරිත්වය පහදන්න.
+
+(il) To operate this setup Saman wrote the firmware code shown in Figure 7.2. However, the setup failed
+to operate as expected due to defects in the code. Write down the corrections that you would do to
+the code.
+
+GOO ඇටවුම ක්‍රියාකරවීමට සමන්‌ රෑපය 7.2 හි දැක්වෙන ස්ථීරාංග කේතය ලිව්වේ ය. එහෙත්‌, sawed දෝෂ
+නිසා ඇටවුම අපේක්ෂිත ආකාරයට Qa කළේ නැත. ඔබ එම කේනයට කරන නිවැරදි කිරීම්‌ ලියා දක්වන්න.
+
+5;
+8;
+
+const int SensorP
+const int BuzzerP
+
+void setup() {
+pinMode (SensorP, INPUT);
+pinMode (BuzzerP, OUTPUT);
+
+void loop() {
+
+int senState = digitalRead(SensorP) ;
+
+if (senState == HIGH)
+tone(SensorP, 262) ;
+
+else
+
+noTone(BuzzerP,@);
+
+(ili) Saman hopes to extend this circuit to indicate the door openings only at night time. What does he
+need to modify in this circuit to add that feature? If any item(s) must be connected to the
+
+ATmega328P, indicate the relevant pin(s).
+රාතී කාලයේ පමණක්‌ සිදුවන දොර විවෘත වීම්‌ දැක්වීමට මෙම පට්පථය දියුණු කිරීමට සමන්‌ අදහස්‌ කරයි. OO
+
+විශේෂාංගය එක්‌ කිරීමට ඔහු පරිපථයේ කුමක්‌ වෙනස්‌ කළ QD ද? යමි අයිතම(යක්‌) ATMega328P ට සම්බන්ධ
+ක HO, අදා ච) දක්වන්න.
+CAD නමි, අදාළ බඩු(ව) ද ( 2024 ESSAY - 07[4] )
+
+LESSON 12 PAST PAPERS
+
+Consider the following statements:
+පහන දැක්වෙන ප්‍රකාශ සලකා බලන්න.
+
+A - Customer can obtain the services while he/she is at his/her home or office.
+SOOMD සහ CHE උපක්‍රම තනි රැහැනකට සම්බන්ධ කර ඇත.
+
+8 ~ Payments can be made without using currency notes.
+සියලු ම ගමනාගමන EMBENOHMDD හෝ වාමාවර්තව හෝ සිදු වේ.
+
+C - Customer is open to a large international service provider base.
+කලාප පළල නෝඩු අතර හවුලේ බෙදා ගැනේ.
+
+D - Service provider is open to a larger international customer base.
+සෑම නෝඩුවක්ම තමන්ගේ අසල්වැසියන්‌ දෙදෙනාට සම්බන්ධ කර ඇත.
+
+E- Security of payments are always guaranteed.
+සෑම නෝඩුවක්ම තමන්ගේ අසල්වැසියන්‌ දෙදෙනාට සම්බන්ධ කර ඇත.
+
+Which of the above are advantages in e-commerce compared to traditional commerce?
+සාම්ප්‍රදායික වාණිජ්‍යය හා සැසඳූ විට ඊ-චාණිජ්‍යයෙහි ඇති ප්‍රතිලාභ වන්නේ හෙත දැක්වෙන MOO HOD ද ?
+1) A,Band Conly. 2)A,BandDonly. 3)A,CandDonly. 4) A,B,C and [0 011%. 5) B,C, Dand E only.
+A, B හා C පමණි. A, B හා D පමණි. A, ල හා D පමණි. A, 8, C හා D පමණි. B,C, De £ පමණි.
+(2011-31)
+
+Consider the following statements with respect to on-line services:
+මාර්ගගත සේවා පිළිබඳව පහන දැක්වෙන ප්‍රකාශ සලකා බලන්න.
+
+A ~ Customer should have access to on-line services.
+පාරිභෝගිකයාට QKHOOD සේවා ප්‍රවේශ හැකියාව තිබිය Qe වීම.
+
+B - Customer should possess an electronic mechanism to make payments.
+පාරිභෝගිකයාට ගෙවීම්‌ කිරීම සඳහා ඉලෙක්ට්‍රොනික යාන්තණයක්‌ තිබිය යුතු වීම,
+
+C - At the time of placing the order for an item, the identify of the customer should be established.
+කිසියම්‌ භාණ්ඩයක්‌ සඳහා ඇණවුම්‌ කරන විටදී පාර්භෝගිකයාගේ අනන්‍යතාව නහවුරැ කළ යුතු SO.
+
+D - Service provider should provide on-line services.
+සේවාදායකයා මාර්ගගත සේවා සැපයිය යුතු වීම.
+
+E- Both the customer and the service provider should be in the same geographical region.
+පාරිභෝගිකයා සහ සේවාදායකයා යන දෙදෙනාම එකම භූගෝලීය ප්‍රදේශයක සිටිය යුතු වීම.
+
+Which of the above items are essential in on-line ordering?
+
+මාරගගත ඇණවුමකදී අත්‍යවශ්‍ය වන්නේ කවරක්‌ ද?
+
+1) & and Bonly. 2)A,BandConly. 3)A,BandDonly. 4) &, ල, [0 411 £ only. 5) 6, [0 4011 [£ only.
+හා B පමණි. A, B හා C පමණි. A, B හා D පමණි. A, C, D හා £ පමණි. B, D හා E පමණි.
+
+( 2011 ~ 32)
+
+A person employed in an overseas country placed an on-line order to deliver a birthday present to his
+mother who is living in Sri Lanka, using the web-based services of a company. This transaction of ordering
+
+the birthday present could be best classified as,
+
+විදේශ රටක රැකියාවක නියුතු පුද්ගලයෙක්ල ශ්‍රී ලංකාවේ වෙසෙන සිය OOOE GS සමාගමක වෙබි පාදක සේවා උපයොගී
+කරගනිමින්‌ උපන්දින ත්‍යාගයක්‌ ලැබෙන්නට සැලැස්වීම සඳහා මාරිගගත ඇනවුමක්‌ කරයි. උපන්දින ත්‍යාගය ඇනවුම්‌
+කිරීමේ මෙම ගනුදෙනුව වඩාත්ම හොඳින්‌ වර්ගීකරණය කළ හැක්කෙ,
+
+1) Consumer to Retailer / පාරිභෝගිකයාගෙන්‌ සුළු වවළෙන්දාට ලෙස ය.
+
+2) Consumer to Business / පාර්භෝගිකයාගෙන්‌ ව්‍යාපාරයට ලෙස ය.
+
+3) Business to Consumer / ව්‍යාපාරයෙන්‌ පාරිභෝගිකයාට ලෙස ය,
+
+4) Business to Business / ව්‍යාපාරයෙන්‌ ව්‍යාපාරයට ලෙස ය.
+
+5) Employee to Business. / සේවකයාගෙන්‌ ව්‍යාපාරයට ලෙස ය. (2012 - 30)
+
+Consider the following attributes related to business:
+ව්‍යාපාරයකට සම්බන්ධ පහත දැක්වෙන උපලක්ෂණ සලකන්න:
+
+A ~ Speed of services / ලස්වා සැපයුමේ වේගය
+B - Purchase and distribution / මිල දී ගැනීම සහ බෙදා හැරීම
+C - Security of goods sent / යැවුණු භාණ්ඩවල ආරක්ෂාව
+
+D - Confidence in quality of items ordered
+ඉල්ලුම්‌ කරන ලද අයිතමවල ගුණාත්මකභාවය පිළිබඳ විශ්වාසනීයභාවය
+
+Which of the above is/are disadvantage(s) of e-business?
+ව්‍යාපාරවල දී අවාසි/ අවාසියක්‌ වන්නේ හෙන සඳහන්‌ දෑ අතුරින්‌
+
+1) A only. 2) C only. 3) A and B only. 4) Cand D only. 5) All of the above
+A පමණි. C පමණි. A හා 6 පමණි. Cem D පමණි. හන සියල්ලම.
+( 2013 -~ 22 )
+
+Which of the following statements is true?
+SOD සඳහන්‌ කුමන වගන්තිය සත්‍ය වන්නේ ද ?
+1) www.ebay.com is an example for C2C. / www.ebay.com යනු C2C සඳහා උදාහරණයකි.
+
+2) When the government renders its services to the public through www then it is called B2C.
+රජය ඔවුන්ගේ සේවා, ලෝක SBS වියමන හරහා ජනතාව වෙත ලබාදීම B2C ලෙස හැඳින්වේ.
+
+3) www.wikipedia.com is an example for C2B. / www.wikipedia.com යනු C2B සඳහා උදාහරණයකි.
+
+4) www.amazon.com is an example for B2E. / www.amazon.com යනු B2ZE සඳහා උදාහරණයකි.
+
+5) Facebook groups are examples for E2C. / ෆෙස්බුක්‌ හි කණ්ඩායම්‌ E2C සඳහා උදාහරණ වේ. (2014-24)
+
+Some provinces in Sri Lanka currently issue revenue licenses for motor vehicles online. Which of the
+
+following is the correct business type for this service?
+ශ්‍රී ලංකාවෙහි සමහර පළාත්වල රථවාහන සඳහා ආදායමි බලපත්‍ර මාරිගගතව ලබා දෙයි. මෙම සේවාව සඳහා නිවැරදි
+
+ව්‍යාපාර වර්ගය පහත සඳහන්‌ දෑ අනුරෙන්‌ කුමක්‌ ද ?
+1) 826 2) B2B 3) C2B 4) B2E 5) G2C
+( 2015 - 14)
+Which of the followings is true about e-commerce?
+Heya වාණිජ්‍යය සම්බන්ධයෙන්‌ සත්‍ය වන්නේ sow සඳහන්‌ කවරක්‌ ද ?
+1) It could be a part of e-business. / එය විද්‍යුත්‌ වෲ්‍යාපාරචල කොටසක්‌ විය හැකි ය.
+
+2) It helps to combine multiple business processes into a single information system.
+එය බහුවිධ ව්‍යාපාර ක්‍රියාවලි තනි තනොරතුරැ පද්ධතියකට ඒකාබද්ධ කිරීමට උදව්‌ කරයි.
+
+3) Itis අ collection of platforms created for business and their customers to interact.
+AB ව්‍යාපාර සහ ඒවායේ පාරිභෝගිකයන්‌ හට අන්තරඛ්‍රියා කිරීම සඳහා සකසා ඇති වේදිකා සමූහයකි.
+
+4) www.google.com Is a popular e-commerce web site.
+www.google.com යනු ජනප්‍රිය විද්‍යුන්‌ වාණිජ්‍යය වෙබ්‌ අඩවියකි.
+
+5) There are no Sri Lankan companies doing e-commerce yet.
+
+විද්‍යුත්‌ වාණිජ්‍යය Be කරනු ලබන ශ්‍රී ලාංකික සමාගමි දැනට නොමැන. (2016-14)
+
+Which of the following statements is true about e-business?
+විද්‍යුන්‌ ව්‍යාපාර සම්බන්ධයෙන්‌ පහත දැක්වෙන කුමන වගන්තිය සන්‍ය චේ ද?
+
+1) It is a business process which conducts partially on online.
+එය අර්ධ වශයෙන්‌ මාර්ගගතව පවත්වාගෙන යන ව්‍යාපාර ක්‍රියාවලියකි.
+
+2) It consists of front-end and back-end online processes.
+එය 636 අන්ත සහ පසු අන්ත මාරිගගත ක්‍රියාවලිවලින්‌ සමන්විත Gd.
+
+3) All ‘brick vendors’ conduct their business on online.
+සියලු ‘brick’ ව්‍යාපාරිකයින්‌ ඔවුන්ගේ ව්‍යාපාර මාර්ගගතව පවත්වයි.
+
+4) Any e-commerce application is an e-business application.
+ඕනෑම විද්‍යුන්‌ වාණිජ්‍ය යෙදුමක්‌ විද්‍යුන්‌ ව්‍යාපාර යෙදුමකි.
+
+5) Any e-business application is an e-commerce application.
+ඕනෑම විද්‍යුන්‌ ව්‍යාපාර යෙදුමක්‌ විද්‍යුත්‌ වාණිජ්‍ය යෙදුමකි. ( 2017 -- 26)
+
+9. Consider the following statements related to e-business.
+6-ව්‍යාපාර සම්බන්ධ පහත ප්‍රකාශ සලකන්න.
+
+A - Brick-and-click is a business model by which a company integrates both offline and online presence
+
+of the business.
+OD හා ක්ලික්‌ යනු GO සමාගමකට මාරිගගත නොවන හා QWOOD යන දෙක එකට එකතු කර ව්‍යාපාරය
+පවත්වාගෙන යා හැකි ව්‍යාපාර ආකෘතියකි.
+B - Pure-brick is a business model in which a company has only a physical presence.
+පියෝ Ba යනු යම්‌ සමාගමකට භෞත්ක පැවැත්මක්‌ පමණක්‌ ඇති ව්‍යාපාර ආකෘතියකි.
+
+C - Pure-click business has the presence only on the Internet.
+පියෝ ක්ලික්‌ ව්‍යාපාරවලට අන්තරජාලය මන පමණක්‌ පැවැත්මක්‌ ඇත.
+
+Which of the above statements is/are correct regarding e-business models?
+ව්‍යාපාර ආකෘති සම්බන්ධයෙන්‌ හෙන කචර චගන්ති/ යක්‌ නිවැරදි වේ දු?
+
+1) A only 2) B only 3) C only 4) A and C only 5) All of the above
+A පමණි B පමණි C පමණි A mm C පමණි ඉහත සියල්ලම
+(2018 - 31)
+
+10. Consider the following activities related to e-commerce:
+6-~වාණිජ්‍යයට සම්බන්ධ පහන දැක්වෙන ක්‍රියාවලි සලකන්න.
+
+A - online purchase of a pair of shoes. / සපත්තු යුගලක්‌ මාරිගගතව මිලදී ගැනීම.
+
+B - online purchase of an e-book of your favourite novel.
+ඔබගේ ප්‍රියතම නවකතාවෙහි ලලෛෙක්ට්‍රොනික පිටපනක්‌ මාරගගනව මිලදී ගැනීම.
+
+C - online booking of a taxi to the airport from your home.
+ඔබගේ නිවසේ BO ගුවන්තොටුපොළ වෙත යෑමට කුලී රථයක්‌ මාරිගගතව වෙන්‌ කරගැනීම.
+
+Which of the above activities represent/s the pure-click type business model?
+හන ක්‍රියාවලි අතුරෙන්‌ කවරක්‌ පියෝ-ක්ලික්‌ ව්‍යාපාර ආකෘතිය නිරෑපණය කරයි ද?
+
+1) A only 2) B only 3) C only 4) A and C only 5) B and C only
+A පමණි B පමණි C පමණි Am C පමණි Bem C පමණි
+(2019 -05 )
+
+11. Which of the following statements related to e-commerce are true?
+6-~වාණිජ්‍යය සම්බන්ධයෙන්‌ පහත කවර වගන්නියක්‌ සත්‍ය GD ද්‍ර?
+
+A ~ A particular product may be available at different prices at different e-commerce sites.
+කිසියම්‌ භාණ්ඩයක්‌ විවිධ 6-වාණිජ්‍යය අඩවිචල විවිධ SE ගණන්වලට නිබිය හැකි ය.
+
+B - Payment option at the receipt of goods allows customers to verify the quality of their purchases made
+through the e-commerce site.
+
+භාණ්ඩ භාරගන්නා අවස්ථාවෙහි මුදල්‌ ගෙවීමට QA දීමෙන්‌, පාරිභෝගිකයන්ට 6-වාණිජ්‍යය අඩවිය හරහා නමන්‌
+මිලදීගන්‌ භාණ්ඩවල තතන්න්වය පරික්‍ෂා කළ හැකි ය.
+
+C - Additional charges can be included as delivery and service fees over and above the stated price.
+සඳහන්‌ වන මිලට අමනරව ප්‍රවාහන හා සේවා ගාස්තු ලෙස අමතර මිලක්‌ ඇනුළන්‌ කළ හැකි ය.
+
+1) A only 2) B only 3) C only 4) A and C only 5) All of the above
+A පමණි B පමණි (පමණි A හා C පමණි QOD සියල්ලම
+( 2020 -- 48 )
+
+12. Which of the following statements is/are correct?
+පහන කවර OOH නිවැරදි වේ දු?
+
+A ~ Business Process Re-engineering helps to modify the existing business practices to fit with Commercial-
+Off-The-Shelf (COTS) software.
+ව්‍යාපාර ක්‍රියාවලිය ප්‍රති-ඉංජිනේරුැකරණය දැනට පවතින ව්‍යාපාර ක්‍රියාමාර්ග, වාණිජ G6 HO පැකේජ OOO
+ගැළපෙන පරිදි වෙනස්‌ කිරීමට උදව්‌ චේ.
+
+B ~ Users may have to pay for certain features of COTS even if those are not needed.
+පෙර නිමි පැකේජවල ඇති ඇතැමි අනවශ්‍ය විශේෂාංග වෙනුවෙන්ද මුදල්‌ ගෙවීමට පරිශීලකයන්ට සිදුවීමට ඩෙ ඇත.
+
+ල්‌ ~ A well developed custom software can bring a competitive advantage to an organization.
+ආයතනයක අවශ්‍යතා අනුව පමණක්ම විශේෂයෙන්‌ සහ හොඳින්‌ සකසා ඇති මෘදුකාංගයකින්‌ OO ආයනනයට තරගකාටථී
+වාසියක්‌ ලැබීමට ඩෙ ඇත OZ ය.
+
+1) A only 2) B only 3) A and B only 4) B and C only 5) All of the above
+A පමණි B පමණි A හා B පමණි 8 හා C පමණි හත සියල්ලම
+( 2021 - 30)
+8
+
+13. Which of the following statements is/are correct?
+පහන සඳහන්‌ කුමන ප්‍රකාශ/ ය නිවැරදි වේ ද?
+
+A ~ E-Commerce encourages to minimize physical interactions between buyers and sellers.
+6-වාණිජ්‍ය ගැනුම්කරැවන්‌ සහ විකුණුම්කරැවන්‌ අතර භෞතික අන්තරක්‍රියා අවම කිරීමට දිරීමන්‌ කරයි.
+
+B - The main purpose of sending a One Time Password (OTP) to a credit card [101061”5 mobile phone
+
+during an online payment is to identify the current location of the card owner.
+මාරගගත ගෙවීමක්‌ අතරතුර ණය පන හිමිකරැගේ ජංගම දුරකථනයට එක්වරක්‌ පමණක්‌ භාවිත කළ හැකි මුරපදයක්‌
+යැවීමේ ප්‍රධාන අරමුණ වන්නේ කාඩිපත හිමිකරැ දැනට සිටින ස්ථානය හඳුනාගැනීමය.
+
+C - Bitcoin is a leading virtual currency. / Bitcoin යනු ප්‍රමුඛ අතථ්‍ය මුදල්‌ ඒකකයකි.
+
+1) A only 2) B only 3) C only 4) A and C only 5) B and C only
+පමණි 9 පමණි උ පමණි Am C පමණි Ben C පමණි
+(2022 -50)
+9
+
+1.(b) Give four (4) different examples for the following electronic business types:
+පහත දක්වා ඇති ලෛක්ට්‍රොනික ව්‍යාපාර වර්ග සඳහා චකිනෙකට වෙනස්‌ උදාහරණ හතරක්‌ ලියන්න.
+
+Type / වර්ගය Example / උදාහරණය
+526
+
+B2C
+
+C2C
+
+C2B
+
+(2013 S.ESSAY -- 03[b] )
+
+2.(b) A bank offers services, such as maintaining savings and current accounts, Automatic Teller Machine
+(ATM) services, processing loans, leasing properties and exchanging foreign currencies to its customers.
+The bank has decided to introduce Internet banking facility to its customers to grant them with more
+control on their accounts. This will facilitate its customers to check account balance, pay bills, transfer
+
+funds to other accounts and communicate with the bank online.
+
+බැංකුවක්‌ තම ගනුදෙනුකරැවන්ට @85 කිරීම්‌ හා ජංගම ගිණුම්‌ පවත්වා ගැනීම, ස්වයංක්‍රීය GOES යන්ත්‍ර සේවා, ණය
+ලබා දීම්‌, දේපල කල්බදු ගැනීම්‌, විදේශ මුදල්‌ හුවමාරැව වැනි සේවා ලබාදේ. බැංකුව විසින්‌ තම ගනුදෙනුකරැවන්ට
+ඔවුන්ගේ ගිණුම්‌ පාලනය කර ගැනීමේ බලතල වැඩි වශයෙන්‌ ලබා දීම සඳහා අන්තරිජාල බැංකු සේවා හඳුන්වා දීමට
+තීරණය කර ඇත. මෙමගින්‌ ගනුදෙනුකරැවන්ට තම ගිණුම්වල ශේෂය තහවුරැ කර ගැනීම, බිල්පන්‌ ගෙවීම්‌, වෙනත්‌
+ගිණුම්‌ සඳහා අරමුදල්‌ හුවමාරැව හා බැංකුව සමග සන්නිවේදනය යන පහසුකම්‌ මාර්ගගතව ලබා ගැනීමට අවශ්‍ය
+පහසුකම්‌ සැපයේ.
+
+(i) State two reasons that can discourage bank customers from using Internet banking services.
+බැංකු ගනුදෙනුකරැවන්‌ අන්තර්ජාල බැංකු සේවා භාවිත කිරීමට පසුබට විය හැකි හේතු දෙකක්‌ ලියන්න.
+
+(1) Do you agree that providing the proposed Internet banking services is a B2C business type? Justify
+your answer.
+
+දු මෙම යෝපිනත අන්තර්ජාල බැංකු සේවා සැපයීම B2C HO ව්‍යාපාරික වර්ගයක්‌ බව ඔබ පිළිගන්නේ ද? ඔබේ
+පිළිතුර සනාථ කරන්න.
+
+(ili) The bank has realized that a significant number of loan applications they receive from their customers
+are getting rejected at the initial screening. Therefore, the management thinks that their customers
+could be provided with an expert system based loan pre processing tool so that the customer
+disappointments could be reduced while saving bank staff's time. Do you agree with this idea? Justify
+
+your answer.
+සිය ගනුදෙනුකරුවන්ගෙන්‌ ලැබෙන ණය ලේලුම්පත්වලින්‌ සැලකිය යුතු සංඛ්‍යාවක්‌ මූලික විමර්ශනයේ දි ම
+ප්‍රතික්ෂේප වන බව බැංකුවට පෙනීගොස්‌ ඇත. OO නිසා විශේෂඥ පද්ධතියක්‌ මත පාදකවූ ණය පෙර සැකසුමි
+මෙවලමක්‌ ගනුදෙනුකරැවන්ට ලබා දීමෙන්‌ බැංකු සේවකයින්ගේ කාලය එවතිරි කර ගන්නා අතර ම
+ගනුදෙනුකරැවන්ගේ කලකිටරීමි අවම කර OD හැකි බව ද කළමනාකාරීත්වය සිතයි. මෙම අදහසට ඔබ එකඟ
+
+වන්නේ ද? ඔබේ පිළිතුර සනාථ කරන්න.
+( 2015 S.ESSAY -- 02[b] )
+
+3. Assume that the camera you have been using so far is no longer needed since you have received a latest
+camera as a gift. A friend suggested that your old camera could be sold on the Internet. Consequently,
+you were able to sell the camera to a buyer in an African country, through a web site. You received the
+
+payment made by the buyer through a service like Paypal.
+
+ඔබට නවීනතම කැමරාවක්‌ ත්‍යාගයක්‌ ලෙස ලැබුණ බැවින්‌ මෙතෙක්‌ භාවිත කළ කැමරාව තවදුරටත්‌ අවශ්‍ය නොවන බව
+උපකල්පනය කරන්න. ඔබගේ පරණ කැමරාව අන්තරපාලය ඔස්සේ විකිණිය හැකි බව යහළුවකු යෝජනා කළේ ය. චී
+අනුව වෙබ්‌ අඩවියක්‌ හරහා අප්‍රිකානු රටක ගැණුම්කරැවකුට එය විකිණීමට ඔබට හැකි විය. ගැණුම්කරැ විසින්‌ ගෙවන
+
+ලද මුදල Paypal වැනි සේවාවක්‌ හරහා ඔබට ලැබුණි.
+
+(a) State an example for each C2C and B2C e-commerce types with respect to the above transaction.
+QOD ගනුදෙනුව ඇසුරෙන්‌ C2C හා B2C යන 6-වාණිජ්‍යය වර්ග සඳහා උදාහරණය බැගින්‌ ලියා දක්වන්න.
+
+(0) Why is a service like Paypal necessary for this type of transactions?
+ලමවැනි ගනුදෙනු සඳහා Paypal වැනි සේවාවක්‌ අවශ්‍ය වන්නේ ඇයි?
+
+(c) Some Internet users are reluctant to buy goods online from individual sellers. State two reasons for
+
+this reluctance and give an example for each.
+අන්තර්ජාලය භාවිත කරන සමහරැන්‌ එක පුද්ගල විකුණුම්කරැවන්ගෙන්‌ මාරිගගතව භාණ්ඩ මිල දී ගැනීමට
+අකමැත්තක්‌ දක්වයි. මෙම අකමැත්තට හේතු දෙකක්‌ ලියා එක්‌ එක්‌ හේතුව සඳහා උදාහරණය බැගින්‌ දෙන්න.
+
+( 2016 S.ESSAY — 02 )
+
+4.(a) (i) Write three key conditions to be satisfied in order to classify a transaction/service between two persons
+as B2B in e-commerce.
+
+පුද්ගලයින්‌ දෙදෙනකු අතර Be වන ගනුදෙනුවක්‌/ සේවාවක්‌ 6-වචාණිජ්‍යය නුළ B2B ලෙස වර්ගීකරණය කිරීම සඳහා
+තෘප්තිමත්‌ විය යුතු ප්‍රධාන කොන්දේසි නුනක්‌ ලියන්න.
+
+(il) If the seller in the above transaction is replaced by a software agent, state the key proactive behaviour
+
+that software agent shall have.
+GND ගනුදෙනුවේ විකුණුම්ිකරු වෙනුවට මෘදුකාංග ඒජන්තවරයකු යොදා ගතහොත්‌, එම මෘදුකාංග එජන්තවරයාට
+තිබිය යුතු ප්‍රධානතම පෙරක්‍රියාකාරී හැසිරීම සඳහන්‌ කරන්න.
+
+( 2017 S.ESSAY -- 03[a] )
+
+5. (a) Match each of the given phrases (i) - (viil) relating to e-commerce with the most suitable term from the
+list below.
+
+පහත දැක්වෙන (i) -(vili) තෙක්‌, 6-චාණිජ්‍යයට සම්බන්ධ එක්‌ එක්‌ ප්‍රකාශ ඛණ්ඩය සමග දී ඇති පදලැයිස්තුවෙහි වඩාන්‌
+ම සුදුසු පදය ගළපන්න.
+
+List = {brick-and-click, content provider, e-commerce, group purchasing, information broker, online
+marketplace, pure-brick, pure-click, reverse auction, virtual community, virtual storefront}
+
+ලැයිස්නුච = [බ්‍රික්‌ සහ ක්ලික්‌, අන්තර්ගතය ලබා දෙන්නා, 6-වාණජ්‍යය, කාණ්ඩ ලෙස මිලදී ගැනීම, තොරතුරැ
+තැර0ැවිකරැ, මාර්ගගත වෙළෙඳපොළ, පියෝ බික්‌, පියෝ ක්ලික්‌, ප්‍රනි වෙන්දේසිය, අතථ්‍ය ප්‍රජාව, අතථ්‍ය වෙළෙඳ
+ප්‍රදර්ශනාගාරය)
+
+Phrases / චාක්‍ය බණ්ඩ:
+
+(i) Allows third party businesses (other businesses) to sell their products and services through the
+website and charge a percentage of the sale value as the fee
+
+වෙබි අඩවිය හරහා නෙචන පාරශ්වයක ව්‍යාපාරචලට (වෙනත්‌ ව්‍යාපාර) භාණ්ඩ සහ සේවා විකිණීමට අවස්ථාව
+ලබා දී අලෙවියෙහි ප්‍රනිශතයක්‌ ගාස්තුව ලෙස අයකර ගැනීම
+
+(il) Provides frequently updated material such as news, blogs, videos etc. online
+මාරගගතව ලබා OD හැකි නිතර අලුත්‌ කෙරෙනු ලබන ප්‍රවෘත්තිල බිලොග්‌, වීඩියෝ වැනි දද සැපයිම
+
+(ili) Allows sharing common interests and ideas over the Internet
+පොදු රැචිකත්වය සහ අදහස්‌ හුවමාරැ කර ගැනීමට අන්තරජාලය ඔස්සේ ඉඩ සැලසීම
+
+(iv) Consumer transactions are processed by the business operator's web portal and then delivered and
+
+fulfilled by the participating retailers or wholesalers
+පාරිභෝගික ඇණවුම්‌ භාරගෙන සැකසීම, ව්‍යාපාර මෙහෙයවන්නාගේ GHA ද්වාරය හරහා සිදු කෙරෙන අතර, මුදල්‌
+ගෙවීමෙන්‌ පසු භාණ්ඩ භාර දීම සිල්ලර වෙළෙඳුන්‌ හා තොග වෙළදුන්‌ මගින්‌ සිදු කිරීම
+
+(v) Has a physical shop as well as an online shop
+QOKWOOD සාප්පුවක්‌ මෙන්ම භෞතික සාප්පුවක්‌ ද පැවතීම
+
+(vi) Is a business that collects publicly available data about consumers on the internet, analyzes and
+
+summarises them and sells that information to other parties
+ඕනෑම කෙනෙකුට ලබා OD හැකි, අන්තරජාලයේ ඇති පාරිභෝගිකයන්ට අදාළ com එක්‍රැස්‌ කොට විශ්ලේෂණය
+කර සාරාංශ ගත කිරීමෙන්‌ පසු එම තොරතුරැ අනෙකුත්‌ පාරිශ්වවලට අලෙවි කිරීමේ ව්‍යාපාරයකි
+
+(vil) The sellers compete to obtain business from the buyer using the internet and prices may typically
+
+decrease as the sellers underbid each other
+ගැනුම්කරැවන්ට භාණ්ඩ හා සේවා අලෙවි කිරීම සඳහා විකුණුමිකරැවන්‌ එකිනෙකා අන්තරජාලය භාවිතයෙන්‌ තරග
+කිරීම හා ඔවුන්‌ චකිනෙකා අතර අඩු ලංසු නැබීම නිසා මිල ගණන්‌ සාමාන්‍යයෙන්‌ අඩු වීම
+
+(vill) Obtain discounts from vendors on the internet based on the collective buying power of members
+EDOISDAAGS සාමුහික මිලදී ගැනීමේ ශක්තිය පදනම්‌ කරගෙන අන්තරීජාලයේ සිටින වචෙළෙඳුන්ගෙන්‌ OOOS ලබා
+ගැනීම
+Note: Write only the matching term against the phrase number.
+සටහන: ප්‍රකාශ බණ්ඩයෙහි අංකය දෝිථයෙන්‌ ගැළපෙන පදය පමණක්‌ ලියන්න.
+
+( 2018 S.ESSAY -- 02[a] )
+
+6. (a) Match each of the given phrases (i) - (vi) relating to commerce with the most suitable item from the list
+below:
+
+වාණිජ්‍යයට සම්බන්ධ පහත (i) BO (vi) දක්වා වන වාක්‍ය ඛණ්ඩ, පහත දී ඇති se ලැයිස්තුවෙහි වඩාත්ම සුදුසු
+අයිතමය සමග ගළපන්න.
+
+List = {advertising as a revenue model, credit-cards, Government e-Tendering service, Government to
+Citizen (G2C) service, group purchasing, harmful explosives, online marketplace, payment gateway,
+perishable goods, social commerce, subscription as a revenue model, traditional marketplace}
+
+ලැයිස්තුව = [දැන්වීම්‌ ප්‍රචාරය ආදායම්‌ ආකෘතියක්‌ ලෙස, ණයපත්‌, රාජ්‍ය e- GORA සේවාව, රජයෙන්‌ පුරවැසියන්ට
+(G2C) සේවාව, කණ්ඩායම්‌ ලෙස මිල දී ගැනීම, හානිකර පුපුරන ද්‍රව්‍ය, මාර්ගගත වෙළඳපොළ, ගෙවීම්‌ ද්වාරය, පහසුවෙන්‌
+හානිවිය හැකි COB, සමාජ වාණිපජ්‍යය, ග්‍රාහකත්වය ආදායම්‌ ආකෘතියක්‌ ලෙස, සම්ප්‍රදායික දවචළඳුපොළ)
+
+Phrases / වාක්‍ය බණ්ඩ:
+
+(i) a place where buyers and sellers interact physically for exchanging goods and services for a price
+මෙය මුදලට භාණ්ඩ සහ සේවාවන්‌ හුවමාරු කෙරෙන ගැනුම්කරුවන්‌ සහ වෙළෙන්දන්‌ භෞතික ලෙස අන්තඊරි
+ක්‍රියාවේ යෙදෙන ස්ථානයකි.
+
+(ii) these are usually prohibited to be sold or purchased through e-commerce systems
+මෙවැනි Ez 6~වාණිජ්‍ය SPOS ඔස්සේ විකිණීම හෝ මිල දී ගැනීම සාමාන්‍යයෙන්‌ තහනමි ය.
+
+(ill) users pay a regular fee to have full access to a website of a business
+ව්‍යාපාරික වෙබි අඩවියකට පූරිණ ප්‍රවේශය සඳහා පරිශීලකයන්‌ විසින්‌ නිතිපතා ගාස්තුවක්‌ ගෙවනු ලැබේ.
+
+(iv) a subset of e-commerce that involves using social media to assist in the online buying and selling of
+products and services
+මෙය මාරගගත භාණ්ඩ සහ සේවා මිල දී ගැනීම හා විකිණීම සඳහා සමාජ මාධ්‍ය තාවිත කෙරෙන €6-වාණිජෲ
+උපකුලකයකි.
+
+(v) facilitates a payment transaction by the transfer of information between the e-commerce application
+and the back-end financial service providers through secure means
+
+මෙය €6-වාණිජ්‍ය යෙදුම සහ පසු අන්තයෙහි මූල්‍ය සේවා ලබා දෙන අය අතර ඉතොරතුරැ හුවමාරැ කිරීම මගින්‌
+ආරක්‌ ෂාකාරී ලෙස ගෙවීම්‌ කිරීමේ ගනුදෙනුවලට පහසුකමි සපයයි.
+
+(vi) the renewal of vehicle revenue licence using the Online Vehicle Revenue Licence Service offered by
+
+the relevant government office
+අදාළ රජයේ කාර්යාලය මගින්‌ ලබා දෙන මාරිගගත වාහන ආදායමි බලපතු සේවාව භාවිතයෙන්‌ වාහන meso
+බලපත්‍රය අලු ත්‌ කිරීම.
+
+Note: Write only the matching item against the phrase number.
+සටහන: වාක්‍ය ඛණ්ඩයෙහි අංකය @266s ගැළපෙන අයිතමය පමණක්‌ ලියන්න.
+( 2019 S.ESSAY -- 02[a] )
+
+7. (3) ॥ an emergency health problem where people have to stay at home for a long period, the shops within
+the area remain closed for regular business activities. Under such circumstances the shops within a village
+
+or nearby town can help their community by practicing their business through e-commerce.
+කිසියම්‌ හදිසි සෞඛ්‍ය ගැටලු වක්‌ ඇති වී ජනතාවට 26 කාලයක්‌ නිවෙස්‌ තුළම රැඳී සිටීමට සිදු වූ විට, ප්‍රදේශය තුළ
+සාප්පු MO සුපුරැදු ව්‍යාපාරික කටයුතු වෙනුවෙන්‌ වසා තබයි. මෙවැනි තත්ත්වයක්‌ යටතෙහි ගමෙහි හෝ ළඟපාත
+
+නගරවල ඇතත්‌ සාප්පු මගින්‌ 6-වාණිජ්‍ය ඔස්සේ තම ව්‍යාපාර කටයුනු සිදු කිරීමෙන්‌, ප්‍රජාවට උපකාර කළ හැක.
+
+Considering the above scenario, fill the blanks in the following statements with suitable phrases from the
+
+given list of phrases.
+ඉහත සංසිද්ධිය සලකමින්‌ දී ඇති ලැයිස්තුවෙන්‌ සුදුසු පල තෝරාගෙන පහත වගන්තිවල හිස්තැන්‌ පුරවන්න.
+
+(i) In this emergency situation, shops follow the …… business model.
+මෙම හදිසි අවස්ථාවේ දී, සාප්පු විසින්‌ …… ව්‍යාපාර ආකෘතිය අනුගමනය Ged.
+(1) SHOPS MUST USE ……-……-- to allow customers to purchase more than one type of product in
+
+a single transaction.
+කිසියම්‌ ගනුදෙනුවක දී පාර්භෝගිකයකුට වරකට එක්‌ නිෂ්පාදන වර්ගයකට වඩා වැඩි සංඛ්‍යාවක්‌ මිලදී ගැනීමට
+
+හැකි වන පරිදි සාප්පු විසින්‌ …… ක්‌ භාවිත කළ යුතු ය.
+(iii) The e-commerce site for each shop Can IMPlEMENt …… ……-.--. to display their products to the
+customers.
+
+එක්‌ එක්‌ සාප්පුව සඳහා වන 6-වාණජ්‍ය අඩවිය මගින්‌ පාරිභෝගිකයන්‌ සඳහා නිෂ්පාදන ප්‍රදර්ශනය කිරීමට
+අ……““……“~෴~෴~ධ……~හි ක්‌ ක්‍රියාන්මක කළ හැකි ය.
+
+(iv) For business owners who cannot use payment gateway through online fund receipts and for the
+customers who do not have any online mode of payments can still be supported through
+
+මාරගගත අරමුදල්‌ 580 මගින්‌ ගෙවීමි ද්වාර MAD කළ නොහැකි ව්‍යාපාර හිමියන්ට සහ මාරගගතව ගෆෙවීමි සිදු
+කිරීමේ ක්‍රම නොමැති පටිභෝගිකයන්ට ……-..-. -……--- මගින්‌ උපකාර්‌ කළ හැකි යග
+
+(V) …… …… …… is one of the best ways to reduce the overhead costs of delivery within a
+local area such as a lane, street or housing scheme.
+……~~හ පටුමගක්‌, විදියක්‌ හෝ නිවාස ක්‍රමයක්‌ වැනි ස්ථානීය පෙදෙසක දී බෙදාහැරීම්‌ වියදම්‌
+අඩු කර ගැනීමේ වඩාත්ම හොඳ ක්‍රමයකි.
+
+(vi) The local shop owners can establish…… eee: to serve their community better by enabling
+
+access to each shop’s services through a common portal.
+පොදු ද්චාරයක්‌ මගින්‌ එක්‌ එක්‌ සාප්පුවෙහි සේවාවන්‌ සඳහා ප්‍රවේශයක්‌ ලබා දෙමින්‌ තම ප්‍රජාවට වඩා හොඳ
+
+සේවාවක්‌ සැලසීම සඳහා ප්‍රදේශයේ සාප්පු හිමිකරැවන්ට ……-…… ක්‌ ස්ථාපිත කළ හැක.
+
+List = {advertising banners, an online marketplace, a shopping cart, a web product catalogue, cash-on-
+delivery, credit-cards, discount pricing, group purchasing, payment gateways, click and brick, pure click,
+subscription as a revenue model}
+
+ලැයිස්තුව = [ප්‍රචාරක බැනරය, මාර්ගගත වෙළඳපොල, සාප්පු ට්‍රොලිය, වෙබි නිෂ්පාදන භාණ්ඩ ලැයිස්තුව, බෙදා හරින
+විට මුදල්‌ ගෙවීම, ණය පතන්‌, අඩුවට මිල නියම කිරීම, කණ්ඩායම්‌ ලෙස මිලදී ගැනීම, ගෙවීම්‌ ද්වාරය, ක්ලික්‌ සහ බික්‌,
+
+පියෝ ක්ලික්‌, ගංහකන්වය ආදායම්‌ ආකෘතියක්‌ ලෙස)
+( 2020 S.ESSAY -- 02[a] )
+
+8. (1) You have decided to start an E-Business to sell your home-made food through an online store (web site).
+Once the customers place orders and pay through debit/credit cards, you will deliver the ordered food
+to their addresses.
+මාරිගගත වෙළෙඳපොලක්‌ (වෙබ්‌ අඩවියක්‌) හරහා ඔබ නිවසේ පිසූ ආහාර අලෙවි කිරීම සඳහා ව්‍යාපාරයක්‌ ආරම්භ
+
+කිරීමට ඔබ තීරණය කරයි. ගැනුම්කරැවන්‌ ආහාර ඇණවුම්‌ කර ඒ සඳහා ණයපත්‌/ හරපත්‌ හරහා මුදල්‌ ගෙවූ පසු ඔබ
+එම ආහාර ඔවුන්ගේ ලිපිනවලට ගෙනැවිත්‌ භාරදෙයි.
+
+(1) Business to Business (B2B), Business to Consumer (B2C) and Consumer to Consumer (C2C) are three
+E-Business transaction types. Out of these, which transaction type will occur in your E-Business?
+ව්‍යාපාරයෙන්‌ ව්‍යාපාරයට (B2B), ව්‍යාපාරයෙන්‌ පාරිභෝගිකයාට (B2C) සහ පාරිභෝගිකයාගෙන්‌ පාරිභෝගිකයාට
+(C2C) යනු -ව්‍යාපාර ගනුදෙනු වර්ග තුනකි, මේවායින්‌, ඔබගේ ව්‍යාපාරයේ සිදුවනු ඇති ගනුදෙනු වර්ගය
+කුමක්ද ?
+
+(il) Incorporating a reputed software service to enable debit or credit card purchases from customers
+will improve customer perception and trust in your e-Commerce system. What is this software service
+
+commonly called?
+ගැනුම්කරුවන්ගේ ණයපත්‌/ හරපත්‌ හරහා මිලදීගැනීම්‌ සිදු කිරීමට පිළිගත්‌ මෘදුකාංග සේවාචක්‌ හා ඒකාබද්ධ වීම
+ඔබගේ ව්‍යාපාරය පිළිබඳ පාරිභෝගික සංජානනය හා විශ්වාසය වර්ධනය කිරීමට මවෙහල්‌ වනු ඇත. එම
+
+ම Bao 5 හඳුන්වන්නේ කුමන නමකින්‌ ද?
+EMD සේවාව පොදුවේ හඳුන්වන්නේ කුමන න © (2021 S.ESSAY - 02[d] )
+
+9. (a) Write down the most suitable items from the given list for the following statements.
+පහන ප්‍රකාශ සඳහා වඩාත්‌ සුදුසු eBoOae දී ඇති ලැයිස්තුවෙන්‌ තෝරා ලියන්න.
+
+List: {e-marketplace, group purchasing, online auctions, online reverse auctions}
+ලැයිස්තුව: (6-වෙළඳපොළ, සමූහ මිලදී ගැනීම, මාර්ගගත වෙන්දේසි, මාර්ගගත ප්‍රතිවෙන්දේසි)
+
+(1) UI …… …… …… , sellers bid for the prices at which they are willing to sell their goods or
+
+වලදී, විකුණුම්කරුවෝ නමන්ට විකිණීමට හැකි භාණ්ඩවල GM සේවාවල SE ගණන්‌
+
+සඳහා ලංසු දිථීපත්‌ කරති.
+(1!) …… …… allows buyers to compare multiple online sellers within the same online
+platform.
+එකම මාර්ගගත වචේදිකාවකදී, මාරගගත විකුණුම්කරුවන්‌ බොහෝදෙනෙකු සංසන්දනය M500
+“……~……~ධ……ධ෴ ෴්‌ී ගැනුම්කරැවන්ට ඩඩ සලසයි.
+( 2022 S.ESSAY -- 04[a] )
+
+10. (c) For the box in each of the following statements, select a suitable replacement from the given list and
+
+write the number of the selected replacement in the box.
+පහන එක්‌ එක්‌ ප්‍රකාශයේ ඇති කොටුවට සුදුසු ආදේශකය දී ඇති ලැයිස්තුවෙන්‌ තෝරා, DO ආදේශකයේ අංකය
+කොටුව DE ලියන්න.
+
+List : [1 -B2B, 2 -C2B, 3 -G2C, 4 -a payment gateway, 5 -a reverse auction, 6 -a virtual storefront, 7 -a
+web portal, 8 -an online auction, 9 -an online marketplace}
+
+ලැයිස්තුව: {1 -B2B, 2 -( 26, 3 -G2C, 4 -ගෙවීම්‌ ද්වාර, 5 -ප්‍රතිවෙන්දේසි, 6 -amos වෙළඳ ප්‍රදර්ශනාගාර, 7 -GDB
+ද්වාර, 8 -මාර්ගගත වෙන්දේසි, 9 -මාර්ගගත වෙළඳපළ)
+(i) A web-based platform that provides a single point of access to arrange of information from different
+sources, is known as .
+විවිධ මූලාශ්‍රවලින්‌ සැපයෙන තොරතුරැ පරාසයකට එක්‌ තැනකින්‌ ප්‍රවේශවීමට Of) සලසන වෙබ්‌ පාදක වේදිකාවක්‌
+යක්‌ ලෙසින්‌ හැඳින්වේ.
+(il) When one requests to renew his/her vehicle revenue license | |…… online for it through the official
+
+website, he/she is performing an e-commerce transaction of type.
+යමකු DO වාහන ආදායම්‌ බලපත්‍රය අලුත්‌ කිරීමට නිල වෙබි අඩවියෙන්‌ ලේලුමි කර ඒ සඳහා මාරිගගතව මුදල්‌
+ගෙවන විට ඔහු/ ඇය ~වාණජ්‍යය ව්‍යාපාර ගනුදෙනු වර්ගය සිදු කරයි.
+
+(ili) The ABC e-commerce company does not allow buyers to explore competitor products from other
+sellers within its website. ABC website operates ..|
+ABC -වාණප්‍යය සමාගම, වෙනත්‌ විකුණුම්කරුවන්ගේ නිෂ්පාදන තම වෙබ්‌ අඩවිය හරහා සෝදිසි කිරීමට තම
+ගැනුම්කරැවන්ට ඉඩ නොදෙයි. ABC වෙබ්‌ අඩවිය | | යක්‌ ලෙස ක්‍රියාකරයි.
+
+(iv) The ABC e-commerce company does not allow ia to explore competitor products from other
+
+sellers within its website. ABC website operates as
+GWE ගැනුම්කරුචෝ GO භාණ්ඩයක්‌ හෝ සේවාවක්‌ භහෝ මිලදී ගැනීමට තමන්‌ කැමති මිල සඳහා ලංසු
+ලබාදෙති.
+
+(v) An online shopping website 15 suitable to be connected tol _ |.
+
+මාරගගත සාප්පු වෙබි අඩවියක්‌, යක්‌ සමග සම්ඛන්ධ වීම යෝග්‍ය od.
+( 2023 S.ESSAY -- 02[c] )
+
+11. (6) You browse an online product catalogue in an e commerce website looking for a product purchase and
+the website collects your product browsing history without obtaining your consent. What is the security
+
+related concern that you face in this situation?
+කිසියම්‌ භාණ්ඩයක්‌ මිලදී ගැනීමට ඔබ @ HAAG වෙබි අඩවියක භාණ්ඩ වට්ටෝරැව පිරික්සන විට ඔබගේ අනුමැතිය
+ලබාගැනීමකින්‌ තොරවල එම GDS අඩවිය ඔබගේ භාණ්ඩ පිරික්සීමි තිහාසය එකතු කර ගනියි. DO අවස්ථාවේදී ඔබ
+
+මුහුණ දෙන ආරක්ෂාවට අදාළ තැවුල කුමක්‌ ද ?
+
+(f) Fill the two blanks of the following statement:
+පහත වගන්තියේ හිස්තැන්‌ දෙක පුරවන්න
+
+//7 a reverse auction, from sellers and DUYETS, . ……--…… do the bidding and usually the …… .. .-- - -- -- -
+bid wins.
+
+“ප්‍රතිවෙන්දේසියකදී, විකුණන්නන්‌ සහ ගැනුම්කරැවන්‌ අතුරෙන්‌ oes ලංසු දිරිපන්‌ කිරීම සිදු කරන අතර,
+සාමාන්‍යයෙන්‌ …… ..-……-- ලංසුව ජයග්‍රහණය කරයි.”
+
+( 2024 S.ESSAY -- 02[e], [1] )
+
+1.(a) (1) Using an example for each category explain the three types of business: Business to Business (B2B),
+Business to Consumer (B2C) and Consumer to Consumer (C2C) in e commerce.
+එක්‌ එක්‌ O6OG සඳහා නිදසුන බැගින්‌ යොදාගනිමින්‌, ඊ-වානිජ්‍යයෙහි ඇති, ව්‍යාපාරයෙන්‌ ව්‍යාපාරයට (B2B),
+
+ව්‍යාපාරයෙන්‌ පාරිභෝගිකයාට (B2C) සහ පාරිභෝගිකයාගෙන්‌ පාරිභෝගිකයාට (C2C) යන ව්‍යාපාර වර්ග තුන පැහැදිලි
+කරන්න.
+
+(il) Chairman of a company is considering fax, 6 mail and web as communication tools for a B2E (Business
+to Employee) application. Being an ICT student recommend the most appropriate tool with reasons.
+සමාගමක සභාපතිවරයකු ව්‍යාපාරයෙන්‌ සේවකයාට (BZE) යෙදුමක්‌ සඳහා සන්නිවේදන මෙවලම්‌ ලෙස ෆැක්ස්‌, විද්‍යුන්‌
+තැපෑල සහ වෙබි සලකනු ලබයි. ඔබ ICT ශිෂ්‍යයකු ලෙස, වඩාත්ම ගැළපෙන මෙවලම හේතු සහිතව නිරිදේශ කරන්න.
+
+( 2011 ESSAY -- 06[a] )
+
+2. The Past Pupils Association (PPA) of a school has a large number of past students all over the country and
+overseas. The PPA, in collaboration with a leading local bookshop, decided to obtain support from the
+past students and other donors to increase the number of books in the library. The PPA agreed to develop
+a web based system with on line payment facilities for this activity. The title and the price of the required
+books for the library will be available on the website. The donors could select and pay for these required
+books available on the website. When a payment is made, this information will be sent to the bookshop
+
+for the delivery of the selected books to the school library.
+
+පාසලක HE ශිෂ්‍ය සංගමයට QO රට පුරාත්‌ විදේශවලන්‌ ආදි ශිෂ්‍යයෝ SHE සංඛ්‍යාවක්‌ BOS. gemmecs පොත්‌
+සංඛ්‍යාව වැඩි කිරීම සඳහා ප්‍රධාන පෙළේ දේශීය පොත්‌ සාප්පුවක සහයෝගය ඇතිව, ආදි සිසුන්ගේ සහ අනෙකුන්‌
+දානපතියන්ගේ උපකාර ලබාගැනීමට ආදි BSS සංගමය තීරණය කළේය. GOO කාරයය සඳහා මාර්ගගත ගෙවීම්‌
+පහසුකම්‌ සහිත වෙබ්‌ පාදක පද්ධතියක්‌ සැකසීමට ආදි ශිෂ්‍ය සංගමය එකඟ විය. පුස්තකාලය සඳහා අවශ්‍ය පොත්වල
+නම්‌ සහ මිල ගණන්‌ වෙබ්‌ අඩවියෙහි අඩංගු කරනු ඇත. වෙබ්‌ අඩවියෙහි දැක්වෙන මෙම අවශ්‍ය පොත්‌ තෝරාගෙන
+ගෙවීම්‌ කිරීමට දානපතියන්ට හැකි වේ. ගෙවීමක්‌ කරනු ලැබු විට, තෝරාගනු ලැබූ පොත්‌ පාසල්‌ පුස්තකාලයට ලබාදීම
+සඳහා මෙම තොරතුරැ පොත්‌ සාප්පුව වෙන යවනු ලැබේ.
+
+(a) Give two advantages of the suggested on line method over traditional methods for book collection.
+පොත්‌ චකතු BOO sem වන සාම්ප්‍රදායික ක්‍රමවලට වඩා, යෝපිත මාර්ගගත ක්‍රමයෙහි වාසි දෙකක්‌ දක්වන්න.
+
+(b) Give one disadvantage of ordering books through the suggested website.
+යෝපිත වෙබ්‌ අඩවිය හරහා පොත්‌ ඇනවුම්‌ කිරීමේ අවාසියක්‌ ලියා දක්වන්න.
+
+(c) Explain how you could improve the website to eliminate the disadvantage given in (b) above.
+හත (b) හි EOD ලද අවාසිය QOD කර ගැනීමට වෙබ්‌ අඩවිය වැඩි දියුණු කළ හැක්කේ කෙසේදැයි පැහැදිලි
+
+කරන්න. ( 2012 ESSAY - 06 )
+
+3. Consider the following employee evaluation process of a software development company to answer the
+
+questions given below.
+පහත දක්වා ඇති මෘදුකාංග නිෂ්පාදන සමාගමක සේවකයින්‌ ඇගයීම්‌ ක්‍රියාවලිය සලකා බලා දී ඇති ප්‍රශ්නවලට පිළිනුරැ
+සපයන්න.
+
+A software development company has 600 employees. The company manually evaluates each employee's
+performance at the end of each year. These performance results are used to decide employees’ salary
+increments for the next year. In this process, each employee is evaluated based on several performance
+indicators listed in an evaluation form and marks for these indicators are given by his/her superiors. The
+evaluation process consumes significant amount of each employee's working time. Once the marks are
+gathered, Human Resource (HR) manager takes around two months to compile them to prepare a report.
+A committee comprises of two executives from the HR department and an expert from the Finance
+department are appointed to decide the salary increments of each employee. This committee makes their
+decision based on the HR manager's report and the special report given by the finance expert in this
+committee. The finance expert uses his experiences of the past evaluation process in addition to the
+organizational guidelines to prepare his special report. This finance expert usually takes around three
+months to make his recommendations to the committee. This process delays the salary increments of the
+employees and makes them unhappy. The employees have requested the management to expedite this
+process and give them the increment in time.
+
+එක්තරා මෘදුකාංග නිෂ්පාදන සමාගමක සේවකයින්‌ 600 ක්‌ BS. DO සමාගම සෑම සේවකයකුගේ © කාරය සාධනය සෑම
+වසරක ම අවසානයේ දී අත්යුරැ ක්‍රමයට සිදුකරයි. මෙම කාරය සාධනයේ ප්‍රතිඵල සේවකයින්ගේ ඊලඟ වසංරරී වැටුප්‌
+වර්ධකය තීරණය කිරීමට යොදා ගනී. එම ක්‍රියාවලියේ දී සෑම සේවකයකු ම ඇගයීම්‌ පෝරමයක දක්වා ඇනි mob
+සාධන දර්ශක කිහිපයක්‌ මත ඇගයීමට ලක්‌ කරනු ලබන අතර එම දර්ශකවලට ලකුණු දීම සිදු කරනු ලබන්නේ
+ඔහුගේ/ ඇයගේ මඉහළ නිලධාරීන්‌ විසිනි. මෙම ඇගයීම්‌ ක්‍රියාවලිය සඳහා සෑම සේවකයකුගේ ම වැඩ කරන කාලයෙන්‌
+සැලඛිය යුතු ප්‍රමාණයක්‌ මිඩංගු වේ. ලකුණු එකතු කර ගත්‌ පසු මානව සම්පත්‌ කළමනාකරැට එම ලකුණු සකස්‌ කොට
+වාරතාවක්‌ පිළියෙල කිරීම සඳහා මාස දෙකක පමණ කාලයක්‌ ගත GH. HzO සේවකයකුගේ ම වැටුප්‌ වර්ධකය තීරණය
+
+කිරීම සඳහා මානව සම්පත්‌ දෙපාරිතමේන්තුවේ විධායක නිලධාරීන්‌ දෙදෙනෙකුගෙන්‌ සහ මුදල්‌ දෙපාරිතමේන්තුවේ මූල්‍යෲ
+විශේෂඥයකුගෙන්‌ සමන්විත කමිටුවක්‌ පත්‌ කරනු ලබයි. එම කමිටුව මානව සම්පත්‌ කළමනාකරැගේ වාරිතාව සහ මූල්‍ය
+විශේෂඥයාගේ විශේෂ වාරතාවක්‌ මත පදනම්ව තීරණ ගනු ලබයි. මූල්‍ය විශේෂඥයා ඔහුගේ විශේෂ වාර්තාව පිළියෙල
+කිරීම සඳහා ආයතනයේ උපදෙස්මාලාවට අමනර ව ඔහුගේ පෙර ඇගයීමි කටයුතුවලින්‌ ලබාගත්‌ පලපුරැද්ද භාවිත
+කරයි. මෙම මූල්‍ය විශේෂඥයාට ඔහුගේ නිරිදේශයන්‌ කමිටුවට දිරිපත්‌ කිරීමට සාමාන්‍යයෙන්‌ මාස තුනක පමණ කාලයක්‌
+ගත G. මෙම ක්‍රියාවලිය සේවකයින්ගේ වැටුප්‌ වර්ධක පමා කරන අතර ඔවුන්ව අසතුටට ද පත්‌ කරයි. මෙම ක්‍රියාවලිය
+කඩිනම්‌ කර නියමිත කාලයට නමන්ගේ වැටුප්‌ වර්ධක ලබාදෙන ලෙස සේවකයින්‌ විසින්‌ කළමනාකාරීත්වයෙන්‌ ලේලා ඇන.
+
+The company has decided to computerize this year end employee evaluation process as an online system.
+The proposed system functions as follows: Only during the evaluation period, employees are allowed to
+login to the online evaluation system. Each employee is required to logged into the system and select a
+subordinate to evaluate. Then the system requests to provide marks in the evaluation form of the selected
+employee and submit it. At the end of the evaluation period, the system automatically compiles the data,
+
+generates a report and forwards it to the appointed committee.
+
+මෙම වසර අවසාන ඇගයීමි ක්‍රියාවලිය මාර්ගගත පද්ධතියක්‌ ලෙස පරිගණකගන කිරීමට DO සමාගම තීරණය කර ඇන.
+යෝපිත පද්ධතිය පහත සඳහන්‌ පරිඳි ක්‍රියාත්මක වේ. ඇගයීම්‌ කටයුතු සිදුවන කාලය තුළ දී පමණක්‌ සේවකයින්ට
+මාර්ගගත ඇගයීම්‌ පද්ධතියට පිවිසීමට අවසර දෙනු ලැබේ. සෑම සේවකයකුම පද්ධනියට පිවිසිය යුනු අතර ඇගයීම
+සඳහා පහළ මට්ටමේ සේවකයකු තෝරාගත යුතු ය. BO පද්ධතිය විසින්‌ තෝරාගත්‌ සේවකයාට අදාළ ඇගයීම
+පෝරමයට ලකුණු ලබා දී භාර දෙන ලෙස ලෛේලා සිටී. ඇගයීම්‌ කාලය අවසානයේ දී පද්ධතිය මගින්‌ ස්වයංක්‍රීය ව දන්ත
+සම්පාදනය කර ජනනය කරන වාරිනාවක්‌ පන්කරන ලද කමිටුවට g26e5 කරනු ලබයි.
+
+(a) State two key reasons, that make the company to introduce online computerized system.
+සමාගමට මාර්ගගත කළ පථිගණක පද්ධතියක්‌ හඳුන්වා දීමට සිදුවීම සඳහා හේතු වූ ප්‍රධාන කාරණා දෙකක්‌ ප්‍රකාශ
+කරන්න.
+
+(6) Company thinks that an Artificial Intelligence based system would reduce the time taken to this
+
+process. Do you agree? Justify your answer.
+කෘතිම බුද්ධිය පදනම්‌ වූ පද්ධතියක්‌ මගින්‌ මෙම ක්‍රියාවලියට ගත OD කාලය අඩු කරතැයි සමාගම BOB. ඔබ මේ
+සඳහා එකඟ වන්නේ ද? ඔබේ පිළිතුර සනාථ කරන්න.
+
+(c) Do you consider the service provided by the company through this system to its employee as B2E?
+Justify your answer.
+
+මෙම පද්ධතිය මගින්‌ සමාගම එහි සේවකයින්ට ලබාදෙනු ලබන සේවාව B2E ලෙස ඔබ සලකන්නේ ද ? ඔබේ පිළිතුර
+සනාථ කරන්න.
+
+(1) Company decides to invite an outside expert to the committee. State one negative impact of this
+
+decision.
+මෙම කම්ටුවට පිටස්තර විශේෂඥඤයෙකුට ආරාධනය කිරීමට සමාගම තීරණය කරයි. GOO තීරණයෙහි එක්‌ සෘණ
+බලපෑමක්‌ ප්‍රකාශ කරන්න.
+
+( 2014 ESSAY -- 03 )
+
+The management of the Siri Lak bank has decided to develop a web portal to deliver personalized services
+to its employees. The services include, access banking plans, regulations and policies, register for learning
+Opportunities provided by the bank, quick search, weather reports, communicate with other employees
+and leave and loan related services. According to the chief information officer of the bank, the primary
+
+goal of developing the portal is to enable its employees to manage their personal lives more easily.
+සිරිලක්‌ බැංකුවෙහි කළමනාකාරීත්වය OH සේවකයින්ට පෞද්ගලික වූ සේවාවන්‌ සැපයීම සඳහා වෙබි සංවර්ධනය කිරීමට
+තීරණය කොට ඇත. මෙම සේවාවලට බැංකු සැලසුම්‌, රෙගුලාසි භා ප්‍රතිපත්තිවලට ප්‍රවේශ වීම, බැංකුව විසින්‌ සසයන
+ලද ගෛනුමි සේවා සඳහා ලියාපදිංචි වීම, වේෙගවන්‌ සෙවුම්‌, කාලගුණ වාරතා, අනෙක්‌ සේවකයින්‌ සමග සන්නිවේදනය
+කිරීම, නිවාඩු සහ ණය සම්බන්ධ සේවා අඩංගු චේ. බැංකුවෙහි ප්‍රධාන තොරතුරැ නිලධාරීයාට අනුව මෙම වෙබ්‌ බිහිදොර
+සංවර්ධනය කිරීමේ ප්‍රධාන අරමුණ වන්නේ බැංකු සේවකයින්ට ඔවුන්ගේ පෞද්ගලික ජීවිත වඩාත්‌ පහසුවෙන්‌
+කළමනාකරණය කිරීමට හැකියාව ලබා දීමයි.
+
+(a) What is the e commerce type of the services provided by the above web portal? Justify your answer.
+
+හත GOO බිහිදොර මගින්‌ සපයන සේවාවන්‌ කුමන විද්‍යුත්‌ වාණිජ්‍ය වර්ගයකට අයත්‌ වන්නේ ද ? ඔබේ පිළිතුර
+සන්‍යාපනය කරන්න.
+
+(b) State two potential benefits obtainable to the employees from the above portal.
+QOD GOD බිහිදොර මගින්‌ සේවකයින්ට ලබාගත හැකි ප්‍රතිලාභ දෙකක්‌ සඳහන්‌ කරන්න.
+
+(c) The management of the bank expects that they could get a better service from their employees after
+
+implementing the proposed portal. Do you agree with this idea? Justify your answer.
+යෝජිත වෙබ්‌ බිහිදොර ක්‍රියාවට නැංවීමෙන්‌ පසු බැංකු සේවකයින්ගෙන්‌ වඩාත්‌ හොඳ සේවාවක්‌ ලබාගන හැකි බව
+බැංකුවේ කළමනාකාරීත්වය අපේක්ෂා කරයි. මෙම අදහස සමග ඔබ එකඟ වන්නේ ද? ඔබේ පිළිතුර සත්‍යාපනය
+
+කරන්න.
+( 2016 ESSAY -- 03 [3], [0], [0] )
+
+6.(a)
+
+A state health authority decided to conduct an awareness program as an online service through Internet
+to reduce dengue infection by transmission of the virus through the mosquitoes. This service provides
+information on how to adopt dengue control approaches, such as cleaning the environment, destroying
+
+non essential containers that provide larva habitats etc., in order to minimize mosquitoes’ propagation.
+මදුරැවන්‌ මගින්‌ වයිරසය සම්ප්‍රේෂණය වීමෙන්‌ සිදුවන GHo® ආසාදනය අඩු BOO සඳහා දැනුවත්‌ කිරීමේ වැඩසටහනක්‌
+අන්තර්ජාලය ඔස්සේ මාරිගගත සේවාවක්‌ ලෙස පවත්වාගෙන යාමට රාජ්‍ය ලසෟඛ්‍ය අධිකාරියක්‌ තීරණය කළේ ය.
+මදුරැචවන්ගේ බෝවීම අවම කිරීම සඳහා පරිසරය පිරිසිදු BSOE කීට වාසස්ථාන සපයන අනවශ්‍ය බඳුන්‌ විනාශ කිරීම
+වැනි ඩෙංගු පාලනය කිරීමේ ප්‍රවේශ යොදා ගන්නා ආකාරය පිළිබඳ තොරතුරැ මෙම ඉස්වාව මගින්‌ සපයයි.
+
+(a) To which e-commerce type does this service belong?
+මෙම සේවාව අයන්‌ වන්නේ කුමන 6-වාණිජ්‍ය වර්ගයට ද?
+
+(0) If the service is extended by allowing organizations to register their services targeting minimizing the
+
+spread, what is the e-commerce type of this extended service? Justify your answer.
+මදුරු ව්‍යාප්තිය අවම කිරීම ලෙක්කකොට ගත්‌ DO සේවා ලියාපදිංචි කිරීමට ආයනනවලට eb සලසා දෙන පරිදි
+
+මෙම සේවාව පුළුල්‌ කළහොන්‌ මෙම GEOG කළ සේවාවේ 6-වාණිජ්‍ය වර්ගය කුමක්‌ ද ? ඔබේ පිළිතුර සාධාරණීකරණය
+කරන්න.
+
+(c) Assume that a registered organization provides a service for itself to submit the details of the
+identified dengue breeding places to the state authority online. Why is this service not rightly
+considered as B2B? What is the correct e-commerce type of this service?
+හඳුනාගනු ලැබූ ඩෙංගු මදුරුවන්‌ බෝවන ස්ථාන පිළිබඳ තොරතුරැ, රාජ්‍ය අධිකාරියට මාරිගගතව EQ) දීමට
+ලියාපදිංචි සංවිධානයක්‌ තමන්‌ සඳහාම සේවාවක්‌ සපයා ගන්නා බව උපකල්පනය කරන්න. මෙම සේවාව B2B
+සේවාවක්‌ ලෙස නිවැරදිව සැලකිය නොහැක්කේ ඇයි? GOO සේවාව සඳහා නිවැරදි 6-වාණිජ්‍ය වර්ගය කුමක්‌ ද?
+
+( 2017 ESSAY -- 03[a],[b],[c] )
+
+A business sells handicraft items such as wooden masks, handmade souvenirs, and batik and handloom
+cloths for tourists in a certain city of Sri Lanka. At present customers walk to the shop and buy goods
+
+with cash. The owner plans to start selling his products online through his own web portal.
+
+ශ්‍රී ලංකාවෙහි එක්තරා නගරයක ඇති ව්‍යපාරයක්‌ ලී වෙස්‌ මුහුණු, අතින්‌ සාදනු ලබන සිහිවටන, බනික්‌ සහ අත්‍යන්ත්‍ර
+රෙදිපිළි වැනි අත්කම්‌ භාණ්ඩ සංචාරකයන්ට අලෙවි කරයි. දැනට පාරිභෝගිකයින්‌ විසින්‌ සාප්පුවට පැමිණ, මුදල්‌ ගෙවා
+භාණ්ඩ මිලදී ගනු ලැබේ. හිමිකරු තමන්ගේම වෙබ්‌ ද්වාරයක්‌ මගින්‌ මාර්ගගතව නම භාණ්ඩ අලෙවි කිරීමට සැලසුමි
+කරයි.
+
+(i) State the type of e-business model the owner plans to start.
+ව්‍යාපාර හිමිකරැ විසින්‌ ආරම්භ කිරීමට සැලසුම්‌ කරනු ලබන 65-ව්‍යාපාර ආකෘති වර්ගය සඳහන්‌ කරන්න.
+
+(ii) Assume that a certain tourist hotel situated nearby is willing to publicize the planned online shop in
+their hotel web site.
+
+ආසන්නයේ පිහිටා ඇති එක්තරා සංචාරක හෝටලයක්‌ එහි වෙබි අඩවියෙහි මෙම සැලසුම්‌ කරන ලද මාර්ගගත
+සාප්පුව ප්‍රසිද්ධ කිරීමට කැමැත්ත පළකරන්නේ යැයි උපකල්පනය කරන්න.
+
+(1) What type of e-business model can be established in the above scenario between the
+handicraft business and the hotel?
+මෙම සංසිද්ධියට අදාළව අන්කම්‌ භාණ්ඩ ව්‍යාපාරය සහ හෝටලය අතර කුමන 6-ව්‍යාපාර ආකෘතියක්‌
+ස්ථාපනය කළ හැකි වන්නේ ද?
+
+(2) Briefly explain one possible e-business revenue model each, for the hotel and the proposed
+online shop of the handicraft business.
+
+හෝටලය සහ අන්කමි භාණ්ඩ ව්‍යාපාරයෙහි යෝපිත QOboan සාප්පුව යන එකිනෙක සඳහා 65-ව්‍යාපාර
+ආදායම්‌ ආකෘතියක්‌ බැගින්‌ කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+(ili) State two methods that can be used by the planned e-business for processing online payments.
+සැලසුම්‌ කරන ලද 6-ව්‍යාපාරයෙහි මාරිගගත ෆෙවීමි සැකසීම HEM භාවිත කළ හැකි ක්‍රම දෙකක්‌ සඳහන්‌ කරන්න.
+
+(iv) Briefly explain one e-marketing method that you would propose to attract customers to the planned
+e-business web portal.
+සැලසුම්‌ කරන ලද 6-ව්‍යාපාර වෙබි ද්වාරය සඳහා පාරිභෝගිකයින්‌ ආකර්ෂණය කර ගැනීමට OQ විසින්‌ යෝජනා
+කරනු ලබන 6-අලෙවි කිරීමේ එක්‌ ක්‍රමයක්‌ කෙටියෙන්‌ පැහැදිලි කරන්න.
+( 2018 ESSAY -- 03[a] )
+
+7.(a) ABC Books (Pvt.) Ltd. specializes in buying and selling used secondhand books. At present the business
+operations are fully manual (pure brick).
+ABC Books පුද්ගලික සමාගම, පාවිචිචි කරන ලද පොත්‌ මිල දී ගැනීම හා SAGO සඳහා විශේෂත්වයක්‌ දරයි.
+වරතමානයේදී ව්‍යාපාරික මෙහෙයුම්‌ මුළුමනින්ම අත්යුරැ ක්‍රමයට (පියෝ බ්‍රික්‌) සිදු චේ.
+
+(i) ABC Books (Pvt.) Ltd. starts a website and allows its customers to purchase books online. What is the
+revenue model (method of revenue) applicable in this scenario?
+ABC Books පුද්ගලික සමාගම වෙබි අඩවියක්‌ ආරම්භ කර සිය පාරිභෝගිකයන්ට මාරගගතව පොත්‌ SE දී ගැනීමට
+ඉඩ සලසයි. මෙම සංසිද්ධියට යෙදෙන්නා වූ ආදායම්‌ ආකෘතිය (ආදායම්‌ ලබන ක්‍රමය) කුමක්‌ ද ?
+
+(il) Moving from pure brick type to brick and click business model, what is the most significant challenge
+unique to ABC’s business? Explain your answer.
+පියෝ බ්‍රික්‌ වර්ගයේ සිට බ්‍රික්‌ සහ ක්ලික්‌ ව්‍යාපාර ආකෘතිය කරා යාමේදී ABC Books ච්‍යාපාරයට අනන්‍ය වූ වඩාත්ම
+BLOWS යුතු අභියෝගය කුමක්‌ ද? ඔබේ පිළිනුර පැහැදිලි කරන්න.
+
+Hint - Compare with the online sales of new books
+QOS: OBHOOHDDGEd පොත්‌ විකිණීම සමග සසඳන්න.
+
+(iii) ABC Books (Pvt.) Ltd. has proposed to extend its website to an e-commerce marketplace for used
+books. This marketplace supports B2C, B2B and C2C business types and allows other businesses to
+participate as well. Explain briefly between whom the transactions in each of the business types B2C,
+B2B and C2C will take place in the proposed marketplace.
+
+ABC Books පුද්ගලික සමාගම තම වේබ්‌ අඩ්විය, පාවිච්චි කරන ලද පොත්‌ සඳහා 6-වාණිජ්‍යය වෙළඳපොළක්‌
+දක්චා දීර්ඝ කිරීමට යෝපිත ය. මෙම වෙළඳපොළ B2C, B2B සහ C2C ව්‍යාපාර වර්ගවලට උපකාර OD අතර
+
+වෙනත්‌ ව්‍යාපාරවලට සහභාගීවීමට ද OA) සලසයි. යෝපජිත වෙළඳපොළෙහි B2C, B2B සහ C2C යන චක්‌ චක්‌
+ව්‍යාපාර වර්ගයෙහි ගනුදෙනු කවුරැන්‌ අතර සිදුවන්නේ දැයි කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+(iv) Other than the revenue model you mentioned in (i) above, identify another suitable revenue model
+to be followed by the ABC Books (Pvt.) Ltd. in their proposed e-commerce marketplace.
+
+ABC Books පුද්ගලික සමාගමට ඔවුන්ගේ යෝජිත 6-වාණිජ්‍යය වෙළඳපොළ DE අනුගමනය කළ හැකි හෙත (i)
+හි ඔබ විසින්‌ සඳහන්‌ කරන ලද ආදායම්‌ ආකෘතිය හැර චවෙනත්‌ සුදුසු ආදායමි ආකෘතියක්‌ හඳුනාගෙන ලියා
+දුක්වන්න.
+
+(v) Identify and write down a possible way to make payments within this e-commerce marketplace.
+මෙම 6-වාණිපජ්‍යය වෙළඳපොළ DE ගෙවීම්‌ Be කළ හැකි ආකාරයක්‌ HEMGOD ලියා දක්වන්න.
+
+(vi) Briefly explain how book publishing companies can use the proposed e-commerce marketplace data
+for their businesses.
+
+යෝපිත e-AGISS GHECSHGES දත්ත, පොත්‌ ප්‍රකාශන සමාගම්වලට තම ව්‍යාපාර සඳහා භාවිත කළ හැකි
+වන්නේ කෙසේදැයි කෙටියෙන්‌ පැහැදිලි කරන්න.
+( 2019 ESSAY -- 031] )
+
+8.(a) AB Stores is a grocery shop in your home town. With your expert advise, AB Stores has implemented a
+web-based e-commerce system to conduct their business online as well. Customers can select their
+required products and confirm the order online.
+
+AB Stores යනු ඔබගේ නගරයෙහි ඇති සිල්ලර බඩු සාප්පුවකි. ඔබගේ විශේෂඤ උපදෙස්‌ මත AB Stores විසින්‌
+
+මාරගගතව ව්‍යාපාරය සිදු කිරීම සඳහා වෙබි පාදක කරගත්‌ 6-වාණිජ්‍ය පද්ධතියක්‌ ස්ථාපිත කරන ලදී. පාරිභෝගිකයන්ට
+මාරගගතව අවශ්‍ය නිෂ්පාදන තෝරාගෙන ඇණවුම ස්ථීර කළ හැකි වේ.
+
+(i) What is the e-commerce business type applicable in this scenario?
+මෙම සංසිද්ධියට අදාළ වන 6-වාණිජ්‍ය ව්‍යාපාර ප්‍රවර්ගය කුමක්‌ දු ?
+
+(ii) What is the revenue model used in this e-commerce offering of AB Stores?
+6-වාණිජ්‍ය මගින්‌ AB Store දිෙර්පත්‌ කරනු ලබන ආදායම්‌ ආකෘතිය කුමක්‌ ද ?
+
+(ili) The e-commerce solution of AB Stores became popular rapidly with a growing userbase. However, it
+was noticed that most of the regular customers from the local community still preferred using the
+physical outlet than the e-commerce offering. Identify two possible reasons for such preference.
+AB Stores හි 65-චාණිජ්‍ය විසඳුම, වර්ධනය වන SOGEW ප්‍රජාවත්‌ සමග වේගයෙන්‌ ජනප්‍රිය විය. වසේවුවද, එම
+ප්‍රදේශයේ ප්‍රජාව ends) අවට සිටින, නිතිපතා පැමිණෙන පාරිභෝගිකයන්‌ වැඩි පිරිසක්‌ තවදුරටත්‌ එහි භෞතික
+වෙළඳ අංශය භාවිත කිරීමට වැඩි කැමැත්තක්‌ දක්වන QO දැනගන්නට ලැබුණි. මෙවැනි කැමැන්තකට තිබිය හැකි
+හේතු දෙකක්‌ ලියා දක්වන්න.
+
+(iv) AB Stores extended its e-commerce system to integrate with its suppliers’ systems to maintain its
+product stocks through automation. What is the e-commerce business type AB Stores implements
+with this system modification?
+
+AB Stores විසින්‌ සිය 6-වාණිජ්‍ය පද්ධතිය තම භාණ්ඩ තොග නඩත්තු කිරීම සඳහා තම සැපයුම්කරැවන්ගේ පද්ධනි
+සමග ස්වයංකරණය මගින්‌ ඒකාබද්ධ කරන ලදී. මෙම පද්ධති නවීකරණය මගින්‌ AB Stores ක්‍රියාත්මක කරන e-
+වාණිජ්‍ය ව්‍යාපාර ප්‍රවර්ගය කුමක්‌ ද?
+
+(v) AB Stores decides to expand its e-commerce solution allowing other local shops to have virtual stores
+within the system. What is the term used to identify the proposed system?
+AB Stores එම ප්‍රදේශයේ චෙනන්‌ සාප්පු සඳහා තම පද්ධතිය තුළ අතථ්‍ය වෙළඳසැල්‌ SODOIOD යාමට ඉඩ
+ලබාදෙමින්‌ නම 6-වාණිජ්‍ය විසඳුම පුළුල්‌ කිරීමට තීරණය කරයි. යෝපිත පද්ධතිය හළුනාගැනීමට භාවිත කෙරෙන
+පදය කුමක්‌ ද?
+
+(vi) Write down one advantage that each of the following will receive by having the proposed system in
+(v) above.
+ඉහත (V) හි යෝපිත පද්ධතිය මගින්‌ පහත චීක්‌ එක්‌ අයට ලැබෙන චක්‌ වාසියක්‌ බැගින්‌ ලියා දක්වන්න.
+
+(1) Customers / පාර්භෝගිකයන්‌
+(2) AB Stores
+(3) other local shops / චම ප්‍රදේශයෙහි වෙනත්‌ සාප්පු
+
+(vil) A recent market survey has identified the following about the customers who have registered with
+the AB Stores e-commerce system proposed in (v) above:
+
+මෑනක දී කරන ලද තතු විමසීමකට අනුව ඉහන (v) කොටසෙහි AB Stores සඳහා යෝපිත 6-වාණිජ්‍යෲ ැැපද්ධතියෙහි
+ලියාපදිංචි වූ පාර්භෝගිකයන්‌ පිළිබඳ පහත දැක්වෙන දෑ හඳුනාගන්නා ලදී.
+
+e 98% are nearby residents within a 2 km radius.
+98% ක්‌ කිලෝමීටර්‌ 2 ක වපසථයක්‌ තුළ BOD ළඟපාත පදිංචිකරැවන්ය.
+
+e 12% of them are able to pay online (either through credit/debit cards or mobile cash options)
+12% ක්‌ (ණයපන්‌ හෝ හරපත්‌ හෝ ජංගම ගෙවීම Ge} විකල්ප මගින්‌) මාරිගගතව GOBS කළ හැකි අය වේ.
+
+e 18% do not wish to pay in advance for a future transaction.
+18% ක්‌ අනාගතයෙහි සිදු වන ගනුදෙනුවක්‌ සඳහා කල්‌ ඇතිව මුදල්‌ ගෙවීමට අකමැති අය වේ.
+
+What is your suggestion to enable most of the registered customers to make purchases successfully
+
+through the system and receive their goods at home without any restriction? Explain your answer.
+ලියාපදිංචි පාරිභෝගිකයන්‌ අතුරෙන්‌ වැඩි පිරිසකට කිසිදු සීමා කිරීමකින්‌ නොරව, පද්ධතිය හරහා මිලදීගැනීම්‌ි
+
+සාර්ථකව සිදු කර භාණ්ඩ නිවසට ලබා ගැනීමට සැලසීම සඳහා ඔබේ යෝජනාව කුමක්‌ |? ඔබේ පිළිනුර පැහැදිලි
+කරන්න.
+
+(vill) With the expected growth of the e-commerce business of AB Stores, you have advised them to
+outsource the delivery of customer purchased goods to a third-party delivery service. Explain two
+advantages AB Stores can get by doing so.
+
+AB Stores හි 6-වාණිජ්‍ය ව්‍යාපාරයෙහි අපේක්ෂිත වර්ධනය සමග, පාටිභෝගිකයන්‌ මිලදී ගත්‌ භාණ්ඩ බෙදා හැරීම,
+භාණ්ඩ බෙදා හැරීම සිදු කරනු ලබන තුන්වන පාරිශ්වයකට පැවරීමට ඔබ විසින්‌ උපදෙස්‌ දී ඇන. මෙසේ කිරීමෙන්‌
+
+AB Stores වෙත ලැබිය හැකි වාසි දෙකක්‌ පැහැදිලි කරන්න.
+( 2020 ESSAY -- 07 [5] )
+
+9.(a) PQR Books, a book shop in your area starts an E-Commerce site to expand its business and to provide
+services to the customers in other areas. Through it the customers can select their desired books and
+Stationery products and confirm their orders online.
+
+ඔබ ප්‍රදේශයේ තිබෙන PQR Books පොත්‌ සාප්පුව, තම ව්‍යාපාරය ව්‍යාප්ත කිරීමට ao අනෙකුත්‌ ප්‍රදේශවල සිටින
+පාරිභෝගිකයන්ටද තම සේවා සැපයීමට ටරවාණිජ්‍ය අඩවියක්‌ ආරම්භ කරයි. එය හරහා MOBO ඇවැසි පොන්‌ සහ
+ලිපිද්‍රව්‍ය තේර්ම සහ ඇනවුම්‌ ස්ථිර BSO මාර්ගගතව කිරීමට පාරිභෝගිකයින්ට හැකි චේ.
+
+(i) What is the E-Commerce business type applicable in this scenario?
+මෙයට අදාළ වාණිජ්‍ය ව්‍යාපාර ප්‍රවර්ගය කුමක්‌ ද්‍ර ?
+
+(ii) What is the revenue model used in this E-Commerce site of PQR Books?
+PQR Books හි මෙම -වාණිජ්‍ය අඩවිය භාවිත කරන ආදායම්‌ ආකෘතිය කුමක්‌ ද්‍ර?
+
+(111) With the successful implementation of its E-Commerce site, PQR Books decides to offer digital
+learning material such as e-books and audio-visual content to its customers. Do you recommend the
+Same revenue model of (ii) above for this as well? Justify your answer.
+එම ට-වචාණිජ්‍ය අඩවියේ සාරිථකත්වයන්‌ සමග, පොත්‌ සහ අනෙකුත්‌ ශ්‍රව්‍ය දෘශ්‍ය සන්ධාර අඩංගු අංකන ගෛනුම්‌
+COB තම පාරිභෝගිකයින්ට දිරිපත්‌ කිරීමට PQR Books තීරණය කරයි. මෙය සඳහා ද හෙත (il) හි දැක්වූ
+ආදායම්‌ ආකෘතියම ඔබ යෝජනා කරන්නෙහි ද ? ඔබගේ පිළිතුර සාධාරණීකරණය කරන්න.
+
+(iv) For an increased customer base and popularity, PQR Books plans to provide free access to these
+digital content through its streaming channel. Suggest a strategy to increase its business revenue
+
+with the help of this proposed streaming channel
+වඩා SME පාරිභෝගික පදනමක්‌ සහ ජනපියනාවයක්‌ සඳහා ප්‍රවාහ චැනලයක්‌ හරහා එම අංකන අන්තනරිගත
+
+නොමිලේ ඉදිරිපත්‌ කිරීමට PQR Books සැලසුම්‌ කරයි. මෙම යෝජිත ප්‍රවාහ චැනලය හරභා ඔවුන්ගේ ව්‍යාපාර
+ආදායම හෙළ නැංවීමට ආදායමි උපායමාර්ගයක්‌ යෝජනා කරන්න.
+
+(v) Write down a key challenge this bookshop has to face when implementing this digital content
+channel proposed in (iv) above.
+
+හත (IV) හි යෝජිත අංකන අන්තර්ගත චැනලය ක්‍රියාත්මක කිරීමෙදී GOO පොත්‌ සාප්පුවට මුහුණ දිය යුතු ප්‍රධාන
+අභියෝගයක්‌ ලියා දුක්වන්න.
+
+(vi) Name a suitable expansion solution for this E-Commerce site to incorporate both related (e.g., books,
+Stationery etc.) and unrelated (e.g., grocery items, etc.) products or services to enable a more
+
+competitive purchasing experience to its customers.
+පාරිභෝගිකයින්ට වඩාත්‌ තරගකාරී මිලදී ගැනීම්‌ අත්විඳීමක්‌ ලබාදීමට, සම්බන්ධිත භාණ්ඩ (උදා: පොත්‌, ලිපිද්‍රව්‍ය
+වැනි) සහ සම්බන්ධයක්‌ නැති භාණ්ඩ (උදා: සිල්ලර බඩු වැනි) සහ සේවා එකාබද්ධ කර මෙම ~වාණිජ්‍ය අඩවිය
+
+පුළුල්‌ කිරීමේ විසඳුම නම්‌ කරන්න.
+( 2021 ESSAY -- 07 [5] )
+
+10.(6) The owner has started an online shop to sell the harvest from this greenhouse to buyers who are nearby.
+අවට වෙසෙන ගැණුමකරැවන්ට හරිතාගාරයේ අස්වැන්න අලෙවිකිරීමට මාර්ගගත වෙළෙඳසැලක්‌ අයිතිකරැ අරඹා ඇත.
+
+(i) State one advantage of limiting sales to the community nearby the greenhouse.
+SAMO, හරිතාගාරය අවට වෙසෙන ප්‍රජාවට BO) කිරීමේ චාසියක්‌ ලියා දක්වන්න.
+
+(il) State an alternative payment method that can be used until an online payment facility is setup.
+මාර්ගගත ගෙවීමි පහසුකම සපයන තුරැ භාවිත කළ හැකි විකල්ප ගෙවීමි ක්‍රමයක්‌ ලියා දක්වන්න.
+
+(iii) He cultivated tomatoes and sells salted dried tomatoes online (as a snack). This, known as value
+addition, gives higher profits. Give another advantage of this value-addition to his e-business.
+ඔහු තක්කාලි වගා කර, ලුණු දැමූ වියළි තක්කාලි සුළු අහරක්‌ ලෙස මාරිගගත ක්‍රමයට අලෙවි කරයි, අගය වැඩි
+කිරීම ලෙස හඳුන්වන මෙයින්‌ වැඩි ලාභයක්‌ ලැබේ. ඔහුගේ ව්‍යාපාරයට මෙම අගය වැඩි කිරීම නිසා ලැබෙන
+තවන්‌ වාසියක්‌ ලියා දක්වන්න.
+( 2022 ESSAY -- 07 [6] )
+
+11.(0) SuperMobile is an online mobile phone shop where customers can purchase mobile phones through its
+e-Commerce site. SuperMobile uses the third-party courier service DeliverToday as its delivery partner.
+The customers who purchase mobile phones from SuperMobile become members of the loyalty program.
+They can upload their reviews, feedback, and creative content related to their mobile phone usage to
+the online site and receive beneficial loyalty points in return.
+SuperMobile යනු මාර්ගගත ජංගම දුරකථන අලෙවිසැලක්‌ වන අතර OH ඉ-වාණීජ්‍යය අඩවිය හරහා
+පාරිභෝගිකයන්ට ජංගම දුරකථන මිලයට ගත හැකිය. SuperMobile තම තූන්වන පාරිශව බෙදාහැරීමි හවුල්කරැ
+ලලස [9061[%/61"1013)/ Em සේවය භාවිනා කරයි. SuperMobile වෙනින්‌ ජංගම දුරකථන මිලදී ගන්නා පාරිභෝගිකයින්‌
+
+ප්‍රසාද (ලෝයලටි) වැඩසටහනේ සාමාපිකයින්‌ බවට පත්‌ GH. ඔවුන්ට තම ජංගම දුරකථන භාවිතයට අදාළ විචාර, පසු
+විපරම්‌ සහ නිරිමාණශීලී අන්තරගත මාර්ගගත අඩවියට උඩුගත කර, JF සදහා ආපසු, වාසිසහගත ප්‍රසාද ලකුණු
+ලබාගත හැක.
+
+(i) Write down the e-Business transaction types that are possible with SuperMobile.
+SuperMobile සමග සිදු කළ හැකි ඉ ව්‍යාපාර ගණුදෙනු වරිග ලියා දක්වන්න.
+
+(il) SuperMobile owners speculate that establishing their own delivery team for customer deliveries can
+be cost-effective and more profitable than using the DeliverToday service. Analyse this speculation
+by giving one reason each for and against this view. (Note: Consider the financial aspects only.)
+DeliverToday සේවාව mdm කරනවාට වඩා, පාරිභෝගික බෙදාහැරීම සඳහා, නමන්ගේම බෙදාහැරටීමි
+කණ්ඩායමක්‌ ස්ථාපිත කිරීම පිරිවැය ඵලදායි සහා වඩාත්‌ ලාභදායි බවට SuperMobile හිමිකරුචෝ අනුමාන කරති.
+මෙම දැක්මට පක්ෂව සහ විපක්ෂව චක්‌ හේතුවක්‌ බැගින්‌ දක්වමින්‌ ODO අනුමාන විශ්ලේෂණය කරන්න. (සටහන:
+මූල්‍යමය පැතිකඩ පමණක්‌ සලකන්න.)
+
+(ili) Mobile phones are not perishable and thus don't indicate expiry dates. However, they often have a
+finite shelf life beyond which the customers are reluctant to purchase them. Give a reason for this
+
+observation.
+
+ජංගම දුරකථන විනාශ නොවන Sen චවායේ කල්‌ කුත්‌ වන දින දක්වන්නේ නැත. එනමුදු, HOO බොහෝ SO
+සීමිත රාක්ක ජිවිත කාලයක්‌ ඇති නිසා එයින්‌ පසු JO) මිලට ගැනීමට පාරිභෝගිකයින්‌ අකැමැති වේ. මෙම
+නිරීක්ෂණයට චඑක්‌ හේනුවක්‌ දක්වන්න.
+
+(iv) Suggest a suitable business strategy that SuperMobile can use both to reduce the environmental
+damage due to e-waste and also to increase its sales.
+ඉ~අපද්‍රව්‍ය නිසා සිදුවන පටිසර විනාශය අඩු කිරීමට සහ නම විකුණුමි හෙළ දැමීමට යන දෙකම සඳහා
+SuperMobile ආයනනයට භාවිත කිරීමට සුදුසු ව්‍යාපාර උපායක්‌ යෝජනා කරන්න.
+
+( 2024 ESSAY - 07 [0] )
+
+12. Saman owns a small shop, ‘Ceylon Crafts’ in Kandy, which sells wood carvings and batik fabrics mainly to
+tourists. At the moment it is run entirely as a physical shop, with customers visiting in person and paying
+in cash.
+සමන්‌ සංචාරකයින්‌ මූලික කරගත්‌, මහනුවර පිහිටි Ceylon Crafts නමැති ලී කැටයමි සහ බතික්‌ රෙදි අලෙවි කරන, කුඩා
+
+සාප්පුවක අයිතිකරැවෙකි. දැනට මෙය පාරිභෝගිකයින්‌ පැමිණ මුදල්‌ මගින්‌ ගනුදෙනු කරන භෞතික සාප්පුවක්‌ ලෙස
+පවත්වාගෙන යනු ලැබේ.
+
+(a) While keeping his physical shop, Saman decides to join the digital economy. For this, he creates an
+
+online shop to list his products and to accept online payments from customers.
+
+භෞත්ක සාප්පුව පවත්වාගෙන යන අතරම, සමන්‌ අංකිත ආර්ථිකයට සම්බන්ධ වීමට තීරණය කරයි. ඒ සඳහා
+ඔහු, තම නිපැයුම්‌ ලැයිස්තුව දැක්වීමට සහ පාරිභෝගිකයින්ගෙන්‌ මාරිගගත ෆෙවීමි ලබාගැනීමට, මාරිගගත
+සාප්පුවක්‌ සාදයි.
+
+(i) Previously, the business operated as a pure brick organization. After introducing the online
+
+shop, what is the new form of the business?
+ව්‍යාපාරය මෙතෙක්‌ ක්‍රියාත්මක වූයේ පියෝබ්‍රික්‌ සංවිධානයක්‌ ලෙසිනි. මාර්ගගත සාප්පුව හඳුන්වාදීමෙන්‌
+
+පසු, ව්‍යාපාරයේ නව ස්වරෑපය කුමක්‌ ද ?
+
+(1) Saman makes agreements with some nearby tourist hotels to display his products on their
+websites to direct buyers to his online shop. State the e-commerce transaction type between
+
+Saman and the tourist hotels selecting from B2B, B2C, C2C and C2B.
+අවට සංචාරක හෝටලවල GHD අඩවිවල, තමාගේ නිපැයුම්‌ ප්‍රදර්ශනය කරමින්‌, ගැනුම්කරැවන්‌ තම
+මාරගගත සාප්පුවට යොමු කරවා ගැනීමට සමන්‌ එම හෝටල්‌ සමග එකඟනාවයන්ට පැමිණේ. සමන්‌ සහ
+
+සංචාරක හෝටල්‌ අතර සිදුවන -වාණිජ්‍යය ගනුදෙනු වර්ගය 626, B2C, C2C සහ (25 අතුරෙන්‌ තෝරා
+ලියන්න.
+
+(ili) From the types listed in (ii) above, what is the e-commerce transaction type between Saman
+and a customer who buys a product online?
+මහත (il) හි දක්වා ඇති OBO අතුරෙන්‌, මාර්ගගතව නිපැයුමක්‌ මිලට ගන්නා පාරිභෝගිකයකු සහ සමන්‌
+අතර සිදුවන ~වාණජ්‍යය ගනුදෙනු වර්ගය කුමක්‌ ද ?
+
+(iv) Write down one payment method that Saman could provide for customers in his online shop.
+සමන්ට තම මාරගගත සාප්පුවේ, පාරිභෝගිකයන්‌ වෙනුවෙන්‌ සැපයිය හැකි චීක්‌ ගෙවීමි ක්‍රමයක්‌ ලියා
+දුක්වන්න.
+
+(v) Saman wants to expand his online shop to local suppliers who desire to supply their crafts to
+Saman. For this purpose, the suppliers are to be given the facility to upload the images of
+their crafts, submit their prices and the way to contact them. List four digital divide related
+
+problems that Saman could face in this endeavour.
+
+තම නිපැයුම්‌ සමන්ට සැපයීමට අභිලාෂයෙන්‌ සිටින ප්‍රාදේශීය සැපයුමිකරැවන්ටත්‌ මාරිගගත සාප්පුව
+ව්‍යාප්ත කිරීමට සමන්ට අවශ්‍ය Gd. ඒ සඳහා සැපයුම්කරැවන්ට තම නිපැයුම්වල රෑප උඩුගත කිරීමට,
+ඒවායේ මිල ගණන්‌ සහ තමන්‌ සම්බන්ධ කර හැකි මග සැලකර සිටීමේ පහසුකම ලබා දිය යුතු ය. මී
+ප්‍රයත්නයේ දී සමන්ට මුහුණදීමට සිදු විය හැකි, අංකිත බෙදුම ආශ්‍රිත ගැටලු හතරක්‌ ලැයිස්තුගත කරන්න.
+
+(vi) For one of the problems that you listed in (v) above, explain a solution that Saman could
+provide.
+ඉහත (V) සඳහා ඔබ ලැයිස්තුගත කළ චීක්‌ ගැටලුවකට සමන්ට ලබාදිය හැකි විසඳුමක්‌ පැහැදිලි කරන්න.
+
+( 2025 ESSAY -- 07[a] )
+
+LESSON 13 PAST PAPERS
+
+Consider the following statements:
+පහන දැක්වෙන ප්‍රකාශ සලකා බලන්න.
+
+A - Reading time from memory (latency) was assumed to be negligible.
+මතකයෙන්‌ කියවීමේ MOE පමාව නොගිණිය හැකි යැයි උපකල්පනය කිරීම.
+
+B - Utilization of a hierarchical memory structure. / ධූරාවලි ස්මරණ ව්‍යුහය භාවිත කිරීම.
+
+C - Inability to foresee the limitation of the processor clock frequency.
+සකසු ස්පන්ද සංඛ්‍යාතයෙහි සීමාව පූරිවයෙන්‌ දැකීමට නොහැකි වීම.
+
+Which of the above prevented the technological advancement beyond the Von Neumann architecture?
+වොන්‌ නියුමාන්‌ නිරිමාණකරණය කේමවන සේ තාක්ෂණික වර්ධනය වළක්වන ලද්දේ gow දැක්වෙන කවරක්‌ විසින්‌ ද ?
+
+1) A only 2) B only 3) C only 4) A and 6 only 5) A and C only
+A පමණි B පමණි C පමණි A & B පමණි & හා C පමණි
+( 2011 - 33)
+
+Consider the following computer applications:
+පහත දැක්වෙන පරිගණක GHEO සලකන්න
+
+A - Guiding Tourists based on their current location.
+සංචාරකයින්ට ඔවුන්‌ දැනට සිටින ස්ථානය පදනම්‌ කර ගනිමින්‌ මඟ පෙන්වීම
+
+B ~ Customization of automobiles / රථවාහන අභිරැච්ිකරණය
+C - Advertising via Internet / අන්නරිජාල හරහා ප්‍රචාරණය
+D - Customization of domestic environments / දේශීය පරිසර අහිරුැචිකරණය
+
+Which of the above applications are most favourably benefited from ubiquitous computing?
+සාර්වත්‍රචරිතී ආගණනය මගින්‌ වඩාත්ම ප්‍රතිලාභ ලබා ඇන්තේ QHD දැක්වෙන කවරක්‌ ද ?
+
+1)AandBonly 2)BandConly  3)A,BandConly  4)A,BandDonly 5) B, C and D only
+AmB පමණි Ben C පමණි A, B හා C පමණි A, B හා D පමණි B, Can D පමණි
+
+(2011 - 34)
+
+Consider the following characteristics:
+පහන සඳහන්‌ ලාක්ෂණික සලකා බලන්න:
+
+A ~ Autonomous / ස්වනන්ත්‍ර
+
+B - Performs in dynamic environments / ගතික පරිසරචලදී ක්‍රියාකාරිත්වය
+
+C - Functions restricted to a time period / කාරියයන්‌ කාල වකවානුවකට BOHO
+
+D - Interacts with highly increasing information / බහුලව වර්ධනය වන තොරතුරැ සමඟ asad ක්‍රියාකාරීත්වය
+
+Which of the above are characteristics of a Software Agent?
+මෘදුකාංග කාරකයක ලාක්ෂණික වන්නේ ඉහත සඳහන්‌ කවර Hd ද ?
+
+1) A and B only 2) A and C only 3)A,BandConly 4)A,Band Donly 5) B, C and D only
+Am B පමණි Am C පමණි A, B හා C පමණි A, B හා 1) පමණි 8, Ce D පමණි
+
+( 2012 ~ 32)
+
+Ubiquitous computing will be useful in applications such as,
+විදේශ රටක රැකියාවක SQD පුද්ගලයෙක්‌, ශ්‍රී ලංකාවේ වෙසෙන සිය මවටල GO සමාගමක වෙබි පාදක සේවා උපයොගී
+කරගනිමින්‌ උපන්දින ත්‍යාගයක්‌ ලැබෙන්නට සැලැස්වීම සඳහා මාරිගගත ඇනවුමක්‌ කරයි. උපන්දින ත්‍යාගය ඇනවුමි
+කිරීමේ මෙම ගනුදෙනුව වඩාත්ම හොඳින්‌ වර්ගීකරණය කළ හැක්කේ,
+
+1) Customisation of a domestic environment / දේශීය පරිසර අභිරැචිකරණය වැනි යෙදුම්වලදී ය.
+
+2) Processing of large scale examination results / මහා පරිමාණයේ විහාග ප්‍රතිඵල සැකසුම වැනි යෙදුම්වලදී ය.
+3) Auto Teller Machine (ATM) / ස්වයංකෘත GOEK යන්ත්‍ර වැනි යෙදුම්වලදී ය.
+
+4) Point of Sales (POS) Machine / විකුණුම්පොල යන්ත්‍ර වැනි යෙදුම්වලදී ය.
+
+5) Controlling a wall clock / බින්ති ඔරලෝසුවක්‌ පාලනය වැනි යෙදුම්වලදී ය. (2012 - 33)
+
+5.
+
+Ubiquitous Computing Is a/an. ……-.-- computing environment. The user will be able to use both……
+AN ……-- Services,
+Which of the following is most appropriate to fill the blanks in the above statement?
+
+සට්වවර්තී ආගණනය කයනු …… HOGI පරිසරයකි. මෙහි දී පරශීලකයාට …… හා …… සේවා
+දෙක ම ලබා OD හැකිය.
+හත වගන්තියේ හිස්තැන්‌ පිරවීම සඳහා වඩාත්‌ ම යෝග්‍ය චචන අනුපිළිවෙළ කවරක්‌ ද ?
+
+1) everywhere, mobile, local / සැමතනැනකම පවතින, ජංගම, ස්ථානීය
+
+2) everywhere, local, remote / සැමනැනකම පවතින, ස්ථානීය, දුරස්ථ
+
+3) everywhere, local, paid / සැමතැනකම පවතින, ස්ථානීය, ගෙවීම්‌ කළ
+
+4) virtual, local, remote / අතථ්‍ය, ස්ථානීය, දුරස්ථ
+
+5) virtual, mobile, global / අතථ්‍ය, ජංගම, ගෝලීය (2013 ~ 48)
+
+Which of the following systems should always be based on Artificial Intelligence?
+SOD SOB අතුරෙන්‌ සැමවිට ම කෘත්‍රීම බුද්ධිය මත පදනම්‌ වන්නේ කවරක්‌ ද ?
+
+A ~ Expert Systems / විශේෂඥ පද්ධති
+
+B - Enterprise Resource Planning (ERP) Systems / ව්‍යවසාය සම්පන්‌ සැලසුමි පද්ධති
+C - Multi-Agent Systems / බහු වි්ජන්න sd@Os
+
+D - Geographical Information Systems / භූගෝලීය තොරතුරැ SEO
+
+1) A and B only 2) A and C only 3) A and D only 4) B and D only 5) C and D only
+AmB පමණි Am ( පමණි A, හා D පමණි B හා D පමණි Cm [| පමණි
+( 2014 -- 45 )
+Consider the following statements about Software Agents:
+මෘදුකාංග නියෝපිතවරැ සම්බන්ධයෙන්‌ පහත සඳහන්‌ වගන්ති සලකා බලන්න;
+
+A ~ A software agent is capable of autonomous actions in order to meet its design objectives.
+මෘදුකාංග නියෝපිතයෙකුට ඔහුගේ සැලසුම්‌ අරමුණු සපුරා ගැනීම සඳහා ස්වායත්නව Gao කිරීමට හැකියාවක්‌ ඇත.
+
+B ~ A software agent is capable of user-directed actions in order to meet users objectives.
+මෘදුකාංග නියෝජිතයෙකුට පරිශීලකයන්ගේ අරමුණු සපුරාලීම සඳහා පරිශීලක යොමුවලින්‌ ක්‍රියා කිරීමට හැකියාවක්‌
+ඇත.
+
+ල ~ A multi-agent system is composed of set of interacting agents.
+බහු-නියෝපිත පද්ධතියක්‌ සමන්විත වන්නේ අන්තරක්‍රියාකාරීත්වයෙන්‌ යුතු නියෝප්තවරැ සමූහයකිනි.
+
+Which of the above statements is/are true?
+QOD ප්‍රකාශ අතුරෙන්‌ නිවැරදි චන්නේ කුමන ප්‍රකාශය/ ප්‍රකාශ ද?
+
+1) A only 2) B only 3) C only 4) A and 6 only 5) A and C only
+A පමණි B පමණි C පමණි A & B පමණි & හා C පමණි
+( 2014 - 49 )
+
+Which of the following is incorrect about software agents?
+මෘදුකාංග නියෝපිතවරැ සම්බන්ධයෙන්‌ වැරදි වන්නේ පහත සඳහන්‌ කුමක්‌ ද ?
+
+1) They exhibit some degree of autonomy. / ඔවුන්‌ යමි ප්‍රමාණයකට ස්වාධිකාරය පෙන්නුම්‌ කරයි.
+2) They area subset of reactive systems. // ඔවුන්‌ ප්‍රතික්‍රියක පද්ධතිවල උපකුලකයක්‌ වේ.
+
+3) They are proactive in terms of their ability to exhibit goal-directed behaviour.
+ඉලක්කගත චරියාවන්‌ පෙන්නුම්‌ කිරීමේ හැකියාව සම්බන්ධයෙන්‌ ඔවුන්‌ ප්‍රකීය චේ.
+
+4) Electronic commerce is one of the key application areas of them.
+Heya වානිජ්‍ය ඔවුන්ගේ ප්‍රධාන යෙදුම්‌ ක්ෂේත්‍රයක්‌ වේ.
+
+5) They are always cooperative in a multi-agent environment.
+බහු නියෝජිත පරිසරයක දී ඔවුන්‌ සැමවිට ම එකමුතු වේ. ( 2015 - 49 )
+
+9. Which of the following is/are examples for artificial intelligence techniques?
+කෘත්‍රිම බුද්ධි කත්‍රමමෝපා සඳහා පහත සඳහන්‌ කවරක්‌ උදාහරණ වන්නේ ද ?
+
+A ~ Neural Networks / tenga ජාල
+B - Genetic Algorithms / ජාන ප්‍රවේණි අඇල්ගොරතම
+C - Ubiquitous Computing / සාරවත්‍රික පරිගණනය
+
+1) A only 2) B only 3) A and B only 4) A and C only 5) B and C only
+පමණි B පමණි A හා B පමණි Am C පමණි Bem C පමණි
+(2015-50)
+
+10. Consider the following statements:
+පහන සඳහන්‌ ප්‍රකාශ සලකන්න:
+
+A - Software Agents are computer programs. / මෘදුකාංග විජන්තවරු පරට්ගණක ක්‍රමලේඛ GS.
+
+B - Some computer viruses could be considered as software agents.
+ඇතැමි පරිගණක GGOHOE මැදුකාංග ඒජන්නවරැන්‌ ලෙස සැලකිය හැකි ය.
+
+C - All software agents have user interfaces. / සියලු මෘදුකාංග චජන්තවරැන්ට පරිශීලක අතුරැ මුහුණත්‌ පවතී.
+
+Which of the above statements is/are correct?
+GOD සඳහන්‌ කුමන වගන්ති/ වගන්නිය නිවැරදි වන්නේ ද ?
+
+1) A only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+A පමණි Ae B පමණි A හා C පමණි 8 හා C පමණි හන සියල්ලම
+( 2016 -- 49 )
+
+11. Which of the following statements is true about Artificial Intelligence?
+කෘත්‍රිම බුද්ධිය සම්බන්ධයෙන්‌ පහත දැක්වෙන කුමන වගන්තිය සත්‍ය GO ද?
+
+1) Inference Engine in an Expert System completely mimics human decision making process.
+විශේෂඥ පද්ධතියක අනුමාන යන්ත්‍රය මානව තීරණ ගැනීමේ ක්‍රියාවලිය මුළුමනින්‌ ම අනුකරණය කරයි.
+
+2) Knowledge Base in an Expert System consists only the primary knowledge of an expert.
+විශේෂඥ පද්ධතියක දැනුම්‌ සමුදායක්‌ තුළ විශේෂඥයකුගේ ප්‍රාථමික දැනුම පමණක්‌ අඩංගු Gd.
+
+3) Expert systems are always implemented by using Genetic Algorithms.
+විශේෂඥ පද්ධති සැමව්ට © ජානමය ඇල්ගොරිතම මගින්‌ ක්‍රියාත්මක කෙරේ.
+
+4) Genetic Algorithms provide only one solution to a given problem.
+ජානමය ඇල්ගොරිතම මගින්‌ දී ඇති ගැටලුවක්‌ සඳහා එක්‌ පිළිතුරක්‌ පමණක්‌ ලබා Gd.
+
+5) Genetic Algorithm evolves a solution for a given problem over a number of iterations.
+ජානමය ඇල්ගොරිතම දී ඇති ප්‍රශ්නයක විසඳුම පුනරිකරණ කිහිපයක දී පරිණාමනය කරයි. ( 2017 -- 28)
+
+12. Consider the following clauses:
+පහන දැක්වෙන වගන්ති සලකන්න:
+
+A ~ can response to relevant environment changes. / අදාළ පාරසරක වෙනස්කම්වලට ප්‍රතිචාර දැක්විය හැකි ය.
+
+B ~ always acts according to well-defined user instructions.
+හොඳින්‌ අර්ථ දක්වා ඇති පරිශීලක උපදෙස්‌ අනුව සෑම විට © ක්‍රියා කරයි.
+
+C - performs only pre-defined set of tasks. // පූර්ව අර්ථ දැක්වූ කාරිය සමූහයක්‌ පමණක්‌ @Q කරයි.
+
+D - can make decisions under incomplete information.
+අසම්පූර්ණ තොරතුරැ මත තීරණ ගැනීමට හැකියාවක්‌ ඇත.
+
+Which of the above can be considered as properties of software agent system?
+GOD සඳහන්‌ ඒවායින්‌ මෘදුකාංග ඒජන්ත පද්ධතියක ගුණාංග ලෙස සැලකිය හැක්කේ මොනවා |?
+
+1) A and 6 only 2) A and C only 3) A and D only 4) B and C only 5) C and D only
+AmB පමණි Am C පමණි A, හා D පමණි Bem C පමණි Cm [0 පමණි
+
+( 2017 -50)
+
+13.
+
+14.
+
+15.
+
+A smart home application that automates the controlling of lighting, temperature, entertainment systems,
+and appliances is an example for,
+
+ආලෝකකරණය, උෂ්ණත්වය, විනෝදාස්වාද පද්ධති හා උපකරණ පාලනය කරන සුහුරැ නිවෙස්‌ යෙදුමක්‌ පහත කවරකට
+උදාහරණයක්‌ වේ ද?
+
+1) evolutionary computing / පරිණාමික පටගණනය
+
+2) multi-agent systems // බහු චීජන්ත පද්ධති
+
+3) nature inspired computing / ස්වභාව ධර්මයෙන්‌ අනුප්‍රාණිත පටගණනය
+
+4) software agents / මෘදුකාංග චීජන්න
+
+5) ubiquitous computing / සාරිවතික පරගණනය (2018 ~ 32 )
+
+Consider the following statements regarding artificial intelligence.
+කෘත්‍රිම බුද්ධිය සම්බන්ධ පහත ප්‍රකාශ සලකන්න.
+
+A - Artificial intelligence systems can be used in email spam filters.
+අයාචිත තැපැල්‌ පෙරහන්‌ තුළ කෘත්‍රිම බුද්ධි පද්ධති භාවිත කළ හැක.
+
+B ~ Artificial intelligence systems are capable of analyzing uncertain information.
+කෘත්‍රිම DED පද්ධතිවලට අවිනිශ්චිත තොරතුරැ විශ්ලේෂණය කිරීමේ හැකියාව ඇත.
+
+C - An artificial intelligence system is a system for capturing, storing, processing, and displaying data
+
+related to positions on earth’s surface.
+කෘත්‍රිම බුද්ධි පද්ධතියක්‌ යනු පෘථිවි පෘෂ්ඨයෙහි GO GO ස්ථානවලට සම්බන්ධ දන්ත අත්පත්‌ කර ගැනීම, ගබඩා
+කිරීම, සැකසීම හා ප්‍රදර්ශනය කිරීම සඳහා OD පද්ධනියකි.
+
+Which of the above is/are correct?
+QOD කවරක්‌ නිවැරදි වේ දු?
+
+1) A only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+A පමණි Am B පමණි Am C පමණි B හා C පමණි QHD සියල්ලම
+(2018 - 33 )
+
+Consider the following statements relevant to the trends in modern information technology.
+
+DDD තොරතුරු තාක්ෂණ නැඹුරුතාවලට අදාළ පහත ප්‍රකාශ සලකන්න.
+
+A - In traditional computing, data is encoded into binary digits while in quantum computing data is
+represented in quantum bits or qubits.
+සාමප්‍රදායික පරිගණනයේ දත්ත ද්විමය සංඛ්‍යංකවලට ආකේතනය කරනු ලබන අතර ක්වොන්ටම පරගණනයේදී
+EDD ක්චොන්ටමි බිටු හෙවත්‌ කියුබිටුවලින්‌ නිරූෑපණය කෙරේ.
+
+B - A wearable device capable of activity tracking that measures data such as the number of steps walked
+and heart rate is an example for a sensor network.
+ශරීර යෝග්‍යතාව භා සබැඳි, ඇවිදින ලද පියවර සංඛ්‍යාව හා හෘද ස්පන්දන වේගය වැනි ක්‍රියාකාරකම්‌ අනුමැඟුමට
+අදාළ දත්ත මැනීම සඳහා පැළඳිය හැකි උපක්‍රමයක්‌, සංවේදක ජාලයකට උදාහරණයකි.
+
+ල ~ A collection of nodes capable of environmental sensing, local computation, and communication with
+its peers or with other higher performance nodes is called a Geographic Information System.
+පටිසර සංවේදනය, ස්ථානීය පටිගණනය සහ HODGES සමග GH) වඩා ONE ක්‍රියාකාරීත්වයක්‌ ඇති නෝඩු සමග
+සන්නිවේදනය කිරීමෙ හැකියාව ඇති නෝඩු චවකනුවක්‌ භූගෝලීය තොරතුරැ පද්ධතියක්‌ ලෙස හැඳින්වේ.
+
+Which of the above statements is/are correct?
+
+GOD MOO ප්‍රකාශ/ ය නිවැරදි GH දු?
+
+1) A only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+A පමණි Am B පමණි Am C පමණි B හා C පමණි QHD සියල්ලම
+(2018 -- 38)
+25
+
+16. Consider the following statements related to nature inspired computing:
+සොබාදහමෙන්‌ පෙළඹවෙන පට්ගණකකරණය පිළිබඳ පහත දැක්වෙන වගන්ති සලකන්න:
+
+A - In nature inspired computing natural phenomena/scenario are observed and used to design and
+
+develop computing models to solve complex problems.
+සොබාදහමෙන්‌ පෙළඹවෙන පරගණකකරණයෙේ දී සංකීරණ ගැටළු විසඳීම උදෙසා පරිගණක ආකෘතියක්‌ සැලසුමි
+කර සංවර්ධනය කිරීමට, ස්වාභාවික ප්‍රපංචයක්‌/ සංසිද්ධියක්‌ නිර්ක්ෂණය කර යොදා ගනු ලැබේ.
+
+B ~ Artificial Intelligence can use nature inspired computing for improving its ability to understand and
+
+solve computationally challenging problems.
+SOOMHGO අභියෝගාත්මක ගැටළු අවබෝධ කර ගැනීමේ සහ විසඳීමේ හැකියාව වැඩි දියුණු කිරීම සඳහා කෘතීම
+බුද්ධිය මගින්‌ සොබාදහමින්‌ පෙළඹවෙන පටරිගණකකරණය භාවිත කළ හැක.
+
+C - Computing models and algorithms developed under nature inspired computing can only be used in
+natural environments such as rain forests, oceans and wild-life sanctuaries.
+GENDIEOSS පෙළඹවෙන පට්ගණකකරණය යටතෙහි සංවර්ධනය කරන ලද පරිගණක ආකෘති සහ ඇල්ගොරථතම,
+වැසි වනාන්තර, සාගර සහ වන සත්ත්ව අභයභූුමි වැනි ස්වාභාවික පරිසර සඳඟා පමණක්‌ භාවිතා කළ හැක.
+
+Which of the above statements is/are incorrect?
+
+හත සඳහන්‌ DOO වගන්තියක්‌/ වගන්ති සාවද්‍ය වේ ද ?
+
+1) A only 2) B only 3) C only 4) A and C only 5) All of the above
+A පමණි B පමණි C පමණි A හා C පමණි හන සියල්ලම
+( 2019 -- 33)
+
+17. Consider the following: / පහත දෑ සලකන්න.
+A - Cloud formation in the sky / අහසෙහි වළාකුළු ඇතිවීම
+B - The evolution of living species / ජීවින්ගේ පරිණාමය
+C - How neurons function in the human brain / මිනිස්‌ මොළයේ නියුරෝන ක්‍රියාකාරිත්වය
+
+Which of the above could be used in bio-inspired computing?
+ලෛජව ප්‍රේර්ත පටිගණනය සඳහා හෙත කවරක්‌ භාවිත කළ හැකි ද?
+
+1) A only 2) B only 3) C only 4) A and C only 5) B and C only
+පමණි B පමණි උ පමණි Am C පමණි Be ( පමණි
+( 2020 - 49 )
+
+18. Which of the following statements about quantum computing are correct?
+ක්වොන්ටම්‌ පර්ගණනය සම්බන්ධයෙන්‌ පහත කවරක්‌ නිවැරදි වේ දු ?
+
+A - In quantum computing, principles of quantum physics are applied.
+ක්චොන්ටම්‌ පරගණනයෙේ දී, ක්චොන්ටම්‌ භෞතික විද්‍යාවේ QEQKO යෙදවේ.
+
+B - Quantum bits (qubits) are used in quantum computing as the information unit.
+ක්වොන්ටම්‌ පටිගණනයේ තොරතුරැ ඒකකය ලෙස ක්වොන්ටම්‌ BQ භාවිත GS.
+
+C - Quantum computers emit radiation fatal to human users.
+ක්වොන්ටම්‌ පට්ගණක මනුෂ්‍ය පරිශීලකයන්ට අහිතකර විකිරණ BO කරයි.
+
+1) A only 2) B only 3) C only 4) A and B only 5) All of the above
+A පමණි B පමණි C පමණි Ae B පමණි හත සියල්ලම
+( 2020 - 50)
+
+19. Which of the following statements is/are correct?
+SOD කවර ප්‍රකාශ/ ය නිවැරදි වේ ද?
+
+& - Quantum computing could be an alternative to overcome the limitations of the existing
+
+microprocessors.
+දැනට පවතින ක්ෂුද්‍ර සකසනවල සීමිත හැකියාවන්‌ මඟහරවා ගැනීමට ක්චොන්ටම්‌ පර්ගණනය විකල්පයක්‌ වියහැකිය.
+
+B ~ Natural phenomena such as the behaviour of ant colonies could be used to develop new computing
+
+models to solve complex problems.
+සංකීරණ ගැටලු විසඳීම සඳහා නව BOOED ආකෘති ගොඩනැගීමට කුහුඹු ජනපදවල චරියා වැනි ස්වාභාවික
+සංසිද්ධි භාවිත කළ හැකි ය.
+
+C - An inference engine of an expert system utilizes the facts in a knowledge base to support decision
+
+making.
+විශේෂඥ පද්ධතියක ඇති අනුමාන ASSO තම තීරණ ගැනීම සඳහා දැනුම්‌ පාදකයක ඇති කරැණු භාවිත කරයි.
+1) A only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+A පමණි Am B පමණි A හා C පමණි 8 හා C පමණි හත සියල්ලම
+
+( 2022 - 49 )
+
+20. Which of the following statements are true?
+SOD කවර වගන්ති Hes G ද?
+
+A - Generative Artificial Intelligence (Al) tools can produce new content or data, according to their learned
+patterns.
+ජනක කෘතිම බුද්ධි මෙවලම්වලටල ඔවුන්‌ ඉගෙනගත්‌ රටාවන්ට අනුව අලුත්‌ අන්තරිගත හෝ දන්ත හෝ නිෂ්පාදනය
+කළ හැකි ය.
+
+B ~ The use of Generative Al tools such as GPT with user prompts is an example of machine-to-machine
+coexistence.
+
+පරිශීලක ප්‍රේරක සහිත GPT වැනි ජනක කෘතිම QED මෙවලම්‌ භාවිතය යන්ත්‍ර-යන්ත්‍ර සහ පැවැත්ම සඳහා
+උදාහරණයකි.
+
+C - Although Al is used today, strong Al (machines possessing general intelligence and capabilities that
+are similar to human cognition) still remains a theoretical concept.
+කෘතිම බුද්ධිය දැනට භාවිත HOCE ප්‍රබල කෘතිම බුද්ධිය [මිනිස්‌ සංජානනයට සමාන සාමාන්‍ය බුද්ධිය හා හැකියාවන්‌
+සහිත SBHQ] තවමත්‌ න්‍යායාත්මක සංකල්පයක්ව පවතී.
+
+1) A only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+A පමණි Am B පමණි A හා C පමණි 8 හා C පමණි හත සියල්ලම
+( 2024 -- 49 )
+
+21. Consider the following statements P and Q:
+පහන P හා ට) වගන්ති සලකන්න:
+
+[ව ~ Aqubit of a quantum computer can have a higher number of states than a bit of a traditional computer.
+ක්වන්ටම්‌ පටගණකයක කියුබිටුවකට, සාම්ප්‍රදායික පටගණකයක DQOWO වඩා වැඩි තත්ත්ව ගණනක්‌ තිබිය හැක.
+
+Q - Quantum computing promises to perform calculations, currently beyond traditional computer's reach,
+at incredible speeds.
+
+දැනට සාම්ප්‍රදායික පටිගණකයකට EM) විය නොහැකි ගණනය කිරීමිල ඇදහිය නොහැකි වේගයකින්‌ කිරීමට
+ක්වන්ටම්‌ පට්ගණනය පෙරනිමිති පායි.
+
+Which of the following is valid regarding the above two statements?
+GOD වගන්ති දෙක සම්බන්ධයෙන්‌ පහන කවරක්‌ වලංගු වේ ද?
+
+1) Both statements P and Q are correct and statement P gives the reason for statement Q.
+P හා ට යන වගන්නි දෙකම නිවැරදි වන අතරල P වගන්තියල Q වගන්තියට හේතුව දක්වයි.
+
+2) Both statements P and Q are correct but the points presented in the two statements are not related.
+
+0 හා ට යන වගන්ති දෙකම නිවැරදි OD HODE එම වගන්ති දෙකෙන්‌ Q2630) GDGOD කරැණු අතර සම්බන්ධයක්‌
+නැත.
+
+3) Statement P is correct but statement Q is incorrect. / P වගන්තිය නිවැරදි වන අතර ට වගන්තිය වැරදි GS.
+4) Statement P is incorrect but statement Q is correct. / P වගන්තිය වැරදි වන අතර ට වගන්තිය නිවැරදි චේ.
+5) Both statements P and Q are incorrect. / P හා ට යන වගන්ති දෙකම වැරදි වේ.
+
+( 2024 - 50)
+22. What is the suitable replacement for the blank in the following statement?
+පහත වගන්තියේ ඇති හිස්තැනට සුදුසු ආදේශකය කුමක්‌ ද ?
+By analyzing historical data of a person's previous hotel visits GNd /1/57716/ …… submitted to social
+
+media of the same, an Al-based hotel recommendation system should be successfully able to suggest hotels
+that the person would like.
+
+SCOBOMGHDED G35 දා? ආෝරටල්‌ DIOS HOO SEQE ghimaoen celen wen ඵවා SEQE Op ඇය සමාජ CHO NE
+
+CSTOLDO ට්‌ …… ව්ලෝෂණය BOO මරන්‌ maBO QYEIG එන SEDO ද ආෝටල්‌ Sedo HOE රර්ධනායකට
+
+අරශ්ලනයා DOS ඵය ආර්‌ ආෝටල්‌ en60mO යෝජනා බරීමට ආණාවන ඇත.
+
+1) email addresses / ලගවීම්‌ වාර්තා 2) payment records / ගෙවීම්‌ වාරිනා
+
+3) phone numbers / දුරකථන අංක 4) reviews / විචාර
+
+5) street addresses / වීදි ලිපින (2025 - 48)
+27
+
+23. Which of the following statements are true with respect to Artificial Intelligence (Al)?
+කෘතිම බුද්ධිය සම්බන්ධයෙන්‌ පහත MOO වගන්ති සත්‍ය වේ ද?
+
+A - Al applications are also computer programs.
+කෘතිම බුද්ධි යෙදුමි ද, පටිගණක ක්‍රමලේඛ වේ.
+
+B ~ All Al applications are automatically generated.
+සියලු කෘතිම QED යෙදුම්‌ ස්වයංක්‍රීව ජනනය කෙරේ.
+
+C - When Al technology is used to generate new content, it is suitable to disclose that the content was
+
+generated by Al.
+නව අන්තරගතයක්‌ උත්පාදනය කිරීමට කෘතිම බුද්ධි තාක්ෂණය යොදාගන්නා විට, එම aeambane කෘතිම බුද්ධිය
+HOM) උත්පාදනය වූ බව එළිදරව්‌ කිරීම සුදුසු වේ.
+
+1) 8 only 2) A and B only 3) A and C only 4) B and C only 5) All of the above
+B පමණි Am B පමණි A හා C පමණි 8 හා C පමණි හත සියල්ලම
+( 2025 -- 49 )
+
+24. Which of the following problems are suitable to be solved using nature inspired computing technologies?
+පහත කවර ගැටලු විසඳීමට ප්‍රකෘති ප්‍රේරත පටගණන නාක්ෂණය භාවිතය සුදුසු චේ ද?
+
+A ~ make the monthly payroll list of the employees of a large multinational organization.
+විශාල බහුපාතික සමාගමක සේවකයන්ගේ මාසික වැටුප්‌ ලැයිස්තුව සෑදීම.
+
+B - the use of autonomous robots to move goods in a warehouse avoiding collisions.
+ගැටීම්‌ මඟහරිමින්‌ බඩු ගබඩාවක භාණ්ඩ ගෙනයාමට ස්වයංපාලක රොබෝවරැන්‌ යොදාගැනීම.
+
+C - scheduling hospital operating theatre time slots for the patients in the surgery waiting.
+ශල්‍යකර්ම €පාරොත්තු ලේඛනයේ සිටින රෝගීන්ට, රෝහල්‌ ශල්‍යාගාරයේ කාලචිඡේද වෙන්‌ BSO.
+
+1) A only 2) B only 3) C only 4) A and C only 5) B and C only
+පමණි 9 පමණි උ පමණි Am C පමණි Be C පමණි
+(2025 - 50)
+28
+
+1.(c) The ABC company wants to introduce a new software agent service to monitor and display frequently
+browsed items by its consumers via eABC.com web site. The following diagram depicts the interactions
+among the consumer, company web site and the software agent.
+
+ABC සමාගමට ඔවුන්ගේ පාරිභෝගිකයන්‌ eABC.com නම්‌ වූ වෙබි අඩවිය හරහා නිරන්තරයෙන්‌ අතරක්සන අයිතම
+නිර්ක්ෂණය කර සංදරිශනය කිරීම සඳහා නව මෘදුකාංග නියෝපිත සේවාවක්‌ හඳුන්වා ජීමට අවශ්‍ය ව ඇත. පහත
+පෙන්වා ඇති රෑදපසටහන මගින්‌ පාරිභෝගිකයා, සමාගමේ වෙබි අඩවිය හා මෘදුකාංග නියෝපිත අතර අන්තරක්‍රියාව
+
+පෙන්වනු ලැබෛේ.
+
+Draw lines and connect the rows in the following two tables to represent the above scenario.
+QOD සංසිද්ධිය නිරූපණය GSO සඳහා පහත දක්වා ඇති OQ දෙකෙහි පේළි යා කිරීමට Od අඳින්න.
+
+& Software Agent / මෘදුකාංග නියෝජිත
+Company Web site / සමාගමෙහි වෙබි අඩවිය
+
+C Consumer / පාරිභෝගියා
+
+( 2014 S.ESSAY -- 02[c] )
+
+2.(b) (ii) Write down whether each of the following statements regarding software agents is either True or False.
+මෘදුකාංග ඒජන්නවරැන්ට සම්බන්ධ පහත දැක්වෙන එක්‌ එක්‌ ප්‍රකාශය සත්‍ය ද අසත්‍ය ද යන වග ලියා දක්වන්න.
+
+True / False
+සබ්‍යයි / අසත්‍යයි
+(1) A software agent can perform tasks in achieving a goal with minimum or no
+direct supervision.
+
+මෘදුකාංග චජන්තවරයකුට තම අරමුණු කරා යාමේ දී අවම අධීක්ෂණය යටතේ භෝ සෘජු
+අධීක්ෂණයකින්‌ තොරව Gens කාර්ය Be කළ හැක.
+
+(2) Software applications can interact with agent without direct supervision of a
+
+OS = ee
+පරිශීලකයකුගේ සෘජු අධීක්ෂණයකින්‌ තොරව මෘදුකාංග යෙදුම්වලට වඒජන්තවරයකු සමග
+අන්තර්ක්‍රියාවේ යෙදිය හැක.
+
+(3) A user may obtain answers to a problem directly from an agent. ්‍රඛඞ්‌්‌්‌්‌්‌
+පරිශීලකයකුට ඒජන්තවරැන්ගෙන්‌ සෘජුවම යම්‌ ගැටලු වකට පිළිතුරු ලබා ගත හැක.
+
+(4) A multi-agent system is a network of problem-solving entities called agents
+that work together to find answers to problems that are beyond the individual
+
+abilities of each agent.
+
+බහු එජන්ත පද්ධතියක්‌ යනු එක්‌ එක්‌ භූතාරිථයෙහි තනි හැකියා අභිබවා යන ගැටළුවලට
+පිළිතුරු ලබා ගැනීම සඳහා එක්ව කටයුනු කරනු ලබන ඒජන්තවරැ ලෙස හැඳින්වෙන
+ගැටළඑු විසඳීමේ භූතාරිථ ජාලයකි.
+
+(5) In a multi-agent system, individual agents may compete or co-operate to
+
+achieve the system goals, saaatesnitessnensnnnnees
+බහු ඒජන්ත පද්ධතියකදී, පද්ධතියෙහි අරමුණු ඉටු කර ගැනීම සඳහා තනි ඒජන්තවරැ
+එකිනෙකා තරග කිරීම හෝ සහයෝගීව කටයුතු කිරීම හෝ සිදු චේ.
+
+( 2018 S.ESSAY -- 03[b] [ii] )
+
+3.(b) (i) Modern Artificial Intelligence relies on large amounts of data, which are often managed with cloud based
+
+storage solutions. What is the cloud computing service model used here?
+නවීන කෘතීම බුද්ධිය, වලාකුළු පාදක ආචයන විසළුම්‌ හරහා බොහෝ විට කළමනාකරණය කෙරෙන විශාල දන්ත
+ප්‍රමාණයන්‌ මන යැපේ. මෙහිදී භාවිත වන වළාකුළු පටිගණක ස්වා ආකෘතිය කුමක්‌ දු ?
+
+(॥) Quantum computers, although seen as a promising type of computing machines for the future, are still
+expensive to own, operate and maintain. Suggest a technical approach to make the computing power of
+
+the quantum computers accessible to the public users as per their needs, at an affordable price.
+ක්වන්ටම්‌ පටිගණක, අනාගත SOMEVD යන්ත්‍ර සඳහා අපේක්ෂා තැබිය හැකි ලෙසට පෙනී ගිය ද Jd සනු කරගැනීම,
+ක්‍රියාකරවීම සහ නඩන්තු කිරීම තවමත්‌ වියදම්‌ සහිත වේ. දැරිය හැකි මිලකට සහ තම අවශ්‍යනාවන්ට ගැළපෙන ලෙසින්‌
+ක්වන්ටම්‌ පට්ගණකවල පරිගණන බලය ජනතනාවට ලබාදීම සඳහා තාක්ෂණික යෝජනාවක්‌ කරන්න.
+
+( 2023 S.ESSAY -- 02[b] )
+
+1.(b) (i) In the domain of Agent technology, explain the term ‘Agent’.
+කාරක තාක්ෂණවේද වසම ME 'කාරකය' යන පදය පැහැදිලි කරන්න.
+
+(ili) Give two main characteristics of an Agent.
+කාරකයක ප්‍රධාන ලක්ෂණ දෙකක්‌ දෙන්න.
+
+(iv) Briefly explain an example where Agent technology could be used effectively.
+කාරක තාක්ෂණවේදය ඵලදායි ලෙස යොදාගත හැඟි අවස්ථාවක්‌ සඳහා නිදසුනක්‌ කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+( 2011 ESSAY -- 06[b] )
+
+2. The National University of Information Technology is a well-recognized university. They offer both
+bachelors and post-graduate degree programmes, diplomas as well as short courses in information
+technology and business management. All teaching of the above courses is being conducted at their
+sophisticated classrooms and state-of-the-art computer laboratories specifically designed to provide a
+student-centred interactive learning experience. The management of the university has realized that their
+brand name has become well known in the country as the number of inquiries they receive from far away
+provinces has increased. Furthermore, a recent study has revealed that their short courses and diplomas
+are also very popular among working professionals despite the burdens of their busy work schedules as
+well as the limited time available to devote for education. Hence, the management has proposed to start
+a distance education programme with the objectives of providing new value added services and capturing
+
+new markets.
+
+තොරතුරැ තාක්ෂණය පිලිබඳ ජාතික සරසවිය, පිළිගත්‌ විශ්වවිද්‍යාලයකි. GOO ආයතනය මගින්‌ ප්‍රථම හා පශ්චාත්‌ උපාධි
+වැඩසටහන්‌, ඩිප්ලෝමා, තොරතුරු තාක්ෂණය සහ ව්‍යාපාර කළමනාකරණය පිළිබඳ කෙටි පාඨමාලා පවත්වනු ලබයි.
+ශිෂ්‍ය කේන්ද්‍රිය අන්තර්‌ ක්‍රියාකාරී ගෛනුම්‌ පටිසරයක්‌ ලබාදෙන ලෙස සැලසුම්‌ කරන ලද නවින පරිගණක විද්‍යාගාර සහ
+නවීන පන්තිකාමර හෙත පාඨමාලා පැවැත්වීම සඳහා යොදා ගනු ලබයි. ඈත පළාත්වලින්‌ ලැබෙන විමසීමි ප්‍රමාණය
+වැඩිවීම මගින්‌ මෙම ආයතනයේ නාමය, රටපුරා ජනප්‍රිය වී ඇති බව මෙම විශ්වවිද්‍යාලයේ කළමනාකාරීත්වය වටහා ගෙන
+ඇත. තවදුරටත්‌ මෑතක දී කරන ලද අධ්‍යයනයකින්‌ හෙළිදරව්‌ වී ඇත්තේ කාරයබහුල කාරිය සටහනකට අනුව වැඩ
+කරන අධ්‍යාපනයට වැය කළ හැකි කාලය සීමාසහිත වූ වෘත්තිකයන්‌ අතර ද ඩිප්ලෝමා හා කෙටි පාඨමාලා තො ජනප්‍රිය
+බව ය. එම නිසා නව අගයන්‌ එකතු කරන ලද සේවා සැපසීම සහ නව වෙළෙඳපොළ ඈඳා ගැනීම යන අරමුණු සහිත ව
+දුරස්ථ අධ්‍යාපන වැඩසටහන්‌ යෝජනා කර ඇන.
+
+(a) Propose an ICT based system to implement the above distance education programme. Describe its
+
+main components by using a simple diagram.
+ඉහත දුරස්ථ අධ්‍යාපන වැඩසටහන ක්‍රියාත්මක කිරීම සඳහා තොරතුරැ හා සන්නිවේදන තාක්ෂණය මත seme ©
+පද්ධතියක්‌ යෝජනා කරන්න. සරල සටහනක්‌ මගින්‌ එහි ප්‍රධාන කොටස්‌ විස්තර කරන්න.
+
+(b) Explain three advantages of the proposed system.
+CISD පද්ධනියේ වාසි තුනක්‌ පැහැදිලි කරන්න.
+
+(c) Discuss three challenges of the proposed system.
+යෝපිත පද්ධතියේ අභියෝග තුනක්‌ සාකචිඡා කරන්න.
+
+(0) The management thinks that agent technology based techniques could be used to overcome some
+
+of the above challenges. Do you agree with this statement? Justify your answer.
+GAD දක්වා ඇති සමහර අභියෝග නියෝපිත තාක්ෂණය පාදක වූ ක්‍රමෝපාය මගින්‌ ජයගත හැකි බව
+විශ්වවිද්‍යාලීය කළමනාකාථීත්වය සිතයි. මෙම වගන්තිය සමග ඔබ එකඟ වන්නේ ද? OG@ පිළිතුර සනාථ කරන්න.
+
+( 2015 £554%% -- 03 )
+
+3. (0) Consider the following figure which shows a simplified view of a multi-agent system.
+බහු Sade පද්ධතියක සරල කරන ලද දසුනක්‌ දැක්වෙන පහත CFIHOMD සලකන්න.
+
+interacts with
+
+අන්තර මනාව රේ
+
+Communicates
+සන්නිවේදනය කරයි
+
+User / පටිශීලක
+
+Application
+ඉයදුම
+
+interacts with
+අන්තර ක්‍රියාවේ යෙදේ Communicates
+
+සන්නිවේදනය කරයි
+
+30
+
+Answer the following, question by studying the above figure.
+
+QOD OFIBSOOD අධ්‍යයනය කර, පහත දැක්වෙන ප්‍රශ්නයට පිළිතුර සපයන්න.
+
+"A software agent may or may not have a user interface’.
+
+“මෘදුකාංග චීජන්තවරයකුට පරිශීලක අතුරැ මුහුණතක්‌ තිබීමට හෝ නොත්ිබීමට භෝ පිළිවන.“
+
+Do you agree with the above statement? State a reason referring to the above figure.
+QOD ප්‍රකාශය හා OQ එකඟ වන්නේ ද? රෑපසටහන ආශ්‍රයෙන්‌ හේතුවක්‌ දක්වන්න.
+
+( 2018 ESSAY -- 03[b] )
+
+4. (0) Multi-agent systems can be useful when complex system interactions are implemented. The following
+diagram shows a simplified version of a multi-agent system that manages the secure access to the server
+
+room of a data-center.
+
+සංකීරණ පද්ධති අන්තර්‌ Gar ක්‍රියාත්මක කිරීමේදී බහු ඒජන්ත පද්ධති ප්‍රයෝජනවත්‌ විය හැකි ය. දත්ත කේන්ද්‍රයක
+සේවාදායක කාමරයට ප්‍රවේශවීම බහු ඒජන්ත පද්ධතියක්‌ මගින්‌ කළමනාකරණය කිරීමේ සරල ආකාරයක්‌ පහන
+රෑපසටහනෙන්‌ දැක්වේ.
+
+Server Room Door
+
+Database |
+
+ට න
+(| |
+
+Systems Engineer
+
+A
+
+A brief scenario of the usage is as follows:
+
+භාවිතයේ කෙටි සංසිද්ධිය පහත දැක්වේ.
+
+All authorized system engineers must use their access code, which is a 6-digit number to enter the
+restricted server room.
+
+සියලු ම බලයලත්‌ පද්ධති ංජිනේරැවරැන්‌ ප්‍රවේශය සීමිත සෙවාදායක කාමරයට ඇතුළුවීම සඳහා තම ප්‍රවේශ කේතය
+වන සංඛ්‍යා භයකින්‌ සමන්විත අංකය ඇතුළත්‌ කළ යුතු ය.
+
+When the access is granted to the server room, a set of movable CCTV cameras starts recording the
+server area.
+
+සේවාදායක කාමරය GOD ප්‍රවේශවීමට අවසර ලැබුණු පසු එහාමෙහා චලනය කළ හැකි CCTV කැමරා මගින්‌
+සේවාදායකය අවට ප්‍රදේශය වීඩියෝ කිරීම ආරම්භ කෙරේ.
+
+The processed data of CCTV input are saved in the database. Interactions are shown using A, B, C, P, ට,
+and R arrows.
+
+CCTV ආදානයෙහි සකසන ලද දත්ත, දත්ත සමුදායෙහි සුරකිනු ලැබේ. අන්තර ක්‍රියාවන්‌ A, B, ලට, P, ට සහ R ඊතල
+මගින්‌ පෙන්වා ඇත.
+
+(i) Identify the agent with no user interactions (self-autonomous) in this setup.
+මෙම පිහිටුමෙහි පරිශීලක සමග අන්තර Ga නොමැති (ස්වීය ස්වයංකරණය) ඒජන්ත හළුනාගන්න.
+
+(il) Sense-Compute-Control is a widely used 3-step design style of agent-based system
+implementations.
+සංවේදනය පට්ගණනය පාලනය යනු ඒජන්ත පාදක කරගත්‌ පද්ධති ක්‍රියාත්මක කිරීමේදී බහුලව භාවිත වන පියවර
+තුනක සැලසුම්‌ විලාසයකි.
+From A, B and C interactions, separately identify and write down the most suitable interaction arrow
+to represent each step, i.e., Sense, Compute, and Control.
+A, B සහ C අන්තර ක්‍රියාවලින්‌ සංවිදනය, පටිගණනය හා පාලනය යන එක්‌ එක්‌ පියවර නිරෑඈෑපණය කිරීමට වඩාත්ම
+සුදුසු අන්තර්‌ Ga SME වෙන වෙන ම හඳුනාගෙන ලියා දක්වන්න.
+
+(iii) C and R interaction links are shown for two directions. Explain the reasons for the duplex links for
+both C and R interactions separately.
+C සහ R යන අන්තර්‌ Ga ඈළඳුම්‌ දිශා දෙකකට පෙන්වා ඇත. C සහ R asad ක්‍රියා දෙක සඳහා ද්විපථ eee
+වලට හේතු වෙන චෙන ම පැහැදිලි කරන්න.
+
+(iv) Interaction A can be seen as a user-to-agent interaction. Identify an agent-to-agent interaction and
+explain the operational use of that interaction.
+
+A අන්තර ක්‍රියාව පරශීලකගෙන්‌ ඒජන්තට අන්තර ක්‍රියාවක්‌ ලෙස දැකිය හැකි ය. ඒජන්තගෙන්‌ ඒජන්තට epabend
+ක්‍රියාවක්‌ හළුනාගෙන එම අන්තර්‌ ක්‍රියාවෙහි මෙහෙයුම්‌ භාවිත වන ආකාරය පැහැදිලි කරන්න.
+
+(v) Give one reason as to why the CCTV inputs are sent to the database through the Agent 2 instead of
+sending directly.
+CCTV ආදාන, දන්ත සමුදාය වෙත සෘජුවම යැවීම GDRMDO 2 වන ඒජන්ත මගින්‌ යැවීමට Hed හේතුවක්‌ දෙන්න.
+
+( 2019 ESSAY -- 03[b] )
+
+5. (0) Multi agent systems can be used to replace some of the work that require humans. The following scenario
+explains about myTours multi-agent system used to build customized travel packages including flight
+
+booking, hotel room reservation and taxi booking for local travel during the tour.
+මිනිසුන්‌ විසින්‌ කෙරෙන සමහර mba ප්‍රතිස්ථාපනය කිරීම සඳහා බහු ඒජන්ත පද්ධති භාවිත කළ හැකි ය. පහත
+දැක්වෙන සංසිද්ධිය මගින්‌ ගුවන්‌ යානා ආසන වෙන්‌ කිරීම, හෝටල්‌ කාමර චෙන්‌ කිරීම සහ දේශීය සංචාර Bem කුලි
+
+රථ වෙන්‌ කිරීම ඇතුළත්‌ වන අභිරුැචිකරණය කරන ලද සංචාර පැකේජයක්‌ ගොඩනැගීම සඳහා භාවිත වන myTours
+නම්‌ බහු ඒජන්න පද්ධතිය ගැන පැහැදිලි කෙරේ.
+
+A prospective traveler (user) can access myTours website over the Internet and a chat-bot agent starts
+interacting with the user. User can use voice or text as the input medium. During this interaction chat-
+bot passes the extracted information to a search-agent who will take over from the chat-bot agent and
+proceed to search for travel packages for the user. The search- agent has a group of agents each
+specializing for particular type of travel service such as flight search, hotel search etc. Once the search
+results are obtained the search-agent prepares the list of travel packages with details and displays to the
+user for confirmation.
+
+අදාළ සංචාරකයා (පරිශීලක) හට myTours වෙබි අඩවියට අන්තරජාලය ඔස්සේ ප්‍රවේශ විය හැකි අනර සංවාදයේ
+යෙදෙන රෝබෝ එඒජන්නවරයෙක්‌ පරිශීලක සමග අන්තරඛක්‍රියාව අරඹයි. පරිීශීලකට කටහඬ ලහෝ පාඨ හෝ ආදාන මාධ්‍ය
+ලෙස භාවිත කළ හැක. මෙම අන්තරක්‍රියාව අතරතුර රොබෝ චීජන්ත විසින්‌ උකහා ගනු ලබන තොරතුරැ Gage
+චිජන්තවරයකුට භාර කරනු ලබන අතර පරිශීලක වෙන සංචාරක පැකේජය සෙවීමේ කාරියය එම ඒජන්ත විසින්‌ රොබෝ
+චීජන්තගෙන්‌ භාර ගනියි. සෙවුම්‌ ව්ජන්තට ගුවන්‌ ගමන්‌ සෙවීම, හෝටල්‌ සෙවීම වැනි එක්‌ එක්‌ වරගයේ සංචාරක
+සේවාවන්‌ සඳහා විශේෂඥ චජන්තවරැ සමූහයක්‌ සිටිති. ප්‍රතිඵල ලබාගත්‌ පසු සෙවුමි ඒජන්ත විසින්‌ විස්තර සහිත
+සංචාරක පැකේජ්‌ ලැයිස්තුව සූදානම්‌ කර, OS තහවුරැ කිරීම සඳහා පරිශීලක වෙත ප්‍රදර්ශනය කෙරේ.
+
+(i) Draw a simplified agent diagram of the above explained multi-agent system. Name the important
+entities in your diagram.
+QOD පැහැදිලි කරන ලද බහු ඒජන්ත පද්ධතිය සඳහා සරල Scan රෑතපසටහනක්‌ අඳින්න. ඔබේ සටහනෙහි
+වැදගත්‌ අංග නමි කරන්න.
+
+(i) Which agent cannot be considered as self-autonomous?
+කුමන ඒජන්නවරයෙක්‌ ස්වීය -ස්වයංකරණ ලෙස සැලකිය නොහැකි ද?
+
+(ili) Write a disadvantage of using a multi-agent system for the given example user requirement.
+GED ලද උදාහරණයෙහි පරිශීලක අවශ්‍යතා සඳහා Dey ඒජන්ත පද්ධතියක්‌ භාවිත කිරීමේ අවාසියක්‌ ලියා දක්වන්න.
+
+( 2020 ESSAY -- 07 [0] )
+
+7. (0) The following description is about myShopper, a multi-agent system which enables a buyer to search
+the entire online marketplace for the best products. In addition to the price, reviews by other buyers,
+special offers, reputations of the merchants and the lengths and types of warranties are also considered.
+
+සමස්ත මාරිගගත වෙළෙඳපොළම පිරික්සා හොඳම භාණ්ඩ සෙවීමට ගැනුමිකරැවන්ට මං සලසන myShopper බහු-
+චිීජන්ත පද්ධතිය ගැන විස්නරයක්‌ පහත දැක්වේ. මිලට අමතරව, අනෙකුත්‌ ගැනුම්කරුවන්ගේ විචාර ද, විශේෂ දීමනා
+ද, ඉවළෙන්දන්ගේ කීරිති නාම ද, වගකීම්‌ කාල සීමා සහ වර්ගයන්‌ දු සැලකිල්ලට ගැනේ.
+
+When a user (buyer) accesses the myShopper website, a chat-bot agent starts interacting with the user.
+User can use voice or text as the input medium to give his/her requirements for a product. During the
+interaction, the chat-bot passes the extracted information to a search-agent who will takeover the
+search for the best product for the user. For this, the search-agent will start several domain-agents
+specifying each of them the requirements of the user and specific domains (web sites) to search in. To
+speedup the search, each domain-agent will start several sub-agents to search sub-domains under its
+main domain. After the search, each sub-agent will pass the appropriate results back to its parent
+domain-agent. Once all such results from the sub- agents are received, each domain-agent compares
+them and submits the best results to the search-agent. The search-agent will then compare all such
+results and gives the details of the best product back to the chat-bot. The chat-bot will then display it
+to the user as text.
+
+පරිශිලකයා (ගැනුමිකරැ) myShopper වෙබි අඩවියට පිවිසි විට, සංවාදයේ යෙදෙන chat-bot රොබෝ
+චිජන්නවරයෙක්‌ පරිශීලක සමග අන්තර ක්‍රියාව අරඹයි. පරථිශිලකට කටහඬ හෝ පාඨ හෝ ආදාන මාධ්‍ය ලෙස භාවිත
+කර භාණ්ඩය පිළිබඳ තම අවශ්‍යතාවයන්‌ ලබාදිය හැක. මෙම අන්තරීක්‍රියාව අතරතුර chat-bot Sao විසින්‌ උකහා
+ගනු ලබන තොරතුරැ සෙවුමිී එවිජන්තනවරයකුට හාර කරනු ලබන අතර, පරිශීලක සඳහා හොඳම භාණ්ඩය ඉසවීමේ
+කාරයය OO සෙවුම්‌ චීජන්ත භාරගනියි. ඒ සඳහා සෙවුමි චීජන්ත විසින්‌ එක්‌ චක්‌ වසම්වල (වෙබි අඩවිවල) සෙවීමේ
+නිරතවීම සඳහා වසම්‌ ඒජන්තවරු කිහිපදෙනෙක්‌ අරඹා, ඒ චකිනෙකට පරිශීලක අවශ්‍යතා ද, ඉසවීමේ නිරතනවිය cep
+වසමි දු නිරිදේශ කරයි. සෙවීමේ ක්‍රියාව වේගවත්‌ කිරීම සඳහා එක්‌ එක්‌ වසම්‌ ඒජන්ත, වසම ne ඇති උපවසම්වල
+ඉසවීමේ නිරතවීමට, උපච්ජන්තවරැ කිහිපදෙනෙක්‌ ද අරඹයි, සෙවීම නිමවූ විට, එක්‌ එක්‌ උපව්ජන්ත, යෝග්‍ය ප්‍රතිඵල
+තම මව්‌ වසමී විජන්තට ලබාදෙයි, උපච්ජන්තවරැන්ගෙන්‌ එවැනි සියලු ප්‍රතිඵල ලද විට, වසමී චීජන්ත ව්වා සසඳා, නේ
+හොඳම ප්‍රතිඵල සෙවුමි විජන්තට ලබාදෙයි. සෙවුම්‌ Scale එවැනි සියලු ප්‍රනිඵල සසඳා, හොඳම භාණ්ඩයේ විස්තර
+chat-bot චවීජන්තවරයාට නැවත ලබාදෙයි. OSO chat-bot ව්ජන්නවරයා, එය පාඨ ලෙස පරිශීලකට දිස්‌ කරවයි.
+
+(i) Draw a simplified agent diagram for the above multi-agent system. Name all the entities in your
+
+diagram and clearly indicate the interactions between them.
+හත බහුචව්ජන්ත පද්ධතිය සඳහා සරල ඒජන්ත රෑදපසටහනක්‌ අඳින්න. ඔබගේ සටහනේ වැදගත්‌ අංග නමි කර
+ඒවා FDO සම්බන්ධනා දු පැහැදිලිව දුක්වන්න.
+
+(ii) Write one major advantage of this multi-agent system.
+GND බහුච්ජන්ත පද්ධතියෙන්‌ ලැබෙන චක්‌ වැදගත්‌ වාසියක්‌ ලියා දක්වන්න.
+
+(ili) Write down one ICT related challenge which has to be faced when developing a sub-agent.
+ඉහත උපච්ජන්තවරයකු ගොඩනැගීමේදී තොරතුරු සහ සන්නිවේදන තාක්ෂණයට අදාළව මුහුණ දිය ay චක්‌
+අභියෝගයක්‌ ලියා දුක්වන්න.
+( 2021 ESSAY -- 07 [6] )
+
+7. (0) A multi-agent system is proposed for this greenhouse. In this system the images that are captured using
+
+a mobile phone are stored in the plant database. The multi-agent system works as follows:
+හරතාගාරය සඳහා බහුව්ජන්ත පද්ධතියක්‌ යෝපිත ය. OO පද්ධතියේදී ජංගම දුරකථනයකින්‌ ගනු ලබන පැළවල
+ඡායාරෑප පැළ දත්ත සමුදායේ ගබඩා කෙරේ. බහු ඒජන්න පද්ධතිය පහත පරිදි ක්‍රියාකරයි.
+
+ද ~~ Plant Database
+
+ක්‍ෂ පැළ දත්තසමුදාය
+
+Search Agent Internet
+සෙවුම්‌ ඒජන්ත අන්තර්ජාලය
+
+A
+
+User Interaction
+පරිශීලක අන්තරක්‍රියාව
+
+a
+
+Plant / පැළය
+
+e Agent 1 handles the user interactions, user access to data, and triggers Agent 2.
+ඒජන්ත 1 පරිශීලක අන්තරක්‍රියා හැසිරවීම සහ දන්ත සමුද්‍යයට පරිශීලක ප්‍රවේශය හැසිරවීම Be කර ඒජන්ත 2
+ඇරඹීම ද සිදු කරයි.
+
+e Agent 2 processes the images, identifies anomalies if any, and triggers Search Agent if needed.
+ඒජන්ත 2 ඡායාරෑප පිරික්සා විෂමතා තිබේ DO ඒවා හඳුනාගෙන, අවශ්‍ය නම්‌ සෙවුම්‌ SsamOdarw~ මුදා MSS.
+
+e Search Agent searches relevant information from the Internet, feeds the search results to Agent 2 who
+updates the database after processing, and notifies Agent 1 if an alert is to be raised.
+සෙවුම්‌ ඒජන්ත අදාළ තොරතුරැ සඳහා අන්තරීජපාලය පිරික්සා, ප්‍රතිඵල ඒජන්ත 2 ට ලබාදුන්‌ විට, එජන්ත 2 දන්ත
+සමුදාය සකසා යාවත්කාලීන කර, අනතුරැ ඇඟවීමක්‌ අවශ්‍ය නම්‌ ඒජන්ත 1 ට දැනුම්‌ දෙයි.
+
+(i) In the given scenario, who is/are the self-autonomous agent(s)?
+GED ලද සංදරභයේ ස්වීය -ස්වයංකරණ ඒජන්තව(රයා)රැ කවු ද?
+
+(il) The interaction P involves saving plant details in the database and retrieving those for Agent 1. The
+interaction R involves reading the database and writing search results to the database. Explain the
+interactions Q and S.
+
+P අන්තරික්‍රියාවට පැළවල විස්තර දත්ත සමුදායේ සුරැකීම ද, ඒජන්ත 1 සඳහා ඒවා ලබාදීම ද ඇතුළත්‌ GH. R
+
+අන්නරඛක්‍රියාවට දන්ත සමුදාය කියවීම ද, සෙවුම්‌ ප්‍රතිඵල දන්ත සමුදායේ ලිවීම ද ඇතුළත්‌ වේ. Q සහ 5 අන්තරඛ්‍රියා
+පහදන්න.
+
+(ili) After long-term use of the system, it was decided to remove Search Agent assuming that the
+
+database contains all the information needed. Write down the main disadvantage of this removal.
+පද්ධතියේ දිගුකාලීන භාවිතයකින්‌ පසු, දත්ත සමුදාය අවශ්‍ය BSE ම තොරතුරැවලින්‌ සමන්විත යැයි සිතා, සෙවුම්‌
+ඒජන්ත වෙත්‌ කිරීමට තීරණය කෙරේ. මෙම චෙත්‌ කිරීමෙන්‌ සිදුවන ප්‍රධාන අවාසිය ලියා දක්වන්න.
+
+( 2022 ESSAY -- 07 [4] )
+
+8. (b) An e-commerce warehouse automation system includes a set of agent based robots which move ordered
+
+goods to their respective dispatch areas to start relevant shipments.
+
+ඉ-වාණිජ්‍යය බඩු ගබඩාවක ස්වයං යන්ත්‍රන පද්ධතියක, නැවිගත කිරීම්‌ ආරමිභ කිරීම සඳහා ඇනවුම්‌ කළ භාණ්ඩ ඒවාට
+අදාළ පිටත්කරන ස්ථානවලට ගෙන යන රොබෝ කාරක සමූහයක්‌ ඇතුළත්‌ ය.
+
+This shows the latter part of this system. A Quality Control (QC) Officer inspects the goods of each order
+as it passes on a conveyor belt and confirms to a software system (Delivery Handler Agent) that the order
+has passed QC. The Delivery Handler Agent directs the package to a mobile robot at the loading area.
+The robot agent reads the package barcode to determine the appropriate dispatch area. It then navigates
+the robot to the relevant dispatch area, scanning the path and avoiding obstacles while on the move. The
+Dispatch Handler Agent, another software, validates each package at the dispatch areas and informs the
+Dispatch Officer to confirm its decision. The Dispatch Officer can override Dispatch Handler decisions if
+needed and directs the confirmed packages to the postal division.
+
+පද්ධතියේ අවසාන කොටස මෙහි දැක්වේ. තත්ව පාලන නිලධාරියා සදම ඇණවුමකම භාණ්ඩ වාහක පටියක යන SO
+පරීක්ෂා කර, ඇණවුම තත්ව පාලනයෙන්‌ සමත්‌ වූ බවට මෘදුකාංග පද්ධතියකට (බෙදීම්‌ හසුරුවන කාරකයට) තහවුරැ
+කරයි. බෙදීම හසුරැවන කාරකය බඩු පැටවීම්‌ ප්‍රදේශයේදී ජංගම රොබෝවකට පැකේජය යොමුකරයි. රොබෝ කාරකය
+පැකේජයේ තීරැ කේනය කියවා අදාළ පිටන්කරන ස්ථානය සොයාගනියි. එය BSO මඟ පිටථික්සමින්‌, අවහිර මගහටීමින්‌
+අදාළ, පිටනත්කරන ස්ථානයට රොබෝව යොමු කරවයි. DOS) මෘදුකාංගයක්‌ වන පිටත්වීම්‌ හසුරුවන කාරකය පිටත්කරන
+ස්ථානවලදී සෑම පැකේපජයකම වලංගුභාවය පිරික්සා, පිටත්කරන නිලධාරියාට තමාගේ තීරණය තහවුරු කරන ලෙස
+දන්වයි. පිටත්කරනු නිලධාරියාට අවශ්‍ය නම්‌ පිටත්වීම්‌ හසුරුවන කාරකගේ තීරණ නොසැලකිය හැක. පිටත්කරන
+නිලධාරියා, තහවුරැ කළ පැකේජ නැපැල්‌ අංශයට ලයොමුකරයි.
+
+Dispatch |
+
+bs | SS <@) Area 1 a
+Delivery --——--——— | Dispatch
+Handler දහ, Uepate Handler “>
+Agent ඛඝඡෘඡ-॥ Agent
+{2 Dispatch
+(ip {ii)> Dispatch | “ය්‌ Officer
+Area N
+
+2]
+
+Quality Control O]…… ence |
+Officer Loading ; (ගෲ ක.
+4 795 *
+Conveyor Belt Package Moving Floor Area with
+Multi Agent Robots
+පිටත්කරන|
+ක | SS <@) ස්ථාන 1 a
+බෙදීම්‌ | පිටන්කරන, පිටත්වීමි
+හසුරැචන දහ, Reo, > හසුරැචවන [*~
+කාරකය [~~ ෴॥। කාරකය
+<2 පිටත්කරන
+(හෲ Cy පිටත්කරන නිලධාරියා
+pes
+
+Lr Cg
+තත්ව පාලන ॥ !,……-. |
+නිලධාරියා fa THE 0181 «ode ; (ගෲ ෴_
+ප්‍රදේශය *
+
+වාහක පටිය පැකේජ ප්‍රවාහනය කරන
+බහුකාරක රොබෝ සහිත බිම්‌ ප්‍රදේශය
+
+Figure / රෑපය 7.3
+
+(i) Software Agents demonstrate certain characteristics which make their behaviour unique. Briefly
+explain the following two characteristics of a software agent:
+මෘදුකාංග කාරක තම හැසිරීම්‌ අනන්‍ය කරන්නා වූ ගතිලක්ෂණ ප්‍රදර්ශනය කරති. මෘදුකාංග කාරකයක පහත
+ගතිලක්ෂණ දෙක සැකෙවින්‌ පහදන්න.
+(a) autonomous / ස්වාධීන
+(b) cooperative / සහයෝගී
+
+(il) Name a self autonomous agent and a user agent in the given example.
+ඉහත උදාහරණයේ ස්වයං ස්වාධීන කාරකයක්‌ සහ පරිශීලක කාරකයක්‌ නමි කරන්න.
+
+(ili) If the set of multi agent robots behave satisfying only the autonomous characteristics but fails to
+
+cooperate, write down one of the most likely observations that will be seen during their operation.
+බහුකාරක රොබෝ සමූහය ස්වාධීන ගතිලක්ෂණ පමණක්‌ අනුව හැසිර, සහයෝගීත්වයෙන්‌ කටයුතු නොකරන්නේ
+නම්‌, ඔවුන්ගේ ක්‍රියාකාරිත්වය අතරතුර බහුලව දැකිය හැකි නිරීක්ෂණය ලියන්න.
+
+34
+
+(iv) If this system is redesigned by replacing the multi agent behaviour with centralized control and a
+broker agent for communication, identify one main change that will be seen with respect to each of
+
+the following.
+මෙම පද්ධතිය බහුකාරක හැසිරීම වෙනුවට මධ්‍යගත පාලනයක්‌ සහ සන්නිවේදනය සඳහා අතරමැදි කාරකයක්‌
+භාවිත කරමින්‌ නැවත ප්‍රතිනිරිමාණය කළහොත්‌ පහත දෑ සම්බන්ධයෙන්‌ දැකිය හැකි චක්‌ මූලික වෙනස්කමක්‌
+බැගින්‌ ලියන්න.
+
+(a) Control of the robot mobility / රොබෝවරැන්ගේ ගමන්‌ පාලනය
+(b) Decision making process (relevant to moving packages from loading area to dispatch areas)
+BOD ගැනීමේ ක්‍රියාවලිය (පැකේජ පැටවීමේ ප්‍රදේශයේ BO පිටන්කරන ස්ථාන දුක්වා ගෙනයාමට අදාළව)
+
+(v) Draw a box and arrow diagram for the new solution with centralized control, mentioned in (iv), above.
+හත (iv) හි සඳහන්‌ මධ්‍යගත පාලනය සහිත නව විසඳුමට අදාළව කොටු සහ ඊතල රෑපසටහනක්‌ අඳින්න.
+
+(Note: A box and arrow diagram uses boxes to show system components and arrows to show
+connections between those components)
+(සටහන: කොටු සහ SHE රෑපයක GMQOSS පද්ධති සංරචකත්‌, ඊතලවලින්‌ සංරචක අතර සමිබන්ධතාන්‌
+
+දැක්වේ.) ( 2023 ESSAY -- 07 [0] )
+
+9. (c) Consider a multi-agent system where agents (mobile robots) are designed to collaborate in a warehouse
+
+package moving task.
+බඩු ගබඩාවක පැකේජ්‌ ගෙන යන කාරය sem සහයෝගයෙන්‌ කටයුතු කිරීමට නිර්මාණය කර ඇති චජන්තවරුැන්‌
+(ජංගම රොබෝවරැ) සහිත බහු චීජන්ත පද්ධතියක්‌ සලකන්නග
+
+Each package is to be moved from its storage point (A) to its assigned delivery point (B) across the
+warehouse floor area. Each agent Is tasked with moving the assigned goods from point A to point B in
+an optimum manner. Each agent has its own utility function that helps the agent to make optimum
+decisions based on the given set of parameters.
+
+එක්‌ එක්‌ පැකේජය එහි ගබඩා ස්ථානයේ (A) BO එයට නියම කළ බෙදාහැරීම්‌ ස්ථානය (B) දක්වා, ගබඩා බිමි ප්‍රදේශය
+
+හරහා ගෙන යාමට අවශ්‍ය ය. නමන්ට නියම කළ භාණ්ඩ A ස්ථානයේ සිට 6 ස්ථානයට වඩාත්‌ ප්‍රශස්ත ආකාරයට ගෙන
+යෑම චක්‌ එක්‌ චඑජන්තනවරයාට පැවරී ඇති කාරථියයයි. දී ඇති පරාමිතීන්ට අදාළ ප්‍රශස්තම තීරණ ගැනීමට එක්‌ එක්‌
+චිජන්තවරයාට තමන්ගේම උපයෝගීතා ශ්‍රිතයක්‌ ඇත.
+
+(i) Highlighting the key characteristics, write down how the concept of ‘agents’ in this multi-agent
+system differs from a standard software program.
+
+ලමම බහු-එජන්ත පද්ධනියේ 'ඒජන්ත_ සංකල්පය, සම්මත මෘදුකාංග MOGGAaSs වෙනස්‌ වන අයුරැ මූලික ගනි
+ලක්ෂණ උද්දීපනය කරමින්‌ ලියා දක්වන්න.
+
+(il) Write down one positive (reward) and one negative (punishment) factor that could be considered
+in the utility function definitions of the agents (robots).
+චිජන්තවරැන්ගේ (ඉරාබෝවරැන්ගේ) උපයෝගීතා DOE අරිථදැක්වීම්වලදී සැලකිල්ලට ගත හැකි එක්‌ ධනාත්මක
+(නෑගි ලැබෙන) සහා එක්‌ සෘණාත්මක (දඬුවමි ලැබෙන) කරැණ බැගින්‌ ලියන්න.
+( 2024 ESSAY -- 07[c] )
+
+10. (0) Saman has a future plan to include three software agents in this online shop as follows:
+මෙම මාර්ගගත සාප්පුවට පහත පරිදි මෘදුකාංග ඒජන්තවරැ තිදෙනෙක්‌ ඇතුළත්‌ කිරීමට සමන්ට අනාගත සැලැස්මක්‌
+ඇන.
+
+Help Agent / උදව්‌ එජන්ත
+interacts with the customer and answers questions about products and delivery times
+
+ගැනුම්කරුවන්‌ සමග FoonsinsO ක්‍රියාකරමින්‌ නිෂ්පාදන පිළිබඳ ප්‍රශ්නවලට සහ සැපයීම්‌ කාල පිළිබඳ ප්‍රශ්නවලට
+පිළිතුරු සපයයි
+
+Price Agent / මිල වජන්ත
+
+checks for available discounts and seasonal offers before showing the final price
+අවසාන SE දැක්වීමට GOO, ලබාගන හැකි OOOO සහ උත්සව දීමනා පිරික්සයි
+Delivery Agent / බෙදිමි එජන්ත
+
+communicates with different delivery services to select the fastest and cheapest option
+වේගවන්ම සහ ලාභදායි සේවාව තෝරාගැනීම සඳහා විවිධ බෙදාහැරීම්‌ සේවාවන්‌ සමග සන්නිවේදනය කරයි
+
+(i) From these three agents, which one is mainly an interface agent and why?
+මෙම චඒච්ජන්තවරැන්‌ තිදෙනාගෙන්‌ මූලිකවම අතුරැමුහුණත්‌ එජන්තවරයකු වන්නේ කුමක්‌ ද ? එයට හේතුව කුමක්‌ ද ?
+
+උපදෙස්‌ දීමකින්‌ තොරව ලබදිමි චීජන්ත කියා කළ යුතු එක්‌ අවස්ථාවක්‌ විස්තර කරන්න.
+
+(v) Describe one situation where the Delivery Agent may give the customer incorrect information.
+ලබදිමී චීජන්ත විසින්‌ ගනුදෙනුකරැවන්ට වැරදි තොරතුරැ ලබාදිය හැකි චක්‌ අවස්ථාවක්‌ විස්තර කරන්න.
+
+( 2025 ESSAY -_ 0716] )

@@ -1,0 +1,653 @@
+| Instructions: )
+
+%* Answer all the questions.
+
+%* Write your Index Number in the space provided in the answer sheet.
+
+% Instructions are also given on the back of the answer sheet. Follow those carefully.
+
+% 777 each of the questions 7 to 50, pick one of the alternatives from (1), (2), (3), (4), (5) which is correct or
+most appropriate and mark your response on the answer sheet with a cross (x) in accordance with the
+instructions given on the back of the answer sheet.
+
+" % Use of calculators is not allowed. ]
+
+1. Which of the following best represents the typical life cycle of data?
+(1) collection — processing — usage — archival — deletion
+(2) collection — usage — processing — deletion — archival
+(3) processing — collection — usage — deletion — archival
+(4) processing — archival — collection — usage — deletion
+(5) usage — archival — collection — deletion — processing
+
+2. Which of the following is a characteristic of open-source software?
+(1) Limited customizations
+(2) Reliance on vendor for updates
+(3) Usage restricted by the owner
+(4) Source code not being publicly available
+(5) Being usually free to acquire and use
+
+3. An online examination system is to alert students if they leave any mandatory questions unanswered
+before submission of their answers. Which data validation techniques are sufficient for this
+requirement?
+
+(1) Data type check only
+
+(2) Data type check and presence check only
+(3) Data type check and range check only
+(4) Presence check only
+
+(5) Range check only
+
+4. Which of the following best describes a pointing device?
+(1) It is used to control an indicator on the display.
+(2) It is used to digitize a scene.
+(3) It is used to identify characters.
+(4) It is used to read codes.
+(5) It is used to select images.
+
+5. Which of the following is a secondary storage device in which the data is written to in a sequential
+manner and can be read from in a random manner?
+
+(1) CD-R (2) CD-ROM (3) Magnetic Tape
+(4) Solid State Drive (5) USB flash drive
+
+6. Which of the following communication buses are involved in reading a data word from Main
+Memory?
+A — Address Bus B — Control Bus C — Data Bus
+(1) A only (2) B only (3) C only
+(4) A and C only (5) All A, B and C
+
+7, While an instruction is being executed in the Central Processing Unit, that instruction and the relevant data
+
+are stored in the
+(1) address bus.
+(4) data bus.
+
+(2) arithmetic and logic unit.
+(5) registers.
+
+(3) control unit.
+
+8. If writing a 64-bit data word to a random-access memory takes 0.625 ns, how long will it take to read
+the same word back under the same conditions?
+(1) 0.156 ns (2) 0.312 ns (3) 0.625 ns
+
+(4) 1.250 ns (5) 2.500 ns
+
+9. Which of the following is true regarding EEPROM?
+(1) It can store user data similar to the random access memory.
+(2) Both of its writing and reading speeds are same.
+(3) Information written on it can be erased.
+(4) It requires electric power to retain information.
+(5) The operating system is stored in it.
+
+10. What is the correct hexadecimal equivalent of decimal 33.75 0?
+
+(1) 11.616 (2) 21.01: (3) 21.1116 (4) 21.616 (5) 21.Cic
+
+11. If a document with 1024 characters is converted from EBCDIC to ASCII with parity bit, how much
+
+space would be saved?
+
+(1) 0 bits (2) 512 bits (3) 1024 bits (4) 512 bytes (5) 1024 bytes
+
+12. If the two signed numbers | 8510 and 9610 are added using 8-bit registers, what is the value of the result
+stored in the relevant register?
+(1) -12810 (2) 2510 (3) 12710 (4) 25510 (5) 28119
+13. Consider the following flip-flop:
+Which of the following statements will be true when i; = 0 and i2= 1?
+1, O=0
+ly O=1
+
+(1) Q output will remain at 0 and Q output will remain at 1.
+
+(2) Q output will change to 1 and Q output will change to 0.
+
+(3) Q output will change to 1 and then to 0.
+
+(4) Q output will change to 0 and then to 1.
+
+(5) Q output will remain at 0 while Q output will also change to 0.
+
+14. What is the most simple Boolean expression that can be obtained through the given Karnaugh map?
+
+xy
+\. 00 01 11 10 (1) 7 (2)y + xz
+0/1/o]}0/] 1 (3) 37 4- 27 (4) 7? + xyz
+Z _ _
+11,01|1 (S) y2 + xy
+ද 7
+
+15. Consider the following two statements P and Q:
+P — Data is represented as a sequence of discrete values in a digital signal.
+Q — Even with some corruption, a digital signal is easier to correctly interpret than an analog signal.
+Which of the following 15 correct regarding the above two statements?
+
+(1) Both statements P and Q are correct and the point presented in statement P gives the reason for the
+point presented in statement Q.
+
+(2) Both statements P and Q are correct but the points presented in those two statements are not connected.
+
+(3) Statement P is correct but statement Q 15 incorrect.
+
+(4) Statement P is incorrect but statement Q 15 correct.
+
+(5) Both statements P and Q are incorrect.
+
+16. What does the term attenuation refer to in signal transmission?
+(1) alteration in the properties of the transmitted signal
+(2) increase in the signal strength
+(3) loss of signal energy as it travels over a distance
+(4) time delay in propagation
+(5) the received signal makes no meaning
+
+17. In which of the following is the frequency of the carrier signal varied according to the message signal?
+(1) in amplitude modulation (2) in amplitude shift keying
+(3) in frequency modulation (4) in frequency shift keying
+(5) in pulse code modulation
+
+18. Which of the following statements are correct regarding the bus topology?
+A — It consists of a main cable with terminators at each end.
+B — Devices in the topology are directly connected to each other.
+C — Problems occur when multiple nodes try to access the medium at the same time.
+(1) A only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, B and C
+
+19. Which of the following statements best describes the primary function of a network switch?
+(1) It amplifies and regenerates signals to travel over long distances.
+(2) It connects devices within a LAN and forwards frames based on the MAC addresses.
+(3) It connects multiple networks together and routes data traffic between them.
+(4) It encrypts data before transmitting them through the network.
+(5) It maps domain names into IP addresses.
+
+20. Which of the following statements describe the role of the Media Access Control (MAC) protocol?
+A — It ensures orderly access to a shared communication medium.
+B — It finds paths and routes data between network hosts.
+C — It provides unique addresses to identify network interfaces within a LAN.
+(1) A only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, B and C
+
+21. Which of the following ISO/OSI layers is responsible for the establishment and maintenance of an
+end-to-end reliable connection?
+(1) Application Layer (2) Data link Layer (3) Network Layer
+(4) Physical Layer (5) Transport Layer
+
+තූ 7
+
+ඒ
+
+22. Which of the following is true about open systems?
+(1) They operate independently without external software or hardware.
+(2) They limit interoperability to maintain internal control.
+(3) They support interoperability, portability and integration using common standards.
+(4) They improve performance by restricting third-party software and using only proprietary programs.
+(5) They are often incompatible with applications from other platforms.
+
+23. Match the Systems labelled from Al to A3 to the corresponding Descriptions labelled from B1 to B3.
+
+System Description
+A1 — Decision Support System 131 — A system that stores and distributes organizational
+information such as best practices and expertise to
+employees
+A2— Knowledge Management B2 — A system that helps managers analyze complex data
+System to identify patterns and make business predictions
+A3 — Enterprise Resource B3 — A system that integrates various business processes
+Planning System like accounting, procurement and supply chain
+operations
+
+(1) Al —B1, A2-B2, 43 - 133
+(2) Al—B1, A2-B3, A3 - 132
+(3) Al —B2, A2-B1, 43 - 133
+(4) Al —B2, A2-B3, A3-Bl
+(5) Al —B3, A2—B2, 43 - 131
+
+24. Which of the following system development lifecycle models facilitate iterative development and
+accommodate changing requirements?
+
+A — Spiral model
+
+B — Agile model
+
+C — Prototyping
+(1) A only (2) B only (3) A and C only
+(4) B and C only (5) All A, B and C
+
+25. Column A lists the phases of the waterfall model with labels Al to A5 and column B lists some
+descriptions with labels B1 to BS:
+
+Column A Column B
+
+Al — Requirements analysis B1 — Updating the software after deployment
+
+A2 — System design B2 — Writing codes based on detailed system specifications
+
+A3 — Implementation B3 — Validating whether the system meets user needs and
+functions correctly
+
+A4 — Testing 134 — Identifying what the system should do through
+discussions with stakeholders
+
+A5 — Maintenance B5 — Creating detailed technical architecture and data flow
+diagrams
+
+What is the correctly matched phase-description pair?
+(1) Al—B5 (2) A2 —B4 (3) A3 —B2 (4) A4—Bl (5) A5 — 133
+
+y,
+
+26. Assume that a project is to be done to computerise the administration of all government schools. The
+system developers in the project have been advised to use the Structured System Analysis and Design
+Methodology (SSADM) for it.
+What is a key benefit of using SSADM in this project?
+(1) It allows faster development with minimal documentation.
+(2) It avoids documentation effort completely.
+(3) It eliminates the need for system analysis.
+(4) It encourages rapid software deployment.
+(5) It ensures standardization and consistency of the entire project.
+27. Which of the following statements about system testing are correct?
+A — It verifies that the complete and integrated system meets the specified requirements.
+13 —Itis normally performed by end-users to validate software functionality.
+C —It is performed before unit testing in the standard software testing life cycle.
+(1) A only (2) B only (3) A and B only
+(4) A and C only (5) B and C only
+28. A software tester reviews a code part that calculates a discount based on a person’s age and purchase
+history by manually tracing each if-then-else condition branch.
+What testing 15 this?
+(1) Acceptance testing (2) Black-box testing (3) Integration testing
+(4) System testing (5) White-box testing
+29. A university replaced its old Learning Management System (LMS) with a new one. However, the
+new LMS was initially made available only for the first year students. After this successful trial, it was
+made available for the other students too by stopping using the old LMS completely and Starting the
+new LMS ona specific date.
+What type of deployment method 15 used in this changeover?
+(1) Direct only (2) Phased only
+(3) Pilot and direct only (4) Pilot and parallel only
+(5) Pilot and phased only
+30. Assume that a vehicle maintenance information system is to be developed. When a vehicle’s registration
+number is input to the system, the system should output the maintenance work records of the vehicle
+to the user. (e.g., On Aug 19% 2025, the oil of this vehicle was changed.) A service station manager,
+should also be able to add new work records to the system whenever such work is done to the vehicle.
+Shown below ts the first-level DFD of the system. P 1
+—_s
+S Q | |
+| 01| R
+Service 2 A
+station
+manager U T
+Which of the following gives the correct replacements for P to U in the diagram?
+(1) P— New work record Q — Display work records R — Service station managers
+S — Work history T — Registration number U — Add work record
+(2) P— New work record Q — Add work record R — Registration numbers
+S — Work records T — Registration number U — Display work records
+(3) P— Registration number Q — Add work record R — Service station managers
+S — Work records T — New work record U — Display work records
+(4) P— Registration number Q — Display work records R — Work history
+S — Work records T — New work record U — Add work record
+(5) P— Work history Q — Display work records R — Registration numbers
+ෂූ S — Work records T — New work record U — Add work record J
+
+ය
+
+31.
+
+32.
+
+33.
+
+34.
+
+35.
+
+Consider the following relations from a database at a University. The database is used to keep data
+about the marks of students taking different courses, the teachers who teach the courses and the department
+that each teacher is working at:
+RESULT(Student_id, Course_id, Mark)
+STUDENT(Student_id, Student name, Student_ phone)
+COURSE(Course_id, Course name, Teacher id)
+TEACHER (Teacher_id, Teacher name, Teacher phone, Dept_id)
+DEPARTMENT(Dept_id, Dept name, Dept phone)
+Which of the following 15 not a foreign key in this schema?
+(1) Student_id in the RESULT relation
+(2) Course_id in the RESULT relation
+(3) Student_id in the STUDENT relation
+(4) Teacher_id in the COURSE relation
+(5) Dept_id in the TEACHER relation
+
+Consider the following schema of a table that is designed to store data about students:
+
+Name Type Null Key Extra
+
+Student_id INT NO PRI AUTO_INCREMENT
+Student name VARCHAR(100) | NO
+
+Email VARCHAR(50)_ | YES
+
+Age INT YES
+
+Which of the following statements are true?
+A — Student_name cannot be empty when inserting a record.
+B — The same email address (Email) could be entered for two students.
+ල්‌ — Inserting a student without specifying the Student_id will result in an error message.
+(1) A only (2) B only (3) C only
+(4) A and B only (5) All A, B and C
+
+Which of these is an advantage of using a compiled language compared to an interpreted language for
+implementing a program?
+
+(1) less development time
+
+(2) easier debugging
+
+(3) faster execution of the developed program
+
+(4) portability of the developed program
+
+(5) error detection at program run time
+
+Which of the following statements are correct?
+A — Assembler is a translator for the Assembly language.
+13 — Compilers detect only logical errors when compiling a program.
+C — Program compilation is a major task of the operating system.
+D — An interpreter converts a program completely to an executable file.
+
+(1) A only (2) B only (3) A and C only
+(4) B and D only (5) C and D only
+Consider the following A, B, C and D variable initializations in Python:
+A=1.2 B = “True” C = (1,2,3) D = True
+Which of the following gives the correct data types of A, B, C and D respectively?
+(1) float, bool, list, bool (2) float, bool, str, str
+(3) float, bool, tuple, bool (4) float, str, dict, bool
+
+(5) float, str, tuple, bool
+
+_2
+
+36. What is the execution output of the following Python expression?
+(1,2,3)[-1]+ 3 * 4
+(1) 13 (2) 15 (3) 16 (4) 24 (5) TypeError
+
+37. What is the execution output of the following Python code?
+
+X "91161"
+t= 6
+p= 6
+for i in x:
+
+if(int(i)):
+
+t=t+2 ** p
+
+p=-p+i1
+
+print(t)
+
+(1) 4 (2) 16 (3) 20 (4) 22 (5) 24
+
+38. Following labelled Python code has been written to display all records from the ‘Book’ table of the
+‘Books database’:
+
+import mysql.connector
+
+mydb = A (host="localhost", user="devi", password="M4PQ#2Ag", database="Books_ database")
+mycursor = B
+
+mycursor.execute(C)
+myresult = mycursor.fetchall()
+
+for x in myresult:
+print (x)
+
+mycursor.close()
+mydb.close()
+
+Which of the following gives correct replacements for labels A, B and C?
+
+(1) A—mydb.cursor() B-—"SELECT * FROM Book" C-—mysqli
+
+(2) A—mysql. connector. connect B —mydb.cursor() C—"SELECT * FROM Book"
+(3) A—mysql. connector. connect B—open('mydb', ‘r') C—"SELECT * FROM Book"
+(4) A—mysqli B—open('mydb', ‘r') C—mysql.connector.connect
+(5) A—mysqli B—mysql.connector. connect C—open('mydb', 'r')
+
+39. Assume that you have to design the following systems. For which of them will you require the users
+to login to the system with usernames and passwords 11] order for them to use those systems?
+A — A learning management system for students to download learning resources and upload
+assignments
+B — An online banking system to let users transfer funds to other users
+ල්‌ — A system to let the public know about the services of a Government department and its
+opening hours
+
+(1) A only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, B and C
+
+S y,
+
+40. Nithya saves the following HTML code as beach.html on her desktop computer:
+
+<!DOCTYPE html>
+<html>
+
+<h1>Beach</h1>
+
+<body>
+
+<picture>
+
+<source media="(min-width: 1024px)" srcset="beach_large.jpeg" alt="Large beach picture">
+<source media="(min-width: 76@px)" srcset="beach_medium. jpeg" alt="Beach picture">
+
+<img src="beach_small.jpeg" alt="Small beach picture">
+
+</picture>
+
+</body>
+
+</html>
+
+Note: 1. Assume that she has beach large.jpeg, beach medium.jpeg and beach small.jpeg files also
+in the same folder of her computer.
+2. The picture element can be used to specify different images to be displayed for different
+devices or screen sizes.
+3. The media attribute specifies what media or device the linked resource is suitable for and the
+srcset attribute specifies the URL of the image to be used.
+Which of the following statements are true?
+A — This file is using an external style sheet.
+B — When Nithya opens this file through the largest browser window of her computer, the
+beach small.jpeg image is displayed.
+ල්‌ — When Nithya emails only the beach. html file to Kamala and when Kamala opens it through her
+smart phone, the “Small beach picture’ text is displayed.
+(1) A only (2) B only (3) C only
+(4) A and C only (5) B and C only
+
+41. A web page is shown in Figure 41.1 and part of the HTML source that was used to make it is shown in
+Figure 41.2 with five tags labelled from A to E.
+
+<A>Zero trash!</A>
+
+Zero trash! <B>This is a low cost way to compost kitchen
+
+This is a low cost way to compost kitchen waste: waste:</B>
+. Get three concrete well rings.
+Get three concrete well rings. Wo . ॥ " .
+<p><C src="rings.jpg" alt="An image of three
+ee & rings" width="200" height="100"></p>
+ඒ g ay i Put the daily collection of compostable waste
+= i, 7 from your kitchen in one ring. Cover the waste
+with a thin layer of soil. Repeat until the ring 15
+Put the daily collection of compostable waste from your kitchen | full. When it is full, use the second ring the same
+in one ring. Cover the waste with a thin layer of soil. Repeat way. Once the second ring is also full. use the
+until the ring is full. When it is full, use the second ring the thi d . But tak - 7
+same way. Once the second ring is also full, use the third ring. re ming. ; u now you can lake covering 501
+But now you can take covering soil from the first ring as from the first ring as the content in it would have
+the content in it would have been turned to compost by now. been turned to compost by now. When the third
+that you can repeat filling it with waste using soil for covering ° “44: oe . .
+oan tha second sing that you can repeat filling 11 with waste using soil
+for covering from the second ring.
+Be happy that you are not burdening the town council anymore <p><D>B e happy that you are not burdening the
+with kitchen waste and that you are making your own fertilizer! . . .
+town council anymore with kitchen waste and that
+Watch a video on the method. you are making your own fertilizer!</D></p>
+
+<a E="composting.mp4">Watch a video on the
+method.</a>
+
+Figure 41.1 Figure 41.2
+
+තූ 7
+
+i ‘
+
+Which of the following gives the correct replacements for A to E?
+
+(1) A—hl, B-p, C—img, 1) -- 00], 13 — href
+(2) A—hl, B-p, C—img, 1) -- 311], E — video
+(3) A—hl, B-p, C — href, 1) -- 6, E — video
+(4) A—style, 13 -- 311], උල -- 11119, 1) -- , 13 — href
+(5) A—style, B-p, C — body, 1) -- 311], E — video
+
+42. Which of the following is the correct way to include the “shop.css’ external CSS file to an HTML file?
+(1) <a href="shop.css">shop.css</a>
+(2) <css src="shop.css">
+(3) <style src="shop.css">
+(4) <stylesheet>shop.css</stylesheet>
+(5) <link rel="stylesheet" href="shop.css">
+
+43. Which of the following technologies 15 most convenient to make the colour of all the second level
+(h2) headings of a website to blue?
+
+(1) Apache (2) CSS (3) HTML (4) MySQL (5) PHP
+
+44, Which of the following statements are true?
+
+A — Even when analog inputs are given to the digital pins of an Arduino board, they are read
+as analog values.
+
+B — The USB port of an Arduino board can also be used to supply DC (direct current) electric
+power to it.
+
+C -— To input the room temperature to an Arduino board, the Vou, pin of the LM35 temperature
+sensor could be used.
+
+(1) A only (2) A and B only (3) A and C only
+
+(4) B and C only (5) AIA, B and C
+
+e Consider the following code with labels P-S to answer questions 45 and 46. The code has been designed
+for an Arduino board to switch on/off a motor based on room temperature.
+
+const int sensorPin = A@;
+const int motorPin = 8;
+
+void setup() {
+pinmode(motorPin, P );
+
+7
+
+void loop() {
+int sensorValue = Q (sensorPin);
+float voltage = sensorValue * 5.@ / 1024;
+float temp = voltage * 100;
+if (temp > 40)
+R (5 , HIGH);
+
+else
+R (5 , Low);
+
+45. Which of the following contains the correct replacements for the labels?
+(1) P— INPUT, Q-— analogRead, R-—digitalwrite, S—motorPin
+(2) P— INPUT, Q-digitalwrite, R-analogRead, S—motorPin
+(3) P—OUTPUT, Q-analogRead, R-—digitalwrite, S—motorPin
+(4) P—OUTPUT, Q-analogRead, R-—digitalwrite, ට — sensorPin
+(5)P—OUTPUT, Q-digitalWrite, R-analogRead, ට — sensorPin
+මූ
+
+ණී 0
+
+46. Which of the following statements are true?
+
+A — The input from the temperature sensor could have been connected to any of the pins Al-A5
+as well but then the “const int sensorPin = (6 ; line in the code should be changed to reflect
+that change.
+
+B — The motor should be connected to a GND pin of the Arduino board.
+
+C — The above code when correctly completed can be compiled and uploaded through the USB port to
+the Arduino microcontroller by using the ‘Upload’ button in the Arduino IDE.
+
+(1) A only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, B and C
+
+47, Which of the following statements are true?
+A — IPv6 is highly suitable for scalability and efficient operation of Internet of Things (OT).
+B — Once added to the Arduino board, an Ethernet Shield facilitates the board to connect to the Internet.
+ල්‌ — Static IP addresses cannot be used for IOT devices.
+(1) A only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, B and C
+
+48. What is the suitable replacement for the blank in the following statement?
+By analyzing historical data of a person’ previous hotel visits and his/her …… . submitted to social
+media of the same, an Al-based hotel recommendation system should be successfully able to suggest hotels
+that the person would like.
+(1) email addresses (2) payment records (3) phone numbers
+(4) reviews (5) street addresses
+
+49, Which of the following statements are true with respect to Artificial Intelligence (Al)?
+A —AI applications are also computer programs.
+B — All AI applications are automatically generated.
+C —When AI technology is used to generate new content, it is suitable to disclose that the content
+was generated by AI.
+(1) B only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, B and C
+
+50. Which of the following problems are suitable to be solved using nature inspired computing technologies?
+A — make the monthly payroll list of the employees of a large multinational organization
+13 —the use of autonomous robots to move goods in a warehouse avoiding collisions
+C — scheduling hospital operating theatre time slots for the patients in the surgery waiting
+
+(1) A only (2) B only (3) C only
+(4) A and C only (5) B and C only
+3 21: ok
+
+QoOMICNSL 1.11) CHES: F160 600 HS 61110)
+අක] 0)119]9  ඉඑඅ1/1151)11 ! 5217 Dw Spl ufLene, 2025
+| තොරතුරු හා සන්නිවේදන තාක්ෂණය 11
+HEU, OHM TUT 0151110160]! _! ]ධ]!! 160 11 [20 E]| 11)
+[ පැයක තනයි අමතර කියවිමි කාලය - මිනිත්තු 10 යි )
+ඌ727//77/ COME SULUTEVLD Goss amAuy CHILD - 10 ALAL meer
+el hree hours Additional Reading Time - 10 minutes J
+Use additional reading time to go through the question paper, select the questions you will answer
+and decide which of them you will prioritise.
+SS 7,
+| 1110ලාැ 10: …… |
+Important: For Examiner’s Use Only
+% This question paper consists of 16 pages.
+* This question paper comprises of two parts, For the Second Paper
+Part A and Part B. The time allotted for both Part | Question No. Marks
+parts is three hours. 1
+%* Use of calculators is not allowed 2
+A
+PART A - Structured Essay: 3
+(pages 2-8) 4
+% Answer all the questions on this paper itself. 5
+Write your answers in the space provided for
+each question. Note that the space provided is 6
+sufficient for your answers and that extensive 7
+answers are not expected. B න්‌
+PART B - Essay: 9
+(pages 9-16) 10
+% This part consists six questions, of which, four Total
+are to be answered. Use the papers supplied for
+; Final Marks
+this purpose.
+In numbers
+% At the end of the time allotted for this paper, tie
+the two parts together so that Part A is on top In words
+of Part B before handing them over to the Code Number
+Supervisor. Marking Examiner 1
+%* You are permitted to remove only Part B of the Marking Examiner 2
+question paper from the Examination Hall.
+Marks checked by :
+Supervised by :
+(ම 2
+
+සී ॥

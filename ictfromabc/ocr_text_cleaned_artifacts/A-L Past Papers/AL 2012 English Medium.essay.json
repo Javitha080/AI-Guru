@@ -1,0 +1,74 @@
+[
+ {
+  "number": 1,
+  "part": "B",
+  "text": "1. (a) Give two techniques used in operating systems to optimize processor utilization.\n\n(b) The following shows a part of the result obtained by executing the “ping” command to check\n\nthe network connectivity to a host connected to a computer network.\n\nPING www.cam.ac.uk\n\n64 bytes from\n64 bytes from\n64 bytes from\n64 bytes from\n64 bytes from\n\nipv4.\nipv4.\nipv4.\nipv4.\nipv4\n\n(131.111.8.\ncam.\ncam.\ncam.\ncam.\ncam.\n\nWWW.\nWWW.\nWWW.\nWWW.\nWWW.\n\n--- www.cam.ac.uk ping\n5 packets transmitted, 5 received,\n\nac.\n.uk (131.\nuk (131.\nuk (132\nuk (131.\n\nac\n\nac.\n\nac\n\nac.\n\n46) 56(84) bytes of data.\n\nuk (131\n\nstatistics ---\n\n.111.\n111.\n111.\n411.\n111.\n\n8.46)\n8.46)\n8.46)\n8.46)\n8.46)\n\n: icmp_seq=1 tt1=242 time=201\n: icmp_seq=2 tt1=242 time=204\n: icmp_seq=3 tt1=242 time=196\n: icmp_seq=4 tt1=242 time=203\n: icmp_seq=5 tt1=242 time=195\n\nUsing the above information, answer the parts (1), (11), (111) and (iv) given below.\n\n(1) What is meant by time in the above result?\n\n(ii) What is the IP address of the server that hosts the website www.cam.ac.uk?\n\n(iii) Identify the class of the IP address obtained in (11) above.\n\n(iv) What is the percentage of packet loss?\n\n(c) In an operating system, a process can be in one of the states, namely, created/new, waiting,\nrunning, terminated, blocked, swapped out and waiting, or swapped out and blocked. From which\n\nof the above states can a process be directly moved into the blocked state?\n\nms\nms\nms\nms\nms\n\ny,\n\nAL/2012/20/E-II -3- Index No.: ……\n\n4 ෴",
+  "marks_total": null
+ },
+ {
+  "number": 2,
+  "part": "B",
+  "text": "2. (a) Provide a suitable definition for a system. a\nin this\ncolumn\n(b) Using the definition suggested in (a) above, show that a mobile phone is a system.\n(c) State whether a mobile phone is a close system or an open system. Justify your answer.\nද y,\n\n4 ‘\n. D\n(d) State whether the following requirements of a mobile phone are functional or non functional. ක්‍ෂ\nJustify your answers. in this\n(i) A user shall be able to make a call using the mobile phone. column\n(ii) It shall not harm the user by emitting radiations.\n\\ y,\n\n‘a ‘",
+  "marks_total": null
+ },
+ {
+  "number": 3,
+  "part": "B",
+  "text": "3. (a) (i) Describe how you would determine whether a given positive integer is odd or even.\n(ii) Develop a flowchart to represent an algorithm, based on the method suggested in (i) above,\nto decide whether a given positive integer is odd or even.\n\\ y,\n\n(iii) Convert the flowchart you have obtained for the above (11) into a pseudo code. a\n\nin this\ncolumn\n(b) Show how the computation 15+(-5) is done in 8-bit two's complement arithmetic.\nExplain how you deal with the carry generated in the most significant bit.\n\nද y,\n\n(ණ්‌\n\n4, (a) What do you mean by the terms “privacy” and “software piracy”?\n\n(b) Describe the term “mobile computing”.\n\n(c) Consider the following scenario :\n\nA semi conductor manufacturing company has branches in Japan and USA. At present,\nrepresentatives of the development team should visit other branches of the company frequently\n\nto discuss their technical issues, Over the years, the company has realized this mechanism is\ncostly and time consuming.\n\n(i) As an ICT student, suggest an ICT based method to conduct these technical review meetings\nwithout visiting the other branches.\n\n(ii) Name three essential ICT devices required for the method suggested in (1) above.\n\nDo not\nwrite\nin this\ncolumn\n\n2\n\nAL/2012/20/E-II\n\n_8-\n\nඛි015160)51.1.11[)/1--60):58)- Gl 60) 60 SS 61110\n\nඅධ්‍යයන cae සහතික පත්‍ර (උසස්‌ පෙළ) විභාගය, 2012 අගෝස්තු\nකෲ] Gungs  gsorg7l ! 15217 (£ _!11/ spl ufLens, 2012 56000\n\n% Answer any four questions only.\n\nතොරතුරැ හා සන්නිවේදන තාක්ෂණය 11\nHEU, THT TUT 0151110160]! |]! 16) 11 [20 EB | 11 |\n\nPart B\n\nenvironment is hot.",
+  "marks_total": null
+ },
+ {
+  "number": 1,
+  "part": "B",
+  "text": "1. (a) (1) Describe the main difference between data and information by using a suitable system.\n(ii) Give three drawbacks of manual methods in manipulating data in bulk.\n\n(111) Describe the terms hardware, software and firmware using examples.",
+  "marks_total": null
+ },
+ {
+  "number": 1,
+  "part": "B",
+  "text": "1. The fan can manually be switched on or off.",
+  "marks_total": null
+ },
+ {
+  "number": 2,
+  "part": "B",
+  "text": "2. The timer will be either on or off.",
+  "marks_total": null
+ },
+ {
+  "number": 3,
+  "part": "B",
+  "text": "3. The sensor will detect whether the environment is cold or hot.",
+  "marks_total": null
+ },
+ {
+  "number": 4,
+  "part": "B",
+  "text": "4. The fan will automatically be switched on when the timer is on and the sensor indicates.\n\nThe following table assigns Boolean values for the above conditions/functionalities.\n\nCondition/ functionality\n\nBoolean value\n\nFan switched on manually\nFan switched off manually\nTimer is on\nTimer is off\n\nSensor detects cold environment\n\nSensor detects hot environment\n\n1\n0\n1\n0\n1\n0\n\nabove control system.\n\nabove.\n\n(ii) Construct a truth table to represent the functionality of the above system.\n\n(b) A fan in a room can be on (1) or off (0). A control system is required to operate the fan efficiently\nwith the following conditions / functionalities.\n\n(i) Draw a logic circuit by using a combination of only AND, OR and NOT gates to implement the\n\n(111) Write a Boolean expression (not simplified) to represent the truth table constructed in the (b) (11)\n\ny,",
+  "marks_total": null
+ },
+ {
+  "number": 2,
+  "part": "B",
+  "text": "2. (a) What would be the responses by a browser for a paragraph tag and for a break tag in an HTML document?\n(b) What will be displayed when the following HTML code segment is rendered? Clearly indicate blank line(s)\nin the display, if any, with dotted lines (……- ).\n<p>Our evergreen school days<br/>\nwill not come back again</p>\n<p>From the nursery to high school\nwe learnt the best</p>\n(c) A company named “Agri Sri Lanka” requires a web page as given below.\na o\nAgriculture Sri Lanka\nsh x Ca 2. 11. if ;\nBY AN th yA 1 22\"\nය . 3 by fi i-3 ‘3\nSri Lanka is an agricultural country. Agriculture is one of the main sectors of the Sri Lankan\neconomy.\nThe main plantation crops are\ne tea\ne rubber\ne coconut\nLinks to agricultural firms\nJay Agro Technologies\nLanka Agri Systems Pvt Ltd.\nWrite an HTML code to produce the above web page. Assume that the name of the image file is\n\"agriSL.jpg\". The links, Jay Agro Technologies and Lanka Agri Systems Pvt Ltd. should link to the\nsites \"http://www jayagrotec.com\" and \"http://www.lkagrisys.com\" respectively.\nද y,\n\n/”~ ෴",
+  "marks_total": null
+ },
+ {
+  "number": 3,
+  "part": "B",
+  "text": "3. (a) An application running in a computer refers the virtual memory address, 0100110100010111 during execution.\n(i) Calculate the maximum accessible virtual memory address space, in the above computer in Kilo Bytes?\n\n(ii) What is the range (starting and ending addresses) of the memory address space identified in the\nsection (i) above?\n\n(iii) If a page size is 4 Kbits, how many bits are sufficient to represent the page number? Show your\ncomputation.\n\n(b) Assume that A and B are computers connected to two network segments. When the command ‘ipconfig’\nis executed in these computers, the following information is obtained:\n\n1. Incomputer A\n\nIPV4 address …… : 192.168.1.2\n\nSubnet mask …… > 255.255.255.0\n\nDefault 94((//47/'…… > 192.168.1.254\n2. In computer B\n\nIPV4 address …… : 192.168.2.3\n\nSubnet mask ,…… > 255.255.255.0\n\nDefault 94((//47/'…… > 192.168.2.254\n\nDraw a network diagram for the above two network segments so that both A and B can communicate\nwith each other. You should clearly indicate the EP addresses of each device in the diagram.\n\n(c) Briefly explain the main function of each of the following systems in terms of network security.\n(1) firewall\n(ii) proxy server\n(111) honey pots\n\n4, Consider the following ER diagram.\n\nDesk House (House ID\n, ෴ ඌ෴ා =\n\nClass\nHas Subject\n1\n1 n\na m Obtains Subject ID\nStudent\nMarks for\n\n(a) State the most relevant entity or relationship in the above ER diagram to add an attribute to represent\nmarks obtained by a student for a subject.\n\n(b) Classify all the relationships in the above ER diagram as one-to-one, one-to-many or many-to-many.\nJustify your answer.\n\n(c) Write the structure of the tables including their attributes when the above ER diagram is converted to\na relational database.\n\n(d) State the primary key for any table suggested in (c) above.\n\n(e) Using the tables you have suggested in (c) above, write an SQL statement to get marks obtained for\nthe subject with the value of Subject ID ALOO1 by the student with the value of Student ID 51001. |\n\n( ෴",
+  "marks_total": null
+ },
+ {
+  "number": 5,
+  "part": "B",
+  "text": "5. Consider the following Python program named example.py\n\ndatasummary = {}\ndatakeys = ||]\ndef readdata():\nglobal datakeys, datasummary\n11 = open( ‘input.txt’, 'r')\nline = f1.readline()\nwhile (line):\ndata = line.strip().split(\",\"\nfor dataitem in data:\nif dataitem in datasummary:\ndatasummary [dataitem] += 1\nelse:\ndatasummary[dataitem] = 1\ndatakeys = datakeys + [dataitem]\nline = f1.readline()\nf1.close()\n\ndef processdata():\nglobal datakeys\nfor i in range(len(datakeys) - 1):\nfor j in range(it+1, len(datakeys)):\nif(datakeys[i] > datakeys[j]):\ndatakeys[i], datakeys[j] = datakeys[j], datakeys [i]\n\ndef printdata():\nglobal datakeys, datasummary\n12 = open('output.txt', ‘w')\nfor key in datakeys:\nf2.write('{}-{}\\n' .format (key, datasummary [key ] ) )\nf2.close()\n\nreaddata()\nprocessdata()\nprintdata()\n\n(a) What are the data types of the variables datasummary and datakeys in the above program?\n\n(b) Write a Python statement required to insert the program name as a comment at the beginning of the\nabove program.\n\n(c) What is the result of execution of the command open(‘input.txt’,'r') in the above program?\n\n(d) Describe the main task of each of the functions readdata(), printdata() and processdata() in the above\nprogram.\n\n(e) If the content of the file input.txt is as given below, what would be the content of the file output.txt\nafter the execution of this program?\na,d,b,a,n\nd,b,n,x,a",
+  "marks_total": null
+ },
+ {
+  "number": 6,
+  "part": "B",
+  "text": "6. The Past Pupils Association (PPA) of a school has a large number of past students all over the country and\noverseas. The PPA, in collaboration with a leading local bookshop, decided to obtain support from the past\nstudents and other donors to increase the number of books in the library. The PPA agreed to develop a web-\nbased system with on-line payment facilities for this activity. The title and the price of the required books\nfor the library will be available on the website. The donors could select and pay for these required books\navailable on the website. When a payment is made, this information will be sent to the bookshop for the\ndelivery of the selected books to the school library.\n\n(a) Give two advantages of the suggested on-line method over traditional methods for book collection.\n(b) Give one disadvantage of ordering books through the suggested website.\n\n(c) Explain how you could improve the website to eliminate the disadvantage given in (b) above.\n\nූ 4 3 3",
+  "marks_total": null
+ }
+]

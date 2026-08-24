@@ -1,0 +1,278 @@
+Part A — Structured Essay Do not
+
+. . * write
+Answer all four questions on this paper itself in this
+column
+1. (a) State the main technologies used in the first four generations of computers.
+(b) Draw a diagram to depict the fetch-execute cycle used in program execution.
+
+ම 27
+
+AL/2011/20/E-II -3- Index NOv: ……
+
+(- ~
+. . . . . . . Do not
+(c) Show how the computation 5+(-3) is done in 8-bit two's complement arithmetic. Explain how |……
+you deal with the carry generated from the most significant bit. in this
+column
+
+2. (a) Encircle the most suitable entry in the second and third columns corresponding to the properties
+listed in the first column of the following table with respect to FAT32 and NTFS file systems.
+
+FAT32 NTFS
+Maximum file size limited/unlimited limited/unlimited
+Maximum file name length limited/unlimited limited/unlimited
+Security yes/no yes/no
+Support of Unicode yes/no yes/no
+
+(b) A computer has an 18-bit virtual memory address space where six bits are used for a page address.
+
+(i) Calculate the total number of pages defined by the above addressing scheme.
+
+(ii) Consider the following virtual memory address:
+010111000000111100
+What is the page and displacement (Offset) of this address?
+
+ම 7
+
+(c) Draw the operating system process transition diagram from process creation to termination. Do not
+write
+in this
+column
+
+3. Consider the following scenario.
+
+Students in a school participate in different sports such as volleyball, track and field athletics, table
+tennis, etc. The principal wants to maintain a registry with admission number, student name, home
+address, class, and sports he/she participates. A student can participate in more than one sport. For
+a particular sport, there can be more than one student. Each student can participate pre-defined number
+
+of hours in a sport.
+
+(a) Draw an ER diagram for the above scenario.
+
+2
+
+‘a ~
+(b) Classify with reasons whether the cardinality of relationship(s) identified in section (a) is one- on
+write
+to-one, one-to-many, or many-to-many. in this
+Relationship Cardinality Reason column
+(c) “ER diagrams do not allow attributes to be assigned on relationships”. State whether this statement
+is true or false. Explain your answer by using the given scenario.
+ට y,
+
+‘a ‘
+(d) A database designer suggested the following relation for the above system. State two weaknesses a
+of this relation and suggest necessary modifications. in this
+AdmissionNo StudentName | HomeAddress Class SportName column
+\. ෂ්‌
+
+4, (a) Classify the following software as either “system software” or as “application software”. a
+
+Software Classification in this
+column
+Linux
+Word Processor
+Web Browser
+(b) Computer storage devices can be categorized into three types based on the medium used to store
+/retrieve data. State the three types of media and give an example for each type.
+(c) The transaction file in a company’s payroll system includes employee number, hours worked
+department code, and week number. Assume that the system maintains a Employee master table
+and a Department master table. Encircle the most appropriate validation check for each of the
+data elements given in the following table.
+Data element Validation checks
+employee Number Presence in Employee master table / Numerical value
+hours worked Presence in Employee master table / Range check
+department code Presence in Department master table / Range check
+week number Length / Range check
+(d) Describe the terms “Video conferencing” and “Copyright”.
+36 3
+(ම 7
+
+ශ්‍රී ලංකා Sena දෙපාටතමේන්තුව
+QOOMIEN HL LF CNS; 2160060015: 61114)
+seen 01119]9 7අ1/1151)1] ugAy Quy spl ufLens, 2011 55600
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+HSU, 05111 _][)1 111 20 0511101601! 1)! 160 11 20) EB ॥ 11 |
+Part B
+
+% Answer any four questions only.
+
+1. (a) What are the three (3) main components of a Central Processing Unit (CPU) of a typical computer? List
+the main functions of these three components.
+
+(b) Briefly explain why storage compaction is needed in memory management.
+
+(c) For a file of size 10400 bits, calculate the wastage in file space due to incomplete filling of the last
+cluster (Assume that a cluster has a size of 512 bytes.)
+
+(d) A digital circuit takes four binary digits as an input, and produces 1 as its output if the decimal value
+represented by the four binary digits is a prime number (number which can only be divided by itself
+and 1), and 0 otherwise. Assume that all four binary digits represent positive decimal values (No bit is
+allocated for the sign).
+
+(i) The following truth table is designed to describe the above circuit, in which A, B, C and D represents
+the four binary inputs from the most significant bit to the least significant bit and F(A,B,C,D) as
+the output of the circuit. Copy the following truth table onto your answer sheet as it is and complete
+the output column.
+
+F(A,B,C,D)
+
+ය | ඞෲ | | | | |. ..|!.. !ක।ක|ක|ක|ක|ක| ක| ක | -
+| | | :.1। ක|।ක|ක| යක | ,ෲ~ |…… |…… । ..ණ.। ක। ක| ක।| ක|
+ele lola RT rRe;losl ක | ~- |।-්‌3ේ|।කත| ක | -|--~।ක| ක। ඟු
+| ක|.ය|ක|..|ක| | ක|..| ක|.ය|ක|..|ක|.|ක|
+
+(ii) Write a Boolean expression to represent the logic function of the above circuit in the sum of products
+form.
+
+(111) Design a logic circuit for the Boolean expression you have obtained for the above part (11).
+(ම 7
+
+a
+
+2.
+
+(a) Describe the terms “elements” and “attributes” with respect to an HTML document.
+
+(b) Identify each of the following as either an element or an attribute and describe their functionality.
+
+(i) br (11) href (iii) src
+
+(iv) html
+
+(c) Consider the following figure which shows a section of a web page of a tour operating company in Sri
+
+Lanka.
+
+natural habit.
+
+Highlights
+
+| Terex _ OBlue Whale
+O Leopard
+
+ටා Elephant
+
+Wildlife Tours to Sri Lanka
+
+Sri Lanka is famous for its wildlife. There are many National
+parks and Sanctuaries where one can see animals in their
+
+SSS" Why visit Sri Lanka?
+
+Answer the following questions using the above figure.
+
+(i) It is required to format all the paragraphs of the above HTML document in “arial” font, 14 font
+
+size and in blue colour. Write the required CSS code segment for the paragraph.
+
+(ii) Explain the effect of having the following tag in the above HTML document.
+<a href = "elephants.jpg"><img src = "elephants_tnl.jpg"
+ALT = "Tour to Yala" width = "288cm" height = "156cm"
+
+style = "border:none"/></a>
+
+(111) Write HTML code segment to create the collection of three radio buttons labelled as 'Blue Whale’,
+
+‘Leopard’ and 'Elephant' as appeared in the above HTML document.
+
+(iv) The company wants to add a table showing the rates as given below with the caption "Wild Sri
+
+Lanka’, to the above HTML Document.
+
+Days Price
+7 US$910
+10 US$1220
+
+Write HTML code segment to create the table.
+
+y,
+
+ඒ
+3. (a)
+
+(0)
+
+(0)
+
+(c)
+
+(d)
+
+(b)
+(c)
+
+(d)
+
+(b)
+
+You have been asked to design two physically separated networks, namely A and B, each having exactly
+10 computers. The IP addresses of A and B networks are 10.32.5.0 and 10.32.6.0 respectively It is required
+that the computers in the two networks must be able to communicate with each other.
+
+(i) Suggest a suitable subnet mask for each of these networks.
+(ii) Name the device required to connect these two physical networks to communicate with each other.
+
+(iii) Draw a network diagram for the above network and assign suitable IP addresses for the devices
+in these two networks.
+
+(i) Compare TCP and UDP protocols in terms of reliability.
+
+(ii) Peer-to-peer (P2P) and client-server models are distributed application architectures. State the
+difference between them.
+
+(111) List the differences between hubs and switches in a network.
+
+Identify and describe the phases of the waterfall model in software development.
+
+Describe functional and non functional requirements of a system. Identify two functional and three non
+functional requirements for a mobile phone.
+
+Describe the purpose of unit, integrated and acceptance testing. Who are the people responsible for each
+testing process?
+
+Suppose you are planning to buy a new mobile phone and would like to test its functionality. Describe
+how Black Box testing can be used in this process.
+
+Explain the necessity of program translators in computer programming.
+Give two main features for each of the First-Generation and Second-Generation programming languages.
+
+Give three main flow control structures used in a structured programming language. Show how these
+flow control structures can be represented in a flow chart.
+
+The following Python program is intended to convert user given positive integers to their equivalent binary
+representations. The program should halt when the user inputs the value 0. The program has both syntactic
+and logical errors. The line numbers are not part of the program, but they are used to reference the lines.
+1 x = int (input ("Enter an integer >)
+while x!=@:
+bn = ""
+while x > 1:
+quotient = int(x/2)
+remainder == x % 2
+bn = bn + str(remainder) ;
+xX = quotient
+9 bn = str(x) + bn
+10 print ("Binary Number", bn)
+11 xX = int (input("Enter an integer >)
+
+CON AU 4 ටං [ට
+
+(i) State the lines with syntactic errors and state the error.
+
+(ii) Which lines of the program should be changed and state how they should be changed to obtain
+the desired results. (You are not allowed to add new lines or to delete existing lines.)
+
+(i) Using an example for each category explain the three types of business: Business to Business (B2B),
+Business to Consumer (B2C) and Consumer to Consumer (C2C) in e-commerce.
+
+(ii) Chairman of a company is considering fax, e-mail and web as communication tools for a B2E (Business
+to Employee) application. Being an ICT student recommend the most appropriate tool with reasons.
+
+(1) In the domain of Agent technology, explain the term ‘Agent’.
+(ii) Give two main characteristics of an Agent.
+
+(iii) Briefly explain an example where Agent technology could be used effectively.
+
+3£ 3

@@ -1,0 +1,604 @@
+Part A — Structured Essay Do not
+Answer all four questions on this paper itself nis
+column
+
+1. A student is developing a shopping cart website for a bookshop using PHP, MySQL and
+HTML.
+
+(a) The student plans to use a table named Book in a database named Books_database to store
+data about each book on sale. The table is to consist of the following fields with the data
+types indicated in parentheses:
+
+id (int), category (char), name (varchar), price (int), publisher (varchar), image (char)
+Note: The ‘image’ field is to contain the filename of the image of the book’s cover page.
+
+Assuming that none of the fields are allowed NULL values, write down the SQL statement
+required to create this Book table.
+
+(03 marks)
+(b) Write down the SQL statement required to insert the following record to the Book table.
+id category name price publisher image
+1 Art Painting 800 Rose al
+(01 mark)
+
+(c) Assume that the student has created this website and Figure 1.1 shows the output a web user
+sees when visiting its home page.
+
+Figure 1.2 on page 3 contains an extract
+from the relevant index.php file with
+four blanks indicated by squares.
+
+[Note: The index.php file is linked to
+shop.css to render the display as shown. |
+
+Breeze Books
+
+Architecture Landscaping
+
+Lunuganga
+
+Living with nature
+
+Architecture Publishers Landscaping publishers
+
+Rs.4000
+
+© 2025 Breeze Books
+
+Rs.1000
+
+Figure 1.1: The output
+
+y,
+
+AL/2025/20/E-II -3- Index Nou: ……
+
+‘a ‘
+Do not
+Choosing from the numbered replacements given in the list below the Figure 1.2, write down |write
+in each square the number of the relevant replacement. mes
+column
+<?php
+$conn = new mysqli (‘'localhost', ‘devi’, 'C6a#@Q!H', ‘Books _database');
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error) ;
+
+ssat 5[ |
+$result = $conn->query($sq1) ;
+echo"<ul>";
+// Loop through items in database to display them
+while ($row = mysqli_fetch_assoc($result)) {?>
+echo"<1li>
+<h2>{$row[ 'category' ]}</h2>
+<h3>{$row[ ‘name’ ]}</h3>
+<img src='Images/{$row[ 'image']}.jpg'>
+<p>{$row[ 'publisher' ]}</p>
+<p>Rs.{$row[ ‘price’ ]}</p>";
+
+<form method="POST" action=" ">
+<input type="hidden"
+name="product_id"
+id="product_id" value="< ?php echo"{] _|}"5?>">
+<label for="product_quantity"> Quantity: </label>
+<input type="number" id="product_quantity" name="product_quantity"
+value=""_ min="0" max="10">
+<button type="submit" name="add_ to_cart"> Add to Cart </button>
+</form>
+</li>
+<?php
+}P>
+</ul>
+Figure 1.2: An extract from index.php
+List: {1 —<?php 2 -- product_id 3—-$row['id'] 4—row|'price'] 5 -- "SELECT * FROM Book"
+6 — "SELECT * FROM Books database" 7 -shop.css 8 —shop.php}
+(04 marks)
+(d) The word ‘Architecture’ is displayed in Figure 1.1. Underline the code line in Figure 1.2 that
+is used to print it. (01 mark)
+(e) Assume the price of ‘Lunuganga’ book is to be reduced to Rs.3,500. Where should this
+change be done? | |
+(01 mark)
+\ 7
+
+ශ්‍ර Do not )
+
+2. (a) Ceylon Tours 15 a mid-sized travel agency that organizes both local and international tours. | write
+Currently, the company uses a fully manual system. Due to increased demand and |i" this
+competition, its management plans to develop a computerized Tour Management | "1001
+Information System.
+
+As the Systems Analyst, you are responsible for conducting a preliminary investigation,
+including identifying problems in the existing system, evaluating feasibility and gathering
+both functional and non-functional requirements for the new system.
+
+The management has already shared with you a few expectations and observations:
+e Customers should be able to book tours and receive the relevant invoices online.
+
+The system should be secure, available 24/7 and respond within 3 seconds.
+Only authorized staff should be able to update or delete tour details.
+Reports on bookings and payments should be able to be generated.
+
+e Some employees are not competent with using new technology.
+Suppose the feasibility study reveals the following:
+
+Finding A: Ceylon Tours has a small Local Area Network (LAN), Internet connectivity and
+modern desktop computers, but the server computer is old and must be upgraded to ensure
+24/7 online access.
+
+Finding B: The development and hardware costs are expected to be recovered within two
+years.
+
+Finding C: Younger staff are positive about the new system, but some senior staff are still
+uncomfortable with using computers and fear making mistakes.
+
+Finding D: The proposed system is expected to achieve the company’s goals of handling
+increased demand and competing with other agencies.
+
+(1) Write down the type of feasibility that resulted in each of the findings A, B, C and D.
+FInding At …… ……..
+FINdINg 1; ……
+1111011115 ට: ……
+
+1111011116 1: …… . ……
+(01 mark)
+
+(ii) Based on these feasibility results, would you recommend proceeding with the
+development of the new system? Write Yes or No and justify your answer giving two
+reasons.
+
+(02 marks)
+(iii)Suggest one practical step the management can take to reduce the risk identified in
+Finding C.
+(01 mark)
+ද y,
+
+ණ්‌ ।
+. . . . . . Do not
+(iv) List down two functional requirements and two non-functional requirements of the | write
+above information system. in this
+
+. . column
+Functional requirements :
+
+(b) Consider the ER diagram shown in Figure 2.1.
+
+Middle_name
+
+(02 marks)
+om
+
+M N
+STUDENT READS BOOK
+
+ ෴ ෴ යා *”
+
+Stu_name Book_name
+
+Stu_id
+
+Figure 2.1
+
+Map this ER diagram into a set of relations using only the
+Relation name — (Attributel, Attribute2, ……) format for each relation. Underline the
+primary key of each relation.
+
+(04 marks) | |
+
+ද 7
+
+ණ්‌ >
+D
+3.(a) Describe the following terms with respect to computer programs. vite
+(i) Syntax errors : me eT
+(01 mark)
+(11) Logical errors :
+(O1 mark)
+(b) A python program is required to accept a collection of integers from the keyboard and to
+print the sum of all the even integer values entered thus far when the user enters a negative
+number.
+(1) What should be the output of this program if the five integers 1,2, 3, 5 and —1 are input
+separately?
+(O1 mark)
+(ii) Draw a flow chart to show the algorithm needed.
+(03 marks)
+෴ y,
+
+ඒ
+
+(111) Write down the required Python program.
+
+(03 marks)
+
+(iv) What would happen if one gives a floating point value to a Python program that 15
+written to read integers?
+
+(01 mark)
+
+4, (4) On the processor of a computer, the following sequence of execution occurs with respect to
+two processes Po, Pi, and the operating system (OS):
+
+OS — Po > OS — P; — OS - Po — OS - 0; ……
+
+(1) Running, Blocked and Ready are three states of a process. When a context switch occurs
+from Po to Pi, what is the state transition that occurs in the 17] process?
+
+(01 mark)
+
+(11) When Po is given the chance to run for the second time, what mechanism helps it to
+start execution from where it previously stopped?
+
+(02 marks)
+
+(111) With respect to efficient processor usage, what is the benefit of sending a process to its
+blocked state?
+
+(O1 mark)
+
+Do not
+write
+in this
+column
+
+2
+
+ණී ෴
+Do not
+
+(11) A computer uses 16-bit virtual addresses. This computer has a 64 KB physical memory J|write
+and a 4 KB page size. A user starts two programs (Po and 17) ) having sizes of 64 KB and _ in this
+32 KB respectively on this computer. A few selected fields of the first few rows of the | (01011
+page table of each process at a particular time are shown in the figure.
+
+Page eae Page _
+Number | Frame | Validity Number | Frame. | Validity
+0 0010 1 0 0100 1
+1 0101 1 1 1001 1
+2 1110 1 2 1011 1
+3 0110 0 3 0110 0
+4 1100 0 4 1101 0
+A part of the Po’s page table A part of the Pi’s page table
+Notes:
+
+e The page number is used as the index into the page table.
+e The frame number is indicated in binary. Validity bit being | indicates that the
+relevant page is in physical memory.
+
+Assume that in the Pi process the virtual address 0001 0001 0001 0001 is wanted. Write
+down the 16-bit physical address that the above address would get mapped to.
+
+(O1 mark)
+
+(111) Only selecting from the pages shown in its page table in (11) above, write down one
+virtual address of the Po process that will require the operating system to fetch the
+relevant page to physical memory from secondary storage.
+
+(01 mark)
+
+(c) (1) The block size of a USB flash drive is 4 KB. A portion of its File Allocation Table
+(FAT) at a particular time is shown below. The portion shown describes the complete
+blocks of two files as well.
+
+FAT 100 101 102 103 104 105 106
+| 102 | 103 | -1 | 105 | 100 | 106 | -1 |
+
+[Note: The last block of a file is indicated by —1.]
+
+The directory entry of a file contains the block number of the first block of the file.
+Write down those numbers of the directory entries for the two files described by the
+above FAT portion.
+
+(01 mark)
+
+(ii) The file allocation block size (e.g., 4 KB) must be carefully chosen. Give one
+disadvantage each of selecting a small block size and a large block size.
+
+Small DIOCKSIZE : ……
+
+1,416 010(1:3176_ ee | |
+(02 marks)
+
+\ y
+
+QOD MICH HL LAF L.6F Sy, Gl 60) CVT S 5 61110
+
+අධ්‍යයන cae සහතික om (උසස්‌ පෙළ) විභාගය, 2025
+Seen Gungs ඉඅ1/1151)1] usAy wy spl ufLeng, 2025
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+
+HSA, QHTL FUT 2151101601!!! 160 11 [20 11, ॥ 11 |
+
+Part B
+%* Answer any four questions only.
+
+5. (a) Prove the following using Boolean algebra:
+abcd + abcd + G@bcd + abéd + abcd + abcd = acd + abd + bc (05 marks)
+
+(b) A bank vault is secured by a logic circuit with four binary inputs. Three of these inputs come from the
+keys named ko, ki, and kz, and the fourth input comes from a timer. The four inputs together form a 4-bit
+binary number with the timer input as the Most Significant Bit (MSB) and ko as the Least Significant Bit
+(LSB).
+
+The vault unlocks only when the 4-bit binary input (from timer, kz, ki, and ko respectively) represents a
+number that is a multiple of 3 (.e., 3, 6, 9, 12, 15) or a multiple of 7 (1.e., 7, 14).
+
+Design the most simplified logic circuit that takes these four inputs and gives an output Zwhich 1s equal
+to | for the valid input combinations to indicate the unlocking of the vault. (07 marks)
+
+(c) Key ki, is held by the officer-in-charge, while ko, and kz, are held by two senior officers. The
+duration in which the time signal becomes 1 15 decided by the bank. State whether the vault can be opened
+in the absence of the officer-in-charge. Justify your answer. (03 marks)
+
+6. (a) Write down the suitable replacements for the blanks labelled 4, B and C of the following paragraph:
+
+User Datagram Protocol (UDP) is a transport layer protocol used by several well-known
+
+application layer protocols. ……A…… and ……B…… are two such application layer protocols that
+use the services of the UDP. Although UDP is simple it does not guarantee ……C…… delivery of
+data. (1.5 marks)
+
+(b) Other than viruses, a number of different types of malware can be accompanying the files downloaded
+from the Internet. List three such types of malware. (1.5 marks)
+
+(c) Draw a detailed diagram of a network in which three computers, two servers and a network
+printer are connected in a bus topology. In your diagram show all necessary components that
+
+are required. (02 marks)
+(d) Write one example for each of the following:
+(i) Class B IP address (0.5 marks)
+(ii) Private IP address (0.5 marks)
+ද 7
+
+~~ ෴
+
+(e) Write down the matching of each TCP/IP layer labelled from A to 1) with the correct description
+labelled from 1 to 4. (Note: Use only the given labels for your answer.)
+
+TCP/IP layer Description
+A — Application layer 1 — Does routing and path determination for data packets
+B — Transport layer 2 — Breaks down data into segments and ensures reliable delivery
+of data
+C — Internet layer 3 — Manages the physical transmission of data
+1) — Network access layer 4 — Provides network services to user software
+(02 marks)
+
+(f) Write down the purpose of attaching digital signatures to digital documents. (02 marks)
+
+(g) Suppose that you are given the 192.168.50.0/24 IP address block to allocate it to five departments
+namely D1, D2, D3, D4 and D5 that need 28, 12, 60, 6 and 2 usable hosts respectively.
+
+For each departmental subnet, give the indicated data in a table according to the following table format.
+
+Department Network Usable IP First usable Last usable | Broadcast IP
+Name address address range IP address IP address address
+(05 marks)
+
+7, Saman owns a small shop, “Ceylon Crafts’ in Kandy, which sells wood carvings and batik fabrics mainly to
+tourists. At the moment it 15 run entirely as a physical shop, with customers visiting in person and
+paying in cash.
+
+(a) While keeping his physical shop, Saman decides to join the digital economy. For this, he creates
+an online shop to list his products and to accept online payments from customers.
+
+(1) Previously, the business operated as a pure brick organization. After introducing the online shop, what
+is the new form of the business? (0.5 marks)
+
+(ii) Saman makes agreements with some nearby tourist hotels to display his products on their
+websites to direct buyers to his online shop. State the e-commerce transaction type between
+Saman and the tourist hotels selecting from B2B, B2C, C2C and C2B. (0.5 marks)
+
+(iii) From the types listed in (11) above, what is the e-commerce transaction type between Saman and a
+customer who buys a product online? (0.5 marks)
+
+(iv) Write down one payment method that Saman could provide for customers in his online shop.
+
+(v) Saman wants to expand his online shop to local suppliers who desire to supply their crafts to
+Saman. For this purpose, the suppliers are to be given the facility 10 upload the images of their crafts,
+submit their prices and the way to contact them. List four digital divide related problems
+
+that Saman could face in this endeavour. (02 marks)
+
+(vi) For one of the problems that you listed in (v) above, explain a solution that Saman could
+
+provide. (02 marks)
+
+S 7
+
+ඒ
+
+(0) Saman has a future plan to include three software agents in this online shop as follows:
+Help Agent — interacts with the customer and answers questions about products and delivery
+times
+Price Agent — checks for available discounts and seasonal offers before showing the final
+price
+Delivery Agent — communicates with different delivery services to select the fastest and cheapest
+option
+(1) From these three agents, which one 15 mainly an interface agent and why? (01 mark)
+
+(ii) Draw a simplified agent diagram for the above multi-agent system. Properly label the diagram
+and show all the interactions clearly. (02 marks)
+
+(111) Give one advantage of using several software agents in Saman’s online shop instead of
+building one single large program to do all the work. (02 marks)
+
+(iv) These agents are expected to work autonomously. Describe one situation where the Delivery
+Agent should take an action without being directly instructed by the user. (02 marks)
+
+(v) Describe one situation where the Delivery Agent may give the customer incorrect information.
+(02 marks)
+
+8. Your class teacher has requested you to develop a menu-based Python application to manage the
+examination marks of the students of your class and has provided you with the following requirements
+of the application.
+
+A) Each student of the class 15 to be identified by a unique index number such as s01, 502 etc.
+B) Each student sits for three papers namely ICT, Physics and Chemistry.
+C) The menu should provide the following options:
+
+1) Read marks of a student from the keyboard
+
+2) Display marks of all students on the screen
+
+3) Exit from the application
+
+Where the option 1) allows a user to enter an index number and subject marks of a student,
+
+option 2) displays the index numbers and marks of students already entered and option 3)
+exits from the application.
+
+(a) Write a python function to display the above menu on the screen allowing the user to type a menu
+option and to return the option the user entered. (03 marks)
+
+(b) If a python list of tuples is used to store the marks of students, write a python function to return
+a tuple comprising the index number and marks for the three subjects when the index number and
+the three marks obtained by a student are given.
+
+(For example, if the function 15 defined as getMarks(indexNumber, markl, mark2, mark3), it should
+return a tuple comprising the indexNumber, mark1, mark2 and mark3.) (04 marks)
+
+(c) Write a python function by using the above function to read the marks of multiple students
+and add them to a list of tuples with the name classMarks. Your function should terminate
+
+when the user enters —1 as the index number. (04 marks)
+
+(d) Write down a python function to display the marks of a student on the screen given his/her
+index number. (04 marks)
+
+'ම
+
+Va
+
+9. (a) Your school needs an Event Management System to manage the events of different school clubs such as
+
+the Science Club, Sports Club and Literary Association. You have been asked to design a suitable
+database system for this and are provided with the following information:
+
+e Each student has a unique student number [StuID], a name [StuName], a class [Class] and
+an e-mail address [Email].
+
+e A student can join [Joins] one or more clubs.
+
+e Each club has a unique number [ClubID], a name [ClubName], a location [Location] and a
+teacher-in-charge [TeacherID].
+
+e Events are conducted [Conducts] by clubs. Each event has a unique event number [EventID]
+and a name [EName]. A club can conduct many events, but each event is conducted by only
+one club. For each event, the system should record the start date [StartDate] and the end
+date [EndDate].
+
+e A student can participate [Participates] in many events, and in each event, the student can
+have one of three roles: organizer, volunteer or participant. The system should record the
+student’s role [Role] in each event that he participates.
+
+(1) Draw an Entity-Relationship (ER) Diagram for the above system showing the entities, attributes,
+relationships and the appropriate cardinalities for each relationship. Underline the primary
+key attributes.
+
+[Note: Use only the terms given within square brackets in the above description for the attributes
+and relationships. | (05 marks)
+
+(ii) Write the relational schema for the above ER diagram.
+
+[Note: List only the tables with their attribute names. Underline the primary keys. ]
+(04 marks)
+
+(b) The table below shows some records of student participation at school events. Each record contains
+information about the student and the corresponding event. The ‘Services’ column indicates any
+additional services the student used during his participation in the event.
+
+Event Event Event . Start End _
+Stu_ID | Stu_Name Phone ID “Type “Fee Services _Date Date
+S001 Perera 0771234567 | E101 ICT Fair 2000 | Refreshments | 2025-07-01 | 2025-07-03
+S002 Selvan 0777654321 | E102 Debate 1500 | Refreshments | 2025-07-02 | 2025-07-05
+S003 Fernando | 0711237890 | E101 ICT Fair 2000 | Printing 2025-07-01 | 2025-07-03
+S004 Nadaraja_ | 0752341234 | E104 | Exhibition | 2500 | Transport 2025-07-03 | 2025-07-06
+5001 Perera 0771234567 | E102 Debate 1500 | Printing 2025-07-02 | 2025-07-05
+(i) In which normal form does the above table exist? Justify your answer. (02 marks)
+(ii) Convert the above table to the next normal form and list the tables obtained after the conversion
+giving the attributes. Underline the primary key of each table. (04 marks)
+XS 7
+
+/” ෴
+
+10. A student has developed a system using html, php and mySQL for users to reserve doctor appointment
+slots at the village hospital. The hospital is open for outpatients from O800-1700 hrs each day.
+However, for simplicity, the student has considered only four 15-minute appointment slots per day
+(1.e., 0800, 0815, 0830 and 0845 hrs). The system uses a database table named BOOKING with
+the following structure to store the time slots already reserved:
+
+BOOKING(Date, Time, Name, Phone)
+
+Note: Date: Date of the appointment Name: Patient’s name
+
+Time: Time of the appointment Phone: Patient’s contact phone number
+
+(a) A user enters the required appointment date to the system’s initial interface shown in Figure 10.1.
+Without even checking the BOOKING table, what dates should the system not allow the
+
+user to input? (01 mark)
+
+(b) The slot availability information for the selected appointment date 15 shown by the Jist.php file.
+Two different colours are used to indicate reserved and unreserved slots. A sample output is shown
+in Figure 10.2.
+
+(1) An extract of the file list.php is shown in Figure 10.3. In it, what is the result variable expected
+to contain? (01 mark)
+
+(ii) In Figure 10.3, the code part indicated by A contains three code lines. Write down its first
+
+code line. (O1 mark)
+(iii) B in Figure 10.3 should contain a message to be printed on the screen. What should be stated
+in it? (O1 mark)
+: : . echo "<h4>Schedule for $visit_date</h4>";
+Village Hospital Reservation
+//make all slots initially available for booking
+$avail =[1, 1, 1, 1];
+Visit date: mm/dd/yyyy FE) — Check date Schedule for 2025-12-23
+while ($row = $result->fetch_assoc()) {
+08:00 08:15 08:30 08:45 if(S$row['Time'] == '08:00:00') $Savail[0] = 0;
+. | A
+© 2025 Village Hospital } // end while
+Select a time: “i Book slot
+if($avail[0] == 0 and S$avail[1] == 0)
+and S$avail[2] == 0 and $avail[3] == 0) {
+©2025 Village Hospital echo "B";
+else { ?>
+C
+<?php
+if (D) echo "E"; else echo " F";
+
+</tr>
+<table>
+<!The 'submit' code (not shown)-->
+<?php
+I>
+Figure 10.1 Figure 10.2 Figure 10.3
+
+(iv) Write down the suitable replacements for C, D, E and F of the code extract shown in
+figure 10.3, choosing from the following list.
+List: {Savail[0] == 0, <td style—background-color: green'>08:00</td>,
+<td style='background-color: red'>08:00</td>, <hr>, <table>, <tr>}
+
+Notes: 1. The part C requires the use of three of the replacements.
+
+2. The part X containing the code for other time slots need not be written.
+(04 marks)
+
+මූ
+
+4 \
+
+(c) The selected appointment date and the time selected through the interface of Figure 10.2 is directed
+to the book.php file for processing. With respect to this input, what database related test should be
+done in the book. php file? (02 marks)
+
+(d) Write down an important maintenance task that must be done to the BOOKING table at the end
+of each day in order to increase time slot search efficiency and also to reduce storage requirements
+of the system. (02 marks)
+
+(ec) After its completion, the student suggests hosting this system using a shared web hosting service
+available from an Internet Service Provider instead of publishing it on a hospital computer. Write
+down one advantage of this approach. (01 mark)
+
+(f) The annual cost of this shared web hosting package is Rs.7,500. The student suggests a method
+for the hospital to recover this cost that will also increase resource utilization. Explain the method
+and how it improves resource utilization. (02 marks)

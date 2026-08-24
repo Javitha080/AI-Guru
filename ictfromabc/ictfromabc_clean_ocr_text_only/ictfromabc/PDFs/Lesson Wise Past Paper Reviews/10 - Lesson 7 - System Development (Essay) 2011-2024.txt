@@ -1,0 +1,4141 @@
+2011 SYSTEM ESSAY MARKING
+
+1.(a) Identify and describe the phases of the waterfall model in software development.
+දියඇලි (Waterfall) මෘදුකාංග ක්‍රියාවලි සංවර්ධන ආකෘතියෙහි අවස්ථා හඳුනාගෙන විස්තර කරන්න.
+
+The Waterfall model is a linear and sequential
+approach to software development where each | requirements A
+
+phase flows into the next like a waterfall. Each
+phase must be fully completed before moving to the
+
+next, making it easy to manage and suitable for | design [ක
+
+projects with well-defined requirements. However, ?
+
+it is less flexible for changes once the development implementation [ඈ
+
+begins.
+
+දියඇලි ආකෘතිය යනු මෘදුකාංග සංවර්ධනය සඳුහා ස්‌
+
+රේඛිය සහ අනුක්‍රමික ප්‍රවේශයකි, එහිදි එක්‌ එක්‌ | testing [න
+
+අදියර දිය ඇල්ලක්‌ මෙන්‌ ඊළඟ අදියරට ගලා යයි.
+ඊළඟ අදියරට යාමට පෙර සෑම අදියරක්ම ।
+සම්පුර්ණයෙන්ම සම්පුර්ණ කළ යුතු අතර, එය | maintenance |
+කළමනාකරණය කිරීමට පහසු වන අතර හොඳින්‌ අර්ථ
+
+දුක්වා ඇති අවග්‍යතා සහිත ව්‍යාපෘති සඳහා සුදුසු වේ.
+
+කෙසේ වෙතත්‌, සංවර්ධනය ආරමිභ වු පසු වෙනස්කමි
+
+සඳුහා එය GH නමශ්‍යගිලීි වේ.
+
+₹
+
+The key phases are / ප්‍රධාන අදියර වන්නේ:
+
+1. Requirement Analysis / අවග්‍යතා විශ්ලේෂණය:
+
+This is the first stage where the system's requirements are gathered by communicating with stakeholders.
+The aim is to understand what the users need from the system.
+
+පාර්ශවකරැවන්‌ සමඟ සන්නිවේදනය කිරීමෙන්‌ පද්ධතියේ අවශ්‍යතා රැස්‌ කරන පළමු අදියර මෙයයි.
+පද්ධතියෙන්‌ පරිශිලකයින්ට අවශ්‍ය දේ තේරැමි ගැනීම මෙහි අරමුණයි.
+
+2. System Design / පද්ධති සැලසුමි කිරීම:
+
+Based on the gathered requirements, a blueprint of the system is created. It defines system architecture,
+modules, and data flow. / එකතු කරන E€ අවශ්‍යතා මත පදනම්ව, පද්ධතියේ සැලැස්මක්‌ නිර්මාණය වේ. Ao
+පද්ධති නිර්මාණ ගිල්පය, මොඩියුල සහ දුත්ත ප්‍රවාහය නිර්වචනය කරයි.
+
+3. Implementation or Coding / ක්‍රියාත්මක කිරීම හෝ කේතනය කිරීම:
+
+Developers write the actual program code based on the design specifications. Each module is coded
+individually. / සංවර්ධකයින්‌ සැලසුමි පිරිවිතර මත පදුනමිව සත්‍ය වැඩසටහන්‌ කේතය ලියයි. සැම
+මොඩියුලයක්ම තනි තනිව කේතනය කර ඇත.
+
+4, Testing / පරික්ෂා කිරීම:
+
+After implementation, the system is tested to check for errors, bugs, or deviations from the requirements.
+ක්‍රියාත්මක කිරීමෙන්‌ පසු, පද්ධතිය දෝෂ, හෝ අවග්‍යතා වලින්‌ බැහැරවීමි සඳහා පරීක්ෂා කරනු ලැබේ.
+
+5. Maintenance / නඞනත්තුව:;
+
+Once deployed, the software might need changes or bug fixes over time. Maintenance ensures it continues
+working effectively. / යෙදුවු පසු, මෘදුකාංගයට කාලයත්‌ සමඟ වෙනස්කමි හෝ cele HOt0E කිරිමි අවශ්‍ය
+විය හැකිය. නඩත්තුව එය වලදායී ලෙස ක්‍රියාත්මක SO සහතික කරයි.
+
+(b) Describe functional and non functional requirements of a system. Identify two functional and three
+non functional requirements for a mobile phone.
+පද්ධතියක කාරයබද්ධ (Functional) සහ කාරයබද්ධ නොවන (Non-functional) අවශ්‍යතා (Requirements)
+විස්තර කරන්න. SMO දුරකටනයක කාටරයබද්ධ අවශ්‍යතා දෙකක්‌ සහ කාරයබද්ධ නොවන අවග්‍යතා තුනක්‌
+හඳුන්වන්න.
+
+Functional Requirements / කාටයබද්ධ අවග්‍යතා
+
+Functional requirements specify what the system must do. They define the core services, tasks, or
+functions the system provides to users. These requirements describe the actual behaviors and features
+that the system should deliver to meet user needs.
+
+කාටරියබද්ධ අවග්‍යතා මඟින්‌ පද්ධතිය කළ යුතු දේ නියම කරයි. ඒවා පද්ධතිය පරිශීලකයින්ට සපයන මුලික
+සේවා, කාර්යයන්‌ නිර්වචනය කරයි. මෙම අවශ්‍යතා මඟින්‌ SOGEM අවග්‍යතා සපුරාලීම සඳුහා පද්ධතිය
+ලබා දිය යුතු සැබෑ හැසිරීිමි සහ විශේෂාංග විස්තර කෙටේ.
+
+- Services expected by the user, such as the ability to perform specific tasks
+නිශ්චිත කාටයයන්‌ ඉටු කිරීමේ හැකියාව වැනි පරිගීලකයා විසින්‌ අපේක්ෂා කරන සේවාවන්‌
+
+- Services provided by the system to fulfill those user needs
+එම COGEM අවශ්‍යතා සපුරාලීම HEM) පද්ධතිය විසින්‌ සපයනු ලබන සේවාවන්‌
+
+Non-Functional Requirements / කාටයබ්ද්ධ නොවන අවග්‍යතා
+
+Non-functional requirements describe how the system performs its functions rather than what functions
+it performs. They outline the system’s qualities, constraints, and overall behavior.
+
+කාරියබද්ධ නොවන අවශ්‍යතා මඟින්‌ පද්ධතිය ඉටු කරන කාර්යයන්‌ නොව OH කාර්යයන්‌ ඉටු කරන
+ආකාරය විස්තර කෙරේ. ඒවා පද්ධතියේ ගුණාංග, සීමාවන්‌ සහ සමස්ත හැසිරීම ගෙනහැර දක්වයි.
+
+Functional Requirements of a mobile phone / පංගම දුරකවනයක කාටයබද්ධ අවග්‍යතා:
+These functions are fundamental actions that users expect the device to perform for communication
+
+purposes.
+මෙම කාටයයන්‌ සන්නිවේදන අරමුණු සඳහා උපාංගයෙන්‌ පරිශීලකයින්‌ අපේක්ෂා කරන මුලික ක්‍රියා වේ.
+
+- Make a call / ඇමතුමක්‌ ගැනීම.
+
+- Receive a call / ඇමතුමක්‌ ලබා ගැනීම.
+
+- Send an SMS / කෙටි පණිවුඩයක්‌ යැවීම.
+
+- Receive an SMS / කෙටි පණිවුඩයක්‌ ලබා ගැනීම.
+
+Non-Functional Requirements of a mobile phone / ජංගම දුරකටනයක කාටයබද්ධ නොවන අවශ්‍යතා:
+These factors do not describe specific tasks but determine the overall quality and user experience of the
+phone.
+
+මෙම සාධක AGS කාර්යයන්‌ විස්තර නොකරන නමුත්‌ දුරකටනයේ සමස්ත ගුණාත්මකභාවය සහ SOGEM
+අත්දැකීම තිරණය කරයි.
+
+- Size / ප්‍රමාණය
+
+- Price / මිල
+
+- Battery life time / බැටරි ආයු කාලය
+- Memory capacity / මතක ධාරිතාව
+
+- Appearance / පෙනුම
+
+(c) Describe the purpose of unit, integrated and acceptance testing. Who are the people responsible for
+each testing process?
+Seen (Unit), අනුකලිත (Intergrated) සභ පිළිගැනුමි (Acceptance) පිරික්සුමිවල අරමුණු විස්තර කරන්න.
+එක්‌ එක්‌ පිරික්සුමි ක්‍රියාවලියෙහි වගකීම දරන අය කවුරැ ද?
+
+Unit Testing / ඒකක පරීක්ෂාව
+
+Purpose / අරමුණ:
+
+Unit testing refers to the process of individually testing the smallest parts of a program called "units" to
+make sure they function correctly. The primary goal here is to identify logical errors early in the
+development process before the code is integrated with other parts.
+
+ඒකක පරීක්ෂාව යනු "ඒකක" ලෙස හඳුන්වන වැඩසටහනක කුඩාම කොටස්‌ නිවැරවිව ක්‍රියාත්මක වන බව
+සහතික කර ගැනීම සඳුහා ඒවා තනි තනිව පරීක්ෂා කිරීමේ ක්‍රියාවලියයි. මෙහි මූලික ඉලක්කය වන්නේ කේතය
+අනෙකුත්‌ කොටස්‌ සමඟ එකාබද්ධ කිරීමට පෙර සංවට්ධන ක්‍රියාවලියේ මුල්‌ අවධියේදි තාර්කික දෝෂ හඳුනා
+ගැනීමයි.
+
+Who is responsible / වගකිව යුත්තේ කවුද:
+
+This type of testing is usually carried out by the programmer or software engineer who developed the
+specific source code. Since they are most familiar with the logic and internal structure of the code they
+wrote, it 1s efficient and effective for them to conduct the unit testing.
+
+මෙම ආකාරයේ පරීක්ෂණ සාමාන්‍යයෙන්‌ AKAD මුලාශ්‍ර කේතය සංවඊර්ධනය කළ ක්‍රමලේඛකයා හෝ මෘදුකාංග
+ඉංපජිනේරැවරයා විසින්‌ සිදු කරනු ලැබේ. ඔවුන්‌ ලියු කේතයේ තර්කනය සහ අභ්‍යන්තර ව්‍යුහය පිළිබඳුව ඔවුන්‌
+වඩාත්‌ හුරැපුරැදු බැවින්‌, එකක පරීක්ෂණය පැවැත්වීම ඔවුන්ට කාර්යක්ෂම හා වලදායි වේ.
+
+Integrated Testing / අනුකලිත පරීක්ෂණ
+
+Purpose / අරමුණ:
+
+Once the individual units have passed their unit tests, they are combined (or "integrated") into a group to
+work together. Integration testing ensures that the combined components function as a whole. This type of
+testing mainly checks for issues related to functionality, performance, and reliability that may arise when
+these modules start interacting with each other.
+
+තනි ඒකක ඔවුන්ගේ ඒකක පරීක්ෂණ සමත්‌ වු පසු, SO) එකට වැඞ කිරීම සඳහා කණ්ඩායමක්‌ ලෙස Smaca
+කරනු ලැබේ. ඒකාබද්ධ සංරචක සමස්තයක්‌ ලෙස ක්‍රියාත්මක වන බව අනුකලිත පරික්ෂණ සහතික කරයි. මෙම
+ආකාරයේ පරීක්ෂණ ප්‍රධාන වගයෙන්‌ මෙම මොඩියුල එකිනෙකා සමඟ අන්තර ක්‍රියා කිරීමට පටන්‌ ගන්නා විට
+ඇතිවිය හැකි ක්‍රියාකාරිත්වය, කාරිය සාධනය සහ විග්වසනියත්වය සමිබන්ධ ගැටළු සඳුහා පරික්ෂා කරයි.
+
+Who is responsible / වගකිව යුත්තේ කවුද:
+
+Integration testing is generally performed by software engineers, programmers, senior software engineers,
+team leads, or project managers.
+
+සාමාන්‍යයෙන්‌ අනුකලිත පරීක්ෂාව Be කරනු ලබන්නේ මෘදුකාංග ඉංජිනේරැවන්‌, ක්‍රමලේඛකයින්‌, පෞෂ්ධඨ
+මෘදුකාංග ඉංපජිනේරැවන්‌, DADA නායකයින්‌ හෝ ව්‍යාපෘති කළමනාකරැවන්‌ විසිනි.
+
+Acceptance Testing / පිළිගැනුම්‌ පරීක්ෂණය
+
+Purpose / අරමුණ:
+
+Acceptance testing is the final stage before the software is released to the customer. Its purpose is to verify
+that the entire system meets the original business requirements, contracts, or client specifications.
+මෘදුකාංගය පාරිභෝගිකයාට නිකුත්‌ කිරීමට පෙර අවසාන අදියර පළිගැනුමි පරීක්‍්ෂණයයි. එහි අරමුණ වන්නේ
+
+මුළු පද්ධතියම මුල්‌ ව්‍යාපාරික අවග්‍යතා, කොන්ත්‍රාත්තු හෝ සේවාදායක පිරිවිතරයන්‌ සපුරාලන බව සත්‍යාපනය
+කිරීමයි.
+
+Who is responsible / වගකිව යුත්තේ කවුද:
+
+Acceptance testing is performed by both people from the software development team and clients or end-
+users. The development team ensures technical accuracy, while clients verify that their functional
+expectations and needs are met.
+
+පිළිගැනුම්‌ි පරික්ෂණය මෘදුකාංග සංවට්ධන කණ්ඩායමේ පුද්ගලයින්‌ සහ සේවාදායකයින්‌ හෝ අවසාන
+පරිගිලකයින්‌ විසින්‌ සිදු කරනු ලැබේ. සංවර්ධන කණ්ඩායම තාක්ෂණික නිරවද්‍යතාවය සහතික කරන අතර,
+සේවාදායකයින්‌ ඔවුන්ගේ ක්‍රියාකාරී අපේක්ෂාවන්‌ සහ අවශ්‍යතා සපුරා ඇති බව සත්‍යාපනය කරයි.
+
+(d) Suppose you are planning to buy a new mobile phone and would like to test its functionality. Describe
+how Black Box testing can be used in this process.
+QQ HO SMO දුරකටනයක්‌ GEO ගැනීමට සැලසුමි කරන්නේ යැයි දු එහි ක්‍රියාකාරීත්වය පරික්ෂා කිරීමට
+කැමැත්තෙන්‌ සිටින්නේ යැයි ¢ සිතන්න. මෙම ක්‍රියාවලියේදි කාල මංපුසා පිරික්සුම (Black Box testing)
+යොදාගත හැකිවන්නේ කෙසේදැයි විස්තර කරන්න.
+
+Black Box Testing is a method of software or system testing where the internal logic or structure of the
+item being tested is not known to the tester. Instead, the tester focuses on inputs and the expected outputs.
+කාල මංපුසා පරීක්ෂාව යනු මෘදුකාංග හෝ පද්ධති පරීක්ෂණ ක්‍රමයක්‌ වන අතර DHE පරීක්ෂා කරනු ලබන
+අයිතමයේ අභ්‍යන්තර තර්කනය හෝ ව්‍යුහය පරීක්ෂකයා නොදන්නා බැවිනි. ඒ වෙනුවට, පරීක්ෂකයා යෙදවුමි
+සහ අපේක්‍ෂිත ප්‍රතිදානයන්‌ කෙරෙහි අවධානය යොමු කරයි.
+
+1. Decide the Functionality / ක්‍රියාකාරීත්වය තීරණය කරන්න:
+
+Identify the key features user want to test in the mobile phone. This could be calling, texting, browsing,
+camera usage, installing apps, touch responsiveness, etc. Users don’t need to know how the phone's
+internal software handles these, just what they should do from users perspective.
+
+ජංගම දුරකටනයේ පරිගීලකයාට පරික්ෂා කිරීමට අවග්‍ය ප්‍රධාන විශේෂාංග HEM) ගන්න. මෙය ඇමතිම, කෙටි
+EMSA යැවීම, බ්‍රවුස්‌ කිරීම, කැමරා භාවිතය, යෙදුමි ස්ථාපනය කිරීම, ස්පර්ශ ප්‍රතිචාර දැක්වීම යනාදිය විය
+හැකිය. දුරකටනයේ අභ්‍යන්තර මෘදුකාංග මේවා හසුරැවන්නේ කෙසේදැයි පරිගීලකයින්ට දැන ගැනීමට අවග්‍ය
+නැත, ඔවුන්‌ කළ යුත්තේ කුමක්ද යන්න පමණි.
+
+2. Decide the Expected Output / අපේක්ෂිත ප්‍රතිදානය තීරණය කරන්න:
+
+Before testing, users define what results they expect. For instance, if the user clicks the camera icon, the
+camera should open without delay; if the user types a message and hits send, it should go through
+successfully.
+
+පරීක්ෂා කිරීමට පෙර, පරිගිලකයින්‌ ඔවුන්‌ අපේක්ෂා කරන ප්‍රතිඵල නිර්වචනය කරයි. උදාහරණයක්‌ ලෙස,
+පරිගිලකයා කැමරා නිරෑපකය ක්ලික්‌ කළහොත්‌, කැමරාව ප්‍රමාදයකින්‌ තොරව විවෘත විය යුතුය පරිශීලකයා
+පණිවඩඞයක්‌ ටයිප්‌ කර යවන්න ඔබන්නේ නමි, එය සාට්ටකව සිදු විය යුතුය.
+
+3. Conduct the Test / පරීක්ෂණය පවත්වන්න:
+
+Now, use the phone like a regular customer. Make a call, take a photo, open apps, and test Wi-Fi or
+Bluetooth connections.
+
+දැන්‌, සාමාන්‍ය පාටිභෝගිකයෙකු මෙන්‌ දුරකටනය භාවිතා කරන්න. ඇමතුමක්‌ ගන්න, ජායාරෑපයක්‌ ගන්න, යෙදුමි
+විවෘත කරන්න, සහ Wi-Fi හෝ බිලටුත්‌ සම්බන්ධතා පරීක්ෂා කරන්න.
+
+4. Compare the Actual Behavior with Expected One / අපේක්ෂිත එක සමඟ සැබෑ හැසිරීම සසඳන්න:
+Finally, observe if what users expected matches what the phone actually does. If the user expected the
+camera to load in under 2 seconds and it does, then the test passes. If the phone is slow or apps freeze, the
+test fails.
+
+අවසාන O60, පරිගිලකයින්‌ අපේක්ෂා කළ ළේ දුරකටනය සැබවින්ම කරන දේට ගැලපේදැයි නිරීක්ෂණය
+කරන්න. පරිගීලකයා නත්පර 2 ට අඩු කාලයකින්‌ කැමරාව පුරණය වනු ඇනැයි අපේක්ෂා කළ අතර එය
+එසේ වුවහොත්‌, පරීක්ෂණය සමත්‌ වේ. දුරකටනය මන්දුගාමි නමි හෝ යෙදුම්‌ කැටි වුවහොත්‌, පරීක්ෂණය
+අසාර්ථක වේ.
+
+( 2011 ESSAY - 04 )
+
+2012 SYSTEM ESSAY MARKING
+
+1.(a) Provide a suitable definition for a system.
+පද්ධතියක්‌ සඳුහා සුදුසු gdO දුක්වීමක්‌ ඉදිරිපත්‌ කරන්න.
+
+A system is a Set of interrelated components working together towards a common goal by accepting inputs,
+processing them, and producing outputs. These components interact in an organized manner, and the
+system can be either physical (like a machine) or abstract (like a process or software).
+
+පද්ධතියක්‌ යනු ආදාන පිළිගැනීම, ඒවා සැකසීම සහ ප්‍රතිදානයන්‌ නිපදුවිම මගින්‌ පොදු ඉලක්කයක්‌ කරා එකට
+ක්‍රියා කරන අන්තර්‌ සමිඛන්ධිත සංරචක සමුහයකි. මෙම සංරචක සංවිධානාත්මක ආකාරයකින්‌ අන්තරක්‍රියා
+කරන අතර පද්ධතිය භෞතික (යන්ත්‍රයක්‌ වැනි) හෝ වියුක්ත (ක්‍රියාවලියක්‌ හෝ මෘදුකාංගයක්‌ වැනි) විය හැකිය.
+
+(0) Using the definition suggested in (a) above, show that a mobile phone is a system.
+ඉහත (a) කොටසෙහි යෝපිත qdd දුක්වීම යොදාගනිමින්‌, SMO දුරකටනයක්‌ යනු පද්ධතියක්‌ බව පෙන්වා
+දෙන්න.
+
+A mobile phone qualifies as a system based on the definition because:
+ජංගම දුරකටනයක්‌ පද්ධතියක්‌ ලෙස සුදුසුකමි ලබන්නේ:
+
+e Interrelated components / අන්තට සමිබන්ධිත සංරචක:
+It has hardware (e.g., processor, battery, screen) and software (e.g., operating system, apps) that work
+together.
+එයට දෘඩාංග (උදා: processor, බැටරි, තිරය) සහ එකට Ga) කරන මෘදුකාංග (උදා: මෙහෙයුමි පද්ධතිය,
+යෙදුමි) ඇත.
+
+e Input / ආදානය:
+The mobile phone receives input through touch (screen), voice (microphone), or data (network
+signals).
+SOO දුරකටනයට ස්පර්ශය (තිරය), හඩ (microphone) හෝ දුන්ත (පාල සංඥා) හරහා ආදානය ලැබේ.
+
+e Processing / සැකසීම:
+The processor and internal software interpret and process these inputs.
+සකසනය සහ අභ්‍යන්තර මෘදුකාංග මෙම ආදාන අර්ටකටනය කර සකසයි.
+
+e Output / ප්‍රතිදානය:
+It provides output via the screen (display), speaker (sound), and vibration.
+එය තිරය (සංදුර්ගකය), ස්පීකරය (Heo) සහ කමිපනය Nom) ප්‍රතිදානය සපයයි.
+
+e Purpose / අරමුණ:
+All components function together to fulfill tasks like communication, entertainment, and computing.
+සන්නිවේදනය, විනෝදාස්වාදය සහ පරිගණකකරණය වැනි කාථටයයන්‌ ඉටු කිරීම sem) සියලුම සංරචක
+එකට ක්‍රියා කරයි.
+
+Hence, since a mobile phone takes input, processes it, and gives output through coordinated components,
+it satisfies the criteria of a system.
+
+එබැවින්‌, පංගම දුරකටනයක්‌ ආදානය ලබා ගනී, එය සකසයි, සහ සම්බන්ධිකරණය කළ සංරචක MOM)
+ප්‍රතිදානය ලබා දෙන බැවින්‌, එය පද්ධතියක නිරණායක සපුරාලයි.
+
+(c) State whether a mobile phone 1s a close system or an open system. Justify your answer.
+SMO දුරකටනයක්‌ යනු සංවෘත පද්ධතියක්‌ දු විවෘත පද්ධතියක්‌ දු යන්න oma කරන්න. ඔබේ පිළිතුර
+සාධාරණීකරණය කරන්න.
+
+A mobile phone is an open system
+ජංගම දුරකටනයක්‌ යනු විවෘත පද්ධතියකි.
+
+Justification / පැහැදිලි කිරීම
+
+e Anopen system interacts with its environment by exchanging information, energy, or matter.
+විවෘත පද්ධතියක්‌ තොරතුරැ, ගක්තිය හෝ GE)600 හුවමාරැ කර ගනිමින්‌ එහි පරිසරය සමඟ අන්තර
+ක්‍රියා කරයි.
+
+e A mobile phone communicates with external systems like cellular towers, Wi-Fi networks, GPS
+satellites, and other devices.
+පංගම දුරකටනයක්‌ eaoged කුඑණු, Wi-Fi පාල, GPS චන්දිකා සහ වෙනත්‌ උපාංග වැනි බාහිර පද්ධති
+සමඟ සන්නිවේදනය කරයි.
+
+e Itreceives inputs (calls, messages, internet data) and sends outputs (voice, data, signals).
+එය ආදාන (ඇමතුම්‌, MOA, asndHE ese) ලබා ගන්නා අතර ප්‍රතිදාන (හඩ, Evid, සංඥා) යවයි.
+
+ ॥1 2150 requires external energy (battery charging).
+එයට බාහිර ශක්තිය (QOS ආරෝපණය) දු අවශ්‍ය වේ.
+
+Therefore, due to its continuous interaction with the external environment, a mobile phone is classified as
+
+an open system.
+එබැවින්‌, බාහිර පරිසරය සමඟ එහි අඛණ්ඞ අන්තරක්‍රියා හේතුවෙන්‌, GMO දුරකටනයක්‌ විවෘත පද්ධතියක්‌
+ලෙස වර්ගීකරණය කර ඇත.
+
+(d) State whether the following requirements of a mobile phone are functional or non functional. Justify
+your answers.
+SOO දුරකටනයක ඇති පහත දුක්වෙන අවශ්‍යතා mba@é@ (functional) අවශ්‍යතාවක්‌ දු කාඊර්යබද්ධ
+නොවන (non functional) අවග්‍යතාවක්‌ දු යන්න ප්‍රකාශ කරන්න. ඔබේ පිළිතුරු සාධාරණීකරණය කරන්න.
+
+(i) A user shall be able to make a call using the mobile phone.
+පරිගශීලකයකුට පංගම දුරකටනය භාවිත කර දුරකථන GOMOD ලබාගැනීමට හැකිවිය one.
+
+e Type: Functional Requirement
+වට්ගය: කාරයබද්ධ අවග්‍යතාවය
+
+e Justification: This describes a specific function or behavior that the mobile phone must perform
+making a phone call. Functional requirements define what the system should do.
+පැහැදිලි කිරීම: දුරකටන ඇමතුමක්‌ ලබා EGOS SOO දුරකටනය OQ කළ යුතු නිශ්චිත කාර්යයක්‌
+හෝ හැසිරීමක්‌ මෙය විස්තර කරයි. කාරියබද්ධ අවශ්‍යතා පද්ධතිය කළ යුතු දේ නිරවචනය කරයි.
+
+(ii) It shall not harm the user by emitting radiations.
+විකිරණ විමෝචනය මගින්‌ පරිගීිලකයාට හානි නොකළ යුනුය.
+
+e Type: Non-Functional Requirement
+වර්ගය: කාරියබද්ධ නොවන අවශ්‍යතාවය
+
+e Justification: This is related to the quality or constraint of the system (safety), not what the
+system does. Non-functional requirements define how well the system performs, including
+performance, security, safety, and usability.
+පැහැදිලි කිරීම: මෙය පද්ධතිය කරන දේට නොව පද්ධතියේ ගුණාත්මකභාවය හෝ සීමාවට
+(ආරක්ෂාවට) සම්බන්ධ වේ. ක්‍රියාකාටිී නොවන අවග්‍යතා මඟින්‌ පද්ධතිය කෙතරමි හොඳින්‌ ක්‍රියා කරයිද
+යන්න නිර්වචනය කරයි, කාරිය සාධනය, ආරක්ෂාව, ආරක්ෂාව සහ භාවිතයේ හැකියාව ඇතුළඑව.
+
+( 2012 S.ESSAY - 02 )
+
+2013 SYSTEM ESSAY MARKING
+
+1. A delivery service company established in Sri Lanka receives over 1 million parcels per day for
+distribution. In order to send them to different parts of Sri Lanka, these parcels should be sorted and
+put into appropriate delivery vans. At present, 5 people at the sorting department do this process
+manually. This process has a drawback of putting parcels into wrong delivery van. Taking at least 3
+days to distribute parcels received within a day is also a weakness in this process. Therefore, the
+general manager has decided to automate the sorting process by using a bar code system. The bar
+code pasted on parcel consists of the receiver’s postal code. The proposed computer based system
+will read these bar codes, sort the parcels automatically and put them into the correct delivery van
+through a conveyor belt without human intervention. The general manager strongly believes that
+computerization will help them to overcome the current problems in the sorting process.
+ශ්‍රි ලංකාවේ ස්ටාපිත කර ඇති බෙදාහැරීමි සේවා සමාගමකට බෙදාහැරීම සඳහා දිනකට මිලියන එකකට වඩා
+වැඩි පාර්සල්‌ සංඛනාවක්‌ ලැබේ. G ලංකාවේ විවිධ පළාත්වලට යැවිම HEM) මෙම පාර්සල්‌ නෝරා වෙන්‌ කර
+ඒවා අදාළ වෑන්‌ රටවලට පැටවිය QMS. මෙම ක්‍රියාවලිය වරිතමානයේ දී තේරීමි දෙපාරතමේන්තුවේ පස්‌
+දෙනකු විසින්‌ අත්යුරු ක්‍රමය භාවිත කරමින්‌ සිදු කරනු ලැබේ. මෙම ක්‍රියාවලියේ දි වැරදි රටඊයකට පාර්සල්‌
+පැටවීමේ දුර්වලතාවයක්‌ පවති. දිනක්‌ තුළ ලැබුනු පාර්සල්‌ බෙදා හැරීම සඳහා අවම වගයෙන්‌ දින තුනක්වත්‌
+ගතවීම මෙම ක්‍රියාවලියේ ඇති තවත්‌ දුර්වලතාවයකි. එබැවින්‌ මෙම පාර්සල්‌ තේරීමේ ක්‍රියාවලිය, තීරු කේත
+පද්ධතියක්‌ මගින්‌ ස්වයංකරණය කිරීමට සාමානකධිකාරීතුමා තීරණය කරයි. පාර්සලයේ අලවා ඇති Hdz
+කේතයෙහි, ලබන්නාගේ තැපැල්‌ කේතය අඩංගුව ඇත. යෝපිත පරිගණක පාදුක පද්ධතිය මගින්‌ තීරු කේතය
+කියවා, ස්චයංක්‍රියව පාර්සල්‌ තෝරා වෙන්‌ කර, වාහක පටියක ආධාරයෙන්‌ නියමිත බෙදාහැරීමේ වෑන්‌ රටය
+තුළට බහාලීම මිනිස්‌ සමිබන්ධයක්‌ නොමැතිව සිදු කිරීමට නියමිත ය. පාර්සල්‌ තේරීමේ ක්‍රියාවලියේ දි දැනට
+පවතින ගැටළු පරිගණකගත කිරීමෙන්‌ පසු මඟහරවා ගත හැකි බව සාමානකධිකාරිතුමා දැඩිව විශ්වාස කරයි.
+
+(a) Identify two functional requirements of the proposed computer based system. Justify your answer.
+යෝපිත පරිගණක පාදක පද්ධතියේ පවතින කාටියබද්ධ අවග්‍යතා (functional requirements) දෙකක්‌ හඳුනා
+ගන්න. ඔබගේ පිළිතුර තහවුරැ කරන්න.
+
+Functional requirements specify what a system should do. They define the specific behaviors, functions,
+and operations that the system must perform to meet user needs. These requirements are crucial as they
+directly relate to the system's intended functionality and user interactions.
+
+කාර්යබද්ධ අවග්‍යතා මගින්‌ පද්ධතියක්‌ කළ යුතු දේ නියම කරයි. පරිගිලක අවග්‍යතා සපුරාලිම සඳුහා පද්ධතිය
+විසින්‌ ඉටු කළ යුතු නිශ්චිත හැසිරීමි, කාර්යයන්‌ සහ මෙහෙයුමි අර්ථ දක්වයි. මෙම අවග්‍යතා ඉතා වැදගත්‌
+වන්නේ එවා පද්ධතියේ අපේක්ෂිත ක්‍රියාකාරීත්වයට සහ පරිගීලක අන්තරක්‍රියාවලට සෘපුවම සමිඛන්ධ වන
+බැවිනි.
+
+1 The system shall be able to sort items
+
+පද්ධතියට අයිතම H6@ කිරීමට හැකි විය යුතුය:
+
+The system must automatically identify and categorize parcels based on their destination, using data
+from the barcode. Sorting is a fundamental task in this scenario, and it ensures that parcels are grouped
+correctly before dispatch.
+
+HOt කේත පද්ධතිය දුත්ත භාවිතා කරමින්‌, ගමනාන්තය මත පදනමිව, ස්වයංක්‍රීයව පාර්සල්‌ වර්ගීකරණය
+කළ යුතුය. මෙම අවස්ටාවෙහිදි වට්ග කිරීම මුලික කාර්යයක්‌ වන amd, යැවීමට පෙර පාර්සල්‌ නිවැරදිව
+කාණ්ඩගත කර ඇති බව එය සහතික කරයි.
+
+2 The system shall be able to put items into the correct delivery van:
+
+පද්ධතියට අයිතම නිවැරළි බෙදාහැරීමේ වෑන්‌ රටයට දැමිමට හැකි විය ano:
+
+Once sorted, the system must transfer each parcel to its corresponding delivery van area. This function
+eliminates manual placement errors and speeds up the loading process.
+
+වර්ග කළ පසු, පද්ධතිය සෑම පාර්සලයක්ම එහි අනුරෑප බෙදාහැරීමේ වෑන්‌ COGO මාරැ කළ යුතුය.
+මෙම mdoc අත්යුරැ ක්‍රමයේ දෝෂ ඉවත්‌ කරන අතර පැටවිමේ ක්‍රියාවලිය වේගවන්‌ කරයි.
+
+3 The system shall be able to read barcodes
+පද්ධතියට තීරැ කේත කියවීමට හැකි So ane:
+
+Barcode reading is essential for retrieving information such as the postal code. Without this,
+automation cannot happen. The system should be able to scan a high volume of parcels quickly and
+accurately.
+
+තැපැල්‌ කේතය වැනි තනොරතුරැ ලබා ගැනීම සඳහා HOt කේත කියවීම අත්‍යවග්‍ය වේ. මෙය නොමැතිව
+ස්වයංක්‍රීකරණය සිදුවිය නොහැක. පද්ධතියට පාර්සල්‌ විශාල ප්‍රමාණයක්‌ ඉක්මනින්‌ හා නිවැරදිව
+පටීිලෝකනය කිරීමට හැකි විය යුතුය.
+
+Each of these requirements directly supports the automation goal. They ensure that the process is faster,
+more accurate, and less dependent on human labor, solving the main issues highlighted in the scenario.
+මෙම සෑම අවශග්‍යතාවයක්ම ස්වයංක්‍රීයකරණ ඉලක්කයට සෘපුවම සහාය වේ. ඔවුන්‌ ක්‍රියාවලිය වේගවත්‌, වඩාත්‌
+නිවැරදි සහ මිනිස්‌ ග්‍රමය මන අඩුවෙන්‌ රඳා පවතින බව සහතික කරයි, සිද්ධියේ ඉස්මතු කර ඇති ප්‍රධාන
+ගැටළු විසඳයි.
+
+(0) State two non functional requirements of the system with justifications.
+පද්ධතියේ පවතින mbaaéOa නොවන අවග්‍යතා (non-functional requirements) දෙකක්‌ තහවුරැ කිරිමි සමගින්‌
+ප්‍රකාශ කරන්න.
+
+A non-functional requirement defines the quality attributes or performance characteristics of a system.
+Unlike functional requirements, which describe what a system should do, non-functional requirements
+describe how well the system performs its tasks.
+
+කාටරියබද්ධ නොවන අවග්‍යතාවයක්‌ මඟින්‌ පද්ධතියක ගුණාත්මක ගුණාංග හෝ කාරය සාධන ලක්ෂණ H6OOHS
+කෙරේ. පද්ධතියක්‌ කළ යුතු දේ විස්තර කරන කාර්යබද්ධ අවග්‍යතා මෙන්‌ නොව, කාරයබද්ධ නොවන අවශ්‍යතා
+මඟින්‌ පද්ධතිය එහි කාරියයන්‌ කෙතරමි හොඳින්‌ ඉටු කරයිද යන්න විස්තර කෙටේ.
+
+1 Accuracy / නිරවද්‍යතාවය
+
+The system must be highly accurate in reading barcodes and sorting parcels into the correct delivery
+vans. Even a small error rate can lead to thousands of misdelivered parcels per day, given the volume
+(over 1 million parcels). High accuracy ensures customer satisfaction and reduces operational losses
+caused by incorrect deliveries.
+
+තීරැ කේන කියවිීමේදි සහ q6adg නිවැරදි බෙදාහැරීමේ වෑන්‌ රටවලට OOM කිරීමේදි පද්ධතිය ඉතා
+නිවැරදි විය යුතුය. කුඩා දෝෂ අනුපාතයක්‌ පවා දිනකට bag දහස්‌ ගණනක්‌ වැරදි ලෙස බෙදා
+හැරීමට හේතු විය හැක, පරිමාව (පාර්සල්‌ මිලියන | කට වඩා) ලබා E& ඇත. ඉහළ නිරවද්‍යතාවය
+පාරිභෝගික තෘප්තිය සහතික කරන අතර වැරදළි බෙදාහැරීමි නිසා ඇතිවන පාඩු අඩු කරයි.
+
+2 Efficiency / කාර්යක්ෂමතාව
+The system should process parcels much faster than the current manual system, which takes up to 3
+days. Efficiency is essential to handle the large volume within 24 hours. An efficient system ensures
+better resource utilization, quicker delivery, and improved competitiveness.
+Es 3 ක්‌ EO) ගතවන අත්යුරැ ක්‍රමයට වඩා බොහෝ වේගයෙන්‌ පාර්සල්‌ සැකසිය යුතුය. පැය 24 ක්‌
+ඇතුළත විගාල පරිමාව හැසිරවීමට කාර්යක්ෂමතාව අත්‍යවග්‍ය වේ. කාර්යක්ෂම පද්ධතියක්‌ වඩා හොඳ
+සම්පත්‌ භාවිතය, වේගවත්‌ බෙදාහැරීම සහ වැඩිදියුණු කළ තරඟකාරිත්වය සහතික කරයි.
+
+(c) Discuss, giving two reasons, whether the general manager’s decision to computerize the sorting
+process is correct or not.
+පාර්සල්‌ තේරීමේ ක්‍රියාවලිය පරිගණකගන කිරීමට HOmadendm@®) ගත්‌ තීරණය හරි ද, වැරදි දූ යන වග
+හේතු දෙකක්‌ සමගින්‌ ands) කරන්න.
+
+Computerized systems are widely used in modern logistics and delivery services to improve speed,
+accuracy, and scalability. Unlike manual systems, which are prone to human error, delays, and
+inefficiencies, automated systems can process large volumes of data and physical items with minimal
+supervision.
+
+නවින සැපයුමි සහ බෙදාහැරීමේ සේවාවන්හි වේගය, නිරවද්‍යතාවය සහ පරිමාණය වැඩි දියුණු කිරීම සඳහා
+පටිගණකගත පද්ධති බහුලව භාවිතා වේ. මානව දෝෂ, ප්‍රමාදයන්‌ සහ අකාරයක්ෂමනාවන්ට ගොදුරැ වන
+අත්යුරැ පද්ධති මෙන්‌ නොව, ස්වයංක්‍රී_ පද්ධතිවලට අවම අධික්ෂණයකින්‌ SME eno ප්‍රමාණයක්‌ සහ
+භෞතික අයිතම සැකසිය හැකිය.
+
+Therefore, Yes, the decision is correct
+එබැවින්‌, ඔව්‌, තීරණය නිවැරදියි.
+
+Because / මන්ද,
+
+First, automation increases accuracy, minimizing human error in sorting, which was a major problem in
+the manual process.
+
+පළමුව, ස්වයංක්‍රීකරණය නිරවද්‍යතාවය වැඩි කරයි, වර්ග කිරීමේදි මානව දෝෂ අවම කරයි, එය අත්යුරැ
+ක්‍රියාවලියේ ප්‍රධාන ගැටළුවක්‌ විය.
+
+Second, the system greatly boosts efficiency, allowing parcels to be processed and dispatched within a day
+instead of three. This aligns with business goals and customer expectations.
+
+දෙවනුව, පද්ධතිය කාර්යක්ෂමතාව බෙහෙවින්‌ වැඩි කරයි, පාර්සල්‌ Em තුනක්‌ වෙනුවට දිනක්‌ ඇතුළත සැකසීමට
+සහ යැවීමට ඉඩ සලසයි. මෙය ව්‍යාපාරික ඉලක්ක සහ පාරිභෝගික අපේක්ෂාවන්‌ සමඟ සමපාත වේ.
+
+These reasons support that computerizing the process is both a practical and beneficial move for the
+company.
+
+මෙම හේතු මඟින්‌ ක්‍රියාවලිය පරිගණකගත HOO සමාගමට ප්‍රායෝගික සහ ප්‍රයෝජනවත්‌ පියවරක්‌ QO සනාට
+කරයි.
+
+( 2013 ESSAY - 06 )
+
+2014 SYSTEM ESSAY MARKING
+
+(a)
+
+A university in Sri Lanka has around 8000 students. It has only one library. Currently, three library
+assistants provide all the library services such as lending, returns and answering the queries from the
+students. It is observed that about 90% of the students use the library facilities from 7:00 a.m. to 9:00
+a.m., 12 noon to 1:00 p.m. and 6:00 p.m. to 7:00 p.m. Long queues of students can be seen in front
+of the three counters manned by the three library assistants during those hours. This situation has led
+to students’ unrest since they have to waste their time in long queues. Library assistants are also not
+happy due to heavy work load and sometimes this has lead them to make mistakes.
+
+ග්‍රී ලංකාවේ එක්තරා විග්වවිද්‍යාලයක සිසුන්‌ 8 000ක්‌ පමණ ඇන. එයට ඇත්තේ එක්‌ පුස්තකාලයක්‌ පමණකි.
+බැහැරදිම, ආපසු ලබා ගැනීම හා සිසු විමසුමිවලට පිළිතුරු දිම යන සියලු පුස්තකාල පහසුකමි සේවාවන්‌
+දැනට ලබාදෙනුයේ පුස්තකාල සහායකයින්‌ තිදෙනකු මගිනි. 90% ක්‌ පමණ වු සිසුන්‌ පුස්නකාලය පරිහරණය
+කරනු ලබන්නේ පෙ.ව. 7.00 සිට පෙ.ව. 9.00, මධ්‍යහන 12.00 සිට ප.ව. 1.00 හා ප.ව. 6.00 සිට ප.ව. 7.00
+යන කාල පරාසවල දී බව නිරීක්‍ෂණය කර ඇන. මෙම කාල පරාසවල දී ඉනා දිගු වු සිසු පෝලිමි පුස්නකාල
+සහායකවරැන්‌ තිදෙනා ගේ කවුන්ටර ඉදිරියේ දැකගත හැකි වේ. EQ පෝලිමිවල කාලය නාස්තිවිම සිසුන්ගේ
+678 නොසන්සුන්තාවයට තුඩු දි ඇත. අධික කාර්යභාරය නිසා පුස්තකාල සහායකවරැන්‌ දු සතුටින්‌ නොවන
+අතර මෙය සමහර අවස්ටාවල E ඔවුන්‌ අතින්‌ වැරදි සිදු වීමට දු බලපා ඇත.
+
+Identify and state three functional requirements associated with the above university library system.
+ඉහත SHOSDEME පුස්තකාල පද්ධතිය හා බැඳුනු කාර්යබද්ධ අවග්‍යතා තුනක්‌ හඳුනාගෙන ලියා දක්වන්න.
+
+Functional requirements specify what a system should do. They define the specific behaviors, functions,
+and operations that the system must perform to meet user needs. These requirements are crucial as they
+
+directly relate to the system's intended functionality and user interactions.
+
+MOGAEA අවග්‍යතා මගින්‌ පද්ධතියක්‌ කළ යුතු දේ නියම කරයි. පරිගශිලක අවග්‍යතා සපුරාලීම සඳුහා පද්ධතිය
+විසින්‌ ඉටු කළ යුතු නිශ්චිත හැසිරීමි, කාර්යයන්‌ සහ මෙහෙයුමි අර්ථ දක්වයි. මෙම අවග්‍යතා ඉතා වැදගත්‌
+වන්නේ එවා පද්ධතියේ අපේක්ෂිත ක්‍රියාකාරීත්වයට සහ පරිගීලක අන්තරක්‍රියාවලට සෘපුවම සමිඛන්ධ වන
+බැවිනි.
+
+1. Book Borrowing / පොත්‌ ලබා ගැනීම
+
+ &,ැ student shall be able to borrow a book or
+ගිෂ්‍යයෙකුට පොතක්‌ ලබා ගැනීමට හැකි විය යුතුය හෝ
+
+e The library assistants shall be able to lend a book or
+පුස්තකාල සහායකයින්ට පොතක්‌ ලබා දීමට හැකි විය යුතුය හෝ
+
+e The system shall facilitate lending of books
+පද්ධතිය පොත්‌ ලබා දිමට පහසුකමි සැලසිය යුතුය.
+
+2. Book Return / පොත්‌ ආපසු ලබා දිම
+
+e A student shall be able to return a borrowed book or
+ගිෂ්‍යයෙකුට ලබා ගත්‌ පොතක්‌ ආපසු ලබා දිමට හැකි විය යුතුය හෝ
+
+e Library assistants shall be able to accept returned books or
+පුස්තකාල සභායකයින්ට ආපසු ලබා දුන්‌ පොත්‌ ලබා ගැනීමට හැකි So යුතුය හෝ
+
+e The system shall facilitate book returns.
+පද්ධතිය පොත්‌ ආපසු ලබා දීමට පහසුකමි සැලසිය යුතුය.
+
+3. Student Query Handling / ගිෂ්‍ය විමසුමි හැසිරවීම
+e The library assistants shall/should be able to answer students’ questions regarding book availability,
+
+return dates, fines, etc. / පුස්තකකාල සහායකයින්ට පොත්‌ ලබා ගැනීමේ හැකියාව, ආපසු ලබා දෙන දිනයන්‌,
+දඩ GEG ආදිය සමිබන්ධයෙන්‌ සිසුන්ගේ ප්‍රශ්නවලට පිළිතුරැ දිමට හැකි විය යුතුය.
+
+(b) Identify and state two non-functional requirements related to the above system with justifications.
+ඉහත පද්ධතිය හා සමිබන්ධ කාටරියබද්ධ නොවන අවග්‍යතා ඳෙකක්‌ හඳුනාගෙන හේතු ඉදිරිපන්‌ කරමින්‌ ලියා
+දක්වන්න.
+
+A non-functional requirement defines the quality attributes or performance characteristics of a system.
+Unlike functional requirements, which describe what a system should do, non-functional requirements
+describe how well the system performs its tasks.
+
+MOGACA නොවන අවග්‍යතාවයක්‌ මඟින්‌ පද්ධතියක ගුණාත්මක ගුණාංග හෝ Mo සාධන ලක්ෂණ නිර්වචනය
+කෙරේ. පද්ධතියක්‌ කළ යුතු දේ විස්තර කරන කාඊර්යබද්ධ අවග්‍යතා මෙන්‌ නොව, MHGAED නොවන අවග්‍යතා
+මඟින්‌ පද්ධතිය එහි කාරියයන්‌ කෙතරමි හොඳින්‌ ඉටු කරයිද යන්න විස්තර කෙටේ.
+
+॥!
+
+. Efficiency / කාර්යක්ෂමතාව
+
+Definition: Efficiency refers to how well the system utilizes resources and responds to tasks under
+expected workload.
+
+කාර්යක්ෂමතාව යනු පද්ධතිය සමිපත්‌ කොතරමි හොඳින්‌ භාවිතා MOM සහ අපේක්ෂිත වැඩ QO යටතේ
+කාර්යයන්‌ සඳුහා ප්‍රතිචාර දක්වනවාද යන්නයි.
+
+Justification: In the given scenario, there are only three library assistants handling around 8000
+students, especially during peak hours. This leads to long queues and delays in service. Hence, the
+system must be efficient enough to handle high volumes of student interactions quickly.
+
+E ඇති අවස්ටාවෙහිදි, විශේෂයෙන්‌ කාරයබහුල වේෙලාවන්හිදි, සිසුන්‌ 8000 ක්‌ පමණ හසුරැවන පුස්තකාල
+සහායකයින්‌ තිදෙනෙකු පමණක්‌ සිටී. මෙය දිගු පෝලිමි සහ සේවා ප්‍රමාදයන්ට හේතු වේ. එබැවින්‌, ඉහළ
+ප්‍රමාණයේ Ges අන්තරක්‍රියා ඉක්මනින්‌ හැසිරවීමට පද්ධතිය ප්‍රමාණවත්‌ තරමි කාර්යක්ෂම විය යුතුය.
+
+. Accuracy / නිරවද්‍යතාවය
+
+Definition: Accuracy means the system should perform all operations with a high degree of correctness.
+නිරවද්‍යතාවය යනු පද්ධතිය SHE මෙහෙයුමි ඉහළ නිරවද්‍යතාවයකින්‌ සිදු කළ යුතුය.
+
+Justification: Due to high workload and pressure, assistants tend to make mistakes in lending or
+returning records. The system must minimize errors in transactions, ensuring students and books are
+tracked accurately.
+
+ඉහළ වැඩ බර සහ පීඩනය හේතුවෙන්‌, සහායකයින්‌ Hm) ලබා දිමේදි හෝ ආපසු ලබා ගැනීමේදී වැරදි
+කිරීමට නැඹුරැ වේ. සිසුන්‌ සහ පොත්‌ නිවැරදිව නිරීක්ෂණය කිරීම සහතික කරමින්‌ පද්ධතිය ගනුදෙනු වල
+ඳචෝෂ අවම කළ යුතුය.
+
+(c) Propose two different computerized solutions and one non computer-based solution to solve the
+problems in the university library system.
+විග්වවිද්‍යාල පුස්තකාල පද්ධතියේ ඇති ගැටලු විසඳිම සඳහා එකිනෙකට වෙනස්‌ © පරිගණකගත විසඳුමි
+දෙකක්‌ සහ පරිගණක මන පදනමි නොවු එක්‌ විසඳුමක්‌ යෝපනා කරන්න.
+
+Computerized solutions use technology to automate and improve library management such as issuing and
+returning books, maintaining student records, and tracking book availability. It improves accuracy, speeds
+up processes, reduces manual errors, and allows easy searching and reporting.
+
+පටිගණකගත විසඳුම්‌ මගින්‌ පුස්තකාල කළමනාකරණය ස්වයංක්‍රීය කිරීමට සහ වැඩිදියුණු කිරීමට තාක්ෂණය
+භාවිතා කරයි, එනමි පොත්‌ නිකුත්‌ කිරීම සහ ආපසු ලබා දිම, Ges වාරතා පවත්වා ගැනීම සහ පොත්‌ ලබා
+ගැනීමේ හැකියාව නිරික්ෂණය කිරීම. එය නිරවද්‍යතාවය වැඩි දියුණු කරයි, ක්‍රියාවලීන්‌ වෙගවත්‌ කරයි, කායික
+දෝෂ අඞු කරයි, සහ පහසුවෙන්‌ සෙවිම සහ HO) කිරීමට ඉඩ සලසයි.
+
+e Barcode Systems: Books and library cards have barcodes, scanned for quick and accurate check-in and
+check-out, reducing manual errors and speeding up transactions.
+තීරැ සංකේත පද්ධති: පොන්‌ සහ පුස්තකාල කාඩිපත්වල තීරැ සංකේත ඇති අතර, SO) ඉක්මන්‌ හා නිවැරදි
+ඇතුළුවිමි සහ පිටවිමි සඳහා ස්කෑන්‌ කර, කායික දෝෂ අඩු කර ගනුදෙනු වේගවත්‌ කරයි.
+
+e RFID Technology: Radio Frequency Identification allows wireless scanning of books for instant
+tracking, inventory management, and faster issuing/returning processes.
+RFID තාක්ෂණය: ටේඩියෝ සංඛ්‍යාත හඳුනාගැනීම මඟින්‌ ක්ෂණික ලුහුබැඳිම, තොග කළමනාකරණය සහ
+ඉක්මනින්‌ නිකුත්‌ කිරීමේ/ආපසු ලබා ගැනීමේ ක්‍රියාවලින්‌ සඳහා රැහැන්‌ රහිතව පොත්‌ කළමනාකරණය කිරීමට
+ඉඩ සලසයි.
+
+e E-Books: Digital books accessible online reduce physical handling, expand availability, and allow
+remote access to materials.
+1/-පොත්‌: මාර්ගගතව ප්‍රවේග විය හැකි ඩිපිටල්‌ පොත්‌ භෞතික හැසිරවීම අඩු කරයි, ලබා ගත හැකි බව
+පුළඑල්‌ කරයි, සහ දුව්‍ය වෙත දුරස්ථ ප්‍රවේශය ලබා දෙයි.
+
+e Online Services: Libraries offer online catalogs, membership management, and book reservations,
+enabling users to search and request books remotely.
+මාර්ගගත සේවා: පුස්තකාල මාර්ගගත නාමාවලි, DOS කළමනාකරණය සහ පොත්‌ වෙන්‌ කිරීමි ලබා
+දෙන අතර, පරිගීලකයින්ට දුරස්ටව පොත්‌ සෙවිමට සහ ඉල්ලීමට හැකියාව ලබා දෙයි.
+
+e Online FAQs and Support: Digital help systems assist users with common questions instantly, reducing
+the workload on library assistants.
+මාර්ගගත නිතර අසන ප්‍රශ්න සහ සහාය: BOE උපකාරක පද්ධති මඟින්‌ පරිගිලකයින්ට පොදු ප්‍රග්න
+සඳුහා ක්ෂණිකව සහාය වන අතර, පුස්තකාල සහායකයින්ගේ වැඩ බර අඩු කරයි.
+
+Non-computerized solutions rely on manual processes to manage library operations.
+පටිගණකගත නොකළ විසඳුම්‌ පුස්තකාල මෙහෙයුමි කළමනාකරණය කිරීම සඳුහා කායික ක්‍රියාවලින්‌ මත රඳා
+පවති.
+
+e Increasing Number of Counters: More service points reduce waiting time during peak hours, allowing
+multiple users to issue or return books simultaneously.
+කවුන්ටර ගණන වැඩි SO: වැඩි සේවා BOHM කාර්යබහුල වේලාවන්‌ තුළ LE සිටිමේ කාලය අඩු කරයි,
+බහු පරිශීලකයින්ට එකවර පොත්‌ නිකුත්‌ කිරීමට හෝ ආපසු පොත්‌ ලබා ගැනීමට ඉඩ සලසයි.
+
+e Hiring More Library Assistants: Additional staff can manage the workload better, maintain records,
+and assist users faster.
+තවත්‌ පුස්තකාල සහායකයින්‌ බඳුවා ගැනීම; අතිරේක කාරය මණ්ඩලයට වැඩ බර වඩා හොඳින්‌
+කළමනාකරණය කිරීමට, වාර්තා පවත්වා ගැනීමට සහ පරිගිලකයින්ට වේගයෙන්‌ ane විමට හැකිය.
+
+( 2014 ESSAY - 06 )
+
+2015 SYSTEM ESSAY MARKING
+
+1.(a) Albert Einstein quoted “Energy cannot be created or destroyed; it can only be changed from one
+form to another.”
+“ශක්තිය මැවිය හැකි හෝ SMO කළ හැකි දෙයක්‌ නොවේ. එය එක්‌ ආකාරයක සිට තවත්‌ ආකාරයකට මාරැ
+කිරීම පමණක්‌ කළ හැකි චේ.” යැයි ඇල්බටි අයින්ස්ටයින්‌ විසින්‌ ගෙන හැර දක්වා ඇත.
+
+(i) State whether the process of changing energy from one form to another is a close system.
+ශක්තිය එක්‌ ආකාරයක BO තවත්‌ ආකාරයටකට වෙනස්‌ වීමේ ක්‍රියාවලිය සංවෘත පද්ධතියක්‌ වන්නේ දැයි ලියා
+දුක්වන්න.
+
+Yes or closed/ ඔව්‌ හෝ සංවෘතයි.
+
+Explanation / පැහැදිලි කිරීම:
+The process of changing energy from one form to another is not necessarily a closed system.
+එක්‌ ආකාරයක BO තවත්‌ ආකාරයකට ගක්තිය වෙනස්‌ කිරීමේ ක්‍රියාවලිය සංවෘත පද්ධතියක්‌ නොවේ.
+
+(ii) State a reason to justify your answer given for (a) (i), above.
+ඉහත (a) (i) හි ED දුන්‌ ඔබේ පිළිතුර amd කිරිම oem එක්‌ කරැණක්‌ ගෙන හැර දක්වන්න.
+
+Energy cannot be created or destroyed
+ශක්තිය නිර්මාණය කිරීමට හෝ විනාශ කිරීමට නොහැකිය.
+
+Therefore, no possibility of new energy coming from outside and destroyed energy going out.
+එබැවින්‌, පිටතින්‌ නව ශක්තියක්‌ පැමිණ විනාශ වු ශක්තිය පිටතට යාමේ හැකියාවක්‌ නොමැත.
+
+Explanation / පැහැදිලි කිරීම:
+The system does not gain energy from the outside
+පද්ධතිය පිටතින්‌ ශක්තිය ලබා නොගනි.
+
+Also, energy is not lost or destroyed, so it does not leave the system as "destroyed energy".
+එසේම, ශක්තිය නැති වී හෝ විනාශ නොවේ, එබැවින්‌ එය පද්ධතිය "විනාග වූ ශක්තිය" ලෙස තබන්නේ නැන.
+
+This behavior fits the definition of a closed system, where;
+මෙම හැසිරීම සංවෘත පද්ධතියක අර්ථ දැක්වීමට ගැලපේ, DHE:
+
+Matter does not enter or leave
+පදාර්ටය ඇතුළු වන්නේ හෝ පිටවන්නේ නැත.
+
+Energy can change within the system but is not added or removed in total.
+පද්ධතිය තුළ ශක්තිය වෙනස්‌ විය හැකි නමුත්‌ සමිපුර්ණයෙන්ම එකතු කිරීම හෝ ඉවත්‌ කිරීම සිදු නොවේ.
+
+Hence, if energy is only transforming inside the system without entering or leaving, and no energy 15
+destroyed or created, then system behaves like a closed system from an energy conservation point of view.
+එබැවින්‌, ශක්තිය පද්ධතිය MEO ඇතුඑ SO හෝ පිටවීමකින්‌ තොරව පමණක්‌ පරිවරතනය වන්නේ නමි සහ
+කිසිදු ගක්තියක්‌ විනාග වි හෝ නිර්මාණය වි නොමැති නමි, පද්ධතිය බලශක්ති සංරක්ෂණ දෘෂ්ටි කෝණයකින්‌
+සංවෘත පද්ධතියක්‌ ලෙස හැසිටේ.
+
+So, to justify the answer / එබැවින්‌, පිළිතුර සාධාරණීකරණය කිරීම සඳුහා:
+Since energy 15 not entering or leaving the system (only changing form inside), and energy is neither
+created nor destroyed, the process can be considered closed system in the context of energy transformation.
+ශක්තිය පද්ධතියට ඇතුළඑ SO හෝ පිටවීම සිදු නොවන බැවින්‌ (ඇතුළත ස්වරූපය වෙනස්‌ කිරිමෙන්‌ පමණි).
+MOE, ශක්තිය නිර්මාණය වී හෝ විනාශ වී නැත, ශක්ති පරිවර්තනයේ සන්දර්භය තුළ ක්‍රියාවලිය සංවෘත
+පද්ධතියක්‌ ලෙස සැලකිය හැකිය.
+
+( 2015 S.ESSAY - 03 )
+
+2.
+
+(a)
+
+The National University of Information Technology is a well-recognized university. They offer both
+bachelors and post-graduate degree programmes, diplomas as well as short courses in information
+technology and business management. All teaching of the above courses is being conducted at their
+sophisticated classrooms and state-of-the-art computer laboratories specifically designed to provide a
+student-centred interactive learning experience. The management of the university has realized that
+their brand name has become well known in the country as the number of inquiries they receive from
+far away provinces has increased. Furthermore, a recent study has revealed that their short courses
+and diplomas are also very popular among working professionals despite the burdens of their busy
+work schedules as well as the limited time available to devote for education. Hence, the management
+has proposed to start a distance education programme with the objectives of providing new value
+added services and capturing new markets.
+
+තොරතුරු තාක්ෂණය පිලිබඳු පාතික සරසවිය, පිළිගත්‌ විශ්වවිදණාලයකි. මෙම Manns මගින්‌ ප්‍රටම හා
+පශ්චාත්‌ උපාධි වැඩසටහන්‌, ඩිප්ලෝමා, තොරතුරු තාක්ෂණය සහ ව්‍යාපාර කළමනාකරණය පිළිබඳ කෙටි
+පාධමාලා පවත්වනු ලබයි. Ges කේන්ද්‍රීය අන්තර ක්‍රියාකාරී ඉගෙනුමි පරිසරයක්‌ ලබාදෙන ලෙස සැලසුමි කරන
+ලද නවින පරිගණක විද්‍යාගාර සහ නවින පන්තිකාමර ඉහත පාධමාලා පැවැත්විම HEM) යොදා ගනු ලබයි.
+ඈත පළාත්වලින්‌ ලැඛෙන විමසීමි ප්‍රමාණය වැඩිවීම මගින්‌ මෙම ආයතනයේ නාමය, රටපුරා ජනප්‍රිය වී ඇති
+බව මෙම විශ්වවිද්‍යාලයේ කළමනාකාරීත්වය වටහා ගෙන ඇත. නවදුරටත්‌ මෑතක දි කරන ලදු අධ්‍යයනයකින්‌
+හෙළිදුරවි වී ඇත්තේ කාර්යබහුල කාරය සටහනකට (busy work schedule) අනුව වැඩ කරන අධ්‍යාපනයට
+වැය කළ හැකි කාලය සීමාසහිත වු වෘත්තිකයන්‌ අතර ද ඩිප්ලෝමා හා කෙටි පාධමාලා ඉතා SHES බව ය.
+එම නිසා නව අගයන්‌ එකතු කරන ලදු සේවා සැපසීම සහ නව වෙළෙඳුපොළ ඇඳා ගැනීම යන අරමුණු
+සහිත © දුරස්ට අධ්‍යාපන වැඩසටහන්‌ යෝජනා කර ඇත.
+
+Propose an ICT based system to implement the above distance education programme. Describe its
+main components by using a simple diagram.
+
+ඉහත COSO අධ්‍යාපන වැඩසටහන ක්‍රියාන්මක කිරීම සඳහා තොරතුරැ හා සන්නිවේදන නාක්ෂණය Om පදනමි
+වු පද්ධතියක්‌ යෝපනා කරන්න. සරල සටහනක්‌ මගින්‌ එහි ප්‍රධාන කොටස්‌ විස්තර කරන්න.
+
+“E Learning System” or “Education platform”
+“ඊ ඉගෙනුමි පද්ධතිය ~ හෝ “අධ්‍යාපන වේදිකාව
+
+E Learning System | Learner PC
+
+The core of this system will be a Learning Management System (LMS) integrated with various tools to
+facilitate a comprehensive online learning experience.
+
+මෙම පද්ධතියේ හරය වන්නේ පුඑල්‌ මාර්ගගත ඉගෙනුමි අත්දැකීමක්‌ සඳහා පහසුකමි සැලසම aca) විවිධ
+මෙවලමි සමඟ එකාබද්ධ වූ ඉගෙනුමි කළමනාකරණ පද්ධතියකි.
+
+E Learning System / විද්‍යුත්‌ ඉගෙනුමි පද්ධතිය
+
+This is the central hub of the entire distance education program.
+මෙය සමස්ත CORO අධ්‍යාපන වැඩසටහනේම කේන්ද්‍රීය මධ්‍යස්ටානයයි.
+
+Internet / අන්තටපාලය
+
+The fundamental infrastructure that allows communication and data transfer between all components and
+users. / BQO සංරචක සහ COGeEnGS අතර සන්නිවේදනය සහ දත්ත හුවමාරැව සඳහා ඉඩ සලසන
+මුලික යටිතල පහසුකමි.
+
+Learner PC / ඉගෙනුමි පරිගණකය
+
+The end-users of the system, accessing course materials, participating in discussions, submitting
+assignments, and taking assessments. / පද්ධතියේ අවසාන පරිගීලකයින්‌, AOE) €63 වෙත ප්‍රවේශ විම,
+සාකච්පාවලට සහභාගී වීම, පැවරැමි ඉදිරිපත්‌ කිරීම සහ ඇගයිමි ලබා ගැනීම.
+
+(0) Explain three advantages of the proposed system.
+යෝපිත පද්ධතියේ වාසි තුනක්‌ පැහැදිලි කරන්න.
+
+Learning at preferred times. / කැමති වේලාවන්හිදී ඉගෙනීම.
+
+The proposed distance education system allows students to access course materials, lectures, and
+assignments at times that best suit their individual schedules.
+
+යෝපිත දුරස්ථ අධ්‍යාපන ක්‍රමය මඟින්‌ සිසුන්ට තම පුද්ගලික කාලසටහනට වඩාත්‌ ගැලපෙන වේලාවන්හිදි
+පාධමාලා ද්‍රව්‍ය, දේශන සහ පැවරැමි වෙත ප්‍රවේශ SOO ඉඩ සලසයි.
+
+No geographical barriers. / භූගෝලීය බාධක නොමැත.
+
+The distance education program eliminates the need for students to physically attend a campus, thereby
+removing geographical barriers.
+
+දුරස්ට්‌ අධ්‍යාපන වැඩසටහන මඟින්‌ සිසුන්ට භෞතිකව කැමිපස්‌ එකකට පැමිමේ අවශ්‍යතාවය ඉවත්‌ කරන
+අතර එමඟින්‌ භූගෝලීය බාධක ඉවත්‌ වේ.
+
+Online testing. / මාර්ගගත පරීක්ෂණ.
+
+Online testing allows for automated grading of certain test types, reducing administrative burden and
+providing faster results to students.
+
+මාර්ගගත පරීක්ෂණ මඟින්‌ ඇනැමි පරීක්ෂණ වර්ග ස්වයංක්‍රීයව ශ්‍රේණිගත කිරීමට ඉඩ සලසයි, පරිපාලන බර
+අඩු කර සිසුන්ට වේගවත්‌ ප්‍රතිවල ලබා දෙයි.
+
+Less operational cost. / අඩු මෙහෙයුමි පිරිවැය.
+
+For the university, a distance education program can lead to lower costs related to physical infrastructure
+(classrooms, labs), utilities, and maintenance compared to expanding traditional campus facilities,
+allowing for more cost-effective scalability.
+
+විග්ව විද්‍යාලය HEM), දුරස්ට අධ්‍යාපන වැඩසටහනක්‌ මඟින්‌ සාමිප්‍රදායික කැමිපස්‌ පහසුකමි පුඑල්‌ කිරීම හා
+සසඳුන විට භෞතික යටිතල පහසුකමි (පන්ති කාමර, විද්‍යාගාර), උපයෝගිතා සහ නඩත්තුව සමිබන්ධ පිරිවැය
+අඩු කිරීමට හේතු විය හැකි අතර එමඟින්‌ වඩාත්‌ ලාභදායී පරිමාණයකට ඉඩ සැලසේ.
+
+Learning at own phase. / තමන්ගේම වේගයෙන්‌ ඉගෙනීම.
+
+Allows students to progress through course materials and activities at a pace that best suits their individual
+learning speed and comprehension.
+
+සිසුන්ට ඔවුන්ගේ තනි ඉගෙනුම්‌ වේගයට සහ අවබෝධයට වඩාත්‌ ගැලපෙන වේගයකින්‌ පාධමාලා ද්‍රව්‍ය සහ
+ක්‍රියාකාරකමි හරහා ඉදිරියට යාමට ඉඞ සලසයි.
+
+(c) Discuss three challenges of the proposed system.
+යෝජිත පද්ධතියේ අභියෝග තුනක්‌ amdes) කරන්න.
+
+How to facilitate active teacher student interactions.
+
+ක්‍රියාකාරී ගුරැ-සිසු qandGa සඳහා පහසුකමි සැලසීම.
+
+In a distance learning environment, fostering dynamic and meaningful interactions between teachers and
+students can be challenging. Unlike a physical classroom where immediate non-verbal cues and
+spontaneous discussions are common, the virtual setting can lead to a sense of detachment.
+
+දුරස්ට්‌ ඉගෙනුමි පරිසරයක, ගුරැවරැන්‌ සහ සිසුන්‌ අතර ගතික හා GdOOs අන්තරක්‍රියා පෝෂණය කිරීම
+අභියෝගාත්මක විය හැකිය. ක්ෂණික වාචික නොවන ඉඟි සහ ස්වයංසිද්ධ සාකච්ජා බහුලව දක්නට ලැබෙන
+භෞතික පන්ති කාමරයක්‌ මෙන්‌ නොව, අතට්‍ය සැකසුම වෙන්වීමේ හැඟීමකට mA දිය හැකිය.
+
+Getting students to interact with other students.
+
+සිසුන්ට අනෙකුත්‌ සිසුන්‌ සමඟ අන්තට ක්‍රියා කිටීමට ඉඩ සැලසීමට නොහැකි වීම.
+
+Without the informal interactions of a physical university, students can feel isolated, which may hinder
+peer learning, group project effectiveness, and the development of a supportive learning community.
+භෞතික SHO විද්‍යාලයක අවිධිමත්‌ අන්තරක්‍රියා නොමැතිව, සිසුන්ට Heme) බවක්‌ දැනිය හැකි අතර, Oo
+සම වයසේ මිතුරන්ගේ ඉගෙනීමට, කණ්ඩායම්‌ ව්‍යාපෘතිවල කාටර්යක්ෂමතාවයට සහ සහාය දක්වන ඉගෙනුමි
+ප්‍රපාවක සංවර්ධනයට බාධාවක්‌ විය හැකිය.
+
+Conducting practical examinations.
+ප්‍රායෝගික පරීක්ෂණ පැවැත්වීම.
+
+It is difficult to remotely supervise practical skills, ensure the authenticity of work done in a virtual
+environment, and provide access to specialized software or hardware that students might not have at home.
+ප්‍රායෝගික කුසලතා දුරස්ටව අධික්ෂණය කිරීම, අතට්‍ය පරිසරයක සිදු කරන mbacd සත්‍යතාව සහතික කිරීම
+සහ සිසුන්ට නිවසේ නොතිබිය හැකි විගේෂිත මෘදුකාංග හෝ දෘඩාංග සඳුහා ප්‍රවේශය ලබා දීම දුෂ්කර ය.
+
+Course material preparation.
+
+පාධමාලා දුව්‍ය සකස්‌ කිරීම.
+
+Developing high-quality, engaging, and effective course materials specifically designed for an online,
+distance learning environment is a significant challenge.
+
+මාර්ගගත, දුරස්ථ ඉගෙනුමි පරිසරයක්‌ සඳහා විශේෂයෙන්‌ නිටරමාණය කර ඇති උසස්‌ තත්ත්වයේ, ආකර්ශනීය
+සහ ඵලදායී පාධමාලා ද්‍රව්‍ය සංවර්ධනය කිරීම සැලකිය යුතු අභියෝගයකි.
+
+Evaluation of the learning process and progress.
+
+ඉගෙනුමි ක්‍රියාවලිය ප්‍රගතිය ඇගයීම.
+
+Unlike a traditional classroom where instructors can observe engagement, participation, and understanding
+through direct interaction, online environments require more sophisticated methods.
+
+උපදේගකයින්ට සෘපු අන්තරක්‍රියා හරහා සමිබන්ධ විම, සහභාගිත්වය සහ අවබෝධය නිරීක්ෂණය කළ හැකි
+සාමිප්‍රදායික පන්ති කාමරයක්‌ මෙන්‌ නොව, මාර්ගගත පරිසරයන්ට වඩාත්‌ සංකීරණ ක්‍රම අවග්‍ය වේ.
+
+Lack of ICT recourses and infrastructure.
+තොරතුරැ හා සන්නිවේදුන තාක්ෂණ සමිපන්‌ සහ යටිතල පහසුකමි නොමැතිකම.
+
+A fundamental challenge in implementing and sustaining a distance education program 15 ensuring the
+availability of sufficient and robust ICT resources and infrastructure, both for the university and for the
+students.
+
+දුරස්ට්‌ අධ්‍යාපන වැඩසටහනක්‌ ක්‍රියාත්මක කිරීමේදි සහ පවත්වාගෙන යාමේදි ඇති මුලික අභියෝගයක්‌ වන්නේ
+විග්වවිද්‍යාලයට සහ සිසුන්ට ප්‍රමාණවත්‌ සහ ගක්තිමත්‌ තොරතුරැ හා සන්නිවේදන තාක්ෂණ සමිපත්‌ සහ යටිතල
+පහසුකමි ලබා ගැනීම සහතික කිරීමයි.
+
+(d) The management thinks that agent technology based techniques could be used to overcome some of
+the above challenges. Do you agree with this statement? Justify your answer.
+ඉහත දක්වා ඇති සමහර අභියෝග නියෝපිත තාක්ෂණය පාදක © ක්‍රමෝපාය මගින්‌ පයගත හැකි බව
+විග්වවිද්‍යාලිය කළමනාකාරිත්වය සිතයි.මෙම වගන්තිය සමග ඔබ එකඟ වන්නේ ද?ඔබේ පිළිතුර amd කරන්න
+
+Yes / ඔව්‌
+
+Material preparation agent (Locating materials from the web)
+es සකස්‌ කිරීමේ නියෝපිතයා (ea අඩවියෙන්‌ es සොයා ගැනීම)
+
+These agents address the challenge of Course Material Preparation by intelligently locating, filtering,
+and recommending relevant and up-to-date learning materials from the web, significantly reducing the
+time and effort required for instructors to develop comprehensive online courses."
+
+මෙම නියෝපිතයන්‌, වෙබයෙන්‌ අදාළ සහ යාවත්කාලීන ඉගෙනුමි ද්‍රව්‍ය බුද්ධිමත්ව ස්ටානගත කිරීම, පෙරිම සහ
+නිර්දේශ කිරීම මගින්‌ පාධමාලා දුව්‍ය සකස්‌ කිරීමේ අභියෝගයට මුහුණ දෙයි, උපදේශකයින්ට පුඑල්‌ මාර්ගගත
+පාධමාලා සංවර්ධනය කිරීමට අවශ්‍ය කාලය සහ ග්‍රමය සැලකිය යුතු ලෙස අඩු කරයි.
+
+Learning process management agent (Appropriate learning sequence)
+
+ඉගෙනුමි ක්‍රියාවලි කළමනාකරණ නියෝජිතයා (සුදුසු ඉගෙනුමි අනුපිළිවෙල)
+
+These intelligent agents can analyze a student's individual learning style, prior knowledge, and
+performance to dynamically determine and present the most appropriate learning sequence.
+
+මෙම බුද්ධිමත්‌ නියෝපිතයන්ට Geseagqes oS ඉගෙනුමි විලාසය, පෙර දැනුම සහ MO සාධනය
+විග්ලේෂණය කර OH) සුදුසු ඉගෙනුමි අනුපිළිවෙල ගතිකව තීරණය කර ඉදිරිපත්‌ කළ හැකිය.
+
+Learner support agent (Identification of weak performers, providing additional learning resources)
+ඉගෙනුමි සහාය නියෝජිතයා (දුර්වල සිසුන්‌ හඳුනා ගැනීම, අමතර ඉගෙනුමි සමිපත්‌ සැපයිම)
+
+These intelligent agents can continuously monitor student performance, engagement levels, and progress
+through the course materials. By analyzing data on quiz scores, assignment submissions, participation in
+forums, and time spent on topics, they can identify weak performers or students who are at risk of falling
+behind. Upon identification, these agents can proactively provide personalized support, such as
+recommending additional learning resources (e.g., supplementary readings, video tutorials, practice
+exercises), suggesting review of specific topics, or even prompting a connection with a human tutor.
+
+මෙම බුද්ධිමත්‌ නියෝපිතයින්ට පාධමාලා ද්‍රව්‍ය හරහා සිසුන්ගේ mba සාධනය, නියැලීමේ OOS සහ ප්‍රගතිය
+අඛණ්ඩව නිරීක්ෂණය කළ හැකිය. ප්‍රශ්න විචාරාත්මක ලකුණු, පැවරැමි ඉදිරිපත්‌ කිරීමි, සංසදවලට සහභාගී
+විම සහ මාතෘකා සඳුහා ගත කරන කාලය පිළිබඳ දුත්ත විශ්ලේෂණය කිරිමෙන්‌, ඔවුන්ට දුර්වල සිසුන්‌ හෝ
+පසුබෑමේ අවදානමක්‌ ඇති සිසුන්‌ හඳුනාගත හැකිය. හඳුනා ගැනීමෙන්‌ පසු, මෙම නියෝපිතයින්ට අතිරේක
+ඉගෙනුමි සමිපත්‌ නිර්දේශ කිරීම (උදා: අතිරේක කියවිමි, විඩියෝ නිබන්ධන, පුහුණු අභ්‍යාස), නිශ්චිත මාතෘකා
+සමාලෝචනය කිරීමට යෝජනා කිරීම හෝ මානව උපදේශකයෙකු සමඟ සම්බන්ධතාවයක්‌ ඇති කර ගැනීම වැනි
+පුද්ගලාරෝපිත සහාය කල්තියා ලබා දිය හැකිය.
+
+Collaboration support agent
+
+සහයෝගිනා සහාය නියෝපනයා
+
+These intelligent agents can facilitate and enhance student-to-student interaction and group work, directly
+addressing the challenge of getting students to interact with other students in a distance learning
+environment.
+
+මෙම බුද්ධිමත්‌ නියෝපිතයන්ට දුරස්ට ඉගෙනුමි පරිසරයක්‌ තුළ අනෙකුත්‌ සිසුන්‌ සමඟ අන්තර ක්‍රියා කිරීමට
+සිසුන්‌ යොමු කිරීමේ අභියෝගයට සෘපුවම මුහුණ දෙමින්‌, ගිෂ්‍ය-සිසු අන්තරක්‍රියා සහ කණ්ඩායම්‌ වැඩ සඳුහා
+පහසුකමි සැලසීමට සහ වැඩිදියුණු කිරීමට හැකිය.
+
+Assessment agent
+
+තක්සේරැ නියෝපිතයා
+
+These intelligent agents can significantly enhance the integrity and efficiency of online assessments,
+directly addressing the challenge of Quality Assurance and Assessment Integrity in a distance learning
+environment.
+
+දුරස්ට්‌ ඉගෙනුම්‌ පරිසරයක්‌ තුළ තත්ත්ව සහතික කිරීමේ සහ තක්සේරැකරණ අඛණ්ඩනාවයේ අභියෝගයට
+සෘපුවම මුහුණ දෙමින්‌, මෙම බුද්ධිමත්‌ නියෝපිතයන්ට මාර්ගගත තක්සේරැකරණයන්හි අඛණ්ඩතාව සහ
+කාර්යක්ෂමතාව සැලකිය යුතු ලෙස වැඩිදියුණු කළ හැකිය.
+
+( 2015 ESSAY - 03 )
+
+2011 SYSTEM ESSAY MARKING
+
+1.(a) Space station generates oxygen required for its astronauts by ‘splitting’ water (H2O) into Hydrogen (112)
+and Oxygen (O2) using electricity supplied by batteries in the space station. This process is given by the
+following equation.
+අභ්‍යාවකාශ නැවතුමිපොළක්‌ (Space Station) එහි ඇති විදුඅත්‌ කෝෂ මගින්‌ ලබාදෙන විදුලිය භාවිත කරමින්‌
+ජලය (H2O), ඔක්සිපන්‌ (O2) සහ හයිඩ්‍රජන්‌ (H2) වලට විභේදනය කිරීමෙන්‌ එහි සිටින ගගනගාමින්ට අවග්‍ය
+ඔක්සිපන්‌ (Or) උත්පාදුනය කරයි. මෙම ක්‍රියාවලිය පහත සමිකරණය මගින්‌ ලබා දෙයි.
+
+Water / ජලය > Hydrogen / හයිඩ්‍රජන්‌ + Oxygen / ඔක්සිජන්‌
+(211:0 > 211: + (-)
+
+Carbondioxide (COz) breathed out by astronauts and Hydrogen (112) generated from the above process are
+combined together to generate Water and Methane, as given by the following equation.
+
+ගගනගාමින්‌ විසින්‌ ප්‍රාශ්වාස කරන ලද, කාබන්ඩයොක්සයිඩ්‌ (CO2) සහ ඉහත ක්‍රියාවලියේ දි උත්පාදනය වන
+හයිඩ්‍රපන්‌ එකට එකතුකොට පහත සමිකරණයට අනුව පලය (HO) සහ මිතේන්‌ ((11,) බවට පත්කරයි.
+
+Hydrogen / හයිඩ්‍රජන්‌ + Carbondioxide / කාබන්ඩයොක්සයිඞඩි > Water / ජලය + Methane / මිතෙන්‌
+(4H, + CO2 > 2H20 + CHa)
+
+Generated Methane is removed by charcoal filters.
+ජනනය කරන ලද මිතේන්‌ අඟුරැ පෙරනයන්‌ යොදාගෙන ඉවත්‌ කරයි.
+
+(a) State whether the system described above is open or closed. Give two reasons for your answer.
+ඉහත විස්තර කරන ලද පද්ධතිය විවෘත දු සංවෘත දැයි සඳහන්‌ කරන්න. ඔබේ පිළිතුර සඳහා හේතු දෙකක්‌
+ලබා දෙන්න.
+
+Closed system / සංවෘත පද්ධතිය
+
+Reason | — Inputs (water) are available within the system.
+
+හේතුව ] - ආදාන (SEG) පද්ධතිය තුළම ඇත.
+
+Reason 2 — Outputs (Oxygen and Hydrogen) release into the system.
+හේතුව 2 -- පද්ධතිය තුළටම ප්‍රතිදාන (ඔක්සිපන්‌ සහ හයිඩ්‍රපන්‌) මුදා හැරීම.
+
+Explanation/ පැහැදිලි කිරීම:
+The system described above is a closed system because;
+ඉහත විස්තර කර ඇති පද්ධතිය සංවෘත පද්ධතියකි මන්ද :
+
+6 Matter is recycled within the system
+පද්ධතිය තුළ පදාඊරටඊය ප්‍රතිචක්‍රිකරණය කෙටේ:
+
+The key substances like water (H2O), hydrogen (Hz), oxygen (Oz), and carbon dioxide (COz) are
+continuously reused through chemical reactions. Water is split into hydrogen and oxygen to provide
+breathable oxygen.
+
+ජලය (H20) හයිඩ්‍රජන්‌ (H2), Osea} (O2), සහ කාබන්ඩයොක්සයිඩ්‌ (CO2) වැනි ප්‍රධාන ද්‍රව්‍ය රසායනික ප්‍රතික්‍රියා
+හරහා අඛණ්ඩව නැවත භාවිතා වේ. හුස්ම ගත හැකි ඔක්සිපන්‌ සැපයිම සඳහා පලය. හයිඩුපන්‌ සහ ඔක්සිජන්‌
+ලෙස බෙදි, යයි.
+
+The hydrogen and the carbon dioxide exhaled by astronauts are then used again to create water and
+methane. This recycling means matter is not lost or gained from the environment. This 15 a characteristic
+
+of a closed system.
+
+ගගනගාමින්‌ විසින්‌ පිට කරන හයිඩුපන්‌ සහ කාබන්ඩයොක්සයිඩි නැවත SEG සහ මිතේන්‌ නිර්මාණය කිරීමට
+භාවිතා කරයි. මෙම ප්‍රතිචක්‍රීකරණය යන්නෙන්‌ අදහස්‌ කරන්නේ පරිසරයෙන්‌ පදාඊර්ටය නැති වි හෝ ලබා
+නොගන්නා බවයි. මෙය සංවෘත පද්ධතියක ලක්ෂණයකි.
+
+6 No exchange of matter with the surroundings:
+වටපිටාව සමඟ පදාරට්ට්‌ හුවමාරැවක්‌ සිදු නොවේ:
+
+The space station does not bring in or release gases like oxygen, water, or carbon dioxide to and from the
+outer environment. Even the methane produced is removed using charcoal filters inside the station rather
+than being expelled into space.
+
+අභ්‍යවකාශ මධ්‍යස්ටානය ඔක්සිපන්‌, පලය හෝ කාබන්‌ ඩයොක්සයිඩ්‌ වැනි වායුන්‌ බාහිර පරිසරයට ගෙන JO
+හෝ මුදා හැරීම සිදු නොකරයි. නිපදවන මිතේන්‌ පවා අභ්‍යවකාශයට බැහැර කිරීමට වඩා ස්ථානය තුළ අඟුරු
+පෙරහන්‌ භාවිතයෙන්‌ ඉවත්‌ කරනු ලැබේ.
+
+This internal management of substances shows that there 15 no input or output of matter, which is typical
+of a closed system. / ද්‍රව්‍යවල මෙම අභ්‍යන්තර කළමනාකරණයෙන්‌ පෙන්නුමි කරන්නේ සාමාන්‍යයෙන්‌ සංවෘත
+පද්ධතියකට ආදානයක්‌ හෝ ප්‍රතිදානයක්‌ නොමැති බවයි.
+
+Although energy is used, energy exchange 15 allowed in a closed system. Only the exchange of matter is
+restricted. / ශක්තිය භාවිතා කළද, සංවෘත පද්ධතියක DEMIS හුවමාරැවට අවසර දෙනු ලැබේ. පදාඊ්ට
+හුවමාරැව පමණක්‌ සීමා වේ.
+
+(0) Assuming that the human brain is a system, compare and contrast a human brain and a computer-based
+information system.
+මිනිස්‌ මොලය පද්ධතියක්‌ යැයි උපකල්පනය කරමින්‌, පරිගණක පාදක වු තොරතුරැ පද්ධතියක්‌ හා මිනිස්‌
+මොලයක සමාන අසමානතා දක්වමින්‌ සංසන්දනය කරන්න.
+
+1 - Accuracy/ Any problem caused by accuracy.
+නිරවද්‍යතාවය/ නිරවද්‍යතාවය හේතුවෙන්‌ ඇතිවන ඕනෑම ගැටළුවක්‌.
+
+2 - Efficiency/ Any problem caused by efficiency.
+කාට්යක්ෂමතාව/ කාට්යක්ෂමතාව හේතුවෙන්‌ ඇතිවන ඕනෑම ගැටළුවක්‌.
+
+Note/ සටහන:
+Duplication is not an answer/ අනුපිටපත්‌ කිරීම පිළිතුරක්‌ නොවේ
+
+Explanation/ පැහැදිලි කිරීම:
+
+An information system with a relational database in Zero Normal Form (ONF) can face several problems.
+ශුන්‍ය EOnmdogvens) (ONF) සම්බන්ධක ess සමුදායක්‌ සහිත තොරතුරැ පද්ධතියක්‌ ගැටඑ කිහිපයකට
+මුහුණ දිය හැකිය.
+
+1 Data Redundancy
+ean අතිරික්තය
+
+In ONF, data is often stored in unstructured or repeating groups (e.g., multiple values in a single
+column). This leads to the same information being repeated in many records.
+
+ONF හි, දත්ත බොහෝ SO OgMaD නොකළ හෝ පුනරාවරිතන කණ්ඩායමිවල ගබඩා කර ඇත (උදා:
+තනි තීරැවක බහු අගයන්‌). මෙය බොහෝ HOMOE එකම තොරතුරැ පුනරාවරතනය වීමට හේතු වේ.
+
+Redundant data increases the storage requirements and can lead to inconsistencies when updating
+records. For example, if a customer’s address is stored in multiple rows, and it changes, all instances
+must be updated, missing even one causes incorrect data.
+
+අතිරික්ත EHD ගබඩා අවග්‍යතා වැඩි කරන අතර වාර්තා යාවත්කාලීන කිරීමේදි නොගැලපීමි ඇති කළ
+හැකිය. උදාහරණයක්‌ ලෙස, ගනුදෙනුකරැවෙකුගේ ලිපිනය බහු පේළීවල ගබඩා කර ඇති අතර එය වෙනස්‌
+වුවහොත්‌, සියලු අවස්ථා යාවත්කාලීන කළ යුතුය, එකක්‌ නැතිවීම පවා වැරළි දත්ත ඇති කරයි.
+
+2 Data Anomalies (Insertion, Update, and Deletion Anomalies)
+
+eso විෂමතා (ඇතුළත්‌ කිරීම, යාවත්කාලීන කිරීම සහ මකාදැමිමේ විෂමනා)
+
+Without normalization, tables may contain logically unrelated data, which causes anomalies:
+ප්‍රමතකරණයකින්‌ තොරව, වගු OE තාර්කිකව සමිබන්ධ නොවන දත්ත අඞංගු විය හැකි අතර, එය
+විෂමතා ඇති කරයි;
+
+Insertion anomaly: You can't add data unless other unrelated data is also provided.
+ඇතුළත්‌ කිරීමේ විෂමතාව: වෙනත්‌ සමිබන්ධ නොවන දන්ත ද සපයා නොමැති නමි ඔබට esi එකතු
+කළ නොහැක.
+
+Update anomaly: Changing one piece of information requires multiple updates.
+යාවත්කාලීන විෂමතාව: එක්‌ තොරතුරක්‌ වෙනස්‌ කිරීමට බහු යාවත්කාලින කිරීමි අවශ්‍ය වේ.
+
+Deletion anomaly: Removing one record may unintentionally remove important related data.
+මකාදැමිමේ විෂමතාව: O HOMO ඉවත්‌ කිරීමෙන්‌ නොදැනුවත්වම Oreos අදාළ දුත්ත ඉවත්‌ කළ
+හැකිය.
+
+These anomalies reduce data integrity and make the system harder to maintain.
+මෙම විෂමතා EHD GADIAMO අඩු කරන අතර පද්ධතිය නඩත්තු කිරීමට අපහසු කරයි.
+
+3 Poor Query Performance
+
+ඳුර්වල විමසුමි කාරය සාධනය
+
+When data is stored in an unstructured or non-tabular form (e.g., nested or repeating groups), queries
+become more complex and slower.
+
+EDD වඅහගත නොකළ හෝ වගුගත නොවන ආකාරයෙන්‌ ගබඩා කර ඇති SO (උදා: කැදැලි හෝ
+පුනරාවටරිතන කණ්ඩායම්‌), විමසුම්‌ වඩාත්‌ සංකීරණ හා මන්දුගාමි වේ.
+
+Extracting meaningful data requires extra parsing or complex SQL, which can reduce the efficiency
+and performance of the system.
+
+අර්ට්වත්‌ Esso EGO) ගැනීම සඳහා අමතර SQN කිරීමක්‌ හෝ සංකීරණ SQL අවශ්‍ය වන අතර
+එමඟින්‌ පද්ධතියේ කාර්යක්ෂමතාව සහ ක්‍රියාකාරිත්වය අඩු කළ හැකිය.
+
+4 Difficulty in Data Validation and Integrity Enforcement
+CBD වලංගුකරණය සහ අඛණ්ඩනාව බලාත්මක කිරීමේ දුෂ්කරනා
+
+In ONF, it's hard to apply rules like data types, constraints (e.g., foreign keys, unique keys), and
+validation checks due to unstructured data.
+ONF හි, වෘහගත නොකළ Eee හේතුවෙන්‌ Esse OH, සමිභාධක ප්‍රරෑප (උදා: ආගන්තුක යතුරැ,
+
+෴ අනි ඇ෴
+
+අනන්‍ය යතුරැ) සහ වලංගුකරණ පරීක්ෂාවන්‌ වැනි නීති යෙදිම දුෂ්කර ය.
+
+This makes it easier for incorrect or inconsistent data to be entered, reducing the overall data quality
+and reliability. / මෙය වැරදි හෝ නොගැලපෙන EXD ඇතුළත්‌ කිරිම පහසු කරයි, සමස්ත esio
+ගුණාත්මකභාවය සහ විග්වසනීියත්වය අඞු කරයි.
+
+5 Harder to Maintain and Scale
+
+නඩත්තු කිරීමට සහ පරිමාණය කිරීමට අපහසුය
+
+Unstructured data and repetition mean that maintaining the database schema or logic (like updating a
+
+structure) is more difficult.
+ව්‍යුහගත නොකළ CHM සහ පුනරාවටඊටතනය යන්නෙන්‌ අදහස්‌ වන්නේ දත්ත OO) සමිබන්ධතා සටහන්‌
+හෝ තර්කනය (ව්‍යුහයක්‌ යාවත්කාලින කිරීම වැනි) පවත්වා ගැනීම වඩාත්‌ අපහසු බවයි.
+
+As the database grows, any changes become time-consuming and error-prone, which can affect long-
+term scalability and maintenance. / දූත්ත සමුදාය වර්ධනය වන HO, ඕනෑම වෙනස්කමක්‌ කාලය ගතවන
+සහ දෝෂ සහිත වන අතර එය දිගුකාලීන පරිමාණය සහ නඩත්තුවට බලපෑ හැකිය.
+
+Normalizing the database (starting from First Normal Form - INF) helps avoid these issues by
+organizing data into well-structured, atomic, and related tables.
+
+EDD සමුදාය ප්‍රමතකරණය කිරීම (ප්‍රමතකරණ අවස්ටාව- ] INF BO ආරමිභ කිරීම) esi හොඳින්‌ ව්‍යුහගත,
+පරමාණුක සහ අදාළ වගු වලට සංවිධානය කිරීමෙන්‌ මෙම HOO මඟහරවා ගැනීමට උපකාරී වේ.
+
+-O+
+
+
+(c) Assuming that the human brain is a system, compare and contrast a human brain and a computer
+
+based information system.
+
+මිනිස්‌ මොලය පද්ධතියක්‌ යැයි උපකල්පනය කරමින්‌, පරිගණක පාදක වු තොරතුරැ පද්ධතියක්‌ හා මිනිස්‌
+
+මොලයක සමාන අසමානතා දක්වමින්‌ සංසන්දනය කරන්න.
+
+Comparison/ සංසන්දනය:
+
+Both are Input — Process — Output systems
+දෙකම ආදාන - ක්‍රියාවලි - ප්‍රතිදාන පද්ධති වේ
+(Ex: Both can process data/ දෙකටම දුත්ත සැකසිය හැක)
+
+Contrast/ වෙනස:
+
+Human brain is more intelligent than an information system.
+
+මිනිස්‌ මොළය තොරතුරැ පද්ධතියකට වඩා බුද්ධිමත්‌ ය.
+
+(Ex: Natural vs Artificial/ ස්වාභාවික සහ කෘතිම; accuracy/ නිරවද්‍යතාවය: reliability/ විශ්වසනීයත්වය:
+emotional/ චිත්තවේගීය )
+Note: There should be an answer for each class සැම පන්තියකටම පිළිතුරක්‌ තිබිය යුතුය.
+
+Aspect Human Brain Computer-Based Information System
+Processes information through Uses CPUs/GPUs for fast, accurate processing;
+neurons and synapses; excellent at ‘deal for logical and sequential tasks
+
+Processing parallel processing se න්‌ පාර 5 ී
+Power ස්නායු හා උපාගම හරහා තොරතුරැ වේගවත්‌, නිව (රද සැකසුම්‌ සඳහා (CPU/GPU)
+vm භාවිතා කරයි. තාර්කික සහ අනුක්‍රමික කාර්යයන්‌
+සකසයි. සමාන්තර සැකසුමි සඳහා ස වඩාත්‌
+විගිෂ්ටයි. ඳහා වඩාත්‌ සුදුසුය.
+Stores information as patterns and Stores data in defined memory units (RAM,
+experiences; memory is associative | HDD/SSD); memory is measurable and well-
+Memory and not easily measurable. structured.
+රටා සහ අත්දැකීමි ලෙස තොරතූරැ | නිශ්චිත මතක See (RAM, HDD/SSD) තුළ
+ගබඩා කරයි. මතකය සංඝට වන EDD ගබඩා කරයි. මතකය මැනිය හැකි සහ
+අතර පහසුවෙන්‌ මැනිය නොහැක. හොඳින්‌ ව්‍යුහගත කර ඇත.
+Receives input through senses Receives input via devices (keyboard, mouse,
+Data Input (eyes, ears, etc.). 7 sensors). _
+ඉන්ද්‍රියන්‌ (ඇස්‌, කන්‌ ආදිය) හරහා උපාංග (යතුරැ පුවරැව, මුසිකය, සංවේදක)
+ආදාන ලබා ගනි. හරහා ආදානය ලබා OF.
+Responds via speech, action, facial
+Data Output expressions, etc. _ Outputs via screens, printers, sounds, etc.
+කතාව, ක්‍රියාව, මුහුණේ ඉරියව්‌ තිර, මුද්‍රණ යන්ත්‍ර, IE ආදිය හරහා ප්‍රතිදාන
+ආදියෙන්‌ ප්‍රතිචාර දක්වයි.
+Uses programmed logic and algorithms;
+Uses reasoning, emotions, intuition, | limited to what it has been programmed or
+Decision- and learning from experience. trained to do.
+Making අත්දැකීමි තුළින්‌ නර්කනය, හැඟීමි, ක්‍රමලේඛනය කරන ලද තර්කනය සහ
+බුද්ධිය සහ ඉගෙනීම භාවිනා කරයි. ඇල්ගොරිතම භාවිතා කරයි. එය ක්‍රමලේඛනය
+කර ඇති හෝ පුහුණු කර ඇති දෙයට සමා වේ.
+Learns from experience and adapts | Can learn using AI/ML but depends on data
+Learning dynamically (natural intelligence). and algorithms (artificial intelligence).
+Ability අත්දැකීමි වලින්‌ ඉගෙන ගෙන AI/ML භාවිතයෙන්‌ ඉගෙන ගත හැකි නමුත්‌
+ගතිකව අනුවරිතනය වේ (ස්වාභාවික | දත්ත සහ ඇල්ගොරිතම (කෘතිම බුද්ධිය] මත
+බුද්ධිය). රඳා පවති.
+Prone to fatigue, emotions, and More consistent and accurate, but may crash or
+Reliability memory loss. have bugs.
+තෙහෙට්ටුව, හැඟුම්‌ සහ Ome වඩාත්‌ BOOS සහ නිවැරදි, නමුත්‌ බිඳු වැටිමට
+ශක්තිය නැති SOO ඉඩ ඇත. හෝ බෝෂ තිබිය හැක.
+
+Highly creative, capable of abstract Limited eae unless Specttically
+න thinking and innovation programmed (e.g., generative Al). =
+Creativity ඉතා නිර්මාණශීලි, Se ක්ත චින්තනයට විශේෂයෙන්‌ වැඩසටහන්ගත කර නොමැති නමි
+සහ නවෝත්පාදනයට හැකියාව ඇත. ම නිට්මාණගීලිත්වයක්‌ ඇත (උදා: උත්පාදක
+Slower in raw calculations but
+faster in recognizing patterns (like | Extremely fast in performing calculations and
+Speed faces or voices). repetitive tasks.
+ගණනය කිරීමි වලදි මන්දුගාමි නමුත්‌ | ගණනය කිරීමි සහ පුනරාවරතන කාරථරයයන්‌ සිදු
+රටා හඳුනා ගැනීමේදි වේගවත්‌ කිරීමේදි අතිශයින්‌ වේගවත්‌.
+(මුහුණු හෝ කටහඩ වැනි).
+Maintains itself (self-healing to Needs regular maintenance (updates, hardware
+some extent). servicing).
+Maintenance තමාවම පවත්වා ගනී (යම්‌ දුරකට නිතිපතා නඩත්තු කිරීම අවශ්‍ය වේ (යාවත්කාලීන
+ස්වයං-සුව කිරිම). කිරීමි, දෘඩාංග සේවා).
+
+Explanation/ පැහැදිලි කිරීම:
+Comparison of Human Brain and Computer-Based Information System
+මිනිස්‌ මොළය සහ පරිගණක පාදක තොරතුරැ පද්ධතිය සංසන්දනය කිරිම
+
+Summary/ සාරාංශය:
+
+Similarities/ සමානකමි:
+
+Both the human brain and (1315 process, store, and output information. Both can be used to solve
+problems, make decisions, and support communication.
+
+මිනිස්‌ මොළය සහ CBIS යන දෙකම තොරතුරැ සැකසීම, ගබඩා කිරීම සහ ප්‍රතිදානය කිරීම Be කරයි.
+ගැටළු විසඳිමට, තීරණ ගැනීමට සහ සන්නිවේදනයට ano SOO දෙකම භාවිතා කළ හැකිය.
+
+Differences/ වෙනස්කමි:
+
+The human brain is biological, adaptive, emotional, and creative, while a CBIS is electronic, rule-based,
+consistent, and fast. The brain excels at abstract thinking and adaptability, whereas computers excel at
+precision, storage, and speed in data processing.
+
+මිනිස්‌ මොළය GO විද්‍යාත්මක, අනුවරතනය, චිත්තවේගීය සහ නිට්මාණගීලි වන අතර CBIS එකක්‌
+ඉලෙක්ට්‍රොනික, රීති මන පදුනමි වු, SOOO සහ වේගවත්‌ වේ. මොළය වියුක්ත චන්තනය සහ අනුවර්තනය
+විමේ හැකියාවෙන්‌ SGSO වන අතර පරිගණක දත්ත සැකසීමේ නිරවද්‍යතාවය, ගබඩා කිරීම සහ වේගය
+අතින්‌ විශිෂ්ට වේ.
+
+( 2016 S.ESSAY - 03 )
+
+2. Draw a context diagram to show the operations of the online assignment management system
+described below adhering to the standards of the Structured System Analysis and Design
+Methodology (SSADM). Clearly indicate external entities and data flows of your diagram. State any
+assumptions that you have made.
+පහත දැක්වෙන මාර්ගගත පැවරැමි කළමනාකරණ පද්ධතියේ ක්‍රියාකාරිත්වය පිළිබිඹු කිරීමට asieda රෑප
+සටහනක්‌ Structured System Analysis and Design Methodology (SSADM) ප්‍රමිතියට අනුකූල වෙමින්‌
+අඳින්න. ඔබගේ සටහනේ බාහිර භූතාර්ට (external entities) සහ දත්ත ගැලීමි (data flows) පැහැදිලි ව
+පෙන්වන්න. ඔබ විසින්‌ කරන ලද උපකල්පන වෙතොත්‌ සටහන්‌ කරන්න.
+
+The National University of ICT (NUICT) conducts distance learning programs. The students of
+NUICT are continuously assessed through online assignments. The students of NUICT use an online
+assignment management system called NetAssign to download assignments and upload answer
+scripts. The examiners use NetAssign to upload assignments and to download answer scripts. Once
+the answer scripts are marked, the examiners enter marks into NetAssign. The students can view
+only the grades determined by NetAssign. To use NetAssign, both examiners and students must
+provide authentication details to the system. These authentication details are provided by NUICT
+to its students and examiners.
+
+ICT පිළිබඳ පාතික විග්වවිද්‍යාලය (NUICT) දුරස්ට අධ්‍යාපන වැඩසටහන්‌ පවත්වාගෙන o8. NUICT හි
+සිසුන්‌ ව මාර්ගගත පැවරැමි මගින්‌ අඛණ්ඩව ඇගයීමට ලක්‌ කරයි. 11[01(”]' හි සිසුන්‌ පැවරැමි අවපතනය
+කිරීම (download) හා පිළිතුරුපත්‌ උත්පතනය (upload) කිරීමට NetAssign නමි වු මාර්ගගත පැවරැමි
+කළමනාකරණ පද්ධතියක්‌ භාවිත කරයි. පරීක්‍්ෂකවරැන්‌ පැවරැමි උත්පතනය කිරිමට සහ පිළිතුරුැපත්‌ අවපතනය
+කිරීමට NetAssign භාවිත කරයි. පිළිතුරුපත්‌ ඇගයීමෙන්‌ පසු ව, පරීක්ෂකවරැන්‌ විසින්‌ ලකුණු NetAssign
+තුළට ඇතුලත්‌ කරයි. සිසුන්ට NetAssign මගින්‌ තීරණය කරනු ලබන oGM පමණක්‌ දැක ගත හැකි වේ.
+NetAssign භාවිත කිරීම සඳහා පරීක්ෂකවරැන්‌ සහ සිසුන්‌ පද්ධතිය භාවිත කිරීමට ඇති අවසරය තහවුරැ
+කිරීමට (authentication) අවශ්‍ය නොරතුරැ පද්ධතිය වෙත ලබා දිය යුතු ය. මෙම පද්ධතිය භාවිත කිරීමට
+ඇති අවසරය තහවුරැ කිරීමට අවශ්‍ය තොරතුරැ NUICT මගින්‌ සිසුන්ට සහ පරික්ෂකවරැන්ට ලබා දෙයි.
+
+This question asks to create a context diagram for an online assignment management system called
+NetAssign, following the principles of the Structured Systems Analysis and Design Methodology
+(SSADM).
+
+Structured Systems Analysis and Design Methodology (SSADM) මුලධර්ම අනුගමනය කරමින්‌, NetAssign
+නමින්‌ හැඳින්වෙන මාර්ගගත 70079 කළමනාකරණ පද්ධතියක්‌ සඳහා සන්දඊර්භ රෑප සටහනක්‌ නිර්මාණය
+කිරීමට මෙම ප්‍රශ්නය අසයි.
+
+A Context Diagram 1s a simple representation that shows the system as a single process and its interactions
+with external entities through data flows. It is also known as a Level 0 Data Flow Diagram (DFD).
+
+සන්දර්භ රෑප සටහනක්‌ යනු පද්ධතිය තනි ක්‍රියාවලියක්‌ ලෙස සහ දත්ත ගැලීමි හරහා බාහිර භතාරට සමඟ
+එහි අන්තරක්‍රියා පෙන්වන සරල නිරැපණයකි. එය 0 මට්ටමේ දුත්ත ගැලීමි සටහනක්‌ (DFD) ලෙසද, හැඳින්වේ.
+
+Elements of a Context Diagram/ සන්දටර්භ රැප සටහනක අංග;
+
+e System (Process): Represents the entire system as a single unit and shows how it processes inputs
+from external sources and produces outputs.
+පද්ධතිය (සැකසීමි)) සමස්ත පද්ධතියම oS එකකයක්‌ ලෙස නිරැපණය කරන අතර එය බාහිර
+ප්‍රභවයන්ගෙන්‌ යෙදුවුමි සකසන ආකාරය සහ ප්‍රතිදාන නිපදවන ආකාරය පෙන්වයි.
+
+e External Entities: These are people, organizations, or other systems that interact with the system by
+providing inputs or receiving outputs, helping define system boundaries.
+QMO: මේවා ආදාන ලබා දීමෙන්‌ හෝ ප්‍රතිදාන ලබා ගැනීමෙන්‌ පද්ධතිය සමඟ අන්තර ක්‍රියා කරන
+පුද්ගලයින්‌, සංවිධාන හෝ වෙනත්‌ පද්ධති වන අතර, පද්ධති සීමාවන්‌ නිටරවචනය කිරීමට උපකාරී වේ.
+
+e Data Flows: Shows the specific information exchanged between the system and external entities,
+helping clarify what kind of data is used and where it moves.
+CBO OOS: පද්ධතිය සහ බාහිර භූතාර්ට අතර හුවමාරු වන නිශ්චිත තොරතුරැ පෙන්වයි, කුමන
+ආකාරයේ දත්ත භාවිතා කරන්නේද සහ එය හුවමාරැ වන්නේ කොතැනද යන්න පැහැළිලි කිරීමට උපකාරීවේ.
+
+A context diagram shows the system as a single process, interacting only with external entities (like users
+or other systems) and showing data flows between them. It does not depict internal components like data
+Stores.
+
+සන්දර්භ රෑප සටහනක්‌ මඟින්‌ පද්ධතිය තනි ක්‍රියාවලියක්‌ ලෙස පෙන්වන අතර බාහිර HmdsoO (පරිශීලකයින්‌
+හෝ වෙනත්‌ පද්ධති වැනි) සමඟ පමණක්‌ අන්තරක්‍රියා කරන අතර එවා අතර දත්ත ගැලිමි පෙන්වයි. එය
+EDD ගබඩා වැනි අභ්‍යන්තර සංරචක නිරෑැපණය නොකරයි.
+
+Data stores are introduced in Level 1 and lower-level DFDs (Data Flow Diagrams), where internal
+processes and data storage are broken down in detail.
+
+EBD ගබඩා, ] මට්ටමේ සහ පහළ මට්ටමේ DFD (දූන්ත ගැලීමි සටහන්‌) තුළ හඳුන්වා E ඇති අතර ASE
+අභ්‍යන්තර ක්‍රියාවලින්‌ සහ දුන්ත ගබඩා කිරීම විස්තරාත්මකව පෙන්වනු ලැබේ.
+
+When we draw the context diagram based on the given scenario, it will appear as shown below, clearly
+illustrating the system's interactions with all external entities and data flows
+
+E ඇති අවස්ථාව මත පදුනමිව සන්දර්භ රැප සටහන අඳින විට, එය පහත දැක්වෙන OOF FOR ඇත,
+සියලු බාහිර භූතාර්ට්‌ සහ දුත්ත ගැලීමි සමඟ පද්ධතියේ අන්තරක්‍රියා පැහැවිලිව නිරෑැපණය කරයි.
+
+Marks Grade
+Assignment Assignment
+vv vv
+Examine Net Assign Student
+A 4 4 A A
+! Answer Script Answer Script |
+Authentication details Authentication details
+
+Authentitation details
+
+Examiner/ පරීක්ෂකවරැ , Student/ සිසුන්‌ , Marks/ ලකුණු , Grade/ ශ්‍රේණි , Assignment/ පැවරැමි , Answer
+script/ පිළිතුරැපත , Authentication details/ අවසරය තහවුරැ කිරීමට අවග්‍ය තොරතුරැ
+
+Let’s see how external entities interact with the system and how the data flows between them.
+බාහිර භූතාඊර්ඊ පද්ධතිය සමඟ අන්තර්‌ ක්‍රියා කරන ආකාරය සහ එවා අතර ගලා යන exw විග්ලේෂණය
+කර බලමු.
+
+e Students use NetAssign to download assignments, upload answer scripts, and view grades after their
+submissions are marked. They must provide authentication details to access the system.
+සිසුන්‌ පැවරැමි බාගත කිරීමට, පිළිතුරු පත්‍රිකා උඩුගත කිරීමට සහ ඔවුන්ගේ පත්‍රිකා ලකුණු කිරීමෙන්‌ පසූ
+ශ්‍රේණි බැලීමට NetAssign භාවිතා කරයි. පද්ධතියට ප්‍රවේශ විම HEH) ඔවුන්‌ අවසරය නහවුරැ කිරිමට
+අවග්‍ය තොරතුරැ සැපයිය යුතුය.
+
+e Examiners upload assignments, download submitted answer scripts, and enter marks into the system.
+Like students, they also authenticate themselves before accessing the system.
+පරීක්ෂකවරැන්‌ පැවරැමි උඩුගත කරයි, ඉදිරිපත්‌ කරන ලද SEDO? පත්‍රිකා බාගත කරයි, සහ පද්ධතියට
+ලකුණු ඇතුළත්‌ කරයි. සිසුන්‌ මෙන්‌, ඔවුන්‌ පද්ධතියට ප්‍රවේශ වීමට පෙර තමන්ගේ අවසරය නහවුරැ කිරීමට
+අවග්‍ය තොරතුරැ ඇතුලත්‌ කරයි.
+
+e NUICT is the organization managing the system. It provides authentication details to both students and
+examiners to ensure secure access.
+NUICT යනු පද්ධතිය කළමනාකරණය කරන සංවිධානයයි. ආරක්ෂිත ප්‍රවේශය සහතික කිරීම සඳහා එය
+සිසුන්ට සහ පරීක්ෂකවරැන්ට අවසරය තහවුරැ කිරීමට අවශ්‍ය තොරතුරැ විස්තර සපයයි.
+
+e The NetAssign system acts as the central processing unit that facilitates all these activities. It ensures
+
+that only authenticated users interact with the system and manages the exchange of assignments,
+answer scripts, marks, and grades.
+NetAssign පද්ධතිය මෙම සියලු ක්‍රියාකාරකමි සඳහා පහසුකමි සපයන මධ්‍යම සැකසුමි ඒකකය ලෙස ක්‍රියා
+කරයි. එය අවසරය තහවුරැ කිරීමට අවග්‍ය තොරතුරැ සත්‍යාපනය කළ පරීගිලකයින්‌ පමණක්‌ පද්ධතිය
+සමඟ Gand ක්‍රියා කරන බව සහතික කරන අතර පැවරැමි, පිළිතුරු පත්‍ර, ලකුණු සහ ශ්‍රේණි හුවමාරැව
+කළමනාකරණය කරයි.
+
+In the diagram, the arrows connecting NUICT to both the Examiner and Student are dashed to indicate
+that these represent the provision of authentication details. The dashed arrows are used because data flow
+between two external entities is represented with dashed lines, distinguishing it from regular data flows
+between the system and external entities.
+
+රෑප සටහනේ, |! ](”] පරීක්ෂක සහ Ges යන දෙකටම සම්බන්ධ කරන ඊතල කඩ ඉරි වන අතර HO)
+අවසරය තහවුරැ කිරීමට අවශ්‍ය තොරතුරැ සැපයීම නියෝජනය කරන බව දක්වයි. බාහිර Hmbd දෙකක්‌
+අතර දුන්ත ගැලීම කඩ ඉරි සහිත රේඛා සමඟ නිරෑැපණය කරයි. කඩ ඉරි සහිත SHE භාවිනා කරන බැවින්‌
+පද්ධතිය සහ DSO භූතාර්ට අතර සාමාන්‍ය දත්ත DOS වලින්‌ එය වෙන්කර හඳුනා ගත හැක.
+
+( 2016 ESSAY - 06 )
+
+2017 SYSTEM ESSAY MARKING
+
+1. Fill in the blanks in the following Data Flow Diagram (Figure 1.1) of the sales information system
+of a company called Bookland, only by using the words in Boldface in the description given below.
+Bookland ආයතනයේ වෙළඳු තොරතුරැ පද්ධතියේ ei ගැලීමි රැපසටහනෙහි (රෑපය 1.1) හිස්තැන්‌ පහත
+ඡේදයේ සඳුහන්‌ me පැහැති අකුරින්‌ දක්වා ඇති වචන පමණක්‌ භාවිතයෙන්‌ පුරවන්න.
+
+Bookland is a book store that specializes in selling rare books, which are usually not available from
+other sources. As a practice, Bookland maintains just a one copy of any book at a time due to the
+higher price of rare books.
+
+Bookland යනු වෙනත්‌ මුලාශ්‍ර මගින්‌ සාමාන්‍යයෙන්‌ ලබාගත නොහැකි දුර්ලභ පොත්‌ වෙළඳාම සමිබන්ධයෙන්‌
+විශේෂත්වයක්‌ දක්වන පොන්හලකි. දුර්ලභ පොත්වල ඉහළ මිළ නිසා, Bookland ආයතනය පුරැද්දක්‌ වගයෙන්‌
+ඕනෑම පොතකින්‌ එක්‌ පිටපතක්‌ පමණක්‌ වරකට රඳුවාගනි.
+
+Typically, a customer makes a book enquiry over the phone from the Sales Assistant at Bookland.
+She then goes through book details in the Inventory file to check whether such a book 16 in their
+stock. If the details of the book is found in the Inventory file, the Sales Assistant then refers to the
+Hold-on Requests tray to make sure that the book status is ‘available’ and makes a reply to the
+enquiry. If the book status is ‘available’ and the customer wishes to reserve the book, she then takes
+customer's personal details and places a hold-on request against that book in the Hold-on Requests
+tray making the book no longer available.
+
+සාමාන්‍යයෙන්‌ පාරිභෝගිකයෙක්‌ පොතක්‌ ගැන විමසීමක්‌ දුරකටනයෙන්‌ කරනුයේ Bookland හි විකුණුමි sence
+ගෙනි. ඇය එවිට ඔවුන්ගේ තොගයේ එවැනි පොතක්‌ ඇත්දැයි පිරික්සීමට භාණ්ඩ ලේඛන ගොනුව තුළ පොතෙහි
+විස්තර පරීක්ෂා කරයි. භාණ්ඩ ලේඛන ගොනුව තුළ එම පොතෙහි විස්තර හමු වුවහොත්‌, වෙළඳ සහායක
+රැඳුවුමි ඉල්ලීමි බන්දේසිය පරීක්ෂා කර බලා පොතෙහි තත්ත්වය 'ලබාගත හැකි' බවට තහවුරැ කර ගෙන
+විමසීමට පිළිතුර සපයයි. පොතෙහි තත්ත්වය 'ලබාගත හැකි' බව නමි සහ පාටිභෝගිකයා පොත වෙන්‌ කර
+තැබීමට අදහස්‌ කරයි නමි, විකුණුමි සහායක විසින්‌ පාරිභෝගිකයාගේ පෞද්ගලික නොරතුරු ලබාගෙන එම
+පොත තවදුරටත්‌ ලබාගත නොහැකි වන සේ රැඳුවුමි ඉල්ලීමක්‌ රැඳවුමි ඉල්ලීමි බන්දේසියට බහාලනු ලබයි.
+
+When the customer comes to make the payment and collect the book, the Cashier at Bookland refers
+to the Hold-on Requests tray and finds the relevant hold-on request made by the customer. If there
+is a valid hold-on request, she then accepts the payment from the customer, issues a payment receipt
+to the customer and finalizes the sale. The customer is then allowed to take away the book. The
+Cashier also files the copy of the payment receipt in the Sales file, uses it at the end of the day to
+compile a sales report and sends it to the Owner of the Bookland. After every sale, the Cashier
+updates the book details in the Inventory file and keeps the stock up to date. When the Owner
+supplies books to Bookland, he sends details of books to Cashier and the Cashier adds them one by
+one to the Inventory file.
+
+එම පාරිභෝගිකයා ගෙවීම කර පොත ගෙන යාමට පැමිණි SO Bookland හි අයකැමි Kegs ඉල්ලීමි
+බන්දේසිය පරීක්ෂා කර, පාරිභෝගිකයා විසින්‌ කරන ලද අදාළ රැඳුවුමි ඉල්ලීම සොයා ගනී. එම රැඳුවුමි
+ඉල්ලිම වලංගු නමි, පාරිභෝගිකයා විසින්‌ කරන ලදු ගෙවිම පිළිගෙන ගෙවීමි ලදුපනක්‌ පාරිභෝගිකයාට ලබා
+E විකිණීම අවසන්‌ කරයි. එවිට පොත ඉවතට රැගෙන යාමට පාරිභෝගිකයාට අවසර ලැබේ. අයකැමි ගෙවීිමි
+ලදුපනේ පිටපතක්‌ විකුණුමි ගොනුව නුළ ගොනුගත කරන අතර, දිනය අවසානයේ එය භාවිතයෙන්‌ විකුණුමි
+වාටතාවක්‌ සකස්‌ කර Bookland හි අයිතිකරු වෙන යවනු ලැබේ. සැම විකිණීමකින්‌ ම පසුව, අයකැමි භාණ්ඩ
+ලේඛන ගොනුව තුළ ඇති පොත්වල විස්තර නවිකරණය කර තොගය යාවත්කාලීනව පවත්වා ගනි. අයිතිකරු
+විසින්‌ Bookland වෙත පොත්‌ සපයන විට, ඔහු විසින්‌ අයකැමි වෙත පොත්වල විස්තර යවන අතර, අයකැමි
+විසින්‌ ඒවා එකින්‌ එක භාණ්ඩ ලේඛන ගොනුවට එකතු කරනු ලබයි.
+
+A DFD (Data Flow Diagram) is a graphical representation of how data moves within a system. It 15
+commonly used in system analysis and design to visualize the flow of information between processes, data
+stores, and external entities.
+
+DFD ese ප්‍රවාහ රෑප සටහන යනු පද්ධතියක්‌ තුළ com OEHG වන ආකාරය පිළිබඳ චිත්‍රක නිරෑපණයකි.
+එය පද්ධති විග්ලේෂණය සහ සැලසුමි කිරීමේදි ක්‍රියාවලීන්‌, දූත්ත ගබඩා සහ බාහිර භනාරත අතර තොරතුරැ
+ප්‍රවාහය දෘග්‍යමාන කිරීමට බහුලව භාවිතා වේ.
+
+Key Components of a DFD
+
+e External Entities — Represent sources or destinations of data.
+බාහිර භූතාරත - දූත්තවල මුලාශ්‍ර හෝ ගමනාන්ත නියෝපනය කරයි.
+
+e Processes — Show actions or operations performed on data.
+ක්‍රියාවලි - eso මත සිදු කරන ලදු HG) හෝ මෙහෙයුමි පෙන්වයි.
+
+e Data Stores — Represent storage locations where data is kept.
+EDD ගබඩා - EOD තබා ඇති ගබඩා SOs නියෝජනය කරයි.
+
+e Data Flows — Indicate how data moves between entities, processes, and stores
+ESD ප්‍රවාහ - eon භතාරත, HHOG සහ ගබඩා අතර චලනය වන ආකාරය දුක්වයි.
+
+payment ඇම
+book enquiry
+
+reply tof F......
+the vw ॥ /
+Vv 2 | ....... G......
+1 |Sales Assistant Handle
+....... B......—> Handle <q book ___ | yqy Inventory¢— book ___| payments & -- ....H......
+enquiries details details Inventory
+& hold-on x
+requests DN aA t \
+-..... උ...... ......1...... copy of the
+ට a payment receipt details of
+books
+hold-on request 11 | ...... E...... |
+~ Lap
+M2
+
+A-— Customer / පාරිභෝගිකයා
+
+13 — Personal details / පෞද්ගලික තොරතුරැ
+C — Book status / පොතෙහි තත්ත්වය
+
+D — Hold-on request / LE QD ඉල්ලිම
+
+E — Hold-on requests / LE QS ඉල්ලීමි
+
+F — Payment receipt / ගෙවිමි ලදුපත
+
+G — Cashier / අයකැමි
+
+11 — Sales report / විකුණුමි වාර්තාව
+
+I — Sales / විකුණුම්‌
+
+J — Owner / අයිතිකරු
+
+(2017 S.ESSAY - 01 )
+
+2.(a)(i)The Figure 4.1 represents an open system. Using the basic components: input, process, output and
+system boundary as given in the figure, draw a diagram to represent a closed system.
+රෑපය 4.1 මගින්‌ විවෘත පද්ධතියක්‌ නිරැපණය කරයි. OO රෑපයේ දක්වා ඇති පරිදි ආදානය, සැකසීම,
+
+ප්‍රතිදානය සහ පද්ධති සීමාව යන මුලික කොටස්‌ භාවිත කරමින්‌, සංවෘත පද්ධතියක්‌ නිරෑපණය කිරීම සඳුහා
+රැපසටහනක්‌ අඳින්න.
+
+Input > process > Output
+ඩ්‌
+
+System boundary
+Figure 4.1 : An open system
+
+Explanation/ පැහැදිලි කිරීම:
+What is a closed system/ සංවෘත පද්ධතියක්‌ යනු කුමක්ද ?
+
+A closed system allows energy to enter or leave, but not matter. In contrast, an open system allows both
+energy and matter to flow in and out.
+
+සංවෘත පද්ධතියක්‌ ගක්තියට ඇතුඑ වීමට හෝ පිටවීමට ඉඩ සලසයි, නමුත්‌ පදාර්ටයට නොවේ. ඊට වෙනස්ව,
+විවෘත පද්ධතියක්‌ ශක්තිය සහ ce)Oe යන දෙකම ඇතුළට සහ පිටතට ගලා යාමට ඉඩ සලසයි.
+
+In the closed system/ සංවෘත පද්ධතිය HE,
+
+e The system is isolated from exchanging matter with the environment.
+පද්ධතිය පරිසරය සමඟ පදාරඊර්ට්‌ හුවමාරැ කිරීමෙන්‌ HEME) වේ.
+
+e Energy can enter or leave, which means you’ll have arrows showing energy input/output (like heat,
+light, electricity). / @3HeO ඇතුළඑු SOO හෝ පිටවීමට හැකිය, එයින්‌ අදහස්‌ වන්නේ ඔබට awd
+ආදානය/ප්‍රතිදානය (තාපය, ආලෝකය, විදුලිය වැනි) පෙන්වන ඊතල ඇති බවයි.
+
+e The process occurs inside the boundary without material inflow/outflow.
+ක්‍රියාවලිය ද්‍රව්‍ය Manc/eHonaiss තොරව BOO තුළ සිදු වේ.
+
+Here you need to redraw the diagram to represent a closed system, using the basic components.
+
+මෙහිදි ඔබට මුලික සංරචක භාවිතා කරමින්‌ සංවෘත පද්ධතියක්‌ නිරැපණය කිරීම සඳුහා රැප සටහන නැවත
+ඇඳිමට අවග්‍ය වේ.
+
+e §Input/ ආදානය
+
+e Process/ ක්‍රියාවලිය
+
+e Output/ ප්‍රතිදානය
+
+e System Boundary/ පද්ධති සීමාව
+
+System boundary
+
+Both inputs and outputs should be drawn within the system boundary.
+ආදාන සහ ප්‍රතිදාන දෙකම පද්ධති BOO තුළ ඇඳිය යුතුය.
+
+(ii) Explain the reason for drawing the diagram which you drew for (1) above.
+ඉහත (1) කොටස HEH) ඇඳි රැපසටහන එසේ ඇඳිමට හේතු වු කරැණ පැහැදිලි කරන්න.
+
+In closed systems both input and output are available within the same system.
+සංවෘත පද්ධතිවල ආදානය සහ ප්‍රතිදානය යන දෙකම එකම පද්ධතිය තුළ පවති.
+
+Explanation/ පැහැදිලි කිරීම:
+Closed System/ සංවෘත පද්ධතිය
+
+e All inputs and outputs are contained within the system.
+සියලුම ආදාන සහ ප්‍රතිදාන පද්ධතිය තුළ අන්තර්ගත වේ.
+
+e No interaction with the environment
+පටීිසරය සමඟ අන්තරක්‍රියාවක්‌ නොමැත.
+
+e So the inputs ant outputs should be drawn inside the system boundary.
+එබැවින්‌ ආදාන සහ ප්‍රතිදාන පද්ධති සීමාව තුළ ඇද තිබිය යුතුය.
+
+Example: A sealed pressure cooker - energy may pass (heat), but no mass enters or leaves.
+
+Qo) තැබු පීඩන උදුනක්‌ - asa (mec) පසුකර යා හැකි නමුත්‌, කිසිදු ස්කන්ධයක්‌ ඇතුළු හෝ SO නොවේ.
+
+Open System/ විවෘත පද්ධතිය
+
+e Asystem that interacts with its environment
+එහි පරිසරය සමඟ අන්තරක්‍රියා කරන පද්ධතියකි.
+
+e Itreceives inputs from outside and produces outputs to the outside
+එය පිටතින්‌ ආදාන ලබා ගන්නා අතර පිටතට ප්‍රතිදාන නිපදවයි.
+
+Characteristics/ ලක්ෂණ :
+
+e Exchange of both matter and energy with the surroundings.
+පටිසරය සමඟ පදාර්ට්‌ හා ශක්තිය යන දෙකම හුවමාරැ කිරීම.
+
+e Highly dynamic and influenced by external conditions.
+ඉතා ගතික සහ DAO තත්වයන්ගෙන්‌ බලපැමට ලක්‌ වේ.
+
+( 2017 S.ESSAY - 04 )
+
+2018 SYSTEM ESSAY MARKING
+
+1.4) Identify and explain the fundamental error in the following Data Flow Diagram (DFD).
+පහත දැක්වෙන දත්ත ගැලීමි සටහනෙහි (DFD) ඇති මුලික දෝෂයක්‌ හඳුනාගෙන පැහැදිලි කරන්න.
+
+1.0 | 2.0 |
+_- | Compute net Process (/ Employee
+Gross pay Net pay cheque | Pay
+pay x pay cheque
+y
+Allowances and Deductions Salary
+A
+
+The error is that data stores ("Allowances and Deductions" and "Salary") are directly connected to each
+other in the diagram without going through a process. In DFD rules, data should never flow directly
+between two data stores.
+
+රෑප සටහනේ ඇති දෝෂය නමි, exm ගබඩා ("ළිමනා සහ අඞු කිරීමි" සහ "වැටුප්‌") ක්‍රියාවලියක්‌ හරහා
+නොගොස්‌ එකිනෙකට සෘපුවම සමිබන්ධ විමයි. DFD 6H වලදි, exw කිසි විටෙකත්‌ esi ගබඩා දෙකක්‌
+අතර සෘපුවම ගලා නොයා යුතුය.
+
+(11) Write down whether each of following statements regarding software agents is either True or False.
+මෘදුකාංග ඒපන්නවරැන්ට සමිඛන්ධ පහන දැක්වෙන එක්‌ එක්‌ ප්‍රකාගය සතෑද අසත්‍යද යන වග ලියා දක්වන්න.
+
+True/ False
+සත්‍යයි / අසත්‍යයි
+
+A software agent can perform tasks in achieving a goal with minimum or no direct
+Supervision. True
+මෘදුකාංග ඒඑපන්තවරයකුට (software agent) තම අරමුණු කරා යාමේ දි අවම අධික්ෂණය
+යටතේ නහෝ සෘපු අධීිකක්‍්ෂණයකින්‌ තොරව හෝ කාරය සිදු කළ හැක.
+
+Software applications can interact with agent without direct supervision of a user.
+පරිගිලකයකුගේ සෘපු අධික්ෂණයකින්‌ තොරව මෘදුකාංග යෙදුමිවලට ඒපන්තවරයකු සමග
+අන්තරක්‍රියාවේ යෙවිය හැක.
+
+IA user may obtain answers to a problem directly from an agent. True
+පරිගිලකයකුට ඒපන්තවරැන්ගෙන්‌ සෘජුවම යමි ගැටලුවකට පිළිතුරු ලබා OW හැක.
+
+A multi-agent system is a network of problem-solving entities called agents that work
+together to find answers to problems that are beyond the individual abilities of each
+agent. True
+බහු-ඒජන්ත පද්ධතියක්‌ යනු එක්‌ එක්‌ භතාඊර්ටයෙහි තනි හැකියා අභිබවා යන ගැටඑවලට
+පිළිතුරු ලබා ගැනීම සඳුහා එක්ව කටයුතු කරනු ලබන ඒජන්තවරු ලෙස හැඳින්වෙන ගැටළු
+විසඳිමේ භතාඊට ජාලයකි.
+
+In a multi-agent system, individual agents may compete or co-operate to achieve the
+system goals. True
+බහු-ඒජන්ත පද්ධතියකදි, පද්ධතියෙහි අරමුණු ඉටු කර ගැනීම HEH) තනි ඵ්ජන්තවරැ
+එකිනෙකා තරග කිරීම හෝ සහයෝගිව කටයුතු කිරීම හෝ සිදු වේ.
+
+True
+
+Explanation / පැහැදිලි කිරීම
+
+Statement / ප්‍රකාශනය 1
+
+True. A software agent works autonomously. It can perform tasks on its own to reach a goal, without
+needing someone to always tell it what to do.
+
+සත්‍ය වේ. මෘදුකාංග නියෝපිතයෙක්‌ ස්වාධීනව ක්‍රියා කරයි. ඉලක්කයක්‌ කරා ළඟා SOO එයට නනිවම කාටරයයන්‌
+ඉටු කළ හැකිය, සෑම විටම කළ යුතු දේ කිසිවෙකුට පැවසීමට අවශ්‍ය නොවේ.
+
+Statement / ප්‍රකාශනය 2
+
+True. Applications (like databases, web services) can communicate and exchange data with software
+agents automatically, without needing the user to be involved every time.
+
+සත්‍ය වේ. යෙදුමි (දත්ත සමුදායන්‌, වෙබි සේවා වැනි) මෘදුකාංග නියෝපිතයන්‌ සමඟ ස්වයංක්‍රීයව සන්නිවේදනය
+කර EMD හුවමාරැ කර ගත හැකි අතර, පරිගිලකයා සෑම විටම සමිඛන්ධ කර ගැනීමට අවග්‍ය නොවේ.
+
+Statement / ප්‍රකාශනය 3
+
+True. Users can ask questions or give tasks to an agent, and the agent can process and return an answer.
+සත්‍ය වේ. පරිගීලකයින්ට ප්‍රශ්න ඇසීමට හෝ නියෝපිතයෙකුට mbess ලබා දිය හැකි අතර, නියෝපිතයාට
+පිළිතුරු සැකසීමට සහ ආපසු ලබා දිය හැකිය.
+
+Statement / ප්‍රකාගනය 4
+
+True. A multi-agent system (MAS) is made of many agents. Each agent has limited abilities, but when
+they work together, they can solve bigger problems.
+
+සත්‍ය වේ. බහු-නියෝපිත පද්ධතියක්‌ (MAS) ඛොහෝ නියෝපතයින්ගෙන්‌ සමන්විත වේ. සැම නියෝපතයෙකුටම
+සිමිත හැකියාවන්‌ ඇත, නමුත්‌ ඔවුන්‌ එකට වැඩ කරන විට, ඔවුන්ට විශාල ගැටළු විසඳා ගත හැකිය.
+
+Statement / ප්‍රකාගනය 5
+
+True. Agents in MAS can either cooperate (work as a team) or compete (act in their own interest) to reach
+goals.
+
+සත්‍ය වේ. බහු-නියෝපිත පද්ධතියෙහි නියෝපිතයින්ට ඉලක්ක කරා ළඟා SOO සහයෝගයෙන්‌ (කණ්ඩායමක්‌
+ලෙස වැඩ කිරීමට) හෝ තරඟ කිරීමට (තමන්ගේම උනන්දුව අනුව ක්‍රියා කිරීමට) හැකිය.
+
+( 2018 S.ESSAY — 3[b] )
+
+6.(a) The school admission process of a certain country is explained using the description and the data
+flow diagram given below.
+එක්තරා රටක පාසල්වලට ළමුන්‌ ඇතුළත්‌ කිරීමේ ක්‍රියාදාමය, පහත දැක්වෙන විස්තරය සහ දත්ත ගැලීමි
+සටහන ආගයෙන්‌ පැහැදිලි කෙටේ.
+
+The applicant sends the application to the respective school. The school sends an acknowledgement
+to the applicant. The school then verifies the information in application by checking the following.
+අයදුමිකරැ විසින්‌ අදාළ පාසල වෙත අයදුමිපත්‍රය යවනු ලැබේ. පාසල මගින්‌ අයදුමිපත්‍රය ලැබුණු බව
+අයදුමිකරැට දැනුමි දෙයි. අනතුරැව පාසල විසින්‌ අයදුමිපත්‍රයෙහි ඇති තොරතුරැවල නිරවද්‍යතාව පහත
+දැක්වෙන පරික්ෂා මගින්‌ තහවුරැ කෙටේ.
+
+e Eligibility of applicant / අයදුමිකරැගේ සුදුසුකමි
+by using the eligibility criteria taken from the data store ‘Eligibility Criteria’
+
+e Registration in the electorate / මැතිවරණ කොට්ධාගයෙහි ලියාපදිංචිය
+by requesting the electoral list from the Election Authority (Election Authority sends the
+Electoral list to the school)
+මැතිවරණ අධිකාරියෙන්‌ ජන්දදායක ලැයිස්තුව ඉල්ලා යැවීමෙන්‌ (මැතිවරණ අධිකාරිය මගින්‌ ජන්දදායක
+ලැයිස්තුව පාසලට යවනු ලැබේ.)
+
+6 Residential status / පදිංචිය
+by requesting the confirmation of residence from the Divisional Secretariat (Divisional
+Secretariat sends the confirmation of residence to the school)
+පදිංචිය තහවුරැ කරන ලෙස ප්‍රාදේශිය ලේකමි කාර්යාලයෙන්‌ ඉල්ලා සිටිමෙන්‌ (ප්‍රාදේශිය ලේකමි mdaec
+පදිංචිය තහවුරැ කර පාසල වෙත දැනුමි දෙයි.)
+
+After verification of information, the applicant is informed whether the application has been accepted
+or rejected which 16 noted in the application and stored in the data store “Applications”. The school
+obtains the valid applications from the data store “Applications” and schedules the qualified
+applicants for interviews. Then it calls the applicants for interviews and sends the interview schedule
+to the Education Authority. The interview schedule is stored in the data store “Interview Schedule”.
+
+තොරතුරැවල නිරවද්‍යතාව නහවුරැ කිරීමෙන්‌ පසු අයදුමිපත්‍රය පිළිගත්‌ බව හෝ ප්‍රතික්ෂේප කළ බව හෝ
+අයදුමිකරැට දන්වනු ලබන අතර, ඒ බැවි සටහන්‌ කළ අයදුමිපත්‍රය 'අයදුමිපත්‌ විස්තර" දත්ත ගබඩාවෙහි
+සුරක්ෂිත කෙටේ. පාසල විසින්‌ වලංගු අයදුමි පත්‍ර 'අයදුමිපත්‌ විස්තර” essen ගබඩාවෙන්‌ ලබාගෙන, සුදුසුකමිලත්‌
+අයදුමිකරැවන්‌ සඳහා සමිමුඛ පරීක්ෂණවලට Em නියම කරනු ලැබේ. අයදුමිකරැවන්‌ සමිමුඛ පරීක්ෂණය සඳහා
+කැඳවනු ලබන අතර, සමිමුඛ පරීක්ෂණයට කැඳවු අයදුමිකරැවන්ගේ ලැයිස්තුව අධ්‍යාපන අධිකාරිය වෙන
+යවන ලැබේ. සමිමුඛ පරීක්ෂණ කාලසටහන 'සම්මුඛ පරීක්ෂණ විස්තර” නම්‌ ey ගබඩාවෙහි සුරක්ෂිත කෙටේ.
+
+@
+
+Interview
+schedule
+Applicant Acknowledgement ®
+~~, ® Application
+1.1 Vv 1.3
+Process Applications Schedule
+Acknowledgement । Interviews
+8 Css
+A : /Reiecti Qualified
+cceptance/Rejection licati
+Status විනි වට Education
+Application Authority
+1.2
+@ ඹඔ —
+Process Divisional
+verification of © Secretariat
+_o applications
+k ල
+ඛූ කනක්‌ ලම Election
+Authority
+
+The Level 1 Data Flow Diagram for the above scenario with some data flows labelled as (A) — (K) is
+given in figure. Identify and write down the relevant data flows against the labels (A) — (K).
+ඉහත සංසිද්ධිය සඳුහා පළමුවන මට්ටමෙහි EXD ගැලීමි සටහන, ඇතැමි ess ගැලීමි (A) BO (K) දක්වා
+
+ලේබල සහිත ව ඉහත රෑප සටහනෙහි දි ඇත. අදාළ COO ගැලීමි හඳුනාගෙන, (A) සිට (K) දක්වා වන
+ලේඛල ඉදිරියෙන්‌ ඒවා ලියා දක්වන්න.
+
+A: Application / අයදුම්පත්‍රය
+
+B: Application Acknowledgement / අයදුමිපත ලැබුණු බව
+
+C : Eligibility Criteria / සුදුසුකමි පටිපාටිය
+
+1) : Application for electoral list (Request) / ජන්දදඳායක ලැයිස්තුව ඉල්ලීම (ඉල්ලුම)
+
+E: Electoral list / ජන්දදායක ලැයිස්තුව
+
+F : Application for Residential Status (Request) / පළිංචිය තහවුරු කරන ලෙස ඉල්ලිම. (ඉල්ලුම)
+G : Confirmation of residence / පළිංවිය තහවුරු කළ බව
+
+11 : Acceptance/Rejection Status / පිළිගැනීමේ/ප්‍රතික්ෂේප කිරීමේ තත්ත්වය
+
+1 : Interview Letter/Interview Date + Time + Venue / සමිමුඛ පරීක්‍ෂණයට කැදුවීමේ ලිපිය/සමිමුඛ පරීක්ෂණ
+විනය -- වේලාව + ස්ථානය
+
+J: List of Applicants / අයදුමිකරැවන්ගේ ලැයිස්තුව
+
+K: Interview Schedule / සමිමුඛ පරීක්ෂණ කාලසටහන
+
+(0)(1) Briefly explain the key difference between functional and non-functional requirements as used in
+the system development life cycle.
+
+පද්ධති සංවර්ධන පිවන චක්‍රයෙහි භාවිත වන mba@é@ (functional) සහ කාටියබද්ධ නොවන (non-
+functional) අවශ්‍යතා අතර ප්‍රධාන වෙනස කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+(11)
+
+Functional requirements : Any requirement which specifies what the system should do or provide
+for users/ they related to: the technical functionality of the system. function is described as a
+specification of behavior: between outputs and inputs/ behavior (output) that a device or software
+isexpected to exhibit in the case of a certain input/ desired operations of a software, or system.
+කාටියබද්ධ අවග්‍යතා : පද්ධතිය මඟින්‌ පරිගිලකයින්ට/ඔවුන්ට පද්ධතියේ තාක්ෂණික ක්‍රියාකාරිත්වයට
+අදාළව කළ යුතු හෝ සැපයිය යුතු දේ නිශ්චිත කරන ඕනෑම අවග්‍යතාවයකි. නැතහොත්‌ mobwces,
+මෘදුකාංගයක හෝ පද්ධතියක යමි ආදාන/අපේක්‍ක්ෂිත ක්‍රියාකාරිත්වයකදි උපාංගයක්‌ හෝ මෘදුකාංගයක්‌
+ප්‍රදර්ශනය කිරීමට අපේක්ෂා කරන ප්‍රතිදාන සහ ආදාන/හැසිරිමි (ප්‍රතිදානය) අතර හැසිරීිමි
+පිරිවිතරයක්‌ ලෙස විස්තර කෙටේ.
+
+Non-functional requirements : Any requirement which specifies how the system performs a
+certain function or system works. They describe how, how well or to what standard a function
+should be provided /nonfunctional requirements describe the general characteristics of a system.
+They are also known as quality attributes. (Include service hours, service availability,
+responsiveness, throughput and reliability.)/define system attributes such as security, reliability,
+performance, maintainability, scalability, and usability.
+
+MOGQEA නොවන අවශ්‍යතා : පද්ධතිය යමි කාර්යයක්‌ හෝ පද්ධතියක්‌ ක්‍රියා කරන ආකාරය නිශ්චිතව
+දක්වන ඕනෑම අවග්‍යතාවයකි. නැතහොත්‌ කාථටයයක්‌ ලබා දිය යුතු ආකාරය, කොතරමි හොඳින්‌ හෝ
+කුමන ප්‍රමිතියකට අනුවද යන්න විස්තර කරයි. කාර්යබද්ධ නොවන අවග්‍යතා පද්ධතියක සාමාන්‍ය
+ලක්ෂණ විස්තර කරයි. JO) ගුණාත්මක ගුණාංග ලෙසද හැඳින්වේ. (සේවා වේලාවන්‌, සේවා ලබා
+ගැනීමේ හැකියාව, ප්‍රතිචාරාත්මක බව, ප්‍රතිදානය සහ විග්වසනීයත්වය ඇතුළත්‌ වේ.) ආරක්ෂාව,
+විශ්වසනීයත්වය, කාර්ය සාධනය, නඩත්තු කිරීමේ හැකියාව, පරිමාණය කිරීමේ හැකියාව සහ භාවිතයේ
+හැකියාව වැනි පද්ධති ගුණාංග නිර්වචනය කෙරේ.
+
+The following list includes some functional and non-functional requirements of a proposed e-
+commerce web portal that plans to sell products on a catalogue:
+
+නාමාවලියක (catalogue) ඇති භාණ්ඩ අලෙවි කිරීමට, යෝපත ල(-වාණිප්‍ය (e-commerce) වෙබි ද්වාරයක
+තිබිය යුතු ඇතැමි කාරියබද්ධ සහ කාටරයබද්ධ නොවන අවග්‍යතා ලැයිස්තුවක්‌ පහත දැක්වේ.
+
+A — Enable user to find products based on a variety of item characteristics
+
+භාණ්ඩවල විවිධ සංලක්‍ක්ෂණ පදනම අනුව MGA CHO HEM) GOGEMO අවස්ටාව ලබා දිම
+
+B— The system should work on any web browser
+
+පද්ධතිය ඕනෑම වෙබි අතරික්සුවක ක්‍රියා කළ යුතු SO
+
+C-— The system should be easy to use
+
+පද්ධතිය පහසුවෙන්‌ භාවිත කිරීමට හැකි විම
+
+D -- Enable user to submit his/her comments on products and read other users’ comments on
+
+items / භාණ්ඩ SEE, විවරණ (comments) ඉදිරිපත්‌ කිරිමට සහ වෙනන්‌ පපිගිලකයන්ගේ විවරණ
+කියවීමට පටරිගිලකට අවස්ටාව ලබා දිම
+
+E — Data in the system should be preserved even in the case of a system failure
+
+පද්ධතිය බිඳු වැටීමක්‌ හමුවේ වුව දු එහි exw සූරක්ෂිත විය යුතු විම
+
+F -- Enable user to create and maintain a wish list of desired products
+
+තමන්‌ කැමති භාණ්ඩ SEX2E පැතුමි ලැයිස්තුවක්‌ (wish list) සාදා එය නඩත්තු කර පවත්වාගෙන
+යාමට පරිගීිලකට අවස්ටාව ලබා EO
+
+G — Enable user to browse through products on catalogue
+
+නාමාවලියේ ඇති භාණ්ඩ බලා ගැනීමට පරිගිලකට අවස්ටාව ලබා දිම
+
+H — The system should be available for use 24 hours a day, 7 days a week and 365 days an year
+
+පද්ධතිය දවසෙහි පැය 24 ©, සතියෙහි දින 7 ම හා වසරෙහි දින 365 ම භාවිත කළ හැකි විම
+
+I-— The system should authenticate users through usernames and passwords
+පරිශීලක නාම හා Qdee හරහා පරිගශීලකයන්ගේ තට්‍යභාවය (authenticity) තහවුරැ කිරීමට හැකි
+
+විය යුතු විම
+
+J— The system should have versions customized for global users, e.g., French, Japanese,
+
+German, etc.
+
+ලෝක ව්‍යාප්ත පරිගිලකයන්‌ (CE): පංග, Sos, පර්මන්‌ ME) සඳුහා පද්ධතියේ අහිරැචි (customized)
+
+සංස්කරණ (versions) තිබිය යුතු විම
+
+Identify and write down the labels of the non-functional requirements in A to J
+A සිට J අකුරෙන්‌ mba@d@ නොවන අවග්‍යතා හඳුනාගෙන ඒවායේ ලේබල ලියා දක්වන්න.
+
+Functional requirements
+කාටයබද්ධ අවග්‍යනා
+
+A.Enable user to find products based on a variety
+of item characteristics
+භාණ්ඩවල විවිධ සංලක්ෂණ (characteristics)
+පදනම අනුව භාණ්ඩ සෙවීම සඳුහා පරිගිලකට
+අවස්ටාව ලබා දිම
+
+D.Enable user to submit his/her comments on
+products and read other users’ comments on
+items
+භාණ්ඩ පිළිබඳ විවරණ (comments) ඉදිරිපත්‌
+කිරීමට සහ වෙනන්‌ පපිගීලකයන්ගේ විවරණ
+කියවීමට GOHEMO අවස්ටාව ලබා EO
+
+1, Enable user to create and maintain a wish list
+of desired products
+තමන්‌ කැමති භාණ්ඩ පිළිබඳ පැතුමි ලැයිස්තුවක්‌
+(wish list) සාදා එය නඩත්තු කර පවත්වාගෙන
+යාමට පරිගීිලකට අවස්ටාව ලබා දිම
+
+G.Enable user to browse through products on
+catalogue
+නාමාවලියේ ඇති භාණ්ඩ QE) ගැනීමට
+පරිගිලකට අවස්ටාව ලබා දිම
+
+I. The system should authenticate users through
+usernames and passwords
+පරිගිලක නාම හා මුරපදු හරහා
+පරිශීලකයන්ගේ තට්‍යභාවය (authenticity)
+තහවුරැ කිරීමට හැකි විය යුතු විම
+
+Non-functional requirements
+
+කාටයබද්ධ නොවන අවග්‍යතා
+
+13. The system should work on any web
+
+browser පද්ධතිය ඕනෑම වෙබි අතරික්සුවක
+ක්‍රියා කළ යුතු විම
+
+C. The system should be easy to use
+
+පද්ධතිය පහසුවෙන්‌ භාවිත කිරීමට හැකි විම
+
+E. Data in the system should be preserved even
+
+in the case of a system failure
+පද්ධතිය බිඳු වැටීමක්‌ හමුවේ QO දු එහි
+enw සුරක්ෂිත විය යුතු වීම
+
+11. The system should be available for use 24
+
+hours a day, 7 days a week and 365 days an
+year
+
+පද්ධතිය දවසෙහි පැය 240, සතියෙහි දින
+7 ම හා වසරෙහි දින 365 ම භාවිත කළ
+හැකි වීම
+
+. The system should have versions customized
+
+for global users, e.g., French, Japanese,
+German, etc
+
+ලෝක ව්‍යාප්ත පරිශීලකයන්‌ (උදා: ow,
+Sos, පර්මන්‌ ආදි) සඳුහා පද්ධතියේ අහිරැචි
+(customized) සංස්කරණ තිබිය යුතු විම
+
+( 2018 ESSAY - 06 )
+
+2019 SYSTEM ESSAY MARKING
+
+1.(a) A blood testing centre has the following activities:
+ලේ පරීක්ෂා කිරීමේ මධ්‍යස්ථානයක පහත ක්‍රියාකාරකමි ඇත.
+
+The patient hands over the test request slip to the 1(ලල17/1119 counter. Receiving counter issues an
+invoice to the patient and sends a copy to the cashier. The patient checks the invoice, approves it and
+hands it over to the cashier with the payment. Cashier issues a receipt to the patient and also sends a
+copy of the receipt to the laboratory. Patient hands over the receipt to the laboratory. The laboratory
+verifies the patient and conducts the blood test and returns the updated receipt marked as ‘done’ to
+the patient. The laboratory sends the report to the receiving counter. Later, the patient hands over
+the updated receipt to the receiving counter and the receiving counter hands over the report to the
+patient with the re-updated receipt marked as ‘issued’.
+
+පරීක්ෂාව සිදු කරන ලෙස නියම කළ තුණ්ඩුව රෝගියා විසින්‌ භාර ගැනීමේ කවුන්ටරයට භාර දෙනු ලැබේ.
+භාර ගැනීමේ කවුන්ටරය විසින්‌ රෝගියා වෙත වාඊරණාවක්‌ (invoice) නිකුත්‌ කර එහි පිටපතක්‌ අයකැමි වෙත
+යවනු ලැබේ. රෝගියා විසින්‌ වාර්ණාව පරීක්ෂා කර (check) එය අනුමත කිරීමෙන්‌ පසු අයකැමි වෙත
+ගෙවීම (payment) සමග භාර දෙනු ලැබේ. අයකැමි විසින්‌ රිසිටිපතක්‌ රෝගියා වෙත නිකුත්‌ කර එහි පිටපතක්‌
+පරීක්ෂණාගාරය වෙත යවනු ලැබේ. රෝගියා විසින්‌ රිසිටිපතපත පරීක්‍්ෂණාගාරය වෙත භාර දළෙන ලැබේ.
+පරීක්ෂණාගාරය විසින්‌ රෝගියා තහවුරැ කර, ලේ පරීක්ෂාව සිදු කිරීමෙන්‌ පසු “සිදුකළා -(done)”’ ලෙස
+යාවත්කාලීන කරන ලද, (updated) ටසිටිපත රෝගියාට දෙනු ලැබේ. පරීක්‍්ෂණාගාරය මගින්‌ වාර්තාව (Report)
+භාර ගැනීමේ කවුන්ටරය වෙත යවනු ලැබේ. පසුව රෝගියා විසින්‌ යාවත්කාලින කරන ලදු රිසිටිපත භාර
+ගැනිමේ කවුන්ටටයට ලබා දෙන අතර එම කවුන්ටරය “නිකුත්කළා -(issued)” ලෙස සලකුණු කර නැවත
+යාවත්කාලීන කරන ලදු රිසිටිපත සමග HOMO රෝගියා වෙත නිකුත්‌ කරනු ලැබේ.
+
+(i) The context diagram for the above activities, with missing data flows (P), (Q), (R), (S) and (1) is given
+in Figure 1 below.
+ඉහත ක්‍රියාකාරකමි සඳහා acho සටහන (context diagram) (P), (0), (R), (S) සහ (1) යන ස්ථානවලට
+අදාළ දූත්ත ගැලීමි (data flows) නොමැතිව 1 වන රෑපයෙහි දි ඇත.
+
+ම
+Q
+
+Approved Invoice + Payment , |
+
+Patient ants
+Receipt esting
+Updated Receipt System
+
+Re-updated Receipt 22
+@
+
+Figure 1
+
+Identify the five missing data flows from the description given above and write them down.
+E නොමැති EOD ගැලීමි පහ ඉහත විස්තරයෙන්‌ හඳුනාගෙන ලියා දක්වන්න.
+
+Context diagram/ සන්දරභ රෑප සටහන
+
+A Context Diagram is a high-level visual representation of a system.
+assed රැප සටහනක්‌ යනු පද්ධතියක ඉහළ මට්ටමේ cams නිරෑපණයකි.
+
+It shows the system as a single process with its interaction with external entities.
+එය පද්ධතිය බාහිර භතාටර්ට සමඟ අන්තරක්‍රියා කරන තනි ක්‍රියාවලියක්‌ ලෙස පෙන්වයි.
+
+Components of a context diagram/ සන්දුටර්භ රෑප සටහනක සංරචක
+
+1. System / පද්ධතිය 3.Data flow/ exe ප්‍රවාහය
+
+Vv
+
+A
+
+2.External entity / බාහිර භතාඊට 4 Copy of an external entity
+බාහිර භතාඊර්ටයක පිටපතක්‌
+
+In the given context diagram the system “Blood Testing System” is represented by a rectangular shape.
+The copy of the external entity “Patient” 1s given and the data flow between the external entity and the
+system is showed by the arrows.
+
+ලබා දී ඇති සන්දර්භය රෑප සටහනෙහි “රැධිර පරීක්ෂණ පද්ධතිය” යන පද්ධතිය සෘපුකෝණාස්‍රාකාර හැඩයකින්‌
+නිරූපණය කෙරේ. රෝගියා යන බාහිර Hmdded පිටපත ලබා & ඇති අතර බාහිර භතාර්ටඊය සහ පද්ධතිය
+අතර EHD ප්‍රවාහය ඊතල මගින්‌ පෙන්වයි.
+
+The answers should be about the data provided to the system by the external entity and the data provided
+by the system to the external entity.
+
+පිළිතුරු විය යුත්තේ DSO භතාඊර්ඊය මඟින්‌ පද්ධතියට සපයන exo සහ පද්ධතිය මඟින්‌ බාහිර භූතාර්ටයට
+ලබා දෙන Een පිළිබඳවයි.
+
+The answers should be in the form of nouns.
+පිළිතුරු නාම පදු ආකාරයෙන්‌ විය යුතුය.
+
+Answers / පිළිතුරැ,
+
+P — Test request slip / Request slip / පරික්ෂාව නියමකිරිමේ තුණ්ඩුව / නියම කිරිමේ තුණ්ඩුව
+Q — Invoice / වාර්ණාව
+
+1 -_ Receipt / රිසිටිපත
+
+S — Updated receipt / යාවත්කාලීන වු රිසිටිපත
+
+T — Report / වාටතාව
+
+(ii) Level 1 of the DFD for the above context diagram is shown in Figure 2.
+ඉහත සංදර්භ සටහන සඳුහා දත්ත ගැලීමි සටහනෙහි (DFD හි) පළමු මට්ටම (Level 1) 2 රෑපයෙහි
+පෙන්වා ඇත.
+
+©
+
+ලල | 1.0 50
+Process © Process
+Blood Test ®
+@ Request eee c eee I ccc ceeee
+id >
+Re-
+
+dated
+හන ම්‌
+
+ග 3.0
+ග්‌ @
+Patient } ® Report
+Receipt >
+Updated Receipt
+Figure 2
+
+Data Flow Diagram Level - 1
+C50 ගැලිමි සටහන - පළමු කොටස
+
+A level-1 Data Flow Diagram provides a more detailed view of the system, breaking down the main
+
+process shown in the context diagram into sub processes.
+පළමු මට්ටමේ EHD DOS සටහන මඟින්‌ පද්ධතිය පිළිබඳ වඩාත්‌ සවිස්තරාත්මක දර්ශනයක්‌ සපයන
+අතර, සන්දර්භ රැප සටහනේ දැක්වෙන ප්‍රධාන ක්‍රියාවලිය උප ක්‍රියාවලි බවට වෙන්‌ කරයි.
+
+Components of a Data Flow Diagram Level 1
+CED OOS සටහනක සංරවක - පළමු කොටස
+
+External entity/ බාහිර HMSO Data flow/ exe ප්‍රවාහය
+
+>»
+La
+
+A
+
+Process/ ක්‍රියායනය Database/ දුත්ත ප්‍රවාහය
+
+|
+
+A. Write a suitable term to replace the label (W) in Process 2.0.
+2.0 ක්‍රියායනය සඳහා (process) ස්ථානයට (W) සුදුසු cece ලියා දක්වන්න.
+
+W - Payments / ගෙවීිමි
+
+As the label W is given inside a process box, a process processed in the system should be the answer.
+ක්‍රියායනය තුළ W ලේඛලය ලබා දී ඇති බැවින්‌, පද්ධතිය තුළ සැකස ක්‍රියාවලියක්‌ පිළිතුර විය යුතුය.
+
+B. Identify and write down the missing data flow labelled (X).
+(X) සඳහා තිබිය යුතු EHD ගැලීම හඳුනාගෙන ලියා දක්වන්න.
+
+X — Approved Invoice + Payment / අනුමත වාරණාව + ගෙවීම
+
+(0)(1) What is requirement analysis?
+අවග්‍යතා විශ්ලේෂණය (requirement analysis) යනු කුමක්‌ ද?
+
+Requirement Analysis/ dasa) විශ්ලේෂණය
+
+Requirement Analysis is the process of identifying, gathering, and documenting the needs and expectations
+of stakeholders(clients) for a system or project.
+
+අවග්‍යතා විශ්ලේෂණය යනු පද්ධතියක්‌ හෝ ව්‍යාපෘතියක්‌ aes) පාර්ගවකරැවන්ගේ (සේවාදායකයින්ගේ)
+අවග්‍යතා සහ අපේක්ෂාවන්‌ හඳුනා ගැනීම, රැස්‌ කිරීම සහ ලේඛනගත කිරීමේ ක්‍රියාවලියයි.
+
+It is a critical phase in software development and project management, ensuring that the final product
+meets user and business requirements.
+
+එය මෘඅදුකාංග සංවර්ධනයේ සහ ව්‍යාපෘති කළමනාකරණයේ තීරණාත්මක අවධියකි, අවසාන නිෂ්පාදනය
+පටිගිලක සහ OAS අවශ්‍යතා සපුරාලන බව සහතික කරයි.
+
+This process involves / මෙම ක්‍රියාවලියට ඇතුළත්‌ වන්නේ,
+
+e Understanding functional (what the system should do) and non-functional (performance, security,
+usability) requirements.
+
+කාටයබද්ධ (පද්ධතිය කළ යුතු දේ) සහ කාරයබද්ධ නොවන (MSO සාධනය, ආරක්ෂාව, උපයෝගිතාව )
+අවශ්‍යතා අවබෝධ කර ගැනීම.
+
+e Engaging with stakeholders through interviews, surveys and prototyping to clarify needs.
+GFOOBM) SCH7ESG කර ගැනීම Heo) සමිමුඛ සාකච්ජා, සමික්ෂණ සහ මුලාකෘතිකරණය හරහා
+පාර්ග්වකරැවන්‌ සමඟ සමිඛන්ධ විම.
+
+e Documenting requirements in formats like the Software Requirement Specification (SRS).
+මෘදුකාංග අවශ්‍යතා පිරිවිතර (SRS) වැනි ආකෘතිවල අවශ්‍යතා ලේඛනගත කිරීම.
+
+e Validating requirements to ensure they are clear, complete, and testable before development begins.
+සංවට්ධනය ආරමිභ කිරීමට පෙර එවා පැහැදිලි, සමිපුර්ණ සහ පරීක්ෂා කළ හැකි බව සහතික කිරීම
+සඳුහා අවග්‍යතා තහවුරැ කිරීම.
+
+A well-executed requirement analysis helps in avoiding project failures, reducing errors, and ensuring
+smooth development and implementation.
+
+හොඳින්‌ ක්‍රියාත්මක කරන ලද අවග්‍යතා විග්ලේෂණයක්‌ ව්‍යාපෘති qav6Owm SO වළක්වා ගැනීමට, දෝෂ
+අවම කිරීමට සහ සුමට සංවර්ධනය සහ ක්‍රියාත්මක කිරීම සහතික කිරීමට උපකාරී වේ.
+
+The answer could be anyone of the followings;
+
+පිළිතුරට පහත සඳහන්‌ ඕනැම එකක්‌ විය හැකිය:
+
+e Analyzing / finding the requirements of an information system before its development.
+තොරතුරැ පද්ධතියක්‌ සංවර්ධනය කිරීමට පෙර එහි අවග්‍යතා විශ්ලේෂණය කිරීම / සෙවීම.
+
+e Finding the functional and non-functional requirements of a system.
+පද්ධතියක කාර්යබද්ධ සහ කාර්යබද්ධ නොවන අවශ්‍යතා සොයා ගැනම.
+
+e Analyzing the requirements of a proposed system.
+යෝපිත පද්ධතියක අවග්‍යතා විශ්ලේෂණය කිරීම.
+
+e Studying and analyzing the user needs to define the problem domain and system requirements.
+පටරිගිලකයා අවග්‍යතා අධ්‍යනය HOO සහ විග්ලේෂණය HOO මගින්‌ ගැටඑවෙහි වසම සහ පද්ධති
+අවග්‍යතා හඳුනා ගැනම.
+
+e Determining user expectations for a new or modified product.
+නව හෝ වෙනස්‌ කරන ලදු නිෂ්පාදනයක්‌ සඳහා පරිශීලක අපේක්ෂාවන්‌ තරණය කිරීම.
+
+Gi) List two advantages of requirement analysis.
+අවග්‍යතා විග්ලේෂණයෙහි OS දෙකක්‌ ලැයිස්තුගත කරන්න.
+
+Answers could be anyone of the followings
+පිළිතුරු පහන සඳුහන්‌ ඕනැම එකක්‌ විය හැකිය.
+
+e Allows to discover the system scope/boundary and the nature of system interaction within its
+environment. / පද්ධති විෂය පටය/සමාව සහ එහි පරිසරය තුළ පද්ධති ganda) වල ස්වභාවය සොයා
+ගැනීමට ඉඩ සලසයි.
+
+e Allows to detect and resolve conflicts between the requirements.
+අවග්‍යතා අනර ගැටුම්‌ හඳුනා ගැනීමට සහ SHEOO ඉඩ සලසයි.
+
+e Allows to prioritize requirements relatively to each other.
+එකිනෙකාට සාපේක්ෂව අවග්‍යතා වලට ප්‍රමුඛත්වය දිමට ඉඩ සලසයි.
+
+e Helps in deciding the critical success factors.
+තිරණාත්මක සාර්ටඊක සාධක තීරණය කිරීමට උපකාරී වේ.
+
+e Reduces projects /implementation risks.
+ව්‍යාපෘතියේ / ක්‍රියාත්මක කිරීමේ අවදානමි අඩු කරයි.
+
+e Helps in distinguishing functional and non-functional requirements.
+කාර්යබද්ධ සහ කාරයබද්ධ නොවන අවග්‍යතා වෙන්කර හඳුනා ගැනීමට උපකාරී වේ.
+
+For additional reading/ උඌඋඹනර SIO wee;
+
+Advantages / වාසි
+Clear Understanding of Requirements —
+Ensures all stakeholders have a shared vision.
+අවග්‍යතා SEA, පැහැදිලි අවබෝධයක්‌ -
+සියලම පාර්ගවකරැවන්ට හවුල්‌ දැක්මක්‌ ඇති
+බව සහතික කරය.
+
+Reduces Development Errors — Identifies
+
+Disadvantages / අවාසි
+
+Time-Consuming — Gathering and analyzing
+requirements can delay development.
+
+කාලය ගත කිරීම - අවශ්‍යතා එක්‍ර/ැස්‌ කිරීම සහ
+විග්ලේෂණය කිරීම සංවර්ධනය ප්‍රමාදු කළ හැකිය.
+
+Difficult to Capture Complete Requirements —
+
+issues early, preventing costly mistakes.
+සංවට්ධන දෝෂ අඩු කරයි - ගැටළු කලින්‌
+හඳුනා ගැනීම, මිල අධික වැරදි වළක්වා
+ගැනීම.
+
+Users may not always know exactly what they want.
+සම්පුර්ණ අවශ්‍යතා ග්‍රහණය කර ගැනීමට අපහසුය -
+පටරිගිලකයන්‌ සෑම විටම තමන්ට අවශ්‍ය දේ හරියටම
+නොදන්නවා විය හැක.
+
+Saves Time and Cost — Efficient resource
+allocation minimizes rework.
+
+කාලය පිරිවැය ඉතිරි කරයි - කාර්යක්ෂම
+සම්පත්‌ වෙන්‌ කිරීම නැවත වැඩ කිරීම අවම
+කරයි.
+
+High Initial Cost — Skilled analysts, meetings, and
+tools add to early project expenses.
+
+ඉහළ ආරමිභක පිරිවැය - දක්ෂ විග්ලේෂකයින්‌,
+OLS සහ මෙවලමි මුල්‌ ව්‍යාපෘති වියදුමි වලට එකතු
+වේ.
+
+Improves Communication — Enhances Dependency on Stakeholders — Inactive
+collaboration between clients, developers, and stakeholders may lead to incomplete or incorrect
+users. requirements.
+
+සන්නිවේදනය වැඩි දියුණු කරයි - සේවාදායකයින්‌, | පාර්ශවකරුවන්‌ මන යැපීම - අක්‍රිය පාර්ශවකරැවන්‌
+සංවට්ධකයින්‌ සහ පරිගීිලකයින්‌ අතර අසමිපුර්ණ හෝ වැරදි අවශ්‍යතා වලට හේතු විය
+සහයෝගිතාව වැඩි දියුණු කරයි. හැක
+
+Better Project Planning — Helps in setting Risk of Misinterpretation — Poor documentation
+realistic timelines, budgets, and milestones can lead to misunderstandings.
+
+OD) ere, ව්‍යාපෘති සැලසුමි කිරීම - යටාඊටඊවාදි වැරදී FDO අවදානම - දුර්වල ලියකියවිලි
+කාල නියමයන්‌, අයවැය සහ සන්ධිස්ටාන සැකසීමට | වරදුවා වටහාගැනීමි වලට හේතු විය හැක
+
+උපකාරී වේ
+
+Enhances Quality — Ensures a reliable, user- Changes Can Be Difficult — Modifications after
+friendly, and efficient final product. analysis may impact timelines and budgets.
+ගුණාත්මකභාවය වැඩි දියුණු කරයි - විග්වසනීය, වෙනස්කමි අපහසු විය හැක - විග්ලේෂණයෙන්‌ පසු
+පරිගිලක-හිතකාමි සහ කාර්යක්‍ෂම අවසන්‌ වෙනස්‌ කිරීමි කාල නියමයන්‌ සහ අයවැය කෙරෙහි
+නිෂ්පාදනයක්‌ සහතික කරයි. බලපෑ හැකිය.
+
+(iii) Give one method that can be used to verify whether a functional requirement is satisfied in a system.
+කිසියමි පද්ධතියක එහි කාරයබද්ධ අවග්‍යතාවයක්‌ තෘප්ත වන්නේ දැයි තහවුරැ කර ගැනීමට භාවිත HE
+හැකි එක්‌ ක්‍රමයක්‌ ලබා දෙන්න.
+
+Functional requirements / කාටයබද්ධ අවග්‍යනා
+
+A functional requirement defines what a system should do. It specifies the features, operations, and
+processes that the system must perform to meet user and business needs.
+
+කාර්යබද්ධ අවග්‍යතාවයක්‌ පද්ධතියක්‌ කළ යුතු දේ නිර්වචනය කරයි. edGem සහ Omade අවශ්‍යතා
+සපුරාලිම සඳුහා පද්ධතිය විසින්‌ ඉටු කළ යුතු විශේෂාංග, මෙහෙයුමි සහ ක්‍රියාවලින්‌ එය නියම කරයි.
+
+Why is verifying a functional requirement needed in system development?
+
+පද්ධති සංවට්ධනයේදී කාටයඛද්ධ අවශ්‍යතාවයක්‌ සත්‍යාපනය කිරීම අවග්‍ය වන්නේ ඇයි?
+
+It / එය,
+e Ensures Accuracy — Confirms that the system functions as expected and meets user needs.
+
+නිරවදු්‍යනතාවය සහතික කරයි - පද්ධතිය අපේක්ෂිත පරිදි ක්‍රියාත්මක වන බව සහ COGEM අවග්‍යතා
+සපුරාලන බව තහවුරැ කරයි.
+
+e Prevents Errors — Detects and fixes issues early, reducing costly rework.
+eee වළක්වයි - මිල අධික ප්‍රතිනිටරමාණය අඩු කරමින්‌ ගැටළඑ කලින්‌ හඳුනාගෙන නිරාකරණය කරයි.
+
+e Enhances Quality — Ensures reliability, security, and efficiency in the final product.
+ගුණාත්මකභාවය වැඩි දියුණු කරයි - අවසාන නිෂ්පාදනයේ විග්වසනීයත්වය, ආරක්ෂාව සහ කාර්යක්‍ෂමතාව
+සහතික කරයි.
+
+e Improves User Satisfaction — Ensures the system meets user expectations and business goals.
+
+පරිශිලක තෘප්තිය වැඩි දියුණු කරයි - පද්ධතිය පරිගිලක අපේක්ෂාවන්‌ සහ වනපාරික ඉලක්ක
+සපුරාලන බව සහතික කරයි.
+
+e Supports Testing — Provides a foundation for test cases and validation.
+පරීක්ෂණ සඳුහා සහය දක්වයි - පරීක්ෂණ අවස්ටා සහ වලංගු කිරීම Hem) පදුනමක්‌ සපයයි.
+
+So, verifying the functional requirements is essential to ensure the system meets its intended purpose.
+එබැවින්‌ පද්ධතිය එහි අපේක්ෂිත අරමුණ සපුරාලීම සහතික කිරීම සඳහා කාටරයබද්ධ අවශ්‍යතා තහවුරැ
+කිරීම අත්‍යවග්‍ය වේ.
+
+Here are valid methods that can be used to verify functional requirements. Anyone of the
+followings can be used as the answer.
+
+කාර්යබද්ධ අවශ්‍යතා සත්‍යාපනය කිරීමට භාවිතා කළ හැකි වලංගු ක්‍රම පහත දැක්වේ. BEMO ceo පහත
+සඳුහන්‌ ඕනෑම දෙයක්‌ භාවිතා කළ හැක.
+
+e Through testing methods based on functional requirements (Except system testing and integration
+testing)
+MOBAECD අවශ්‍යතා මත පදනම්වූ පරීක්ෂණ HO හරහා(පද්ධති පරීක්ෂණ සහ වඒකාඛද්ධ පරීක්ෂණ හැර)
+eg: Through unit testing / ඒකක පරීක්ෂාව හරහා
+
+e Through validation / verification
+වලංගුකරණය | සත්‍යාපනය හරහා
+
+(iv) The following list consists of some functional, non-functional and other requirements of a proposed
+school library management system where users can borrow and return books in addition to other
+usual tasks.
+අනෙකුත්‌ සාමාන්‍ය කාර්යයන්ට අමතරව පරිගිලකයන්ට පොත්‌ බැහැර ගෙන යා හැකි හා භාර දිය හැකි
+යෝපිත පාසල්‌ පුස්තකාල කළමනාකරණ පද්ධතියක ඇතැමි කාටරයබද්ධ, කාරි්යබද්ධ නොවන සහ වෙනත්‌
+අවග්‍යතා පහත දැක්වෙන ප්‍රකාගවල ඇතුළත්‌ වේ.
+
+(A) The system should authenticate users through username and password.
+පද්ධතිය විසින්‌ පරිගිලන නම සහ මුරපදය මගින්‌ පරිගිලභඝයන්ගේ අනන්‍යතාවය සහතික කළ යුතු ය.
+
+(B) The system should enable users to search for books based on the title, type, ISBN No. or publisher name.
+
+පොතක නම, වර්ගය, ISBN අංකය හෝ ප්‍රකාශක නම පාදක කර O80 පරිගිලකයන්ට පොත්‌ සෙවිමට
+පද්ධතිය තුළ අවස්ටාව තිබිය යුතු ය.
+
+(C) The total cost for the library system should be less than Rs. 500 000.00.
+පුස්තකාල පද්ධතියෙහි adgdgn Swc® රැ. 500 000.00 ට වඩා අඩු විය යුතු ය .
+
+(10) The system should be available 99% of the total time.
+පද්ධතිය GO කාලයෙන්‌ 99% ක්‍රියාත්මකව පැවතිය යුතු ය (available).
+
+(E) The system development should be completed within 9 months.
+පද්ධති සංවර්ධනය මාස 9ක්‌ තුළ සම්පුර්ණ කළ යුතු ය.
+
+(F) Book lending details should be preserved even if the system crashes during operation.
+ක්‍රියාත්මක වෙමින්‌ පවතින විට පද්ධතිය බිඳුවැටිමක්‌ Be වුවද, පොත්‌ බැහැර දිමේ විස්තර ආරක්ෂා විය යුතුය.
+
+(G)The book database of the school library management system must be secured by preventing
+unauthorized access.
+පාසල්‌ පුස්තකාල කළමනාකරණ පද්ධතියෙහි පොත්‌ essen සමුදාය අනවසර ප්‍රවේශයන්ගෙන්‌ වළක්වා ආරක්ෂා
+කළ යුතු ය.
+
+(11) Since the Past Pupils Association has indicated its willingness to develop the system, preference will
+be given to them.
+පාසලෙහි HE Ges සංගමය මෙම පද්ධතිය සංවටඊර්ධනය කිරීමට කැමැත්ත Emo) ඇති බැවින්‌ එයට වැඩි
+මනාපයක්‌ දිය යුතුය.
+
+From A to 11, identify and write down the labels of two functional requirements and two non-functional
+requirements respectively.
+
+(A) සිට (11) වලින්‌ කාර්යබද්ධ (functional) අවශ්‍යතා දෙකක ලේඛල සහ කාටර්යබද්ධ නොවන (non-
+functional) අවග්‍යතා දෙකක ලේබල හඳුනාගෙන පිළිවෙළින්‌ ලියා දුක්වන්න.
+
+First let’s identify the difference between a functional requirement and a non-functional requirement.
+මුලින්ම අපි කාරියබද්ධ අවග්‍යතාවයක්‌ සහ කාටර්යබද්ධ නොවන අවග්‍යතාවයක්‌ අතර වෙනස හඳුනා ගනිමු.
+
+What is a functional requirement?
+
+කාටයබද්ධ අවග්‍යතාවයක්‌ යනු කුමක්ද?
+
+A functional requirement defines what the system must do, including specific features, operations, and
+processes.
+
+MOGaEA අවග්‍යතාවයක්‌ මඟින්‌ AGSm විගේෂාංග, මෙහෙයුමි සහ ක්‍රියාවලි ඇතුඑව පද්ධතිය කළ යුතුම
+GE නිරිචචනය කරයි.
+
+eg: The system must allow users to log in with a username and password.
+උදා: පද්ධතිය පරිගීලක නාමයක්‌ සහ මුරපදයක්‌ සමඟින්‌ ලොග්‌ SOO පරිශීලකයින්ට ඉඩ දිය යුතුය.
+
+What is a non-functional requirement?
+
+කාටයබද්ධ නොවන අවග්‍යතනාවයක්‌ යනු කුමක්ද?
+
+A non-functional requirement defines how the system should perform, focusing on quality attributes like
+performance, security, and usability.
+
+කාරියබද්ධ නොවන අවග්‍යතාවයක්‌ මඟින්‌ පද්ධතිය ක්‍රියා කළ QD ආකාරය H6OOHS කරයි, කාරය සාධනය,
+ආරක්ෂාව සහ උපයෝගිතාව වැනි ගුණාත්මක ගුණාංග කෙරෙහි අවධානය යොමු කරයි.
+
+eg: The system should load within 2 seconds under normal conditions.
+උදා: සාමාන්‍ය නත්ව යටතේ තත්පර 2ක්‌ ඇතුළත පද්ධතිය පුරණය විය යුතුය.
+
+Key Difference / ප්‍රධාන වෙනස;
+
+Functional requirements describe actions and features of the system while non-functional requirements
+describe performance, reliability, and constraints.
+
+Moaaca අවග්‍යතා පද්ධතියේ ක්‍රියා සහ විශේෂාංග විස්තර කරන අතර mbaada නොවන අවග්‍යතා කාටය
+සාධනය, විශ්වසනීයත්වය සහ සීමාවන්‌ විස්තර කරයි.
+
+So now we have to separate the given requirements according to the key features of the both functional
+and non-functional requirements.
+
+එබැවින්‌ දැන්‌ අපට කාරයබද්ධ සහ කාටර්යබද්ධ නොවන අවග්‍යතා දෙකෙහිම ප්‍රධාන ලක්ෂණ අනුව ලබා දී
+ඇති අවග්‍යතා වෙන්‌ කිරීමට සිදුවේ.
+
+Accordingly, the answers will be as follows.
+ඒ අනුව පිළිතුරු පහත පරිදි වේ.
+
+e Functional requirements / කාටයබද්ධ අවශ්‍යතා: A,B
+
+e Non-functional requirements / කාටියබද්ධ නොවන අවශ්‍යතා: D,F ,G
+
+Why other mentioned requirements are not given for the answers?
+පිළිතුරු HED) වෙනත්‌ සඳහන්‌ අවග්‍යතා EQ) නොදෙන්නේ ඇයි?
+
+e (C)isabudgetary constraint related to project management, not the system behavior or performance.
+(C) යනු ව්‍යාපෘති කළමනාකරණයට සම්ඛන්ධ පිරිවැය BOOS පද්ධති හැසිරීම හෝ කාරය සාධනය නොවේ.
+
+e (E) defines a timeline constraint for project completion, not a feature or the system quality.
+
+(E) විශේෂාංගයක්‌ හෝ පද්ධතියේ ගුණාත්මක භාවයක්‌ නොව, ව්‍යාපෘති නිම කිරීම oem) ME සමාවක්‌
+නිරිචචනය කරයි.
+
+e (11) specifies a vendor selection preference, which affects project execution but not the system
+behavior or performance.
+
+(11) ව්‍යාපෘති ක්‍රියාත්මක කිරීමට බලපාන නමුත්‌ පද්ධති හැසිරීමට හෝ ක්‍රියාකාරිත්වයට බලපැමක්‌ සිදු
+නොකරයි.
+
+( 2019 ESSAY - 06 )
+
+2020 SYSTEM ESSAY MARKING
+
+1.(a) The 3-stage procedure for handing over a letter for registered post to a post office is as follows:
+ලියාපදිංචි තැපැලෙන්‌ යැවෙන ලිපියක්‌ තැපැල්‌ කාර්යාලයකට භාරදිමේ පියවර 3 ක ක්‍රියාවලිය පහත දැක්වෙන
+පරිදි ය.
+
+Determining Postage / තැපැල්‌ ගාස්තු තීරණය කිරීම
+
+The customer hands over the letter to the Registration Counter. The letter is weighed and the postage for
+the relevant weight is read from a table. The postage is written on the letter by the counter and it is given
+to the customer.
+
+පාරිභෝගිකයා විසින්‌ ලියාපදිංචි කිරීමෙ කවුන්ටරයට ලිපිය භාර දෙනු ලැබේ. ලිපියෙහි බර HOH ලබන අතර
+අදාළ බර සඳුහා නැපැල්‌ ගාස්තුව වගුවකින්‌ කියවනු ලැබේ. කවුන්ටරය මගින්‌ තැපැල්‌ ගාස්තුව ලිපියෙහි
+සටහන්‌ කර පාරිභෝගිකයා වෙත භාර GER) ලැබේ.
+
+Issuing Stamps / මුද්දුර නිකුත්‌ කිරීම
+
+The customer hands over the letter with the postage written on it to the Stamps Counter with the amount
+of postage. Stamps for the postage and the letter are issued to the customer with any balance due by the
+Stamps Counter.
+
+පාරිභෝගිකයා විසින්‌ තැපැල්‌ ගාස්තුව සටහන්‌ කරන EC ලිපිය, තැපැල්‌ ගාස්තුව සමග මුද්දර කවුන්ටරයට
+භාර දෙනු ලැබේ. මුද්දර කවුන්ටරය මගින්‌ තැපැල්‌ ගාස්නුව සඳුහා මුද්දර සහ ලිපිය, කිසියමි ඉතිරි මුදලක්‌
+ඇත්නමි එය දූ සමග පාරිභෝගිකයා වෙත නිකුත්‌ කරනු ලැබේ.
+
+Registering Letter / ලිපිය ලියාපදිංචි කිටීම
+
+The customer sticks the Stamps on the letter and hands it over to the Registration Counter. The Registration
+Counter accepts the letter, sticks the “Registered Post’ label with a unique identification code to the letter,
+keeps the letter and issues a receipt with sender and recipient information with the date and the amount
+paid, to the customer.
+
+පාරිභෝගිකයා විසින්‌ ලිපියෙහි මුද්දර අලවා ලියාපදිංචි කිරීමේ කවුන්ටරයට MO දෙයි. ලියාපදිංචි කිරීමේ
+කවුන්ටරයෙන්‌ ලිපිය හාර ගෙන අනන්‍ය කේතයක්‌ සහිත 'ලියාපදිංචි තැපැල_ ලේබලය අලවා එම ලිපිය
+තබාගෙන, යවන්නාගේ හා ලබන්නාගේ තොරතුරු දූ දිනය හා ගෙවන ලද මුදල දූ ඇතුළත්‌ රිසිටිපතක්‌
+පාරිභෝගිකයා වෙත නිකුත්‌ කරනු ලබයි.
+
+Using standard symbols, draw the following:
+සම්මත සංකේත භාවිත කර,
+
+(1) Context Diagram / සන්දර්භ සටහන
+
+The Context Diagram provides a high-level overview of the system, showing the interactions between the
+system and external entities. In this case, the key external entity is the Customer, and the system is the Post
+Office Registered Post System.
+සන්දර්භය රෑප සටහන මඟින්‌ පද්ධතිය සහ බාහිර භුනාඊර්ට අතර අන්තරක්‍රියා පෙන්නුමි කරමින්‌ පද්ධතියේ
+ඉහළ මටිටමේ cE විශ්ලේෂණයක්‌ සපයයි. මෙම අවස්ටාවෙහිදි, ප්‍රධාන බාහිර භුනාර්ටය පාරිභෝගිකයා වන
+අතර පද්ධතිය නැපැල්‌ කාර්යාල ලියාපදිංචි තැපැල්‌ පද්ධතිය වේ.
+
+External Entity | Customer
+බාහිර භුතාටට පාරිභෝගිකයා
+System Post Office Registered Post System
+පද්ධතිය තැපැල්‌ MODEGS ලියාපදිංචි තැපැල්‌ පද්ධතිය
+Letter details / ලිපියේ විස්තරය
+Required postage for the letter / ලිපිය සඳහා අවග්‍ය තැපැල්‌ ගාස්තු
+Required postage for the letter + amount of money
+ලිපිය සඳුහා අවග්‍ය තැපැල්‌ ගාස්තු + G66 ප්‍රමාණය
+Data Flows Stamp details for the letter + balance amount of money
+E00 ගලා යාම ලිපිය සඳුහා මුද්දර විස්තර + මුදුල්‌ ඉතිරි මුදල
+The letter details + stamp details
+ලිපියේ විස්තරය + ලිපිය විස්තර
+Receipt with Unique Identification Code for the letter
+ලිපිය සඳහා අනන්‍ය හැඳුනුමි කේතය සහිත රිසිටිපත
+
+The context diagram can be drawn as follows.
+සන්දර්භය රෑප සටහන පහත SOF ඇඳිය හැකිය.
+
+Letter details / ලිපියේ විස්තරය
+
+,
+
+Required postage for the letter
+
+Customer
+පාටිභෝගිකයා
+
+ලිපිය සඳහා අවග්‍ය තැපැල්‌ ගාස්තු
+
+Required postage for the letter + amount of money ී Letter
+ලිපිය HE) අවග්‍ය තැපැල්‌ ගාස්තු + මුදල්‌ ප්‍රමාණය Registration
+system
+Stamp details for the letter + balance amount of money ලප ලස පදිංචි
+ලිපිය සඳුහා මුද්දුර විස්තර + මුදුල්‌ ඉතිරි මුදල පද්ධතිය
+
+The letter details + stamp details
+
+Vv
+
+ලිපියේ විස්තරය + මුද්දර විස්තර
+
+Receipt with Unique Identification Code for the letter ____
+ලිපිය සඳහා අනන්‍ය හැඳුනුමි කේතය සහිත රිසිටිපත
+
+(11) Level 1 Data Flow Diagram / පළමු මට්ටමේ දුත්ත ගැලීමි සටහන (DFD)
+
+The Level 1 DFD expands the system into its subprocesses, showing how data moves within the system.
+Based on the provided process, there are three main subprocesses.
+
+1 මට්ටමේ (DFD) මඟින්‌ පද්ධතිය එහි උප ක්‍රියාවලි වෙත GOE කරයි, පද්ධතිය තුළ EdD OEHG වන
+ආකාරය පෙන්වයි. සපයන ලද ක්‍රියාවලිය මත පදුනමිව, ප්‍රධාන උපක්‍රියාවලි තුනක්‌ ඇත.
+
+e Determine Postage / තැපැල්‌ ගාස්තු තීරණය කිරීම
+Input / ආදානය: Letter from the Customer / පාරිභෝගිකයාගේ ලිපිය
+Output / ප්‍රතිදානය: Letter with postage amount (to (1151011191) / තැපැල්‌ ගාස්තු සහිත ලිපිය(පාරිභෝගිකයාට)
+
+e Issue Stamps / මුද්දර නිකුත්‌ කිරීම
+Input: Letter with postage amount and payment
+ආදානය: තැපැල්‌ ගාස්තුව සහ ගෙවිමි සහිත ලිපිය
+
+Output: Stamps and balance (to Customer)
+ප්‍රතිදානය: මුද්දර සහ ශේෂය (පාරිභෝගිකයා වෙත)
+
+e Register Letter / ලිපිය ලියාපදිංචි කිරීම
+Input / ආදානය: Letter with stamps (from Customer) / මුද්දුර සහිත ලිපිය (පාරිභෝගිකයාගෙන්‌)
+
+Output / ප්‍රතිදානය: Registered Letter, Receipt (to Customer) / ලියාපදිංචි ලිපිය, Sdom (පාරිභෝගිකයා
+වෙත)
+
+_Letter details —_—_——-» | 1.0 | Registration counter
+ලිපියේ විස්තරය
+
+Determine postage
+
+t තැපැල්‌ ගාස්තු තරණය කිරීම
+A A Required postage for the letter © 2
+ලිපිය සඳහා අවශ්‍ය තැපැල්‌ ගාස්තු
+
+මූ 4.
+weet / බර Postage / නැපැල්‌ ගාස්තූ
+||
+Required postage for the letter + amount of money D1 Postage table
+ලිපිය සඳහා අවග්‍ය තැපැල්‌ ගාස්තු + Ge ප්‍රමාණය තැපැල්‌ ගාස්තු වගුව
+
+, ්‌
+
+2.0 | stamps counter
+
+issue stamps
+| Stamp details for the letter + balance amount of money _ මුද්දර නිකුත්‌ කිරීම
+ලිපය සඳහා මුද්දර විස්තර + මුදුල්‌ ඉතිරි මුදල
+
+Kavos විස්තරය + මුල්ය ව ——> | 3.0 | Registration counter
+
+බ්‌ Register letter
+|___ Receipt with Unique Identification Code for the letter __ ලියාපදිංචි විස්තර
+ලිපිය සඳහා අනන්‍ය හැඳුනුමි කේතය සහිත රිසිටිපත
+ඒ ~~ ෆැ පැ වෑ ජෲ ජෲ හෑ හෑ හැ  ්‌ඔ ඔචඔ .෴෴ූ~~.~.ධිධධඞ x
+
+/ Registration details /ලියාපදිංචි විස්තර _'
+| v
+I *
+| D2 Registration register |
+! ලියාපදිංචි විමි රේපජිස්තරය |
+\ !
+
+Note : Part of the diagram noted by dotted line is additional.
+තිත්‌ ටෙඛාව මගින්‌ සටහන්‌ කර ඇති රෑප සටහනේ කොටසක්‌ aGebsn වේ.
+
+(b) Your school plans to use an online system to provide extended learner Support to A/L and O/L students
+during school holidays, weekends and other times that the School is not open. It is decided to use a Suitable
+Commercial-Off-The-Shelf (COTS) software System for this need. Your team has been requested to help
+with this project.
+ඔබේ පාසල, නිවාඩු කාලයේ දි, සති අන්තවල දි සහ පාසල විවෘතව නොපවතින කාලවල දී උසස්‌ පෙළ සහ
+සාමාන්‍ය පෙළ සිසුන්‌ සඳුහා වැඩිදුරටත්‌ ඉගෙනුමි සහාය ලබා දීමට මාර්ගගත පද්ධතියක්‌ භාවිත කිරීමට
+සැලසුමි කරයි. මෙම අවශ්‍යතාව සඳුහා සුදුසු වාණිජ පෙර නිමි (Commercial Off The Shelf) COTS මෘදුකාංග
+පැකේජයක්‌ භාවිත කිරීමට තීරණය කෙටේ. මෙම ව්‍යාපෘතිය සඳහා උපකාර කරන ලෙස ඔබ කණ්ඩායමෙන්‌
+ඉල්ලීමක්‌ කර ඇත.
+
+(1) Some of your project team members argue that since COTS software are to be used there is no need of
+requirement analysis. List three most significant reasons to explain why you must complete requirement
+analysis even in this project. Note: Your answer must be specific to project with COTS software use.
+Generic answers wo’nt be accepted.
+
+COTS මෘදුකාංගයක්‌ භාවිත කෙරෙන බැවින්‌ අවශ්‍යතා විශ්ලේෂණයක්‌ (requirement analysis) සිදු කිරීම අවශ්‍ය
+නොවන බව ඔබගේ ව්‍යාපෘති කණ්ඩායමෙහි ඇතැමි සාමාපිකයන්‌ විසින්‌ තර්ක කරනු ලබයි. මෙම ව්‍යාපෘතියේ
+දි වුවඳ අවශ්‍යතා විග්ලේෂණය සිදු කිරීම අවශ්‍ය වන්නේ ඇයිදැයි පැහැදිලි කිරීමට වඩාත්ම ඉස්මතු වන
+
+හේතු තුනක්‌ ලැයිස්තු ගත කරන්න. සටහන: ඔබේ පිළිතුර COTS මෘදුකාංගයක්‌ භාවිත වන ව්‍යාපෘතියකට
+විශේෂිත විය යුතු ය. ගණිය එනමි පොදු (generic) පිළිතුරු භාරගනු නොලැබේ.
+
+Here are three specific reasons why requirement analysis is essential even when using COTS software for
+this project.
+
+මෙම ව්‍යාපෘතිය සඳුහා COTS මෘදුකාංගය mdm) කරන විට පවා අවශ්‍යතා SHeGega අත්‍යවග්‍ය වන
+විශේෂිත හේතු තුනක්‌ පහත සදහන්‌ වේ.
+
+e Ensure Alignment with Educational Goals / අධ්‍යාපනික ඉලක්ක සමඟ පෙළගැස්වීම සහතික කිරීම
+Requirement analysis ensures that the selected COTS software can meet the specific needs of A/L and
+O/L students, such as providing subject-specific resources, scheduling features for holidays and
+weekends, and tracking student progress. Without a clear understanding of these requirements, the
+software might lack critical functionalities necessary for supporting the school's educational goals.
+goose) විග්ලේෂණය මඟින්‌ තෝරාගත්‌ COTS මෘදුකාංගයට විෂය-විශේෂිත සමිපත්‌ සැපයීම, SOQ සහ
+සති අන්ත සඳුහා විගේෂාංග කාලසටහන්‌ කිරීම සහ Ges ප්‍රගතිය නිරීක්ෂණය කිරීම වැනි උසස්‌ පෙළ
+සහ සා/පෙළ සිසුන්ගේ විශේෂිත අවග්‍යතා සපුරාලිය හැකි බව සහතික කරයි. මෙම අවග්‍යතා පිළිබඳ
+පැහැදිලි අවබෝධයක්‌ නොමැතිව, පාසලේ අධ්‍යාපනික ඉලක්ක සඳුහා සහාය SO සඳුහා අවග්‍ය තීරණාත්මක
+ක්‍රියාකාරීත්වය මෘදුකාංගයට නොතිබිය හැකිය.
+
+e Evaluate Compatibility with Existing Systems / පවතින පද්ධති සමඟ ගැළපීම ඇගයීම
+
+The school may already have systems in place (e.g., student information systems or learning
+management platforms). Requirement analysis helps determine whether the COTS software is
+compatible with these systems and if integration is feasible. This prevents technical challenges and
+ensures a seamless user experience for both students and teachers.
+
+පාසලට දැනටමත්‌ පද්ධති ක්‍රියාත්මක Sa හැකිය (උදා: Gas තොරතුරැ පද්ධති හෝ ඉගෙනුමි කළමනාකරණ
+වේදිකා), අවශ්‍යතා විග්ලේෂණය COTS මෘදුකාංගය මෙම පද්ධති සමඟ අනුකූලදු යන්න සහ එකාබද්ධ
+කිරීම කළ හැකිද යන්න තීරණය කිරීමට උපකාරී වේ. මෙය නාක්ෂණික අභියෝග වළක්වන අතර සිසුන්ට
+සහ ගුරැවරැන්ට බාධාවකින්‌ තොරව පරිගිලක අත්දැකීමක්‌ සහතික කරයි.
+
+e Identify and Mitigate Customization Needs / අභිරැව්කරණ අවග්‍යතා හඳුනා ගැනීම අවම කිරීම
+
+COTS software often needs minor customization to suit the specific context of its use. Requirement
+analysis identifies these customization areas (e.g., local language support, grading systems specific to
+A/L and O/L, or holiday schedules). This ensures that the software can effectively serve the intended
+purpose without unnecessary features or gaps.
+COTS මෘදුකාංගයට බොහෝ විට එහි භාවිතයේ Addy සන්දර්භයට ගැලපෙන පරිදි Ge
+අභිරැචකරණයක්‌ අවග්‍ය වේ. අවග්‍යතා විශ්ලේෂණය මෙම අභිරැචිකරණ ක්ෂේත්‍ර හඳුනා ගනී (උදා., දේශීය
+භාෂා සහාය, උසස්‌ පෙළ සහ සා/පෙළ සඳුහා විශේෂිත ග්‍රේණිගත කිරීමේ පද්ධති, හෝ නිවාඩු කාලසටහන්‌).
+මෙම මෘදුකාංගයට අනවශ්‍ය විශේෂාංග හෝ හිඩැස්වලින්‌ තොරව අපේක්ෂිත අරමුණට ඵලදායී ලෙස
+සේවය කළ හැකි බව සහතික කරයි.
+
+There are additional answers in answer script
+
+පිළිතුරු පත්‍රයේ අමතර පිළිතුරු ඇත
+
+e To define the useful feature set for the COTS system to be selected
+නෝරාගත ලබන COTS පද්ධතිය සඳහා ප්‍රයෝපනවත්‌ ගුණාංග/ලක්ෂණ කටිටලයක්‌ නිරිවචනය කිරීමට
+
+e There can be a gap between the business processes used by the existing practices and those supported
+by the COTS software system. It is essential to understand this gap through a requirement analysis
+phase. For each such gap, organizations have to decide whether to.
+
+දැනට පවතින භාවිතයන්‌ සහ COTS මෘදුකාංග පද්ධතිය මගින්‌ සහය දක්වන ව්‍යාපාරික ක්‍රියාවලින්‌ අතර
+පරතරයක්‌ තිබිය හැක. අවග්‍යතා විග්ලේෂණ අදියරක්‌ හරහා මෙම පරතරය අවබෝධ කර ගැනීම
+අත්‍යවග්‍ය වේ. එවැනි එක්‌ එක්‌ පරතරය HEH), සංවිධාන තීරණය කළ Qne යන්න තීරණය කළ යුතුය.
+
+— ignore it (remove the requirement and just use the tool as it is),
+එය නොසලකා හැරීම (අවශ්‍යතාවය ඉවත්‌ කර මෙවලම භාවිතා කිරිම),
+
+— change how they do something outside the solution (1.e., modify the business process) or
+ඔවුන්‌ විසඳුමෙන්‌ පරිබාහිර යමක්‌ කරන ආකාරය වෙනස්‌ කරන්න (එනමි, ව්‍යාපාර ක්‍රියාවලිය වෙනස්‌ කරන්න)
+
+— build something to bridge the gap (extend the solution).
+පරතරය පිරවිමට යමක්‌ ගොඩනඟන්න (විසඳුම EQ කිරීම).
+
+e Ifthe COTS software system is to be extended, it is required to specify completely the requirements
+for those new capabilities.
+COTS මෘදුකාංග පද්ධතිය දිර්ඝ කිරීමට අවග්‍ය නමි, OO HO හැකියාවන්‌ සඳහා අවශ්‍යතා සමිපුර්ණයෙන්ම
+සඳුහන්‌ කිරීම අවග්‍ය වේ.
+
+e Ifthe current practices are changed according to the selected COTS, requirement analysis helps to
+understand the required changes, training needs, resource requirements etc.
+තෝරාගත්‌ COTS අනුව වඊරතමාන භාවිතයන්‌ වෙනස්‌ කරන්නේ නමි, අවග්‍යතා විග්ලේෂණය අවග්‍ය
+වෙනස්කමි, පුහුණු අවග්‍යතා, සමිපත්‌ අවග්‍යතා ආදිය තේරැමි ගැනීමට උපකාරී වේ.
+
+e To compare and benchmark a set of identified COTS to select most fitting COTS product for the need.
+අවග්‍යතාවයට වඩාත්ම ගැලපෙන COTS නිෂ්පාදනය තෝරාගැනීම සඳුහා හඳුනාගත්‌ COTS කට්ටලයක්‌
+සංසන්දනය කිරීම සහ මිණුම්‌ සලකුණු කිරීම.
+
+(11) Following are part of the requirements identified for the above project. Identify and write down the labels
+(A-G) of all the functional requirement statements within the list.
+මෙම ව්‍යාපෘතිය HED) හඳුනාගනු ලැබු අවග්‍යතාවලින්‌ කොටසක්‌ පහත දැක්වේ. ලැයිස්තුව NE ඇති සියලුම
+කාටරයබඛද්ධ අවග්‍යතා දැක්වෙන ප්‍රකාශ හඳුනාගෙන ඒවායේ ලේඛල (4--(0) ලියා දක්වන්න.
+
+(A) Teaching material and learning content upload to th system shall only be allowed to the teachers assigned
+to that particular learning session.
+ඉගැන්විමේ ද්‍රව්‍ය සහ ඉගෙනුමි අන්තට්ගන, පද්ධතියට උඩුගත කිරීම සඳහා අදාළ ඉගෙනුමි සැසියට අනුයුක්ත
+කරන OC ගුරැවරැන්ට පමණක්‌ අවකාශ ලැබේ.
+
+(13) The system shall be available for user access at least 99.9% of the time.
+පද්ධතිය පරිශීලක ප්‍රවේශය සඳහා Ham කාලයෙන්‌ අඩුම MOGs 99.9% ක්‌ පැවතිය යුතු ය.
+
+(C) The access history for each student’s learning activity participation or content use within a course must be
+maintained as a report to be accessed by the subject teacher.
+විෂයභාර ගුරැවරයාට ප්‍රවේග විය හැකි වන SOE එක්‌ එක්‌ Geese) HED) යමි විෂයයක්‌ තුළ ඉගෙනුමි
+ක්‍රියාවලියට සහභාගි විම හා අන්තර්ගතය භාවිතය, වාරනාවක්‌ ලෙස නඩත්තු විය යුතු ය.
+
+(D) The system should be easy to work with after 1 hour of training.
+පැයක කාලයක පුහුණුවකින්‌ පසු පද්ධතිය සමග පහසුවෙන්‌ කටයුතු කළ හැකි විය යුතු ය.
+
+(15) At the end of each learning session, the Students must be provided with an option to ask questions from
+
+the teacher.
+සෑම ඉගෙනුමි සැසියක්‌ අවසානයේ දී ම ගුරැවරයාගෙන්‌ ප්‍රශ්න විමසීම Heo) සිසුන්ට අවස්ථාව ලබා දිය යුතුය.
+
+(F) The system should respond to any user request within 2000ms.
+ඕනෑම GOGEM ඉල්ලීමකට 2000ms තුළ පද්ධතිය ප්‍රතිචාර දැක්විය යුතු ය.
+
+(G) The system should be able to serve a minimum of 200 concurrent users at a given time.
+GED ලද, අවස්ථාවක දි පද්ධතිය අවම වශයෙන්‌ සමගාමී පරිගිලකයන්‌ (concurrent users) 200 කට සේවා
+සැපයිය යුතු ය.
+
+Answer:
+Functional requirements are those that describe specific behaviors or functions of the system, such as
+
+actions it must perform or features it must provide.
+ක්‍රියාකාරී අවග්‍යතා යනු එය කළ යුතු ක්‍රියා හෝ සැපයිය යුතු විගේෂාංග වැනි පද්ධතියේ නිශ්චිත හැසිරීිමි
+හෝ ක්‍රියාකාරකම්‌ විස්තර කරන ඒවා වේ.
+
+e (A) Teaching material and learning content upload to the system shall only be allowed to the teachers
+
+assigned to that particular learning session.
+ඉගැන්විමේ C623 සහ ඉගෙනුමි qandoan, පද්ධතියට උඩුගත කිරීම සඳහා අදාළ ඉගෙනුමි සැසියට අනුයුක්ත
+කරන ලද ගුරැවරැන්ට පමණක්‌ අවකාග ලැබේ.
+
+e (C) The access history for each student’s learning activity participation or content use within a course
+
+must be maintained as a report to be accessed by the subject teacher.
+විෂයභාර ගුරැවරයාට ප්‍රවේශ විය හැකි වන CSE එක්‌ එක්‌ ශිෂ්‍යයා සඳහා යමි විෂයයක්‌ තුළ ඉගෙනුමි
+ක්‍රියාවලියට සහභාගි විම හා අන්තර්ගතය භාවිතය, වාරතාවක්‌ ලෙස නඩත්තු විය යුතු ය.
+
+e (E) At the end of each learning session, the students must be provided with an option to ask questions
+
+from the teacher.
+සෑම ඉගෙනුම්‌ සැසියක්‌ අවසානයේ දී ම ගුරැවරයාගෙන්‌ ප්‍රශ්න විමසීම සඳුහා සිසුන්ට අවස්ටාව ලබා දිය යුතු
+ය.
+
+(B), (D), (F), (G) are non-functional requirements as they deal with system performance, availability,
+usability, or capacity rather than specific functions.
+
+(B), (D), (F), (G) යනු විශේෂිත කාරයයන්ට වඩා පද්ධති කාරය සාධනය, පවතින බව, උපයෝගීතාව හෝ
+ධාරිතාව සමඟ කටයුතු කරන බැවින්‌ JO) ක්‍රියාකාරී නොවන අවග්‍යතා වේ.
+
+(111) What is the most appropriate testing Strategy for your team to evaluate the selected COTS Software system
+for the identified requirements?
+හඳුනාගන්නා ලද අවග්‍යතා සඳහා තෝරා ගන්නා ලද COTS මෘදුකාංග පද්ධතියක්‌ ඇගයීමට ඔබේ කණ්ඩායමට
+වඩාත්‌ ම ගැළපෙන පරීක්ෂා කිරීමේ උපායමාර්ගික ක්‍රමය (testing strategy) කුමක්ද?
+
+The most appropriate testing strategy for evaluating the selected COTS software system is Black Box
+Testing. This approach focuses on testing the system’s functionality without any knowledge of its internal
+code or structure. Since COTS software is pre-built and its source code 1s not typically accessible, Black
+Box Testing is ideal for verifying whether the software meets the identified functional and non-functional
+requirements. Test cases are designed based on the input, output, and expected behaviors outlined 111 the
+requirements.
+
+තෝරාගත්‌ COTS මෘදුකාංග පද්ධතිය ඇගයීම සඳුහා වඩාත්‌ උචිත පරීක්ෂණ උපාය මාර්ගය වන්නේ කාල
+මංජුසා පටීක්‍ක්ෂාව cd. මෙම ප්‍රවේශය එහි අභ්‍යන්තර කේතය හෝ ව්‍යුහය පිළිබඳ කිසිදු දැනුමකින්‌ තොරව
+පද්ධතියේ ක්‍රියාකාරිත්වය පරික්ෂා කිරීම කෙරෙහි අවධානය යොමු කරයි. COTS මෘදුකාංගය පුර්වයෙන්‌
+ගොඩනගා ඇති බැවින්‌ සහ එහි මුල කේතය සාමාන්‍යයෙන්‌ ප්‍රවේශ විය නොහැකි බැවින්‌, මෘදුකාංගය හඳුනාගත්‌
+ක්‍රියාකාරී සහ ක්‍රියාකාථටී නොවන අවග්‍යතා සපුරාලන්නේද යන්න සත්‍යාපනය කිරීම SEM) කාල මංපුසා පරික්ෂාව
+වඩාත්‌ සුදුසු වේ. අවග්‍යතා තුළ CBO) ඇති ආදානය, ප්‍රතිදානය සහ අපේක්ෂිත හැසිරීමි මත පදුනමිව
+පරීක්ෂණ අවස්ටා නිර්මාණය කර ඇත.
+
+( 2020 ESSAY - 10 )
+
+2021 SYSTEM ESSAY MARKING
+
+1. The following extract was taken from a software project feasibility report:
+පහත EMO) ඇත්තේ මෘදුකාංග ව්‍යාපෘති ගක්‍යතා (feasibility) වාරතාවක උද්ධෘතයකි.
+
+“.... The software development team does not have the knowledge or prior experience of the relevant
+technology; the developers must be trained first and as a result of this training cost, the project will not
+make any profit. However it is expected that the users of the proposed product will use 11 willingly and no
+user resistance is expected...”
+
+“... අදාළ තාක්ෂණය ගැන දැනුමක්‌ හෝ පෙර පළපුරැද්දුක්‌ හෝ මෘදුකාංග සංවර්ධන කණ්ඩායමට නොමැත;
+සංවට්ධනය කරන්නන්ට මුලින්ම පුහුණුවක්‌ ලබාදිය යුතු අතර, එම ප්‍රහුණු කිරීමට දැරිය යුතු වියදුම නිසා,
+ව්‍යාපෘතියෙන්‌ කිසිදු ලාභයක්‌ නොලැබෙනු ඇත. එනමුදු, යෝපිත නිපැයුමේ පරිගිලකයන්‌ කිසිදු ප්‍රතිරෝධයකින්‌
+තොරව එම නිපැයුම කැමැත්තෙන්‌ භාවිත කරනු ඇති බව අපේක්ෂා කෙරේ. ...”
+
+By considering the above extract, write either True, False, or Cannot comment in the blank for each
+of the following statements: / ඉහත උද්ධෘතය සලකා බලා,පහත වගන්තිවල පිළිතුරැ ලෙස සත්‍යයි, අසත්‍යය
+හෝ පිළිතුරැ දිය නොහැකියි යන්න හෝ ලියා දක්වන්න.
+
+The proposed project has technical feasibility.
+යෝපිත ව්‍යාපෘතියේ තාක්ෂණික (technical) ශක්‍යතාව ඇත. { False }
+
+The proposed project has operational feasibility.
+යෝපිත ව්‍යාපෘතියේ මෙහෙයුම (operational) ශක්‍යතාව ඇත. 1 True }
+
+The proposed project has organizational (institutional) feasibility
+යෝපිත ව්‍යාපෘතියේ ආයතනික (institutional/organizational) ශක්‍යතාව ඇත. { Cannot comment }
+
+Technical Feasibility / තාක්ගණික ශක්‍යතාව
+
+Technical feasibility assesses whether the project can be accomplished with the current technology and
+whether the development team has the necessary technical expertise. It evaluates whether the required
+technology, tools, and resources are available and whether the team can successfully apply them.
+තාක්ශණික ශක්‍යතා මගින්‌ වට්තමාන නාක්ශණයෙන්‌ ව්‍යාපෘතිය සමිපුර්ණ කළ හැකිද යන්න සහ සංවර්ධන
+කණ්ඩායමට අවග්‍ය නාක්ශගණික විගේෂඥාතාව තිබේද යන්න තක්සේරැ කරයි. අවශ්‍ය තාක්ශණය, මෙවලමි සහ
+සමිපත්‌ තිබේද යන්න සහ කණ්ඩායමට ඒවා සාට්ටකව යෙදිය හැකිද යන්න එය ඇගයීමට ලක්‌ කරයි.
+
+Operational Feasibility / මෙහෙයුමි ශක්‍යතාව
+
+Operational feasibility examines whether the proposed system will operate effectively within the existing
+business processes and whether users will accept and use the system as intended. It focuses on the practical
+aspects of implementation, such as user acceptance, ease of use, and the alignment of the system with the
+organization's operational goals. / යෝපිත පද්ධතිය පවතින ව්‍යාපාරික ක්‍රියාවලින්‌ තුළ ඵලදායී ලෙස ක්‍රියාත්මක
+වන්නේද යන්න සහ පරිගිලකයන්‌ විසින්‌ පද්ධතිය අපේක්ෂිත Cd& පිළිගෙන භාවිතා කරන්නේද යන්න මෙහෙයුමි
+ශක්‍යතා පරීක්ෂා කරයි. පරිශීලක පිළිගැනීම, භාවිතයේ පහසුව සහ සංවිධානයේ මෙහෙයුමි ඉලක්ක සමඟ
+පද්ධතිය පෙළගැස්විම වැනි ක්‍රියාත්මක කිරීමේ ප්‍රායෝගික අංග කෙරෙහි එය අවධානය යොමු කරයි.
+
+Organizational (Institutional) Feasibility / ආයතනික ගක්‍යතාව
+
+Organizational (institutional) feasibility evaluates whether the project aligns with the organization's
+strategic objectives and whether the organization has the resources, structure, and support needed to
+implement the project successfully. This includes assessing financial resources, management support, and
+the overall impact on the organization. / ආයතනික ශක්‍යතා මගින්‌ ව්‍යාපෘතිය සංවිධානයේ උපායමාරට්ගික
+අරමුණු සමඟ සමපාත වන්නේද යන්න සහ වආණාපෘතිය සාටඊර්ඊකව ක්‍රියාත්මක කිරීමට අවග්‍ය සමිපත්‌, ව්‍යුහය
+සහ සහයෝගය සංවිධානයට තිබේද යන්න ඇගයීමට ලක්‌ කරයි. මුල්‍ය සමිපත්‌ නක්සේරැ කිරීම, කළමනාකරණ
+සහාය සහ සංවිධානයට ඇති සමස්ත බලපෑම මෙයට ඇතුළත්‌ වේ.
+
+( 2021 S.ESSAY — 2[c] )
+
+(a)
+
+A database application is to be developed for a hospital clinic. The design is as follows.
+රෝහලක සායනයක්‌ සඳහා EMM GOCE) යෙදුමක්‌ ගොඩනැගීමට අවග්‍ය ය. එහි සංකල්පය පහත SOE වේ.
+
+The registered patients in the clinic are given patient numbers and their details are stored 11] the PATIENTS
+data store. The dates and times of clinic appointments of patients are stored in the APPOINTMENTS data
+store.
+
+සායනයේ ලියාපදිංචි රෝගින්ට රෝගි අංක දෙනු ලබන අතර ඔවුන්ගේ විස්තර PATIENTS නමි වු eso
+ගබඩාවේ සුරැකේ. සායන සඳුහා රෝගීන්‌ පැමිණය යුනු දිනයන්‌ සහ වේලාවන්‌ APPOINTMENTS නමි වු
+EDD ගබඩාවේ සුරැකේ.
+
+Once a patient arrives for a clinic visit and gives the patient number, the reception officer does a validity
+check of the patient and the appointment date by checking the PATIENTS and APPOINTMENT data
+stores. If valid, the patient number is added to the PRESENT data store. If not, an “unregistered patient”
+or “invalid appointment” message 15 given.
+
+සායනයක්‌ සඳුහා රෝගියකු පැමිණ තම රෝගී අංකය සැලකළ විට පිළිගැනීමේ නිළධාරියා PATIENTS සහ
+APPOINTMENTS exe ගබඩා පිරික්සා, රෝගියා සහ සායන දිනය තහවුරැ කිරීමට වලංගුතා පරීක්ෂණයක්‌
+සිදු කරයි. වලංගු නමි එම රෝගියාගේ රෝගි qowcs PRESENT Ess ගබඩාවට ඇනුළතන්‌ කෙරේ. වලංගු
+නොවේ නමි, “ලියාපදිංචි නොවූ රෝගියෙක්‌” හෝ “වැරදි පැමිණීමක්‌” පණිවුඩය දෙනු ලැබේ.
+
+When a doctor at a counter in the clinic 15 ready, s/he selects the next patient according to the PRESENT
+data store resulting in the relevant patient number and the doctor counter being shown on the display panel
+in the patient sitting area. When the patient comes and sits at the relevant doctor counter, the doctor
+retrieves patient’s clinical records by accessing the PATIENTS data store. Once the doctor examines
+patient and prescribes any medicines for him, the PATIENTS data store is updated with the new
+prescription data and an entry is made to the MEDICINES data store. If needed, the doctor also schedules
+the next visit date/time for the patient by updating the APPOINTMENTS data store.
+
+කවුන්ටරයක Bde වෛද්‍යවරයකු සුදානමි විට, ඔහු/ඇය PRESENT esi ගබඩාවේ ඊළඟට සිටින රෝගියා
+තෝරා ගනියි. එවිට එම රෝගියාගේ අංකය සහ වෛද්‍යවරයා සිටින කවුන්ටරයේ අංකය, රෝගින්‌ අසුන්ගෙන
+සිටින ස්ටානයේ ඇති chan තිරයේ ප්‍රදර්ශනය කෙටේ. රෝගියා අදාළ වෛද්‍යවරයා අසලට පැමිණ අසුන්ගත්‌
+විට, වෛද්‍යවරයා ]] ]]*]]] 5 දූත්ත ගබඩාවට ප්‍රවේශ වි, රෝගියාගේ සායන වාර්තා ලබාගනියි, රෝගියාගේ
+පරීක්ෂාවෙන්‌ අනතුරුව සහ අවග්‍ය බෙහෙත්‌ ඇත්නමි ඒවා නියුම කළ පසු, වෛද්‍යවරයා එම නව බෙහෙත්‌
+වටිටෝරැ PATIENTS දත්ත ගබඩාවේ සටහන්‌ කර MEDICINES ex ගබඩාවටද ඇතුළන්‌ කරයි. අවශ්‍ය
+නමි, රෝගියා ඊළඟට පැමිණිය gy දිනය සහ වේලාව වෛද්‍යවරයා APPOINTMENTS ess ගබඩාවටද
+ඇතුළත්‌ කරයි.
+
+The pharmacist gets the prescription data from the MEDICINES data store, prepares the medicines for the
+patient and makes the patient number displayed on the pharmacy display panel so that the patient can pick
+the medicines.
+
+ඔෟෂධවේදියා බෙහෙත්‌ වටිටෝරු තොරතුරැ MEDICINES දත්ත ගබඩාවෙන්‌ ගෙන එම බෙහෙත්‌ සුදානමි
+කරයි. අනතුරැව, රෝගියාට එම බෙහෙත්‌ ලබාගැනීමට දැන්වීමට අදාළ රෝගි අංකය ඔසුහලේ cham තිරයේ
+ප්‍රදර්ශනය කරවයි.
+
+If a maximum of 20 patients are to be examined by the clinic doctors per an hour, write down one
+(1) functional requirement with respect to appointment scheduling.
+
+සායන වෛද්‍යවරැ උපරිම වගයෙන්‌ එක්‌ පැයකට රෝගීන්‌ 20 ක්‌ පරීක්ෂා කළ QD නමි, රෝගින්ගේ ඉදිරි
+පැමිණීමි දිනයන්‌ හා වේලාවන්‌ නියමකරණයට අදාළ එක්‌ (1) කාටය බද්ධ අවශ්‍යතාවයක්‌ (functional
+requirement) ලියා දක්වන්න.
+
+Functional requirements / කාටයබද්ධ අවග්‍යනා
+
+Functional requirements specify what the system should do. They define the specific behaviors, features,
+and functions of the system. These requirements describe how the system will interact with users, other
+systems, and its environment, detailing the operations 11 must perform.
+
+කාර්යබද්ධ අවග්‍යතා, පද්ධතිය කුමක්‌ කළ ane යන්න සඳහන්‌ කරයි. මේවා පද්ධතියේ නිශ්චිත හැසිරීමි,
+විශේෂාංග සහ කාථටයයන්‌ නිරවචචනය කරයි. මෙම අවග්‍යතා පද්ධතිය පරිගිලකයින්‌, අනෙකුත්‌ පද්ධති සහ එහි
+පටීිසරය සමඟ අන්තරක්‍රියා කරන ආකාරය විස්තර කරයි, එය කළ යුතු මෙහෙයුමි විස්තර කරයි.
+
+(b)
+
+For this a functional requirement can be written with the following meaning.
+මේ සඳහා පහත ආකාරයේ තේරැම සහිත කාර්යබද්ධ අවග්‍යනාවක්‌ ලිවිය හැකිය.
+
+The system must ensure that no more than 20 patients are scheduled for appointments with the clinic
+doctors within any given hour.
+
+ඕනෑම පැයක්‌ ඇතුළත සායන වෛද්‍යවරුන්‌ GOLD HOSS සඳහා රෝගින්‌ 20කට වඩා වැඩි ප්‍රමාණයක්‌ සැලසුමි
+කර නොමැති බව පද්ධතිය සහතික කළ යුතුමය.
+
+This requirement ensures that the system limits the number of appointments to 20 per hour, preventing an
+overload on the clinic doctors. It helps maintain efficient patient flow and ensures that the doctors have
+enough time to examine each patient properly. If 20 appointments are already booked in a specific hour,
+the system should block any further bookings for that time slot and suggest alternative available slots.
+මෙම අවශ්‍යතාවය මඟින්‌ පැයකට රෝගීන්‌ සංඛ්‍යාව 20 Em) BO) කරන බව සහතික කරයි, එමගින්‌ සායන
+වෛද්‍යවරුන්‌ මත අධික පීඩනයක්‌ පැටවීම වළක්වයි. එය කාර්යක්ෂම රෝගී ප්‍රවාහයක්‌ පවත්වා ගැනීමට
+උපකාරී වන අතර එක්‌ එක්‌ රෝගියා නිසි ලෙස පරීක්ෂා කිරීමට වෛද්‍යවරැන්ට ප්‍රමාණවත්‌ කාලයක්‌ ඇති බව
+සහතික කරයි. නිශ්චිත පැයක්‌ තුළ දැනටමත්‌ HOSS 20ක්‌ වෙන්කරවා ගෙන තිබේ නමි, පද්ධතිය එම කාල
+සීමාව Hem) තවත්‌ වෙන්‌ කිරීමි අවහිර කර විකල්ප කාල සමාවක්‌ යෝජනා කළ යුතුය.
+
+The hospital expects to avoid a long queue of people being formed at the clinic reception for the
+validity check. Write down one (1) non-functional requirement with respect to that need.
+
+වලංගුතා පරීක්ෂණය සඳහා සායන පිළිගැනිමි කවුන්ටටය අසල රෝගීන්ගේ EM පෝලිමක්‌ ඇති නොවිම
+රෝහලේ බලාපොරොත්තුවයි. එම අපේක්ෂාවට අදාළ එක්‌ (1) කාටය බද්ධ නොවන අවශ්‍යතාවයක්‌ (non-
+functional requirement) ලියා දක්වන්න.
+
+Non-functional requirements / MSe@E@ නොවන අවග්‍යතා
+
+Non-functional requirements describe how the system performs its functions rather than what it does. They
+encompass the quality attributes, performance standards, and constraints that the system must meet. This
+includes aspects like security, performance, usability, reliability, and scalability.
+
+කාරියබද්ධ නොවන අවග්‍යනා විස්තර කරන්නේ පද්ධතිය එය කරන දේට වඩා එහි කාර්යයන්‌ ඉටු කරන
+ආකාරයයි. ඒවා පද්ධතිය සපුරාලිය යුතු තත්ත්ව ගුණාංග, කාරය සාධන ප්‍රමිතන්‌ සහ සීමාවන්‌ ඇතුළත්‌ වේ.
+මෙයට ආරක්ෂාව, කාර්ය සාධනය, උපයෝගීතාව, විග්වසනියත්වය සහ පරිමාණය වැනි අංග ඇතුළත්‌ වේ.
+
+For this a non-functional requirement can be written with the following meaning.
+මේ සඳහා පහත ආකාරයේ තේරැම සහිත කාර්යබද්ධ නොවන අවග්‍යතාවක්‌ ලිවිය හැකිය.
+
+When the patient arrives, the validity should be checked quickly, avoiding long waits.
+රෝගියා පැමිණි විට EQ වේලාවක්‌ රැඳි BIO වළක්වා ඉක්මනින්‌ වලංගුභාවය පරීක්ෂා කළ යුතුය.
+
+This non-functional requirement focuses on the system's performance and response time. To prevent long
+queues at the reception, the system should quickly check the validity of patients and their appointments.
+By ensuring that the validation process is completed in under 10 seconds, patients can be processed faster,
+reducing the likelihood of long waiting lines.
+
+මෙම කාටර්යබද්ධ නොවන අවශ්‍යතාවය පද්ධතියේ ක්‍රියාකාරීත්වය සහ ප්‍රතිචාර කාලය කෙරෙහි අවධානය යොමු
+කරයි. රෝගියා පැමිණි විට දිගු පෝලිමි වළක්වා ගැනීම සඳුහා, පද්ධතිය ඉක්මනින්‌ රෝගින්ගේ වලංගුභාවය
+සහ ඔවුන්ගේ වෛද්‍යවරයා හමුවීමේ දුත්ත පරීක්ෂා කළ යුතුය. වලංගු කිරීමේ ක්‍රියාවලිය තත්පර ]0 ට අඩු
+කාලයකින්‌ අවසන්‌ වන බව සහතික කර ගැනීමෙන්‌, EQ පොරොත්තු පෝලිමි වල සමිභාවිතාව අඩු කරමින්‌,
+රෝගින්ට වේගයෙන්‌ ප්‍රතිකාර සඳහා යොමුවිය හැක.
+
+(c) The following is the labeled data flow diagram for the events that take place when a patient visits the
+
+clinic to consult a doctor.
+රෝගියකු වෛද්‍ය HOHOs සඳහා සායනයට පැමිණීමේ SCHGOEO අදාළ, ලේබල කරන ලද EHO DOO
+සටහන පහත දැක්වේ.
+
+Patient
+number » 1.0 | Reception
+Patient Pp
+A .
+Patient data Appointment Q
+data
+D1 | PATIENTS
+02 R
+| 03 §
+atient data Appointment /
+data
+20 Doctor Q
+T Counter
+0 doctor counter _
+number U Prescription p4| V
+data
+30) W
+xX Prescription
+Patient Prepare data
+prescribed
+number න අම
+medicine
+
+Write in the spaces provided below, the Number of the suitable content for each of the labels P to X
+choosing from the given list.
+
+P සිට X තෙක්‌ ලේඛලවලට HEH අන්තර්ගතවල අංක දි ඇති ලැයිස්තුවෙන්‌ තෝරා පහත දි ඇති හිස්තැන්වල
+ලියන්න.
+
+17 - Validate patient number / රෝගී අංකයේ වලංගුතාවය පිරික්සීම (8)
+
+The reception staff must first validate the patient number to check if the patient is registered. This
+label represents the process where the patient’s details are verified using the patient number against
+the PATIENTS data store (D1).
+
+රෝගියා ලියාපළිංචි වි ඇත්දැයි පරීක්ෂා කිරීම සඳහා පිළිගැනීමේ කාරිය මණ්ඩලය පළමුව රෝගියාගේ
+අංකය වලංගු කළ යුතුය. මෙම ලේඛලය PATIENTS 5 දූත්ත ගබඩාවට (D1) එරෙහිව රෝගියාගේ අංකය
+භාවිතයෙන්‌ රෝගියාගේ විස්තර සත්‍යාපනය කරන ක්‍රියාවලිය නියෝජනය කරයි.
+
+Q - Validated patient number / වලංගු කළ රෝගී අංකය (9)
+
+After the validation, the result is the "validated patient number" that will be used for further processing.
+This ensures that the patient is either correctly registered or not, and the patient 15 marked as present
+in the system.
+
+වලංගු කිරීමෙන්‌ පසුව, ප්‍රතිඵලය වනුයේ වැඩිදුර සැකසීම සඳුහා භාවිතා කරනු ලබන "OED කළ රෝගි
+අංකය" වේ. මෙමගින්‌ රෝගියා නිවැරවිව ලියාපදිංචි වි ඇති බව හෝ නැත යන්න සහතික වන අතර,
+රෝගියා පද්ධතියේ සිටින බවට සලකුණු කර ඇත.
+
+R - APPOINTMENTS (1)
+
+The APPOINTMENTS data store holds all scheduled clinic visits for patients. When a patient arrives,
+their appointment details are fetched from this data store to ensure they are scheduled for that day.
+APPOINTMENTS e280 ගබඩාව රෝගීන්‌ සඳහා නියමිත සියලම නියමකරණය කළ සායන පැමණීමි
+පවත්වාගෙන යයි. රෝගියෙකු පැමිණි විට, ඔවුන්‌ එළිනට නියමිත බව සහතික කිරීම සඳුහා ඔවුන්ගේ
+හමුවිමි විස්තර මෙම EHH ගබඩාවෙන්‌ ලබා ගනී.
+
+S- PRESENT (7)
+
+After validation, the patient's number is added to the PRESENT data store, indicating that the patient
+is currently waiting for their consultation.
+
+වලංගු කිරීමෙන්‌ පසුව, රෝගියාගේ අංකය PRESENT esi ගබඩාවට එකතු කරනු ලැබේ, රෝගියා
+දැනට ඔවුන්ගේ උපදේශන සඳහා රැඳි සිටින බව පෙන්නුමි කරයි.
+
+T - Patient sitting area display panel / රෝගීන්‌ අසුන්ගෙන සිටන ස්ථානයේ cdoa තිරය (4)
+
+Once the doctor is ready to see the next patient, the patient's number and the corresponding doctor’s
+counter number are shown on the patient sitting area display panel. This allows the patient to know
+where to go next.
+
+වෛද්‍යවරයා ඊළඟ රෝගියා බැලීමට HENS වූ පසු, රෝගියාගේ අංකය සහ SO අනුරැප වෛද්‍යවරයාගේ
+කවුන්ටර අංකය රෝගියා වාඩි වි සිටින ස්ටානයේ ප්‍රදර්ශන පුවරැවේ පෙන්වන ලැබේ. මෙය රෝගියාට
+ඊළඟට යා යුත්තේ කොතැනටදැයි දැන ගැනීමට ඉඩ සලසයි.
+
+U - Examine patient / රෝගියා පරීක්‍ෂාව (2)
+
+This process represents the doctor’s consultation with the patient. The doctor retrieves the patient’s
+details from the PATIENTS data store, examines the patient, and makes updates such as prescriptions
+or scheduling future appointments.
+
+මෙම ක්‍රියාවලිය රෝගියා සමඟ වෛද්‍යවරයාගේ උපදේශනය නියෝජනය කරයි. eeHez00c) PATIENTS
+EDD ගබඩාවෙන්‌ රෝගියාගේ විස්තර ලබා ගනී, රෝගියා පරීක්ෂා කරයි, සහ බෙහෙත්‌ වටිටෝරැ හෝ
+අනාගත හමුවීමි නියමකරණය කිරීම වැනි යාවත්කාලින කිරීමි සිදු කරයි.
+
+V - MEDICINES (3)
+
+The MEDICINES data store holds all prescription information. After the doctor prescribes medication,
+the prescription details are saved here for the pharmacist to access.
+
+MEDICINES දූත්ත ගබඩාව සියලුම බෙහෙත්‌ වටිටෝරැවල තොරතුරැ දරයි. වෛද්‍යවරයා විසින්‌ ඹෟෂධ
+නියම කළ පසු, ඹෟෂධවේදියාට ප්‍රවේශ වීම සඳහා බෙහෙත්‌ වටිටෝරැ විස්තර මෙහි සුරකිනු ලැබේ.
+
+W - Pharmacy / ඔසුහල (5)
+
+This process represents the preparation of medicines by the pharmacy based on the prescription data
+from the MEDICINES data store.
+
+මෙම ක්‍රියාවලිය MEDICINES esi ගබඩාවේ බෙහෙන්‌ වටිටෝරු දූත්ත මත පදුනමිව ඔසුහල මගින්‌
+QeQ සකස්‌ කිරීම නියෝජනය කරයි.
+
+X - Pharmacy display panel / ඔසුහලේ දට්ගන තිරය (0)
+
+Once the pharmacist has prepared the medicines, the patient’s number is displayed on the pharmacy
+display panel to notify the patient that their medicine 15 ready for collection.
+
+ඔෟෂධවේදියා විසින්‌ ඹෟෂධ පිළියෙළ කළ පසු, ඹෟෂධය ලබාදීමට සූදානමි බව රෝගියාට දැනුමි දිම oem)
+ඔසුහලෙහි ප්‍රදර්ශන පුවරුවේ රෝගියාගේ අංකය ප්‍රදර්ශනය කෙටේ.
+
+-5u-
+
+(d) Give one (1) difference between white box testing and black box testing.
+
+ශ්වේත මංපුසා පරීක්ෂාව සහ ME මංපුසා පරික්ෂාව අතර ඇති එක්‌ (1) වෙනස්කමක්‌ ලියන්න.
+
+The differences between the white box testing and the black box testing are as follows.
+ශ්වේත මංපුසා පරීක්ෂාව සහ කාල මංපුසා පරීක්ෂාව අතර වෙනස්කමි පහත OO€ වේ.
+
+white box testing
+
+ශ්වේත මංජුසා පරීක්ෂාව
+
+black box testing
+කාල මංජුසා පරීක්ෂාව
+
+Testing based on internal code structure and
+logic.
+
+අභ්‍යන්තර කේත ව්‍යුහය සහ තර්කනය මත
+පදුනම්ව පරීක්ෂා කිරීම.
+
+Testing without knowledge of the internal
+code structure, focusing on functionality.
+අභ්‍යන්තර කේත ව්‍යුහය පිළිබඳු දැනුමක්‌
+නොමැතිව පරීක්ෂා කිරීම, ක්‍රියාකාරිත්වය
+කෙරෙහි අවධානය යොමු කිරීම.
+
+Tester needs to know the internal workings of
+the application, including code, architecture,
+and logic.
+
+පරීක්ෂකයාට කේතය, ආකෘතිය සහ තර්කය
+ඇතුඑව යෙදුමේ අභ්‍යන්තර ක්‍රියාකාරීත්වය දැන
+ගැනීමට අවග්‍ය වේ.
+
+Tester does not need to know the internal
+code structure, only the input and expected
+output.
+
+පරීක්ෂකවරයාට අභ්‍යන්තර කේත ව්‍යුහය දැන
+ගැනීමට අවශ්‍ය නැත, ආදානය සහ අපේක්ෂිත
+ප්‍රතිදානය පමණක්‌ ප්‍රමාණවත්‌ වේ.
+
+Focuses on code coverage, internal pathways,
+and data flow.
+
+කේතය, අභ්‍යන්තර මාර්ග සහ දුත්ත ප්‍රවාහය
+කෙරෙහි අවධානය යොමු කරයි.
+
+Focuses on testing functionality, user
+interface, and output correctness.
+ක්‍රියාකාරීත්වය, පරිශිලක අතුරැමුහුණත සහ
+ප්‍රතිදාන නිවැරදි බව පරීක්ෂා කිරීම කෙරෙහි
+අවධානය යොමු කරයි.
+
+Finds hidden errors like logic errors,
+conditional errors, and loop flaws.
+
+තාර්කික දෝෂ, කොන්දේසි සහිත දෝෂ සහ
+ලප්‌ දෝෂ වැනි සැඟවුණු දෝෂ සොයා ගනි.
+
+Finds errors in functionality, behavior, and
+usability.
+
+ක්‍රියාකාරීත්වය, හැසිරීමේ සහ උපයෝගිතාවයේ
+GEIS සොයා ගනි.
+
+Usually performed by developers or testers
+with programming knowledge.
+සාමාන්‍යයෙන්‌ ක්‍රමලේඛන දැනුම ඇති
+සංවට්ධකයින්‌ හෝ පරීක්‍්ෂකයින්‌ විසින්‌ සිදු
+කරනු ලැබේ.
+
+Typically performed by testers or users with
+no need for coding skills.
+
+සාමාන්‍යයෙන්‌ කේතිකරණ කුසලතා අවග්‍ය
+නොවන පරීක්ෂකයින්‌ භෝ පරීගිලකයින්‌ විසින්‌
+සිදු කරනු ලැබේ.
+
+Mainly used for unit testing, integration
+testing, or system testing.
+
+ප්‍රධාන වශයෙන්‌ ඒකක පරීක්ෂාව, එකාබද්ධ
+පරීක්ෂාව හෝ පද්ධති පරීක්ෂාව සඳහා භාවිත
+කෙටේ.
+
+Mostly used for acceptance testing.
+බොහෝ විට ප්‍රතිග්‍රහණ පරීක්ෂණ සඳුහා භාවිතා
+වේ.
+
+More complex as it requires knowledge of
+code structure.
+
+කේත ව්‍යුහය SE@E දැනමක්‌ අවග්‍ය වන
+බැවින්‌ වඩාත්‌ සංකීරණ වේ.
+
+Less complex, as it only focuses on inputs
+and outputs.
+
+සංකීරණතාව අඩු වේ, එය ආදාන සහ ප්‍රතිදාන
+මත පමණක්‌ අවධානය යොමු කරයි.
+
+( 2021 S.ESSAY — 4)
+
+2022 SYSTEM ESSAY MARKING
+
+1. (a) Fill the blanks in the following statements by selecting the most suitable items from the given list.
+දි ඇති ලැයිස්තුවෙන්‌ වඩාත්‌ සුදුසු අයිතම තෝරා පහත ප්‍රකාශවල හිස්තැන්‌ පුරවන්න.
+
+A few of your friends who study ICT for A/L at your school decided to improve the school library
+by introducing an online library management system. Assuming they know the requirements, they
+started system development as the first step and completed a system which includes a mobile user
+interface and a database. After completing the system, they met the school principal and the library
+staff for a demonstration and possible deployment of their system. Their completed solution requires
+a computer at each classroom to access the library system.
+
+ඔබේ පාසලේ උසස්‌ ICT පෙළ විෂය හදාරන මිතුරන්‌ කිහිපදෙනෙකු පාසල්‌ පුස්තකාලය වැඩිදියුණු කිරීම
+පිණිස මාර්ගගත පුස්තකාල කළමනාකරණ පද්ධතියක්‌ (Online Library Management System) හඳුන්වාදිමට
+තීරණය කර ඇත. අවග්‍යතා තමන්‌ දුන්නා බව උපකල්පනය කරමින්‌ පළමු පියවර ලෙස පද්ධති සංවර්ධනය
+ආරමිභ කළ ඔවුහු පංගම පරිගිලක අතුරැමුහුණතක්‌ (mobile user interface) සහ edo සමුදායක්‌
+(database) සහිතව තම පද්ධතිය සම්පුර්ණ කළහ. පද්ධතිය සමිපුර්ණ කිරීමෙන්‌ පසුව ඔවුහු ආදර්ශනය සහ
+පද්ධති ස්ථාපනය (system deployment) සඳහා පාසලේ විදුහල්පතිතුමා සහ පුස්තකාල කාටයමණ්ඩඞලය
+හමුවුහ. ඔවුන්‌ සකස්‌ කළ පුස්තකාල පද්ධතියට ප්‍රවේග විම සඳුහා එක්‌ එක්‌ පන්ති කාමරයට පරිගණකයක්‌
+තිබීම අවශ්‍ය වේ.
+
+At the meeting they got to know that the library already has a database to keep the records of books
+and borrowings, and it is functioning well with a simple user interface.
+
+පුස්තකාලය සතුව පොත්‌ සහ බැහැරදිමි වාර්තා තබාගැනීම සඳහා මනාව ක්‍රියාත්මකවන සරල පරිගිලක
+අතුරැමුහුණතක්‌ සහිත දුත්ත සමුදායක්‌ දැනටමත්‌ පවතින බව සාකව්පාවේදි ඔවුහු දැනගත්හ.
+
+List : { preliminary investigation, technical feasibility, economic feasibility, operational Feasibility,
+organizational feasibility, problem definition, system deployment |
+ලැයිස්තුව : { මුලික විමර්ශනය, තාක්ෂණික ගක්‍යතාව, ආර්ටික ශක්‍යතාව, මෙහෙයුමි ශක්‍යතාව, ආයතනික
+ශක්‍යතාව, ගැටලු අර්ටකටනය, පද්ධති ස්ථාපනය }
+
+(i) This team of students could have found out about the existing library system at the beginning if they
+did not Skip the .............-.................෴෴
+සිසුන්‌ කණ්ඩායම ................ ................................. මඟ නොහැරියේ නමි ඔවුන්‌ දැනට පචතින පුස්තකාල
+පද්ධතිය පිළිබඳාව ආරමිභයේදිම දැනුවන්වනවා ඇන.
+
+(11) The school principal refuses to accept this proposed solution due to resource constraints and the
+limited benefits compared to the investment. This indicates the solution developed by students lacks
+සම්පත්‌ සීමාසහිත වීම සහ ආයෝජනයට GOED පරිදි ප්‍රතිලාභ නොමැතිවීම හේතුවෙන්‌ විදුහල්පතිතුමා සිසුන්ගේ
+යෝපිත විසඳුම ප්‍රතික්ෂේප කරයි. මෙයින්‌ පෙන්වන්නේ සිසුන්‌ සංවර්ධනය කරන ලද විසළඳුමේ ..........................
+නොමැති බවයි.
+
+(111) The library staff says that they will accept and use this demonstrated system only if the existing
+database is used as a part of the new solution. This indicates the solution developed by students lacks
+
+දැනට පවතින EM සමුදාය අලුත්‌ විසඳුමේ කොටසක්‌ ලෙස භාවිත කරන්නේ නමි පමණක්‌ ආදර්ශනය කරන
+ලදු පද්ධතිය පිළිගෙන භාවිත කරන බව පුස්තකාල කාර්යමණ්ඩලය දැනුමි දෙයි. මෙයින්‌ පෙන්වන්නේ සිසුන්‌
+සංවර්ධනය කරන ලද විසඳුමේ .......................................... නොමැති බවයි.
+
+(i) Preliminary investigation මුලික විමර්ශනය
+(11) Economic feasibility ආර්ථික ශක්‍යතාව
+(iii) operational feasibility මෙහෙයුමි ගක්‍යතාව
+
+The preliminary investigation is the first phase of the System Development Life Cycle (SDLC).
+මුලික විමර්ශනය පද්ධති සංවර්ධන පිවන Owed (SDLC) පළමු අදියරයි.
+
+Purpose
+
+අරමුණ
+
+e The purpose of the preliminary investigation is to determine the feasibility of the proposed new
+system. It evaluates whether the project is worth pursuing further. / මූලික විමර්ශනයේ අරමුණ වන්නේ
+යෝපිත නව ක්‍රමයේ ගක්‍යතාව තරණය කිරීමයි. ව්‍යාපෘතිය තවදුරටත්‌ කරගෙන යාම වටි දු යන්න එය
+ඇගයීමට ලක්‌ කරයි.
+
+Feasibility Study
+ශක්‍යතා අධ්‍යනය
+
+e As part of the preliminary investigation, a feasibility study is conducted to assess whether the
+proposed system is / මුලික විමර්ශනයේ කොටසක්‌ ලෙස, යෝපිත පද්ධතිය ද, යන්න තක්සේරැ කිරීම
+සඳුහා ශක්‍යතා අධ්‍යයනයක්‌ සිදු කරනු ලැබේ
+
+Data Collection
+eden එකතුව
+
+e The data for the preliminary investigation is gathered through four main methods:
+මුලික විමර්ශනය HEH) COD ප්‍රධාන ක්‍රම හතරක්‌ ඔස්සේ රැස්කරනු ලැබේ
+
+Reviewing organization documents / සංවිධාන ලේඛන සමාලෝචනය කිරිම
+On-site observations / ස්ටානීය නිරීක්ෂණ
+
+Conducting interviews / සමිමුඛ පරීක්ෂණ පැවැත්වීම
+
+Questionaries / ප්‍රශ්නාවලිය
+
+Outcome
+
+ප්‍රතිවලය
+
+e The preliminary investigation results in a decision to proceed further with the project or to abandon it.
+It is a"go" or "no-go" decision point. / මුලික විමර්ශනයේ ප්‍රතිවලය වන්නේ ව්‍යාපෘතිය සමඟ QESGO
+යාමට හෝ එය අත්හැරීමට තීරණය කිරීමයි. එය "go" හෝ "no-go" තීරණ ලක්‍කක්‍්ෂ්‍යයකි.
+
+In summary, the preliminary investigation is a critical first step in the SDLC that evaluates the feasibility
+and viability of the proposed new system before proceeding further with its development.
+සාරාංශයක්‌ ලෙස, මුලික විමර්ශනය SDLC හි තීරණාත්මක පළමු පියවර වන අනර එය යෝපින නව ක්‍රමයේ
+ශක්‍යතාව සහ ශක්‍යෟ්‍යතාව එහි සංවර්ධනය සමඟ ඉදිරියට යාමට පෙර ඇගයීමට ලක්‌ කරයි.
+
+1 The economic feasibility
+epddes ගක්‍යනාවය
+
+The economic feasibility assessment examines the costs and benefits of the proposed system. It
+considers factors such as
+
+ආර්ටික ගක්‍යතා තක්සේරැව මඟින්‌ යෝපිත පද්ධතියේ පිරිවැය සහ ප්‍රතිලාභ පරීක්ෂා කරයි. එය මෙවැනි
+සාධක සලකා බලයි
+
+e Estimated development and implementation costs
+ඇස්තමේන්තුගත සංවට්ධන හා ක්‍රියාත්මක කිරීමේ පිරිවැය
+
+e Ongoing operating and maintenance costs
+දැනට පවතින මෙහෙයුම්‌ සහ නඩත්තු වියදුමි
+
+e Potential cost savings or revenue generation from the new system
+නව පද්ධතියෙන්‌ විභව පිරිවැය ඉතුරැමි හෝ ආදායමි උත්පාදනය
+
+e Return on investment (ROI) and payback period
+ආයෝජන මත ප්‍රතිලාභ (ROI) සහ ආපසු ගෙවිමේ කාලය
+
+e Budgetary constraints and funding availability
+අයවැය සීමාවන්‌ සහ අරමුදුල්‌ ලබා ගැනීමේ හැකියාව
+
+2 The operational feasibility
+මෙහෙයුමි ගක්‍යනාවය
+
+The operational feasibility assessment evaluates whether the proposed system can be effectively
+utilized within the organization's existing processes, resources, and management structure. It
+
+considers factors such as:
+
+මෙහෙයුම්‌ ගක්‍යතා තක්සේරැව මඟින්‌ සංවිධානයේ පවතින ක්‍රියාවලි, සමිපත්‌ සහ කළමනාකරණ ව්‍යුහය
+තුළ යෝපිත පද්ධතිය ඵලදායී ලෙස භාවිතා කළ හැකිද යන්න ඇගයීමට ලක්‌ කරයි. එය මෙවැනි
+සාධක සලකා බලයි
+
+e Alignment with the organization's strategic objectives and operational requirements
+සංවිධානයේ මුලෝපායික අරමුණු සහ මෙහෙයුමි අවශ්‍යතා සමඟ පෙළගැස්විම
+
+e Compatibility with the organization's current technology infrastructure
+සංවිධානයේ වත්මන්‌ තාක්ෂණික යටිතල පහසුකමි සමග ගැළපිම
+
+e Availability of necessary skills, expertise, and user acceptance
+FOS කුසලතා, ප්‍රවීණත්වය සහ පරිගීලක පිළිගැනීම ලබා ගැනීම
+
+(0) The following is a labelled data flow diagram to represent purchasing activities at a furniture shop.
+
+පහත දි ඇති ලේඛල කරන ලද EH EGO සටහන (DFD) ගෘහ භාණ්ඩ සාප්පුචක මිලදි ගැනීමේ
+ක්‍රියාකාරකමි නිරෑපණය කරයි.
+
+Customer Customer
+ගනුදෙනුකරු Order
+
+1.0
+
+Receive and
+accept customer
+order Order details
+
+A
+
+3.0
+O Order 9) Delivery
+details බැ Handle
+Note
+inventory
+2.0 ෂූ Payment | Payment
+Copy of payment Handle details receipt
+receipt payments
+Price details Item
+details
+D2 Sales y
+D Inventory D1
+4.0 details ®
+
+Sales x
+details 7 ව
+
+request
+
+Managerial
+report
+
+(1) Write down the most suitable item for P, Q, R and 5 by selecting from the given list.
+P,Q, R සහ $ සඳුහා වඩාත්‌ සුදුසු අයිතම පහත දි ඇති ලැයිස්තුවෙන්‌ තෝරා ලියන්න.
+
+List : { Generate reports, Inventory, Copy of payment receipt, Customer, Customer details, Item
+details, Manager, Sales person, Sales }
+
+ලැයිස්තුව : { වාර්තා පනනය කිරීම, ඉන්වෙන්ටරිය, ගෙවිමි ලදුපතේ පිටපත, ගනුදෙනුකරැ ගනුදෙනුකරැගේ
+විස්තර, අයිතම විස්තර, කළමනාකරැ, අලෙවිකරැ, අලෙවි කිරීමි }
+
+(17) - Customer ගනුදඳෙනුකරැ
+
+(Q) - Copy of payment receipt ගෙවිමි ලදුපතේ පිටපත
+(R) - Inventory ඉන්වෙන්ටරිය
+
+(S) - Generate Reports da) ජනනය කිරිම
+
+(11) How many processes, external entities and data stores are shown 111 the above diagram?
+ඉහත දි ඇති EMH ගැලීමි සටහනේ කොපමණ බ්‍රියාවලි (processes), බාහිර Hed (external entities) සහ
+දුන්ත ගබඩා (data stores) සංඛනවක්‌ පෙන්නුමි කරයි ද?
+
+No. of Processes ( ක්‍රියාවලි ) : ............ 4,.............
+No. of External entities ( බාහිර emo ) : ............ 2..............
+No. of Data stores (Exe ගබඩා ) : ............ 2..............
+
+(d) (1) Write down one difference between parallel deployment and pilot deployment.
+සමාන්තර ස්ටාපනය (parallel deployment) සහ නියාමක ස්ටාපනය (pilot deployment) අතර ඇති එක්‌
+වෙනස්කමක්‌ ලියන්න.
+
+In parallel deployment, both the existing and the new systems are running simultaneously, for a period of
+time, for entire set of users. In a pilot installation, at first, the system is run only for a select group of users
+සමාන්තරස්ටාපනෙය්දි දැනට පවතින සහ HO යන පද්ධති දෙකම, යමිකාලයකට,සමිපුරණ පරිශීලක එකතුවම
+සඳුහා, එකවර කියාත්මක කෙටේ. නියාමක ස්ටාපනෙය්දි, මුලින්ම,පද්ධතිය තෝරාගත්‌ පරිගිලකයන්‌ පිරිසක්‌
+සඳුහා පමණක්‌ කියාත්මක කෙටේ.
+
+Parallel deployment / සමාන්තර ස්ථාපනය Pilot deployment / නියමු ස්ටාපනය
+Old and the new systems are run alongside
+each other for a period of time Usually only the new system 15 run
+පැරණි සහ නව පද්ධති යමි කාල සාමාන්‍යයෙන්‌ නව පද්ධතිය පමණක්‌ ක්‍රියාත්මක වේ
+
+පරිච්ජේදයක්‌ සඳහා එකිනෙක සමිබන්ධ වේ
+
+Usually run covering the full set of users
+සාමාන්‍යයෙන්‌ සමිපුර්ණ පරිශීලකයන්‌ කට්ටලය
+ආවරණය කරමින්‌ ධාවනය කරන්න
+
+Covers only a limited set of users
+සිමිත පරිගිලකයින්‌ කට්ටලයක්‌ පමණක්‌ ආවරණය කරයි
+
+Cost is high Cost is low
+වියදුම අධිකයි වියදුම අඩුයි
+
+Takes longer to implement the entire system to cover
+Comparatively quicker to implement the entire set of users / සමිපුර්ණ පරිගිලක කටිටලයම
+ක්‍රියාත්මක කිරීමට සාපේක්ෂව වේගවත්‌ ආවරණය වන පරිදි සමිපුර්ණ පද්ධතියම ක්‍රියාත්මක
+
+කිරීමට වැඩි කාලයක්‌ ගතවේ
+
+Duplication of effort to run both systems
+පද්ධති දෙකම ක්‍රියාත්මක කිරීමට උත්සාහයේ
+අනුපිටපත්‌ කිරිම
+
+Lesser duplication of effort
+උත්සාහයේ EH අනුපිටපත්‌
+
+Less risky as, if the new system fails, the
+old system still exist More risky
+
+නව ක්‍රමය අසාඊර්ටක වුවහොත්‌ පැරණි ක්‍රමය | වඩා අවදානමි
+තවමත්‌ පවතින බැවින්‌ අවදානමි අඩුය
+
+(11) Write down one advantage of Commercial-Off-The-Shelf (COTS) software.
+
+OAS පෙර නිමි පැකේජ (Commercial-Off-The-Shelf (COTS)) මෘදුකාංගවල එක්‌ වාසියක්‌ ලියන්න.
+
+Advantages
+වාසි
+
+Disadvantages
+
+අවාසි
+
+Easy
+පහසුව
+
+Higher Long-Term Costs
+වැඩි EQ කාලීන පිරිවැය
+
+Faster Implementation
+වේගවත්‌ ක්‍රියාත්මක කිරීම
+
+Limited Customization
+සීමිත අභිරුච්කරණය
+
+Low cost Long-Term Cost
+අඩු පිරිවැයක්‌ EQ කාලීන පිරිවැය
+Regular Updates Compatibility Issues
+
+නිතිපතා යාවත්කාලින HOG
+
+අනුකූලතා ගැටළු
+
+Ability to modify as needed
+ඇවැසි OOF වෙනස්‌ කිරීමේ හැකියාව
+
+Limited Customization
+සීමිත අභිරුච්කරණය
+
+Less initiation time
+අඩු ආරම්භක කාලය
+
+Functionality Overkill
+ක්‍රියාකාරීත්වය ඉක්මවා යාම
+
+Low maintenance cost
+අඩු නඩත්තු පිරිවැය
+
+Security Concerns
+ආරක්ෂක උත්සුකයන්‌
+
+( 2022 S.ESSAY - 02 )
+
+~
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2023 SYSTEM ESSAY MARKING
+
+1. A team in the school IT society has been requested to develop a software to help students reserve
+computers in the school laboratory. The students are to be given the facility to update their
+information. The administrator should be given facility to add/remove students to/from the system.
+පාසල්‌ විද්‍යාගාරයේ පරිගණක වෙන්‌ කර ගැනීමට සිසුන්ට උදුවිවන මෘදුකාංගයක්‌ සංවර්ධනය කරන ලෙස
+පාසල්‌ IT සංගමයේ කණ්ඩායමකින්‌ ඉල්ලීමක්‌ කර ඇත. එහිදි තම තොරතුරැ යාවන්කාලීන කිරීමේ පහසුකම
+සිසුන්ට ලබාදිය යුතුය. පද්ධතියට සිසුන්‌ ඇතුළත්‌ කිරීමට සහ ඉන්‌ සිසුන්‌ ඉවත්‌ කිරීමට පහසුකම පරිපාලකට දිය යුතුය.
+
+(a) The following is the data flow diagram prepared by the development team for the above system.
+ඉහත පද්ධතිය HEH) සංවර්ධන කණ්ඩායම විසින්‌ සකස්‌ කරන EC EHD ගැලීමි සටහන පහත දැක්වේ.
+
+1.0 |
+
+®
+
+Request Details
+
+Results p1| ©
+
+StudentId
+2.0 |
+
+ල
+
+Stude
+Qt Detaiy
+Ss
+92 @®
+
+Student Details 3.0 | oe
+Ce x ~ | Manage
+Confirmation | Students
+
+A numbered list of replacements for the labels P to W are given below. Write down in the relevant
+box the number of the most suitable replacement for each of the labels given in the DFD.
+
+ලේඛල P - W HED සුදුසු ආදේශක පහත අංක දමන EC ලැයිස්තුවේ දැක්වේ. ඉහත එක්‌ එක්‌ ලේඛලය OCH) වඩාත්‌
+සුදුසු ආදේශකයේ අංකය අදාළ කොටුවේ ලියන්න.
+
+List: { 1 -- Administrator, 2 -_ Handle request, 3 -_ Reservations, 4 -_ Request details, 5 — Student,
+6 — Students, 7 — Student details, 8 - Update student details }
+
+ලැයිස්තු: { 1 -_ පරිපාලක, 2 -- ඉල්ලීම හැසිරවීම, 3 — වෙන්‌ කිරීමි, 4 -- ඉල්ලීමි විස්තර, 5 — සිසුවා, 6 — සිසුන්‌,
+7 - සිසුවාගේ විස්තර, 8 -- සිසු විස්තර යාවත්කාලීන කිරීම }
+
+ආ)-| 5 | (ලා 4 | 1ව-) 2 | G43
+| | (එ)? | | WL
+
+(b) The computers are to be made available for students only for 30-minute slots between 8 am - 5 pm on
+weekends. However a student is allowed to reserve only a maximum of two 30-minute slots per
+weekend.
+සතිඅන්ත දිනවල පෙ.ව. 8 සහ ප.ව. 5 අතර පමණක්‌, මිනිත්තු 30 ක කාලවිජේදවලට සිසුන්ට පරිගණක ලබා
+දෙනු ඇත.එක්‌ සති අන්තයකට,උපරීම මිනිත්තු 30 කාලචිජේද දෙකක්‌ ඵක්‌ සිසුවෙකුට වෙන්‌ කළ හැකිය.
+
+Write down one functional requirement with respect to computer reservations.
+පරිගණක වෙන්‌ කිරීමට අදාළ එක්‌ කාටයබද්ධ අවග්‍යතාවක්‌ (functional requirement) ලියා දුක්වන්න.
+
+First, let’s discuss about the functional and non-functional requirements.
+පළමුව, ක්‍රියාකාරී සහ ක්‍රියාකාරී නොවන අවග්‍යතා SE®CO සාකච්ජා කරමු.
+
+Functional Requirements - කියාබද්ධ අවශ්‍යතා
+
+Functional requirements define what a system is supposed to do.
+ක්‍රියාබද්ධ අවග්‍යතා පද්ධතියක්‌ කළ යුතු දේ HOODS කරයි.
+
+They describe the specific behaviors or functions of a system. These are the features and functions that
+the system must deliver to meet the user's needs.
+
+ඔවුන්‌ පද්ධතියක නිශ්චිත හැසිරීමි හෝ කාර්යයන්‌ විස්තර කරයි. පරිගශිලකයාගේ අවශ්‍යතා සපුරාලීම සඳුහා
+පද්ධතිය සැපයිය යුතු විශේෂාංග සහ කාථටඊයයන්‌ මේවාය.
+
+Examples
+
+e The system shall allow users to create an account.
+පද්ධතිය පරිගීිලකයින්ට ගිණුමක්‌ azFOO ඉඩ දෙයි.
+
+e The system shall enable users to log in with a username and password.
+පද්ධතිය පරිගීලක නාමයක්‌ සහ මුරපදුයක්‌ සමඟින්‌ ලොග්‌ SOO පරිගීලකයින්ට හැකියාව ලබා දෙයි.
+
+Non-Functional Requirements - කියාබද්ධ නොවන අවග්‍යතා
+
+Non-functional requirements describe how the system performs a function, rather than what function
+it performs. They usually address aspects such as performance, security, usability, reliability, etc.
+ක්‍රියාබද්ධ නොවන අවග්‍යතා විස්තර කරන්නේ පද්ධතිය එය OQ කරන කාටර්යයට වඩා කාර්යයක්‌ ඉටු කරන
+ආකාරයයි. ඔවුන්‌ සාමාන්‍යයෙන්‌ කාර්ය සාධනය, ආරක්ෂාව, උපයෝගිතාව, විශ්වසනීයත්වය යනාදිය ආමන්ත්‍රණය
+කරයි.
+
+Examples
+
+e The system shall load the homepage within 3 seconds.
+පද්ධතිය තත්පර 33 ඇතුළත මුල්‌ පිටුව පුරණය කරයි.
+
+e The system shall handle up to 10,000 simultaneous users.
+පද්ධතිය එකවර භාවිතා කරන්නන්‌ 10,0002 දක්වා හැසිරවිය යුතුය.
+
+According to the question, it is asking about functional requirement with respect to computer reservations.
+ප්‍රශ්නයට අනුව, එය පරිගණක වෙන්‌ HOO සමිබන්ධයෙන්‌ ක්‍රියාකාරි අවශ්‍යතා ගැන විමසයි.
+
+So, following are some functional requirements of above computer reservation system.
+එබැවින්‌, ඉහත පරිගණක වෙන්‌ කිරීමේ පද්ධතියේ ක්‍රියාකාරී qOosm කිහිපයක්‌ පහත දැක්වේ.
+
+e The student should be verified when he/ she enters the system
+ශිෂ්‍යයා පද්ධතියට ඇතුළඑ වන විට ඔහු/ඇය සත්‍යාපනය කිරිම
+
+e Students shall be able to reserve the computers from 8 a.m. to 5p.m in the weekends.
+සති අන්තයේ උදෑසන 8 සිට සවස 5 දක්වා මිනිත්තු 30ක කාල පරාසයන්‌ HEM) පරිගණක වෙන්කරවා
+ගැනීමට හැකි විම.
+
+e A student shall be able to reserve 2 time slots of 30 minutes maximum.
+ගිෂ්‍යයෙකුට උපරිම 006038 මිනිත්තු 30ක කාල පරාසයන්‌ 2 ක්‌ වෙන්කරවා ගැනීමට හැකි SO.
+
+e Only ] student shall be able to reserve a computer for a time slot.
+එක්‌ කාල පරාසයක්‌ සඳහා එක්‌ සිසුවෙකුට පමණක්‌ පරිගණකයක්‌ වෙන්‌ කළ හැකි SO
+
+(c) Give one technical aspect that the development team should check when conducting the technical
+feasibility study of this project.
+මෙම ව්‍යාපෘතියේ තාක්ෂණික ශක්‍යතා (technical feasibility) අධ්‍යයනය Be කරන විට, සංවර්ධන කණ්ඩායම
+විසින්‌ පරීක්ෂා කළ යුතු එක්‌ තාක්ෂණික අංගයක්‌ ලියා දක්වන්න.
+
+First, let’s discuss about the different type of feasibility studies available.
+පළමුව, පවතින විවිධ ආකාරයේ ගක්‍යතා අධ්‍යයන ක්‍රම SEDO සාකච්ජා කරමු.
+
+Technical Feasibility - තාක්ෂණික ගක්‍යතාව
+
+Assesses the availability of technology, resources, and expertise to implement the project. It examines
+whether the existing technology, infrastructure, and expertise are sufficient to develop and implement
+the project. This includes evaluating software, hardware, technical skills, and production capabilities.
+ව්‍යාපෘතිය ක්‍රියාත්මක කිරීම සඳහා නාඬණය, සමිපත්‌ සහ ප්‍රවිණත්වය ලබා ගැනීමේ හැකියාව තක්සේරැ කරයි.
+ව්‍යාපෘතිය සංවර්ධනය කිරීමට සහ ක්‍රියාත්මක කිරීමට දැනට පවතින නාක්ෂණය, යටිතල පහසුකමි සහ
+ප්‍රවීණත්වය ප්‍රමාණවත්ද යන්න එය පරීක්ෂා කරයි. මෘදුකාංග, දෘඩාංග, තාක්ෂණික කුසලතා සහ නිෂ්පාදන
+හැකියාවන්‌ ඇගයීම මෙයට ඇතුළත්‌ වේ.
+
+Economic Feasibility - ආට්ටික ශක්‍යතාව
+
+Analyzes the financial viability, including costs, revenues, profitability, and return on investment .
+This study involves cost-benefit analysis, estimating the total cost of the project (including
+development, implementation, and maintenance costs) and comparing it with the expected financial
+benefits or returns.
+
+පිරිවැය, MEGS, ලාභදායිත්වය සහ ආයෝජන මන ප්‍රතිලාභ ඇතුඑව මුල්‍ය ශක්‍යතාව විග්ලේෂණය කරයි. මෙම
+අධ්‍යයනයට පිරිවැය-ප්‍රතිලාභ විග්ලේෂණය, ව්‍යාපෘතියේ සමිපුරණ පිරිවැය (සංවර්ධනය, ක්‍රියාත්මක කිරීම සහ
+නඩත්තු වියදම්‌ ඇතුඑව) ඇස්තමේන්තු කිරීම සහ අපේක්ෂිත මුල්‍ය ප්‍රතිලාභ හෝ ප්‍රතිලාභ සමඟ සැසඳීම
+ඇතුළත්‌ වේ.
+
+Legal Feasibility - නෙතික ශක්‍යතාව
+
+Examines legal and regulatory requirements, permits, licenses, and potential legal risks. This study
+reviews legal constraints, including intellectual property rights, data protection laws, employment
+laws, industry regulations, and any other legal obligations that could affect the project.
+
+නීතිමය සහ නියාමන අවග්‍යතා, බලපත්‍ර, බලපත්‍ර සහ SHO නීතිමය අවදානමි පරීක්ෂා කරයි. මෙම අධ්‍යයනය
+බුද්ධිමය දේපළ අයිතිවාසිකමි, coon ආරක්ෂණ නමති, රැකියා නීති, කටරමාන්ත රෙගුලාසි, සහ ව්‍යාපෘතියට බලපෑ
+හැකි වෙනත්‌ ඕනැම නෛතික බැඳිමි ඇතුඑ නීතිමය සීමාවන්‌ සමාලෝචනය කරයි.
+
+Operational Feasibility - මෙහෙයුමි ශක්‍යතාව
+
+Assesses the project's alignment with organizational goals, available resources, and potential impact
+on existing operations. It looks at how the project will affect daily operations, including changes to
+workflows, processes, and staff responsibilities. It also considers the project’s impact on customers,
+suppliers, and other stakeholders.
+
+ආයතනික ඉලක්ක, පවතින සමිපත්‌ සහ පවතින මෙහෙයුමි කෙරෙහි ඇති විය හැකි බලපෑම සමඟ ව්‍යාපෘතියේ
+පෙළගැස්ම තක්සේරැ කරයි. කාටය ප්‍රවාහ, ක්‍රියාවලි සහ කාරය මණ්ඩල වගකිමි වෙනස්‌ කිරීම ඇතුඑව ව්‍යාපෘතිය
+දෛනික මෙහෙයුම්‌ වලට බලපාන ආකාරය දෙස බලයි. ගනුදෙනුකරැවන්‌, සැපයුමිකරැවන්‌ සහ අනෙකුත්‌
+පාර්ශවකරැවන්‌ කෙරෙහි ව්‍යාපෘතියේ බලපැම ද එය සලකා බලයි.
+
+Schedule Feasibility - උපලේඛන ගක්‍යතාව
+
+To evaluate whether the project can be completed within a specific timeframe. This study examines
+the project timeline, including milestones, deadlines, and the availability of resources needed to meet
+those deadlines. It assesses whether the project’s schedule is realistic and achievable.
+
+නිශ්චිත ME රාමුවක්‌ තුළ ව්‍යාපෘතිය නිම කළ හැකිදු යන්න ඇගයීමට. මෙම අධ්‍යයනය සන්ධිස්ටාන, නියමිත
+කාලසීමාවන්‌ සහ එම කාලසමාවන්‌ සපුරාලිමට අවග්‍ය සමිපත්‌ තිබේද යන්න ඇතුඑව ව්‍යාපෘති කාලරාමුව පරික්ෂා
+කරයි. එය වනණපෘතියේ කාලසටහන BOOOOE සහ සාක්ෂාත්‌ කරගත හැකිද යන්න තක්සේරැ කරයි.
+
+But in this question, they are asking about the technical aspect that the development team should check
+when conducting the technical feasibility study of this project.
+නමුත්‌, මෙම ප්‍රග්නයේදි ඔවුන්‌ අසන්නේ මෙම ව්‍යාපෘතියේ තාක්ෂණික ගක්‍යතා අධ්‍යයනය සිදු කිරීමේදි සංවර්ධන
+කණ්ඩායම විසින්‌ පරීක්ෂා කළ යුතු තාක්ෂණික අංගය පිළිබඳවයි.
+
+e Is it technically able to carry out the project?
+ව්‍යාපෘතිය කිරීමට නාක්ෂණික වගෙයන්‌ හැකියාව පවතීද?
+
+e Can the system be developed using the existing technology?
+පාසෙල්‌ පවතින තාක්ෂණය භාවිතෙයන්‌ පද්ධතිය සංවර්ධනය කළ හැකිද?
+
+e Is it possible to collect more technical resources if needed?
+අවග්‍ය නමි තවත්‌ තාක්ෂණික සමිපත්‌ එකතු කිරීමට හැකිද?
+
+ ]15 available technology the right choice to help complete the project in the allocated time and amount?
+Or else is there an alternate choice?
+ව්‍යාපෘතිය සඳහා වෙන්‌ කර ඇති මුදල සහ වෙන්‌ කර ඇති ME පරාසය තුළ කණ්ඩායමට ව්‍යාපෘතිය
+සම්පුර්ණයෙන්‌ නිම කිරීමට උපකාර කිරීමට පවතින තාක්ෂණය නිවැරදි තේරීමද? නැතෙහොත්‌ වෙනන්‌
+වඩා හොඳුම තේරීමක්‌ තිබේද යන්න.
+
+e Does the school need specific technology? Or whatever the technology, is the school open to developing
+the system?
+පාසලට විශේෂ වු නිශ්චිත තාක්ෂණයක්‌ අවශ්‍ය වේද? නැතහොත්‌ තාක්ෂණය කුමක්‌ වුවත්‌ පද්ධතිය
+සංවට්ධනය කිරීමට පාසල විවෘතද?
+
+e Can open source software be used?
+විවෘත මුලාශ්‍ර මෘදුකාංග භාවිතා කළ හැකිද?
+
+100 you have technical resources (software/hardware)?
+තාක්ෂණික සමිපත්‌ (මෘදුකාංග/දෘඞාංග) තිබේද?
+
+e Are technical resources sufficient?
+තාක්ෂණික සමිපත්‌ ප්‍රමාණවත්ද?
+
+e Whether the technical team is capable of building a functional system?
+තාක්ෂණික කණ්ඩායමට ක්‍රියාකාරී පද්ධතියක්‌ සැෑදිමට හැකියාව Hee යන්න
+
+e Whether the system should be compatible with other existing systems in school?
+එම පද්ධතිය පාසෙල්‌ දැනට පවතින අනෙකුත්‌ පද්ධති සමඟ අනුකූල විය ane යන්න
+
+(d) The waterfall model is suggested for the above development. Why is a proper requirement analysis
+critical in this project to ensure its timely completion?
+ඉහත BOHHHG HEH) දියඇලි ආකෘතිය (waterfall model) යෝපිත ය. මෙම ව්‍යාපෘතිය නියමිත දිනට නිම
+කිරීම සඳහා, නිරවද්‍ය අවග්‍යතා විග්ලේෂණයක්‌ ඉනා වැදගත්‌ වන්නේ ඇයි?
+
+The Waterfall model is a classic project management methodology where project phases are completed
+sequentially, with each phase depending on the deliverables of the previous one. This linear flow resembles
+a waterfall.
+
+දියඇලි ආකෘතිය යනු සමිභාව්‍ය ව්‍යාපෘති කළමනාකරණ ක්‍රමවේදයක්‌ වන අතර එහිදි ව්‍යාපෘති අදියරයන්‌
+අනුක්‍රමිකව සමිපුර්ණ කරනු ලැබේ, එක්‌ එක්‌ අදියර පෙර පැවති බෙදාහැරීමි මත රඳා පවතී. මෙම රේඛිය
+ගලායාම දිය ඇල්ලකට සමානයි.
+
+In the waterfall model, each stage must be completed before the next phase can begin.Accordingly, if the
+requirement analysis is not carried out properly at that time, it 1s possible to develop a system that will be
+rejected by the customers. Correcting that mistake is very expensive and will take time.
+
+දියඇලි ආකෘතියේ, ඊළඟ අදියර ආරමිභ කිරීමට පෙර සෑම අදියරක්ම සමිපුර්ණ DE යුනුය.මේ අනුව අවශ්‍යතා
+විග්ලේෂණය එම අදියෙරිදි නිසි ලෙස සිදු නොකළෙහොත්‌ පාරිභෝගිකයින්‌ විසින්‌ ප්‍රතික්ෂේප කරනු ලබන
+පද්ධතියක්‌ සංවර්ධනය කිරීමට ඉඩ ඇත. එම වරද නිවැරදි කිරීම ඉනා මිල අධික වන අතර කාලයද ගනවනු
+ඇත.
+
+(e) Three students are to develop the reservation, update student details and manage students modules
+separately. The IT teacher had taught different types of software testing. What is meant by “integration
+
+testing” in this system?
+
+වෙන්‌ කිරීමේ මොඩියුලය, සිසු විස්තර යාවත්කාලීන කිරීමේ මොඩියුලය සහ සිසුන්‌ කළමනාකරණ මොඩියුලය
+සිසුන්‌ තිදෙනෙකු විසින්‌ වෙන වෙනම සංවට්ධනය කෙරේ. IT ගුරැතුමිය විසින්‌ විවිධ මෘදුකාංග පරීක්ෂා කිරීමි
+OOO උගන්වා ඇත. මෙම පද්ධතියේ අනුකලන පරික්ෂාව (integration testing) යන්නෙන්‌ කුමක්‌ අදහස්‌ වේ ද?
+
+Software Testing - මෘදුකාංග පරීක්ෂාව
+
+Software testing is a critical process to ensure that a software application functions as expected, meets user
+requirements, and is free from defects. It involves executing a program with the intent of finding errors.
+
+මෘදුකාංග පරීක්ෂණය යනු මෘදුකාංග යෙදුමක්‌ අපේක්ෂිත SOF ක්‍රියා කිරීම, පරිගීලක අවශ්‍යතා සපුරාලීම සහ
+දෝෂ වලින්‌ තොර බව සහතික කිරීම සඳුහා තීරණාත්මක ක්‍රියාවලියකි. දෝෂ සෙවීමේ අරමුණින්‌ වැඩසටහනක්‌
+
+ක්‍රියාත්මක කිරීම එයට ඇතුළත්‌ වේ.
+
+Types of Software Testing
+මෘදුකාංග O60
+
+1. Based on the software development lifecycle
+මෘදුකාංග සංවර්ධන පිවන OMe මත පදුනමිව
+
+e Unit Testing - daa පරීක්ෂා කිරීම
+
+Testing individual components or units of code.
+තනි සංරචක හෝ කේත එකක පරීක්ෂා කිරීම.
+
+e Integration Testing - ඒකාබද්ධතා පරීක්ෂාව
+
+Testing how different components interact with each other.
+විවිධ සංරචක එකිනෙකා සමඟ අන්තර්‌ ක්‍රියා කරන ආකාරය පරීක්ෂා කිරීම.
+
+e System Testing - පද්ධති පරීක්ෂාව
+Testing the entire system as a complete product.
+සම්පුර්ණ නිෂ්පාදනයක්‌ ලෙස සමස්ත පද්ධතියම පරීක්ෂා කිරීම.
+
+e Acceptance Testing - පිළිගැනීමේ පරීක්ෂණය
+Verifying if the software meets the user's requirements.
+මෘදුකාංගය පරිගිලක අවග්‍යතා සපුරාලන්නේ දැයි පරික්ෂා කිරීම.
+
+2. Based on the testing technique
+තාක්ෂණය මත පදුනමිව
+
+e Black-box Testing -- කාල මංපුසා පරීක්ෂාව
+
+Testing the software without knowing its internal structure.
+එහි අභ්‍යන්තර ව්‍යුහය නොදැන මෘදුකාංගය පරීක්ෂා කිරීම.
+
+e White-box Testing — ග්වේෙත මංපුසා පරික්ෂාව
+Testing the software with knowledge of its internal structure.
+මෘදුකාංගය එහි අභ්‍යන්තර ව්‍යූහය පිළිබඳ දැනුමෙන්‌ පරික්ෂා කිරීම.
+
+After performing the unit test of the three modules, the modules were integrated into a single intergrated
+
+unit. Testing this intergrated units as a unified unit is carried out 11] the integration test.
+
+මොඞියුල තුනෙහි ඒකක පරීක්ෂාව සිදු කිරීමෙන්‌ පසුව, මොඩියුල තනි පද්ධතියකට ඒකාබද්ධ කළ යුතුය. මෙම
+
+තනි පද්ධතිය ඒකාබද්ධ ඒකකයක්‌ ලෙස පරීක්ෂා කිරීම අනුකලන පරික්ෂාව තුලදි Be කෙටේ.
+
+(f) The IT teacher suggests the team doing a direct deployment of this software. Give one reason as to why
+the teacher did not suggest a parallel deployment.
+IT ගුරැතුමිය මෙම මෘදුකාංගය සෘපු ස්ටාපනය (direct deployment) කිරීමට කණ්ඩායමට යෝජනා කරයි. ඇය
+සමාන්තර ස්ථාපනය (parallel deployment) යෝජනා නොකිරීමට එක්‌ හේතුවක්‌ දක්වන්න.
+
+First let’s discuss about the four types of system deployment methods.
+ප්‍රටමයෙන්ම පද්ධති ස්ටාපනය ක්‍රම හතර ගැන Hodes) කරමු.
+
+Parallel Deployment - සමාන්තර ස්ථාපනය
+
+Both the old and new systems run simultaneously for a period. Users can work with both
+systems until the new one is confirmed to be working correctly. It safe, as the old system remains
+available if issues arise with the new system.
+
+පැරණි සහ නව පද්ධති දෙකම කාල පරිච්ජේදයක්‌ සඳහා එකවර ක්‍රියාත්මක වේ. නව එක නිවැරදිව
+ක්‍රියා කරන බව තහවුරැ වන තුරැ පරිශිලකයින්ට පද්ධති දෙකම සමඟ වැඩ කළ හැක. නව පද්ධතිය
+සමඟ ගැටළු ඇති වුවහොත්‌ පැරණි ක්‍රමය පවතින බැවින්‌ එය ආරක්ෂිතයි.
+
+Phased Deployment - අදියරමය ස්ටාපනය
+
+The new system is implemented in stages or phases. Each phase may introduce a part of the new
+system or roll it out to a portion of users. Allows for gradual transition and easier troubleshooting.
+නව ක්‍රමය ක්‍රියාත්මක වන්නේ අදියර හෝ GEGO වගයෙන්‌ ය. සැම අදියරකදිම නව පද්ධතියේ කොටසක්‌
+හඳුන්වා දිමට හෝ පරිගිලකයින්‌ කොටසකට එය පෙරළීමට හැකිය. ක්‍රමයෙන්‌ සංක්‍රමණය විමට සහ දෝග
+නිරාකරණයට පහසු විමට ඉඞ සලසයි.
+
+Pilot Deployment - ස්ටාපනය
+
+The new system is first deployed to a small group of users (a pilot group) to evaluate its
+performance. Based on the results, the system is then deployed to the rest of the users. Allows
+testing and feedback before a full rollout, reducing risks.
+
+නව පද්ධතිය මුලින්ම එහි කාර්ය සාධනය ඇගයිම HCH) කුඩා පරිගිලකයින්‌ කණ්ඩායමක්‌ (නියමු
+කණ්ඩායමක්‌) වෙන යොදවනු ලැබේ. ප්‍රතිඵල මත SEHGO, පද්ධතිය පසුව ඉතිරි පරිගිලකයින්‌ වෙත
+යොදවනු ලැබේ. අවදානම අඩු කරමින්‌,සමිපුර්ණ පෙරළියකට පෙර පරීක්ෂණ සහ ප්‍රතිපෝෂණයට ඉඩ දෙයි.
+
+Direct Deployment - නියමු ස්ටාපනය
+
+The old system is completely replaced by the new system in one go. All users transition to the new
+system at the same time. Quick transition with no need to maintain both systems simultaneously.
+පැරැණි ක්‍රමය සමිපුර්ණයෙන්ම HO ක්‍රමයට එක පාරට ආදේශ වේ. සියලුම පරිගිලකයින්‌ එකම අවස්ටාවේදිම
+නව පද්ධතියට සංක්‍රමණය වේ. පද්ධති දෙකම එකවර නඩත්තු කිරීමට අවග්‍ය නොවන ඉක්මන්‌ සංක්‍රාන්තිය.
+
+In this question, the most suitable deployment method for the above software is direct deployment.
+Below are the reasons why parallel deployment being not suitable here.
+
+මෙම ප්‍රශ්නයේදී, ඉහත මෘදුකාංගය සඳුහා වඩාත්‌ සුදුසු යෙදවුමි ක්‍රමය වන්නේ wag යෙදවිමයි. සමාන්තර
+SOMES මෙහි නොගැලපෙන හේතු පහත දැක්වේ.
+
+More resources are needed.
+ඒ සඳුහා තවත්‌ සමිපත්‌ අවග්‍ය වේ.
+
+Two systems take longer to maintain.
+පද්ධති දෙකක්‌ නඩත්තු කිරීමට වැඩි කාලයක්‌ ගතවේ.
+
+Maintaining two systems is more expensive.
+පද්ධති දෙකක්‌ නඩත්තු කිරීම වඩා SE අධිකය.
+
+Effort must be made to keep the two systems consistent.
+පද්ධති දෙක අනුකූලව (consistent) DA) ගැනීමට පරිශ්‍රමයක්‌ දැරිය යුතුය.
+
+It can cause confusion and frustration.
+එය ව්‍යාකූලත්වය හා කලකිරීම ඇති කළ හැකිය.
+
+Since it is only for the use of the passel, any error is relatively easy to be resolved. Therefore, parallel
+installation is not necessary.
+
+එය පාසෙල්‌ භාවිතය සඳුහාම පමණක්‌ වන බැවින්‌, ඕනැම දෝෂයක්‌ සාපේක්ෂව පහසුවෙන්‌ Sac) ගත
+හැක. එමනිසා සමාන්තර ස්ථාපනය අවග්‍ය නැත.
+
+This is not a high-risk system that requires parallel installation.
+මෙය සමාන්තර ස්ථාපනයක්‌ අවග්‍ය වන අධි අවදානමි පද්ධතියක්‌ නොවේ.
+
+(g) One member of the IT society wants a COTS (Commercial-Off-The-Shelf) software to be considered
+for this system instead of developing it. Give one reason as to why the team should reject it.
+මෙම පද්ධතිය සංවර්ධනය නොකර, ඒ වෙනුවට OPIS පෙර නිමි පැකේපයක (COTS) භාවිතය සලකා බැලීමට
+IT සංගමයේ එක්‌ සාමාපිකයෙක්‌ යෝජනා කරයි. එම යෝජනාව සංවඊර්ධන කණ්ඩායම විසින්‌ පිළිනොගැනීමට එක්‌
+හේතුවක්‌ ලියා දක්වන්න.
+
+COTS stands for Commercial Off-The-Shelf software. These are pre-packaged software applications
+designed for a broad market rather than a specific customer. Think of them as ready-made products, similar
+to buying clothes off the rack instead of getting a custom-tailored suit.
+
+COTS යනු OBS පෙරනිමි මෘදුකාංගයයි. මේවා නිශ්චිත පාරිභෝගිකයෙකුට වඩා GOOG වෙළඳුපොළක්‌ HEH)
+නිර්මාණය කර ඇති පුර්ව ඇසුරැමි කළ මෘදුකාංග යෙදුමි වේ. අභිරැචියට ගැලපෙන ඇඳුමක්‌ ලබා ගැනීම
+වෙනුවට රාක්කයෙන්‌ ඇඳුමි මිලදි ගැනීමට සමාන SO) සදානමි කළ නිෂ්පාදන ලෙස සිතන්න.
+
+COTS software offers a practical and cost-effective solution for many businesses. However, it's essential
+to carefully evaluate your specific needs before making a decision.
+
+COTS මෘදුකාංගය බොහෝ ව්‍යාපාර සඳුහා ප්‍රායෝගික සහ ලාභදායී විසඳුමක්‌ ලබා දෙයි. කෙසේ වෙනත්‌,
+තීරණයක්‌ ගැනීමට පෙර ඔබේ නිශ්චිත අවග්‍යතා ප්‍රවේගමෙන්‌ ඇගයීම අත්‍යවග්‍ය වේ.
+
+In this question, there are several reasons for rejecting the usage of COTS software to develop the
+project instead of creating own software.
+
+මෙම ප්‍රශ්නයේදි, අභිරැචි මෘදුකාංග නිර්මාණය කිරීම වෙනුවට OMeaHa සංවර්ධනය කිරීම සඳහා COTS
+මෘදුකාංගය භාවිතා HOO ප්‍රතික්ෂේප කිරීමට හේතු කිහිපයක්‌ තිබේ.
+
+e It may not be in line with school requirements.
+එය පාසල්‌ අවශ්‍යතාවලට නොගැලෙපනවා විය හැකියි
+
+e Customization limits
+අභිරැචිකරණ සමා
+
+e Dependence on the seller
+විකුණුම්කරු මත යැපීම
+
+e Integration challenges
+ඒකාඛද්ධතා කිරීමේ අභියෝග
+
+e May incur higher costs
+වැඩි වියදුමක්‌ දැරීමට Be විය හැක
+
+e Requires significant training
+සැලකිය යුතු පුහුණුවක්‌ GFOased
+
+e Students miss a learning opportunity
+සිසුන්ට ඉගෙනීමේ අවස්ටාවක්‌ අහිමිවේ
+
+e May not have Sinhala, Tamil language support
+සිංහල, දෙමළ භාෂා සහාය නොතිබිය හැකිය
+
+e There may be licensing expenses
+බලපත්‍රදායක වියදුමි තිබිය හැක
+
+e May become more expensive over time
+කාලයත්‌ සමඟ වඩා මිල අධික විය හැක
+
+e Modifications can be difficult
+වෙනස්‌ කිරීමි අසරැ Sa හැක
+
+e The school may not have control
+පාසලට පාලනයක්‌ නොමැති විය හැක
+
+e Seller will not receive support after some time has passed
+යම්‌ කාලයක්‌ ගතවු පසු විකුණුමිකරු සහාය නොලැබෙනු ඇත
+
+e Upgrades may cost extra
+උත්ග්‍රේණි කිරීම (upgrade) සඳහා අමතර මුදුලක්‌ වැය විය හැකිය
+
+11 may not have the required specific elements for the school
+එහි පාසලට අවග්‍ය නිග්චිත අංග නොතිබිය හැකිය
+
+e May not be compatible with school work processes
+පාසල්‌ වැඩ ක්‍රියාවලින්ට නොගැලපිය හැකිය
+
+( 2023 S.ESSAY - 04 )
+
+2024 SYSTEM ESSAY MARKING
+
+1.(a) List in proper order, the three stages of the System Development Life Cycle (SDLC) covered by the
+Structured System Analysis and Design Methodology (SSADM).
+ව්‍යුහගත පද්ධති විශ්ලේෂණ සහ නිට්මාණ ක්‍රමවේදය (SSADM) මගින්‌ ආවරණය වන පද්ධති සංවර්ධන
+පීවන චක්‍රයේ (SDLC හි) අදියර තුන ඒවායේ නිසි පිළිවෙළට ලියා දක්වන්න.
+
+1. Feasibility Study (ශක්‍යතා අධ්‍යයනය )
+
+e Evaluates if the project is practical and worth pursuing.
+ව්‍යාපෘතිය ප්‍රායෝගිකද සහ ඉදිරියට ගෙන යාමට වටිනවාද යන්න ඇගයීමට ලක්‌ කරයි.
+
+e Assesses economic, technical, and legal feasibility.
+ආර්ටික, තාක්ෂණික සහ නීතිමය ගක්‍යතාව තක්සේරැ කරයි.
+
+2. System Analysis(egéOS විශ්ලේෂණය )
+
+e Involves gathering and analyzing the detailed needs of the users.
+පරිගිලකයින්ගේ සවිස්තරාත්මක අවග්‍යතා එක්රැස්‌ කිරීම සහ විශ්ලේෂණය HOO ඇතුළත්‌ වේ.
+
+e Produces a logical model of the system/ පද්ධතියේ තාරකික ආකෘතියක්‌ නිපදවයි.
+
+3. System Design (පද්ධති නිටරමාණය )
+
+e Converts the logical specification into a physical system design.
+තාර්කික පිරිවිතර භෞතික පද්ධති නිර්මාණයක්‌ බවට පරිවර්තනය කරයි.
+
+e Includes database design, user interfaces, process flows, etc./esin සමුදා නිරමාණය, පරිශිලක
+අතුරැමුහුණත්‌, ක්‍රියාවලි ප්‍රවාහ ආදිය ඇතුළත්‌ වේ.
+
+(0) Write down one benefit of prototyping.
+මුලාකෘතිකරණයේ (prototyping) එක්‌ වාසියක්‌ ලියා දක්වන්න.
+
+e Helps getting feedback and approval from clients.
+සේවාදායකයින්ගෙන්‌ ප්‍රතිපෝෂණ සහ අනුමැතිය ED) ගැනීමට උපකාරී වේ.
+
+e Provides early visualization for clients.
+සේවාදායකයින්‌ සඳුහා මුල්‌ දෘශ්‍යකරණය සපයයි.
+
+e Helps in properly designing the system / Helps in finding missing functionality / Helps in refining
+requirements / Helps the developers understand the user requirements better.
+පද්ධතිය නිසි ලෙස සැලසුමි කිරීමට උපකාරී වේ / නැතිවු ක්‍රියාකාරීත්වය සොයා ගැනීමට උපකාරී වේ /
+අවශ්‍යතා පිරිපහදු කිරීමට උපකාරි වේ / සංවට්ධකයින්ට පරිශීලක අවග්‍යතා වඩා හොඳින්‌ තේරැමි
+ගැනීමට උපකාරී වේ.
+
+e Helps in early discovery of design problems / errors.
+නිර්මාණ ගැටළු /දෝෂ කලින්‌ සොයා ගැනීමට උපකාරී වේ.
+
+e Helps in cost / resource estimation.
+පිරිවැය / සමිපත්‌ ඇස්තමේන්තු කිරීමට උපකාරී වේ.
+
+e Ensures greater level of client satisfaction.
+ඉහළ මටිටමේ සේවාදායක තෘප්තියක්‌ සහතික කරයි.
+
+e Makes users actively involved in the development process.
+සංවට්ධන ක්‍රියාවලියට පරිගීලකයින්‌ ක්‍රියාකාරීව සමිබන්ධ කරවයි.
+
+e Helps developers and users both understand the system better.
+සංවට්ධකයින්ට සහ පරිගිලකයින්ට පද්ධතිය වඩා හොඳින්‌ තේරැමි ගැනීමට උපකාරී වේ.
+
+e Bridges the communication gap between developers and users.
+සංවට්ධකයින්‌ සහ පරිගිලකයින්‌ අතර සන්නිවේදන පරතරය පියවයි.
+
+e Could be reused by the developer for other similar projects.
+වෙනත්‌ සමාන වආනාපෘති GEM) සංවට්ධකයාට නැවත භාවිතා කළ හැකිය.
+
+e Reduces risks of project failure.
+ව්‍යාපෘති අසාර්ටක විමේ අවදානම අඞු කරයි.
+
+(c) (1) A guest billing system for a hotel is required. The following information 16 given by the hotel client
+to the system analyst.
+අමුත්තන්ගේ බිල්‌ පිළියළ කරන පද්ධතියක්‌ හෝටලයක අවග්‍ය ය. හෝටල්‌ සේවාපේක්ෂකයාගෙන්‌ පහත
+තොරතුරැ පද්ධති විශේලේෂකට ලැබේ.
+
+The hotel has different types of rooms with different rates. Hotel also has a restaurant and a health
+center. A guest can take one or more rooms. Once a guest checks-in to the hotel all his transactions
+at the restaurant and the health center should be entered to the system. When the guest checks-out
+by giving his name, his final bill should be made considering his period of stay, rooms occupied and
+his transactions at the restaurant and the health center. When the guest is given the final bill, he
+makes the payment for which a receipt is given.
+
+*හෝටලයේ විවිධ මිලවලට විවිධ මාදිලියේ MOO ඇත. හෝටලයට අවන්හලක්‌ සහ HOM) මධ්‍යස්ටානයක්‌ ද
+ඇත. අමුත්තෙකුට කාමර එකක්‌ හෝ ඊට වැඩි ගණනක්‌ හෝ ලබාගත හැක. අමුත්තා හෝටලයට පැමිණීම
+සටහන්‌ කළායින්‌ පසු අවන්හල සහ සුවතා මධ්‍යස්ටානය සමග ඔහුගේ සියලු ගනුදෙනු පද්ධතියට ඇතුළත්‌
+කළ යුතු ය. අමුත්තා හෝටලයෙන්‌ නික්ම යෑමට (check-out) ඔහුගේ නම දුන්‌ විට, ඔහු හෝටලයේ රැඳි සිටි
+කාල සීමාව, කාමර හා ඔහුගේ අවන්හලේ සහ සුවතා මධ්‍යස්ටානයේ ගනුදෙනු දු සලකා ඔහුගේ අවසාන බිල
+පිළියෙළ කළ යුතු ය. අමුත්තාට අවසාන බිල්‌ දුන්‌ විට, ඔහු ඊට ගෙවිම සිදු කර SHO පතක්‌ ලබාගනියි.”
+
+Draw the data flow diagram for the check-out process in the above description containing only the
+following entity and processes and including the necessary data stores and data flows.
+
+පහත භූතාටඊටය (entity) සහ ක්‍රියාවලි (process) පමණක්‌ සහ අවශ්‍ය esi ගබඩා (data stores) සහ දත්ත
+ගැලීමි ඇතුළන්‌ කර ඉහත විස්තරයේ නික්ම යෑමේ කියාවලියට (check-out) අදාළ දුත්තගැලීමි සටහන (DFD)
+
+අඳින්න.
+Health center Restaurant
+D1 Guests D2 | Room rates D3 D4 ।
+transactions transactions
+Guest Stay details Rates Health center costs Restaurant costs
+
+YY
+
+] 3
+
+Prepare cost of . . . . Accept quest
+P Room cost ———>|_ Make final bill [__ Final bill —> pr
+rooms payment
+
+oN Final bill va
+
+Payment
+Guest name
+
+Receipt
+
+Entity /Qmd0e : Guest / අමුත්තා
+Process // ක්‍රියාවලි : 1. Prepare cost of rooms / කාමර සඳුහා වියදුම සාදුන්න
+
+: 2. Make final bill / අවසාන BE සාදන්න
+
+: 3. Accept guest payment / අමුත්තාගේ ගෙවීම පිළිගන්න
+
+(11) When making the final bill, a 10% service charge is added to the total amount that the guest has to
+pay. Write down the process description for '2. Make final bill’.
+අවසාන බිල සාදන විට අමුත්නා ගෙවිය යුතු මුළු මුදලට 10% ක සේවා බද්දක්‌ එකතු කෙරේ. ‘2. අවසාන
+QE සාදුන්න' සදහා ක්‍රියාවලි විස්තරය (process description) ලියා දක්වන්න.
+
+Total cost = room cost of guest
+
+DO WHILE there are restaurant transactions by guests
+Total cost = Total cost + restaurant cost
+END WHILE
+
+DO WHILE there are health center transactions by guests
+Total cost = Total cost + health center cost
+END WHILE
+
+Total cost = Total cost + (Total cost * 9.1)
+
+(d) Fill in the blank of the following statement:
+පහත වගන්තියේ හිස්තැන පුරවන්න.
+
+A good user interface makes it easy for a user to understand and use a system.
+“SME, පරිශිලක අතුරැ මුහුණතක්‌, පරිගිලකයකුට පද්ධතියක්‌ තේරැමි ගැනීම සහ භාවිතය පහසු කරයි.”
+
+A user interface (UI) ) 16 the part of a system that users see and use to control the system like buttons, menus,
+or touch screens. A good UI helps users understand how the system works (it's clear and easy to use). It
+also helps them interact with the system.
+
+පරිගිලක අතුරැමුහුණතක්‌ (Ul) යනු පරිශීලකයින්‌ බොත්තමි, මෙනු හෝ Bodo තිර වැනි පද්ධතිය පාලනය
+කිරීමට දකින සහ භාවිතා කරන පද්ධතියක කොටසකි. හොඳු Ul එකක්‌ මඟින්‌ පද්ධතිය ක්‍රියා කරන ආකාරය
+තේරැමි ගැනීමට පරිගීලකයින්ට උපකාරි වේ (එය පැහැදිලි සහ භාවිතා කිරීමට පහසුය). එය ඔවුන්ට පද්ධතිය
+සමඟ අන්තර්‌ ක්‍රියා කිරීමටදු උපකාරී වේ.
+
+(6) Fill in the blank of the following statement:
+පහත වගන්තියේ හිස්තැන පුරවන්න.
+
+Pilot deployment is a/an small / low scale implementation that is used to prove the validity of a project idea.
+“නියමු ස්ටාපනයක්‌ යනු ONDA අදහසක වලංගුනාවය ඔප්පු කරන කුඩා පරිමාණයේ ක්‍රියාවට Hos.”
+
+Pilot deployment is a small-scale trial run of a system or software before it 15 fully launched or
+implemented across the entire organization or user base.
+
+නියමු ස්ටාපනය යනු පද්ධතියක්‌ හෝ මෘදුකාංගයක්‌ සමිපුර්ණයෙන්‌ දියන්‌ කිරීමට හෝ සම්පුර්ණ සංවිධානය
+හෝ පරිගිලක පදුනම හරහා ක්‍රියාත්මක කිරීමට පෙර කුඩා පරිමාණයේ අත්හදා බැලීමි ධාවනයකි.
+
+(f) A shop manager needs a stock control system. There are three options. He can either select and buy
+one from two off-the-shelf stock control systems (named A and B) or he can develop his own stock
+control system (named C).
+සාප්පු කළමනාකරැවකුට තොග පාලන පද්ධතියක්‌ (stock control system) අවශ්‍යය. ඒ සඳුහා විකල්ප තුනක්‌
+ඇත. එනමි, ඔහුට A සහ B ලෙස නමි කළ තොග පාලන පද්ධති පෙර නිමි පැකේප දෙකෙන්‌ එකක්‌ තෝරා
+මිළයට ගත හැකි ය. එසේ නැති නමි, ඔහුට තමන්ගේම තොග පාලන පද්ධතියක්‌ (ට ලෙස නමි කළ)
+සංවර්ධනය කර ගත හැකි ය.
+
+The manager wants final stock control system to contain two important features (named FI and F2).
+කළමනාකරැට අවසාන පද්ධතිය වැදගත්‌ විශේෂාංග දෙකකින්‌ (Fl සහ F2 ලෙස නමි කළ) සමන්විත විම
+අවග්‍ය වේ.
+
+Suggest a method that the manager can use to choose one from A, B and C. (Hint: Give marks to
+each option.)
+
+A,B සහ C අතුරෙන්‌ එකක්‌ තෝරා ගැනීමට කළමනාකරැට MSD කළ හැකි ක්‍රමයක්‌ යෝජනා කරන්න.
+(9a : එක්‌ එක්‌ විකල්පයට ලකුණු දෙන්න.)
+
+A method that the manager can use:
+කළමනාකරැට භාවිතා කළ හැකි ක්‍රමයක්‌;
+
+e Assign weights to each feature (Fl and F2) based on their importance. Also assign weights to the
+acquiring and usage costs.
+එක්‌ එක්‌ විශේෂාංගයට (F1 and F2) ඒවායේ වැදගත්කම මත CEHGO බර පවරන්න. අත්පත්‌ කර ගැනීමේ
+සහ භාවිත පිරිවැයට ද බර පවරන්න.
+
+e For each option (A, B, and C), evaluate how well it meets each feature and assign marks. Assign marks
+to the costs of the systems too (lower the cost, the higher the assigned mark).
+එක්‌ එක්‌ විකල්පය සඳුහා (A,B, and 0) එය එක්‌ එක්‌ විශේෂාංගයට කෙතරමි හොඳින්‌ අනුකූලදු යන්න
+ඇගයීමට ලක්‌ කර ලකුණු පවරන්න. පද්ධතිවල පිරිවැයට දු ලකුණු පවරන්න (පිරිවැය අඩු වන තරමට,
+පවරා ඇති ලකුණ වැඩි වේ).
+
+e Multiply the marks by the weights for each criterion and sum them up to get the total score for each
+option.
+එක්‌ එක්‌ නිරණායකය Hem) ලකුණු බරින්‌ ගුණ කර ඒවා සාරාංශ කර එක්‌ එක්‌ විකල්පය oem) QO
+ලකුණු ලබා ගන්න.
+
+e The option with the highest total weighted score is the most suitable choice.
+වැඩිම QO බරිත ලකුණු සහිත විකල්පය වඩාත්‌ සුදුසු තේරීම වේ.
+
+( 2024 S.ESSAY - 04 )

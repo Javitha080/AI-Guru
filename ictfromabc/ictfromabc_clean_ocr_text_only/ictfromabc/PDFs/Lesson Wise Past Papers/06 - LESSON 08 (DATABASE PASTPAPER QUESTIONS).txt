@@ -1,0 +1,3304 @@
+1. Which of the following database types is widely used in computer applications?
+පරිගණක ඉලයෙදුම්‌ සඳහා බහුලව භාවිත වන දත්ත සමුදා (Database) වර්ගය වනුයේ
+
+1) පැතලිගොනු (Flat file) 2) ධූරාවලි (Hierarchical) 3) ජාල (Network)
+4) සම්බන්ධක (Relational) 5) වස්තු නැඹුරැ (Object oriented)
+
+(2011-07)
+
+2. Consider the following statements about computerized databases:
+පරිගණක දත්ත සමුදා (Computerized databases) පිළිබඳව පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න.
+
+A. Need more human resources to manage the computerized database than a manual
+system.
+
+පරිගණක OD දත්ත සමුදාය කළමනාකරණය සඳහා හස්තීය පද්ධතියකට (Manual system) වඩා
+වැඩියෙන්‌ මානව සම්පත්‌ අවශ්‍ය වේ.
+
+B. Retrieval of data is efficient than a manual system.
+EDD ආපසු ලබාගැනීම (Retrieval), හස්තීය පද්ධතියකට වඩා කාරියක්ෂම වේ.
+
+C. No data duplications.
+දත්ත ද්විත්වකරණ (Duplications) නොමැත.
+
+D. Need more space to store data than a manual system.
+දත්ත ගබඩාකිරීම සඳහා හස්තීය පද්ධතියකට වඩා ඉඩකඩ අවශ්‍ය Gd.
+
+Which of the above statements are correct with respect to a properly designed database?
+මනා ලෙස සැලසුම්කරන ලද දත්ත සමුදායක්‌ සම්බන්ධයෙන්‌ සත්‍ය වන්නේ ඉහත සඳහන්‌ MOO ප්‍රකාශද?
+
+1) AandBonly. 2) AandDonly. 3) BandConly. 4) BandDonly. 5)CandD only.
+A@) 8 පමණි. Aa D පමණි. Be C පමණි. 8 හා D පමණි. Cm D පමණි.
+
+(2011 - 23 )
+
+e Consider the following system description and the relations A, B, C and D given below to
+answer the questions 3 and 4.
+අංක 3 සහ 4 ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා පහත සඳහන්‌ පද්ධති විස්තරය හා A, B, C, D
+සම්බන්ධ (Relation) සලකන්න.
+
+A principal of a National school wants to develop a database to maintain Admission
+Number, Student Name, Address, National Identity Card number (NIC) and the Date of
+Birth (DOB) of Advanced Level students. The principal also wants to know the marks
+obtained for each subject by the students. In addition to the above requirements, the
+principal needs to know the subjects assigned to the teachers.
+
+ජාතික පාසලක විදුහල්පතිවරයෙකුට, උසස්‌ පෙළ සිසුන්ගේ ඇතුළත්වීමේ අංකය, ශිෂ්‍ය නාමය, ලිපිනය,
+
+ජාතික හැදුනුම්පත්‌ අංකය (NIC) සහ උපන්‌ දිනය (DOB) පචත්වා ගැනීම සඳහා දත්ත සමුදායක්‌
+සකස්‌ කර ගැනීමට අවශෲ 6d. චක්‌ චක්‌ විෂයය සඳහා ශිෂ්‍යයා ලබා ගත්‌ ලකුණු ද දැනගැනීමට
+ව්දුහල්පතිවරයාට අවශ්‍ය GOB. ඉහත අවශ්‍යතාවලට අමතරව ගුරැවරැන්ට BAD ඇති විෂයයන්‌
+දැනගැනීමට ද විදුහල්පතිවරයාට අවශ්‍ය වෙයි.
+
+Relation /සම්බන්ධතා
+
+A ~ Student(admissionNo, studentName, address, DOB, NIC)
+
+B - Subject(subjectCode, subjectName)
+
+C - Mark(admissionNo, subjectCode, marksObtained)
+
+D - Teacher(teacherNo, subjectCode, teacherName, subjectName, class)
+
+3. Which of the above relations are in the third normal form?
+ඉහත දැක්වෙන සම්බන්ධ අතූරෙන්‌ 3 වන ප්‍රමත ආකෘතියෙහි ඇත්තේ කවරක්‌ ද?
+
+1) Aand Conly. 2) Aand D only. 3) A,B and C only. 4) A,C and D only. 5) B,C and D only.
+Am C පමණි. Asm D පමණි. A,B හා C පමණි. A,C om D පමණි. B,C හා D පමණි.
+
+(2011-24)
+
+4. Which of the following combinations of attributes provides the minimal set of primary keys
+for the relations Student, Subject and Mark respectively?
+පහත සඳහන්‌ උපලක්ෂණ සංයෝජන අතුරෙන්‌ පිළිවෙළින්‌ ශිෂ්‍යයා (Student), විෂයය (Subject), හා
+ලකුණු (Mark) සම්බන්ධ පිළිබඳව අවම ප්‍රාථමික යතුරැ (Primary key) කුලකය දෙනු ලබන්නේ
+කුමකින්‌ ද?
+
+1) admissionNo and NIC, subjectCode, admissionNo.
+
+2) NIC, subjectCode, subjectCode.
+
+3) admissionNo, subjectCode, subjectCode.
+
+4) admissionNo, subjectCode, admissionNo and subjectCode.
+5) admissionNo, subjectName, admissionNo and subjectCode.
+
+(2011-25)
+5. Consider the following statements with respect to ER diagrams:
+ER සටහන්‌ පිළිබඳව පහත දැක්වෙන ප්‍රකාශ සලකන්න.
+
+A. An ER diagram has entities and relationships.
+ER සටහනක භූතාර්ථ (Entities) සහ සම්බන්ධතා (Relationships) ඇත.
+
+B. Cardinality of all relationships should always be one-to-one.
+සියලු සම්බන්ධතාවල ගණනීයනාව (Cardinality) සැමව්ටම චකට චක (One-to-One) විය
+යුතුය.
+
+C. Entities may have attributes.
+භූතාරිථවලට අනුලක්ෂණ (Attributes) තිබිය හැකිය.
+
+D. There could be binary and tertiary relationships.
+චීවායේ ද්විමය (Binary) සහ තෘතීය (Teritary) සම්බන්ධතා තිබිය හැකිය.
+
+Which of the above statements are correct?
+ඉහත ප්‍රකාශ අතුරෙන්‌ නිවැරදි වන්නේ කවර ඒවා ද?
+
+1) Aand D only. 2) Band C only. 3) 6 4010 [0 900//. 4) A,C and D only. 5) 8, C and D only.
+7& හා D පමණි. Bem C පමණි. Be D පමණි. A, C හා D පමණි. B, Cm D පමණි.
+
+(2011 - 43 )
+
+6. Which of the following statements is correct about relational databases?
+
+සම්බන්ධක දත්ත සමුදා (relational databases) පිළිබඳව පහත දක්වෙන කවර ප්‍රකාශය නිවැරදි වේද?
+
+1) The primary key of a table is selected from alternate keys.
+වගුවක ප්‍රාථමික යතුර (primary key) විකල්ප යතුරැ (alternate keys) අතුරෙන්‌ තෝරා ගැනේ.
+
+2) Duplicate values are not allowed in a foreign key field of a table.
+
+වගුවක අන්‍ය යතුරක්‌ (foreign key) සඳහා අගයන්‌ අනුපිටපත්‌ කිරීම (duplicate) කළ නොහැකි ය.
+
+3) A table cannot be created without a primary key.
+ප්‍රාථම්ක යතුරක්‌ නොමැතිව වගුවක්‌ නිර්මාණය කළ ඉනාහැකි ය.
+
+4) A foreign key of a table should be the primary key of another table.
+DQOD අන්‍ය යතුරක්‌ වෙනත්‌ වගුචක ප්‍රාථමික යතුරක්‌ විය යුතු ය.
+
+5) A table should have alternate keys.
+චගුවක විකල්ප යතුරැ BIG යුතුම ය.
+
+(2012 - 07 )
+Consider the following statements about Relational Databases:
+සම්බන්ධක දත්ත සමුදා (Relational Databases) පිළිබඳව පහත දක්වෙන ප්‍රකාශ සලකා බලන්න:
+
+A. A table is considered as an object.
+වගුවක්‌ (table), වස්තුවක්‌ (object) ලෙස සැලකේ.
+
+B. Acolumn of data in a table is called a field/an attribute of that table.
+වගුවක දත්ත තීරැචකට DO වගුවෙහි ක්ෂේත්‍රයක්‌ (field) /උපලක්ෂණයක්‌ යැයි කියනු ලැබේ.
+
+ලී, A row of data in a table is called a record.
+වගුවක දත්ත පේළියකට (row) රෙකෝඩයක්‌ (record) යැයි කියනු ලැබේ.
+
+Which of the above statements is/are correct?
+ඉහත ප්‍රකාශ අතුරෙන්‌ කුමන ප්‍රකාශය/ප්‍රකාශ සත්‍ය 6 ද?
+
+1) Aonly. 2) B only. 3) AandBonly. 4) AandConly. 5)BandC only.
+A පමණි. B පමණි. A හා 8 පමණි. Am C පමණි. B හා C පමණි.
+
+Consider the following statements with respect to ER diagrams:
+ER රෑපසටහන්‌ පිළිබඳව පහත දක්‌වෙන ප්‍රකාශ සලකා බලන්න:
+
+A. Arelationship in an ER diagram can be implemented as a table in a relational database.
+ER රෑපසටහනක සම්බන්ධතාවක්‌, සම්බන්ධක සමුදායක වගුවක්‌ ලෙස ස්ථාපිත කළ හැකිය.
+
+B. A relationship may have attributes attached to it.
+සම්බන්ධතාවකට, ASO සම්බන්ධ වූ උපලක්ෂණ (attributes) තිබිය හැකිය.
+
+C. Only two entities can be attached to a relationship.
+සම්බන්ධනාවකට, භූතාරිථ (entities) දෙකක්‌ පමණක්‌ සම්බන්ධ කළ හැකි ය.
+
+Which of the above statements is/are correct?
+ඉහත ප්‍රකාශ අතුරෙන්‌ කුමන ප්‍රකාශය / ප්‍රකාශ සත්‍ය වේ ද?
+
+1) & 091. 2) B only. 3) AandBonly. 4) AandConly. 5) Band Conly.
+A පමණි. B පමණි. Am B පමණි. Am C පමණි. 5 හා C පමණි.
+
+( 2012 ~ 22 & 23 )
+
+9. Which of the following statements about relational databases is correct?
+සම්බන්ධක දත්තසමුදා පිළිබඳව පහත දැක්වෙන WOO ප්‍රකාශය සත්‍ය GS ද?
+
+1) Avalue of a composite key of a table can be null.
+වගුවක සංයුක්ත යතුරක (composite key) අගය අභිශුන්‍ය (null) විය හැකි ය.
+
+2) Null values are allowed in any column of a table.
+වගුවක ඕනෑම තීරැවක අභිශුන්‍ය (null) අගයයන්‌ තිබිය හැකි ය.
+
+3) Two or more columns of a table can be combined to create the primary key.
+ප්‍රාථමික යතුරක්‌ නිර්මාණය කිරීම සඳහා වගුවචක Hdz දෙකක්‌ හෝ කිහිපයක්‌ සංයෝජනය කළ හැකිය.
+
+4) Values of a foreign key of a table cannot be updated.
+වගුවක අන්‍ය යතුරක (foreign key) අගයයන්‌ යාවත්කාලීන කළ නොහැකි ය.
+
+5) Once created, the structure of a table cannot be altered.
+නිර්මාණය DE පසුව, වගුවක ව්‍යුහය වෙනස්‌ කළ නොහැකි ය.
+
+(2012 - 42)
+
+10. Which of the following is the most appropriate Entity Relationship (ER) diagram to
+
+represent students participation in different sports in school?
+පාසලක විවිධ ක්‍රීඩා සඳහා ශිෂ්‍ය සහභාගිත්වය නිරූපණය කිරීමට වඩාත්‌ © යෝග්‍ය භූතාරිථ සම්බන්ධතා
+රෑප සටහන (ER diagram) Oses පහත සඳහන්‌ දෑ අතුරින්‌ කවරක්‌ ද?
+
+Year of
+participate
+
+1) Student sport
+Year Sarre)
+Sarre)
+2) student (-- sport
+Year ෴ැයම
+෴ැයම
+3) student sport
+Year of
+participate
+4) student sport
+Year of
+participate
+5) student participate ත්‌ sport
+
+(2013 - 23 )
+
+11. Which of the following is correct with respect to a relational database?
+සම්බන්ධක දත්ත සමුදායක්‌ (Relational Database) පිළිබඳව සත්‍ය වාක්‍ය පහත සඳහන්‌ කචරක්‌ ද?
+
+1) Any subset of Alternate Keys is called Candidate Key.
+විකල්ප යතුරුැවල ඕනෑම උපකුලකයක්‌ අපේක්ෂක යතුර ලෙස හැඳින්වේ.
+
+2) A Primary Key is selected from Alternate Keys.
+ප්‍රාථමික යතුර තෝරා ගනු ලබන්නේ විකල්ප යතුරැ eonded ය.
+
+3) A Foreign Key is an Alternate Key.
+ආගන්තුක යතුර යනු විකල්ප යතුරකි.
+
+4) Always Primary Key and Foreign Key are combined to create a Compound Key.
+සැමවිට ම සංයෝජන යතුරක්‌ සාදා ගැනීමට HOSa හා ආගන්තුක යතුරැ සංයුක්ත කෙරේ.
+
+5) Primary Key and Foreign Key establish the relationship between two tables.
+DQ දෙකක්‌ අතර සම්බන්ධතාව ප්‍රාථමික හා ආගන්තුක යතුරැ මගින්‌ Be කරයි.
+
+( 2013 ~ 27)
+
+12. Consider the following statements regarding relational databases:
+සම්බන්ධක දත්ත සමුදා (relational databases) සම්බන්ධයෙන්‌ පහත දී ඇති වගන්ති සලකන්න:
+
+A. Changing the column order of relations in a database structure does not necessarily
+
+require changes in application programs.
+දත්ත සමුදායක ආකෘතියක සම්බන්ධතාවල තීරැ පටිපාටිය වෙනස්‌ කිරීම, යෙදුම්‌ ක්‍රමලේඛ තුළ
+වෙනස්කම්‌ ඇති කිරීමට මූලික අවශ්‍යතාවක්‌ නොවේ.
+
+B. Main objective of normalization of databases is to reduce data redundancy.
+EDD සමුදාවල ප්‍රමතකරණයේ ප්‍රධාන අරමුණු වන්නේ දන්ත අතිරික්තතාව අඩු කිරීම යි.
+
+C. Adding new data to the database always requires changes to the existing programs.
+EDD සමුදායට නව දත්ත චකතු කරන සෑම අවස්ථාවකදීම පවතින ක්‍රමලේඛ වෙනස්‌ කිරීමට සිදු GOB.
+
+Which of the above statements is/are correct?
+පහත සඳහන්‌ දෑ අතුරින්‌ නිවැරදි කුමක්‌ ද?
+
+1) Aonly. 2) 6 only. 3) AandBonly. 4) AandConly. 5) All of the above.
+A පමණි. B පමණි. 7 හා 8 පමණි. 7 හා C පමණි. ඉහත සියල්ලම.
+
+( 2013 ~ 47 )
+
+13. Which of the following relations is in the 3rd normal form?
+පහත සඳහන්‌ කුමන සම්බන්ධතාව (Relation) 3 වන ප්‍රමත ආකාරයේ (3 normal form) පවතී ද?
+
+1) student(studentIndexNo, name, parentName)
+
+2) sport(sportid, soortName, teacherName, teacherld)
+
+3) teacher(teacherld, teacherName, telephoneNumber, subjectName, subjectld)
+4) book(ISBN, title)
+
+5) patient(patientld, patientName, ward, wardld)
+
+(2014-30)
+
+e Consider the following three tables in a relational database to answer questions 14 to 15.
+Assume that a subject has only one paper for an examination.
+
+ප්‍රශ්න අංක 14 BO 15 දක්වා පිළිතුරු සැපයීමට සම්බන්ධනා දත්ත සමුදායක පවතින පහත පෙන්වා
+
+ඇති වගු තුන සලකා බලන්න. එක්‌ විභාගයක දී එක්‌ විෂයයක්‌ සඳහා චක්‌ ප්‍රශ්න පත්‍රයක්‌ පමණක්‌ ඇති
+බව උපකල්පනය කරන්න.
+
+subject examSubject exam
+subjectid | title examld | subjectld | examDate | | examld | name
+SUBOO1 Information and EXAMO01 | SUBOO1 2014.12.12 | | EXAMOO01 | GCE OL
+Technology EXAMO02 | SUBOO1 2014.8.21 EXAMO02 | GCE AL
+SUBO02 । Chemistry EXAMO02 | SUBOO2 | 2014.8.21
+SUB003 Physics EXAMO002 | 506003 _ । 2014.8.21
+
+14. Which of the following is the most suitable Entity Relationship (ER) diagram to represent
+the above relational database tables?
+
+ඉහත EMO) ඇති සම්බන්ධතා දත්ත සමුදායේ OQ නිරූපණය කිරීම සඳහා වඩාත්‌ ම යෝග්‍ය qmbo
+සම්බන්ධතා රෑපය OHSS පහත රෑපසටහන්වලින්‌ කුමක්‌ ද?
+
+examDate
+
+(2)
+
+subject | | exam
+(3) (4)
+subject | | exam
+
+(2014-31)
+
+15. Which of the following is the correct primary key for examSubject table?
+පහත සඳහන්‌ දෑ අතුරෙන්‌ examSubject වගුව සඳහා නිවැරදි ප්‍රාථමික යතුර වන්නේ කුමක්‌ ද?
+
+1) examld 2) examid, subjectld 3) examld, examDate
+4) subjectld, examDate 5) examld, subjectld, name
+
+(2014 - 32)
+
+e Consider the following relations to answer questions from 16 to 18.
+අංක 16 BO 18 තෙක්‌ ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත දක්වා ඇති සම්බන්ධතා සලකා බලන්න.
+
+programmer (programmerld, programmerName, gender, NIC, mobilePhoneNumber,
+degree, universityName)
+
+client(clientld, clientName, address, telephoneNumber)
+
+project(projectid, projectName, clientld, startDate, endDate, cost)
+workFor(programmerld, projectid, startDate, endDate)
+
+16. Consider the following statements:
+පහත සඳහන්‌ වගන්ති සලකා බලන්න:
+
+A. A programmer works for at most one project at any given time.
+GED ලද ඕනෑම අවස්ථාවකදී එක්‌ ක්‍රමලේඛකයකු වැඩිමනක්‌ ලෙස එක්‌ ව්‍යාපෘතියක වැඩ කරයි.
+
+B. A programmer is assigned to a single client at any given time.
+චක්‌ ක්‍රමලේඛකයකු දෙන ලද ඕනෑම අවස්ථාවකදී චක්‌ සේවාලාභියකු වෙත පමණක්‌ අනුයුක්ත කරයි.
+
+C. One client can have more than one project.
+චක්‌ සේවාලාභියකු හට එක්‌ ව්‍යාපෘතියකට වඩා පැවැතිය හැකි ය.
+
+Which of the above statement(s) is/are always correct?
+සැමවිට © නිවැරදි වන්නේ ඉහත සඳහන්‌ කවර වගන්තිය / වගන්ති ද?
+
+1) Aonly. 2) B only. 3) Conly. 4) AandBonly. 5) Band Conly.
+A පමණි. 8 පමණි. උ පමණි. A හා 8 පමණි. 8 හා C පමණි.
+( 2015 - 36)
+
+17. Which of the following is correct with respect to attributes of the relations?
+සම්බන්ධතාවල උපලැකි (attributes) සම්බන්ධයෙන්‌ නිවැරදි වන්නේ පහත සඳහන්‌ කවරක්‌ ද?
+
+1) Attributes gender, NIC and mobilePhoneNumber are candidate keys of programmer
+relation.
+gender, NIC සහ mobilePhoneNumber යන උපලැකි programmer සම්බන්ධතාවෙහි
+අපේක්ෂක යතුරැ (candidate keys) චේ.
+
+2) Attribute startDate is a derived attribute.
+startDate යන උපලැකිය ව්‍යුත්පන්න (derived) උපලැකියකි.
+
+3) Attribute NIC can be considered as an alternate key for the programmer relation.
+
+NIC උපලැකිය, programmer සම්බන්ධතාවේ විකල්ප යතුරක්‌ (Alternate keys) සේ සැලකිය
+හැකි ය.
+
+4) Attribute startDate is a foreign key for the workFor relation.
+startDate උපලැකිය workFor සම්බන්ධතාව සඳහා ආගන්තුක (foreign key) යතුරකි.
+
+5) Each record in the workFor relation can be uniquely identified by using projectld.
+
+workFor සම්බන්ධතාවේ ඇති සෑම උපලැකියානයක © (record) projectid භාවිතයෙන්‌ අනන්‍යව
+හඳුනාගත හැකි වේ.
+
+(2015 ~ 37)
+
+18. Which of the following is correct?
+BOD සඳහන්‌ වගන්ති අතුරෙන්‌ කචරක්‌ නිවැරදි වන්නේ ද?
+
+1) All relations are in 3 normal form.
+සියලු සම්බන්ධතා තෙවැනි GOD අවස්ථාවේ පවතී.
+
+2) All relations except the programmer are in the 3 normal form.
+programmer 26269 විට අනෙකුත්‌ සියලු සම්බන්ධනා නෙවැනි GOD අවස්ථාවේ පවතී.
+
+3) All relations except the client are in the 3 normal form.
+client හැරැණු විට අනෙකුත්‌ සියලු සම්බන්ධතා තෙවැනි GOD අවස්ථාවේ පවතී.
+
+4) /&|| (6138119115 except the project are in the 3 normal form.
+project හැරැණු විට අනෙකුත්‌ සියලු සම්බන්ධනා තෙවැනි GOm අවස්ථාවේ පචතී.
+
+5) All relations except the workFor are in the 3 normal form.
+workFor හැරැණු විට අනෙකුත්‌ සියලු සම්බන්ධතා තෙවැනි ප්‍රමත අවස්ථාවේ පවතී.
+
+(2015 - 38)
+
+19. Consider the following database constraints:
+පහත දක්වා ඇති දත්ත සමූදා සංරෝධක (constraints) සලකා බලන්න:
+
+A ~ Primary key // ප්‍රාථම්ක යතුර
+B ~ Data type / දත්ත ප්‍රරෑපය
+C - Foreign key / ආගන්තුක යතුර
+
+Which of the above constraint/s does/do not allow users to duplicate data in a database
+table?
+
+දත්ත BOE) වගුවක, දත්ත අනුපිටපත්‌ (duplicate) කිරිමට පරිශීලකයන්ට ඉඩ නොදෙනු ලබන්නේ
+ඉහත පෙන්වා ඇති කවර සංරෝධකය / සංරෝධක ද?
+
+1) A only. 2) B only. 3) AandBonly. 4) AandConly. 5) Band C only.
+A පමණි. B පමණි. 7 හා 6 පමණි. Am C පමණි. 5 හා C පමණි.
+
+(2015 ~ 39)
+
+e Consider the following four relational database tables to answer questions.
+ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට පහත cow) ඇති සම්බන්ධතා දත්ත සමුදා වගු හතර සලකා බලන්න.
+
+item වගුව supplier වගුව
+item | product supplier | name
+1001 | Laptop S001 BeLap Company Ltd.
+1002 | TV 5002 DigiTV trading company
+1003 | Camera
+itemSupplier වගුව delivery වගුව
+item | supplier item | supplier | batch | quantity | date
+1001 5001 1001 | 5001 501 450 1.5.2015
+1002 S001 1002 | 5001 AB1 45 1.5.2015
+1002 S002 1001 | 5001 502 500 2.5.2015
+1001 | 5002 උ01 75 5.5.2015
+
+20. Which of the following is correct with respect to the above tables?
+ඉහත OQ සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමක්‌ නිවැරදි වන්නේ ද?
+
+1) All the tables are in third normal form.
+සියලු OQ තෙවැනි GOD අවස්ථාවේ පවතී.
+
+2) Normalization has been applied to these tables.
+GOO OQ ප්‍රමතකරණය කර ඇත.
+
+3) Integrity constraints are correctly applied to these tables.
+මෙම OQ සඳහා එකාබද්ධ සංරෝධක (integrity constraints) නිවැරදි ව යොදා ඇන.
+
+4) There is no evidence to say that integrity constraints are properly applied.
+ඒකාබද්ධ සංරෝධක නියමානුකූලව යොදාගෙන ඇති බව පැවසීමට කිසිදු සාධකයක්‌ මෙහි නොමැත.
+
+5) Normalization and integrity constraints are properly applied.
+ප්‍රමතකරණය හා SHMDED සංරෝධක නියමානුකූලව ආදේශ කර ඇත.
+
+(2015 ~ 41)
+
+e Consider the following relation to answer questions 21 and 22:
+අංක 21 සහ 22 ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත දක්වා ඇති සම්බන්ධතාව සලකන්න :
+
+book (BN, title, publisher, version, author1, author2, author3)
+
+where BN is a unique code.
+මෙහි BN යනු අනන්‍ය කේතයකි.
+
+21. Which of the following statements is correct with respect to the above relation?
+ඉහත BSOBAMAGCS ප්‍රමත අවස්ථාව සම්බන්ධයෙන්‌ නිවැරදි ප්‍රකාශය කුමක්‌ ද?
+
+1) Itis in zero normal form. චය ශුන්‍ය ප්‍රමත අවස්ථාවෙහි පවතී.
+2) Itis in the 1st normal form. චය පළමු ප්‍රමත අවස්ථාවෙහි පවතී.
+3) It 15 in the 2"3 normal form. චය දෙවන ප්‍රමත අවස්ථාවෙහි පවති.
+4) Itis in the 3rd normal form. චය තෙවන ප්‍රමත අවස්ථාවෙහි පවතී.
+5) Its normal form cannot be decided. චහි ප්‍රමත අවස්ථාව තීරණය කළ නොහැකි ය.
+( 2016 - 36 )
+
+22. Which of the followings can be a candidate key of the above relation?
+පහත කවරක්‌ QOD සම්බන්ධතාවයේ අපේක්ෂක යතුරක්‌ (candidate key) විය හැකි ද?
+
+1) BN 2) publisher 3) version 4) author1 5) author2
+
+(2016 - 37)
+
+23. Which of the followings is correct with respect to the term “domain” in relational database?
+සම්බන්ධිත EDD සමුදායකට (relational database) අනුබද්ධ ව “වසම” (domain) යන වදන සඳහා
+නිවැරදි වන්නේ පහත සඳහන්‌ කුමක්‌ ද?
+
+1) It is a set of possible names for a table.
+AG වගුවක්‌ සඳහා OD හැකි MOOE MODES.
+
+2) It is a set of possible names for an attribute.
+As උපලැකියක්‌ (attribute) සඳහා ගත හැකි NODE කුලකයයි.
+
+3) Itis the collection of all possible primary keys.
+චය පැවතිය හැකි ප්‍රාථමික යතුරැ සියල්ලේ එකතුවයි.
+
+4) It 15 the set of all possible values of an attribute.
+AGS උපලැකියකට පැවතිය හැකි සියලු අගයන්ගේ කුලකයයි.
+
+5) It 15 the collection of foreign keys.
+එය ආගන්තුක යතුරැවල එකතුවයි.
+( 2016 - 38 )
+
+e Consider the following relation to answer questions 24 and 25:
+අංක 24 සහ 25 ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත දක්වා ඇති සම්බන්ධතාව සලකන්න:
+
+Student (index_no, national_id_no, name, date_of_birth, gender, blood_group)
+
+where index_no is a unique attribute and the name attribute fully depends on the index_no
+attribute.
+
+මෙහි index_no යනු අනන්‍ය උපලක්ෂණයක්‌ වන අතර name උපලක්ෂණය iIndex_no උපලක්ෂණය
+මත මුළුමනින්‌ ම ආයත්ත (depend) වේ.
+
+24. Which of the following statements is correct with respect to normal form of above relation?
+ඉහත සම්බන්ධතාවයේ GOD අවස්ථාව සම්බන්ධයෙන්‌ පහත දැක්වෙන වගන්ති අතුරෙන්‌ කුමක්‌ නිවැරදි
+
+වේද?
+
+1) Itis in the zero normal form. චය ශුන්‍ය ප්‍රමත අවස්ථාවේ පවතියි.
+
+2) It is in the first normal form. චය පළමු ප්‍රමත අවස්ථාවේ පවතියි.
+
+3) Itis in the second normal form. චය දෙවන ප්‍රමත අවස්ථාවේ පවතියි.
+
+4) Itis in the third normal form. චය තෙවන ප්‍රමත අවස්ථාවේ පචතියි.
+
+5) Its normal form cannot be decided. O28 ප්‍රමත අවස්ථාව තීරණය කළ නොහැකි ය.
+
+(2017 - 31)
+
+25. Which of the followings can be a candidate key of the above relation?
+පහත කවරක්‌ QOD සම්බන්ධතාවයේ අපේක්ෂක යතුරක්‌ (candidate key) විය හැකි ද?
+
+1) national_id_no 2) name 3) date_of_birth 4) gender 5) blood_group
+
+(2017 - 32)
+
+e Consider the following relation to answer questions 26 and 27:
+අංක 26 සිට 27 ප්‍රශ්නවලට පිළිතුරැ FO සඳහා පහත දක්වා ඇති සම්බන්ධතා සලකන්න:
+
+book (book_no, title, publisher, edition)
+author (author_id, name, email_address)
+bookAuthor (book_no, author_id)
+
+where book_no and author_id are unique attributes in the relations book and author
+respectively.
+මෙහි book_no සහ author_id පිළිවෙළින්‌ book සහ author සම්බන්ධචල අනන්‍ය උපලක්ෂණ වේ.
+
+26. Which of the following statements is correct with respect to the relation bookAuthor?
+ඉහත bookAuthor සම්බන්ධතාව පිළිබඳ නිවැරදි ප්‍රකාශය පහත දැක්වෙන චීවචා අතුරෙන්‌ කුමක්‌ ද?
+
+1) book_no is the primary key.
+book_no ප්‍රාථමික යතුර චේ.
+
+2) author_id is the primary key.
+author_id ප්‍රාථමික යනුර චේ.
+
+3) Any single attribute can be a candidate key.
+ඕනෑම DS උපලක්ෂණයක්‌ අපේක්ෂක යතුරක්‌ විය හැකි ය.
+
+4) author_id is a candidate key.
+author_id අපේක්ෂක යතුරක්‌ වේ.
+
+5) book_no is a part of the primary key.
+book_no යනු ප්‍රාථමික යතුරෙහි කොටසක්‌ 6d.
+
+( 2017 - 33 )
+
+27. Which of the following Entity Relationship (ER) diagrams correctly represents the
+
+relationship between the entities represented by the above relations?
+ඉහත සම්බන්ධතා මගින්‌ නිරපණය කෙරෙන QmboO අතර සම්බන්ධය නිවැරදි ව නිරූපණය
+
+කෙරෙන්නේ පහත කුමන භූතාරිථ සම්බන්ධතා (ER) රෑප සටහනින්‌ ද?
+
+1) book u ඤෲ ෂු author
+2) book : ද > සී author
+3) book m ද u author
+4) book m ද > . author
+5) book m <> m author
+
+(2017 - 34)
+
+28. Consider the following statements regarding databases.
+EDD BOE) සම්බන්ධයෙන්‌ පහත දැක්වෙන වගන්ති සලකා බලන්න.
+
+A. Candidate key is column, or a set of columns that can uniquely identify a row in a table.
+
+86253 යතුර (candidate key) යනු, වගුවක ඇති පේළියක්‌ අනන්‍යව හඳුනා ගැනීමට උපකාර්‌
+වචන තීරැවක්‌ හෝ තීරැ කිහිපයකි.
+
+B. Alternate key is any candidate key that has not been selected as the primary key.
+
+විකල්ප යතුර (alternate key) යනු ප්‍රාථමික යතුර (primary key) ලෙස තෝරා නොගත්‌ Hdzess
+යතුරකි.
+
+C. Primary key can have a NULL value.
+ප්‍රාථමික යතුර සඳහා අභිශුන්‍ය (NULL) අගයක්‌ තිබිය හැකි ය.
+
+Which of the above statements is/are correct?
+ඉහත කවර වගන්තියක්‌/ වගන්ති නිවැරදි වේ ද?
+
+1) Aonly. 2) B only. 3) AandBonly. 4) AandConly. 5) All of the above.
+A පමණි. B පමණි. Am 6 පමණි. A හා C පමණි. ඉහත සියල්ලම.
+
+(2018 - 26)
+
+29. Consider the following relational schema in a database.
+දත්ත සමුදාය පද්ධතියක පහත දැක්වෙන සම්බන්ධතා පරික්‍රමාව (relational schema) සලකන්න.
+
+Subject (SubjectID, TermID, SubjectDescription)
+
+Here the SubjectID, TermID, and SubjectDescription are ...............-.... and Subject is ................-...
+චහි SubjectlD, TermID හා SubjectDescription යන දෑ .......... වචන අතර Subject යන්න ........ 6d.
+
+Which of the following are most suitable to fill the blanks, respectively?
+ඉහත හිස්තැන්‌ පිරවීම සඳහා වඩාත්‌ © සුදුසු වන්නේ පිළිවෙළින්‌ පහත කවරක්‌ ද?
+
+1) උපලක්ෂණ (attributes), සම්බන්ධයක්‌ (relation)
+2) සම්බන්ධ (relation), උපලක්ෂණයක්‌ (attributes)
+3) උපලැකියාන (tuples), සම්බන්ධයක්‌ (relation)
+4) උපලැකියාන (tuples), උපලක්ෂණයක්‌ (attributes)
+5) සම්බන්ධ (relation), උපලැකියානයක්‌ (tuples)
+( 2018 ~ 28 )
+
+30. Consider the following statements regarding databases.
+දත්ත සමුදායක්‌ BEDE පහත ප්‍රකාශ සලකන්න.
+
+A. For each attribute of a relation. there is a set of permitted values, called the domain of
+that attribute
+සම්බන්ධයක (relation) ඇති සෑම උපලක්ෂණයක්‌ (attribute) සඳහාම එම උපලක්ෂණයෙහි
+වසම (domain) ලෙස හැඳින්වෙන අනුමත අගයන්‌ කුලකයක්‌ පවතී.
+
+B. The tuples (records) of the relations are always in sorted order.
+සම්බන්ධයක ඇති උපලැකියාන (tuples) සෑම විටම අනුපිළිවෙළකට පවතී (sorted).
+
+C. Database schema shows the organization of data as a blueprint of how the database
+is constructed.
+දත්ත සමුදා පරික්‍රමාව (database schema), දත්ත සමුදායක්‌ ගොඩනැගීමට අදාළ දත්ත නිශ්චිත
+සැලැස්මකට (blueprint) අනුව සංවිධානය වී ඇති අයුරැ පෙන්වයි.
+
+Which of the above statements is/are correct?
+ඉහත ප්‍රකාශවලින්‌ කචරක්‌ නිවැරදි වේ ද?
+
+1) Aonly. 2) & 4011 6 901//. 3)AandConly. 4) BandConly. 5) All of the above.
+& පමණි. & හා 6 පමණි. & හා C පමණි. Bem C පමණි. ඉහත සියල්ලම.
+
+( 2018 ~ 39)
+
+e Consider the following relational schema consisting of text fields in answering questions
+31 and 32.
+අංක 31 සහ 32 යන ප්‍රශ්න සඳහා, පාඨ ක්ෂේත්‍රවලින්‌ (text fields) සමන්චිත පහත දැක්වෙන
+සම්බන්ධක පරික්‍රමාව (relational schema) සලකන්න.
+
+Students (admission_number, surname_with_initials, house_number, street_name, village,
+postal_town, postal_code)
+
+Assume that for a given postal_town only one postal_code exists.
+GED ලද තැපැල්‌ නගරයකට චක්‌ තැපැල්‌ කේතයක්‌ පමණක්‌ sOGe බව සලකන්න.
+
+31. Consider the following statements. / පහත ප්‍රකාශ සලකන්න.
+
+A. Students relation is not normalised.
+Students සම්බන්ධය ප්‍රමතනකරණය (normalized) කර නැත.
+
+B. Students is a relation in First Normal Form (1NF) only.
+Students යනු පළමු ප්‍රමනකරණයෙහි (First Normal Form - 1NF) පමණක්‌ ඇති සම්බන්ධයකි.
+
+C. In normalization terms, Students is a relation in Second Normal Form (2NF) and hence
+also in 1NF.
+ප්‍රමතකරණ EHOOEO අනුව Students යනු දෙවන ප්‍රමතකරණයෙහි (Second Normal Form -
+2NF) හි ඇති එනයින්‌ INF හි ද ඇති සම්බන්ධයකි.
+
+Which of the above statements is/are correct?
+ඉහත ප්‍රකාශවලින්‌ කචරක්‌ නිවැරදි වේ ද?
+
+1) Aonly. 2) B only. 3) AandConly. 4) BandConly. _ 5) All of the above.
+A පමණි. B පමණි. Am C පමණි. 5 හා C පමණි. ඉහත සියල්ලම.
+
+( 2018 ~ 40 )
+
+32. Consider the following statements relating to Entity Relationship (ER) modelling.
+භුතාරීථ සම්බන්ධතා (ER) ආකෘතිකරණය පිළිබඳ පහත දැක්වෙන ප්‍රකාශ සලකන්න.
+
+A. Cardinality specifies how many instances of an entity relates to one instance of another
+entity.
+ගණනීයතාව (cardinality) මගින්‌ Ha භූතාර්ථයක දෘෂ්ටාන්ත (instances) කොපමණ සංඛෲආණවක්‌
+වෙනත්‌ භූතාර්ථයක එක්‌ දෘෂ්ටාන්නයකට සම්බන්ධ වේ දැයි විශේෂයෙන්‌ සඳහන්‌ කරනු ලැබේ.
+
+B. An entity is a ‘thing’ or ‘object’ in the real world that can be identified separately
+(distinguishable) from all other objects.
+
+QOB60SS යනු තථ්‍ය ලෝකයෙහි (real world) ඇති අනෙක්‌ සියලු වස්තූන්ගෙන්‌ වෙන්කර හඳුනා
+ගත හැකි යම්‌ 'දෙයක්‌' හෝ 'වස්තුවක්‌' හෝ චේ.
+
+C. Cardinality specifies primary key attributes of an entity.
+ගණනීයතාව මගින්‌ භූතාර්ථයක ප්‍රාථමික යතුරේ උපලක්ෂණ විශේෂිතව දැක්වේ.
+
+Which of the above is/are correct?
+ඉහත කවරක්‌ නිවැරදි චේ ද?
+
+1) Aonly. 2) 4 4011 6 901//. 3) AandConly. 4) BandConly. 5) All of the above.
+A පමණි. Am 6 පමණි. Aw C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
+
+(2018 ~ 42 )
+
+e Consider the following database table to answer the questions 33 to 34.
+අංක 33 සිට 34 ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට පහත දැක්වෙන EDD BOE) වගුව සලකන්න.
+
+Student_Sport
+
+Student_Id | Event_Id Event_Name
+10012 S-02 Carrom
+10022 S-01 Basketball
+10018 S-02 Carrom
+10012 S-03 Volleyball
+10025 S-04 Chess
+10018 S-01 Basketball
+
+33. Consider the following statements regarding the above table:
+ඉහත වගුව පිළිබඳ පහත දැක්වෙන ප්‍රකාශ සලකන්න.
+
+A. It has a composite primary key.
+AGO සංයුක්ත ප්‍රාථමික යතුරක්‌ පවතී.
+
+B. Event_Name attribute is fully dependent on the primary key of Student_Sport table.
+Event_Name උපලැකිය Student_Sport වගුවෙහි ප්‍රාථමික යතුර මත පූරිණ පරායන්ත වේ.
+
+C. Event_Id is a candidate key.
+Event_Id යනු Sdzes (candidate) යතුරකි.
+
+Which of the above statements is/are correct?
+ඉහත කුමන වගන්තියක්‌/ වගන්ති සත්‍ය වේ ද?
+
+1) Aonly. 2) B only. 3) AandBonly. 4) AandConly. _ 5) All of the above.
+A පමණි. B පමණි. Am 6 පමණි. Am C පමණි. ඉහත සියල්ලම.
+
+(2019 - 16 )
+
+34. In which normal form does the above table exist?
+ඉහත වගුව පවතින්නේ කුමන GOD ආකාරයට ද?
+
+1) BCNF 2) First normal form 3) Second normal form
+4) Third normal form 5) Zero normal form
+
+(2019-15)
+
+35. Consider the following statements regarding the Extended Entity Relationship (EER) model.
+ව්ස්තෘත Qmbo සම්බන්ධතා (EER) ආකෘතිය පිළිබඳ පහත දැක්වෙන වගන්ති සලකන්න.
+
+A. EER model includes all the concepts of the original ER model.
+EER ආකෘතියට මුල්‌ ER ආකෘතියෙහි ඇති සියලු ම සංකල්ප ඇතුළත්‌ චේ.
+
+B. EER model has additional concepts of specialization/generalization.
+විශේෂකරණය /සාමාන්‍යකරණය පිළිබඳ අමතර සංකල්ප EER හි පවතී.
+
+C. EER model includes a new concept to model the weak entities.
+ටුර්චල භූතාර්ථ ආකෘතිකරණය සඳහා DO සංකල්පයක්‌ EER හි ඇතුළත්‌ වේ.
+
+Which of the above statements is/are correct?
+ඉහත කුමන වගන්තියක්‌/ වගන්ති නිවැරදි චේ ද?
+
+1) Aonly. 2) 6 only. 3) AandBonly. 4) AandConly. 5) All of the above.
+A පමණි. B පමණි. 7 හා 8 පමණි. 7 හා C පමණි. ඉහත සියල්ලම.
+
+(2019 - 24)
+
+36. Which of the following statement/s about a relation in the Second Normal Form are true?
+දෙවන ප්‍රමතකරණයෙහි (2NF) ඇති සම්බන්ධතාවයක්‌ පිළිබඳව පහත කවර වගන්ති/ ය සත්‍ය චේ ද?
+
+A. It can have a composite key. / එයට සංයුක්ත යතුරක්‌ තිබිය හැක.
+
+B. It should be in the First Normal Form (1NF) as well.
+Ad SEQ ප්‍රමතකරණයෙහි (1NF) ද පැවනිය යුතු ය.
+
+උල, All non-key attributes are fully functionally dependent on the primary key.
+යතුරැ නොවන සියලු උපලැකි ප්‍රාථමික යතුර මත මුළුමනින්ම කාරයබද්ධව පරායත්ත වේ.
+
+1) 8 only. 2) Conly. 3) AandBonly. 4) BandConly. _ 5) All of the above.
+B පමණි. C පමණි. 7 හා 8 පමණි. Bem C පමණි. ඉහත සියල්ලම.
+
+37. Which of the following statement/s regarding the logical database schema are true?
+තාර්කික දත්ත සමුදාය ක්‍රමානුරෑප (logical database shema) පිළිබඳව පහත කවර වගන්නි සත්‍ය වේද?
+
+A. It is a blueprint for a database.
+AG දත්ත සමුදායක්‌ සඳහා වන සැලසුමක පිටපතකි (blueprint).
+
+B. It contains data and information.
+AB දත්ත සහ තොරතුරැ අන්තර්ගත චේ.
+
+C. It formulates all the constraints that are to be applied on the data.
+AS දත්ත කෙරෙහි යෙදෙන්නා වූ සියලු සංරෝධක (constraints) විධිමත්ව දක්වයි.
+
+1) Aonly. 2) & 8011 6 901//. 3) AandConly. 4) BandConly. 5) All 01 the above.
+A පමණි. Am 6 පමණි. Aw C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
+
+( 2020 - 27 & 28 )
+
+38.
+
+39.
+
+Consider the following scenario about “authors” and “books” to answer the questions 38
+and 39.
+38 සහ 39 ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට “කර්තෘවරැන්‌“ සහ “ග්‍රන්ථ” පිළිබඳ පහත සංසිද්ධිය සලකන්න.
+
+“An author can write books. A book has a title and a code called ISBN which is unique. A
+book can be written by either one or several authors. An author has a name and a unique
+ID. An author can have a type as either chief author or a co-author for a particular book.”
+“කරිතෘවරයකුට (author) ග්‍රන්ථ (book) ලිවිය (writes) හැකි ය. ග්‍රන්ථයක්‌ සඳහා නමක්‌ (title) සහ
+ISBN නම්න්‌ අනන්‍ය වූ කේතයක්‌ තිබේ. ග්‍රන්ථයක්‌ චක්‌ කරිතෘවරයකු හෝ කර්තෘවරු කිහිපදෙනකු ව්සින්‌
+හෝ ලිවිය හැකි ය. කරිතෘවරයකුට නමක්‌ (name) ese අනන්‍ය වූ අංකයක්‌ (ID) තිබේ. කරිතෘවරයකුට
+කිසියම්‌ ග්‍රන්ථයක්‌ සඳහා ප්‍රධාන කරිතෘෑ හෝ සමකර්තෘ ලෙස භෝ ප්‍රවචර්ගයක්‌ (type) තිබිය හැකි ය.”
+
+Which of the following is the most suitable Entity Relationship (ER) representation for the
+above scenario?
+ඉහත සංසිද්ධිය සඳහා වන වඩාත්‌ ම සුදුසු භූතාරිථ සම්බන්ධතා (ER) නිරෑපණය පහත ඒවායින්‌ කවරක්‌
+
+ී
+
+ee
+
+Author
+
+PS
+
+i,
+
+5)
+
+How many tables can be derived initially, when mapping the entity relationships in the
+above scenario to a relational schema?
+
+ඉහත QMbO සම්බන්ධතා (entity relationships), සම්බන්ධතා ක්‍රමානුරෑපයකට (relational
+schema) අනුරෑපණය කිරීමේ දී (mapping), ආරම්භක (initial) වශයෙන්‌ වගු කොපමණ 50Qs Oz}
+ව්‍යුත්පන්න කළ හැකි ද?
+
+1) 1 2) 2 3
+
+eS
+ටං
+
+4) 4 5) 5
+
+( 2020 -~- 30 & 31)
+
+40. Which of the following is a (are) good practice(s) to follow in database development?
+දත්ත සමුදායක්‌ සෑදීමෙදී පිළිපැදිය යුතු හොඳ පුරැද්දක්‌/ පුරුදු වන්නේ පහත කවරක්‌ ද?
+
+A. the use of meaningful names for tables and fields
+වගු සහ උපලැකි සඳහා අරිථාන්විත නම්‌ භාවිතය
+
+B. letting different tables repeat the same information (other than the primary keys)
+එකම තොරතුර (ප්‍රාථමික යතුරු නොවන) HSA OQOE නැවන නැවත අඩංගු කිරීම (repetition)
+
+C. avoiding a field and its table having the same name (in order to avoid confusion while
+writing queries)
+උපලැකියකට සහ AS අයත්‌ OQOO එකම නම දීමෙන්‌ වැළකීම (විමසුම්‌ [queries] ලිවීමේදී
+ඇතිවන සංකූලතා මඟහැරීම සඳහා)
+
+1) Aonly. 2) B only. 3) Conly. 4) AandBonly. 5) Aand C only.
+A පමණි. B පමණි. C පමණි. 7, හා B පමණි. Am C පමණි.
+(2021 - 31)
+
+e Consider the following Results and Subjects tables to answer questions from 41 to 42:
+ප්‍රශ්න අංක 41 BO 42 තෙක්‌ පිළිතුරු දීමට පහත Results සහ Subjects වගු සලකන්න.
+
+Results Subjects
+StudentNo NIC FirstName | SubjectID | Grade | | SubjectID | SubjectName
+$1234 986888457V Nilam ENG B ENG English
+$1447 992562321V | Praveena PHY C PHY Physics
+$1234 986888457V Nilam ACC A ECO Economics
+$1323 900251452V Thilan ENG 5 ACC Accountancy
+$1323 900251452V Thilan ACC B
+
+41. Which of the following is most suited to be selected as the primary key of the Results table
+with respect to the given details?
+දී ඇති විස්තර අනුව, Results වගුවේ ප්‍රාථමික යතුර ලෙස තෝරා ගැනීමට පහත කවරක්‌ වඩාත්ම
+සුදුසු වේ ද?
+
+1) NIC
+2) SubjectID
+3) StudentNo
+4) StudentNo and NIC
+5) StudentNo and SubjectID
+(2021 - 32)
+
+42. Which of the following is the correct statement about the Results table?
+Results වගුව සම්බන්ධයෙන්‌ පහත කවර වගන්තියක්‌ නිවැරදි චේ ද?
+
+1) All the non-key attributes are fully functionally dependent on the primary key.
+යතුරැ නොවන සියලු උපලැකි ප්‍රාථම්ක යතුර මත මුළුමනින්ම කාරියබද්ධව පරායත්ත Gd.
+
+2) It has one candidate key. එයට එක්‌ නිරෑප්‍ය (candidate key) යතුරක්‌ ඇත.
+
+3) It is in the First Normal Form (1NF). 26 පළමු ප්‍රමතකරණයෙමහි (1NF) පවතී.
+
+4) Itis in the Second Normal Form (2NF). 26 දෙවන ප්‍රමතකරණයෙහි (2NF) පවතී.
+5) The cardinality of the table is four. වගුවේ ගණනීයනාව (cardinality) 4 චේ.
+
+(2021 - 34)
+
+43. Which dependency is removed when converting the Results table to next normal form?
+Results වගුව ඊලඟ ප්‍රමතකරණයට පත්කරන විට පහත කුමන පරායත්තතාව ඉවත්‌ එච්‌ ද?
+
+1) foreign key dependency
+ආගන්තුක යතුරැ (foreign key) පරායත්තතාව
+
+2) fully functional dependency of non-key attributes on the primary key
+යතුරැ නොවන (non-key) උපලැකි, ප්‍රාථමික යතුර (primary key) මත පූර්ණ කාරයබද්ධ (full
+functional) පරායන්තතාව
+
+3) multivalued dependency
+බහු අගය (multivalued) පරායත්තතාව
+
+4) partial dependencies of non-key attributes on the primary key
+යතුරු නොවන උපලැකි, ප්‍රාථමික යතුර මත අර්ධ (partial) පරායත්තතාව
+
+5) transitive dependency of non-key attributes
+යතුරු නොවන උපලැකිවල සංක්‍රාන්ති (transitive) පරායත්තතාව
+(2021-35)
+
+44. Following are the steps involved in creating an Entity Relationship (ER) Diagram:
+භූතාරිථ සම්බන්ධතා (ER) රෑප සටහනක්‌ නිරිමාණය කිරීමට අදාළ පියවර පහත දැක්වේ.
+
+|. Determine the ...../..... in your diagram.
+ඔබගේ රෑප සටහනට අවශ්‍ය ....A.... තීරණය කරන්න.
+
+Il. Add ....B.... to each ....(....
+....නී.... චක්‌ එක්‌ ....C.... ට Awe කරන්න.
+
+|||. Include the ....D.... between the ....A....
+JOA... අතර ....D.... චකතු කරන්න.
+
+IV. Add ....E.... to every relationship.
+සෑම සම්බන්ධතාවයකටම ..... £.... ද චක්‌ කරන්න.
+
+Which of the following gives suitable choices for the A, පි, C, D and E blanks in above steps?
+ඉහත A,B, C,D සහ E හිස්තැන්‌ සඳහා නිවැරදි තෝරාගැනීම්‌ දක්වන්නේ පහත කවරක්‌ ද?
+
+1) &, -- අ(1/100(1/65 (උපලැකි), 6 -- entities (භූනාර්ථ), C - attribute (උපලැකිය), D -- cardinality
+(ගණනීයතාව), £ -- entities (භූතාර්ථ)
+
+2) A- attributes (උපලැකි), B - cardinality (ගණනීයතාව), C - attribute (උපලැකිය), D - entities
+(භූතාරිථ), E - entity (භූතාරිථ)
+
+3) A - entities (භූතාරිථ) , B - attributes (උපලැකි), C — entity (QmBbBOa), D - සම්බන්ධනා
+(relationships), E - cardinality (ගණනීයතාව)
+
+4) A- entities (භූතාර්ථ) , B - සම්බන්ධතා (relationships), C - entity (භූතාර්ථය), D -- attributes
+(උපලැකි), cardinality (හසණනීයතාව)
+
+5) 7& - සම්බන්ධතා (relationships), B - cardinality (උහණනීයනාව), C - relationships (සම්බන්ධතා),
+D - attributes (උපලැකි), E - entities (භූතාරථ)
+
+(2021 - 36)
+
+45. Which of the following can be modelled with an Extended Entity Relationship diagram?
+
+Sioa භූතාරිථ සම්බන්ධතා (Extended Entity Relationship) රෑප සටහනකින්‌ පහන කචරක්‌
+නිරූපණය කළ හැකි ද?
+
+A - subclasses of an entity / භූතාර්ථයක උපපන්ති
+B - inheritance of attributes / උපලැකි උරැමවීම
+C - specialization of entities / භූතාරිථවල විශේෂායනය
+
+1) Aonly. 2) B only. 3) Conly. 4) AandConly. 5) All of the above.
+A පමණි. B පමණි. C පමණි. 7 හා C පමණි. ඉහත සියල්ලම.
+( 2021 - 37)
+
+46. Consider the following relational schema:
+පහත දක්වා ඇති සම්බන්ධතා පරිපාටික සටහන (relational schema) සලකා බලන්න:
+
+Student (Studentid, StudentName, Address, Gender, DateOfBirth)
+
+Study (Studentld, Subjectld, Grade)
+
+෴~*
+
+Subject (Subjectld, SubjectName)
+
+Which of the following is the most suitable Entity Relationship (ER) diagram to correctly
+represent the relationship between Student and Subject entities?
+
+ශිෂ්‍ය (Student) සහ විෂය (Subject) භූනාර්ථ අතර BO@BAMOA නිවැරදිව නිරූපණය කිරීම සඳහා
+පහත සඳහන්‌ කුමන භූතාරිථ සම්බන්ධතා රෑපසටහන (ER diagram) වඩාත්‌ සුදුසු වේ ද?
+
+Note: In the ER diagrams, the entities are drawn without attributes.
+සටහන: |. ER රෑපසටහන්වල Qmbo ඇඳ ඇත්තේ උපලක්ෂණ (attributes) රහිතව ය.
+ll. study ~~ ඉගෙනගැනීම
+
+) ude <> Subject
+2 Student ject
+) 10611 Subjec
+
+Student
+3) udent 1 <> | Study
+Student
+4) udent | <> = Study
+5) | Student Subject
+n ml
+
+(2021-29 )
+
+e The tables which are partially extracted from a database used in an information system
+developed for a shop are shown below. Answer questions from 47 to 48 using those tables
+වෙළෙඳසැලක්‌ සඳහා සකස්‌ කරන ලද තොරතුරැ පද්ධතියක භාවිත කරන දත්ත සමුදායකින්‌ අර්ධ
+
+වශයෙන්‌ උපුටා ගත්‌ වගු කිහිපයක්‌ පහත දැක්‌වේ. එම වගු භාවිත කර අංක 47 සිට 48 දක්වා
+ප්‍රශ්නවලට පිළිතුරු සපයන්න.
+
+((151911161' (පාරිභෝගිකයා ) Product (භාණ්ඩය )
+Cusld Fname Lname Location Prold Name
+උ001 Saman Perera Dehiwala PROO1 Refrigerator
+C002 Kalum Gamage Galle PB401 Blender
+C003 Shiromi Silva Galle PMO025 Mobile Phone
+C004 Kalum Perera Kandy PPO0O09 Inkjet Printer
+Order (47400) Order_Product (ඇණවුම්භාණ්ඩය )
+Orderld Cusld OrderDate | Sellerld Orderld Prold
+A001 coo1 | 2022-07-14 | 9001 A003 PROOT
+A002 C002 2022-07-14 5001 A001 PROT
+A002 PB401
+A003 C003 2022-07-18 5002 A003 PM025
+A004 C004 2022-07-20 5002 7,004 50009
+
+47. Which of the following shows the most suitable primary keys for Order and Order_Product
+
+relations?
+
+Order e@ Order_Product වගු සඳහා වඩාත්‌ සුදුසු ප්‍රාථටම්ක යතුරැ පිළිවෙළින්‌ දැක්වෙන්නේ පහත
+කවරක ද?
+
+1) Order: Cusld, Order_ Product: Orderld
+
+2) Order: Orderld, Order_Product: Orderld
+
+3) Order: Orderld, Order_Product: Orderld + Prodld
+
+4) Order: Cusld + Sellerld, Order Product: Prodid
+
+5) Order: Orderld + Cusld, Order_Product: Orderld
+
+48. Which of the following is correct regarding the Order relation?
+Order වගුව සැලකීමේදී පහත සඳහන්‌ කුමක්‌ නිවැරදි ද?
+
+1) Cusld attribute uniquely identifies each tuple in the relation.
+Cusld උපලක්ෂණය (attribute) මගින්‌ වගුවේ එක්‌ චක්‌ උපලැකියාන (tuple) අනන්‍යව හඳුනාගනී.
+
+2) The relation is in First Normal Form (1NF).
+වගුව DB GO ප්‍රමත අවස්ථාවේ (First Normal Form-1NF) පවතී.
+
+3) The relation is in Second Normal Form (2NF).
+වගුව DGB දෙවන ප්‍රමත අවස්ථාවේ (Second Normal Form-2NF) පවතී.
+
+4) Orders of each customer are handled by a unique salesperson.
+චක්‌ එක්‌ පාරිභෝගිකයාගේ ඇණවුම්‌ හසුරැවනු ලබන්නේ අනන්‍ය විකුණුම්කරැවෙකු විසිනි.
+
+5) The relation consists of a composite primary key.
+වගුව සංයුක්ත ප්‍රාථමික යතුරකින්‌ (composite primary key) සමන්විත චේ.
+
+( 2022 - 30 & 32)
+
+49. Which of the following statements is/are correct regarding the normalization concept?
+ප්‍රමතකරණය (Normalization) සංකල්පය සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමන ප්‍රකාශ/ ය නිවැරදි ද?
+
+&.
+
+In first normal form, atomic attributes are removed from a relation.
+
+පළමු ප්‍රමත අවස්ථාවේදී (1NF), වගුව තුළ ඇති පරමාණුක උපලක්ෂණ (atomic attribute) ඉවත්‌
+කරනු ලැබේ.
+
+In second normal form, partial dependency of attributes on the primary key are
+removed.
+
+දෙවන OOD අවස්ථාවේදී (2NF), ප්‍රාටථම්ක යනුර (primary key) මත උපලක්ෂණවල ආංශික
+පරායත්තනාව (partial dependency) ඉවත්‌ කරනු ලැබේ.
+
+In third normal form, transitive dependency of attributes are removed.
+GOOD GOD අවස්ථාවේදී (3NF), උපලක්ෂණවල සංක්‍රාන්ති පරායත්තතාව (transitive
+dependency) ඉවත්‌ කරනු ලැබේ.
+
+1) Bonly. 2) 4 4011 6 001//. 3) AandConly. 4) 8 4011 ල 0(1/// 5) All of the above.
+
+8 පමණි. 7 හා 6 පමණි. Am C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
+
+( 2022 - 33 )
+
+50. Which of the following statements is/are correct regarding Entity Relationship (ER)
+modelling?
+
+QMBO සම්බන්ධතා eperaendgacs (ER Modelling) සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමන ප්‍රකාශ/ය
+නිවැරදි ද?
+
+A. Aweak entity is dependent on another entity.
+
+දුර්වල භූතාරිථයක්‌ (weak entity) තවන්‌ භූතාරීථයක්‌ මත රඳා පවතී.
+
+A derived attribute is represented as an attribute in a relation.
+
+ව්‍යුත්පන්න කරන ලද උපලක්ෂණයක්‌ (derived attribute) වගුවක්‌ තුළදී, උපලක්ෂණයක්‌ GEES
+නිරෑඈපණය වේ.
+
+An entity can contain a multi-value attribute and a composite attribute at the same
+time.
+
+භූතාර්ථයකට, ADO එේලාඑවේදී බහු-අගය (multi value) උපලක්ෂණයක්‌ සහ සංයුක්ත
+(composite) උපලක්ෂණයක්‌ අඩංගු විය හැකිය.
+
+1) Aonly. 2) 6 only. 3) AandConly. 4) BandConly. _ 5) All of the above.
+
+
+A පමණි. 8 පමණි. Aw C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
+
+( 2022 ~ 34)
+
+51. The following ER diagram represents a scenario of students borrowing books from a
+library. Which of the following gives the most suitable relation list for the given ER
+diagram?
+පහත භූතාරිථ සම්බන්ධතා රෑපසටහන (ER diagram) මගින්‌ සිසුන්‌ පුස්තකාලයකින්‌ පොත්‌ ලබාගන්නා
+
+සංසිද්ධියක්‌ නිරූපණය කරයි. දී ඇති භූතාරිථ සම්බන්ධතා රෑපසටහන සඳහා වඩාත්‌ සුදුසු වගු
+ලැයිස්තුව පහත කවරක්‌ ද?
+
+සටහන : author - ලේඛකයා, book - පොන, student - ශිෂ්‍යයා, write - ලිවීම, borrow -
+තාවකාලිකව ගැනීම
+
+"ට Gook_Namé) <p
+Book id) Id
+
+AUTHOR BOOK STUDENT
+1 m 1
+
+1) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+STUDENT (Stu_Id, StuLFName, Stu_LName, DOB)
+AUTHOR (Aut_Id, Aut_Name)
+AUTHOR_QUALIFICATION (Aut _Id, Qualifications)
+
+2) BOOK (Book Id, Book_Name, ISBN)
+STUDENT (Stu_Id, StuLFName, Stu_LName, DOB)
+AUTHOR (Aut _Id, Aut_Name)
+AUTHOR_QUALIFICATION (Aut Id, Qualifications)
+
+3) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+STUDENT (Stu_Id, StuLFName, Stu_LName, DOB)
+AUTHOR (Aut_Id, Aut_Name, Qualifications)
+
+4) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+STUDENT (Stu_Id, Stu Name, DOB)
+AUTHOR (Aut Id, Aut_Name)
+AUTHOR_QUALIFICATION (Aut Id, Qualifications)
+
+5) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+STUDENT (Stu_Id, StuLName, DOB)
+AUTHOR (Aut _Id, Aut_Name)
+AUTHOR_QUALIFICATION (Aut Id, Qualifications)
+BORROW (Aut Id, Book Id)
+WRITE (Aut Id, Book Id)
+
+(2022 ~ 35)
+
+54. Match the given entity attributes labelled from A to D to the corresponding descriptions
+labelled from 1 to 4.
+
+පහත A සිට D තෙක්‌ නම්‌ කර ඇති භූතාරීථ උපලක්ෂණ (attributes) 1 සිට 4 තෙක්‌ නම්‌ කර ඇති
+විස්නර සමග ගළපන්න.
+
+Entity attribute Description
+භූතාර්ථ උපලක්ෂණය විස්තරය
+
+Composite attribute
+සංයුක්ත උපලක්ෂණය
+
+an attribute that cannot be broken down into smaller components
+කුඩා සංරචකවලට GOES නොහැකි උපලක්ෂණයකි
+
+Simple attribute an attribute that can be broken down into component parts
+
+in
+
+'සරල උපලක්ෂණය 2 'සංරචක කොටස්වලට බෙදිය හැකි උපලක්ෂණයකි
+Multivalued attribute an attribute whose values can be calculated from related
+බහුඅගය උපලක්ෂණය 3 [attribute values
+Derived attribute අදාළ උපලක්ෂණවල අගයන්ගෙන්‌ DO අගය ගණනය කළ හැකි
+ච්‍යුත්පන්න උපලක්ෂණය උපලක්ෂණයකි
+
+4 4!) attribute that may take more than one value
+
+අගයන්‌ කිහිපයක්‌ තිබිය හැකි උපලක්ෂණයකි
+
+-2, B-1, C-3, D-4 2) A-2, B-1, C-4, D-3 3) A-3, B-4, C-2, D-1
+-4, B-2, C-3, D-1 5) A-4, B-3, C-1, D-2
+
+(2023 - 31)
+
+55. When the Employee entity of the Employee_Number
+following diagram is represented
+
+a database which of the aaa Empl al N
+. . e u——_ mployee ployee ame
+following should not be included? 'ල_ 5 prey
+
+රෑපයේ Employee භූතාරිථය දත්ත
+
+~ Designation
+සමුදායක නිරූපණය කිරීමේදී පහත
+කචරක්‌ ඇතුළත්‌ නොකළ යුතු ද?
+
+1)
+2)
+3)
+4)
+5)
+
+
+Date_of_Birth
+Designation
+Employee_Name
+Employee_Number
+Qualifications
+(2023 - 34)
+
+56. Which of the listed relations will be obtained if the following ER diagram is correctly
+mapped into the relational model?
+
+පහත ER රෑපසටහන, සම්බන්ධක ආකෘතියට (relational model) නිවැරදිව අනුරෑපණය (map) කළ
+ව්ට දී ලැයිස්තුගත කර ඇති කවර සම්බන්ධතා ලැබේ ද?
+
+ළත ලතා ලෟ හම
+
+1 M
+Lecturer Course
+
+A - Lecturer(NIC, LecturerName, DOB, Address)
+
+B - Lecturer(NIC, LecturerName, DOB, Address, Courseld)
+C - Teaches(NIC, Courseld, Hours)
+
+D - Course(Courseld, CourseName, Hours, NIC)
+
+1) Aand B only. 2) AandConly. 3) Aand Donly. 4) Band Conly. 5) A, Cand D only.
+7 හා B පමණි. Am C පමණි. Am D පමණි. 5 හා ල පමණි. A, ලංහා D පමණි.
+
+( 2023 - 35)
+
+57. Which of the following gives a correct matching between ER diagram components and the
+relational model?
+පහත ER රෑපසටහන්‌ සංරචක සහ සම්බන්ධක (relational) ආකෘතිය අතර නිවැරදි ගැළපීම කුමක්‌ ද?
+
+1) Entity > Field, Attribute -* Table, Unique attribute > Primary key, Multivalued attribute
+- Table
+භූතාර්ථය — ක්ෂේත්‍රය, උපලක්ෂණය - වගුව, අනන්‍ය උපලක්ෂණය -- ප්‍රාථමික යතුර, බහුඅගය
+උපලකක්‍්ෂණය -- වගුව
+
+2) Entity > Table, Attribute — Field, Unique attribute --* Primary key, Multivalued attribute
+— Table
+භූතාරිථය - වගුව, උපලක්ෂණය - ක්ෂේත්‍රය, අනන්‍ය උපලක්ෂණය - ප්‍රාථමික යතුර,
+බහුඅගය උපලක්ෂණය -- වගුව
+
+3) Entity ~* Table, Attribute > Field, Unique attribute ~~ Table, Multivalued attribute ~~
+Primary key
+භූතාරිථය ~ වගුව, උපලක්ෂණය - ක්ෂේත්‍රය, අනන්‍ය උපලක්ෂණය - වගුව, බහුඅගය
+උපලක්ෂණය -~ ප්‍රාථමික යතුර
+
+4) Entity > Table, Attribute — Primary key, Unique attribute — Primary key, Multivalued
+attribute > Table
+භූතාරිථය - වගුව, උපලක්ෂණය — MOSM යතුර, අනන්‍ය උපලක්ෂණය - ප්‍රාථමික යතුර,
+බහුඅගය උපලක්ෂණය -- වගුව
+
+5) Entity > Table, Attribute — Table, Unique attribute > Primary key, Multivalued attribute
+— Primary key
+භූතාරිථය —- වගුව, උපලක්ෂණය — වගුව, අනන්‍ය උපලක්ෂණය - ප්‍රාථමික යතුර, බහුඅගය
+උපලක්ෂණය -- ප්‍රාථම්ක යතුර
+( 2023 - 36)
+
+e Consider the following relations to answer questions 58 and 59.
+ප්‍රශ්න අංක 58 සහ 59 සඳහා පිළිතුරු ලබාදීම සඳහා පහත සම්බන්ධතා සලකන්න.
+
+adviser (adld, adName, adGender, adNIC, adPhone)
+farmer (farmerld, farmerName, farmerAddress, farmerPhone)
+
+task (taskld, taskName, farmerld, startDate, endDate)
+advises (adld, taskld, startDate, endDate)
+
+Note: adNIC — The National Identity Card number of an adviser
+
+සටහන: adviser — උපදේශකයා , farmer — ගොව්යා, task — කාර්ය, advises -- උපදෙස්‌ දෙයි, adNIC —
+උපදේශකයාගේ ජාතික හැඳුනුම්පත්‌ අංකය
+
+58. Which of the following statements are correct?
+BOD කවර ප්‍රකාශ නිවැරදි චේ ද?
+
+A - One farmer can have many tasks.
+චක්‌ ගොවියෙකුට කාර්ය කිහිපයක්‌ තිබිය හැකි ය.
+
+B - One adviser can advise many tasks.
+චක්‌ උපදේශකයෙකුට කාර්ය කිහිපයකට උපදෙස්‌ දිය හැකි ය.
+
+C - For one task, a farmer can have many advisers.
+චක්‌ කාරියක්‌ සඳහා ගොවියෙකුට උපදේශකයන්‌ කිහිපදෙනෙකු සිටිය හැකි ය.
+
+1) Aonly. 2) 4 4010 6 09(1/// 3) AandConly. 4) 6 401 Conly. 5) All of the above.
+A පමණි. Aw 6 පමණි. Am C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
+
+( 2023 - 37)
+
+59. Which of the following statements are correct with respect to the given relations?
+2 ඇති සම්බන්ධතා පිළිබඳව පහත කවර ප්‍රකාශ නිවැරදි ද?
+
+A ~ All relations are in 3'3 normal form.
+සියලු සම්බන්ධතා තෙවැනි ප්‍රමත අවස්ථාවේ (normal form) පවතී.
+
+B - The startDate attribute in the task relation is a derived attribute.
+task සම්බන්ධතාවයෙහි ඇති startDate උපලක්ෂණය ව්‍යුත්පන්න කළ (derived) උපලක්ෂණයකි.
+
+C - adNIC is a candidate key in the adviser relation.
+adviser සම්බන්ධතාවයෙහි ඇති adNiC යන්න අපේක්ෂක (candidate) යතුරකි.
+
+1) Aonly. 2) AandBonly. 3) AandConly. 4) 6 401 (ල _9(1/// 5) All of the above.
+A පමණි. Aw 6 පමණි. Am C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
+
+( 2023 ~ 38)
+
+1. Consider the following scenario.
+පහත දක්වා ඇති සංසිද්ධිය සලකන්න.
+
+Students in a school participate in different sports such as volleyball, track and field
+athletics, table tennis, etc. The principal wants to maintain a registry with admission
+number, student name, home address, class, and sports he/she participates. A student
+can participate in more than one sport. For a particular sport, there can be more than
+
+one student. Each student can participate pre-defined number of hours in a sport.
+පාසලක සිසුහු වොලිබෝල්‌, ජවන හා පිටිය මලල ක්‍රීඩා, මේස පන්දු ආදී විවිධ ක්‍රීඩා සඳහා සහභාගි
+වෙති. ක්‍රීඩා සඳහා සහභාගි වන සිසු සිසුවියන්ගේ ඇතුළත්වීමේ අංකය, ශිෂ්‍ය නාමය, නිවසේ ලිපිනය,
+පන්තිය හා සහභාගි වන ක්‍රීඩා ඇතුළත්‌ නාම ලේඛනයක්‌ පවත්වාගෙන යාමට විදුහල්පතිවරයාට අවශ්‍යව
+ඇත. චක්‌ සිසුවකුට චක්‌ චක්‌ ක්‍රීඩාචකට වඩා සහභාගි විය හැකිය. එක්‌ නිශ්චිත ක්‍රීඩාවක්‌ සඳහා චක්‌
+සිසුවකුට වඩා වැඩි සංඛ්‍යාවක්‌ සිටිය හැකිය. චක්‌ චක්‌ ශිෂ්‍යයාට කලින්‌ නියම කරන ලද පැය ගණනක්‌
+ක්‍රීඩාවක්‌ සඳහා සහභාගී විය හැකිය.
+
+(a) Draw an ER diagram for the above scenario.
+ඉහත සංසිද්ධිය සඳහා ER සටහනක්‌ අඳින්න.
+
+(0) Classify with reasons whether the cardinality of relationship(s) identified in section (a)
+is one-to-one, one-to-many, or many-to-many.
+ඉහත (a) කොටසේදී හඳුනාගත්‌ සම්බන්ධතාවෙහි/ සම්බන්ධතා OE ගණනීයතාව එකට-එකක්‌
+(one-to-one) එකට-බොහෝමයක්‌ (one-to-many) හෝ බොහෝමයකට -බොහෝමයක්‌
+(many-to-many) වන්නේ දැයි හේතු දක්වමින්‌ වරිගීකරණය කරන්න.
+
+Relationship/s®@sOm® | (31(01113|1////ගණනීයතාව [15350 []//හේතුව
+
+(c) “ER diagrams do not allow attributes to be assigned on relationships”. State whether
+this statement is true or false. Explain your answer by using the given scenario.
+“ER සටහන්‌ QE, සම්බන්ධතා (Relationships) මත උපලක්ෂණ (Attributes) szQ6O0 ඉඩ
+නොදේ.” මෙම කියමන සත්‍ය හෝ අසත්‍ය දැයි ප්‍රකාශ කරන්න. දී ඇති සංසිද්ධිය භාවිත කරමින්‌
+ඔබේ පිළිතුර පැහැදිලි කරන්න.
+
+(d) A database designer suggested the following relation for the above system. State two
+weaknesses of this relation and suggest necessary modifications.
+
+දත්ත සමුදාය සැලසුම්කරැවෙක්‌ ඉහත පද්ධතිය සඳහා පහත දැක්වෙන සම්බන්ධය (Relation)
+යෝජනා කළේය. මෙම සම්බන්ධයේ ඇති දුර්වලතා දෙකක්‌ දක්වා, ඒ සඳහා අවශ්‍ය වෙනස්‌ කිරීම්‌
+
+යෝජනා කරන්න.
+
+AdmissionNo StudentName | HomeAddress Class SportName
+/ඇතුළත්‌ වීමේ අංකය | /සිසුවාගේ නම | /නිවසේ ලිපිනය | /පන්තිය /ක්‍රීඩාවේ නම
+
+(2011 ESSAY )
+
+2. Consider the following ER diagram.
+පහත දැක්වෙන ER සටහන සලකා බලන්න.
+
+Desk House
+1 1
+Class Has Has
+1
+
+1 n
+
+a Student 2
+
+Name Student ID
+
+NIC
+
+(a) State the most relevant entity or relationship in the above ER diagram to add an
+
+Subject
+
+Obtains
+Marks for
+
+attribute to represent marks obtained by a student for a subject.
+
+ශිෂ්‍යයකු විසින්‌ විෂයයකට ලබාගත්‌ ලකුණු නිරූපණය කිරීමට උපලක්ෂණයක්‌ (attribute)
+චකතුකිරිම සඳහා ඉහත ER සටහනෙහි වඩාත්‌ අදාළ භූතාරිථය (entity) හෝ සම්බන්ධතාව
+
+(relationship) දක්වන්න.
+
+(6) Classify all the relationships in the above ER diagram as one-to-one, one-to-many or
+many-to-many. Justify your answer.
+ඉහත ER සටහනෙහි ඇති සම්බන්ධතා චීක-චඒක, චීක-බහු, බහු-බහු ලෙස වරිගීකරණය කරන්න.
+
+ඔබේ පිළිතුර සාධාරණීකරණය කරන්න.
+
+(c) Write the structure of the tables including their attributes when the above ER diagram
+
+is converted to a relational database.
+
+ඉහත ER සටහන සම්බන්ධතා (relational) දත්ත සමුදායකට හැර Q විට ලැබෙන OQ සභ
+
+චීවායේ උපලක්ෂණ ලියා දක්වන්න.
+
+(d) State the primary key for any table suggested in (c) above.
+
+ඉහත (Cc) & යෝජනා කරන ලද ඕනෑම වගුවක්‌ සඳහා ප්‍රාථමික යතුර (primary key) ලියා
+
+දක්වන්න.
+
+3.(a) Describe the relationship between primary key and foreign key in relational databases.
+සම්බන්ධක දත්ත සමුදායයන්ගේ ප්‍රාථමික යතුර හා ආගන්තුක යතුර අතර සම්බන්ධය විස්තර
+
+කරන්න.
+
+
+(2012 ESSAY )
+
+(b) Convert the following ER diagram to table structures in a relational database. The attribute
+capacity may have values such as captain, vice captain, member etc.
+පහත පෙන්වා ඇති ER සටහන සම්බන්ධක දත්ත සමුදාය OQ ආකෘතිවලට SSOKMNG කරන්න. capacity
+උපලකක්‍්ෂණය සඳහා captain, vice captain, member eH වශයෙන්‌ වූ අගයයන්‌ පැවතිය හැකි ය.
+
+student
+
+Gia OD
+
+sport
+
+( 2013 S.ESSAY )
+
+4. Draw an Entity Relationship (ER) diagram to represent the scenario given below. The
+attributes and the primary keys of entities should be clearly indicated. State if any
+assumptions that you make clearly.
+පහත සංසිද්ධිය නිරූපණය කිරීමට භූතාර්ථ සම්බන්ධික ER සටහනක්‌ අඳින්න. භූතාරිථ OE උප ලක්ෂණ
+සහ ප්‍රාථමික යතුරැ පැහැදිලිව දක්වන්න. ඔබගේ උපකල්පන ඇත්නම්‌, පැහැදිලිව ලියා දක්වන්න.
+
+ABC cab Service Company does not own any car. Private car owners can register with the
+company and also rent their cars. Some car owners provide more than one car to the
+company. The company hires drivers for these cars. Any car available for rent can be driven
+by different drivers on different days. Car owners are responsible for maintenance of their
+cars in order to provide a reliable service to the customers; after completing each hire, the
+driver informs his current location to the company. When a customer requests a car, the
+company looks for the availability of a car in the vicinity of the calling area. If a car is
+available, company assigns that to the customer and informs both customer and the driver.
+The company tries its best to assign the nearest available car to the customer to make its
+services more efficient. The company keeps customer information such as name, address
+and the contact telephone number to provide a better service to their regular customers.
+The customers can also inform to the company whether they are happy with the services
+provided by the driver. This information is used when assigning drivers to the customers.
+Each car owner, car, driver and the customer are given “ownerld", "carld", “driverld", and
+the "custld" respectively to identify them uniquely.
+
+ABC කැබ්‌ සේවා සමාගම සතුව එකදු කාර්‌ රථයක්වත්‌ නොමැත. පෞද්ගලික කාරි රථ හිමියන්ට මෙම
+සමාගම හා ලියාපදිංචි විය හැකි අතර ඔවුන්ගේ කාරී රථ කුලියට දීමට ද හැකිය. සමහර රථ හිමියන්‌
+එක රථයකට වඩා සමාගමට ලබා දේ. සමාගම විසින්‌ මෙම කාරී රථ සඳහා රියදුරන්‌ කුලී පලනම මත
+බඳවා ගනු ලබන අතර GOO mb රථ විවිධ දිනවල දී විවිධ රියදුරන්‌ විසින්‌ පැදවිය හැකිය.
+පාරිභෝගිකයන්ට විශ්වාසවන්ත සේවාවක්‌ ලබා දීම සඳහා වාහන නඩත්තු කිරීම රථ හිමියන්ගේ
+වගකීමකි. සෑම කුලී ගමනක ම අවසානයේ දී Seed) විසින්‌ තමා ඉන්නා ස්ථානය මෙම සමාගමට
+දන්වයි. පාරිභෝගිකයකු mb රථයක්‌ ඉල්ලා සිටි විටක දී සමාගම විසින්‌ පාරභෝගිකයා කථා කළ
+ස්ථානය සමීපයේ ඇති mb6 රථ පිළිබඳව සොයා බලයි. mb රථයක්‌ පවතින්නේ නම්‌, එය
+පාරිහෝගිකයාට අනුයුක්ත කර, ඒ බව පාරිභෝගිකයාට හා කාරී රථයේ SHEdz යන දෙපළට ම දන්වනු
+ලබයි. තම සේවාව වඩා කාරයක්ෂමව ලබා දීම සඳහා පාරිභෝගිකයාට සමීපතම ස්ථානයේ ඇති කාරි
+රථයට ඔහුව අනුයුක්ත කිරීම සඳහා සමාගමට හැකි උපරිම උත්සාහය ගනු ලබයි. මෙම සමාගම
+ඔවුන්ගේ සේවය නිරන්තරයෙන්‌ ලබා ගන්නා මගීනට වඩා හොඳ සේවයක්‌ ලබා දීම සඳහා නම, ලිපිනය
+හා දුරකථන අංකය වැනි පාරිභෝගික තොරතුරු ආයතනය සතුව තබා ගනී. පාරිභෝගිකයාට ද ඊයදුරැ
+විසින්‌ ලබා දුන්‌ සේවය සම්බන්ධව තමන්‌ සතුටු වන්නේ ද යන වග ආයතනයට දැන්විය හැකිය.
+පාරිභෝගිකයින්ට ඊයදුරන්‌ අනුයුක්ත කිරීමේ දී මෙම තොරතුරැ භාවිත කරනු ලැබේ. සෑම mb රථ
+හිමිකරැවෙක්‌ ම, කාරී රථයක්‌ ම, ටියදුරෙක්‌ ම හා පාරිභෝගිකයකු ම අනන්‍යව හඳුන්වා දීම සඳහා
+
+පිළිවෙළින්‌ “ownerld", “carld", “driverld” හා “custld” භාවිත කරනු ලැබේ.
+( 2013 ESSAY )
+
+5. You are given the following two tables in a relational database.
+සම්බන්ධක දත්ත සමුදායකට අයත්‌ පහත දැක්වෙන වගු දෙක ඔබට දී ඇතැයි සලකන්න.
+
+house student
+houselD | name studentID | name _ | grade | houselD
+HS1 Gamunu STUO01 Ranjith 13 HS1
+HS2 Tissa STU002 Gopy 12 HS1
+HS3 Wijaya STU003 Vipula 12 HS2
+HS4 Parakum STU004 | Hakeem] 11 HS3
+
+(a) The above tables were created by converting the ER diagram given below.
+සම්බන්ධක දත්ත සමුදායකට අයත්‌ පහත දැක්වෙන වගු දෙක ඔබට දී ඇතැයි සලකන්න.
+
+house B <a> කී student
+
+Fill in the following blanks with the suitable labels or necessary information for the A, B, C,
+D and E shown in the ER diagram.
+
+භූතාරිථ සම්බන්ධක රෑපයේ A,B, C,D හා E සඳහා සුදුසු ලේබල හෝ අවශ්‍ය තොරතුරු යොදා පහත
+දැක්වෙන හිස්තැන්‌ පුරවන්න.
+
+ගී ~ ..............
+වී ~ .............
+
+ම
+
+State whether the relationship between the tables student and house, is one-to-one, one-
+to-many, or many-to-many. Justify your answer using suitable data from the above tables.
+
+student හා house යන වගු දෙක අතර සම්බන්ධතාවය එක-එක, එක-බහු හෝ බහු-බහු දැයි ප්‍රකාශ
+කරන්න. ඉහත වගුවල ඇති සුදුසු දත්ත භාවිත කර ඔබේ පිළිතුර තහවුරැ කරන්න.
+
+( 2014 S.ESSAY )
+
+5. Draw an Entity Relationship (ER) diagram to represent the scenario given below. In your
+diagram the attributes and the primary keys should be clearly indicated. Clearly state your
+assumptions, if any.
+පහත GSH) ඇති සංසිද්ධිය නිරූපණය කිරීමට භූතාරිීථ සම්බන්ධතා (ER) රෑපසටහනක්‌ අඳින්න.
+
+ඔබගේ රෑපසටහනේ උපලක්ෂණ (attributes) හා ප්‍රාථමික යතුරැ (primary keys) පැහැදිලි ව දැක්විය
+යුතු ය. ඔබගේ උපකල්පන වෙතොත්‌ පැහැදිලි ව ප්‍රකාශ කරන්න.
+
+The EST University has three faculties: Education, Science, and Information Technology.
+Each faculty can offer one or more-degree programs. The Faculty of Education and the
+Faculty of Science offer Bachelor of Education and Bachelor of Science degree programs
+respectively. However, the Faculty of Information Technology offers two-degree programs:
+Bachelor of Science in Information Technology and Bachelor of Science in Software.
+Engineering. At the time of the registration, students should pay the full degree program
+fee which may differ from one degree program to another. A student can enroll in only
+one degree program at a time. A degree program has two types of course units:
+compulsory and optional. A course unit can be available in more than one degree program.
+EST university has many lecturers. A lecturer can be assigned to one or more course units.
+A course unit can be assigned to one or more lecturers. Number of hours allocated for a
+course unit is distributed among the assigned lecturers when more than one lecturer is
+assigned to a course unit. Each faculty, degree program, course unit, lecturer, and student
+are uniquely identified by ‘facultyID’, ‘degreelD’, ‘courselD’, ‘lecturerlD’ and ‘studentID’
+respectively.
+
+EST නම්‌ වූ විශ්ව විද්‍යාලයට පීඨ තුනක්‌ පවතී. චීවා අධ්‍යාපන, ව්ද්‍යාව හා තොරතුරු තාක්ෂණ නම්‌ Gd.
+චක්‌ එක්‌ පීඨයට උපාධි පාඨමාලා එකක්‌ හෝ වැඩි ගණනක්‌ ලබාදිය හැකි වේ. අධ්‍යාපන පීඨය හා විද්‍යා
+පීඨය මගින්‌ අධ්‍යාපනවේදී හා විද්‍යාවේදී උපාධි පාඨමාලා පිළිවෙළින්‌ පචත්වනු ලැබේ. කෙසේ වෙතන්‌
+තොරතුරු තාක්ෂණ පීඨය තොරතූරැු තාක්ෂණවේදය පිළිබඳ විද්‍යාවේදී උපාධිය හා මෘදුකාංග
+ඉංපිනේරැ විද්‍යාව පිළිබඳ විද්‍යාවේදී උපාධිය යන උපාධි පාඨමාලා දෙකක්‌ පවත්වනු ලබයි. සම්පූරිණ
+උපාධි පාඨමාලා ගාස්තුව සිසුන්‌ විසින්‌ ලියාපදිංචිය ලබා ගන්නා අවස්ථාවේ දී ගෙවිය යුතු වචන අතර
+DO ගාස්තු උපාධි පාඨමාලාවෙන්‌ පාඨමාලාවට වෙනස්‌ විය හැක. චක්‌ සිසුවකුට එක්‌ අවස්ථාවක දී
+ඇතුළත්‌ විය හැක්කේ චක්‌ උපාධි පාඨමාලාවකට පමණකි. උපාධි පාඨමාලාවකට ආකාර දෙකක
+
+පාඨමාලා ඒකක (course units) පවතින අතර SA අනිචාරිය හා විකල්ප පාඨමාලා ඒකක වේ. එක්‌
+
+පාඨමාලා එකකයක්‌ උපාධි පාඨමාලා ගණනක්‌ තුළ පැවතිය හැකි ය. EST විශ්වවිද්‍යාලයේ
+DOMAIOGACZ බොහෝ ඉදෙණනෙක්‌ සිටිති. කථිකාචාරියවරයකුට චක්‌ පාඨමාලා ඒකකයක්‌ හෝ වැඩි
+ගණනක්‌ පැවරිය හැකි ය. තව ද OS පාඨමාලා ඒකකයක්‌ එක්‌ කථිකාචාරියවරයෙකුට හෝ වැඩි
+දෙනෙකුට පැවරිය හැකි ය. එක්‌ පාඨමාලා ඒකකයක්‌ කථිකාචාරියවරැ කිහිප දෙනෙකු අතර පවරා ඇති
+විට පාඨමාලා එකකයකට අදාළ පැය ගණන SOD ඇති කඵථිකාචාරියවරුැ අතර බබදනු
+ලැබේ."130(1]0)/1[0*, ‘degreelD’, ‘courselD’, ‘lecturerlD’ සහ ‘studentID’ මගින්‌ පිළිවෙළින්‌ එක්‌ එක්‌
+පීඨය, උපාධි පාඨමාලාව, පාඨමාලා ඒකකය, කථිකාචාරියචවරයා සහ සිසුවා අනන්‍යව හඳුන්වනු ලැබේ.
+
+( 2014 ESSAY )
+6. Consider the following table. / පහත වගුව සලකා බලන්න.
+
+index | name address class
+1022 | S.M.G.D. Dayasiri | No. 15, Peradeniya Road, Kandy 8B
+
+566 G.M.D. Priyangani | No. 147/7, Katugasthota Road, Kandy | 11C
+923 F.D.C. Jayasingha | “Sadasiri”, Colombo Road, Mawanella | 10B
+
+(i) What is the cardinality of the above table? / ඉහත වගුවේ ගණනීයතාව කුමක්‌ ද?
+(ii) What is the degree of the above table? / ඉහත වගුවේ තත්ත්වය (degree) කුමක්‌ ද?
+
+(2015 S.ESSAY )
+
+7. A pharmacy named “DR Chemists” sells drugs to patients. A patient should produce a
+prescription to a pharmacist at the pharmacy to buy drugs. A prescription has one or more
+drugs prescribed by a doctor. A doctor can issue more than one prescription for a patient.
+However, a prescription is issued by one doctor. Pharmacist prepares a bill for each
+prescription and gives it to the patient. Five (05) pharmacists at the pharmacy handle all
+prescriptions.
+
+“DR Chemists” නම්‌ ඔසුසල රෝගීන්‌ සඳහා බෙහෙත්‌ විකුණනු ලැබේ. බෙහෙත්‌ මිල දී ගැනීම සඳහා
+රෝගියකු විසින්‌ බෙහෙත්‌ තුන්ඩුවක්‌ ඔසුසලේ සිටින ඔඹෟෂධවේදියෙකුට දිරපත්‌ කළ යුතු Gd.
+වෛද්‍යවරයකු විසින්‌ නිරිදේශ කරන ලද බෙහෙත්‌ එකක්‌ හෝ වැඩි ගණනක්‌ තූන්ඩුවක පවතී.
+වෛද්‍යවරයකුට චක්‌ රෝගියකු සඳහා චක්‌ බෙහෙත්‌ තුන්ඩුවකට වඩා වැඩි තුන්ඩු සංඛ්‍යාවක්‌ ලබා දිය
+හැකි වන නමුත්‌ එක්‌ බෙහෙත්‌ තුන්ඩුවක්‌ චක්‌ වෛද්‍යවරයකු චිසින්‌ පමණක්‌ නිකුත්‌ කළ යුතු. ය. එක්‌
+බෙහෙත්‌ තුන්ඩුවක්‌ සඳහා බිල ඹෟෂධවේදියා විසින්‌ සකස්‌ කරන අතර චය රෝගියා වෙත ලබා ද්‌.
+
+සියලු බෙහෙත්‌ තුන්ඩු ඔසු සලේ සිටින ඹෟෂධවේදීන්‌ පස්දෙනකු (05) මගින්‌ හසුරැවනු ලබයි.
+
+A pharmacist handles more than one prescription while one prescription is handled only
+by one pharmacist. The upper part of the prescription contains the patient information
+such as name, age, address and telephone number. The middle part of the prescription
+consists of one or more drug names, quantities to be issued and the dosages. At the
+bottom part name, address and telephone number of the hospital and the name of the
+
+doctor are available.
+
+ඕනෑම ඔෟෂධවේදියකු Oss බෙහෙත්‌ තූන්ඩුවකට වඩා හසුරැවන ලබන අතර චක්‌ බෙහෙත්‌ තුන්ඩුවක්‌
+හැසිර විය යුත්තේ එක්‌ ඔබෟෂධචේදියකු මගින්‌ පමණකි. බෙහෙත්‌ තුන්ඩුවක මුල්‌ කොටසෙහි රෝගියායේ
+විස්තර ලෙස නම, වයස, ලිපිනය සහ දුරකථන අංකය සඳහන්‌ GO. බෙහෙත්‌ තුන්ඩුවේ මැද කොටස
+සමනව්ත වන්නේ බෙහෙත්‌ OKO එකක්‌ හෝ වැඩි සංඛ්‍යාවක නම්‌, ලබා දිය යුතු බෙහෙත්‌ ප්‍රමාණ සහ
+මාත්‍රාවයි. අවසන්‌ කොටසේ සඳහන්‌ වන්නේ ආරෝග්‍ය ශාලාවෙහි නම, ලිපිනය, දුරකථන අංකය සහ
+ලවෛද්‍යවරයාගේ නමයි.
+
+The owner of the pharmacy wants to keep the necessary information to prepare the
+
+following list of reports.
+ඔසුසලෙසහි අයිතිකරුට පහත ලැයිස්තුවේ සඳහන්‌ වාර්තා පිළියෙල BOO sem අවශ්‍ය තොරතුරු
+තබා ගැනීමට අවශ්‍ය ව ඇත.
+
+1. Number of prescriptions handled by each pharmacist.
+චක්‌ එක්‌ ඔඹෟෂධවේදියා විසින්‌ හසුරුවනු ලබන බෙහෙත්‌ asd) e50Qs.
+
+2. Number of prescriptions issued by each doctor.
+චක්‌ එක්‌ වෛද්‍යවරයා චිසින්‌ නිකුත්‌ කරන ලද බෙහෙත්‌ තුන්ඩු සංඛ්‍යාව
+
+3. List of information about doctors, their hospitals and drugs prescribed by them.
+වෛද්‍යවරුන්‌, ඔවුන්ගේ ආරෝග්‍ය ශාලා හා ඔවුන්‌ නිරිදේශ කරන ලද බෙහෙත්වල තොරතුරැ.
+
+4, List of daily cash collection of the pharmacy.
+ඔසුසලෙහි දෛනික මුදල්‌ එකතුව.
+
+Prepare an ER diagram to model the data required to produce the above reports. State
+
+clearly all your assumptions, if any.
+
+ඉහත වාර්තා පිළියෙල HOO සඳහා අවශ්‍ය වන දත්ත ආකෘතිකරණය කිරීම සඳහා ER රෑප සටහනක්‌
+අඳින්න. ඔබගේ උපකල්පන ඇත්නම්‌ පැහැදිලි ව සඳහන්‌ කරන්න.
+
+( 2015 ESSAY )
+
+8. An education institute maintains a timetable to manage its lectures, practical classes and
+seminars. The timetable consists of two-hour time periods: 8.00 a.m. - 10.00 a.m., 10.00
+a.m. - 12.00 noon, 1.00 p.m. - 3.00 p.m. and 3.00 p.m. - 5.00 p.m. Lectures, practical classes
+and seminars are assigned to one or more time periods. A lecture is assigned to a lecturer
+and a practical class is conducted by a group of demonstrators. At least two lecturers are
+responsible for a seminar.
+
+අධ්‍යාපනික ආයතනයක්‌ චහි දේශන, ප්‍රායෝගික පංති හා සම්මන්ත්‍රණ හැසිර වීම සඳහා කාලසටහනක්‌
+පවත්වා ගෙන යයි. කාල සටහන ප.ව. 8.00 සිට පෙ.ව. 10.00, පෙ.ව. 10.00 සිට මධ්‍යහ්න 12.00,
+
+ප.ව. 1.00 සිට ප.ච. 3.00, සහ ප.ව. 3.00 සිට ප.ව. 5.00 ලෙස පැය දෙකෙහි කාල පලදරච්ිඡජේදවලින්‌
+යුක්ත චේ. දේශන, ප්‍රායෝගික පංති සහ සම්මන්ත්‍රණ කාලපරචිජේද එකක්‌ හෝ වැඩි ගණනකට
+අනුයුක්ත කොට ඇත. දේශනයක්‌ දේශකවරයකුට පචරා ඇති අතර ප්‍රායෝගික පංති ප්‍රදර්ශකවරැන්‌
+සමූහයක්‌ විසින්‌ පචත්වනු ලබයි. සම්මන්ත්‍රණයක වගකීම අවම වශයෙන්‌ දේශකවරැන්‌ දෙදෙනකුට
+
+පැවරේ.
+
+Draw an Entity Relationship (ER) diagram for the above system. State all your assumptions
+clearly.
+
+ඉහත පද්ධතිය සඳහා QMO සම්බන්ධනා (ER-Entity Relationship) රෑප සටහනක්‌ අඳින්න. ඔබගේ
+උපකල්පන පැහැදිලි ව ලියා දක්වන්න.
+
+(2016 ESSAY )
+
+9. A person can own one or more mobile phones. One mobile phone belongs to a single
+person only. Assume that a mobile phone can be uniquely identified by its telephone
+number. National Identity Card number (NIC No) is used to identify a person uniquely.
+
+Above statements are represented by the ER diagram in Figure 4.2.
+චක්‌ පුද්ගලයකුට ජංගම දුරකථන චකක්‌ හෝ කිහිපයක්‌ හෝ අයිති විය හැකි ය. චක්‌ ජංගම දුරකථනයක්‌
+අයත්‌ වන්නේ එක්‌ පුද්ගලයකුට පමණි. දුරකථන අංකයෙන්‌ ජංගම දුරකථනයක්‌ අනන්‍යව හඳුනාගත
+
+හැකි බව උපකල්පනය කරන්න. ජාතික හැඳුනුම්පත්‌ අංකය (ජා.හැ. අංකය) පුද්ගලයකු අනන්‍යව
+හඳුනාගැනීමට යොදා ගනී. රෑපය 4.2 හි දැක්වෙන ER සටහන මගින්‌ ඉහත ප්‍රකාශ නිරූපණය කරයි.
+
+Telephone No CNIC No)
+
+Mobile Phone | belongs to Person
+
+Figure 4.2 : ER diagram
+
+Convert the above ER diagram into 3rd Normal Form relations to be implemented in
+relational database.
+
+මෙම ER සටහන සම්බන්ධක දත්ත සමුදායක්‌ තුළ ස්ථාපිත කළ හැකි 3 වන GOD ආකාරයේ
+සම්බන්ධකවලට පත්‌ කරන්න.
+
+( 2017 S.ESSAY )
+
+10. The candidates who have been selected for university entrance should register for the
+given academic year with the university given to them. Candidates who do not register
+before the ‘Last date’ announced by each university will lose their university entrance. Once
+a candidate registers with the given university, the candidate becomes a registered student
+of that university. Registered students can apply for financial support, such as Mahapola
+scholarships and Bursary, separately. These financial supports could be either full or partial.
+All registered students will receive a laptop. However, its ownership cannot be transferred
+
+to another student.
+
+විශ්වවිද්‍යාල ප්‍රවේශයට තෝරාගන්නා ලද අපේක්ෂකයන්‌ OO අධ්‍යයන Obwss සඳහා ඔවුන්ට ලබා දුන්‌
+විශ්වවිද්‍යාලයෙහි ලියාපදිංචි විය යුතු ය. එක්‌ චක්‌ විශ්වවිද්‍යාලය විසින්‌ ප්‍රකාශයට පත්‌ කරන .අවසන්‌
+දිනයට. පෙර ලියාපදිංචි නොවන අපේක්ෂකයන්ට විශ්වවිද්‍යාල ප්‍රවේශය අහිමි වනු ඇත. oO
+අපේක්ෂකයකු ලබා දුන්‌ විශ්වවිද්‍යාලයේ ලියාපදිංචි වූ විට DO අපේක්ෂකයා OO විශ්වවිද්‍යාලයේ
+ලියාපදිංචි ශිෂ්‍යයකු බවට පන්‌ වේ. ලියාපදිංචි වූ ශිෂ්‍යයන්ට මහපොළ ශිෂ්‍යත්ව හා BSAA වැනි
+මූල්‍යමය ආධාර සඳහා වෙන GOD ම අයදුම්‌ කළ හැකි ය. මෙම මූල්‍යමය ආධාර පූර්ණ හෝ අර්ධ හෝ
+විය හැකි ය. ලියාපදිංචි වූ සෑම ශිෂ්‍යෲයෙකුට ම ලැප්ටොප්‌ පරිගණකයක්‌ ලැබෙයි. එහෙත්‌ චහි අයිතිය
+වෙනත්‌ ශිෂ්‍යයකුට පැවරිය නොහැකි ය.
+
+The user requirements of the above system are listed below. A user shall be able to obtain:
+ඉහත පද්ධතියෙහි පරිශීලක අවශ්‍යතා පහත දැක්වේ. පරිශීලකයකුට,
+
+(a) alist of students registered for a given academic year with a given university.
+GED ලද විශ්වවිද්‍යාලයක දෙන ලද අධ්‍යයන වර්ෂයක්‌ සඳහා ලියාපදිංචි වූ ශිෂ්‍යයන්ගේ
+ලැයිස්තුවක්‌ ලබා ගැනීමට හැකි විය යුතු ම ය.
+
+(0) information (such as model, serial number and warranty period) about the laptops
+given to each student.
+චක්‌ චක්‌ ශිෂ්‍යයාට ලබා දුන්‌ ලැප්ටොප්‌ පටගණකයෙේ විස්තර (මාදිලිය, අනුක්‍රමික අංකය සහ වගකීම්‌
+කාලය වැනි) ලබා ගත හැකි විය යුතු ම ය.
+
+(c) list of students who applied for financial support.
+මූල්‍යමය ආධාර සඳහා අයදුම්‌ කළ ශිෂ්‍යයන්ගේ ලැයිස්තුවක්‌ ලබා ගත හැකි විය Qe ම ය.
+
+Draw an Entity Relationship (ER) diagram required to design a database to represent the
+above system description and to satisfy the user requirements. State all your assumptions
+
+clearly.
+ඉහත පද්ධති විස්තරය නිරූපණය වන හා පරිශීලක අවශ්‍යතා ඉටු කරගත හැකි දත්ත සමුදායක්‌
+
+නිර්මාණය කිරීමට අවශ්‍ය භූතාර්ථ සම්බන්ධතා (ER) සටහනක්‌ අඳින්න. ඔබගේ උපකල්පන පැහැදිලිව
+සඳහන්‌ කරන්න.
+
+( 2017 ESSAY )
+
+11. Consider the following Entity Relationship (ER) diagram.
+පහත දක්වා ඇති QMBO සම්බන්ධනා (ER) සටහන සලකන්න.
+
+CompanyRegNo C since >) ලා DateOfBirth
+
+compANy | 4 ස M_| STAFF
+Address
+1
+
+DateOfBirth
+
+Relationship DEPENDANT DEPENDANT_OF
+
+(i) Briefly explain why the ‘Phone’ attribute is shown using a different symbol compared to
+other attributes.
+
+අනෙකුත්‌ උපලක්ෂණ (attributes) සමග සැසඳීමේ දී ‘Phone’ උපලක්ෂණය, වෙනස්‌ සංකේතයකින්‌
+දක්වා ඇත්තේ ඇයි දැයි කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+‘i
+
+(ii) Briefly explain why DEPENDANT entity is shown using a different symbol compared to
+COMPANY.
+
+COMPANY සමග සැසඳීමේ දී DEPENDANT භූතාරථය (entity) වෙනස්‌ සංකේතයකින්‌ දක්වා
+ඇත්තේ ඇයි දැයි කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+(iii) The following relational tables are constructed using the ER diagram shown above. In
+
+each of the tables, the field names are missing.
+ඉහත දැක්වෙන භතාර්ථ සම්බන්ධතා සටහන භාවිත කර පහත සම්බන්ධතා OQ ගොඩනගනු ලැබේ.
+bad එක්‌ වගුවෙහි ක්ෂේත්‍ර නාම දක්වා නොමැත.
+
+COMPANY (..................-----....... )
+STAFF (............-----...----...--- )
+
+STAFF_PHONE (.
+DEPENDANT (.................----------
+
+Identify the missing field names in each table and write them down against (P) — (5)
+චක්‌ එක්‌ OQGOSG දක්වා නොමැති ක්ෂේත්‍ර නාම හඳුනාගෙන (P) සිට (5) Q@060 ලියා දක්වන්න.
+
+(P) ~ .......෴෴෴..෴෴
+(0) -_ .......................
+([0) ~ ......................
+(ව) ~ ........෴෴.. 2
+
+( 2018 S.ESSAY )
+
+12. The following two tables CLASS and STUDENT are constructed by using the Entity
+Relationship (ER) diagram shown in Figure.
+පහත දැක්වෙන CLASS සහ STUDENT | චගු දෙක, 628608 දී ඇති ER සටහන භාවිත කර නිරිමාණය
+
+කර ඇත.
+
+CLASS Table
+ClassID ClassName ClassTeacher Stream Year
+1111 12-A A. B. Perera Physical Science | 2017
+1112 12-B N. Mohamed Bio Science 2017
+1113 13-A E. Selvadurai Arts 2017
+1114 13-B L. De Silva Commerce 2018
+
+STUDENT Table
+Index Number | ClassID Initials Surname DateOfBirth
+8991 1112 E. Nazeer 1999.12.06
+8993 1111 S. Sivalingam 1999.02.06
+8995 1112 W. Fernando 1999.11.11
+8997 1113 ට. [1. De Silva 1999.08.06
+
+ClassName
+
+<>
+ලාව
+ලම්‌
+
+ClassTeacher
+
+ ෴෴෴෴ම
+
+ට ෴
+
+Q ©
+
+STUDENT
+
+DateOfBirth
+
+IndexNumber
+
+(a) What is the cardinality of the relationship between the entities STUDENT and CLASS,
+denoted by and above? Note: Write down suitable labels for (A) and (B), respectively.
+(A) සහ (6) ලෙස දක්වා ඇති CLASS සහ STUDENT යන භුතාරීථ අතර සම්බන්ධතාවෙහි
+ගණනීයතාවය කුමක්‌ ද? සටහන: (A) සහ (B) සඳහා සුදුසු ලේබල පිළිවෙළින්‌ ලියා දක්වන්න.
+
+(0) Explain how a relationship is established between the two tables using primary key(s) and
+
+foreign key(s) in the above example.
+ඉහත උදාහරණයෙහි ප්‍රාථමික යතුර / යතුරු සහ ආගන්තුක යතුර / යතුරු භාවිතයෙන්‌ OQ දෙක අතර
+සම්බන්ධතාවයක්‌ (relationship) ගොඩනැගෙන ආකාරය පැහැදිලි කරන්න.
+
+(ට (i)
+
+(11)
+
+
+Are the two tables STUDENT and CLASS, in second normal form (2NF)? Explain a
+reason for your answer referring to tables.
+
+STUDENT | සහ CLASS වගු දෙවන ප්‍රමත (2NF) ආකාරයෙන්‌ පවතී ද? ඔබේ පිළිතුරට හේතුවක්‌
+වගු ආශ්‍රයෙන්‌ පැහැදිලි කරන්න.
+
+Briefly explain one key advantage of normalisation.
+ප්‍රමතකරණයෙහි ප්‍රධාන වාසියක්‌ කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+( 2018 ESSAY )
+
+13. Consider the following Entity Relationship (ER) diagram which represents the information
+about projects conducted by staff attached to a software development company.
+මෘදුකාංග සංවර්ධන සමාගමක කාරිය මණ්ඩලය (Staff) විසින්‌ කරනු ලබන ව්‍යාපෘතිවලට (Project)
+අදාළ තොරතුරැ දැක්වෙන පහත භූතාර්ථ සම්බන්ධතා Omen (ER [018091:311])) සලකන්න.
+
+DateOfBirth
+cs = N
+
+aay CoS
+
+CompanyRegNo
+
+(i) The number of hours (NoOfHours) that each staff member works on each project is
+recorded. Draw the attribute NoOfHours in the relevant position of the ER diagram with
+the correct symbol and the label.
+චක්‌ චක්‌ කාරිය මණ්ඩල සාමාපිකයා (staff member) එක්‌ එක්‌ ව්‍යාපෘතියෙහි (Project) සේවයෙහි
+යෙදෙන (work) පැය ගණන (NOOfHours) සටහන්‌ කරනු ලැබේ. නිවැරදි සංංක්තය සහ ලේබලය
+සමග NoOfHours උපලැකිය ER සටහනෙහි අදාළ ස්ථානයෙහි අඳින්න.
+
+(ii) For each accepted project a temporary location is rented for the staff, for the duration of
+the project. For each Location, the OwnerName, PhoneNo, Address, Rent, RentedDate and
+RentedPeriod arc recorded. One project has only one location. A rented location is used
+for only one project. When a certain project is completed, the location rented for the
+project will be released and handed over to the owner.
+භාරගන්නා වූ සෑම ව්‍යාපෘතියක්‌ සඳහාම ව්‍යාපෘතියෙහි කාල වකවානුවට කාරිය මණ්ඩලය වෙනුවෙන්‌
+තාවකාලික ස්ථානයක්‌ (Location) කුලියට ගනු ලැබේ. සෑම ස්ථානයක්‌ සඳහාම අයිතිකරුගේ නම
+(Owner Name), දුරකථන efozncs (PhoneNo), ලිපිනය (Address), කුලිය (Rent), කුලියට ගත්‌ දිනය
+
+(RentedDate) සහ කුලියට ගත්‌ කාල sdde%ecs (RentedPeriod) සටහන්‌ කරනු ලැබේ. චක්‌
+ව්‍යාපෘතියක්‌ සඳහා චක්‌ ස්ථානයක්‌ SOS. කුලියට ගත්‌ එක්‌ ස්ථානයක්‌ එක්‌ ව්‍යාපෘතියක්‌ සඳහා පමණක්‌
+භාවිත කෙරේ. කිසියම්‌ ව්‍යාපෘතියක්‌ නිම වූ විට, OO ව්‍යාපෘතිය සඳහා කුලියට ගත්‌ ස්ථානය නිදහස්‌
+කර, අයිතිකරැ වෙන භාරදෙනු ලැබේ.
+
+Draw the Entity ‘Location’ with relevant attributes inside the area X in the diagram and link
+
+it to the existing ER diagram by indicating the cardinality.
+
+Location නම්‌ QMBOG අදාළ උපලැකි සහිතව රෑපසටහනෙහි X නම්‌ ප්‍රදේශය තුළ ඇඳ, පවතින ER
+සටහන සමග ගණනීයතාව දක්වමින්‌ සම්බන්ධ කරන්න.
+
+( 2019 S.ESSAY )
+
+14. A vehicle rental company has registered vehicle owners. Vehicles are obtained from the
+owners and rented to the customers. Consider the following relations regarding the vehicle
+
+rental company.
+චක්තරා වාහන කුලියට සැපයීමේ සමාගමකට ලියාපදිංචි වාහන හිමිකරැචන්‌ ඇත. හිමිකරැවන්ගෙන්‌
+වාහන ලබාගෙන පාරිභෝගිකයන්‌ වෙත කුලියට ලබා දේ. වාහන කුලියට සැපයීමේ සමාගමට අදාළ
+
+පහත දැක්‌චෙන සම්බන්ධතා (relations) සලකන්න.
+
+Il. Customer (Customer_NIC, Customer_Name, City, Postal_Code)
+[|| Vehicle_Owner (Owner_ld, Owner_Name, Contact_No)
+Ill. | Vehicle(Vehicle_Reg_No, Description, Owner_Id)
+
+e The Customer relation contains customer's national identity card number (NIC) which is
+unique, name, city where he/she is living and the postal code of the city. A customer lives
+in a single city and there are many customers in one city. The postal code depends on city.
+(ල(16101116!' (පාරිභෝගිකයා) sG@SAMOAGGH epenensOen Customer_NIC (endeaiGeacee ජාතික
+හැළුනුම්පත්‌ අංකය) , Customer_Name (@®), ඔහු/ ඇය ජීවන්වන City (නගරය) සහ එම නගරයෙහි
+
+Postal_Code (තැපැල්‌ කේතය) අඩංගු වේ. Aad පාර්භෝගිකයකු එක්‌ නගරයක ජීවත්වන අතර චක්‌
+නගරයක්‌ තුළ පාරිභෝගිකයන්‌ රාශියක්‌ ජීවත්‌ විය හැක. තැපැල්‌ කේතය, නගරය මත රඳා පවතී
+
+(depends).
+
+e The Vehicle_Owner relation contains the Owner_Id which is unique, owner's name and the
+contact number.
+Vehicle_Owner (@2mencs - හිමිකරැ) සම්බන්ධතාවයෙහි අනන්‍ය වූ Owner_lId (හිමිකරැ හැඳුනුමි
+අංකය), Owner_Name (හිමිකරුගේ නම) සහ Contact_No (ඇමතුම්‌ අංකය) අඩංගු වේ.
+
+e The Vehicle relation contains the vehicle registration number which is unique, a description
+about the vehicle and the Owner_ld.
+Vehicle (වාහනය) සම්බන්ධතාවයෙහි අනන්‍ය වූ වාහනයේ Vehicle_Reg_No (ලියාපදිංචි අංකය) ,
+Description (වාහනය පිළිබඳ විස්තරය) සහ Owner_ld (හිමිකරු හැඳුනුම්‌ අංකය) අඩංගු වේ.
+
+A customer can rent more than one vehicle. Also, it is possible to rent one vehicle to many
+customers at different instances. Each vehicle is owned by one owner and one owner can
+
+have more than one vehicle.
+
+පාරිභෝගිකයකුට වාහන එකකට වඩා කුලියට OD හැකි ය. තවද කිසියම්‌ වාහනයක්‌ පාරිභෝගිකයන්‌
+කිහිපදෙනකුට වෙනස්‌ අවස්ථාවල දී කුලියට දිය හැකි ය. සෑම වාහනයකටම තනි හිමිකරැවකු සිටින
+අතර, චක්‌ හිමිකරුවකුට වාහන එකකට වඩා තිබිය හැකි ය.
+
+(a) In which normal form do the above relations given in |, Il, Ill above exist? Justify your
+answer.
+
+ඉහත |, ॥ හා Ill හි ඇති සම්බන්ධතා පවතින්නේ කුමන ප්‍රමතකරණයෙහි ද? ඔබේ පිළිතුර
+සාධාරණීකරණය කරන්න.
+
+(0) Convert the above relations to the next Normal Form from the current Normal Form
+which you have stated in 5(a). (Present the contents relevant to the labels to indicated
+in the following table as your answer.)
+ඉහත සම්බන්ධතා, ඔබ විසින්‌ 5 (a) කොටසෙහි සඳහන්‌ කරන ලද දැනට SOBA ප්‍රමතකරණයෙන්‌,
+මීළඟ ප්‍රමනකරණයට හරවන්න. (පහත වගුවෙහි (P) සිට (0) දක්වා වන ලේබලවලට අදාළ දෑ
+ඔබේ පිළිතුර ලෙස ඉදිරපත්‌ කරන්න.)
+
+Relation No. Next Normal Form Relation/s in Next Normal Form
+| ® @
+I @ @
+M ® ල
+
+(c) Draw an Entity Relationship (ER) diagram to depict, the above relations by identifying
+the relationships, key attributes, other attributes and the cardinality.
+සම්බන්ධතාවයන්‌ (relationships), යතුරැ උපලැකි (key attributes), වෙනත්‌ උපලැකි සහ
+ගණනීයතා (cardinality) හඳුනාගනිමින්‌ ඉහත සම්බන්ධනා නිරූපණය කිරීම සඳහා භූතාර්ථ-
+සම්බන්ධතා (ER) සටහනක්‌ අඳින්න.
+
+(2019 ESSAY )
+
+15. Consider the following description relating to details of players attached to different sports
+
+clubs.
+BSA ක්‍රීඩා සමාජවලට අයත්‌ වන ක්‍රීඩකයන්ගේ තොරතුරැවලට සම්බන්ධ පහත දැක්වෙන විස්තරය
+සලකන්න.
+
+A player always belongs to a sports club and he/she can be identified uniquely by the NIC
+(National Identity Card) number. Further a player has a name which consists of a surname
+and initials.
+
+ක්‍රීඩකයකු සැමවිටම ක්‍රීඩා සමාජයකට (sports club) අයන්‌ වන අතර ඔහු හෝ ඇය ජාතික හැඳුනුම්පත්‌
+අංකය (NIC) මගින්‌ අනන්‍යව හඳුනාගනු ලැබේ. තවද ක්‍රීඩකයකුට වාසගම (surname) සහ මුල අකුරැ
+(initials) චලින්‌ සමන්විත නමක්‌ (name) පචතී.
+
+A club which is uniquely identified by its name can have many players. A player can play
+games. Each game in this context is given a unique code and a description. A player can
+play more than one game and each game is played by at least one player.
+
+ක්‍රීඩා සමාජයක්‌ අනන්‍යව භඳුනාගනු ලබන්නේ OH නමින්‌ (name) වන අතර, චයට බොහෝ ක්‍රීඩකයන්‌
+සිටිය හැකි ය. ක්‍රීඩකයකුට (player) ක්‍රීඩාවලට (games) ක්‍රීඩා කළ (play) හැකි වේ. මෙහි එක්‌ එක්‌
+
+ක්‍රීඩාවට අනන්‍ය වූ කේනයක්‌ (code) සහ විස්තරයක්‌ (description) ඇන. ක්‍රීඩකයකුට ක්‍රීඩා එකකට
+වැඩි සංඛ්‍යාවකට ක්‍රීඩා කළ හැකි වන අතර චඑක්‌ ක්‍රීඩාවක අඩු තරමින්‌ චක්‌ ක්‍රීඩකයකුවත්‌ BA කරනු
+ලබයි.
+
+Note: Use only the relevant words in the above description when drawing the Entity-
+Relationship (E-R) diagrams for the following questions.
+
+සටහන: පහත ප්‍රශ්න සඳහා භූතාර්ථ-සම්බන්ධතා (ER) සටහන්‌ ඇඳිමේ දී හෙත විස්තරයේ සපයා ඇති
+අදාළ වචන පමණක්‌ යොදා ගන්න.
+
+(i) Draw an ER diagram for the above description.
+ඉහත විස්තරය සඳහා ER සටහනක්‌ අඳින්න.
+
+(ii) Extend the ER diagram in above (i) to include the number of hours played by each player
+for each game.
+චක්‌ චක්‌ ක්‍රීඩකයා විසින්‌ චක්‌ එක්‌ GENO MOD ලද පැය ගණන ඇතුළත්‌ කිරීම සඳහා ඉහත (i) හි අඳින
+ලද ER සටහන දීර්ඝ කරන්න.
+
+(iii) Player may have a sponsor who has a unique title. A sponsor can give sponsorship only for
+one player. Extend further the ER diagram in part (ii) above to include the sponsor's details.
+අනන්‍ය නමක්‌ (unique title) සහිත අනුග්‍රාහකයකු (sponsor) ක්‍රීඩකයකුට සිටිය හැක. අනුග්‍රාහකයකුට
+
+චක්‌ ක්‍රීඩකඛයකුට පමණක්‌ අනුග්‍රාහකත්වය දැක්විය හැකි ය. ඉහත (ii) ER සටහන, අනුග්‍රාහක විස්තර
+ඇතුළත්‌ කිරීම සඳහා තවදුරටත්‌ දීර්ඝ කරන්න.
+
+16. The ‘Winner’ table given below contains the details of the players who won different
+matches and medals. There is a fixed amount of prize money given to each medal type. A
+Gold medal has Rs. 20,000/=, a Silver medal has Rs. 10,000/= and a Bronze medal has Rs.
+5,000/=. Consider the primary key of the Winner table as NIC and MatchlD.
+ක්‍රීඩකයන්‌ ජයග්‍රහණය කරන ලද ක්‍රීඩා (games) සහ පදක්කම්‌ (medals) පිළිබඳ විස්තර පහත ‘Winner’
+වගුවෙහි ඇතුළත්‌ වේ. චක්‌ එක්‌ පදක්කම්‌ (medals) වරිගය සඳහා නිශ්චිත තආග මුදලක්‌ ඇත. රන්‌
+(gold) පදක්කමක්‌ සඳහා 62.20,000/- ක්‌ ද 5 (silver) පදක්කමක්‌ සඳහා රැ.10,000/- ක්‌ ද ලෝකඩ
+(bronze) පදක්කමක්‌ සඳහා රැ.5,000/- ක්‌ ද ලැබේ. Winner වගුවෙහි ප්‍රාථමික යතුර NIC aw
+MatchID ලෙස සලකන්න.
+
+Winner Table
+NIC MatchiID MedalType Prize
+951477751V BD-2 Silver 10000
+985467923V BD-2 Gold 20000
+995874159V BD-1 Gold 20000
+997656614V BD-3 Silver 10000
+951477751V BD-1 Bronze 5000
+
+(i) In which normal form does the above table exist? Justify your answer.
+ඉහත වගුව පවතින්නේ කුමන ප්‍රමතකරණයෙහි (normal form) ද? ඔබේ පිළිතුර සාධාරණීය කරන්න.
+
+(ii) Convert the above table to the next normal form. (It is not required to write the data in
+
+the tables derived in next normal form.)
+ඉහත වගුව SEO ප්‍රමතකරණයට හරවන්න. (SEW ප්‍රමතකරණයේ දී ව්‍යුන්පන්න වන වගුවල දත්ත
+ලිවීම අනවශ්‍ය Gd.)
+
+( 2020 ESSAY )
+
+17. A virtual supermarket has registered suppliers to supply the customer orders placed
+online. The supermarket always fulfils its customer orders through these suppliers. One
+supplier is responsible only for the customers who live in the supplier's area. A customer
+has only one supplier. Each supplier is characterized by a code (unique), address and
+contact numbers. A supplier can have several contact numbers.
+මාර්ගගතව ඉදිරිපත්‌ වූ පාරිභෝගික ඇනවුම්‌ සැපයීමට අතත්‍ය සුපිරි වෞළෙඳසැලකට ලියාපදිංචි
+සැපයුම්කරුවන්‌ ඇත. සුපිර්‌ වෙළෙඳසැල සැමවිටම නම පාරිභෝගික ඇනවුම්‌ සපුරාලන්නේ මෙම
+සැපයුමිකරැවන්‌ හරහා ය. චක්‌ සැපයුම්කරුවකු වගකිව යුතු වන්නේ තම ප්‍රදේශයේ සිටින
+පාරිභෝගිකයින්‌ ගැන පමණි. චක්‌ පාරිභෝගිකයකුට සිටින්නේ එක්‌ සැපයුම්කරුවකු පමණි. සෑම
+සැපයුම්කරුවකුටම කේතයක්‌ (අනන්‍ය), ලිපිනයක්‌ සහ දුරකථන අංක ඇත. චක්‌ සැපයුම්කරැචකුට
+ටුරකථන අංක කිහිපයක්‌ තිබිය හැක.
+
+Each customer is characterized by an email address (unique), name and location.
+සෑම පාරිභෝගිකයකුටම, ලිපිනයක්‌ (අනන්‍ය) , නමක්‌ සහ පදිංචි ස්ථානයක්‌ ඇත.
+
+A customer can confirm orders. Each order has only one supplier and one customer.
+පාරිභෝගිකයකුට, ඇනවුම්‌ තහවුරු කළ හැක. සෑම ඇනවුමකටම චක්‌ සැපයුම්කරුවකු පමණක්‌ සහ
+චක්‌ පාරිභෝගිකයකු පමණක්‌ ඇත.
+
+An order is characterized by an order number (unique), description and a value. A supplier
+
+can supply more than one order.
+ඇනවුමක්‌, ඇනවුම්‌ අංකයකින්‌ (අනන්‍ය), විස්තරයකින්‌ හා වටිනාකමකින්‌ සමන්විතය. චක්‌
+සැපයුම්කරැවකුට චකකට වඩා වැඩි ඇනවුම්‌ ගණනක්‌ සැපයිය හැක.
+
+Note: Use only the terms from the list given below for your ER diagrams of parts (i)
+and (ii).
+
+සැ.යු: පහත (i) සහ (ii) කොටස්‌ සඳහා QMBO සම්බන්ධතා (ER) සටහන්‌ ඇඳීමේදි ලැයිස්තුවේ දි
+ඇති පද පමණක්‌ භාවිත කරන්න. (එම පද භාෂා දෙකින්ම ලියා දැක්වීම අනවශ්‍ය ය.)
+
+List / ලැයිස්තුව: {address, agent, code, confirms, contactNo, customer, description, email,
+hires, location, name, order, orderNo, supplier, supplies, value}
+
+(i) Draw the Entity Relationship (ER) diagram for the above description.
+ඉහත විස්තරය සඳහා QDIKO සම්බන්ධතා (ER) සටහනක්‌ අඳින්න.
+
+(ii) Sometimes suppliers hire agents to support the order supplies. However, the supermarket
+identifies the agents only through registered supplier codes. An agent is characterized by
+a name and a contact number. Each agent is working only for one supplier and a supplier
+
+is also getting only one agent's service.
+
+ඇනවුම සැපයීම සඳහා සැපයුම්කරුවෝ ඇතැම්විට චීජන්තවරුැ කුලියට ගනිති. එසේ වුවත්‌ සුපිරි
+වෙළෙඳසැල චීජන්තවරැ හඳුනාගන්නේ ලියාපදිංචි සැපයුමිකරුවන්ගේ කේත හරහා ය. චීජන්තවරයකුට
+නමක්‌ සහ දුරකථන අංකයක්‌ ඇත. චක්‌ චීජන්තවරයෙක්‌ චක්‌ සැපයුම්කරුවකුට පමණක්‌ සේවය කරන
+අතර, චක්‌ සැපයුම්කරැවකු එක්‌ එීජන්තචරයකුගේ සේවය පමණක්‌ ලබාගනියි.
+
+Add these details: to the ER diagram you drew for part (i).
+මෙම විස්තර ඉහත (i) හි අඳින ලද ER සටහනට එකතු කරන්න.
+
+18. A building construction company signs contracts with its clients. Each contract is handled
+by an agent of the company.
+
+ගොඩනැගිලි දිකිරිම සමාගමක්‌ තම සේවාපේක්ෂකයන්‌ (clients) සමග කොන්ත්‍රාත්තු (ගිවිසුම්‌) අත්සන්‌
+කරයි. එක්‌ එක්‌ කොන්තාත්තුව සමාගමේ චීජන්තවරයකු විසින්‌ හසුරැවනු ලැබේ.
+
+The Contracts table contains the details of the contracts. It has contract number, agent's
+code, name and mobile phone number represented with CNo, ACode, AName and
+AMobile attributes respectively. The client’s name is represented with Client. Primary key
+of the Contracts table is CNo.
+
+Contracts වගුවෙහි කොන්ත්‍රාත්තු පිළිබඳ විස්තර අඩංගු වේ. කොන්ත්‍රාත්තු අංකය, චීජන්තවරයාගේ
+කේතය, නම සහ ජංගම දුරකථන අංකය පිළිවෙළින්‌ CNo, ACode, AName සහ AMobile උපලැකිවල
+දැක්වේ. සේවාපේක්ෂකයාගේ නම Clients මගින්‌ දැක්වේ. Contracts වගුවේ ප්‍රාථමික යතුර CNo වේ.
+
+Contracts
+CNo ACode AName AMobile Client
+C-112 EPOO3 Anura 0714545866 । Sirimal
+C-103 EPO06 Navod 0774511320 | Abish
+C-116 EPOO3 Anura 0714545866 | Nehara
+C-224 EPO15 Virah 0763538147 | Sirimal
+
+(i) In which normal form does the Contracts table exist?
+ඉහත Contracts වගුව කුමන ප්‍රමතකරණයෙහි පවතී ද?
+
+(ii) Convert the Contracts table into next normal form. (It is not necessary to write the data
+in derived relations in the next normal form.)
+
+Contracts වගුව ඊළඟ ප්‍රමතකරණයට හරවන්න. (ඊළඟ ප්‍රමතකරණයේදී ව්‍යුත්පන්න OD OQDE
+දත්ත ලිවීම අනවශ්‍ය Gd.)
+
+( 2021 ESSAY )
+
+19. Draw the Entity Relationship (ER) diagram for the following scenario.
+පහත සන්දර්භය සඳහා qmbd සම්බන්ධතා සටහන අඳින්න.
+
+A student uses the following data to register for subjects. Each subject is represented by
+its subject number (subjectNumber), subject name (subjectName) and prerequisite subject.
+A student can register for more than one subject during a semester. Each student has a
+first name (studentFname), a last name (studentLname) and a unique student number
+(studentid). Student, age (age) is required to register for subjects. Subjects are offered
+based on the availability of the resources. Hence some subjects will not be offered during
+a semester. A subject offered in a semester (subject_offering) includes subjectNumber,
+year, semester, teacher identifier (teacherld), and classroom. One subject_offering is
+assigned to a single teacher who is represented by a teacherld, name of the teacher
+(teacherName), and qualifications. Teacher can have several qualifications. Marks are
+
+awarded to students for each subject that they register.
+ශිෂ්‍යයෙක්‌ විෂයන්‌ සඳහා ලියාපදිංචි වීමට පහත සඳහන්‌ දත්ත භාවිත කරයි. සෑම විෂයක්‌ සඳහාම
+
+එයට ආවේණික විෂය අංකයක්‌ (subjectNumber), විෂය නමක්‌ (subjectName) ao පූර්ව අවශ්‍යතා
+විෂයක්‌ (prerequisite subject) ඇත. එක්‌ අධ්‍යයන වාරයක්‌ තුළ, එක්‌ ශිෂ්‍යයෙකුට විෂයන්‌ එකකට
+වැඩි ගණනක්‌ සඳහා ලියාපදිංචි විය හැකිය. සෑම ශිෂ්‍යයෙක්‌ සඳහාම මුල්‌ නමක්‌ (studentFname),
+වාසගමක්‌ (studentLname) sw අනන්‍ය වූ ශිෂ්‍ය අංකයක්‌ (studentld) ඇත. විෂයන්‌ සඳහා ලියාපදිංචි
+
+වීමට, ශිෂණ්‍යාගේ වයස (age) අවශ්‍ය වේ. සම්පත්‌ ලබා ගැනීමේ හැකියාව මත පදනමීිව විෂයන්‌
+පිරිනැමෙයි. එබැවින්‌ සමහර අධ්‍යයන චාර තුළ සමහර විෂයන්‌ පිරිනැමෙන්නේ නැත. විෂය පිරිනැමීමක්‌
+
+(subject_offering) තුළ, විෂය අංකය (subjectNumber), වර්ෂය (year), අධ්‍යයන වාරය (semester),
+ගුරුවරයාගේ හළඳුන්වනය (teacherld) සහ පන්නි කාමරය (classroom) අඩංගු වේ. චක්‌ විෂය
+පිරිනැමීමක්‌ (subject_offering) එක්‌ ගුරුවරයකු මගින්‌ ඉගැන්වෙන අතර, සෑම ගුරැවරයකුටම
+
+හඳුන්වනයක්‌ (teacherld), නමක්‌ (teacherName) ese සුදුසුකම්‌ (qualifications) ඇත. ගුරුවරයාට
+සුදුසුකම්‌ කිහිපයක්‌ තිබිය හැකිය. ලියාපදිංචි වූ සෑම විෂයක්‌ සඳහාම සිසුන්ට ලකුණු ප්‍රදානය කෙරේ.
+
+Use only the terms from the list given below for the entities and attributes in your
+ER diagram. You have the freedom to choose relationship names.
+ඔබේ ER සටහනේ භූතාරිථ (entities) සහ ලාක්ෂණික (attributes) සඳහා පහත ලැයිස්තුවේ දී ඇති
+
+පද පමණක්‌ භාවිත කරන්න. සම්බන්ධතා (relationships) සඳහා නම්‌ තෝරාගැනීමට ඔබට නිදහස
+ඇත.
+
+List // ලැයිස්තුව : {age, classroom, DOB, marks, qualification, semester, student, student
+
+Fname, studentld, studentLname, subject, subject_offering, subjectName, subjectNumber,
+teacher, teacherld, teacherName, year}
+
+Note: DOB - Date of Birth
+සටහන: DOB - උපන්‌ දිනය
+
+20. Use the following Employee, and Assign Project denormalized tables to answer parts (i),
+(ii), (iii), (iv) and (v). Please note that primary key(s) of each table is(are) underlined.
+(i), (ii), (iii), (iv) සහ (Vv) යන කොටස්වලට පිළිතුරැ ලබාදීමට පහත සඳහන්‌ Employee (සේවක) සහ
+Assign_Project (ව්‍යාපෘති අනියුක්තයන්‌) යන ප්‍රමතකරණය නොවූ වගු භාවිත කරන්න. එක්‌ එක්‌ වගුවේ
+ප්‍රාථමික යතුර(රැ) යටින්‌ ඉර්‌ ඇඳ ඇති බව සලකන්න.
+
+Employee
+Employeeld FullName DOB Salary
+E001 Saman Perera 12/02/1978 140000
+E002 Upul Fernando 23/05/1982 44000
+E005 Chris Peris 11/08/1980 44000
+E007 Kamala Gamage 08/08/1973 52000
+E008 Sunil Perera 25/04/1969 115000
+E011 Vipul Namal 09/02/1977 38000
+
+Assign_Project
+
+Projectid | Employeeld | PName_ | Description
+P04 E002 Sales Implement sales management system
+P04 E008 Sales Implement sales management system
+P06 E007 HRM Implement sales HRM system
+PO7 E002 Library | Implement library management system
+P09 E001 Inventory | Implement Inventory management system
+PO9 E007 Inventory | Implement Inventory management system
+
+(i) In which normal form does the Assign_Project table exist?
+Assign_Project වගුව කුමන 90m අවස්ථාවෙහි පචතී ද?
+
+(ii) What needs to be done to convert the Assign_Project table into its next normal form?
+Justify ayour answer.
+
+Assign_Project වගුව ඊළඟ GOD අවස්ථාවට හැරවීමට කුමක්‌ කළ යුතු ද? ඔබේ පිළිතුර
+සාධාරණීකරණය කරන්න.
+
+( 2022 ESSAY )
+
+21. Consider the following requirements relevant to a database that is expected to manage
+divisions, officers and tasks in an office.
+
+කාරියාලයක අංශ (divisions), නිලධාරීන්‌ (officers) සහ mbaces (tasks) කළමනාකරණයට භාවිත
+කිරීමට බලාපොරොත්තු වන දත්ත සමුදායකට අදාළ පහත අවශ්‍යතා සලකන්න.
+
+The office consists of a number of divisions. Each division has a unique name. The division
+may have several locations. A division handles a number of tasks each of which has a
+unique number, a name and a date in which the task was assigned to the division. Each
+officer's name (consisting of a first name and a surname), NIC (National Identity Card)
+number, address and phone number is to be stored. An officer is assigned to one division
+but may work on several tasks which may not be controlled by the same division. Each
+division is managed by one of its officers and the starting date in which the officer started
+managing the division is stored.
+
+කාරයාලය අංශ කිහිපයකින්‌ සමන්විත වේ. සෑම අංශයකටම අනන්‍ය නමක්‌ ඇත. අංශය ස්ථාන
+කිහිපයක තිබිය හැකි ය. අංශයක්‌ කාරයන්‌ කිහිපයක්‌ හසුරැවයි. ඒ සෑම කාරියකටම අනන්‍ය අංකයක්‌,
+
+නමක්‌ සහ 2B කාරයය ODO අංශයට පැවරැණු දිනය ඇත. සෑම නිලධාරියකුගේම නම (මුල්‌ නම සහ
+
+වාසගමින්‌ සෑදුන), NIC (ජාතික හැඳුනුම්පත්‌) අංකය, ලිපිනය සහ දුරකථන අංකය ආචය කෙරේ.
+නිලධාරියෙකු චක්‌ අංශයකට අයත්වුවත්‌, DO අංශයම මගින්‌ පාලනය නොවන කාර්යන්‌ කිහිපයකද
+නිරත විය හැකි ය. සෑම අංශයක්ම DO අංශයේ නිලධාථයකු විසින්‌ කළමනාකරණය කෙරෙන අතර, එම
+නිලධාරියා එම අංශය කළමනාකරණය කිරීම ඇරඹූ දිනය ද ආචය කෙරේ.
+
+Draw an ER diagram for this application showing the entities, attributes and relationships.
+Underline primary keys.
+
+මෙම යෙදුම සඳහා භූතාරිථ (entities), උපලක්ෂණ (attributes) සහ සම්බන්ධතා දැක්වෙන ER
+සටහනක්‌ අඳින්න. ප්‍රාථම්ක යතුරැ යටින්‌ ඉරි අඳින්න.
+
+(b) Write two advantages of converting a database table into a normal form.
+දත්ත සමුදා වගුවක්‌ ප්‍රමත අවස්ථාවකට (normal form) හැරවීමේ වාසි දෙකක්‌ ලියා දක්වන්න.
+
+(c) Consider the following Show table related to theatres and the movies that they screen.
+omag(theatre) සහ ඒවායේ Gdammdsn SyesO(movies) සම්බන්ධ පහත Show වගුව සලකන්න.
+
+Theatre Movie Day Time Screen Year
+Sarasi MI -4 Wednesday 10:00 54 2022
+Sarasi MI -4 Wednesday 15:00 Si 2022
+Palazzo Spider man Friday 10:00 S2 2019
+Palazzo Avengers Friday 10:00 Si 2019
+Vega Iron man Thursday 10:00 Si 2020
+
+Note:
+
+e A theatre can screen more than one movie at the same time on different screens.
+රඟගහලකට DDO වේලාවේදී, තිර (screen) කිහිපයක, වෙනස්‌ චිත්‍රපට ප්‍රදර්ශනය කළ හැකි ය.
+
+e Year field gives the year in which the relevant film was released.
+Year ක්ෂේත්‍රයෙන්‌ දැක්වෙන්නේ අදාළ චිත්‍රපටය එළිදැක්වූ වසරයි.
+
+(i) In which normal form does the Show table exist? Justify your answer.
+Show 88 කුමන GOD අවස්ථාවෙහි පවතී ද? ඔබේ පිළිතුර සාධාරණීකරණය කරන්න.
+
+(ii) Convert the Show table to its next normal form.
+
+Show වගුව එහි ඊළඟ ප්‍රමත අවස්ථාවට හරවන්න.
+( 2023 ESSAY )
+
+1. A principal of a National school wants to develop a database to maintain Admission
+Number, Student Name, Address, National Identity Card number (NIC) and the Date of
+Birth (DOB) of Advanced Level students. The principal also wants to know the marks
+obtained for each subject by the students. In addition to the above requirements, the
+principal needs to know the subjects assigned to the teachers.
+ජාතික පාසලක විදුහල්පතිවරයෙකුට, උසස්‌ පෙළ සිසුන්ගේ ඇතුළත්වීමේ අංකය, ශිෂ්‍ය නාමය, ලිපිනය,
+
+ජාතික හැදුනුම්පත්‌ අංකය (NIC) සහ උපන්‌ දිනය (DOB) පචත්වා ගැනීම සඳහා දන්ත සමුදායක්‌
+සකස්‌ කර ගැනීමට අවශ්‍ය Gd. එක්‌ චක්‌ විෂයය සඳහා ශිෂ්‍යයා ලබා ගත්‌ ලකුණු ද දැනගැනීමට
+ව්දුහල්පතිවරයාට අවශ්‍ය GOB. ඉහත අවශ්‍යතාවලට අමතරව ගුරැවරැන්ට BAD ඇති විෂයයන්‌
+දැනගැනීමට ද විදුහල්පතිවරයාට අවශ්‍ය වෙයි.
+
+Relations / සම්බන්ධ :
+
+A - Student(admissionNo, studentName, address, DOB, NIC)
+
+B - Subject(subjectCode, subjectName)
+
+C - Mark(admissionNo, subjectCode, marksObtained)
+
+D - Teacher(teacherNo, subjectCode, teacherName, subjectName, class)
+
+Which of the following SQL statements would produce an output with admission number,
+
+name of the student, subject code and marks obtained?
+ඇතුළත්‌ වීමේ අංකය, ශිෂ්‍යයාගේ නම, විෂය කේතය හා ලබාගත්‌ ලකුණු අයත්‌ ප්‍රතිදානය ඉදිරිපත්‌
+කරනු ලබන්නේ පහත දැක්වෙන කවර SQL ප්‍රකාශය මගින්‌ ද?
+
+1) SELECT studentName, subjectCode, marksObtained
+FROM Student, Mark
+WHERE Student.admissionNo = Mark.admissionNo
+
+2) SELECT Student.admissionNo, studentName, subjectCode,
+Student .marksObtained
+FROM Student, Mark
+WHERE Student.admissionNo = Mark.admissionNo
+
+3) SELECT Student.admissionNo, studentName, subjectCode, marksObtained
+FROM Student, Mark
+WHERE Student.admissionNo = Mark.admissionNo
+
+4) SELECT Student.admissionNo, studentName, subjectCode, marksObtained
+FROM Student, Mark
+WHERE Student.admissionNo = admissionNo
+
+5) SELECT Student.admissionNo, studentName, subjectCode, marksObtained
+FROM Student, Mark
+WHERE admissionNo = Mark.admissionNo
+
+(2011 - 26)
+
+2. Consider the following relation:
+පහත දැක්‌වෙන සම්බන්ධය (relation) සලකන්න:
+
+student(stdNo, name, address, nicNo, date_of_birth)
+
+Which of the following SQL (Structured Query Language) statements on the student
+relation is syntactically correct?
+
+ඉහත student සම්බන්ධය මත පදනම්‌ වූ පහත දැක්වෙන කවර SQL (Structured Query Language)
+ප්‍රකාශය වාග්‌ 5806 වශයෙන්‌ (syntactically) නිවැරදි වේ ද?
+
+1) select *.* from student 2) select all from student
+3) select * from student 4) select stdNo.name from student
+5) select stdNo; name from student
+
+(2012 - 24)
+
+3. Consider the following database operations:
+පහත දැක්වෙන දත්ත BOE) මෙහෙයුමි සලකන්න :
+
+A ~ Remove records from a table // වගුවකින්‌ රෙකෝඩ්‌ ඉවත්‌ කිරීම
+
+B ~ Add new data to a table // වගුවකට නව දත්ත එකතු කිරීම
+
+ලී - Modify the existing data in a table / වගුවක ඇති දත්ත විකරණය කිරීම
+D - Retrieve data from a table / වගුවකින්‌ දත්ත සමුද්ධරණ කිරීම
+
+"The SQL stateMents _..............................෴ should be used to perform the database
+operations A, B, C and D respectively.”
+
+“A, B, උ සහ D යන දත්තසමුදා මෙහෙයුමි ක්‍රියාත්මක කිරීමට පිළිවෙළින්‌ ...........................-- යන SQL
+ප්‍රකාශ භාවිත කළ යුතු වේ.“
+
+Which of the following is most appropriate to fill the blank in the above statement?
+ඉහත ප්‍රකාශයේ හිස්තැන පිරවීම සඳහා පහත දක්වෙන කවර ප්‍රකාශ අනුපිළිවෙළ වඩාත්‌ සුදුසු චේ ද?
+
+1) delete, select, update and insert 2) delete, insert, select and update
+3) select, delete, insert and update 4) insert, select, delete and update
+5) delete, insert, update and select
+(2012-25)
+
+4. Consider the following two relations:
+පහත දක්වා ඇති සම්බන්ධතා දෙක සලකන්න:
+
+Student(stdNo, name)
+courseMarks(courseld, stdNo, marks)
+
+Which of the following SQL (Structured Query Language) statements on the above
+relations is syntactically correct?
+
+ඉහත සම්බන්ධතා සම්බන්ධයෙන්‌ පහත දක්වා ඇති 5ට| වගන්තිවලින්‌ වාග්‌ ඊතිවලට අනුකූල ව නිවැරදි
+කුමක්‌ ද?
+
+1) select stdNo, marks from student, courseMarks
+2) select * from student and courseMarks
+3) select s.stdNo and c.marks from student s, courseMarks c
+
+4) select student.stdNo, courseMarks.marks from student, courseMarks
+where student.stdNo = courseMarks.stdNo
+
+5) select student.stdNo and courseMarks.marks from student and courseMarks
+where student.stdNo = courseMarks.stdNo
+
+(2013 -50)
+
+e Consider the following three tables in a relational database to answer questions 5 to 6.
+Assume that a subject has only one paper for an examination.
+
+ප්‍රශ්න අංක 5 BO 6 දක්වා පිළිතුරු සැපයීමට සම්බන්ධතා දත්ත සමුදායක පවතින පහත පෙන්වා
+
+ඇති වගු තුන සලකා බලන්න. එක්‌ විභාගයක දී එක්‌ විෂයයක්‌ සඳහා චක්‌ ප්‍රශ්න පත්‍රයක්‌ පමණක්‌ ඇති
+බව උපකල්පනය කරන්න.
+
+subject examSubject exam
+subjectid | title examld | subjectid | examDate | | examld । name
+SUB001 Information and EXAMO01 | SUBOO1 2014.12.12 | | EXAMO01 | GCE OL
+Technology EXAMO02 | SUBO01 2014.8.21 EXAMO02 | GCE AL
+SUBO02 | Chemistry EXAMO002 | SUBOO2 | 2014.8.21
+SUBO03 Physics EXAMO02 | SUBO03  । 2014.8.21
+
+5. Which of the following is the correct SQL statement to retrieve examld, name, and
+examDate of all examinations?
+
+සියලු ම විභාගවල examld, name සහ examDate සමුද්ධරණය කිරීම සඳහා නිවැරදි SQL වගන්තිය
+පහත සඳහන්‌ දෑ අතුරෙන්‌ කුමක්‌ ද?
+
+1) select examSubject.examId, name, examDate from exam, examSubject
+where exam examId=examSubject.examId
+
+2) select examId, name, examDate from exam and examSubject
+where exam. examId=examSubject.examId
+
+3) select examId and name and examDate from exam and examSubject
+where exam.examId=examSubject.examId
+
+4) select * from exam and examSubject:
+where exam. examId=examSubject.examId
+
+5) select * from exam, examSubject
+where exam.examId=examSubject.examId
+
+(2014 - 33 )
+
+6. Which of the following SQL statements changes only the date of examination of Physics
+paper of GCE AL examination to 2014.08.25?
+අ.පො.ස. උ.පෙළ (GCE AL) භෞතික විද්‍යාව (Physics) ප්‍රශ්න පත්‍රයේ පමණක්‌ විභාග දිනය
+2014.08.25 ලෙස වෙනස්‌ කළ හැක්කේ පහත දැක්වෙන කුමන SQL වගන්තිය මගින්‌ ද?
+
+1) update examSubject set examDate='2014.08.25'
+where subjectId='SUB@0@3' or ‘sube@e3'
+
+2) update examSubject set examDate='2014.08.25'
+where examId='EXAM@Q@2' or subjectId='SUBGe@3'
+
+3) update examSubject set examDate='2014.08.25'
+where examId='EXAMQ@@2"' and subjectId='SUBG@3'
+
+4) update examSubject set examDate='2014.08.25'
+where examDate='2014.08 21'
+
+5) update examSubject set examDate='2014.08.25'
+where examId='EXAMQ02' or subjectId='SUBO03' or examDate='2014.08.23'
+
+(2014 - 34)
+
+e Consider the following four relational database tables to answer questions.
+ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට පහත පෙන්වා ඇති සම්බන්ධතා දත්ත සමුදා OQ හතර සලකා බලන්න.
+
+item වගුව supplier වගුව
+
+item | product supplier | name
+
+1001 | Laptop 5001 BeLap Company Ltd.
+
+1002 | TV S002 DigiTV trading company
+
+1003 | Camera
+
+itemSupplier වගුව delivery වගුව
+item | supplier item | supplier | batch | quantity | date
+1001 5001 1001 5001 501 450 1.5.2015
+1002 5001 1002 | 5001 AB1 45 1.5.2015
+1002 5002 1001 | 5001 502 500 2.5.2015
+
+1001 | 5002 උ01 75 5.5.2015
+
+7. Which of the following actions is taken by a database management system when the SQL
+statement “delete from item” is executed?
+“delete from item” යන SQL වගන්තිය ක්‍රියාත්මක කළ විට eso සමුදාය කළමනාකරණ පද්ධනිය
+මගින්‌ පහත කුමන ක්‍රියාව සිදු කරයි ද?
+
+1)
+
+2)
+
+3)
+4)
+
+5)
+
+It will ask the user to select records for deletion.
+පරිශීලකට ලොප්‌ (delete) කිරිමට අවශ්‍ය කරන උපලැකියාන තෝරා ගන්නා ලෙස දන්වා සිටී.
+
+It may delete all the records from the ‘item’ table.
+‘jtem' වගුවේ ඇති BSE උපලැකියාන ලොජ්‌ කිරීම Be විය හැකි ය.
+
+It will drop the ‘item’ table. / 'item' වගුව හෙළා දමනු (drop) ලැබේ.
+
+It will not delete any record from the ‘item’ table.
+‘item' වගුවේ කිසිදු උපලැකියානයක්‌ ලොප්‌ කරනු නොලැබේ.
+
+The SQL statement will not be executed since it has errors.
+වැරදි පචතින නිසා SQL වගන්තිය ක්‍රියාත්මක නොවේ.
+( 2015 - 40)
+
+8. Which of the followings is correct with respect to the output of an SQL statement?
+SQL චගන්තියක ප්‍රතිදානය සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමක්‌ නිවැරදි වන්නේ ද?
+
+1)
+
+2)
+3)
+
+4)
+
+5)
+
+
+It generates an error if no data is available in the tables referred in the SQL statement.
+SQL චවගන්තියකින්‌ යොමු වන වගු තුළ දත්ත නොපවතී නම්‌ DDO දෝෂයක්‌ උත්පාදනය 6d.
+
+It is always a table. / එය සෑම විටම වගුවකි.
+
+The order of the attributes in the output should be the same as the order of attributes
+in the table definition.
+ප්‍රතිදානයේ උපලැකිවල පිළිවෙළ (පටිපාටි) වගු නිර්චචනයේ ඇති උපලැකිවල පිළිවෙළම විය යුතුය.
+
+Outputs cannot be produced if the primary keys are not defined.
+ප්‍රාථමික යතුරැ අර්ථ දක්වා නොමැති නම්‌ ප්‍රතිදාන ලබා ගත නොහැකි ය.
+
+Names of attributes in the output should be the same as names in the table definition.
+ප්‍රතිදානයේ උපලැකිවල නාම OG නිරිවචනයේ ඇති උපලැකිවල MO ම විය යුතු ය.
+
+(2016 - 46 )
+
+9. The length of an attribute defined using a Data Definition Language (DDL) statement is
+A/AN ...........-.--.......... constraint.
+
+දත්ත නිරිචචන භාෂා (DDL) වගන්තියක්‌ භාවිතයෙන්‌ අර්ථ දක්වා ඇති උපලැකියක දිග (length)
+෴෴ඇඇ෴෴෴අඇඅඇ සංරෝධකයක්‌ වේ.
+
+Which of the followings is the most appropriate to fill the blank in the above statement?
+පහත සඳහන්‌ කුමක්‌ ඉහත වගන්තියෙහි ඇති හිස්තැන පිරවීම සඳහා වඩාත්‌ සුදුසු වන්නේ ද?
+
+1) primary key 2) foreign key 3) null value 4) domain 5) application
+ප්‍රාථමික යතුරු ආගන්තුක යතුරු අභිශුන්‍ය අගය වසම්‌ යෙදුමි
+( 2016 - 47 )
+
+10. Consider the following table in a relational database:
+සම්බන්ධතා දත්ත සමුදායක ඇති පහත සඳහන්‌ වගුව සලකන්න:
+
+student name telephone | zscore
+50001 Dananjaya | 0711118337 1.8
+50002 | Saluka 0712227447 | 1.9
+50003 _ | Upul 0713333882 | 2.0
+50004 Priyankara | 0714445225 | 1.9
+50005 _ | Supun 0715556446 | 2.1
+
+What is the minimum number of SQL statements required to update all the values of the
+attribute zscore in the above table to 2.1?
+
+ඉහත OQGDSH zZscore උපලැකියේ සියලු අගයයන්‌ 2.1 ලෙස යාවත්කාලීන කිරීමට අවශ්‍ය අවම SQL
+වගන්ති සංඛ්‍යාව කොපමණ ද?
+
+1) 1 2) 2 3) 3 4) 4 5) 5
+
+(2016 - 48 )
+
+e Consider the following relation to answer questions:
+ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත EMO) ඇති සම්බන්ධතා සලකන්න:
+
+book (book_no, title, publisher, edition)
+author (author_id, name, email_address)
+bookAuthor (book_no, author_id)
+
+where book_no and author_id are unique attributes in the relations book and author
+respectively.
+මෙහි book_no සහ author_id පිළිවෙළින්‌ book සහ author සම්බන්ධවචල අනන්‍ය උපලක්ෂණ වේ.
+
+Assume that above relations are converted into tables in a relational database. The
+following SQL query is executed on the database:
+
+ඉහත සම්බන්ධ, සම්බන්ධක දත්ත සමුදායක OQ බවට පත්‌ කළේ යැයි උපකල්පනය කරන්න. පහත
+SQL විමසුම (query) එම දත්ත සමුදාය තුළ ක්‍රියාත්මක කරන ලදී:
+
+SELECT * FROM bookAuthor
+
+11.
+
+Which of the following statements is correct regarding the output of the above SQL query?
+ඉහත SQL විමසුමෙහි ප්‍රතිදානය සම්බන්ධයෙන්‌ පහත වගන්ති අතුරෙන්‌ කචරක්‌ නිවැරදි චේ ද?
+
+1) It cannot be an empty table.
+AS ශුන්‍ය වගුවක්‌ (empty table) විය නොහැකි ය.
+
+2) title column is in it.
+AS title තීරය (column) ඇතුළත්‌ Gd.
+
+3) name column is in it.
+AS name තීරය ඇතුළත්‌ වේ.
+
+4) /&|| (16 tables book, author and bookAuthor are used to produce the output.
+ප්‍රතිදානය ලබා දීම සඳහා book, author සහ bookAuthor යන වගු සියල්ල භාවිත කරයි.
+
+5) All records in the bookAuthor table are in the output.
+bookAuthor වගුවෙහි ඇති සියලු ම උපලැකි (records) ප්‍රතිදානයෙහි ඇතුළත්‌ වේ.
+(2017-35)
+
+Consider the following relational schema consisting of text fields in answering questions.
+ප්‍රශ්නය සඳහා, පාඨ ක්ෂේත්‍රවලින්‌ (text fields) සමන්චිත පහත දැක්වෙන සම්බන්ධක පරිීක්‍රමාව
+(relational schema) සලකන්න.
+
+Students (admission_number, surname_with_initials, house_number, street_name, village,
+postal_town, postal_code)
+
+Assume that for a given postal_town only one postal_code exists.
+GED ලද තැපැල්‌ නගරයකට Hed නැපැල්‌ කේතයක්‌ (postal_code) පමණක්‌ පවතින බව සලකන්න.
+
+Which of the following is displayed as output if the query is executed?
+පහත සඳහන්‌ විමසුම ක්‍රියාත්මක කළ විට චහි ප්‍රතිදානය ලෙස කුමක්‌ දර්ශනය 6D ද?
+
+Select * from Students
+where postal_code ='10120' and house_number ='30A';
+
+1) postal_code of all records
+සියලු ම උපලැකියානවල (records) postal_code
+
+2) postal_code and house_number of records having postal_code '10120' and house_number
+
+as '30A'
+postal_code '10120' සහ house_number '30A' ලෙස ඇති උපලැකියානවල postal_code හා
+house_number
+
+3) postal_code and house_number of all records
+සියලු ම උපලැකියානවල postal_code සහ house_number
+
+4) all fields of records having postal_code as '10120' and house_number as '307%'
+postal_code '10120' සහ house_number '30A' ලෙස ඇති උපලැකියානවල සියලු ම ක්ෂේත්‍ර
+
+5) all fields of all records
+සියලු ම උපලැකියානවල සියලු ම ක්ෂේත්‍ර
+
+( 2018 ~ 41)
+
+e Consider the following database table to answer the questions.
+ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට පහත දැක්වෙන දත්ත සමුදා වගුව සලකන්න.
+
+Student_Sport
+
+Student_Id | Event_Id Event_Name
+10012 S-02 Carrom
+10022 S-01 Basketball
+10018 S-02 Carrom
+10012 S-03 Volleyball
+10025 S-04 Chess
+10018 S-01 Basketball
+
+12. It is required to add a new field called Age to the Student_Sport table and the values of
+the new field must be greater than 10.
+Student_Sport වගුවට Age යනුවෙන්‌ නව ක්ෂේත්‍රයක්‌ එකතු කළ යුතු වන අතර නව ක්ෂේත්‍රයෙහි
+අගයයන්‌ 10 ට වඩා වැඩි විය යුතු ය.
+
+Which one is the correct SQL statement to implement the above requirement?
+ඉහත අවශ්‍යතාචය ක්‍රියාත්මක කිරීම සඳහා නිවැරදි SQL ප්‍රකාශය කුමක්‌ ද?
+
+1) Alter table Student_Sport add check (Age> 10);
+2) Alter table Sudent_Sport add where (Age> 10);
+3) Alter table Student_Sport set check (Age> 10);
+
+4) Update table Student_Sport add check (Age> 10);
+5) Update table Student_Sport add where (Age> 10);
+
+(2019-17)
+
+13. Which of the following SQL commands isn’t available in the Data Manipulation Language?
+දත්ත හැසුරැම්‌ භාෂාවෙහි (DML) නොමැති SQL විධානයක්‌ වන්නේ පහත කුමක්‌ ද?
+
+1) CREATE 2) DELETE 3) INSERT 4) SELECT 5) UPDATE
+
+(2019 - 18 )
+
+14. Consider the following SQL statement:
+පහත දැක්වෙන SQL ප්‍රකාශය සලකන්න.
+
+Update school set contact_person= 'Sripal W.’ where school_id= '@4';
+
+Which of the following is true when the above SQI. statement is executed?
+ඉහත SQL ප්‍රකාශය ක්‍රියාත්මක කිරීමේදී පහත කවරක්‌ සත්‍ය චේ ද?
+
+1) It adds an additional field with the name contact_person and adds value into that new
+field as ‘Sripal W.' only in the records having school_id = 04
+චය school_id = 04 වන උපලැකියානවලට පමණක්‌ contact_person නමින්‌ අමතර ක්ෂේත්‍රයක්‌
+එකතු කර එම නව ක්ෂේත්‍රයට ‘Spiral W.' අගය එකතු කරයි.
+
+2) It adds an additional value to the contact_person as 'Sripal W.' only in the records
+having school_id = 04
+චය school_id = 04 වන උපලැකියානවලට පමණක්‌ contact_person යන ක්ෂේත්‍රයේ අගයට
+‘Spiral //.' යන අමතර අගයක්‌ එකතු කරයි.
+
+3) It changes the field name of contact_person as '511[05| W.' when selecting the records
+with school_id = 04
+එය school_id = 04 වන උපලැකියාන නේරීමේදී contact_person ක්ෂේත්‍ර නාමය ‘Spiral W.'
+ලෙස වෙනස්‌ කරයි.
+
+4) It changes value of contact_person as 'Sripal W.' only in records having school_id = 04
+එය school_id = 04 Om උපලැකියානවල (records) පමණක්‌ contact_person යන ක්ෂේත්‍රයේ
+අගය ‘Spiral W.' ලෙස වෙනස්‌ කරයි.
+
+5) It selects all the records having school_id = 04 and contact_person as 'Sripal //.'
+එය school_id = 04 සහ contact_person = Spiral W. ලෙස ඇති සියලුම උපලැකියාන තෝරයි.
+
+(2019-50)
+
+15. Consider the following SQL statement:
+පහත දැක්වෙන SQL ප්‍රකාශය සලකන්න.
+
+Alter table subject add primary key (Subject_Id);
+
+Which of the following is incorrect about the above SQL statement?
+මෙම SQL ප්‍රකාශය සම්බන්ධව පහත සඳහන්‌ කුමක්‌ සාවද්‍ය වේ ද?
+
+1) It adds a primary key constraint to the table named subject.
+එය subject නම්‌ වන වගුවට ප්‍රාථම්ක යතුරැ සංරෝධකයක්‌ එකනු කරයි.
+
+2) The table named subject should already exist.
+subject නම්න්‌ වන වගුව මේ වන විට පැවතිය යුතු ය.
+
+3) The field Subject_Id should not be null. / Subject_Id නම්‌ ක්ෂේත්‍රය අභිශුන්‍යෟ නොවිය
+යුතුය.
+
+4) Atable named subject is created with a primary key named Subject_ld.
+එය Subject_Id නම්‌ වූ ප්‍රාථමික යතුරක්‌ සහිත subject නම්‌ වූ වගුවක්‌ නිර්මාණය කරයි.
+
+5) The values of the field Subject_ld should not be repeated in subject table.
+subject වගුවෙහි Subject_lKd නම්‌ ක්ෂේත්‍රයෙහි ඇති අගයන්‌ පුණර්කරණය (repeat) විය නොහැක.
+
+( 2020 - 29)
+
+16. What is the correct SQL statement to delete a database called 'ALdb'?
+‘ALdb' cee හැඳින්වෙන දත්ත සමුදාය (database) මකාදැමීම (delete) සඳහා නිවැරදි SQL
+ප්‍රකාශය කුමක්‌ ද?
+
+17.
+
+1) delete ALdb;
+3) drop ALdb;
+
+2) delete database ALdb;
+4) drop database ALdb;
+
+5) remove database ALdb;
+
+(2020 - 26)
+
+Consider the following Results and Subjects tables to answer question:
+
+ප්‍රශ්නයට පිළිතුරැ GOO පහත Results සහ Subjects වගු සලකන්න.
+
+Results Subjects
+
+StudentNo NIC FirstName | SubjectID | Grade || SubjectID | SubjectName
+
+$1234 986888457V Nilam ENG B ENG English
+$1447 992562321V | Praveena PHY C PHY Physics
+$1234 986888457V Nilam ACC A ECO Economics
+$1323 900251452V Thilan ENG 5 ACC Accountancy
+$1323 900251452V Thilan ACC B
+
+What is the correct SQL statement to retrieve the values of attributes StudentNo,
+SubjectName and Grade?
+
+StudentNo, SubjectName සහ Grade යන උපලැකිවල අගයයන්‌ ලබාගැනීමට අදාළ SQL
+වගන්තිය පහත කවරක්‌ ද?
+
+SELECT
+Results
+
+1)
+
+2) SELECT
+
+Results
+
+3) SELECT
+
+Results
+
+4) SELECT
+
+Results
+
+5)
+
+SELECT Results.StudentNo,
+
+Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+INNER JOIN ON Results.SubjectID = Subjects.SubjectID;
+
+Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+INNER JOIN Results.SubjectID = Subjects.SubjectID;
+
+Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+INNER JOIN Subjects IN Results.SubjectID = Subjects.SubjectID;
+
+Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+INNER JOIN Subjects ON Results.Subject1D = Subjects.SubjectID;
+
+Subjects.SubjectName, Results.Grade INNER
+
+JOIN Results AND Subjects Results.SubjectID = Subjects.SubjectID;
+
+
+(2021 - 33 )
+
+e The tables which are partially extracted from a database used in an information system
+
+developed for a shop are shown below. Answer questions using those tables.
+වෙළෙඳසැලක්‌ සඳහා සකස්‌ කරන ලද තොරතුරැ පද්ධතියක භාවිත කරන දත්ත සමුදායකින්‌ අර්ධ
+වශයෙන්‌ උපුටා ගත්‌ වගු කිහිපයක්‌ පහත දැක්වේ. එම වගු භාව්ත කර ප්‍රශ්නවලට පිළිතුරැ සපයන්න.
+
+((151911161' (පාරිභෝගිකයා ) Product (භාණ්ඩය)
+Cusld Fname Lname Location Prold Name
+C001 Saman Perera Dehiwala PROO1 Refrigerator
+co02 Kalum Gamage Galle PB401 Blender
+C003 Shiromi Silva Galle PM025 Mobile Phone
+C004 Kalum Perera Kandy [0009 Inkjet Printer
+Order (ez60Q©) Order_Product (ඇණවුම්‌ භාණ්ඩය)
+Orderld | Cusld | OrderDate |  Sellerld Orderld Prold
+aoo1 | coo1 | 2022-07-14 | 9001 ro 00
+A002 C002 | 2022-07-14 S001 A002 PB401
+A003 C003 | 2022-07-18 5002 A003 PM025
+A004 C004 | 2022-07-20 5002 7,004 90009
+
+18. What will be the output after executing the following SQL statement?
+පහත SQL ප්‍රකාශය ක්‍රියාත්මක කිරීමෙන්‌ පසු ප්‍රතිදානය කුමක්‌ වේ ද?
+
+SELECT Customer.Fname, Customer.Lname, Order.Orderld
+
+FROM Customer INNER JOIN Order ON Customer.CusId
+
+WHERE Customer.Location="Galle";
+
+1)
+
+
+Fname Lname Orderld
+Kalum Gamage A001
+Kalum Gamage A003
+Shiromi Silva A002
+Fname Lname Orderld
+Kalum Gamage A001
+Kalum Perera A003
+Shiromi Silva A002
+Fname Lname Orderld
+Kalum Gamage A001
+Shiromi Silva A002
+
+= Order.CusId
+
+Fname Lname Orderld
+Kalum Gamage A004
+Kalum Perea A001
+Kalum Gamage A003
+Shiromi Silva A002
+
+Lname Fname Orderld
+Gamage Kalum A001
+Gamage Kalum A003
+Silva Shiromi A002
+
+(2022 - 31)
+
+19. Consider the following Employee Relation:
+පහත Employee වගුව සලකන්න.
+
+What would be the output of the following
+
+SQL query when it is applied on the Employee
+relation?
+
+ඉහත Employee වගුව මත පහත SQL විමසුම
+ක්‍රියාත්මක කළ විට ප්‍රතිදානය කුමක්‌ චේ ද?
+
+SELECT COUNT(*) FROM Employee
+
+WHERE Salary > ANY (SELECT Salary FROM Emplyoee) ;
+
+1) 3 2) 4 3) 5
+
+Employee_ID | Employee_Name | Salary
+1001 John 60000
+1002 Hari 55000
+1003 Mahas 70000
+1004 Sarath 65000
+1005 Rajah 75000
+
+4) 6 5) 10
+(2023 - 32)
+
+20. Consider the given SQL statements to create two database tables named LENDING and
+
+STUDENT:
+
+LENDING සහ STUDENT නම්‌ වූ දත්ත සමුදා වගු දෙකක්‌ සෑදීමට අදාළව දී ඇති SQL වගන්ති
+
+සලකන්න.
+
+CREATE TABLE LENDING(
+BOOK_NUMBER VARCHAR(1@) NOTNULL,
+BOOK_NAME VARCHAR(2@) NOTNULL,
+AUTHOR VARCHAR(25) NOTNULL,
+DESCRIPTION VARCHAR(75) NOTNULL,
+ISSUED_DATE DATE,
+STUDENT_ID CHAR(5) NOTNULL,
+PRIMARY KEY(BOOK_NUMBER) ) ;
+
+CREATE TABLE STUDENT(
+STUDENT_ID CHAR(5) NOTNULL,
+NAME VARCHAR(25) NOTNULL,
+BIRTHDAY DATE NOTNULL,
+ADDRESS VARCHAR(25) NOTNULL,
+PROVINCE CHAR(1@),
+PRIMARY KEY(STUDENT_ID));
+
+Which of the following statements are correct?
+
+BOD කවර වගන්ති නිවැරදි වේ ද?
+
+A. STUDENT_ID is a foreign key in the LENDING table.
+STUDENT_ID aeden LENDING OQ65 ආගන්තුක (foreign) යතුරකි.
+
+B. It is compulsory to input data to the DATE data type fields in both tables.
+වගු දෙකෙහිම DATE දත්ත වර්ගයේ ක්‌ෂේත්‍රවලට දත්ත ආදානය කිරීම අනිචාරිය Gd.
+
+C. STUDENT_ID can contain only five English letters.
+STUDENT_ID හි ඉංග්‍රීසි අක්ෂර පහක්‌ පමණක්‌ පැවතිය හැකි ය.
+
+1) & 901. 2) AandBonly. 3) AandConly. 4) BandC only.
+A පමණි. 7, හා B පමණි. 7 හා C පමණි.
+
+
+8 හා C පමණි.
+
+5) All of the above.
+ඉහත සියල්ලම.
+
+( 2023 - 33 )
+
+1. Consider the following ER diagram.
+පහත දැක්වෙන ER සටහන සලකා බලන්න.
+
+Desk House House 1D)
+L ॥ ඤෟ =
+
+Class
+Has Has Subject
+1
+
+1 n
+
+Obtains
+Marks for
+
+n Student [2
+
+Name Student ID
+
+NIC
+
+(i) Write the structure of the tables including their attributes when the above ER
+diagram is converted to a relational database.
+
+ඉහත ER සටහන සම්බන්ධතා (relational) දත්ත සමුදායකට හැර වූ SO ලැබෙන OQ සභ එවායේ
+උපලක්ෂණ ලියා දක්වන්න.
+
+(ii) Using the tables you have suggested in (i) above, write an SQL statement to get
+marks obtained for the subject with the value of Subject ID ALOO1 by the student with the
+value of Student ID 51001.
+ඉහත (i) හි යෝජනා කරන ලද OQ භාවිනකරමින්‌ Subject ID හි අගය /&[ 001 වන විෂයය සඳහා
+Student ID හි අගය 51001 වන ශිෂ්‍යයා ලැබූ ලකුණු ලබාගැනීම සඳහා SQL ප්‍රකාශයක්‌ ලියන්න.
+
+( 2012 ESSAY )
+
+2. Convert the following ER diagram to table structures in a relational database. The attribute
+capacity may have values such as captain, vice-captain, member etc.
+පහත පෙන්වා ඇති ER සටහන සම්බන්ධක දත්ත සමුදාය OQ ආකෘතිවලට පරථ්වරිතනය කරන්න.
+
+capacity උපලක්ෂණය සඳහා captain, vice-captain, member ආදී වශයෙන්‌ වූ අගයයන්‌ පැවතිය
+හැකි ය.
+
+student sport
+
+Based on the table structures obtained in section above answer the following questions.
+ඉහත කොටසෙහි දී ලබා ගත්‌ OM ආකෘතීන්‌ SENS WO ගෙන පහත සඳහන්‌ ප්‍රශ්න සඳහා පිළිතුරැ
+දෙන්න.
+
+(i) Write an SQL statement to get a list of sports that do not have captains.
+නායකයින්‌ නොමැති ක්‍රීඩාවන්ගේ ලැයිස්තුවක්‌ ලබා ගැනීමට SQL වගන්තියක්‌ ලියන්න.
+
+(ii) Write an SQL statement to obtain a list of students (studentld and name) who participate
+in any sport as a captain.
+නායකයකු ලෙස ඕනෑම ක්‍රීඩාවකට සහභාගී වන ශිෂ්‍යයන්ගේ ලැයිස්තුවක්‌ (studentld and name)
+ලබා ගැනීමට SQL වගන්තියක්‌ ලියන්න.
+
+( 2013 ESSAY )
+
+3. You are given the following two tables in a relational database.
+සම්බන්ධක දත්ත සමුදායකට අයත්‌ පහත දැක්වෙන වගු දෙක ඔබට දී ඇතැයි සලකන්න.
+
+house student
+houselD | name studentID | name grade | houselD
+HS1 Gamunu 5100001 Ranjith | 13 HS1
+HS2 Tissa STU002 Gopy 12 HS1
+HS3 Wijaya STU003 Vipula 12 HS2
+HS4 Parakum STU004 Hakeem | 11 HS3
+
+Write the output of the following SQL statements based on the above tables, if any,
+otherwise state the error.
+
+ඉහත OQ OD පදනම්‌ ව පහත දක්වා ඇති ව්‍යුහගත විමසුම්‌ භාෂා (SQL) වගන්තිවල ප්‍රතිදානයන්‌
+පවතින්නේ නම්‌ ලියා දක්වන්න. නොචසේ නම්‌ දෝෂය ප්‍රකාශ කරන්න.
+
+(i) select * from student where houseID = 'HS3';
+(ii) select studentID, houseID, name from student, house;
+
+(2014 ESSAY )
+
+4. Consider the following Data Definition Language (DDL) statement to answer the questions.
+
+ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා පහත දක්වා ඇති දත්ත අරිථ දැක්වීමේ භාෂා (DDL) වගන්තිය
+සලකා බලන්න
+
+CREATE TABLE unit (
+instituteCode varchar(1@) NOT NULL,
+unitCode varchar(1@) NOT NULL,
+unitTitle varchar(5@) DEFAULT NULL,
+PRIMARY KEY (instituteCode, unitCode),
+FOREIGN KEY (instituteCode) REFERENCES institute(instituteCode)) ;
+
+(i) What is the primary key of the above table?
+මෙහි සඳහන්‌ OQGS ප්‍රාථමික යතුර කුමක්‌ ද?
+
+(ii) What are the integrity constraints used in the above DDL?
+ඉහත DDL හි භාවිත කර ඇති ඒකාබද්ධ සංරෝධක (integrity constraints) මොනවා ද?
+
+( 2015 S.ESSAY )
+
+5. The following SQL statement has been used to create a table in a database.
+දත්ත සමුදායක්‌ QE පහත දී ඇති SQL වගන්තිය භාවිත කර වගුවක්‌ නිර්මාණය කර ඇත.
+
+create table student(
+student_no char(5),
+
+name char(3@),
+
+address char(10@),
+
+primary key (student_no));
+
+(i) Write a query in SQL to add the following data to the student table.
+පහත දත්නතය student වගුවට ඇතුළත්‌ කිරීමට SQL විමසුමක්‌ (query) ලියන්න.
+
+Student number -—- 10001
+Name ~~ Saman Kumara
+Address ~~ 78, Mahara road, Maharagama
+(ii) If the address of the student entered in the (i) above should be changed to 13, School
+Lane, Jaffna, write a query in SQL to update the relevant record in the student table.
+
+ඉහත (i) හි ඇතුළත්‌ කළ ශිෂ්‍යයාගේ ලිපිනය 13, School Lane, Jaffna ලෙස වෙනස්‌ විය යුතු නම්‌,
+student වගුවෙහි ඇති අදාළ උපලැකිය (record) යාවත්කාල කිරීමට SQL විමසුමක්‌ ලියන්න.
+
+( 2017 ESSAY )
+
+6. Consider the following Entity Relationship (ER) diagram.
+පහත දක්වා ඇති Qmvbo සම්බන්ධතා (ER) සටහන සලකන්න.
+
+CompanyRegNo Csince > ලා DateOfBirth
+
+company | 4 <> M_{ STAFF Name
+
+DEPENDANT DEPENDANT_OF
+
+(i) Write an SQL statement to display Names and Addresses of all the STAFF.
+කාරිය මණ්ඩලයෙහි සියල්ලන්ගේම නමි සහ ලිපින ප්‍රදර්ශනය කිරීම සඳහා SQL ප්‍රකාශයක්‌ ලියන්න.
+
+॥
+
+(ii) Write an SQL statement to display the names of the dependants of staff member with
+StafflD = 'E001124'.
+
+StafflD = 'E001124' Om කාරයමණ්ඩල සාමාජිකයාගේ යැපෙන්නන්ගේ (DEPENDANT) නම්‌
+ප්‍රදර්ශනය කිරීම සඳහා SQL ප්‍රකාශයක්‌ ලියන්න.
+
+( 2018 S.ESSAY )
+
+7. The following two tables CLASS and STUDENT are constructed by using the Entity
+Relationship (ER) diagram shown in Figure.
+පහත දැක්වෙන CLASS සහ STUDENT | චගු දෙක, 628608 දී ඇති ER සටහන භාවිත කර නිරිමාණය
+
+කර ඇත.
+
+CLASS Table
+ClassID ClassName ClassTeacher Stream Year
+1111 12-A A. B. Perera Physical Science | 2017
+1112 12-B N. Mohamed Bio Science 2017
+1113 13-A E. Selvadurai Arts 2017
+1114 13-B L. De Silva Commerce 2018
+
+STUDENT Table
+Index Number | ClassID Initials Surname DateOfBirth
+8991 1112 E. Nazeer 1999.12.06
+8993 1111 5. Sivalingam 1999.02.06
+8995 1112 W. Fernando 1999.11.11
+8997 1113 ට. H. De Silva 1999.08.06
+
+ඟා
+
+CLASS
+
+ClassTeacher
+
+2 රාම්‌
+
+Q 2
+
+STUDENT
+
+IndexNumber
+
+Write an SQL statement to insert the following record to the CLASS table.
+CLASS වගුවට පහත දැක්වෙන උපලැකියානය ඇතුළත්‌ කිරීම සඳහා SQL ප්‍රකාශයක්‌ ලියන්න.
+
+1115
+
+13-C
+
+A.B. Jinasena
+
+Technology |
+
+2018
+
+
+ඟා
+
+( 2018 ESSAY )
+
+8. A vehicle rental company has registered vehicle owners. Vehicles are obtained from the
+owners and rented to the customers. Consider the following relations regarding the vehicle
+
+rental company.
+චක්තරා වාහන කුලියට සැපයීමේ සමාගමකට ලියාපදිංචි වාහන හිමිකරැවන්‌ ඇත. හිමිකරැවන්ගෙන්‌
+වාහන ලබාගෙන පාරිභෝගිකයන්‌ වෙත කුලියට ලබා දේ. වාහන කුලියට සැපයීමේ සමාගමට අදාළ
+
+පහත දැක්වෙන සම්බන්ධතා (relations) es@eaden.
+
+Customer (Customer_NIC, Customer_Name, City, Postal_Code)
+Vehicle_Owner (Owner_Id, Owner_Name, Contact_No)
+Vehicle(Vehicle_Reg_No, Description, Owner_Id)
+
+The Customer relation contains customer's national identity card number (NIC) which
+is unique, name, city where he/she is living and the postal code of the city. A customer
+lives in a single city and there are many customers in one city. The postal code depends
+on city.
+
+(ල(161091116[। (පාරිභෝගිකයා) සම්බන්ධතාවයෙහි අනන්‍යවන Customer_NIC ~_ (පාරිභෝගිකයාගේ
+ජාතික හැඳුනුම්පත්‌ අංකය) , Customer_Name (නම), ඔහු/ ඇය ජීවත්වන City (නගරය) සහ එම
+
+නගරයෙහි Postal_Code (තැපැල්‌ කේතය) අඩංගු Gd. එක්‌ පාරිභෝගිකයකු එක්‌ නගරයක
+ජීවත්වන අතර චක්‌ නගරයක්‌ තුළ පාරිභෝගිකයන්‌ රාශියක්‌ ජීවත්‌ විය හැක. තැපැල්‌ කේතය,
+
+නගරය මත රඳා පවතී (depends).
+
+The Vehicle_Owner relation contains the Owner_Id which is unique, owner’s name and
+the contact number.
+
+Vehicle_Owner (වාහනය - හිමිකරැ) සම්බන්ධතාවයෙහි අනන්‍ය වූ Owner_ld (හිමිකරැ හැඳුනුමි
+අංකය), Owner_Name (හිමිකරුගේ නම) සහ Contact_No (ඇමතුම්‌ අංකය) අඩංගු Gd.
+
+The Vehicle relation contains the vehicle registration number which is unique, a
+description about the vehicle and the Owner_ld.
+
+Vehicle (hans) සම්බන්ධතාවයෙහි අනන්‍ය වූ Oooaecd Vehicle_Reg_No (ලියාපදිංචි අංකය),
+Description (වාහනය පිළිබඳ විස්තරය) සහ ට%//16/' | (හිමිකරු හැඳුනුම්‌ අංකය) අඩංගු Gd.
+
+A customer can rent more than one vehicle. Also, it is possible to rent one vehicle to
+many customers at different instances. Each vehicle is owned by one owner and one
+owner can have more than one vehicle.
+
+පාර්භෝගිකයකුට වාහන එකකට වඩා කුලියට ගත හැකි ය. DOE කිසියම්‌ වාහනයක්‌
+
+පාර්භෝගිකයන්‌ කිහිපදෙනකුට වෙනස්‌ අවස්ථාවල දී කුලියට දිය හැකි ය. සෑම වාහනයකටම තනි
+හිමිකරැවකු සිටින අතර, චක්‌ හිමිකරුැචකුට වාහන එකකට වඩා තිබිය හැකි ය.
+
+Write an SQL statement to select Owner_Id and Vehicle_Reg_No of all the vehicles owned
+by each vehicle owner.
+චක්‌ චක්‌ වාහන හිමිකරැට අයිති සියලු ම වාහනවල Owner_ld (හිමිකරැ හැඳුනුම්‌ අංකය) සහ
+
+Vehicle_Reg_No (වාහනයේ ලියාපදිංචි අංකය) Select (තෝරා ගැනීම) සඳහා SQL වගන්තියක්‌ ලියා
+දක්වන්න.
+
+
+(2019 ESSAY )
+
+9. The ‘Winner’ table given below contains the details of the players who won different
+matches and medals. There is a fixed amount of prize money given to each medal type. A
+Gold medal has Rs. 20,000/=, a Silver medal has Rs. 10,000/= and a Bronze medal has Rs.
+5,000/=. Consider the primary key of the Winner table as NIC and MatchlD.
+ක්‍රීඩකයන්‌ ජයග්‍රහණය කරන ලද ක්‍රීඩා (games) සහ පදක්කම්‌ (medals) පිළිබඳ විස්තර පහත ‘Winner’
+වගුවෙහි ඇතුළත්‌ වේ. චක්‌ එක්‌ පදක්කම්‌ (medals) වරිගය සඳහා නිශ්චිත තආග මුදලක්‌ ඇත. රන්‌
+(gold) පදක්කමක්‌ සඳහා රැ.20,000//- ක්‌ ද 52 (silver) පදක්කමක්‌ සඳහා රැ.10,000/- ක්‌ ද ලෝකඩ
+(bronze) පදක්කමක්‌ සඳහා 62.5,000/- ක්‌ ද ලැබේ. Winner වගුවෙහි ප්‍රාථමික යතුර NIC සහ
+MatchID 6@e සලකන්න.
+
+Winner Table
+NIC MatchID MedalType Prize
+951477751V BD-2 Silver 10000
+985467923V BD-2 Gold 20000
+995874159V BD-1 Gold 20000
+997656614V BD-3 Silver 10000
+951477751V BD-1 Bronze 5000
+
+(i) Write an SQL statement to display the number of players who won “Gold” medals.
+රන්‌ පදක්කම්‌ දිනන ලද ක්‍රීඩකයන්‌ සංඛ්‍යාව ප්‍රදර්ශනය කිරීම සඳහා SQL ප්‍රකාශයක්‌ ලියා දක්වන්න.
+
+( 2020 ESSAY )
+
+10. A building construction company signs contracts with its clients. Each contract is handled
+by an agent of the company.
+
+ගොඩනැගිලි දිකිරිම සමාගමක්‌ තම ඉස්වාපේක්ෂකයන්‌ (clients) සමග කොන්ත්‍රාත්තු (ගිවිසුම්‌) අත්සන්‌
+කරයි. එක්‌ එක්‌ කොන්තාත්තුව සමාගමේ චීජන්තවරයකු විසින්‌ හසුරැවනු ලැබේ.
+
+The Contracts table contains the details of the contracts. It has contract number, agent's
+code, name and mobile phone number represented with CNo, ACode, AName and
+AMobile attributes respectively. The client's name is represented with Client. Primary key
+of the Contracts table is CNo.
+
+Contracts වගුවෙහි කොන්ත්‍රාත්තු පිළිබඳ විස්තර අඩංගු චේ. කොන්ත්‍රාත්තු අංකය, චීජන්තවරයාගේ
+කේතය, නම සහ ජංගම දුරකථන අංකය පිළිවෙළින්‌ CNo, ACode, AName සහ AMobile උපලැකිවල
+දැක්වේ. සේවාපේක්ෂකයාගේ නම Clients මගින්‌ දැක්වේ. Contracts වගුවේ ප්‍රාථම්ක යතුර CNo වේ.
+
+Contracts
+CNo ACode AName AMobile Client
+C-112 EPOO3 Anura 0714545866 | Sirimal
+C-103 EPO06 Navod 0774511320 | Abish
+C-116 EP003 Anura 0714545866 | Nehara
+C-224 EPO15 Virah 0763538147 | Sirimal
+
+(i) Write an SQL statement to change in the Contracts table, the mobile number of the
+agent whose agent code is EP003 to 0772222222.
+Contracts වගුවේ EP003 ඒජන්ත කේතය සහිත ඒජන්තවරයාගේ දුරකථන අංකය 0772222222
+ලෙස වෙනස්‌ කිරීමට SQL ප්‍රකාශයක්‌ ලියන්න.
+
+( 2021 ESSAY )
+
+11. Use the following Employee, and Assign Project denormalized tables to answer parts (i),
+(ii), (iii), (iv) and (v). Please note that primary key(s) of each table is(are) underlined.
+(i), (ii), (iii), (iv) සහ (Vv) යන කොටස්වලට පිළිතුරැ ලබාදීමට පහත සඳහන්‌ Employee (සේවක) සහ
+Assign_Project (ව්‍යාපෘති අනියුක්තයන්‌) යන ප්‍රමතකරණය නොවූ OQ භාවිත කරන්න. එක්‌ එක්‌ වගුවේ
+
+(ii)
+
+ප්‍රාථමික යතුර(රැ) යටින්‌ ඉර්‌ ඇඳ ඇති බව සලකන්න.
+
+Employee
+Employeeld FullName DOB Salary
+E001 Saman Perera 12/02/1978 140000
+E002 Upul Fernando 23/05/1982 44000
+E005 Chris Peris 11/08/1980 44000
+E007 Kamala Gamage 08/08/1973 52000
+E008 Sunil Perera 25/04/1969 115000
+E011 Vipul Namal 09/02/1977 38000
+Assign_Project
+Projectid Employeeld PName Description
+P04 E002 Sales Implement sales management system
+P04 E008 Sales Implement sales management system
+P06 E007 HRM Implement sales HRM system
+PO7 E002 Library Implement library management system
+P09 E001 Inventory | Implement Inventory management system
+P09 E007 Inventory | Implement Inventory management system
+
+Write down the output of the following SQL statement:
+පහත SQL ප්‍රකාශයේ ප්‍රතිදානය ලියා දක්වන්න.
+
+SELECT Employee.FullName, Employee.Salary
+FROM Employee, Assign Project
+WHERE Assign Project Employeeld = Employee Employeeld;
+
+Write an SQL statement to display the names of the employees who are assigned to
+project 004.
+
+P04 ව්‍යාපෘතියට (project) අනියුක්ත කර ඇති සේවකයන්ගේ නම්‌ ප්‍රදර්ශනය කිරීමට SQL ප්‍රකාශයක්‌
+ලියන්න.
+
+(iii) Give an example SQL query where the update anomaly can occur in Assign_Project table.
+
+Assign_Project වගුවේ යාවත්කාලින කිරීමේ විෂමතාවක්‌ (update anomaly) ඇති විය හැකි SQL
+විමසුමකට (query) උදාහරණයක්‌ දෙන්න.
+
+( 2022 ESSAY )
+
+12. Consider the following Employee table:
+පහත Employee (සේවකයා) වගුව සලකන්න.
+
+Emp_ID |Emp_Name|DoB Department | Designation | DoJ Salary
+Bio
+
+E110 Saman 15/10/1970 Technology Professor 12/04/2001 | 145000
+
+E111. |Kumar 25/05/1980 |Mechanical |455'St@t | 9/95/2006 | 100000
+Professor
+. . . Assistant
+
+E115 Raja 10/08/1982 | Engineering Professor 05/05/2001 | 98000
+. . . Assistant
+
+E114 Jennifer 11/09/1975 | Engineering Professor 03/06/2001 | 197000
+
+E117 | Ismail 15/05/1979 | Civil Assistant | 49/05/2005 | 103000
+Professor
+
+(i) Write the most suitable SQL statement to create Employee table with suitable primary key.
+සුදුසු ප්‍රාථමික යතුරක්‌ (primary key) සමග Employee වගුව සෑදීමට වඩාත්ම සුදුසු SQL ප්‍රකාශය
+
+ලියන්න.
+
+(ii) Write the required SQL statement to insert the record for the following employee:
+පහත ඉස්වකයාට අදාළ රෙකෝඩය ඇතුළත්‌ කිරීම සඳහා අවශ්‍ය SQL ප්‍රකාශය ලියන්න.
+
+Emp_ID = E119, Emp_Name = “John”, DoB = “15/06/1971”, Department =
+“IT”, Designation = “Professor”, DoJ = “15/07/2001”, Salary, = 107000
+
+(iii) Write the output obtained by applying the following SQL query:
+පහත SQL විමසුම සඳහා ලැබෙන ප්‍රතිදානය ලියන්න.
+
+SELECT Emp_ID, Emp_Name
+FROM Employee
+WHERE Salary>103000;
+
+(iv) Write the appropriate SQL query to find the names of all employees who work in the “Civil”
+department.
+Civil දෙපාර්තමේන්තුවේ වැඩ කරන සියලු සේවකයන්ගේ නමි සොයාගැනීමට සුදුසු SQL ප්‍රකාශයක්‌
+ලියන්න.
+
+( 2023 ESSAY )

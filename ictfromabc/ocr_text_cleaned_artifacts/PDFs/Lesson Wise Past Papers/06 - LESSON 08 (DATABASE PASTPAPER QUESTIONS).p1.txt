@@ -1,0 +1,583 @@
+1. Which of the following database types is widely used in computer applications?
+පරිගණක ඉලයෙදුම්‌ සඳහා බහුලව භාවිත වන දත්ත සමුදා (Database) වර්ගය වනුයේ
+
+1) පැතලිගොනු (Flat file) 2) ධූරාවලි (Hierarchical) 3) ජාල (Network)
+4) සම්බන්ධක (Relational) 5) වස්තු නැඹුරැ (Object oriented)
+
+(2011-07)
+
+2. Consider the following statements about computerized databases:
+පරිගණක දත්ත සමුදා (Computerized databases) පිළිබඳව පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න.
+
+A. Need more human resources to manage the computerized database than a manual
+system.
+
+පරිගණක OD දත්ත සමුදාය කළමනාකරණය සඳහා හස්තීය පද්ධතියකට (Manual system) වඩා
+වැඩියෙන්‌ මානව සම්පත්‌ අවශ්‍ය වේ.
+
+B. Retrieval of data is efficient than a manual system.
+EDD ආපසු ලබාගැනීම (Retrieval), හස්තීය පද්ධතියකට වඩා කාරියක්ෂම වේ.
+
+C. No data duplications.
+දත්ත ද්විත්වකරණ (Duplications) නොමැත.
+
+D. Need more space to store data than a manual system.
+දත්ත ගබඩාකිරීම සඳහා හස්තීය පද්ධතියකට වඩා ඉඩකඩ අවශ්‍ය Gd.
+
+Which of the above statements are correct with respect to a properly designed database?
+මනා ලෙස සැලසුම්කරන ලද දත්ත සමුදායක්‌ සම්බන්ධයෙන්‌ සත්‍ය වන්නේ ඉහත සඳහන්‌ MOO ප්‍රකාශද?
+
+1) AandBonly. 2) AandDonly. 3) BandConly. 4) BandDonly. 5)CandD only.
+A@) 8 පමණි. Aa D පමණි. Be C පමණි. 8 හා D පමණි. Cm D පමණි.
+
+(2011 - 23 )
+
+e Consider the following system description and the relations A, B, C and D given below to
+answer the questions 3 and 4.
+අංක 3 සහ 4 ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා පහත සඳහන්‌ පද්ධති විස්තරය හා A, B, C, D
+සම්බන්ධ (Relation) සලකන්න.
+
+A principal of a National school wants to develop a database to maintain Admission
+Number, Student Name, Address, National Identity Card number (NIC) and the Date of
+Birth (DOB) of Advanced Level students. The principal also wants to know the marks
+obtained for each subject by the students. In addition to the above requirements, the
+principal needs to know the subjects assigned to the teachers.
+
+ජාතික පාසලක විදුහල්පතිවරයෙකුට, උසස්‌ පෙළ සිසුන්ගේ ඇතුළත්වීමේ අංකය, ශිෂ්‍ය නාමය, ලිපිනය,
+
+ජාතික හැදුනුම්පත්‌ අංකය (NIC) සහ උපන්‌ දිනය (DOB) පචත්වා ගැනීම සඳහා දත්ත සමුදායක්‌
+සකස්‌ කර ගැනීමට අවශෲ 6d. චක්‌ චක්‌ විෂයය සඳහා ශිෂ්‍යයා ලබා ගත්‌ ලකුණු ද දැනගැනීමට
+ව්දුහල්පතිවරයාට අවශ්‍ය GOB. ඉහත අවශ්‍යතාවලට අමතරව ගුරැවරැන්ට BAD ඇති විෂයයන්‌
+දැනගැනීමට ද විදුහල්පතිවරයාට අවශ්‍ය වෙයි.
+
+Relation /සම්බන්ධතා
+
+A ~ Student(admissionNo, studentName, address, DOB, NIC)
+
+B - Subject(subjectCode, subjectName)
+
+C - Mark(admissionNo, subjectCode, marksObtained)
+
+D - Teacher(teacherNo, subjectCode, teacherName, subjectName, class)
+
+3. Which of the above relations are in the third normal form?
+ඉහත දැක්වෙන සම්බන්ධ අතූරෙන්‌ 3 වන ප්‍රමත ආකෘතියෙහි ඇත්තේ කවරක්‌ ද?
+
+1) Aand Conly. 2) Aand D only. 3) A,B and C only. 4) A,C and D only. 5) B,C and D only.
+Am C පමණි. Asm D පමණි. A,B හා C පමණි. A,C om D පමණි. B,C හා D පමණි.
+
+(2011-24)
+
+4. Which of the following combinations of attributes provides the minimal set of primary keys
+for the relations Student, Subject and Mark respectively?
+පහත සඳහන්‌ උපලක්ෂණ සංයෝජන අතුරෙන්‌ පිළිවෙළින්‌ ශිෂ්‍යයා (Student), විෂයය (Subject), හා
+ලකුණු (Mark) සම්බන්ධ පිළිබඳව අවම ප්‍රාථමික යතුරැ (Primary key) කුලකය දෙනු ලබන්නේ
+කුමකින්‌ ද?
+
+1) admissionNo and NIC, subjectCode, admissionNo.
+
+2) NIC, subjectCode, subjectCode.
+
+3) admissionNo, subjectCode, subjectCode.
+
+4) admissionNo, subjectCode, admissionNo and subjectCode.
+5) admissionNo, subjectName, admissionNo and subjectCode.
+
+(2011-25)
+5. Consider the following statements with respect to ER diagrams:
+ER සටහන්‌ පිළිබඳව පහත දැක්වෙන ප්‍රකාශ සලකන්න.
+
+A. An ER diagram has entities and relationships.
+ER සටහනක භූතාර්ථ (Entities) සහ සම්බන්ධතා (Relationships) ඇත.
+
+B. Cardinality of all relationships should always be one-to-one.
+සියලු සම්බන්ධතාවල ගණනීයනාව (Cardinality) සැමව්ටම චකට චක (One-to-One) විය
+යුතුය.
+
+C. Entities may have attributes.
+භූතාරිථවලට අනුලක්ෂණ (Attributes) තිබිය හැකිය.
+
+D. There could be binary and tertiary relationships.
+චීවායේ ද්විමය (Binary) සහ තෘතීය (Teritary) සම්බන්ධතා තිබිය හැකිය.
+
+Which of the above statements are correct?
+ඉහත ප්‍රකාශ අතුරෙන්‌ නිවැරදි වන්නේ කවර ඒවා ද?
+
+1) Aand D only. 2) Band C only. 3) 6 4010 [0 900//. 4) A,C and D only. 5) 8, C and D only.
+7& හා D පමණි. Bem C පමණි. Be D පමණි. A, C හා D පමණි. B, Cm D පමණි.
+
+(2011 - 43 )
+
+6. Which of the following statements is correct about relational databases?
+
+සම්බන්ධක දත්ත සමුදා (relational databases) පිළිබඳව පහත දක්වෙන කවර ප්‍රකාශය නිවැරදි වේද?
+
+1) The primary key of a table is selected from alternate keys.
+වගුවක ප්‍රාථමික යතුර (primary key) විකල්ප යතුරැ (alternate keys) අතුරෙන්‌ තෝරා ගැනේ.
+
+2) Duplicate values are not allowed in a foreign key field of a table.
+
+වගුවක අන්‍ය යතුරක්‌ (foreign key) සඳහා අගයන්‌ අනුපිටපත්‌ කිරීම (duplicate) කළ නොහැකි ය.
+
+3) A table cannot be created without a primary key.
+ප්‍රාථම්ක යතුරක්‌ නොමැතිව වගුවක්‌ නිර්මාණය කළ ඉනාහැකි ය.
+
+4) A foreign key of a table should be the primary key of another table.
+DQOD අන්‍ය යතුරක්‌ වෙනත්‌ වගුචක ප්‍රාථමික යතුරක්‌ විය යුතු ය.
+
+5) A table should have alternate keys.
+චගුවක විකල්ප යතුරැ BIG යුතුම ය.
+
+(2012 - 07 )
+Consider the following statements about Relational Databases:
+සම්බන්ධක දත්ත සමුදා (Relational Databases) පිළිබඳව පහත දක්වෙන ප්‍රකාශ සලකා බලන්න:
+
+A. A table is considered as an object.
+වගුවක්‌ (table), වස්තුවක්‌ (object) ලෙස සැලකේ.
+
+B. Acolumn of data in a table is called a field/an attribute of that table.
+වගුවක දත්ත තීරැචකට DO වගුවෙහි ක්ෂේත්‍රයක්‌ (field) /උපලක්ෂණයක්‌ යැයි කියනු ලැබේ.
+
+ලී, A row of data in a table is called a record.
+වගුවක දත්ත පේළියකට (row) රෙකෝඩයක්‌ (record) යැයි කියනු ලැබේ.
+
+Which of the above statements is/are correct?
+ඉහත ප්‍රකාශ අතුරෙන්‌ කුමන ප්‍රකාශය/ප්‍රකාශ සත්‍ය 6 ද?
+
+1) Aonly. 2) B only. 3) AandBonly. 4) AandConly. 5)BandC only.
+A පමණි. B පමණි. A හා 8 පමණි. Am C පමණි. B හා C පමණි.
+
+Consider the following statements with respect to ER diagrams:
+ER රෑපසටහන්‌ පිළිබඳව පහත දක්‌වෙන ප්‍රකාශ සලකා බලන්න:
+
+A. Arelationship in an ER diagram can be implemented as a table in a relational database.
+ER රෑපසටහනක සම්බන්ධතාවක්‌, සම්බන්ධක සමුදායක වගුවක්‌ ලෙස ස්ථාපිත කළ හැකිය.
+
+B. A relationship may have attributes attached to it.
+සම්බන්ධතාවකට, ASO සම්බන්ධ වූ උපලක්ෂණ (attributes) තිබිය හැකිය.
+
+C. Only two entities can be attached to a relationship.
+සම්බන්ධනාවකට, භූතාරිථ (entities) දෙකක්‌ පමණක්‌ සම්බන්ධ කළ හැකි ය.
+
+Which of the above statements is/are correct?
+ඉහත ප්‍රකාශ අතුරෙන්‌ කුමන ප්‍රකාශය / ප්‍රකාශ සත්‍ය වේ ද?
+
+1) & 091. 2) B only. 3) AandBonly. 4) AandConly. 5) Band Conly.
+A පමණි. B පමණි. Am B පමණි. Am C පමණි. 5 හා C පමණි.
+
+( 2012 ~ 22 & 23 )
+
+9. Which of the following statements about relational databases is correct?
+සම්බන්ධක දත්තසමුදා පිළිබඳව පහත දැක්වෙන WOO ප්‍රකාශය සත්‍ය GS ද?
+
+1) Avalue of a composite key of a table can be null.
+වගුවක සංයුක්ත යතුරක (composite key) අගය අභිශුන්‍ය (null) විය හැකි ය.
+
+2) Null values are allowed in any column of a table.
+වගුවක ඕනෑම තීරැවක අභිශුන්‍ය (null) අගයයන්‌ තිබිය හැකි ය.
+
+3) Two or more columns of a table can be combined to create the primary key.
+ප්‍රාථමික යතුරක්‌ නිර්මාණය කිරීම සඳහා වගුවචක Hdz දෙකක්‌ හෝ කිහිපයක්‌ සංයෝජනය කළ හැකිය.
+
+4) Values of a foreign key of a table cannot be updated.
+වගුවක අන්‍ය යතුරක (foreign key) අගයයන්‌ යාවත්කාලීන කළ නොහැකි ය.
+
+5) Once created, the structure of a table cannot be altered.
+නිර්මාණය DE පසුව, වගුවක ව්‍යුහය වෙනස්‌ කළ නොහැකි ය.
+
+(2012 - 42)
+
+10. Which of the following is the most appropriate Entity Relationship (ER) diagram to
+
+represent students participation in different sports in school?
+පාසලක විවිධ ක්‍රීඩා සඳහා ශිෂ්‍ය සහභාගිත්වය නිරූපණය කිරීමට වඩාත්‌ © යෝග්‍ය භූතාරිථ සම්බන්ධතා
+රෑප සටහන (ER diagram) Oses පහත සඳහන්‌ දෑ අතුරින්‌ කවරක්‌ ද?
+
+Year of
+participate
+
+1) Student sport
+Year Sarre)
+Sarre)
+2) student (-- sport
+Year ෴ැයම
+෴ැයම
+3) student sport
+Year of
+participate
+4) student sport
+Year of
+participate
+5) student participate ත්‌ sport
+
+(2013 - 23 )
+
+11. Which of the following is correct with respect to a relational database?
+සම්බන්ධක දත්ත සමුදායක්‌ (Relational Database) පිළිබඳව සත්‍ය වාක්‍ය පහත සඳහන්‌ කචරක්‌ ද?
+
+1) Any subset of Alternate Keys is called Candidate Key.
+විකල්ප යතුරුැවල ඕනෑම උපකුලකයක්‌ අපේක්ෂක යතුර ලෙස හැඳින්වේ.
+
+2) A Primary Key is selected from Alternate Keys.
+ප්‍රාථමික යතුර තෝරා ගනු ලබන්නේ විකල්ප යතුරැ eonded ය.
+
+3) A Foreign Key is an Alternate Key.
+ආගන්තුක යතුර යනු විකල්ප යතුරකි.
+
+4) Always Primary Key and Foreign Key are combined to create a Compound Key.
+සැමවිට ම සංයෝජන යතුරක්‌ සාදා ගැනීමට HOSa හා ආගන්තුක යතුරැ සංයුක්ත කෙරේ.
+
+5) Primary Key and Foreign Key establish the relationship between two tables.
+DQ දෙකක්‌ අතර සම්බන්ධතාව ප්‍රාථමික හා ආගන්තුක යතුරැ මගින්‌ Be කරයි.
+
+( 2013 ~ 27)
+
+12. Consider the following statements regarding relational databases:
+සම්බන්ධක දත්ත සමුදා (relational databases) සම්බන්ධයෙන්‌ පහත දී ඇති වගන්ති සලකන්න:
+
+A. Changing the column order of relations in a database structure does not necessarily
+
+require changes in application programs.
+දත්ත සමුදායක ආකෘතියක සම්බන්ධතාවල තීරැ පටිපාටිය වෙනස්‌ කිරීම, යෙදුම්‌ ක්‍රමලේඛ තුළ
+වෙනස්කම්‌ ඇති කිරීමට මූලික අවශ්‍යතාවක්‌ නොවේ.
+
+B. Main objective of normalization of databases is to reduce data redundancy.
+EDD සමුදාවල ප්‍රමතකරණයේ ප්‍රධාන අරමුණු වන්නේ දන්ත අතිරික්තතාව අඩු කිරීම යි.
+
+C. Adding new data to the database always requires changes to the existing programs.
+EDD සමුදායට නව දත්ත චකතු කරන සෑම අවස්ථාවකදීම පවතින ක්‍රමලේඛ වෙනස්‌ කිරීමට සිදු GOB.
+
+Which of the above statements is/are correct?
+පහත සඳහන්‌ දෑ අතුරින්‌ නිවැරදි කුමක්‌ ද?
+
+1) Aonly. 2) 6 only. 3) AandBonly. 4) AandConly. 5) All of the above.
+A පමණි. B පමණි. 7 හා 8 පමණි. 7 හා C පමණි. ඉහත සියල්ලම.
+
+( 2013 ~ 47 )
+
+13. Which of the following relations is in the 3rd normal form?
+පහත සඳහන්‌ කුමන සම්බන්ධතාව (Relation) 3 වන ප්‍රමත ආකාරයේ (3 normal form) පවතී ද?
+
+1) student(studentIndexNo, name, parentName)
+
+2) sport(sportid, soortName, teacherName, teacherld)
+
+3) teacher(teacherld, teacherName, telephoneNumber, subjectName, subjectld)
+4) book(ISBN, title)
+
+5) patient(patientld, patientName, ward, wardld)
+
+(2014-30)
+
+e Consider the following three tables in a relational database to answer questions 14 to 15.
+Assume that a subject has only one paper for an examination.
+
+ප්‍රශ්න අංක 14 BO 15 දක්වා පිළිතුරු සැපයීමට සම්බන්ධනා දත්ත සමුදායක පවතින පහත පෙන්වා
+
+ඇති වගු තුන සලකා බලන්න. එක්‌ විභාගයක දී එක්‌ විෂයයක්‌ සඳහා චක්‌ ප්‍රශ්න පත්‍රයක්‌ පමණක්‌ ඇති
+බව උපකල්පනය කරන්න.
+
+subject examSubject exam
+subjectid | title examld | subjectld | examDate | | examld | name
+SUBOO1 Information and EXAMO01 | SUBOO1 2014.12.12 | | EXAMOO01 | GCE OL
+Technology EXAMO02 | SUBOO1 2014.8.21 EXAMO02 | GCE AL
+SUBO02 । Chemistry EXAMO02 | SUBOO2 | 2014.8.21
+SUB003 Physics EXAMO002 | 506003 _ । 2014.8.21
+
+14. Which of the following is the most suitable Entity Relationship (ER) diagram to represent
+the above relational database tables?
+
+ඉහත EMO) ඇති සම්බන්ධතා දත්ත සමුදායේ OQ නිරූපණය කිරීම සඳහා වඩාත්‌ ම යෝග්‍ය qmbo
+සම්බන්ධතා රෑපය OHSS පහත රෑපසටහන්වලින්‌ කුමක්‌ ද?
+
+examDate
+
+(2)
+
+subject | | exam
+(3) (4)
+subject | | exam
+
+(2014-31)
+
+15. Which of the following is the correct primary key for examSubject table?
+පහත සඳහන්‌ දෑ අතුරෙන්‌ examSubject වගුව සඳහා නිවැරදි ප්‍රාථමික යතුර වන්නේ කුමක්‌ ද?
+
+1) examld 2) examid, subjectld 3) examld, examDate
+4) subjectld, examDate 5) examld, subjectld, name
+
+(2014 - 32)
+
+e Consider the following relations to answer questions from 16 to 18.
+අංක 16 BO 18 තෙක්‌ ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත දක්වා ඇති සම්බන්ධතා සලකා බලන්න.
+
+programmer (programmerld, programmerName, gender, NIC, mobilePhoneNumber,
+degree, universityName)
+
+client(clientld, clientName, address, telephoneNumber)
+
+project(projectid, projectName, clientld, startDate, endDate, cost)
+workFor(programmerld, projectid, startDate, endDate)
+
+16. Consider the following statements:
+පහත සඳහන්‌ වගන්ති සලකා බලන්න:
+
+A. A programmer works for at most one project at any given time.
+GED ලද ඕනෑම අවස්ථාවකදී එක්‌ ක්‍රමලේඛකයකු වැඩිමනක්‌ ලෙස එක්‌ ව්‍යාපෘතියක වැඩ කරයි.
+
+B. A programmer is assigned to a single client at any given time.
+චක්‌ ක්‍රමලේඛකයකු දෙන ලද ඕනෑම අවස්ථාවකදී චක්‌ සේවාලාභියකු වෙත පමණක්‌ අනුයුක්ත කරයි.
+
+C. One client can have more than one project.
+චක්‌ සේවාලාභියකු හට එක්‌ ව්‍යාපෘතියකට වඩා පැවැතිය හැකි ය.
+
+Which of the above statement(s) is/are always correct?
+සැමවිට © නිවැරදි වන්නේ ඉහත සඳහන්‌ කවර වගන්තිය / වගන්ති ද?
+
+1) Aonly. 2) B only. 3) Conly. 4) AandBonly. 5) Band Conly.
+A පමණි. 8 පමණි. උ පමණි. A හා 8 පමණි. 8 හා C පමණි.
+( 2015 - 36)
+
+17. Which of the following is correct with respect to attributes of the relations?
+සම්බන්ධතාවල උපලැකි (attributes) සම්බන්ධයෙන්‌ නිවැරදි වන්නේ පහත සඳහන්‌ කවරක්‌ ද?
+
+1) Attributes gender, NIC and mobilePhoneNumber are candidate keys of programmer
+relation.
+gender, NIC සහ mobilePhoneNumber යන උපලැකි programmer සම්බන්ධතාවෙහි
+අපේක්ෂක යතුරැ (candidate keys) චේ.
+
+2) Attribute startDate is a derived attribute.
+startDate යන උපලැකිය ව්‍යුත්පන්න (derived) උපලැකියකි.
+
+3) Attribute NIC can be considered as an alternate key for the programmer relation.
+
+NIC උපලැකිය, programmer සම්බන්ධතාවේ විකල්ප යතුරක්‌ (Alternate keys) සේ සැලකිය
+හැකි ය.
+
+4) Attribute startDate is a foreign key for the workFor relation.
+startDate උපලැකිය workFor සම්බන්ධතාව සඳහා ආගන්තුක (foreign key) යතුරකි.
+
+5) Each record in the workFor relation can be uniquely identified by using projectld.
+
+workFor සම්බන්ධතාවේ ඇති සෑම උපලැකියානයක © (record) projectid භාවිතයෙන්‌ අනන්‍යව
+හඳුනාගත හැකි වේ.
+
+(2015 ~ 37)
+
+18. Which of the following is correct?
+BOD සඳහන්‌ වගන්ති අතුරෙන්‌ කචරක්‌ නිවැරදි වන්නේ ද?
+
+1) All relations are in 3 normal form.
+සියලු සම්බන්ධතා තෙවැනි GOD අවස්ථාවේ පවතී.
+
+2) All relations except the programmer are in the 3 normal form.
+programmer 26269 විට අනෙකුත්‌ සියලු සම්බන්ධනා නෙවැනි GOD අවස්ථාවේ පවතී.
+
+3) All relations except the client are in the 3 normal form.
+client හැරැණු විට අනෙකුත්‌ සියලු සම්බන්ධතා තෙවැනි GOD අවස්ථාවේ පවතී.
+
+4) /&|| (6138119115 except the project are in the 3 normal form.
+project හැරැණු විට අනෙකුත්‌ සියලු සම්බන්ධනා තෙවැනි GOm අවස්ථාවේ පචතී.
+
+5) All relations except the workFor are in the 3 normal form.
+workFor හැරැණු විට අනෙකුත්‌ සියලු සම්බන්ධතා තෙවැනි ප්‍රමත අවස්ථාවේ පවතී.
+
+(2015 - 38)
+
+19. Consider the following database constraints:
+පහත දක්වා ඇති දත්ත සමූදා සංරෝධක (constraints) සලකා බලන්න:
+
+A ~ Primary key // ප්‍රාථම්ක යතුර
+B ~ Data type / දත්ත ප්‍රරෑපය
+C - Foreign key / ආගන්තුක යතුර
+
+Which of the above constraint/s does/do not allow users to duplicate data in a database
+table?
+
+දත්ත BOE) වගුවක, දත්ත අනුපිටපත්‌ (duplicate) කිරිමට පරිශීලකයන්ට ඉඩ නොදෙනු ලබන්නේ
+ඉහත පෙන්වා ඇති කවර සංරෝධකය / සංරෝධක ද?
+
+1) A only. 2) B only. 3) AandBonly. 4) AandConly. 5) Band C only.
+A පමණි. B පමණි. 7 හා 6 පමණි. Am C පමණි. 5 හා C පමණි.
+
+(2015 ~ 39)
+
+e Consider the following four relational database tables to answer questions.
+ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට පහත cow) ඇති සම්බන්ධතා දත්ත සමුදා වගු හතර සලකා බලන්න.
+
+item වගුව supplier වගුව
+item | product supplier | name
+1001 | Laptop S001 BeLap Company Ltd.
+1002 | TV 5002 DigiTV trading company
+1003 | Camera
+itemSupplier වගුව delivery වගුව
+item | supplier item | supplier | batch | quantity | date
+1001 5001 1001 | 5001 501 450 1.5.2015
+1002 S001 1002 | 5001 AB1 45 1.5.2015
+1002 S002 1001 | 5001 502 500 2.5.2015
+1001 | 5002 උ01 75 5.5.2015
+
+20. Which of the following is correct with respect to the above tables?
+ඉහත OQ සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමක්‌ නිවැරදි වන්නේ ද?
+
+1) All the tables are in third normal form.
+සියලු OQ තෙවැනි GOD අවස්ථාවේ පවතී.
+
+2) Normalization has been applied to these tables.
+GOO OQ ප්‍රමතකරණය කර ඇත.
+
+3) Integrity constraints are correctly applied to these tables.
+මෙම OQ සඳහා එකාබද්ධ සංරෝධක (integrity constraints) නිවැරදි ව යොදා ඇන.
+
+4) There is no evidence to say that integrity constraints are properly applied.
+ඒකාබද්ධ සංරෝධක නියමානුකූලව යොදාගෙන ඇති බව පැවසීමට කිසිදු සාධකයක්‌ මෙහි නොමැත.
+
+5) Normalization and integrity constraints are properly applied.
+ප්‍රමතකරණය හා SHMDED සංරෝධක නියමානුකූලව ආදේශ කර ඇත.
+
+(2015 ~ 41)
+
+e Consider the following relation to answer questions 21 and 22:
+අංක 21 සහ 22 ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත දක්වා ඇති සම්බන්ධතාව සලකන්න :
+
+book (BN, title, publisher, version, author1, author2, author3)
+
+where BN is a unique code.
+මෙහි BN යනු අනන්‍ය කේතයකි.
+
+21. Which of the following statements is correct with respect to the above relation?
+ඉහත BSOBAMAGCS ප්‍රමත අවස්ථාව සම්බන්ධයෙන්‌ නිවැරදි ප්‍රකාශය කුමක්‌ ද?
+
+1) Itis in zero normal form. චය ශුන්‍ය ප්‍රමත අවස්ථාවෙහි පවතී.
+2) Itis in the 1st normal form. චය පළමු ප්‍රමත අවස්ථාවෙහි පවතී.
+3) It 15 in the 2"3 normal form. චය දෙවන ප්‍රමත අවස්ථාවෙහි පවති.
+4) Itis in the 3rd normal form. චය තෙවන ප්‍රමත අවස්ථාවෙහි පවතී.
+5) Its normal form cannot be decided. චහි ප්‍රමත අවස්ථාව තීරණය කළ නොහැකි ය.
+( 2016 - 36 )
+
+22. Which of the followings can be a candidate key of the above relation?
+පහත කවරක්‌ QOD සම්බන්ධතාවයේ අපේක්ෂක යතුරක්‌ (candidate key) විය හැකි ද?
+
+1) BN 2) publisher 3) version 4) author1 5) author2
+
+(2016 - 37)
+
+23. Which of the followings is correct with respect to the term “domain” in relational database?
+සම්බන්ධිත EDD සමුදායකට (relational database) අනුබද්ධ ව “වසම” (domain) යන වදන සඳහා
+නිවැරදි වන්නේ පහත සඳහන්‌ කුමක්‌ ද?
+
+1) It is a set of possible names for a table.
+AG වගුවක්‌ සඳහා OD හැකි MOOE MODES.
+
+2) It is a set of possible names for an attribute.
+As උපලැකියක්‌ (attribute) සඳහා ගත හැකි NODE කුලකයයි.
+
+3) Itis the collection of all possible primary keys.
+චය පැවතිය හැකි ප්‍රාථමික යතුරැ සියල්ලේ එකතුවයි.
+
+4) It 15 the set of all possible values of an attribute.
+AGS උපලැකියකට පැවතිය හැකි සියලු අගයන්ගේ කුලකයයි.
+
+5) It 15 the collection of foreign keys.
+එය ආගන්තුක යතුරැවල එකතුවයි.
+( 2016 - 38 )
+
+e Consider the following relation to answer questions 24 and 25:
+අංක 24 සහ 25 ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත දක්වා ඇති සම්බන්ධතාව සලකන්න:
+
+Student (index_no, national_id_no, name, date_of_birth, gender, blood_group)
+
+where index_no is a unique attribute and the name attribute fully depends on the index_no
+attribute.
+
+මෙහි index_no යනු අනන්‍ය උපලක්ෂණයක්‌ වන අතර name උපලක්ෂණය iIndex_no උපලක්ෂණය
+මත මුළුමනින්‌ ම ආයත්ත (depend) වේ.
+
+24. Which of the following statements is correct with respect to normal form of above relation?
+ඉහත සම්බන්ධතාවයේ GOD අවස්ථාව සම්බන්ධයෙන්‌ පහත දැක්වෙන වගන්ති අතුරෙන්‌ කුමක්‌ නිවැරදි
+
+වේද?
+
+1) Itis in the zero normal form. චය ශුන්‍ය ප්‍රමත අවස්ථාවේ පවතියි.
+
+2) It is in the first normal form. චය පළමු ප්‍රමත අවස්ථාවේ පවතියි.
+
+3) Itis in the second normal form. චය දෙවන ප්‍රමත අවස්ථාවේ පවතියි.
+
+4) Itis in the third normal form. චය තෙවන ප්‍රමත අවස්ථාවේ පචතියි.
+
+5) Its normal form cannot be decided. O28 ප්‍රමත අවස්ථාව තීරණය කළ නොහැකි ය.
+
+(2017 - 31)
+
+25. Which of the followings can be a candidate key of the above relation?
+පහත කවරක්‌ QOD සම්බන්ධතාවයේ අපේක්ෂක යතුරක්‌ (candidate key) විය හැකි ද?
+
+1) national_id_no 2) name 3) date_of_birth 4) gender 5) blood_group
+
+(2017 - 32)
+
+e Consider the following relation to answer questions 26 and 27:
+අංක 26 සිට 27 ප්‍රශ්නවලට පිළිතුරැ FO සඳහා පහත දක්වා ඇති සම්බන්ධතා සලකන්න:
+
+book (book_no, title, publisher, edition)
+author (author_id, name, email_address)
+bookAuthor (book_no, author_id)
+
+where book_no and author_id are unique attributes in the relations book and author
+respectively.
+මෙහි book_no සහ author_id පිළිවෙළින්‌ book සහ author සම්බන්ධචල අනන්‍ය උපලක්ෂණ වේ.
+
+26. Which of the following statements is correct with respect to the relation bookAuthor?
+ඉහත bookAuthor සම්බන්ධතාව පිළිබඳ නිවැරදි ප්‍රකාශය පහත දැක්වෙන චීවචා අතුරෙන්‌ කුමක්‌ ද?
+
+1) book_no is the primary key.
+book_no ප්‍රාථමික යතුර චේ.
+
+2) author_id is the primary key.
+author_id ප්‍රාථමික යනුර චේ.
+
+3) Any single attribute can be a candidate key.
+ඕනෑම DS උපලක්ෂණයක්‌ අපේක්ෂක යතුරක්‌ විය හැකි ය.
+
+4) author_id is a candidate key.
+author_id අපේක්ෂක යතුරක්‌ වේ.
+
+5) book_no is a part of the primary key.
+book_no යනු ප්‍රාථමික යතුරෙහි කොටසක්‌ 6d.
+
+( 2017 - 33 )
+
+27. Which of the following Entity Relationship (ER) diagrams correctly represents the
+
+relationship between the entities represented by the above relations?
+ඉහත සම්බන්ධතා මගින්‌ නිරපණය කෙරෙන QmboO අතර සම්බන්ධය නිවැරදි ව නිරූපණය
+
+කෙරෙන්නේ පහත කුමන භූතාරිථ සම්බන්ධතා (ER) රෑප සටහනින්‌ ද?
+
+1) book u ඤෲ ෂු author
+2) book : ද > සී author
+3) book m ද u author
+4) book m ද > . author
+5) book m <> m author
+
+(2017 - 34)
+
+28. Consider the following statements regarding databases.
+EDD BOE) සම්බන්ධයෙන්‌ පහත දැක්වෙන වගන්ති සලකා බලන්න.
+
+A. Candidate key is column, or a set of columns that can uniquely identify a row in a table.
+
+86253 යතුර (candidate key) යනු, වගුවක ඇති පේළියක්‌ අනන්‍යව හඳුනා ගැනීමට උපකාර්‌
+වචන තීරැවක්‌ හෝ තීරැ කිහිපයකි.
+
+B. Alternate key is any candidate key that has not been selected as the primary key.
+
+විකල්ප යතුර (alternate key) යනු ප්‍රාථමික යතුර (primary key) ලෙස තෝරා නොගත්‌ Hdzess
+යතුරකි.
+
+C. Primary key can have a NULL value.
+ප්‍රාථමික යතුර සඳහා අභිශුන්‍ය (NULL) අගයක්‌ තිබිය හැකි ය.
+
+Which of the above statements is/are correct?
+ඉහත කවර වගන්තියක්‌/ වගන්ති නිවැරදි වේ ද?

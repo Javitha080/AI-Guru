@@ -1,0 +1,310 @@
+[
+ {
+  "number": 1,
+  "stem": "1) - දත්ත ගබඩාකිරීම සඳහා හස්තිය පද්ධතියකට වඞා ඉඞකඞ අවශ්‍ය වේ.\nමනා ලෙස සැලසුමිකරන ලද EHD සමුදායක්‌ සම්බන්ධයෙන්‌ සත්‍ය වන්නේ ඉහත සඳහන්‌ කවර ළකාශ ද?",
+  "options": {
+   "A": "A හා 1! පමණි",
+   "B": "Am 1) පමණි",
+   "C": "60 හා ට පමණි",
+   "D": "0 හා 1) පමණි",
+   "E": "Ca) D පමණි අංක 24, 25, 26 ප්‍රශ්නවලට පිළිතුරු සැපයිම සඳහා පහත සඳුහන්‌ පද්ධති විස්තයය හා A, B, C, D සමිබන්ධ"
+  }
+ },
+ {
+  "number": 2,
+  "stem": "අංක 24, 25, 26 ප්‍රශ්නවලට පිළිතුරු සැපයිම සඳහා පහත සඳුහන්‌ පද්ධති විස්තයය හා A, B, C, D සමිබන්ධ\n(Relation) සලකන්න.\nපාතික පාසලක විදුහල්පතිවරයෙකුට, උසස්‌ පෙළ සිසුන්ගේ ඇතුළත්වීමේ අංකය, Ges නාමය, ලිපිනය, ජාතික\nහැදුනුම්පත්‌ අංකය (NIC) සහ උපන්‌ දිනය (DOB) පවත්වා ගැනීම සඳුහා Edi සමුදායක්‌ සකස්‌ කර ගැනීමට අවග්‍ය\nවේ. එක්‌ එක්‌ විෂයය සඳුහා Ges) ලබා ගත්‌ ලකුණු දු දැනගැනීමට විදුහල්පතිවරයාට අවශ්‍ය වෙයි. ඉහත අවශ්‍යතාවලට\nඅමතරව ගුරැවරැන්ට පවරා ඇති විෂයයන්‌ දැනගැනීමට ද විදුහල්පතිවරයාට අවග්‍ය වෙයි.\nසමිබන්ධ (Relations):\nA - Student(admissionNo, studentName, address, DOB, NIC)\nB - Subject(subjectCode, subjectName)\nC - Mark(admissionNo, subjectCode, marksObtained)\nD - Teacher(teacherNo, subjectCode, teacherName, subjectName, class)",
+  "options": {
+   "C": "Normal Form) ඇත්තේ කවරක්‌ ද?",
+   "A": "& හා ට පමණි",
+   "B": "As) 1) පමණි",
+   "D": "&, ල හා 1) පමණි",
+   "E": "B, ට හා D පමණි පහත සඳහන්‌ උපලක්ෂණ සංයෝපන අතුරෙන්‌ පිළිවෙළින්‌ ශිෂ්‍යයා (Student), විෂයය (Subject), හා ලකුණු (Mark)"
+  }
+ },
+ {
+  "number": 3,
+  "stem": "පහත සඳහන්‌ උපලක්ෂණ සංයෝපන අතුරෙන්‌ පිළිවෙළින්‌ ශිෂ්‍යයා (Student), විෂයය (Subject), හා ලකුණු (Mark)\nසමිබන්ධ පිළිබඳව අවම ප්‍රාට්මික යතුරැ (Primary key) කුලකය දෙනු ලබන්නේ කුමකින්‌ ද?",
+  "options": {
+   "A": "admissionNo and NIC, subjectCode, admissionNo",
+   "B": "NIC, subjectCode, subjectCode",
+   "C": "admissionNo, subjectCode, subjectCode",
+   "D": "admissionNo, subjectCode, admissionNo and subjectCode",
+   "E": "admissionNo, subjectName, admissionNo and subjectCode. J [ඩතරවැනි පිටුව ලලන්න"
+  }
+ },
+ {
+  "number": 4,
+  "stem": "[ඩතරවැනි පිටුව ලලන්න.\n29,\nඇතුළත්‌ වීමේ අංකය, ශිෂ්‍යයාගේ නම, විෂය කේතය හා ලබාගත්‌ ලකුණු අයත්‌ eHanc ඉදිරිපත්‌ කරනු ලබන්නේ පහත\nදැක්වෙන කවර SOL ළකාශය මගින්‌ ද?",
+  "options": {
+   "A": "SELECT studentName, subjectCode, marksObtained FROM Student, Mark WHERE Student.admissionNo = Mark.admissionNo",
+   "B": "SELECT Student.admissionNo, studentName, subjectCode, Student.marksObtained FROM Student, Mark WHERE Student.admissionNo = Mark.admissionNo",
+   "C": "SELECT Student.admissionNo, studentName, subjectCode, marksObtained FROM Student, Mark WHERE Student.admissionNo = Mark.admissionNo",
+   "D": "SELECT Student.admissionNo, studentName, subjectCode, marksObtained FROM Student, Mark WHERE Student.admissionNo = admissionNo",
+   "E": "SELECT Student.admissionNo, studentName, subjectCode, marksObtained FROM Student, Mark WHERE admissionNo = Mark.admissionNo"
+  }
+ },
+ {
+  "number": 5,
+  "stem": "FROM Student, Mark\nWHERE admissionNo = Mark.admissionNo\n& මොට්ගන්‌ ane භාවිත කර F(x,y)=(xt+y).(*+YV) යන බුලියන්‌ ප්‍රකාශනය සුළු කළ විට ප්‍රතිඵලය වනුයේ\nපහත දැක්වෙන කවරක්‌ අ?",
+  "options": {
+   "A": "x",
+   "B": "y",
+   "C": "0",
+   "D": "1",
+   "E": "%y E ඇති තාර්කික පරිපටය නිරෑපනය කරනු ලබන්නේ පහත දැක්වෙන කවර බුලිය ප්‍රකාශනය මගින්‌ ද?"
+  }
+ },
+ {
+  "number": 6,
+  "stem": "E ඇති තාර්කික පරිපටය නිරෑපනය කරනු ලබන්නේ පහත දැක්වෙන කවර බුලිය ප්‍රකාශනය මගින්‌ ද?",
+  "options": {
+   "A": "(A+ B)+(B+C)",
+   "B": "(A+ B)+ (B.C) A",
+   "C": "(A+B)+(B+C)",
+   "D": "(A.B) + (B.C) B",
+   "E": "(A+B) + (B.C) පහත දැක්වෙන ලක්ෂණ සලකන්න. C"
+  }
+ },
+ {
+  "number": 7,
+  "stem": "පහත දැක්වෙන ලක්ෂණ සලකන්න. C\nA - ඝනත්වය (Density)\nB - ධාරිතාව (Capacity)\nC - ආරක්ෂාව (Security)\n1) - පිරිවැය (Cost)\nE - ප්‍රවේශ කාලය (Access time)\nඉහත ලක්ෂණ අතුරෙන්‌ විවිධ වර්ගවල පරිගණක මතක වටගිකරණය සඳහා යොදාගැනෙන ප්‍රධාන ලක්ෂණ වනුයේ",
+  "options": {
+   "A": "0 හා 1) පමණි",
+   "B": "A, Ba ට පමණි",
+   "C": "0, Dm E පමණි",
+   "D": "A, B, ට හා 10 පමණි",
+   "E": "A, B, D හා E පමණි පහත දැක්වෙන මතක OOM සලකන්න"
+  }
+ },
+ {
+  "number": 8,
+  "stem": "පහත දැක්වෙන මතක OOM සලකන්න.\n- පධනමාත්‍ර මතකය (Read Only Memory)\nB - දිවිතියක ආචයනය (Secondary storage)\nC - නිහිත මතකය (Cache memory)\n1) - සැනෙළි මතකය (Flash memory)\nE - සසමිභාවී ප්‍රවේශ Ome (Random Access Memory)\nnes මතක (Volatile memories) වශයෙන්‌ සැලකිය හැක්කේ ඉහත සඳහන්‌ කුමන ඒවා ද?",
+  "options": {
+   "A": "A හා B පමණි",
+   "B": "Am) C පමණි",
+   "C": "Cm 1) පමණි",
+   "D": "Cm E පමණි",
+   "E": "10 හා E පමණි පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න"
+  }
+ },
+ {
+  "number": 9,
+  "stem": "පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න.\nA - පාරිභෝගිකයාට ඔහු/ඇය තම නිවසේ හෝ කාථටරයාලයේ සිටයදී ම සේවා ලබා ගත හැකි SO\nB - සංසරණ නෝට්ටු භාවිතයෙන්‌ තොරව ගෙවිමි කළ හැකි SO.\nල්‌ - පාටිභෝගිකයා, විශාල පාත්‍යන්තර සේවා සමිපාදක පාදුකයකට විවෘත විම\n1) - සේවා සම්පාදකයා විශාල පාත්‍යන්තර පාරිභෝගික පාදකයකට විවෘත වීම\nE - ගෙවිමිවල ආරක්ෂාව සැමවිටම සහතික කරනු ලැබීම\naged වාණිප්‍යය හා සැසඳූ විට ඊ-වාණිප්‍යයෙහි ඇති ප්‍රතිලාභ වන්නේ ඉහත දැක්වෙන කවර ඒවා ද?",
+  "options": {
+   "A": "A, 0 හා ට පමණි",
+   "B": "2, 0 හා 1) පමණි",
+   "C": "A, Ca) D පමණි",
+   "D": "A, 0, ල හා 1) පමණි",
+   "E": "8, ල, 19 හා E පමණි y"
+  }
+ },
+ {
+  "number": 10,
+  "stem": "y,\n[aca පිටුව ලලන්න.\nfo\n32. මාට්ගගත සේවා (Online services) SE®EH පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න.\nA - පාරිභෝගිකයාට මාර්ගගත සේවා ප්‍රවේශ හැකියාව තිබිය යුතු වීම.\nB - පාරිභෝගිකයාට ගෙවිමි කිරීම සඳහා ඉලෙක්ට්‍රොනික යාන්ත්‍රණයක්‌ තිබිය යුතු වීම.\nල්‌ - කිසියම්‌ භාණ්සයක්‌ සඳහා ඇණවුම්‌ කරන SOE පාරිභෝගිකයාගේ අනන්‍යතාව තහවුරැ කළ යුතු වීම.\n1) - සේවාවායකයා මාර්ගගත සේවා සැපයිය යුතු වීම.\nE - පාරිභෝගිකයා සහ සේවාදායකයා යන දෙදෙනාම එකම භූගෝලිය ප්‍රදේශයක සිටය යුතු වීම.\nමාර්ගගත ඇණවුමකදි (Online ordering) අත්‍යවග්‍ය වන්නේ කවරක්‌ ද?",
+  "options": {
+   "A": "A හා 1 පමණි",
+   "B": "2, 1 හා ට පමණි",
+   "C": "A, Ba) D පමණි",
+   "D": "A, C, Dm E පමණි",
+   "E": "0, Dm E පමණි පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න. A - මතකයෙන්‌ කියවීමේ කාල පමාව (Latency) නොගිණිය හැකි යැයි උපකල්පනය කිරීම"
+  }
+ },
+ {
+  "number": 11,
+  "stem": "පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න.\nA - මතකයෙන්‌ කියවීමේ කාල පමාව (Latency) නොගිණිය හැකි යැයි උපකල්පනය කිරීම.\nB - ධුරාවලි ස්මරණ ව්‍යුහය (Hierarchical memory structure) භාවිත කිරීම.\nල්‌ - සකසු ස්පන්දු සංඛනතයෙහි (Processor clock speed) සමාව පූර්වයෙන්‌ දැක්මට නොහැකි විම.\nවොන්‌ නියුමාන්‌ (Vonn Neumann) නිටමාණකරණය ඉක්මවන සේ තාක්ෂණික වට්ධනය වළක්වන ලද්දේ ඉහත දැක්වෙන\nකවරක්‌ විසින්‌ ද?",
+  "options": {
+   "A": "A පමණි",
+   "B": "B පමණි",
+   "C": "C පමණි",
+   "D": "A හා 8 පමණි",
+   "E": "& හා C පමණි පහත දැක්වෙන පරිගණක යෙදුමි සලකන්න. A - සංචාරකයින්ට ඔවුන්‌ දැනට සිටන ස්ථානය පදුනම්‌ කර ගනිමින්‌ මඟ පෙන්වීම"
+  }
+ },
+ {
+  "number": 12,
+  "stem": "පහත දැක්වෙන පරිගණක යෙදුමි සලකන්න.\nA - සංචාරකයින්ට ඔවුන්‌ දැනට සිටන ස්ථානය පදුනම්‌ කර ගනිමින්‌ මඟ පෙන්වීම.\nB - රටවාහන අභිරැචකරණය (Customization of automobiles)\nC - අන්තරපාල හරහා ළචාරණය (Advertising)\n1) - දේශීය පරිසර අහිරැවකරණය (Customization of domestic environments)\nසාටර්වත්‍රවටිති ආගණනය (Ubiquitous computing) මගින්‌ වඩාත්ම ප්‍රතිලාභ ලබා ඇත්තේ ඉහත දැක්වෙන කවරක්‌ ද?",
+  "options": {
+   "A": "A හා 1 පමණි",
+   "B": "60 හා ට පමණි",
+   "C": "A,B හා ට පමණි",
+   "D": "2, 1 හා 1) පමණි",
+   "E": "6, ට හා 1) පමණි පහත සඳහන්‌ අයතම සලකන්න: A - වස්තු නැඹුරැ (Object oriented)"
+  }
+ },
+ {
+  "number": 13,
+  "stem": "පහත සඳහන්‌ අයතම සලකන්න:\nA - වස්තු නැඹුරැ (Object oriented)\nB - ශීඝ්‍ර යෙදුමි සංවර්ධනය (Rapid Application Development)\nල්‌ - සර්පිලාකාර (Spiral)\nD - වඅහගත (Structured)\n1% - දියඇලි (Waterfall)\n(0\n෴“…… යි , …… හහ …… යනු පද්ධති සංවර්ධන ක්‍රමවේද වේ.”\nමෙම ප්‍රකාශයේ හිස්තැන්‌ පිරවීම සඳහා වඩාත්ම සුදුසු වන්නේ ඉහත දැක්වෙන කවර ඒවා ද?",
+  "options": {
+   "A": "A, Ba ල්‌ පමණි",
+   "B": "A, Ca 1) පමණි",
+   "C": "8, Ca D පමණි",
+   "D": "8, ට හා E පමණි",
+   "E": "0, Dm 16 පමණි අන්තටපාලය SEWED පහත දැක්වෙන ප්‍රකාශ සලකන්න"
+  }
+ },
+ {
+  "number": 14,
+  "stem": "අන්තටපාලය SEWED පහත දැක්වෙන ප්‍රකාශ සලකන්න.\nA - අන්තටරපාලය යනු පාලවල ගෝලීය පාලයකි.\n13 - අන්තටපාලය හා සමිබන්ධ වන පුද්ගලයන්ට හා සංවිධානවලට අන්තටපාලයේ හවුලේ පරිහරණය කරනු ලබන\nවිශාල තොරතුරැ ගබඩාවට පළුවේශ විය හැකිය.\nC-W3C යනු අන්තටරපාලයේ භාරකාරත්වයයි.\n1) - දත්ත බාගත හැක්කේ File Transfer Protocol (FTP) මගින්‌ පමණි.\nE - ඕනැම අයකුට අන්නර්පාලයෙහි තොරතුරැ ප්‍රසිද්ධියට පත්‌ කිරීමට හෝ නව සේවා නිර්මාණය කිරීමට හෝ හැකි\nඉහත ඒවා අතුරෙන්‌ කවර පකාග නිවැරදි වේද?",
+  "options": {
+   "A": "A, B හා D පමණි",
+   "B": "A, 1! හා 1£ පමණි",
+   "C": "A, Dm» 16 පමණි",
+   "D": "8, ට හා 1) පමණි",
+   "E": "B, ට හා E පමණි පහත දැක්වෙන පයතන්‌ (Python) දත්ත අයිතම සලකා බලන්න"
+  }
+ },
+ {
+  "number": 15,
+  "stem": "පහත දැක්වෙන පයතන්‌ (Python) දත්ත අයිතම සලකා බලන්න.\nA - 15.2\nB - [12, ‘abc’, 5.2]\nල්‌ - {‘name' : 'Nimal', 'age' : 18}\nඉහත A,B,C exo අයිතමවල Python අත්ත ප්‍රරෑප (Data types) පිළිවෙළින්‌",
+  "options": {
+   "A": "float, list, dictionary",
+   "B": "integer, tuple, dictionary",
+   "C": "float, list, tuple",
+   "D": "integer, tuple, list",
+   "E": "float, tuple, dictionary. y"
+  }
+ },
+ {
+  "number": 16,
+  "stem": "y,\n[Maar පිටුව ලලන්න.\nAL/2011/20/S-I\na\n38. 1111/11, ලේඛනයක පහත දී ඇති කේත ඛණ්ඞඩයට (Code segment) අනුරැපවන නිවැරදි පිරිසැලසුම තෝරන්න.\n<ul>\n<li>Fruits\n<ul><1i>Mango\n<ul>\n<li>Gira amba</1li>\n<1i>Dampara</1i></ul></1i>\n<1i>Pineapple</1i></1i></ul>\n<li>Vegetables</1li>\n</ul>",
+  "options": {
+   "A": "ටර Fruits",
+   "B": "Fruits",
+   "C": "o Fruits o Mango o Mango o Mango o Gira 40104 = Gira amba o Gira amba o Dampara » Dampara o Dampara o Pineapple o Pineapple o Pineapple o Vegetables Vegetables e Vegetables",
+   "D": "ටර Fruits",
+   "E": "Fruits o Mango o Mango o Gira amba o Gira amba"
+  }
+ },
+ {
+  "number": 17,
+  "stem": "o Mango o Mango\no Gira amba o Gira amba\no Dampara o Dampara\no Pineapple o Pineapple\no Vegetables Vegetables\n39. පහත දැක්වෙන අයිතම සලකන්න.\nA - radio B - textarea\nC - select D - checkbox\nE - textbox\nආකෘතියක (Form) ආදාන මුලිකාංගයක (Input element) අනුලක්ෂණ (Attribute) ලෙස යෙදිය හැකිවන්නේ කවරක්‌ ද?",
+  "options": {
+   "B": "A, B& 1) පමණි",
+   "C": "A, D හා E පමණි",
+   "E": "8, Dm E පමණි",
+   "A": "A, Ba ල්‌ පමණි",
+   "D": "6, ට හා 1) පමණි 40. HTML පිටුවකට Java script උපදේශාවලියක්‌ ඇතුළ කිරීම සඳුහා නිවැරදි කාරකරිතිය (Syntax) කුමක්‌ ද?"
+  }
+ },
+ {
+  "number": 18,
+  "stem": "40. HTML පිටුවකට Java script උපදේශාවලියක්‌ ඇතුළ කිරීම සඳුහා නිවැරදි කාරකරිතිය (Syntax) කුමක්‌ ද?",
+  "options": {
+   "A": "<javascript>",
+   "C": "<script type=\"text/javascript\">",
+   "E": "<scripting type=\"javascript\"> 41, පහත දැක්වෙන XML උපදේශාවලි (XML Scripts) සලකන්න",
+   "B": "<javascript language=\"text/javascript\">",
+   "D": "<scripting language=\"javascript\"> A - | <?xml version=\"1.0\"?> 9 - | <?xml version=\"1.0\"?>"
+  }
+ },
+ {
+  "number": 19,
+  "stem": "A - | <?xml version=\"1.0\"?> 9 - | <?xml version=\"1.0\"?>\n<students> <students>\n<name>Shashi Dias</name> <name age=\"18\"Shashi Dias</name>\n<age>18</age> <regNo>A25849</regNo>\n<regNo>A25849</regNo> </students>\n</students>\nල්‌ - | <?xml version=\"1.0\"?> D - | දාඈ1 version=\"1.0\"?>\n<name>Shashi Dias</name> <students>\n<age>18</age> <name age=18>Shashi Dias</name>\n<regNo>25849</regNo> <regNo>A25849</regNo>\n</students>\n</xml>\nකාරකරිතිවලට අනුකූලව (Syntactically) නිවැරදි වන්නේ ඉහත දැක්වෙන කවර උපදේශාවලියන්‌ ද?",
+  "options": {
+   "B": "Aa) ලට පමණි",
+   "C": "Am 1) පමණි",
+   "E": "C හා D පමණි",
+   "A": "A හා 8 පමණි",
+   "D": "80 හා ට පමණි _2"
+  }
+ },
+ {
+  "number": 20,
+  "stem": "_2\n[ඩත්වැනි පිටුව ලලන්න.\n෴ ෴ ෴\n42. මෙහෙයුමි පද්ධති පිළිබඳව පහත දැක්වෙන SOMO සලකන්න.\nA - උබුන්ටු (Ubuntu) යනු විවෘත ප්‍රභව (Open Source) මෙහෙයුමි පද්ධතියකි.\nB - වින්ඩෝස්‌ XP (Windows XP) යනු හිමිකමි සහිත (Proprietary) මෙහෙයුමි පද්ධතියකි.\nල්‌ - ලිනක්ස්‌ (Linux) යනු හිමිකමි සහිත මෙහෙයුමි පද්ධතියකි.\nඉහත GMO අතුරෙන්‌ සත්‍ය වන්නේ",
+  "options": {
+   "A": "A පමණි",
+   "B": "B පමණි",
+   "C": "C පමණි",
+   "D": "A හා 8 පමණි",
+   "E": "A හා C පමණි 43. ER සටහන්‌ SEQED පහත දැක්වෙන ප්‍රකාශ සලකන්න. A - ER සටහනක භතාටට (Entities) සහ සමිබන්ධතා (Relationships) ඇත"
+  }
+ },
+ {
+  "number": 21,
+  "stem": "43. ER සටහන්‌ SEQED පහත දැක්වෙන ප්‍රකාශ සලකන්න.\nA - ER සටහනක භතාටට (Entities) සහ සමිබන්ධතා (Relationships) ඇත.\n0 - සියලු සම්බන්ධතාවල ගණනීයතාව (Cardinality) සැමවිටම එකට එක (One-to-One) විය යුතුය.\nල්‌ - භතාට්ටවලට අනුලක්ෂණ (Attributes) තිබිය හැකිය.\nD - ඒවායේ ද්විමය (Binary) සහ තෘතිය (Teritary) සමිබන්ධතා තිබිය හැකිය.\nඉහත OMG අතුරෙන්‌ නිවැරදි වන්නේ කවර ඒවා ද?",
+  "options": {
+   "A": "& හා 1) පමණි",
+   "B": "60 හා ට පමණි",
+   "C": "1 හා 1) පමණි",
+   "D": "A, Ca 1) පමණි",
+   "E": "6, Ca 1) පමණි 44, භාෂා SSO පිළිබඳාව පහත දැක්වෙන ප්‍රකාශ සලකන්න"
+  }
+ },
+ {
+  "number": 22,
+  "stem": "44, භාෂා SSO පිළිබඳාව පහත දැක්වෙන ප්‍රකාශ සලකන්න.\nA - අර්ට වින්‍යායකය (Interpreters) මගින්‌ සමස්ත ප්‍රභව (Source) ක්‍රමලේඛයම වස්තු (Object) ක්‍රමලේඛයකට එකවර\nපරිවරිතනය කරනු ලැබේ.\nB - සමිපාදක (Compilers) මගින්‌ සමස්ත SHO ක්‍රමලේඛයම වස්තූ ක්‍රමලේඛයකට එකවර හරවනු ලැබේ.\nල්‌ - ඉහළ මට්ටමේ භාෂාවලින්‌ ලියන ලදු ක්‍රමලේඛ ආකෘතික (Typical) පරිගණකයක්‌ තුළ ක්‍රියාත්මක කිරීම සඳහා භාෂා\nපරිවරිතක අවග්‍ය නොවේ.\nඉහත ප්‍රකාග අතුරෙන්‌ සත්‍ය වන්නේ",
+  "options": {
+   "A": "A පමණි",
+   "B": "B පමණි",
+   "C": "ට පමණි",
+   "D": "A හා 8 පමණි",
+   "E": "8 හා ට පමණි 45. ක්‍රමලේඛ භාෂා පිළිබඳව පහත දැක්වෙන OMG සලකා බලන්න"
+  }
+ },
+ {
+  "number": 23,
+  "stem": "45. ක්‍රමලේඛ භාෂා පිළිබඳව පහත දැක්වෙන OMG සලකා බලන්න.",
+  "options": {
+   "A": "GL) භාෂාවකි. B - Assembly භාෂාව දෙවන පරමිපරාවේ",
+   "B": "GL) භාෂාවකි. ල්‌ -Python දෙවන පරමිපරාවේ",
+   "C": "C පමණි",
+   "D": "& හා 1! පමණි",
+   "E": "8 හා ට පමණි 46. ක්‍රමලේඛයකට අයත්‌ පහත දැක්වෙන ප්‍රකාග සලකා බලන්න. A - # This is a comment"
+  }
+ },
+ {
+  "number": 24,
+  "stem": "46. ක්‍රමලේඛයකට අයත්‌ පහත දැක්වෙන ප්‍රකාග සලකා බලන්න.\nA - # This is a comment.\n13 -// This is a comment.\nල්‌ - /* This is a comment. */\n1) -a=1 # This is a comment.\nE - # Initial value of a=1\nඉහත දැක්වෙන ඒවා අතුරෙන්‌ කාරක රීතිවලට අනුකූලව (Syntactically) නිවැරදි පයිතන්‌ (Python) ema වන්නේ\nමොනවා අ?",
+  "options": {
+   "A": "්, හා 1) පමණි",
+   "B": "Cm E පමණි",
+   "C": "A, D හා E පමණි",
+   "D": "8, ට හා D පමණි",
+   "E": "ල, 10 හා E පමණි 47. පහත දැක්වෙන පැවරැමි පකාශ සලකන්න"
+  }
+ },
+ {
+  "number": 25,
+  "stem": "47. පහත දැක්වෙන පැවරැමි පකාශ සලකන්න.\nA - a='Nimal's address'\nB - a= \"Nimal's address\"\nC-a,b,c=l\nD - a,b, c= 1, 2, ‘string’\nE-a=b=1\nඉහත දැක්වෙන ඒවා අතුරෙන්‌ කාරක රිතිවලට අනුකූලව (Syntactically) නිවැරදි පයිතන්‌ (Python) eme වන්නේ\nමොනවා අ?",
+  "options": {
+   "A": "&, හා ට පමණි",
+   "B": "0 හා 1) පමණි",
+   "C": "A, C හා E පමණි",
+   "D": "B, 1) හා E පමණි",
+   "E": "ල, Dm E පමණි y"
+  }
+ },
+ {
+  "number": 26,
+  "stem": "y,\n[අටවැනි පිටුව ෆලන්න.\n48. පහත දැක්වෙන අසම්පූර්ණ පයතන්‌ (Python) ක්‍රමලේඛය සලකන්න:\n49,\ndata=[5, 1, 23, 16]\ndatacount = len(data)\nfor i in range(datacount-1):\nfor k in range (i, datacount):\ntemp = data[i]\ndata[i],data[k] =data[k],temp\nfor i in range(datacount)\nprint (data[i])\n‘data’ නැමැති දත්ත වෘහය තුළ ඇති දත්ත අයිතම ආරෝහණ පට්පාටියට මුද්‍රණය කිරීම සඳහා හිස්‌ පේළියෙහි\nඅන්තර්ගත කළ යුත්තේ පහත දැක්වෙන කවර පයතන්‌ (Python) ප්‍රකාශය ද?",
+  "options": {
+   "A": "if data[i] ද data[k]:",
+   "B": "if data[i] > data[k]:",
+   "C": "if data[i] = data[k]:",
+   "D": "if data[i] ද data[k]",
+   "E": "if data[i] > data[k] පහත දැක්වෙන පයතන්‌ (Python) ක්‍රමලේඛය සලකන්න"
+  }
+ },
+ {
+  "number": 27,
+  "stem": "පහත දැක්වෙන පයතන්‌ (Python) ක්‍රමලේඛය සලකන්න.\ndata = [5, 1, 23, 10, -3]\ndef fun(a):\ni, c=1, a[@]\nwhile i < len(a):\nif(a[i] > c):\nc=a[il]\n1 : 14 1\nreturn ල\nprint (fun(data) )\nපහත දැක්වෙන ඒවා අතුරෙන්‌ මෙම වැඞසටහනෙහි ප්‍රතිදානය (Output) කුමක්‌ ද?",
+  "options": {
+   "A": "-3",
+   "B": "1",
+   "C": "5",
+   "D": "10",
+   "E": "23 පහත දැක්වෙන පයතන්‌ (Python) ක්‍රමලේඛය සලකන්න"
+  }
+ },
+ {
+  "number": 28,
+  "stem": "පහත දැක්වෙන පයතන්‌ (Python) ක්‍රමලේඛය සලකන්න.\n11 = open(‘input.txt','r')\n42 = open('output.txt', ‘w')\nline = f1.readline()\nwhile (line) :\ndata = (line.strip()).split(\",\")\ntotal = float(data[1]) + float(data[2])\nf2.write('{},{},{},{}\\n'. format (data[@],data[1],data[2],total))\nline = f1.readline()\nf1.close()\nf2.close()\n“input.txt” ගොනුවෙහි අන්තර්ගතය පහත & ඇත.\nNimal, 30,60\nSaman, 80,45\nUpali, 100, 80\nවැඩසටහන ක්‍රියාත්මක කිරීමෙන්‌ පසුව “output.txt” ගොනුවෙහි අන්තර්ගතය කුමක්‌ වේ ද?",
+  "options": {
+   "A": "Nimal",
+   "B": "Nimal, 30, 69",
+   "C": "Nimal, 30, 60 , 99 Saman Saman, 80,45 Saman,80,45,125 Upali Upali,100,80 Upali,100,80,180",
+   "D": "Nimal, 30,60,90.0",
+   "E": "Nimal, 30, 66, 96. 0 Saman,8@,45,125.0 Upali, 100, 80, 180. 0 Saman, 80, 45, 125. 6"
+  }
+ }
+]

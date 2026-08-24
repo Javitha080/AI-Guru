@@ -1,0 +1,678 @@
+PART A - Structured Essay: 4
+(pages 2-8) 5
+x Answer all the questions on this paper itself.
+Write your answers in the space provided for 6
+each question. Note that the space provided 7
+is sufficient for your answers and _ that B 8
+extensive answers are not expected. 9
+PART B - Essay: 10
+(pages 9-14)
+. න . , Total
+$ This part consists six questions, of which, four
+are to be answered. Use the papers supplied for Final Marks
+this purpose. In numbers
+%* At the end of the time allotted for this paper, tie In words
+
+2
+
+Part A -_ Structured Essay
+Answer all four questions on this paper itself
+
+1. (a) Draw the expected output of the following- HTML code segment when rendered by a web
+browser.
+
+<html>
+<body>
+<table border=1>
+<tr> <th>Designation</th> <th> Contact Telephone Numbers </th> </tr>
+<tr> <td rowspan=2> Principal</td> <td> @61-2223211 </td> </tr>
+<tr> <td> @67-5557772</td> </tr>
+<tr> <td> Vice Principal</td> <td> @61-5557771 </td> </tr>
+<tr> <td colspan=2> Common Phone Number: @19-2233445</td> </tr>
+</table>
+</body>
+</html>
+
+Note: Consider the following dotted line box as the display area of the browser.
+
+(b) Rewrite the following HTML code by applying internal CSS with grouping selectors.
+
+<html>
+
+<head> <title>Cascading Style Sheets</title> </head>
+
+<body>
+
+<h1 style="color: blue; text-align:center"> Introduction to Cascading Style Sheets</h1>
+<h2 style="color: blue"> CSS can be applied to html documents in three different ways. </h2>
+</body>
+
+</html>
+
+Do not
+write
+in this
+column
+
+_2
+
+AL/2022(2023)/20/E-I -3- Index No.: ……ඩ…… සස
+
+. . . . Do not
+(c) Consider the HTML form given in Figure 1 rendered by a web browser. write
+Registration for Examination in this
+column
+Studnet Name |
+Select Examination Module:
+CICT
+(J) English
+(10
+Prefered Medium: 'ම Sinhala ට Tamil © English
+Select Test Center: | Colombo v |
+The relevant HTML code (incomplete) 15 ॥ submit | _Matara
+given below. Fill the blanks in it in order (2505
+to get the output shown in Figure 1. Figure 1
+<html>
+<head>Registration Form</head>
+<body>
+<h3>Registration for Examination</h3>
+<FORM …… ="process.php" …… ="post">
+KGLV> …… <input ……- …… ……“……යි ="name"></div>
+<p>
+<div>
+Select Examination Module: <p>
+<input …… රි " …… ="module[]" …… ="ICT"/>.. 0.0.0.5. <br>
+<input …… ක…… " …… ="module[]" …… ="English"/>…… <br>
+<input …… රි " …… ="module[]" …… :"'1(0"79…… <br>
+</div>
+<br>
+<div>
+Prefered Medium
+<input …… රි " …… ="language" …… ="Sinhala" …… />Sinhala
+<input …… රි " …… ="language" …… ="Tamil"/>Tamil
+<input …… රි " …… ="language" …… ="English"/>English
+</div>
+<div>
+<br>
+Select Test Center:
+€,…… name="Center">
+ඳ,…… …… ="Colombo" selected>…… ඳ/…… >
+ඳ,…… …… ="Matara">…… ඳ?…… >
+Ke ececceeeee ceeeeeeeees ="Jaffna">…… ඳ/…… >
+ඳ…… >
+</div>
+<br>
+<input type="submit" name="submit" value="Submit" >
+</form>
+</body>
+</html>
+ද _2
+
+(d) The process.php script is invoked after submitting the above form in part (c). After submitting
+
+2. (a)
+
+the form, it is required to display the name, medium and test center. Complete the following
+
+PHP code segment (process.php) to fulfil this requirement.
+
+<?php
+
+if ($ SERVER[ "REQUEST METHOD"] == "POST") {
+$name = $_…… ['…… "13
+$medium = $_…… ['"…… "13
+$center = $_ …… ['…… "13
+
+echo "<h2> Your Input:</h2>;
+
+ECHO $…… 3 echo "<br>";
+
+ECHO $…… 3 echo "<br>";
+
+ECHO $…… 3 echo "<br>";
+
+Fill the blanks in the following statements by selecting the most suitable items from the
+given list.
+
+A few of your friends who study ICT for A/L at your school decided to improve the school
+library by introducing an online library management system. Assuming they know the
+requirements, they started system development as the first step and completed a system
+which includes a mobile user interface and a database. After completing the system, they
+met the school principal and the library staff for a demonstration and possible deployment
+of their system. Their completed solution requires a computer at each classroom to access
+the library system.
+
+At the meeting they got to know that the library already has a database to keep the records
+of books and borrowings, and it is functioning well with a simple user interface.
+
+List: {preliminary investigation, technical feasibility, economic feasibility, operational
+feasibility, organizational feasibility, problem definition, system deployment}
+
+(i) This team of students could have found out about the existing library system at the
+beginning if they did not skip the ……
+
+(11) The school principal refuses to accept this proposed solution due to resource
+constraints and the limited benefits compared to the investment. This indicates the
+solution developed by students lacks ……
+
+(111) The library staff says that they will accept and use this demonstrated system only if
+the existing database is used as a part of the new solution. This indicates the solution
+developed by students lacks ……
+
+Do not
+
+write
+in this
+column
+
+2
+
+AL/2022(2023)/20/E-II ඉට්‌
+
+Do not
+(b) The following is a labelled data flow diagram (DFD) to represent purchasing activities at a | write
+furniture shop. in this
+column
+Customer Customer
+Order
+1.0
+Receive and
+accept
+customer order Order details
+A
+@ (P) 3.0
+etal ——J Delivery Handle
+era's ॥ Note
+Inventory
+2.0 Payment | Payment
+Copy of payment Handle details receipt
+receipt
+payments
+Price details Item
+details
+y
+D2 Sales
+v
+B Inventory D1
+4.0 details ®
+Sales x (S)
+details request
+Managerial
+report
+Note : C 9 symbol denotes duplicated external entities.
+(i) Write down the most suitable item for ®,@,@® and © by selecting from the given list.
+List: {Generate reports, Inventory, Copy of payment receipt, Customer, Customer
+details, Item details, Manager, Sales person, Sales}
+(11) How many processes, external entities and data stores are shown in the above diagram?
+No. of Processes : ……
+No. of External entities : ……
+No. of Data stores : ……
+ද 27,
+
+(c) (1) Write down one difference between parallel deployment and pilot deployment.
+
+3. (a) A flowchart is to be drawn for an algorithm to calculate and output the area of a circle.
+The radius of the circle is given as an input.
+
+Note: Area of a circle = 3.14 x Radius x Radius
+The algorithm should not calculate the area if the input is a negative number.
+
+Complete the flowchart by writing the required content for the four (4) components left
+
+blank.
+Start |
+
+No
+Yes
+/ Vv 4
+Vv
+End
+
+(b) What is the output of the following Python code?
+S = "Advanced level"
+sis" "
+for c in S:
+if c in ("a" , "ළ්‌" , "i" , "o" , “u"):
+pass
+else:
+51 = 51 4 ල
+print (51)
+
+Do not
+
+write
+in this
+column
+
+a
+
+y,
+
+ya
+
+(d) Fill in the blank spaces of the following Python code assuming that the purpose of the code
+is to copy the content of a text file (A) to another text file (B).
+
+A = input("Enter the name of text file A")
+B = input("Enter the name of text file B")
+
+11 = …… (&, …… )
+12 = …… (By …… )
+for line in ……
+
+F2.write (…… )
+11. ……
+12. ……
+
+4. (4) Write down the most suitable items from the given list for the following statements.
+List: {e-marketplace, group purchasing, online auctions, online reverse auctions}
+
+(1) 10…… , sellers bid for the prices at which they are willing
+to sell their goods or services.
+
+(11) …… allows buyers to compare multiple online sellers
+within the same online platform.
+
+(b) Write the most appropriate word or phrase to answer the following questions based on the
+description given below.
+
+Recently introduced National Fuel Pass system in Sri Lanka is an example of how ICT can
+be used to overcome national challenges successfully. It is observed that for a given week,
+the maximum server hardware resource utilization happens only for a short period (e.g., few
+hours) and the rest of the time the system operates at a very low resource demand.
+
+(i) One of the views on resource provision is to purchase computer hardware permanently
+considering the maximum demand. What is the main disadvantage with this approach?
+
+(11) What is the alternative solution to overcome the disadvantage mentioned in (0)(1)
+above, while satisfying the maximum resource demand instances?
+
+Do not
+
+write
+in this
+column
+
+ෂී
+
+2
+
+Do not
+(c) The steps in the fetch-execute cycle are as follows: rite.
+1. The …… ® තනි is loaded with the memory address of the relevant instruction of mes
+the program. ov
+2. The instruction is loaded into the instruction register.
+The instruction present in the instruction register is decoded.
+4. The control unit of the CPU passes the decoded instruction as a sequence of control
+signals to the relevant …… ල…… of the CPU.
+5. The program counter is changed to point to the next instruction.
+6. Steps from Step 2 are repeated.
+Select the most suitable items to replace the labels@® and@ from the following list.
+List: {file, functional unit, instruction, memory, page, program counter}
+ලෟ -…… . ..-- ……
+ල -…… ……
+(d) (1) Complete the truth table for the given logic circuit.
+A B xX Y OQ
+
+1 1
+(11) What is the basic logic gate that has the above truth table (with inputs A, B and the
+output Q)?
+(e) The diagram below shows the OSI reference model and its mapping to the TCP/IP model.
+Write the correct names of the layers indicated by the labels P, ට, R, 5, T and ව.
+OSI Reference Model TCP/IP Model
+P | ……“……““ය“෴අ෴අ෴_~~යය,ට.යටයි
+Presentation Layer S Q Comme eee revere rere sees eee ee esses seseseses
+Session Layer R ……
+Transport Layer T ට්‌ ……
+Q U 1 ……
+- Network Access Layer SOPH H Hee H OHHH EEE HEHEHE HOSE HEHE OER OOEE
+Physical Layer
+* %&
+ව 7
+
+ශ්‍රී ලංකා Sena දෙපාටතමේන්තුව
+QOOMIEN SL LF LCNF SF) 6 60 SS TLD
+අබාෲ] 0]115]5 *අ111151)11 ! 15511) (£ _॥! 1] Spo ufLene, 2022(2023)
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+
+FSU, QHTLGUTLS 0181101011! 11!) 11 [20 EB I 11 |
+
+Part B
+%* Answer any four questions only.
+
+5. (a) Consider the logic circuit shown in the following figure in which P, Q and R are the inputs and Z is
+the output. :
+P Q eR
+
+242] )
+
+| }—
+Dy
+
+(i) Draw the complete truth table for the above circuit.
+
+(11) Complete the Karnaugh map relevant to the above circuit according to the following format.
+PQ
+
+00 01 11 10
+
+0
+1
+
+R
+
+(111) Using the Karnaugh map, derive the most simplified sum-of-products expression for the output
+Z. Show the loops clearly on the Karnaugh map.
+
+(b) (1) Using Boolean algebra, show that the Boolean expression ABC + ABC + ABC + ABC is
+equivalent to PC + AC + AB.
+
+(11) Draw a logic circuit for the above simplified expression in (b)(i) by only using OR and AND
+gates.
+
+(111) Draw a logic circuit for the above simplified expression in (b)(i) by only using NAND gates.
+
+[ම
+
+(b)
+
+(c)
+
+(d)
+
+6. (a) Write down the most suitable terms to replace the blanks labelled ® to © in the following paragraph
+related to data encryption.
+
+There are two types of encryption techniques used namely, symmetric key encryption and asymmetric
+Rey encryption. 11 …… MA …… key encryption, the same key is used for encrypting
+and decrypting the information. In this scheme, to exchange information, users must share a
+voce c ce eeeec eee ees ceaeeceeeseeenaees key among themselves. In ගග key encryption, different
+keys are used for encrypting and decrypting the information. In this technique, users usually have a
+pair of dissimilar keys knOWN 45 a …… .'ඔ්‌…… Key and 3 …… අර…… ය……
+key. When one key is used for encryption, the other key can decrypt the …… © අන
+back to the original plain text.
+
+Suppose that the ABC Company has received the 192.248.154.0/25 IP address block to be
+distributed among its four departments.
+
+It 1s required to subnet the above IP address block to satisfy the following requirements. Assume that
+each department is located in a separate building.
+
+Subnet Number Department Name Number of Computers
+5001 Accounts 30
+S002 Sales 28
+S003 Service 18
+S004 Administration 24
+
+(1) Write the first address and the last address in the given address block.
+(11) Write the subnet mask of the given address block in dotted decimal notation.
+
+(ii1) How many host bits are needed to create the required number of subnets?
+
+(iv) Once subnetting is done, fill the following table.
+
+Subnet Network Subnet First usable | Last usable Broadcast
+Number Address mask IP address IP address Address
+
+S001
+5002
+5003
+5004
+
+(i) Write one difference between User Datagram Protocol (UDP) and Transmission Control
+Protocol (TCP) transport layer protocols.
+
+(11) Write two main functions of a router.
+
+(i) What is the functionality of a Domain Name System (DNS) server?
+
+(11) What 15 the functionality of a Dynamic Host Configuration Protocol (DHCP) server?
+
+_2
+
+7. (a) An IoT setup to water a plant in a greenhouse is shown in Figure 1. A mobile application is used to
+operate the water-releasing tap. As shown, the setup includes a sensor, a controller, and a
+microcontroller (Arduino Board) with a communication module.
+
+Ptant &
+
+2 (i) Match the IoT components labelled as A, B and
+Water Tap _
+
+C to components described in the scenario.
+
+Mobile User (11) Explain the reason why the arrow M is shown in
+a single direction.
+
+Figure 1
+(b) The moisture sensor provides 10 levels of moisture While (true) {
+intensity with 1 being “the driest’ and 10 being “the KX Level as MLL
+wettest”; 8 is the desired level to be maintained. The If Tap Closed
+algorithm on the right can be used to automate the __ Then [Y]
+task of opening the tap when the soil is dry and to stop Else End if
+the water flow when enough watering is done. Write If Not Tap Closed
+down the most suitable entries for the places labelled __ Then [Z]
+X, Y and Z. [Note — While (true) block represents the End if End if
+continuous loop function in Arduino] }
+
+(c) What could be monitored in the greenhouse using an LDR sensor?
+
+(d) A multi-agent system is proposed for this greenhouse (Figure 2). In this system the images that are
+captured using a mobile phone are stored in the plant database. The multi-agent system works as
+follows:
+
+ම Agent 1 handles the user interactions, user
+access to data, and triggers Agent 2.
+
+User
+
+ම Agent 2 processes the images, identifies
+ඉ _Interaction
+
+anomalies if any, and triggers Search Agent
+if needed.
+
+ම Search Agent searches relevant information
+from the Internet, feeds the search results to
+Agent 2 who updates the database after
+
+Figure 2 processing, and notifies Agent 1 if an alert
+
+is to be raised.
+
+Plant Q
+
+(1) In the given scenario, who is/are the self-autonomous agent(s)?
+
+(ii) The interaction P involves saving plant details in the database and retrieving those for Agent 1.
+The interaction R involves reading the database and writing search results to the database.
+Explain the interactions Q and S.
+
+(111) After long-term use of the system, it was decided to remove Search Agent assuming that the
+database contains all the information needed. Write down the main disadvantage of this
+removal.
+
+(e) The owner has started an online shop to sell the harvest from this greenhouse to buyers who are
+nearby.
+(i) State one advantage of limiting sales to the community nearby the greenhouse.
+(11) State an alternative payment method that can be used until an online payment facility is setup.
+(111) He cultivated tomatoes and sells salted dried tomatoes online (as a snack). This, known as value
+addition, gives higher profits. Give another advantage of this value-addition to his e-business.
+
+J
+
+ඒ
+
+8. (a) (1) What is the output of the following python script if 1002 is given as the input?
+
+A = int(input("Enter a number:"))
+B=90
+while(A > 6):
+C=A% 10
+B=B+H+C
+& ~ & /7/ 10 # // is integer division
+print(B)
+
+(11) What would be the modification required to the B = 8 + C code line of the above code if the
+reverse of a given positive number is to be printed?
+(Example: if the input is 1234, the output should be 4321)
+
+(b) Assume that your class is having a party, and each student is asked to bring one food item. The class
+teacher has decided to make the party interesting by introducing one rule: the first and last letters of
+the name of the food item must match with the first and last letters of the student name.
+
+For example, percy is allowed to bring potato curry and prageeth is allowed to bring pepper fish.
+Write a Python function called Party() that takes the student name and the name of the food item
+
+as parameters. The function should return True or False to indicate whether the student is allowed
+to bring the food item to the party or not.
+
+Example:
+
+Party ("percy", "potato curry") should return True
+Party ("fareena", "fried rice") should return False
+
+Note: You can assume that student name and food item name are always lowercase strings and
+have at least two letters. There may be hyphens and spaces in the names, but these will not
+appear at the beginning or end of the string. The names will not contain numerals.
+
+(c) Write down the most suitable statements for labels@ (9 (0) in the flowchart given below which is
+drawn to calculate the factorial of a given positive Integer.
+
+। (A) Notes: (i) The factorial of a positive integer is
+
+defined as the product of that integer
+v and all the integers below it. E.g.
+
+J / factorial of 5 is 5X4x3x2x1 = 120. The
+
+factorial of 0 is defined as 1.
+
+(11) A process box in this flowchart may
+© contain one or more statements.
+
+T ® VA © 7
+(ම)
+
+\ y
+
+9. (0) Draw the Entity Relationship (ER) diagram for the following scenario.
+
+A student uses the following data to register for subjects. Each subject is represented by its subject
+number (subjectNumber), subject name (subjectName) and prerequisite subject. A student can
+register for more than one subject during a semester. Each student has a first name (studentFname),
+a last name (studentLname) and a unique student number (studentid). Student, age (age) is required
+to register for subjects. Subjects are offered based on the availability of the resources. Hence some
+subjects will not be offered during a semester. A subject offered in a semester (subject_offering)
+includes subjectNumber, year, semester, teacher identifier (teacherld), and classroom. One
+subject_offering is assigned to a single teacher who is represented by a teacherld, name of the teacher
+(teacherName), and qualifications. Teacher can have several qualifications. Marks are awarded to
+students for each subject that they register.
+
+Use only the terms from the list given below for the entities and attributes in your ER diagram.
+You have the freedom to choose relationship names.
+
+List: {age, classroom, DOB, marks, qualification, semester, student, studentFname, studentld,
+studentLname, subject, subject_offering, subjectName, subjectNumber, teacher, teacherld,
+teacherName, year}
+
+Note: DOB — Date of Birth
+
+(0) Use the following Employee, and Assign_Project denormalized tables to answer parts (1), (11), (111),
+(iv) and (v). Please note that primary key(s) of each table is(are) underlined.
+
+Employee
+Employeeld FullName DOB Salary
+EOO1 Saman Perera 12/02/1978 140000
+E002 Upul Fernando 23/05/1982 44000
+E005 Chris Peris 11/08/1980 44000
+E007 Kamala Gamage 08/08/1973 52000
+E008 Sunil Perera 25/04/1969 115000
+10011 Vipul Namal 09/02/1977 38000
+Assign Project
+Projectld Employeeld PName Description
+P04 E002 Sales Implement sales management system
+P04 E008 Sales Implement sales management system
+P06 E007 HRM Implement HRM system
+PO7 E002 Library Implement library management system
+POY E001 Inventory Implement inventory management system
+POY E007 Inventory Implement inventory management system
+
+(1) Write down the output of the following SQL statement:
+
+SELECT Employee.FullName, Employee.Salary
+FROM Employee, Assign_Project
+WHERE Assign_Project.Employeeld = Employee.Employeeld;
+
+(11) Write an SQL statement to display the names of the employees who are assigned to project
+P04.
+
+(111) In which normal form does the Assign_Project table exist?
+
+(iv) What needs to be done to convert the Assign_Project table into its next normal form? Justify
+your answer.
+
+(v) Give an example SQL query where the update anomaly can occur in Assign_Project table.
+(භී y
+
+10. (a) A user starts a web browser on her single
+processor computer to go through some A
+Python tutorials. She also starts a text Processes
+editor to work on her Python program.
+
+Pr
+The diagram shows how the web browser
+
+(Pw) and the text editor (Pr) processes run
+on the processor along with the operating
+system (Pos) since the time the user started
+the web browser.
+
+Py fees = =
+ee |
+
+What important work related to Pw, and Pr —
+will be performed by the operating system Q Q Q Q
+during the time period indicated by ‘O’? (ම)
+
+(0) Assume that the time period the operating system allocates to each process to run on the processor
+in a single instance is Q.
+
+Explain why W (the time period the web browser process runs at the second instance) is less than
+Q as shown in the graph.
+
+(c) Assume that we have a computer that can use 16-bit virtual addresses from O up to 64 K. Assume
+further that this computer has only 32 KB of physical memory and that the page size in this
+computer is 4 KB.
+
+The above 16-bit virtual address is made up of the bits of the page number followed by offset bits.
+
+User runs a particular program having a size of 32 KB on this computer. A few selected fields of the
+page table of that process at a particular time are shown in the figure below.
+
+Page Frame Present/ Notes:
+
+number number absent ,. , .. .
+0 011 i ම The frame number is indicated in binary.
+1 101 1 ම The virtual addresses on page 0 are from 0 to
+7 000 0 4095 and on page 1 are from 4096 to 8191 and
+3 000 0 so on.
+4 000 0 @ The Present/absent bit indicates the validity of
+5 000 0 the entry. If this bit is 1, the entry is valid and can
+6 000 0 be used. If it 15 0, then the relevant virtual page
+7 000 0 is not in physical memory.
+
+Assume that in the above process the virtual address 0001 0000 0000 0011 is wanted. Is that page
+available in physical memory? If your answer is ‘yes’, then write down the 15-bit physical address
+that the above virtual address will be mapped into. If your answer is ‘no’, then write down the
+actions that the operating system will take on behalf of that process for the said requirement.
+
+(d) Give two reasons as to why a page of a process may not be in physical memory.
+
+(e) Explain how the operating system could find the blocks of a file when the files are stored on a hard
+disk using
+(i) contiguous allocation and
+(11) index allocation.
+
+(Hint: the use of the directory entry)

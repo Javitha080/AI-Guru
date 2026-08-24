@@ -1,0 +1,1988 @@
+                             LESSON 11 PAST PAPERS
+1.   A smart environment can be created by having an interconnected network of hardware devices, sensors,
+     connectivity and required software, which is often referred to as the Internet of Things (IoT). Which of the
+     following statements is correct about IoT?
+     cd,.; oDVdx. Wml%u" ixfõol" iïnkaO;djhka iy wjYH uDÿldx. Ndú;fhka id¾j øjH wka;¾cd,h f,i
+     ye¢kafjk iqyqre mßirhla f.dvkÕd .; yel' id¾j øjH wka;¾cd,h ms<sn|j my; ljr j.ka;shla i;H
+     fõ o?
+     1) Every IoT device or item must be connected using UTP cables.
+        iEu IoT Wml%uhla u fyda whs;uhla u UTP /yeka u.ska iïnkaO l< hq;= h'
+     2) If any item of the IoT setup fails to operate the entire IoT setup will be shutdown.
+        IoT msysgqùul we;s lsishï fyda whs;uhl fufyhqï wl%Sh jQ úg iuia; IoT msysgqùu u jid oefukq we;'
+     3) IoT environments cannot be monitored and controlled remotely.
+        IoT mßirhla ÿria:j wëlaIKh lsÍu iy md,kh lsÍu isÿ l< fkdyel'
+     4) Modern smart mobile phones cannot be connected to an IoT setup.
+        IoT msysgqùulg kùk iqyqre ÿrl:k iïnkaO l< fkdyel'
+     5) The Internet connectivity is not essential for an IoT setup to function.
+        IoT msysgqùul l%shdldß;ajh i|yd wka;¾cd, iïnkaO;djhla w;HjYH fkdfõ'                        ( 2019 – 12 )
+
+2.   What is the primary role of a sensor in an IoT device?
+     ine¢ øjH wka;¾cd, ixfõolhl uQ,sl ld¾h l=ula o?
+     1) To provide outputs and change a state of the environment.
+        m%;sodk ,nd § mßirfha ;;ajhla fjkia lsÍu'
+     2) To ensure interoperability of devices. / Wmdx.j, wfkHdakH l%shdldÍ;ajh iy;sl lsÍu'
+     3) To detect a state change in the environment. / mßirfha ;;aj fjkila oek.ekSu'
+     4) To make decisions based on predetermined rules. / l,ska kshu l< kS;s u; ;SrK .ekSu'
+     5) To generate graphics for the user interface. / mßYS,l w;=re uqyqK; i|yd Ñ;%l f.dvke.Su'
+                                                                                           ( 2023 – 50 )
+3.   Which of the following is correct?
+     my; ljrla ksjerÈ fõ o?
+     1) Arduino Uno is the protocol used for setting up simple IoT applications.
+        wdvqhsfkda W!fkda hkq id¾j øjH wka;¾cd, fhÿï wegùug Ndú; lrk kshudj,s hhs'
+     2) LDR and LED are sensors used in Arduino Uno based IoT applications.
+        LDR yd LED hkq" wdvqhsfkda W!fkda u; mokï jQ IoT fhÿï i|yd Ndú; jk ixfõol fõ'
+     3) Serial.begin(9600) provides a valid baud rate to initiate the serial communication between the Arduino
+        Uno board and the computer.
+        wdvqhsfkda W!fkda mqjrejla yd mß.Klhla w;r fY%aK.      s ; ikaksfõokhlg uq, msÍug Serial.begin(9600)
+        j,x.= fndaâ YS>%;djla imhhs'
+     4) Since Arduino Uno does not have a hard disk it is not subjected to unauthorized data access.
+        wdvqhsfkda W!fkdag oDV äialhla ke;s ksid thg wkjir o;a; m%fõYhka ú£ug isÿ fkdfõ'
+     5) An ethernet shield must be connected to the four pins between A0 – A5 of the ATMega328P
+        microcontroller.
+        ATMega328P laIqø md,lfhys A0 – A5 w;r ;=vq y;rg B;¾fkÜ m<syla iïnkaO l< hq;=u h'
+                                                                                                   ( 2024 – 48 )
+
+
+
+
+                                                        1
+                                                                                                         ictfromabc.com
+4.   Which of the following statements are true?
+     my; ljr j.ka;s ksjerÈ fõ o?
+     A - Even when analog inputs are given to the digital pins of an Arduino board, they are read as analog
+         values.
+         m%;siu wdodk" wdvqhsfkda m%jrejl wxls; ;=vq fj; ,ndfokq ,enqj o" tajd lshfjkafka m%;siu w.hka f,ih'
+     B - The USB port of an Arduino board can also be used to supply DC (direct current) electric power to it.
+         wdvqhsfkda mqjrejl USB flfjksh" tu mqprejg ir, Odrd úoHq;a n,h iemhSug o NdÑ; l< yels h'
+     C - To input the room temperature to an Arduino board, the V out, pin of the LM35 temperature sensor
+         could be used.
+         ldur WIaK;ajh wdvqhsfkda mqjrejlg wdodkh lsÍug LM35 WIaK;aj ixfõolfha Vout ;=vqj Ndú; l<
+         yels h'
+     1) A only        2) A and B only        3) A and C only        4) B and C only         5) All of the above
+        A muKs           A yd B muKs            A yd C muKs            B yd C muKs             by; ish,a,u
+                                                                                                 ( 2025 – 44 )
+
+•    Consider the following code with labels P-S to answer questions 45 and 46. The code has been designed
+     for an Arduino board to switch on/off a motor based on room temperature.
+     m%Yak wxl 45 iy 46 i|yd ms<s;=re iemhSug P-S f,an, iys; my; fla; fldgi i,lkak' wdvqhsfkda mqjrejla
+     i|yd tu fla;h ie,iqï lr we;af;a ldur WIaK;ajhg wkqj fudagrhla mK.ekaùug iy l%shdúrys;
+     lrùugh'
+                      const int sensorPin = A0;
+                      const int motorPin = 8;
+
+                      void setup() {
+                           pinmode(motorPin, P );
+                      }
+
+                      void loop() {
+                           int sensorValue = Q (sensorPin);
+                           float voltage = sensorValue * 5.0 / 1024;
+                           float temp = voltage * 100;
+                           if (temp > 40)
+                                 R (S , HIGH);
+                           else
+                                 R (S , Low);
+                      }
+
+5.   Which of the following contains the correct replacements for the labels?
+     f,an, i|yd ksjerÈ wdfoaYl we;af;a my; ljrl o?
+     1) P – INPUT,      Q – analogRead,         R – digitalWrite,        S – motorPin
+     2) P – INPUT,      Q – digitalWrite,       R – analogRead,          S – motorPin
+     3) P – OUTPUT,     Q – analogRead,         R – digitalWrite,        S – motorPin
+     4) P – OUTPUT,     Q – analogRead,         R – digitalWrite,        S – sensorPin
+     5) P – OUTPUT,     Q – digitalWrite,       R – analogRead,          S – sensorPin
+                                                                                                ( 2025 – 45 )
+
+
+
+
+                                                       2
+                                                                                                       ictfromabc.com
+6.   Which of the following statements are true?
+     my; ljr j.ka;s i;H fõ o?
+     A - The input from the temperature sensor could have been connected to any of the pins A1-A5 as well
+         but then the ‘const int sensorPin = A0;’ line in the code should be changed to reflect that change.
+         WIaK;aj ixfõolfha wdodkh A1-A5 ;=vqj,ska ´kEu ;=vqjlg iïnkaO lsßfï yelshdj ;snqK o" túg tu
+         fla;fha ‘const int sensorPin = A0;’ fma< mßÈ fjkia l< hq;= h'
+     B - The motor should be connected to a GND pin of the Arduino board.
+         fudagrh wdvqhsfkda mqjrefõ GND ;=vqjlg iïnkaO l< hq;= h'
+     C - The above code when correctly completed can be compiled and uploaded through the USB port to
+         the Arduino microcontroller by using the ‘Upload’ button in the Arduino IDE.
+         by; fla;h ksjerÈj iïmQ¾K lsÍfuka miq" th iïmdokh lr Arduino IDE ys ‘Upload’ fnd;a;u NdÑ;
+         lr" USB flfjksh yryd wdvqhsfkda laIqø md,lhg Wvq.; l< yels h'
+     1) A only        2) A and B only        3) A and C only        4) B and C only         5) All of the above
+        A muKs           A yd B muKs            A yd C muKs            B yd C muKs             by; ish,a,u
+                                                                                                 ( 2025 – 46 )
+7.   Which of the following statements are true?
+     my; ljr j.ka;s ksjerÈ fõ o?
+     A - IPv6 is highly suitable for scalability and efficient operation of Internet of Things (IOT).
+         id¾j øjH wka;¾cd,fha mßudKh by< kexùug iy jvd;a ld¾hlaIu l%shdldß;ajhg IPv6 jvd;a
+         fhda.Hfõ'
+     B - Once added to the Arduino board, an Ethernet Shield facilitates the board to connect to the Internet.
+         wdvqhsfkda mqjrejlg B;rfkÜ YS,aâ tlla wEÿj miq th tu mqjrejg wka;¾cd,hg iïnkaO ùug myiqlu
+         imhhs'
+     C - Static IP addresses cannot be used for IOT devices.
+         id¾j øjH wka;¾cd, Wmdx. i|yd iaÓ;sl IP ,smsk Ndú; l< fkdyel'
+     1) A only       2) A and B only         3) A and C only        4) B and C only        5) All of the above
+        A muKs          A yd B muKs             A yd C muKs            B yd C muKs            by; ish,a,u
+                                                                                                 ( 2025 – 47 )
+
+
+
+
+                                                      3
+                                                                                                       ictfromabc.com
+1. (a) An IoT setup to water a plant in a greenhouse is shown in Figure 1. A mobile application is used to
+       operate the water-releasing tap. As shown, the setup includes a sensor, a controller, and a microcontroller
+       (Arduino Board) with a communication module.
+       yß;d.drhl we;s me<hlg c,h fh§h yels IoT wegjqula rEmh 1 ys oelafú' c,h ksl=;a lrk lrduh
+       l%shdlrùug cx.u fhÿula Ndú; fÉ' rEmfha olajd we;s mßÈ wegjqu" ixfõolhlska" md,lhlska iy
+       ikaksfõok fudähq,hla iys; laIqø md,lhlska (wdähqfkda mqjrejlska) iukaú; h'
+       (i) Match the IoT components labelled as A, B and C to components described in the scenario.
+           A, B iy C f,i kï lr we;s IoT ixrpl" ikao¾Nfha úia;r lr we;s ixrpl yd .<mkak'
+      (ii) Explain the reason why the arrow M is shown in a single direction.
+           M B;,h tla ÈYdjlg muKla fhduqjk fia fmkajd we;af;a wehsoehs myokak'
+                                                              While (true) {
+                                                                    Read Moisture Level as M_L
+                                                                    If [X]
+                                                                           If Tap Closed
+                                                                                  Then [Y]
+                                                                           End if
+                                                                    Else
+                                                                           If Not Tap Closed
+                                                                                  Then [Z]
+                                                                           End if
+                                                                    End if
+                                                              }
+
+                       Figure / rEmh 1
+
+  (b) The moisture sensor provides 10 levels of moisture intensity with 1 being “the driest’ and 10 being “the
+      wettest”; 8 is the desired level to be maintained. The algorithm on the right can be used to automate the
+      task of opening the tap when the soil is dry and to stop the water flow when enough watering is done.
+      Write down the most suitable entries for the places labelled X, Y and Z. [Note – While (true) block
+      represents the continuous loop function in Arduino]
+      f;;uk ixfõolh" 1 “jvd;a úh<s” yd 10 “jvd;a f;;” f,i f;;uk uÜgï 10la okajhs' mj;ajd .; hq;=
+      wfmalaI;s f;;uk uÜgu 8 fõ' mi úh<s úg lrduh iajhxl%Shj újD; lsÍug;a" mfia m%udKj;a f,i c,h
+      we;s úg, c,h heùu k;r lsÍug;a we,af.dß;uhla ol=Km         q iska fmkajd we;' tys X, Y iy Z f,i f,an, lr
+      we;s ia:dk i|yd iqÿiq m%ldY ,shd olajkak' [igyk: While (true) ldKavh wdähqfkda ys fkdkej;S Odjkh
+      jk Æmh olajhs']
+  (c) What could be monitored in the greenhouse using an LDR sensor?
+      yß;d.drfha ljrla wëlaIKh i|yd LDR ixfõolhla Ndú; l< yels o?
+                                                                                 ( 2022 ESSAY – 07[a],[b] ,[c] )
+
+2. (a) Assume that you are given an Arduino UNO board (Figure 7.1) along with the following items:
+       Tng wdähqfkda UNO mqjrejla (rEmh 7.1) my; whs;u o iu.ska ,eî we;ehs i,lkak'
+       • Passive Infrared Sensor (PIR) for motion detection (Figure 7.2)
+         p,kh yÿkd.ekSu i|yd ú¢k wfOdarla; ixfõolhla (PIR) (rEmh 7.2)
+       • Sensor for ambient light detection / ia:dkSh wdf,dalh y÷kd.ekSu i|yd ixfõolhla
+       • LEDs, Resistors, and a Power supply / wdf,dal úfudapk vfhdav, m%;sfrdaOl iy úÿ,sn, iemhqula
+
+                                                D
+
+
+                 A
+
+                                                    C
+
+                                                                              Figure / rEmh 7.2
+                                          B
+                          Figure / rEmh 7.1
+
+
+
+
+                                                        4
+                                                                                                          ictfromabc.com
+      (i) Identify the parts marked as A, B, C, and D in Figure 7.1 and briefly explain each of their functionalities.
+          rEmh 7.1 ys A, B, C iy D f,i ,l=Kq lr we;s fldgia y÷kdf.k ta tlsfkflys ld¾hNdrh ieflúka
+          myokak'
+      (ii) Assume that you want to build an IoT setup that switches an LED light on when motion is detected.
+           It is further required to switch on this LED only during night time. Draw a schematic diagram
+           connecting the Arduino board and the items given above as necessary in order to build this setup.
+           p,khla y÷kd.;a úg wdf,dal úfudapk vfhdavhla o,ajk id¾j øjH wka;¾cd, wegjqula iE§ug Tng
+           wjYH hehs is;kak' ;jo fuu LED h oe,aúh hq;af;a rd;%s ld,fha§ muKs' fuu wegjqu f.dvke.Sug Tn
+           wdähqfkda mqjrej iu. by; fok ,o whs;u ksis mßos iïnkaO lrk whqre oelaùug o< rEmigykla
+           w¢kak'
+                                                                                     ( 2023 ESSAY – 07[a] )
+
+
+3. (a) Figure 7.1 shows the Arduino circuit that Saman implemented to detect a door opening.
+       rEmh 7.1 ka fmkajkafka fodrl újD; úula wkdjrKh lr.eksug iuka iE¥ wdvqhsfkda mßm:hhs '
+
+
+
+
+                                               Figure / rEmh 7.1
+
+      (i) Explain the behaviour and operation of the sensor used in this circuit.
+          mßm:fha Ndú; lrk ikafõolfha yeisÍu iy l%shdldß;ajh myokak '
+      (ii) To operate this setup Saman wrote the firmware code shown in Figure 7.2. However, the setup failed
+           to operate as expected due to defects in the code. Write down the corrections that you would do to
+           the code.
+           fuu wegjqu l%shdlrùug iuka rEmh 7.2 ys oelafjk iaÒrdx. fla;h ,sõfõ h' tfy;a, fla;fha fodaI
+           ksid wegjqu wfmalaI;s wdldrhg l%shd lf<a ke;' Tn tu fla;hg lrk ksjerÈ lsÍï ,shd olajkak'
+              const     int   SensorP      =    9;
+              const     int   BuzzerP      =    8;
+
+              void    setup() {
+                        pinMode (SensorP,            INPUT);
+                        pinMode (BuzzerP,            OUTPUT);
+              }
+              void    loop() {
+                        int senState = digitalRead(SensorP);
+                        if (senState == HIGH)
+                                tone(SensorP,262);
+                        else
+                                noTone(BuzzerP,0);
+              }
+     (iii) Saman hopes to extend this circuit to indicate the door openings only at night time. What does he
+           need to modify in this circuit to add that feature? If any item(s) must be connected to the
+           ATmega328P, indicate the relevant pin(s).
+           rd;%S ld,fha muKla isÿjk fodr újD; ùï oelaùug fuu mßm:h ÈhqKq lsÍug iuka woyia lrhs' tu
+           úfYaIdx.h tla lsÍug Tyq mßm:fha l=ula fjkia l< hq;= o? hï whs;u(hla) ATmega328P g iïnkaO
+           l,hq;= kï, wod< ;=vq(j) olajkak'
+                                                                                       ( 2024 ESSAY – 07[a] )
+
+
+
+                                                         5
+                                                                                                              ictfromabc.com
+                             LESSON 12 PAST PAPERS
+1.   Consider the following statements:
+     my; oelafjk m%ldY i,ld n,kak'
+     A - Customer can obtain the services while he/she is at his/her home or office.
+         mß.Kl iy cd, Wml%u ;ks /yeklg iïnkaO lr we;'
+     B - Payments can be made without using currency notes.
+         ish¨ u .ukd.uk olaIsKdj¾;j fyda jdudj¾;j fyda isÿ fõ'
+     C - Customer is open to a large international service provider base.
+         l,dm m<, fkdavq w;r yjqf,a fnod .efka'
+     D - Service provider is open to a larger international customer base.
+         iEu fkdavqjlau ;ukaf.a wi,ajeishka fofokdg iïnkaO lr we;'
+     E - Security of payments are always guaranteed.
+         iEu fkdavqjlau ;ukaf.a wi,ajeishka fofokdg iïnkaO lr we;'
+     Which of the above are advantages in e-commerce compared to traditional commerce?
+     idïm%odhsl jdKscHh yd ieiª úg B-jdKscHfhys we;s m%;s,dN jkafka by; oelafjk ljr tajd o?
+     1) A, B and C only. 2) A, B and D only. 3) A, C and D only. 4) A, B, C and D only. 5) B, C, D and E only.
+        A, B yd C muKs.     A, B yd D muKs.     A, C yd D muKs.     A, B, C yd D muKs.     B, C, D yd E muKs.
+                                                                                                 ( 2011 – 31 )
+2.   Consider the following statements with respect to on-line services:
+     ud¾..; fiajd ms<sn|j my; oelafjk m%ldY i,ld n,kak'
+     A - Customer should have access to on-line services.
+         mdßfNda.slhdg ud¾..; fiajd m%fõY yelshdj ;sìh hq;= ùu'
+     B - Customer should possess an electronic mechanism to make payments.
+         mdßfyda.slhdg f.ùï lsÍu i|yd bf,lafg%dksl hdka;%Khla ;sìh hq;= ùu'
+     C - At the time of placing the order for an item, the identify of the customer should be established.
+         lsishï NdKavhla i|yd weKjqï lrk úg§ mdßfNda.slhdf.a wkkH;dj ;yjqre l< hq;= ùu'
+     D - Service provider should provide on-line services.
+         fiajdodhlhd ud¾..; fiajd iemhsh hq;= ùu'
+     E - Both the customer and the service provider should be in the same geographical region.
+         mdßfNda.slhd iy fiajdodhlhd hk fofokdu tlu N+f.da,Sh m%foaYhl isáh hq;= ùu'
+     Which of the above items are essential in on-line ordering?
+     ud¾..; weKjquloS w;HjYH jkafka ljrla o?
+     1) A and B only. 2) A, B and C only. 3) A, B and D only. 4) A, C, D and E only. 5) B, D and E only.
+        A yd B muKs.     A, B yd C muKs.     A, B yd D muKs.     A, C, D yd E muKs.     B, D yd E muKs.
+                                                                                                 ( 2011 – 32 )
+
+3.   A person employed in an overseas country placed an on-line order to deliver a birthday present to his
+     mother who is living in Sri Lanka, using the web-based services of a company. This transaction of ordering
+     the birthday present could be best classified as,
+     úfoaY rgl /lshdjl kshq;= mqoa.,fhla, Y%S ,xldfõ fjfik ish ujg, hï iud.ul fjí mdol fiajd Wmfhd.S
+     lr.ksñka WmkaÈk ;Hd.hla ,efnkakg ie,eiaùu i|yd ud¾..; wekjqula lrhs' WmkaÈk ;Hd.h wekjqï
+     lsÍfï fuu .kqfokqj jvd;au fyd¢ka j¾.SlrKh l< yelafl"
+     1)   Consumer to Retailer / mdßfNda.slhdf.ka iq¿ fjf<kaodg f,i h.
+     2)   Consumer to Business / mdßfNda.slhdf.ka jHdmdrhg f,i h.
+     3)   Business to Consumer / jHdmdrfhka mdßfNda.slhdg f,i h.
+     4)   Business to Business / jHdmdrfhka jHdmdrhg f,i h'
+     5)   Employee to Business. / fiajlhdf.ka jHdmdrhg f,i h.                                    ( 2012 – 30 )
+
+
+
+
+                                                       6
+                                                                                                        ictfromabc.com
+4.   Consider the following attributes related to business:
+     jHdmdrhlg iïnkaO my; oelafjk Wm,laIK i,lkak(
+     A - Speed of services / fiajd iemhqfï fõ.h
+     B - Purchase and distribution / ñ, § .ekSu iy fnod yeÍu
+     C - Security of goods sent / hejqKq NdKavj, wdrlaIdj
+     D - Confidence in quality of items ordered
+         b,a¨ï lrk ,o whs;uj, .=Kd;aulNdjh ms<sn| úYajdikShNdjh
+     Which of the above is/are disadvantage(s) of e-business?
+     jHdmdrj, § wjdis$wjdishla jkafka byk i|yka oE w;=ßka
+     1) A only.         2) C only.            3) A and B only.       4) C and D only.        5) All of the above
+        A muKs.            C muKs.               A yd B muKs.           C yd D muKs.            by; ish,a,u.
+                                                                                                 ( 2013 – 22 )
+5.   Which of the following statements is true?
+     my; i|yka l=uk j.ka;sh i;H jkafka o?
+     1) www.ebay.com is an example for C2C. / www.ebay.com hkq C2C i|yd WodyrKhls.
+     2) When the government renders its services to the public through www then it is called B2C.
+        rch Tjqkaf.a fiajd" f,dal úisß úhuk yryd ck;dj fj; ,nd§u B2C f,i ye¢kafõ'
+     3) www.wikipedia.com is an example for C2B. / www.wikipedia.com hkq C2B i|yd WodyrKhls.
+     4) www.amazon.com is an example for B2E. / www.amazon.com hkq B2E i|yd WodyrKhls.
+     5) Facebook groups are examples for E2C. / f*ianqla ys lKavdhï E2C i|yd WodyrK fõ.
+                                                                                        ( 2014 – 24 )
+
+6.   Some provinces in Sri Lanka currently issue revenue licenses for motor vehicles online. Which of the
+     following is the correct business type for this service?
+     Y%S ,xldfjys iuyr m<d;aj, r:jdyk i|yd wdodhï n,m;% ud¾..;j ,nd fohs' fuu fiajdj i|yd ksjerÈ
+     jHdmdr j¾.h my; i|yka oE w;=frka l=ula o?
+     1) B2C               2) B2B                  3) C2B            4) B2E                  5) G2C
+                                                                                                 ( 2015 – 14 )
+7.   Which of the followings is true about e-commerce?
+     úoHq;a jdKscHh iïnkaOfhka i;H jkafka my; i|yka ljrla o?
+     1) It could be a part of e-business. / th úoHq;a jHdmdrj, fldgila úh yels h'
+     2) It helps to combine multiple business processes into a single information system.
+        th nyqúO jHdmdr l%shdj,s ;ks f;dr;=re moaO;shlg taldnoaO lsÍug Woõ lrhs'
+     3) It is a collection of platforms created for business and their customers to interact.
+        th jHdmdr iy tajdfha mdßfNda.slhka yg wka;¾l%shd lsÍu i|yd ilid we;s fõÈld iuQyhls'
+     4) www.google.com is a popular e-commerce web site.
+        www.google.com hkq ckm%sh úoHq;a jdKscHh fjí wvúhls'
+     5) There are no Sri Lankan companies doing e-commerce yet.
+        úoHq;a jdKscHh isÿ lrkq ,nk Y%S ,dxlsl iud.ï oekg fkdue;'                                ( 2016 – 14 )
+
+8.   Which of the following statements is true about e-business?
+     úoHq;a jHdmdr iïnkaOfhka my; oelafjk l=uk j.ka;sh i;H fõ o?
+     1) It is a business process which conducts partially on online.
+        th w¾O jYfhka ud¾..;j mj;ajdf.k hk jHdmdr l%shdj,shls'
+     2) It consists of front-end and back-end online processes.
+        th fmr wka; iy miq wka; ud¾..; l%shdj,sj,ska iukaú; fõ'
+     3) All ‘brick vendors’ conduct their business on online.
+        ish¨ ‘brick’ jHdmdßlhska Tjqkaf.a jHdmdr ud¾..;j mj;ajhs'
+     4) Any e-commerce application is an e-business application.
+        ´kEu úoHq;a jdKscH fhÿula úoHq;a jHdmdr fhÿuls'
+     5) Any e-business application is an e-commerce application.
+        ´kEu úoHq;a jHdmdr fhÿula úoHq;a jdKscH fhÿuls'                                          ( 2017 – 26 )
+
+
+
+
+                                                           7
+                                                                                                        ictfromabc.com
+9.   Consider the following statements related to e-business.
+     e-jHdmdr iïnkaO my; m%ldY i,lkak'
+     A - Brick-and-click is a business model by which a company integrates both offline and online presence
+         of the business.
+         ì%la yd la,sla hkq hï iud.ulg ud¾..; fkdjk yd ud¾..; hk fol tlg Ml;= lr jHdmdrh
+         mj;ajdf.k hd yels jHdmdr wdlD;shls'
+     B - Pure-brick is a business model in which a company has only a physical presence.
+         msfhda ì%la hkq hï iud.ulg fN!;sl meje;aula muKla we;s jHdmdr wdlD;sh ls'
+     C - Pure-click business has the presence only on the Internet.
+         msfhda la,sla jHdmdrj,g wka;¾cd,h u; muKla meje;aula we;'
+     Which of the above statements is/are correct regarding e-business models?
+     jHdmdr wdlD;s iïnkaOfhka by; ljr j.ka;s$hla ksjerÈ fõ o?
+     1) A only          2) B only           3) C only            4) A and C only          5) All of the above
+        A muKs             B muKs              C muKs               A yd C muKs              by; ish,a,u
+                                                                                                    ( 2018 – 31 )
+10. Consider the following activities related to e-commerce:
+    e-jdKscHhg iïnkaO my; oelafjk l%shdj,s i,lkak'
+     A - online purchase of a pair of shoes. / im;a;= hq.,la ud¾..;j ñ,§ .ekSu'
+     B - online purchase of an e-book of your favourite novel.
+         Tnf.a m%sh;u kjl;dfjys bf,lafg%dksl msgm;la ud¾..;j ñ,§ .ekSu'
+     C - online booking of a taxi to the airport from your home.
+         Tnf.a ksjfia isg .=jkaf;dgqfmd< fj; hEug l=,S r:hla ud¾..;j fjka lr.ekSu '
+     Which of the above activities represent/s the pure-click type business model?
+     by; l%shdj,s w;=frka ljrla msfhda-la,sla jHdmdr wdlD;sh ksrEmKh lrhs o?
+     1) A only          2) B only           3) C only            4) A and C only          5) B and C only
+        A muKs             B muKs              C muKs               A yd C muKs              B yd C muKs
+                                                                                                  ( 2019 – 05 )
+11. Which of the following statements related to e-commerce are true?
+    e-jdKscHh iïnkaOfhka my; ljr j.ka;shla i;H fõ o?
+     A - A particular product may be available at different prices at different e-commerce sites.
+         lsishï NdKavhla úúO e-jdKscHh wvúj, úúO ñ, .Kkaj,g ;sìh yels h'
+     B - Payment option at the receipt of goods allows customers to verify the quality of their purchases made
+         through the e-commerce site.
+         NdKav Ndr.kakd wjia:dfjys uqo,a f.ùug bv §fuka" mdßfNda.slhkag e-jdKscHh wvúh yryd ;uka
+         ñ,§.;a NdKavj, ;;a;ajh mÍlaId l< yels h'
+     C - Additional charges can be included as delivery and service fees over and above the stated price.
+         i|yka jk ñ,g wu;rj m%jdyk yd fiajd .dia;= f,i wu;r ñ,la we;=<;a l< yels h'
+     1) A only          2) B only           3) C only            4) A and C only          5) All of the above
+        A muKs             B muKs              C muKs               A yd C muKs              by; ish,a,u
+                                                                                                    ( 2020 – 48 )
+12. Which of the following statements is/are correct?
+    my; ljr j.kaks ksjerÈ fõ o?
+     A - Business Process Re-engineering helps to modify the existing business practices to fit with Commercial-
+         Off-The-Shelf (COTS) software.
+         jHdmdr l%shdj,sh m%;s-bxðfkarelrKh oekg mj;sk jHdmdr l%shdud¾." jdKsc fmr ksï meflac j,g
+         .e<fmk mßÈ fjkia lsÍug Woõ fõ'
+     B - Users may have to pay for certain features of COTS even if those are not needed.
+         fmr ksñ meflacj, we;s we;eï wkjYH úfYaIdx. fjkqfjkao uqo,a f.ùug mßYS,lhkag isÿùug bv we;'
+     C - A well developed custom software can bring a competitive advantage to an organization.
+         wdh;khl wjYH;d wkqj muKlau úfYaIfhka iy fyd¢ka ilid we;s uDÿldx.hlska tu wdhkkhg ;r.ldß
+         jdishla ,eîug bv we; yels h'
+     1) A only         2) B only         3) A and B only          4) B and C only          5) All of the above
+        A muKs            B muKs            A yd B muKs              B yd C muKs              by; ish,a,u
+                                                                                                  ( 2021 – 30 )
+
+
+                                                        8
+                                                                                                          ictfromabc.com
+13. Which of the following statements is/are correct?
+    my; i|yka l=uk m%ldY$h ksjerÈ fõ o?
+    A - E-Commerce encourages to minimize physical interactions between buyers and sellers.
+        e-jdKscH .ekqïlrejka iy úl=Kqïlrejka w;r fN!;sl wka;¾l%shd wju lsÍug Èßu;a lrhs'
+    B - The main purpose of sending a One Time Password (OTP) to a credit card holder’s mobile phone
+        during an online payment is to identify the current location of the card owner.
+        ud¾..; f.ùula w;r;=r Kh m; ysñlref.a cx.u ÿrl:khg tlajrla muKla Ndú; l< yels uqrmohla
+        heùfï m%Odk wruqK jkafka ldâm; ysñlre oekg isák ia:dkh y÷kd.ekSuh'
+    C - Bitcoin is a leading virtual currency. / Bitcoin hkq m%uqL w;:H uqo,a tallhls'
+   1) A only          2) B only          3) C only          4) A and C only              5) B and C only
+      A muKs             B muKs             C muKs             A yd C muKs                  B yd C muKs
+                                                                                                     ( 2022 – 50 )
+
+
+
+
+                                                        9
+                                                                                                           ictfromabc.com
+1. (b) Give four (4) different examples for the following electronic business types:
+       my; olajd we;s bf,lafg%dksl jHdmdr j¾. i|yd tlsfklg fjkia WodyrK y;rla ,shkak'
+
+          Type / j¾.h                                   Example / WodyrKh
+
+               B2B
+
+               B2C
+
+               C2C
+
+               C2B
+
+                                                                                       ( 2013 S.ESSAY – 03[b] )
+
+2. (b) A bank offers services, such as maintaining savings and current accounts, Automatic Teller Machine
+       (ATM) services, processing loans, leasing properties and exchanging foreign currencies to its customers.
+       The bank has decided to introduce Internet banking facility to its customers to grant them with more
+       control on their accounts. This will facilitate its customers to check account balance, pay bills, transfer
+       funds to other accounts and communicate with the bank online.
+       nexl=jla ;u .kqfokqlrejkag b;sß lsÍï yd cx.u .sKqï mj;ajd .ekSu" iajhxl%Sh fg,¾ hka;% fiajd" Kh
+       ,nd §ï" foam, l,anÿ .ekSï" úfoaY uqo,a yqjudrej jeks fiajd ,ndfoa' nexl=j úiska ;u .kqfokqlrejkag
+       Tjqkaf.a .sKï
+                   q md,kh lr .ekSfï n,;, jeä jYfhka ,nd §u i|yd wka;¾cd, nexl= fiajd y÷kajd §ug
+       ;SrKh lr we;' fuu.ska .kqfokqlrejkag ;u .sKï           q j, fYaIh ;yjqre lr .ekSu" ì,am;a f.ùï" fjk;a
+       .sKqï i|yd wruqo,a yqjudrej yd nexl=j iu. ikaksfõokh hk myiqlï ud¾..;j ,nd .ekSug wjYH
+       myiqlï iemfha'
+        (i) State two reasons that can discourage bank customers from using Internet banking services.
+            nexl= .kqfokqlrejka wka;¾cd, nexl= fiajd Ndú; lsÍug miqng úh yels fya;= folla ,shkak'
+       (ii) Do you agree that providing the proposed Internet banking services is a B2C business type? Justify
+            your answer.
+            o fuu fhdað; wka;¾cd, nexl= fiajd iemhSu B2C kï jHdmdßl j¾.hla nj Tn ms<s.kafka o? Tfí
+            ms<s;=r ikd: lrkak'
+       (iii) The bank has realized that a significant number of loan applications they receive from their customers
+             are getting rejected at the initial screening. Therefore, the management thinks that their customers
+             could be provided with an expert system based loan pre processing tool so that the customer
+             disappointments could be reduced while saving bank staff’s time. Do you agree with this idea? Justify
+             your answer.
+             ish .kqfokqlrejkaf.ka ,efnk Kh b,a¨ïm;aj,ska ie,lsh hq;= ixLHdjla uQ,sl úu¾Ykfha oS u
+             m%;slafIam jk nj nexl=jg fmkSf.dia we;' tu ksid úfYaI{ moaO;shla u; mdoljQ Kh fmr ieliqï
+             fuj,ula .kqfokqlrejkag ,nd §fuka nexl= fiajlhskaf.a ld,h b;sß lr .kakd w;r u
+             .kqfokqlrejkaf.a l,lsÍï wju lr .; yels nj o l<ukdldß;ajh is;hs' fuu woyig Tn tlÕ
+             jkafka o? Tfí ms<s;=r ikd: lrkak'
+                                                                                          ( 2015 S.ESSAY – 02[b] )
+
+ 3.   Assume that the camera you have been using so far is no longer needed since you have received a latest
+      camera as a gift. A friend suggested that your old camera could be sold on the Internet. Consequently,
+      you were able to sell the camera to a buyer in an African country, through a web site. You received the
+      payment made by the buyer through a service like Paypal.
+      Tng kùk;u leurdjla ;Hd.hla f,i ,enqK neúka fuf;la Ndú; l< leurdj ;jÿrg;a wjYH fkdjk nj
+      Wml,amkh lrkak' Tnf.a mrK leurdj wka;¾cd,h Tiafia úlsKsh yels nj hy¿jl= fhdackd lf<a h' ta
+      wkqj fjí wvúhla yryd wm%sldkq rgl .eKqïlrejl=g th úlsKu       S g Tng yels úh' .eKqïlre úiska f.jk
+      ,o uqo, Paypal jeks fiajdjla yryd Tng ,enqKs'
+       (a) State an example for each C2C and B2C e-commerce types with respect to the above transaction.
+           by; .kqfokqj weiqfrka C2C yd B2C hk e-jdKscHh j¾. i|yd WodyrKh ne.ska ,shd olajkak'
+       (b) Why is a service like Paypal necessary for this type of transactions?
+           fujeks .kqfokq i|yd Paypal jeks fiajdjla wjYH jkafka wehs?
+       (c) Some Internet users are reluctant to buy goods online from individual sellers. State two reasons for
+           this reluctance and give an example for each.
+           wka;¾cd,h Ndú; lrk iuyreka tal mqoa., úl=Kï         q lrejkaf.ka ud¾..;j NdKav ñ, § .ekSug
+           wlue;a;la olajhs' fuu wlue;a;g fya;= folla ,shd tla tla fya;=j i|yd WodyrKh ne.ska fokak'
+                                                                                           ( 2016 S.ESSAY – 02 )
+
+
+                                                         10
+                                                                                                           ictfromabc.com
+4.(a) (i) Write three key conditions to be satisfied in order to classify a transaction/service between two persons
+          as B2B in e-commerce.
+          mqoa.,hska fofokl= w;r isÿ jk .kqfokqjla$fiajdjla e-jdKscHh ;=< B2B f,i j¾.SlrKh lsÍu i|yd
+          ;Dma;su;a úh hq;= m%Odk fldkafoais ;=kla ,shkak'
+    (ii) If the seller in the above transaction is replaced by a software agent, state the key proactive behaviour
+         that software agent shall have.
+         by; .kqfokqfõ úl=Kï     q lre fjkqjg uDÿldx. tacka;jrhl= fhdod .;fyd;a" tu uDÿldx. tacka;jrhdg
+         ;sìh hq;= m%Odk;u fmrl%shdldß yeisÍu i|yka lrkak'
+                                                                                          ( 2017 S.ESSAY – 03[a] )
+
+
+ 5. (a) Match each of the given phrases (i) - (viii) relating to e-commerce with the most suitable term from the
+        list below.
+        my; oelafjk (i) -(viii) f;la" e-jdKscHhg iïnkaO tla tla m%ldY LKavh iu. § we;s mo,ehsia;=fjys jvd;a
+        u iqÿiq moh .<mkak'
+        List = {brick-and-click, content provider, e-commerce, group purchasing, information broker, online
+        marketplace, pure-brick, pure-click, reverse auction, virtual community, virtual storefront}
+        ,ehsia;=j = {ì%la iy la,sla, wka;¾.;h ,nd fokakd, e-jdKcHh, ldKav f,i ñ,§ .ekSu, f;dr;=re
+        ;e/õlre, ud¾..; fjf<|fmd<, msfhda ì%la, msfhda la,sla, m%;s fjkafoaish, w;:H m%cdj, w;:H fjf<|
+        m%o¾Ykd.drh}
+
+        Phrases / jdlH LKav:
+         (i) Allows third party businesses (other businesses) to sell their products and services through the
+             website and charge a percentage of the sale value as the fee
+             fjí wvúh yryd f;jk md¾Yajhl jHdmdrj,g (fjk;a jHdmdr) NdKav iy fiajd úlsKu             S g wjia:dj
+             ,nd § wf,úfhys m%;sY;hla .dia;=j f,i whlr .ekSu
+        (ii) Provides frequently updated material such as news, blogs, videos etc. online
+             ud¾..;j ,nd .; yels ks;r w¨;a flfrkq ,nk m%jD;a;s, íf,d.a , ùäfhda jeks oE iemhsu
+        (iii) Allows sharing common interests and ideas over the Internet
+              fmdÿ reÑl;ajh iy woyia yqjudre lr .ekSug wka;¾cd,h Tiafia bv ie,iSu
+        (iv) Consumer transactions are processed by the business operator’s web portal and then delivered and
+             fulfilled by the participating retailers or wholesalers
+             mdßfNda.sl weKjqï Ndrf.k ieliSu" jHdmdr fufyhjkakdf.a fjí oajdrh yryd isÿ flfrk w;r" uqo,a
+             f.ùfuka miq NdKav Ndr §u is,a,r fjf<÷ka yd f;d. fj<ÿka u.ska isÿ lsÍu
+        (v) Has a physical shop as well as an online shop
+            ud¾..; idmamqjla fukau fN!;sl idmamqjla o mej;Su
+        (vi) Is a business that collects publicly available data about consumers on the internet, analyzes and
+             summarises them and sells that information to other parties
+             ´kEu flfkl=g ,nd .; yels" wka;¾cd,fha we;s mdßfNda.slhkag wod< o;a; tla/ia fldg úYaf,aIKh
+             lr idrdxY .; lsÍfuka miq tu f;dr;=re wfkl=;a md¾Yajj,g wf,ú lsÍfï jHdmdrhls
+       (vii) The sellers compete to obtain business from the buyer using the internet and prices may typically
+             decrease as the sellers underbid each other
+             .ekqïlrejkag NdKav yd fiajd wf,ú lsÍu i|yd úl=Kï   q lrejka tlsfkld wka;¾cd,h Ndú;fhka ;r.
+             lsÍu yd Tjqka tlsfkld w;r wvq ,xiq ;eîu ksid ñ, .Kka idudkHfhka wvq ùu
+      (viii) Obtain discounts from vendors on the internet based on the collective buying power of members
+             idudðlhkaf.a iduqysl ñ,§ .ekSfï Yla;sh mokï lrf.k wka;¾cd,fha isák fjf<÷kaf.ka jÜgï ,nd
+             .ekSu
+            Note: Write only the matching term against the phrase number.
+            igyk: m%ldY nKavfhys wxlh bÈßfhka .e<fmk moh muKla ,shkak'
+                                                                                        ( 2018 S.ESSAY – 02[a] )
+
+
+
+
+                                                         11
+                                                                                                           ictfromabc.com
+6. (a) Match each of the given phrases (i) - (vi) relating to commerce with the most suitable item from the list
+       below:
+       jdKscHhg iïnkaO my; (i) isg (vi) olajd jk jdlH LKav" my; § we;s mo ,ehsia;=fjys jvd;au iqÿiq
+       whs;uh iu. .<mkak'
+      List = {advertising as a revenue model, credit-cards, Government e-Tendering service, Government to
+      Citizen (G2C) service, group purchasing, harmful explosives, online marketplace, payment gateway,
+      perishable goods, social commerce, subscription as a revenue model, traditional marketplace}
+      ,ehsia;=j = {oekaùï m%pdrh wdodhï wdlD;shla f,i, Khm;a, rdcH e-fgkav¾ fiajdj, rcfhka mqrjeishkag
+      (G2C) fiajdj, lKavdhï f,i ñ, § .ekSu, ydkslr mqmqrk øjH, ud¾..; fj<|fmd<, f.ùï oajdrh, myiqfjka
+      ydksúh yels øjH, iudc jdKscHh, .%dyl;ajh wdodhï wdlD;shla f,i, iïm%odhsl fj<|fmd<}
+
+      Phrases / jdlH LKav:
+       (i) a place where buyers and sellers interact physically for exchanging goods and services for a price
+           fuh uqo,g NdKav iy fiajdjka yqjudre flfrk .ekqïlrejka iy fjf<kaoka fN!;sl f,i wka;¾
+           l%shdfõ fhfok ia:dkhls'
+      (ii) these are usually prohibited to be sold or purchased through e-commerce systems
+           fujeks oE e-jdKscH moaO;s Tiafia úlsKu  S fyda ñ, § .ekSu idudkHfhka ;ykï h'
+      (iii) users pay a regular fee to have full access to a website of a business
+            jHdmdßl fjí wvúhlg mQ¾K m%fõYh i|yd mßYS,lhka úiska ks;sm;d .dia;=jla f.jkq ,efí'
+      (iv) a subset of e-commerce that involves using social media to assist in the online buying and selling of
+           products and services
+           fuh ud¾..; NdKav iy fiajd ñ, § .ekSu yd úlsKSu i|yd iudc udOH Ndú; flfrk e-jdKscH
+           Wml=,lhls'
+      (v) facilitates a payment transaction by the transfer of information between the e-commerce application
+          and the back-end financial service providers through secure means
+          fuh e-jdKscH fhÿu iy miq wka;fhys uQ,H fiajd ,nd fok wh w;r f;dr;=re yqjudre lsÍu u.ska
+          wdrla IdldÍ f,i f.ùï lsÍfï .kqfokqj,g myiqlï imhhs'
+      (vi) the renewal of vehicle revenue licence using the Online Vehicle Revenue Licence Service offered by
+           the relevant government office
+           wod< rcfha ld¾hd,h u.ska ,nd fok ud¾..; jdyk wdodhï n,m;% fiajdj Ndú;fhka jdyk wdohï
+           n,m;%h w¨ ;a lsÍu'
+           Note: Write only the matching item against the phrase number.
+           igyk: jdlH LKavfhys wxlh bÈßfhka .e<fmk whs;uh muKla ,shkak'
+                                                                                                  ( 2019 S.ESSAY – 02[a] )
+
+7. (a) In an emergency health problem where people have to stay at home for a long period, the shops within
+       the area remain closed for regular business activities. Under such circumstances the shops within a village
+       or nearby town can help their community by practicing their business through e-commerce.
+       lsishï yÈis fi!LH .eg¨ jla we;s ù ck;djg §¾> ld,hla ksfjia ;=<u /£ isàug isÿ jQ úg" m%foaYh ;=<
+       idmamq ;u iqmqreÿ jHdmdßl lghq;= fjkqfjka jid ;nhs' fujeks ;;a;ajhla hgf;ys .fuys fyda <Õmd;
+       k.rj, we;s idmamq u.ska e-jdKscH Tiafia ;u jHdmdr lghq;= isÿ lsÍfuka" m%cdjg Wmldr l< yel'
+      Considering the above scenario, fill the blanks in the following statements with suitable phrases from the
+      given list of phrases.
+      by; ixisoaêh i,lñka § we;s ,ehsia;=fjka iqÿiq mo f;dardf.k my; j.ka;sj, ysia;eka mqrjkak'
+
+       (i) In this emergency situation, shops follow the ................................ business model.
+           fuu yÈis wjia:dfõ §" idmamq úiska ................................ jHdmdr wdlD;sh wkq.ukh flf¾'
+      (ii) Shops must use ................................. to allow customers to purchase more than one type of product in
+           a single transaction.
+           lsishï .kqfokqjl § mdßfNda.slhl=g jrlg tla ksIamdok j¾.hlg jvd jeä ixLHdjla ñ,§ .ekSug
+           yels jk mßÈ idmamq úiska ................................. la Ndú; l< hq;= h'
+      (iii) The e-commerce site for each shop can implement ................................... to display their products to the
+            customers.
+            tla tla idmamqj i|yd jk e-jdKcH wvúh u.ska mdßfNda.slhka i|yd ksIamdok m%o¾Ykh lsÍug
+            ................................... la l%shd;aul l< yels h'
+
+
+
+
+                                                              12
+                                                                                                                       ictfromabc.com
+      (iv) For business owners who cannot use payment gateway through online fund receipts and for the
+           customers who do not have any online mode of payments can still be supported through
+           .........................................
+           ud¾..; wruqo,a ßisÜ u.ska f.ùï oajdr Ndú; l< fkdyels jHdmdr ysñhkag iy ud¾..;j f.ùï isÿ
+           lsÍfï l%u fkdue;s mßfNda.slhkag ......................................... u.ska WmldÍ l< yels h.
+      (v) .................................................. is one of the best ways to reduce the overhead costs of delivery within a
+          local area such as a lane, street or housing scheme.
+          .................................................. mgqu.la" ùÈhla fyda ksjdi l%uhla jeks ia:dkSh fmfoil § fnodyeÍï úhoï
+          wvq lr .ekSfï jvd;au fyd| l%uhls'
+      (vi) The local shop owners can establish .................................... to serve their community better by enabling
+           access to each shop’s services through a common portal.
+           fmdÿ oajdrhla u.ska tla tla idmamqfjys fiajdjka i|yd m%fõYhla ,nd foñka ;u m%cdjg jvd fyd|
+           fiajdjla ie,iSu i|yd m%foaYfha idmamq ysñlrejkag .................................... la ia:dms; l< yel'
+      List = {advertising banners, an online marketplace, a shopping cart, a web product catalogue, cash-on-
+      delivery, credit-cards, discount pricing, group purchasing, payment gateways, click and brick, pure click,
+      subscription as a revenue model}
+      ,ehsia;=j = {m%pdrl nekrh, ud¾..; fj<|fmd,, idmamq fg%d,sh, fjí ksIamdok NdKav ,ehsia;=j, fnod yßk
+      úg uqo,a f.ùu, Kh m;a, wvqjg ñ, kshu lsÍu, lKavdhï f,i ñ,§ .ekSu, f.ùï oajdrh, la,sla iy ì%la,
+      msfhda la,sla, .%dyl;ajh wdodhï wdlD;shla f,i}
+                                                                                ( 2020 S.ESSAY – 02[a] )
+
+
+8. (d) You have decided to start an E-Business to sell your home-made food through an online store (web site).
+       Once the customers place orders and pay through debit/credit cards, you will deliver the ordered food
+       to their addresses.
+       ud¾..; fjf<|fmd,la (fjí wvúhla) yryd Tn ksjfia msiQ wdydr wf,ú lsÍu i|yd b-jHdmdrhla wdrïN
+       lsÍug Tn ;SrKh lrhs' .ekqïlrejka wdydr weKjqï lr ta i|yd Khm;a$yrm;a yryd uqo,a f.jQ miq Tn
+       tu wdydr Tjqkaf.a ,smskj,g f.keú;a Ndrfohs'
+       (i) Business to Business (B2B), Business to Consumer (B2C) and Consumer to Consumer (C2C) are three
+           E-Business transaction types. Out of these, which transaction type will occur in your E-Business?
+           jHdmdrfhka jHdmdrhg (B2B), jHdmdrfhka mdßfNda.slhdg (B2C) iy mdßfNda.slhdf.ka mdßfNda.slhdg
+           (C2C) hkq b-jHdmdr .kqfokq j¾. ;=kls" fïjdhska" Tnf.a b-jHdmdrfha isÿjkq we;s .kqfokq j¾.h
+           l=ulao?
+      (ii) Incorporating a reputed software service to enable debit or credit card purchases from customers
+           will improve customer perception and trust in your e-Commerce system. What is this software service
+           commonly called?
+           .ekqïlrejkaf.a Khm;a$yrm;a yryd ñ,§.ekSï isÿ lsÍug ms<s.;a uDÿldx. fiajdpla yd taldnoaO ùu
+           Tnf.a b-jHdmdrh ms<sn| mdßfNda.sl ixcdkkh yd úYajdih j¾Okh lsÍug bjy,a jkq we;' tu
+           uDÿldx. fiajdj fmdÿfõ y÷kajkafka l=uk kulska o?
+                                                                                    ( 2021 S.ESSAY – 02[d] )
+
+
+9. (a) Write down the most suitable items from the given list for the following statements.
+       my; m%ldY i|yd jvd;a iqÿiq whs;uhka § we;s ,ehsia;=fjka f;dard ,shkak .
+      List: {e-marketplace, group purchasing, online auctions, online reverse auctions}
+      ,ehsia;=j: {e-fj<|fmd<" iuQy ñ,§ .ekSu, ud¾..; fjkafoais, ud¾..; m%;sfjkafoais}
+       (i) In ……………………………………, sellers bid for the prices at which they are willing to sell their goods or
+           services.
+           …………………………………… j,§" úl=Kï   q lrefjda ;ukag úlsKu  S g yels NdKavj, fyda fiajdj, ñ, .Kka
+           i|yd ,xiq bÈßm;a lr;s'
+      (ii) …………………………………… allows buyers to compare multiple online sellers within the same online
+           platform.
+           tlu ud¾..; fõÈldjl§, ud¾..; úl=Kï      q lrejka fndfydafofkl= ixikaokh lsÍug
+           …………………………………… .ekqïlrejkag bv i,ihs'
+                                                                          ( 2022 S.ESSAY – 04[a] )
+
+
+
+
+                                                                13
+                                                                                                                             ictfromabc.com
+10. (c) For the box in each of the following statements, select a suitable replacement from the given list and
+        write the number of the selected replacement in the box.
+        my; tla tla m%ldYfha we;s fldgqjg iqÿiq wdfoaYlh § we;s ,ehsia;=fjka f;dard" tu wdfoaYlfha wxlh
+        fldgqj ;=< ,shkak'
+       List : {1 -B2B, 2 -C2B, 3 -G2C, 4 -a payment gateway, 5 -a reverse auction, 6 -a virtual storefront, 7 -a
+       web portal, 8 -an online auction, 9 -an online marketplace}
+       ,ehsia;=j: {1 -B2B, 2 -C2B, 3 -G2C, 4 -f.ùï oajdr, 5 -m%;sfjkafoais, 6 -w;:H fj<| m%o¾Ykd.dr, 7 -fjí
+       oajdr, 8 -ud¾..; fjkafoais, 9 -ud¾..; fj<|m<}
+        (i) A web-based platform that provides a single point of access to arrange of information from different
+           sources, is known as    .
+           úúO uQ,dY%j,ska iemfhk f;dr;=re mrdihlg tla ;eklska m%fõYùug bv i,ik fjí mdol fõÈldjla
+               hla f,iska ye¢kafõ'
+       (ii) When one requests to renew his/her vehicle revenue license and pays online for it through the official
+           website, he/she is performing an e-commerce transaction of  type.
+           hul= ;u jdyk wdodhï n,m;%h w¨;a lsÍug ks, fjí wvúfhka b,a¨ï lr ta i|yd ud¾..;j uqo,a
+           f.jk úg Tyq$weh         b-jdKcHh jHdmdr .kqfokq j¾.h isÿ lrhs'
+
+       (iii) The ABC e-commerce company does not allow buyers to explore competitor products from other
+           sellers within its website. ABC website operates as     .
+           ABC b-jdKcHh iud.u" fjk;a úl=Kï
+                                         q lrejkaf.a ksIamdok ;u fjí wvúh yryd fidaÈis lsÍug ;u
+           .ekqïlrejkag bv fkdfohs' ABC fjí wvúh              hla f,i l%shdlrhs'
+       (iv) The ABC e-commerce company does not allow buyers to explore competitor products from other
+           sellers within its website. ABC website operates as .
+                hl§ .ekqïlrefjda hï NdKavhla fyda fiajdjla fyda ñ,§ .ekSug ;uka leu;s ñ, i|yd ,xiq
+           ,ndfo;s'
+       (v) An online shopping website is suitable to be connected to .
+           ud¾..; idmamq fjí wvúhla"        hla iu. iïLkaO ùu fhda.H fõ'
+                                                                                        ( 2023 S.ESSAY – 02[c] )
+
+
+11. (e) You browse an online product catalogue in an e commerce website looking for a product purchase and
+        the website collects your product browsing history without obtaining your consent. What is the security
+        related concern that you face in this situation?
+        lsishï NdKavhla ñ,§ .ekSug Tn b jdKsch fjí wvúhl NdKav jÜfgdarej msßlaik úg Tnf.a wkque;sh
+        ,nd.ekSulska f;drj, tu fjí wvúh Tnf.a NdKav msßlaiSï b;sydih tl;= lr .kshs' tu wjia:dfõ§ Tn
+        uqyqK fok wdrlaIdjg wod< ;ejq, l=ula o?
+   (f) Fill the two blanks of the following statement:
+       my; j.ka;sfha ysia;eka fol mqrjkak
+       In a reverse auction, from sellers and buyers, . ……………........ do the bidding and usually the ………………………
+       bid wins.
+       “m%;sfjkafoaishl§, úl=Kkakka iy .ekqïlrejka w;=frka ……………........ ,xiq bÈßm;a lsÍu isÿ lrk w;r,
+       idudkHfhka ……………………… ,xiqj ch.%yKh lrhs'”
+                                                                                       ( 2024 S.ESSAY – 02[e],[f] )
+
+
+
+
+                                                         14
+                                                                                                           ictfromabc.com
+1.(a) (i) Using an example for each category explain the three types of business: Business to Business (B2B),
+          Business to Consumer (B2C) and Consumer to Consumer (C2C) in e commerce.
+          tla tla j¾.h i|yd ksoiqk ne.ska fhdod.ksñka, B-jdkscHfhys we;s, jHdmdrfhka jHdmdrhg (B2B),
+          jHdmdrfhka mdßfNda.slhdg (B2C) iy mdßfNda.slhdf.ka mdßfNda.slhdg (C2C) hk jHdmdr j¾. ;=k meyeÈ,s
+          lrkak'
+    (ii) Chairman of a company is considering fax, e mail and web as communication tools for a B2E (Business
+         to Employee) application. Being an ICT student recommend the most appropriate tool with reasons.
+         iud.ul iNdm;sjrhl= jHdmdrfhka fiajlhdg (B2E) fhÿula i|yd ikaksfõok fuj,ï f,i *elaia, úoHq;a
+         ;emE, iy fjí i,lkq ,nhs' Tn ICT YsIHhl= f,i, jvd;au .e<fmk fuj,u fya;= iys;j ks¾foaY lrkak.
+                                                                                           ( 2011 ESSAY – 06[a] )
+
+  2.   The Past Pupils Association (PPA) of a school has a large number of past students all over the country and
+       overseas. The PPA, in collaboration with a leading local bookshop, decided to obtain support from the
+       past students and other donors to increase the number of books in the library. The PPA agreed to develop
+       a web based system with on line payment facilities for this activity. The title and the price of the required
+       books for the library will be available on the website. The donors could select and pay for these required
+       books available on the website. When a payment is made, this information will be sent to the bookshop
+       for the delivery of the selected books to the school library.
+       mdi,l wdÈ YsIH ix.uhg uq¿ rg mqrd;a úfoaYj,;a wdÈ YsIHfhda úYd, ixLHdjla isá;s' mqia;ld,fha fmd;a
+       ixLHdj jeä lsÍu i|yd m%Odk fmf<a foaYSh fmd;a idmamqjl iyfhda.h we;sj" wdÈ isiqkaf.a iy wfkl=ka
+       odkm;shkaf.a Wmldr ,nd.ekSug wdÈ YsIH ix.uh ;SrKh lf<ah' fuu ld¾hh i|yd ud¾..; f.ùï
+       myiqlï iys; fjí mdol moaO;shla ieliSug wdÈ YsIH ix.uh tlÕ úh' mqia;ld,h i|yd wjYH fmd;aj,
+       kï iy ñ, .Kka fjí wvúfhys wvx.= lrkq we;' fjí wvúfhys oelafjk fuu wjYH fmd;a f;dardf.k
+       f.ùï lsÍug odkm;shkag yels fõ' f.ùula lrkq ,enq úg" f;dard.kq ,enQ fmd;a mdi,a mqia;ld,hg ,nd§u
+       i|yd fuu f;dr;=re fmd;a idmamqj fj; hjkq ,efí'
+
+        (a) Give two advantages of the suggested on line method over traditional methods for book collection.
+            fmd;a tl;= lsÍu i|yd jk idïm%odhsl l%uj,g jvd" fhdað; ud¾..; l%ufhys jdis folla olajkak'
+        (b) Give one disadvantage of ordering books through the suggested website.
+            fhdað; fjí wvúh yryd fmd;a wekjqï lsÍfï wjdishla ,shd olajkak'
+        (c) Explain how you could improve the website to eliminate the disadvantage given in (b) above.
+            by; (b) ys olajk ,o wjdish bj;a lr .ekSug fjí wvúh jeä ÈhqKq l< yelafla flfiaoehs meyeÈ,s
+            lrkak'
+                                                                                        ( 2012 ESSAY – 06 )
+
+
+  3.   Consider the following employee evaluation process of a software development company to answer the
+       questions given below.
+       my; olajd we;s uDÿldx. ksIamdok iud.ul fiajlhska we.hSï l%shdj,sh i,ld n,d § we;s m%Yakj,g ms<s;=re
+       imhkak'
+       A software development company has 600 employees. The company manually evaluates each employee's
+       performance at the end of each year. These performance results are used to decide employees’ salary
+       increments for the next year. In this process, each employee is evaluated based on several performance
+       indicators listed in an evaluation form and marks for these indicators are given by his/her superiors. The
+       evaluation process consumes significant amount of each employee’s working time. Once the marks are
+       gathered, Human Resource (HR) manager takes around two months to compile them to prepare a report.
+       A committee comprises of two executives from the HR department and an expert from the Finance
+       department are appointed to decide the salary increments of each employee. This committee makes their
+       decision based on the HR manager’s report and the special report given by the finance expert in this
+       committee. The finance expert uses his experiences of the past evaluation process in addition to the
+       organizational guidelines to prepare his special report. This finance expert usually takes around three
+       months to make his recommendations to the committee. This process delays the salary increments of the
+       employees and makes them unhappy. The employees have requested the management to expedite this
+       process and give them the increment in time.
+       tla;rd uDÿldx. ksIamdok iud.ul fiajlhska 600 la isà' tu iud.u iEu fiajlhl=f.a u ld¾h idOkh iEu
+       jirl u wjidkfha § w;ahqre l%uhg isÿlrhs' fuu ld¾h idOkfha m%;sM, fiajlhskaf.a B,Õ jif¾ jegqma
+       j¾Olh ;SrKh lsÍug fhdod .kS' tu l%shdj,sfha § iEu fiajlhl= u we.hSï fmdaruhl olajd we;s ld¾h
+       idOk o¾Yl lsysmhla u; we.hSug ,la lrkq ,nk w;r tu o¾Ylj,g ,l=Kq §u isÿ lrkq ,nkafka
+       Tyqf.a$wehf.a by< ks,OdÍka úisks' fuu we.hSï l%shdj,sh i|yd iEu fiajlhl=f.a u jev lrk ld,fhka
+       ie,lsh hq;= m%udKhla ñvx.= fõ' ,l=Kq tl;= lr .;a miq udkj iïm;a l<ukdlreg tu ,l=Kq ilia fldg
+       jd¾;djla ms<sfh, lsÍu i|yd udi foll muK ld,hla .; fõ' iEu fiajlhl=f.a u jegqma j¾Olh ;SrKh
+
+
+                                                          15
+                                                                                                            ictfromabc.com
+     lsÍu i|yd udkj iïm;a fomd¾;fïka;=fõ úOdhl ks,OdÍka fofofkl=f.ka iy uqo,a fomd¾;fïka;=fõ uQ,H
+     úfYaI{hl=f.ka iukaú; lñgqjla m;a lrkq ,nhs' tu lñgqj udkj iïm;a l<ukdlref.a jd¾;dj iy uQ,H
+     úfYaI{hdf.a úfYaI jd¾;djla u; mokïj ;SrK .kq ,nhs' uQ,H úfYaI{hd Tyqf.a úfYaI jd¾;dj ms<sfh,
+     lsÍu i|yd wdh;kfha Wmfoiaud,djg wu;r j Tyqf.a fmr we.hSï lghq;=j,ska ,nd.;a m,mqreoao Ndú;
+     lrhs' fuu uQ,H úfYaI{hdg Tyqf.a ks¾foaYhka lñgqjg bÈßm;a lsÍug idudkHfhka udi ;=kl muK ld,hla
+     .; fõ' fuu l%shdj,sh fiajlhskaf.a jegqma j¾Ol mud lrk w;r Tjqkaj wi;=gg o m;a lrhs' fuu l%shdj,sh
+     läkï lr kshñ; ld,hg ;ukaf.a jegqma j¾Ol ,ndfok f,i fiajlhska úiska l<ukdldÍ;ajfhka b,a,d we;'
+     The company has decided to computerize this year end employee evaluation process as an online system.
+     The proposed system functions as follows: Only during the evaluation period, employees are allowed to
+     login to the online evaluation system. Each employee is required to logged into the system and select a
+     subordinate to evaluate. Then the system requests to provide marks in the evaluation form of the selected
+     employee and submit it. At the end of the evaluation period, the system automatically compiles the data,
+     generates a report and forwards it to the appointed committee.
+     fuu jir wjidk we.hSï l%shdj,sh ud¾..; moaO;shla f,i mß.Kl.; lsÍug tu iud.u ;SrKh lr we;'
+     fhdað; moaO;sh my; i|yka mß¢ l%shd;aul fõ' we.hSï lghq;= isÿjk ld,h ;=< § muKla fiajlhskag
+     ud¾..; we.hSï moaO;shg msúiSug wjir fokq ,efí' iEu fiajlhl=u moaO;shg msúish hq;= w;r we.hSu
+     i|yd my< uÜgfï fiajlhl= f;dard.; hq;= h' túg moaO;sh úiska f;dard.;a fiajlhdg wod< we.hSï
+     fmdaruhg ,l=Kq ,nd § Ndr fok f,i b,a,d isà' we.hSï ld,h wjidkfha § moaO;sh u.ska iajhxl%Sh j o;a;
+     iïmdokh lr ckkh lrk jd¾;djla m;alrk ,o lñgqjg bÈßm;a lrkq ,nhs'
+      (a) State two key reasons, that make the company to introduce online computerized system.
+          iud.ug ud¾..; l< mß.Kl moaO;shla y÷kajd §ug isÿùu i|yd fya;= jQ m%Odk ldrKd folla m%ldY
+          lrkak'
+      (b) Company thinks that an Artificial Intelligence based system would reduce the time taken to this
+          process. Do you agree? Justify your answer.
+          lD;%su nqoaêh mokï jQ moaO;shla u.ska fuu l%shdj,shg .; jk ld,h wvq lr;ehs iud.u is;hs' Tn fï
+          i|yd tlÕ jkafka o? Tfí ms<s;=r ikd: lrkak.
+      (c) Do you consider the service provided by the company through this system to its employee as B2E?
+          Justify your answer.
+          fuu moaO;sh u.ska iud.u tys fiajlhskag ,ndfokq ,nk fiajdj B2E f,i Tn i,lkafka o? Tfí ms<s;=r
+          ikd: lrkak'
+      (d) Company decides to invite an outside expert to the committee. State one negative impact of this
+          decision.
+          fuu lñgqjg msgia;r úfYaI{fhl=g wdrdOkh lsÍug iud.u ;SrKh lrhs' fuu ;SrKfhys tla iDK
+          n,mEula m%ldY lrkak'
+                                                                                    ( 2014 ESSAY – 03 )
+
+
+4.   The management of the Siri Lak bank has decided to develop a web portal to deliver personalized services
+     to its employees. The services include, access banking plans, regulations and policies, register for learning
+     opportunities provided by the bank, quick search, weather reports, communicate with other employees
+     and leave and loan related services. According to the chief information officer of the bank, the primary
+     goal of developing the portal is to enable its employees to manage their personal lives more easily.
+     isß,la nexl=fjys l<ukdldß;ajh tys fiajlhskag fm!oa.,sl jQ fiajdjka iemhSu i|yd fjí ixj¾Okh lsÍug
+     ;SrKh fldg we;' fuu fiajdj,g nexl= ie,iqï" fr.=,dis Nd m%;sm;a;sj,g m%fõY ùu" nexl=j úiska imhk
+     ,o bf.kqï fiajd i|yd ,shdmÈxÑ ùu" fõ.j;a fijqï" ld,.=K jd¾;d" wfkla fia jlhska iu. ikaksfõokh
+     lsÍu" ksjdvq iy Kh iïnkaO fiajd wvx.= fõ' nexl=fjys m%Odk f;dr;=re ks,Odßhdg wkqj fuu fjí ìysfodr
+     ixj¾Okh lsÍfï m%Odk wruqK jkafka nexl= fiajlhskag Tjqkaf .a fm!oa.,sl Ôú; jvd;a myiqfjka
+     l<ukdlrKh lsÍug yelshdj ,nd §uhs'
+      (a) What is the e commerce type of the services provided by the above web portal? Justify your answer.
+          by; fjí ìysfodr u.ska imhk fiajdjka l=uk úoHq;a jdKscH j¾.hlg wh;a jkafka o? Tfí ms<s;=r
+          i;Hdmkh lrkak'
+      (b) State two potential benefits obtainable to the employees from the above portal.
+          by; fjí ìysfodr u.ska fiajlhskag ,nd.; yels m%;s,dN folla i|yka lrkak'
+      (c) The management of the bank expects that they could get a better service from their employees after
+          implementing the proposed portal. Do you agree with this idea? Justify your answer.
+          fhdað; fjí ìysfodr l%shdjg kexùfuka miq nexl= fiajlhskaf.ka jvd;a fyd| fiajdjla ,nd.; yels nj
+          nexl=fõ l<ukdldÍ;ajh wfmalaId lrhs' fuu woyi iu. Tn tlÕ jkafka o? Tfí ms<s;=r i;Hdmkh
+          lrkak'
+                                                                              ( 2016 ESSAY – 03[a],[b],[c] )
+
+
+
+
+                                                        16
+                                                                                                          ictfromabc.com
+5.   A state health authority decided to conduct an awareness program as an online service through Internet
+     to reduce dengue infection by transmission of the virus through the mosquitoes. This service provides
+     information on how to adopt dengue control approaches, such as cleaning the environment, destroying
+     non essential containers that provide larva habitats etc., in order to minimize mosquitoes’ propagation.
+     uÿrejka u.ska jhsrih iïfmaI  % Kh ùfuka isÿjk fvx.= wdidokh wvq lsÍu i|yd oekqj;a lsÍfï jevigykla
+     wka;¾cd,h Tiafia ud¾..; fiajdjla f,i mj;ajdf.k hdug rdcH fi!LH wêldßhla ;SrKh lf<a h'
+     uÿrejkaf.a fndaùu wju lsÍu i|yd mßirh msßisÿ lsÍu, lSg jdiia:dk imhk wkjYH n÷ka úkdY lsÍu
+     jeks fvx.= md,kh lsÍfï m%fõY fhdod .kakd wdldrh ms<sn| f;dr;=re fuu fiajdj u.ska imhhs'
+      (a) To which e-commerce type does this service belong?
+          fuu fiajdj wh;a jkafka l=uk e-jdKscH j¾.hg o?
+      (b) If the service is extended by allowing organizations to register their services targeting minimizing the
+          spread, what is the e-commerce type of this extended service? Justify your answer.
+          uÿre jHdma;sh wju lsÍu b,lalfldg .;a ;u fiajd ,shdmÈxÑ lsßug wdh;kj,g bv i,id fok mßÈ
+          fuu fiajdj mq¿,a l<fyd;a fuu mq¿,a l< fiajdfõ e-jdKscH j¾.h l=ula o? Tfí ms<s;=r idOdrKSlrKh
+          lrkak'
+      (c) Assume that a registered organization provides a service for itself to submit the details of the
+          identified dengue breeding places to the state authority online. Why is this service not rightly
+          considered as B2B? What is the correct e-commerce type of this service?
+          y÷kd.kq ,enQ fvx.= uÿrejka fndajk ia:dk ms<sn| f;dr;=re" rdcH wêldßhg ud¾..;j ,nd §ug
+          ,shdmÈxÑ ixúOdkhla ;uka i|ydu fiajdjla imhd .kakd nj Wml,amkh lrkak' fuu fiajdj B2B
+          fiajdjla f,i ksjerÈj ie,lsh fkdyelafla wehs? fuu fiajdj i|yd ksjerÈ e-jdKscH j¾.h l=ula o?
+                                                                                  ( 2017 ESSAY – 03[a],[b],[c] )
+
+6.(a) A business sells handicraft items such as wooden masks, handmade souvenirs, and batik and handloom
+      cloths for tourists in a certain city of Sri Lanka. At present customers walk to the shop and buy goods
+      with cash. The owner plans to start selling his products online through his own web portal.
+      Y%S ,xldfjys tla;rd k.rhl we;s jHmdrhla ,S fjia uqyqKq" w;ska idokq ,nk isysjgk" n;sla iy w;ahka;%
+      frÈms<s jeks w;alï NdKav ixpdrlhkag wf,ú lrhs' oekg mdßfNda.slhska úiska idmamqjg meñK" uqo,a f.jd
+      NdKav ñ,§ .kq ,efí' ysñlre ;ukaf.au fjí oajdrhla u.ska ud¾..;j ;u NdKav wf,ú lsÍug ie,iqï
+      lrhs'
+       (i) State the type of e-business model the owner plans to start.
+           jHdmdr ysñlre úiska wdrïN lsÍug ie,iqï lrkq ,nk e-jHdmdr wdlD;s j¾.h i|yka lrkak'
+      (ii) Assume that a certain tourist hotel situated nearby is willing to publicize the planned online shop in
+           their hotel web site.
+           wdikakfha msysgd we;s tla;rd ixpdrl fydag,hla tys fjí wvúfhys fuu ie,iqï lrk ,o ud¾..;
+           idmamqj m%isoaO lsÍug leue;a; m<lrkafka hehs Wml,amkh lrkak'
+             (1) What type of e-business model can be established in the above scenario between the
+                 handicraft business and the hotel?
+                 fuu ixisoaêhg wod<j w;alï NdKav jHdmdrh iy fydag,h w;r l=uk e-jHdmdr wdlD;shla
+                 ia:dmkh l< yels jkafka o?
+             (2) Briefly explain one possible e-business revenue model each, for the hotel and the proposed
+                 online shop of the handicraft business.
+                 fydag,h iy w;alï NdKav jHdmdrfhys fhdað; ud¾..; idmamqj hk tlsfkl i|yd e-jHdmdr
+                 wdodhï wdlD;shla ne.ska fláfhka meyeÈ,s lrkak'
+      (iii) State two methods that can be used by the planned e-business for processing online payments.
+            ie,iqï lrk ,o e-jHdmdrfhys ud¾..; f.ùï ieliSu i|yd Ndú; l< yels l%u folla i|yka lrkak'
+      (iv) Briefly explain one e-marketing method that you would propose to attract customers to the planned
+           e-business web portal.
+           ie,iqï lrk ,o e-jHdmdr fjí oajdrh i|yd mdßfNda.slhska wdl¾IKh lr .ekSug Tn úiska fhdackd
+           lrkq ,nk e-wf,ú lsÍfï tla l%uhla fláfhka meyeÈ,s lrkak'
+                                                                                      ( 2018 ESSAY – 03[a] )
+
+
+
+
+                                                       17
+                                                                                                          ictfromabc.com
+7.(a) ABC Books (Pvt.) Ltd. specializes in buying and selling used secondhand books. At present the business
+      operations are fully manual (pure brick).
+      ABC Books mqoa.,sl iud.u" mdúÉÑ lrk ,o fmd;a ñ, § .ekSu yd úlsKu          S i|yd úfYaI;ajhla orhs'
+      j¾;udkfha§ jHdmdßl fufyhqï uq¿ukskau w;ahqre l%uhg (msfhda ì%la) isÿ fõ'
+      (i) ABC Books (Pvt.) Ltd. starts a website and allows its customers to purchase books online. What is the
+          revenue model (method of revenue) applicable in this scenario?
+          ABC Books mqoa.,sl iud.u fjí wvúhla wdrïN lr ish mdßfNda.slhkag ud¾..;j fmd;a ñ, § .ekSug
+          bv i,ihs' fuu ixisoaêhg fhfokakd jQ wdodhï wdlD;sh ^wdodhï ,nk l%uh& l=ula o?
+     (ii) Moving from pure brick type to brick and click business model, what is the most significant challenge
+          unique to ABC’s business? Explain your answer.
+          msfhda ì%la j¾.fha isg ì%la iy la,sla jHdmdr wdlD;sh lrd hdfï§ ABC Books jHdmdrhg wkkH jQ jvd;au
+          ie,lsh hq;= wNsfhda.h l=ula o? Tfí ms<s;=r meyeÈ,s lrkak'
+         Hint - Compare with the online sales of new books
+         bÕsh: ud¾..;jw¨;a fmd;a úlsKu   S iu. ii|kak'
+     (iii) ABC Books (Pvt.) Ltd. has proposed to extend its website to an e-commerce marketplace for used
+           books. This marketplace supports B2C, B2B and C2C business types and allows other businesses to
+           participate as well. Explain briefly between whom the transactions in each of the business types B2C,
+           B2B and C2C will take place in the proposed marketplace.
+           ABC Books mqoa.,sl iud.u ;u fõí wâúh" mdúÉÉ lrk ,o fmd;a i|yd e-jdKscHh fj<|fmd<la
+           olajd §¾> lsÍug fhdað; h' fuu fj<|fmd< B2C, B2B iy C2C jHdmdr j¾.j,g Wmldr jk w;r
+           fjk;a jHdmdrj,g iyNd.Sùug o bv i,ihs' fhdað; fj<|fmdf<ys B2C, B2B iy C2C hk tla tla
+           jHdmdr j¾.fhys .kqfokq ljqreka w;r isÿjkafka oehs fláfhka meyeÈ,s lrkak'
+     (iv) Other than the revenue model you mentioned in (i) above, identify another suitable revenue model
+          to be followed by the ABC Books (Pvt.) Ltd. in their proposed e-commerce marketplace.
+          ABC Books mqoa.,sl iud.ug Tjqkaf.a fhdað; e-jdKscHh fj<|fmd< ;=< wkq.ukh l< yels by; (i)
+          ys Tn úiska i|yka lrk ,o wdodhï wdlD;sh yer fjk;a iqÿiq wdodhï wdlD;shla y÷kdf.k ,shd
+          olajkak'
+     (v) Identify and write down a possible way to make payments within this e-commerce marketplace.
+         fuu e-jdKscHh fj<|fmd< ;=< f.ùï isÿ l< yels wdldrhla y÷kdf.k ,shd olajkak'
+     (vi) Briefly explain how book publishing companies can use the proposed e-commerce marketplace data
+          for their businesses.
+          fhdað; e-jdKscH fj<|fmdf<ys o;a;" fmd;a m%ldYk iud.ïj,g ;u jHdmdr i|yd Ndú; l< yels
+          jkafka flfiaoehs fláfhka meyeÈ,s lrkak'
+                                                                                  ( 2019 ESSAY – 03[a] )
+
+
+8.(a) AB Stores is a grocery shop in your home town. With your expert advise, AB Stores has implemented a
+      web-based e-commerce system to conduct their business online as well. Customers can select their
+      required products and confirm the order online.
+      AB Stores hkq Tnf.a k.rfhys we;s is,a,r nvq idmamqjls' Tnf.a úfYaI{ Wmfoia u; AB Stores úiska
+      ud¾..;j jHdmdrh isÿ lsÍu i|yd fjí mdol lr.;a e-jdKscH moaO;shla ia:dms; lrk ,§' mdßfNda.slhkag
+      ud¾..;j wjYH ksIamdok f;dardf.k weKjqu iaÒr l< yels fõ'
+      (i) What is the e-commerce business type applicable in this scenario?
+          fuu ixisoaêhg wod< jk e-jdKscH jHdmdr m%j¾.h l=ula o?
+     (ii) What is the revenue model used in this e-commerce offering of AB Stores?
+          e-jdKscH u.ska AB Stores bÈßm;a lrkq ,nk wdodhï wdlD;sh l=ula o?
+     (iii) The e-commerce solution of AB Stores became popular rapidly with a growing userbase. However, it
+           was noticed that most of the regular customers from the local community still preferred using the
+           physical outlet than the e-commerce offering. Identify two possible reasons for such preference.
+           AB Stores ys e-jdKscH úi÷u" j¾Okh jk mßYS,l m%cdj;a iu. fõ.fhka ckm%h           s úh' tfiajqjo" tu
+           m%foaYfha m%cdj w;ßka wjg isák" ks;sm;d meñfKk mdßfNda.slhka jeä msßila ;jÿrg;a tys fN!;sl
+           fj<| wxYh Ndú; lsÍug jeä leue;a;la olajk Lj oek.kakg ,enqK's fujeks leue;a;lg ;sìh yels
+           fya;= folla ,shd olajkak'
+
+
+
+
+                                                      18
+                                                                                                        ictfromabc.com
+     (iv) AB Stores extended its e-commerce system to integrate with its suppliers’ systems to maintain its
+          product stocks through automation. What is the e-commerce business type AB Stores implements
+          with this system modification?
+          AB Stores úiska ish e-jdKscH moaO;sh ;u NdKav f;d. kv;a;= lsÍu i|yd ;u iemhqïlrejkaf.a moaO;s
+          iu. iajhxlrKh u.ska taldnoaO lrk ,§' fuu moaO;s kùlrKh u.ska AB Stores l%shd;aul lrk e-
+          jdKscH jHdmdr m%j¾.h l=ula o?
+     (v) AB Stores decides to expand its e-commerce solution allowing other local shops to have virtual stores
+         within the system. What is the term used to identify the proposed system?
+         AB Stores tu m%foaYfha fjk;a idmamq i|yd ;u moaO;sh ;=< w;:H fj<|ie,a mj;ajdf.k hdug bv
+         ,ndfoñka ;u e-jdKscH úi÷u mq¿,a lsÍug ;SrKh lrhs' fhdað; moaO;sh y÷kd.ekSug Ndú; flfrk
+         moh l=ula o?
+     (vi) Write down one advantage that each of the following will receive by having the proposed system in
+          (v) above.
+          by; (v) ys fhdað; moaO;sh u.ska my; tla tla whg ,efnk tla jdishla ne.ska ,shd olajkak'
+             (1) Customers / mdßfNda.slhka
+             (2) AB Stores
+             (3) other local shops / tu m%foaYfhys fjk;a idmamq
+    (vii) A recent market survey has identified the following about the customers who have registered with
+          the AB Stores e-commerce system proposed in (v) above:
+          uE;l § lrk ,o ;;= úuiSulg wkqj by; (v) fldgfiys AB Stores i|yd fhdað; e-jdKscH eemoaO;sfhys
+          ,shdmÈxÑ jQ mdßfNda.slhka ms<sn| my; oelafjk oE y÷kd.kakd ,§'
+         •    98% are nearby residents within a 2 km radius.
+              98% la lsf,daóg¾ 2 l jmißhla ;=< isák <Õmd; mÈxÑlrejkah'
+         •    12% of them are able to pay online (either through credit/debit cards or mobile cash options)
+              12% la (Khm;a fyda yrm;a fyda cx.u f.ùu fyda úl,am u.ska) ud¾..;j f.ùï l< yels wh fõ'
+         •    18% do not wish to pay in advance for a future transaction.
+              18% la wkd.;fhys isÿ jk .kqfokqjla i|yd l,a we;sj uqo,a f.ùug wlue;s wh fõ'
+         What is your suggestion to enable most of the registered customers to make purchases successfully
+         through the system and receive their goods at home without any restriction? Explain your answer.
+         ,shdmÈxÑ mdßfNda.slhka w;=frka jeä msßilg lsisÿ iSud lsÍulska f;drj" moaO;sh yryd ñ,§.ekSï
+         id¾:lj isÿ lr NdKav ksjig ,nd .ekSug ie,iSu i|yd Tfí fhdackdj l=ula o? Tfí ms<s;=r meyeÈ,s
+         lrkak'
+    (viii) With the expected growth of the e-commerce business of AB Stores, you have advised them to
+           outsource the delivery of customer purchased goods to a third-party delivery service. Explain two
+           advantages AB Stores can get by doing so.
+           AB Stores ys e-jdKscH jHdmdrfhys wfmalaI;
+                                                   s j¾Okh iu." mdßfNda.slhka ñ,§ .;a NdKav fnod yeÍu"
+           NdKav fnod yeÍu isÿ lrkq ,nk ;=kajk md¾Yajhlg mejÍug Tn úiska Wmfoia § we;' fufia lsÍfuka
+           AB Stores fj; ,eìh yels jdis folla meyeÈ,s lrkak'
+                                                                                    ( 2020 ESSAY – 07[a] )
+
+
+9.(a) PQR Books, a book shop in your area starts an E-Commerce site to expand its business and to provide
+      services to the customers in other areas. Through it the customers can select their desired books and
+      stationery products and confirm their orders online.
+      Tn m%foaYfha ;sfnk PQR Books fmd;a idmamqj" ;u jHdmdrh jHdma; lsÍug iN wfkl=;a m%foaYj, isák
+      mdßfNda.slhkago ;u fiajd iemhSug b-jdKscH wvúhla wdrïN lrhs' th yryd ;ukag wejeis fmd;a iy
+      ,smsøjH f;aÍu iy wekjqï iaÓr lsßu ud¾..;j lsÍug mdßfNda.slhskag yels fõ'
+      (i) What is the E-Commerce business type applicable in this scenario?
+          fuhg wod< b-jdKscH jHdmdr m%j¾.h l=ula o?
+     (ii) What is the revenue model used in this E-Commerce site of PQR Books?
+          PQR Books ys fuu b-jdKscH wvúh Ndú; lrk wdodhï wdlD;sh l=ula o?
+
+
+
+
+                                                      19
+                                                                                                      ictfromabc.com
+      (iii) With the successful implementation of its E-Commerce site, PQR Books decides to offer digital
+            learning material such as e-books and audio-visual content to its customers. Do you recommend the
+            same revenue model of (ii) above for this as well? Justify your answer.
+            tu b-jdKscH wvúfha id¾:l;ajh;a iu." b-fmd;a iy wfkl=;a Y%jH oDYH ikaOdr wvx.= wxlk bf.kqï
+            øjH ;u mdßfNda.slhskag bÈßm;a lsÍug PQR Books ;SrKh lrhs' fuh i|yd o by; (ii) ys oelajQ
+            wdodhï wdlD;shu Tn fhdackd lrkafkys o? Tnf.a ms<s;=r idOdrKSlrKh lrkak'
+      (iv) For an increased customer base and popularity, PQR Books plans to provide free access to these
+           digital content through its streaming channel. Suggest a strategy to increase its business revenue
+           with the help of this proposed streaming channel
+           jvd úYd, mdßfNda.sl mokula iy ckm%h     s ;djhla i|yd m%jdy pek,hla yryd tu wxlk wka;¾.;
+           fkdñf,a bÈßm;a lsÍug PQR Books ie,iqï lrhs' fuu fhdað; m%jdy pek,h yryd Tjqkaf.a jHdmdr
+           wdodhu by< kexùug wdodhï Wmdhud¾.hla fhdackd lrkak '
+       (v) Write down a key challenge this bookshop has to face when implementing this digital content
+           channel proposed in (iv) above.
+           by; (iv) ys fhdað; wxlk wka;¾.; pek,h l%shd;aul lsÍfu§ fuu fmd;a idmamqjg uqyqK Èh hq;= m%Odk
+           wNsfhda.hla ,shd olajkak'
+      (vi) Name a suitable expansion solution for this E-Commerce site to incorporate both related (e.g., books,
+           stationery etc.) and unrelated (e.g., grocery items, etc.) products or services to enable a more
+           competitive purchasing experience to its customers.
+           mdßfNda.slhskag jvd;a ;r.ldÍ ñ,§ .ekSï w;aú£ula ,nd§ug" iïnkaê; NdKav ^Wod( fmd;a" ,smsøjH
+           jeks& iy iïnkaOhla ke;s NdKav ^Wod( is,a,r nvq jeks& iy fiajd taldnoaO lr fuu b-jdKscH wvúh
+           mq¿,a lsÍfï úi÷u kï lrkak'
+                                                                                       ( 2021 ESSAY – 07[a] )
+
+
+10.(e) The owner has started an online shop to sell the harvest from this greenhouse to buyers who are nearby.
+       wjg fjfik .eKqïlrejkag yß;d.drfha wiajekak wf,úlsÍug ud¾..; fjf<|ie,la whs;slre wrUd we;'
+       (i) State one advantage of limiting sales to the community nearby the greenhouse.
+           úlsKï S " yß;d.drh wjg fjfik m%cdjg iSud lsÍfï jdishla ,shd olajkak'
+       (ii) State an alternative payment method that can be used until an online payment facility is setup.
+            ud¾..; f.ùï myiqlu imhk ;=re Ndú; l< yels úl,am f.ùï l%uhla ,shd olajkak'
+      (iii) He cultivated tomatoes and sells salted dried tomatoes online (as a snack). This, known as value
+            addition, gives higher profits. Give another advantage of this value-addition to his e-business.
+            Tyq ;lald,s j.d lr" ¨Kq oeuQ úh<s ;lald,s iq¿ wyrla f,i ud¾..; l%uhg wf,ú lrhs" w.h jeä
+            lsÍu f,i y÷kajk fuhska jeä ,dNhla ,efí' Tyqf.a b-jHdmdrhg fuu w.h jeä ls¾u ksid ,efnk
+            ;j;a jdishla ,shd olajkak'
+                                                                                          ( 2022 ESSAY – 07[e] )
+
+
+11.(b) SuperMobile is an online mobile phone shop where customers can purchase mobile phones through its
+       e-Commerce site. SuperMobile uses the third-party courier service DeliverToday as its delivery partner.
+       The customers who purchase mobile phones from SuperMobile become members of the loyalty program.
+       They can upload their reviews, feedback, and creative content related to their mobile phone usage to
+       the online site and receive beneficial loyalty points in return.
+       SuperMobile hkq ud¾..; cx.u ÿrl:k wf,úie,la jk w;r tys b-jdKScHh wvúh yryd
+       mdßfNda.slhkag cx.u ÿrl:k ñ,hg .; yelsh' SuperMobile ;u ;=kajk md¾Yj fnodyeÍï yjq,alre
+       f,i DeliverToday ¥; fiajh Ndú;d lrhs' SuperMobile fj;ska cx.u ÿrl:k ñ,§ .kakd mdßfNda.slhska
+       m%ido (f,dah,á) jevigyfka idudðlhska njg m;a fõ' Tjqkag ;u cx.u ÿrl:k Ndú;hg wod< úpdr" miq
+       úmrï iy ks¾udKYS,S wka;¾.; ud¾..; wvúhg Wvq.; lr" tA ioyd wdmiq" jdisiy.; m%ido ,l=Kq
+       ,nd.; yel'
+       (i) Write down the e-Business transaction types that are possible with SuperMobile.
+           SuperMobile iu. isÿ l< yels b jHdmdr .Kqfokq j¾. ,shd olajkak '
+       (ii) SuperMobile owners speculate that establishing their own delivery team for customer deliveries can
+            be cost-effective and more profitable than using the DeliverToday service. Analyse this speculation
+            by giving one reason each for and against this view. (Note: Consider the financial aspects only.)
+            DeliverToday fiajdj Ndú; lrkjdg jvd" mdßfNda.sl fnodyeÍu i|yd" ;ukaf.au fnodyeÍï
+            lKavdhula ia:dms; lsÍu msßjeh M,odhs iyd jvd;a ,dNodhs njg SuperMobile ysñlrefjda wkqudk lr;s'
+            fuu oelaug mlaIj iy úmlaIj tla fya;=jla ne.ska olajñka tu wkqudk úYaf,aIKh lrkak' (igyk:
+            uQ,Huh me;slv muKla i,lkak')
+
+
+                                                       20
+                                                                                                        ictfromabc.com
+     (iii) Mobile phones are not perishable and thus don’t indicate expiry dates. However, they often have a
+           finite shelf life beyond which the customers are reluctant to purchase them. Give a reason for this
+           observation.
+           cx.u ÿrl:k úkdY fkdjk ksid tAjdfha l,a bl=;a jk Èk olajkafka ke;' tkuqÿ" tAjdg fndfyda úg
+           iSñ; rdlal ðú; ld,hla we;s ksid thska miq tAjd ñ,g .ekSug mdßfNda.slhska wleue;s fõ' fuu
+           ksÍlaIKhg tla fya;=jla olajkak'
+     (iv) Suggest a suitable business strategy that SuperMobile can use both to reduce the environmental
+          damage due to e-waste and also to increase its sales.
+          b-wmøjH ksid isÿjk mßir úkdYh wvq lsÍug iy ;u úl=Kï            q by< oeóug hk folu i|yd
+          SuperMobile wdh;khg Ndú; lsÍug iqÿiq jHdmdr Wmdhla fhdackd lrkak '
+                                                                                  ( 2024 ESSAY – 07[b] )
+
+12. Saman owns a small shop, ‘Ceylon Crafts’ in Kandy, which sells wood carvings and batik fabrics mainly to
+    tourists. At the moment it is run entirely as a physical shop, with customers visiting in person and paying
+    in cash.
+    iuka ixpdrlhska uQ,sl lr.;a" uykqjr msysá Ceylon Crafts kue;s ,S leghï iy n;sla frÈ wf,ú lrk" l=vd
+    idmamqjl whs;slrefjls' oekg fuh mdßfNda.slhska meñK uqo,a u.ska .kqfokq lrk fN!;sl idmamqjla f,i
+    mj;ajdf.k hkq ,efí'
+     (a) While keeping his physical shop, Saman decides to join the digital economy. For this, he creates an
+         online shop to list his products and to accept online payments from customers.
+         fN!;sl idmamqj mj;ajdf.k hk w;ru" iuka wxls; wd¾Ólhg iïnkaO ùug ;SrKh lrhs' ta i|yd
+         Tyq" ;u ksmehqï ,ehsia;=j oelaùug iy mdßfNda.slhskaf.ka ud¾..; f.ùï ,nd.ekSug" ud¾..;
+         idmamqjla idohs'
+            (i) Previously, the business operated as a pure brick organization. After introducing the online
+                shop, what is the new form of the business?
+                jHdmdrh fuf;la l%shd;aul jQfha msfhdaì%la ixúOdkhla f,isks' ud¾..; idmamqj y÷kajd§fuka
+                miq" jHdmdrfha kj iajrEmh l=ula o?
+            (ii) Saman makes agreements with some nearby tourist hotels to display his products on their
+                 websites to direct buyers to his online shop. State the e-commerce transaction type between
+                 Saman and the tourist hotels selecting from B2B, B2C, C2C and C2B.
+                 wjg ixpdrl fydag,j, fjí wvúj," ;udf.a ksmehqï m%o¾Ykh lrñka" .ekqïlrejka ;u
+                 ud¾..; idmamqjg fhduq lrjd .ekSug iuka tu fydag,a iu. tlÕ;djhkag meñfKa' iuka iy
+                 ixpdrl fydag,a w;r isÿjk b-jdKscHh .kqfokq j¾.h B2B, B2C, C2C iy C2B w;=frka f;dard
+                 ,shkak'
+            (iii) From the types listed in (ii) above, what is the e-commerce transaction type between Saman
+                  and a customer who buys a product online?
+                  by; (ii) ys olajd we;s j¾. w;=frka" ud¾..;j ksmehqula ñ,g .kakd mdßfNda.slhl= iy iuka
+                  w;r isÿjk b-jdKcHh .kqfokq j¾.h l=ula o?
+            (iv) Write down one payment method that Saman could provide for customers in his online shop.
+                 iukag ;u ud¾..; idmamqfõ" mdßfNda.slhka fjkqfjka iemhsh yels tla f.ùï l%uhla ,shd
+                 olajkak'
+            (v) Saman wants to expand his online shop to local suppliers who desire to supply their crafts to
+                Saman. For this purpose, the suppliers are to be given the facility to upload the images of
+                their crafts, submit their prices and the way to contact them. List four digital divide related
+                problems that Saman could face in this endeavour.
+                ;u ksmehqï iukag iemhSug wNs,dIfhka isák m%dfoaYSh iemhqïlrejkag;a ud¾..; idmamqj
+                jHdma; lsÍug iukag wjYH fõ' ta i|yd iemhqïlrejkag ;u ksmehqïj, rEm Wvq.; lsÍug"
+                tajdfha ñ, .Kka iy ;uka iïnkaO lr yels u. ie,lr isàfï myiqlu ,nd Èh hq;= h' fï
+                m%h;akfha § iukag uqyqK§ug isÿ úh yels" wxls; fnÿu wdY%;   s .eg¨ y;rla ,ehsia;=.; lrkak'
+            (vi) For one of the problems that you listed in (v) above, explain a solution that Saman could
+                 provide.
+                 by; (v) i|yd Tn ,ehsia;=.; l< tla .eg¨jlg iukag ,ndÈh yels úi÷ula meyeÈ,s lrkak '
+                                                                                      ( 2025 ESSAY – 07[a] )
+
+
+
+
+                                                      21
+                                                                                                       ictfromabc.com
+                             LESSON 13 PAST PAPERS
+1.   Consider the following statements:
+     my; oelafjk m%ldY i,ld n,kak.
+     A - Reading time from memory (latency) was assumed to be negligible.
+         u;lfhka lshùfï ld, mudj fkd.sKsh yels hehs Wml,amkh lsÍu'
+     B - Utilization of a hierarchical memory structure. / OQrdj,s iaurK jHqyh Ndú; lsÍu'
+     C - Inability to foresee the limitation of the processor clock frequency.
+         iliq iamkao ixLHd;fhys iSudj mQ¾jfhka oelSug fkdyels ùu'
+     Which of the above prevented the technological advancement beyond the Von Neumann architecture?
+     fjdka kshqudka ks¾udKlrKh blaujk fia ;dlaIKsl j¾Okh j<lajk ,oafoa by; oelafjk ljrla úiska o?
+     1) A only           2) B only             3) C only            4) A and B only         5) A and C only
+        A muKs              B muKs                C muKs               A yd B muKs             A yd C muKs
+                                                                                                    ( 2011 – 33 )
+2.   Consider the following computer applications:
+     my; oelafjk mß.Kl fhÿï i,lkak
+     A - Guiding Tourists based on their current location.
+         ixpdrlhskag Tjqka oekg isák ia:dkh mokï lr .ksñka uÕ fmkaùu
+     B - Customization of automobiles / r:jdyk wNsreÑlrKh
+     C - Advertising via Internet / wka;¾cd, yryd m%pdrKh
+     D - Customization of domestic environments / foaYSh mßir wysreÑlrKh
+     Which of the above applications are most favourably benefited from ubiquitous computing?
+     id¾j;%j¾;S wd.Kkh u.ska jvd;au m%;s,dN ,nd we;af;a by; oelafjk ljrla o?
+     1) A and B only     2) B and C only       3) A, B and C only     4) A, B and D only    5) B, C and D only
+        A yd B muKs         B yd C muKs           A, B yd C muKs         A, B yd D muKs        B, C yd D muKs
+                                                                                                    ( 2011 – 34 )
+3.   Consider the following characteristics:
+     my; i|yka ,dlaIKsl i,ld n,kak:
+     A - Autonomous / iaj;ka;%
+     B - Performs in dynamic environments / .;sl mßirj,§ l%shdldß;ajh
+     C - Functions restricted to a time period / ld¾hhka ld, jljdkqjlg iSudùu
+     D - Interacts with highly increasing information / nyq,j j¾Okh jk f;dr;=re iuÕ wka;¾ l%shdldß;ajh
+     Which of the above are characteristics of a Software Agent?
+     uDÿldx. ldrlhl ,dlaIKsl jkafka by; i|yka ljr tajd o?
+     1) A and B only     2) A and C only       3) A, B and C only      4) A, B and D only   5) B, C and D only
+        A yd B muKs         A yd C muKs           A, B yd C muKs          A, B yd D muKs       B, C yd D muKs
+                                                                                                    ( 2012 – 32 )
+4.   Ubiquitous computing will be useful in applications such as,
+     úfoaY rgl /lshdjl kshq;= mqoa.,fhla" Y%S ,xldfõ fjfik ish ujg, hï iud.ul fjí mdol fiajd Wmfhd.S
+     lr.ksñka WmkaÈk ;Hd.hla ,efnkakg ie,eiaùu i|yd ud¾..; wekjqula lrhs' WmkaÈk ;Hd.h wekjqï
+     lsÍfï fuu .kqfokqj jvd;au fyd¢ka j¾.SlrKh l< yelafla"
+     1) Customisation of a domestic environment / foaYSh mßir wNsreÑlrKh jeks fhÿïj,§ h.
+     2) Processing of large scale examination results / uyd mßudKfha úyd. m%;sM, ieliqu jeks fhÿïj,§ h.
+     3) Auto Teller Machine (ATM) / iajhxlD; fg,¾ hka;% jeks fhÿïj,§ h.
+     4) Point of Sales (POS) Machine / úl=Kï q fmd, hka;% jeks fhÿïj,§ h'
+     5) Controlling a wall clock / ì;a;s Trf,daiqjla md,kh jeks fhÿïj,§ h.                          ( 2012 – 33 )
+
+
+
+
+                                                           22
+                                                                                                          ictfromabc.com
+5.   Ubiquitous Computing is a/an ................. computing environment. The user will be able to use both ................
+     and .................... services,
+     Which of the following is most appropriate to fill the blanks in the above statement?
+     i¾jj¾;S wd.Kkh hkq ..................... wd.Kk mßirhls' fuys § mßYS,lhdg ..................... yd ..................... fiajd
+     fol u ,nd .; yelsh'
+     by; j.ka;sfha ysia;eka msrùu i|yd jvd;a u fhda.H jpk wkqms<sfj< ljrla o?
+     1) everywhere, mobile, local / ieu;eklu mj;sk" cx.u" ia:dkSh
+     2) everywhere, local, remote / ieu;eklu mj;sk" ia:dkSh" ÿria:
+     3) everywhere, local, paid / ieu;eklu mj;sk" ia:dkSh" f.ùï l<
+     4) virtual, local, remote / w;:H" ia:dkSh" ÿria:
+     5) virtual, mobile, global / w;:H" cx.u" f.da,Sh                                                            ( 2013 – 48 )
+
+6.   Which of the following systems should always be based on Artificial Intelligence?
+     my; moaO;s w;=frka ieuúg u lD;%Su nqoaêh u; mokï jkafka ljrla o?
+     A - Expert Systems / úfYaI{ moaO;s
+     B - Enterprise Resource Planning (ERP) Systems / jHjidh iïm;a ie,iqï moaO;s
+     C - Multi-Agent Systems / nyq tacka; moaO;s
+     D - Geographical Information Systems / N+f.da,Sh f;dr;=re moaO;s
+     1) A and B only        2) A and C only          3) A and D only         4) B and D only         5) C and D only
+        A yd B muKs            A yd C muKs              A, yd D muKs            B yd D muKs             C yd D muKs
+                                                                                                                 ( 2014 – 45 )
+7.   Consider the following statements about Software Agents:
+     uDÿldx. ksfhdað;jre iïnkaOfhka my; i|yka j.ka;s i,ld n,kak :
+     A - A software agent is capable of autonomous actions in order to meet its design objectives.
+         uDÿldx. ksfhdað;fhl=g Tyqf.a ie,iqï wruqKq imqrd .ekSu i|yd iajdh;a;j l%shd lsÍug yelshdjla we;'
+     B - A software agent is capable of user-directed actions in order to meet users objectives.
+         uDÿldx. ksfhdað;fhl=g mßYS,lhkaf.a wruqKq imqrd,Su i|yd mßYS,l fhduqj,ska l%shd lsÍug yelshdjla
+         we;'
+     C - A multi-agent system is composed of set of interacting agents.
+         nyq-ksfhdað; moaO;shla iukaú; jkafka wka;¾l%shdldß;ajfhka hq;= ksfhdað;jre iuQyhlsks'
+     Which of the above statements is/are true?
+     by; m%ldY w;=frka ksjerÈ jkafka l=uk m%ldYh$m%ldY o?
+     1) A only              2) B only              3) C only              4) A and B only               5) A and C only
+        A muKs                 B muKs                 C muKs                 A yd B muKs                   A yd C muKs
+                                                                                                                 ( 2014 – 49 )
+8.   Which of the following is incorrect about software agents?
+     uDÿldx. ksfhdað;jre iïnkaOfhka jerÈ jkafka my; i|yka l=ula o?
+     1) They exhibit some degree of autonomy. / Tjqka hï m%udKhlg iajdêldrh fmkakqï lrhs.
+     2) They are a subset of reactive systems. / Tjqka m%;sl%shl moaO;sj, Wml=,lhla fõ'
+     3) They are proactive in terms of their ability to exhibit goal-directed behaviour.
+        b,lal.; p¾hdjka fmkakqï lsÍfï yelshdj iïnkaOfhka Tjqka m%lSh fõ.
+     4) Electronic commerce is one of the key application areas of them.
+        úoHq;a jdkscH Tjqkaf.a m%Odk fhÿï lafIa;%hla fõ'
+     5) They are always cooperative in a multi-agent environment.
+        nyq ksfhdað; mßirhl § Tjqka ieuúg u tluq;= fõ'                                                           ( 2015 – 49 )
+
+
+
+
+                                                               23
+                                                                                                                         ictfromabc.com
+9.   Which of the following is/are examples for artificial intelligence techniques?
+     lD;s%u nqoaê l%fudamd i|yd my; i|yka ljrla WodyrK jkafka o?
+     A - Neural Networks / iakdhql cd,
+     B - Genetic Algorithms / cdk m%fõKs we,af.dß;u
+     C - Ubiquitous Computing / id¾j;%sl mß.Kkh
+     1) A only        2) B only        3) A and B only             4) A and C only      5) B and C only
+        A muKs           B muKs           A yd B muKs                 A yd C muKs          B yd C muKs
+                                                                                              ( 2015 – 50 )
+10. Consider the following statements:
+    my; i|yka m%ldY i,lkak:
+     A - Software Agents are computer programs. / uDÿldx. tacka;jre mß.Kl l%uf,aL fõ'
+     B - Some computer viruses could be considered as software agents.
+         we;eï mß.Kl ffjri uDÿldx. tacka;jreka f,i ie,lsh yels h'
+     C - All software agents have user interfaces. / ish¨ uDÿldx. tacka;jrekag mßYS,l w;=re uqyqK;a mj;S'
+     Which of the above statements is/are correct?
+     by; i|yka l=uk j.ka;s$j.ka;sh ksjerÈ jkafka o?
+     1) A only         2) A and B only       3) A and C only        4) B and C only    5) All of the above
+        A muKs            A yd B muKs           A yd C muKs            B yd C muKs        by; ish,a,u
+                                                                                               ( 2016 – 49 )
+11. Which of the following statements is true about Artificial Intelligence?
+    lD;%su nqoaêh iïnkaOfhka my; oelafjk l=uk j.ka;sh i;H fõ o?
+     1) Inference Engine in an Expert System completely mimics human decision making process.
+        úfYaI{ moaO;shl wkqudk hka;%h udkj ;SrK .ekSfï l%shdj,sh uq¿ukska u wkqlrKh lrhs '
+     2) Knowledge Base in an Expert System consists only the primary knowledge of an expert.
+        úfYaI{ moaO;shl oekqï iuqodhla ;=< úfYaI{hl=f.a m%d:ñl oekqu muKla wvx.= fõ'
+     3) Expert systems are always implemented by using Genetic Algorithms.
+        úfYaI{ moaO;s ieuúg u cdkuh we,af.dß;u u.ska l%shd;aul flf¾'
+     4) Genetic Algorithms provide only one solution to a given problem.
+        cdkuh we,af.dß;u u.ska § we;s .eg¨jla i|yd tla ms<s;=rla muKla ,nd foa'
+     5) Genetic Algorithm evolves a solution for a given problem over a number of iterations.
+        cdkuh we,af.dß;u § we;s m%Yakhl úi÷u mqk¾lrK lsysmhl § mßKdukh lrhs'                  ( 2017 – 28 )
+
+12. Consider the following clauses:
+    my; oelafjk j.ka;s i,lkak:
+     A - can response to relevant environment changes. / wod< mdßißl fjkialïj,g m%;spdr oelaúh yels h'
+     B - always acts according to well-defined user instructions.
+         fyd¢ka w¾: olajd we;s mßYS,l Wmfoia wkqj iEu úg u l%shd lrhs'
+     C - performs only pre-defined set of tasks. / mQ¾j w¾: oelajQ ld¾h iuQyhla muKla bgq lrhs'
+     D - can make decisions under incomplete information.
+         wiïmQ¾K f;dr;=re u; ;SrK .ekSug yelshdjla we;'
+     Which of the above can be considered as properties of software agent system?
+     by; i|yka tajdhska uDÿldx. tacka; moaO;shl .=Kdx. f,i ie,lsh yelafla fudkjd o?
+     1) A and B only       2) A and C only      3) A and D only      4) B and C only   5) C and D only
+        A yd B muKs           A yd C muKs          A, yd D muKs         B yd C muKs       C yd D muKs
+                                                                                               ( 2017 – 50 )
+
+
+
+
+                                                       24
+                                                                                                     ictfromabc.com
+13. A smart home application that automates the controlling of lighting, temperature, entertainment systems,
+    and appliances is an example for,
+    wdf,dallrKh" WIaK;ajh" úfkdaodiajdo moaO;s yd WmlrK md,kh lrk iqyqre ksfjia fhÿula my; ljrlg
+    WodyrKhla fõ o?
+    1) evolutionary computing / mßKdñl mß.Kkh
+    2) multi-agent systems / nyq tacka; moaO;s
+    3) nature inspired computing / iajNdj O¾ufhka wkqm%dKs; mß.Kkh
+    4) software agents / uDÿldx. tacka;
+    5) ubiquitous computing / id¾j;%sl mß.Kkh                                                       ( 2018 – 32 )
+
+14. Consider the following statements regarding artificial intelligence.
+    lD;%su nqoaêh iïnkaO my; m%ldY i,lkak'
+    A - Artificial intelligence systems can be used in email spam filters.
+        whdÑ; ;eme,a fmryka ;=< lD;%su nqoaê moaO;s Ndú; l< yel'
+    B - Artificial intelligence systems are capable of analyzing uncertain information.
+        lD;%su nqoaê moaO;sj,g wúksYaÑ; f;dr;=re úYaf,aIKh lsÍfï yelshdj we;'
+    C - An artificial intelligence system is a system for capturing, storing, processing, and displaying data
+        related to positions on earth’s surface.
+        lD;%su nqoaê moaO;shla hkq mDÓú mDIaGfhys hï hï ia:dkj,g iïnkaO o;a; w;am;a lr .ekSu" .nvd
+        lsÍu" ieliSu yd m%o¾Ykh lsÍu i|yd jk moaO;shls'
+    Which of the above is/are correct?
+    by; ljrla ksjerÈ fõ o?
+    1) A only       2) A and B only        3) A and C only        4) B and C only         5) All of the above
+       A muKs          A yd B muKs            A yd C muKs            B yd C muKs             by; ish,a,u
+                                                                                                     ( 2018 – 33 )
+
+15. Consider the following statements relevant to the trends in modern information technology.
+    kQ;k f;dr;=re ;dlaIK keUqre;dj,g wod< my; m%ldY i,lkak '
+    A - In traditional computing, data is encoded into binary digits while in quantum computing data is
+        represented in quantum bits or qubits.
+        idïm%odhsl mß.Kkfha o;a; oaúuh ixLHdxlj,g wdfla;kh lrkq ,nk w;r lafjdkagï mß.Kkfha§
+        o;a; lafjdkagï ìgq fyj;a lshqìgqj,ska ksrEmKh flf¾'
+    B - A wearable device capable of activity tracking that measures data such as the number of steps walked
+        and heart rate is an example for a sensor network.
+        YÍr fhda.H;dj yd ine¢" weúÈk ,o mshjr ixLHdj yd yDo iamkaok fõ.h jeks l%shdldrlï wkqueÕ=ug
+        wod< o;a; uekSu i|yd me<¢h yels Wml%uhla" ixfõol cd,hlg WodyrKhls'
+    C - A collection of nodes capable of environmental sensing, local computation, and communication with
+        its peers or with other higher performance nodes is called a Geographic Information System.
+        mßir ixfõokh" ia:dkSh mß.Kkh iy iudkhka iu. fyda jvd by< l%shdldß;ajhla we;s fkdavq iu.
+        ikaksfõokh lsÍfï yelshdj we;s fkdavq tl;=jla N=f.da,Sh f;dr;=re moaO;shla f,i ye¢kafõ'
+    Which of the above statements is/are correct?
+    by; ljr m%ldY$h ksjerÈ fõ o?
+    1) A only       2) A and B only        3) A and C only        4) B and C only         5) All of the above
+       A muKs          A yd B muKs            A yd C muKs            B yd C muKs             by; ish,a,u
+                                                                                                    ( 2018 – 38 )
+
+
+
+
+                                                       25
+                                                                                                          ictfromabc.com
+16. Consider the following statements related to nature inspired computing:
+    fidndoyfuka fm<Ufjk mß.KllrKh ms<sn| my; oelafjk j.ka;s i,lkak:
+    A - In nature inspired computing natural phenomena/scenario are observed and used to design and
+        develop computing models to solve complex problems.
+        fidndoyfuka fm<Ufjk mß.KllrKfha § ixlS¾K .eg¿ úi£u Wfoid mß.Kl wdlD;shla ie,iqï
+        lr ixj¾Okh lsÍug" iajdNdúl m%mxphla$ixisoaêhla ksÍlaIKh lr fhdod .kq ,efí'
+    B - Artificial Intelligence can use nature inspired computing for improving its ability to understand and
+        solve computationally challenging problems.
+        mß.KkShj wNsfhda.d;aul .eg¿ wjfndaO lr .ekSfï iy úi£fï yelshdj jeä ÈhqKq lsÍu i|yd lD;%Su
+        nqoaêh u.ska fidndoyñka fm<Ufjk mß.KllrKh Ndú; l< yel'
+    C - Computing models and algorithms developed under nature inspired computing can only be used in
+        natural environments such as rain forests, oceans and wild-life sanctuaries.
+        fidndoyñka fm<Ufjk mß.KllrKh hgf;ys ixj¾Okh lrk ,o mß.Kl wdlD;s iy we,af.dß;u"
+        jeis jkdka;r" id.r iy jk i;a;aj wNhN+ñ jeks iajdNdúl mßir i|Õd muKla Ndú;d l< yel'
+    Which of the above statements is/are incorrect?
+    by; i|yka ljr j.ka;shla$j.ka;s idjoH fõ o?
+   1) A only          2) B only          3) C only           4) A and C only         5) All of the above
+      A muKs             B muKs             C muKs              A yd C muKs             by; ish,a,u
+                                                                                                 ( 2019 – 33 )
+17. Consider the following: / my; oE i,lkak'
+    A - Cloud formation in the sky / wyfiys j<dl=¿ we;sùu
+    B - The evolution of living species / Ôúkaf.a mßKduh
+    C - How neurons function in the human brain / ñksia fud<fha kshqfrdak l%shdldß;ajh
+    Which of the above could be used in bio-inspired computing?
+    ffcj fma%ß; mß.Kkh i|yd by; ljrla Ndú; l< yels o?
+    1) A only        2) B only          3) C only         4) A and C only            5) B and C only
+       A muKs           B muKs             C muKs            A yd C muKs                B yd C muKs
+                                                                                               ( 2020 – 49 )
+18. Which of the following statements about quantum computing are correct?
+    lafjdkagï mß.Kkh iïnkaOfhka my; ljrla ksjerÈ fõ o?
+    A - In quantum computing, principles of quantum physics are applied.
+        lafjdkagï mß.Kkfha §" lafjdkagï fN!;sl úoHdfõ uQ,O¾u fhofõ'
+    B - Quantum bits (qubits) are used in quantum computing as the information unit.
+        lafjdkagï mß.Kkfha f;dr;=re tallh f,i lafjdkagï ìgq Ndú; fõ'
+    C - Quantum computers emit radiation fatal to human users.
+        lafjdkagï mß.Kl ukqIH mßYS,lhkag wys;lr úlsrK msg lrhs'
+   1) A only          2) B only          3) C only           4) A and B only         5) All of the above
+      A muKs             B muKs             C muKs              A yd B muKs             by; ish,a,u
+                                                                                               ( 2020 – 50 )
+19. Which of the following statements is/are correct?
+    my; ljr m%ldY$h ksjerÈ fõ o?
+    A - Quantum computing could be an alternative to overcome the limitations of the existing
+        microprocessors.
+        oekg mj;sk laIqø ilikj, iSñ; yelshdjka uÕyrjd .ekSug lafjdkagï mß.Kkh úl,amhla úhyelsh'
+    B - Natural phenomena such as the behaviour of ant colonies could be used to develop new computing
+        models to solve complex problems.
+        ixlS¾K .eg¨ úi£u i|yd kj mß.Kk wdlD;s f.dvke.Sug l=yqUq ckmoj, p¾hd jeks iajdNdúl
+        ixisoaê Ndú; l< yels h'
+    C - An inference engine of an expert system utilizes the facts in a knowledge base to support decision
+        making.
+        úfYaI{ moaO;shl we;s wkqudk tkaðu ;u ;SrK .ekSu i|yd oekqï mdolhl we;s lreKq Ndú; lrhs'
+   1) A only       2) A and B only       3) A and C only        4) B and C only      5) All of the above
+      A muKs          A yd B muKs           A yd C muKs            B yd C muKs          by; ish,a,u
+                                                                                               ( 2022 – 49 )
+
+
+                                                        26
+                                                                                                       ictfromabc.com
+20. Which of the following statements are true?
+    my; ljr j.ka;s i;H fõ o?
+    A - Generative Artificial Intelligence (AI) tools can produce new content or data, according to their learned
+        patterns.
+        ckl lD;su nqoaê fuj,ïj,g, Tjqka bf.k.;a rgdjkag wkqj w¨;a wka;¾.; fyda o;a; fyda ksIamdokh
+        l< yels h'
+    B - The use of Generative AI tools such as GPT with user prompts is an example of machine-to-machine
+        coexistence.
+        mßYS,l fm%arl iys; GPT jeks ckl lD;su nqoaê fuj,ï Ndú;h hka;%-hka;% iy meje;au i|yd
+        WodyrKhls'
+    C - Although AI is used today, strong AI (machines possessing general intelligence and capabilities that
+        are similar to human cognition) still remains a theoretical concept.
+        lD;su nqoaêh oekg Ndú; jqjo, m%n, lD;su nqoaêh [ñksia ixcdkkhg iudk idudkH nqoaêh yd yelshdjka
+        iys; hka;%] ;ju;a kHdhd;aul ixl,amhlaj mj;S'
+   1) A only         2) A and B only          3) A and C only          4) B and C only          5) All of the above
+      A muKs            A yd B muKs              A yd C muKs              B yd C muKs              by; ish,a,u
+                                                                                                           ( 2024 – 49 )
+21. Consider the following statements P and Q:
+    my; P yd Q j.ka;s i,lkak:
+    P - A qubit of a quantum computer can have a higher number of states than a bit of a traditional computer.
+        lajkagï mß.Klhl lshqìgqjlg" idïm%odhsl mß.Klhl ìgqjlg jvd jeä ;;a;aj .Kkla ;sìh yel'
+    Q - Quantum computing promises to perform calculations, currently beyond traditional computer’s reach,
+        at incredible speeds.
+        oekg idïm%odhsl mß.Klhlg <Õd úh fkdyels .Kkh lsÍï, weoysh fkdyels fõ.hlska lsÍug
+        lajkagï mß.Kkh fmrksñ;s mdhs'
+    Which of the following is valid regarding the above two statements?
+    by; j.ka;s fol iïnkaOfhka my; ljrla j,x.= fõ o?
+    1) Both statements P and Q are correct and statement P gives the reason for statement Q.
+       P yd Q hk j.ka;s folu ksjerÈ jk w;r, P j.ka;sh, Q j.ka;shg fya;=j olajhs'
+    2) Both statements P and Q are correct but the points presented in the two statements are not related.
+       P yd Q hk j.ka;s folu ksjerÈ jk kuq;a, tu j.ka;s foflka bÈßm;a flfrk lreKq w;r iïnkaOhla
+       ke;'
+    3) Statement P is correct but statement Q is incorrect. / P j.ka;sh ksjerÈ jk w;r Q j.ka;sh jerÈ fõ'
+    4) Statement P is incorrect but statement Q is correct. / P j.ka;sh jerÈ jk w;r Q j.ka;sh ksjerÈ fõ'
+    5) Both statements P and Q are incorrect. / P yd Q hk j.ka;s folu jerÈ fõ'
+                                                                                                           ( 2024 – 50 )
+22. What is the suitable replacement for the blank in the following statement?
+    my; j.ka;sfha we;s ysia;ekg iqÿiq wdfoaYlh l=ula o?
+    By analyzing historical data of a person’s previous hotel visits and his/her ...................... submitted to social
+    media of the same, an AI-based hotel recommendation system should be successfully able to suggest hotels
+    that the person would like.
+    mßYS,lfhl=f.a fmr jQ fydag,a kej;S isàï ms<sn| b;sydi.; o;a; iy tAjd ms<sn| Tyq /weh iudc cd, ;=<
+    ie,lr isá ...................... úYaf,aIKh lsÍï u.ska" lD;su nqoaêh u; mokï jQ fydag,a ks¾foaY lsÍï moaO;shlg
+    mßYS,lhd leu;s úh yels fydag,a id¾:lj fhdackd lsÍug yelsjkq we;'
+    1) email addresses / f.ùï jd¾;d                             2) payment records / f.ùï jd¾;d
+    3) phone numbers / ÿrl:k wxl                                4) reviews / úpdr
+    5) street addresses / ùÈ ,smsk                                                                         ( 2025 – 48 )
+
+
+
+
+                                                           27
+                                                                                                                  ictfromabc.com
+23. Which of the following statements are true with respect to Artificial Intelligence (AI)?
+    lD;su nqoaêh iïnkaOfhka my; ljr j.ka;s i;H fõ o?
+    A - AI applications are also computer programs.
+        lD;su nqoaê fhÿï o" mß.Kl l%uf,aL fõ'
+    B - All AI applications are automatically generated.
+        ish¨ lD;su nqoaê fhÿï iajhxl%Shj ckkh flf¾'
+    C - When AI technology is used to generate new content, it is suitable to disclose that the content was
+        generated by AI.
+        kj wka;¾.;hla W;amdokh lsÍug lD;su nqoaê ;dlaIKh fhdod.kakd úg" tu wka;¾.;h lD;su nqoaêh
+        yryd W;amdokh jQ nj t<sorõ lsÍu iqÿiq fõ'
+    1) B only       2) A and B only        3) A and C only        4) B and C only        5) All of the above
+       B muKs          A yd B muKs            A yd C muKs            B yd C muKs            by; ish,a,u
+                                                                                                    ( 2025 – 49 )
+
+24. Which of the following problems are suitable to be solved using nature inspired computing technologies?
+    my; ljr .eg¨ úi£ug m%lD;s fma%ß; mß.Kk ;dlaIKh Ndú;h iqÿiq fõ o?
+    A - make the monthly payroll list of the employees of a large multinational organization.
+        úYd, nyqcd;sl iud.ul fiajlhkaf.a udisl jegqma ,ehsia;=j iE§u'
+    B - the use of autonomous robots to move goods in a warehouse avoiding collisions.
+        .eàï uÕyßñka nvq .nvdjl NdKav f.khdug iajhxmd,l frdfndajreka fhdod.ekSu '
+    C - scheduling hospital operating theatre time slots for the patients in the surgery waiting.
+         Y,Hl¾u fmdfrd;a;= f,aLkfha isák frda.Skag" frday,a Y,Hd.drfha ld,Éfþo fjka lsÍu'
+    1) A only          2) B only            3) C only           4) A and C only            5) B and C only
+       A muKs             B muKs               C muKs              A yd C muKs                B yd C muKs
+                                                                                                    ( 2025 – 50 )
+
+
+
+
+                                                        28
+                                                                                                          ictfromabc.com
+  1. (c) The ABC company wants to introduce a new software agent service to monitor and display frequently
+         browsed items by its consumers via eABC.com web site. The following diagram depicts the interactions
+         among the consumer, company web site and the software agent.
+         ABC iud.ug Tjqkaf.a mdßfNda.slhka eABC.com kï jQ fjí wvúh yryd ksrka;rfhka w;ßlaik whs;u
+         ksÍlaIKh lr ixo¾Ykh lsÍu i|yd kj uDÿldx. ksfhdað; fiajdjla y÷kajd §ug wjYH j we;' my;
+         fmkajd we;s rEmigyk u.ska mdßfNda.slhd" iud.fï fjí wvúh yd uDÿldx. ksfhdað; w;r wka;¾l%shdj
+         fmkajkq ,efí'
+
+                                  A                           B                        C
+
+
+         Draw lines and connect the rows in the following two tables to represent the above scenario.
+         by; ixisoaêh ksrEmKh lsÍu i|yd my; olajd we;s j.= foflys fma<s hd lsÍug bß w¢kak'
+
+                             A                        Software Agent / uDÿldx. ksfhdað;
+                             B                    Company Web site / iud.fuys fjí wvúh
+                             C                                Consumer / mdßfNda.shd
+
+                                                                                           ( 2014 S.ESSAY – 02[c] )
+
+
+2.(b) (ii) Write down whether each of the following statements regarding software agents is either True or False.
+           uDÿldx. tackakjrekag iïnkaO my; oelafjk tla tla m%ldYh i;H o wi;H o hk j. ,shd olajkak'
+                                                                                                  True $ False
+                                                                                                 i;Hhs $ wi;Hhs
+         (1) A software agent can perform tasks in achieving a goal with minimum or no
+             direct supervision.                                                                   ..........................
+             uDÿldx. tacka;jrhl=g ;u wruqKq lrd hdfï § wju wëlaIKh hgf;a fyda iDcq
+             wëlaIKhlska f;drj fyda ld¾h isÿ l< yel'
+         (2) Software applications can interact with agent without direct supervision of a
+             user.                                                                                 ..........................
+             mßYS,lhl=f.a iDcq wëlaIKhlska f;drj uDÿldx. fhÿïj,g tacka;jrhl= iu.
+             wka;¾l%shdfõ fhÈh yel'
+         (3) A user may obtain answers to a problem directly from an agent.                        ..........................
+             mßYS,lhl=g tacka;jrekaf.ka iDcqju hï .eg¨ jlg ms<s;=re ,nd .; yel'
+         (4) A multi-agent system is a network of problem-solving entities called agents
+             that work together to find answers to problems that are beyond the individual
+             abilities of each agent.                                                              ..........................
+             nyq tacka; moaO;shla hkq tla tla N+;d¾:fhys ;ks yelshd wNsnjd hk .eg¿j,g
+             ms<s;=re ,nd .ekSu i|yd tlaj lghq;= lrkq ,nk tacka;jre f,i ye¢kafjk
+             .eg¿ úi|Sfï N+;d¾: cd,hls'
+         (5) In a multi-agent system, individual agents may compete or co-operate to
+             achieve the system goals.                                                  ..........................
+             nyq tacka; moaO;shl§" moaO;sfhys wruqKq bgq lr .ekSu i|yd ;ks tacka;jre
+             tlsfkld ;r. lsÍu fyda iyfhda.Sj lghq;= lsÍu fyda isÿ fõ'
+                                                                             ( 2018 S.ESSAY – 03[b][ii] )
+
+3.(b) (i) Modern Artificial Intelligence relies on large amounts of data, which are often managed with cloud based
+          storage solutions. What is the cloud computing service model used here?
+          kùk lD;%Su nqoaêh" j,dl=¿ mdol wdphk úi÷ï yryd fndfyda úg l<ukdlrKh flfrk úYd, o;a;
+          m%udKhka u; hefma' fuys§ Ndú; jk j<dl=¿ mß.Kl fiajd wdlD;sh l=ula o?
+     (ii) Quantum computers, although seen as a promising type of computing machines for the future, are still
+          expensive to own, operate and maintain. Suggest a technical approach to make the computing power of
+          the quantum computers accessible to the public users as per their needs, at an affordable price.
+          lajkagï mß.Kl" wkd.; mß.Kk hka;% i|yd wfmalaId ;eìh yels f,ig fmkS .sh o tajd i;= lr.ekSu"
+          l%shdlrùu iy kv;a;= lsÍu ;ju;a úhoï iys; fõ' oeßh yels ñ,lg iy ;u wjYH;djkag .e<fmk f,iska
+          lajkagï mß.Klj, mß.Kk n,h ck;djg ,nd§u i|yd ;dlaIKsl fhdackdjla lrkak'
+                                                                                       ( 2023 S.ESSAY – 02[b] )
+
+
+
+
+                                                         29
+                                                                                                                       ictfromabc.com
+1.(b) (i) In the domain of Agent technology, explain the term ‘Agent’.
+          ldrl ;dlaIKfõo jiu ;=< ‘ldrlh’ hk moh meyeÈ,s lrkak.
+   (iii) Give two main characteristics of an Agent.
+         ldrlhl m%Odk ,laIK folla fokak.
+   (iv) Briefly explain an example where Agent technology could be used effectively.
+        ldrl ;dlaIKfõoh M,odhs f,i fhdod.; yels wjia:djla i|yd ksoiqkla fláfhka meyeÈ,s lrkak .
+                                                                                         ( 2011 ESSAY – 06[b] )
+
+  2.   The National University of Information Technology is a well-recognized university. They offer both
+       bachelors and post-graduate degree programmes, diplomas as well as short courses in information
+       technology and business management. All teaching of the above courses is being conducted at their
+       sophisticated classrooms and state-of-the-art computer laboratories specifically designed to provide a
+       student-centred interactive learning experience. The management of the university has realized that their
+       brand name has become well known in the country as the number of inquiries they receive from far away
+       provinces has increased. Furthermore, a recent study has revealed that their short courses and diplomas
+       are also very popular among working professionals despite the burdens of their busy work schedules as
+       well as the limited time available to devote for education. Hence, the management has proposed to start
+       a distance education programme with the objectives of providing new value added services and capturing
+       new markets.
+       f;dr;=re ;dlaIKh ms,sn| cd;sl iriúh" ms<s.;a úYajúoHd,hls' fuu wdh;kh u.ska m%:u yd mYapd;a Wmdê
+       jevigyka" ämaf,daud" f;dr;=re ;dlaIKh iy jHdmdr l<ukdlrKh ms<sn| flá mdGud,d mj;ajkq ,nhs'
+       YsIH flakaøSh wka;¾ l%shdldÍ bf.kqï mßirhla ,ndfok f,i ie,iqï lrk ,o kúk mß.Kl úoHd.dr iy
+       kùk mka;sldur by; mdGud,d meje;aùu i|yd fhdod .kq ,nhs' wE; m<d;aj,ska ,efnk úuiSï m%udKh
+       jeäùu u.ska fuu wdh;kfha kduh" rgmqrd ckm%sh ù we;s nj fuu úYajúoHd,fha l<ukdldÍ;ajh jgyd f.k
+       we;' ;jÿrg;a uE;l § lrk ,o wOHhkhlska fy<sorõ ù we;af;a ld¾hnyq, ld¾h igyklg wkqj jev
+       lrk wOHdmkhg jeh l< yels ld,h iSudiys; jQ jD;a;slhka w;r o ämaf,daud yd flá mdGud,d b;d ckm%sh
+       nj h' tu ksid kj w.hka tl;= lrk ,o fiajd iemiSu iy kj fjf<|fmd< wE|d .ekSu hk wruqKq iys; j
+       ÿria: wOHdmk jevigyka fhdackd lr we;'
+        (a) Propose an ICT based system to implement the above distance education programme. Describe its
+            main components by using a simple diagram.
+            by; ÿria: wOHdmk jevigyk l%shd;aul lsÍu i|yd f;dr;=re yd ikaksfõok ;dlaIKh u; mokï jQ
+            moaO;shla fhdackd lrkak' ir, igykla u.ska tys m%Odk fldgia úia;r lrkak'
+        (b) Explain three advantages of the proposed system.
+            fhdað; moaO;sfha jdis ;=kla meyeÈ,s lrkak'
+        (c) Discuss three challenges of the proposed system.
+            fhdað; moaO;sfha wNsfhda. ;=kla idlÉPd lrkak'
+        (d) The management thinks that agent technology based techniques could be used to overcome some
+            of the above challenges. Do you agree with this statement? Justify your answer.
+            by; olajd we;s iuyr wNsfhda. ksfhdað; ;dlaIKh mdol jQ l%fudamdh u.ska ch.; yels nj
+            úYajúoHd,Sh l<ukdldß;ajh is;hs' fuu j.ka;sh iu. Tn tlÕ jkafka o@ Tfí ms<s;=r ikd: lrkak '
+                                                                                           ( 2015 ESSAY – 03 )
+
+ 3. (b) Consider the following figure which shows a simplified view of a multi-agent system.
+        nyq tacka; moaO;shl ir, lrk ,o oiqkla oelafjk my; rEmigyk i,lkak'
+
+
+                                              interacts with
+                                           wka;¾ l%shdfõ fhfoa
+                                                                         User / mßYS,l
+                                Application
+                                  fhÿu                             Communicates
+                                                                  ikaksfõokh lrhs
+                                  interacts with
+                               wka;¾ l%shdfõ fhfoa     Agent A       Communicates
+                                                                    ikaksfõokh lrhs
+                                                       tAcka; A
+                                                                              Agent B
+                                                                              tAcka; B
+
+
+
+
+                                                         30
+                                                                                                        ictfromabc.com
+      Answer the following, question by studying the above figure.
+      by; rEmigyk wOHhkh lr" my; oelafjk m%Yakhg ms<s;=r imhkak'
+      “A software agent may or may not have a user interface”.
+      “uDÿldx. tacka;jrhl=g mßYS,l w;=re uqyqK;la ;sîug fyda fkd;sîug fyda ms<sjk'“
+      Do you agree with the above statement? State a reason referring to the above figure.
+      by; m%ldYh yd Tn tlÕ jkafka o? rEmigyk wdY%fhka fya;=jla olajkak'
+                                                                                    ( 2018 ESSAY – 03[b] )
+
+4. (b) Multi-agent systems can be useful when complex system interactions are implemented. The following
+       diagram shows a simplified version of a multi-agent system that manages the secure access to the server
+       room of a data-center.
+       ixlS¾K moaO;s wka;¾ l%shd l%shd;aul lsÍfï§ nyq tacka; moaO;s m%fhdackj;a úh yels h' o;a; flakaøhl
+       fiajdodhl ldurhg m%fõYùu nyq tacka; moaO;shla u.ska l<ukdlrKh lsßfï ir, wdldrhla my;
+       rEmigyfkka oelafõ'
+
+                            Server Room Door
+                                                     B
+
+
+                                    Keypad
+                                                                   C
+
+
+
+
+                                                                        Database
+                                              A
+                                                         Agent 1
+                                                                                            R
+                                                                                   Q
+                                                          P
+
+                                                                       Agent 2
+               Systems Engineer
+
+      A brief scenario of the usage is as follows:
+      Ndú;fha flá ixisoaêh my; oelafõ'
+      All authorized system engineers must use their access code, which is a 6-digit number to enter the
+      restricted server room.
+      ish¨ u n,h,;a moaO;s bxðfkarejreka m%fõYh iSñ; fiajdodhl ldurhg we;=¿ùu i|yd ;u m%fõY fla;h
+      jk ixLHd yhlska iukaú; wxlh we;=<;a l< hq;= h'
+      When the access is granted to the server room, a set of movable CCTV cameras starts recording the
+      server area.
+      fiajdodhl ldurh fj; m%fõYùug wjir ,enqKq miq tydfuyd p,kh l< yels CCTV leurd u.ska
+      fiajdodhlh wjg m%foaYh ùäfhda lsÍu wdrïN flf¾'
+      The processed data of CCTV input are saved in the database. Interactions are shown using A, B, C, P, Q,
+      and R arrows.
+      CCTV wdodkfhys ilik ,o o;a;" o;a; iuqodfhys iqrlskq ,efí' wka;¾ l%shdjka A, B, C, P, Q iy R B;,
+      u.ska fmkajd we;'
+       (i) Identify the agent with no user interactions (self-autonomous) in this setup.
+           fuu msysgqfuys mßYS,l iu. wka;¾ l%shd fkdue;s (iaùh iajhxlrKh) tacka; y÷kd.kak'
+      (ii) Sense-Compute-Control is a widely used 3-step design style of agent-based system
+           implementations.
+           ixfõokh mß.Kkh md,kh hkq tacka; mdol lr.;a moaO;s l%shd;aul lsÍfï§ nyq,j Ndú; jk mshjr
+           ;=kl ie,iqï ú,dihls'
+           From A, B and C interactions, separately identify and write down the most suitable interaction arrow
+           to represent each step, i.e., Sense, Compute, and Control.
+           A, B iy C wka;¾ l%shdj,ska ixfõokh" mß.Kkh yd md,kh hk tla tla mshjr ksrEmKh lsÍug jvd;au
+           iqÿiq wka;¾ l%shd B;, fjk fjk u y÷kdf.k ,shd olajkak'
+      (iii) C and R interaction links are shown for two directions. Explain the reasons for the duplex links for
+            both C and R interactions separately.
+            C iy R hk wka;¾ l%shd wE÷ï ÈYd follg fmkajd we;' C iy R wka;¾ l%shd fol i|yd oaúm: wE÷ï
+            j,g fya;= fjk fjk u meyeÈ,s lrkak'
+
+
+
+
+                                                              31
+                                                                                                        ictfromabc.com
+      (iv) Interaction A can be seen as a user-to-agent interaction. Identify an agent-to-agent interaction and
+           explain the operational use of that interaction.
+           A wka;¾ l%shdj mßYS,lf.ka tacka;g wka;¾ l%shdjla f,i oelsh yels h' tacka;f.ka tacka;g wka;¾
+           l%shdjla y÷kdf.k tu wka;¾ l%shdfjys fufyhqï Ndú; jk wdldrh meyeÈ,s lrkak'
+      (v) Give one reason as to why the CCTV inputs are sent to the database through the Agent 2 instead of
+          sending directly.
+          CCTV wdodk" o;a; iuqodh fj; iDcqju heùu fjkqjg 2 jk tacka; u.ska heùug tla fya;=jla fokak'
+                                                                                       ( 2019 ESSAY – 03[b] )
+
+5. (b) Multi agent systems can be used to replace some of the work that require humans. The following scenario
+       explains about myTours multi-agent system used to build customized travel packages including flight
+       booking, hotel room reservation and taxi booking for local travel during the tour.
+       ñksiqka úiska flfrk iuyr ld¾h m%;sia:dmkh lsÍu i|yd nyq tacka; moaO;s Ndú; l< yels h' my;
+       oelafjk ixisoaêh u.ska .=jka hdkd wdik fjka lsÍu" fydag,a ldur fjka lsÍu iy foaYSh ixpdr i|yd l=,S
+       r: fjka lsÍu we;=<;a jk wNsreÑlrKh lrk ,o ixpdr meflachla f.dvke.Su i|yd Ndú; jk myTours
+       kï nyq tacka; moaO;sh .ek meyeÈ,s flf¾'
+      A prospective traveler (user) can access myTours website over the Internet and a chat-bot agent starts
+      interacting with the user. User can use voice or text as the input medium. During this interaction chat-
+      bot passes the extracted information to a search-agent who will take over from the chat-bot agent and
+      proceed to search for travel packages for the user. The search- agent has a group of agents each
+      specializing for particular type of travel service such as flight search, hotel search etc. Once the search
+      results are obtained the search-agent prepares the list of travel packages with details and displays to the
+      user for confirmation.
+      wod< ixpdrlhd ^mßYS,l& yg myTours fjí wvúhg wka;¾cd,h Tiafia m%fõY úh yels w;r ixjdofha
+      fhfok frdafnda tacka;jrfhla mßYS,l iu. wka;¾l%shdj wrUhs' mßYS,lg lgy~ fyda mdG fyda wdodk udOH
+      f,i Ndú; l< yel' fuu wka;¾l%shdj w;r;=r frdfnda tacka; úiska Wlyd .kq ,nk f;dr;=re fijqï
+      tacka;jrhl=g Ndr lrkq ,nk w;r mßYS,l fj; ixpdrl meflach fiùfï ld¾hh tu tacka; úiska frdfnda
+      tacka;f.ka Ndr .kshs' fijqï tacka;g .=jka .uka fiùu" fydag,a fiùu jeks tla tla j¾.fha ixpdrl
+      fiajdjka i|yd úfYaI{ tacka;jre iuQyhla isá;s' m%;sM, ,nd.;a miq fijqï tacka; úiska úia;r iys;
+      ixpdrl meflac ,ehsia;=j iQodkï lr" th ;yjqre lsÍu i|yd mßYS,l fj; m%o¾Ykh flf¾'
+       (i) Draw a simplified agent diagram of the above explained multi-agent system. Name the important
+           entities in your diagram.
+           by; meyeÈ,s lrk ,o nyq tacka; moaO;sh i|yd ir, tacka; rEmigykla w¢kak' Tfí igyfkys
+           jeo.;a wx. kï lrkak'
+      (ii) Which agent cannot be considered as self-autonomous?
+           l=uk tacka;jrfhla iaùh-iajhxlrK f,i ie,lsh fkdyels o?
+      (iii) Write a disadvantage of using a multi-agent system for the given example user requirement.
+            fok ,o WodyrKfhys mßYS,l wjYH;d i|yd Lyq tacka; moaO;shla Ndú; lsÍfï wjdishla ,shd olajkak'
+                                                                                       ( 2020 ESSAY – 07[b] )
+
+7. (b) The following description is about myShopper, a multi-agent system which enables a buyer to search
+       the entire online marketplace for the best products. In addition to the price, reviews by other buyers,
+       special offers, reputations of the merchants and the lengths and types of warranties are also considered.
+       iuia; ud¾..; fjf<|fmd<u msßlaid fyd|u NdKav fiùug .ekqïlrejkag ux i,ik myShopper nyq-
+       tacka; moaO;sh .ek úiakrhla my; oelafõ' ñ,g wu;rj" wfkl=;a .ekqïlrejkaf.a úpdr o" úfYaI §ukd
+       o" fjf<kaokaf.a lS¾;s kdu o" j.lSï ld, iSud iy j¾.hka o ie,ls,a,g .efka'
+      When a user (buyer) accesses the myShopper website, a chat-bot agent starts interacting with the user.
+      User can use voice or text as the input medium to give his/her requirements for a product. During the
+      interaction, the chat-bot passes the extracted information to a search-agent who will takeover the
+      search for the best product for the user. For this, the search-agent will start several domain-agents
+      specifying each of them the requirements of the user and specific domains (web sites) to search in. To
+      speedup the search, each domain-agent will start several sub-agents to search sub-domains under its
+      main domain. After the search, each sub-agent will pass the appropriate results back to its parent
+      domain-agent. Once all such results from the sub- agents are received, each domain-agent compares
+      them and submits the best results to the search-agent. The search-agent will then compare all such
+      results and gives the details of the best product back to the chat-bot. The chat-bot will then display it
+      to the user as text.
+
+
+                                                       32
+                                                                                                         ictfromabc.com
+         mßYS,lhd ^.ekqïlre& myShopper fjí wvúhg msúis úg" ixjdofha fhfok chat-bot frdfnda
+         tackakjrfhla mßYS,l iu. wka;¾ l%shdj wrUhs' mßYS,lg lgy~ fyda mdG fyda wdodk udOH f,i Ndú;
+         lr NdKavh ms<sn| ;u wjYH;djhka ,ndÈh yel' fuu wka;¾l%shdj w;r;=r chat-bot tacka; úiska Wlyd
+         .kq ,nk f;dr;=re fijqï tacka;jrhl=g Ndr lrkq ,nk w;r" mßYS,l i|yd fyd|u NdKavh fiùfï
+         ld¾hh tu fijqï tacka; Ndr.kshs' ta i|yd fijqï tacka; úiska tla tla jiïj, ^fjí wvúj,& fiùfï
+         ksr;ùu i|yd jiï tacka;jre lsysmfofkla wrUd" ta tlsfklg mßYS,l wjYH;d o" fiùfï ksr;úh hq;=
+         jiï o ks¾foaY lrhs' fiùfï l%shdj fõ.j;a lsÍu i|yd tla tla jiï tacka;" jiu ;=< we;s Wmjiïj,
+         fiùfï ksr;ùug" Wmtacka;jre lsysmfofkla o wrUhs" fiùu ksujQ úg" tla tla Wmtacka;" fhda.H m%;sM,
+         ;u uõ jiï tacka;g ,ndfohs" Wmtacka;jrekaf.ka tjeks ish¨ m%;sM, ,o úg" jiï tacka; tajd ii|d" bka
+         fyd|u m%;sM, fijqï tacka;g ,ndfohs' fijqï tacka; tjeks ish¨ m%;sM, ii|d" fyd|u NdKavfha úia;r
+         chat-bot tacka;jrhdg kej; ,ndfohs' túg chat-bot tackakjrhd" th mdG f,i mßYS,lg Èia lrjhs'
+          (i) Draw a simplified agent diagram for the above multi-agent system. Name all the entities in your
+              diagram and clearly indicate the interactions between them.
+              by; nyqtacka; moaO;sh i|yd ir, tacka; rEmigykla w¢kak' Tnf.a igyfka jeo.;a wx. kï lr
+              tajd w;r iïnkaO;d o meyeÈ,sj olajkak'
+         (ii) Write one major advantage of this multi-agent system.
+              by; nyqtacka; moaO;sfhka ,efnk tla jeo.;a jdishla ,shd olajkak'
+         (iii) Write down one ICT related challenge which has to be faced when developing a sub-agent.
+               by; Wmtacka;jrhl= f.dvke.Sfï§ f;dr;=re iy ikaksfõok ;dlaIKhg wod<j uqyqK osh hq;= tla
+               wNsfhda.hla ,shd olajkak'
+                                                                                       ( 2021 ESSAY – 07[b] )
+
+
+7. (d) A multi-agent system is proposed for this greenhouse. In this system the images that are captured using
+       a mobile phone are stored in the plant database. The multi-agent system works as follows:
+       yß;d.drh i|yd nyqtacka; moaO;shla fhdað; h' tu moaO;sfha§ cx.u ÿrl:khlska .kq ,nk me<j,
+       PdhdrEm me< o;a; iuqodfha .nvd flf¾' nyq tackak moaO;sh my; mßos l%shdlrhs'
+                                                                          Plant Database
+                                                                          me< o;a;iuqodh
+                                                          P
+                                  User Interaction
+                                 mßYS,l wka;¾l%shdj
+                                                  Agent 1                  Search Agent        Internet
+                                                                           fijqï tAcka;        wka;¾cd,h
+                                                  tAcka; 1                                 T
+                                                                    R
+                              Plant / me<h            Q
+                                                               Agent 2            S
+                                                               tAcka; 2
+
+
+     •     Agent 1 handles the user interactions, user access to data, and triggers Agent 2.
+           tacka; 1 mßYS,l wka;¾l%shd yeisrùu iy o;a; iuqoHhg mßYS,l m%fõYh yeisrùu isÿ lr tacka; 2
+           weröu o isÿ lrhs'
+     •     Agent 2 processes the images, identifies anomalies if any, and triggers Search Agent if needed.
+           tacka; 2 PdhdrEm msßlaid úIu;d ;sfí kï tajd y÷kdf.k" wjYH kï fijqï tacka;jrhl= uqod yßhs'
+     •     Search Agent searches relevant information from the Internet, feeds the search results to Agent 2 who
+           updates the database after processing, and notifies Agent 1 if an alert is to be raised.
+           fijqï tacka; wod< f;dr;=re i|yd wka;¾cd,h msßlaid" m%;sM, tacka; 2 g ,ndÿka úg" tacka; 2 o;a;
+           iuqodh ilid hdj;ald,Sk lr" wk;=re weÕùula wjYH kï tacka; 1 g oekqï fohs'
+
+          (i) In the given scenario, who is/are the self-autonomous agent(s)?
+              fok ,o ixo¾Nfha iaùh-iajhxlrK tacka;j^rhd&re ljq o?
+         (ii) The interaction P involves saving plant details in the database and retrieving those for Agent 1. The
+              interaction R involves reading the database and writing search results to the database. Explain the
+              interactions Q and S.
+              P wka;¾l%shdjg me<j, úia;r o;a; iuqodfha iq/lSu o" tacka; 1 i|yd tajd ,nd§u o we;=<;a fõ' R
+              wka;¾l%shdjg o;a; iuqodh lshùu o" fijqï m%;sM, o;a; iuqodfha ,sùu o we;=<;a fõ' Q iy S wka;¾l%shd
+              myokak'
+         (iii) After long-term use of the system, it was decided to remove Search Agent assuming that the
+               database contains all the information needed. Write down the main disadvantage of this removal.
+               moaO;sfha È.=ld,Sk Ndú;hlska miq" o;a; iuqodh wjYH ish¨ u f;dr;=rej,ska iukaú; hehs is;d" fijqï
+               tacka; bj;a lsÍug ;SrKh flf¾' fuu bj;a lsÍfuka isÿjk m%Odk wjdish ,shd olajkak'
+                                                                                                  ( 2022 ESSAY – 07[d] )
+
+                                                              33
+                                                                                                                 ictfromabc.com
+8. (b) An e-commerce warehouse automation system includes a set of agent based robots which move ordered
+       goods to their respective dispatch areas to start relevant shipments.
+       b-jdKscHh nvq .nvdjl iajhx hka;%k moaO;shl" keõ.; lsÍï wdrïN lsßu i|yd wekjqï l< NdKav tajdg
+       wod< msg;alrk ia:dkj,g f.k hk frdfnda ldrl iuQyhla we;=<;a h'
+     This shows the latter part of this system. A Quality Control (QC) Officer inspects the goods of each order
+     as it passes on a conveyor belt and confirms to a software system (Delivery Handler Agent) that the order
+     has passed QC. The Delivery Handler Agent directs the package to a mobile robot at the loading area.
+     The robot agent reads the package barcode to determine the appropriate dispatch area. It then navigates
+     the robot to the relevant dispatch area, scanning the path and avoiding obstacles while on the move. The
+     Dispatch Handler Agent, another software, validates each package at the dispatch areas and informs the
+     Dispatch Officer to confirm its decision. The Dispatch Officer can override Dispatch Handler decisions if
+     needed and directs the confirmed packages to the postal division.
+     moaO;sfha wjidk fldgi fuys oelafõ' ;;aj md,k ks,Odßhd iEu weKjqulu NdKav jdyl máhl hk úg
+     mÍlaId lr" weKjqu ;;aj md,kfhka iu;a jQ njg uDÿldx. moaO;shlg (fn§ï yiqrejk ldrlhg) ;yjqre
+     lrhs' fn§ï yiqrejk ldrlh nvq megùï m%foaYfha§ cx.u frdfndajlg meflach fhduqlrhs' frdfnda ldrlh
+     meflacfha ;Sre fla;h lshjd wod< msg;alrk ia:dkh fidhd.kshs' th túg uÕ msßlaiñka" wjysr u.yßñka
+     wod<" msg;alrk ia:dkhg frdfndaj fhduq lrjhs' ;j;a uDÿldx.hla jk msg;aùï yiqrejk ldrlh msg;alrk
+     ia:dkj,§ iEu meflachlu j,x.=Ndjh msßlaid" msg;alrk ks,Odßhdg ;udf.a ;SrKh ;yjqre lrk f,i
+     okajhs' msg;alrkq ks,Odßhdg wjYH kï msg;aùï yiqrejk ldrlf.a ;SrK fkdie,lsh yel' msg;alrk
+     ks,Odßhd" ;yjqre l< meflac ;eme,a wxYhg fhduqlrhs'
+                                                                                   Dispatch
+                                                                                    Area 1
+
+
+                                Delivery                                                      Dispatch
+                                                                                   Dispatch
+                                Handler                                             Area 2    Handler
+                                 Agent                                                         Agent
+                                                                                                         Dispatch
+                                                                                   Dispatch               Officer
+                                                                                    Area N
+              Quality Control
+                                                 Loading
+                 Officer
+                                                   Area
+                                Conveyor Belt     Package Moving Floor Area with
+                                                        Multi Agent Robots
+
+                                                                                   msg;alrk
+                                                                                    ia:dk 1
+
+
+                                 fn§ï                                              msg;alrk   msg;aùï
+                                yiqrejk                                             ia:dk 2   yiqrejk
+                                ldrlh                                                         ldrlh
+                                                                                                         msg;alrk
+                                                                                   msg;alrk
+                                                                                                         ks,Odßhd
+                                                                                    ia:dk N
+                ;;aj md,k
+                 ks,Odßhd                         megùï
+                                                  m%foaYh
+                                jdyl máh             meflac m%jdykh lrk
+                                                nyqldrl frdfnda iys; ìï m%foaYh
+
+                                                    Figure / rEmh 7.3
+
+      (i) Software Agents demonstrate certain characteristics which make their behaviour unique. Briefly
+          explain the following two characteristics of a software agent:
+          uDÿldx. ldrl ;u yeisÍï wkkH lrkakd jQ .;s,laIK m%o¾Ykh lr;s' uDÿldx. ldrlhl my;
+          .;s,laIK fol ieflúka myokak'
+            (a) autonomous / iajdëk
+            (b) cooperative / iyfhda.S
+      (ii) Name a self autonomous agent and a user agent in the given example.
+           by; WodyrKfha iajhx iajdëk ldrlhla iy mßYS,l ldrlhla kï lrkak '
+     (iii) If the set of multi agent robots behave satisfying only the autonomous characteristics but fails to
+           cooperate, write down one of the most likely observations that will be seen during their operation.
+           nyqldrl frdfnda iuQyh iajdëk .;s,laIK muKla wkqj yeisÍ" iyfhda.S;ajfhka lghq;= fkdlrkafka
+           kï" Tjqkaf.a l%shdldß;ajh w;r;=r nyq,j oelsh yels ksÍlaIKh ,shkak '
+
+
+
+
+                                                             34
+                                                                                                                    ictfromabc.com
+      (iv) If this system is redesigned by replacing the multi agent behaviour with centralized control and a
+           broker agent for communication, identify one main change that will be seen with respect to each of
+           the following.
+           fuu moaO;sh nyqldrl yeisÍu fjkqjg uOH.; md,khla iy ikaksfõokh i|yd w;rueÈ ldrlhla
+           Ndú; lrñka kej; m%;sks¾udKh l<fyd;a my; oE iïnkaOfhka oelsh yels tla uQ,sl fjkialula
+           ne.ska ,shkak'
+               (a) Control of the robot mobility / frdfndajrekaf.a .uka md,kh
+               (b) Decision making process (relevant to moving packages from loading area to dispatch areas)
+                   ;SrK .ekSfï l%shdj,sh (meflac megùfï m%foaYfha isg msg;alrk ia:dk olajd f.khdug wod<j)
+       (v) Draw a box and arrow diagram for the new solution with centralized control, mentioned in (iv), above.
+           by; (iv) ys i|yka uOH.; md,kh iys; kj úi÷ug wod<j fldgq iy B;, rEmigykla w¢kak '
+           (Note: A box and arrow diagram uses boxes to show system components and arrows to show
+           connections between those components)
+           (igyk: fldgq iy B;, rEmhl fldgqj,ska moaO;s ixrpl;a" B;,j,ska ixrpl w;r iïnkaO;d;a
+           oelafõ.)
+                                                                           ( 2023 ESSAY – 07[b] )
+
+
+ 9. (c) Consider a multi-agent system where agents (mobile robots) are designed to collaborate in a warehouse
+        package moving task.
+        nvq .nvdjl meflaÊ f.k hk ld¾h i|yd iyfhda.fhka lghq;= lsÍug ks¾udKh lr we;s tAcka;jreka
+        (cx.u frdfndajre) iys; nyq tAcka; moaO;shla i,lkak.
+      Each package is to be moved from its storage point (A) to its assigned delivery point (B) across the
+      warehouse floor area. Each agent is tasked with moving the assigned goods from point A to point B in
+      an optimum manner. Each agent has its own utility function that helps the agent to make optimum
+      decisions based on the given set of parameters.
+      tla tla meflach tys .nvd ia:dkfha (A) isg thg kshu l< fnodyeÍï ia:dkh (B) olajd" .nvd ìï m%foaYh
+      yryd f.k hdug wjYH h' ;ukag kshu l< NdKav A ia:dkfha isg B ia:dkhg jvd;a m%Yia; wdldrhg f.k
+      hEu tla tla tAcka;jrhdg mejÍ we;s ld¾hhhs' § we;s mrdñ;Skag wod< m%Yia;u ;SrK .ekSug tla tla
+      tAcka;jrhdg ;ukaf.au Wmfhda.S;d Y%;  s hla we;'
+       (i) Highlighting the key characteristics, write down how the concept of ‘agents’ in this multi-agent
+           system differs from a standard software program.
+           fuu nyq-tAcka; moaO;sfha ‘tAcka;’ ixl,amh, iïu; uDÿldx. l%uf,aLhlska fjkia jk whqre uQ,sl .;s
+           ,laIK Woa§mkh lrñka ,shd olajkak'
+       (ii) Write down one positive (reward) and one negative (punishment) factor that could be considered
+            in the utility function definitions of the agents (robots).
+            tAcka;jrekaf.a (frdfndajrekaf.a) Wmfhda.S;d Y%; s j, w¾:oelaùïj,§ ie,ls,a,g .; yels tla Okd;aul
+            (;E.s ,efnk) iyd tla iDKd;aul (o~qqjï ,efnk) lreK ne.ska ,shkak'
+                                                                                      ( 2024 ESSAY – 07[c] )
+
+
+
+10. (b) Saman has a future plan to include three software agents in this online shop as follows:
+        fuu ud¾..; idmamqjg my; mßÈ uDÿldx. tacka;jre ;sfofkla we;=<;a lsÍug iukag wkd.; ie,eiaula
+        we;'
+      Help Agent / Woõ tcka;
+      interacts with the customer and answers questions about products and delivery times
+      .ekqïlrejka iu. wfkHdakHj l%shdlrñka ksIamdok ms<sn| m%Yakj,g iy iemhSï ld, ms<sn| m%Yakj,g
+      ms<s;=re imhhs
+      Price Agent / ñ, tcka;
+      checks for available discounts and seasonal offers before showing the final price
+      wjidk ñ, oelaùug m%:u" ,nd.; yels jÜgï iy W;aij §ukd msßlaihs
+      Delivery Agent / fnÈñ tcka;
+      communicates with different delivery services to select the fastest and cheapest option
+      fõ.j;au iy ,dNodhs fiajdj f;dard.ekSu i|yd úúO fnodyeÍï fiajdjka iu. ikaksfõokh lrhs
+       (i) From these three agents, which one is mainly an interface agent and why?
+           fuu tacka;jreka ;sfokdf.ka uQ,slju w;=reuqyqK;a tacka;jrhl= jkafka l=ula o? thg fya;=j l=ula o?
+
+
+
+
+                                                       35
+                                                                                                        ictfromabc.com
+(ii) Draw a simplified agent diagram for the above multi-agent system. Properly label the diagram and
+     show all the interactions clearly.
+     by; nyq tacka; moaO;sh i|yd ir, tacka; rEmigykla w¢kak' fuu rEmigyk kshñ; mßos f,an,a
+     lr ish¨ u wka;¾ l%shdldÍ;ajhka meyeÈ,sj olajkak '
+(iii) Give one advantage of using several software agents in Saman’s online shop instead of building one
+      single large program to do all the work.
+      iukaf.a ud¾..; idmamqfõ" ish¨ u ld¾hh isÿ lsÍu i|yd tl úYd, l%uf,aLhla Ndú; fkdfldg nyq
+      uDÿldx. tacka;jre Ndú; lsÍfuka we;sjk tla jdishla i|yka lrkak'
+(iv) These agents are expected to work autonomously. Describe one situation where the Delivery Agent
+     should take an action without being directly instructed by the user.
+     fuu ish¨ u tacka;jreka tlsfklg iajdh;a;j l%shdlrkq we;ehs wfmalaId flf¾' mßYS,lhl=f.a iDcq
+     Wmfoia §ulska f;drj fnÈï tacka; l%shd l< hq;= tla wjia:djla úia;r lrkak'
+(v) Describe one situation where the Delivery Agent may give the customer incorrect information.
+    fnÈï tacka; úiska .kqfokqlrejkag jerÈ f;dr;=re ,ndÈh yels tla wjia:djla úia;r lrkak'
+                                                                               ( 2025 ESSAY – 07[b] )
+
+
+
+
+                                                36
+                                                                                                ictfromabc.com
+

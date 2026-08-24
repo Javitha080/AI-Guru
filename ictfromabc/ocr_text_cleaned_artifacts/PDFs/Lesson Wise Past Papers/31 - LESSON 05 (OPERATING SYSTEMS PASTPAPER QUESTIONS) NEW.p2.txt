@@ -1,0 +1,1142 @@
+11. The directory entry of a file contains the block number of the
+
+first block of the file.
+
+ලගොනුවකට අදාළ නාමාවලි තොරතුර (directory entry) ගොනුවේ පළමු කාණ්ඩයේ කාණ්ඩ අංකය
+
+දක්වයි.
+Which of the following gives the directory entry for the average.py file and the disk space allocated for
+the average.py file respectively?
+aVerage.py ගොනුවේ නාමාවලි තොරතුර සහ average.py ගොනුව සඳහා ඩිස්කයේ වෙන්‌ කර ඇති Of) ප්‍රමාණය
+පිළිවෙළින්‌ දැක්වෙන්නේ පහන කවරක ද?
+
+1) 200, 12KB 2) 200, 16KB 3) 200, 20KB 4) 203, 16KB 5) 203, 20KB
+(2022 - 14)
+
+31. Which of the following will cause the CPU to execute a different set of instructions?
+මධ්‍ය සැකසුම්‌ ඒකකයට (CPU) වෙනත්‌ උපදෙස්‌ (instructions) සමූහයක්‌ ක්‍රියාත්මක කිරීම සඳහා පහත කවරක්‌ හේතු වේද ?
+
+A ~ context switch සන්ධර්භ ස්විචයක්‌
+B- 31] interrupt අතුරැබිඳුමක්‌
+
+C - user selecting the shutdown option in the computer
+පරිශීලකයා පරිගණකයේ ක්‍රියාවිරහිත කිරීමේ විකල්පය ක්‍රියාත්මක කිරීමක්‌
+
+1) A only. 2) B only. 3) C only. 4) B and C only. 5) All of the above
+A පමණි. B පමණි. C පමණි. Bem C පමණි. හන සියල්ලම.
+( 2023 - 05 )
+
+32. A program in execution in a computer is called a process. Which of the following is a possible state
+transition sequence of such a process?
+පරිගණකයක ඛ්‍රියාත්මක වන ක්‍රමලේඛයක්‌, ක්‍රියායනයක්‌ (process) ලෙස හැඳින්වේ. ක්‍රියායනයකට අදාළ තත්ත්ව
+සංඛ්‍රාන්නි පිළිවෙළක්‌ (state transition sequence) විය හැක්කේ පහත කවරක්‌ ද?
+1) New — Ready — Running — Terminated
+නව —- සූදානම්‌ —- ක්‍රියාත්මක - අවසන්‌
+2) New - Blocked — Terminated
+නව - අවහිර කළ - අවසන්‌
+3) New ~~ Ready ~- Blocked — Running ~* Terminated
+නව —- සූදානම්‌ —- අවහිර කළ - ක්‍රියාත්මක —- අවසන්‌
+4) New ~* Running ~* Ready > Running ~* Terminated
+නව - ක්‍රියාත්මක - සූදානම්‌ - ක්‍රියාත්මක - අවසන්‌
+5) New - Blocked > Ready ~~ Running — Terminated
+නව - අවහිර කළු —- සූදානමි - ක්‍රියාත්මක -- අවසන්‌
+( 2023 - 14)
+
+33. Amara powers on the computer and starts a spreadsheet application. Then he also opens a web browser.
+Which of the following are possible execution sequences on the processor of his computer?
+අමර පටරගණකය පණගන්වා පැනතුරැම්පත්‌ යෙදුමක්‌ ආරම්භ කරයි. නන්පසු ඔහු වෙබි අතරික්සුවක්ද විවෘත කරයි. ඔහුගේ
+පටගණකයේ සකසනය මත ධාවනය වන්නන්ගේ නිවැරදි අනුපිළිවෙළක්‌ විය හැක්කේ පහත කවරක්‌ ද?
+1) BIOS > OS - spreadsheet process > OS -- web browser process > OS -- ……
+BIOS — spreadsheet process - OS — web browser process > OS — spreadsheet — process — ……
+BIOS — spreadsheet process — web browser process > OS -- ……
+BIOS — OS — spreadsheet process > web browser process - OS - ……
+
+BIOS — OS = spreadsheet process — web browser process — spreadsheet process — web browser
+process — ……
+
+wm BW අට
+෴.* ee ee
+
+(2023 - 15)
+
+34. Which of the following are correct regarding the Process Control Block (PCB)?
+BHD පාලන ඛණ්ඩය (PCB) සම්බන්ධයෙන්‌ පහත කවරක්‌ නිවැරදි වේ දු?
+
+A- Itis a data structure used by the operating system to manage information about a process.
+
+As ක්‍රියායනයක (process) තොරතුරු කළමණාකරණය කිරීම සදහා මෙහෙයුමි පද්ධතිය විසින්‌ භාවිතා කරනු
+ලබන දත්ත ව්‍යුහයකි.
+
+B- Itis created during the compilation of a program.
+එය ක්‍රමලේඛයක්‌ සම්පාදනයේ (compilation) දී සෑදේ.
+
+C- The Program Counter values of two PCBs can be the same.
+PCB දෙකක Program Counter ead එක සමාන විය හැකි ය.
+
+1) A only. 2) A and B only. 3) A and C only. 4) B and C only. 5) All of the above
+A පමණි. A හා 6 පමණි. A හා ( පමණි. B හා ( පමණි. හන සියල්ලම.
+( 2024 - 15)
+
+35. Amara switches on a multi-user computer system. After it has booted, Sama logs on to the computer from
+a terminal and starts a web browser. After sometime, Sama Starts a text editor also to work on her Python
+program. Then Rani also logs on to the computer from another terminal and starts a web browser.
+අමර බහු-පරිශීලක පරිගණකයක්‌ පණගන්වයි. එය ආරම්භ වූ විට සාමා එම පරට්ගණකයට ටරමිනයලයකින්‌ පූරන (login)
+වී වෙබ්‌ අතරික්සුවක්‌ අරඹයි. මද වේලාවකට පසුව සාමා තම පයිතන්‌ කේතයේ වැඩකටයුතු කිරීම සදහා පාඨ
+සංස්කාරකයක්‌ දු (text editor) අරඹයි. නේපසු රාණි දු GOO පරිගණකයට චෙනත්‌ ටරිමිනලයකින්‌ පුරන 5 වෙබ්‌
+අතරික්සුවක්‌ අරඹයි.
+
+Which of the following are possible execution sequences on the processor of this computer?
+එම SOOAWGS සකසනය OM ධාවනය වන්නන්ගේ නිවැරදි අනුපිළිවෙළක්‌ විය හැක්කේ පහත කවරක්‌ ද?
+
+1)
+
+5)
+
+BIOS - OS — Sama's web browser process ~ OS — Sama's text editor process - OS - Rani's web
+browser process — OS — Sama's text editor process — ……
+
+BIOS — OS — සාමාගේ GOO අතරික්සු ක්‍රියායනය — OS — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය —- OS - රාණිගේ
+වෙබ්‌ අතරික්සු ක්‍රියායනය —- OS > සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය — ……
+
+BIOS — OS — Sama's web browser process — Sama's text editor process - OS - Rani's web browser
+process > OS — Sama's web browser process — ……
+
+BIOS — OS > සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය - OS — රාණිගේ වෙබ්‌
+අතරික්සු ක්‍රියායනය —- OS — සාමාගේ වෙබි අතරක්සු ක්‍රියායනය - ……
+
+BIOS — Sama's web browser process — Sama's text editor process > OS — Rani's web browser process
+— OS — Sama's text editor process — ……
+
+BIOS - සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය -- සාමාගේ පාඨ සංස්කාරක Gana - OS - රාණිගේ වෙබි
+අතරික්සු ක්‍රියායනය - OS — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය - ……
+
+OS — BIOS = Sama's web browser process - OS — Sama's text editor process - OS - Rani's web
+browser process —~ OS — Sama's web browser process — ……
+
+OS - BIOS > සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය — OS - සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය — OS — රාණිගේ
+වෙබ්‌ අතරික්සු ක්‍රියායනය —- OS -- සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය - ……
+
+OS - BIOS — Sama's web browser process — Sama's text editor process - OS — Rani's web browser
+process > OS — Sama's web browser process — ……
+
+OS — BIOS > සාමාගේ වෙබ්‌ අතරක්සු ක්‍රියායනය - සාමාගේ end සංස්කාරක Banas — OS —- රාණිගේ වෙබ්‌
+අතරික්සු ක්‍රියායනය —- OS — සාමාගේ වෙබි අතරක්සු ක්‍රියායනය - ……
+
+( 2024 - 16)
+
+36. Each block of a disk is 512 bytes. When a file of size 1959 bytes is stored on that disk, how many bytes
+allocated to the file would be wasted?
+ඩිස්කයක කට්ටියක්‌ (block) @BO 512 ක්‌ වේ. @BO 1959 ක විශාලත්වයකින්‌ යුත්‌ ගොනුවක්‌ එම ඩිස්කයේ ආචය කළ
+
+විට,
+
+එම ගොනුවට චෙන්‌ කරන ලද බයිට කොපමණ සංඛ්‍යාවක්‌ අපතේ යනු ඇති ද?
+
+1) 89 2) 423 3) 512 4) 601 5) 1447
+
+(2024 - 17)
+
+10
+
+1. (a)
+
+(b)
+
+(c)
+
+2. (a)
+
+(c)
+
+3. (a)
+
+(b)
+
+Encircle the most suitable entry in the second and third columns corresponding to the properties
+listed in the first column of the following table with respect to FAT32 and NTFS file systems.
+
+FAT32 හා NTFS ගොනු පද්ධතිවලට අනුකූලව, පහත දක්වා ඇති වගුවෙහි පළමුවන ත්‍රයෙහි දක්වා ඇති
+ලක්ෂණවලට අනුරෑප වන දෙවැනි හා තෙවැනි තීරැවල අඩංගු දෑ අනතුරෙන්‌ වඩාත්‌ සුදුසු දෙය OHS කර දක්වන්න.
+
+FAT32 NTFS
+Maximum file size limited/unlimited limited/unlimited
+ගොනුවක CaSO ප්‍රමාණය සීමින/අසීමිත සීමින/අසීමිත
+Maximum file name length limited/unlimited limited/unlimited
+ගොනු නාමයේ උපටථම දිග සීමින/අසීමිත සීමින/අසීමිත
+Security yes/no yes/no
+සුරක්ෂිත භාවය ඔව්‌/නැත ඔව්‌/නැත
+Support of Unicode yes/no yes/no
+යුනිකේත සඳහා සභාය ඔව්‌/නැත ඔව්‌/නැත
+
+A computer has an 18-bit virtual memory address space where six bits are used for a page address.
+පරිගණකයට බිටු-18 (18-bit) අනථ්‍යරෑපී මතක යොමු අවකාශයක්‌ (Virtual memory address space) ඇති අනර
+බිටු හයක්‌ පිටු යොමුව (Page address) සඳහා භාවිත කර ඇන.
+
+(1)
+
+Calculate the total number of pages defined by the above addressing scheme.
+හත යොමු කිරීමේ ක්‍රමය මගින්‌ නිර්වචනය කරන ලද මුළු පිටු සංඛ්‍යාව ගණනය කරන්න.
+
+(11)
+
+Consider the following virtual memory address.
+පහත දක්වා ඈති අතථ්‍යරෑපී මතක යොමුව සලකන්න.
+
+010111000000111100
+
+What is the page and displacement (Offset) of this address?
+GO® යොමුවේ (Address), පිටුව (Page) හා විස්ථාපනය (අනුලම්බය) කුමක්‌ ද?
+
+Draw the operating system process transition diagram from process creation to termination.
+ක්‍රියායන නිරීමාණයේ BO අවසන්‌ වීම දක්වා මෙහෙයුමි පද්ධනි Gavan තන්ව රෑප සටහන (Operating system
+process transition diagram) අඳින්න.
+
+(2011 — S.ESSAY 02 )
+
+Give two techniques used in operating systems to optimize processor utilization.
+
+සකසනයේ (processor) උපයෝගීකරණය (utilization) ප්‍රශස්ත කිරීම (optimize) සඳහා මෙහෙයුම්‌ පද්ධතිවල
+භාවිත කෙරෙන ශිල්පීය ක්‍රම දෙකක්‌ ලියන්න.
+
+In an operating system, a process can be in one of the states, namely, created/new, waiting, running,
+terminated, blocked, swapped out and waiting, or swapped out and blocked. From which of the
+above states can a process be directly moved into the blocked state?
+ලමහෙයුමි පද්ධතියක ක්‍රියාවලියක්‌ (process), created/new, waiting, running, terminated, blocked,
+swapped out and waiting, හෝ swapped out and blocked. යන අවස්ථාවලින්‌ එක්‌ අවස්ථාවක පවතී.
+ක්‍රියාවලියකට blocked අවස්ථාව වෙත සෘජුවම සංක්‍රමණය විය හැක්කේ Qnw සඳහන්‌ කුමන අවස්ථාවේ /
+අවස්ථාවල සිට ද?
+
+( 2012 — S.ESSAY 01 )
+
+If a computer system is byte addressable and uses 32-bit addresses to access any byte in its
+memory, what is the maximum usable size of its memory in Giga Bytes (GB)?
+
+Show all your workings clearly.
+
+පරිගණකයක්‌ බයිට යොමුගත HO (byte addressable) සහ එහි මතකයේ පවනින ඕනෑම බයිටයකට ප්‍රවේශ වීමට
+බිටු 32 හි යොමු (address) භාවිත කරන්නේ නම්‌ චහි මතකයේ භාවිත කළ හැකි උපථිම ප්‍රමාණය ගිගා බයිටි (GB)
+වලින්‌ කුමක්‌ ද? ඔබේ ගණනයන්‌ සියල්ල ම පැහැදිලිව පෙන්වන්න.
+
+What is the relationship between a program and a process in an operating system?
+GOGMES පද්ධතියක්‌ තුළ ක්‍රමලේඛයක්‌ (program) හා ක්‍රියාවලියක්‌ (process) අනර සමබන්ධතාවය
+(relationship) කුමක්‌ ද ?
+
+14
+
+(c) What is the need of having “swapped out and waiting” and “swapped out and blocked” states in the
+seven state process model of an operating system?
+ලමඟයුමි පද්ධතියක, සත්‌ ක්‍රියාවලි තත්ත්ව ආකෘතියේ (seven state process model) "ප්‍රතිහරණය කළ සහ KE
+සිටින (swapped out and waiting)" ae "ප්‍රනිහරණය කළ සහ අවහිර කළ (swapped out and blocked)" යන
+තන්ත්ව පැවනීමේ අවශ්‍යනාව කුමක්‌ ද?
+
+( 2013 — S.ESSAY 02 )
+
+4. (38) The memory of a computer system is byte addressable and has a maximum usable size of 4GB.
+What is the minimum width of its address bus in bits? Show all your workings clearly.
+පරිගණක පද්ධතියක මනකය OBO යොමුගත අතර (byte addressable) OsO azeadess 4GB උපරිම mda කළ
+
+හැකි මතක ප්‍රමාණයකි. OH යොමු බසයේ (address bus) අවම පළල බිටුවලින්‌ කොපමණ ද? ඔබේ ගණනය කිරීම්‌
+සියල්ල ම පැහැදිලි ව පෙන්වන්න.
+
+(b) Consider the following statement regarding operating systems. “Process is another name for a
+program” Do you agree with this statement? (yes/no) Give a reason.
+මෙහෙයුම්‌ පද්ධති සම්බන්ධයෙන්‌ පහත සඳහන්‌ වගන්තිය සලකා බලන්න.'ක්‍රියායනය යන්න ක්‍රමලේඛයක්‌ සඳහා ©
+තවත්‌ නමකි.” මෙම වගන්තිය හා ඔබ එකඟ වන්නේ ද ? (ඔව්‌/ නැත) එක්‌ හේතුවක්‌ ලබාදෙන්න.
+
+(ට) Consider the following process state transition diagram in an operating system:
+මෙහෙයුම්‌ පද්ධතියක්‌ තුළ පහත පෙන්වා ඇති ක්‍රියායන තන්ව සංක්‍රාන්ති රෑපසටහන සලකා බලන්න:
+
+Process State Transition Diagram ක්‍රියායන තත්ත්ව සංක්‍රාන්ති රෑපසටහන
+
+නිරීමිත (නව)
+
+Created (New)
+මුදා හැටීම
+
+release Val
+
+7 දතුල්‌ කිරීම
+admit
+යැවීම
+dispatch
+
+admit
+
+හී.
+කු
+
+ද්‌ ප්‍රධාන මතකය
+Main Memory
+
+[/ට පොරොත්තුව
+කාල ගතවීම wait
+
+timeout
+
+සඛ්‍රීය කිරීම
+activate
+
+I/O completed
+
+activate / _ /
+
+/ J තාවකාලිකව
+අත්හිටුවීම
+
+suspend
+
+ප්‍රතිභහරණය කළ
+සහ OG සිටින
+
+ණී.
+
+Swapped out
+and Waiting
+
+I/O completed
+
+J suspend ද්වීතියික අධ්‍යයනය
+Secondary Storage
+ප්‍රතිභහරණය කළ
+සහ අවහිර කළ
+Swapped out
+
+and Blocked
+
+/O සම්පූරිණ කළ
+
+Fill in the blanks in the table given below by providing most suitable terms for the labels A, B, C and D.
+A, B, Cem D ලේබල්‌ සඳහා වඩාත්‌ යෝග්‍ය පද යොදා පහත පෙන්වා ඇති වගුවේ හිස්තැන්‌ පුරවන්න.
+
+Label Term
+
+A
+
+B
+C
+D
+
+12
+
+( 2014 — S.ESSAY 04 )
+
+5. (a)
+
+(b)
+
+7. (a)
+
+(b)
+
+(c)
+
+A 32-bit computer has a byte addressable main memory. The computer uses 32-bit addresses to
+access any byte in its memory. It is observed that a maximum of 4 GB memory is available for a
+process even after the main memory is replaced by an 8 GB memory. Explain, with all the
+calculations, why this happens.
+
+බිටු 32 හි පටගණකයක @BO යොමුගන කළ හැකි (byte addressable) ප්‍රධාන මනකයක්‌ ඇත. මෙම පරිගණකය,
+එහි මතකයේ ඇති ඕනෑම බයිටයකට ප්‍රවේශ වීම සඳහා බිටු 32 හි යොමු භාවිත කරයි. මෙම පද්ධතියේ ප්‍රධාන
+මතකය ගිගා OBO 8 ක මනකයකින්‌ ප්‍රතිස්ථාපනය කළ පසුවත්‌ යම්‌ ක්‍රියාවලියක්‌ සඳහා භාවිත කළ හැක්කේ උපථිම
+
+වශයෙන්‌ ගිගා බයිට 4 ක මතකයක්‌ බව නිරීක්ෂණය කරන ලදී. මෙසේ සිදු වන්නේ ඇයි දැයි සියලු ගණනය කිරීමි
+සමගින්‌ පහදා දෙන්න.
+
+An operating system uses seven state process transition model for process scheduling. A given
+process is currently in the running state of the above model. Fill the following table with the correct
+next possible state and condition for transitions.
+
+ක්‍රියාවලි නියමකරණය (process scheduling) සඳහා එක්තරා මෙහෙයුම්‌ පද්ධතියක්‌ අවස්ථා හතේ ක්‍රියාවලි
+
+සංක්‍රාන්ති ආකෘතිය භාවිත කරයි. දෙන ලද ක්‍රියාවලියක්‌ ධාවන (Running) තන්ත්වයේ දැනට පවතී. මෙම
+ක්‍රියාවලියට ඊළඟට පත්විය හැකි නිවැරදි නත්ත්වය හා සංක්‍රාන්තිය සඳහා OM කොන්දේසිය යොදා SOD දැක්වෙන
+වගුව සම්පූරිණ කරන්න.
+
+Current state Next possible state Condition for transition
+චරතමාන තන්වය ඊළඟට පත්විය හැකි තත්වය සංක්‍රාන්තිය සඳහා වන කොන්දේසිය
+Running
+ධාවන
+
+( 2015 — S.ESSAY 04 )
+
+An embedded system uses 16-bit wide address bus to access its byte addressable main memory. What
+is the maximum usable size of its main memory? Show your computations clearly.
+
+නිහිත පද්ධනියක්‌ (embedded system) එහි බයිට යොමුගත කළ හැකි (byte addressable) ප්‍රධාන මතකයට
+ප්‍රවේශ වීම සඳහා බිටු 16ක යොමු බසයක්‌ (address bus) භාවිත කරයි. මෙම පද්ධතියට භාවිත කළ හැකි ප්‍රධාන
+මතකයේ C8060 ප්‍රමාණය (Maximum size) කොපමණ ද? ඔබගේ ගණනය කිරීම්‌ පැහැදිලි ව දක්වන්න.
+
+( 2016 — S.ESSAY 04 [B] )
+
+In an operating system, what are the events that change the state of a process in the ‘running’ state?
+මෙහෙයුම්‌ පද්ධතියක ධාවන තත්ත්වයේ පවතින ක්‍රියායනයක තත්ත්ව වෙනස්‌ කරන සිදුවීම්‌ මොනවා ද?
+
+Explain the main actions performed by an operating system during context switching.
+
+සන්දරභ ස්විචයනය (context switching) සිදු වන විට මෙහෙයුමි පද්ධනිය විසින්‌ සිදු කරන ප්‍රධාන ක්‍රියාවන්‌
+පැහැදිලි කරන්න.
+
+Explain what will happen during the booting process of a computer.
+පරිගණකයක්‌ බලගැන්වීමේ (booting) ක්‍රියාවලියේ දී සිදුවන්නේ කුමක්‌ දැයි පැහැදිලි කරන්න.
+
+( 2017 — S.ESSAY 02 )
+
+13
+
+8. (a)
+
+(b)
+
+Consider the following diagram which shows how the abstract layers of a computer system are
+related.
+
+පරිගණක පද්ධතියක අමුරිථ ස්තර (abstract layers) වකිනෙකට සම්බන්ධ වන ආකාරය පෙන්වන පහන
+දැක්වෙන රෑපසටහන සලකන්න.
+
+user 1 user 2 user 3 usern
+1 වන 2 වන 3 වන 7 වන
+පරිශීලක පරිශීලක SOGOM *** පරිශීල
+Vv Vv
+ග්‍ර assembler word processor _ datagase system
+(B) 9 එසෙම්බලරය පද සකසනය පර්ධතිය
+
+"වැක 2
+
+Choose and write down the correct terms from the list given below for labels A, B, C and D.
+A, B, Cm D යන ලේබලවලට අදාළ නිවැරදි පද පහන ලැයිස්තුවෙන්‌ තෝරා ලියන්න.
+
+List: (compiler, computer hardware, live-ware, operating system, system/application programs}
+ලැයිස්තුච : [සම්පාදකය, පරගණක දෘඞාංග, BOI, මෙහෙයුම්‌ පද්ධතිය, පද්ධනි/ යෙදුම්‌ ක්‍රමලේඛ |
+
+Order four of the following statements in the correct sequence to describe the operations that take
+place when a computer Is switched on.
+
+පටරගණකයක්‌ පණගැන්වූ SO (switched on) සිදුවන මෙහෙයුම්‌ විස්තර කිරීමට පහත ප්‍රකාශවලින්‌ හතරක්‌ නිවැරදිව
+පෙළ ගස්වන්න.
+
+(Note: Two of the statements will not be needed.)
+(සැ.යු.:: පහත ප්‍රකාශ අතුරෙන්‌ දෙකක්‌ අවශ්‍ය නොවේ.)
+
+A - The BIOS copies Operating System (OS) files into memory and the OS starts executing.
+
+මූලික ආදාන ප්‍රතිදාන පද්ධතිය (BIOS) විසින්‌ මෙහෙයුම්‌ පද්ධතියේ ගොනු ප්‍රධාන මතකයට පිටපත්‌ කිරීමෙන්‌
+පසු මෙහෙයුම්‌ පද්ධතිය ක්‍රියාත්මක වීම ඇරඹේ.
+
+B - The BIOS looks to the CMOS chip to tell it where to find the OS.
+මූලික ආදාන ප්‍රතිදාන පද්ධතිය CMOS චිපයෙන්‌, මෙහෙයුම්‌ පද්ධතිය සොයා ගත හැකි ස්ථානය ලබා ගනියි.
+
+C - The compiler is started.
+සම්පාදකය/((011101]6[) වැඩ අරඹයි.
+
+D - The contents in memory is swapped to the hard disk.
+මනකයේ ඇති දෑ දෘඩ ඩිස්කයට ප්‍රතිහරණය (swap) වේ.
+
+E- The OS loads the device drivers that it needs to control the devices and gives a login interface to
+the user.
+මෙහෙයුමි පද්ධතිය විසින්‌ උපාංග ක්‍රියාකරවීමට අවශ්‍ය උපක්‍රම ධාවක (device drivers) ප්‍රවේශනය (load)
+කරනු ලබන අතර Osis පරිශීලකයාට පරිගණකයට පිවිසිය හැකි පිරැමි අතුරැ මුහුණත (login interface)
+ලබාරේ.
+
+[ ~ Triggered by a series of clock ticks, the CPU executes the startup program's instructions in the
+BIOS that involves the power on self-test.
+හෝරා ස්පන්ද (clock ticks) කිහිපයකින්‌ ක්‍රියාරම්භක © මධ්‍ය සැකසුම්‌ ඒකකය (CPU), මූලික ආදාන ප්‍රතිදාන
+
+පද්ධතියෙහි (BIOS) බල ගැන්වුම්‌ ස්වයං පරීක්ෂා (Power On Self Test) ඇතුළත්‌ ආරම්භක ක්‍රමලේඛයෙහි
+උපදෙස්‌ ක්‍රියාන්මක කරයි.
+
+The sequence of operations ts: (fill in the boxes with relevant letters)
+මෙහෙයුම සිදුවන අනුපිළිවෙළ වන්නේ: (අදාළ අකුරැවලින්‌ කොටු පුරවන්න.)
+
+ය Jol [බං
+
+14
+
+(c) The state transitions that could occur in a process running on a computer with a multi-tasking
+operating system is shown in the following diagram:
+බහුකාරය මෙහෙයුමි පද්ධතියක්‌ (multi-tasking operating system) සහින පරගණකයක ධාවනය වන්නාවූ
+ක්‍රියාවලියකට (process) සිදු විය හැකි අවස්ථා සංක්‍රාන්ති (State transitions) පහත රෑප සටහනෙහි පෙන්වා ඇත.
+
+ඇතුල්වීම
+(Admitted)
+
+(i) Choose and write down the transition triggers indicated by the labels A, B, C and D from the list given.
+A, B, C සහ D ලේබලවලින්‌ දක්වන සංඛ්‍රාන්ති ක්‍රියාරම්භක දී az ලැයිස්තුවෙන්‌ තෝරා ලියන්න.
+
+List = {interrupt, Input/Output (I/O) or event completion, I/O or event wait, scheduler dispatch}
+
+ලැයිස්තුච = [අතුරැ DEO, අදාන/ ප්‍රතිදාන හා සිද්ධි නිම කිරීම, aqm/aGiqea සඳහා හෝ සිද්ධියක්‌ සඳහා
+භෝ බලා සිටීම, නියමකාරනිය මගින්‌ තෝරා යැවීම |
+
+(il) For the process above, give one possible reason for the following transition trigger:
+ඉහත ක්‍රියාවලියට අදාළව පහත සංක්‍රාන්ති ක්‍රියාරම්භකයට තුඩු Ga හැකි චක්‌ හේතුවක්‌ දෙන්න.
+
+[11[611(1[01; …… --- --…… සස ය
+
+අතුරැ බිඳුම;: …… …… ……
+
+(1) Inacertain computer, the physical memory has a total capacity of 4GB. The size of a memory frame is
+AKB.
+එක්නරා පටගණකයක භෞතික මනකයේ (physical memory) මුළු ධාරිතාව AGB වේ. OO මතකයේ රාමුවක
+(frame) විශාලත්වය 4KB ළ්‌.
+
+(i) Compute the total number of frames in the physical memory.
+භෞතික මතකයේ ඇති මුළු රාමු සංඛ්‍යාව ගණනය කර දක්වන්න.
+
+(il) The operating system maintains a data structure named the page table in respect of each process
+running in the computer. For what purpose is it used?
+ලමහෙයුමි පද්ධතිය, පරිගණකයේ ධාවනය වන Os} එක්‌ ක්‍රියාවලියක්‌ (process) සඳහා පිටු වගුව (page table)
+නම්‌ වූ දත්ත ව්‍යුහයක්‌ (data structure) භාවිත කරයි. OO දත්ත ව්‍යුහය භාවිත වන්නේ කුමක්‌ සඳහා ද?
+
+(ili) With respect to the physical memory size, what is the benefit of using the technique of virtual
+memory in the above computer?
+භෞතික මනකයේ ධාරිතාව සලකන විට, හෙන පරිගණකයේ අතනථ්‍යරෑපී මනක (virtual memory) නාක්ෂණය mda
+කිරීමෙන්‌ ලැබෙන වාසිය කුමක්‌ ද?
+( 2018 — S.ESSAY 04 )
+
+9. (4) An operating system uses Process Control Blocks (PCBs) to maintain important information about
+each process.
+GOGOQS පද්ධතියක්‌ එක්‌ එක්‌ ක්‍රියාවලියට (process) අදාළ වැදගත්‌ තොරතුරැ පවත්වා ගෙන යෑමට ක්‍රියායන
+පාලන බණ්ඩ (Process Control Blocks [PCB]) භාවිත කරයි.
+
+Read the following scenario and answer the given questions:
+පහන විස්තරය කියවා අසා ඇනි ප්‍රශ්නවලට පිළිනුරු සපයන්න.
+
+Rani starts a computational application on a single processor computer. While the relevant
+computations are in progress, she starts a web browser application as well, in order to search for some
+information.
+
+රාණි විසින්‌ තනි සකසනයක්‌ (single procesor) සහිත පට්ගණකයක ගණනය කිරීම්‌ යෙදුමක්‌ (computational
+
+application) ආරම්භ කරනු ලබයි. අදාළ ගණනය කිරීම්‌ සිදුවන අතරතුර ඇය තොරතුරක්‌ සොයා ගැනීම සඳහා
+වෙබ්‌ අතරික්සුවක්‌ ද අරඹයි.
+
+Write down the content that will be stored in the following PCB fields of the computing process when
+the "computing process — web browser process" context switch is made.
+
+“ගණනය කිරීමේ ක්‍රියායනය —- වෙබි අතරික්සු Gane” යන සන්දරභ ස්චිචනය (context switch) සිදුවූ විට
+ගණනය කිරීමේ ක්‍රියායනයේ පහත දැක්වෙන PCB ක්ෂේත්‍රවල අඩංගු වන්නේ මොනවාදැයි ලියා දක්වන්න.
+
+(i) Program counter
+ක්‍රමලේඛ ගණකය
+
+(ii) Process state (Ready, Running or Blocked ?)
+ක්‍රියායන අවස්ථාව (Process state) | සූදානම්‌, ධාවනය වන හෝ අවහිර කරනු ලැබූ? |
+
+(0) (i) What is meant by contiguous file space allocation?
+යාබද ගොනු අවකාශ විභාජනය (contiguous file space allocation) යන්නෙන්‌ අදහස කුමක්‌ ද?
+
+(il) Write down one drawback of contiguous file space allocation.
+යාබද ගොනු අවකාශ විභාජනයෙහි Awd දුර්වලතාවයක්‌ ලියා දක්වන්න.
+
+(ili) However, contiguous allocation is feasible to store a set of files on a CD ROM. Why?
+එහෙන්‌ ගොනු කිහිපයක්‌ CDROM හි ගබඩා කිරීමට යාබද විභාජනය යෝග්‍ය වේ. ඒ ඇයි?
+
+(iv) In addition to the normal data items, write down one other information that will exist in a
+file block in the linked file space allocation scheme.
+සබැඳි ගොනු අවකාශ විභාජනයේ දී (linked file space allocation), ගොනුවේ සාමාන්‍ය දත්ත අයිතමවලට අමතරව
+චික්‌ ගොනු කට්ටියක (file block) තිබෙන වෙනත්‌ තොරතුරක්‌ ලියා දක්වන්න.
+
+(c) Assume that a 32 KB program is run on a computer Page Frame Present /
+having 32 KB of physical memory. The page size of the number | number absent
+system is 4 KB. The page table of this process at a පිටු අංකය | රාමු අංකය ඇත/ැ/නැත
+particular time is shown on the table below. 0 110 1
+විශාලත්වය 32 KB වූ ක්‍රමලේඛයක්‌, 32 KB භෞතික මතකයක්‌ 1 001 1
+(physical memory) ඇති පට ගණකයක ධාවනය වීම සලකන්න.
+පද්ධනියේ පිටු විශාලන්වය (page size) 4 KB වේ. චක්තරා 2 010 |
+අවස්ථාවකදී ක්‍රියායනයේ පිටු වගුව (page table) පහත පරිදි 3 100 1
+වේ. 4 011 1
+Not 5 000 0
+
+otes :
+3. 6 000 0
+7 101 1
+e Only a few selected fields of each page table entry is
+shown.
+
+පිටු වගුවේ එක්‌ එක්‌ පේළියට අදාළ තෝරාගත්‌ ක්ෂේත්‍ර කිහිපයක්‌ පමණක්‌ දක්වා ඇත.
+
+e The frame number is indicated in binary.
+රාමු අංකය ද්විමය ලෙස දක්වා ඇන.
+
+e The virtual addresses on page 0 are from 0 to 4095 and on page are from 4096 to 8191 and so on.
+0 පිටුවේ අතථ්‍ය යොමු 0 සිට 4095 දක්චා වන අතර, 1 පිටුවේ අතථ්‍ය යොමු 4096 සිට 8191 නෙක්‌ ආදි
+වශයෙන්‌ 6d.
+
+e The Present/absent bit indicates the validity of the entry. If this bit is 1, the entry is valid and can
+be used. If it is 0, then the relevant virtual page is not in physical memory.
+
+BD / නැත DOO එම පේළියේ වලංගු බව දක්වයි. DOOD 1 නම්‌ ඇතුළත්‌ කරන ලද දෑ වලංගු වන අතර භාවිතයට
+ගත හැක. බිටුව 0 නමි අදාළ අතථ්‍ය පිටුව භෞතික මතකයේ නැන .
+
+(i) Assume this program requires accessing virtual address 8200. To which physical address will it get
+transformed to?
+GOO ක්‍රමලේඛයට අතථ්‍ය යොමු (virtual address) 8200 වන යොමුවට පිවිසීමට (access) අවශ්‍ය යැයි සිතන්න.
+එය කුමන භෞතික යොමුවකට (physical address) පරිණාමනය (transform) වේ ද?
+
+(il) Write down one advantage that the use of page tables bring with respect to program sizes
+
+compared to the size of physical memory.
+ක්‍රමලේඛ විශාලන්වයන්ට සාපේක්ෂව භෞතික මතක (physical memory) විශාලන්වයන්‌ සැසඳීමේ දී, පිටු OQ
+(page tables) භාවිතය නිසා ලැබෙන චක්‌ වාසියක්‌ ලියා දක්වන්න.
+
+(ili) Give one reason as to why a particular page of a process could be absent in physical memory.
+
+10.(a)
+
+ක්‍රියාවලියකට අයත්‌ යම්‌ පිටුවක්‌ භෞතික මතකයේ නොත්බීමට ඇති Owed හේතුවක්‌ ලියා දක්වන්න.
+( 2019 -- S.ESSAY 04 )
+
+An operating system uses Process Control Blocks (PCBs) to maintain important information about
+each process.
+
+GOGOQS පද්ධතියක්‌ එක්‌ එක්‌ ක්‍රියාවලියට (process) අදාළ වැදගත්‌ තනොරනුරැ පවන්වාගෙන යෑමට
+
+ක්‍රියායන පාලන ඛණ්ඩ (Process Control Blocks [PCB]) භාවිත කරයි.
+
+(i) Read the following scenario and answer the given question:
+
+පහන විස්තරය කියවා අසා ඇති ප්‍රශ්නයට පිළිනුරු සපයන්න.
+
+Piyal starts a spreadsheet program on a single processor computer to use the budget.xls file that he
+saved the day before. He also is running a web browser that he uses to check his email.
+පියල්‌ විසින්‌ තනි සකසනයක්‌ (single processor) සහින පට්ගණකයක පෙරදා තමා විසින්‌ ගබඩා කළ budget.xls
+
+ගොනුව භාවිත කිරීමට පැතුරැමිපන්‌ ක්‍රමලේඛයක්‌ අරඹයි. තමාගේ 65-තැපෑල පරීක්ෂා කිරීම සඳහා ඔහු වෙබි
+අතරික්සුවක්‌ ද ධාවනය කරයි.
+
+At a particular time, the operating system changes the process state field in the PCB of the
+spreadsheet process from “Running” to “Blocked”. Give one likely reason for that transition.
+යම්‌ අවස්ථාවක දී, මෙහෙයුමි පද්ධතිය, පැතුරැමීපන්‌ ක්‍රියායනයට අදාළ PCB හි ක්‍රියායන අවස්ථාව (process state)
+
+ක්ෂේත්‍රයෙහි අන්තරිගතය “ධාවනය වන” (Running) සිට “අවහිර කරනු ලැබූ” (Blocked) ලෙස මාරැ කරයි. එම
+මාරැවට හේතු විය හැකි චක්‌ කරැණක්‌ ලියා දක්වන්න.
+
+(i) When the state of a process changes (e.g., “Running” ~* “Ready"), the values of the machine registers
+
+(b)
+
+are stored in the PCB of that process. Why 15 it important to store them?
+ක්‍රියායනයක පචතින අවස්ථාව (state) මාරු වන විට (උදා: “ධාවනය වන” — “සූදානම්‌”), පරගණකයේ
+රෙපිස්තරවල අගයයන්‌ අදාළ ක්‍රියායනයේ PCB හි ගබඩා කෙරේ. එම තොරතුරැ ගබඩා SSO වැදුගන්‌ වන්නේ ඇයි?
+
+The block size of a disk is 4 KB. A portion of its File Allocation Table (FAT) starting FAT
+from block 300 at a particular time, is shown below. It gives the blocks of maximum.py
+
+file as well: 300 303
+
+ඩිස්කයක එක්‌ කාණ්ඩයක (block) විශාලත්වය 4 KB Gd. එම ඩිස්කයේ ගොනු විභාජන වගුවේ 301 300
+(File Allocation Table [FAT]), කාණ්ඩ 300 න්‌ පටන්ගැනන කොටසක තත්ත්වය චක්තරා
+
+අවස්ථාවක දී පහත රෑපයේ දැක්වේ. නේ maximum.py ගොනුවට අදාළ කාණ්ඩ ද ලබාගන 302
+
+හැකි ය. 303 | 304
+
+Note: The last block of a file is indicated by -1. 304 1
+
+090.09. : ගොනුවක අවසන්‌ කාණ්ඩය -1 මගින්‌ දැක්වේ.
+
+(i) Write down the value of an important number that will be stored in the directory entry for
+
+maximum.py file that will help an operating system locate the blocks in that file.
+ලමහෙයුමි පද්ධනියට maximuM.py ගොනුවට අදාළ කාණ්ඩ සොයාගැනීමට වෙහල්‌ වන, OO ගොනුවට අදාළ
+නාමාචලි නතොරතනුරෙහි (directory entry) ඇති වැදගත්‌ අංකයක අගය ලියා දක්වන්න.
+
+(i) Assume that additional improvements are made to the maximum.py file that results in its size
+
+becoming 20 KB. What changes are needed in the FAT for this purpose?
+MaxiMuM.py ගොනුව තවදුරටත්‌ වර්ධනය 5 එහි විශාලත්වය 20 KB 5 යැයි සිතන්න. එයට අදාළව FAT හි සිදු
+කළ යුතු වෙනස්කම්‌ මොනවා ද?
+
+17
+
+(c)
+
+(i)
+
+(ii)
+
+(ili)
+
+Assume that we have a computer that can use 16-bit virtual addresses from 0 up to 64 K. Assume
+further that this computer has only 32 KB of physical memory and that the page size in this computer
+is 4 KB.
+
+0 සිට 64K දක්වා වූ බිටු 16 ක 283 යුත්‌ අතථ්‍ය යොමු mda කළ හැකි පටගණකයක්‌ අප සතු යැයි උපකල්පනය
+කරන්න. තව ද මෙම පරගණකයේ භෞතික මනකයේ (physical Memory) විශාලන්වය 32 KB ලෙසන්‌, පිටුවක
+(page) විශාලන්වය 4 KB ලලසන්‌ සලකන්න.
+
+The above 16-bit virtual address is made up of the bits of the page number followed by offset bits.
+How many bits in the address are required to store a page number in this computer?
+
+ඉහත බිටු 16 හි ends යොමුව පිළිවෙළින්‌ පිටු අංකය (page number) දක්වන BOOBs) හා නෙරැව (offset)
+දක්වන බිටුවලින්‌ සමන්විත වේ. මෙම පටගණකයෙහි, පිටු අංකය ගබඩා කිරීමට යොමුවේ කොපමණ බිටු ගණනක්‌
+අවශ්‍ය වේ ද?
+
+User runs a particular program | Page number Frame number | Present/absent
+having a size of 32KB on _ this පිටු අංකය රාමු අංකය ඇත/නැත
+computer. A few selected fields of 0 101 1
+the page table of that process at a 1 000 0
+particular time are shown in the
+
+figure below. 2 000 0
+විශාලත්වය 32 KB වූ ක්‍රමලේඛයක්‌ 3 110 1
+පරිශීලකයකු විසින්‌ මෙම පරිගණකයේ 4 011 1
+ධාවනය කරයි. එක්තරා අවස්ථාවක දී එම
+
+ක්‍රියායනයේ පිටු වගුවේ (page table) ව්‌ 000 0
+තෝරාගත්‌ ක්ෂේත්‍ර කිහිපයක්‌ පහත පරිදි 6 111 1
+
+වේ. 7 000 0
+
+e The frame number is indicated in binary.
+රාමු අංකය ද්විමය ලෙස දක්වා ඇත.
+
+e The virtual addresses on page 0 are from 0 to 4095 and on page 1 are from 4096 to 8191 and
+50 on.
+0 පිටුවේ අතථ්‍ය යොමු (virtual addresses) 0 සිට 4095 තෙක්‌ Om අතර, 1 පිටුවේ අතථ්‍ය යොමු 4096
+සිට 8191 තෙක්‌ ආදි වශයෙන්‌ එව්‌.
+
+e The Present/absent bit indicates the validity of the entry. If this bit is 1, the entry is valid and
+can be used. If it is 0, then the relevant virtual page is not in physical memory.
+ඇත/ නැත DOD DO පේළියේ වලංගු බව දක්වයි. BQO 1 HO ඇතුළත්‌ කරන ලද දෑ වලංගු වන අතර
+භාවිතයට ගන හැඟි ය. බිටුව 0 නම්‌ අදාළ අතථ්‍ය පිටුව භෞතික මතකයේ නැත.
+
+e Assume that in the above process the virtual address 0011 0000 0000 0010 is wanted.The above
+virtual Address is mapped to the physical address 110 0000 0000 0010. Explain it.
+මෙම ක්‍රියායනයේ 0011 0000 0000 0010 අනථ්‍ය යොමුව අවශ්‍ය යැයි සිතන්න. ඉහත අතථ්‍ය යොමුව 110
+0000 0000 0010 භෞතික යොමුවට අනුරෑපණය (mapped) වේ. මෙය පැහැදිලි කරන්න.
+
+Assume that there was a request for the virtual address 0001 0000 0000 0000. Due to the set of tasks
+that the operating system initiated to fulfil that request, the present/absent bit of the page number
+6 in the above page table changed from 1 to 0. What is the likely 15-bit physical address that the
+virtual address 0001 0000 0000 0000 will be mapped to?
+0001 0000 0000 0000 ands යොමුව අවශ්‍ය වූයේ යයි උපකල්පනය කරන්න. එම අවශ්‍යතාවය ඉටු්‍රෙකරලීමට
+මෙහෙයුම්‌ පද්ධතිය ආරමිභ කළ ඛක්‍රියාවලිවල ප්‍රතිඵලයක්‌ ලෙස හෙත පිටු වගුවෙහි පිටු අංක 6 ට අදාළ ඇත/ නැත
+බිටුව 1 සිට 0 ලෙස චෙනස්‌ විය. 0001 0000 0000 0000 යොමුව අනුරදඛපණය වීමට 98 ඇති බිටු 15 කින්‌
+යුත්‌ භෞතික යොමුව කුමක්‌ ද?
+
+( 2020 -- S.ESSAY 04 )
+
+18
+
+1. (a) Briefly explain why storage compaction 15 needed in memory management.
+
+(b)
+
+මතකය කළමනාකරණයේදී ආචයනය සුසංහභිතකරණය (Storage compaction) අවශ්‍ය වන්නේ මන්දැයි කෙටියෙන්‌
+පැහැදිලි කරන්න.
+
+For a file of size 10400 bits, calculate the wastage in file space due to incomplete filling of the
+last cluster (Assume that a cluster has a size of 512 bytes.)
+
+අවසාන පොකුර (Cluster) අසම්පූරිණ ලෙසින්‌ පිරවුමකදී ප්‍රමාණය BO 10400 ක්‌ වූ ගොනුවක ගොනු අවකාශයෙහි
+(File space) සිදුවන නාස්තිය ගණනය කරන්න. (පොකුරක ප්‍රමාණය බයිට්‌ 512 ක්‌ ලෙස උපකල්පනය කරන්න.)
+
+( 2011 — ESSAY 01 )
+
+2. An application running in a computer refers the virtual memory address, 0100110100010111 during
+execution.
+
+පරිගණකයක්‌ තුළ ක්‍රියාත්මක වෙමින්‌ පචතින යෙදුමක්‌ ක්‍රියාත්මක වීමේදී 0100110100010111 අතාත්වික (virtual)
+මනක ලිපිනය හා සම්බන්ධ GOS.
+
+(1)
+
+(11)
+
+(iil)
+
+3. (a)
+
+(b)
+
+(c)
+
+4. (a)
+
+Calculate the maximum accessible virtual memory address space, in the above computer in Kilo Bytes?
+මෙම පට්ගණකයෙේ C550 ප්‍රවේශ විය හැකි අතාත්ත්වික මතක ලිපින අවකාශය, කිලෝබයිට්ිස්වලින්‌ ගණනය කරන්න.
+
+What is the range (starting and ending addresses) of the memory address space identified in the
+section (i) above?
+ඉහත (1) හි මතක ලිපින අවකාශයෙහි පරාසය (ආරම්භක සහ අවසාන ලිපින) කුමක්‌ ද?
+
+If a page size is 4 Kbits, how many bits are sufficient to represent the page number? Show your
+computation.
+පිටුවක තරම (size) කිලෝබිටු 4 ක්‌ HO, පිටු අංකය නිරූපණය කිරීම සඳහා බිටු කීයක්‌ ප්‍රමාණවත්‌ වේ ද? ඔබේ
+ආගණනය (computation) දක්වන්න.
+
+( 2012 — ESSAY 03 )
+
+A student asks you how all applications started by him execute simultaneously although he has a
+single- processor computer. Write down your explanation.
+
+නමාට OS සකසනයක්‌ (single processor) සහිත පරගණකයක්‌ නිබුනද, නමා විසින්‌ එහි අරඹන සියලුම යෙදුමි
+එකවර ක්‍රියාන්මක වන්නේ කෙසේදැයි ශිෂ්‍යයෙක්‌ ඔබෙන්‌ විමසයි. ඔබේ පැහැදිලි කිරීම ලියා දුක්වන්න.
+
+Programs whose sizes are even larger than the size of the available physical memory of a computer
+could be executed on it. How can that be possible?
+
+පරිගණකයක භාවිනයට ගතහැකි භෞතික මතකයේ (physical memory) විශාලන්වයට වඩා වැඩි විශාලත්වයෙන්‌
+යුත්‌ ක්‍රමලේඛ වුවද එම පථගණකයේ ධාවනය කළ හැක. එසේ හැකි වන්නේ කෙසේ ද ?
+
+When linked allocation is used for disk space allocation, each file needs slightly more storage space
+than when contiguous allocation is used. Explain the reason for it.
+ඩිස්ක ඉඩ පැවරීම සඳහා සබැඳි විභජනය (linked allocation) mda කරන විට, සෑම ගොනුවක්‌ සඳහාම, යාබද
+විභජනය (contiguous allocation) භාවිත කිරීමේදී අවශ්‍යවන ඉඩ ප්‍රමාණයට වඩා යම්නමින්‌ වැඩි ඩඬෙ ප්‍රමාණයක්‌
+අවශ්‍ය GH. OSO භේතුව පහදන්න.
+
+( 2021 — ESSAY 10 [8] )
+
+A user starts a web browser on her single Processes
+processor computer to go through some *
+Python tutorials. She also starts a text editor
+
+to work on her Python program.
+
+පරශීලකයෙක්‌ පයිතන්‌ නිබන්ධ අධ්‍යයනය සඳහා Pr
+ඇයගේ OS සකසනයකින්‌ යුත්‌ පටිගණකයේ cds
+අතරික්සුවක්‌ ආරම්භ කරයි. ඇයගේ පයිතන්‌ කේතයේ
+
+කටයුතු කිරීමට ඇය පාඨ සංස්කාරකයක්‌ ද ආරමිභ "අස — ! ක්‍ෂ
+කරයි. |
+_
+Q Q “ Q
+<_-
+O
+
+19
+
+(b)
+
+(c)
+
+The diagram shows how the web browser (Pw) and the text editor (Pr) processes run on the processor
+along with the operating system (Pos) since the time the user started the web browser.
+
+ඇය GOD අතරික්සුව ආරම්භ කළ මොහොතේ සිට, සකසනය මත, වෙබ්‌ අතරික්සු ක්‍රියායනය (Pw), sad සංස්කාරක
+ක්‍රියායනය (Pr), සහ මෙහෙයුම්‌ පද්ධතිය (Pos), කියාත්මක වන ආකාරය යාබද ප්‍රස්තාරයෙන්‌ දැක්වේ.
+
+What important work related to Pw, and Py will be performed by the operating system during the time
+period indicated by ‘O’?
+මෙහෙයුම්‌ පද්ධතිය 'ට' කාල සීමාවේදී, Pw සහ Pr ආශිතව සිදුකරන වැදගත්‌ කාරිය මොනවා ද?
+
+Assume that the time period the operating system allocates to each process to run on the processor
+in a single instance is Q.
+
+එක්‌ අවස්ථාවකදී සකසනය මත ක්‍රියාත්මක SOO මෙහෙයුම්‌ පද්ධතිය එක්‌ එක්‌ ක්‍රියායනයට වෙන්‌ කරන කාල සීමාව
+ට යැයි උපකල්පනය කරන්න.
+
+Explain why W (the time period the web browser process runs at the second instance) is less than Q
+as shown in the graph.
+
+ප්‍රස්තාරයේ පෙන්වා ඇති පරිදි W (වෙබි අතරක්සු Bsns දෙවන වතාවට ක්‍රියාත්මකවන කාලය) Q ට වඩා අඩු
+චන්නේ මන්දැයි පැහැදිලි කරන්න.
+
+Assume that we have a computer that can use 16-bit virtual addresses from O up to 64 K. Assume
+further that this computer has only 32 KB of physical memory and that the page size in this computer
+is 4 KB.
+
+0 සිට 64K දක්වා වූ BO 16 ක දිගින්‌ යුත්‌ අථත්‍ය යොමු (virtual address) භාවිත කළ හැකි පරිගණකයක්‌ අප
+BQ යැයි උපකල්පනය කරන්න. නවද මෙම පරිගණකයේ භෞනික මනකයේ (physical Memory) විශාලන්වය 32
+KB ලෙසන්‌, පිටුවක (page) විශාලන්වය 4 [3 ලෙසත්‌ සලකන්න.
+
+The above 16-bit virtual address is made up of the bits of the page number followed by offset bits.
+
+ඉහත බිටු 16 හි amos යොමුව පිළිවෙළින්‌ පිටු අංකය (page number) දක්චන බිටුවලින්‌ හා නෙරැව (offset)
+දක්වන බිටුවලින්‌ සමන්විත වේ.
+
+User runs a particular program having a size of 32 KB on this computer. A few selected fields of the
+page table of that process at a particular time are shown in the figure below.
+
+විශාලත්වය 32 KB වූ ක්‍රමලේඛයක්‌ පරිශීලකයකු විසින්‌ මෙම පරිගණකයේ ධාවනය කරයි. එක්තරා අවස්ථාවකදී
+එම ක්‍රියායනයේ පිටු වගුවේ (page table) තෝරාගත්‌ ක්ෂේත්‍ර කිහිපයක්‌ පහන පරිදි වේ.
+
+Notes:
+
+සටහන්‌:
+
+e The frame number is indicated in binary.
+රාමු අංකය ද්විමය ලෙස දක්වා ඇත. te er frame r Present/
+
+e The virtual addresses on page 0 are from 0 to 4095 පිටු අංකය | රාමු අංකය | ඇත/නැත
+and on page 1 are from 4096 to,8191 and so on. 0 011 1
+0 පිටුවේ ames යොමු 0 BO 4095 නෙක්‌ වන අතර, 1 1 101 1
+පිටුවේ අතථ්‍ය යොමු 4096 සිට 8191 තෙක්‌ ආදි වශයෙන්‌
+චව්‌. 2 000 0
+
+e The Present/absent bit indicates the validity of the 3 000 0
+entry. If this bit is 1, the entry is valid and can be 4 000 0
+used. If it is 0, then the relevant virtual page is not
+in physical memory. ම 000 0
+ඇත/ නැත බිටුව එම පිටුවේ වලංගු බව දක්වයි. බිටුව 1 6 000 0
+නම්‌, ඇතුළන්‌ කරන ලද දෑ වලංගු වන අතර භාවිතයට 2 000 0
+ගත හැකි ය. බිටුව 0 නම්‌ අදාළ අතථ්‍ය පිටුව භෞතික
+
+මතකයේ නැත.
+
+Assume that in the above process the virtual address 0001 0000 0000 0011 is wanted. Is that page
+available in physical memory? If your answer Is ‘yes’, then write down the 15-bit physical address that
+the above virtual address will be mapped into. If your answer Is ‘no’, then write down the actions that
+the operating system will take on behalf of that process for the said requirement.
+
+හත කඛ්‍රියායනයේ 0001 0000 0000 0011 අතථ්‍ය යොමුව අවශ්‍ය යැයි සිතන්න. DO පිටුව භෞතික මතකයේ පවතී
+ද? ඔබගේ පිළිතුර “ඔව්‌” නම්‌, හෙත අතථ්‍ය යොමුව අනුරෑපණය (map) වන බිටු 15 කින්‌ යුන්‌ භෞතික යොමුව
+
+ලියා දක්වන්න. ඔබගේ පිළිතුර “නැත” නම්‌, QHD ක්‍රියායනයේ සඳහන්‌ කළ අවශ්‍යතාව වෙනුවෙන්‌ මෙහෙයුම්‌
+පද්ධතිය ගන්නා ක්‍රියාමාර්ග ලියා දක්වන්න.
+
+20
+
+(d) Give two reasons as to why a page of a process may not be in physical memory.
+ක්‍රියායනයක පිටුවක්‌ (page) භෞනික මතකයේ නොමැනි SOO හේනු දෙකක්‌ සපයන්න.
+
+(6) Explain how the operating system could find the blocks of a file when the files are stored on a hard
+disk using.
+දෘඩ තැටියක ගොනු ගබඩා කිරීම පහත ක්‍රම භාවිතයෙන්‌ සිදුව ඇති විට, මෙහෙයුම්‌ පද්ධතිය ගොනුවක කාණ්ඩ
+(blocks) සොයාගන්නා ආකාරය වෙන වෙනම පැහැදිලි කරන්න.
+
+(i) යාබද (contiguous) විභාජනය
+(li) අනුක්‍රමික (index) විභාජනය
+
+(Hint: the use of the directory entry)
+(හිය: නාමාවලි නොරතුරේ [directory entry] භාවිතය)
+( 2022 -- ESSAY 10 )
+
+5 (a) (i) What is the repeating cycle that a processor in a computer is involved in since the
+computer is started till it is shutdown?
+පරිගණකය පණගන්වා ක්‍රියාවිරහිත කරන තුරැ, පරිගණකයේ srnesMcs (processor) නැවත නැවත නිරතවන චක්‍රය
+(repeating cycle) කුමක්‌ ද?
+
+(il) Which program's instructions get executed in the processor of a computer during a context switch?
+සංදරභ ස්විචයක්‌ (context switch) අනරතුරදී පරිගණකයක සකසනයේ ක්‍රියාත්මක වන්නේ කුමන ක්‍රමලේඛයේ
+(program) උපදෙස්‌ ද?
+
+(ili) A register is a group of binary cells suitable for holding binary information and is constituted by a
+collection of flip-flops. How many flip-flops are needed to make an n-bit register?
+ඉරපිස්තරයක්‌ (register) යනු ද්විමය තොරතුරැ රඳවා තබා ගැනීමට සුදුසු ද්විමය කෝෂ (binary cells) සමූහයක්‌
+වන අතර චඑය පිළි-පොළ (flip-flop) එකතුවකින්‌ සමන්විත වේ. බිටු n සහිත රෙපිස්තරයක්‌ සෑදීම සඳහා අවශ්‍ය
+පිළි-පොළ ගණන කොපමණ ද?
+
+(b) A user runs the following Python codes on a computer. The code on left prints the lines of a file on
+the screen while the other code does an average computation.
+SOBOQMGaD පහත පයිතන්‌ කේත පරිගණකයක ධාවනය කරයි. වම්පස කේතය මගින්‌ ගොනුවක පේළි තිරයේ
+මුද්‍රණය කරන අතර දකුණුපස කේනය සාමාන්‍ය අගය (average) ගණනය කිරීමක්‌ සිදු කරයි.
+
+fileReader.py average.py Los
+A=input("Enter filename") | total=0
+fl = open(A,"r") for num in range(100@@): a
+for line in f1: total += num කාර කාකා යය > AP
+print(line) average = total / 10000 pa
+f1.close() print (average) Srp
+
+Memory / මතකය
+Figure 10.1 රෑපය 10.1
+
+The computer's memory at a particular time is shown in the figure 10.1. The memory frames occupied
+by the operating system, the fileReader process and the average process are indicated on it by OS, FP
+and AP respectively.
+
+යම්‌ GOQEODWeZ පරිගණකයේ මතකය රෑපය 10.1 හි පෙන්නුම්‌ කෙරෙයි. එහි OS, FP සහ AP යන්නෙන්‌ පිළිවෙළින්‌
+ලමහෙයුමි පද්ධතිය, fileReader ක්‍රියයනය සහ average ක්‍රියායනය මගින්‌ භාවිත කරන මනක රාමු (memory
+frames) නිරූපණය කෙෂපේ.
+
+Selecting from OS, AP and FP write down the most likely place where each of the following is stored.
+OS, AP සහ FP eda පහත එවා තැන්පත්ව නිබිය හැක්කේ කොහේදැයි ලියන්න.
+
+(i) content of variable A of the fileReader process
+fileReader ක්‍රියායනයේ A SHeEsed අන්තර්ගතය
+
+(il) the Process Control Block (PCB) of the average process
+average ක්‍රියායනයේ ක්‍රියායන පාලන ඛණ්ඩය (PCB)
+
+(c)
+
+(d)
+
+(e)
+
+(f)
+
+Of the above two python processes, one of them will go through the RUNNING — BLOCKED state
+transition more than other. Which process is that? Give the reason for it.
+
+ඉහත පයිතන්‌ ක්‍රියායන දෙක අතරින්‌ එකක, අනෙකට වඩා, ක්‍රියාත්මක — අවහිර කළ යන කියායන සංඛ්‍රාන්තිය සිදු
+වේ. DO ක්‍රියායනය කුමක්‌ ද? ඊට හේතුව දක්වන්න.
+
+Assume that when the fileReader process of (b) above is in progress a context switch occurs and a
+different process is run. When the fileReader process is given the chance to run again, the file is read
+from where it stopped. Which data structure facilitates that feature?
+
+ඉහත (0) හි fileReader ක්‍රියයනය ධාවනය වචන විට ssocdm ස්විචයක්‌ Be 5 cass ක්‍රියායනයක්‌ ධාවනය 6d
+
+යැයි සලකන්න. fileReader ක්‍රියයනයට ධාවනය කිරීමට නැවත අවස්ථාව ලබා දුන්‌ විට, නැවැත්‌ වූ තැන සිට
+ගොනුව කියවයි. මෙම ගුණාංගය පහසු කරන්නේ කුමන දන්ත ව්‍යුහය ද?
+
+A computer uses 32-bit virtual addresses. This computer has a 1 GB (229 bytes) physical memory and
+a 4 KB page size.
+
+පරිගණකයක්‌ BQ 32 ක අතථ්‍ය යොමු MAD කරයි. මෙම පථගණකයේ භෞතික මතකයේ විශාලත්වය 1GB (239
+bytes) ලෙසත්‌ පිටුවක (page) විශාලත්වය 4 [ඈ ලෙසන්‌ දැක්වේ.
+
+(i) Write down the number of frames in physical memory as a power of 2.
+භෞතික මතකයේ ඇති රාමු (frame) ගණන 2 හි බලයක්‌ ලෙස ලියා දක්වන්න.
+
+(ii) Assume that in addition to memory frame information, each page table entry for a virtual page in
+this computer contains some additional information consisting of a total of four bits. If the total
+size of the page table required for each process on this computer assuming that all virtual pages
+are in use is given as 2? x q bits, write down the values of p and q.
+ලමම පරිගණකයේ පිටු වගුවේ අතථ්‍ය පිටුවකට අදාළ සටහනේ මනක රාමු තොරතුරැවලට අමතරව, බිටු 4ක
+දිගකට තවන්‌ තනොරතනුරැ ද ඇතැයි උපකල්පනය කරන්න. සියලුම අතථ්‍ය පිටු භාවිත කරතැයි උපකල්පනය කළ
+විට, මෙම පරිගණකයේ චඑක්‌ ක්‍රියායනයක්‌ සඳහා අවශ්‍ය පිටු වගුවේ සමස්ත විශාලත්වය බිටු 2? x q ලෙසින්‌
+දැක්වේ නම, [0 සහ 0 වල අගයන්‌ ලියන්න.
+
+(ili) If the virtual address 4097 of a particular process is mapped to Frame 2 of physical memory,
+write down in decimal form, the physical address corresponding to the virtual address 4097.
+(Assume that page numbers, frame numbers and addresses begin from 0)
+යම්‌ ක්‍රියායනයක 4097 අතථ්‍ය යොමුව භෞතික මතකයේ රාමු අංක 2 ට aexdzagva චේ HO, 4097 අතථ්‍ය
+
+ලයොමුවට අදාළ භෞතික යොමුව (physical address) දුශමය ආකාරයෙන්‌ දක්වන්න. (පිටු අංක, රාමු අංක සහ
+යොමු, බින්දුවෙන්‌ ඇරඹෙන බව උපකල්පනය කරන්න.)
+
+The test.py file is stored on blocks 218 and 220 respectively in a disk that uses a File Allocation Table
+(FAT) to manage Its storage. The disk uses 4 KB blocks.
+ආචයනය කළමනාකරණය කිරීමට ගොනු Soda වගුවක්‌ (FAT) mda කරන ඩිස්කයක ඇති test.py ගොනුව
+
+පිළිවෙළින්‌ 218 හා 220 කාණ්ඩ (blocks) මත ගබඩා කෙරේ. ඩිස්කය 4 KB විශාලත්වයකින්‌ යුත්‌ කාණ්ඩ භාවිත
+කරයි.
+
+(1) Write down an important number in the directory entry for the test.py file that will help the
+operating system to find the blocks of the file.
+test.py ගොනුවට අදාළ කාණ්ඩ සොයාගැනීමට මෙහෙයුම්‌ පද්ධතියට වෙහල්‌ වන, එම ගොනුවට අදාළ නාමාවලි
+ලනාරතුරෙහි (directory entry) ඇති වැදගන්‌ අංකයක අගය ලියා දක්වන්න.
+
+(il) Give an example size for test.py that will result in internal fragmentation.
+අභ්‍යන්තර ඛණ්ඩනීකරණයට හේනුවන test.py ගොනු විශාලත්වයකට උදාහරණයක්‌ දෙන්න.
+
+(ili) Assume that block 219 is also to be added for the test.py file. Show in a diagram the FAT entries
+for the test.py file after this addition. (-1 indicates last block)
+219 කාණ්ඩයද test py ගොනුවට එකතු කරනැයි සිතන්න. ඉහත එකතු කිරීමෙන්‌ පසුව test.py ගොනුවට අදාළ
+FAT අන්තර්ගතයන්‌ රද5පයක පෙන්වන්න.
+(ගොනුවක අවසන්‌ කාණ්ඩය --1 මගින්‌ දැක්වේ.)
+( 2023 -- ESSAY 10 )
+
+22
+
+6.(a) Consider the following python statement:
+පහන පයිතන්‌ ප්‍රකාශය සලකන්න:
+
+answer = height + width
+
+There will be multiple binary instructions that the CPU will have to execute with respect to the above
+statement. The first is to load the value of variable ‘height’ into a register. The fourth would be to store
+the result of the addition in ‘answer’ variable.
+
+හත ප්‍රකාශයට අදාළව ක්‍රියාකරවීමට මධ්‍ය සැකසුම්‌ ඒකකයට (CPU) ද්විමය උපදෙස්‌ (instructions) ගණනාවක්‌
+
+තිබෙනු ඇත. ගනේ පළමුවැන්න, height විචලඅය රෙපිස්තරයකට ප්‍රවේශනය (load) කිරීමයි. හතරවැන්න, එකතු
+කිටීමේ ප්‍රතිඵලය answer විචල්‍යයට ආචය කිටීමයි.
+
+What would be the second and third instructions?
+දෙවැනි සහ තෙවැනි උපදෙස්‌ කුමක්‌ විය හැකි ද ?
+
+(0) Show that the answer for 11002 -- 10102 could be obtained by adding the 2’s complement of
+10102 to 11002 and ignoring the carry.
+
+11002 - 10102 හි පිළිතුර, 10102 හි දෙකෙහි අනුපූරකය 11002 ට එකනු කර, G2OGO ඉගෙන BQO (carry)
+නොසලකා හැරීමෙන්‌ ලබාගත හැකි බව පෙන්වන්න.
+
+(c) Amal starts a single processor computer and starts a web browser. After sometime he starts spreadsheet
+application too on the same computer.
+අමල්‌ OS සකසනයක්‌ සහිත (single processor) පරට්ගණකයක්‌ පණගන්වා වෙබ්‌ අතිරික්සුවක්‌ (web browser)
+අරඹයි. මද වේලාවකට පසු DO පරිගණකයේම ඔහු පැතුරැමිපත්‌ (spreadsheet) යෙදුමක්‌ ද අරඹයි.
+
+(i) READY, RUNNING and BLOCKED are three states of a process. When the operating system of the
+computer temporarily stops the above web browser process in order to let the spreadsheet process
+run on the processor, to which of the above three states will the web browser process transit?
+
+සූදානම්‌, ක්‍රියාත්මක සහ අවහිර කළ යනු ක්‍රියායනයක තත්ත්ව තුනකි. පටගණකයේ මෙහෙයුම්‌ පද්ධතිය, ena
+පැතනුරැම්පත්‌ ක්‍රියයනයට සකසනය මත ධාවනය වීමට ඉඩ සැලසීම සදහා වෙබි අතරක්සු ක්‍රියායනය
+තාවකාලිකව නතර කරයි. චීවිට වෙබි අතරික්සු ක්‍රියනය හෙත තත්ත්ව තුනෙන්‌ කුමන තත්ත්වයට
+
+සංඛ්‍රාන්ති වේ ද?
+
+(ii) Write down the state transition that the web browser process will undergo, when it has to
+wait for some data from the web server.
+වෙබ්‌ සේවාදායකයාගෙන්‌ (web server) දත්ත සමහරක්‌ ලැබෙන තුරැ බලා සිටීමට සිදුවන විට වෙබි අතරික්සු
+ක්‍රියායනයේ සිදුවන අවස්ථා සංක්‍රාන්තිය (state transition) කුමක්දැයි ලියා දක්වන්න.
+
+(111) Explain the use of ‘Program counter’ of the Process Control Blocks during a web browser
+process — spreadsheet process context switch.
+වෙබ්‌ අතරික්සු ක්‍රියායනය - පැතුරැමිපත්‌ ක්‍රියායනය යන සන්දර්භ ස්විචයේදී (context switch), ක්‍රියායන
+පාලන ඛණ්ඩවල (process control block) *වැඩසටහන්‌ @goecs (program counter)’ භාවිතය පැහැදිලි
+කරන්න.
+
+(0) A computer uses 16-bit virtual addresses. This computer has a 32 KB physical memory and a 4 KB page
+size.
+පටගණකයක්‌ DO 16 ක අතථ්‍ය යොමු භාවිත කරයි. මෙම පටථිගණකයට 32 KB භෞතික මතකයක්‌ ඇති අතර පිටුවක
+විශාලත්වය 4 KB වේ.
+
+(i) Write down the number of frames in physical memory.
+භෞතික මතකයේ ඇති රාමු (frames) ගණන ලියා දක්වන්න.
+
+(11) A user runs a program having a size of 64 KB on this computer. A few selected fields of the first
+few rows of the page table of that process at a particular time are shown in the figure.
+විශාලත්වය 64 KB වූ ක්‍රමලේකඛයක්‌ පරශීලකයෙක්‌ GOO පරිගණකයේ ධාවනය කරයි. චක්තරා අවස්ථාවකදී
+එම ඛක්‍රියායනයේ පිටු වගුවේ (page table) මුල්‌ පේළි කිහිපයේ තෝරාගත්‌ ක්ෂේත්‍ර කිහිපයක්‌ පහත පරිදි වේ.
+
+(e)
+
+Dm fh රං MH =| O&O
+
+Frame Validity Notes:
+
+රාමුච චලංගුතාචව සටහන්‌:
+111 | @ The page number is used as the index into the page
+100 1 table.
+110 1 පිටු අංකය, පිටු වගුවට සූචකයක්‌ (Index) ලෙස භාවිත Gs.
+101 ] ම The frame number is indicated in binary. Validity bit
+000 0 being 1 indicates that the relevant page is in physical
+000 0 memory.
+
+රාමු අංකය ද්විමය ලෙස දක්වා ඇත. බිටුවේ වලංගුතාව සදහා
+
+000 0 1 මගින්‌ දැක්වෙන්නේ එම පිටුව භෞතික මතකයේ ඇති බවයි.
+
+Assume that in the above process the virtual address 0010 0000 0000 0100 is wanted.
+Write down the 15-bit physical address that the above address would get mapped to.
+
+ඉහත ක්‍රියායනයේ 0010 0000 0000 0100 අතථ්‍ය යොමුව අවශ්‍ය යැයි සිතන්න. ඉහත යොමුව අනුරුකෑපණය
+වන බිටු 15 කින්‌ යුත්‌ භෞතික යොමුව ලියා දක්වන්න.
+
+(iil) Assume that in the above process given in (ii), the virtual address 0100 0000 0000 0001 is wanted.
+
+Write down one reason why the operating system won't decide frame 011 of memory as the frame
+for that page.
+
+හත (il) හි සදහන්‌ ක්‍රියායනයේ 0100 0000 0000 0001 අතථ්‍ය යොමුව අවශ්‍ය යැයි සිතන්න. මෙහෙයුමි
+පද්ධතිය එම පිටුව සදහා රාමුව ලෙස 011 තෝරා නොගැනීමට චීක්‌ හේතුවක්‌ ලියා දක්වන්න.
+
+(iv) In addition to the above fields of the page table, a Modified bit may also exist. It will be set to 1
+
+when data in a page is changed. Why is that information important for the operating system?
+පිටු වගුවේ ඉහත ක්ෂේත්‍රවලට අමතරව, 'වෙනස්වීම්‌ (modified)’ බිටුවක්‌ ද තිබෙනු ඇත. පිටුවේ දත්ත වෙනස්‌
+වූ විට DO බිටුව 1 බවට පත්‌ කෙරේ. එම තොරතුර මෙහෙයුම්‌ පද්ධතියට වැදගත්‌ වන්නේ ඇයි?
+
+(i) The data of the average.py file is stored in blocks 100, 125, 150 and 175 on a disk that uses an
+
+indexed allocation scheme. |n this allocation scheme, what important information is needed by
+the operating system to find the blocks of this file?
+සූචක විභජනය (indexed allocation) mdm කරන Hema average.py ගොනුවේ දන්ත ආචය කිරීමට
+කාණ්ඩ 100, 125, 150 සහ 175 භාවිත වේ. ගොනුවේ කාණ්ඩ සොයාගැනීමට මෙහෙයුම්‌ පද්ධතියට මෙම
+විභජන ක්‍රමයේදී අවශ්‍ය වන වැදගත්‌ තනොරතුර කුමක්‌ දු?
+
+(ii) When contiguous allocation is compared with indexed allocation, which one can cause the
+
+external fragmentation of a disk?
+යාබද විභජනය (contiguos allocation) සහ සූචක විභජනය සැසදීමෙදී, ඩිස්කයක බාහිර ඛණ්ඩනීකරණය
+(external fragmentation) ඇති කිරීමට ඩඬෙ ඇත්තේ කුමකින්‌ ද?
+
+( 2024 — ESSAY 10 )
+
+24

@@ -1,0 +1,1427 @@
+2011 LOGIC GATE MCQ MARKING
+
+1.
+
+Which of the following would be the result if the Boolean expression F(x, y) = (x + 37). (2 + 37) is
+simplified by using De Morgan’s Law?
+
+ඩි මොට්ගන්‌ න්‍යාය භාවිත කර F(x,y) = («4+ 37). (2 4- 377) යන Qos ප්‍රකාගනය සුළු කළ විට ප්‍රතිවලය
+වනුයේ පහත දැක්වෙන කවරක්‌ උ?
+
+1) x 2) y 3) 0 4) 41 5) x,y
+( 2011 -- 27)
+Answer : 3 )
+(X + Y).(X + Y)
+(X.Y). (X.Y) (De morgan’s Law / ඩි මෝගන්‌ ac A+B = A.B)
+(X Y). (XY) (Double complement Law / ද්විත්ව ප්‍රතිලෝම න්‍යාය A = A)
+0 (Inverse Law / ප්‍රතිලෝම න්‍යාය A.A = 0)
+Therefore, option 3) is the correct answer.
+එබැවින්‌, 3) විකල්පය නිවැරදි පිළිතුර වේ.
+Which of the following Boolean expressions represents the
+given logic circuit? A
+දි ඇති තාර්කික පරිපටය නිරෑපනය කරනු ලබන්නේ SOD Pp |
+දැක්වෙන කවර QOS ප්‍රකාශනය මගින්‌ ද?
+1) (A+B)+(B+C) ය
+2) (A+B)+(B.C)
+3) (44 4) 4 (7 4 6)
+4) (4.77) - (B.C)
+5) (42-44) 24 (4. ()
+( 2011 -- 28)
+
+Answer : 5 )
+
+Explanation / පැහැදිලි කිරීම
+
+) A+B
+
+(A+B) +(B.C)
+
+B.C
+The boolean expression derived from the circuit is =(A + B) + (B.C)
+පරිපටයෙන්‌ ව්‍යුත්පන්න වන බඛුලියන්‌ ප්‍රකාශනය වන්නේ =(A + B) + (B.C)
+
+Therefore, option 5) is the correct answer.
+එබැවින්‌, 5) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2012 LOGIC GATE MCQ MARKING
+
+1.
+
+What would be the result if the following Boolean expression is simplified?
+පහත දී ඇති QOS ළ්‍රකාශනය QO කළ විට පතිඵලය කුමක්‌ වේ ද?
+
+F(x,y) -~- 29/(2 21-37) (7 1 37)
+
+1) x 2) 37 3) x 4) y 5) xy
+
+( 2012 -- 26 )
+Answer : 1 )
+Explanation / පැහැදිලි කිරීම
+F(x,y) = xy 9) + y)
+xy(x + y)(y + y)
+(x+y)(k¥+y)yt+y) (De Morgan’s law / ඩි මෝගන්‌ න්‍යාය AB = A + 0)
+(x+y)(x+y).1 (Complement law // ප්‍රතිලෝම න්‍යාය A+ A = 1)
+(x+ y)(x+y) (Identity law / සටරවසාම්‍ය න්‍යාය A.1 = A)
+(xX+y)x+(k+y)y (Distributive law // විඝටන න්‍යාය A+ (BC) = (AB) + (AC))
+XX + xy +(x+y)y (Distributive law // විඝටන න්‍යාය A+ (BC) = (AB) + (AC))
+X+xy+(xX+y)y (Idempotent law / තදේවභාවි නනාය AA = A)
+Xx+ (xX+y)y (Redundancy law / සමතිරික්ත න්‍යාය A + AB = A)
+X+xy+yy (Distributive law // විඝටන න්‍යාය A+ (BC) = (AB) + (AC))
+x+ xy +0 (Complement law / ප්‍රතිලෝම න්‍යාය AA = 0)
+X + Xy (Identity law / සරවසාම්‍ය a0 A+0 = A)
+X (Redundancy law / සමතිරික්ත න්‍යාය A + AB = A)
+
+Therefore, option 1) is the correct answer.
+එබැවින්‌, 1) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2. Which of the following Boolean expressions represents the output of the given logic circuit?
+පහන දැක්වෙන DOO QOS ප්‍රකාශනය, දි ඇති තරකන පරිපටයෙහි ප්‍රතිදානය නිරෑැපණය කරයි ද?
+
+1) (A+B) 4 ආ.ෆ A
+
+2) (A+B).(B.C) B___
+
+3) (A+B) 4 ආ. ෆ
+4) (&. 0) 4 (B.C)
+
+5) (A.B) +(B+C)
+
+(2012 — 27)
+Answer: 2 and 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+First let’s get the output of the given circuit
+මුලින්ම අපි ලබා දි ඇති පරිපටයේ ප්‍රතිදානය ලබා ගනිමු.
+
+A A+B
+B___
+(A+B) + (B.C)
+B.
+ලු
+
+As this output is given in the 3“ option, option 3) becomes an answer.
+මෙම ප්‍රතිදානය 3% වන විකල්පය DE ලබා දී ඇති බැවින්‌, විකල්ප 3) පිළිතුරක්‌ බවට පත්වේ.
+
+Now let’s apply De Morgan’s law to the output
+දැන්‌ අපි ප්‍රතිදානයට ඩි මෝගන්‌ mao යොදුමු.
+
+(A+B) + (B.C)
+(A+B). (B.C)
+
+As this output also is given in the 2™ option, option 2) is also an answer.
+මෙම ප්‍රතිදානය 2™ වැනි විකල්පයේ දු ලබා දි ඇති බැවින්‌, විකල්ප 2) දූ පිළිතුරකි.
+
+Therefore, option 2) and option 3) are the correct answers.
+එබැවින්‌, 2) විකල්පය සහ 3) විකල්පය නිවැරදි පිළිතුරැ වේ.
+
+2013 LOGIC GATE MCQ MARKING
+
+1. The Boolean expression (x + y) . (x + z) simplifies to ...............
+(x+y). (K+ 27) බුලියානු ප්‍රකාශනය සරල කළ විට ...........................-. ලැබේ.
+ඉහත හිස්තැන පිරවිම සඳුහා වඩාත්‌ ම යෝග්‍ය පිළිනුර කුමක්‌ ද?
+
+1) x 2) x.(y +z) 3) 2. $ . 2 4)xt+y.z S)xtyt+z
+
+(2013-01 )
+Answer : 4)
+
+Explanation / පැහැදිලි කිරීම
+
+(X + Y).(X 7)
+
+(X + Z)X + (X+ Z)Y Distributive law / විඝටන න්‍යාය A(B+C) = (AB) + (AC)
+XX + XZ+ (X+ Z)Y Distributive law / විඝටන න්‍යාය A(B+C) = (AB) + (AC)
+X+XZ+(X+Z)Y Idempotent law/ තදේවභාවි න්‍යාය A.A = A
+
+X+ (X+ Z)Y Redundancy law / සමතිරික්ත න්‍යාය A+AB= A
+X+YX+ YZ Distributive law / විඝශටන න්‍යාය A(B+C) = (AB) + (AC)
+X+ YZ Redundancy law / සමතිරික්ත න්‍යාය A+AB= A
+
+Therefore, option 4) is the correct answer.
+එබැවින්‌, 4) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2. Which of the following Boolean expressions represents the output (Q) of the circuit shown below?
+A and B are inputs.
+පහත දක්වා ඇති පරිපටයේ ප්‍රතිදානය (Q) නිරැපණය කරනු ලබන්නේ පහත දී ඇති කුමන බුලියානු
+ප්‍රකාශනයෙන්‌ ද? & හා ॥ යනු Mamas වේ.
+
+1) ALB! + A.B’ A o—) >>—
+
+2) A’B/+ AB
+
+3) AB+ AB Q
+4) A'B+A.B!
+
+5) A'’B+A‘B! Bo
+
+( 2013 - 02)
+
+Answer : 1 )
+Explanation / පැහැදිලි කිරීම
+
+Let’s get the output of the given circuit first / පළමුව දි ඇති පරිපටයේ ප්‍රතිදානය ලබා ගනිමු.
+
+Now let’s get the simplification of this Boolean expression,
+දැන්‌ අපි මෙම Qos omamcd සරල කිරීම ලබා ගනිමු.
+
+A.B+B
+
+(A+B)B (D’Morgan’s law/ ඩි මෝගන්‌ න්‍යාය A+B = A.B)
+
+(A + B)B (Double Complement law/ ද්විත්ව ප්‍රතිලෝම න්‍යාය A = A)
+BA+ BB (Distributive law/ විඝටන න්‍යාය A(B+C) = (AB) + (AC))
+BA+B (Idempotent law/ තදේවභාවි න්‍යාය A.A = A)
+
+B (Redundancy law/ සමතිරික්ත න්‍යාය A+ AB = A)
+
+Now to get the answer we need check to which Boolean expression’s simplification matches with the
+above simplification.
+දැන්‌ පිළිතුර ලබා ගැනීමට අපට ඉහන සරල කිරීම සමඟ ගැලපෙන බුලියන්‌ ප්‍රකාශනය පරීක්ෂා කරමු.
+
+Option / විකල්පය 1)
+AB + AB
+
+B(A +A)
+
+B1
+
+(2
+
+Option / විකල්පය 2)
+Cannot be simplified further / තවදුරටත්‌ සරල කළ නොහැක.
+
+Option / විකල්පය 3)
+Cannot be simplified further තවදුරටත්‌ සරල කළ නොහැක.
+
+Option / විකල්පය 4)
+Cannot be simplified further තවදුරටත්‌ සරල කළ නොහැක.
+
+Option / විකල්පය 5)
+
+AB + AB
+
+A(B +B) (Distributive law/ විඝටන න්‍යාය A(B+C) = (AB) + (AC))
+Al (Double Complement law/ ද්විත්ව ප්‍රතිලෝම න්‍යාය A = A)
+A (Identity law/ සර්වසාම්‍ය න්‍යාය 1.A = A)
+
+As only the simplification of Option 1) 1s equal to the simplification of the Boolean expression rendered
+by the circuit, the answer is Option 1)
+
+විකල්ප 1) සරල කිරීම පමණක්‌ odode මගින්‌ විදැහුමි කරන ලද, QGos ප්‍රකාගනයේ සරල කිරීමට සමාන
+වන බැවින්‌, පිළිතුර විකල්ප 1) වේ.
+
+3. Which of the following is an incorrect Karnaugh Map layout to represent a Boolean function of four
+(4) Boolean variables a, b, c and d?
+අ, 0, ර හා ර්‌ යන බුලියානු විචල්‍ය හනරක බුලියානු ගිතයක්‌ නිරැපණය කිරීම සඳහා පහත පෙන්වා ඇති
+කානෝ අනුරැපිත සැලැස්ම (Karnaugh Map Layout) අතුරෙන්‌ නිවැරදි නොවන්නේ කුමන සැලැස්ම ද?
+
+1) | ab\cd | 01 | 00 | 10 | 11 2) | ac\bd | 01 | 00 | 10 | 11 3) | ab\cd | 01 | 00 | 11 | 10
+01 01 01
+00 00 00
+10 10 11
+11 11 10
+4) | ad\bc | 11 | 10 | 00 | 01 5) | ac\bd | 00 | 10 | 11 | 01
+11 00
+10 10
+00 11
+01 01
+(2013-09 )
+
+Answer : 3 )
+
+Explanation / පැහැදිලි කිරීම
+Gray code is a binary number system where only one bit changes between two successive values.
+Gray code යනු අනුප්‍රාප්තික අගයන්‌ දෙකක්‌ අතර JO එකක්‌ පමණක්‌ වෙනස්‌ වන දිවිමය සංඛ්‍යා පද්ධතියකි.
+
+In K-Maps, adjacent cells must differ by only one variable.
+K- 85098 වලදි, යාබඳ කෝෂ එක්‌ විචල්‍යයකින්‌ පමණක්‌ වෙනස්‌ විය යුතුය.
+
+Gray code ensures that each adjacent cell (horizontally or vertically) corresponds to a minterm differing
+by only one variable.
+
+Gray code මඟින්‌ සැම cde, කෝෂයක්ම (තිරස්‌ අතට හෝ සිරස්‌ අතට) එක්‌ විචල්‍යයකින්‌ පමණක්‌ වෙනස්‌
+වන minterm වකකට අනුරුැප වන බව සහතික කරයි.
+
+This makes it easier to group adjacent 1s (or Os) and simplify Boolean expressions.
+මෙය යාබද 15 (or 05), කාණ්ඩගත කිරිම සහ බුලියන්‌ ප්‍රකාගන සරල කිරීම පහසු කරයි.
+
+It's critical for accurate K-Map simplification in Boolean algebra.
+බුලියන්‌ විප ගණිතයේ නිවැරදි K-BHOS සරල කිරීම සඳහා එය ඉතා Oreos වේ.
+
+Here in the question, it is asked to find the incorrect Karnaugh map layout.
+මෙම ප්‍රග්නයේදි වැරදි කානෝ සිතියමි පිරිසැලසුම පිළිබද අසන ලැබේ.
+
+ab\cd | 01 (0 | 119 10
+
+Here in the 3™ option not only one but two bits have changed in adjacent cells.
+මෙහි 3 වන විකල්පයේ යාබද කෝෂවල එකක්‌ පමණක්‌ නොව බිටි දෙකක්‌ වෙනස්‌ වි ඇත.
+
+Therefore, option 3) is the correct answer.
+එබැවින්‌, 3) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2014 LOGIC GATE MCQ MARKING
+
+1.
+
+Consider the following logic circuit.
+පහත Eso) ඇති තාර්කික පරිපටය සලකා බලන්න:
+
+x Y Z
+
+D>.
+
+Which of the following circuit diagrams represents a simplified version of the above circuit?
+ඉහත EDO) ඇති SOOdGS සරල අවස්ටාවක්‌ පිළිබිඹු කරන්නේ පහත දැක්වෙන කුමන පරිපටයක්‌ ද?
+
+vy
+
+1) XxX Y Z 2 xX Y 2
+Ds
+)
+3) XY ¥Y 2 4 xX Y Z
+[|| |
+De .
+_
+2
+
+5) xX Y
+
+©
+
+(2014-12)
+Answer : 4)
+
+For the simplification we can use Boolean algebra rules.
+සරල කිරීම සඳහා අපට බුලියන්‌ විප ගණිත රිති භාවිතා කළ හැකිය.
+
+(X+Y).(X.Z)
+(X+Z)X+(X+Z)Y — (Distribution law විඝටන නනය )
+XX+XZ+(X+Z)Y (Distribution law විඝටන න්‍යාය )
+
+X+XZ+(X+Z)Y (Idempotent law තදේවභාවි a0 )
+X+(X+Z)Y (Absorption law සමතිරික්ත න්‍යාය )
+X+YX+YZ (Distribution law Sede 220 )
+
+X+YZ (Absorption law සමතිරික්ත e230 )
+
+According to this answer should be 4. That is the only one representing X+ YZ
+මේ අනුව එය (X+YZ) නියෝපනය කරන එකම පිලිතුර 4 වේ.
+
+Therefore, option 4) is the correct answer.
+එබැවින්‌, 4) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2. Consider the following circuit with four push button
+switches namely: 51, 52, 53, and S4. These four S2T _
+switches can either be in pushed or released states SI S4
+which are represented by 1 and 0 respectively. st; ලෟ st
+පහත දක්වා ඇති 51, 52, 533 සහ 54 යන mE කරන I
+බොත්තමි HOS හතරක්‌ ඇති පරිපටය සලකා බලන්න. මෙම
+ස්විචි හතර මුදාහැර ඇති (released) හෝ තදකර (pushed)
+ඇති අවස්ටාවලින්‌ එක්‌ අවස්ටාවක පමණක්‌ පවතින අතර 0 හා
+1 මගින්‌ එම අවස්ටා පිළිවෙළින්‌ නිරැපණය කරනු ලැබේ.
+
+|
+
+(Note: In the circuit given below, all the switches are
+in released state having value 0.)
+
+(සටහන: පහත දි ඇති පරිපටයෙහි සියලු ස්විච 0 අගය
+ගන්නා මුදා හැර ඇති අවස්ටාවේ පවතී.)
+
+Which of the following Boolean expressions represents the function of the bulb, if the on state of the
+bulb is represented by the value 1?
+
+බල්බය දැල්වෙන අවස්ථාව අගය [1 මගින්‌ නිරෑැෑපණය කරන්නේ නමි, පහත දක්වා ඇති කුමන බුලියානු
+ප්‍රකාශනය මගින්‌ බල්බයේ කාර්යය නිරැපණය කරන්නේ ද?
+
+1) S1 + (52 . 93) 4- 54 2) (51 + 52) . (53 + 54) 3) (51 . 52) + (53 . 54)
+4)51., 54. (52 + 53) 5) $2 +(S1. 54) + 53
+
+(2014-13)
+
+Answer : 4)
+
+Understanding the Circuit Structure From the diagram
+
+S2 I
+රෑප සටහනෙන්‌ GOGO ව්‍යුහය තේරැමි ගැනීම 51] 54
+S3 o—
+There are four switches: 51. 52. 53. and 54.
+_ ] _
+
+ස්විච හතරක්‌ ඇත; 51]. 52. 53, සහ 54
+
+The bulb lights up (1... output = 1) when current flows
+from the battery through the bulb.
+
+බැටරියෙන්‌ බල්බය හරහා DOO ගලා යන SO බල්බය
+දැල්වෙයි (එනමි, ප්‍රතිදානය -- ]).
+
+|
+
+The current path 15 ධාරා මාර්ගය
+Battery — 51 — [Parallel of S2 and S3] — 54 — Bulb
+බැටරි — 51 — [S2 සහ S30 සමාන්තරව] — S4— AGA
+
+So, we analyze the switches in the order they affect the current flow
+එබැවින්‌, අපි ස්විචයන්‌ DO) ප්‍රවාහයට බලපාන අනුපිළිවෙලින්‌ විශ්ලේෂණය කරමු
+
+Series and Parallel Analysis / ශ්‍රේණිගත සහ සමාන්තරගත විශ්ලේෂණය
+
+1 51 is in series — it must be ON (1) for any current to flow.
+51 ග්‍රේණිගතව ඇත - ඕනැම ධාරාවක්‌ ගලා DOO එය ON (1) විය යුතුය.
+
+2 52 and 53 are in parallel — either one being ON (1) will allow current to pass this segment.
+52 සහ 53 සමාන්තරව ඇත - එකක්‌ ON (1) වීම මඟින්‌ ධාරාව මෙම කොටස පසු කිරීමට ඉඩ සලසයි.
+
+In Boolean logic, parallel = OR = 52 + 53
+බූලියන්‌ තර්කයට අනුව සමාන්තරගත = OR ~ 52 4 53
+
+3 584 is in series again — it must be ON (1) after the parallel path for current to reach the bulb.
+54 නැවතත්‌ ග්‍රේණිගතව පවති - ධාරාව බල්බයට ළඟා විමට සමාන්තර මාර්ගයෙන්‌ පසුව එය ON (1)
+විය යුතුය.
+
+So the bulb lights if / එබැවින්‌ බල්ඛය දැල්වෙන්නේ
+S1 is ON AND
+
+Either S2 or S3 is ON AND
+
+S4 is ON
+
+Which gives the Boolean expression / මෙය එම බුලීය ප්‍රකාශය ලබා දේ
+S1-S4-(S2 +83)
+
+Therefore, option 4) is the correct answer.
+එබැවින්‌, 4) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2015 LOGIC GATE MCQ MARKING
+
+1. Consider the following combinatory circuit implemented using universal gates:
+පහත පෙන්වා ඇති සාර්වත්‍ර (universal) ද්වාර ආධාරයෙන්‌ ස්ටාපිත කරන ලද සංයුක්ත (combinatory)
+පටිපටය සලකන්න:
+
+[1
+(ය Ousput
+
+The above circuit is equivalent to a/an
+ඉහත පරිපථය සමතුල්‍ය වනුයේ,
+
+Input
+
+(2015-11)
+
+1) AND Gate 2) OR Gate 3) NAND Gate 4) NOR Gate 5) NOT Gate
+Answer: 2)
+
+This logic circuit, made up of universal gates (NAND), is equivalent to a basic logic gate used in digital
+logic design.
+
+සාර්වත්‍ර ද්වාර (NAND) වලින්‌ සමන්විත මෙම තාර්කික පරිපටය, ඩිපටල්‌ තාර්කික නිරමාණයේ භාවිතා වන
+මුලික නාර්කික ද්වාරයකට සමාන වේ.
+
+Let’s build up the logical expression for the given logic circuit assuming the inputs are A and 13.
+ආදාන 4, සහ B යැයි උපකල්පනය කරමින්‌ දි ඇති තාර්කික පරිපටය සඳහා තාර්කික ප්‍රකාශනය ගොඩනගමු.
+
+A.A.B.B
+Let’s simplify the given expression using Boolean laws.
+බූලීය නීති භාවිතයෙන්‌ දි ඇති ප්‍රකාශනය සරල කරමු.
+
+A.A+B.B (De Morgan’s law / ඩි මෝගන්ගේ න්‍යාය )
+A.A + 0. 0 (Double complement law / ද්විත්ව ප්‍රතිලෝම නනාය)
+A+B (Idempotent law / තදේවභාවි න්‍යාය)
+
+The simplification shows that the given logic circuit is equivalent to an OR gate.
+සරල කිරීමෙන්‌ පෙන්නුමි කරන්නේ දි ඇති තාර්කික පරිපටය OR ද්වාරයකට සමාන බවයි.
+
+Therefore, option 2) is the correct answer.
+එබැවින්‌, 2) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2016 LOGIC GATE MCQ MARKING
+
+1.
+
+Consider the following logic circuit implemented using universal gates:
+පහත පෙන්වා ඇති සටඊ්වත්‍ර (universal) ද්වාර ආධාරයෙන්‌ සාදා ඇති mMoBHea පරිපටය සලකන්න:
+
++
++
+
+The above circuit is equivalent to a/an
+ඉහත GOOG MES වනුයේ,
+
+1) NOT Gate / NOT ද්වාරයකට ය.
+
+2) AND Gate / AND ද්වාරයකට ය.
+
+3) OR Gate / OR දිවාරයකට ය.
+
+4) NAND Gate 7 NAND ද්වාරයකට ය.
+5) NOR Gate / NOR ද්වාරයකට ය.
+
+Answer: 2)
+
+This logic circuit, made up of universal gates (NOR), is equivalent to a basic logic gate used in digital
+logic design.
+
+සාර්වත්‍ර ද්වාර (NOR) වලින්‌ සමන්විත මෙම තාර්කික පරිපටය, SOG තාර්කික නිටරමාණයේ භාවිතා වන
+මුලික නාර්කික ද්වාරයකට සමාන වේ.
+
+Let’s build up the logical expression for the given logic circuit assuming the inputs are A and 13.
+ආදාන A සහ B යැයි උපකල්පනය කරමින්‌ දි ඇති තාර්කික C0800 oem mOHa ප්‍රකාගනය ගොඩනඟමු.
+
+(2 +A)+(B+B)
+
+Let’s simplify the given expression using Boolean laws.
+බූලීය නීති භාවිතයෙන්‌ දි ඇති ප්‍රකාශනය සරල කරමු.
+
+(2 +A)+(B+B)
+
+(A + A). (1 -1- 0) (De Morgan’s 14%/ / ඳූ QQ) ප්‍රමේය)
+(A + A). (1 -1- 0) (Double complement law / ද්විත්ව ප්‍රතිලෝම නනාය)
+A. (B + B) (Idempotent law / තදේවභාවි න්‍යාය)
+A.B (Idempotent law / තදේවභාවි න්‍යාය )
+
+The simplification shows that the given logic circuit is equivalent to an AND gate.
+සරල කිරීමෙන්‌ පෙන්නුමි කරන්නේ දි ඇති තාර්කික පරිපටය AND ද්වාරයකට සමාන බවයි.
+
+Therefore, option 2) is the correct answer.
+එබැවින්‌, 2) විකල්පය නිවැරදි පිළිතුර වේ.
+
+2017 LOGIC GATE MCQ MARKING
+
+1. Consider the following statements on using NAND, NOR gates over NOT, AND, OR gates when
+constructing logic circuits:
+MOG COCO ගොඩනැගීමේ දී NOT, AND හා OR ද්වාර වෙනුවට NAND හා NOR ද්වාර භාවිත
+කිරීම පිළිබඳු පහත දැක්වෙන වගන්ති සලකන්න:
+
+A - They make logic circuit design simpler / ඒවා තාර්කික edad නිර්මාණකරණය සරල කරයි.
+B - They help to construct logic circuits that consume less electricity.
+ඒවා අඞු විදුලි පටිභෝපනයක්‌ කරන තාර්කික පරිපට ගොඩනැගීම HEM) උපකාර කරයි.
+
+ල - They make logic circuit construction more economical.
+ඒවා තාර්කික පරිපට ගොඩනැංවීම වඩාත්‌ ලාභදායි කරයි.
+
+Which of the above statements is/are correct?
+ඉහත දැක්වෙන වගන්ති අතුරෙන්‌ නිවැරදි වන්නේ,
+
+1) A only 2) B only 3) A and B only
+A පමණි 1 පමණි A සහ B පමණි
+4) A and ට only 5) Band C only
+A සහ C පමණි B සහ C පමණි
+
+( 2017 - 47)
+Answer : 5 )
+
+Explanation / පැහැදිලි කිරීම
+
+Using NAND and NOR gates simplifies logic circuit design, as they can replicate the functionality of
+AND, OR and NOT gates, reducing the number of components required. This leads to simpler designs and
+lower manufacturing costs. Additionally, these gates consume less electricity compared to using multiple
+traditional logic gates.
+
+NAND සහ NOR ද්වාර mdm) කිරීම තාර්කික පරිපට නිර්මාණය සරල කරයි, Ose ඒවාට AND, OR සහ
+NOT ද්වාරවල ක්‍රියාකාරීත්වය අනුකරණය කළ හැකි අතර, අවග්‍ය සංරචක ගණන GH කරයි. මෙය සරල
+සැලසුමි සහ අඩු නිෂ්පාදන පිරිවැයට මග පාදුයි. මිට අමතරව, මෙම ද්වාර ඛහු සමිපදායික තාර්කික ද්වාර
+භාවිතා කිරීමට සාපේක්ෂව අඞු විදුලියක්‌ පරිභෝපනය කරයි.
+
+Statements [3 and C correctly highlight these benefits, while statement A is incorrect because the
+simplification of logic circuits depends more on the designer's approach rather than solely on the gates
+used.
+
+ප්‍රකාශ B සහ C මෙම ප්‍රතිලාභ නිවැරදිව ඉස්මතු කරන අනර, ප්‍රකාශය & වැරදියි, මන්ද තාර්කික පරිපට
+සරල කිරිම භාවිතා කරන ද්වාර මත පමණක්‌ නොව නිර්මාණකරැගේ ප්‍රවේගය මත රඳා පවතී.
+
+Therefore, the correct answer is 5).
+එබැවින්‌, නිවැරදි පිළිතුර 5) වේ.
+
+2018 LOGIC GATE MCQ MARKING
+
+1. Consider the following Boolean expression.
+පහත දැක්වෙන බුලියානු ප්‍රකාශය සලකන්න.
+
+A+B:C
+
+Which of the following is/are equivalent to the above expression?
+පහන දැක්වෙන කවරක්‌ OOM ප්‍රකාශයට තුල්‍ය වේ ද?
+
+I A+B:-C
+Il. <A-B-C
+Il A-B+A-C
+1) I only. 2) 11 only. 3) 111 only. 4) land Il only. 5) Il and 111 only.
+] පමණි. 1] පමණි. 11] පමණි. ] හා 1] පමණි. 1] හා 11] පමණි.
+( 2018 -- 21)
+Answer : 5 )
+Let’s simplify
+සරල කරමු
+A+B.C.
+A+B.C
+ABC De Morgan’s ] 4%/ / දූ QQ ප්‍රමේය
+A.(B +C) De Morgan’s ] ,4%/ / දු මුවාර්‌ ප්‍රමේය
+A.(B +C) Double Inverse Law / ද්විත්ව ප්‍රතිලෝම න්‍යාය
+A.B+A.C Distributive Law / විඝටන න්‍යාය
+
+II and 1]] is in this simplification. So, they are equivalents to A + B.C.
+1] සහ II] මෙම සරලකරණයේ ඇත. එබැවින්‌, ඒවා A+B.C ට සමාන වේ.
+
+Also, instead of simplifying the expression, you can draw the truth tables for the expressions and check
+which expressions have the same truth tables.
+
+DOE, ප්‍රකාශනය සරල කිරිම වෙනුවට, ඔබට ප්‍රකාශන HEH) සත්‍යතා OQ ඇඳිය හැකි අතර එකම ase
+වගු ඇති ප්‍රකාගන මොනවාදැයි පරීක්ෂා කළ හැකිය.
+
+A|B|C|A/B|C|A+B.C | A+B.C | 4.0. (| &.0 24.0
+O;O;O};1 {11 1 1 1 1
+O;O;1 {1 {1 {0 1 1 1 1
+0।1101|1[1011 0 1 0 0
+0।111110බ10 1 1 1 1
+1101010111 0 0 0 0
+1101110110 0 1 0 0
+1110101011 0 0 0 0
+1111101010 0 0 0 0
+
+As the table shows, II and III are equivalents to A + B.C.
+වගුවේ දැක්වෙන පරිදි, 1] සහ II] A+B.C.0 සමාන වේ.
+
+Therefore, the correct answer is 5.
+එබැවින්‌, නිවැරදි පිළිතුර 5 වේ.
+
+2. Consider the following logic circuit.
+පහත තාර්කික පරිපටය සලකන්න.
+
+| -~-4
+
+Which of the following circuit/s is/are equivalent to the above circuit?
+ඉහත පරිපටයට තුල්‍ය වන්නේ පහත කුමන පරිපටය/පරිපටි ද?
+
+A >
+pe A y 4
+lp ॥
+B B
+I II 111
+1) I only. 2) 11 only. 3) 111 only. 4) 1 411] 11 only. 5) I, Wand III only.
+] පමණි. 1] පමණි. 11] පමණි. ] හා 1] පමණි. I, 1] හා 11] පමණි.
+( 2018 -- 22)
+
+Answer : 4)
+
+First of all, you have to derive the relevant Boolean expressions for the logic circuits.
+පළමුවෙන්ම, ඔබ නාර්කික පරිපට Heo) අදාළ බුලියානු ප්‍රකාශන ව්‍යුත්පන්න කළ යුතුය.
+
+Main circuit expression / ප්‍රධාන පරිපට ප්‍රකාශනය: (A+ B).A
+
+Circuit I expression / පරිපට I ප්‍රකාගනය: A.B +A
+3——I-\A.B
+
+A
+| මී _ A.Bt+A
+
+A
+Circuit 1] expression / පරිපට II ප්‍රකාගනය: A+ 0
+
+Circuit II expression / පරිපට III ප්‍රකාශනය: (A+ B).A
+
+‘ Bb; (A+B).A
+
+A
+
+A
+B A+B
+
+Then you can either simplify the expressions or draw the truth tables. In this scenario, drawing the truth
+tables is the fastest method.
+
+එවිට ඔබට ප්‍රකාශන සරල කිරීමට හෝ සත්‍යතා OM ඇඳීමට හැකිය. මෙම අවස්ටාවෙහිදි, සත්‍යතා වගු
+ඇඳිම වේගවත්ම ක්‍රමයයි.
+
+7 | 0 | & | 0 | (2 -- 0). | 4. 0 - & {A+B} (A+B).A
+0|0|1|1] ] ] ] 0
+01110 ] ] ] ]
+110[0|[1 0 0 0 0
+1111010 1 1 1 0
+
+The truth tables of circuit I and II are equivalent to the main circuit.
+8680 I සහ Il හි සත්‍යතා වගු ප්‍රධාන පරිපටයට සමාන වේ.
+
+Therefore, the correct answer 15 4.
+එබැවින්‌ නිවැරදි පිළිතුර 4 වේ.
+
+2019 LOGIC GATE MCQ MARKING
+
+e Consider the following logic circuit diagram to answer the questions 37 and 38:
+අංක 01 BO 02 ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා පහත දැක්වෙන තාර්කික පරිපට සටහන සලකන්න
+
+1. Which of the following statements is/are correct about the above circuit?
+ඉහත පටරිපටය පිළිබඳව පහත කවර වගන්ති/වගන්තියක්‌ ons වේ ද?
+
+I. It implements a full adder
+එය පුරණ ආකලකයක්‌ (full adder) ක්‍රියාත්මක කරයි.
+
+IT. The logic function of S can be stated as S=A ඉ B® Cur.
+5 තර්කන Goo S=A අ BO C,, ලෙස දැක්විය හැකි ය.
+
+III. The logic function of Co. (0411 be stated as Cow -- 4/7 4- BCin + ACin .
+Cour DOME Gwe C,,,= AB + BC,, + AC, ලෙස දැක්විය හැකි ය.
+
+1) Lonly. 2) 11 only. 3) land If only. 4) [land UI only. 5) All], 11 and Ul
+] පමණි. 1] පමණි. I හා Il පමණි. II හා 11] පමණි. I, 1] සහ 1]] යන සියල්ලම
+( 2019 - 37)
+
+Answer : 5 )
+
+The circuit consists of,
+86800 සමන්විත වන්නේ,
+
+Two XOR gates: These are used to calculate the sum ( 5 ).
+XOR ද්වාර දෙකක්‌: මේවා එකතුව (5) ගණනය කිරීමට භාවිතා කරයි.
+
+Two AND gates: These are used to generate carry terms.
+AND ද්වාර දෙක: මේවා රැගෙන යාමේ cf ජනනය කිරීමට භාවිතා කරයි.
+
+One OR gate: This combines the carry terms to produce the final carry-out ( (0111).
+& OR ද්වාරයක්‌: මෙය අවසාන රැගෙන යාම Cout නිපදවීමට රැගෙන යාමේ නියමයන්‌ එකාබද්ධ කරයි.
+
+A full adder's logic equations are:
+
+e Sum: S-A®BOC
+e Carry-out: Cow=AB + BCin + ACin
+
+Statement 1
+
+Since the circuit follows the standard full-adder structure, this statement 15 correct.
+656808 සමිමත පුරණ ආකලකයක්‌ කිරීමේ ව්‍යඈහය අනුගමනය කරන බැවින්‌, මෙම ප්‍රකාශය නිවැරදි වේ.
+
+Statement 2
+This matches the sum equation of a full adder, so it is correct
+මෙය සම්පුර්ණ එකතු කරන්නෙකුගේ පුර්ණ ආකලකයක්‌ ගැළපේ, එබැවින්‌ එය නිවැරදිය
+
+Statement 3
+This matches the carry-out equation of a full adder, so it is correct.
+මෙය පුර්ණාකලකයක රැගෙන-යාමේ (carry-out) සමිකරණය සමග ගැලපේ. එමනිසා, එය HOES.
+
+Thus, the correct answer is 5).
+මේ අනුව, නිවැරදි SOMO 5).
+
+2. Which of the following statements is/are correct about the part of the circuit within the area
+surrounded by the dotted line?
+6000608 තිත්‌ ඉරි මගින්‌ වට කරන ලදු කොටස BEACO පහත කවර වගන්ති/වගන්තියක්‌ සත්‍ය වේ ද?
+
+I. It implements a half adder
+එය අර්ධ ආකලකයක්‌ (halfadder) ක්‍රියාත්මක කරයි.
+
+II. It can be implemented using only AND and OR gates.
+එය AND සහ OR ද්වාර පමණක්‌ භාවිනයෙන්‌ ක්‍රියාත්මක කළ හැක.
+
+III. It can be implemented using only NAND gates.
+එය NAND ) පමණක්‌ භාවිතයෙන්‌ ක්‍රියාත්මක කළ හැක.
+
+1) 10111)/. 2) 11 only. 3) 111 0111. 4) Land II. 0117. 5) All 1, Il and 111
+] පමණි. 1] පමණි. 11] පමණි. I හා 11] පමණි. I, 1] සහ 1]] යන සියල්ලම
+( 2019 _ 38)
+Answer : 4)
+
+Statement 1
+This statement 15 true
+මෙම ප්‍රකාගය සත්‍ය වේ.
+
+A half adder consists of one XOR gate for the sum and one AND gate for the carry, which matches the
+circuit inside the dotted line.
+
+අර්ධ ආකලක එකතුව සඳුහා එක්‌ XOR ද්වාරයකින්‌ සහ තින්‌ රේඛාව mE ඇති පරිපටයට ගැලපෙන
+රැගෙන යාම ace) එක්‌ AND ද්වාරයකින්‌ සමන්විත වේ.
+
+Statement 2
+
+This statement 15 false
+මෙම ප්‍රකාශය අසත්‍ය වේ.
+
+To implement a half adder using only AND and OR gates, we need to rewrite the XOR function without
+using XOR itself.
+
+AND සහ OR ද්වාර පමණක්‌ භාවිතා කරමින්‌ අර්ධ ආකලක ක්‍රියාත්මක කිරිමට, eS XOR භාවිතා නොකර
+XOR ග්‍රිතය නැවත ලිවිය යුතුය.
+
+Can XOR be implemented using only AND and OR gates?
+AND සහ OR ද්වාර පමණක්‌ භාවිතයෙන්‌ XOR ක්‍රියාත්මක කළ හැකිද?
+
+The standard XOR equation:
+A@B=(AB) +( AB)
+
+The problem: This requires a NOT operation, which is missing in the set {AND, OR}.
+ගැටළුව: මේ සඳුහා NOT මෙහෙයුමක්‌ අවශ්‍ය වන අතර එය {AND OR! කටිටලයේ නොමැත.
+
+Conclusion: Since AND and OR alone cannot create an inverter (NOT gate), XOR cannot be implemented
+using only AND and OR gates.
+
+නිගමනය: AND සහ OR වලට පමණක්‌ (NOT ද්වාරයක්‌) නිරමාණය කළ නොහැකි බැවින්‌, AND සහ OR
+ද්වාර පමණක්‌ භාවිතයෙන්‌ XOR ක්‍රියාත්මක කළ නොහැක.
+
+Statement 3
+This statement 15 true
+මෙම ප්‍රකාගය සත්‍ය වේ.
+
+NAND 1s a universal gate, meaning it can be used to build NOT, AND, OR, and XOR.
+NAND යනු විශ්විය ද්වාරයකි, එනමි එය NOT, AND, OR සහ XOR ගොඩනැගීමට භාවිතා කළ හැක.
+
+Any logic circuit can be built using only NAND gates.
+ඕනෑම තාර්කික ededass NAND ද්වාර පමණක්‌ භාවිතයෙන්‌ ගොඩනගා ගත හැක.
+
+Thus, the correct answer is 4)
+මේ අනුව, නිවැරදි පිලිතුර 4)
+
+3. Consider the Karnaugh map shown below.
+පහත දැක්වෙන කානෝ (karnaugh) සිතියම සලකන්න.
+
+AB
+00 01 11 10
+
+Pec PA
+1 1 1 | \o | 1
+
+Which of the following is the correct logic expression that corresponds to the two marked segments
+on the Karnaugh map?
+
+කානෝ සිතියමෙහි වෙන්කර දුක්චවන EC ඛණ්ඩ දෙකට අනුරැප නිවැරදි තරකන ප්‍රකාගනය පහත දැක්වෙන
+කවරක්‌ ද?
+
+1)AB + BC 2)AC+ AB 3)(A+C)(A +B) 4) (424 ඌ. 4 4) 5) 46 + AB
+
+(2019 — 39 )
+Answer : 4)
+AB tI
+00 01 1 ee
+ant
+0 ද 0 0 ට්‌ 0 1
+
+A
+
+C
+
+/
+
+Here the group output is 0. This should yield a product of sums (POS) expression.
+මෙහි කාණ්ඩවල ප්‍රතිදානය 5 ඇත්තේ (0 යි. මින්‌ ලබාගත යුත්තේ එකතුන්ගේ ගුණිත (POS) ළකාගනයකි.
+
+(like getting the maxterm of a truth table)
+(සත්‍යාතා වගුවක maxterm ලබාගන්නා ආකාරයට)
+
+In a group, only Boolean variables that have not changed are used for the final answer in that group.
+එක්‌ කාණ්ඩයක, වෙනස්‌ වී නොමැති බුලියානු විචල්‍යයන්‌ පමණක්‌ එම කාණ්ඩයේ අවසාන පිළිතුරට යොදා ගනී.
+
+I Group / 1 කාණ්ඩය
+e (A+B+C)
+e (A+B+C)
+
+The final answer
+මෙහි අවසාන පිළිතුර (A+ C)
+
+II Group / Il me
+e (A+B+C)
+e (A+B+C)
+
+The final answer
+මෙහි අවසාන පිළිතුර (A+ B)
+
+Therefore, the final answer is,
+ඒ අනුව අවසාන පිළිතුර,
+
+(A+ (). (4 -- 0)
+
+Thus, the correct answer is 4)
+මේ අනුව, නිවැරදි පිලිතුර 4)
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2020 LOGIC GATE MCQ MARKING
+
+1. Which of the following is the most simplified expression equivalent to ABC + BC + ABC + BC?
+පහත කවරක්‌ ABC +BC+ABC+ BC යන ප්‍රකාගනයට MES වන වඩාත්ම QO කරන ලදු ප්‍රකාගනය ද?
+
+1) ABC+ ABC+B 2) B(AC+ AC) +B 3) C(AB + B)+ C(AB +B)
+4) AC+AC+B 5) AC+B
+
+( 2020 -- 09 )
+Answer : 4)
+
+We simplify this expression using Boolean laws.
+මෙම ප්‍රකාශනය බුලියානු නීති භාවිතයෙන්‌ QO කරමු.
+
+ABC + BC + ABC + BC
+
+C(AB + B) + ABC + BC Distributive law විඝටන න්‍යාය
+C(A + B) + ABC + BC Redundancy law සමතිරික්ත න්‍යාය
+C(A + B) + C(AB + B) Distributive law විඝටන න්‍යාය
+C(A+ 0) + C(A + B) Redundancy law සමතිරික්ත න්‍යාය
+CA+ CB +C(A+B) Distributive law විඝටන න්‍යාය
+CA+ CB +CA+CB Distributive law විඝටන න්‍යාය
+CA+CA+CB+CB Commutative law න්‍යාදේශ න්‍යාය
+CA+ CA+ B(C + C) Distributive law විඝටන න්‍යාය
+CA+ CA+ B(1) Inverse law ප්‍රතිලෝම න්‍යාය
+CA+CA+B Identity law සර්වසාම්‍ය න්‍යාය
+AC+AC+B Commutative law න්‍යාදේශ න්‍යාය
+
+So, the correct answer number 15 4.
+එමනිසා. SOVOE පිළිතුරු අංකය 4 වේ.
+
+2. A block diagram of a sequential logic circuit is shown below, with one block labelled as “A” and the
+other labelled as “B”.
+එක්‌ කොටසක්‌ A ලෙස ද අනෙක්‌ කොටස B ලෙස දූ නමි කර ඇති අනුක්‍රමික mbSa පරිපටයක කොටු
+සටහනක්‌ (block diagram) පහත දැක්වේ.
+
+Vv
+
+Vv
+
+Which of the following statements about the above block diagram are correct?
+ඉහත කොටු සටහන පිළිබඳව පහත කවර ප්‍රකාශ/ය සත්‍ය වේ ද?
+
+A. The block A is a combinational logic circuit.
+A කොටස eceaise (combinational) තාර්කික පරිපටයකි.
+
+B. The block B is a memory element.
+B කොටස මතක මුලාංගයකි (memory element).
+
+C. Only the block A can be implemented using logic gates.
+A කොටස පමණක්‌ තාර්කික ද්වාර භාවිතයෙන්‌ ක්‍රියාවට නැංවිය හැක.
+
+1) A only. 2) B only. 3) AandBonly. 4) AandConly. 5) All of the above.
+A පමණි. 13 පමණි. A හා B පමණි. A හා ල පමණි. ඉහත සියල්ලම.
+(2020-10)
+
+Answer : 3 )
+
+Block A: This block has arrows entering and exiting it, suggesting it processes inputs to produce outputs.
+A කොටස; මෙම කොටසට ඇතුල්‌ වන සහ පිටවන ඊතල ඇත, එය ප්‍රතිදානයන්‌ නිපදවීමට ආදාන සකසන
+ලෙස අපේක්ෂා කරයි.
+
+Block B: This block is connected in a feedback loop with block A, which is a key characteristic of
+sequential circuits where past outputs (from memory elements) affect future outputs.
+
+B කොටස: GOO කොටස A කොටස සමඟ ප්‍රතිපෝෂණ ලුපයකට සමිබන්ධ කර ඇත, එය අනුක්‍රමික පරිපටවල
+ප්‍රධාන ලක්ෂණයක්‌ වන අතර අතීත ප්‍රතිදානයන්‌ (මතක මුලාංග වලින්‌) අනාගත ප්‍රතිදානයන්‌ කෙරෙහි බලපායි.
+
+Statement / ප්‍රකාශය 1
+
+Combinational logic circuits are circuits where the output depends only on the current inputs, with no
+storage or memory of past inputs.
+
+සංයෝපන තාර්කික S080 යනු ප්‍රතිදානය වත්මන්‌ ආදාන මත පමණක්‌ රඳා පවතින, අතත ආදාන ගබඩා
+කිරීම හෝ මතකය නොමැති GOGO වේ.
+
+In the diagram, block A takes inputs, processes them, and sends an output without any indication that it
+stores past states. This suggests it could be a combinational circuit, like an adder, multiplexer, or decoder.
+රෑප සටහනේ, A කොටස ආදාන ලබා ගනී, ඒවා සකසයි, සහ එය අතත තත්වයන්‌ ගබඩා කරන බවට කිසිදු
+ඇඟවිීමකින්‌ තොරව ප්‍රතිදානයක්‌ යවයි. මෙයින්‌ ඇඟවෙන්නේ එය ආකලකයක්‌, බහුපටකරණයක්‌ හෝ
+විකේතකයක්‌ වැනි සංයෝජන පරිපටයක්‌ විය හැකි බවයි.
+
+Since block A does not seem to have feedback or memory capabilities on its own, it likely represents a
+combinational logic circuit.
+
+A කොටසෙහි ප්‍රතිපෝෂණ හෝ මතක හැකියාවන්‌ ඇති බවක්‌ නොපෙනෙන බැවින්‌, OO බොහෝ SO සංයෝපන
+තාර්කික පරිපටයක්‌ නියෝපනය කරයි.
+
+Statement / ප්‍රකාශය 2
+
+Memory elements store the state or past outputs and can retain information over time.
+මතක මුලාංග තත්ව හෝ අතිත ප්‍රතිදානයන්‌ ගබඩා කරන අතර කාලයත්‌ සමඟ තොරතුරැ CEO) OM හැක.
+
+Block B is connected in a feedback loop with block A, where an output from block A 15 routed back as an
+input to block B. This type of feedback is typically used in sequential circuits, such as flip-flops or latches,
+which are the building blocks of memory elements.
+
+B කොටස, ඈ, කොටස සමඟ ප්‍රතිපෝෂණ ලුපයක්‌ සමිබන්ධ කර atm, [3 කොටසට, A කොටසෙන්‌ ලැබෙන
+ප්‍රතිදානයක්‌ ආදානයක්‌ ලෙස ආපසු හරවනු ලැබේ. මෙම ආකාරයේ ප්‍රතිපෝෂණ සාමාන්‍යයෙන්‌ පිළිපොළ හෝ
+latch වැනි අනුක්‍රමික පරිපටවල භාවිතා වේ. ඒවා මතක QED නැනුමි See වේ.
+
+The feedback connection implies that block B is storing or remembering some part of the previous state
+or output, making it a memory element.
+
+ප්‍රතිපෝෂණ සම්බඛන්ධතාවයෙන්‌ ඇඟවෙන්නේ B කොටස පෙර නත්වයේ හෝ ප්‍රතිදානයේ යමි කොටසක්‌ ගබඩා
+කිරීමෙන්‌ හෝ මතක HQ) ගැනීමෙන්‌ එය මතක මුලාංගයක්‌ බවට පත්‌ කිරීමයි.
+
+Statement / ප්‍රකාගය 3
+
+This statement is misleading. Logic gates (AND, OR, NOT, etc.) are the basic components used to build
+both combinational and sequential circuits.
+
+මෙම ප්‍රකාශය නොමඟ යවන සුළඑය. තාර්කික ද්වාර (AND, OR, NOT MEG) යනු සංයෝපන සහ අනුක්‍රමික
+පරිපට දෙකම තැනීමට භාවිතා කරන මුලික සංරචක වේ.
+
+Although combinational logic (block A) is typically implemented directly with logic gates, sequential
+circuits with memory elements (like block B) are also implemented using logic gates along with feedback
+connections.
+සංයෝපන තාර්කික (A කොටස) සාමාන්‍යයෙන්‌ තාර්කික ද්වාර සමඟ සෘපුවම ක්‍රියාත්මක වුවද, මතක මුලාංග
+සහිත අනුක්‍රමික පටරිපට (B කොටස වැනි) දූ ප්‍රතිපෝෂණ සම්බන්ධනා සමඟ තාර්කික ද්වාර භාවිතයෙන්‌
+ක්‍රියාත්මක වේ.
+
+For example, flip-flops, which are common memory elements, are built using combinations of logic gates
+in a specific arrangement that creates feedback, allowing them to store a bit of information.
+
+උදාහරණයක්‌ ලෙස, සාමාන්‍ය මතක මුලාංග වන පිළිපොෙළ ගොඩනගා ඇත්තේ තාර්කික ද්වාරවල සංයෝපන
+භාවිතයෙන්‌ ප්‍රතිපෝෂණ නිර්මාණය කර නොරතුරැ ගබඩා කිරීමට ඉඩ සලසන පරිදිය.
+
+Hence only statements A and B are true. So, the correct answer number is 3.
+
+ඒ අනුව A සහ B ප්‍රකාග පමණක්‌ සත්‍ය වේ. එමනිසා. නිවැරදි පිළිතුරු අංකය 3 වේ.
+
+3. Consider the following logic circuit consisting of NAND gates:
+NAND ) ද්වාරවලින්‌ සමන්විත පහත දැක්වෙන තාර්කික පරිපටය සලකන්න.
+
+| ~
+09
+
+a
+
+If the required output of the above circuit is AB + AB + C, then what should the inputs X and Y be?
+ඉහත 8680608 අපේක්ෂිත ප්‍රතිදානය AB+AB+C වන්නේ නමි, X සහ Y ආදාන කවරක්‌ විය යුතු ද?
+
+1) X=BandY=C 2) X=BandY=C 3) X=BandY=C
+4) X=BandY=C 5) X=CandY=B
+
+( 2020-11 )
+Answer : 3 )
+
+First take the output F here and simplify it using Boolean laws.
+පළමුව මෙහි F ප්‍රතිදානය ලබාගෙන එය බුූලියානු නීති භාවිතයෙන්‌ සුළු කරමු.
+
+17 -- (4. 0). (4.00. (Y)
+
+= (A.B) + (A.x) +Y De Morgan’s law ද, මුවාර්‌ ප්‍රමේයය
+=A.Bt+ (A.x) +Y Double inverse law ද්විත්ව ප්‍රතිලෝම න්‍යාය
+=AB+AX+Y Double inverse law ද්විත්ව ප්‍රතිලෝම න්‍යාය
+
+Let us now compare the obtained expression for F with the given Boolean expression.
+දැන්‌ දි ඇති බුලියානු ප්‍රකාශනය සමඟ F ට ලැබුණු ප්‍රකාශනය සංසන්දනය කරමු.
+
+AB+A.B+C
+F=AB+AX+Y
+
+Accordingly, it seems that the results to be obtained for X and Y are as follows.
+ඒ අනුව මෙහිදි X සහ Y ට ලැබිය යුතු ප්‍රතිඵල පහත පරිදි බව පෙනෙයි.
+
+X>B
+Y>C
+YOC
+
+So, the correct answer number 15 3.
+එමනිසා. නිවැරදි පිළිතුරු අංකය 3 වේ.
+
+2021 LOGIC GATE MCQ MARKING
+
+1.
+
+Consider the following Karnaugh map and the logic circuit implemented based on it where A, B and
+ල්‌ are the inputs and Z is the output: දි ඇති කානෝ සිතියම සහ ඒ මත පදුනමිව ගොඩනඟා ඇති තඊරකන
+පරිපටය සලකන්න. එහි A,B හා C ආදාන වන amo Z ප්‍රතිදානය වේ.
+
+AB
+C 00 01 11 10
+0/0;e); f | 0 As
+පි ~~ Z
+1 h 1
+1 g ල
+(a) Karnaugh map (b) Logic circuit based on Karnaugh map
+කානෝ සිතියම කානෝ සිතියම මත පදුනම්‌ ව තර්කන පටපටය
+
+For the logic circuit to correctly implement the logic function represented in the Karnaugh map, what
+should be the values of e, f, g, h?
+
+men) සිතියමෙන්‌ නියෝපනය වන තට්කන කාර්යය, mda පරිපටයේ නිවැරදිව ක්‍රියාත්මක විමට e, 1, gm
+॥ හි අගයයන්‌ කුමක්‌ විය යුතු ද?
+
+1 2) e=0,
+0 5) e=1,
+
+3) e=1, f=0, g=1, h=1
+
+1) e=0, £-0, g=1, h=
+h=
+
+g=l 1, g=1, h=1
+4) e=1, f=1, g=0, 1, g=0, h=1
+
+= [op
+1 |||
+
+( 2021-09 )
+Answer : 2 )
+
+Here first the truth table related to this logic circuit should be obtained.
+මෙහිදි පළමුව මෙම තාර්කික පරිපටයට අදාළ සත්‍යතා වගුව ලබාගත යුතුය.
+
+ABC
+A.B
+Z=A.BtC
+A B C A.B Z=A.BtC
+0 0 0 0 0
+0 0 1 0 1
+0 1 0 0 0
+0 1 1 0 1
+1 0 0 0 0
+1 0 1 0 1
+1 1 0 1 1
+1 1 1 1 1
+
+Now the Karnaugh map corresponding to this truth table can be drawn as follows.
+
+දැන්‌ මෙම සත්‍යතා වගුවට අනුරෑප වන කානෝ සිතියම පහන SSE ඇඳු දැක්විය හැකිය.
+
+AB AB
+ල 00 01 1 10 ල 00 Ol 1] 10
+
+Accordingly the values for e, 1. g and h should be as follows.
+& අනුව e,f,g සහ h සඳුහා අගයන්‌ පහත SSE විය යුතුය.
+
+e=0 f=1 g=1 h=1
+
+So, the correct answer number here is 2.
+එමනිසා. මෙහි නිවැරදි පිළිතුරු අංකය 2 වේ.
+
+2022 LOGIC GATE MCQ MARKING
+
+1. Consider the following logic circuit:
+පහත තාර්කික පරිපටය සලකන්න.
+
+A—
+B Z
+
+When B=1/, what would definitely be the output at ට?
+B=1 වන විට, ට හි ප්‍රතිදානය නියත වශයෙන්ම වනුයේ කුමක්‌ ද?
+
+1) A 2) 4 3) 8 4) B 5) 0
+
+( 2022 09)
+
+Answer : 2 )
+
+First let's get the expression related to Q output here.
+පළමුව මෙහි Q ප්‍රතිදානයට අදාළ ප්‍රකාශනය EDO.
+
+A —— AB
+B
+Q
+NK,
+— 8B
+Q=A.B+B
+
+According to the data, let's consider the value of B as 1.
+දූත්තයට අනුව මෙහි B හි අගය ] ලෙස සලකා Qe කරමු.
+
+Q=A14+1
+
+This boolean expression can be simplfied as follows.
+මෙම බුලියානු ප්‍රකාශනය පහත ආකාරයට සුඑු කළ හැකිය.
+
+Q=A14+1
+=A+1 Identity law සර්වසාම්‍ය න්‍යාය
+=A+0 1=0
+=A Identity law සර්වසාම්‍ය න්‍යාය
+
+2. Simplified Boolean expressions help to obtain simpler circuits. Which of the following is a simplified
+form of X + XY? / සූව කළ බූලීය ප්‍රකාග වඩාත්‌ සරල පරිපට ලබාගැනීමට ඉවහල්‌ oS. X + XYG සුඑ
+කළ ප්‍රකාශනයක්‌ වන්නේ පහත කුමක්‌ උද?
+
+1) X 2) Y 3) XY 4) XY 5) X+Y
+
+(2022-10)
+Answer : 5 )
+
+This boolean expression can be simplfied as follows.
+මෙම බුලියානු ප්‍රකාශනය පහත ආකාරයට සුඑු කළ හැකිය.
+
+X + XY
+X+Y Redundancy law / සමතිරික්ත න්‍යාය
+
+Here is how to verify this Redundancy law using basic Boolean laws.
+මෙම සමතිරික්ත නනාය මුලික බඛබුලියානු SH භාවිතයෙන්‌ සත්‍යාපනය කරන ආකාරය පහත දැක්වේ.
+
+Method I Method I
+
+X+X.Y X+X.Y
+
+X(1 + Y) Distributive law විඝටන න්‍යාය (X + X).(X+ Y) Distributive law විඝටන න්‍යාය
+X(1) Identity law සර්චසාම්‍ය නණය 1.(X + Y) Inverse law ප්‍රතිලෝම e290
+
+X Identity law සටර්වසාම්‍ය න්‍යාය X+Y Identity law සට්වසාම්‍ය න්‍යාය
+
+3. Consider the following truth table:
+පහත සත්‍යතා වගුව සලකන්න.
+
+| |... ...। ක|ක|ක|ක|රං
+RI ක යක|,- | ..| ක| ක දැ
+
+උ
+0
+1
+0
+1
+0
+1
+0
+1
+
+DID] RI RIRIRIOIOIN
+
+What is the correct Karnaugh map for the above truth table?
+ඉහත සත්‍යතා වගුව HEH) නිවැරදි කානෝ සිතියම කුමක්‌ ද?
+
+C BC BC
+A 00 01 10 11 A 00 01 11 10 A 00 10 01 11
+o/0;0j/;1 | 1 0। 00 | 11 0। 0|1|0 1
+1 1 1 0 | 0 1 1 1 0/10 1 1 0 । 1 0
+1) 2) 3)
+BC BC
+A 00 10 11 01 A 00 11 10 01
+0|0} 1 1 0 0 | 0 | 1 1 0
+1 1 0; 0} 1 1 1 0। 0 1
+
+4) 5) (2022-11)
+
+y
+
+Answer : 2, 4)
+
+Grey code
+
+In a Gray code sequence, adjacent values only differ by a single bit. This means that adjacent cells in the
+Karnaugh map also only differ by a single Boolean variable.
+
+Gray code අනුපිළිවෙලක, යාබද අගයන්‌ වෙනස්‌ වන්නේ තනි බිටුවකින්‌ පමණි. මෙයින්‌ අදහස්‌ කරන්නේ කානෝ
+සිතියමේ යාබද කෝෂ ද වෙනස්‌ වන්නේ තනි බුලියානු විචල්‍යයකින්‌ පමණක්‌ බවයි.
+
+The Karnaugh map is designed to "wrap around" at the edges, treating the map as a 3D cylinder or torus.
+With the first and last values differing by only one bit.
+
+කානෝ සිතියම ත්‍රිමාණ සිලින්ඩරයක්‌ හෝ ටෝරස්‌ එකක්‌ ලෙස සලකමින්‌, දාරවල “වටේ එතීමට නිර්මාණය
+කර ඇත. පළමු සහ අවසාන අගයන්‌ එක බිටි එකකින්‌ පමණක්‌ වෙනස්‌ වේ.
+
+Accordingly, considering this Gray code property, answers 1, 3, 5 can be removed.
+ඒ අනුව මෙම Gray code ගුණාංගය සලකා 1,3,5 පිළිතුරු ඉවත්‌ කළ හැකිය.
+
+Considering answers 2 and 4, it appears that the Gray code of the Karnaugh maps is correct.
+2 සහ 4 පිළිතුරු සැලකූ SO එම කානෝ සිතියමි වල Gray code එක නිවැරදි බව පෙනී යයි.
+
+NOS 2“ ar 2 ෴ න
+
+෴~මලගන @OOO@
+(Ban (Breas
+
+Also, the values marked in them are also correct according to the truth table. Therefore, both answers 2
+and 4 are true here.
+
+එමෙන්ම ඒවායෙහි ලකුණු කර ඇති අගයන්ද සත්‍යතා වගුවට අනුව HOE වේ. එමනිසා. මෙහිදි 2 සහ 4
+පිළිතුරු දෙකම සත්‍ය වේ.
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2023 LOGIC GATE MCQ MARKING
+
+1. Consider the following logic circuit in which X indicates a two-input logic gate.
+ආදාන දෙකක්‌ සහිත තාර්කික ද්වාරයක්‌ X මගින්‌ දැක්වෙන පහත nam පරිපටය සලකන්න.
+
+Ams
+DHE}.
+
+Which of the following should X be so that when A = 0 and B = 1, the output C would be 0?
+A=0 සහ B=1 වන විට C ප්‍රතිදානය 0 වීමට X පහත කවරක්‌ විය යුතු ද?
+
+A-aNAND gate
+B - a NOR gate
+C - an XOR gate
+
+1) A only. 2) AandB only. 3) AandConly. 4) BandConly. 5) All ofthe above.
+A පමණි. A හා B පමණි. 2 හා C පමණි. 13 හා C පමණි. ඉහත සියල්ලම.
+( 2023 -- 12)
+
+Answer : 5 )
+
+Let’s first consider the truth table related to the NAND gate.
+මෙහිදි පළමුව NAND ද්වාරයට අදාළ සත්‍යතා වගුව සලකා බලමු.
+
+A
+0
+0
+1
+1
+
+-|ෝක||ක| ලබ
+
+ක | ඬා | - | ..।
+
+Accordingly, when inputs are given as A=0 and B=1, the output will be 1. Accordingly, it 15 input to logic
+gate X./3 අනුව මෙහි A=0 හා B=1 ලෙස ආදාන ලබාදුන්‌ විට ප්‍රතිදානය oem 1ක්‌ ලැබේ. ඒ අනුව එය
+X තාර්කික ද්වාරයට ආදානය වේ.
+
+Both inputs of this X logic gate are connected together so both inputs are 1. Let us consider the truth tables
+related to logic gates given here for answers.
+මෙම X නාර්කික CH ded ආදාන දෙකම එකට සමිබන්ධ කර ඇති නිසා ආදාන දෙකටම ] ආදානය වේ.
+
+ඌණ ~~
+
+මෙහි පිළිතුරු සඳහා ලබාදි ඇති තාර්කික ද්වාර වලට අදාළ සත්‍යතා වගු සලකා බලමු.
+
+NAND gate NOR gate XOR gate
+NAND €®60 NOR ළ්චාරය XOR ද්වාරය
+P Q C P Q C P Q ම්‌
+0 0 1 0 0 1 0 0 0
+0 1 1 0 ॥! 0 0 1 1
+1 0 1 1 0 0 1 0 1
+1 1 0 1 1 0 1 1 0
+
+Accordingly, when both the inputs of all 3 gates are 1, the output C is 0. Therefore A, B and C are all true.
+
+ඒ අනුව මෙම ද්වාර නුනෙහිම ආදාන දෙකම ] වන විට C ප්‍රතිදානය 0 වේ. එමනිසා A, Ba) ල්‌ සියල්ලම
+සත්‍ය වේ.
+
+So, the correct answer number here is 5.
+එමනිසා. මෙහි නිවැරදි පිළිතුරු අංකය 5 වේ.
+
+2. Which of the following is the simplified form of the Boolean expression X(X + Y)?
+X(X+ 7) බූලීය ප්‍රකාශයේ සරල ආකාරය පහත කුමක්‌ ද?
+
+1) X 2) Y 3) XY 4) XY 5) X+Y
+( 2023 - 13 )
+Answer : 3 )
+
+This boolean expression can be simplfied as follows.
+මෙම බුලියානු ප්‍රකාශනය පහත ආකාරයට සුඑු කළ හැකිය.
+
+X(X + Y)
+
+XX + XY Distributive law / විඝටන න්‍යාය
+0+ XY Inverse law / ප්‍රතිලෝම න්‍යාය
+XY Identity law / සරවසාම්‍ය න්‍යාය
+
+Below are the Boolean laws used for this purpose.
+මේ HEH) යොදාගත්‌ එක්‌ එක්‌ බුලියානු නීති පිළිබඳුාව පහත දැක්වේ.
+
+Distributive law විගටන න්‍යාය
+A.(B+C)=AB+A.C
+A+ (B.C) = (A+B).(A+C)
+
+Inverse law @&e
+
+A+A=1
+A.A =0
+Identity law සටවසාම්‍ය න්‍යාය
+A+1=1
+A+0=A
+A.1 =A
+A.0 =0
+
+So, the correct answer number here is 3.
+එමනිසා. මෙහි නිවැරදි පිළිතුරු අංකය 3 වේ.
+
+2024 LOGIC GATE MCQ MARKING
+
+1. Which of the following express the output (F) of the given Circuit?
+දි ඇති පරිපටයේ ප්‍රතිදානය (F), පහත කවරකින්‌ ප්‍රකාග වේ ද?
+
+| et
+
+1) 4102 2)(X+¥)+Z 3) (X+Y)Z 4) XY+Z 5) (XY) +Z
+
+(2024-12)
+
+Answer : 5 )
+
+Step-by-step analysis
+පියවරෙන්‌ පියවර විශ්ලේෂණය:
+
+X is fed directly into the circuit.
+X සෘපුවම පරිපටයට පෝෂණය වේ.
+
+NOT gate / NOT ද්වාරය:
+
+e Y is passed through a NOT gate, producing Y.
+Y නිෂ්පාදුනය කරමින්‌ Y, NOT ද්වාරය හරහා ගමන්‌ කරයි.
+
+AND gate / AND ද්වාරය:
+
+e Inputs to the AND gate are X and Y.
+AND ද්වාරයට යෙදුවුමි වන්නේ Xow Y වේ.
+
+ ට%110 11 of this gate is XY.
+මෙම ද්වාරයේ ප්‍රතිදානය XY වේ.
+
+OR gate / 014 ද්වාරය:
+
+e Inputs to the OR gate are XY (from the AND gate) and 7.
+OR දූිවාරයට යෙදවුමි XY (AND ද්වාරයෙන්‌) සහ Z වේ.
+
+Output of the OR gate (final output F) is:
+OR ද්චාරයේ ප්‍රතිදානය (අවසාන ප්‍රතිදානය F):
+
+F=(XY)+Z
+
+So, the correct answer is 5) (XY) + Z.
+එබැවින්‌, නිවැරදි පිළිතුර 5) (XY) + 7 වේ.
+
+2. Supplying Double complement and De Morgan’s Laws to x + yz results in
+දිවිත්ව ප්‍රතිලෝම (Double complement) සහ ඩී මෝට්ගන්ගේ (De Morgan’s) න්‍යායයන්‌ x+yz0 යෙදව
+විට පහත කවරක්‌ ලැබේ ද?
+
+1) 7 2- 2 2) 207 2 2 3) XYZ 4) 2072) 5) xy + yz
+
+(2024-12)
+
+Answer : 4)
+
+Let’s apply the double complement law (A = A) to X + YZ.
+ද්විත්ව ප්‍රතිලෝම න්‍යාය (A= A)X+YZ වෙත යොදුමු.
+
+2]
+
+N
+
++ Y
+
+Now, let’s apply De Morgan’s law (A + B = A.B) to simplify the inner complement:
+දැන්‌, අභ්‍යන්තර අනුපුරකය සරල කිරීමට දූ මුවාර්‌ ප්‍රමේයය (A+ B= A.B) යොදුමු:
+
+(X + YZ) = (X.(¥Z))
+
+Let’s apply the double complement law (A = A) again.
+ද්විත්ව ප්‍රතිලෝම ase (A = A) නැවත ක්‍රියාත්මක කරමු.
+
+(% ලන) = (0( ලා) = XYZ
+
+So, the correct answer is 4) XYZ.
+එබැවින්‌ නිවැරදි පිළිතුර 4) XYZ වේ.
+
+3. What is the most simple Boolean expression that can be obtained through the given Karnaugh map?
+දි ඇති කානෝ සිතියම හරහා ලබාගත හැකි සරලතම QHS පකාශය කුමක්‌ ද?
+
+Xy
+
+Z 00 01 11 10
+0; 0 | | ] ]
+
+1 | 0 ] l 0
+
+1) y 2) XZ 3) xZ 4) xz 5) 17 24-22
+
+( 2024-13)
+Answer : 5 )
+You can group Is or Os in the given K-map using grouping laws, to derive the most simplified expression.
+ලබා දි ඇති කානෝ-සිතියම තුළ ] ඒවා oH) 0 SO) කාණ්ඩ කිරීමේ නිති භාවිතයෙන්‌ කාණ්ඩ කිරීමෙන්‌, වඩාත්‌
+සරල කල බුලියානු ප්‍රකාගනය ව්‍යුත්පන්න කළ හැක.
+Let’s group 15 / ] ඒවා කණ්ඩායමි කරමු.
+
+XY
+Z 00 01 I1 10
+
+Je TaD.
+1 | 0 | AL 0 Ne
+
+y
+
+Combine the two groups:
+කාණ්ඩ දෙක ඵඒකාඛද්ධ කරන්න:
+
+Y+XZ
+
+So, the correct answer is 5) Y + XZ.
+එබැවින්‌, නිවැරදි පිළිතුර 5) Y + 007 වේ.

@@ -1,0 +1,281 @@
+Part A — Structured Essay Do not
+Answer all four questions on this paper itself von
+In this
+column
+1. Consider the section of a web page on the Sri Lankan Test Cricket team, given in the Figure:
+Sri Lankan Test cricket records
+The_Sri Lankan national cricket team played their first Test match on 17 February 1982 against England.
+Record Groups
+e Team records
+e Individual records
+e Partnership records
+Partnership records
+e! 9
+ව.
+a AA
+3
+Sri Lanka holds the most number of partnership records in Test cricket, with the records
+for the second, third, fourth, and sixth wickets. South Africa and Pakistan are ranked second with two records each.
+Highest wicket partnerships
+(Runs| Wicket | Partners
+(335 [Ist wicket [Marvan Atapattu |Sanath Jayasuriya
+B 76 |2nd wicket||Sanath Javasuriya [Roshan Mahanama
+Figure : Web page
+A partial HTML document of the file "cricket.htm1" which generates the above web page is given below.
+Fill in the blanks of the HTML document with the appropriate tags to render the web page.
+Notes:
+1. When the user clicks on the phrase “Sri Lankan national cricket team” it should display the
+document named “team.html”.
+2. Name of the source file of the image displayed on the above webpage is “cricket jpg”.
+3. The link to the image “cricket.jpg” should have an alternative description “cricket”.
+ට y,
+
+AL/2013/20/E-II -3- Index No.:
+
+ඒ ෴
+<html> ne
+<head> in this
+
+ද,…… > Test Crickets…… > column
+</head>
+<body>
+දෲ…… >Sri Lankan Test cricket records<…… >
+ඳ,…… >
+€05101ළ ඳ……෴…… >
+Sri Lankan national cricket team <…… >
+played their first Test match on 17 February 1982 against England
+</p>
+ඳ€09ද…… >Record (10110) 5 ද……- ></p>
+ඳ,…… >
+<li>Team records</li>
+<li>Individual records</1li>
+<li>Partnership records</li>
+ඳ,…… >
+€ඳ,…… >Partnership |" උර[205 ද……- >
+54 0 >Sri Lanka holds the most
+number of partnership records in Test cricket,
+with the records for the second, third, fourth, and sixth wickets.
+South Africa and Pakistan are ranked second with two records each.
+</p>
+ඳ,…… >
+€ඳ,…… >Highest wicket partnerships<…… >
+<tr>
+<th>Runs</th>
+<thoWicket</th>
+<th colspan = "2">Partners</th>
+</tr>
+<tr>
+<td>335</td>
+<td>1st wicket</td>
+<td>Marvan Atapattu</td>
+<td>Sanath Jayasuriya</td>
+</tr>
+<tr>
+<td>576</td>
+<td>2nd wicket</td>
+<td>Sanath Jayasuriya</td>
+<td>Roshan Mahanama</td>
+</tr>
+</table>
+</body>
+</html>
+
+4 ෴
+2. (a) If a computer system is byte addressable and uses 32-bit addresses to access any byte in its Do not
+memory, what is the maximum usable size of its memory in Giga Bytes (GB)? Show all your von
+workings clearly. mans
+column
+(b) What is the relationship between a program and a process in an operating system?
+(c) What is the need of having “swapped out and waiting” and “swapped out and blocked” states
+in the seven state process model of an operating system?
+ද ෂ්‌
+
+la
+
+AL/2013/20/E-II -)-
+
+3.
+
+(a) (1) Convert 1310 and —19\9 into two’s complement numbers. Use 8-bits to represent a number.
+
+(ii) Compute 1310 — 1910 by using two’s complement. numbers obtained in section (1) above and
+give the answer in two’s complement form.
+
+(iii) Explain how the positive and negative numbers in two’s complement can be converted into
+decimal numbers.
+
+(b) Give four (4) different examples for the following electronic business types:
+
+Type Example
+B2B
+
+B2C
+
+C2C
+
+C2B
+
+Do not
+write
+
+in this
+column
+
+_)
+
+4, (a) Describe the relationship between a primary key and a foreign key in relational databases. on
+write
+in this
+column
+(b) Convert the following ER diagram to table structures in a relational database. The attribute capacity
+may have values such as captain, vice captain, member etc.
+student සි | participate | m sport
+(c) Based on the table structures obtained in section 4(b) above answer the following questions.
+(i) Write an SQL statement to get a list of sports that do not have captains.
+(ii) Write an SQL statement to obtain a list of students (studentId and name) who participate in
+any sport as a captain.
+තූ 36 5 ෂ්‌
+
+QGOOMICN HLL LCOS: 2160060015: 5: 61114)
+seen 01119]9 7අ1/1151)1] usAy Quy spl ufLens, 2013 acm
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+HEU, OHM TUT 0151110160]! _! ]ධ]!! 160 11 [20 EB ॥ 11 |
+Part B
+
+% Answer any four questions only.
+
+1. (a) A fire alarm system consists of three sensors $1, 52 and 53 to detect smoke, flame and heat respectively.
+A sensor can either be active (sends the logical value 1) or inactive (Sends the logical value 0). The
+system automatically triggers the fire alarm when at least two of the sensors are active.
+
+(i) Construct the truth table to represent the functionality of the above fire alarm system.
+
+(ii) Derive the Boolean expression to represent the above truth table.
+(b) Consider the logic circuit shown here to answer the sections (1) and (11) below:
+
+A B C
+oO Oo ර
+
+Pan
+
+i)
+20 ී
+i)
+
+Lp
+
+(i) Write and simplify the Boolean expression for the above circuit using Boolean algebra. Show all the
+workings and algebric rules used for the simplification.
+
+(ii) Construct the logic circuit using a combination of only AND, OR and NOT gates for the simplified
+Boolean expression obtained in section b(i) above.
+
+නූ y,
+
+(ණ්‌
+
+2.
+
+(a) Compare and contrast the following communication technologies:
+(1) ISDN vs ADSL
+(11) CDMA vs GSM
+
+(b) Give the main function of the following servers:
+(1) Web server
+(ii) Mail server
+(iii) Proxy server
+(iv) DHCP server
+
+(c) An organization has installed a web server, a mail server, a proxy server and a DHCP server to provide
+Internet based services to its employees. There are ten (10) computers in the organization connected to
+a local area network. IP addresses are dynamically allocated to these ten computers.
+
+Assume that adequate network cables and two network switches are provided to connect computers to
+the network. Each switch is capable of connecting a maximum of sixteen (16) computers to the network.
+
+(1) Draw a network diagram to show how these ten computers are connected to the local area network.
+
+(11) Draw a separate network diagram to show how the web server and e-mail server are connected to the
+Internet.
+
+(iii) Draw another network diagram to show how the two networks designed in c(i) and c(ii) above can
+
+be connected using a proxy server in order to provide Internet connectivity to computers connected
+to the local network.
+
+3. The director of a hospital has decided to maintain clinical history and demographic data, of all the patients
+
+visiting the hospital, in a database. After the first visit of a patient, his/her clinical history is available to
+the physician examining the patient.
+
+(a) Give two (02) main reasons for replacing a manual record keeping system with an electronic database
+system?
+
+(b) Discuss two (02) disadvantages of maintaining clinical history in a database.
+
+(c) Can maintaining clinical history of patients in a database be considered as a component of e-Government?
+Justify your answer.
+
+(d) The director of the hospital decides to allow external parties, such as, insurance companies to access this
+database to obtain information. As an ICT student, what is your opinion on the decision made by the director?
+
+(a) Explain what is done by the Python interpreter when executing the following program.
+Your explanation should include the types assigned to variables and type conversions.
+
+a=4
+b = 4.7
+c=at+b
+
+(b) Explain what will happen when the statements of the following Python program are executed.
+total = 6.6
+x = float(input( "Enter a number:"))
+while x > @:
+total = total + x
+x = float(input( "Enter a number:"))
+print(total)
+
+(c) You are requested to write a Python program to find and display the maximum value of given 10 integers.
+The program should read integers one at a time.
+
+(i) Propose an algorithm to solve the problem using a flow chart.
+
+(ii) Write a Python program to implement your flow chart proposed in section c (i).
+
+2
+
+a
+
+5.
+
+Draw an Entity Relationship (ER) diagram to represent the scenario given below. The attributes and the primary
+keys of entities should be clearly indicated. State if any assumptions that you make clearly.
+
+ABC cab Service Company does not own any car. Private car owners can register with the company and
+also rent their cars. Some car owners provide more than one car to the company. The company hires drivers
+for these cars. Any car available for rent can be driven by different drivers on different days. Car owners
+are responsible for maintenance of their cars in order to provide a reliable service to the customers. After
+completing each hire, the driver informs his current location to the company. When a customer requests a
+car, the company looks for the availability of a car in the vicinity of the calling area. If a car is available,
+company assigns that to the customer and informs both customer and the driver. The company tries its best
+to assign the nearest available car to the customer to make its services more efficient. The company keeps
+customer information such as name, address and the contact telephone number to provide a better service to
+their regular customers. The customers can also inform to the company whether they are happy with the services
+provided by the driver. This information is used when assigning drivers to the customers. Each car owner,
+car, driver and the customer are given "ownerld", "carId", "driverId", and the "custId" respectively to identify
+them uniquely.
+
+A delivery service company established in Sri Lanka receives over 1 million parcels per day for distribution.
+In order to send them to different parts of Sri Lanka, these parcels should be sorted and put into appropriate
+delivery vans. At present, 5 people at the sorting department do this process manually. This process has a
+drawback of putting parcels into wrong delivery van. Taking at least 3 days to distribute parcels received
+within a day is also a weakness in this process. Therefore, the general manager has decided to automate the
+sorting process by using a bar code system. The bar code pasted on parcel consists of the receiver’s postal
+code. The proposed computer based system will read these bar codes, sort the parcels automatically and put
+them into the correct delivery van through a conveyor belt without human intervention. The general manager
+strongly believes that computerization will help them to overcome the current problems in the sorting process.
+
+(a) Identify two functional requirements of the proposed computer based system. Justify your answer.
+(b) State two non functional requirements of the system with justifications.
+
+(c) Discuss, giving two reasons, whether the general manager’s decision to computerize the sorting process
+is correct or not.

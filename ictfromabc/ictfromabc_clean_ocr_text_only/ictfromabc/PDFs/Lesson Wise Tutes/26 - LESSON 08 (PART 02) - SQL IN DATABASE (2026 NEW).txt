@@ -1,0 +1,4962 @@
+CONTENT
+
+INtroduction to DMBSS .................. ... . .. . .....................................ං.
+
+Structured Query Language — SQU ....................... .. -.. .-.-.....
+
+MySQk and MariaDB .........................  ..  -.--.- -....... cesses ececeecueceeseaeseceeseeacaeeecaeeeeseeeeecaeeeees
+
+SQL interfaces ...........
+
+1115031111010 MySQL ..........................  -  -.  -- - --. -..--....-.. ය
+
+Installing and setting Up !/!/%,[/1£.........................  .. .. -. . - -. -..-...-.... ය
+
+Creating databases with Cho .................. cece - -..-.................... ස...
+
+Creating databases With Gul .................. ccc cceseseseeeceeseseseeecaeceeseeceecaeeeeaeseeeeeeeneeeees
+
+SQL basics ..................
+
+SQL data types .................. - .- .-................ ceseueseseeeseueeeeeeeeneeeaeecaeaneneeeseees
+
+Classification of SQL
+
+COKES ............... .. ........................ සපු.
+
+ALTER TABLE ලර1111115110 ....................... . .. -....................
+
+INSERT INTO statem
+UPDATE statement ..
+
+QIN ..............................෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴
+
+DELETE statement ..................... ..................... secacecssceecescescsesseeecescessesneauececeeseeees
+
+SELECT statement ....
+Comparison operato
+SQL Wildcards............
+Logical operators .....
+ORDER BY keyword .
+GROUP BY statemen
+
+[5 ...............෴෴෴෴්‌෴
+
+₹...................................෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴ ceesesaeseaecaeecaeeaessaeeeaae
+
+HAVING ල150156 ................... . .. ...................ං...ආං.ඕ. ඛු උ.ූ
+
+DISTINCT statement
+SQL functions ............
+Aliases ................. -- - -
+SQL Joins ................
+Integrity constraints
+
+SQL constraints
+
+NOT NULL ............... .---..-. --.-......
+UNIQUE ................-. --- ------.-.....
+DEFAULT ............... ... -. -.---....................... coesessessesacaecassesaeacuseesaesasans
+
+Co N තු &&~
+
+13
+14
+16
+17
+19
+20
+23
+25
+26
+27
+28
+31
+33
+34
+35
+36
+37
+37
+39
+40
+42
+
+43
+45
+47
+49
+51
+54
+
+Introduction to DBMS
+
+Types of Database Management Systems
+
+දත්ත සමුදා කළමනාකරණ පද්ධති වර්ග
+
+Database Management Systems (DBMS) are
+software tools that provide an interface for
+interacting with databases.
+
+දන්ත BOE) කළමනාකරණ පද්ධති (DBMS) යනු eaded
+සමුදායන්‌ සමඟ අන්තරඛ්‍රියා කිරීම සඳහා අතුරැ
+මුහුණතක්‌ සපයන මෘදුකාංග මෙවලමි වේ.
+
+Allow users to perform operations such as
+inserting, updating, deleting, and querying data
+efficiently.
+
+පරිශීලකයින්ට දත්ත ඇතුළත්‌ කිරීම, යාවන්කාලීන
+කිරීම, මකා දැමීම සහ විමසීම්‌ වැනි මෙහෙයුමි
+කාටරයක්ෂමව සිදු කිරීමට ඉඩ සලසයි.
+
+Among the most influential DBMS are MySQL 3.
+
+and its open-source successor, MariaDB.
+වඩාත්ම බලගතු DBMS අනර MySQL සහ එහි
+විවෘත-මූලාශු්‍ර අනුප්‍රාප්තිකයා වන MariaDB වේ,
+
+History of Database Management Systems
+
+දත්ත සමුදා කළමනාකරණ පද්ධති පිළිබඳ ඉතිහාසය 4.
+
+Pre- 1960s: Flat Files
+1960 ට පෙර: පැනලි ගොනු
+
+1960 -- 1970: Hierarchical and Network Models
+ධූරාවලි සහ ජාල ආකෘති
+
+1970 -- 1980: Relational Database Model
+
+1980 -- 1990: Commercial RDBMS
+
+1990 - 2000: Open-Source DBMS
+විවෘත මූලාශ DBMS
+
+2000 - 2010: NoSQL and Big Data
+
+2010s and Beyond: Cloud and Hybrid
+
+Databases
+වලාකුළු සහ දෙමුහුන්‌ දත්ත සමුදායන්‌
+
+Further discussed in the database tute.
+දන්ත සමුදා නිබන්දනයේ වැඩිදුර සාකාචිඡා කර
+ඇත.
+
+1.
+
+Relational DBMS (RDBMS)
+
+Organizes data into structured tables (e.g:
+MySQL, MariaDB, PostgreSQL).
+
+EDD ව්‍යුහගත වගු වලට සංවිධානය කරයි
+(උදා: MySQL, MariaDB, PostgreSQL).
+
+NoSQL DBMS
+
+Designed for unstructured or semi-
+structured data (e.g: MongoDB, Cassandra).
+ව්‍යුහගත නොවන හෝ අර්ධ ව්‍යුහගත දන්ත
+සඳහා නිර්මාණය කර ඇත (උදා: MongoDB,
+Cassandra).
+
+In-Memory DBMS
+
+Optimized for high-speed, real-time
+processing (e.g: Redis, Memcached).
+අධිවේගී, නත්‍ය කාලීන සැකසුම්‌ සඳහා ප්‍රශස්ත
+කර ඇත (උදා; Redis, Memcached)
+
+Cloud-Based DBMS
+Managed, scalable databases hosted in the
+cloud (e.g., Firebase, Amazon RDS, Google
+
+Cloud Firestore).
+වලාකුළු පරිගණක තුල සංරක්ෂණය OH,
+කළමනාකරණය කළ හැකි සහ විශාල කළ හැකි
+
+දත්ත ගබඩා. (උදා: Firebase, Amazon RDS,
+Google Cloud Firestore).
+
+Hybrid DBMS
+
+Combines SQL and NoSQL features for
+flexibility (e.g: Couchbase, Cosmos DB).
+නම්‍යශිලීහතාවය සඳහා SQL සහ NoSQL
+විශේෂාංග චිකාබද්ධ කරයි (උදා: Couchbase,
+Cosmos DB).
+
+Object-Oriented DBMS
+
+Supports object-oriented programming
+paradigms.
+
+වස්තු නැඹුරු වැඩසටහන්‌ සුසමාදර්ශ සදහා
+සහය දක්වයි.
+
+Use cases of DBMSs
+DBMS භාවිතා කරන අවස්ථා
+
+1. Data Analysis and Reporting
+දත්ත විශ්ලේෂණය සහ වාර්තා කිරීම
+
+e Storing and managing large volumes of
+
+data for analysis.
+විශ්ලේෂණය සඳහා විශාල eM පරිමාවක්‌
+ගබඩා කිරීම සහ කළමනාකරණය කීරීම.
+
+e Creating reports to support decision
+making.
+තීරණ ගැනීමට සභාය SO සඳහා වාර්තා
+නිර්මාණය කිරීම.
+
+e Discovering patterns and trends in data.
+දුන්නවල රටා සහ ප්‍රවණතා සොයා ගැනීම.
+
+2. Human Resources
+මානව සම්පත්‌
+
+e Storing employee information, salaries,
+
+benefits, and performance data.
+සේවක තොරතුරැ, වැටුප්‌, ප්‍රතිලාභ සහ කාරය
+සාධන දුත්ත ගබඩා කිරීම.
+
+e Managing job applications, candidate
+
+tracking, and onboarding.
+රැකියා අයදුම්පත්‌ කළමනාකරණය,
+අපේක්ෂකයින්‌ ලුහුබැඳීම සහ ඇතුල්වීම.
+
+e Processing employee salaries, taxes, and
+
+deductions.
+සේවක වැටුප්‌, DE සහ අඩු කිරීම්‌ සැකසීම.
+
+3. Business and Finance
+ව්‍යාපාර සහ මූල්‍ය
+
+e Generating financial statements, balance
+
+sheets, and income statements.
+QOS ප්‍රකාශන, ශේෂ පත්‍ර සහ ආදායමි ප්‍රකාශ
+ජනනය කිරීම.
+
+e Managing customer data, tracking sales,
+
+and analyzing customer behavior.
+පාරිභෝගික EDD කළමනාකරණය GSO,
+විකුණුම්‌ නිටර්ක්ෂණය කිරීම සහ පාරභෝගික
+හැසිරීම විශ්ලේෂණය කිරීම.
+
+4. Healthcare
+සෞඛ්‍ය සන්කාර
+
+e Storing and retrieving patient information,
+
+medical history, and treatment details.
+රෝගියාගේ තොරතුරැ, GGEHES ඉතිහාසය සහ
+ප්‍රතිකාර විස්තර ගබඩා කිරීම සහ ලබා ගැනීම.
+
+e Managing patient data, tracking outcomes,
+
+and analyzing research results.
+
+රෝගීන්ගේ දත්ත කළමනාකරණය කිරීම, ප්‍රනිඵල
+නිර්ක්ෂණය කිරීම සහ පර්යේෂණ GOO
+විශ්ලේෂණය කිරීම.
+
+e Identifying patient trends, optimizing
+resources, and enhancing care.
+
+රෝගීන්ගේ ප්‍රවණතා හඳුනා ගැනීම, සම්පන්‌
+ප්‍රශස්ත කිරීම සහ රැකවරණය වැඩී දියුණු කිරීම.
+
+5. Education
+අධ්‍යාපන
+
+e Managing student records, course
+
+information, and enrollment data.
+ශිෂ්‍ය HSM) කළමනාකරණය, පාඨමාලාව
+තොරතුරැ, සහ ලියාපදිංචි දුත්ත.
+
+6. Government
+
+ආණ්ඩුව
+
+e Storing citizen information, tax data, and
+
+government records.
+පුරවැසි තොරතුරැ, බදු දත්ත සහ රජයේ වාර්තා
+ගබඩා කිරීම.
+
+7. Telecommunications
+
+විදුලි සංදේශ
+
+e Managing customer data, network
+
+information, and billing.
+පාරිභෝගික දන්ත, ජාල නොරතුරැ සහ බිල්පත්‌
+කළමනාකරණය.
+
+Modern Database Management Systems
+නවීන දත්ත සමුදා කළමනාකරණ පද්ධති
+
+1. Firebase (Google)
+A NoSQL, serverless cloud database for
+real-time mobile and web app data
+
+synchronization.
+තත්‍ය කාලීන ජංගම සහ GOO ලයදුමි දත්ත
+
+සමමුහුරත කිරීම සඳහා වන NOSQL සේවාදායක
+CBD වලාකුළු දත්ත ගබඩාවකි.
+
+2. Google BigQuery
+A serverless data warehouse optimized for
+large-scale analytics and querying massive
+
+datasets.
+
+මහා පරිමාණ විශ්ලේෂණ සහ දැවැන්න දුන්න
+කට්ටල විමසීම සඳහා ප්‍රශස්ත කළ සේවාදායක
+රහින දුත්ත ගබඩාවකි.
+
+3. Amazon DynamoDB
+
+A NoSQL database offering extreme
+scalability and reliability, often used in loT
+and real-time analytics.
+
+loT සහ තත්‍ය කාලීන විශ්ලේෂණවල බොහෝ විට
+භාවිතා කරන අතිශය පටථමාණය සහ
+විශ්වසනීයත්වය සපයන NoSQL eae
+ගබඩාවකි.
+
+4. Couchbase
+A hybrid NoSQL database combining
+document, key-value, and _ relational
+
+features for scalable, distributed systems.
+පරිමාණය කළ හැකි, බෙදා OOH ලද පද්ධති
+සඳහා ලේඛනය, යනුරැ අගය සහ සම්බන්ධතා
+විශේෂාංග එකාබද්ධ කරන දෙමුහුන්‌ NoSQL
+දන්ත සමුදායකි.
+
+5. Azure Cosmos DB
+& globally = distributed, — multi-model
+database supporting APls_ like SQL,
+MongoDB, and Cassandra.
+
+SQL, MongoDB සහ Cassandra වැනි API
+සහය දක්වන, ගෝලීය වශයෙන්‌ SHE ඇති, බහු-
+ආදර්ශ calor ගබඩාවකි.
+
+6. MongoDB
+A document-oriented NoSQL database
+storing JSON-like data for flexibility.
+නම්‍යශීලී බව සඳහා JSON වැනි දුත්ත ගබඩා
+කරන ලේඛන-නැඹුරැ NOSQL දන්ත ගබඩාවකි.
+
+7. [1604]
+A 0ර්‍ර[-301] database for managing
+interconnected data, useful in fraud
+
+detection and recommendation engines.
+අන්තර සම්බන්ධිත දත්ත කළමනාකරණය සඳහා
+වචන ප්‍රස්ථාර දත්ත සමුදායකි, වංචා හඳුනාගැනීමි
+සහ නිරිදේශ එන්ජින්‌ සඳහා ප්‍රයෝජනවත්‌ 6.
+
+Evolution of Query Languages
+විමසුම්‌ භාෂා පටණාමය
+
+SQL- The 1970s relational standard for
+structured data with DDL, DML, and DCL
+commands.
+
+1970 දශකයේ DDL, DML සහ DCL විධාන සමඟ
+ආකෘතිමය දත්ත සඳහා ODM සම්බන්ධක සමිමනයයි.
+
+NoSQL Query Languages- JSON-based APIs
+for schema-less data (e.g: MongoDB, Firebase).
+schema -සටහන නොමැති දත්ත සඳහා ISON -මූලික
+APIs (උදා: MongoDB, Firebase)
+
+Graph Query  Languages- = Specialized
+languages like Cypher for querying graph data
+(e.g: Neo4)).
+ප්‍රස්නාර දත්න සඳහා Cypher වැනි විශේෂින භාෂා
+(උදා: Neo4))
+
+SQL - Structured Query Language
+
+SQL is a standard programming language used
+for managing and manipulating relational
+databases.
+
+SQL යනු සම්බන්ධතා දත්ත සමුදායන්‌ කළමනාකරණය
+කිරීම සහ හැසිරවීම සඳහා භාවිතා කරන සම්මත
+ක්‍රමලේඛන භාෂාවකි.
+
+Birth of SQL
+
+SQL's journey began in the 1970s, driven by the
+need for a more efficient way to interact with
+relational databases.
+
+SQL හි ගමන ආරම්භ වූයේ 1970 යේදී, සම්බන්ධිත
+දන්ත සමුදායන්‌ සමඟ අන්තර ක්‍රියා කිරීමට වඩාන්‌
+කාරයක්ෂම ක්‍රමයක්‌ අවශ්‍ය වීමෙනි.
+
+At IBM, researchers Donald D. Chamberlin and
+Raymond F. Boyce, inspired by Edgar F. Codd's
+relational data model, developed SEQUEL in the
+early 1970s.
+
+IBM හි, පර්යේෂකයන්‌ දෙදෙනෙකු වන ලඉානල්ඩ්‌ ඩී.
+චේමබර්ලින්‌ සහ GHOBA එෆ්‌. බෝයිස්‌, එඩිගාරී එෆ්‌.
+කොඩිගේ සම්බන්ධතා දත්ත ආකෘතියෙන්‌ ආභාෂය
+
+ලැබූ අතර,1970 ගණන්වල මුල්‌ භාගයේදී SEQUEL
+සංවර්ධනය කරන ලදී.
+
+The name SEQUEL was later shortened to the
+more concise SQL.
+
+SEQUEL යන නම පසුව වඩාත්‌ සංක්ෂිප්ත SQL ලෙස
+කෙටි කරන ලදී.
+
+Oracle company became the first company to
+offer a commercial RDBMS (relational Database
+management system) that utilized SQL.
+
+Oracle සමාගම SQL භාවිතා කරන වාණිජ
+RDBMS(es®QsQem දත්ත සමුදා කළමණාකරණ
+පද්ධති) ලබා දුන්‌ පළමු සමාගම බවට පතන්‌ විය.
+
+Different versions of SQL
+SQL හි විවිධ සංස්කරණ
+
+Microsoft SQL Server (Transact-SQL)
+Offers proprietary extensions and _ features
+beyond standard SQL.
+
+සම්මත SQL මකෛේමවා හිමිකම්‌ සහිත දිගු සහ
+විශේෂාංග පිරිනමයි.
+
+MySQL
+
+A widely used open-source DBMS with its own
+SQL syntax.
+
+ස්වකීය SQL වාක්‍ය ඛණ්ඩයක්‌ සහිත GOS ලෙස
+භාවිතා වන විවෘත මූලාශු DBMS එකකි.
+
+Oracle Database (PL/SQL)
+Includes procedural extensions and advanced
+
+data types.
+ක්‍රියා පටිපාටි ද්‍රිගු කිරීමි සහ උසස්‌ දන්ත වර්ග ඇතුළත්‌
+චේ.
+
+PostgreSQL
+
+An open-source object-relational DBMS with
+strong SQL compliance.
+
+ශක්තිමත්‌ SQL අනුකූලතාවයක්‌ සහිත විවෘත මූලාශ්‍ර
+වස්නු-සම්බන්ධින DBMS.
+
+SQLite
+A lightweight, embedded database with a
+simplified SQL implementation.
+
+සරල කළ SQL ක්‍රියාත්මක කිරීමක්‌ සහිත සැහැල්ලු,
+කාවැද්දූ දත්ත සමුදායක්‌ සංස්කරණයක්‌ වේ.
+
+Why Use SQL?
+SQL භාවිතා කරන්නේ ඇයි
+
+Data Management
+
+දත්ත කළමනාකරණය
+
+SQL is the standard language for creating,
+modifying, and deleting database structures.
+SQL යනු දන්ත සමුදා ව්‍යුහයන්‌ නිරීමාණය ASO,
+වෙනස්‌ කිරීම සහ මකා දැමීම සඳහා වන සම්මත
+භාෂාවයි.
+
+Data Retrieval
+
+දත්ත ලබා ගැනීම
+
+It allows you to extract specific information
+from the database using powerful query
+capabilities.
+
+බලගතු විමසුම්‌ හැකියාවන්‌ භාවිතයෙන්‌ දන්ත
+
+සමුදායෙන්‌ නිශ්චිත තොරතුරැ උකහා ගැනීමට එය
+ඔබට Of) සලසයි.
+
+Data Updates
+
+දත්ත යාවත්කාලීන කිරිමට
+
+You can modify existing data records efficiently.
+ඔබට පවනින දන්ත වාරනා කාරයක්ෂමව වෙනස්‌ කළ
+හැක.
+
+Data Integrity
+
+දුත්ත අඛණ්ඩතාව
+
+SQL helps maintain data consistency and
+accuracy.
+
+SQL දත්ත අනුකූලතාව සහ නිරවද්‍යතාවය පවත්වා
+ගැනීමට උපකාරී චේ.
+
+How SQL Works
+SQL ක්‍රිය කරන ආකාරය
+
+User Database
+
+An SQL query is written
+SQL විමසුමක්‌ ලියනු ලැබේ
+A command or question is posed to the
+
+database.
+EDD සමුදාය වෙන විධානයක්‌ හෝ ප්‍රශ්නයක්‌ දිරථිපත්‌
+කෙරේ.
+
+The query is parsed by the SQL engine
+විමසුම SQL චන්ජිම මගින්‌ විග්‍රහ කරනු ලැබෙ
+The query is broken down into understandable
+
+components.
+විමසුම තේරැම්‌ ගත හැකි සංරචක වලට බෙදා ඇන.
+
+The query is optimized
+
+විමසුම ප්‍රශස්ත ලෙස සකසනු ලැබේ
+
+The most efficient way to execute the query is
+determined by the database system.
+
+විමසුම ක්‍රියාත්මක කිරීමේ වඩාත්‌ කාර්යක්ෂම ක්‍රමය
+දත්ත සමුදා පද්ධතිය මගින්‌ තීරණය වේ.
+
+The necessary data is retrieved
+
+අවශ්‍ය දත්ත නැවත ලබා ගනී
+
+The system accesses the required data from the
+tables.
+
+වගු වලින්‌ අවශ්‍ය දත්ත වෙන පද්ධතිය ප්‍රවේශ වේ.
+
+The results are generated
+
+ප්‍රතිඵල උත්පාදනය කරනු ලැබේ
+
+The retrieved data is processed and formatted
+into the desired output.
+
+ලබාගන්නා ලද දන්න සකසා අපේක්ෂිත ප්‍රතිදානය
+බවට හැඩගස්වනු ලැබේ.
+
+MySQL and MariaDB
+
+MySQL
+
+Developed in 1995 by Michael Widenius,
+Allan Larsson, and David Axmark.
+
+1995 දී Michael Widenius, Allan Larsson සහ
+David Axmark විසින්‌ සංවර්ධනය කරන ලදි.
+
+Named after Widenius's first daughter, My.
+
+විඩෙනියස්ගේ මුල්ම දියණිය වන My නමින්‌ එය
+නමි කරන ලදී.
+
+It gained global prominence as part of the
+LAMP stack (Linux, Apache, MySQL, PHP), a
+foundation for web development.
+
+එය වෙබි සංවර්ධනය සඳහා පදනමක්‌ වන LAMP
+Stack (Linux, Apache, MySQL, [[1]2්‌) කොටසක්‌
+ලෙස ගෝලීය වශයෙන්‌ පසිද්ධියට පත්‌ Sa.
+
+Acquired by Sun Microsystems in 2008 and
+later by Oracle Corporation in 2010.
+2008 දී Sun Microsystems විසින්‌ සහ පසුව
+
+2010 දී Oracle Corporation විසින්‌ අත්පත්‌ කර
+ගන්නා ලදී.
+
+N
+RG % SUN, ORACLE
+
+microsystems
+
+MariaDB
+
+NariaDB
+
+Created in 2009 by Michael Widenius as a
+fork of MySQL, ensuring it remained open-
+source.
+
+2009 දී මයිකල්‌ විඬෙනියස්‌ විසින්‌ MySQL හි
+උපශාඛාවක්‌ ලෙස BOOS කරනු ලැබූ අතර,
+
+චය විවෘත මූලාශ්‍රයක්‌ ලෙස පවතින බවට සහතික
+කළේය.
+
+Named after his second daughter, Maria.
+
+ඔහුගේ දෙවන දියණිය වන Maria නමින්‌ එය
+කරනු ලැබුවේය.
+
+Designed for backward compatibility with
+MySQL while introducing performance,
+scalability, and security improvements.
+කාරය සාධනය, පරිමාණය සහ ආරක්ෂාව
+වැඩිදියුණු කිරීමි හඳුන්වා දුන්‌ අතරම MySQL
+සමඟ පසුගාමී අනුකූලතාව සඳහා නිර්මාණය කර
+ඇත.
+
+Supported by the MariaDB Foundation,
+which promotes its development.
+
+එහි සංවර්ධනය ප්‍රවර්ධනය කරන MariaDB
+පදනම මගින්‌ මෙයට සහය දැක්වූයේය.
+
+My and Maria with their father, Micheal
+Widenius.
+
+‘ii ae
+| MW
+
+gi °
+
+ww
+
+A Bridge Between Humans and Databases - SQL Interfaces
+
+මිනිසුන්‌ සහ දුත්ත සමුදායන්‌ අතර සම්බන්ධතාව SQL අතුරැමුහුණත්‌
+
+Feature
+
+CLI (Command Line Interface)
+
+GUI (Graphical User Interface)
+
+User interaction
+
+පරිශීලක අන්තරඊකඛ්‍රියා
+
+Text-based
+පාඨ පදනම්‌ ©
+
+Requires manual typing of SQL
+commands.
+SQL විධාන අතින්‌ ටයිප්‌ කිරීම අවශ්‍ය වේ.
+
+Visual-based
+දෘෂ්‍ය NCD
+
+Uses buttons, menus, and forms.
+බොත්තමි, මෙනු සහ ආකෘති භාවිතා කරයි.
+
+Efficiency
+WDIODBOMA
+
+Fast for users who are proficient
+ප්‍රවීණ පරිශීලකයින්‌ සඳහා වේගවන්‌ වේ.
+
+Supports scripting and automation.
+ස්ක්‍රිප්ටින්‌ සහ ස්වයංක්‍රීයකරණය සඳහා
+සහය දක්වයි.
+
+Quick for simple tasks
+සරල mbaas සඳහා කේමන්‌ Gd.
+
+May be slower for complex operations.
+සංකීරණ මෙහෙයුම්‌ සඳහා මන්දගාමී විය
+හැක.
+
+Resources usage
+සම්පන්‌ භාවිතය
+
+Generally, uses fewer system
+
+resources.
+සම්පත්‌ භාවිතය සාමාන්‍යයෙන්‌, අඩු පද්ධති
+සම්පත්‌ භාවිතා කරයි.
+
+Can be more resource-intensive due to
+
+graphical elements.
+චිත්‍රක මූලාංග නිසා වැඩි සම්පත්‌ තීව්‍ර විය
+හැක.
+
+Customization
+අභිරැචිකරණය
+
+Highly customizable through scripts
+
+and commands.
+ස්ට්‍රිප්ටි සහ විධාන හරහා තො
+අභිරැච්කරණය කළ හැකිය.
+
+Less customizable
+
+limited to available features and
+options.
+
+අඩු අභිරුචිකරණය කළ හැකිය
+
+පචතින විශේෂාංග සහ විකල්ප වලට සීමා
+චේ.
+
+Task Execution
+
+Quick for repetitive and complex tasks
+
+May be slower for complex tasks but
+
+Speed once mastered. faster for straightforward operations.
+කාර්යය ක්‍රියාත්මක වරක්‌ ප්‍රගුණ කළ පුනරාවරිතන සහ සංකීරණ mbaas සඳහා මන්දගාමී විය
+කිරීමේ වේගය සංකීරණ කාරථයයන්‌ සඳහා කේමන්‌ කරන්න. | හැකි නමුන්‌ සරල මෙහෙයුම්‌ සඳහා වේගවන්‌
+චව්‌.
+User Base Preferred by advanced users and Ideal for beginners and those who
+SOGOD පදනම professionals. prefer visual tools.
+උසස්‌ පරිශීලකයින්‌ සහ වෘත්තිකයන්‌ විසින්‌ |ආරම්භකයින්‌ සහ cams මෙවලම්‌ කැමති අය
+කැමති. සඳහා වඩාත්‌ සුදුසුය.
+Popular SQL MySQL (mysq}) MySQL Workbench
+interfaces PostgreSQL (psql) DBeaver
+ජනප්‍රිය SQL SQL Server (sqlcmd) Oracle SQL Developer
+අතුරැමුහුණන්‌ DataGrip
+
+Installing MySQL only (optional)
+
+(MySQL Server 9.1 Setup
+Custom Setup ~~
+Download MySQL from the official site: Select the way you want features to be installed. aie
+නිල GOO අඩවි යෙන්‌ M yS Q L බාගන්න Click the icons in the tree below to change the way features will be installed.
+https://dev.mysql.com/downloads/mysql/
+= MySQL Server Install MySQL Server
+_ඤෟ *| Client Programs
+S-| Development Components
+General Availability (GA) Releases පමම This feature requires 284MB on your
+hard drive. It has 1 of 1 subfeatures
+MySQL Community Server 9.1.0 Innovation ea ese
+= a — ‘ = Location: C:\Program Files\MySQL\MySQL Server 9.1\ Sa
+a i = to Reset Disk Usage Back Cancel
+Windows (x86, 64-bit), ZIP Archive (MySQL Server 9.1 Setup ~ x
+Debug Binaries & Test Suite
+a
+Ready to install MySQL Server 9.1 ~
+9 od : ee { that you use the MDS checksums and GnuPG signatures to verify the integrity of the packages you ඳ
+Click Install to begin the installation. Click Back to review or change any of your installation
+. settings. Click Cancel to exit the wizard.
+Run the downloaded MSI installer and select
+‘Custom Installation’.
+බාගත කළ MSI ස්ථාපකය ධාවනය කර ‘Custom
+Installation’ Geddéese.
+Welcome to the MySQL Server 9.1 Setup Back Postal Cancel
+Wizard
+The Setup Wizard will install MySQL Server 9.1 on your Confi gure the MySQL Server: Choose a root
+computer. Click Next to continue or Cancel to exit the Setup
+
+Wizard.
+
+password and configure the port (default 3306).
+MySQL සේවාදායකය වින්‍යාස කරන්න: මූල
+
+මුරපදයක්‌ තෝරා port වින්‍යාස කරන්න (පෙරනිමි
+3306).
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+soci cancel Type and Networking
+Select the MySQL Server and_ additional @ we Preston: 3008
+components (like MySQL Workbench). << tone
+MySQL සේවාදායකය සභ අමතර සංරචක නෝරන්න “ව —_—
+( MySQL Workbench වැනි).
+
+Accounts and Roles
+
+Root Accoun it Passwor d
+
+User Name: 9
+
+Accounts and Roles
+
+Complete the installation and make a note of
+
+the root credentials.
+ස්ථාපනය සම්පූර්ණ කර මූල අක්තපතු සටහන්‌
+කරන්න.
+
+Configuration Complete
+
+Confirm the installation via command prompt
+
+by typing:
+පහන උපදෙස විධාන පේළීයෙහි ටයිප්‌ කර ස්ථාපනය
+තහවුරැ කරන්න:
+
+mysql -version
+
+Start the MySQL server via Command Prompt:
+
+විධාන පේළීය හරහා MySQL සේවාදායකය ආරම්භ
+කරන්න:
+
+net start MySQL
+
+Launch the MySQL Command-Line Client (CLI)
+or any other MySQL interface tool like MySQL
+Workbench.
+
+MySQL විධාන පේළි සේවාලාභියා om} MySQL
+
+Workbench වැනි වෙනත්‌ MySQL අතුරැමුහුණත්‌
+මෙවලමක්‌ දියත්‌ කරන්න.
+
+If you use CLI, in the CLI, connect to the server
+
+by typing.
+ඔබ CLI භාවිතා කරන්නේ නම්‌ CLI හිදී, පහත උපදෙස
+ටයිප්‌ කර සේවාදායකයට සම්බන්ධ වන්න
+
+mysql - (1 your_username -p
+
+Enter your password when prompted.
+ඔබෙන්‌ විමසූ විට ඔබගේ මුරපදය ඇතුළත්‌ කරන්න.
+
+Start writing sql codes.
+Sql කේත ලිවීම ආරම්භ කරන්න.
+
+Other ways to Install MYSQL
+MYSQL ස්ථාපනය කිරීමේ අනිකුත්‌ ක්‍රම
+
+MySQL can be installed on a computer using
+various software.
+
+MySQL විවිධ මෘදුකාංග භාවිතයෙන්‌ පටගණකයක
+ස්ථාපනය කළ හැකිය.
+
+WAMP (Windows)
+(Windows, Apache, MySQL, PHP)
+
+WAMP is a popular software bundle specifically
+designed for Windows operating systems.
+
+WAMP යනු වින්ඩෝස්‌ මෙහෙයුම්‌ පද්ධති සඳහා
+විශේෂයෙන්‌ නිර්මාණය කර ඇති ජනප්‍රිය මෘදුකාංග
+කට්ටලයකි.
+
+rat WampServer
+Apache,PHP,MySQL sous Windows
+
+WAMP provides a convenient and integrated
+environment for developing and testing web
+
+applications on your local machine.
+ඔබේ දේශීය යන්ත්‍රයේ වෙබ්‌ යෙදුම්‌ සංවර්ධනය කිරීම
+
+සහ පර්ක්ෂා කිරීම සඳහා !///,[/]” පහසු සහ එකාබද්ධ
+පරිසරයක්‌ සපයයි.
+
+WAMP Software download Link:
+
+https://wampserver.aviate
+
+chno.net/
+
+Installation Video guide:
+
+https://youtu.be/M2at7D-
+Iciw?si=lIk5XcS1G1RHVuzV
+
+LAMP(LINUX)
+(Linux, Apache, MySQL, PHP)
+
+LANP
+
+Linux Apache MySQL PH
+
+LAMP is another popular open-source software
+stack for building web applications.
+
+LAMP a GAS යෙදුම්‌ තැනීම සඳහා තවත්‌ ජනප්‍රිය
+විවෘත මූලාශ්‍ර මෘදුකාංග ගොනුවකි.
+
+It's very similar to WAMP but specifically
+designed for Linux-based systems.
+
+එය WAMP ට බෙහෙවින්‌ සමාන නමුත්‌ ලිනක්ස්‌ මත
+පදනම්‌ වූ පද්ධති සඳහා විශේෂයෙන්‌ නිරිමාණය කර
+ඇත.
+
+Just like WAMP, LAMP provides රූ pre-
+configured environment for web development.
+
+WAMP 630, LAMP වචෙබ්‌ සංවර්ධනය සඳහා පෙර-
+වින්‍යාසගත පරිසරයක්‌ සපයයි.
+
+It's widely used due to its reliability,
+performance, and flexibility.
+
+එහි විශ්වසනීයත්වය, කාරිය සාධනය සහ නම්‍යශීලී
+බව නිසා එය බහුලව mde GS.
+
+LAMP download Link:
+
+https://ampps.com/lamp/
+
+Installation Video guide:
+
+https://youtu.be/iscb52gO0
+OM?si=zyvBf1duiNPRpRAA
+
+MAMP(Mac OS)
+(macOs, Apache, MySQL, PHP)
+
+UA
+
+MAMP is a popular software bundle specifically
+designed for macOS systems.
+
+MAMP යනු macOS පද්ධති සඳහා විශේෂයෙන්‌
+නිර්මාණය කර ඇති ජනප්‍රිය මෘදුකාංග ගොනුවකි.
+
+MAMP FOR
+MAC OS X
+
+It's similar to WAMP (Windows) and LAMP
+(Linux) but tailored for Apple users.
+චිය WAMP(Windows) සහ LAMP(Linux) චලට
+
+සමාන නමුත්‌ Apple භාවිතා කරන්නන්‌ සඳහා සකස්‌
+කර ඇත.
+
+MAMP download link:
+
+httos://www.mamp.info/en/
+
+downloads/
+
+Installation Video guide:
+
+https://youtu.be/NgaZ2yqp
+A4E?si=hhoDU3gOOx Ir3QB
+
+11
+
+XAMPP
+(Cross-Platform, Apache, MySQL, PHP, and
+Perl)
+
+XAMPP
+
+XAMPP is a popular open-source software
+package that provides a comprehensive
+platform for developing and testing web
+applications locally.
+
+XAMPP යනු දේශීයව වෙබ්‌ යෙදුම්‌ සංවර්ධනය කිරීම
+සහ පරීක්ෂා කිරීම සඳහා පුළුල්‌ වේදිකාවක්‌ සපයන
+ජනප්‍රිය විවෘත මූලාශ්‍ර මෘදුකාංග පැකේජයකි.
+
+It's a cross-platform solution, meaning it works
+
+on Windows, macO$, and Linux.
+එය හරස්‌ වේදිකා විසඳුමකි, එයින්‌ අදහස්‌ වන්නේ එය
+Windows, macOS, සහ Linux මත ක්‍රියා කරන බවයි.
+
+XAMPP download link:
+
+g/download.html
+
+Installation Video guide:
+
+httos://youtu.be/VCHXCuslt
+ql?si=z 1ZNOQAgGRINtg-M4G
+
+Installing and setting up WAMP
+WAMP ස්ථාපනය කිරීම සහ සැකසීම
+
+Download WAMP software from the official
+website
+
+නිල වෙබි අඩවියෙන්‌ WAMP මෘදුකාංගය බාගත
+කරගන්න.
+httos://wampserver.aviatechno.net/
+
+ver full install version
+
+Last Wampserver full install version
+4 Wampserver 3.3.5 64 bit x64 - Apache 2.4.59 - PHP 7.4.33/8.0.30/8.1.28/8.2.18/8.3.6 - MySQL 8.3.0 - Mari:
+
+Also includes eons 5.21 - ස 4.8.1 - PhpSysinfo 3.4.3.
+Install Wampserver as unch Wampmanager via the Shortcut.
+
+As of May 9, 2023 and in agreement ne with Madr = developer of the Aestan Tray Menu, discontinuation of 32bit support for Wampserver and
+From April 1, 2024, support from Windows 10 onl
+
+See 32bit versions
+
+Updat (Alfavailable versions_}
+isd fs Wampserver update 33-6 64 BIE 1105
+
+Updates only "Wampmanager”. It is a cumulative update. It is not necessary to apply the old updates වන වත applying 3.3,
+Apache, PHP, MySQL, MariaDB settings and versions used; your + bess sites and databases will not be affected. This update is necessary to instd
+MariaDB addons.
+
+xDebug Tray Menu Manager (wampmanager.ex
+2 Update xDebug 3.3.2 64 bit mos \@ Tray Menu Manager 3.2.6.6 64 bit »
+
+ug update version 3.3.2 for PHP versions 8.0.x to 8.3.x 64 bit already installed. Updated Tray Menu Manager(wampmanager.exe)
+
+= be reinstalled if addition of PHP version. + Correction for 4K display.
+
+Language files + Scaling correction for dif fferent resolutions.
+ction.
+
+කු Language files 1405
+
+2024-07-20 - SSeS in Murariv
+2024-02-09 - spanish 3.3.3 by Napoli
+
++ Info: Versions below Windows 10 are no longer
++ Code signing.
+
+While trying to install WAMP software, you
+might encounter an error caused by missing
+Visual C++ Redistributable Packages.
+
+!//4[/12 මෘදුකාංගය ස්ථාපනය කිරීමට උත්සාහ කරන
+
+අතරතුර, Visual C++ Redistributable පැකේජ
+නොමැති වීම නිසා ඔබට දෝෂයක්‌ ඇති SG හැක.
+
+You can also download those missing packages
+from the WAMP official website.
+
+ඔබට DO නොමැති azewes WAMP නිල වෙබි
+අඩවියෙන්‌ HOD කළ හැකිය.
+
+°3 wampserver.aviatechno.net
+
+[ Visual C++ Redistributable Packages |
+
+Microsoft Visual C++ Req
+
+The latest Microsoft VC++ packages are available at :
+
+| All available versions |
+
+[ Microsoft VC++ Packages x86 (32 bits) |
+VC 2008 (VC9) is required for PHP 5.3 and 5.4.
+(a VC 2010 501 Package (x86) 1105
+
+තු VC 2012 Update 4 (x86) mp5
+4 VC 2013 Package Up 5 (x86) MDs
+
+li VC 2015-2022 (VC17 x86) 14.40.33810 mp5
+
+VC2015-2022 (VC17) is backward compatible to VC2015 (VC14), VC2017 (VC15) and V
+Because this compatibility the version number of the Redistributable is 14.3x.xx and afi
+VC2017 (VC15) and VC2019 (VC16) are eventually deleted but you can still use VC14,
+
+Microsoft VC packages vc2008, 2010, 4
+VC 2008 (VC9) is required for PHP 5.3 and 5.4.
+
+12
+
+Click the WAMP icon from the desktop or Start
+Menu. A green icon in the system tray confirms
+WAMP Is running successfully.
+
+ඩෙස්ක්ටොප්‌ එකෙන්‌ GH ආරම්භක ලමෙනුවෙන්‌
+WAMP අයිකනය ක්ලික්‌ කරන්න. පද්ධති තැටියේ ඇති
+කොළ පැහැ නිරෑඈපකය මඟින්‌ WAMP සාර්ථකව
+ක්‍රියාත්මක OD බව තහවුරැ කරයි.
+
+Click on the WAMP shortcut.
+WAMP shortcut වක මත ක්ලික්‌ කරන්න.
+
+Wampserver - 3 3 0- 64bit
+
+Made in France by Dom
+
+nique Ottelic
+
+@ localhost
+
+4 PhpMyAdmin >
+අ Adminer 4.8.1
+
+ක Your VirtualHosts »
+ඒ Apache
+
+one
+
+8.0.31
+10.10.2 »
+MySQL
+
+| MySQL
+| MariaDB
+Help -> MariaDB -
+
+Wampserver
+
+Start All Services
+Stop All Services
+
+Restart All Services
+
+>>>> WARNING !Apache error log <<<<
+A\ Warning D:/wamp64 or PHP in PATH
+
+Creating Database Using CLI
+CLI අතුරැමුහුණත භාවිතා කරමින්‌ දත්ත සමුදායක්‌
+නිර්මාණය කිරීම
+
+In the menu, navigate to MySQL > MySQL
+Console. Click on "MySQL Console."
+ලමනුවේ, MySQL > MySQL කොන්සෝලය වෙන
+
+සංචාලනය කරන්න. MySQL Console මත ක්ලික්‌
+කරන්න.
+
+Localhost
+
+ණ්‌
+ih PhpMyAdmin »
+a° Adminer 4.8.1
+ඒ] Your VirtualHosts »
+ඒ Apache 2.4,59>
+w Bia 8.2.18>
+es |
+Version සු > F | MariaDB 11.3.2>
+Service administration ‘wampmysqid64'> Fi. 0 Help MariaDB - MySQL
+_ 5) MySQL settings 4 Services නෙ
+| f=) Start All Services
+1 cument Stop All Services
+ණ්‌ my.ini Restart Alll Services
+ණ්‌ MySQL log (8.72 KiB)
+
+1 MySQL documentation
+
+MySQL 8.0 Command Line Cli 39% | ¥
+
+Enter password: ****
+Welcome to the MySQL monitor.
+Your MySQL connection id is 9
+
+A command prompt (terminal) window will
+open, asking for the MySQL root password.
+MySQL root මුරපදය ලේලා විධාන විමසුමි
+
+(command prompt)(stasxie) කවුළුවක්‌ විවෘත
+වේ.
+
+If you haven't set a root password during the
+installation, just press Enter to proceed without
+entering a password.
+
+ස්ථාපනය අතරතුර ඔබ මූල මුරපදයක්‌ සකසා
+නොමැති නම්‌, මුරපදයක්‌ ඇතුළත්‌ නොකර දෛථයට
+
+යාමට Enter යතුර ඔබන්න.
+
+The MySQL command line interface (CLI) is now
+open, and MySQL commands can be typed
+directly into the console to interact with the
+databases.
+
+MySQL විධාන රේඛා අතුරැමුහුණත (CLI) දැන්‌
+විවෘතව ඇති අතර, දත්ත සමුදායන්‌ සමඟ අන්තර
+
+ක්‍රියා කිරීම සඳහා MySQL විධාන සෘපුවම
+කොන්සෝලය ලවන ටයිප්‌ කළ හැක.
+
+Commands end with ; or \g.
+
+Server version: 8.0.37 MySQL Community Server ~ GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+
+owners.
+
+Type ‘help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> |
+
+13
+
+Creating Database Using GUI Interface
+
+GUI අතුරැමුහුණත භාවිතා කරමින්‌ දත්ත සමුදායක්‌
+නිර්මාණය කිරිම
+
+Start the WAMP server by clicking the WAMP
+icon on your desktop. Once it's running, click
+the WAMP icon in the system tray.
+
+ඔබේ ඬඩස්ක්ටොප්‌ එකේ ඇඟති WAMP අයිකනය ක්ලික්‌
+කිටීමෙන්‌ !//4,[/]1]2 සේවාද්‍රායකය ආරම්භ කරන්න. එය
+
+ක්‍රියාත්මක වූ පසු, පද්ධති තැටියේ ඇති WAMP
+නිරෑූපකය ක්ලික්‌ කරන්න.
+
+From the menu that appears, select
+"phpMyAdmin"
+දිස්වන මෙනුවෙන්‌, "phpMyAdmin" නෝරා ගන්න.
+
+Wampserver - 3.3.0 - 640
+
+Made in France by Dominique Ottello
+
+Help -> MariaDB - MySQL
+
+ඟී Localhost
+
+wh PhpMyAdmin >
+
+6° Adminer 4.8.1
+May 8) Your VirtualHosts *
+> 7 Apache 2.4.54.2 >
+
+} PHP 8.0.26 >
+
+v ණූ Default DBMS: mysal
+eo? [2 MySQL 8.0.31 >
+= Es} MariaDB 10.10.2 *
+=
+
+Start All Services
+Stop All Services
+
+Restart All Services
+
+>>>> WARNING !Apache error log <<<<
+Z\ Warning D:/wamp64 or PHP in PATH
+
+14
+
+This will open your default web browser and
+take you to the phpMyAdmin login page.
+මෙය ඔබගේ පෙරනිමි වෙබි බ්‍රවිසරය විවෘත කර ඔබව
+phpMyAdmin පිවිසුම්‌ පිටුවට ගෙන යනු ඇත.
+
+phpMyAdmin
+Welcome to phpMyAdmin
+
+Language
+
+English Vv
+Login ක්‍ර
+Username: root
+Password: eee
+Server choice: MySQL Vv
+
+Log in
+
+On the phpMyAdmin login page, enter your
+MySQL username and password. By default, the
+username is "root" and the password is usually
+blank unless you set one during WAMP
+installation. Click the "Log in" button to log in.
+
+phpMyAdmin පිවිසුම්‌ පිටුවේ ඔබේ MySQL
+පරිශීලක නාමය සහ මුරපදය ඇතුළත්‌ කරන්න.
+පෙරනිමියෙන්‌, පරිශීලක නාමය "root" වන අතර, ඔබ
+
+WAMP ස්ථාපනය කිරීමේදී වකක්‌ සකසන්නේ නම්‌ මිස
+මුරපදය සාමාන්‍යයෙන්‌ හිස්ව පවතී. පුරනය වීමට
+
+"Log in" බොන්තම ක්ලික්‌ කරන්න.
+
+phpMyAdmin | ESS aaa |
+
+Databases ./ SQL බූ Status = Useraccounts =} Export « Import » Settings Y More
+
+4 [-॥| wy “es Ss
+Current server:
+MySQL as General settings Database Server
+acct (atin @ Change password * Server: MySQL (127.0.0.1 via TCP/IP)
+na = Server connection collation: @ CNA ප ව
+Sew * Server connection: SSL is not being used
++» information_schema utf8mb4_unicode_ci Vv 9
++ mysql More settings * Server version: 8.0.37 - MySQL Community
++ new Server - GPL
++ performance_schema * Protocol version: 10
+oct = * User: root@localhost
+Seer SF * Server charset: UTF-8 Unicode (utf8mb4)
+& Language @ English ට්‌
+4 Theme pmahomme v View all / / ලිට 51 7 ලෘ
+* Apache/2.4.59 (Win64) PHP/8.2.18
+mod_fegid/2.3.10-dev
+* Database client version: libmysql - mysqind
+8.2.18
+w Console බො
+Once logged in, you will be on _ the After entering the name, click the "Create"
+phpMyAdmin main page. Click on the button.
+"Database" tab at the top. In the "Create නම ඇතුළත්‌ කිරිමෙන්‌ පසු, "Create" ලබාත්තම ක්ලික්‌
+database" field, enter the desired database කරන්න.
+name
+ලලාග්‌ වූ පසු, ඔබ phpMyAdmin ප්‍රධාන පිටුවෙහි Datab
+සිටිනු ඇත. ens ඇති "Database" ටැබය මත atabases
+ක්ලික්‌ කරන්න. “Create database" ක්ෂේත්‍රය තුළ, ම ව databace os
+අවශ්‍ය දත්ත සමුදා නාමය ඇතුළත්‌ කරන්න. ° .
+ictfromabe
+utf8mb4_0900_ai_ci
+phpMyAdmin කී
+5 B Create
+& HOO මට ,
+Current server: —
+| . New database will now be listed on the left side
+MySQL Vv | ;
+of the phpMyAdmin interface.
+SELEC නව දන්ත සමුදාය දැන්‌ phpMyAdmin
+Recent । Favorites oe අතුරැමුහුණතේ OO පැත්තේ ලැයිස්තුගත කෙරේ.
+— @
+6 New Recent Favorites
+4 information schema Host
+| ~ &
+iad mysql Q
+uel
+al new | ටු New
+|
+|
+al information _schema
+al mysq|I
+oi new
+
++— performance_schema
+
+15
+
+1. SHOW DATABASES ;
+
+Shows available databases.
+පවතින දන්ත සමුදායන්‌ පෙන්වයි.
+
+SHOW SCHEMAS; can also be used.
+SHOW SCHEMAS; ද භාවිතා කළ හැකිය.
+
+2. CREATE DATABASE 3
+
+new database name
+
+Creates a new database.
+නව දත්ත සමුදායක්‌ නිරිමාණය කරයි.
+
+CREATE SCHEMA; can also be used.
+CREATE SCHEMA; ද භාවිතා කළ හැකිය.
+
+existing database name
+
+Selects an existing database.
+පවතින දන්ත සමුදායක්‌ තෝරාගනී.
+
+CONNECT database_name; can also be used.
+
+CONNECT database_name; ද භාවිතා කළ හැකිය.
+
+4. SHOW TABLES;
+
+Shows all available tables in a database.
+දන්ත සමුදායක පවතින සියලුම වගු පෙන්වයි.
+
+NOTE
+
+First, we should select the database.
+ප්‍රථමයෙන්‌ දන්ත සමුදාය තෝරාගත යුතුය.
+
+5. DROP DATABASE | A |;
+
+existing database name
+
+Used to delete an existing database.
+පවතින දන්ත සමුදායක්‌ මකා දැමීමට භාවිතා කරයි.
+
+DROP SCHEMA; can also be used.
+DROP SCHEMA; & භාවිතා කළ හැකිය.
+
+16
+
+6. Creating a new table
+නව වගුවක්‌ සෑදීම
+
+new table name
+
+CREATE TABLE (
+
+datatype
+
+\ comma
+
+column name
+
+Example:
+
+Student
+
+RegNo Name Address | Age
+
+Relational Schema
+සම්බන්ධනා පටිපාටිය
+
+Student (RegNo, Name, Address, Age)
+
+CREATE TABLE Student (
+RegNo INT(4),
+Name VARCHAR(2@),
+Address VARCHAR(4@),
+age VARCHAR(3)
+
+)3
+
+7. DROP TABLE [+ J:
+
+existing table name
+
+Deletes an existing table from a database.
+දත්ත සමුදායකින්‌ පවතින වගුවක්‌ මකා දමයි
+
+8. DESCRIBE [+ J;
+
+existing table name
+
+Describes the structure of an existing table.
+පවතින වගුවක ව්‍යුහය පිළිබද විස්තර සපයයි.
+
+DESCRIBE Student;
+Can an empty value exist?
+
+හිස්‌ අගයක්‌ පැවතිය හැකිද ?
+
+Is this some kind of key?
+මෙය යම්‌ වර්ගයේ යතුරක්ද ?
+
+(YES/NO)
++--------- ද ------------ HE පපපපළ nt
+| Field ॥ Type || Null ||
++--------- ද ------------ HE පපපපළ ne
+| RegNo ॥ INT || ves ॥
+| name |] VARCHAR(2@) ||| YES. ||
+| address |} VARCHAR(4@) ||| YES. ||
+| age |] VARCHAR(3) ||| YES. ||
++--------- ද ------------ HE පපපපළ ne
+t
+Data type
+දුන්න වර්ගය
+
+[~~ Default value
+
+: සම්මත අගය
+------- +-------+
+Default|| Extra |
+------- +-------+
+NULL | |
+NULL | |
+NULL | |
+NULL | |
+------- +-------+
+
+Data types in SQL language
+SQL භාෂාවේ දුත්ත වර්ග
+
+Data types are labels assigned to table columns that
+specify the kind of data they can store. They act as
+containers for specific type of data.
+
+දත්ත වර්ග යනු වගුවල තීරැ වලට GOD) ඇති ලේබල වන
+අතර TO මගින්‌ තීරැ තුළ ගබඩා කළ හැකි දත්ත වරිගය
+නියම කරයි. ඒවා නිශ්ච්ත දත්ත වර්ගයක්‌ සඳහා බහාලුමි
+ලෙස ක්‍රියා කරයි.
+
+Why are they important?
+ඒවා වැදගත්‌ වන්නේ ඇයි
+
+Ensures data consistency and accuracy.
+දත්ත අනුකූලතාව සහ නිරචද්‍යතාවය සහතික කිටීමට.
+
+Optimizes database performance by — using
+appropriate storage methods.
+සුදුසු ගබඩා ක්‍රම mdm කරමින්‌ දත්ත සමුදායේ
+
+ක්‍රියාකාරීත්වය ප්‍රශස්ත කිරීමට.
+
+Helps prevent invalid data from being entered.
+වලංගු නොවන දත්ත ඇතුළත්‌ කිරීම වැළැක්වීමට caw
+වීම
+
+Reduces runtime errors caused by mismatched data.
+නොගැලපලළෙන දත්ත නිසා ඇතිවන ධාවන දෝෂ අඩු කරයි.
+
+Incorrect data type usage can lead to truncation or
+
+rounding.
+වැරදි දත්ත වර්ග භාවිතය එවා මැකී යාමට හෝ වැටයීමට
+හේතු විය හැක
+
+Data types act as the first layer of defense against
+malicious inputs.
+
+BGO ආදාන වලට එරෙහිව ආරක්ෂාවේ SEQ ස්ථරය ලෙස
+දත්ත වර්ග ක්‍රියා කරයි
+
+Determines — which operations (arithmetic,
+concatenation) are valid for the data.
+
+දත්ත සඳහා වලංගු වන්නේ කුමන ලමඟයුමි
+ගණිතමය, concatenation) ද යන්න තීරණය කරයි.
+
+(අංක
+
+17
+
+There are 3 main types of data types in SQL
+language.
+SQL භාෂාවේ ප්‍රධාන දත්ත වරිග ආකාර රක්‌ පවතී.
+
+e String Data Types
+e Numeric Data Types
+e Date and Time Data Types
+
+String Data Types
+
+SQL string data types store alphanumeric data,
+including characters and text. They come in various
+forms to efficiently manage different types of text
+data.
+
+SQL string දත්ත චරිග අක්ෂර සහ පාඨ ඇතුළු අක්ෂරාංක
+දත්ත ගබඩා කරයි. විවිධ වර්ගයේ cage දත්ත කාරියක්ෂමව
+කළමනාකරණය කිටීම සඳහා ඒවා 550 ආකාරවලින්‌
+පැමිණේ.
+
+Numeric Data Types
+
+SQL numeric data types store numeric values in
+formats like integers, fixed-point, and floating-point
+numbers. They ensure the precision and range
+needed for mathematical and financial calculations.
+
+SQL සංඛ්‍යාත්මක දත්ත BVI©, ස්ථාවර AOAC ලක්ෂ්‍යය
+සහ ඉපිලෙන ලක්ෂ්‍ය සංඛ්‍යා වැනි ආකෘතිවල සංඛ්‍යාත්මක
+අගයන්‌ ගබඩා කරයි. ඔවුන්‌ ගණිතමය හා මූල්‍ය ගණනය
+කිරීමි සඳහා අවශ්‍ය නිරවද්‍යතාවය සහ පරාසය සහතික
+කරයි.
+
+Date and Time Data Types
+
+SQL date and time data types are used to store date
+and time values in various formats. These data types
+are essential for managing and manipulating
+temporal data, such as dates, times, timestamps, and
+intervals.
+
+SQL දින සහ වේලා දත්ත වර්ග විවිධ ආකෘතිචලින්‌ දිනය
+සහ කාල අගයන්‌ ගබඩා කිරීමට භාවිතා කරයි. දින,
+වේලාවන්‌, වේලා මුද්‍රා සහ කාල පරතරයන්‌ වැනි තාවකාලික
+දත්ත කළමනාකරණය කිටීම සහ හැසිරවීම සඳහා මෙම
+දත්ත වර්ග අත්‍යවශ්‍ය චේ
+
+Data Type Description Maximum Length
+CHAR To represent letters, numbers or any character with a specified n characters
+number of characters
+නිශ්ච්ත අනුලක්ෂණ ප්‍රමාණයක්‌ ඇති අකුරැ, ඉලක්කම්‌ හෝ ඕනෑම
+අනුලක්ෂණයක්‌ නිරෑපනය සදහා
+VARCHAR To include any attribute with an unspecified length n characters
+නිශ්ච්ත නොවචන දිගක්‌ සහිත ඕනෑම අනුලක්ෂණයක්‌ ඇතුලත්‌ කිරීම සදහා
+TEXT To enter a standard text. 65,535 bytes
+සම්මත පාඨයක්‌ ඇතුලත්‌ කිරීම සදහා. (64 KB)
+TINYTEXT Very small text string. 255 bytes
+ඉතා කුඩා පාඨ string.
+MEDIUMTEXT | Medium-length text string. 16,777,215 bytes
+මධ්‍යම දිගු පාඨ string. (16 MB)
+LONGTEXT Large text string. 4,294,967,295 bytes (4
+විශාල පාඨ string. GB)
+BINARY Fixed-length binary data. n bytes
+ස්ථාවර දිගු ද්විමය දත්ත.
+VARBINARY _ | Variable-length binary data. n bytes
+විචල්‍ය දිගු ද්විමය Ewe.
+Data Type Description Storage Range
+INT Representation of positive or negative integers | 4 bytes -2,147,483,648 to 2,147,483,647
+ධන හෝ esagn BBE සංඛ්‍යා නිරූපණය
+TINYINT Very small integer 1 byte 0 to 255 (unsigned) or -128 to
+ඉතා කුඩා පූර්ණ සංඛ්‍යා 127 (signed)
+SMALLINT Small integer 2 bytes -32,768 to 32,767
+කුඩා පූර්ණ සංඛ්‍ය
+MEDIUMINT | Medium-sized integer 3 bytes -8,388,608 to 8,388,607
+මධ්‍යම ප්‍රමාණයේ පූරිණ සංඛ්‍යා
+BIGINT Large integer 8 bytes -9,223,372,036,854,775,808 to
+විශාල BBE 9,223,372,036,854,775,807
+FLOAT Representation of positive or negative floating | 4 bytes Approximate range: ~1.5 x
+point numbers 10-45 to ~3.4 x 10438
+ධන හෝ සෘණ දශම සංඛ්‍යා නිරෑපණය
+BIT Binary values (0 or 1) Variable 1 or 0
+ද්විමය අගයන්‌ 0 හෝ 1
+Data Type |Description Format Example
+DATE Stores date values YYYY-MM-DD — | 2024-07-26
+දින අගයන්‌ ගබඩා කරයි
+TIME Stores time values HH:MM:SS 13:45:30
+වේලා අගයන්‌ ගබඩා කරයි
+DATETIME | Stores combined date and time values YYYY-MM-DD — | 2024-07-26
+චකාබද්ධ දින සහ චේලා අගයන්‌ ගබඩා කරයි HH:MM:SS 13:45:30
+TIMESTAMP | Stores date and time values, includes time zone information YYYY-MM-DD — | 2024-07-26
+දින සහ කාල අගයන්‌ ගබඩා කරයි, වේලා කලාප තොරතුරැ ඇතුළත්‌ චේ | HH:MM:SS 13:45:30
+YEAR Stores year values YYYY 2024
+අවුරැදු අගයන්‌ ගබඩා කරයි
+
+18
+
+Classification of SQL codes
+SQL කේත වර්ගීකරණය
+
+CREATE
+ALTER
+DDL DROP
+/ TRUNCATE
+iron
+
+SQL—— DML UPDATE
+DELETE
+DQL SELECT
+
+i) Data Definition Language (DDL)
+දත්ත අරථකථන භාෂාව
+
+Used to define and manage database schema
+
+and structure.
+EDD සමුදා ක්‍රමය සහ ව්‍යුහය නිර්චචනය කිරීමට සහ
+කළමනාකරණය කිරීමට භාවිතා කරයි.
+
+CREATE
+ALTER
+
+DROP
+TRUNCATE
+
+ii) Data Manipulation Language (DML)
+දුන්ත හැසුරැම්‌ි භාෂාව
+
+Used for managing data within database
+
+objects.
+දත්ත HOE) වස්තූන්‌ තුළ දත්ත කළමනාකරණය කිරීම
+සඳහා භාවිතා කරයි.
+
+INSERT
+DELETE
+
+UPDATE
+CALL
+
+iii) Data Query Language (DQL)
+දුත්න විමසුම්‌ භාෂාව
+
+Used to query the database.
+දන්ත සමුදාය විමසීමට mdm කරයි.
+
+SELECT
+
+iv) Data Control Language (DCL)
+දත්ත පාලන භාෂාව
+
+Used to control access to data within the
+
+database.
+දන්ත සමුදාය ME දත්ත වෙත ප්‍රවේශය පාලනය
+කිරීමට භාවිතා කරයි.
+
+GRANT REVOKE
+
+19
+
+v) Transaction Control Language (TCL)
+ගනුදෙනු පාලන භාෂාව
+
+Manage transactions within the database.
+EDD ගබඩාව ME ගනුදෙනු කළමනාකරණය කරයි
+
+COMMIT
+SAVEPOINT
+
+ROLLBACK
+SET TRANSACTION
+
+Naming styles in SQL
+SQL හි නමී කිරීමේ විලාස
+
+a) Two database names within the same
+database management system cannot be
+the same.
+එකම දන්ත සමුදා කළමනාකරණ පද්ධතිය ME
+
+ඇති දත්ත සමුදා නාම දෙකක්‌ සමාන විය
+නොහැක.
+
+0) Two table names within the same database
+
+cannot be the same.
+එකම දත්ත සමුදාය තුළ ඇති වගු දෙකක නමි
+සමාන විය නොහැක.
+
+ලූ Two column names within the same table
+
+cannot be the same.
+එකම වගුව තුළ ඇති Hz දෙකක නම්‌ සමාන විය
+නොහැක.
+
+d) Two table names can be the same if they
+
+are in different databases.
+AQ දෙකක්‌ එකිනෙකට වෙනස්‌ දත්ත සමුයන්හී
+පවතී නම්‌ ඒවායේ නම්‌ සමාන විය හැකිය.
+
+6) Column names can be the same in different
+tables, even within the same database (not
+recommended).
+එකම දන්ත සමුදාය ME වුවද, වෙනස්‌ OQ OE
+ඇති HOE දෙකක නම්‌ සමාන විය හැකිය.
+
+Table and Column names;
+වගු සහ තීරැ නම්වල;,
+
+1) can contain letters, digits, and underscores.
+අකුරැ, ඉලක්කම්‌ සහ GO රේ අඩංගු විය හැකිය.
+
+g) cannot contain special characters (such as
+Spaces, @, #, -, etc.).
+විශේෂ අක්ෂර අඩංගු විය නොහැක (හිස්තැන්‌, 9,
+3, ~, ඇආදියා.
+
+h) must start with a letter or an underscore.
+අකුරකින්‌ හෝ GO රේ ලකුණකින්‌ ආරමිභ විය
+යුනුය.
+
+i) cannot start with a digit.
+ඉලක්කමකින්‌ ආරම්භ කළ නොහැක.
+
+ALTER TABLE Command
+ALTER TABLE විධානය
+
+Used to modify the structure of an existing
+
+table.
+දැනට පවතින වගුවක ව්‍යුහය වෙනස්‌ කිරීමට භාවිතා
+කරයි.
+
+1. Adding a New Column to a Table
+වගුවකට නව ක්ෂේතුයක්‌ එක්‌ කිරීම
+
+existing table name
+ALTER TABLE nae
+
+ADD COLUMN | 4. || 4. ॥ A | ;
+
+column name data type constraints
+
+2. Removing an existing field from a table.
+වගුචකින්‌ පචතින ක්ෂේත්‍රයක්‌ ඉවත්‌ G60.
+
+existing table name
+ALTER TABLE mae
+DROP COLUMN [+ |:
+
+column name
+
+3. Changing the name of an existing field
+SOHO ක්ෂේත්‍රයක නම වෙනස්‌ කිරීම
+
+existing table name
+ALTER TABLE [7]
+
+RENAME COLUMN
+
+| t | to | t | ;
+
+previous column
+name
+
+new column name
+
+20
+
+ALTER TABLE MODIFY
+
+Used to change the definition of an existing
+
+column.
+
+පවතින තීරැවක අරිථ දැක්වීම්‌ වෙනස්‌ කිරීමට භාවිතා
+කරයි.
+
+a) Can change the data type of a column.
+තීරැවක දත්ත වරිගය චෙනස්‌ කළ හැකිය.
+
+existing table name
+
+ALTER TABLE
+
+MODIFY COLUMN] 4 | | a |;
+|
+
+2091 name new data
+
+type
+
+b) Can change the data size of a column.
+තීරැවක දත්ත ප්‍රමාණයේ විශාලත්වය chad
+කළ හැකිය.
+
+existing table name
+
+ALTER TABLE
+MODIFY COLUMN | 4. | | 4. |;
+|
+
+column name
+
+data type
+with new size
+
+c) Can add certain constraints to a column.
+තීරැුචකට යමී මට්ටමකට සම්බාධක Dever කළ
+හැකිය.
+
+NOT NULL
+
+Changes a column so it can no longer be
+empty.
+
+තීරැවක්‌ තවදුරටත්‌ හිස්ව පැවතිය නොහැකි වන
+පරිදි වෙනස්‌ කරයි.
+
+EX.
+
+ALTER TABLE Employees MODIFY
+COLUMN last_name VARCHAR(5@) NOT
+NULL;
+
+DEFAULT
+
+Sets a fallback value if no data is entered.
+EDD ඇතුළත්‌ කර නොමැති SO ඒ සදහා වන
+ගැලපෙන අගයක්‌ සකසයි.
+
+Ex.
+
+ALTER TABLE Employees MODIFY
+COLUMN status VARCHAR(2@) DEFAULT
+"Active';
+
+UNIQUE
+Ensures no two rows have the same value
+in this column.
+
+අදාල 86265 පේළි දෙකක අනුපිටපත්‌ වූ අගයන්‌
+නොමැති බව සහතනික කරයි.
+
+EX.
+ALTER TABLE Employees MODIFY
+COLUMN email VARCHAR(10@) UNIQUE;
+
+AUTO_INCREMENT
+Makes the number count up automatically
+when you add new rows.
+
+නව පේළි එකතු කරන විට සංඛ්‍යාව ස්වයංඛ්‍රීයව
+වැඩි වන ලෙස සකසයි.
+
+EX.
+
+ALTER TABLE Employees MODIFY
+COLUMN employee_id INT
+AUTO_INCREMENT ;
+
+Examples for ALTER TABLE
+ALTER TABLE සඳහා උදාහරණ
+
+Example table
+
+CHECK
+
+Adds a logic rule that data must follow.
+දත්ත විසින්‌ අනුගමනය කළ යුතු තාර්කික රඊතියක්‌
+එකතු කරයි.
+
+EX.
+
+ALTER TABLE Employees MODIFY
+COLUMN salary INT CHECK (salary >
+6);
+
+PRIMARY KEY
+
+Makes this column the main identifier for
+the table (only if one doesn't exist yet).
+මෙම අදාල 86a වගුව සඳහා වූ ප්‍රධාන
+හළඳුන්වනය බවට පන්‌ කරයි (දැනටමන්‌
+හදුනවනයක්‌ නොපචතී නම්‌ පමණි).
+
+EX.
+
+ALTER TABLE Employees MODIFY
+COLUMN employee_id INT PRIMARY
+KEY;
+
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| Field | Type | Null | Key | Default | Extra |
+pone cenee- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| RegNo | int | YES. | | NULL | |
+| Name | varchar(2@) | YES | | NULL | |
+| Address | varchar(4@) | YES | | NULL | |
+| Age | varchar(3) | YES | | NULL | |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+ALTER TABLE student
+ADD COLUMN Phone VARCHAR(1@) NOT NULL;
+Describe student;
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| Field | Type | Null | Key | Default | Extra |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| RegNo | int | YES. | | NULL | |
+| Name | varchar(2@) | YES | | NULL | |
+| Address | varchar(4@) | YES | | NULL | |
+| Age | varchar(3) | YES | | NULL | |
+| Phone | varchar(10) | NO | | NULL | |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+21
+
+ALTER TABLE student
+RENAME COLUMN Phone TO Contact;
+
+Describe student;
+
+ponecen--- ද පපපපපපපපපපපපළ $------ $o---- $on------- $o------ +
+| Field | Type | Null | Key | Default | Extra |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| RegNo | int | YES. | | NULL | |
+| Name | varchar(2@) | YES | | NULL | |
+| Address | varchar(4@) | YES | | NULL | |
+| Age | varchar(3) | YES | | NULL | |
+| Contact | varchar(1@) | NO | | NULL | |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+ALTER TABLE student
+DROP COLUMN Contact;
+Describe student;
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| Field | Type | Null | Key | Default | Extra |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| RegNo | int | YES. | | NULL | |
+| Name | varchar(2@) | YES | | NULL | |
+| Address | varchar(4@) | YES | | NULL | |
+| Age | varchar(3) | YES | | NULL | |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+ALTER TABLE student
+MODIFY COLUMN Age INT;
+Describe student;
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| Field | Type | Null | Key | Default | Extra |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| RegNo | int | YES. | | NULL | |
+| Name | varchar(2@) | YES | | NULL | |
+| Address | varchar(4@) | YES | | NULL | |
+| Age | int | YES. | | NULL | |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+ALTER TABLE student
+MODIFY COLUMN Name VARCHAR(36);
+Describe student;
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| Field | Type | Null | Key | Default | Extra |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+| RegNo | int | YES. | | NULL | |
+| Name | varchar(3@) | YES | | NULL | |
+| Address | varchar(4@) | YES | | NULL | |
+| Age | int | YES. | | NULL | |
+ponecen--- ද පපපපපපපපපපපපජ $------ $o---- $on------- $o------ +
+22
+
+INSERT INTO Statement
+
+Used to add new rows of data to a table.
+වගුවකට නව දන්ත පේළි එක්‌ කිරීමට භාවිතා කරයි.
+
+Can be used to insert data into specific columns
+or all columns of a table, insert multiple rows,
+
+and even insert data from another table.
+වගුවක නිශ්චිත තීරැවලට භෝ සියලුම තීරැවලට
+දුන්න ඇතුළු කිරීමට, පේළි කිහිපයක්‌ ඇනුළු කිරීමට
+සහ වෙනන්‌ වගුවකින්‌ EMD ඇතුළු කිරීමට පවා භාවිත
+කළ හැක.
+
+Inserting a Single Record
+තනි වාරනාවක්‌ ඇතුළත්‌ GSO
+
+a) All columns
+
+සියලුම තීරු
+
+Only the data should be defined in the order in
+which the column names are present in the
+
+database table.
+දන්ත සමුදාය වගුවේ තීරැ නාම පවතින අනුපිලිවෙලට
+දන්ත පමණක්‌ අරිථ දැක්විම සිදු කර යුනුය.
+
+Here values should be applied to each column
+of the table.
+
+මෙහිදී වගුවේ සෑම තීරැවකටම අගයන්‌ GSE
+යුතුය.
+
+table name
+INSERT INTO a
+VALUES([ , | | a |. an
+
+b) Specific columns
+නිශ්චිත තීරු
+
+Here, only a few columns of data can be
+
+defined.
+මෙහිදී තීරු කිහිපයකට පමණක්‌ දුන්න අර්ථ දැක්වීම
+සිදු කළ හැක.
+
+table name
+INSERT INTO A
+> an fields
+(a ee a)
+
+vALUES(T , [| [a], ........ an
+Ne for each column
+
+23
+
+Inserting Multiple Records
+චාරිතා කිහිපයකට ඇතුළත්‌ කිරීම
+
+Can insert multiple records into a table in a
+single INSERT INTO statement by separating
+
+each set of values with a comma.
+එක්‌ AD අගයන්‌ කට්ටලයක්‌ කොමාවකින්‌ GAs
+
+කිරීමෙන්‌ තනි INSERT INTO ප්‍රකාශයක්‌ ae වගුවකට
+චාරිතා කිහිපයක්‌ ඇතුළත්‌ කළ හැක.
+
+a) All columns
+
+සියලුම තීරු
+table name
+INSERT INTO a
+VALUES ( | || |, ......... । |),
+(a ),
+(.........෴෴ ),
+
+[| || 1 |, ........ ~~
+ලී. for each column
+
+b) Specific columns
+නිශ්චිත තීරැ
+
+table name
+INSERT INTO <A
+
+> nn selected fields
+
+01 "|| ॥ | )
+VALUES (| || |, ........, । ;॥),
+(.......෴෴෴ ),
+(.......෴෴෴ ),
+(Lia | La
+
+ran
+ලං | 3 teeeeeene 3
+values for each column
+
+Examples
+
+Reference Table:
+
+CREATE TABLE Employee (
+RegNo INT,
+Name VARCHAR(15),
+Address VARCHAR(2@),
+TelNo VARCHAR(1@)
+
+)3
+
+1) Single Record to all columns
+තනි වාරිතාවක්‌ සියලුම තීරු වලට
+
+INSERT INTO Employee
+VALUES (1, ‘Akon',
+‘Colombo’ ,'@711111111');
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- +------ $--------- $------------ +
+| RegNo | Name | Address | TelNo |
++------- +------ $--------- $------------ +
+| 1 | Akon | Colombo | @711111111 |
++------- +------ $--------- $------------ +
+
+2) Single Record to specific columns
+තනි චාරතාවක්‌ නිශ්චිත තීරු වලට
+
+INSERT INTO Employee
+(RegNo, Name, Address)
+VALUES (2, 'Bkon', ‘Gampaha');
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- +------ $--------- $------------ +
+| RegNo | Name | Address | TelNo |
++------- +------ $--------- $------------ +
+| 1 | Akon | Colombo | @711111111 |
+| 2 | Bkon | Gampaha | NULL |
++------- +------ $--------- $------------ +
+
+24
+
+3) Multiple Records to all columns
+චාර්තා කිහිපයක්‌ සියලුම තීරු වලට
+
+INSERT INTO Employee
+VALUES (3, '‘Ckon', ‘Kandy’,
+'Q733333333'),
+
+(4, 'Dkon', ‘Kurunagala',
+
+' 0744444444 ' ) ;
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- +------ +------------ +------------ +
+| RegNo | Name | Address | Te1No |
++------- +------ +------------ +------------ +
+| 1 | Akon | Colombo | @711111111 |
+| 2 | Bkon | Gampaha | NULL |
+| 3 | Ckon | Kandy | 0733333333 |
+| 4 | Dkon | Kurunagala | 0744444444 |
+
++------- 4+------ 4+------------ 4+------------ +
+
+4) Multiple Records to specific columns
+චාරතා කිහිපයක්‌ නිශ්චිත තීරු චලට
+
+INSERT INTO Employee
+
+(RegNo, Name, TelNo)
+
+VALUES (5, ‘Ekon', '@755555555'),
+(6, ‘'Fkon', '@766666666');
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- +------ +------------ +------------ +
+| RegNo | Name | Address | Te1No |
++------- +------ +------------ +------------ +
+| 1 | Akon | Colombo | @711111111 |
+| 2 | Bkon | Gampaha | NULL |
+| 3 | Ckon | Kandy | 0733333333 |
+| 4 | Dkon | Kurunagala | 0744444444 |
+| 5 | Ekon | NULL | @755555555 |
+| 6 | Fkon | NULL | @766666666 |
++------- +------ +------------ +------------ +
+
+UPDATE Statement
+
+Used to modify existing records in a table.
+වගුචක පවතින වාරිනා වෙනස්‌ කිරීමට භාවිතා කරයි.
+
+You can update one or more columns for one
+or more rows by specifying the conditions that
+
+must be met for a row to be updated.
+
+පේළියක්‌ යාවන්කාලීන කිරීම සඳහා සපුරාලිය Go
+කොන්දේසි සඳහන්‌ කිරීමෙන්‌ ඔබට පේළි එකක්‌ හෝ
+කිහිපයක්‌ සඳහා තීරු එකක්‌ හෝ කිහිපයක්‌
+යාවත්කාලීන කළ හැකිය.
+
+table name
+UPDATE නු assignment operator
+(ect fields
+
+SET | AN =| ¥ | which column
+Lo
+WHERE 4)
+condition
+
+a) One column — one record
+චක්‌ ක්ෂේත්‍රයක්‌ — චක්‌ රෙකෝොඩයක්‌
+
+UPDATE Employee
+SET Address='Galle'
+WHERE RegNo=5;
+
+RESULT
+SELECT * FROM Employee;
++------- +------ +------------ +------------ +
+| RegNo | Name | Address | Te1No |
++------- +------ +------------ +------------ +
+| 1 | Akon | Colombo | @711111111 |
+| 2 | Bkon | Gampaha | NULL |
+| 3 | Ckon | Kandy | 0733333333 |
+| 4 | Dkon | Kurunagala | 0744444444 |
+| 5 | Ekon | Galle | @755555555 |
+| 6 | Fkon | NULL | @766666666 |
++------- +------ +------------ +------------ +
+b) One column — many records
+
+චක්‌ ක්ෂේතුයක්‌ — රෙකෝඩ කීපයක්‌
+UPDATE Employee
+SET TelNo=' 0780008000 '
+WHERE RegNo<3;
+RESULT
+SELECT * FROM Employee;
++------- +------ +------------ +------------ +
+| RegNo | Name | Address | Te1No |
++------- +------ +------------ +------------ +
+| 1 | Akon | Colombo | 976906606606606 |
+| 2 | Bkon | Gampaha | 976906606606606 |
+| 3 | Ckon | Kandy | 0733333333 |
+| 4 | Dkon | Kurunagala | 0744444444 |
+| 5 | Ekon | Galle | @755555555 |
+| 6 | Fkon | NULL | @766666666 |
++------- +------ +------------ +------------ +
+
+25
+
+c) Many columns -— one record
+ක්ෂේත්‍ර කීපයක්‌ — Had රෙකෝඩයක්‌
+
+UPDATE Employee
+
+SET Address='Matara',
+TelNo='0777777777'
+WHERE RegNo=6;
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- +------ +------------ +------------ +
+| RegNo | Name | Address | Te1No
++------- +------ +------------ +------------ +
+| 1 | Akon | Colombo | 970906606666
+
+| 2 | Bkon | Gampaha | 970906606666
+
+| 3 | Ckon | Kandy | 0733333333
+
+| 4 | Dkon | Kurunagala | 0744444444
+
+| 5 | Ekon | Galle | @755555555
+
+| 6 | Fkon | Matara | 9777777777
++------- +------ +------------ +------------ +
+NOTE:
+
+Using the UPDATE command without the WHERE
+condition will update all records of the table.
+
+WHERE කොන්දේසිය නොමැතිව UPDATE විධානය
+භාවිතයෙන්‌ වගුවේ සියලුම රෙකෝඩ යාවත්කාලීන වීම
+
+සිදුවේ.
+
+UPDATE Employee
+SET Address='Colombo’ ;
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- +------ +--------- +------------ +
+| RegNo | Name | Address | TelNo |
++------- +------ +--------- +------------ +
+| 1 | Akon | Colombo | 07066606690606 |
+| 2 | Bkon | Colombo | 070696606606606 |
+| 3 | Ckon | Colombo | 0733333333 |
+| 4 | Dkon | Colombo | 0744444444 |
+| 5 | Ekon | Colombo | @755555555 |
+| 6 | Fkon | Colombo | 0777777777 |
++------- +------ +--------- +------------ +
+
+DELETE Statement
+
+Used to remove one or more records from a
+
+table.
+වගුවකින්‌ රෙකෝඩ එකක්‌ හෝ කිහිපයක්‌ වෙන්‌ කිරීමට
+භාවිතා කරයි.
+
+The rows to be deleted are specified using a
+condition in the WHERE clause.
+
+මකා දැමිය යුනු පේළි WHERE වගන්තියේ
+කොන්දේසියක්‌ භාවිතයෙන්‌ නියම කර ඇන.
+
+table name
+DELETE FROM නු
+"1 ;
+
+condition
+
+a) Single record
+එක්‌ රෙකෝඩයක්‌
+
+DELETE FROM Employee
+WHERE RegNo=4;
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- +------ $--------- $------------ +
+| RegNo | Name | Address | TelNo |
++------- +------ $--------- $------------ +
+| 1 | Akon | Colombo | 607066066606606 |
+| 2 | Bkon | Colombo | 697066660660606 |
+| 3 | Ckon | Colombo | 0733333333 |
+| 5 | Ekon | Colombo | 9755555555 |
+| 6 | Fkon | Colombo | 6777777777 |
++------- +------ $--------- $------------ +
+
+26
+
+b) Multiple records
+රෙකෝඩ කීපයක්‌
+
+DELETE FROM Employee
+WHERE RegNo>3;
+
+RESULT
+
+SELECT * FROM Employee;
+
++------- $------ ද පපපපපපපළු $------------ +
+| RegNo | Name | Address | TelNo |
++------- $------ ද පපපපපපපළු $------------ +
+| Colombo | e7eeeeeeee |
+| Colombo | 6766666666 |
+| Colombo | 6733333333 |
++------- $------ ද පපපපපපපළු $------------ +
+
+c) All records
+සියලු රෙකෝඩ
+
+DELETE FROM Employee;
+
+RESULT
+SELECT * FROM Employee;
+Empty set (9.06 sec)
+
+TRUNCATE TABLE table_name; can also be
+
+used.
+TRUNCATE TABLE table_name; ද භාවිතා කළ
+හැකිය.
+
+SELECT Statement
+
+Used to retrieve data from one or more tables
+
+in a database.
+දන්ත සමුදායක ඇති OG එකකින්‌ හෝ වැඩි ගණනකින්‌
+දුන්න ලබා ගැනීමට භාවිතා කරයි.
+
+The results are returned in the form of a result
+
+set, which is displayed in a table format.
+ප්‍රතිඵල, ප්‍රතිඵල-කට්ටලයක ආකාරයෙන්‌ ආපසු ලබා
+දෙනු ලැබේ, එය වගු ආකෘතියකින්‌ පෙන්වනු ලැබේ.
+
+SELECT a column
+a table
+
+FROM
+
+WHERE
+which records
+
+The WHERE clause must include either a
+Comparison operator or a logical operator.
+
+WHERE O@%38&a සදහා සැසදුම්‌ කාරක හෝ තාර්කික
+කාරක ඇතුලත්‌ කළ යුතුය.
+
+Employee
+
+$o------ $------ $onece----- $------ +
+
+| RegNo | Name | Address | AGE |
+
+$o------ $------ $onece----- $------ +
+
+| 1 | Akon | Kandy | 396 |
+
+| 2 | Bkon | Nugegoda | 28 |
+
+| 3 | Ckon | Colombo | 35 |
+
+| 4 | Dkon | Nugegoda | 409 |
+
+$o------ $------ $onece----- $------ +
+
+a) All columns — all records
+සියලුම ක්ෂේත්‍ර -* සියලුම රෙකෝඩ
+SELECT * FROM Employee;
+RESULT
+$o------ $------ $onece----- $------ +
+| RegNo | Name | Address | AGE |
+$o------ $------ $onece----- $------ +
+| 1 | Akon | Kandy | 396 |
+| 2 | Bkon | Nugegoda | 28 |
+| 3 | Ckon | Colombo | 35 |
+| 4 | Dkon | Nugegoda | 409 |
+$o------ $------ $onece----- $------ +
+
+27
+
+b)
+
+c)
+
+d)
+
+e)
+
+Multiple columns — all records
+ක්ෂේත්‍ර කීපයක්‌ — Ba@g® edensa
+
+SELECT Name, Age FROM Employee;
+
+RESULT
+
+poocee- අබේ +
+| Name | Age |
+poocee- අබේ +
+| Akon | 36 |
+| Bkon | 28 |
+| Ckon | 35 |
+| Dkon | 46 |
+poocee- අබේ +
+
+Single column — all records
+එක්‌ ක්ෂේත්‍රයක්‌ — සියලුම රෙකෝඩ
+
+SELECT Name FROM Employee;
+
+RESULT
+
+Single column — multiple records
+Dw ක්ෂේත්‍රයක්‌ — රෙකෝඩ කීපයක්‌
+
+SELECT Name FROM Employee
+WHERE RegNo>2;
+
+RESULT
+
+Single column — single record
+එක්‌ ක්ෂේත්‍රයක්‌ — එක්‌ රෙකෝඩයක්‌
+
+SELECT Name FROM Employee
+WHERE RegNo=1;
+
+RESULT
+
+f) Multiple columns — multiple records
+ක්ෂේත්‍ර කීපයක්‌ — රෙකෝඩ කීපයක්‌
+
+SELECT Name, Age FROM Employee
+WHERE RegNo>2;
+
+RESULT
+
+peecees peeene- +
+| Name | Age |
+peecees peeene- +
+| Ckon | 35 |
+| Dkon | 40 |
+peecees peeene- +
+
+g) Multiple columns — single record
+ක්ෂේත්‍ර කීපයක්‌ — චක්‌ රෙකෝොඩයක්‌
+
+SELECT Name, Age FROM Employee
+WHERE RegNo=2;
+
+RESULT
+
+peecees peeene- +
+| Name | Age |
+peecees peeene- +
+| Bkon | 28 |
+peecees peeene- +
+
+h) All columns — multiple records
+සියලුම ක්ෂේත්‍ර — රෙකෝඩ කීපයක්‌
+
+SELECT * FROM Employee
+WHERE RegNo>2;
+
+RESULT
+
+ද පපපපපපළ ද පප්පපපපු ද පපපපපපපපපළ ද පක්‍පපපපපු +
+| RegNo | Name | Address | AGE |
+ද පපපපපපළ ද පප්පපපපු ද පපපපපපපපපළ ද පක්‍පපපපපු +
+| 3 | Ckon | Colombo | 35 |
+
+| 4 | Dkon | Nugegoda | 409 |
+ද පපපපපපළ ද පප්පපපපු ද පපපපපපපපපළ ද පක්‍පපපපපු +
+
+28
+
+Comparison Operators
+acee® කාරක
+
+Used in the WHERE clause to compare two
+expressions and filter records based on the
+result of that comparison.
+
+WHERE වගන්තියේ ප්‍රකාශන දෙකක්‌ සංසන්දනය
+
+කිරීමට සහ OO සැසඳීමේ ප්‍රතිඵලය මත පදනම්ව
+රෙකෝඩ පෙරහන්‌ කිරීමට භාවිනා කරයි.
+
+Essential for creating conditions that retrieve,
+update, or delete specific data in a database.
+දත්ත සමුදායක නිශ්චිත දත්ත ලබා ගැනීම,
+යාවත්කාලීන කිරීම හෝ මකා දැමීම සඳහා කොන්දේසි
+නිරිමාණය කිරීම සඳහා අත්‍යවශ්‍ය GH.
+
+Use cases of comparison operator
+සැසදුමී කාරකයන්හි භාවිත
+
+e Filter data to retrieve specific records that
+
+meet a given condition.
+ළී ඇති කොන්දේසියක්‌ සපුරාලන නිශ්චිත Oe
+ලබා ගැනීමට දත්ත තෝරා ගැනිමට.
+
+e To implement conditional logic in queries.
+විමසුම්වල කොන්දේසි සහිත තර්ක ක්‍රියාත්මක
+කිටීමට.
+
+e To identify records that have missing or
+undefined values.
+
+නැතිවූ හෝ නිර්චචනය නොකළ අගයන්‌ ඇති
+වාර්තා HEM) ගැනීමට.
+
+e To find records that match an exact value.
+BGOD අගයකට ගැලපෙන වාරතා ලසායා
+ගැනීමට.
+
+Notation
+අංකනය
+
+Operation
+මෙහෙයවනය
+
+equal
+සමාන
+
+<>
+
+not equal
+අසමාන
+
+not equal
+අසමාන
+
+greater than
+විශාල
+
+less than
+කුඩා
+
+greater than or equal
+විශාල හෝ සමාන
+
+less than or equal
+කුඩා භෝ සමාන
+
+BETWEEN
+
+Between a certain range
+නිශ්චිත පරාසයක්‌ අතර
+
+BETWEEN AND
+
+IN
+
+Saturate at least one value from a
+given set of values
+
+දී ඇති අගයන්‌ සමූහයක්‌ ended එක්‌
+අගයක්‌ හෝ නෘප්ත කර ගත
+
+101 , ,, )
+
+LIKE
+
+search for a character pattern
+අනුලක්ෂණ රටාවක්‌ සෙවීමට
+
+29
+
+REFERENCE TABLE
+
+Employee
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| 96091 | AKON’ | KANDY | 30 |
+| @@2 | BELLA | NUGEGODA | 28 |
+| 96093 | CAMERON| COLOMBO | 35 |
+| @@4 | DIANA | NUGEGODA | 46 |
++------ +-------- +---------- +----- +
+
+= Comparison Operator
+සැසදුම්‌ කාරකය
+
+Employees whose address is NUGEGODA
+ලිපිනය නුගේගොඩ වන සේවකයන්‌
+
+SELECT * FROM Employee
+WHERE Address = "NUGEGODA" ;
+
++------- +------ +---------- +------ +
+| RegNo | Name | Address | Age |
++------- +------ +---------- +------ +
+| 2 | BELLA| NUGEGODA | 28 |
+| 4 | DIANA| NUGEGODA | 46 |
++------- +------ +---------- +------ +
+
+<> or != Comparison Operator
+<>or!= සැසදුමී කාරකය
+
+Employees whose address is not NUGEGODA
+
+ලිපිනය නුගේගොඩ නොවන ඉස්‌්වකයන්‌
+
+SELECT * FROM Employee
+WHERE Address <> "NUGEGODA";
+
+OR
+
+SELECT * FROM Employee
+
+WHERE Address != "NUGEGODA";
++------ +--------- +--------- +----- +
+| RegNo | Name | Address | Age |
++------- +-------- +--------- +----- +
+| 1 | AKON | KANDY | 30 |
+| 3 | CAMERON| COLOMBO | 35 |
++------- +-------- +--------- +----- +
+
+> Comparison Operator
+> සැසදුම්‌ කාරකය
+
+Employees above 30 years of age
+වයස 30 ට වඩා වැඩි සේවකයන්‌
+
+SELECT * FROM Employee
+WHERE Age > 30;
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| @@3 | CAMERON| COLOMBO | 35 |
+| 9664 | DIANA | NUGEGODA | 46 |
++------ +-------- +---------- +----- +
+
+< Comparison Operator
+< සැසදුම්‌ කාරකය
+
+Employees below 30 years of age
+වයස 30 ට වඩා අඩු සේවකයන්‌
+
+SELECT * FROM Employee
+WHERE Age < 30;
+
+peecees ද පපපපපපපළි  පපාපපපපපපපළ අධ +
+|RegNo | Name | Address | Age |
+peecees ද පපපපපපපළි  පපාපපපපපපපළ අධ +
+| @@2 | BELLA | NUGEGODA | 28 |
+peecees ද පපපපපපපළි ද පපපපපපපපපළ අධ +
+
+>= Comparison Operator
+>= සැසදුමී කාරකය
+
+Employees aged 30 years or more
+වයස 300 සමාන හෝ වැඩි සේවකයන්‌
+
+SELECT * FROM Employee
+WHERE Age >= 30;
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| @@1 | AKON | KANDY | 30 |
+| @@3 | CAMERON| COLOMBO | 35 |
+| 9664 | DIANA | NUGEGODA | 46 |
++------ +-------- +--------- +------ +
+
+30
+
+<= Comparison Operator
+<= සැසදුම්‌ කාරකය
+
+Employees aged 30 years or less
+
+වයස 300 සමාන om අඩු සේවකයන්‌
+
+SELECT * FROM Employee
+WHERE Age <= 36;
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| 96091 | AKON’ | KANDY | 30 |
+| @@2 | BELLA | NUGEGODA | 28 |
++------ +-------- +---------- +----- +
+
+BETWEEN Comparison Operator
+ව 11/1/ £ [| සැසදුම්‌ කාරකය
+
+Employees between 30 and 40 years of age
+වයස අවුරැදු 3005 40ත්‌ අතර සේවකයන්‌
+
+SELECT * FROM Employee
+WHERE Age BETWEEN 30 AND 40;
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| 96091 | AKON’ | KANDY | 30 |
+| 96093 | CAMERON| COLOMBO | 35 |
+| 96064 | DIANA | NUGEGODA | 46 |
++------ +-------- +---------- +----- +
+
+IN Comparison Operator
+IN සැසදුමී කාරකය
+
+Employees whose address is NUGEGODA or
+
+KANDY
+
+ලිපිනය නුගේගොඩ හෝ මහනුවර වන සේවකයින්‌
+
+SELECT * FROM Employee
+WHERE Address
+IN("NUGEGODA", "KANDY");
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| 96091 | AKON’ | KANDY | 30 |
+| @@2 | BELLA | NUGEGODA | 28 |
+| 96064 | DIANA | NUGEGODA | 46 |
++------ +-------- +--------- +------ +
+
+SQL Wildcards
+
+Used in conjunction with the LIKE operator in
+the WHERE clause to search for patterns within
+text fields.
+
+පාඨ ක්ෂේත්‍ර ME රටා සෙවීමට WHERE වගන්තියේ
+ඇති LIKE ක්‍රියකරු සමඟ එකාබද්ධව භාවිතා වේ.
+
+h Matches zero or more characters
+අනුලක්ෂණ ටක්‌ හෝ කිහිපයක්‌ ගලපයි
+
+_ Matches a single character
+අනුලක්ෂණ 10) ගලපයි
+
+1. Beginning with a specific letter
+නිශ්චිත අකුරකින්‌ ආරම්භ වන
+
+Details of employees whose name starts with
+letter B
+B අකුරින්‌ නම පටන්‌ ගන්නා සේවකයින්ගේ විස්තර
+
+Employee
+
++------- +-------- +--------- +----- +
+| RegNo | Name | Address | Age |
++------- +-------- +--------- +----- +
+| @@1 | AKON | KANDY | 30 |
+| 002 | BELLA | NUGEGODA| 28 |
+| @@3 | CAMERON| COLOMBO | 35 |
+| 664 | BENNY | GALLE | 46 |
++------- +-------- +--------- +----- +
+
+SELECT * FROM Employee
+WHERE Name LIKE "BA";
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| 002 | BELLA | NUGEGODA| 28 |
+| @@4 | BENNY | GALLE | 4@ |
++------- +-------- +--------- +----- +
+
+31
+
+2. Ending with a specific letter
+නිශ්චිත අකුරකින්‌ අවසන්‌ වන
+
+Details of employees whose name ends with
+letter A
+A අකුරින්‌ නම අවසන්‌ වන සේවකයින්ගේ විස්තර
+
+Employee
+
++------- +-------- +--------- +----- +
+| RegNo | Name | Address | Age |
++------- +-------- +--------- +----- +
+| 0601 | AKON | KANDY |[ 30 |
+| @@2 | BELLA | NUGEGODA| 28 |
+| 0ර03 | CAMERON| COLOMBO | 35 |
+| 06064 | BENNY | GALLE | 46 |
++------- +-------- +--------- +----- +
+SELECT * FROM Employee
+
+WHERE Name LIKE "%A";
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| @@2 | BELLA | NUGEGODA| 28 |
++------- +-------- +--------- +----- +
+
+REFER TO THE FOLLOWING TABLE FOR 3
+
+AND 4 SUBTOPICS IN THE NEXT PAGE
+මීලග පිටුවේ ඇති 3 සහ 4 මාතෘකා see) පහත වගුව
+වෙත යොමු වන්න.
+
+Employee
+
++------ +-------- +--------- +----- +
+| RegNo| Name | Address | Age |
++------ +-------- +--------- +---- +
+| @@1 | SHANE | KANDY | 30 |
+| 9602 | HANNAH | NUGEGODA| 28 |
+| @@3 | CHARLIE] COLOMBO | 35 |
+| @@4 | MICHAEL] GALLE | 46 |
+| @@5 | SARAH | MATHARA | 32 |
++------ +-------- +--------- +----- +
+
+3. A specific letter or letters present at 5. Starting with a specified letter and
+
+any position ending with a specified letter
+
+ඕනෑම ස්ථානයක පචතින නිශ්චිත අකුරක්‌ හෝ අකුරැ නිශ්චිත අකුරකින්‌ ආරමිභ වී නිශ්චිත අකුරකින්‌ අවසන්‌
+වන
+
+Details of employees where HA exists at any
+
+place in the name Details of employees whose names start with
+
+නමේ ඕනෑම ස්ථානයක HA පවතින සේවකයින්ගේ letter H and end with letter A
+
+විස්තර [1 අකුරෙන්‌ ආරම්භ වන & අකුරෙන්‌ අවසන්‌ වන නම්‌
+
+ඇති සේවකයින්ගේ විස්තර
+SELECT * FROM Employee
+
+WHERE Name LIKE "%HAA"; Employee
+
++------- +------- +---------- +----- +
++------ +-------- $---------- +----- + | RegNo | Name | Address | Age |
+|RegNo | Name | Address | Age | fo------ fo------ $o--------- peoee- +
++------ 4 අබය 4ඉබෆෆත + | 06061 | HANNAH| COLOMBO | 25 |
+| @@1 | SHANE | KANDY | 36 | | 602 | HERA | GALLE | 30 |
+| 0962 | HANNAH | NUGEGODA | 28 | | 603 | HENRY | KANDY | 28 |
+| @@3 | CHARLIE| COLOMBO | 35 | | @04 | HLENA | NUGEGODA | 35 |
+| 664 | MICHAEL| GALLE | 460 | $------- $o------ fo--------- $----- +
++------ +-------- +--------- +------ +
+
+SELECT * FROM Employee
+4. There is a specific letter in the WHERE Name LIKE “H%A";
+second position pone eee "ණී poet eee eee pelle ॥
+දෙවැනි ස්ථානයේ නිශ්චිත අකුරක්‌ පවතින | RegNo | Name | Address | Age |
+Details of empl h have | කු අක yo oo |
+etails o employees w ose names have letter | 662 | HERA | GALLE | 30 |
+A at the second position | 664 | HLENA | NUGEGODA | 35 |
+නමේ දෙවැනි අකුර A වන සේවකයින්ගේ විස්තර ෴෴෴ක෴ා කක ෴෴ය෴ක෴ක෴ කක ෴෴කක෴෴෴ක කක 4 4
+
+SELECT * FROM Employee
+WHERE Name LIKE "_A%";
+
++------ +-------- +---------- +----- +
+|RegNo | Name | Address | Age |
++------ +-------- +---------- +----- +
+| @@2 | HANNAH | NUGEGODA | 28 |
+| @@5 | SARAH | MATHARA | 32 |
++------ +-------- +---------- +----- +
+
+32
+
+LOGICAL OPERATORS
+තාර්කික මෙහෙයවන
+
+Used to combine two or more conditions in SQL
+queries.
+
+SQL විමසුම්වල කොන්දේසි දෙකක්‌ හෝ වැඩි ගණනක්‌
+ඒකාබද්ධ කිරීමට භාවිතා කරයි.
+
+Reference Table
+
+Employee
+
++------- +------ +--------- +------ +
+| RegNo | Name | Address | age |
++------- +------ +--------- +------ +
+| 6061 | AKON | KANDY | 35 |
+| @@2 | BKON | GAMPAHA | 4@ |
+| 0063 | CKON | KANDY | 332 |
++------- +------ +--------- +------ +
+
+1) AND OPERATOR
+Will return TRUE only if both conditions are met.
+
+TRUE ලෙස ලබා දෙන්නේ කොන්දේසි දෙකම සපුරා
+ඇත්නම්‌ පමණි.
+
+|
+51 AND 52
+
+SELECT * FROM Employee
+WHERE Address ='KANDY' AND age>30;
+
+RESULT
+
++------- +------ +--------- +------ +
+| RegNo | Name | Address | age |
++------- +------ +--------- +------ +
+| 6061 | AKON | KANDY | 35 |
+| @@3 | CKON | KANDY | 332 |
++------- +------ +--------- +------ +
+
+33
+
+2) OR OPERATOR
+Will return TRUE only if at least one of the
+conditions is met.
+
+TRUE ආපසු ලබා දෙන්නේ අවම වශයෙන්‌ Ad
+කොන්දේසියක්වත්‌ සපුරා ඇත්නම්‌ පමණි.
+
+$2
+
+ය
+
+51 OR 52
+
+SELECT * from Employee
+
+WHERE age>33 OR Address= 'GAMPAHA' ;
+RESULT
+
++------- +------ +--------- +------ +
+
+| RegNo | Name | Address | age |
++------- +------ +--------- +------ +
+
+| @@1 | AKON | KANDY | 35 |
+
+| @@2 | BKON | GAMPAHA | 46 |
++------- +------ +--------- +------ +
+
+3) NOT OPERATOR
+Used to reverse the result of a condition.
+
+කොන්දේසියක ප්‍රතිඵලය ආපසු හැරවීමට භාවිතා
+කරයි.
+
+Selects rows that do not meet the specified
+
+criteria.
+නිශ්චිත කොන්දේසියක්‌ සපුරා නොමැති පේළි තෝරයි.
+
+NOT C
+
+SELECT columni, column2,
+FROM table _ name
+WHERE NOT condition;
+
+SELECT * FROM customers
+WHERE NOT Address = 'KANDY';
+
+RESULT
+
+poeceee- peeene- ද පපපපපපපපජ ද පක්‍පපපපපු +
+| RegNo | Name | Address | age |
+poeceee- peeene- ද පපපපපපපපජ ද පක්‍පපපපපු +
+| @@2 | BKON | GAMPAHA | 46 |
+poeceee- peeene- ද පපපපපපපපජ ද පක්‍පපපපපු +
+
+ORDER BY keyword
+
+SELECT a column
+FROM | “1:40 table
+
+ORDER BY ASC / DESC ;
+which column
+
+Reference Table
+
+Employee
+
++------- +-------- +--------- +----- +
+| RegNo | Name | Address | Age |
++------- +-------- +--------- +----- +
+| 1 | HELEN | GALLE | 33 |
+| 2 | CHARLIE| KANDY | 27 |
+| 3 | ALICE | COLOMBO | 28 |
+| 4 | EDWARD | COLOMBO | 35 |
++------- +-------- +--------- +----- +
+
+1. Ascending (ASC)
+ආරෝහණ
+
+EXAMPLE
+Arrange all details of employees in ascending
+order of their name.
+
+සේවකයින්ගේ සියළු විස්තර ඔවුන්ගේ HES ආරෝහණ
+පිළිවෙලට සැකසීම.
+
+SELECT * FROM Employee
+ORDER BY Name;
+
+OR
+
+SELECT * FROM Employee
+ORDER BY Name ASC;
+
+The default is ASC for the selected column.
+තෝරාගන්න ලද නීරැව සදහා පෙරනිමිය ASC ලව්‌
+
+RESULT
+peecees ද පපපපපපපළි ද පපපපපපපපජ $o---- +
+| Name | Address | Age |
+
+| ALICE | COLOMBO | 28 |
+| CHARLIE| KANDY | |
+| EDWARD | COLOMBO | 35 |
+| HELEN | GALLE | |
+
+34
+
+2. Descending (DESC)
+අවරෝහණ
+
+EXAMPLE
+Arrange all employee details in descending
+
+order of name.
+සේවකයින්ගේ සියළු විස්තර ඔවුන්ගේ DEO
+අවරෝහණ පිළිවෙලට සැකසීම.
+
+SELECT * FROM Employee
+ORDER BY Name DESC;
+
+RESULT
+
++------- +-------- +--------- +----- +
+| RegNo | Name | Address | Age |
++------- +-------- +--------- +----- +
+| 1 | HELEN | GALLE | 33 |
+| 4 | EDWARD | COLOMBO | 35 |
+| 2 | CHARLIE| KANDY | 27 |
+| 3 | ALICE | COLOMBO | 28 |
++------- +-------- +--------- +----- +
+
+3. ORDER BY Several Columns
+862 කිහිපයකින්‌ පෙළගැස්වීම
+
+When used with multiple columns, SQL sorts
+the data first by the first column. If there are
+same values, it then sorts by the next column,
+and continues in the same way.
+
+තීරැ කිහිපයක්‌ සමඟ mdm කරන විට, SQL මඟින්‌
+දත්ත පළමුව, ප්‍රථම තීරැව අනුව වරිග කරයි. OH
+
+එකම අගයන්‌ තිබේ නමි, එය ඊළඟ තීරැව අනුව වර්ග
+කරන අතර මෙය දිගටම සිදු කරයි.
+
+SELECT a column
+FROM a table
+08068 BY | |,
+
+ASC / DESC ;
+
+which column
+EXAMPLE
+Sorting all details of employees, names of
+employees in ascending order and then in
+
+descending order by salary
+
+සේවකයින්ගේ සියලුම විස්තර, සේවකයින්ගේ නමෙහි
+ආරෝහණ පිළිවෙලින්‌ සහ පසුව වැටුපෙහි අවරෝහණ
+පිළිවෙලට සැකසීම
+
+Employee
+
++------- +------- +-------- +------- +
+| RegNo |Name | Address] Salary|
++------- +------- +-------- +------- +
+| 1 |ALICE | COLOMBO| 30600 |
+| 2 |BOB | COLOMBO| 256966।|
+| 3 |ALICE | COLOMBO| 326060|
++------- +------- +-------- +------- +
+
+SELECT * FROM Employee
+ORDER BY Name ASC, Salary DESC;
+
+RESULT
+
++------- +------- +-------- +------- +
+| RegNo |Name | Address] Salary|
++------- +------- +-------- +------- +
+| 3 |ALICE | COLOMBO| 32000]
+| 1 |ALICE | COLOMBO| 30600 |
+| 2 |BOB | COLOMBO| 250e0e|
++------- +------- +-------- +------- +
+
+GROUP BY statement
+
+Group rows with the same values into summary
+
+rows.
+
+එකම අගයන්‌ සහිත පේළි සාරාංශ පේළි වලට කාණ්ඩ
+
+කරයි.
+
+often used with functions to group the result-
+
+set by one or more columns.
+
+බොහෝ විට ශ්‍රිත සමඟ භාවිතා කරනුයේ ප්‍රතිඵල
+සකසන ලද නීරු එකකින්‌ හෝ කිහිපයකින්‌ කාණ්ඩ
+
+කිරීමටයි.
+
+SELECT a :) column
+FROM [<p tebe name
+WHERE [=f condition
+
+GROUP BY ;
+
+which column
+
+35
+
+EXAMPLE
+Getting the total cost that the employees
+
+spent.
+සේවකයින්‌ වියදම්‌ කළ QO පිරිවැය ලබා ගැනීම.
+
+had
+
+Expenses
+
+අම $------- $o----- ද පපපපපපපපපපු ද පපපපපපපි +
+| CostID | RegNo | Name | Address | Cost |
+අම $------- $o----- ද පපපපපපපපපපු ද පපපපපපපි +
+| 1 | 1 | Akon | Colombo | 55666 |
+| 2 | 2 | Bkon | Nugegoda | 6096606 |
+| 3 | 1 | Akon | Colombo | 1096066 |
+| 4 | 3 | Ckon | Gampaha | 10@@@ |
+| 5 | 2 | Bkon | Nugegoda | 56060 |
+අම $------- $o----- ද පපපපපපපපපපු ද පපපපපපපි +
+
+With conditions
+කොන්දේසි සහිනව
+
+SELECT Name, SUM(Cost)
+FROM Expenses
+
+WHERE Cost > 5000
+GROUP BY Name;
+
+RESULT
+
+poocee- ද පාපපපපපපපපළි +
+| Name | SUM(Cost) |
+poocee- ද පාපපපපපපපපළි +
+| Akon | 65066 |
+| Bkon | 69066 |
+| Ckon | 10666 |
+poocee- ද පාපපපපපපපපළි +
+
+Without conditions
+කොන්දේසි නොමැතිව
+
+SELECT Name, SUM(Cost)
+FROM Expenses
+GROUP BY Name;
+
+RESULT
+
+poocee- ද පපාපපපපපපපපපපප +
+| Name | SUM(Cost) |
+poocee- ද පපාපපපපපපපපපපප +
+| Akon | 65000 |
+| Bkon | 65000 |
+| Ckon | 10066 |
+poocee- ද පපාපපපපපපපපපපළි +
+
+HAVING clause With conditions (WHERE)
+කොන්දේසි සහිතව (WHERE)
+Was added to SQL because the WHERE
+
+keyword cannot be used with aggregate SELECT Name, SUM(Cost)
+FROM Expenses
+
+functions. WHERE Cost > 10000
+WHERE මූල SEG සමස්ත ශ්‍රිත සමඟ භාවිතා කළ GROUP BY Name
+නොහැකි නිසා මෙය SQL වෙත එකතු කර ඇන. HAVING SUM(Cost) > 10000;
+HAVING filters groups (after GROUP BY), while RESULT
+WHERE filters rows (before grouping). fonn--- ෴෴෴෴“෴ කක +
+HAVING මඟින්‌ කණ්ඩායම්‌ (GROUP BY ට පසුව) | Name | SUM(Cost) |
+තෝරන අතර, WHERE මඟින්‌ පේළි (කණ්ඩායම්‌ කිරීමට න ෴෴෴෴ය "ධ෴෴෴෴ ෴ ෴෴෴“෴ූක +
+පෙර) තෝරනු ලබයි. | Akon | 55669 |
+| Bkon | 69066 |
++------ +----------- +
+SELECT a column
+First it filters rows where Cost is greater than
+FROM table name
+| 21 10,000.
+WHERE | “~~ -:9041£300 පළමුවෙන්‌ Cost එක 10,000 ට වඩා වැඩි පේළි
+ලඉතෝරගනී.
+
+GROUP BY | “1,410 column
+
+It then groups the remaining rows by Name.
+
+HAVING ; වනේපසු තෝරගන්‌ GSE නම අනුව කාණ්ඩ කරයි.
+condition For each name, it adds up the Cost values using
+
+SUM.
+සෑම නමක්‌ සඳහාම, SUM භාවිතයෙන්‌ Cost අගයන්‌
+
+Expenses
+
+to------- +------- +------ t---------- to------ + .
+
+es “ක්‍ෂ න අම 1 + groups whose total cost exceeds 10,000.
+
+| 1 | 1 | Akon | Colombo | 55666 |
+
+| 2 | 2 | Bkon | Nugegoda | 69666 | අවසාන O@oass, HAVING වගන්තිය මගින්‌ තෝරා
+
+| 3 | 1 | Akon | Colombo | 1660909 | ගන්නේ එක 10,000 කේමවන කාණ්ඩ පමණි.
+
+| 4 | 3 | Ckon | Gampaha | 10660 |
+
+5 2 | Bk N d 5000 . wee
+ආන්‌ අමන්‌ | Bkon | Nugegoda | 5000 ॥ Without conditions (WHERE)
+
+කොන්දේසි නොමැතිව (WHERE)
+
+SELECT Name, SUM(Cost)
+FROM Expenses
+
+GROUP BY Name
+
+HAVING SUM(Cost) > 10000;
+
+RESULT
+
++------ +----------- +
+| Name | SUM(Cost) |
++------ +----------- +
+| Akon | 65066 |
+| Bkon | 65066 |
++------ +----------- +
+
+36
+
+DISTINCT statement
+
+Used to return only different values.
+වෙනස්‌ අගයන්‌ පමණක්‌ ආපසු ලබා දීමට භාවිතා
+කරයි.
+
+SELECT DISTINCT | “~_~-:4:0 column
+
+FROM ;
+table name
+
+EXAMPLE
+
+Expenses
+
+ද පපපපපපපපු $------- $------ $o--------- $------- +
+| CostID | RegNo | Name | Address | Cost |
+ද පපපපපපපපු $------- $------ $o--------- $------- +
+| 1 | 1 | Akon | Colombo | 55666 |
+| 2 | 2 | Bkon | Nugegoda | 69666 |
+| 3 | 1 | Akon | Colombo | 10@@@ |
+| 4 | 3 | Ckon | Gampaha | 10060 |
+| 5 | 2 | Bkon | Nugegoda | 56066 |
+ද පපපපපපපපු $------- $------ $o--------- $------- +
+
+SELECT DISTINCT Name
+FROM Expenses;
+
+RESULT
+
+SQL FUNCTION
+SQL Ga
+
+SQL functions are regarded as powerful tools
+that allow data within a database to be
+manipulated and transformed. They can be
+used to perform various operations.
+
+SQL Gnas දත්ත සමුදායක්‌ ME දත්ත හැසිරවීමට
+සහ පට්වරිතනය කිරීමට ඉඩ සලසන බලවන්‌ මෙවලමි
+ලෙස සැලකේ. විවිධ මෙහෙයුම්‌ සිදු කිරීමට ඒවා
+භාවිතා කළ හැකිය.
+
+These functions are essential tools for
+performing complex queries and data analysis
+in SQL. Each function serves a specific purpose
+and can be used in combination to achieve
+desired results.
+
+මෙම ශ්‍රිතයන්‌ SQL හි සංකීරණ විමසුම්‌ සහ දන්ත
+විශ්ලේෂණය සිදු කිරීම සඳහා අත්‍යවශ්‍ය මෙවලම්‌ GH.
+සෑම කාරියයක්ම නිශ්චිත අරමුණක්‌ ට්‍ර කරන අතර
+අපේක්ෂිත ප්‍රතිඵල ලබා ගැනීම සඳහා චඒකාබද්ධව
+භාවිතා කළ හැක.
+
+Operation Examples
+
+මෙහෙයුම උදාහරණ
+
+Mathematical addition, subtraction,
+calculations multiplication, division
+ගණිතමය ගණනය | එකතු BO, අඬු කිරීම, ගුණ
+BOO කිටීම, බෙදීම
+
+Data converting data types,
+manipulation extracting substrings
+
+දුන්ත හැසිරවීම දුන්න වර්ග පට්වර්තනය
+කිරීම, substring උපුටා
+
+ගැනීම
+Statistical calculating averages,
+analysis maximums, minimums
+සංඛ්යානමය සාමාන්‍ය, උපරිම, අවම
+විශ්ලේෂණය ගණනය කිරීම
+Date and time getting the current date,
+operations calculating differences
+දිනය සහ වේලාව | වත්මන්‌ දිනය E ගැනීම,
+මෙහෙයුම්‌ වෙනස්කම්‌ ගණනය කිරථිීම
+
+Below are some commonly used SQL
+functions.
+
+පහත දැක්චෙන්නේ බහුලව භාවිතා වන SQL Go
+කිහිපයක්‌.
+
+EXAMPLE TABLE
+
+Employee
+
++------- +----- +--------- +-------- +
+| RegNo | Name| Address | Salary |
++------- +----- +--------- +-------- +
+| 1 | AKON| KANDY | 50060 |
+| 2 | BKON| COLOMBO | 6009606 |
+| 3 | CKON| GALLE | 55066 |
++------- +----- +--------- +-------- +
+1. SUM(Q
+
+The SUM() function calculates the total of a
+numeric column.
+
+SUM() ශ්‍රිතය සංඛ්‍යාත්මක තීරැවචක චකතුව ගණනය
+කරයි.
+
+SELECT SUM(Salary)
+FROM Employee;
+
+ද පපපපපපපපපපපපළ +
+
+| SUM(Salary) |
+ද පපපපපපපපපපපපළ +
+| 165666 |
+ද පපපපපපපපපපපපළ +
+2. AVG()
+
+The AVG() function calculates the average value
+
+of a numeric column.
+AVG() ශ්‍රිතය සංඛ්‍යාත්මක තීරැවක සාමාන්‍ය අගය
+ගණනය කරයි.
+
+SELECT AVG(Salary)
+FROM employee;
+
+38
+
+3. COUNT()
+
+The COUNT() function counts the number of
+
+rows that match a specified condition.
+COUNT() ශ්‍රිතය නිශ්චින කොන්දේසියකට ගැලපෙන
+පේළි ගණන ගණන්‌ කරයි.
+
+Number of employees with a salary greater
+than 50000
+50000 ට වැඩි වැටුපක්‌ ලැබූ සේවකයන්‌ සංඛ්‍යාව
+
+SELECT COUNT(*)
+FROM Employee
+WHERE Salary > 50000;
+
+අඔබබබබඔධඕධධඤඛක්‍ +
+| COUNT(*) |
+අඔබබබබඔධඕධධඤඛක්‍ +
+| 2 |
+අඔබබබබඔධඕධධඤඛක්‍ +
+1. MAXOQ
+
+Returns the highest value in a column.
+තීරැවක QOCO අගය ලබා දෙයි.
+
+SELECT MAX(Salary)
+FROM Employee;
+
+ද පපාපපපපපපපපපපප +
+| MAX(Salary) |
+ද පපාපපපපපපපපපපප +
+| 69000 |
+ද පපාපපපපපපපපපපප +
+2. MINQ
+
+Returns the lowest value in a column.
+තීරැවක අඩුම අගය ලබා දෙයි.
+
+SELECT MIN(Salary)
+FROM employee;
+
+ද පපාපපපපපපපපපපප +
+| MIN(Salary) |
+ද පපාපපපපපපපපපපප +
+| 50000 |
+ද පපාපපපපපපපපපපප +
+
+Additional functions
+
+අනිරේෙක ශ්‍රිත
+Function Definition Example code
+CONCAT() Joins two or more strings together. SELECT CONCAT(fName,'', 1Name)
+string දෙකක්‌ හෝ කිහිපයක්‌ එකට සම්බන්ධ |! 1011 students;
+කිරිමට.
+UPPER() Converts a string to uppercase. SELECT UPPER(f_name)
+string එකක්‌ uppercase ට sSOGenencs|FROM students;
+කිරිමට.
+LOWER() Converts a string to lowercase. SELECT LOWER(f_name)
+string එකක්‌ lowercase ට esSOGenencs|FROM students;
+කිරිමට.
+SUBSTRING(Q) Extracts a portion of a string. SELECT SUBSTRING(f_name, 1, 3)
+string Dae කොටසක්‌ උපුටා ගැනිමට. FROM employees ;
+LENGTH() Returns the length of a string. SELECT LENGTH(f_name)
+string එකක දිග ආපසු ලබා ගැනිමට. FROM employees;
+Aliases Aliases with Functions
+
+Aliases are temporary names assigned to a
+table or a column to simplify queries, improve
+readability, or make the output more user-
+friendly.
+
+Aliases යනු විමසුම්‌ සරල කිරීමට, කියවීමේ හැකියාව
+වැඩිදියුණු කිරිමට හෝ ප්‍රතිදානය වඩාත්‌ පරිශීලක-
+
+හිතකාමී කිරීමට වගුවකට හෝ තීරැවකට පවරා a7
+තාවකාලික නමි වේ.
+
+Column Aliases
+SELECT first_name AS Name
+FROM employees;
+
+Table Aliases
+
+SELECT e.first_name,d.department_name
+FROM employees AS e
+
+JOIN departments AS d
+
+ON e.department_id = d.department_id;
+
+39
+
+Aliases are commonly used with functions to
+make the output more readable by assigning a
+
+meaningful name to the computed result.
+ගණනය DME GBOEGO අරිථවත්‌ නමක්‌ ලබා දීමෙන්‌
+ප්‍රතිදානය වඩාත්‌ කියවිය හැකි බවට පන්‌ කිරීම සඳහා
+
+ශ්‍රිතයන්‌ සමඟ බහුලව Aliases භාවිතා වේ.
+
+SELECT SUM(salary) AS TotalSalary
+FROM employees;
+
+SELECT COUNT(*) AS EmployeeCount
+FROM employees;
+
+SELECT MAX(salary) AS HighestSalary
+FROM employees;
+
+SELECT department_id, AVG(salary) AS
+
+AvgSalary FROM employees GROUP BY
+department_id;
+
+SQL JOINS
+
+Used to combine rows from two or more tables
+
+based on a related column between them.
+
+වගු දෙකකින්‌ හෝ කිහිපයකින්‌ එම වගු සියල්ලට
+සම්බන්ධ තීරෑවක්‌ භාවිතයෙන්‌ පේළි චකාබද්ධ කිරීමට
+භාවිතා කරයි.
+
+required columns
+
+from both tables
+SELECT ෴~ type
+
+FRoML_A_| |__| |___ <p — tle 2
+table 1
+ON | 1! |-|[ 4 |
+table 1 table 2
+column column
+
+For the explanations of joins, we use the
+following tables.
+
+JOINS පැහැදිලි BOO sem, අපි පහන OQ භාවිතා
+කරමු.
+
+Student
+
+peecees ද පපපපපපපළි ද පපපපපපු +
+| StID | StName | SpID |
+peecees ද පපපපපපපළි ද පපපපපපු +
+| 1 | Akon | 100 |
+| 2 | Bkon | 101 |
+| 3 | Ckon | 102 |
+peecees ද පපපපපපපළි ද පපපපපපු +
+Sport
+
+ද පපපපපපපපප ද පපපපපපපපපපපි +
+
+| SportID | SportName |
+
+ද පපපපපපපපප ද පපපපපපපපපපපි +
+
+| 101 | Chess |
+
+| 102 | Carrom |
+
+| 103 | Football |
+
+ද පපපපපපපපප ද පපපපපපපපපපපි +
+
+40
+
+Types of Joins
+
+INNER JOIN
+Selects records that have matching values in
+
+both tables.
+AQ දෙකෙහිම ගැළපෙන අගයන්‌ ඇති Orden) තෝරා
+ගනී.
+
+INNER JOIN
+
+TABLE 01
+
+TABLE 02
+
+SELECT *
+FROM Student
+INNER JOIN sport
+
+ON Student.SpID = Sport.SportID;
+
+RESULT
+
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+| StID | StName | SpID | SportID | SportName |
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+| 2 | Bkon | 101 | 101 | Chess |
+| 3 | Ckon | 102 | 102 | Carrom |
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+LEFT JOIN
+
+Returns all records from the left table, and the
+
+matching records from the right table.
+HOSA වගුවේ සියලුම වාරිතා සහ දකුණුපස වගුව හා
+ගැලපෙන වාරතා ලබා දෙයි.
+
+LEFT JOIN
+
+7 TABLE 02
+
+SELECT *
+
+FROM Student
+
+LEFT JOIN sport
+ON Student.SpID =
+
+Sport.SportiID;
+
+RESULT
+
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+| StID | StName | SpID | SportID | SportName |
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපඤපු +
+| 1 | Akon | 10@ | NULL | NULL |
+| 2 | Bkon | 101 | 101 | Chess |
+| 3 | Ckon | 102 | 102 | Carrom |
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+NOTE
+
+If there is no matching record found, the result
+will be generated as NULL in right hand side.
+ගැළපෙන වාර්තාවක්‌ හමු නොවූයේ HG, දකුණු පස
+ප්‍රතිඵලය NULL ලෙස ජනනය වේ
+
+RIGHT JOIN
+Returns all records from the right table, and the
+
+matching records from the left table.
+දකුණුපස වගුවේ සියලුම වාරිතා සහ OO වගුව හා
+ගැලපෙන වාරතා ලබා දෙයි.
+
+RIGHT JOIN
+
+TABLE 01 27
+
+FULL OUTER JOIN
+
+A FULL OUTER JOIN combines the results of
+both LEFT JOIN and RIGHT JOIN into a single
+result set.
+
+FULL OUTER JOIN, LEFT JOIN සහ RIGHT JOIN
+යන දෙකෙහිම ප්‍රතිඵල තනි ප්‍රතිඵල කාණ්ඩයක්‌ බවට
+ඒකාබද්ධ කරයි.
+
+FULL OUTER JOIN
+
+SELECT *
+FROM Student
+RIGHT JOIN sport
+
+ON Student.SpID = Sport.SportID;
+
+RESULT
+
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+| StID | StName | SpID | SportID | SportName |
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+| 2 | Bkon | 101 | 101 | Chess |
+| 3 | Ckon | 102 | 102 | Carrom |
+| NULL | NULL | NULL | 103 | Football |
++------ ද පපපපපපපපු $------ ද පපපපපපපපපජු ද පපපපපපපපපපප +
+NOTE
+
+If there is no matching record found, the result
+will be generated as NULL in left hand side.
+ගැළපෙන වාර්තාවක්‌ හමු නොවූයේ HG, වම්‌ පස
+ප්‍රතිඵලය NULL ලෙස ජනනය 6.
+
+It returns all rows when there is a match in
+either left or right table.
+
+වම්පස හෝ දකුණුපස වගුවේ ගැළපීමක්‌ ඇති විට එය
+සියලු පේළි ආපසු ලබා දෙයි.
+
+SELECT *
+
+FROM Student
+
+LEFT JOIN Sport
+
+ON Student.SpID=Sport.SportID
+UNION
+
+SELECT *
+
+FROM Student
+
+RIGHT JOIN Sport
+
+ON Student.SpID=Sport.SportID;
+
+RESULT
+
++------ +-------- +------ +--------- +----------- +
+| StID | StName | SpID | SportID | SportName |
++------ +-------- +------ +--------- +----------- +
+| 1 | Akon | 166 | NULL | NULL |
+| 2 | Bkon | 101 | 101 | Chess |
+| 3 | Ckon | 102 | 102 | Carrom |
+| NULL | NULL | NULL | 103 | Football |
++------ +-------- +------ +--------- +----------- +
+
+41]
+
+Integrity Constraints
+ඒකාබද්ධ සංරෝධක
+
+Rules applied to columns in a table to ensure
+the accuracy and reliability of the data within
+
+the database.
+
+දන්ත සමුදාය තුළ ඇති දන්තවල නිරවද්‍යතාවය සහ
+විශ්වසනීයත්වය සහතික කිරීම සඳහා වගුවක &dz
+සඳහා යොදන රඊීති වේ.
+
+They are used to enforce data integrity and
+
+prevent invalid data entry.
+
+එවා EDD අඛණ්ඩතාව බලාත්මක කිරීමට සහ වලංගු
+නොවන දත්ත apes කිරීමි වැළැක්වීමට භාවිතා
+කරයි.
+
+There are three forms of Integrity constraints.
+එකාබද්ධ සංරෝධක OE ආකාර තුනක්‌ තිබේ.
+
+1. Entity Integrity
+QMO වකාබද්ධතාව
+
+Ensures that every row in a table is uniquely
+
+identifiable.
+වගුවක සෑම පේළියක්ම අනන්‍ය ලෙස හඳුනාගත හැකි
+බව සහතික කරයි.
+
+Prevents tables from having duplicate rows.
+AQ OE අනුපිටපත්‌ © පේළි තිබීම වළක්වයි.
+
+Strictly enforces that the identifying column is
+both UNIQUE (no duplicates) and NOT NULL
+(cannot be empty).
+
+හඳුනාගැනීමේ තීරැව UNIQUE (අනුපිටපත්‌ නැති)
+
+සහ NOT NULL (හිස්‌ විය නොහැක) වන බව දැඩි
+ලෙස බලාත්මක කරයි.
+
+This identifying column is known as the
+PRIMARY KEY.
+
+මෙම හඳුනාගැනීමේ තීරැව ප්‍රාථමික GMO ලෙස
+හැඳින්වේ.
+
+42
+
+2. Referential Integrity
+යොමු වකාබද්ධතාව
+
+Ensures links between tables are valid.
+වගු අතර පවතින සබැඳි වලංගු බව සහනික කරයි.
+
+Validates that every foreign key value entered
+in the child table corresponds to an existing
+record in the parent table.
+
+Child වගුවට ඇතුළත්‌ කරනු ලබන සෑම ආගන්තුක
+
+යනුරැ අගයක්ම parent වගුවේ පවතින පේළියකට
+අනුරෑප වන බව වලංගු කරයි.
+
+If a matching parent record is not found, the
+referencing is rejected to ensure no invalid links
+are created between tables.
+
+ගැලපෙන parent OQ පේළියක්‌ සොයාගත නොහැකි
+වුවහොත්‌, OM අතර වලංගු නොවන සබැඳි නිර්මාණය
+නොවන බව සහතික කිරීම සඳහා යොමු කිරීම
+ප්‍රතික්ෂේප කරනු ලැබේ.
+
+name)
+
+3. Domain Integrity
+වසමී ඒකාබද්ධනාව
+
+Ensures the data inside a specific cell is valid for
+
+that column's definition.
+BGOD කෝෂයක්‌ තුළ ඇති දුත්ත එම තීරැවේ අරිථ
+දැක්වීමට අනුව වලංගු බව සහතික කරයි.
+
+For example, if a column is meant to hold a
+person's age, it shouldn't accept text like
+
+"Twenty" or impossible numbers like "-5".
+උදාහරණයක්‌ ලෙස, Hdza තුළ පුද්ගලයෙකුගේ
+වයස රඳවා ගැනීමට අදහස්‌ කරන්නේ නමි, ඒ නුළ
+"විස්ස'" චැනි පෙළ හෝ "-5" චැනි mada නොවන
+සංඛ්‍යා පැවතිය නොහැක.
+
+Data must strictly follow the defined type,
+
+format, and range.
+
+දුන්ත විසින්‌ පෙර නිර්වචනය කරන ලද දත්ත වර්ගය,
+ආකෘතිය සහ පරාසය දැඩි ලෙස අනුගමනය කළ
+යුතුය.
+
+A list of SQL components that enforce
+Domain Integrity.
+
+OHa® ඒකාබද්ධතාවය බලාත්මක කරන SQL සංරචක
+ලැයිස්නුවක්‌.
+
+Data Types දන්ත වරිග
+NOT NULL command
+CHECK command
+DEFAULT command
+
+FwnNs
+
+SQL Constraints
+SQL සම්බාධක
+
+SQL constraints are rules enforced on data
+columns in a table to ensure data integrity and
+accuracy. These constraints are defined when a
+table is created or modified.
+
+SQL සම්බාධක යනු දන්ත අඛණ්ඩතාව සහ
+නිරවද්‍යතාවය BOSD කිරීම සඳහා වගුවක ඇඟඬති
+දුන්න තීරු මත බලාත්මක කරන ඊරීනි GH. වගුවක්‌
+නිර්මාණය කරන විට හෝ වෙනස්‌ කරන විට GOO
+සීමාවන්‌ අර්ථ දක්වා ඇත.
+
+The main types of SQL constraints are listed
+below.
+ප්‍රධාන SQL සම්බාධක වර්ග පහන දැක්වේ.
+
+NOT NULL
+UNIQUE
+CHECK
+DEFAULT
+PRIMARY KEY
+FOREIGN KEY
+
+Au & WN >
+
+RESULT
+DESCRIBE Employee;
+
+| INT | NO
+| name VARCHAR(15) | NO
+| Address | VARCHAR(2@) | YES
+| Gender VARCHAR(1@) | NO
+|
+
+|
+|
+|
+|
+TelNo | VARCHAR(1@) | NO
++
+
++ ————— +— +
+
+43
+
+NOT NULL
+
+Ensures that a column cannot have a null value.
+තීරැචකට ශුන්‍ය අගයක්‌ තිබිය නොහැකි බව සහනික
+
+කරයි.
+
+1. Applying the NOT NULL constraint
+
+when creating a table
+
+වගුවක්‌ සෑදීමේදි NOT NULL සම්බාධකය යෙදීම
+
+SYNTAX
+table name
+CREATE TABLE (
+| | | | NOT NULL,
+| | | | NOT NULL,
+| 4. | | . | NOT NULL
+)3 |
+column name’ data type
+EXAMPLE
+
+Creating the Employee table below. Mentioning
+
+all fields is mandatory.
+
+පහත Employee වගුව නිරිමාණය කිරීම. සියලුම
+
+ක්ෂේත්‍ර සදහන්‌ කිරීම අනිවාරිය Gd.
+
+Employee (RegNo, name, Address, Gender,
+
+TelNo)
+
+CREATE TABLE Employee (
+RegNo INT NOT NULL,
+name VARCHAR(15) NOT NULL,
+Address VARCHAR(20),
+
+Gender VARCHAR(1@) NOT NULL,
+TelNo VARCHAR(1@) NOT NULL
+
+)3
+
++ ————— + — +
+
+2. Applying the NOT NULL constraint to
+an existing table
+පවතින වගුවකට NOT NULL සම්බාධකය යෙදීම
+
+SYNTAX
+
+table name
+ALTER TABLE ~~
+
+MODIFY COLUMN | | |
+NOT NULL;
+column name
+
+4 4 |
+
+data type
+
+EXAMPLE
+It is mandatory to mention the Address field in
+the Employee table.
+
+Employee වගුවෙහි Address ක්ෂේත්‍රය සදහන්‌ කිරීම
+අනිවාරිය විය යුනුය.
+
+ALTER TABLE Employee
+MODIFY COLUMN Address Varchar(2@) NOT
+NULL;
+
+RESULT (Applying NOT NULL)
+DESCRIBE Employee;
+
++--------- +------------- +------ +----- +
+| Field | Type | Null | Key |
++--------- +------------- +------ +----- +
+| RegNo | INT | ॥00 | |
+| name | VARCHAR(15) | NO | |
+| Address | VARCHAR(2@) | YES | |
+| Gender | VARCHAR(1@) | NO | |
+| TelNo | VARCHAR(1@) | NO | |
++--------- +------------- +------ +----- +
+RESULT (Removing NOT NULL)
+
+DESCRIBE Employee;
+
++--------- +------------- +------ +----- +
+| Field | Type | Null | Key |
++--------- +------------- +------ +----- +
+| RegNo | INT | ॥00 | |
+| name | VARCHAR(15) | NO | |
+| Address | VARCHAR(2@) | NO | |
+| Gender | VARCHAR(1@) | (10 | |
+| TelNo | VARCHAR(1@) | NO | |
++--------- +------------- +------ +----- +
+
+3. Removing the NOT NULL constraint
+NOT 11011. සම්බාධකය ඉවත්‌ කිරීම
+
+Here, the code is written in an equivalent
+manner without the NOT NULL constraint.
+
+මෙහිදි NOT NULL සම්බාධතය නොදමා සාමාන්‍ය
+ආකාරයට කේතය ලියනු ලබයි.
+
+SYNTAX
+
+table name
+ALTER as
+
+MODIFY COLUMN | , | | 4
+
+column name data type
+
+|;
+
+EXAMPLE
+Removing the NOT NULL constraint on the
+Address field in the Employee table.
+
+Employee වගුවේ Address ක්ෂේත්‍රයේ NOT NULL
+සම්බාධකය මත්‌ කිරීම.
+
+ALTER TABLE Employee
+MODIFY COLUMN Address Varchar(2@) ;
+
+ස ෴෴෴ාක්්ෂ +-------+
+Default | Extra |
+ස ෴෴෴ාක්්ෂ +-------+
+NULL | |
+NULL | |
+NULL | |
+NULL | |
+NULL | |
+ස ෴෴෴ාක්්ෂ +-------+
+ස ෴෴෴ාක්්ෂ +-------+
+Default | Extra |
+ස ෴෴෴ාක්්ෂ +-------+
+NULL | |
+NULL | |
+NULL | |
+NULL | |
+NULL | |
+ස ෴෴෴ාක්්ෂ +-------+
+
+44
+
+UNIQUE
+Ensures that all values in a column or a group
+
+of columns are unique.
+තීරැවක හෝ තීරු සමූහයක ඇති සියලුම අගයන්‌
+අනුපිටපත්‌ නොවන බව සහතික කරයි.
+
+1. Applying the UNIQUE constraint
+when creating a table
+වගුවක්‌ සෑදීමේදි UNIQUE සම්බාධකය යෙදීම
+
+SYNTAX 01
+table name
+
+CREATE TABLE (
+
+| | | | UNIQUE,
+
+| | | UNIQUE,
+
+| ॥ | L_4 | 01100:
+);
+
+column name data type
+
+EXAMPLE
+Creating the Employee table below. All fields
+except Gender must be unique.
+
+පහත Employee වගුව නිරීමාණය කිරීම. Gender
+හැර අනෙකුත්‌ සියළුම ක්ෂේත්‍ර අනන්‍ය විය යුතුය.
+
+CREATE TABLE Employee (
+RegNo INT UNIQUE,
+Name VARCHAR(15) UNIQUE,
+Address VARCHAR(2@) UNIQUE,
+Gender VARCHAR(16),
+TelNo VARCHAR(1@) UNIQUE
+
+)3
+
+RESULT
+
+DESCRIBE Employee;
+
++--------- +------------- +------ +----- +
+| Field | Type | Null | Key |
++--------- +------------- +------ +----- +
+| RegNo | INT | ॥00 | |
+| name | VARCHAR(15) | NO | |
+| Address | VARCHAR(2@) | NO | |
+| Gender | VARCHAR(1@) | (10 | |
+| TelNo | VARCHAR(1@) | NO | |
++--------- +------------- +------ +----- +
+
+45
+
+table name
+CREATE TABLE na (
+| | | 9 35% type
+|
+
+CREATE TABLE (
+| | <a 73% type
+|
+
+SYNTAX 02
+
+column name
+
+| | |’
+
+| | | |.
+UNIQUE ([ ;॥),
+
+UNIQUE a
+);
+
+column name
+
+SYNTAX 03
+
+table name
+column name
+
+UNIQUE ( |
+
+|
+
+|
+|» |
+
+column name
+
+4 |));
+
+NOTE
+UNIQUE can contain only 1 NULL value.
+
+UNIQUE 6a NULL අගයන්‌ 1ක්‌ පමණක්‌ පැවනිය
+හැක.
+
++ ————— + — +
+
+2. Applying the UNIQUE constraint to 3. Removing the UNIQUE constraint
+an existing table UNIQUE සම්බාධකය ඉවත්‌ කිරීම
+
+පවතින වගුවකට UNIQUE සම්බාධකය යෙදීම .
+To remove a UNIQUE constraint, you need to
+
+use the ALTER TABLE statement along with the
+
+SYNTAX 01 table name DROP CONSTRAINT clause.
+
+ALTER TABLE නු UNIQUE සම්බාධකය වෙන්‌ කිරීම සඳහා, ඔබ විසින්‌
+ALTER TABLE ප්‍රකාශය සහ DROP CONSTRAINT
+
+ADD CONSTRAINT [<p constraint name වගන්තිය භාවිතා කළ යුතුය.
+
+00205 41: SYNTAX
+table name
+column name
+ALTER TABLE A
+
+EXAMPLE DROP CONSTRAINT ;
+The TelNo field in the Employee table must be
+unique. constraint name
+Employee වගුවේ TelNo ක්ෂේත්‍රය අනන්‍ය විය යුනුය.
+ALTER TABLE Employee EXAMPLE
+ADD CONSTRAINT uq_TelNo Removing the UNIQUE constraint on the 1 ළ 1119
+UNIQUE (Te1No) ; field in the Employee table.
+
+Employee වගුවේ TelNo ක්ෂේත්‍රයේ ඇනි UNIQUE
+SYNTAX 02 සම්බාධකය QO) BOO.
+
+table name
+
+ALTER TABLE A ALTER TABLE Employee
+
+DROP CONSTRAINT ug_TelNo;
+ADD UNIQUE ( );
+
+column name
+RESULT (Applying UNIQUE)
+DESCRIBE Employee;
++--------- +------------- +------ +----- +--------- +------- +
+| Field | Type | Null | Key | Default | Extra |
++--------- +------------- +------ +----- +--------- +------- +
+| RegNo | INT | YES | | NULL | |
+| Name | VARCHAR(15) | YES | | NULL | |
+| Address | VARCHAR(2@) | YES | | NULL | |
+| Gender | VARCHAR(10) | YES” | | NULL | |
+| TelNo | VARCHAR(10) | YES | UNI | NULL | |
++--------- +------------- +------ +----- +--------- +------- +
+RESULT (Removing UNIQUE)
+DESCRIBE Employee;
++--------- +------------- +------ +----- +--------- +------- +
+| Field | Type | Null | Key | Default | Extra |
++--------- +------------- +------ +----- +--------- +------- +
+| RegNo | INT | YES | | NULL | |
+| Name | VARCHAR(15) | YES | | NULL | |
+| Address | VARCHAR(2@) | YES | | NULL | |
+| Gender | VARCHAR(10) | YES | | NULL | |
+| TelNo | VARCHAR(1@) | YES | | NULL | |
++--------- +------------- +------ +----- +--------- +------- +
+46
+
+DEFAULT
+
+Sets a default value for a column if no value is
+
+specified.
+
+අගයක්‌ සඳහන්‌ කර නොමැති නමි තීරැවක්‌ සඳහා
+
+පෙරනිමි අගයක්‌ සකසයි.
+
+This helps ensure that a column always has a
+
+value, even if the user does not provide one.
+
+පරිශීලකයා ලබා නොදුන්නත්‌, තීරැවකට සෑම විටම
+
+අගයක්‌ ඇති බව සහතික කිරීමට මෙය උපකාරී චේ.
+
+1. Applying the DEFAULT constraint
+when creating a table
+වගුවක්‌ සෑදීමේදි DEFAULT සම්බාධකය යෙදීම
+
+SYNTAX
+table name
+CREATE TABLE A (
+| | |?
+| | | | DEFAULT 9
+default value
+| || ॥ |
+)3 |
+column name’ data type
+RESULT
+DESCRIBE Employee;
++--------- +------------- +------ +-----
+| Field | Type | Null | Key
++--------- +------------- +------ +-----
+| RegNo | INT | YES. |
+| Name | VARCHAR(15) | YES |
+| Address | VARCHAR(2@) | YES |
+| Gender | VARCHAR(1@) | YES |
+| TelNo | VARCHAR(1@) | YES |
++--------- +------------- +------ +-----
+
+47
+
+EXAMPLE
+
+Creating the Employee table above. Give
+Nugegoda as the DEFAULT value for the
+Address field.
+
+ඉහත Employee වගුව නිරිමාණය කිරීම. Address
+ක්ෂේත්‍රය සදහා DEFAULT අගය ලෙස Nugegoda
+
+ලබා දෙන්න.
+
+Employee (RegNo, Name, Address, Gender,
+TelNo)
+
+CREATE TABLE Employee (
+RegNo INT,
+Name VARCHAR(15),
+Address VARCHAR(20)
+DEFAULT "Nugegoda",
+Gender VARCHAR(1@),
+TelNo VARCHAR(1@)
+
+)3
+
++ —————+—+F+
+
+2. Applying the DEFAULT constraint to 3. Removing the DEFAULT constraint
+an existing table DEFAULT සම්බාධකය චෙන්‌ කිරීම
+
+පවතින වගුවකට DEFAULT සම්බාධකය යෙදීම
+To remove a DEFAULT constraint from a column,
+
+SYNTAX use the ALTER TABLE statement along with the
+table name DROP DEFAULT clause.
+A 0672088 DEFAULT සම්බාධකය වෙන්‌ කිරීමට,
+ALTER TABLE
+
+DROP DEFAULT වගන්තිය සමඟ ALTER TABLE
+
+ALTER [ *ඉ| COLUIN NAME ප්‍රකාශය භාවිතා කරයි.
+
+SET DEFAULT 5
+
+SYNTAX
+default value table name
+ALTER TABLE oa
+EXAMPLE
+Set Nugegoda as the DEFAULT value for the ALTER[ *| 00%)
+Address field in the Employee table. DROP DEFAULT;
+Employee වගුවේ Address ක්ෂේත්‍රය සදහා
+DEFAULT අගය ලෙස Nugegoda ලබා දෙන්න.
+EXAMPLE
+ALTER TABLE Employee Removing the DEFAULT constraint on the
+ALTER Address Address field in the Employee table.
+SET DEFAULT "“Nugegoda" ; Employee වගුවේ Address ක්ෂේත්‍රයේ ඇත්‌
+
+DEFAULT සම්බාධකය වෙත්‌ කිරීම.
+
+ALTER TABLE Employee
+
+ALTER Address DROP DEFAULT;
+RESULT (Applying DEFAULT)
+DESCRIBE Employee;
+
++--------- +------------- +------ +----- +---------- +------- +
+
+| Field | Type | Null | Key | Default | Extra |
+
++--------- +------------- +------ +----- +---------- +------- +
+
+| RegNo | INT | YES | | NULL | |
+
+| Name | VARCHAR(15) | YES | | NULL | |
+
+| Address | VARCHAR(2@) | YES | | Nugegoda | |
+
+| Gender | VARCHAR(10) | YES | | NULL | |
+
+| TelNo | VARCHAR(1@) | YES | | NULL | |
+
++--------- +------------- +------ +----- +---------- +------- +
+
+RESULT (Removing DEFAULT)
+
+DESCRIBE Employee;
+
++--------- +------------- +------ +----- +--------- +------- +
+
+| Field | Type | Null | Key | Default | Extra |
+
++--------- +------------- +------ +----- +--------- +------- +
+
+| RegNo | INT | YES. | | NULL | |
+
+| Name | VARCHAR(15) | YES | | NULL | |
+
+| Address | VARCHAR(20) | YES | | NULL | |
+
+| Gender | VARCHAR(1@) | YES | | NULL | |
+
+| TelNo | VARCHAR(1@) | YES | | NULL | |
+
++--------- +------------- +------ +----- +--------- +------- +
+48
+
+CHECK
+
+Ensures that the values in a column satisfy a
+
+specific condition.
+තීරාවක ඇති අගයන්‌ BGdD කොන්දේසියක්‌
+තෘප්තිමත්‌ කරන බව සහතික කරයි.
+
+Helping to enforce domain integrity by
+restricting the type of data that can be inserted
+
+into a table.
+AQHWO ඇතුළු කළ හැකි දුන්ත වර්ගය BO) කිරීමෙන්‌
+වසම්‌ අඛණ්ඩතාව බලාත්මක කිරීමට උපකාරී වේ.
+
+1. Applying the CHECK constraint when
+creating a table
+වගුවක්‌ සෑඳදීමේදි CHECK සම්බාධකය යෙදීම
+
+column name table name
+
+CREATE TABLE (
+| | *₹| , ata type
+|
+
+| | |
+
+CHECK ( )
+);
+
+condition
+
+EXAMPLE
+
+Creating the Employee table above. Age should
+be checked as 18 years or more.
+
+ඉහත Employee වගුව නිරිමාණය කිරීම. වයස
+අවුරැදු 18 ට සමානයි හෝ වැඩිද යන්න පරීක්ෂා කල
+යුතුය.
+
+CREATE TABLE Employee (
+RegNo INT,
+Name VARCHAR(15),
+Address VARCHAR(26),
+Age INT,
+Gender VARCHAR(1@),
+TelNo VARCHAR(1@),
+CHECK (Age>=18)
+
+)3
+
+2. Applying the CHECK constraint to an
+existing table
+පවතින වගුවකට CHECK sO2QOaa යෙදීම
+
+table name
+ALTER TABLE a
+ADD CHECK ( +)
+
+condition
+
+EXAMPLE
+
+Check whether the age of the members of the
+Employee table is equal to or greater than 18
+years.
+
+Employee වගුවේ සාමාපිකයින්ගේ වයස අවුරුදු 18
+ට සමානයි හෝ වැඩිද යන්න පරීක්ෂා කල යුනුය.
+
+ALTER TABLE Employee
+ADD CHECK (Age>=18);
+
+3. Creating a CHECK constraint with a
+name
+නමක්‌ සහිතව CHECK සම්බාධකය නිර්මාණය කිරීම
+
+column name table name
+
+CREATE TABLE (
+| | a 35% type
+|
+
+49
+
+| | | >
+
+CONSTRAINT | | >|
+
+CHECK
+
+( (OR/AND) )
+)3 column name
+
+condition condition
+
+EXAMPLE
+Creating the Employee table above. Age above
+18 years or address Nugegoda should be
+checked.
+ඉහත Employee වගුව නිරීමාණය කිරීම. වයස
+
+අවුරැදු 18 ට වැඩි හෝ ලිපිනය නුගේගොඩද යන්න
+පරීක්ෂා කල යුනුය.
+
+Employee (RegNo, Name, Address, Age,
+Gender, TelNo)
+
+CREATE TABLE Employee (
+RegNo INT,
+Name VARCHAR(15),
+Address VARCHAR(2@),
+Age INT,
+Gender VARCHAR(16),
+TelNo VARCHAR (1@)
+CONSTRAINT Age, Address CHECK
+(Age> 18 OR Address ="Nugegoda" )
+
+);
+
+50
+
+4. Removing the CHECK constraint
+CHECK සම්බාධකය ඉවත්‌ කිරීම
+
+To remove a named CHECK constraint, you use
+the ALTER TABLE statement along with the
+DROP CONSTRAINT clause.
+නම්‌ කරන ලද CHECK සම්බාධකය වෙන්‌ කිරීමට, ඔබ
+DROP CONSTRAINT වගන්තිය සමඟ ALTER
+TABLE ප්‍රකාශය භාවිතා කරයි.
+
+table name
+ALTER TABLE A
+
+DROP CHECK ;
+
+constraint name
+
+EXAMPLE
+Removing the CHECK constraint on the Age
+field in the Employee table.
+
+Employee වගුවේ Age ක්ෂේත්‍රයේ ඇති CHECK
+සම්බාධකය මවත්‌ කිරීම.
+
+ALTER TABLE Employee
+DROP CHECK CHK_EmployeeAge;
+
+PRIMARY KEY
+
+A primary key is a field (or combination of
+fields) in a database table that uniquely
+
+identifies each record in that table.
+
+ප්‍රාථමික යතුරක්‌ යනු දත්ත BOE) වගුවක ඇති ක්ෂේත්‍ර
+(හෝ ක්‌ෂේත්‍ර එකතුවක්‌) එම වගුවේ ඇති සෑම
+චාරිතාවක්ම අනන්‍ය ලෙස හඳුනා ගනී.
+
+The primary key must contain unique values
+
+and cannot contain NULL values.
+ප්‍රාථමික යනුරෙහි අනන්‍ය අගයන්‌ අඩංගු විය යුතු අතර
+NULL අගයන්‌ අඩංගු විය නොහැක.
+
+Its main purpose is to ensure that each record
+in the table can be uniquely identified and
+
+accessed.
+
+එහි ප්‍රධාන අරමුණ වන්නේ වගුවේ ඇති සෑම
+වාරිතාචක්ම අනන්‍ය ලෙස හඳුනාගෙන ප්‍රවේශ විය
+හැකි බව සහතික කිරීමයි.
+
+1. Applying the PRIMARY KEY
+constraint when creating a table
+වගුවක්‌ සෑදීමේදි PRIMARY KEY සම්බාධකය යෙදීම
+
+SYNTAX 01
+
+table name
+CREATE TABLE A (
+
+| | | | PRIMARY KEY,
+
+)3 |
+
+column (1316 data type
+RESULT
+DESCRIBE Employee;
++--------- +------------- +------ +----- +
+| Field | Type | Null | Key |
++--------- +------------- +------ +----- +
+| RegNo | INT | NO | PRI |
+| Name | VARCHAR(15) | YES | |
+| Address | VARCHAR(2@) | YES | |
+| Gender | VARCHAR(1@) | YES | |
+| TelNo | VARCHAR(1@) | YES | |
++--------- +------------- +------ +----- +
+
+SYNTAX 02
+
+column name
+
+(em na
+| |
+|
+
+table name
+
+(
+
+<7 5%8 type
+J
+
+| »
+
+PRIMARY KEY ( — )
+);
+
+SYNTAX 03
+
+column name
+
+(vere nee
+| |
+|
+
+column name
+
+table name
+
+(
+
+1 73% type
+J
+
+| »
+
+CONSTRAINT | 5“59~~ 00510 name
+
+PRIMARY KEY ( + )
+);
+
+column name
+
+EXAMPLE (SYNTAX 01)
+
+CREATE TABLE Employee (
+RegNo INT PRIMARY KEY,
+Name VARCHAR(15),
+Address VARCHAR (20),
+Gender VARCHAR ( 19) ,
+TelNo VARCHAR (10)
+
+)3
+
+51
+
++ —————+— +
+
+2. Applying the PRIMARY KEY 3. Removing the PRIMARY KEY
+
+constraint to an existing table constraint
+
+පවතින වගුවකට PRIMARY KEY සමීබාධකය යෙදීම PRIMARY KEY සම්බාධකය ඉවත්‌ කිරීම
+
+SYNTAX 01 To remove a primary key constraint, use the
+
+table name ALTER TABLE statement along with the DROP
+A PRIMARY KEY clause.
+
+ALTER TABLE ප්‍රාථමික යනුරු සම්බාධකය වෙන්‌ කිරීමට DROP
+
+ADD PRIMARY KEY — )3 PRIMARY KEY වගන්තිය සමඟ ALTER TABLE
+ප්‍රකාශය භාවිතා කරයි.
+
+column name
+
+SYNTAX 01 table name
+
+EXAMPLE
+
+ALTER TABLE Employee ALTER TABLE නු
+
+ADD PRIMARY KEY (RegNo); DROP PRIMARY KEY:
+3
+
+SYNTAX 02 EXAMPLE
+
+table name ALTER TABLE Employee
+ALTER TABLE නු DROP PRIMARY KEY;
+ADD CONSTRAINT [<p constraint name SYNTAX 02
+
+table name
+PRIMARY KEY ( ); a
+ALTER TABLE
+
+column name
+
+DROP CONSTRAINT ;
+constraint name
+RESULT (Applying PRIMARY KEY)
+DESCRIBE Employee;
++--------- +------------- +------ +----- +--------- +------- +
+| Field | Type | Null | Key | Default | Extra |
++--------- +------------- +------ +----- +--------- +------- +
+| RegNo | INT | NO | PRI | NULL | |
+| Name | VARCHAR(15) | YES | | NULL | |
+| Address | VARCHAR(2@) | YES | | NULL | |
+| Gender | VARCHAR(10) | YES” | | NULL | |
+| TelNo | VARCHAR(1@) | YES | | NULL | |
++--------- +------------- +------ +----- +--------- +------- +
+RESULT (Removing PRIMARY KEY)
+DESCRIBE Employee;
++--------- +------------- +------ +----- +--------- +------- +
+| Field | Type | Null | Key | Default | Extra |
++--------- +------------- +------ +----- +--------- +------- +
+| RegNo | INT | ॥00 | | NULL | |
+| Name | VARCHAR(15) | YES | | NULL | |
+| Address | VARCHAR(2@) | YES | | NULL | |
+| Gender | VARCHAR(1@) | YES | | NULL | |
+| TelNo |॥ VARCHAR(10) | YES | | NULL | |
++--------- +------------- +------ +----- +--------- +------- +
+52
+
+Composite Primary Key EXAMPLE
+
+සංයුක්ත ප්‍රාථමික යතුර Creating the Employee table below. RegNo and
+Name are Composite Primary Key here.
+
+පහත Employee වගුව නිරිමාණය කිරීම. RegNo හා
+Name මෙහි සංයුක්ත ප්‍රාථම්ක යතුර චේ.
+
+A composite primary key consists of two or
+more columns in a table, used when a single
+column cannot uniquely identify records.
+සංයුක්ත ප්‍රාථමික යතුරක්‌ වගුවක dz දෙකකින්‌ හෝ
+වැඩි ගණනකින්‌ සමන්විත වන අතර, තනි තීරැවකට
+වාරිතා අනන්‍ය ලෙස හඳුනාගත නොහැකි විට භාවිතා
+ව්‌.
+
+Employee (RegNo, Name, Address, Gender,
+TelNo)
+
+CREATE TABLE Employee (
+
+Creating a composite primary key. RegNo INT,
+
+Ben සතරක්‌ නිර්මාණ Name VARCHAR(15),
+සංයුක්ත ප්‍ර. යතු කිරම Address VARCHAR(2@),
+
+Gender VARCHAR(16),
+
+column name table name TelNo VARCHAR(1@),
+CREATE TABLE ( PRIMARY KEY(RegNo, Name)
+| | 51, et type 3
+| | | |?
+| | | |
+PRIMARY KEY ( | I, | |)
+)3
+
+column name
+
+RESULT
+
+DESCRIBE Employee;
+
++--------- +------------- +------ +----- +--------- +------- +
+| Field | Type | Null | Key | Default | Extra |
++--------- +------------- +------ +----- +--------- +------- +
+| RegNo | INT | NO. | PRI | NULL | |
+| Name | VARCHAR(15) | NO | PRI | NULL | |
+| Address | VARCHAR(2@) | YES | | NULL | |
+| Gender | VARCHAR(1@) | YES | | NULL | |
+| TelNo | VARCHAR(1@) | YES | | NULL | |
++--------- +------------- +------ +----- +--------- +------- +
+
+53
+
+FOREIGN KEY
+ආගන්තුක යනුර
+
+A foreign key is a field (or collection of fields) in
+one table that uniquely identifies a row in
+
+another table.
+ආගන්තුක යතුරක්‌ යනු එක්‌ වගුවක ඇති ක්ෂේත්‍රයක්‌
+(හෝ ක්ෂේත්‍ර එකතුවක්‌) තවත්‌ වගුවක පේළියක්‌
+
+EXAMPLE
+
+Creating the Employee table above. The
+DepCode field is the FOREIGN KEY. It should be
+related to the DepCode field in the Department
+table.
+
+ඉහත Employee වගුව නිරිමාණය කිරීම. DepCode
+ක්‌ෂේත්‍රය ආගන්තුක යනුර වේ. එය Department
+
+අනන්‍ය ලෙස හඳුනා ගනී. වගුවේ DepCode ක්ෂේත්‍රය හා සම්බන්ධ විය යුනුය.
+
+It ensures that the value in the foreign key
+column(s) matches a valid, existing value in the
+referenced table's primary key.
+
+විදේශීය යතුරැ තීරැවෙහි (ය) අගය යොමු කළ වගුවේ
+
+ප්‍රාථමික යතුරෙහි වලංගු, පවතින අගයකට ගැළපෙන
+බව චය සහනික කරයි.
+
+CREATE TABLE Employee (
+
+RegNo INT,
+
+Name VARCHAR(15),
+
+Address VARCHAR(2@),
+
+Gender VARCHAR(18®),
+
+TelNo VARCHAR(10),
+
+DepCode VARCHAR(5),
+
+FOREIGN KEY(DepCode) REFERENCES
+1. Applying the FOREIGN KEY Department (DepCode)
+constraint when creating a table );
+
+වගුවක්‌ සෑදීමේදි FOREIGN KEY සම්බාධකය යෙදීම
+
+column name table name
+CREATE TABLE නු (
+| | J arta type
+| | | |
+
+| column name
+
+FOREIGN KEY ( )
+
+REFERENCES | a | (| , |)
+)3
+
+primary table column name
+RESULT
+DESCRIBE Employee;
++--------- +------------- +------ +----- +--------- +------- +
+| Field | Type | Null | Key | Default | Extra |
++--------- +------------- +------ +----- +--------- +------- +
+| RegNo | INT | ॥00 | PRI | NULL | |
+| Name | VARCHAR(15) | YES | | NULL | |
+| Address | VARCHAR(2@) | YES | | NULL | |
+| Gender | VARCHAR(1@) | YES | | NULL | |
+| TelNo | VARCHAR(1@) | YES | | NULL | |
+| DepCode | VARCHAR(5) | YES | MUL | NULL | |
++--------- +------------- +------ +----- +--------- +------- +
+54
+
+Applying the FOREIGN KEY
+constraint to an existing table
+පචතින වගුවකට FOREIGN KEY s®QOna යෙදීම
+
+ADD FOREIGN KEY (
+
+4 | (| ,
+
+REFERENCES |
+
+);
+
+table name
+
+ALTER TABLE A
+
+column name
+
+)
+
+| )
+
+primary table column name
+
+ALTER TABLE Employee
+ADD FOREIGN KEY (DepCode)
+REFERENCES Department (DepCode) ) ;
+
+RESULT (Applying FOREIGN KEY)
+DESCRIBE Employee;
+
+Address
+Gender
+TelNo
+
+INT
+VARCHAR(15)
+VARCHAR(2@)
+VARCHAR(1@)
+VARCHAR(1@)
+VARCHAR(5)
+
++ —————— + — +
+
+RESULT (Removing FOREIGN KEY)
+DESCRIBE Employee;
+
+Gender
+TelNo
+DepCode
+
+INT
+VARCHAR(15)
+VARCHAR(2@)
+VARCHAR(1@)
+VARCHAR(1@)
+VARCHAR(5)
+
++ ——————+—F+
+
++ —————— +— +
+
++ ——————+—F+
+
++ —————— + — +
+
++ ——————+—F+
+
+55
+
+Removing the FOREIGN KEY
+constraint
+FOREIGN KEY සමී්බාධකය ඉවන්‌ කිරීම
+
+table name
+ALTER TABLE A
+DROP FOREIGN KEY —
+
+column name
+
+EXAMPLE
+
+Remove the existing FOREIGN KEY of the
+
+Employee table, DepCode.
+
+Employee වගුවේ දැනට 828 ආගන්තුක යතුර වන
+
+DepCode ඉවත්‌ කරන්න.
+
+ALTER TABLE Employee
+DROP FOREIGN KEY DepCode;
+
++ —————— + — +
+
++ —————— + — +

@@ -1,0 +1,3370 @@
+ictfromabc.com
+
+
+
+           1. (a) Explain the necessity of program translators in computer programming.
+                  mß.Kl l%uf,aLfha§ l%uf,aL mßj¾;lj, (Translators) wjYH;dj meyeÈ,s lrkak.
+
+             (b) Give two main features for each of the First-Generation and Second-Generation
+                 programming languages.
+                 m<uqjk mrïmrdfõ (First-Generation) iy fojk mrïmrdfõ (Second-Generation) l%uf,aL
+                 NdId tl tlla i|yd m%Odk ,laIK folla ne.ska olajkak.
+
+             (c) Give three main flow control structures used in a structured programming language. Show
+                 how these flow control structures can be represented in a flow chart.
+                 jHQy.; l%uf,aL NdIdjl Ndú; jk m%Odk .e,Sï md,l jHqy (Flow control structures) ;=kla
+                 olajkak' fuu .e,Sï md,l jHqy" .e,Sï igykl ksrEmKh lrkq ,nkafka flfiaoehs olajkak.
+
+             (d) The following Python program is intended to convert user given positive integers to their
+                 equivalent binary representations. The program should halt when the user inputs the value
+                 0. The program has both syntactic and logical errors. The line numbers are not part of the
+                 program, but they are used to reference the lines.
+                 my; oelafjk mhs;ka l%uf,aLh (Python program) mßYS,l úiska fokq ,nk Ok ksÅ," tajdg
+                 ;=,H oaúuh ksfhdackj,g yerùu i|yd ks¾udKh lr we;' mßYS,l úiska 0 w.h we;=¿l<
+                 úg l%uf,aLh kej;sh hq;=h' l%uf,aLfhys jd.aÍ;s fodaI (Syntax errors) iy ;d¾lsl fodaI
+                 (Logical errors) hk fodaIj¾. folu we;' fma<s wxl" l%uf,aLfhys fldgila fkdjk wkr tajd
+                 wod< fma<s fhduqj olajhs.
+
+                            1 x = int (input ("Enter an integer →)
+                            2 while x!=0:
+                            3 bn = ""
+                            4   while x > 1:
+                            5      quotient = int(x/2)
+                            6      remainder == x % 2
+                            7      bn = bn + str(remainder);
+                            8         x = quotient
+                            9      bn = str(x) + bn
+                            10  print ("Binary Number", bn)
+                            11  x = int (input("Enter an integer →)
+
+
+                 (i) State the lines with syntactic errors and state the error.
+                     jd.aÍ;s fodaI iys; fma<s kï lr" ta tl tflys fodaI o olajkak.
+
+                 (ii) Which lines of the program should be changed and state how they should be changed
+                     to obtain the desired results. (You are not allowed to add new lines or to delete
+                     existing lines.)
+                     wfmalaIs; m%;sM,h ,nd.ekSu i|yd" l%uf,aLfhys fjkia l< hq;= fma<s iy tajd fjkia
+                     l< hq;af;a flfiaoehs olajkak' (l%uf,aLhg w¨;ska fma<s tl;=lsÍug fyda tys fma<s bj;a
+                     lsÍug fyda Tng wjir ke;')
+
+                                                                                      ( 2011 – Essay [5] )
+ictfromabc.com
+
+
+
+         2. (a) (i)Describe how you would determine whether a given positive integer is odd or even.
+                   Tn" § we;s Ok ksÅ,hla" T;af;a o brÜg o hkak ;SrKh lrkafka flfiaoehs úia;r lrkak'
+
+              (ii) Develop a flowchart to represent an algorithm, based on the method suggested in (i)
+                   above, to decide whether a given positive integer is odd or even.
+                   by; (i) fldgfiys fhdað; l%uh mdol lr" § we;s Ok ksÅ,hla" T;af;a o brÜg o hkak
+                   ;SrKh lsÍu i|yd jk we,af.dß;uhla ksrEmKh jk .e,Sï igykla f.dvk.kak'
+
+             (iii) Convert the flowchart you have obtained for the above (ii) into a pseudo code.
+                   by; (ii) fldgfiys fhdað; .e,Sï igyk jHdc fla;hlg (pseudo code) yrjkak'
+
+                                                                                   ( 2012 – S.Essay 3[a] )
+         •   Consider the following Python program named example.py.
+             my; oelafjk example.py mhs;ka l%uf,aLh i,ld n,kak.
+
+             datasummary = {}
+             datakeys = []
+             def readdata():
+                global datakeys, datasummary
+                f1 = open('input.txt','r')
+                line = f1.readline()
+                while (line):
+                    data = line.strip().split(",")
+                    for dataitem in data:
+                      if dataitem in datasummary:
+                         datasummary [dataitem] += 1
+                       else:
+                           datasummary[dataitem] = 1
+                           datakeys = datakeys + [dataitem]
+                    line = f1.readline()
+                f1.close()
+
+             def processdata():
+                global datakeys
+                for i in range(len(datakeys) - 1):
+                   for j in range(i+1, len(datakeys)):
+                       if(datakeys[i] > datakeys[j]):
+                         datakeys[i], datakeys[j] = datakeys[j], datakeys [i]
+
+             def printdata():
+                global datakeys, datasummary
+                f2 = open('output.txt', 'w')
+                for key in datakeys:
+                   f2.write('{}-{}\n'.format(key,datasummary[key]))
+                f2.close()
+
+             readdata()
+             processdata()
+             printdata()
+ictfromabc.com
+
+
+
+            (a) What are the data types of the variables datasummary and datakeys in the above program?
+                by; l%uf,aLfhys datasummary iy datakeys hk új,Hj, o;a; m%rEm fudkjd o?
+
+            (b) Write a Python statement required to insert the program name as a comment at the
+                beginning of the above program.
+                by; l%uf,aLh wdrïNfhys" tys ku" igykla (comment) f,i we;=¿lsÍu i|yd mhs;ka
+                m%ldYhla ,shkak.
+
+            (c) What is the result of execution of the command open('input.txt','r') in the above
+                program?
+                by; l%uf,aLfhys open('input.txt','r') hk úOdkh l%shd;aul lsÍfuka we;sjk m%;sM,h
+                l=ula o?
+
+            (d) Describe the main task of each of the functions readdata(), printdata() and
+                processdata() in the above program.
+                by; l%uf,aLfhys readdata(), printdata() iy processdata() hk tla tla ld¾hfhys
+                (each of the functions) m%Odk ld¾hh úia;r lrkak.
+
+            (e) If the content of the file input.txt is as given below, what would be the content of the file
+                output.txt after the execution of this program?
+                f.dkqfjys wka;¾.;h my; § we;s mßÈ fõ kï" fuu l%uf,aLh l%shd;aul ùfuka miq
+                output.txt f.dkqfjys wka;¾.;h l=ula fõ o?
+                 a,d,b,a,n
+                 d,b,n,x,a
+
+                                                                                          ( 2012 – Essay 5 )
+
+           3. (a) Explain what is done by the Python interpreter when executing the following program.
+                  Your explanation should include the types assigned to variables and type conversions.
+                  my; i|yka l%uf,aLkh l%shd;aul jk úg mhs;ka w¾: úkHdilh (interpreter) u.ska lrkq
+                  ,nk ld¾hh meyeÈ,s lrkak' úp,H (variables) i|yd mjrkq ,enQ m%rEm (types) yd m%rEm
+                  mßj¾;khka Tfí meyeÈ,s lsÍu ;=< wvx.= úh hq;=h'
+                 a = 4
+                 b = 4.7
+                 c = a + b
+
+            (b) Explain what will happen when the statements of following Python program are executed.
+                my; i|yka l%uf,aLkfha we;s j.ka;s l%shd;aul lsÍfï § l=ula isÿfõ oehs úia;r lrkak'
+                 total = 0.0
+                 x = float(input("Enter a number:"))
+                 while x > 0:
+                    total = total + x
+                    x = float(input("Enter a number:"))
+                 print(total)
+ictfromabc.com
+
+
+
+            (c) You are requested to write a Python program to find and display the maximum value of
+                given 10 integers. The program should read integers one at a time.
+                fok ,o ksÅ, (integers) ixLHd oyhl Wmßu w.h fidhd th m%o¾Ykh lsÍu i|yd mhs;ka
+                l%uf,aLkhla ,sùug Tfnka b,a,Sula lrkq ,efí' l%uf,aLkh u.ska jrlg tl ne.ska
+                ksÅ,hka lshúh hq;= fõ'
+
+                 (i) Propose an algorithm to solve the problem using a flow chart.
+                     by; .eg¿j úi£u i|yd we,af.dß;uhla .e,Sï igyka Ndú; lrñka fhdackd lrkak'
+
+                 (ii) Write a Python program to implement your flow chart proposed in section c (i).
+                      by; c (i) u.ska fhdackd lrkq ,enQ Tnf.a .e,Sï igyk ia:dms; lsÍu i|yd mhs;ka
+                      l%uf,aLkhla ,shkak.
+                                                                                       ( 2013 – Essay 4 )
+
+           4. (a) Explain what is done by the Python interpreter when executing the following statements.
+                  You should state the types of the variables involved.
+                  mhs;ka w¾:úkHdilhla (interpreter) u.ska my; j.ka;s l%shd;aul lrjk úg (execute)
+                  isÿjkafka l=ulaoehs meyeÈ,s lrkak' fï i|yd iïnkaO jk úp,Hkays m%rEm (variable types)
+                  oelaúh hq;= fõ'
+
+                   (i) x = input("Enter a number")
+                  (ii) infile = open("myfile.txt","r")
+                 (iii) a = "a,b,c".split(",")
+
+            (b) Factorial of a positive integer n is defined as n x (n-1) x (n-2) x ....... x 3 x 2 x 1.
+                n kï Ok ksì,hl l%udfrdams;h (factorial) w¾: olajkq ,nkafka n x (n-1) x (n-2) x ........ x 3 x
+                2 x 1 f,i h'
+
+                 (i) Propose an algorithm by using a flowchart to print the factorial of a given
+                     positive_integer n.
+                     § we;s n kï Ok ksì,hl l%udfrdams;h uqøKh lsÍu i|yd iqÿiq we,af.dß;uhla .e,Sï
+                     igykla weiqfrka fhdackd lrkak.
+
+                 (ii) Write a Python function to implement your flowchart.
+                      Tfí .e,Sï igyk ia:dmkh lsÍu i|yd mhs;ka Y%s;hla (function) ,shd olajkak.
+
+                                                                                          ( 2014 – Essay 4 )
+ictfromabc.com
+
+
+
+           5. (a) Explain why compilers or interpreters are needed when using high level programming
+                  languages.
+                  by< uÜgfï l%uf,aLk NdId Ndú;fha § iïmdolhka (interpreters) fyda w¾:úkHdilhka
+                  (compilers) wjYH jkafka wehs oehs meyeÈ,s lrkak'
+
+            (b) Your teacher has requested you to write a Python program to record the marks obtained
+                by students at the term test. Each student has sat for the same three papers and each
+                mark was given as an integer value out of 100 marks. Each student is identified by a unique
+                index member which is also an integer. You should record the marks of student in a text
+                file named ‘marks.txt’ in the following format.
+                jdr úNd.hl § <uqka ,nd.kakd ,o ,l=Kq jd¾;d lsÍu i|yd mhs;ka l%uf,aLhla ,shk f,i
+                Tnf.a .=re;=ud úiska Tnf.ka b,a,Sula lr ;sfí' iEu isiqfjla u tlu m%Yk    a m;% ;=klg fmkS
+                isg we;s w;r iEu ,l=Klau § we;af;a 100 ka jk w;r th ksì, w.hla (integer value) fõ'
+                iEu isiqjl=u wkkHh iqÑ wxlhla (index number) u.ska y÷kd .kakd w;r iqÉ wxlh o
+                ksì,hla fõ'
+                Tn úiska my; fmkajd § we;s wdldrhg isiqkf    a .a ,l=Kq ‘marks.txt’ kue;s mdG f.dkqfõ (text
+                file) jd¾;d l< hq;= fõ'
+
+                 Index_no_1,mark_11,mark_12,mark_13
+                 Index_no_2,mark_21,mark_22,mark_23
+                 ..........................................................................
+
+                 Where fuys
+
+                 Index_no_X               : Index number of the Xth student; X = 1, .................., n
+                 Index_no_X               : X jeks isiqjdf.a iqÑ wxlh X = 1, ..........., n
+
+                 mark_XY                  : Marks obtained by the Xth student for the Yth paper: Y = 1,2,3
+                 mark_XY                  : X jeks isiqjd Y m%Yk
+                                                               a m;%hg .;a ,l=Kq ixLHdj Y = 1, 2, 3
+
+                 Index numbers and marks of the students should be entered through the keyboard, one
+                 item at a time and the program should be terminated when –1 is entered as the index
+                 number.
+                 jrlg tl whs;uh ne.ska h;=re mqjrej ;=<ska isiqkaf.a iqÑ wxl iy ,l=Kq we;=<;a l< hq;=
+                 fõ' iqÉ wxlh –1 f,i we;=<;a l< úg l%uf,aLh kej;sh hq;= fõ'
+
+                 (i) Propose an algorithm by using a flowchart for the program.
+                     .e,Sï igykla Ndú;fhka fuu l%uf,aLh i|yd we,af.dß;uhla fhdackd lrkak'
+
+                 (ii) Write a Python program to implement your flowchart.
+                      Tnf.a .e,Sï igyk l%shd;aul lsÍu i|yd mhs;ka l%uf,aLhla ,shkak'
+
+
+                                                                                                            ( 2015 – Essay 4 )
+ictfromabc.com
+
+
+
+           6. (a) Consider the following Python program:
+                  my; oelafjk mhs;ka l%uf,aLh i,lkak(
+                  #Print the sum of integers from 1 to 5 (including 1 and 5)
+                  total = 0
+                  i = 1
+                  while (i <= 5):
+                            total = total + i
+                  i = i + 1
+                  print (total)
+
+              (i) What would be the output of the above program when executed? Justify your answer.
+                  by; l%uf,aLh l%shd;aul lsÍfuka ,efnk m%;sodkh l=ula úh yels o? Tnf.a ms<s;=r
+                  i;Hdmkh lrkak'
+
+              (ii) Modify and rewrite the above program, without increasing the number of statements, to
+                  compute the sum of integers from 1 to 10 (including 1 and 10).
+                  by; l%uf,aLfha we;s m%ldYk ixLHdj jeä fkdlrñka 1 isg 10 olajd (1 iy 10 we;=¨j) we;s
+                  ksÅ,j, (integers) tl;=j .Kkh lsÍug yels jk mßÈ tu l%uf,aLh fjkia fldg ,shd
+                  olajkak'
+                                                                                 ( 2016 – S.Essay [4(a)] )
+
+         7. (a)   A canteen of a school sells 10 different types of foods. These food types are placed in a
+                  shelf. Students can select foods while walking alongside the shelf and keep them on a tray.
+                  These trays are available at the entrance of the canteen. A student, after selecting the food,
+                  should proceed to the cashier with the food tray for the payment.
+                  mdi,l wdmkYd,djla úúO wdydr j¾. 10la wf,ú lrhs' fuu wdydr j¾. rdlalhl wiqrd
+                  we;' isiqkag rdlalh wi,ska weúÈk .uka wdydr j¾. f;dardf.k nkafoaishl ;nd .; yels
+                  h' fuu nkafoais wdmkYd,djg we;=¨jk ia:dkfha ;nd we;' wdydr f;dard .ekSfuka miq isiqjl=
+                  uqo,a f.ùu i|yd wdydr nkafoaisho /f.k uqo,a whleñ fj; <Õd úh hq;= h.
+
+                  You are asked to develop a computer program to calculate the payment due for a food
+                  tray. For this purpose, each food type is given a unique integer from 1 to 10.
+                  tla wdydr nkafoaishlg f.úh hq;= uqo, .Kkh lsÍu i|yd mß.Kl l%uf,aLhla ilia lsÍug
+                  Tng Ndr fldg we;' fï wruqK i|yd iEu wdydr j¾.hlgu 1 isg 10 olajd jQ wkkH
+                  ksÅ,hla ,nd § we;.
+
+                  The integer value assigned for each food type and its unit price is shown in the following
+                  table.
+                  my; oelafjk j.=fjys tla tla wdydr j¾.hla i|yd ,nd § we;s wkkH ksÅ,h iy tys tall
+                  ñ, olajd we;.
+
+                   Food type            1      2       3       4       5       6       7       8       9       10
+                   Unit price (Rs)    10.00   12.00   15.00   10.00   25.00   45.00   50.00   25.00   10.00   12.00
+
+
+             (i) State all the inputs required for the computer program and its expected output.
+                 mß.Kl l%uf,aLhlg wjYH jk wdodk yd thska n,dfmdfrd;a;= jk m%;sodkhka i|yka
+                 lrkak'
+ictfromabc.com
+
+
+
+            (ii) Draw a flowchart to represent the algorithm required to compute the payment due for a
+                 food tray.
+                 wdydr nkafoaishlg f.úh hq;= uqo, .Kkh lsÍu i|yd wjYH jk we,af.daß;uh ksrEmKh
+                 lsÍu i|yd .e,Sï igkla w¢kak'
+
+            (iii) Transform the above flowchart into a Python program.
+                  by; .e,Sï igyk mhs;ka l%uf,aLhlg mßj¾;kh lrkak'
+
+                                                                                     ( 2016 – Essay 4 )
+
+         8. The consumption of electricity at houses is charged based on the number of units consumed.
+            The first 64 units are charged at Rs.5.00 per unit, and the rest at Rs.10.00 per unit.
+            .Dyia: úÿ,s mßfNdackh i|yd f.úh hq;= uqo, mßfNdackh lrk ,o úÿ,s tall .Kk u; mokï
+            fõ' m<uq tall 64 i|yd tallhlg re' 5.00 ne.ska o, b;sß tall i|yd tallhlg re' 10.00
+            ne.ska o whlrkq ,efí'
+
+            (a) Draw a flowchart to represent an algorithm that can be used to compute the total amount
+                to be charged from a householder when the household number and present and the
+                previous readings of the electricity meter are given.
+                .Dyia:fha wxlh" fmr yd j¾;udk úÿ,s ukq lshùï ÿka úg .Dyia:" ysñlref.ka whúh hq;=
+                uq¿ uqo, .Kkh lsÍug Ndú; l< yels we,af.dß;uhla ksrEmKh lsÍu i|yd .e,Sï igykla
+                w¢kak'
+
+            (b) Encode the algorithm given in the (a) above in Python programming language. State all
+                valid assumptions, if any.
+                by; (a) ys bÈßm;a lrk ,o we,af.dß;uh Python l%uf,aLk NdIdfjka fla;kh lrkak'
+                j,x.= Wml,amk we;akï" tajd ish,a, i|yka lrkak'
+
+            (c) Develop a function in Python to write household number, meter readings and the total
+                amount to be charged at the end of an existing text file named “deb.txt”.
+                .Dyia: wxlh" úÿ,s ukq lshùï iy wh l< hq;= uq¿ uqo," mj;sk "deb.txt" kï jQ mdG
+                f.dkqjl w.g ,sùug wjYH Python Y%s;hla f.dvk.kak'
+
+                                                                                     ( 2017 – Essay 4 )
+ictfromabc.com
+
+
+
+           9. (a) Assume an input which contains a sequence of positive numbers. The sequence has at
+                  most 100 numbers. If the input sequence has n numbers where n < 100, then the end of
+                  the sequence is marked by making (n+1)th number –1.
+                  For e.g., the following input sequence has 8 positive numbers, where the 9th input which
+                  is –1 marks the end.
+                  Ok ixLHd wkql%uhla we;s wdodkhla i,lkak' wkql%uhg Wmßu jYfhka ixLHd 100la ;sìh
+                  yels h' n < 100 f,i wkql%uhg ixLHd n ;sfí kï" (n+1) jk ixLHdj -1 f,i i,l=Kq
+                  lsÍfuka wkql%ufha wjidkh oelafõ'
+                  WodyrKhla f,i my; oelafjk wdodk wkql%uhg Ok ixLHd 8la we;s w;r 9 jk wdodkh
+                  jk -1 u.ska wjidkh iksgqyka flf¾'
+                 23   12    54   76    89    22   44    65   –1
+
+                 Draw a flowchart that represents an algorithm to output the largest number in a given
+                 sequence of n positive numbers as described above.
+                 by; úia;r lrk wdldrfha Ok ixLHd n we;s wkql%uhl úYd,;u ixLHdj m%;sodkh lsÍu
+                 i|yd we,af.dß;uhla .e,Sï igykla u.ska ksrEmKh lrkak'
+
+            (b) Consider the flowchart given below. The                                Start
+                algorithm in the flowchart takes two
+                inputs, the first input L is a list of
+                numbers, the second input K is a given                              Input List L
+                number.                                                               Input K
+                § we;s .e,Sï igyk i,lkak' .e,Sï
+                igyfkys oelafjk we,af.dß;uh wdodk
+                                                                                  n = Length of L
+                folla ,nd.kakd w;r m<uq wdodkh jk L,                                   i=0
+                ixLHd ,ehsia;=jla o" fojk wdodkh K, fok
+                ,o ixLHdjla o fõ'
+
+                 (i) What would be the output if the first                  Yes
+                     input L was 23, 45, 32, 11, 67, 39, 92, 51,                     is L[i]=K ?
+                     74, 89 and the second input K was 38?
+                                                                                            No
+                     m<uq wdodkh (L) 23, 45, 32, 11, 67, 39,
+                                                                   Output
+                     92, 51, 74, 89 o fojk wdodkh (K) 38 o                            i=i+1
+                                                                   “True”
+                     jQfha kï" m%;sodkh l=ula o?
+
+                 (ii) Briefly explain the aim of this algorithm.                                    Yes
+                      fuu we,af.dß;ufhys wruqK fláfhka                                 is i < n ?
+                      meyeÈ,s lrkak'
+                                                                                            No
+                 (iii) Develop a Python program to
+                       implement the algorithm in the                                  Output
+                       flowchart.                                                      “False”
+                       .e,Sï igyfka we;s we,af.dß;uh
+                       l%shd;aul lsÍu i|yd mhs;ka fla;hla
+                       f.dvk.kak'                                                       Stop
+
+
+
+                                                                                        ( 2018 – Essay 4 )
+ictfromabc.com
+
+
+
+         10. Consider the following Python program:
+             my; oelafjk mhs;ka l%uf,aLh i,lkak'
+            x = 0
+            n = int (input ())
+            while (n>0):
+                  if n>x:
+                        x = n
+                  n = int (input ())
+            print (x)
+
+            (i) Write the output of the program if the input is 4 6 3 2 8 -1.
+                wdodkh 4 6 3 2 8 -1 jkafka kï l%uf,aLfhys m%;sodkh ,shd olajkak'
+
+            (ii) What is the purpose of this program?
+                 fuu l%uf,aLfhys wruqK l=ula o?
+                                                                                   ( 2019 – S.Essay 2 [b] )
+
+         11.(a) The ICT teacher in a school needs to process the marks                      Start
+                obtained by all the students in a class for the ICT subject
+                and compute the average mark for the class. Construct a
+                flow chart to express an algorithm for this purpose. Assume                input n
+                that the first input is the number of students in the class, n.
+                Next, the marks of n students will be input one-by-one.                     a=0
+                mdi,l f;dr;=re yd ikakf          s õok ;dlaIKh (ICT) Ndr
+                wdpd¾hj¾hdg mx;sfhys ish¨ u isiqka ICT úIhh i|yd
+                ,nd.;a ,l=Kq ieliSug wjYHj we;s w;r mx;sfhys idudkH               Yes
+                ,l=Kq .Kkh l< hq;=j we;' fuu ld¾hhg wod<                                   Is n ≤ 0 ?
+                we,af.dß;uhla m%ldY jk .e,Sï igykla f.dvk.kak' m<uq
+                wdodkh mx;sfhys isák uq¿ isiqka ixLHdj n hehs Wml,amkh                          No
+                lrkak' bkamiq n isiqkf  a .a ,l=Kq tlska tl wdodkh lrkq ,efí'
+                                                                                          input x
+            (b) Consider the flow chart given below. Note that x%2
+                represents (x mod 2).
+                my; olajd we;s .e,Sï igyk i,lkak' tys x % 2 u.ska x                No
+                                                                                         Is x % 2 = 0 ?
+                mod 2 ksrEmKh flf¾'
+                                                                                                 Yes
+                 (i) What would be the output if the first input (n) was 6
+                     and the next inputs were 3, 6, 4, 12, 11, 9?                         a=a+1
+                     m<uq wdodkh (n) 6 kï iy bkamiq wdodk 3, 6, 4, 12, 11, 9
+                     kï m%;sodkh l=ula jkafka o?
+                                                                                          n=n-1
+                 (ii) What is the purpose of this algorithm?
+                      fuu we,af.dß;ufhys wruqK l=ula o?
+                                                                                           Output a
+                 (iii) Develop a Python program to implement the
+                       algorithm expressed by the flow chart                                 Stop
+                       .e,Sï igyk u.ska m%ldYjk we,af.dß;uh l%shd;aul
+                       lsÍu i|yd mhs;ka l%uf,aLhla f.dvk.kak'
+                                                                                        ( 2019 – Essay 4 )
+ictfromabc.com
+
+
+
+
+         12. Consider the following Python program:
+             my; oelafjk mhs;ka l%uf,aLh i,lkak'
+            L1 = [int(x) for x in input().split()]
+            L2 = [int(x) for x in input().split()]
+            L3 = [ ]
+            for i in L1:
+               for j in L2:
+                     if (i= =j) and (i not in L3):
+                           L3.append(i)
+            L3.sort()
+            print(L3)
+
+            (i) Write the output of the program if the first input (that creates L1) is “7 4 1 2 2 8” and the
+                second input (that creates L2) is “8 2 4 5 6”?
+                (L1 ks¾udKh flfrk) m<uq wdodkh “7 4 1 2 2 8” iy (L2 ks¾udKh flfrk) fojk wdodkh “8
+                2 4 5 6” kï l%uf,aLfhys m%;sodkh ,shd olajkak'
+
+            (ii) What is the purpose of this program?
+                 fuu l%uf,aLfhys wruqK l=ula o?
+                                                                                    ( 2020 – S.Essay 2[b] )
+
+
+         13.(a) You are given two positive integers N1 and                              Start
+                N2 as inputs (assume NI < N2) and you have
+                to output the list of even numbers between                           input L, K
+                N1 and N2. Construct a flowchart or a
+                pseudo code to express an algorithm for this                       N = length of L
+                purpose.
+                Tng N1 iy N2 kï Ok ksÅ, ixLHd folla                                     X=M
+                wdodk f,i ,nd oS we;s w;r (N1 < N2 hehs
+                Wml,amkh lrkak) Tn úiska N1 iy N2 w;r                                   a=0
+                we;s brÜfÜ ixLHd ,ehsia;=j m%;sodkh l< hq;=
+                fõ' fuu ld¾hhg" wod< we,af.dß;uhla
+                m%ldY jk .e,Sï igykla fyda jHdc fla;hla            output X            Is a < N ?
+                fyda f.dvk.kak'                                               No
+                                                                   Stop                      Yes
+            (b) Consider the flowchart given below. Assume
+                                                                                      Is L[a] > K ?
+                that L is a list of positive integers, K is a                 No
+                positive integer and every element in L is less                             Yes
+                than M, which is a large integer.
+                my; oelafjk .e,Sï igyk i,lkak' L hkq                                 Is L[a] < X ?
+                                                                              No
+                Ok ksÅ, ,ehsia;=jla nj;a" K hkq Ok ksÅ,hla
+                                                                                            Yes
+                nj;a" L ys iEu ixLHdjlau M kï jk úYd,                                  X = L[a]
+                ksÅ,hlg jvd wvq nj;a Wml,amkh lrkak'
+                                                                                       a=a+1
+ictfromabc.com
+
+
+
+            (i) What would be the output if the first input L was 2,4,7,9,3,5 and the next input K was 5?
+                m<uq wdodkh jk L ys w.hhka 2, 4, 7, 9, 3, 5 iy fojk wdodkh jk K ys w.h 5 jQfha
+                kï" m%;sodkh l=ula jkafka o?
+
+            (ii) What is the purpose of this algorithm?
+                 fuu we,af.dß;ufhys wruqK l=ula o?
+
+            (iii) Develop a Python program to implement the algorithm expressed by the flowchart.
+                  .e,Sï igyfkys m%ldY jk we,af.dß;uh l%shd;aul lsÍu i|yd mhs;ka l%uf,aLhla
+                  f.dvk.kak'
+
+                                                                                       ( 2020 – Essay 4 )
+
+
+
+
+         14.(a) A flowchart is to be drawn for an                   Start
+                algorithm to calculate and output the
+                areas of triangles.The base and height
+                of each triangle are given as inputs.
+                ;%sfldaKj, j¾.M, .Kkh lr m%;sodkh
+                lrk we,af.dß;uhla i|yd .e,Sï
+                igykla we£ug wjYH h' tla tla
+                ;%sfldaKfha wdOdrlfha È. iy Wi wdodk
+                f,i ,efí'
+
+                 Note: Area of triangle = 1/2 x base x
+                 height 7
+                 igyk: ;%sfldaKhl j¾.M,h = 1/2 x
+                 wdOdrlfha È. x Wi
+
+                 The algorithm should stop when an
+                 input is less than or equal to zero.                        Yes
+                 hï wdodkhla 0 g iudk fyda wvq jQ úg
+                 fyda we,af.dß;uh k;r úh hq;= h'
+
+                 Complete the flowchart by writing the
+                 required content for the four                          No
+                 components left blank.                             Stop
+                 ysiaj olajd we;s ixrpl y;r i|yd
+                 wjYH wka;¾.;hka ,shd" .e,Sï igyk
+                 iïmQ¾K lrkak'
+ictfromabc.com
+
+
+
+            (b) Complete the four (4) blanks (indicated by ......) in the following Python program to
+                calculate the factorial of an integer.
+                ksì,hl l%udfrdams;h (factorial) .Kkh lsÍug wod< my; mhs;ka fla;fha ysia;eka y;r (......
+                j,ska oelafjk) iïmQ¾K lrkak'
+
+                 Note: The factorial of a positive integer is defined as the product of that integer and
+                       all the integers below it. e.g., factorial of 4 is equal to 1 x 2 x 3 x 4 = 24. The
+                       factorial of 0 is defined as 1.
+                 igyk: Ok ksÅ,hl l%udfrdams;h hkq tu ksì,fha yd Bg wvq ish¨ ksì,j, .=Ks;hhs' Wod(
+                       4 ys l%udfrdams;h 1 x 2 x 3 x 4 = 24 g iudk fõ' Bg wu;rj 0 ys l%udfrdams;h 1
+                       f,i w¾: oelafõ'
+                 # Get input from user
+                 ..................... = int(input("Enter a number:"))
+                 factorial = 1
+                 if num < 0:
+                                print("Factorial is not defined for negative numbers!")
+                 elif ............................................... :
+                                print("The factorial of 0 is 1")
+                 else:
+                                for i in range(1,num + 1):
+                                          .............................................
+                 print ("The factorial of ",num,"is",...........................................)
+
+            (c) Consider the following Python program:
+                my; mhs;ka l%uf,aLh i,lkak'
+                 lower = 2
+                 upper = 5
+                 for num in range(lower, upper + 1):
+                       flag = 1
+                       if num > 1:
+                             for i in range(2, num):
+                                   if (num % i) = = 0:
+                                          flag = 0
+                                          break
+                             if flag = = 1:
+                                   print(num)
+
+                 Write the output of the above program.
+                 by; l%uf,aLfha m%;sodkh ,shd olajkak'
+
+                                                                                         ( 2021 – S.Essay 3 )
+ictfromabc.com
+
+
+
+         15.(a) Suppose the ages (in years) of n(n > 1) students in a school are in a list L. Assuming the
+                list L and an integer k are inputs, express an algorithm using either a flowchart or pseudo-
+                code to compute & output the average age of students in L whose age is less than k years.
+                mdi,l isiqka n fofkl=f.a (n > 1) jhia ^wjqreÿ .Kksk&a L kï jQ ,ehsia;=jl we;ehs is;kak'
+                L ,ehsia;=j iy k kï ksì,hla wdodk hehs Wml,amkh lr" L ,ehsia;=fõ we;s" wjqreÿ k g wvq
+                jhi we;s isiqkaf.a idudkH (average) jhi .Kkh lr m%;sodkh lsÍug we,af.dß;uhla .e,Sï
+                igykla fyda jHdc fla;hla fyda u.ska bÈßm;a lrkak'
+
+            (b) Consider the algorithm expressed by the                          Start
+                flowchart. L1 and L2 are non-empty lists of
+                integers. Each of L1 and L2 has unique
+                elements (no duplicates). But there can be                 Input lists L1,L2
+                elements that are in both L1 and L2. The
+                notation L[x] denotes the element at Index                N1 = number of
+                x of a list L. If there are N elements in list L,              items in L1
+                then the indices are from 0, 1, 2, ... to (N-1).          N2 = number of
+                my; oelafjk .e,Su igyfkka bÈßm;a                               items in L2
+                flfrk we,af.dß;uh i,lkak' L1 iy L2                           count = 0
+                hkq Y=kH fkdjk ksÅ, ,ehsia;= fõ' tu tla                        il = 0
+                tla ,ehsia;=fõ we;af;a wkkH ^tl ksÅ,hla
+                tljrla muKla we;s& whs;uh' tfy;a L1 iy
+                L2 ,ehsia;= foflau hï ksÅ,hka ;sìh yel'                         i2 = 0
+                L[x] ixfla;kh u.ska L ,ehsia;=fõ x kï jQ
+                o¾Ylfha (index) we;s whs;uh olajhs' L
+                                                                    No
+                ,ehsia;=fõ whs;u N .Kkla we;skï"                          Is L1[i1] = L2[i2]?
+                o¾Ylhka 0, 1, 2, ... isg (N-1) f;la fõ'
+                                                                                    Yes
+                 (i) What would be the output if L1 = 2, 4,               count = count + 1
+                     7, 9, 3, 5 and L2=1, 3, 8, 9, 6, 5, 7?
+                     L1=2, 4, 7, 9, 3, 5 iy L2=1, 3, 8, 9, 6, 5,
+                     7 fõ kï" m%;sodkh l=ula fõ o?                            i2 = i2 + 1
+
+                 (ii) What is the purpose of this algorithm?                                       Yes
+                      uu we,af.dß;ufhys wruqK l=ula o?                        Is i2 < N2?
+
+                                                                                     No
+                 (iii) Develop a Python program to
+                       implement the algorithm expressed by                   i1 = i1 + 1
+                       the flowchart.
+                       .e,Sï igyfkys m%ldY jk                                                      Yes
+                       we,af.dß;uh l%shd;aul lsÍu i|yd                        Is i1 < N1?
+                       mhs;ka l%uf,aLhla f.dvk.kak'
+                                                                                    No
+                                                                            Output count
+
+
+                                                                                 Stop
+
+                                                                                            ( 2021 – Essay 4 )
+ictfromabc.com
+
+
+
+         16.(a) A flowchart is to be drawn for an algorithm to calculate                 Start
+                and output the area of a circle.The radius of the circle is
+                given as an input.
+                jD;a;hl j¾.M,h .Kkh lsÍug iy m%;sodkh lsÍu
+                i|yd jQ we,af.dß;uhla (algorithm) fjkqfjka .e,Sï
+                igykla we£ug wjYH fõ' jD;a;fha wrh wdodkh (input)
+                f,i ,ndfoa.
+
+                  Note: Area of a circle = 3.14 x Radius x Radius             No
+                  aigyk: jD;a;hl j¾.M,h = 3.14 x wrh x wrh
+
+                  The algorithm should not calculate the area if the input                  Yes
+                  is a negative number.
+                  wdodkh iDK ixLHdjla ku we,af.dß;uh j¾.M,h
+                  .Kkh fkdl< hq;= h'
+
+                  Complete the flowchart by writing the required content
+                  for the four (4) components left blank.
+                  ysiaj we;s wx. y;r i|yd kshñ; wka;¾.;hka ,shñka
+                  .e,Sï igyk iïmQ¾K lrkak.
+
+            (b) What is the output of the following Python code?                         End
+                  my; mhs;ka fla;fha m%;sodkh l=ula o?
+                  S = "Advanced level"
+                  S1 = " "
+                  for c in S:
+                       if c in ("a" , "e" , "i" , "o" , "u"):
+                           pass
+                       else:
+                           S1 = S1 + c
+                  print (S1)
+
+            (c)   What code line(s) in part (b) is/are to be removed to get ‘aeee’ as the output?
+                  m%;sodkh f,i ‘aeee’ ,nd.ekSug by; (b) fldgfia bj;a l< hq;= fla; fma<s^h& l=ula o?
+
+            (d) Fill in the blank spaces of the following Python code assuming that the purpose of the
+                  code is to copy the content of a text file (A) to another text file (B).
+                  mdG f.dkqjl (text file) [A] wka;¾.;h ;j;a mdG f.dkqjlg [B] msgm;a lsÍu fla;fha wruqKq
+                  hehs Wml,amkh lrñka myk i|yka mhs;ka fla;fha ysia;eka mqrjkak'
+                  A = input("Enter the name of text file A")
+                  B = input("Enter the name of text file B")
+                  f1 = ….…..….…… (A, ….……...……)
+                  f2 = ….…..….…… (B, ………….……)
+                  for line in ….…..….…… :
+                      f2.write (….…..….……)
+                  f1. ….…..….……
+                  f2. ….…..….……
+                                                                                    ( 2022 – S.Essay 3 )
+ictfromabc.com
+
+
+
+         17.(a)(i)What is the output of the following python script if 1002 is given as the input?
+                  wdodkh f,i 1002 ,nd ÿka úg my; oelafjk mhs;ka fla;fha m%;sodkh l=ula fõ o?
+                 A = int(input("Enter a number:"))
+                 B = 0
+                 while(A > 0):
+                       C = A % 10
+                       B = B + C
+                       A = A // 10 # // is integer division
+                 print(B)
+
+             (ii) What would be the modification required to the B = B + C code line of the above code if
+                  the reverse of a given positive number is to be printed?
+                  (Example: if the input is 1234, the output should be 4321)
+                  fok ,o Ok ixLHdjl m%;sj¾;kh (reverse) m%;sodkhe lr .ekSug" by; mhs;ka fla;fhe
+                  B = B + C fma<sh flf,i fjkia úh hq;= o?
+                  (Wod: wdodkh 1234 jQ úg" m%;sodkh 4321 úh hq;= h)
+
+            (b) Assume that your class is having a party, and each student is asked to bring one food item.
+                 The class teacher has decided to make the party interesting by introducing one rule: the
+                 first and last letters of the name of the food item must match with the first and last letters
+                 of the student name.
+                 Tnf.a mka;sfha idohla meje;afjk nj;a" Bg tla tla YsIHhdg tla wdydr j¾.hla ne.ska
+                 /f.k tk f,ig okajd we;s nj;a i,lkak' th jvd;a rij;a lsÍug .=re;=ñh tla kshuhla
+                 y÷kajd fohs" tkï" YsIHhd f.k tk wdydr j¾.fha kfï m<uq iy wjika bx.%Sis wlaIr
+                 YsIHhdf.a kfï m<uq iy wjika bx.%Sis wlaIrj,g iudk úh hq;= njhs'
+
+                 For example, percy is allowed to bring potato curry and prageeth is allowed to bring
+                 pepper fish.
+                 Write a Python function called Party() that takes the student name and the name of the
+                 food item as parameters. The function should return True or False to indicate whether
+                 the student is allowed to bring the food item to the party or not.
+                 Wod: percy YsIHhdg potato curry f.k wd yels w;r prageeth YsIHhdg pepper fish /f.k
+                 taug wjir ,efí'
+                 by; ikao¾Nh i|yd YsIHhdf.a ku iy wdydr j¾.fha ku mrdñ;Ska (parameters) f,i
+                 ,nd.kakd Party() kï jQ Python Y%s;hla ,shd olajkak' YsIHhdg iD|h i|yd wdydr j¾.h
+                 /f.k taug wjir we;so ke;so hkak fmkaùug Y%s;h ms<sfj<ska True fyda False fyda m%;sodkh
+                 l< hq;= h'
+
+                 Example:
+                 Party ("percy", "potato curry") should return True
+                 Party ("fareena", "fried rice") should return False
+                 Wod:
+                 Party(“percy” , “potato curry”) úg True m%;sodkh úh hq;= h'
+                 Party(“fareena” , “fried rice”) úg False m%;sodkh úh hq;= h'
+ictfromabc.com
+
+
+
+                 Note: You can assume that student name and food item name are always lowercase
+                       strings and have at least two letters. There may be hyphens and spaces in the
+                       names, but these will not appear at the beginning or end of the string. The names
+                       will not contain numerals.
+                 igyk: YsIHhdf.a ku iy wdydr j¾.fha ku ieuõgu l=vd wl=re ^lemsg,a fkdjk&" iys;
+                       wlaIr je,a (strings) jk nj;a tajdfha wju jYfhka wlaIr follaj;a we;s nj;a Tng
+                       Wml,amkh l< yel' tajdfha flábr (-) iy wka;r (space) ;sìh yels kuqÿ tajd wlaIr
+                       jef,a m<uq iy wjika wlaIr f,i fkdmj;shs' kïj, b,lalï wka;¾.; fkdfõ.
+
+            (c) Write down the most suitable statements for labels to in the flowchart given below which
+                 is drawn to calculate the factorial of a given positive Integer.
+                 fok ,o Ok ksì,hl l%udfrdams;h (factorial) .Kkh lsßug we| we;s my; oelafjk .e,Sï
+                 igyfka (A) isg (H) olajd we;s f,an, i|yd jvd;au .e<fmk m%ldYk ,shd olajkak'
+
+
+                                                A
+
+
+                                                B
+
+
+
+                                                C
+
+
+
+
+                                                D
+
+                           F
+                                                                         G
+                                                 E
+
+                                                                         H
+
+
+
+            (i) The factorial of a positive integer is defined as the product of that integer and all the
+                integers below it. E.g. factorial of 5 is 5x4x3x2x1 = 120. The factorial of 0 is defined as 1.
+                Ok ksì,hl l%udfrdams;h hkq tu ksì,fha yd Bg wvq ish¨ ksì,j, .=Ks;hhs' Wod: 5 ys
+                l%udfrdams;h 5x4x3x2x1 = 120 fõ' Bg wu;rj" 0 ys l%udfrdams;h 1 f,i w¾: oelafõ.
+
+            (ii) A process box in this flowchart may contain one or more statements.
+                 fuu .e,Sï igyfka tla l%shdj,s fldgqjl (process box) m%ldYk tlla fyda Bg jeä .Kkla
+                 fyda ;sìh yels h'
+
+                                                                                          ( 2022 – Essay 8 )
+ictfromabc.com
+
+
+
+         18.(a) Write down the most suitable replacements for labels                               Start
+                to in the following flowchart which is drawn to
+                calculate and display sum of first ten even numbers.
+                m<uq brÜfÜ ixLHd oyfha tl;=j .Kkh lr m%o¾Ykh                                     sum = 0
+                lsÍu i|yd we| we;s my; .e,Sï igyfka (A) isg (G)
+                f;la f,an, i|yd jvd;a iqÿiq wdfoaYl ,shd olajkak'
+                                                                                                count = 0
+
+                 (A): ................................................
+                 (B): ................................................            A                                            B
+                 (C): ................................................                           Is count
+                                                                                                  even?
+                 (D): ................................................
+                                                                                                                                   C
+                 (E): ................................................
+                 (F): ................................................
+                 (G): ................................................
+                                                                                         count = count +1
+         (b) (i) What is the output of the following Python code?
+                 my; mhs;ka fla;fha m%;sodkh l=ula o?                                  D
+                                                                                                      E
+                 def func(n):
+                    MyNumber=[ ]
+                                                                                                           F
+                    for i in range(4,n+1):
+                       if i%2==0:                                                                     G
+                         MyNumber.append(i)
+                    print (MyNumber)
+                 func(30)                                                                           End
+
+
+            (ii) Write down the output in the above Python code when the condition if i%2==0: is                           e
+
+
+
+                 changed to if i%2 != 0:
+                 by; mhs;ka fla;fha if i%2==0: fldkafoaish if i%2 != 0: f,i fjkia l< úg m%;sodkh ,shd
+                 olajkak'
+
+             (b) Write down the replacements for the labels of the following Python code which has been
+                 written to find the Largest of a set of integers.
+                 ksÅ, iuQyhl úYd,;u ksÅ,h fiùug ,shd we;s my; mhs;ka fla;fha f,an, i|yd wdfoaYl
+                 ,shd olajkak'
+
+                 def findlargest(myList):
+                                                                             (A): ................................................
+                       largest = (A)                                         (B): ................................................
+                       for i in (B) :                                        (C): ................................................
+                             if i> (C)                                       (D): ................................................
+                                  largest = (D)                              (E): ................................................
+                       print("largest value is", (E)                     )   (F): ................................................
+                 list1=[4,6,24,12,8,94,22]
+                 findlargest ( (F) )
+                                                                                                   ( 2023 – S.Essay 3 )
+ictfromabc.com
+
+
+
+         19.(a) Write the output of the Python code given in Figure 8.1.
+                rEmh 8.1 ys oelafjk mhs;ka fla;fha m%;sodkh ,shd olajkak'
+
+                 def function1(str):
+                     newstr= ""
+                     for character in str:
+                         if character in 'aeiouAEIOU':
+                             newstr+='*'
+                         else:
+                             newstr+=character
+                     return newstr
+                 str1="LibrAry"
+                 str2=function1(str1)
+                 print(str2)
+
+                 Figure 8.1
+
+            (b) The function in Figure 8.2 uses the bubblesort algorithm to sort a given list of numbers
+                into ascending order. Write down the suitable replacements for the labels P-U to
+                complete the code.
+                rEmh 8.2 ys oelafjk my; mhs;ka Y%s;h" fok ,o wxl ,ehsia;=jla wdfrdayK l%uhg
+                ieliSug nqnq<M f;aÍï (bubble sort) we,af.dß;uh Ndú; lrhs' fla;h iïmQ¾K lsÍu
+                i|yd P – U f,an,j,g iqÿiq wdfoaYl ,shd olajkak'
+
+                 def bubblesort(nList):
+                     for pnumber in range(P,Q,R):
+                           S:
+                              if nList[i] > nList[i+1]
+                                  temp = nList[i]
+                                  T
+                                  U
+                 Figure 8.2
+
+            (c) An estate owner wants a program to determine the minimum currency note combination
+                needed to make the pay of each employee. (E.g., Rs. 40,000 should be paid using eight
+                notes of Rs.5000 and not four hundred notes of Rs. 100). The program should also output
+                the currency requirement for all employees. The program should use the employees.txt
+                file which contains employee pay details. Each line in it contains an employee's name and
+                net pay. A Python program written for this purpose is shown in Figure 8.3. A sample
+                employees.txt file and the program's output for that file are shown in Figure 8.4.
+                tla tla fiajlhdf.a jegqm iE§ug wjYH wju uqo,a fkdaÜgq tl;=j ks¾Kh lsÍug l%uf,aLhla
+                j;= ysñlrefjl=g wjYH fõ' (Wod' re' 40,000 l udisl jegqm f.úh hq;af;a re' mkaoyfia
+                fkdaÜgq wglska ñi re' ishfha fkdaÜgq 400 lska fkdfõ') ish¨ fiajlhka i|yd uqo,a wjYH;djh
+                o l%uf,aLh m%;sodkh l< hq;= h' l%uf,aLh" fiajlhkaf.a Y=oaO jegqma (net pay) úia;r wvx.=
+                employees.txt f.dkqj Ndú; l< hq;= h' tys tla tla fma<sfha fiajlhl=f.a ku iy Y=oaO
+                jegqm wvx.= fõ' by; wjYH;djh i|yd ,shjqkq mhs;ka l%uf,aLh rEmh 8.3 ys oelafõ' idïm,
+                employees.txt f.dkqjl=;a" tu f.dkqjg wod< by; l%uf,aLfha m%;sodkh;a rEmh 8.4 ys
+                oelafõ'
+ictfromabc.com
+
+
+
+             (i) Write down the suitable replacements for the ten labels A-J in program given in Figure 8.3.
+                 rEmh 8.3 ys oelafjk mhs;ka l%uf,aLfha A – J f,an, i|yd iqÿiq wdfoaYl ,shd olajkak'
+
+
+                  #currency notes used in Sri Lanka                             Example 'employees.txt' file:
+                  notes = [5000,1000,500,100,50,20]
+                  #total notes required from each currency note
+                  type                                                          Raj 40120
+                  totals = [0,0,0,0,0,0]
+                                                                                Niranjala 51670
+                  file = A(employees.txt',r')
+
+                  while True:
+                        required = [0,0,0,0,0,0]                                Program's output for that
+                        # notes required for employee                           file:
+                        line = file.readline()
+                        if B line:
+                                                                                   Raj Net pay=40120
+                              C                                                    Rs. 5000 : 8
+                                                                                   Rs. 1000 : 0
+                          empDetails = line.spli()
+                                                                                   Rs. 500 : 0
+                          netpay = int(foar(D))
+                                                                                   Rs. 100 : 1
+                          If netpay < 0:
+                             continue                                              Rs. 50 : 0
+                                                                                   Rs. 20 : 1
+                          print("\n")
+                          print(empDetails[0],"Net pay =",netpay)                  Niranjala Net pay=51670
+                          topay = netpay                                           Rs. 5000 : 10
+                          i=0
+                          while topay > 0:                                         Rs. 1000 : 1
+                                                                                   Rs. 500 : 1
+                              required[i] = E
+                                                                                   Rs. 100 : 1
+                              totals[i] = totals[i] + F                            Rs. 50 : 1
+                              topay = G                                            Rs. 20 : 1
+                               H
+                          #print employee netpay breakdown                         TOTAL REQUIREMENT:
+                          for i in range(0, len(required)):                        Rs. 5000 : 18
+                              print("Rs.",notes[i],":",I)                          Rs. 1000 : 1
+                          J                                                        Rs. 500 : 1
+                          print("\nTOTAL REQUIREMENT:")                            Rs. 100 : 2
+                          for i in range(0, len(totals)):                          Rs. 50 : 1
+                          print("Rs.",notes[i],":",totals[i])                      Rs. 20 : 2
+
+                                            Figure 8.3                                    Figure 8.4
+
+             (ii) The net pay of employees in this estate, does not contain cents. However, what practical
+                  problem with respect to the net pay inputs exists in this code? What modifications will you
+                  do to fix that problem?
+                  fuu j;=hdfha fiajlhkaf.a Y=oaO jegqmaj, Y; .Kka wvx.= fkdfõ' tfy;a Y=oaO jegqma wdodk
+                  iïnkaOfhka l=uk m%dfhda.sl .eg¨jla fuu fla;fha mj;S o? tu .eg¨j úi£ug Tn fla;hg
+                  lrk fjkialï ,shd olajkak'
+
+                                                                                          ( 2023 – Essay 8 )
+ictfromabc.com
+
+
+
+         1. Which of the following Python program segment is syntactically correct?
+            my; oelafjk l=uk mhs;ka (Python) l%uf,aL LKavh ldrl kS;s wkqj ksjerÈ (syntactically
+            correct) fõ o?
+
+             1) total = 0             2) total                 3) total = 0
+                for i in range(1,12):    for i in range(1,12):    for i in range(1,12):
+                total = total + i        total = total + i           total = total + i
+
+             4) total = 0                    5) total = 0
+                for i in range(1,12)               for i in range(1, 12):
+                   total = total + i                 total = total + i
+
+                                                                                               ( 2011 – 20 )
+
+         •   Consider the given flow chart.
+             § we;s .e,Sï igyk i,lkak'
+
+         2. Which of the following statements about the algorithm represented by the flow chart is
+            incorrect?
+            .e,Sï igyk u.ska ksrEmKh flfrk we,af.dß;uh ms<sn|j my; oelafjk ljr m%ldYh
+            idjoH fõo?
+
+             1) It stops when the user enters
+                 the value –1.                                          START
+                 mßYS,lhd –1 w.h we;=¿ l<
+                 úg th kj;shs'
+             2) It stops when the user enters                          Let X = 5
+                 the value 5.
+                 mßYS,lhd 5 w.h we;=¿ l<
+                                                                I have a positive integer.
+                 úg th kj;shs'                                      Can you guess it?
+             3) It gives the message “You
+                 are very close.” when the                           Get a number Y
+                 user enters the value 9.                             from the user
+                 mßYS,lhd 9 w.h we;=¿ l<
+                 úg th" “Tn b;d iómhs” hk
+                 mKsúvh fohs'                                  Yes
+                                                      STOP             Is Y < 0 ?
+             4) It gives the message “You                              No
+                 are very close.”when the
+                 user enters the value 6.           You are    Yes
+                                                                       Is X = Y ?
+                                                    correct.
+                 mßYS,lhd 6 w.h we;=¿ l<
+                                                                       No
+                 úg th" “Tn b;d iómhs” hk
+                 mKsúvh fohs'
+                                                                            Is
+             5) If the value entered by the                               Y–X          Yes    You are
+                 user is 8, it allows the user to                     less than 3 ?          very close.
+                 enter another value.
+                 mßYS,lhd we;=¿ l< w.h 8                                     No
+                 kï" Tyqg fjkka w.hla
+                 we;=¿ lsÍug th bvfohs'
+
+                                                                                               ( 2011 – 21 )
+ictfromabc.com
+
+
+
+         3. Consider the following Python data items:
+            my; oelafjk mhs;ka (Python) o;a; whs;u i,ld n,kak'
+
+            A - 15.2
+            B - [12, 'abc', 5.2]
+            C - {'name' : 'Nimal', 'age' : 18}
+
+            Python data types of the above data items A, B, C are respectively
+            by; A, B, C o;a; whs;uj, Python o;a; m%rEm (Data types) ms<sfj<ska
+
+            1) float, list, dictionary.       2) integer, tuple, dictionary.       3) float, list, tuple.
+            4) integer, tuple, list.          5) float, tuple, dictionary.
+
+                                                                                         ( 2011 – 37 )
+
+         4. Consider the following statements about programming languages.
+            l%uf,aL NdId ms<sn|j my; oelafjk m%ldY i,ld n,kak'
+
+            A - C programming language is a first-generation language (1GL).
+                l%uf,aL NdIdj" m<uqjk mrïmrdfõ (1GL) NdIdjls'
+
+            B - Assembly language is a second-generation language (2GL).
+                Assembly NdIdj fojk mrïmrdfõ (2GL) NdIdjls'
+
+            C - Python is a second-generation language (2GL).
+                Python fojk mrïmrdfõ (2GL) NdIdjls'
+
+            Which of the above statements is/are correct?
+            by; m%ldY w;=frka i;H jkafka l=ula o?
+
+            1) A only.         2) B only.    3) C only.       4) A and B only.   5) B and C only.
+               A muKs.            B muKs.       C muKs.          A yd B muKs.       B yd C muKs.
+
+                                                                                           (2011 - 45)
+
+         5. Consider the following statements in a program:
+            l%uf,aLhlg wh;a my; oelafjk m%ldY i,ld n,kak'
+
+            A - # This is a comment.
+            B - // This is a comment.
+            C - /* This is a comment. */
+            D - a=1 # This is a comment.
+            E - # Initial value of a=1
+
+            Which of the above are syntactically correct Python statements?
+            by; oelafjk tajd w;=frka ldrl Í;sj,g wkql+,j (Syntactically) ksjerÈ mhs;ka (Python)
+            m%ldY jkafka fudkjd o?
+
+            1) A and D only. 2) C and E only. 3) A, D and E only. 4) B, C and D only. 5) C, D and E only.
+               A yd D muKs.     C yd E muKs.     A, D yd E muKs.     B, C yd D muKs.     C, D yd E muKs.
+
+                                                                                         ( 2011 – 46 )
+ictfromabc.com
+
+
+
+         6. Consider the following assignment statements:
+            my; oelafjk mejreï m%ldY i,lkak'
+
+            A - a = 'Nimal's address'
+            B - a = "Nimal's address"
+            C - a, b, c = l
+            D - a, b, c = 1, 2, 'string'
+            E- a = b = 1
+
+            Which of the above are syntactically correct Python statements?
+            by; oelafjk tajd w;=frka ldrl Í;sj,g wkql+,j (Syntactically) ksjerÈ mhs;ka (Python)
+            m%ldY jkafka fudkjd o?
+
+            1) A and C only. 2) B and D only. 3) A, C and E only. 4) B, D and E only. 5) C, D and E only.
+               A yd C muKs.     B yd D muKs.     A, C yd E muKs.     B, D yd E muKs.     C, D yd E muKs.
+
+                                                                                         ( 2011 – 47 )
+
+         7. Consider the following incomplete Python program.
+            my; oelafjk wiïmQ¾K mhs;ka l%uf,aLh i,lkak.
+
+            data=[5, 1, 23, 10]
+            datacount = len(data)
+            for i in range(datacount-1):
+              for k in range (i, datacount):
+            .....................................................
+                temp = data[i]
+                data[i],data[k] =data[k],temp
+            for i in range(datacount):
+                print (data[i])
+
+             Which of the following Python statements should be included at the blank line to print
+             the data items in the data structure named ‘data’ in the ascending order.
+             ‘data’ keue;s o;a; jHqyh ;=< we;s o;a; whs;u wdfrdayK mámdáhg uqøKh lsÍu i|yd ysia
+             fma<sfhys wka;¾.; l< hq;af;a my; oelafjk ljr mhs;ka (Python) m%ldYh o?
+
+             1)   if data[i] < data[k]:
+             2)   if data[i] > data[k]:
+             3)   if data[i] = data[k]:
+             4)   if data[i] < data[k]
+             5)   if data[i] > data[k]
+                                                                                         ( 2011 – 48 )
+ictfromabc.com
+
+
+
+         8. Consider the following Python program:
+            my; oelafjk mhs;ka (Python) l%uf,aLh i,lkak'
+
+            data = [5, 1, 23, 10, –3]
+            def fun(a):
+                 i, c=1, a[0]
+                 while i < len(a):
+                    if(a[i] > c):
+                          c=a[i]
+                    i=i+i
+                 return c
+            print (fun(data))
+
+             Which of the following is the output of this program?
+             my; oelafjk tajd w;=frka fuu jevigyfkys m%;sodkh (Output) l=ula o?
+
+             1) –3             2) 1               3) 5            4) 10            5) 23
+
+                                                                                       ( 2011 – 49 )
+         9. Consider the following Python program:
+            my; oelafjk mhs;ka (Python) l%uf,aLh i,lkak'
+
+            f1 = open('input.txt','r')
+            f2 = open('output.txt', 'w')
+            line = f1.readline()
+            while (line) :
+                   data = (line.strip()).split(",")
+                   total = float(data[1]) + float(data[2])
+                   f2.write('{},{},{},{}\n'.format(data[0],data[1],data[2],total))
+                   line = f1.readline()
+            f1.close()
+            f2.close()
+
+            The content of the file “input.txt” is given below.
+            “input.txt” f.dkqfjys wka;¾.;h my; § we;.
+
+            Nimal,30,60
+            Saman,80,45
+            Upali,100,80
+            After executing the program what would be the content of the file “output.txt”?
+            jevigyk l%shd;aul lsÍfuka miqj “output.txt” f.dkqfjys wka;¾.;h l=ula fõ o?
+
+            1) Nimal      2) Nimal,30,60          3) Nimal,30,60,90       4) Nimal,30,60,90.0
+               Saman         Saman,80,45             Saman,80,45,125         Saman,80,45,125.0
+               Upali         Upali,100,80            Upali,100,80,180        Upali,100,80,180.0
+
+            5) Nimal,30,60,90.0 Saman,80,45,125.0 Upali,100,80,180.0
+
+
+                                                                                       ( 2011 – 50 )
+ictfromabc.com
+
+
+
+         10. What is the result of evaluating the Python expression 10 % 3?
+             10%3 hk mhs;ka (Python) m%ldYkh we.hSfuys m%;sM,h l=ula o?
+
+             1) 0             2) 1               3) 2             4) 3                   5) 10
+
+                                                                                             ( 2012 – 19 )
+
+         11. Consider the following pseudo code:
+             my; olafjk jHdc fla;h (pseudo code) i,lkak
+             Begin
+                 total = 0
+                 For count = 1 To 10
+                     If (count is odd) Then
+                            total = total + count
+                     EndIf
+                 Next count
+                 Display total
+             End
+
+             What is the output of the above pseudo code?
+             by; jHdc fla;fhys m%;sodkh (output) l=ula o?
+
+             1) 10            2) 15              3) 20            4) 25                  5) 55
+
+                                                                                             ( 2012 – 20 )
+
+         •   Consider the following flow chart to                               Start
+             answer the questions 12 and 13.
+             wxl 12 iy 13 m%Yk a j,g ms<s;=re
+             iemhSu i|yd my; olafjk .e,Sï                                 Input a positive
+             igyk i,lkak'                                                    integer x
+
+         12. What flow control structure/s is/are
+             used in the flow chart?                                           i=1
+             .e,Sï igyfkys ljr .e,Sï md,k
+             jHqyh$jHqy Ndú; lr ;sfí o?
+
+             1) Sequence only.                                                if i <= x            Stop
+                                                                                             No
+                wkql%uh muKs'                                                      Yes
+             2) Sequence and Selection only.
+                wkql%uh yd f;aÍu muKs'
+                                                         i=i +1           The remainder of
+             3) Sequence and Iteration only.                      No          x/i = 0?
+                wkql%uh iy mqk¾lrKh muKs'
+                                                                                   Yes
+             4) Selection and Iteration only.
+                f;aÍu yd mqk¾lrKh muKs'                                        Print i
+             5) Sequence, Selection and
+                Iteration only. wkql%uh" f;aÍu
+                iy mqk¾lrKh muKs'
+
+                                                                                             ( 2012 – 43 )
+ictfromabc.com
+
+
+
+         13. Which of the following statements about the algorithm represented by this flow chart is
+             correct if the user inputs the value 6?
+             mßYS,lhd w.h wdodkh lrhs kï" .e,Sï igyk u.ska ksrEms; we,af.dß;u ms<sn|j my;
+             oelafjk ljr m%ldYh ksjerÈ fõ o?
+
+            1)   It stops when the value of i is equal to 6. i ys w.h 6 g iudk jk úg th kj;shs'
+            2)   It prints the value 4 as one of its outputs. th m%;sodkhla f,i w.h 4 uqøKh lrhs'
+            3)   It prints the value 2 as one of its outputs. th m%;sodkhla f,i w.h 2 uqøKh lrhs'
+            4)   It prints all the integers from 1 to 6. th 1 isg 6 f;la ish¨ ksÅ, uqøKh lrhs'
+            5)   It prints all the integers from 1 to 5. th 1 isg 5 f;la ish¨ ksÅ, uqøKh lrhs'
+
+                                                                                         ( 2012 – 44 )
+
+         14. Consider the following assignment statements:
+             my; olafjk mejreï m%ldY i,ld n,kak(
+
+            A - a, b = "Nimal", 30
+            B - a, b = 1
+            C - a = b = 1
+            D - a = True
+            E - a = true
+
+            Which of the above are syntactically correct Python statements?
+            jd.aÍ;Sj,g wkql+,j ksjerÈ jkafka by; oelafjk ljr mhs;ka (Python) m%ldY o?
+
+            1) A and C only. 2) B and D only. 3) A, C and D only. 4) B, D and E only. 5) C, D and E only.
+               A yd C muKs.     B yd D muKs.     A, C yd D muKs.     B, D yd E muKs.     C, D yd E muKs.
+
+                                                                                         ( 2012 – 45 )
+
+         15. Consider the following statements about Python data types:
+             mhs;ka o;a; m%rEm ms<sn| my; oelafjk m%ldY i,lkak(
+
+            A - A tuple consists of ordered number of values separated by commas.
+                tuple m%rEmfhys o;a;hla fldudj,ska fjka lrkq ,nk mámdá.; w.hkaf.ka iukaú; fõ'
+
+            B - A dictionary comprises of an unordered set of key : value pairs separated by commas
+                and enclosed in “{”, “}” brackets.
+                dictionary m%rEmfhys o;a;hla fldudj,ska fjka lrkq ,nk yd “{“, ”}” jryka ;=< jk
+                mámdá.; fkdjk key : value (key:value) hq., l=,lhlska hqla; fõ'
+
+            C - A value in a tuple can be modified as in a dictionary.
+                tuple m%rEmfhys o;a;hl w.hla dictionary m%rEmfhys o;a;hla fuka úlrKh (modify)
+                l< yelsh'
+
+            Which of the above statements is/are correct?
+            by; m%ldY w;=frka i;H jkafka ljrla$ljr tajd o?
+
+            1) A only.       2) B only.      3) C only.      4) A and B only.    5) B and C only.
+               A muKs.          B muKs.         C muKs.         A yd B muKs.        B yd C muKs.
+
+                                                                                         ( 2012 – 46 )
+ictfromabc.com
+
+
+
+         16. Which of the following Python program is syntactically correct?
+             my; oelafjk l=uk mhs;ka l%uf,aLh jd.aÍ;Sj,g wkqj ksjerÈ fõ o?
+
+            1) for i in [8,9,10,11,12]:
+               #Generate the multiplication table of i
+               print('Multiplication table of',i)
+               for j in range(1,12):
+               print(i,'*',j,'=',i*j)
+               print()
+
+            2) for i in [8,9,10,11,12]
+                     #Generate the multiplication table of i
+                     print('Multiplication table of',i)
+                     for j in range(1,12)
+                           print(i,'*',j,'=',i*j)
+                     print()
+
+            3) for i in [8,9,10,11,12]:
+               #Generate the multiplication table of i
+                     print('Multiplication table of',i)
+                     for j in range(1,12):
+                           print(i,'*',j,'=',i*j)
+                     print()
+
+            4) for i in [8,'9',10,'11',12]:
+                     #Generate the multiplication table of i
+                     print('Multiplication table of',i)
+                     for j in range(1,12):
+                           print(i,'*',j,'=',i*j):
+                     print()
+
+            5) for i in [8,9,10,11,12]:
+               #Generate the multiplication table of i
+                     print('Multiplication table of',i)
+                     for j in range(1,12):
+                           print(i,'*',j,'=',i*j)
+                     print():
+                                                                                  ( 2012 – 47 )
+         17. Consider the following Python program:
+             my; oelafjk mhs;ka l%uf,aLh i,lkak(
+            def fun(a):
+                  i, c, j = 1, a[0],0
+                  while i < len(a):
+                        if (a[i] > c):
+                             c = a[i]
+                             j = i
+                        i = i + 1
+                  return j
+            print (fun([5, 2, 23, 10, –3]))
+
+            What is the output of this program?
+            fuu l%uf,aLfhys m%;sodkh (output) l=ula o?
+
+             1) 23            2) 10           3) 5            4) 2             5) -3
+
+                                                                                  ( 2012 – 49 )
+ictfromabc.com
+
+
+
+         18. Consider the following incomplete Python program:
+             my; oelafjk wiïmQ¾K mhs;ka l%uf,aLh i,lkak(
+
+            name = ['Kamal', 'Ruwan', 'Nimal', 'Wimal']
+            datacount = len(name)
+            for i in range(datacount - 1):
+              for k in range(i+1, datacount):
+                if ...............................................................
+            name[i],name[k] = name[k],name[i]
+
+            To arrange the data items in the name data structure in the reverse alphabetic order, which
+            of the following Python statements should be included at the blank line?
+            name o;a; jHqyfhys o;a; whs;u m%;sj¾;H wldrd§ ms<sfj<g (in the reverse alphabetic
+            order) ms<sfh, lsÍu i|yd by; ysia;efkys" my; oelafjk ljr mhs;ka m%ldYh we;=<;a l<
+            hq;= o?
+
+            1)   name[i] < name[k] :
+            2)   name[i] > name[k] :
+            3)   name[i] = name[k] :
+            4)   name[i] < name[k] ;
+            5)   name[i] > name[k] ;
+                                                                                                ( 2012 – 48 )
+
+
+         19. Consider the following Python program:
+             my; oelafjk mhs;ka l%uf,aLh i,lkak(
+
+            f1 = open('input.txt', 'r')
+            f2 = open('output.txt', 'w')
+            for line in f1:
+               data = (line.strip()).split(",")
+               total = float(data[1]) + float(data[2])
+               f2.write('%7s-%4d\n'% (data[0],total))
+            f1.close()
+            f2.close()
+
+            The content of the file "input.txt" is given below.
+            "input.txt" f.dkqfjys wka;¾.;h my; § we;'
+
+            Nimal,30,60
+            Saman,80,45
+            Upali,100,80
+
+            After executing the program, what would be the content of the file "output.txt" looks like?
+            l%uf,aLh l%shd;aul lsÍfuka miq" "output.txt" f.dkqfjys wka;¾.;h oelafjk wdldrh l=ula
+            fõ o?
+
+            1) Nimal          2) Nimal – 90              3) Nimal – 90.0             4) Nimal,30,60,90
+               Saman             Saman – 125                Saman – 125.0               Saman,80,45,125
+               Upali             Upali – 180                Upali – 180.0               Upali,100,80,180
+
+            5) Nimal      –     90       Saman       –      125      Upali       –   180
+
+                                                                                                ( 2012 – 50 )
+ictfromabc.com
+
+
+
+         20. What is the output of the following Python program?
+             my; olajd we;s mhs;ka l%uf,aLkfha m%;sodkh l=ula o?
+            s = "Nimal Perera"
+            print(s[1:3])
+
+            1) Ni              2) im            3) ra              4) er              5) Pe
+
+                                                                                             ( 2013 – 10 )
+
+         21. Which of the following is a valid Python statement that can be used to open a file called
+             "output.txt" so that new data can be added to the end of the file without deleting its
+             original content?
+             uq,ska wvx.= oE uld fkdouñka" kj o;a;" f.dkqfõ w.g tl;= l< yels mßoafoka "output.txt"
+             kñka ye¢kafjk f.dkqjla újD; lsÍug Ndú; l< yels mhs;ka j.ka;sh jkafka my; i|yka
+             ljrla o?
+
+            1)   open = infile ("output.txt","r")
+            2)   infile = open ("output.txt", "r")
+            3)   infile = open ("output.txt","a")
+            4)   open = infile ("output.txt","a")
+            5)   infile = open ("output.txt", "w")
+                                                                                             ( 2013 – 11 )
+
+         22. Consider the following Python statements:
+             my; i|yka mhs;ka j.ka;s i,lkak(
+            a = "123"
+            b = 123
+            c = ['a',2,(1,2,3)]
+
+            What are the data types of the variables a, b and c, respectively?
+            a, b iy c úp,Hj, o;a; m%rEm ms<sfj<ska ljf¾ o?
+
+            1) List, Integer, String          2) String, Integer, List        3) Integer, Integer, List
+            4) String, String, String         5) String, Float, Tuple
+                                                                                             ( 2013 – 12 )
+
+         23. What will be the output when the following Python code is executed?
+             my; olajd we;s mhs;ka fla;h l%shd;aul l< úg ,efnk m%;sodkh l=ula fõ o?
+            x = 6
+            while x > 0:
+               x = x - 2
+               print (x, end=' ')
+
+            1) 6               2) 4 2           3) 2 4 6           4) 4 2 0           5) 0
+
+                                                                                             ( 2013 – 13 )
+ictfromabc.com
+
+
+
+         24. Which of the following is an invalid Python identifier?
+             my; i|yka oE w;=ßka j,x.= fkdjk mhs;ka y÷kajkh (identifier) l=ula o?
+
+            1) _name         2) Name          3) Name_        4) 6Name        5) _6_names
+
+
+                                                                                    ( 2013 – 14 )
+
+         25. Consider the following Python program:
+             my; i|yka mhs;ka l%uf,aLkh i,lkak(
+            a = [1, 2]
+            b = [3, 4]
+            c = a + b
+            print (c)
+
+            What is the output?
+            fuys m%;sodkh l=ula o?
+
+            1) [4,6]      2) 10        3) [1,2,3,4]      4) [[1,2],[3,4]]     5) [1,2]+[3,4]
+
+                                                                                    ( 2013 – 15 )
+
+         26. What is the value after executing the Python expression 10 – 3 * 2 + 2.0?
+             10 – 3 * 2 + 2.0 hk mhs;ka m%ldYkh l%shd;aul l< úg ,efnk w.h l=ula o?
+
+            1) 16            2) 16.0          3) 6            4) 6.0          5) 28
+
+                                                                                    ( 2013 – 16 )
+
+         27. Which of the following is a syntactically correct Python program?
+             my; i|yka oE w;=frka ldrl Í;shdkql+,j ksjerÈ mhs;ka l%uf,aLkhla jkafka l=ula o?
+
+            1) def max(a, b)           2) def max(a, b):        3) def max(a, b)
+                  if(a > b)                  if(a > b):            if(a > b) then
+                     return a                   return a           return a
+                  else                       else:                 else return b
+                     return b                   return b
+
+            4) def max(a, b)           5) function max(a, b):
+                  if(a > b):                 if(a > b):
+                     return a                   return a
+                  else:                      else:
+                     return b                   return b
+                                                                                    ( 2013 – 17 )
+ictfromabc.com
+
+
+
+         •   Use the following flowchart to answer the questions 25           Start
+             and 26.
+                a wxl 28 yd 29 g ms<s;=re iemhSu i|yd § we;s .e,Sï
+             m%Yk
+             igyk Ndú; lrkak'                                                 a=0
+
+         28. What is the output of the algorithm represented by this
+             flowchart?                                                                 Yes
+                                                                              a>5?            a=a+1
+             fuu .e,Sï igyk u.ska ksrEmKh jk we,af.dß;ufha
+             m%;sodkh l=ula o?                                                    No
+             1)   0
+                                                                              Print a
+             2)   5
+             3)   4
+             4)   10                                                           Stop
+             5)   15
+
+                                                                                          ( 2013 – 18 )
+
+         29. Which of the following Python programs correctly represents this flowchart?
+             my; i|yka tajdhska fuu .e,Sï igyk ksjerÈj ksrEmKh lrkq ,nk mhs;ka l%uf,aLkh
+             l=ula o?
+
+             1) a = 0                   2) a = 0                       3) a = 0
+                while (a > 5):             while (a > 5):                 while not (a > 5):
+                  a = a + 1                   a = a + 1                     a = a + 1
+                  print(a)                 print(a)                       print(a)
+
+             4) a = 0                   5) a = 0
+                while not (a > 5):         while (a <= 5):
+                  a = a + 1                  a = a + 1
+                  print(a)                   print(a)
+
+                                                                                          ( 2013 – 19 )
+
+         30. Which of the following statements is true with respect to programming languages?
+             l%uf,aLk NdId iïnkaOfhka i;H jkafka my; i|yka l=uk j.ka;sh o?
+
+             1) Machine languages belong to the second generation programming languages.
+                hka;% NdId wh;a jkafka fojk mrïmrdfõ l%uf,aLk NdIdj,g h'
+             2) Assembly language programs can run directly on any computer.
+                wefiïí,s NdId l%uf,aLk ´kEu mß.Klhl iDcqj u Odjkh l< yels h'
+             3) Assembly languages belong to the first generation programming languages.
+                wefiïí,s NdId wh;a jkafka m<uqjk mrïmrdfõ l%uf,aLk NdIdj,g h'
+             4) Assembly language is more human readable form of machine language.
+                wefiïí,s NdIdj hkq ñksidg jvd myiqfjka lshúh yels hka;% NdIdfõ u wdldrhls'
+             5) Machine language programs can be translated into assembly language programs by
+                using assemblers.
+                wefiïn,¾ia Ndú;fhka" hka;% NdId l%uf,aLk wefiïí,s NdId l%uf,aLkj,g
+                mßj¾;kh l< yels h'
+                                                                                    ( 2014 – 03 )
+ictfromabc.com
+
+
+
+         31. Which of the following statements is true with respect to comments in programming
+             languages?
+             l%uf,aLk NdIdj, újrK (comments) iïnkaOfhka my; i|yka l=uk j.ka;sh i;H fõ o?
+
+            1) At the time of execution, comments are translated into special machine instructions.
+               l%shdlrùu isÿjk wjia:dfõ § újrK úfYaI hka;% WmfoaYkj,g mßj¾;kh fõ'
+
+            2) Comments should always be limited to a single line.
+               újrK iEu úg u tla fma<shlg iSud l< hq;= h'
+            3) Comments should Start with the symbol # in all programming languages.
+               ish¨ u l%uf,aLk NdIdj, újrK wdrïN l< hq;af;a ixfla;h iu.sk's
+            4) It is a good practice to include comments in a program to explain its functionality.
+               l%uf,aLk ;=< újrK we;=<;a lsÍu tys ld¾h meyeÈ,s lsÍug .; yels fyd| mqreoaols'
+            5) In Python programming, comments should always start at the first column.
+               mhs;ka l%uf,aLkfha § újrK iEuúg u wdrïN l< hq;af;a m<uqjk ;Srefjks'
+
+                                                                                        ( 2014 – 04 )
+
+         32. Which of the followings is an invalid Python variable name?
+             mhs;ka úp,H kdu i|yd j,x.= fkdjkafka my; i|yka ljrla o?
+
+            1) MyCountry     2) mycountry      3) My country     4) My_country    5) _my_country_
+
+                                                                                        ( 2014 – 05 )
+
+         33. Which of the following is a syntactically correct Python function?
+             ldrl Í;sj,g wkql+,j ksjerÈ mhs;ka Y%s;h (function) jkafka my; i|yka l=ula o?
+
+            1) def isLarger(a,b):            2) def isLarger(a,b):        3) def isLarger(a,b)
+               return a > b                         return a > b                 return a > b
+
+            4) function isLarger(a,b):       5) function
+                   return a > b                 isLarger(a,b)
+                                                    if(a > b)
+                                                      return a
+                                                    else
+                                                      return b
+
+                                                                                        ( 2014 – 37 )
+ictfromabc.com
+
+
+
+         •   Use the following flowchart to answer questions 31 and 32.
+                a wxl 34 iy 36 i|yd ms<s;=re iemhSug my; olajd we;s .e,Sï igyk Ndú; lrkak'
+             m%Yk
+
+                                                     Start
+
+
+
+                                              Read the integers for
+                                              the variables A, B, C
+
+
+
+                     Yes                 No                           Yes                    Yes
+                           Is B > C?               Is A > B?                   Is A > C?
+
+                                No                                             No
+                 Print B                            Print C                                 Print A
+
+
+
+
+                                                      End
+
+
+         34. If a user input 20, 27, 18 for the variables, A, B, C respectively the output will be
+             mßYS,lhl= úiska A, B iy C úp,H i|yd ms<sfj<ska 20, 27 yd 18 wdodkh (input) l<fyd;a
+             m%;sodkh (output) úh yelafla"
+
+             1) 18           2) 20              3) 27                   4) 20, 27          5) 27, 18
+
+                                                                                                ( 2014 – 38 )
+
+         35. Which of the following Python programs correctly implements the above flowchart?
+             by; .e,Sï igyk ksjerÈj ia:dms; lr we;af;a my; olajd we;s ljr mhs;ka l%uf,aLh u.ska
+             o?
+
+             1) A = int(input("Enter a value for A:"))
+                B = int(input("Enter a value for B:"))
+                C = int(input("Enter a value for C:"))
+                if (A > B):
+                   if(A > C):
+                       print(A)
+                else:
+                   if(B > C):
+                       print(B)
+                   else:
+                       print(C)
+             2) A = int(input("Enter a value for A:"))
+                B = int(input("Enter a value for B:"))
+                C = int(input("Enter a value for C:"))
+                if (A > B):
+                   if(A > C):
+                       print(A)
+                   else:
+                       print(C)
+                else:
+                   if(B > C):
+                       print(B)
+ictfromabc.com
+
+
+
+            3) A = int(input("Enter a value for A:"))
+               B = int(input("Enter a value for B:"))
+               C = int(input("Enter a value for C:"))
+               if (A > B):
+                  if(A > C):
+                      print(A)
+                  else:
+                      print(C)
+               else:
+                  if(B > C):
+                      print(B)
+                  else:
+                      print(C)
+            4) A = int(input("Enter a value for A:"))
+               B = int(input("Enter a value for B:"))
+               C = int(input("Enter a value for C:"))
+               if (A > B):
+                  if(A > C):
+                      print(C)
+                  else:
+                      print(A)
+               else:
+                  if(B > C):
+                      print(C)
+                  else:
+                      print(B)
+            5) A = int(input("Enter a value for A:"))
+               B = int(input("Enter a value for B:"))
+               C = int(input("Enter a value for C:"))
+               if (A > B):
+                  if(A > C):
+                      print(A)
+                  else:
+                      print(C)
+               else:
+                  if(B > C):
+                      print(C)
+                  else:
+                      print(B)
+                                                                                     ( 2014 – 39 )
+
+
+
+         36. What will be the output when the following Python code is executed?
+             my; olajd we;s mhs;ka fla;h l%shd;aul l< úg m%;sodkh l=ula o?
+            a = ['a',2,[3,'b',4],[6,"abc",9],8]
+            print(a[2][2])
+
+            1) 2             2) [3,'b',4]        3) 'b'            4) 4            5) 22
+
+
+                                                                                     ( 2014 – 40 )
+ictfromabc.com
+
+
+
+         37. What is the value of variable z after executing the Python statement z=1==2?
+             z=1==2 hk mhs;ka j.ka;sh l%shd;aul l< miq úp,Hh i|yd ,efnk w.h l=ula o?
+
+            1) 0               2) 1                3) True         4) False         5) Null
+
+                                                                                          ( 2014 – 41 )
+
+         38. Which of the following Python expressions shows the correct evaluation order of the
+             Python expression 10-4*3/2-5?
+             10-4*3/2-5 hk mhs;ka m%ldYkfha we.hSfï ksjerÈ mámdáh my; i|yka l=ulska fmkakï       q
+             lrhs o?
+
+            1)   (((10 - 4) * 3)/2) - 5
+            2)   ((10 - (4 * 3))/2) - 5
+            3)   10 - (4 * ((3/2) - 5))
+            4)   10 - ((4 * (3/2) - 5)
+            5)   (10 - ((4 * 3)/2)) - 5
+                                                                                          ( 2014 – 42 )
+
+         39. Consider the following statements about syntax or semantic errors in Python programming
+             language:
+             mhs;ka NdIdfõ ldrl Í;s fyda Yíod¾: fodaI fyda iïnkaOfhka my; i|yka j.ka;s i,ld
+             n,kak(
+
+            A - A program with syntax errors will not run to the end of the program.
+                ldrl Í;s fodaI iys; l%uf,aLhla tys wjidkh olajd Odjkh fkdfõ'
+
+            B - A program with only semantic errors will not run to its end.
+                Yíod¾: fodaI muKla we;s l%uf,aLhla tys wjidkh olajd Odjkh fkdfõ'
+
+            C - Syntax errors in programs are also called logical errors.
+                l%uf,aL ldrl Í;sj, we;s fodaI ;d¾lsl fodaI f,i o ye¢kafõ'
+
+            D - Programs with semantic errors may not produce correct outputs for some inputs.
+                Yíod¾: fodaI iys; l%uf,aL iuyr wdodk i|yd ksjerÈ m%;sodk ,nd fkdÈh yels h'
+
+            1) A and B only.    2) A and C only.    3) A and D only. 4) B and C only.   5) B and D only.
+               A yd B muKs.        A yd C muKs.        A yd D muKs.     B yd C muKs.       B yd D muKs.
+
+                                                                                          ( 2014 – 50 )
+ictfromabc.com
+
+
+
+         40. Consider the following statements about computer programming languages:
+             mß.Kl l%uf,aL NdId iïnkaOfhka my; j.ka;s i,ld n,kak(
+
+            A - The processor of a typical computer can understand and execute only the machine
+                language of that processor.
+                o¾YSh (typical) mß.Klhl ilikhg tu ilikfha hka;% NdIdj muKla f;areï .ekSu
+                iy l%shd;aul lsÍu l< yels h'
+
+            B - The processor of a typical computer can understand and execute any machine
+                language of any processor.
+                o¾YSh mß.Klhl ilikhg" ´kEu ilikhl ´kEu hka;% NdIdjla f;areïf.k
+                l%shd;aul l< yels h'
+
+            C - The processor of a typical computer can understand and execute any program in any
+                assembly language.
+                o¾YSh mß.Klhl ilikhg" ´kEu tfiïí,s (assembly) NdIdjlska jQ ´kEu
+                l%uf,aLhla f;areïf.k l%shd;aul l< yels h'
+
+            D- The processor of a typical computer can understand and execute any program in
+               Python language.
+               o¾YSh mß.Kl ilikhg" mhs;ka NdIdfjka (Python language) ,shk ,o ´kEu
+               l%uf,aLhla f;areïf.k l%shd;aul l< yels h'
+
+            Which of the above statement(s) is/are correct?
+            mß.Kl l%uf,aL NdId iïnkaOfhka my; j.ka;s i,ld n,kak(
+
+            1) A only.    2) A and B only.   3) A and C only.   4) B and C only.   5) C and D only.
+               A muKs.       A yd B muKs.       A yd C muKs.       B yd C muKs.       C yd D muKs.
+
+                                                                                         ( 2015 – 24 )
+
+         41. Consider the following Python program:
+             my; fmkajd we;s mhs;ka l%uf,aLh i,lkak(
+            temp = [23,45,2,–2,0]
+            print(temp[::2])
+
+            What is the output of the above program?
+            by; l%uf,aLfha m%;sodkh l=ula o?
+
+            1)   [23,45]
+            2)   [–2,0]
+            3)   [23,2,0]
+            4)   [2,–2,0]
+            5)   [23,45,2,–2,0]
+                                                                                         ( 2015 – 48 )
+ictfromabc.com
+
+
+
+         •   Questions 42 to 45 are based on an algorithm represented by the following flow chart.
+             wxl 42 isg 45 m%Yka i|yd my; .e,Sï igyk u.ska fmkajd we;s we,af.dß;uh mdol fõ'
+
+         42. Consider the following statements:                          Start
+             my; j.ka;s i,ld n,kak(
+
+             A - This algorithm takes only a single input.         Read a value for X
+                 fuu we,af.dß;uh tla wdodkhla muKla
+                 ,nd .kshs'
+                                                                         N=1
+             B - This algorithm does not have any                        T=0
+                 repetition(loop).
+                 fuu we,af.dß;uhg lsisÿ mqkrdj¾;khla
+                 (repetition/loop) we;=<;a fkdfõ'                  Read a value for Y
+
+             C - If the user inputs -1 for X, the algorithm
+                 will not terminate.                                   T=T+Y
+                 mßYS,lhd X i|yd -1 wdodkh l<fyd;a
+                 we,af.dß;uh k;r fkdfõ'
+                                                                                        No
+             D- When the user inputs for X, the algorithm              Is N = X?              N=N+1
+                will not terminate till the user enters
+                                                                             Yes
+                another value.
+                mßYS,lhd X i|yd 1 wdodkh l<fyd;a                        Print T
+                mßYS,lhd h<s;a w.hla we;=<;a lrk ;=re
+                we,af.dß;uh k;r fkdfõ'
+                                                                         End
+             Which of the above statement(s) is/are
+             correct?
+             by; j.ka;s w;=frka ksjeros jkafka ljrla o?
+
+             1) A only.     2) A and B only.    3) A and D only. 4) B and C only.       5) C and D only.
+                A muKs.        A yd B muKs.        A yd D muKs.     B yd C muKs.           C yd D muKs.
+
+                                                                                              ( 2015 – 28 )
+
+         43. The algorithm represented by the flowchart is considered as a poor algorithm because it
+             does not
+             .e,Sï igyk u.ska ksrEms; we,af.dß;uh ÿ¾j, we,af.dß;uhla fia i,lkq ,nkafka"
+             1) terminate for some input values.
+                th iuyr wdodk w.hkaj, § fkdkj;sk ksid h'
+             2) contain finite number of steps.
+                thg ksYÑ a ; mshjr ixLHdjla fkdue;s ksid h'
+             3) specify the next step to be performed at least for a one step of the algorithm.
+                B<Õ mshjr .ek i|ykla fkdue;s wvq u jYfhka tla mshjrlaj;a tys we;s ksid h'
+             4) consist of a sequence of steps.
+                th mshjr wkql%uhlska iukaú; fkdjk ksid h'
+             5) contain any variable type declarations.
+                tys lsisu úp,H m%rEm (variable type) y÷kajd§ula we;=<;a fkdjk ksid h'
+
+                                                                                              ( 2015 – 29 )
+ictfromabc.com
+
+
+
+         44. Which of the following Python programs implements the behavior of the flowchart?
+             .e,Sï igyfka yeisÍu l%shdjg kxjkafka my; i|yka l=uk mhs;ka l%uf,aLfhka o?
+
+            1) x = int(input("Enter a value : "))
+               n = 1
+               t = 0
+               while n <= x:
+                  y = int(input("Enter the next value: "))
+                  t = t + y
+                  n = n + 1
+               print(t)
+
+            2) x = int(input("Enter a value : "))
+               n = 1
+               t = 0
+               while n <= x:
+                  y =int(input("Enter the next value: "))
+                  t = t + y
+                  n = n + 1
+                  print(t)
+
+            3) x = int(input("Enter a value : "))
+               n = 1
+               t = 0
+               iterate = True
+               while n != x:
+                  y = int(input("Enter the next value: "))
+                  t= t + y
+                  n = n + 1
+               print(t)
+
+            4) x = int(input("Enter a value : "))
+               n = 1
+               t = 0
+               while n != x:
+                  y = int(input("Enter the next value: "))
+                  t = t + y
+                  n = n + 1
+                  print(t)
+
+            5) x = int(input("Enter a value : "))
+               n = 1
+               t = 0
+               iterate = True
+               while iterate:
+                 y = int(input("Enter the next value: "))
+                 t = t + y
+                 if n == x:
+                   iterate = False
+                 else:
+                   n = n + 1
+               print(t)
+
+                                                                                     ( 2015 – 31 )
+ictfromabc.com
+
+
+
+         45. The algorithm terminates
+             fuu we,af.dß;uh kj;skf   a ka"
+
+             1) for input value 5.
+                w.h 5 wdodkh l< miqj h'
+             2) when values 0,5,4 are given as input one after the other.
+                w.hka 0, 5, 4 tllg miq tlla f,i wdodkh l< miq h'
+             3) by printing the value 5 when it is given the input values 2,5,4 one after the other.
+                w.hka 2, 5, 4 tllg miq tlla f,i wdodkh l< miq w.h 5 uqøKh lsÍfuks'
+             4) by printing the value 4 when it is given the input values 2,5,4 one after the other.
+                w.hka 2, 5, 4 tllg miq tlla f,i wdodkh l< miq w.h 4 uqøKh lsÍfuks'
+             5) by printing the value 9 when it is given the input values 2,5,4 one after the other.
+                w.hka 2, 5, 4 tllg miq tlla f,i wdodkh l< miq w.h 9 uqøKh lsÍfuks'
+
+                                                                                              ( 2015 – 30 )
+
+         •   Questions from 46 to 49 are based on the following Python program.
+                a wxl 46 isg 49 f;la m%Yk
+             m%Yk                         a my; § we;s mhs;ka l%uf,aLh u; mdol ù we;'
+             # Program - p1.py
+             temp = [23,45,2,-2.0]
+             def f(b):
+                 n1,n2 = b[0],b[0]
+                 for m in b:
+                       if(m > n1):
+                            n1 = m
+                       if(m < n2):
+                            n2 = m
+                 return n1, n2
+             print(f(temp))
+
+         46. Consider the following statements about this Python code:
+             fuu mhs;ka fla;h iïnkaOfhka my; j.ka;s i,ld n,kak(
+
+             A - It contains a comment. th ;=< újrKhla (comment) mj;S'
+             B - It contains a definition of a function. Ys%;hl w¾: welaùula th ;=< wvx.= fõ'
+             C - It does not contain any selections. lsisÿ f;aÍula (selection) th ;=< wvx.= fkdfõ'
+             D- It does not contain any iterations. lsisÿ mqk¾lrKhla (iteration) th ;=< wvx.= fkdfõ'
+
+             Which of the above statements are correct?
+             by; i|yka l=uk j.ka;s ksjerÈ fõ o?
+
+             1) A and B only.    2) A and C only.    3) B and C only.     4) B and D only. 5) C and D only.
+                A yd B muKs.        A yd C muKs.        B yd C muKs.         B yd D muKs.     C yd D muKs.
+
+                                                                                              ( 2015 – 44 )
+
+         47. What is the data type of the variable temp in this Python code?
+             fuu mhs;ka fla;fha temp kue;s Ñp,Hfhys o;a; m%rEmh jkafka l=ula o?
+
+             1) Integer         2) Float            3) Boolean          4) Tuple        5) List
+
+                                                                                              ( 2015 – 45 )
+ictfromabc.com
+
+
+
+         48. What is the return data type of the function named " f "?
+             “f” kue;s Ys%;fha" m%;Hd.uk (return) o;a; m%rEmh jkafka l=ula o?
+
+            1) Integer        2) Float          3) Boolean         4) Tuple         5) List
+
+                                                                                         ( 2015 – 46 )
+
+         49. Which of the following value/s is/are in the output of the above program?
+             my; i|yka w.h$w.hka w;=frka ljrla by; l%uf,aLfhys m%;sodkh ;=< mj;S o?
+
+            1) 23 and 45      2) 45 and –2      3) –2 and 0        4) 0             5) 23
+
+                                                                                         ( 2015 – 47 )
+
+         50. Consider the following statements about compilers and interpreters used in programming
+             languages:
+             l%uf,aLk NdIdjkays Ndú; jk iïmdol yd w¾: úkHdil (compilers and interpreters)
+             iïnkaOfhka my; oelafjk j.ka;s i,lkak(
+
+            A - Compilers/interpreters are not required to execute a program written in assembly
+                language.
+                Assembly NdIdfjka ,shd we;s l%uf,aLhla l%shd;aul lsÍu i|yd iïmdol fyda w¾:
+                úkHdil wjYH fkdfõ'
+            B - Compilers are not essential to execute a program in machine code.
+                hka;% fla;j,ska we;s l%uf,aLhla l%shd;aul lsÍu i|yd iïmdol w;HjYH fkdfõ'
+            C - An executable program is translated into a source program by a compiler.
+                l%shd;aul l< yels (executable) l%uf,aLhla iïmdolhla u.ska uQ, l%uf,aLhla (source
+                program) njg mßj¾;kh lrkq ,nhs'
+            Which of the above statements is/are correct?
+            by; j.ka;s w;=frka ksjerÈ jkafka"
+
+            1) A only.       2) B only.      3) C only.       4) A and B only.   5) B and C only.
+               A muKs.          B muKs.         C muKs.          A yd B muKs.       B yd C muKs.
+
+                                                                                         ( 2016 – 24 )
+         51. Consider the following statements about flowcharts:
+             .e,Sï igyka iïnkaOfhka my; j.ka;s i,ld n,kak(
+
+            A - A flowchart is a pictorial representation of an algorithm.
+                .e,Sï igykla hkq we,af.daß;uhl Ñ;%l ksrEmKhla fõ'
+            B - A flowchart may have more than one ‘stop’ or ‘end’ termination symbols.
+                .e,Sï igykl 'kej;Su' fyda 'wjidkh' kï jQ wjika lsÍfï ixfla; tllg jvd mej;sh
+                yels h'
+            C - Algorithms can be represented only by using flowcharts.
+                we,af.daß;u ksrEmKh l< yels jkafka .e,Sï igyka Ndú;fhka muKs'
+            Which of the above statements is/are correct? by; j.ka;s w;=frka ksjerÈ jkafka"
+
+            1) A only.       2) B only.      3) C only.       4) A and B only.   5) B and C only.
+               A muKs.          B muKs.         C muKs.          A yd B muKs.       B yd C muKs.
+
+                                                                                         ( 2016 – 28 )
+ictfromabc.com
+
+
+
+         52. The algorithm represented by the                                       Start
+             following flowchart reads 5 numbers
+             and prints the sum of them.
+             my; .e,Sï igyk u.ska ksrEms;                                             A
+             we,af.daß;uh" ixLHd 5la lshjd
+             tajdfha ftlHh uqøKh lrkq ,efí'
+                                                                                   tot = 0
+            In order to execute the above
+            flowchart correctly, A and B should
+            be           replaced            by      ......................           B?
+                                                                                                       No
+                                                                                                              Print tot
+            respectively. Which of the followings
+            is suitable to fill the blank in the                                          Yes
+            above statement?
+            by; .e,Sï igyk ksjerÈj l%shd;aul                                  Read a value for x
+            ùu i|yd A iy B ms<sfj<ska
+            ............................ u.ska m%;sia:dmkh l<
+            hq;= h'                                                              tot = tot + x                 Stop
+            by; jelsfha ysia;ek msrùu i|yd
+            iqÿiq jkafka l=ula o?
+                                                                                   i=i+1
+            1)    i = 0 and i ≤ 5
+            2)    i = 1 and i = 5
+            3)    i = 0 and i > 5
+            4)    i = 1 and i ≤ 5
+            5)    i = 1 and i ≥ 5
+                                                                                                            ( 2016 – 29 )
+
+         53. Which of the following Python programs computes the sum of five given integers?
+             my; i|yka mhs;ka l%uf,aLk w;=frka fok ,o ksì, ixLHd myl tl;=j .Kkh lrkafka
+             l=ulska o?
+
+            1) i = 1                                             2) i = 1                        3) i = 1
+               tot = 0                                              tot = 0                         tot = 0
+               while i > 5:                                         while i <= 5:                   while i == 5:
+                     x=int(input())                                       x=int(input())                  x=int(input())
+                     tot=tot + x                                          tot=tot + x                     tot=tot + x
+                     i=i + 1                                              i=i + 1                         i = i + 1
+               print(tot)                                           print(tot)                      print(tot)
+
+            4) i = 0                                             5) i = 0
+               tot = 0                                              tot = 0
+               while i > 5:                                         while i <= 5:
+                     x=int(input())                                       x=int(input())
+                     tot=tot + x                                          tot = tot + x
+                     i = i + 1                                            i = i + 1
+               print(tot)                                           print(tot)
+                                                                                                            ( 2016 – 30 )
+ictfromabc.com
+
+
+
+         54. Consider the following Python statement:
+             my; i|yka mhs;ka j.ka;sh i,lkak(
+            temp = [23,45,2,-2,0][:2:]
+
+            What would be the value of the variable temp after executing the above statement?
+            by; j.ka;sh l%shd;aul jQ miq temp kï jQ úp,Hfhys mj;sk w.h l=ula o?
+
+            1) 23,45          2) [23,45]        3) 23,2            4) [23,2]        5) [23,2,0]
+
+                                                                                          ( 2016 – 31 )
+
+         55. Which of the following Python code segments is syntactically incorrect?
+             my; olajd we;s mhs;ka fla; LKavj,ska ldrl Í;s wkqj jerÈ l=ula o?
+
+            1) if x > 0:                    2) if x > 0:                  3) if x > 10:
+               y = 2                           y = 2                         y = 1
+                                               else:                         elseif x > 5:
+                                               y = 3                         y = 2
+
+            4) if x > 10:                   5) if x > 10:
+               y = 1                           y = 1
+               elif x > 5:                     else:
+               y = 2                           if x > 5:
+               else:                           y = 2
+               y = 3                           else:
+                                               y = 3
+
+                                                                                          ( 2016 – 39 )
+
+         56. Consider the following Python program segment:
+             my; mhs;ka l%uf,aL LKavh i,lkak(
+            d1 = "(1,2,3)"
+            d2 = (1,2,3)
+            d3 = [1,2,(1,2)]
+
+            What would be the types of variables dl, d2 and d3 respectively after the execution of the
+            program segment?
+            by; l%uf,aL nKavh l%shd;aul lsÍfuka miq d1, d2 iy d3 hk úp,Hhkaf.a m%rEmhka
+            ms<sfj<ska l=ula fõ o?
+
+            1) tuple, tuple, tuple            2) string, tuple, tuple               3) char, tuple, list
+            4) string, tuple, list            5) tuple, tuple, list
+
+                                                                                          ( 2016 – 40 )
+
+         57. Which of the following Python statements is syntactically incorrect?
+             my; i|yka l=uk mhs;ka j.kakh   s ldrl Í;s wkqj jerÈ jkafka o?
+
+            1) a,b=10,15               2) a=b=1,2                       3) a=1,2
+            4) a,b=2,(3,5)             5) a,b=2,3,5
+                                                                                          ( 2016 – 41 )
+ictfromabc.com
+
+
+
+         58. What will be the value of the variable x, after executing the following Python statement?
+             my; olajd we;s mhs;ka j.ka;sh l%shd;aul jQ miq úp,Hfha w.h l=ula fõ o?
+             x = 3 – 4 * 6 / 3 + 12 / 4 * 3
+
+             1) –5.0           2) –4.0             3) –1.0         4) 4.0                5) 5.0
+                                                                                               ( 2016 – 42 )
+
+         59. Which of the following Python functions is syntactically incorrect?
+             my; i|yka l=uk mhs;ka Y%s;h ldrl Í;s wkqj jerÈ jkafka o?
+
+             1) def fun(x,y):              2) def fun():                 3) def fun(x,y):
+                      return x                      return 5                      pass
+
+             4) def fun:                   5) def fun(x,y=5):
+                      return 5                      return y,x
+                                                                                               ( 2016 – 50 )
+
+
+         •   Consider the following flow chart.
+             my; .e,Sï igyk i,lkak(                                      start
+
+         60. What is the error with the above flow chart?
+             by; .e,Sï igyfka we;s fodaIh l=ula o?
+                                                                  read a value for x
+             1) It has two end symbols.
+                tys ‘end’ ixfla; folla ;sîu
+             2) Print is not a valid keyword.                           x=0?
+                                                                                       Yes
+                                                                                             Print "Good"
+                ‘Print’ hkq j,x.= bÕs mohla fkdùu
+             3) It has no process box.                                      No
+                tys ‘process’ fldgqjla fkdue;s ùu                                             end
+             4) It has two print symbols.                            Print "Bad"
+                tys ‘Print’ ixfla; folla ;sîu
+             5) A flow direction is not correct.
+                                                                        end
+                .e,Sï ÈYdjla ksjeros fkdùu
+
+                                                                                               ( 2017 – 25 )
+
+         61. Which of the following statements is true about algorithms?
+             we,af.dß;u iïnkaOfhka my; oelafjk l=uk j.ka;sh i;H fõ o?
+             1) A set of steps used to solve a problem is called an algorithm.
+                .eg¨jla úi£ug fhdod .kakd mshjrj, iuQyhla we,af.dß;uhla f,i ye¢kafõ'
+             2) A sequence of activities used to solve a problem is called an algorithm.
+                .eg¨jla úi£ug fhdod .kakd ld¾hj, wkql%uhla we,af.dß;uhla f,i ye¢kafõ'
+             3) To solve any problem, there can be at most one algorithm.
+                ´kEu .eg¨jla úi£u i|yd jeäukla u ;sìh yelafla tla we,af.dß;uhla muKs'
+             4) An algorithm can contain an infinite number of steps.
+                we,af.dß;uhlg wmßñ; mshjr ixLHdjla ;sìh yels h'
+             5) An algorithm does not need to terminate within a finite time.
+                we,af.dß;uhla mßñ; ld,hla ;=< § wjika ùug wjYH fkdfõ'
+                                                                                               ( 2017 – 29 )
+ictfromabc.com
+
+
+
+         62. Which of the following statements about Python data types/expressions is correct?
+             my; oelafjk l=uk j.ka;sh ksjerÈ fõ o?
+
+            1) String is a mutable data type.
+               ‘String’, hkq mutable o;a; m%rEmhls'
+
+            2) List is an immutable data type.
+               ‘List’ hkq immutable o;a; m%rEmhls'
+
+            3) [1, 2, 3] is a tuple.
+               [1, 2, 3] hkq tuple hls'
+
+            4) The expression [1, 2, 3] [1] will produce [2] when executed.
+               [1, 2, 3] [1] m%ldYkh l%shd;aul l< úg [2] ,nd foa'
+
+            5) The type of {'a':l, 1:(1, 2)} is a Dictionary.
+               {'a':1, 1:(1, 2)} m%rEmh Dictionary hls'
+                                                                                       ( 2017 – 41 )
+
+         63. Consider the following values:
+             my; oelafjk Python j.ka;sh i,lkak(
+
+            A - 2.3e2
+            B - TRUE
+            C - "This isn’t a string"
+            D- "
+
+            Which of the above values are valid in Python?
+            by; oelafjk w.hka w;=frka l=ula Python ys j,x.= fõ o?
+
+            1) A and B only. 2) A and C only. 3) B and C only. 4) A, B and C only. 5) A, C and D only.
+               A yd B muKs.     A yd C muKs.     B yd C muKs.     A, B yd C muKs.     A, C yd D muKs.
+
+                                                                                       ( 2017 – 42 )
+
+         64. Consider the following Python statement:
+             my; oelafjk Python j.ka;sh i,lkak(
+            temp = [1, 2, 3, 4, 5, 6] [2::2]
+
+            Which of the followings is the value of the variable temp after executing the above
+            statement?
+            by; m%ldYh l%shd;aul lsÍfuka miq temp úp,Hfha w.h my; oelafjk tajdhska l=ula o?
+
+            1) 2, 4, 6         2) 3, 5             3) [2, 3]      4) [3, 5]       5) [2, 4, 6]
+
+                                                                                       ( 2017 – 43 )
+ictfromabc.com
+
+
+
+         65. Consider the following statements:
+             my; oelafjk j.ka;s i,lkak(
+
+            A-a = b = 2 + 3
+            B - a, b = 2, 3
+            C - a, b = (2, 3)
+            D - a = (2, 3)
+
+            Which of the above are valid assignment statements in Python?
+            by; tajdhska l=ula Python ys j,x.= mejreï m%ldY jkafka o?
+
+            1) A and B only. 2) B and C only. 3) C and D only. 4) A, B and C only. 5) All of the above.
+               A yd B muKs.     B yd C muKs.     C yd D muKs.     A, B yd C muKs.     by; ish,a,u.
+
+                                                                                           ( 2017 – 44 )
+
+         66. Consider the following Python expressions:
+             my; oelafjk m%ldY i,lkak(
+
+            A - True or False and True
+            B - 3 > 2 and False
+            C - {2, 3} == {3, 2}
+            D - (2, 3) == (3, 2)
+
+            Which of the above expressions would result in the Boolean value True?
+            by; ljr m%ldY nQ,shdkq True w.h m%;sM,h f,i ,nd foa o?
+
+            1) A and B only.   2) A and C only.   3) B and C only.   4) B and D only. 5) C and D only.
+               A yd B muKs.       A yd C muKs.       B yd C muKs.       B yd D muKs.     C yd D muKs.
+
+                                                                                           ( 2017 – 45 )
+
+         67. The content of two files with names “in.csv” and “out.csv” are shown in the figures “Fig. 1”
+             and “Fig. 2” respectively.
+             “in.csv” iy “out.csv” hkqfjka kï lrk ,o f.dkqj, wka;¾.;hka “Fig.1” yd “Fig.2” rEm
+             igyka u.ska ms<sfj<ska oelafõ'
+
+            Ruvan, 20, 50
+            Ramesh, 0, 5
+            Raj, 10, 10
+            Fig. 1: in.csv
+
+            Ruvan 20 50 70
+            Ramesh 0 5 5
+            Raj 10 10 20
+            Fig. 2: out.csv
+ictfromabc.com
+
+
+
+             Which of the following Python programs can be used to transform the data in “in.csv” to
+             the content of the file “out.csv”?
+             my; oelafjk l=uk Python l%uf,aLh “in.csv” ;=< we;s o;a; “out.csv” ys wka;¾.;h njg
+             mßKdukh lsÍug Ndú; l< yels o?
+
+             1) f1=open("in.csv","r")
+                f2=open("out.csv","r")
+                for line in f1:
+                  items=line.strip().split(",")
+                  tot=int(items[1])+int(items[2])
+                  print(items[0],items[1],items[2],tot,file = f2)
+                f1.close()
+                f2.close()
+
+             2) f1=open("in.csv","r")
+                f2=open("out.csv","w")
+                for line in f1:
+                  items=line.strip()
+                  tot=int(items[1])+int(items[2])
+                  print(items[0],items[1],items[2],tot)
+                f1.close()
+                f2.close()
+
+             3) f1=open("in.csv","r")
+                f2=open("out.csv","w")
+                for line in f1:
+                  items=line.strip().split(",")
+                  tot=int(items[1])+int(items[2])
+                  print(items[0],items[1],items[2],tot,file = f2)
+                f1.close()
+                f2.close()
+
+
+             4) f1=open("in.csv","r")
+                f2=open("out.csv","w")
+                for line in f1:
+                  items=line.strip().split(",")
+                  tot=items[1]+items[2]
+                  print(items[0],items[1],items[2],tot,file = f2)
+                f1.close()
+                f2.close()
+
+             5) f1=open("in.csv","r")
+                f2=open("out.csv","w")
+                for line in f1:
+                  items=line.strip().split(",")
+                  tot=int(items[1])+int(items([2])
+                  print(items[0],items[1],items[2],tot,file = f1)
+                f1.close()
+                f2.close()
+
+                                                                                       ( 2017 – 46 )
+ictfromabc.com
+
+
+
+         68. Which of the following functions gives the sum of all elements in any list of integers?
+             ´kEu ksì, ,ehsia;=jl we;s ish¨ u wjhjj, tl;=j ,nd fokafka my; i|yka l=uk Y%s;h o?
+
+             1) def f(x):                                2) def f(x):
+                   s=x[0]                                      s=x[0]
+                   for i in range (0,len(x)):                  for i in range (1,len(x)):
+                      s=s+i                                       s=s+i
+                   return s                                    return s
+
+             3) def f(x):                                4) def f(x):
+                   s=0                                         s=0
+                   for i in x:                                    for i in x:
+                      s=s+i                                          s=s+x[i]
+                   return s                                       return s
+
+             5) def f(x):
+                   s=0
+                   i=0
+                      while i < len(x):
+                      s=s+x[i]
+                return s
+                                                                                                ( 2017 – 48 )
+
+
+         •   Questions 23 - 25 are based on the flowchart below.                    Start
+             (Note that n%2 represents n mod 2.)
+             wxl 69 isg 71 f;la m%Yka my; .e,Sï igyk
+             wdY%fhks' (n%2 hkafkka n mod 2 oelafjk nj                          i           1
+                                                                             result             0
+             i,lkak')
+         69. Which of the following is/are correct regarding the
+             algorithm expressed by the above flowchart?                          input n
+             by; .e,Sï igyk u.ska bÈßm;a flfrk we,af.daß;uh
+             iïnkaOfhka my; ljrla ksjerÈ fõ o?
+                                                                    Yes
+                                                                             is n %2 = 0 ?
+             A - It takes 10 inputs.
+                 th wdodk 10 la .kshs'
+                                                                                         No
+             B - It computes the sum of the even numbers in the
+                                                                          result        result + n
+                 input.
+                 th wdodkfha we;s brÜfÜ ixLHdj, tl;=j .Kkh
+                 lrhs'                                                        i         i+1
+             C - To take 100 inputs, only modifying “is i ≤ 10?”
+                 will be sufficient.
+                 wdodk 100 la ,nd .ekSug “i ≤ 10 ?” hkak fjkia                                       Yes
+                                                                                   is i ≤ 10 ?
+                 lsÍu muKla iEfya'
+                                                                                            No
+             1)   A only. A muKs
+                                                                             output result
+             2)   B only. B muKs
+             3)   C only. B muKs
+             4)   A and B only. A iy B muKs                                          Stop
+             5)   A and C only. A iy B muKs
+
+                                                                                                ( 2018 – 23 )
+ictfromabc.com
+
+
+
+         70. If the following were fed as inputs to the above algorithm, what will be the output?
+             by; we,af.daß;uhg my; ixLHd wdodk f,i ,nd ÿkafka kï m%;sodkh l=ula fõ o?
+
+            2, 8, 9, 3, 4, 10, 6, 5, 13, 19, 12, 7
+
+            1) 10               2) 30                  3) 42          4) 49             5) 56
+
+                                                                                             ( 2018 – 24 )
+
+         71. For any given input, outputs of which of the following Python programs will be the same
+             as the output produced by the algorithm in the above flowchart?
+             fok ,o ´kEu wdodkhla i|yd my; i|yka l=uk mhs;ka l%uf,aLfha$j, m%;sodk by; .e,Sï
+             igyk u.ska olajk we,af.dß;ufha m%;sodkhg iudk fõ o?
+
+            A. i=1               B. result = 0                                C. result = 0
+               result = 0           for i in range(10):                          i=1
+               while (i<=10):         n= int(input())                            while True:
+                 n= int(input())      if (not(n%2==0)):                            n= int(input())
+                 if (n%2 != 0):         result=result+n                            if (not(n%2==0)):
+                    result+=n       print result                                      result=result+n
+                 i=i+1                                                             i=i+1
+               print result                                                        if (i>10):
+                                                                                        break
+                                                                                 print result
+
+
+
+            1) A only.         2) B only.            3) C only.   4) A and B only.   5) All of the above.
+               A muKs.            B muKs.               C muKs.      A yd B muKs.       by; ish,a,u.
+
+                                                                                             ( 2018 – 25 )
+
+         72. Consider the following statements regarding programming languages and program
+             translation.
+             l%uf,aL NdId iN l%uf,aL mßj¾;kh ms<sn| my; m%ldY i,lkak'
+            A - A compiler translates a program one statement at a time.
+                iïmdolhla (compiler) jrlg tla m%ldYh ne.ska" l%uf,aLhla mßj¾;kh lrhs'
+            B - An assembler converts a program in an assembly language into machine code.
+                tfiïí,rhla tfiïn,s NdIdfjka we;s l%uf,aLhla hka;% fla;hg yrjhs'
+            C - An interpreter scans the entire program and translates it as a whole into machine
+                code.
+                w¾: úkHdilhla (interpreter) uq¿ l%uf,aLhu mßf,dalkh (scan) lr th iuia;hla
+                f,i hka;% fla;hg mßj¾;kh lrhs'
+
+            Which of the above statements is/are correct?
+            by; ljr m%ldYhla ksjerÈ fõ o?
+
+            1) A only.         2) B only.            3) C only.   4) A and C only.   5) B and C only.
+               A muKs.            B muKs.               C muKs.      A yd C muKs.       B yd C muKs.
+
+
+                                                                                             ( 2018 – 34 )
+ictfromabc.com
+
+
+
+         73. What is the value of the following Python expression?
+             my; oelafjk mhs;ka m%ldYfhys w.h l=ula o?
+            (5**2) // 3 ^ 4
+
+            1) 3              2) 5              3) 7             4) 12          5) 4096
+
+                                                                                       ( 2018 – 35 )
+
+         74. What is the output of the following Python code segment if executed with 30 as input?
+             wdodkh 30 f,i § my; oelafjk mhs;ka fla; LKavh l%shd;aul l< fyd;a m%;sodkh l=ula o?
+            n = int(raw_input())
+            if (n < 40):
+                  result = 1
+                  if (n < 10):
+                        result = 2
+                  elif (n < 20):
+                        result = 3
+                  else:
+                        result = 4
+            else:
+                  result = 5
+            print result
+
+            1) 1              2) 2             3) 3              4) 4           5) 5
+
+                                                                                       ( 2018 – 46 )
+
+         75. What is the output of the following Python code segment?
+             my; oelafjk mhs;ka fla; nKavfhys m%;sodkh l=ula o?
+            s = 0
+            for i in range(10):
+               s = s + i
+            print s
+
+            1) 0              2) 10            3) 45             4) 55          5) 100
+
+                                                                                       ( 2018 – 47 )
+
+         76. What is the output of the following Python code segment?
+             my; oelafjk mhs;ka fla; nKavfhys m%;sodkh l=ula o?
+            aList = [2,3,11,13,5,7]
+            s = 0
+            for i in range(len(aList)):
+               if (aList[i] > 10):
+                     continue
+               s = s + aList[i]
+            print s
+
+            1) 0              2) 5             3) 16             4) 17          5) 41
+
+                                                                                       ( 2018 – 48 )
+ictfromabc.com
+
+
+
+         77. Consider the following Python code segment with a blank line. (The line numbers on the
+             left are shown for guidance only. They are not part of the code).
+             ysia fma<shla iys; my; oelafjk mhs;ka fla; LKavh i,lkak' (jï miska oelafjk fma<s wxl
+             u. fmkaùu i|yd muKs' th fla;fhys fldgila fkdfõ')
+            1    # Function definition starts
+            2    ................................
+            3          s = arg1 + arg2
+            4          return s
+            5    # Function definition ends
+            6    total = sum(10,20)
+            7    print total
+
+            The above code should consist of a programmer defined function named 'sum'. Which of
+            the following should be entered in the blank on line 2. so that the function 'sum' is correctly
+            defined?
+            by; fla;fhys l%uf,aLl úiska w¾:olajk ,o ‘sum’ kue;s Y%s;h wvx.= úh hq;= h' ‘sum’
+            kue;s Y%s;h ksjerÈj w¾: oelaùu i|yd 2 jk fma<sfhys ysia;ekg my; oelafjk l=ula
+            we;=<;a l< hq;= o?
+
+            1) sum(arg1, arg2):                        2) def sum(arg1, arg2):
+            3) function sum(arg1, arg2):               4) def sum(arg1, arg2, s):
+            5) def sum( ):
+                                                                                             ( 2018 – 49 )
+
+         78. Which of the following statements is correct?
+             my; ljr j.ka;shla i;H fõ o?
+
+            1) A high-level language program that is translated into machine code and executed on
+               computer X will not execute on another computer having the same processor as X.
+               hka;% fla;hg mßj¾;kh lrkq ,en" X kï mß.Klfhys l%shd;aul lrkq ,nk by<
+               uÜgfuys mß.Kl NdId l%uf,aLhla" X ys we;s ilikhg iudk ilikhla iys; fjk;a
+               mß.Klhl l%shd;aul fkdfõ'
+            2) A program in a high-level language must be first converted into assembly language
+               code before converting into machine code.
+               by< uÜgfï we;s l%uf,aLhla hka;% fla;hg mßj¾;kh lsÍug fmr tfiuí,s (assembly)
+               NdId fla;hg yerúh hq;= h'
+            3) Interpreted programs run faster than compiled ones.
+               mßj¾;kh (interpreted) lrk ,o l%uf,aLhla iïmdokh lrk ,o (compiled)
+               l%uf,aLhlg jvd jeä fõ.fhka l%shd;aul fõ'
+            4) Programs in some high-level languages are translated into a form called byte-code
+               because such byte-codes execute faster than machine codes obtained by usual
+               compilations.
+               we;eï by< uÜgfï NdIdj,ska we;s l%uf,aL nhsg fla; (byte-code) kñka ye¢kafjk
+               wdldrhg mßj¾;kh lrkq ,nkafka" tjeks nhsg fla; idudkH iïmdokfhka ,nd .kakd
+               hka;% NdIdjg jvd jeä fõ.hlska l%shd;aul jk ksid h'
+            5) Some modern processors execute programs in high-level languages without
+               translating them into machine code.
+               we;eï kQ;k ilik (processors) by< uÜgfï NdIdjkaf.ka we;s l%uf,aL" hka;% fla;hg
+               mßj¾;khefkdlr l%shd;aul lrhs'
+
+                                                                                             ( 2019 – 43 )
+ictfromabc.com
+
+
+
+         •   Consider the following flowchart to answer the                              Start
+             questions 79 to 81:
+             wxl 79 isg 81 f;la m%Yka j,g ms<s;=re iemhSu i|yd
+             my; oelafjk .e,Sï igyk i,lkak'                                               i=8
+                                                                                       result = 1
+         79. Which of the following statements is/are correct
+             about the algorithm expressed by the flowchart?
+                                                                                        input n
+             wxl 40 isg 42 f;la m%Yk a j,g ms<s;=re iemhSu i|yd
+             my; oelafjk .e,Sï igyk i,lkak'
+
+             A - It takes 8 inputs.                                           Yes
+                                                                                        Is n ≤ 0 ?
+                 th wdodk 8la ,nd .kshs'
+                                                                                              No
+             B - It outputs the product of the positive numbers in
+                 the input.                                                         result = result x n
+                 th wdodkfhys we;s Ok ixLHdj, .=Ks;h m%;sodkh
+                 lrhs'
+                                                                                         i=i-1
+             C - If every input is zero, then the output will be zero.
+                 ish¨ u wdodk Y=kH jqjfyd;a m%;sodkh Y=kH fõ'
+                                                                                                           No
+             1)   A only. A muKs                                                         Is i ≤ 0 ?
+             2)   B only. B muKs
+             3)   C only. C muKs                                                              Yes
+             4)   A and B only. A iy B muKs                                          output result
+             5)   B and C only. B iy C muKs
+                                                                                           Stop
+
+
+                                                                                                      ( 2019 – 40 )
+
+         80. If the following is fed as the input to the algorithm, what will be the output?
+             wdodkh f,i we,af.dß;uhg my; § we;s oE ,nd ÿka úg m%;sodkh l=ula o?
+
+             3      2     -4      4      1     -9       5     -6         -1
+
+             1) -25920         2) -216              3) 120           4) 216                 5) 25920
+
+                                                                                                      ( 2019 – 41 )
+ictfromabc.com
+
+
+
+         81. Which of the following Python programs has/have the same functionality (i.e., the same
+             output for a given input) as the algorithm in the flowchart above?
+             my; oelafjk ljr mhs;ka l%uf,aLhg$l%uf,aLj,g by; .e,Sï igyfkys we;s we,af.dß;u
+             hg iudk l%shdldß;ajhla (tkï" fok ,o wdodkhlg tlu m%;sodkh) ;sfí o?
+
+            A. i=8                        B. result = 1                 C. result = 1
+               result = 1                    for i in range(8):            i=8
+               while (i > 0):                  n = int(input())            while 1:
+                 n = int(input())              if (n > 0):                   n = int(input())
+                 if (n > 0):                     result=result*n             if (not(n <= 0)):
+                    result=result*n          print (result)                    result=result*n
+                 i=i-1                                                        i=i-1
+               print (result)                                                 if (i <= 0):
+                                                                                    break
+                                                                           print (result)
+
+            1) A only.       2) B only.      3) C only.      4) A and B only.   5) All of the above.
+               A muKs.          B muKs.         C muKs.         A yd B muKs.       by; ish,a,u.
+
+                                                                                          ( 2019 – 42 )
+
+         82. What is the value of the following Python expression?
+             my; oelafjk mhs;ka m%ldYfhys w.h l=ula o?
+
+            (100 // 3) % 4 | 8
+
+            1) 0              2) 0.125          3) 3             4) 8              5) 9
+
+                                                                                          ( 2019 – 44 )
+
+         83. What will be output if the following Python code is executed with "abcabc" as the input?
+             my; oelafjk mhs;ka fla;h" "abcabc" wdodkh f,i l%shd;aul l< úg ,efnk m%;sodkh
+             l=ula o?
+            result = 1
+            s = input()
+            if (len(s) > 3):
+               result = 2
+            if (len(s) < 6):
+               result = 3
+            elif (len(s) > 6):
+               result = 4
+            else:
+               result = 5
+            print(result)
+
+            1) 1              2) 2              3) 3             4) 4              5) 5
+
+                                                                                          ( 2019 – 45 )
+ictfromabc.com
+
+
+
+         84. What will be the output of the following Python code?
+             my; oelafjk mhs;ka fla;fhys m%;sodkh l=ula o?
+            x= 100
+            for i in range(1,5):
+               x=x-i
+            print(x)
+
+            1) 0             2) 5              3) 85             4) 90             5) 100
+
+                                                                                       ( 2019 – 46 )
+
+         85. What will be the output of the following Python code segment?
+             my; oelafjk mhs;ka fla; LKavfhys m%;sodkh l=ula o?
+            L = [1,-2,4,3,2,-7,11,2,8,-1]
+            x = 0
+            for i in range(len(L)):
+               if (L[i] < 0):
+                     continue
+               if (L[i] > 10):
+                     break
+               x = x + L[i]
+            print(x)
+
+            1) 0             2) 1              3) 10             4) 21             5) 31
+
+                                                                                       ( 2019 – 47 )
+
+         86. What will be the result when the following Python code is executed?
+             my; oelafjk mhs;ka fla;h l%shd;aul l< úg m%;sM,h l=ula o?
+
+            x = 50
+            def func(y):
+               x = 2
+               y = 4
+            func(x)
+            print(x)
+
+            1) 50            2) 2             3) 4            4) syntax error      5) name error
+
+                                                                                       ( 2019 – 48 )
+ictfromabc.com
+
+
+
+         87. Which of the following statements regarding compilers and interpreters are correct?
+             iïmdol (compiler) iy mßj¾;l (interpreter) ms<sn|j my; ljr m%ldY i;H fõ o?
+
+             A - A compiler transforms an entire high-level language program into its machine code.
+                 iïmdolhla" by< uÜgfï (high level) NdIdjlska ,shejqkq uq¿ l%uf,aLhu hka;% fla;hg
+                 yrjhs'
+
+             B - An interpreter converts each high-level program statement into the relevant machine
+                 code during the program run.
+                 mßj¾;lhla" l%uf,aLhla l%shd;aul lsÍfï § (execute/run) by< uÜgfï l%uf,aLfhys
+                 tla tla j.ka;sh (statement) ne.ska f.k" th wod< hka;% fla;hg yrjhs'
+
+             C - Compiled codes usually run faster than interpreted codes.
+                 idudkHfhka iïmdokh jQ fla;" mßj¾;kh jQ fla;j,g jvd jeä fõ.hlska Odjkh fõ'
+
+             1) A only.     2) A and B only.   3) A and C only.       4) B and C only.      5) All of the above.
+                A muKs.        A yd B muKs.       A yd C muKs.           B yd C muKs.          by; ish,a,u.
+
+                                                                                                         ( 2020 – 16 )
+
+
+         •   The questions 88 - 90 are based on the algorithm                            Start
+             expressed by the flowchart below. The algorithm
+             takes a list L of items and an item K as inputs and is
+                                                                                    input list L
+             expected to output the number of items in L that are
+             equal to K. List indices start at 0. Note that two
+             entries, labelled as (P) and (Q) flowchart are blank                      input K
+             (unspecified).
+             wxl 88 isg 90 f;la jk m%Yk      a j,g my; oelafjk                     count = 0
+             .e,Sï igyk u.ska m%ldY flfrk we,af.dß;uh mdol                             i=0
+             fõ' we,af.dß;uh u.ska L kï whs;u (item)                            n = length of list
+             ,ehsia;=jla (list) iy K kï whs;uhla wdodkh f,i
+             ,ndf.k" L ,ehsia;=fjys we;s K g iudk whs;u .Kk
+             m%;sodkh lsÍu wfmalaId flf¾' ,ehsia;=fjys iQÑh                          Is L[i] = K ?
+             (index) 0ka wdrïN fõ' .e,Sï igyfkys iy f,i we;s               No
+             f,an, ysiaj we;s nj tkï lsisjla ksYÑ       a ;j olajd                            Yes
+             fkdue;s nj ie,lsh hq;= h'
+                                                                                            P
+                                                                                 ........................
+         88. For the algorithm to function correctly, what
+             should be inserted at the blank (P)?
+             we,af.dß;uh ksjerÈj l%shd;aul ùu i|yd kï                                   i = i+1
+             ysia;ekg l=ula we;=<;a l< hq;= o?
+
+             1)   n = n-1                                                                   Q
+                                                                                                                Yes
+                                                                                     .................
+             2)   n = n+1
+             3)   count = count + 1                                                             No
+             4)   count = count + i
+                                                                                   output count
+             5)   count = count + n
+
+                                                                                          Stop
+
+                                                                                                         ( 2020 – 32 )
+ictfromabc.com
+
+
+
+         89. For the algorithm to function correctly, what should be inserted at the blank (Q)?
+             we,af.dß;uh ksjerÈj l%shd;aul ùu i|yd kï ysia;ekg l=ula we;=<;a l< hq;= o?
+
+            1)   Is i <n?
+            2)   Is i = n?
+            3)   Is count < n?
+            4)   Is count < K?
+            5)   Is n > 0?
+                                                                                            (2020 – 33)
+
+         90. Consider the following python programs A, B and C.
+             my; A, B iy C u.ska oelafjk mhs;ka l%uf,aL i,lkak'
+
+            A. L = [int(x) for x in input().split()]
+               K = int(input())
+               count = 0
+               for i in range(len(L)):
+                     if (L[i]== K):
+                           count = count + 1
+               print (count)
+            B. L = input().split()
+               K = input()
+               count = 0
+               n = len(L)
+               for i in range(n):
+                     if (L[i]== K):
+                           count = count + i
+               print(count)
+            C. L = [int(x) for x in input().split()]
+               K = int(input())
+               count = i = 0
+               while (i < len(L)):
+                     if (L[i]== K):
+                           count = count + 1
+               print(count)
+
+            Which of the above python programs implement the given algorithm?
+            by; l=uk l%uf,aLh$l%uf,aL u.ska § we;s we,af.dß;uh l%shd;aul jkafka o?
+
+            1) A only.      2) B only.    3) A and B only.    4) A and C only.   5) All of the above.
+               A muKs.         B muKs.       A yd B muKs.        A yd C muKs.       by; ish,a,u.
+
+                                                                                           ( 2020 – 34 )
+
+         91. What would be the output of the following Python code, if the input was 17?
+             my; oelafjk mhs;ka fla;fhys wdodkh 17 jQ úg m%;sodkh l=ula o?
+            n = float(input())
+            m = (n // (n % 5)) ** 3
+            print(m)
+
+            1) 24.0        2) 25.5        3) 512.0           4) 614.125      5) an error message
+
+                                                                                           ( 2020 – 35 )
+ictfromabc.com
+
+
+
+         92. Suppose that S is a string, L is a list and T is a tuple in a Python program. The length of
+             each is 10. Consider the following Python statements:
+             hï mhs;ka l%uf,aLhl S hkq ;ka;=jla (string) o" L hkq ,ehsia;=jla (list) o" T hkq Wm,elshdkhla
+             (tuple) o fõ' ta tl tflys È. (length) 10 ls. my; mhs;ka m%ldY i,lkak'
+
+            A - S[2] = '2'
+            B - L[2] = '2'
+            C - T[2] = '2'
+
+            Which of the above three statements will generate an error?
+            by; m%ldY ;=fkka ljrla fodaIhla ckkh (generate) lrkq ,nhs o?
+
+            1) A only.      2) B only.     3) A and B only.     4) A and C only.   5) All of the above.
+               A muKs.         B muKs.        A yd B muKs.         A yd C muKs.       by; ish,a,u.
+
+                                                                                             ( 2020 – 36 )
+
+         93. What would be the output of the following Python code segment?
+             my; oelafjk mhs;ka fla; LKavfhys m%;sodkh l=ula o?
+            S = "corona virus pandemic"
+            V = "aeiou"
+            count = 0
+            for i in range(len(S)):
+               if (S[i] in V):
+                     count = count + 1
+            print(count)
+
+            1) 0               2) 5               3) 8               4) 19             5) 21
+
+                                                                                             ( 2020 – 37 )
+
+         94. What would be the output when the following Python code is executed?
+             my; oelafjk mhs;ka fla;h l%shd;aul l< úg m%;sodkh l=ula fõ o?
+            x = 1
+            def myfunc(p, q):
+               global x
+               p, q = q, p
+               x = x + p
+            myfunc(x,3)
+            print(x)
+
+            1) 1           2) 2            3) 3               4) 4             5) an error message
+
+                                                                                             ( 2020 – 38 )
+ictfromabc.com
+
+
+
+         95. What would be the output of the following Python code, if the input was 100?
+             my; oelafjk mhs;ka fla;fha wdodkh 100 úg" m%;sodkh l=ula o?
+            n = int(input())
+            if (n > O):
+               m = "Z"
+               if (n > 10):
+                     if (n > 100):
+                           m = "A"
+                     elif (n < 50):
+                           m = "B"
+                     else:
+                           m = "C"
+               else:
+                     m = "D"
+            print(m)
+
+            1) A              2) B               3) C               4) D              5) Z
+
+                                                                                             ( 2020 – 39 )
+
+         96. Consider the following Python program:
+             my; oelafjk mhs;ka l%uf,aLh i,lkak'
+            f1 = open("inFile.txt", "r")
+            f2 = open("outFile.txt", "w")
+            checkString = "No"
+            for line in f1:
+               if (checkString not in line):
+                     f2.write(line)
+            f1.close()
+            f2.close()
+
+            Which of the following statements are correct about the above program?
+            by; l%uf,aLh iïnkaOfhka my; ljr m%ldY i;H fõ o?
+
+            A - The content of the input file (inFile.txt) is checked in a loop, one line at a time.
+                wdodk f.dkqfõ (inFile.txt) wka;¾.;h" jrlg tl fma<sh ne.ska" Æmhla ;=< mÍlaIdjlg
+                n÷ka fõ (processed)
+
+            B - The total content of one file is written onto another file.
+                tl f.dkqjl uq¿ wka;¾.;h" ;j;a f.dkqjl ,shefõ'
+
+            C - If either of the two files does not exist, the program will stop and exit while executing
+                the first two lines of the code.
+                f.dkq foflka tl f.dkqjla fyda fkdue;s úg" l%uf,aLh tys uq,a fma<s fol l%shd;aul
+                lsÍfï§ k;r ù bj;aùu (stop and exit) isÿ fõ'
+
+            1) A only.     2) B only.      3) A and B only.    4) A and C only.   5) All of the above.
+               A muKs.        B muKs.         A yd B muKs.        A yd C muKs.       by; ish,a,u.
+
+
+                                                                                             ( 2020 – 41 )
+ictfromabc.com
+
+
+
+         97. What would be the output of the following Python code?
+             my; oelafjk mhs;ka fla;fha m%;sodkh l=ula o?
+            x = 1
+            y = 100
+            while (x < 100):
+               y = y - x
+               x = x + 1
+               if (x + y) < 90:
+                     break
+            print(y)
+
+            1) 100           2) 85              3) 72             4) 72             5) 7
+
+                                                                                           ( 2020 – 40 )
+
+         98. A teacher of a programming class draws the following diagram                             A
+             and asks the students to identify the components indicated by
+             A, B, C, D and E:                                                  Other             B
+             l%uf,aLlrKh (programming) W.kajk .=rejrfhla ;u                     object
+             mkakf s ha my; rE igyk we| tys we;s A, B, C, D iy E ixrpl          codes                 C
+             kï lrk f,i isiqkag lshhs'
+                                                                                                  D
+            Which of the following gives the correct choices for A, B, C, D
+                                                                                                      E
+            and E?
+            by; A, B, C, D iy E i|yd ksjerÈ f;dard.ekSï olajkafka my;
+            ljrla o?
+
+            1) A - compiler, B - executable code, C - source code, D - linker, E - object code
+               A - iïmdolh , B - l%shd;aul l< yels fla;h, C - m%Nj fla;h, D - ikaOdrlh ,
+               E - jia;= fla;h
+
+            2) A - compiler, B - source code, C - executable code, D - object code, E – linker
+               A - iïmdolh, B - m%Nj fla;h, C - l%shd;aul l< yels fla;h, D - jia;= fla;h,
+               E – ikaOdrlh
+
+            3) A - linker, B - source code, C - object code, D - executable code, E – compiler
+               A - ikaOdrlh, B - m%Nj fla;h, C - jia;= fla;h, D - l%shd;aul l< yels fla;h,
+               E – iïmdolh
+
+            4) A - source code, B - object code, C - linker, D - compiler, E - executable code
+               A - m%Nj fla;h, B - jia;= fla;h, C - ikaOdrlh, D - iïmdolh, E - l%shd;aul l< yels
+               fla;h
+
+            5) A - source code, B - compiler, C - object code, D - linker, E - executable code
+               A - m%Nj fla;h, B - iïmdolh, C - jia;= fla;h, D - ikaOdrlh, E - l%shd;aul l< yels
+               fla;h
+
+                                                                                           ( 2021 – 38 )
+ictfromabc.com
+
+
+
+         99. Which of the following statements is/are correct with respect to Object Oriented
+             Programming?
+             jia;= keUqre l%uf,aLkh(Object Oriented Programming) iïnkaOfhka my; ljrla ksjerÈ
+             o?
+
+             A - System output is determined by the object behaviour and their interactions.
+                 jia;= yeisÍu yd tajdfha wka;¾l%h
+                                                s d u.ska moaO;s m%;sodkh ;SrKh fõ'
+
+             B - System is modelled as a collection of objects.
+                 moaO;sh jia;+kf
+                               a .a tl;=jla f,i wdlD;s.; flfrhs'
+
+             C - Writing a program in this method is different from writing one according to the
+                 structured programming method.
+                 fuf,i l%uf,aLhla ,sùu" jHqy.; l%uhg l%uf,aLhla ,sùug jvd fjkia fõ'
+
+             1) A only.      2) B only.       3) C only.      4) A and C only.     5) All of the above.
+                A muKs.         B muKs.          C muKs.         A yd C muKs.         by; ish,a,u.
+
+                                                                                                 ( 2021 – 23 )
+
+
+         •   Consider the algorithm expressed by the flowchart                     Start
+             and answer questions 96 and 97:
+             .e,Sï igyk u.ska m%ldY flfrk we,af.dß;uh
+                                                                                  input n
+             i,ld 96 iy 97 m%Yk a j,g ms<s;=re imhkak'
+
+             This algorithm takes as input first an integer n (≥1)                count = 0
+             followed by a sequence of n integers one by one.                        i=0
+             The algorithm is expected to output the count of
+             integers that are less than 100 among the sequence
+             of n inputs.                                                          input x
+             fuu we,af.dß;uh uq,skau ksì,hla n (≥1) wdodkh
+             lr" bkamiq ms<sfj<ska n ksì, ixLHdjla tlska tl
+             wdodkh lrhs' by; n ksì, ixLHdj, 100g wvq ksì,                       Is x < 100 ?
+                                                                      No
+             .Kk m%;sodkh lsÍu we,af.dß;uh u.ska wfmalaId
+             flf¾'                                                                         Yes
+                                                                                       P
+        100. For the algorithm to function correctly as                     ........................
+             expected, what should be inserted at the blank (P)?
+             we,af.dß;ufhka n,dfmdfrd;a;=jk ksjerÈ                                 i = i+1
+             l%shdldß;ajhg ysia;ek i|yd my; l=ula we;=<;a
+             l< hq;= o?
+                                                                                  Is i = n ?           No
+             1)   count = count + 1
+             2)   count = count + i                                                  Yes
+             3)   count = count + x                                           Output count
+             4)   n=n-1
+             5)   n=n+1
+                                                                                     Stop
+
+
+                                                                                                 ( 2021 – 39 )
+ictfromabc.com
+
+
+
+        101. Which of the following Python programs implement the algorithm in the flowchart?
+             my; l=uk mhs;ka l%uf,aL u.ska oS we;s .e,Sï igyfka we,af.dß;uh l%shd;aul jkafka o?
+
+            A. n = int(input())      B. n = int(input())     C. n = int(input())
+               count = 0                count = 0               count = i = 0
+               for i in range(n):       for i in range(n):      while (i < n):
+                     x=int(input())           x=int(input())          x=int(input())
+                     if (x < 100):            if (x < 100):           if (x < 100):
+                       count=count+i             count+=1               count=count+1
+               print (count)            print(count)            print(count)
+
+
+            1) A only.      2) B only.     3) A and B only.   4) B and C only.     5) All of the above.
+               A muKs.         B muKs.        A yd B muKs.       B yd C muKs.         by; ish,a,u.
+
+                                                                                          ( 2021 – 40 )
+
+        102. What would be the output after executing the following Python code?
+             my; oelafjk mhs;ka fla;h l%shd;aul l< úg m%;sodkh l=ula fõ o?
+            n = 117
+            m = (n & 127) // (2 * * 3)
+            print(m)
+
+            1) 1             2) 14               3) 14.625       4) 15              5) 19
+
+                                                                                          ( 2021 – 41 )
+
+        103. What will be the result when the following Python code is executed?
+             my; oelafjk mhs;ka fla;h l%shd;aul l< úg m%;sodkh l=ula fõ o?
+            x = 10
+            def myfun(a):
+               global x
+               a=x+a
+               x=30
+               return a
+            print(myfun(x))
+
+            1) 10          2) 20         3) 30           4) 40             5) an error message
+
+        104. What will be the output of the following Python code segment?
+             my; oelafjk mhs;ka fla; fldgfia m%;sodkh l=ula fõ o?
+            S = ["covid", "pandemic", "vaccine", "booster", "virus"]
+            V = "aeiou"
+            count = 0
+            for i in range(len(S)):
+               for j in range(len(S[i])):
+                     if (S[i][j] in V):
+                           count = count + 1
+            print(count)
+
+            1) 0              2) 5               3) 12           4) 13              5) 32
+
+                                                                                    ( 2021 – 42 & 43 )
+ictfromabc.com
+
+
+
+        105. What will be the output when the following Python code is executed?
+             my; oelafjk mhs;ka fla;h l%shd;aul l< úg m%;sodkh l=ula fõ o?
+            s = 1
+            for i in range(1,10):
+               if (i < 5):
+                     s = s * i
+               elif (i < 8):
+                     s = s - i
+               else:
+                     s = s + i
+                     break
+            print(s)
+
+            1) 6             2) 14             3) 23              4) 33            5) 121
+
+                                                                                         ( 2021 – 44 )
+
+
+        106. Which of the following statements is/are                        Start
+             correct about the algorithm expressed by the
+             given flowchart?
+             § we;s .e,Sï igykska m%ldYs; we,af.dß;uh                       a = 10
+             (algorithm) iïnkaOfhka my; i|yka l=uk                           r=1
+             m%ldY$h ksjerÈ o?
+                                                                            Input n
+            A - An input is taken from the user only once.
+                mßYS,lhdf.ka tlajrla muKla wdodkhla
+                .kq ,efí'
+                                                                           Is n < 0 ?
+            B - The output of the algorithm is always 9.
+                we,af.dß;ufha m%;sodkh iEuúgu 9 fõ'                                Yes             No
+            C - The algorithm outputs the summation of       No            r=r+n
+                all the numbers entered.
+                we;=<;a lr we;s ish¨u ixLHdj, tl;=j
+                fuu we,af.dß;uh m%;sodkh lrhs'                              a=a-1
+
+            1)   A only. A muKs
+            2)   B only. B muKs
+                                                                           Is a >= 0 ?
+            3)   C only. C muKs
+            4)   A and B only. A iy B muKs                                         Yes
+            5)   B and C only. B iy C muKs
+                                                                            Output r
+
+
+                                                                              Stop
+
+
+                                                                                         ( 2022 – 36 )
+ictfromabc.com
+
+
+
+        107. What would be the output of the following Python code if the input was 25?
+             my; oelafjk mhs;ka fla;fha wdodkh 25 jQ úg" m%;sodkh l=ula fõ o?
+            x = int(input())
+            x = (x % (x - 21)) **3
+            print (x)
+
+            1) 0             2) 1              3) 3             4) 12            5) 25
+
+                                                                                          ( 2022 – 37 )
+
+        108. What would be the output of the following Python code?
+             my; oelafjk mhs;ka fla;fha m%;sodkh l=ula fõ o?
+            def fun(para1, para2):
+               x=foo(para2, para1)
+               return x
+            def foo(para3, para4):
+               return para3 — para4
+            result=fun(2, 4)
+            print("Result is " + str(result))
+
+            1)   Result is 0
+            2)   Result is 2
+            3)   Result is -2
+            4)   Result is (2, 4)
+            5)   Result is +2
+                                                                                          ( 2022 – 38 )
+
+        109. What would be the output of the following Python code?
+             my; oelafjk mhs;ka fla;fha m%;sodkh l=ula fõ o?
+            def foo(name, age=18, address="Kandy"):
+                     print (name, address, age)
+            foo("Nimal", 25, "Colombo")
+
+            1)   Nimal Colombo 25
+            2)   Nimal, Colombo, 25
+            3)   Nimal, Kandy, 18
+            4)   Nimal Kandy 18
+            5)   Nimal 18 Kandy
+                                                                                          ( 2022 – 39 )
+ictfromabc.com
+
+
+
+        110. What would be the output of the following Python code?
+             my; oelafjk mhs;ka fla;fha m%;sodkh l=ula fõ o?
+            numbers=[10, 20, 30, 40, 50]
+            numbers.pop(1)
+            numbers.append(60)
+            numbers.pop(2)
+            print(numbers)
+
+            1)   [10, 50, 60]
+            2)   [10, 20, 40, 60]
+            3)   [10, 30, 50, 60]
+            4)   [20, 30, 40, 50]
+            5)   [20, 30, 50, 60]
+                                                                                        ( 2022 – 40 )
+
+        111. What would be the output of the following Python code?
+             my; oelafjk mhs;ka fla;fha m%;sodkh l=ula fõ o?
+             val = 9
+             for i in range(5):
+                  for j in range(2, 3, 1):
+                        val += 1
+                        if (val % 2) == 0:
+                              continue
+                              val += 2
+                        else:
+                              val += 2
+            print(val)
+
+            1) 18             2) 24             3) 29            4) 38            5) 39
+
+                                                                                        ( 2022 – 41 )
+
+        112. Which of the following is/are correct regarding Python functions?
+             mhs;ka Y%s; iïnkaOfhka my; i|yka l=ula ksjerÈ jkafka o?
+
+            A - A Python function can return a data structure that contains multiple values.
+                mhs;ka Y%s;hlg w.hka iuQyhla we;s o;a; jHQyhla (data structure) m%;Hd.ukh (return)
+                l< yels h'
+
+            B - A Python function can be used without passing any parameters to it.
+                mhs;ka Y%s;hla" thg lsisÿ mrdñ;s heùulska f;drj Ndú; l< yels h'
+
+            C - Parameters can be passed to a python function by value or by reference.
+                mhs;ka Y%s;hlg mrdñ;Sk"a w.hla(value) fyda fhduqjla(reference) fyad f,i heúh yels h'
+
+            1) B only.      2) C only.     3) A and C only.   4) B and C only.   5) All of the above.
+               B muKs.         C muKs.        A yd C muKs.       B yd C muKs.       by; ish,a,u.
+
+
+                                                                                        ( 2022 – 42 )
+ictfromabc.com
+
+
+
+        113. What would be the output of the following Python code, if a = 10, b = 4, and c = 7?
+             a = 10, b = 4 iy c = 7 jk úg my; mhs;ka fla;fha m%;sodkh l=ula fõo?
+            ans = a % b + c // (a-b)
+            print(ans)
+
+            1) 3              2) 5                3) 7             4) 9              5) 11
+
+                                                                                          ( 2023 – 39 )
+
+        114. What would be the value of the 'result' variable after executing the following Python code?
+             my; mhs;ka fla;h l%shd;aul l< miq ‘result’ úp,Hfha w.h l=ula fõo?
+            def func1(a,b):
+               return a+b
+            def func2(a,b):
+               return a*b
+            result = func1(3,func2(2,4))
+
+            1) 11             2) 12               3) 14            4) 15             5) 20
+
+                                                                                          ( 2023 – 40 )
+
+        115. What would be the output of the following Python code, when it gets executed?
+             my; mhs;ka fla;h l%shd;aul l< úg m%;sodkh l=ula fõo?
+            def modify_string(input_string):
+                     input_string += " World"
+            text = "Hello"
+            modify_string(text)
+            print(text)
+
+            1) Hello       2) Hello Hello         3) Hello World      4) World       5) World Hello
+
+                                                                                          ( 2023 – 41 )
+
+        116. What would be the output of the following Python code?
+             my; mhs;ka fla;h l%shd;aul l< úg m%;sodkh l=ula fõo?
+            original_list = [1, 2, 3, 4, 5]
+            new_list = original_list.copy()
+            new_list.clear()
+            original_list.append(6)
+            print(original_list)
+            print(new_list)
+
+            1) [ ]        2) [6]         3) [6]           4) [1,2,3,4,5,6]   5) [ ]
+               [ ]           [ ]            [6]              [ ]                [1,2,3,4,5,6]
+
+                                                                                          ( 2023 – 42 )
+ictfromabc.com
+
+
+
+        117. How many '⁕' s does this program output?
+             my; l%uf,aLh" '⁕' fldmuK m%udKhla m%;sodkh lrhs o?
+            i = 7
+            while i>0:
+               i -= 3
+               print('⁕')
+               if i<=2:
+                     break
+               else:
+                     print('⁕')
+
+            1) 1               2) 3            3) 5              4) 7             5) 9
+
+                                                                                         ( 2023 – 43 )
+
+        118. Which of the data structures among Dictionary, List and Tuple in Python could be used to
+             store a collection of key-value pairs where the keys must be unique?
+             wkkH h;=re iys; h;=re-w.h (key-value) hq., tl;=jla .nvd lsÍug mhs;kays Dictionary,
+             List iy Tuple o;a; jHqy w;=ßka l=ula Ndú; l< yels o?
+
+            1)   Dictionary only
+            2)   List only
+            3)   Tuple only
+            4)   Dictionary and List only
+            5)   List and Tuple only
+                                                                                         ( 2023 – 44 )
+
+        119. What would be the output of the following python code?
+             my; mhs;ka fla;fha m%;sodkh l=ula fõo?
+            for i in range(1, 4):
+                     for j in range (1, i + 1):
+                           print(j * i, end=' ')
+                     print()
+
+            1) 1               2) 1            3) 1              4) 1 2 3         5) 1 2
+               2 2                2 4             2 4               2 4 6            2 4 6
+               3 3 3              3 6             3 6 9             3 6 9            3 6 9 12
+
+
+                                                                                         ( 2023 – 45 )
+

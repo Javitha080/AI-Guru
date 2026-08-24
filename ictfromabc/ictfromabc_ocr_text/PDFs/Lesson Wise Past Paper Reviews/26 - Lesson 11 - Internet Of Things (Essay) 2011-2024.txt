@@ -1,0 +1,532 @@
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+       2022 INTERNET OF THINGS ESSAY MARKING
+
+1.(a) IoT setup to water a plant in a greenhouse is shown                                                     me<h
+      in Figure 1. A mobile application is used to operate
+                                                                                                                                                    cx.u mßYS,lhd
+      the water-releasing tap. As shown, the setup                                                    j;=r lrduh
+      includes sensor, controller and microcontroller
+      (Arduino Board) with a communication module.
+      yß;d.drhl we;s me<hlg c,h fh§h yels IoT
+      wegjqula rEmh 1 ys oelafú' c,h ksl=;a lrk
+      lrduh l%shdlrùug cx.u fhÿula (mobile
+      application) Ndú; fÉ' rEmfha olapd we;s mßÈ
+      wegjqu"     ixfõolhlska      (sensor),    md,lhlska
+      (controller) iy ikaksfõok fudähq,hla iys; laIøq                                                                       rEmh 1
+      md,lhlska (wdähqfkda mqjreplska) iukaú; h'
+          First, let's examine what the mobile application, sensor, controller and communication module shown
+          in Figure 1 of part 7. (a) are,
+          m<uqj 7. (a) fldgfiys 1 rEmfhys olajd we;s cx.u fhÿu" ixfõolh"md,lh iy ixksfõok fudähq,h
+          (communication module) hkq l=ulaoehs úuid n,uq,
+          •     Mobile application / cx.u fhÿu
+                A mobile application is a software program designed to run on mobile devices like smartphones and
+                tablets. According to the image 1, the mobile application is used by the user to operate the water-
+                releasing tap remotely. This application interfaces with the entire IoT setup, enabling users to monitor
+                and manage the watering schedule of the plant directly from their mobile devices.
+                cx.u fhÿula hkq iaud¾Ü f*daka iy geí,Ü jeks cx.u Wmdx. u; Odjkh lsÍug ks¾udKh lr
+                we;s uDÿldx. jevigykls' 1 rEmhg wkqj" cx.u fhÿu ÿria:j c,h uqod yßk lrduh l%shd;aul
+                lsÍug Ndú;d lrhs' fuu fhÿu iuia; IoT ieliqu iuÕ w;=reuqyqK;a lrhs" mßYS,lhskag
+                Tjqkaf.a cx.u Wmdx.j,ska iDcqju n,d.drfha c,h oeófï ld,igyk ksÍlaIKh lsÍug iy
+                l<ukdlrKh lsÍug yels fõ'
+
+           • Sensor / ixfõolh
+             A sensor is a device that detects changes in environmental conditions and provides corresponding
+             output. In the image 1, the sensor labeled as component C, is a moisture sensor that measures the soil's
+             moisture level. This sensor plays a crucial role in the IoT setup by providing accurate and continuous
+             data about the soil's current moisture state.
+             ixfõolhla hkq mdßißl ;;a;ajhkays fjkialï y÷kdf.k Bg wkqrEm m%;sodkh imhk
+             WmlrKhls' 1 rEmfha" C ixrplh f,i f,an,a lr we;s ixfõolh" mfiys f;;uk uÜgu ukskq
+             ,nk f;;uk ixfõolhls' fuu ixfõolh mfiys j;auka f;;uk ;;a;ajh ms<sn| ksjerÈ iy
+             wLKav o;a; iemhSu u.ska IoT ieliqfuys ;SrKd;aul ld¾hNdrhla bgq lrhs'
+          •     Controller / md,lh
+                A controller is a device or set of devices that manages, commands, directs, or regulates the behavior
+                of other devices or systems. According to the image 1, the controller, identified as component A .
+                md,lhla hkq fjk;a Wmdx. fyda moaO;sj, yeisÍï l<ukdlrKh lrk" úOdk lrk" fufyhjk
+                fyda kshdukh lrk Wmdx.hla fyda Wmdx. iuQyhls' 1 rEmhg wkqj" md,lh f,i A ixrplh
+                y÷kd.; yelsh'
+RAVINDU BANDARANAYAKE                                -2-                                           #ictfromabc
+
+
+    •   Communication module / ikaksfõok fudähq,h
+        A communication module is a device that enables communication between different components of a
+        system or between different systems. In the image, the communication module, labeled as component
+        B, is represented by an Arduino board. It facilitates communication between the different components
+        of the system, including the sensor, controller, and mobile application. This controller processes the
+        data received from the moisture sensor and makes decisions based on predefined algorithms. It acts
+        as the central processing unit of the system. Additionally, it enables the mobile application to receive
+        updates and send instructions remotely, ensuring the entire IoT setup functions cohesively and
+        effectively.
+        ikaksfõok fudähq,hla hkq moaO;shl úúO ixrpl w;r fyda úúO moaO;s w;r ikaksfõokh
+        il%Sh lrk WmlrKhls' 1 rEmfha" B ixrplh f,i f,an,a lr we;s ikaksfõok fudähq,h
+        Arduino mqjrejlska ksfhdackh fõ th ixfõolh" md,lh iy cx.u fhÿu we;=¿j moaO;sfha
+        úúO ixrpl w;r ikaksfõokh i|yd myiqlï imhhs' fuu md,lh f;;ukh ixfõolfhka
+        ,efnk o;a; ilik w;r mQ¾j ksYaÑ; we,af.dß;u u; mokïj ;SrK .kS' th moaO;sfha uOHu
+        ieliqï tAllh f,i l%shd lrhs" óg wu;rj" th cx.u fhÿug hdj;ald,Sk ,nd .ekSug iy
+        ÿria:j Wmfoia heùug yelshdj ,nd fohs" iuia; IoT ieliqu tAldnoaOj iy M,odhS f,i l%shd
+        lsÍu iy;sl lrhs'
+
+ (i) Match the IoT components labelled as A, B and C to components described in the scenario.
+     A, B iy C f,i kï lr we;s IoT ixrpl" ikao¾Nfha úia;r lr we;s ixrpl yd .<mkak'
+    Therefore, the relevant answers for A, B and C according to the above describe are,
+    tuksid" by; úia;r lsÍug wkQj A, B iyd C ioyd wod< ms<s;=re jkafka"
+
+    A – Controller / md,lh
+    B – Microcontroller laIqø md,lh / Arduino Board wdvqhsfkda mqjrej
+    C – Sensor / ixfõolh
+
+ (ii) Explain the reason why the arrow M is shown in a single direction.
+      M B;,h tla ÈYdjlg muKla fhduqjk fia fmkapd we;af;a wehsoehs myokak'
+
+    The arrow M points in one direction because it represents the data flow from the moisture sensor to the
+    microcontroller in the IoT setup. The sensor doesn't get instructions back. It simply detects moisture levels
+    and transmits this data to the controller. In short, the arrow depicts a one-way flow of data from the sensor
+    to the controller.
+    IoT ieliqfuys f;;ukh ixfõolfha isg md,lh fj; o;a; .,dhdu ksfhdackh lrk ksid M B;,h
+    tla ÈYdjlg fhduq lrhs' ixfõolh Wmfoia wdmiq ,nd.kafka ke;' th yqfola f;;uk uÜgï
+    y÷kdf.k fuu o;a; laIQø md,lh fj; iïfm%alaIKh lrhs' fláfhka lsjfyd;a" B;,h ixfõolfha
+    isg laIQø md,lh fj; o;a; one-way m%jdykhla ksrEmKh lrhs'
+RAVINDU BANDARANAYAKE                                -3-                                         #ictfromabc
+
+
+ (b) The moisture sensor provides 10 levels of moisture intensity with 1 being “the driest’ and 10 being
+     “the wettest”; 8 is the desired level to be maintained. The algorithm on the right can be used to
+     automate the task of opening the tap when the soil is dry and to stop the water flow when enough
+     watering is done. Write down the most suitable entries for the places labelled X, Y and Z. f;;uk
+     ixfõolh" 1 “jvd;a úh<s” yd 10 “jvd;a f;;” f,i f;;uk uÜgï 10la okajhs' mj;ajd .; hq;=
+     wfmalaIs; f;;uk uÜgu 8 fõ' mi úh<s úg lrduh iajhxl%Shj újD; lsÍug;a" mfia m%udKj;a f,i
+     c,h we;s úg, c,h heùu k;r lsÍug;a we,af.dß;uhla ol=Kqmiska fmkajd we;' tys X, Y iy Z
+     f,i f,an, lr we;s ia:dk i|yd iqÿiq m%ldY ,shd olajkak'
+
+    [ Note : While (true) block represents the continuous loop function in Arduino ]
+    [ igyk : While (true) ldKavh wdähqfkda ys fkdkej;S Odjkh jk Æmh (loop) olajhs' ]
+
+     While (true) {                                     While (true) {
+           Read Moisture Level as M_L                         f;;uk uÜgu M_L f,i wdodkh lrkak
+           If [X]                                             If [X]
+                 If Tap Closed                                      If Tap lrduh jid we;
+                       Then [Y]                                           Then [Y]
+                 End if                                             End if
+           Else                                               Else
+                 If Not Tap Closed                                  If lrduh jid ke;
+                       Then [Z]                                           Then [Z]
+                 End if                                             End if
+           End if                                             End if
+     }                                                  }
+
+
+     According to the above (b) part explanation, the system will open the tap to water the soil when the
+     moisture level drops below 8 and close the tap when the moisture level reaches or exceeds 8.
+     by; (b) fldgfia meyeÈ,s lsÍu wkqj" f;;ukh uÜgu 8 g jvd wvq jQ úg mig c,h iemhSu
+     i|yd moaO;sh lrduh újD; lrk w;r f;;uk uÜgu 8 g <Õd jQ úg fyda Bg jeä jQ úg
+     lrduh jid ouhs'
+
+     Therefore, the code should be complete as below.
+     tuksid" fla;h my; mßÈ iïmQ¾K úh hq;=h'
+
+      While (true) {                                    While (true) {
+            Read Moisture Level as M_L                        f;;uk uÜgu M_L f,i wdodkh lrkak
+            If M_L < 8                                        If M_L < 8
+                  If Tap Closed                                     If Tap lrduh jid we;
+                        Then Open Tap                                     Then lrduh úsjD; lrkak
+                  End if                                            End if
+            Else                                              Else
+                  If Not Tap Closed                                 If lrduh jid ke;
+                        Then Close Tap                                    Then lrduh jikak
+                  End if                                            End if
+            End if                                            End if
+      }                                                 }
+
+
+     X – M_L < 8
+     Y – Open Tap / lrduh újD; lrkak
+     Z – Close Tap / lrduh jikak
+RAVINDU BANDARANAYAKE                                -4-                                          #ictfromabc
+
+
+ (c) What could be monitored in the greenhouse using an LDR sensor?
+     yß;d.drfha ljrla wëlaIKh i|yd LDR ixfõolhla Ndú; l< yels o?
+    First, let's focus on what a greenhouse and an LDR sensor are as mentioned in this question.
+    m<uqj" fuu m%Yakfha i|yka lr we;s mßÈ yß;d.drhla iy LDR ixfõolhla hkq l=ulao hkak
+    ms<sn|j wjOdkh fhduq lruq'
+
+    •   Greenhouse / yß;d.dr
+        A greenhouse is a structure designed to optimize plant growth by controlling environmental conditions
+        like temperature, humidity, and light. It allows for the cultivation of a wide range of plants.
+        yß;d.drhla hkq WIaK;ajh" wd¾ø;djh iy wdf,dalh jeks mdßißl ;;a;ajhka md,kh lsÍu u.ska
+        Ydl j¾Okh m%Yia; lsÍu i|yd ks¾udKh lr we;s jHqyhls' th mq¿,a mrdihl Ydl j.d lsÍug
+        bv i,ihs'
+
+    •   LDR Sensor / LDR ixfõol
+        A Light Dependent Resistor (LDR) or photoresistor, detects light intensity. Its resistance decreases
+        with increasing light, making it ideal for measuring light levels.
+        wdf,dalh u; r|d mj;sk m%;sfrdaOlhla (LDR) fyda m%ldY m%;sfrdaOlhla wdf,dalfha ;Sj%;djh y÷kd
+        .kS' wdf,dalh jeä ùu;a iuÕ tys m%;sfrdaOh wvq jk w;r th wdf,dal uÜgï uekSu i|yd iqÿiq
+        fõ'
+
+    According to the above explanation answers can be as follows.
+    by; meyeÈ,s lsÍug wkQj ms<s;=re my; mßÈ úh yel'
+
+    •   Brightness / §ma;sh
+        LDR sensor monitors the overall brightness in a greenhouse, helping maintain optimal lighting
+        conditions.
+        LDR ixfõolh yß;d.drhl iuia; §ma;sh ksÍlaIKh lrhs" m%Yia; wdf,dal ;;a;ajhka mj;ajd
+        .ekSug WmldÍ fõ'
+
+    •   Brightness Level / §ma;s uÜgu
+        By monitoring brightness levels, an LDR sensor allows precise control over lighting, essential for
+        plants with specific light needs at different growth stages.
+        §ma;sfha uÜgï ksÍlaIKh lsÍfuka LDR ixfõolh wdf,dalh u; ksYaÑ; md,khla ,nd fohs" úúO
+        j¾Ok wjëkays§ ksYaÑ; wdf,dal wjYH;d we;s Ydl i|yd fuh w;HjYH fõ'
+
+    •   Light Intensity / wdf,dal ;Sj%;dj
+        LDR sensor measures light intensity, crucial for photosynthesis. It ensures plants get the right amount
+        of light by adjusting the lighting system based on the sensor's readings.
+        LDR ixfõolh wdf,dalfha ;Sj%;djh ukskq ,nhs" m%NdixYaf,aIKh i|yd jeo.;a fõ' ixfõolfha
+        lshùï u; mokïj wdf,dal moaO;sh ilia lsÍfuka Ydlj,g ksjerÈ wdf,dalh ,nd .ekSu iy;sl
+        lrhs'
+
+    •   Light Intensity Level / wdf,dal ;Sj%;d uÜgu
+        Monitoring light intensity levels helps maintain a consistent light environment, important for light-
+        sensitive plants.
+        wdf,dal ;Sj%;d uÜgï ksÍlaIKh lsÍu wdf,dalhg ixfõ§ Ydl i|yd jeo.;a jk ia:djr wdf,dal
+        mßirhla mj;ajd .ekSug WmldÍ fõ'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+       2023 INTERNET OF THINGS ESSAY MARKING
+
+1.(a) Assume that you are given an Arduino UNO board (Figure 7.1) along with the following items:
+      Tng wdähqfkda UNO mqjrejla (rEmh 7.1) my; whs;u o iu.ska ,eî we;ehs i,lkak'
+          • Passive Infrared Sensor (PIR) for motion detection (Figure 7.2)
+            p,kh yÿkd.ekSu i|yd ú¢k wfOdarla; ixfõolhla (Passive Infrared Sensor [PIR]) (rEmh 7.2)
+          • Sensor for ambient light detection
+            ia:dkSh wdf,dalh (ambient light) y÷kd.ekSu i|yd ixfõolhla
+          • LEDs, Resistors, and a Power supply
+            wdf,dal úfudapk vfhdav (LED), m%;sfrdaOl (resistors) iy úÿ,sn, iemhqula (power supply)
+
+                                                 D
+
+              A
+
+
+                                                                     C
+
+
+                                                         B
+                                      Figure 7.1                                                               Figure 7.2
+
+          (i) Identify the parts marked as A, B, C, and D in Figure 7.1 and briefly explain each of their functionalities.
+              rEmh 7.1 ys A, B, C iy D f,i ,l=Kq lr we;s fldgia y÷kdf.k ta tlsfkflys ld¾hNdrh
+              ieflúka myokak.
+              Let's describe A, B, C and D shown on the Arduino UNO board as follows.
+              by; wdvqhsfkda UNO mqjrefõ oelafjk A, B, C iyd D my; mßÈ úia;r lruq'
+          •       A – USB Port \ USB flfjks
+                  The USB port on an UNO board connects it to a computer, supplying power and transferring data. It
+                  allows for programming via Arduino software and facilitates communication between the
+                  microcontroller and the computer, enabling code uploads and output monitoring.
+                  UNO mqjrejl we;s USB flfjksh th mß.Klhlg iïnkaO lrhs" n,h iemhSu iy o;a;
+                  udre lsÍu isÿ lrhs' th Arduino uDÿldx.h yryd l%uf,aLkh lsÍug bv i,ik w;r laIqø
+                  md,lh iy mß.Klh w;r ikaksfõokh myiq lrhs" fla; Wvq.; lsÍï iy m%;sodk wëlaIKh
+                  il%Sh lrhs'
+          •       B – Analog input terminal \ m%;siu wdodk ;=vq
+                  The analog input terminal reads varying voltages from sensors that output analog signals. These inputs
+                  convert analog signals into digital values for processing by the microcontroller, which is essential for
+                  measuring physical quantities like temperature and light.
+                  m%;siu wdodk ;=vq m%;siu ix{d m%;sodkh lrk ixfõol j,ska fjkia jk fjda,aàh;d lshjhs'
+                  fuu wdodk u.ska WIaK;ajh iy wdf,dalh jeks fN!;sl m%udK uekSu i|yd w;HjYH jk laIqø
+                  md,lh uÕska ieliSu i|yd m%;siu ix{d wxls; w.hka njg mßj¾;kh lrhs'
+          •       C – Micro controller \ laIqø md,lh
+                  The microcontroller acts as the central processing unit of the UNO board. It executes uploaded code,
+                  manages operations, processes inputs from analog and digital terminals, and generates outputs based
+                  on the program logic, coordinating all board activities.
+RAVINDU BANDARANAYAKE                               -5-                                          #ictfromabc
+
+
+        laIqø md,lh UNO mqjrefõ uOH ieliqï tAllh f,i l%shd lrhs' th Wvq.; lrk ,o fla;h
+        l%shd;aul lrhs" fufyhqï l<ukdlrKh lrhs" m%;siu iy wxls; m¾hka; j,ska ,efnk wdodk
+        ilihs" iy ish¨u mqjre l%shdldrlï iïnkaëlrKh lrñka jevigyka ;¾lkh u; mokïj
+        m%;sodkhka ckkh lrhs'
+    •   D – Digital input/output terminal \ wxls; ^ixLHdxl& wdodk$m%;sodk ;=vq
+        Digital input/output terminals interface with digital devices. Configurable as inputs or outputs, they
+        interact with components like LEDs and switches, detecting or sending digital signals to create
+        interactive electronic projects.
+        wxls; Wmdx. iuÕ wxls; wdodk$m%;sodk m¾hka; w;=reuqyqK;a lrjhs' wdodk fyda m%;sodk f,i
+        úkHdi l< yels" tAjd LED iy iaúp jeks ixrpl iuÕ wka;¾l%shd lrhs" wka;¾l%shdldÍ
+        bf,lafg%dksl jHdmD;s ks¾udKh lsÍu i|yd wxls; ix{d y÷kd.ekSu fyda heùu isÿ lrhs'
+
+    (ii) Assume that you want to build a loT setup that switches an LED light on when motion is detected. It
+         is further required to switch on this LED only during night time. Draw schematic diagram connecting
+         the Arduino board and the items given above as necessary in order to build this setup.
+         p,khla y÷kd.;a úg wdf,dal úfudapk vfhdavhla (LED) o,ajk (switch on) id¾j øjH wka;¾cd,
+         (IoT) wegjqula iE§ug Tng wjYH hehs is;kak' ;jo fuu LED h oe,aúh hq;af;a rd;%s ld,fha§
+         muKs' fuu wegjqu f.dvke.Sug Tn wdähqfkda mqjrej iu. by; fok ,o whs;u ksis mßos
+         iïnkaO lrk whqre oelaùug o< rEmigykla w¢kak.
+RAVINDU BANDARANAYAKE                                  -6-                                          #ictfromabc
+
+
+ (b) An e-commerce warehouse automation system includes a set of agent-based robots which move ordered
+     goods to their respective dispatch areas to start relevant shipments. The Figure 7.3 shows the latter part of
+     this system. A Quality Control (QC) Officer inspects the goods of each order as it passes on a conveyor
+     belt and confirms to a software system (Delivery Handler Agent) that the order has passed QC. The
+     Delivery Handler Agent directs the package to a mobile robot at the loading area. The robot agent reads
+     the package barcode to determine the appropriate dispatch area. It then navigates the robot to the relevant
+     dispatch area, scanning the path and avoiding obstacles while on the move. The Dispatch Handler Agent,
+     another software, validates each package at the dispatch areas and informs the Dispatch Officer to confirm
+     its decision. The Dispatch Officer can override Dispatch Handler decisions if needed and directs the
+     confirmed packages to the postal division.
+     b-jdKscHh nvq .nvdjl iajhx hka;%k (automation) moaO;shl" keõ.; lsÍï wdrïN lsßu i|yd
+     wekjqï l< NdKav tajdg wod< msg;alrk ia:dkj,g f.k hk frdfnda ldrl (agents) iuQyhla
+     we;=<;a h' moaO;sfha wjidk fldgi rEmh 7.3 ys oelafõ' ;;aj md,k (quality control) ks,Odßhd
+     iEu weKjqulu NdKav jdyl máhl (conveyor belt) hk úg mÍlaId lr" weKjqu ;;aj md,kfhka
+     iu;a jQ njg uDÿldx. moaO;shlg (fn§ï yiqrejk ldrlhg [Delivery Handler Agent]) ;yjqre lrhs'
+     fn§ï yiqrejk ldrlh nvq megùï m%foaYfha§ cx.u frdfndajlg meflach fhduqlrhs' frdfnda ldrlh
+     meflacfha ;Sre fla;h (barcode) lshjd wod< msg;alrk ia:dkh fidhd.kshs' th túg uÕ msßlaiñka"
+     wjysr u.yßñka wod<" msg;alrk ia:dkhg frdfndaj fhduq lrjhs' ;j;a uDÿldx.hla jk msg;aùï
+     yiqrejk ldrlh (Dispatch Handler Agent) msg;alrk ia:dkj,§ iEu meflachlu j,x.=Ndjh
+     msßlaid" msg;alrk ks,Odßhdg ;udf.a ;SrKh ;yjqre lrk f,i okajhs' msg;alrkq ks,Odßhdg wjYH
+     kï msg;aùï yiqrejk ldrlf.a ;SrK fkdie,lsh yel' msg;alrk ks,Odßhd" ;yjqre l< meflac
+     ;eme,a wxYhg fhduqlrhs'
+
+
+
+
+                                            Figure 7.3
+
+     (i) Software Agents demonstrate certain characteristics which make their behaviour unique. Briefly
+         explain the following two characteristics of a software agent:
+         uDÿldx. ldrl ;u yeisÍï wkkH lrkakd jQ .;s,laIK m%o¾Ykh lr;s' uDÿldx. ldrlhl
+         my; .;s,laIK fol ieflúka myokak.
+        (a) autonomous iajdëk
+        (b) cooperative iyfhda.S
+        The explanation of the two characteristics of a software agent mentioned above is as follows.
+        by; i|yka l< uDÿldx. ldrlfhl=f.a ,laIK foflays meyeÈ,s lsÍu my; mßÈ fõ'
+
+     (a) Autonomous - iajdëk
+         Software agents are described as autonomous because they can operate independently without
+         human intervention. They make decisions and take actions based on predefined rules and
+         algorithms. This independence allows agents to adapt to changing conditions and respond to new
+         information in real time, enhancing system efficiency and flexibility.
+         uDÿldx. ldrlhka iajhxl%Sh f,i úia;r lr we;af;a Tjqkag ñksia ueÈy;aùulska f;drj iajdëkj
+         l%shd l< yels neúks' Tjqka mQ¾j ksYaÑ; kS;s iy we,af.dß;u u; mokïj ;SrK .eksu iy l%shd
+         lsrsu isÿ lrhs' fuu iajdëk;ajh uÕska ldrlhkag fjkiajk ;;ajhkag wkqj¾;kh ùug iy
+         ;;H ld,Skj kj f;dr;=re j,g m%;spdr oelaùug" moaO;s ld¾hlaIu;dj iy kuHYS,S nj jeä
+         lsÍug bv i,ihs'
+RAVINDU BANDARANAYAKE                               -7-                                          #ictfromabc
+
+
+    (b) Cooperative - iyfhda.S
+        Software agents are considered cooperative because they can work together with other agents to
+        achieve common goals. Information and tasks are shared among agents to optimize processes
+        and outcomes. This cooperation is facilitated through communication protocols and mutual
+        goals, enabling agents to coordinate their actions effectively within a system
+        fmdÿ wruqKq idlaId;a lr .ekSu i|yd fjk;a ksfhdað;hka iuÕ tlg jev l< yels neúka
+        uDÿldx. ksfhdað;hka iyfhda.S f,i i,lkq ,efí' l%shdj,s iy m%;sM, m%Yia; lsÍu i|yd
+        ksfhdað;hka w;r f;dr;=re iy ld¾hhka fnod .kq ,efí' fuu iyfhda.S;djh ikaksfõok
+        kshudj,s iy wfkHdakH wruqKq yryd myiqlï imhkq ,nk w;r" ksfhdað;hskag moaO;shla ;=<
+        Tjqkaf.a l%shdjka M,odhS f,i iïnkaëlrKh lsÍug yels fõ'
+
+    (ii) Name a self-autonomous agent and a user agent in the given example.
+         by; WodyrKfha iajhx iajdëk (self-autonomous) ldrlhla iy mßYS,l ldrlhla (user-agent)
+         kï lrkak.
+       •   Self-autonomous - iajhx iajdëk ldrlhlaa
+           A multitasking robot (nyqld¾h frdfndajrfhla)
+       •   User-agent - mßYS,l ldrlhla
+           The delivery handling agent or the departure handling agent
+           fnosï yeisrùfï ldrlhla fyda msg;aúï yeisrùfï ldrlhla
+
+   (iii) If the set of multi-agent robots behave satisfying only the autonomous characteristic but fails to
+         cooperate, write down one of the most likely observations that will be seen during their operation.
+         nyqldrl frdfnda iuQyh iajdëk .;s,laIK muKla wkqj yeisÍ"iyfhda.S;ajfhka lghq;= fkdlrkafka
+         kï" Tjqkaf.a l%shdldß;ajh w;r;=r nyq,j oelsh yels ksÍlaIKh ,shkak.
+       If the set of multi-agent robots behave satisfying only the autonomous characteristics but fails to
+       cooperate, write down one of the most likely observations that will be seen during their operation.
+       nyqldrl frdfnda iuQyh iajdëk .;s,laIK muKla wkqj yeisÍ" iyfhda.S;ajfhka lghq;=
+       fkdlrkafka kï" Tjqkaf.a l%shdldß;ajh w;r;=r nyq,j oelsh yels ksÍlaIKh ,shkak.
+       If the robots are autonomous but lack cooperation, competitive behavior is likely to be exhibited,
+       leading to congestion in the loading area. Robots would be perceived as obstacles by each other,
+       causing collisions and delays.
+       frdfndajre iajhxl%Sh kuq;a iyfhda.S;djhla fkdue;s kï" ;rÕldÍ yeisÍï m%o¾Ykh ùug bv
+       we;s w;r" th megùfï m%foaYfha ;onohg fya;= fõ' frdfndajre tlsfkld .eàï iy m%udohka
+       we;s lrk ndOl f,i i,lkq we;'
+
+   (iv) If this system is redesigned by replacing the multi-agent behavior with centralized control and a
+        broker agent for communication, identify one main change that will be seen with respect to each of the
+        following:
+        fuu moaO;sh nyqldrl yeisÍu fjkqjg uOH.; (centralized) md,khla iy ikaksfõokh i|yd
+        w;rueÈ ldrlhla (broker agent) Ndú; lrñka kej; m%;sk¾             s udKh l<fyd;a my; oE iïnka-
+        Ofhka oelsh yels tla uQ,sl fjkialula ne.ska ,shkak.
+
+    (a) Control of the robot mobility
+        frdfndajrekaf.a .uka md,kh
+        With centralized control and a broker agent, robot mobility for moving packages would be more
+        efficient. The central controller would coordinate movements, optimize routes, and reduce
+        collisions and congestion.
+        uOH.; md,khla iy ;e/õldr ldrlfhl= iuÕ" meflac p,kh lsÍu i|yd frdfnda ixp,kh
+        jvd;a ld¾hlaIu jkq we;' uOHu md,lh p,khka iïnkaëlrKh lrhs" ud¾. m%Yia; lrhs" iy
+        .egqï iy ;onoh wvq lrhs'
+RAVINDU BANDARANAYAKE                             -8-                                       #ictfromabc
+
+
+    (b) Decision making process(relevant to moving packages from loading area to dispatch areas)
+        ;SrK .ekSfï l%shdj,sh(meflac megùfï m%foaYfha isg msg;alrk ia:dk olajd f.khdug wod<j)
+        In a centralized system, the central controller would handle decisions for moving packages
+        from loading to dispatch areas. This would ensure more effective and timely dispatching, as
+        the controller would direct movements based on comprehensive data, reducing delays and
+        improving efficiency.
+        uOH.; moaO;shla ;=<" meflac megùfï isg msg;a lr heùfï m%foaY fj; f.khdfï ;SrK
+        uOHu md,lh úiska yiqrejkq we;' md,lh úiska úia;SrK o;a; u; mokïj p,khka
+        fufyhùu" m%udohka wvqlsÍu iy ld¾hlaIu;dj jeä ÈhqKq lsÍu ksid fuh jvd;a M,odhS
+        iy ldf,daÑ; heùu iy;sl lrkq we;'
+
+    (v) Draw a box and arrow diagram for new solution with centralized control, mentioned in (iv), above.
+        by; (iv) ys i|yka uOH.; md,kh iys; kj úi÷ug wod<j fldgq iy B;, rEmigykla (box
+        and arrow diagram) w¢kak.
+       ( Note : A box and arrow diagram uses boxes to show system components and arrows to show
+       connections between those components )
+       ( igyk: fldgq iy B;, rEmhl fldgqj,ska moaO;s ixrpl;a" B;,j,ska ixrpl w;r iïnkaO;d;a
+       eoelafõ. )
+
+
+
+
+                                                                                    ( 2023 ESSAY – 07 )
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+       2024 INTERNET OF THINGS ESSAY MARKING
+
+1.(a) Figure 7.1 shows the Arduino circuit that Saman implemented to detect a door opening.
+      rEmh 7.1 ka fmkajkafka fodrl újD; úula wkdjrKh lr.eksug iuka iE¥ wdvqhsfkda mßm:hhs'
+
+
+
+
+     (i) Explain the behaviour and operation of the sensor used in this circuit.
+         mßm:fha Ndú; lrk ikafõolfha (sensor) yeisÍu iyd l%shdldß;ajh myokak'
+
+          The sensor used in the circuit appears to be a magnetic reed switch. This sensor operates based on the
+          presence or absence of a magnetic field. When the door is closed, the magnet remains close to the sensor,
+          keeping the circuit inactive. However, when the door opens, the magnet moves away, causing the sensor
+          to send a HIGH signal to the microcontroller (ATmega328P). The microcontroller detects this state change
+          and activates the buzzer to produce a sound, signaling that the door has been opened.
+          mßm:fha Ndú;d lrk ixfõolh pqïnl reed iaúphla f,i fmfka' fuu ixfõolh pqïNl lafIa;%hla
+          ;sîu fyda fkdue;s ùu u; l%shd;aul fõ' fodr jid we;s úg" pqïnlh ixfõolhg iómj mj;S"
+          mßm:h wl%shj ;nd .kS' flfia fj;;a" fodr újD; jk úg" pqïnlh bj;g .uka lrhs" tu.ska
+          ixfõolh laIqø md,lh ATmega328P fj; by< ix{djla heùug fya;= fõ' laIqø md,lh fuu
+          ;;ajh fjkia ùu y÷kdf.k Yíohla ksmoùug nirh il%sh lr fodr újD; lr we;s njg ix{d
+          lrhs'
+RAVINDU BANDARANAYAKE                               -10-                                          #ictfromabc
+
+
+ (ii) To operate this setup Saman wrote the firmware code shown in Figure 7.2. However, the setup failed to
+      operate as expected due to defects in the code. Write down the corrections that you would do to the code.
+      fuu mßm:h l%shdlrùug iuka rEmh 7.2 ys oelafjk iaÒrdx. (firmware) fla;h ,sõfõh' tfy;a
+      fla;fha fodaI ksid wegjqu wfmalaIs; wdldrhg l%shd lf<a ke;' Tn tu fla;hg lrk ksjerÈ lsÍï
+      ,shd olajkak'
+
+        const int SensorP = 9;
+        const int BuzzerP = 8;
+
+        void setup() {
+            pinMode(SensorP, INPUT);
+            pinMode(BuzzerP, OUTPUT);
+        }
+
+        void loop() {
+            int senState = digitalRead(SensorP);
+            if (senState == HIGH)
+                tone(SensorP, 262);
+            else
+                noTone(BuzzerP,0);
+        }
+                       Figure / rEmh 7.2
+
+    The provided code has two key issues preventing proper operation.
+    imhd we;s fla;h ksis f,i l%shd;aul ùu je<elaùfï m%Odk .eg¿ folla we;'
+
+    •    The tone() function is incorrectly applied to the sensor pin (SensorP) instead of the buzzer pin
+         (BuzzerP). The buzzer, not the sensor, should produce the sound.
+         buzzer pin (BuzzerP) yg fjkqjg sensor pin (SensorP) fj; tone() Y%s;h jerÈ f,i fhdod we;'
+         Yíoh ksmoúh hq;af;a ixfõolh fkdj nirh fõ'
+
+    •    The noTone() function has an extra argument 0 that is unnecessary and invalid. The correct syntax
+         requires only the pin number where the tone needs to stop.
+         noTone() Y%s;hg wu;rj 0 f,iska ;¾lhla we; th wkjYH iy j,x.= fkdfõ' ksjerÈ ldrl
+         Í;shg wjYH jkafka tone keje;aùug wjYH jk mska wxlh muKS'
+
+    The corrected code is as follows / ksjerÈ lrk ,o fla;h my; mßÈ fõ:
+
+    const int SensorP = 5;
+    const int BuzzerP = 8;
+
+    void setup() {
+        pinMode(SensorP, INPUT);
+        pinMode(BuzzerP, OUTPUT);
+    }
+
+    void loop() {
+        int senState = digitalRead(SensorP);
+        if (senState == HIGH)
+            tone(BuzzerP, 262); //Corrected to use the buzzer pin (BuzzerP)
+        else
+            noTone(BuzzerP);    //Corrected to stop the tone on the buzzer pin (BuzzerP)
+    }
+RAVINDU BANDARANAYAKE                                 -11-                                          #ictfromabc
+
+
+ (iii) Saman hopes to extend this circuit to indicate the door openings only at night time. What does he need to
+       modify in this circuit to add that feature? If any item(s) must be connected to the ATmega328P, indicate
+       the relevant pin(s).
+       rd;%S ld,fha muKla isÿjk fodr újD; ùï oelaùug fuu mßm:h ÈhqKq lsÍug iuka woyia lrhs'
+       tu úfYaIdx.h tla lsÍug Tyq mßm:fha l=ula fjkia l< hq;=o @ hï whs;u^hla& ATmega328Pg
+       iïnkaO l,hq;= kï" wod< ;=vq^j& olajkak'
+
+     To modify the circuit to detect door openings only at night, a Light Dependent Resistor (LDR) can be
+     added to the setup. The LDR will detect the surrounding light levels, and the microcontroller can use its
+     analog input pin (e.g., A0) to monitor the voltage from the LDR.
+     rd;%sfha§ muKla fodr újD; ùï y÷kd .ekSu i|yd mßm:h fjkia lsÍu i|yd" wdf,dalh r|d
+     mj;sk m%;sfrdaOlhla LDR ieliqug tla l< yelsh' LDR úiska wjg wdf,dal uÜgï yÿkd.kq we;s
+     w;r" iy LDR fj;ska fjda,aàh;dj ksÍlaIKh lsÍug laIqø md,lhg tys m%;siu wdodk mska (e.g.,
+     A0) Ndú;d l< yel'
+
+     By strategically implementing additional logic within the code, the buzzer can be precisely activated solely
+     when the ambient light level diminishes below a predetermined nighttime threshold. This refinement
+     ensures the circuit's functionality is strictly confined to the designated nocturnal hours.
+     fla;h ;=< Wml%uYS,Sj w;sf¾l ;d¾lsl l%shdjg kexùfuka" ixirK wdf,dal uÜgu l,ska ;SrKh l<
+     rd;%S ld, iSudjg jvd wvq jQ úg muKla nirh ksYaÑ;j il%sh l< yel' fuu msßmyÿ lsÍu uÕska
+     mßm:fha l%shdldÍ;ajh kï lrk ,o rd;%S fõ,djkag oeä f,i iSud ù we;s nj iy;sl lrhs'
+
+                                                                                         ( 2024 ESSAY – 7[a] )
+

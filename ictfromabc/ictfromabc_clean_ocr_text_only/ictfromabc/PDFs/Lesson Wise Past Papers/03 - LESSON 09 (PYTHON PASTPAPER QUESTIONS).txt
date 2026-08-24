@@ -1,0 +1,4042 @@
+1. (a) Explain the necessity of program translators in computer programming.
+
+(b)
+
+(c)
+
+(d)
+
+SOOLND ක්‍රමලේඛයේදී ක්‍රමලේඛ පරිචරිතකවල (Translators) අවශ්‍යතාව පැහැදිලි කරන්න.
+
+Give two main features for each of the First-Generation and Second-Generation
+programming languages.
+
+පළමුචන පරමීපරාඥ්‌ි (First-Generation) සහ දෙවන පරමිපරාඥචේ (Second-Generation) ක්‍රමලේඛ
+භාෂා එක චකක්‌ සඳහා ප්‍රධාන ලක්ෂණ දෙකක්‌ බැගින්‌ දක්චන්න.
+
+Give three main flow control structures used in a structured programming language. Show
+how these flow control structures can be represented in a flow chart.
+
+QZOOD ක්‍රමලේඛ භාෂාවක MAD OD ප්‍රධාන ගැලීමි පාලක ව්‍යුහ (Flow control structures) තුනක්‌
+දක්වන්න. GOO ගැලීමි පාලක ව්‍යුහ, ගැලීම්‌ සටහනක නිරූපණය කරනු ලබන්නේ කෙසේදැයි දක්වන්න.
+
+The following Python program is intended to convert user given positive integers to their
+equivalent binary representations. The program should halt when the user inputs the value
+0. The program has both syntactic and logical errors. The line numbers are not part of the
+program, but they are used to reference the lines.
+
+පහත දැක්වෙන පයිතන්‌ ක්‍රමලේඛය (Python program) පරිශීලක විසින්‌ දෙනු ලබන ධන HBE, එවාට
+QOS ද්විමය නියෝජනවලට හැරවීම සඳහා නිර්මාණය කර ඇත. පරිශීලක විසින්‌ 0 අගය ඇනුළුකළ
+විට ක්‍රමලේඛය නැවතිය GAG. ක්‍රමලේඛයෙහි වාග්‍රිති දෝෂ (Syntax errors) සහ තාරකික දෝෂ
+(Logical errors) යන දෝෂවරග දෙකම ඇත. පේළි අංක, ක්‍රමලේඛයෙහි කොටසක්‌ නොවන අනර එවා
+අදාළ පේළි යොමුව දක්වයි.
+
+ද: int (input ("Enter an integer >)
+while x!=@:
+bn = ""
+while x > 1:
+quotient = int(x/2)
+remainder == x % 2
+bn = bn + str(remainder) ) ;
+X = quotient
+bn = str(x) + bn
+@ print ("Binary Number", bn)
+1 x = int (input("Enter an integer >)
+
+PrRPWOON OA UBPWN FP
+
+(i) State the lines with syntactic errors and state the error.
+EGOS දෝෂ සහිත පේළි නමි කර, 3 එක එකෙහි දෝෂ ද දක්වන්න.
+
+(ii) Which lines of the program should be changed and state how they should be changed
+to obtain the desired results. (You are not allowed to add new lines or to delete
+existing lines.)
+අපේක්ෂිත ප්‍රතිඵලය ලබාගැනීම සඳහා, ක්‍රමලේඛයෙහි වෙනස්‌ කළ යුතු පේළි සහ ඒවා වෙනස්‌
+කළ යුත්තේ කෙසේදැයි දක්චන්න. (කත්‍රමලේඛයට අලුතින්‌ පේළි චකතුකිරීමට හෝ චහි පේළි වෙත්‌
+කිරීමට හෝ ඔබට අවසර නැත.)
+
+( 2011 — Essay [5] )
+
+2. (a) (i)Describe how you would determine whether a given positive integer is odd or even.
+ඔබ, දී ඇති ධන නිඛිලයක්‌, ඔත්තේ ද රෙට්ට ද යන්න තීරණය කරන්නේ කෙසේදැයි විස්තර කරන්න.
+
+(i) Develop a flowchart to represent an algorithm, based on the method suggested in (i)
+above, to decide whether a given positive integer is odd or even.
+
+හත (1) කොටසෙහි යෝජිත ක්‍රමය new කර, දී ඇති AD නිබිලයක්‌, ඔත්තේ ද 9650 ද යන්න
+තීරණය කිරීම සඳහා වන ඇල්ගොරිතමයක්‌ නිරූපණය වන ගැලීම්‌ සටහනක්‌ ගොඩනගන්න.
+
+(iil) Convert the flowchart you have obtained for the above (ii) into a pseudo code.
+හත (il) කොටසෙහි යෝපිත ගැලීම්‌ සටහන ව්‍යාජ කේතයකට (pseudo code) හරවන්න.
+
+( 2012 —S.Essay 3[a] )
+e Consider the following Python program named example.py.
+පහත දැක්වෙන example.py පයිතන්‌ කත්‍රමලේඛය සලකා බලන්න.
+
+datasummary = {}
+datakeys = | ]
+def readdata():
+global datakeys, datasummary
+11 = open('input.txt’,'r')
+line = f1.readline()
+while (line):
+data = line.strip().split(",")
+for dataitem in data:
+if dataitem in datasummary:
+datasummary [dataitem] += 1
+else:
+datasummary[dataitem]| = 1
+datakeys = datakeys + [dataitem]
+line = f1.readline()
+f1.close()
+
+def processdata():
+global datakeys
+for i in range(len(datakeys) - 1):
+for j in range(it+1, len(datakeys)):
+if(datakeys[i] > datakeys[j]):
+datakeys[i], datakeys[j] = datakeys[j], datakeys [i]
+
+def printdata():
+global datakeys, datasummary
+42 = open('output.txt’, 'w’')
+for key in datakeys:
+f2.write('{}-{}\n'.format (key, datasummary[key]))
+f2.close()
+
+readdata()
+processdata()
+printdata()
+
+(a)
+
+(b)
+
+What are the data types of the variables datasummary and datakeys in the above program?
+QOD ක්‍රමලේඛයෙහි datasummary සහ datakeys යන විවල්‍යවල දත්ත ප්‍රරෑප මොනවා ද?
+
+Write a Python statement required to insert the program name as a comment at the
+beginning of the above program.
+
+QOD ක්‍රමලේඛය ආරමිභයෙහි, එහි නම, සටහනක්‌ (comment) ලෙස ඇතුළුකිරීම සඳහා පයිතන්‌
+ප්‍රකාශයක්‌ ලියන්න.
+
+What is the result of execution of the command open('input.txt','r') in the above
+program?
+
+GND ක්‍රමලේඛයෙහි open( input.txt’, 'r') යන විධානය ක්‍රියාත්මක කිරීමෙන්‌ ඇතිවන ප්‍රතිඵලය
+කුමක්‌ ද?
+
+Describe the main task of each of the functions readdata(), printdata() and
+
+processdata() in the above program.
+GAD ක්‍රමලේඛයෙහි readdata(), printdata() සහ processdata() යන එක්‌ එක්‌ කාරයයෙහි
+(each of the functions) ප්‍රධාන aba විස්තර කරන්න.
+
+If the content of the file input.txt is as given below, what would be the content of the file
+
+output.txt after the execution of this program?
+ගොනුචෙහි අන්තර්ගතය පහත දී ඇති පරිදි චේ HS, මෙම ක්‍රමලේඛය කියාත්මක වීමෙන්‌ පසු
+output.txt ගොනුවෙහි අන්තර්ගතය කුමක්‌ චේ ද?
+
+a,d,b,a,n
+d,b,n,x,a
+
+(2012 ~ Essay 5 )
+
+3. (a) Explain what is done by the Python interpreter when executing the following program.
+
+Your explanation should include the types assigned to variables and type conversions.
+පහත සඳහන්‌ ක්‍රමලේඛනය ඛ්‍රියාත්මක Om විට පයිතන්‌ අර්ථ වින්‍යාසකය (interpreter) මගින්‌ කරනු
+
+ලබන කාර්යය පැහැදිලි කරන්න. විචල්‍ය (variables) සඳහා පවරනු ලැබූ ප්‍රරෑප (types) හා ප්‍රරෑප
+පර්චරිතනයන්‌ ඔබේ පැහැදිලි කිරීම තුළ අඩංගු විය යුතුය,
+
+a=4
+b = 4.7
+ලං~ 3 4 0
+
+Explain what will happen when the statements of following Python program are executed.
+පහත සඳහන්‌ ක්‍රමලේඛනයේ ඇති වගන්ති ක්‍රියාත්මක කිරීමේ දී කුමක්‌ සිදුවේ දැයි විස්තර කරන්න,
+
+total = 6.6
+x = float(input("Enter a number:"))
+while x > @:
+
+total = total + x
+
+x = float(input("Enter a number:"))
+print(total)
+
+(c)
+
+You are requested to write a Python program to find and display the maximum value of
+given 10 integers. The program should read integers one at a time.
+
+දෙන ලද HABE (integers) සංඛ්‍යා දහයක උපරිම අගය සොයා එය ප්‍රදර්ශනය කිරීම සඳහා පයිතන්‌
+ක්‍රමලේඛනයක්‌ ලිවීමට ඔබෙන්‌ ලේලීමක්‌ කරනු ලැබේ. ක්‍රමලේඛනය මගින්‌ වරකට Dw බැගින්‌
+නිඛිලයන්‌ කියවිය යුතු චේ.
+
+(i) Propose an algorithm to solve the problem using a flow chart.
+QOD HBOOD විසඳීම BEM S7SEHIODOGA ගැලීම්‌ සටහන්‌ භාවිත කරමින්‌ යෝජනා කරන්න.
+
+(ii) Write a Python program to implement your flow chart proposed in section c (i).
+QNWD C (i) මගින්‌ යෝජනා කරනු ලැබූ ඔබගේ ගැලීම්‌ සටහන ස්ථාපිත කිරීම සඳහා පයිතන්‌
+ක්‍රමලේඛනයක්‌ ලියන්න.
+( 2013 ~ Essay 4 )
+
+4. (a) Explain what is done by the Python interpreter when executing the following statements.
+
+You should state the types of the variables involved.
+පයිතන්‌ අර්ථව්න්‍යාසකයක්‌ (interpreter) මගින්‌ පහත වගන්ති ක්‍රියාත්මක කරචන විට (execute)
+
+සිදුවන්නේ කුමක්දැයි පැහැදිලි කරන්න. මේ සඳහා සම්බන්ධ වන විචල්‍යන්හි ප්‍රරෑප (variable types)
+දැක්විය යුතු GH.
+
+(1) x = input("Enter a number")
+(i) infile = open("myfile.txt","r")
+(ili)a = "a,b,c".split(","
+
+Factorial of a positive integer n is defined as n x (n-1) x (n-2) x....... X3x2x 1.
+NDS ධන නිබිලයක ක්‍රමාරෝපිතය (factorial) අර්ථ දක්වනු ලබන්නේ n x (N-1) X (N-2) X ww... Xx 3x
+2X 1 ලෙස ය.
+
+(i) Propose an algorithm by using a flowchart to print the factorial of a given
+positive_integer n.
+දී ඇති N DS ධන නිබිලයක ක්‍රමාරෝපිතය මුද්‍රණය කිරීම සඳහා සුදුසු ඇල්ගොරිතමයක්‌ ගැලීමි
+සටහනක්‌ ඇසුරෙන්‌ යෝජනා කරන්න.
+
+(it) Write a Python function to implement your flowchart.
+ඔබේ ගැලීම්‌ සටහන ස්ථාපනය කිරීම sem පයිතන්‌ Bene (function) ලියා emOase.
+
+( 2014 — Essay 4 )
+
+5. (a) Explain why compilers or interpreters are needed when using high level programming
+languages.
+ඉහළ මට්ටමේ ක්‍රමලේඛන භාෂා භාවිතයේ දී සම්පාදකයන්‌ (interpreters) හෝ අර්ථව්න්‍යාසකයන්‌
+(compilers) අවශ්‍ය වන්නේ ඇයි දැයි පැහැදිලි කරන්න.
+
+(0) Your teacher has requested you to write a Python program to record the marks obtained
+by students at the term test. Each student has sat for the same three papers and each
+mark was given as an integer value out of 100 marks. Each student is identified by a unique
+index member which is also an integer. You should record the marks of student in a text
+
+file named ‘marks.txt’ in the following format.
+චාර විභාගයක දී ළමුන්‌ ලබාගන්නා ලද ලකුණු චාරිතා කිරීම සඳහා පයිතන්‌ ක්‍රමලේඛයක්‌ ලියන Goes
+ඔබගේ ගුරැතුමා විසින්‌ ඔබගෙන්‌ ලේලීමක්‌ කර තිබේ. සෑම සිසුවෙක්‌ ම එකම ප්‍රශ්න පත්‍ර තුනකට පෙනී
+
+සිට ඇති අතර සෑම ලකුණක්ම දී ඇත්තේ 100 න්‌ වන අතර එය නිබිල අගයක්‌ (integer value) චේ.
+
+සෑම සිසුවකුම අනන්‍යය සුච්‌ අංකයක්‌ (index number) මගින්‌ හළුනා ගන්නා අතර HO අංකය ද
+නිබිලයක්‌ චේ.
+
+ඔබ H&Ba පහත පෙන්වා දී ඇති ආකාරයට සිසුන්ගේ ලකුණු ‘marks.txt’ නමැති පාඨ ගොනුවේ (text
+file) වාර්තා කළ යුතු වේ.
+
+Index_no_1,mark_11,mark_12,mark_13
+Index_no_2,mark_21,mark_22,mark_23
+
+Where මෙහි
+
+Index_no_X : Index number of the X" student; X = 1, ................. on
+Index_no_X  :X වැනි සිසුවාගේ සුචි අංකය X = 1, ........... in
+
+mark_XY : Marks obtained by the Xth student for the Yth paper: Y = 1,2,3
+mark_XY -X චැනි සිසුවා Y ප්‍රශ්න පත්‍රයට ගත්‌ ලකුණු සංඛ්‍යාව Y = 1, 2, 3
+
+Index numbers and marks of the students should be entered through the keyboard, one
+item at a time and the program should be terminated when --1 is entered as the index
+
+number.
+වරකට එක අයිතමය බැගින්‌ යතුරැ පුවරැච තුළින්‌ සිසුන්ගේ සුච්‌ අංක සහ ලකුණු ඇතුළත්‌ කළ යුතු
+GS. සුච්‌ අංකය —1 ලෙස ඇතුළත්‌ කළ විට ක්‍රමලේඛය නැවතිය යුතු GS.
+
+(i) Propose an algorithm by using a flowchart for the program.
+ගැලීමි සටහනක්‌ භාවිතයෙන්‌ GOO ක්‍රමලේඛය සඳහා ඇල්ගොරිතමයක්‌ යෝජනා කරන්න.
+
+(ii) Write a Python program to implement your flowchart.
+ඔබගේ O2BS සටහන කියාත්මක කිරීම සඳහා පයිතන්‌ ක්‍රමලේඛයක්‌ ලියන්න.
+
+( 2015 — Essay 4 )
+
+6. (a) Consider the following Python program:
+
+පහත දැක්චෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න:
+
+#Print the sum of integers from 1 to 5 (including 1 and 5)
+total = 6
+i=l
+while (i <= 5):
+total = total + i
+i=i+l
+print (total)
+
+(1) What would be the output of the above program when executed? Justify your answer.
+
+QOD ක්‍රමලේඛය ක්‍රියාත්මක කිරීමෙන්‌ ලැබෙන ප්‍රතිදානය කුමක්‌ විය හැකි දරැ ඔබගේ පිළිතුර
+සත්‍යාපනය කරන්න.
+
+(it) Modify and rewrite the above program, without increasing the number of statements, to
+
+7. (a)
+
+compute the sum of integers from 1 to 10 (including 1 and 10).
+ගහෙත ක්‍රමලේඛයේ ඇති ප්‍රකාශන සංඛ්‍යාව වැඩි නොකරමින්‌ 1 සිට 10 දක්චා (1 සහ 10 ඇතුලුව) ඇති
+
+නිඛිලවල (integers) චකතුව ගණනය කිරීමට හැකි වන SOE එම ක්‍රමලේඛය වෙනස්‌ කොට ලියා
+දක්වන්න.
+
+( 2016 — S.Essay [4(a)] )
+
+A canteen of a school sells 10 different types of foods. These food types are placed ina
+shelf. Students can select foods while walking alongside the shelf and keep them on a tray.
+These trays are available at the entrance of the canteen. A student, after selecting the food,
+should proceed to the cashier with the food tray for the payment.
+
+පාසලක ආපනගශාලාචක්‌ 55Q ආහාර වර්ග 10ක්‌ අලෙවි කරයි. මෙම ආහාර වර්ග රාක්කයක අසුරා
+ඇත. සිසුන්ට රාක්කය අසලින්‌ ඇවිදින ගමන්‌ ආහාර වරිග තෝරාගෙන බන්දේසියක තබා ගත හැකි
+
+ය, මෙම බන්‌්දේසි ආපනශාලාචවට ඇතුලුවන ස්ථානයේ තබා ඇත. ආහාර ඉතාරා ගැනීමෙන්‌ පසු සිසුවකු
+මුදල්‌ ගෙවීම සඳහා ආහාර බන්දේසියද රැගෙන මුදල්‌ අයකැමි චෙත ළඟා විය යුතු ය.
+
+You are asked to develop a computer program to calculate the payment due for a food
+tray. For this purpose, each food type is given a unique integer from 1 to 10.
+
+චික්‌ ආහාර බන්දේසියකට ඉගවිය යුතු මුදල ගණනය කිරීම සඳහා පරිගණක ක්‍රමලේඛයක්‌ සකස්‌ කිරීමට
+ඔබට භාර කොට ඇත. මේ අරමුණ සඳහා සෑම ආහාර වර්ගයකටම 1 සට 10 දක්වා වූ අනන්‍ය
+නිඛිලයක්‌ ලබා දී ඇත.
+
+The integer value assigned for each food type and its unit price is shown in the following
+table.
+
+පහත දැක්වෙන වගුවෙහි එක්‌ එක්‌ ආහාර වර්ගයක්‌ සඳහා ලබා දී ඇති අනන්‍ය නිඛිලය සහ එහි එකක
+මිල EMO) ඇත.
+
+Food type 1 2 3 4 5 6 7 8 9 10
+
+Unit price (Rs) 10.00 | 12.00 | 15.00 | 10.00 | 25.00 | 45.00 | 50.00 | 25.00 | 10.00 | 12.00
+
+State all the inputs required for the computer program and its expected output.
+පර්ගණක ක්‍රමලේඛයකට අවශ්‍ය OD ආදාන හා එයින්‌ බලාපොරොත්තු වන ප්‍රනිදානයන්‌ සඳහන්‌
+කරන්න.
+
+(ii)
+
+Draw a flowchart to represent the algorithm required to compute the payment due for a
+food tray.
+
+ආහාර බන්දේසියකට ගෙවිය QD මුදල ගණනය කිරීම සඳහා අවශ්‍ය OD ඇල්ගෝරතමය නිරඈඛපපණය
+කිරීම සඳහා ගැලීම්‌ සටනක්‌ අඳින්න.
+
+(iil) Transform the above flowchart into a Python program.
+
+හත ගැලීම්‌ සටහන පයිතන්‌ ක්‍රමලේඛයකට පරිවචරිතනය කරන්න.
+
+( 2016 — Essay 4 )
+
+8. The consumption of electricity at houses is charged based on the number of units consumed.
+
+The first 64 units are charged at Rs.5.00 per unit, and the rest at Rs.10.00 per unit.
+HaMeso විදුලි පරිභෝජනය sem ඉගවිය යුතු මුදල පරිභෝජනය කරන ලද විදුලි වකක ගණන මත sews
+
+ව්‌.
+
+පළමු චීකක 64 සඳහා එකකයකට dz. 5.00 බැගින්‌ දල තේරි වකක සඳහා එකකයකට රැ. 10.00
+
+බැගින්‌ ද අයකරනු ලැබේ.
+
+(a)
+
+Draw a flowchart to represent an algorithm that can be used to compute the total amount
+to be charged from a householder when the household number and present and the
+
+previous readings of the electricity meter are given.
+ගෘහස්ථයේ අංකය, පෙර හා වර්තමාන විදුලි මනු කියවීම්‌ දුන්‌ විට ගැෑහස්ථ, හිමිකරැගෙන්‌ අයවිය යුතු
+මුළු මුදල ගණනය කිරීමට MAD කළ හැකි ඇල්ගොරිතමයක්‌ නිරෑපණය කිරීම සඳහා ගැලීම්‌ සටහනක්‌
+
+අඳින්න.
+
+Encode the algorithm given in the (a) above in Python programming language. State all
+valid assumptions, if any.
+
+ඉහත (a) හි දිරිපත්‌ කරන ලද ඇල්ගොරිතමය Python ක්‍රමලේඛන භාෂාවෙන්‌ කේතනය කරන්න.
+වලංගු උපකල්පන ඇත්නමි, ඒවා සියල්ල සඳහන්‌ කරන්න.
+
+Develop a function in Python to write household number, meter readings and the total
+amount to be charged at the end of an existing text file named “deb.txt".
+
+ගෘහස්ථ අංකය, විදුලි මනු කියවීමි සහ අය කළ යුතු මුළ මුදල, පවතින "deb.txt" නම්‌ වූ පාඨ
+ලගොනුවක අගට ලිවීමට අවශ්‍ය Python ශිනතයක්‌ ගොඩනගන්න.
+
+( 2017 — Essay 4 )
+
+9. (a) Assume an input which contains a sequence of positive numbers. The sequence has at
+
+most 100 numbers. If the input sequence has n numbers where n < 100, then the end of
+the sequence is marked by making (n+1)th number --1.
+
+For e.g., the following input sequence has 8 positive numbers, where the 9th input which
+is —1 marks the end.
+
+DD සංඛ්‍යා අනුක්‍රමයක්‌ ඇති ආදානයක්‌ සලකන්න. අනුක්‍රමයට උපර්ම වශයෙන්‌ සංඛ්‍යා 100ක්‌ තිබිය
+හැකි ය, Nn ඳ 100 ලෙස අනුක්‍රමයට සංඛ්‍යා n තිබේ නමි, (N+1) වන සංඛ්‍යාව -1 ලෙස සලකුණු
+කිරීමෙන්‌ අනුක්‍රමයේ අවසානය දැක්වේ,
+
+උදාහරණයක්‌ ලෙස පහත දැක්චෙන ආදාන අනුක්‍රමයට ධන සංඛ්‍ය 8ක්‌ ඇති අතර 9 වන ආදානය
+වචන -1 මගින්‌ අවසානය සනිටුහන්‌ කෙරේ.
+
+23 12 54 76 89 22 44 65 -1
+
+Draw a flowchart that represents an algorithm to output the largest number in a given
+sequence of n positive numbers as described above.
+
+QOD විස්තර කරන ආකාරයේ ධන සංඛ්‍යා N ඇති අනුක්‍රමයක විශාලතම සංඛ්‍යාච ප්‍රතිදානය කිරීම
+සඳහා ඇල්ගොරිතමයක්‌ OBO සටහනක්‌ මගින්‌ නිරූපණය කරන්න.
+
+Consider the flowchart given below. The
+
+algorithm in the flowchart takes two
+
+inputs, the first input L is a list of
+numbers, the second input K is a given / Input List t/
+number. Input 4
+
+දී ඇති ගැලීම්‌ සටහන සලකන්න. ගැලීමි
+සටහනෙහි දැක්වෙන ඇල්ගොරිතමය ආදාන
+
+= Length of L
+දෙකක්‌ ලබාගන්නා අතර පළමු ආදානය චන L, n ae °
+සංඛ්‍යා ලැයිස්තුවක්‌ ද, දෙවන ආදානය K, දෙන
+ලද සංඛ්‍යාවක්‌ ද GH.
+
+(i) What would be the output if the first Yes
+input L was 23, 45, 32, 11, 67, 39, 92, 51,
+74, 89 and the second input K was 38? ඳී.
+පළමු ආදානය ([) 23, 45, 32, 11, 67, 39, / Output / —
+92,51, 74, 89 දු දෙචන ආදානය (K) 38 ද i=itl
+
+“True”
+වූයේ නම්‌, ප්‍රතිදානය කුමක්‌ ද?
+
+(ii) Briefly explain the aim of this algorithm. Yes
+GOO F7SEMODOGHS අරමුණ කෙටියෙන්‌
+පැහැදිලි කරන්න.
+
+No
+(11!) Develop අ Python’ program to
+implement the algorithm in the / Output /
+flowchart. False
+
+ගැලීම්‌ සටහනේ ඇති ඇල්ගොරිතමය
+ක්‍රියාත්මක කිරීම සඳහා පයිතන්‌ කේතයක්‌
+
+ගොඩනගන්න. । Stop
+
+(2018 — Essay 4 )
+
+10. Consider the following Python program:
+පහත දැක්චෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+ද
+[]
+
+6
+int (input ())
+
+while (n>@):
+
+if n>x:
+xX =n
+n = int (input ())
+
+print (x)
+
+(1) Write the output of the program if the input is 4 6 3 2 8 -1.
+
+(ii) What is the purpose of this program?
+
+11.(a)
+
+මෙම ක්‍රමලේඛයෙහි අරමුණ කුමක්‌ ද?
+
+The ICT teacher in a school needs to process the marks
+
+obtained by all the students in a class for the ICT subject
+and compute the average mark for the class. Construct a
+flow chart to express an algorithm for this purpose. Assume
+that the first input is the number of students in the class, n.
+Next, the marks of n students will be input one-by-one.
+
+පාසලක තොරතුරු හා සන්නිවේදන තාක්ෂණය (ICT) භාර
+
+ආචාර්යවර්යාට පංතියෙහි සියලු ම සිසුන්‌ ICT විෂයය සඳහා
+ලබාගත්‌ ලකුණු සැකසීමට අවශ්‍යව ඇති අතර පංතියෙහි සාමාන්‍ය
+ලකුණු ගණනය කළ යුතුව ඇත. GOO කාරයයට අදාළ
+ඇල්ගොරිතමයක්‌ ප්‍රකාශ OD ගැලීම්‌ සටහනක්‌ ගොඩනගන්න. පළමු
+ආදානය පංතියෙහි සිටින මුළු සිසුන්‌ සංඛ්‍යාව බ යැයි උපකල්පනය
+
+කරන්න. නේසපසු N සිසුන්ගේ ලකුණු චකින්‌ එක ආදානය කරනු ලැබී.
+
+Consider the flow chart given below. Note that x%2
+represents (x mod 2).
+
+පහත දක්චා ඇති ගැලීමි සටහන sonwsa. 0 x % 2 මගින්‌ x
+mod 2 නිරූපණය කෙරේ,
+
+(1) What would be the output if the first input (n) was 6
+and the next inputs were 3, 6, 4, 12, 11, 9?
+SEQ ආදානය (N) 6 නම්‌ සහ නේපසු ආදාන 3, 6, 4, 12, 11, 9
+HO ප්‍රතිදානය කුමක්‌ වන්නේ ද?
+
+(ii) What is the purpose of this algorithm?
+GOO ඇල්ගොරිතමයෙහි අරමුණ කුමක්‌ ද?
+
+(111) Develop a Python program to implement the
+
+algorithm expressed by the flow chart
+ගැලීම්‌ සටහන මගින්‌ ප්‍රකාශචන ඇල්ගොරිතමය ක්‍රියාත්මක
+කිරීම සඳහා පයිතන්‌ ක්‍රමලේඛයක්‌ ගොඩනගන්න.
+
+ආදානය 4 6 3 2 8 -1 වන්නේ නමි ක්‍රමලේඛයෙහි ප්‍රතිදානය ලියා දක්වන්න.
+
+( 2019 — S.Essay 2 [b] )
+
+J _ /
+
+a=0
+[4
+Yes
+No
+J input x WA
+No
+Yes
+a=atl
+දී
+n=n-l ~~~
+
+———» Output a 7
+
+( 2019 — Essay 4 )
+
+12. Consider the following Python program:
+පහත දැක්චෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+Li
+L2
+L3
+
+[int(x) for x in input().split() ]
+[int(x) for x in input().split() ]
+[ ]
+
+for i in Lt:
+
+L3.
+
+for j in L2:
+if (i= =j) and (i not in L3):
+L3.append(i)
+sort()
+
+print(L3)
+
+(1) Write the output of the program if the first input (that creates L1) is “7 4 1 2 2 8” and the
+
+second input (that creates | 2) is “8 245 6"?
+(L1 නිර්මාණය කෙරෙන) පළමු ආදානය “7 4 1 2 2 8" සහ (L2 නිර්මාණය කෙරෙන) දෙචන ආදානය “8
+245 6" නම්‌ ක්‍රමලේඛයෙහි ප්‍රතිදානය ලියා දක්වන්න.
+
+(ii) What is the purpose of this program?
+
+13.(a)
+
+මෙම ක්‍රමලේඛයෙහි අරමුණ කුමක්‌ ද?
+
+You are given two positive integers N1 and
+N2 as inputs (assume NI < N2) and you have
+to output the list of even numbers between
+N1 and N2. Construct a flowchart or a
+pseudo code to express an algorithm for this
+purpose.
+
+ඔබට N1 සහ N2 නම්‌ ධන BBO සංඛ්‍යා දෙකක්‌
+ආදාන ඉලෙස ලබා දී ඇති අතර (N1 < N2 යැයි
+උපකල්පනය කරන්න) ඔබ විසින්‌ N1 සහ N2 අතර
+ඇති රෙට්ටේ සංඛ්‍යා ලැයිස්තුව ප්‍රතිදානය කළ යුතු
+වේ. මෙම කාර්යයට, අදාළ ඇල්ගොරිතමයක්‌
+
+ප්‍රකාශ වන ගැලීම්‌ සටහනක්‌ හෝ ව්‍යාජ කේතයක්‌
+හෝ ගොඩනගන්න.
+
+Consider the flowchart given below. Assume
+that L is a list of positive integers, K is a
+positive integer and every element in L is less
+than M, which is a large integer.
+
+පහත දැක්වෙන ගැලීම්‌ සටහන සලකන්න. L යනු
+ධන ADE ලැයිස්තුවක්‌ බවත්‌, K යනු ධන නිඛිලයක්‌
+
+බවත්‌, L හි සෑම සංඛ්‍යාචවක්ම M නම්‌ වන විශාල
+නිඛිලයකට වඩා අඩු බවත්‌ උපකල්පනය කරන්න,
+
+( 2020 — S.Essay 2[b] )
+
+JL input L, K WA
+v
+
+N = length of L
+
+v
+
+X=M
+
+v
+
+VY
+
+(i) What would be the output if the first input L was 2,4,7,9,3,5 and the next input K was 5?
+පළමු ආදානය වන । හි අගයයන්‌ 2,4, 7,9, 3,5 සහ දෙවන ආදානය වන K හි අගය 5 වූයේ
+
+නම්‌, ප්‍රතිදානය කුමක්‌ චන්නේ ද?
+
+(ii) What is the purpose of this algorithm?
+
+මෙම ඇල්ගොරිතමයෙහි අරමුණ කුමක්‌ ද?
+
+(111) Develop a Python program to implement the algorithm expressed by the flowchart.
+ගැලීමි සටහනෙහි ප්‍රකාශ OD ඇල්ගොරතමය ක්‍රියාත්මක කිරීම sem පයිතන්‌ ක්‍රමලේඛයක්‌
+
+14.(a)
+
+ගොඩනගන්න.
+
+A flowchart is to be drawn for an
+algorithm to calculate and output the
+areas of triangles.The base and height
+
+of each triangle are given as inputs.
+ත්‍රිකෝණවල OHOAE ගණනය කර ප්‍රතිදානය
+කරන ඇල්ගොරතමයක්‌ සඳහා ගැලීමි
+සටහනක්‌ ඇඳීමට අවශ්‍ය ය, චක්‌ චඑක්‌
+තිකෝණයේ ආධාරකයේ දිග සහ උස ආදාන
+GOS ලැබේ.
+
+Note: Area of triangle = 1/2 x base x
+height 7
+
+සටහන: තිකෝණයක වර්ගඵලය = 1/2 x
+ආධාරකයෙේ දිග x උස
+
+The algorithm should stop when an
+
+input is less than or equal to zero.
+යම්‌ ආදානයක්‌ 0 ට සමාන හෝ අඩු © 50
+හෝ ඇල්ගොරිතමය නතර විය යුතු ය,
+
+Complete the flowchart by writing the
+required content for the four
+components left blank.
+
+SSO දක්වා ඇති සංරචක හතර සඳහා
+
+අවශ්‍ය අන්තර්ගතයන්‌ ලියා, ගැලීම්‌ සටහන
+සම්පූර්ණ කරන්න.
+
+( 2020 — Essay 4 )
+
+। Start |
+
+at.
+|
+
+(0) Complete the four (4) blanks (indicated by ......) in the following Python program to
+calculate the factorial of an integer.
+නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට අදාළ පහත පයිතන්‌ කේතයෙේ හිස්තැන්‌ හතර (......
+වලින්‌ දැක්වෙන) සම්පූර්ණ කරන්න.
+
+Note: The factorial of a positive integer is defined as the product of that integer and
+all the integers below it. e.g., factorial of 4 is equal to 1 x 2x 3x 4 = 24. The
+factorial of 0 is defined as 1.
+
+සටහන: ධන නිඛිලයක ක්‍රමාරෝපිතය යනු එම නිබිලයේ හා ඊට අඩු BSE නිබිලවල ගුණිතයයි, උදා:
+
+4 හි ක්‍රමාරෝපිතය 1xX2x3xX4 = 24 ට සමාන චේ. ඊට අමතරව 0 හි ක්‍රමාරෝපිතය 1
+ලෙස අරිථ දැක්වේ.
+
+# Get input from user
+“අහයි = int(input( ' (11 6” a number:"))
+
+factorial =
+if num ද 0:
+print( "Factorial is not defined for negative numbers!")
+65117 ........................෴෴෴෴෴෴෴෴..
+print( ' ] [16 factorial of @ is 1")
+else:
+for i in range(1,num + 1):
+print ("The factorial OF "NUM, "1S, oc ecesesesceeseeeeeees )
+
+(c) Consider the following Python program:
+පහත පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+lower = 2
+
+upper = 5
+
+for num in range(lower, upper + 1):
+flag = 1
+
+for i in range(2, num):
+if (num % i) ==
+
+flag =
+break
+if flag == 1:
+print(num)
+
+Write the output of the above program.
+QOD ක්‍රමලේඛයේ ප්‍රනිදානය ලියා දක්චන්න.
+
+( 2021 — S.Essay 3 )
+
+15.(a) Suppose the ages (in years) of n(n > 1) students in a school are in a list 1.. Assuming the
+
+list Land an integer k are inputs, express an algorithm using either a flowchart or pseudo-
+code to compute & output the average age of students in L whose age is less than k years.
+පාසලක සිසුන්‌ N දෙනෙකුගේ (N > 1) වයස්‌ (අවුරැදු ගණනින්‌) L නම්‌ © ලැයිස්තුවක ඇතැයි සිතන්න.
+L ලැයිස්තුව සහ k නමි නිබිලයක්‌ ආදාන යැයි උපකල්පනය කර, | ලැයිස්තුවේ ඇති, අවුරැදු k ට අඩු
+වයස ඇති සිසුන්ගේ සාමාන්‍ය (average) වයස ගණනය කර ප්‍රතිදානය කිරීමට ඇල්ගොරතමයක්‌ ගැලීමි
+සටහනක්‌ හෝ ව්‍යාජ කේතයක්‌ GH) මගින්‌ දිරපත්‌ කරන්න.
+
+Consider the algorithm expressed by the
+
+flowchart. L1 and L2 are non-empty lists of
+
+integers. Each of L1 and L2 has unique
+elements (no duplicates). But there can be J Input lists 11,229
+elements that are in both L1 and [ 2. The දී!
+notation L[x] denotes the element at Index N1 = number of
+x of a list L. If there are N elements in list L, items in L1
+then the indices are from 0, 1, 2, ... to (N-1). N2 = number of
+පහත දැක්වෙන ගැලීම සටහනෙන්‌ ඉදිරිපත්‌ items in L2
+කෙරෙන ඇල්ගොරිතමය සලකන්න. L1 සහ L2 count = 0
+යනු ශුන්‍ය නොචන නිඛිල ලැයිස්තු වේ. එම චක්‌ i=0
+එක්‌ ලැයිස්තුවේ ඇත්තේ අනන්‍ය (එක නිඛිලයක්‌ 2
+එකවරක්‌ පමණක්‌ ඇති) අයිතමය. එහෙත්‌ L1 සහ -
+L2 ලැයිස්තු දෙකේම යම්‌ නිඛිලයන්‌ තිබිය හැක. 12 =0
+L[x] සංකේතනය මගින්‌ |! ලැයිස්තුවේ x නම්‌ වූ ෆ්‌
+දර්ශකයේ (index) ඇති අයිතමය දක්වයි. L No
+ලැයිස්තුවේ අයිතම N ගණනක්‌ ඇතිනමි,
+දර්ශකයන්‌ 0, 1, 2, ... සිට (N-1) තෙක්‌ චේ.
+Yes
+(i) What would be the output if L1 = 2, 4, count = count + 1
+7,9, 3,5 and L2=1, 3, 8, 9, 6, 5, 7?
+L1=2, 4, 7, 9, 3, 5 සහ L2=1, 3, 8, 9, 6, 5, ₹
+7 වේ නම්‌, ප්‍රතිදානය කුමක්‌ චේ ද? 12 ~ 12 4: 1
+(ii) What is the purpose of this algorithm? Yes
+මම ඇල්ගොරතමයෙහි අරමුණ කුමක්‌ ද? ඤඌ ෂණ
+... No
+(111) Develop a Python program to —_——
+implement the algorithm expressed by i=il +1
+the flowchart.
+
+ගැලීමි සටහනෙහි ප්‍රකාශ වන Yes
+ඇල්ගොරිතමය කියාත්මක කිරීම සඳහා
+පයිතන්‌ ක්‍රමලේඛයක්‌ ගොඩනගන්න. T
+
+No
+
+WA, Output count /
+
+(2021 ~ Essay 4 )
+
+16.(a) A flowchart is to be drawn for an algorithm to calculate ( Start )
+and output the area of a circle.The radius of the circle is
+
+given as an input.
+
+වෘත්තයක වර්ගඵලය ගණනය BOO සහ ප්‍රනිදානය කිරීම
+
+සඳහා වූ ඇල්ගොරිතමයක්‌ (algorithm) වෙනුවෙන්‌ ගැලීමි v4 WA
+සටහනක්‌ ඇඳීමට අවශ්‍ය චේ. වෘත්තයේ අරය ආදානය (input)
+
+ලෙස EQIGE.
+
+Note: Area of a circle = 3.14 x Radius x Radius No
+සටහන: වෘත්තයක වර්ගඵලය = 3.14 x අරය x අරය
+
+The algorithm should not calculate the area if the input Yes
+
+is a negative number.
+ආදානය සෘණ සංඛ්‍යාවක්‌ නම ඇල්ගොරිතමය වරිගඵලය
+ගණනය නොකළ යුතු ය.
+
+Complete the flowchart by writing the required content
+for the four (4) components left blank.
+හිස්ව ඇති අංග හතර Bem නියමිත අන්තර්ගතයන්‌ ලියමින්‌ ය්‌ WA
+
+ගැලීම්‌ සටහන සමිපූරිණ කරන්න.
+
+(0) What is the output of the following Python code? End
+පහත පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ ද?
+
+S = "Advanced level"
+S1 නූ 81 81
+for c in 5:
+
+if c in ("a" , "e" , "i" , "o" , “"u"):
+pass
+else:
+51 = S1 +c
+print (S1)
+
+(c) What code line(s) in part (b) is/are to be removed to get ‘aeee’ as the output?
+ප්‍රතිදානය ලෙස ‘aeee’ ලබාගැනීමට ඉහත (b) කොටසේ QA කළ QD කේත පේළි(ය) කුමක්‌ ද?
+
+(1) Fill in the blank spaces of the following Python code assuming that the purpose of the
+code is to copy the content of a text file (A) to another text file (B).
+
+පාඨ ගොනුවක (text file) [A] අන්තර්ගතය තවත්‌ පාඨ ගොනුවකට [B] පිටපත්‌ කිරීම කේතයේ අරමුණු
+යැයි උපකල්පනය කරමින්‌ පහන සඳහන්‌ පයිතන්‌ කේතයේ හිස්තැන්‌ පුරචන්න,
+
+A = input("Enter the name of text file A")
+B = input("Enter the name of text file 8")
+
+11 = ..................- (4, ................... )
+
+412 = ,.................- (By ................... )
+
+for line in ..................- :
+f2.write (................... )
+
+11. .........෴෴-:
+
+12. .........෴෴-:
+
+( 2022 — S.Essay 3 )
+
+17.(a)(i)What is the output of the following python script if 1002 is given as the input?
+
+ආදානය ලෙස 1002 ලබා දුන්‌ විට පහත දැක්චෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ චේ ද?
+
+A = int(input("Enter a number:"))
+B= 6
+while(A > 0):
+C=A% 10
+B=B+C
+A=A//10# // is integer division
+print(B)
+
+(it) What would be the modification required to the B = B + C code line of the above code if
+
+(b)
+
+the reverse of a given positive number is to be printed?
+
+(Example: if the input is 1234, the output should be 4321)
+
+GED ලද DD සංඛ්‍යාවක ප්‍රතිවර්තනය (reverse) ප්‍රනිදානයැ කර ගැනීමට, හෙත පයිතන්‌ කේතය
+B=B + උ ලප්ළිය කෙලෙස වෙනස්‌ විය යුතු ද?
+
+(උදා: ආදානය 1234 වූ විට, ප්‍රතිදානය 4321 විය යුතු ය)
+
+Assume that your class is having a party, and each student is asked to bring one food item.
+The class teacher has decided to make the party interesting by introducing one rule: the
+first and last letters of the name of the food item must match with the first and last letters
+
+of the student name.
+
+ඔබගේ පන්තියේ සාදයක්‌ පැවැත්වෙන බවත්‌, ඊට චක්‌ එක්‌ ශිෂ්‍යයාට එක්‌ ආහාර වර්ගයක්‌ බැගින්‌
+රැගෙන එන GOGO දන්වා ඇති බවත්‌ සලකන්න. එය වඩාත්‌ රසවත්‌ කිරීමට ගුරැතුමිය එක්‌ නියමයක්‌
+හඳුන්වා දෙයි, OHS, ශිෂ්‍යයා ගෙන ABD ආහාර වර්ගයේ නමේ පළමු සහ අවසන්‌ ඉමවෙග්‍රීසි අක්ෂර
+ශිෂ්‍යයාගේ නමි පළමු සහ අවසන්‌ රංග්‍රීසි අක්ෂරචලට සමාන විය යුතු බවයි.
+
+For example, percy is allowed to bring potato curry and prageeth Is allowed to bring
+pepper fish.
+
+Write a Python function called Party() that takes the student name and the name of the
+food item as parameters. The function should return True or False to indicate whether
+the student is allowed to bring the food item to the party or not.
+
+උදා; percy ශිෂ්‍යයාට potato curry ගෙන ආ හැකි අතර prageeth ශිෂ්‍යයාට pepper fish රැගෙන
+ඒමට අවසර ලැබේ.
+
+QOD සන්දර්භය සඳහා ශිෂ්‍යයාගේ නම සහ ආහාර වර්ගයේ නම පරාමිතීන්‌ (parameters) ලෙස
+ලබාගන්නා Party() නමි වූ Python ශිනයක්‌ ලියා දක්වන්න. ශිෂ්‍යයාට sacs සඳහා ආහාර වර්ගය
+රැගෙන ඒමට අවසර ඇතිද නැතිද යන්න පෙන්වීමට ශ්‍රිතය පිළිවෙළින්‌ True හෝ False හෝ ප්‍රතිදානය
+කළ යුතු ය.
+
+Example:
+Party ("percy", "potato curry") should return True
+
+Party ("fareena", "fried rice") should return False
+
+උදා:
+Party(“percy” , “potato curry”) විට True ප්‍රතිදානය විය යුතු ය.
+
+“a a“
+
+Party(“fareena” , “fried rice”) විට False ප්‍රතිදානය විය යුතු ය.
+
+(c)
+
+(i)
+
+(ii)
+
+Note: You can assume that student name and food item name are always lowercase
+strings and have at least two letters. There may be hyphens and spaces in the
+names, but these will not appear at the beginning or end of the string. The names
+will not contain numerals.
+
+සටහන: ශිෂ්‍යයාගේ නම සහ ආහාර වර්ගයේ නම සැමව්ටම කුඩා අකුරැ (කැපිටල්‌ නොවන) , සහිත
+අක්ෂර වැල්‌ (Strings) චන බවත්‌ ඒවායේ අවම වශයෙන්‌ අක්ෂර දෙකක්වත්‌ ඇති බවත්‌ ඔබට
+උපකල්පනය කළ හැක. චීවායේ කෙටිරෙ (-) සහ අන්තර (Space) තිබිය හැකි නමුදු ඒවා අක්ෂර
+වැලේ පළමු සහ අවසන්‌ අක්ෂර ලෙස GMIGOBES. නම්වල ලෙක්කමි අන්තර්ගත නොවේ.
+
+Write down the most suitable statements for labels to in the flowchart given below which
+is drawn to calculate the factorial of a given positive Integer.
+
+GED ලද ධන නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට ඇඳ ඇති පහත දැක්වෙන ගැලීමි
+සටහනේ (A) සිට (H) EO) ඇති ලේබල සඳහා වඩාත්ම ගැළපෙන ප්‍රකාශන ලියා දක්වන්න.
+
+©
+
+t ® VA © 7
+
+The factorial of a positive integer is defined as the product of that integer and all the
+integers below it. E.g. factorial of 5 is 5x4x3x2x1 = 120. The factorial of 0 is defined as 1.
+ධන නිබිලයක ක්‍රමාරෝපිතය යනු එම Bees හා SO අඩු සියලු BVWEAE ගුණිතයයි, උදා; 5 හි
+ක්‍රමාරෝපිතය 5x4x3x2x1 = 120 GH. ඊට අමතරව, 0 හි ක්‍රමාරෝපිතය 1 ලෙස EGO දැක්වේ.
+
+A process box in this flowchart may contain one or more statements.
+
+ලමම ගැලීම්‌ සටහනේ එක්‌ ක්‍රියාචලි කොටුවක (process box) ප්‍රකාශන එකක්‌ හෝ SO වැඩි ගණනක්‌
+හෝ තිබිය හැකි ය,
+
+( 2022 — Essay 8 )
+
+18.(a)
+
+(ii)
+
+to in the following flowchart which is drawn to
+calculate and display sum of first ten even numbers. 7
+පළමු ඉරට්ටේ සංඛ්‍යා දහයේ එකතුව ගණනය කර ප්‍රදර්ශනය sum = 0
+BOO සඳහා ඇඳ ඇති පහත ගැලීම්‌ සටහනේ (A) සිට (G) y
+
+තෙක්‌ ලේබල සඳහා වඩාත්‌ සුදුසු ආදේශක ලියා දක්වන්න.
+
+Write down the most suitable replacements for labels
+
+count = 0
+(&): ..................෴෴්‌ "ස..." )
+([(අ෴෴෴෴~෴෴෴~෴~~යී
+්‌ඡඇ෴෴෴෴෴෴෴~෴෴ී Is count
+(D): even?
+1ඇ෴෴෴෴෴~෴ධධ෴ධයඌය෴ය෴ය~ය ය. දී
+
+(CE): ......... ..... ©
+CF): ....... ..- .-. > <
+(ලු); _.........- --... [1
+
+count = count +1
+
+What Is the output of the following Python code?
+
+පහත පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ ද? ඉ
+
+def func(n): - ®
+MyNumber=[_ | ®
+for i in range(4,n+1):
+
+if i%2=<0: v4
+
+MyNumber .. append(i)
+
+print (MyNumber)
+Func (3@)
+
+Write down the output in the above Python code when the condition if i%2==@: is
+changed to if i%2 !=@:
+
+ඉහත පයිතන්‌ කේතයේ if i%2==0: කොන්දේසිය if i%2 != 0: ලෙස වෙනස්‌ කළ විට ප්‍රතිදානය ලියා
+දක්චන්න.
+
+7
+
+(0) Write down the replacements for the labels of the following Python code which has been
+
+written to find the Largest of a set of integers.
+BBO සමූහයක විශාලතම BAEG සෙවීමට ලියා ඇති පහත පයිතන්‌ කේතයේ ලේබල සඳහා ආදේශක
+ලියා දක්වන්න.
+
+def findlargest(myList):
+
+(A): ෴෴බා
+largest = (A) (8); ....................෴෴  ්‌“..............
+for i in (8) : (ලූ: .....................෴෴ී...෴෴෴..........
+if i> (C) ()
+largest = (D) 3 .............--.. .:-
+print("largest value is", (E) ) ((මආ෴෴෴෴෴~~෴“෴_෴ධ෴
+
+list1=[4,6,24,12,8,94,22]
+findlargest ( (F) )
+( 2023 ~~ S.Essay 3 )
+
+19.(a)
+
+Write the output of the Python code given in Figure 8.1.
+6256 8.1 හි දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
+
+def function1(str):
+newstr= ""
+for character in str:
+if character in ‘aeiouAEIOU':
+newstr+=' *'
+else:
+newstr+=character
+return newstr
+stri="LibrAry"
+str2=function1(str1)
+print(str2)
+
+Figure 8.1
+
+The function in Figure 8.2 uses the bubblesort algorithm to sort a given list of numbers
+into ascending order. Write down the suitable replacements for the labels P-U to
+complete the code.
+
+රෑපය 8.2 හි දැක්වෙන පහත පයිතන්‌ ශ්‍රිතය, GED ලද අංක ලැයිස්තුවක්‌ ආරෝහණ ක්‍රමයට
+සැකසීමට බුබුළඵ ඉතේ්රීමි (bubble sort) ඇල්‌ගොරතමය භාවිත කරයි. කේතය සමිපූරිණ කිරීම
+සඳහා P-U ලේබලවලට සුදුසු ආදේශක ලියා දක්වන්න,
+
+def bubblesort(nList):
+for pnumber in range(P,Q,R):
+
+S:
+if nList[i] > nList[i+1]
+temp = nList[i]
+T
+U
+Figure 8.2
+
+An estate owner wants a program to determine the minimum currency note combination
+needed to make the pay of each employee. (E.g., Rs. 40,000 should be paid using eight
+notes of Rs.5000 and not four hundred notes of Rs. 100). The program should also output
+the currency requirement for all employees. The program should use the employees.txt
+file which contains employee pay details. Each line in it contains an employee's name and
+net pay. A Python program written for this purpose is shown in Figure 8.3. A sample
+employees.txt file and the program's output for that file are shown in Figure 8.4.
+
+චක්‌ එක්‌ ඉස්වකයාගේ වැටුප සෑදීමට අවශ්‍ය GOO මුදල්‌ නෝට්ටු චකතුව නිරිණය කිරීමට ක්‍රමලේඛයක්‌
+චතු හිමිකරුවෙකුට අවශ්‍ය GO. (උදා. රැ. 40,000 ක මාසික වැටුප ගෙවිය යුත්තේ රැ. පන්දහසේ
+නෝට්ටු අටකින්‌ මිස රැ. සියයේ නෝට්ටු 400 කින්‌ enc.) සියලු සස්වකයන්‌ සඳහා මුදල්‌ අවශ්‍යතාවය
+ද ක්‍රමලේඛය ප්‍රතිදානය කළ යුතු ය. ක්‍රමලේඛය, සේවකයන්ගේ ශුද්ධ වැටුප්‌ (net pay) විස්තර අඩංගු
+employees.txt ගොනුව භාවිත aE QQ ය. එහි එක්‌ චක්‌ පේළියේ සේවකයකුගේ නම සහ ශද්ධ
+වැටුප අඩංගු GO. ඉහත අවශ්‍යතාවය සඳහා ලියවුනු පයිතන්‌ ක්‍රමලේඛය රෑපය 8.3 හි දැක්වේ. සාම්පල
+
+employees.txt ගොනුවකුත්‌, ටම ගොනුවට අදාළ QHD ක්‍රමලේඛයේ ප්‍රතිදානයත්‌ රෑපය 8.4 හි
+දැක්වේ.
+
+(1) Write down the suitable replacements for the ten labels A-J in program given in Figure 8.3.
+රෑපය 8.3 8 දැක්වෙන පයිතන්‌ ක්‍රමලේඛයේ &, -- ] ලල්බල BEM සුදුසු ආදේශක ලියා දක්වන්න.
+
+#currency notes used in Sri Lanka
+notes = | 50606, 10006, 5006, 166, 50, 26]
+#total notes required from each currency note
+
+type
+totals = [0,0,0,0,0,0]
+
+file = A(employees.txt',r')
+
+while True:
+required = [0,0,0,0,0,0]
+# notes required for employee
+line = file.readline()
+if B line:
+
+C
+
+empDetails = line.spli()
+netpay = int(foar(D))
+If netpay ද 6:
+
+continue
+
+print("\n")
+print(empDetails[@],"Net pay =",netpay)
+topay = netpay
+i=0
+while topay > @:
+required[i] = E
+totals[i] = totals[i] + F
+topay = G
+H
+
+#print employee netpay breakdown
+for i in range(@, len(required) ) :
+
+Example 'employees.txt' file:
+
+Raj 40120
+Niranjala 51670
+
+Program's output for that
+file:
+
+Raj Net pay=40120
+Rs. 5000 : 8
+
+Rs. 1000 : 6
+
+Rs. 500 : 060
+
+Rs. 100 : 1
+
+Rs. 50: @
+
+Rs. 20: 1
+
+Niranjala Net pay=51670
+Rs. 5000 : 10
+
+Rs. 1000 : 1
+
+Rs. 500 : 1
+
+Rs. 100 : 1
+
+Rs. 56 : 1
+
+Rs. 26 : 1
+
+TOTAL REQUIREMENT:
+Rs. 5000 : 18
+
+print("Rs.",notes[i],":",1) Rs. 1000 : 1
+J Rs. 500 : 1
+print("\nTOTAL REQUIREMENT:" ) Rs. 106 : 2
+for i in range(@, len(totals)): Rs. 50:1
+print("Rs.",notes[i],":",totals[i]) Rs. 20: 2
+Figure 8.3 Figure 8.4
+
+(ii) The net pay of employees in this estate, does not contain cents. However, what practical
+problem with respect to the net pay inputs exists in this code? What modifications will you
+
+do to fix that problem?
+
+මෙම වතුයායේ සේවකයන්ගේ QED වැටුප්වල ශත ගණන්‌ අඩංගු නොවේ. එහෙත්‌ ශුද්ධ වැටුප්‌ ආදාන
+සම්බන්ධයෙන්‌ කුමන ප්‍රායෝගික ගැටලුවක්‌ මෙම Gases පචතී ද? එම ගැටලුව විසඳීමට ඔබ කේතයට
+
+කරන චෙනස්කමි ලියා දක්වන්න.
+
+( 2023 — Essay 8 )
+
+1.
+
+Which of the following Python program segment is syntactically correct?
+පහත දැක්වෙන කුමන පයිතන්‌ (Python) කත්‍රමලේඛ ඛණ්ඩය කාරක නීති අනුව නිවැරදි (syntactically
+correct) චේ දු?
+
+1) total = 0 2) total 3) total = @
+for i in range(1,12): for i in range(1,12): for i in range(1,12):
+total = total + i total = total + i total = total + i
+4) total = 0 5) total = 6
+for i in range(1,12) for i in range(1, 12):
+total = total + i total = total + i
+
+( 2011 ~ 20)
+
+Consider the given flow chart.
+දී ඇති ගැලීමි සටහන සලකන්න.
+
+Which of the following statements about the algorithm represented by the flow chart is
+
+incorrect?
+ගැලීමි සටහන මගින්‌ HdESEs කෙරෙන ඇල්ගොරතමය පිළිබඳව පහත දැක්වෙන WOO ප්‍රකාශය
+
+සාවද්‍ය වේද ?
+
+1) Itstops when the user enters
+the value -1. ලෲ)
+පරිශීලකයා --1 අගය ඇතුළු කළ
+විට OS නවතියි.
+
+2) ॥ 50005 when the user enters Let X=5
+the value 5.
+
+න්‌ 2 ක්‍ෂ ඇතුළු කළ J have a positive mee /
+
+Can you guess it?
+
+3) It gives the message “You
+are very close.” when the GetanumberY 7
+user enters the value 9. / from the user 7
+පරිශීලකයා I අගය ඇතුළු WE
+විට එය, “ඔබ තො සමීපයි“ යන
+පණිවිඩය ඉදයි.
+
+4) It gives the message “You
+
+are very close.“when the
+user enters the value 6. You are
+correct.
+
+පරිශීලකයා 6 අගය ඇතුළු WE
+විට එය, “ඔබ තො සමීපයි“ යන
+පණිවිඩය ඉදයි.
+
+No
+
+5) If the value entered by the
+user Is 8, it allows the user to
+enter another value.
+
+පරිශීලකයා ඇතුළු කළ අගය 8
+නම්‌, ඔහුට ඉවනන්‌ අගයක්‌
+ඇතුළු කිරීමට එය ඉඩදෙයි.
+
+You are
+very close.
+
+( 2011 ~ 21)
+
+3. Consider the following Python data items:
+පහත දැක්වෙන පයිතන්‌ (Python) දත්ත අයිතම සලකා බලන්න.
+
+A- 15.2
+B- [12, ‘abc’, 5.2]
+C-{'name' : 'Nimal', ‘age’ : 18}
+
+Python data types of the above data items A, B, C are respectively
+ඉහත A, 6, C දුන්න අයිතමවල Python දත්ත ප්‍රරෑප (Data types) පිළිවෙළින්‌
+
+1) float, list, dictionary. 2) integer, tuple, dictionary. 3) float, list, tuple.
+4) integer, tuple, list. 5) float, tuple, dictionary.
+
+(2011 - 37)
+
+4. Consider the following statements about programming languages.
+ක්‍රමලේඛ භාෂා BEDED පහත දැක්වෙන ප්‍රකාශ සලකා බලන්න.
+
+A ~ C programming language Is a first-generation language (1GL).
+ක්‍රමලේඛ භාෂාව, පළමුවන 5SdG5068 (1GL) භාෂාවකි.
+
+B - Assembly language is a second-generation language (2GL).
+Assembly භාෂාව දෙවන පරම්පරාවේ (2GL) භාෂාවකි.
+
+C - Python is a second-generation language (2GL).
+Python දෙවන පරම්පරාවේ (2GL) භාෂාවකි.
+
+Which of the above statements is/are correct?
+QOD ප්‍රකාශ අතුරෙන්‌ සත්‍ය වන්නේ කුමක්‌ ද?
+
+1) A only. 2) B only. 3) C only. 4) AandBonly. 5) Band Conly.
+A පමණි. B පමණි. C පමණි. Am 8 පමණි. B හා C පමණි.
+(2011 - 45)
+
+5. Consider the following statements in a program:
+ක්‍රමලේඛයකට අයත්‌ පහත දැක්චෙන ප්‍රකාශ සලකා බලන්න.
+
+A- # This is a comment.
+B-// This is a comment.
+C-/* This is a comment. */
+D-a=1 # This is a comment.
+E-# Initial value of a=1
+
+Which of the above are syntactically correct Python statements?
+ඉහත දැක්වෙන BO) අනතුරෙන්‌ කාරක SHOEO අනුකූලව (Syntactically) නිවැරදි පයිතන්‌ (Python)
+ප්‍රකාශ වන්නේ මොනවා ද?
+
+1) Aand D only. 2) Cand £ only. 3) A, Dand E only. 4) 8, C and D only. 5) C, D and E only
+& හා [0 පමණි. ලං හා £ පමණි. &, [) හා £ පමණි. 6, උංහා [ පමණි. (ඊ, [0 හා £ පමණි.
+
+( 2011 ~ 46 )
+
+6. Consider the following assignment statements:
+පහත දැක්චෙන පැචරැමීි ප්‍රකාශ සලකන්න.
+
+A-a "Nimal's address'
+B-a "Nimal's address"
+C- a, b, c=1
+
+D- a, 6, c = 1, 2, ‘string’
+E-a=be=t1
+
+Which of the above are syntactically correct Python statements?
+ඉහත දැක්වෙන BA) අනතුරෙන්‌ කාරක SHOEO අනුකූලව (Syntactically) නිවැරදි පයිතන්‌ (Python)
+ප්‍රකාශ වන්නේ මොනවා ද?
+
+1) Aand Conly. 2) Band Donly. 3) A,C and E only. 4) B,D and E only. 5) C, D and E only
+Am C පමණි. B හා [0 පමණි. A, C හා £ පමණි. B, Dm £ පමණි. C, D හා E පමණි.
+
+(2011 - 47)
+
+7. Consider the following incomplete Python program.
+පහත දැක්වෙන අසමීපූරිණ පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+data=[5, 1, 23, 10]
+
+datacount = len(data)
+
+for i in range(datacount-1):
+
+for k in range (i, datacount):
+
+temp = data[i]
+data[i],data[k] =data[k],temp
+
+for i in range(datacount):
+print (data[i])
+
+Which of the following Python statements should be included at the blank line to print
+the data items in the data structure named ‘data’ in the ascending order.
+
+‘data’ නැමැති දත්ත ව්‍යුහය තුළ ඇති දත්ත අයිතම ආරෝහණ පට්පාට්යට මුද්‍රණය කිරීම සඳහා Hed
+ප්ළියෙහි අන්තර්ගත කළ යුත්තේ පහත දැක්වෙන කවර පයිතන්‌ ([)7([1911) ප්‍රකාශය ද?
+
+ය.
+
+if data[i] ද data[k]:
+if data[i] > data[k]:
+if data[i] data[k]:
+if data[i] < data[k]
+if data[i] > data[k]
+
+NO
+
+KR ටට
+෴෴. ee ee ee
+
+ටෟ
+
+( 2011 ~ 48 )
+
+8. Consider the following Python program:
+පහත දැක්වෙන පයිතන්‌ (Python) කත්‍රමලේඛය සලකන්න.
+
+data = [5, 1, 23, 10, -3]
+def fun(a):
+i, c=1, 306]
+while i < len(a):
+if(a[i] > c):
+c=a[i]
+i=iti
+return c
+print (fun(data) )
+
+Which of the following is the output of this program?
+පහත දැක්වෙන චවා අතුරෙන්‌ මෙම වැඩසටහනෙහි ප්‍රතිදානය (Output) කුමක්‌ ද ?
+
+1) -3 2) 4 3) 5 4) 16 5) 23
+
+( 2011 ~ 49 )
+
+9. Consider the following Python program:
+පහත දැක්වෙන පයිතන්‌ (Python) ත්‍රමලේඛය සලකන්න.
+
+11 = open('input.txt’,'r')
+
+42 = open('output.txt’, 'w’')
+
+line = f1.readline()
+
+while (line) :
+data = (line.strip()).split(",")
+total = float(data[1]) + float(data[2])
+f2.write('{},{},{},{}\n'.format(data[@],data[1],data[2],total))
+line = f1.readline()
+
+f1.close()
+
+f2.close()
+
+The content of the file “input.txt” is given below.
+“INDULTXt" ගොනුවෙහි අන්තර්ගතය පහත දී ඇත.
+
+Nimal , 30,60
+Saman, 80,45
+Upali, 100, 80
+
+After executing the program what would be the content of the file “output.txt”?
+වැඩසටහන ක්‍රියාත්මක කිරීමෙන්‌ පසුව “output.txt” ගොනුචවෙහි අන්තර්ගතය කුමක්‌ චේ ද?
+
+1) Nimal 2) Nimal , 30,60 3) Nimal, 30,60, 90 4) Nimal, 30,60,90.0
+Saman Saman,8@,45 Saman, 8ි0 , 45 , 125 Saman, 80 , 45, 125. 60
+Upali Upali,100, 80 Upali,100,80,180 Upali,100,80,180.0
+
+5) Nimal,30,60,98.0 Saman, 80,45,125.0 Upali,100,80,180.0
+
+(2011-50)
+
+10.
+
+11.
+
+12.
+
+What Is the result of evaluating the Python expression 160 % 3?
+10%3 යන පයිතන්‌ (Python) ප්‍රකාශනය ඇගයීමෙහි ප්‍රතිඵලය කුමක්‌ ද?
+
+1) 2 2) 4 3) 2 4) 3 5) 16
+( 2012 - 19 )
+
+Consider the following pseudo code:
+SOD දක්චෙන ව්‍යාජ Gadencs (pseudo code) සලකන්න
+
+Begin
+total = @
+For count = 1 To 10
+If (count is odd) Then
+total = total + count
+EndIf
+Next count
+Display total
+End
+
+What is the output of the above pseudo code?
+හත ව්‍යාජ කේතයෙහි ප්‍රතිදානය (output) කුමක්‌ ද ?
+
+1) 16 2) 15 3) 26 4) 25 5) 55
+( 2012 -20)
+Consider the following flow chart to C suit)
+answer the questions 12 and 13.
+අංක 12 සහ 13 ප්‍රශ්නවලට පිළිතුරැ
+සැපයීම SEM) පහත දක්චෙන ගැලීමි Input a positive
+සටහන සලකන්න. integer x
+
+What flow control structure/s is/are
+
+used in the flow chart? i=l
+ගැලීම්‌ සටහනෙහි DOO ගැලීම්‌ පාලන
+
+ව්‍යුහය / ව්‍යුහ භාවිත කර තිබේ ද?
+
+1) Sequence only.
+අනුක්‍රමය පමණි.
+
+2) Sequence and Selection only.
+අනුක්‍රමය හා GIOO පමණි,
+
+The remainder of
+x/1=0?
+
+3) Sequence and Iteration only.
+අනුක්‍රමය සහ පුනර්කරණය පමණි.
+
+4) Selection and Iteration only.
+තේරීම හා පුනර්කරණය පමණි. J Print i /
+
+5) Sequence, Selection and |
+
+Iteration only. අනුක්‍රමය, තේරීම
+සහ පුනර්කරණය පමණි.
+
+( 2012 ~ 43 )
+
+13. Which of the following statements about the algorithm represented by this flow chart is
+
+correct if the user inputs the value 6?
+පරිශීලකයා අගය ආදානය කරයි නමි, ගැලීම්‌ සටහන මගින්‌ නිරූපිත ඇල්ගොරිතම පිළිබඳුව පහත
+
+දැක්වෙන කචර ප්‍රකාශය නිවැරදි චේ ද?
+
+ය.
+
+It stops when the value of | is equal to 6.1 හි අගය 6 ට සමාන OD විට එය නවතියි.
+
+)
+2) It prints the value 4 as one of its outputs. Os ප්‍රතිදානයක්‌ ලෙස අගය 4 මුද්‍රණය කරයි.
+3) It prints the value 2 as one of its outputs. එය ප්‍රතිදානයක්‌ ලෙස අගය 2 මුද්‍රණය කරයි.
+4) It prints all the integers from 1 to 6. එය 1 සිට 6 තෙක්‌ සියලු BBE මුද්‍රණය කරයි.
+5) It prints all the integers from 1 to 5. a 1 සිට 5 තෙක්‌ සියලු BBE මුද්‍රණය කරයි.
+
+(2012 ~ 44)
+
+14. Consider the following assignment statements:
+පහත දක්චෙන පැචරැම්‌ි ප්‍රකාශ සලකා බලන්න:
+
+A - a, b = "Nimal", 36
+B-a, b=1
+C-a=be=l1
+
+D - a= True
+
+E - a= true
+
+Which of the above are syntactically correct Python statements?
+වාග්‍රිතීවලට අනුකූලව නිවැරදි චන්නේ ඉහත දැක්වෙන MOO පයිතන්‌ (Python) ප්‍රකාශ ද?
+
+1) Aand C only. 2) Band Donly. 3) A,C and D only. 4) B,D and E only. 5) C, D and £ only.
+Am C පමණි. B හා [0 පමණි. &, ල හා [[ පමණි. 6,197 හා £ පමණි. C,D හා E පමණි.
+
+( 2012 - 45 )
+
+15. Consider the following statements about Python data types:
+පයිතන්‌ දත්ත 9025 පිළිබඳ පහත දැක්වෙන ප්‍රකාශ සලකන්න:
+
+A ~ A tuple consists of ordered number of values separated by commas.
+tuple ප්‍රරෑපයෙහි දත්තයක්‌ කොමාවලින්‌ චෙන්‌ කරනු ලබන පටිපාටිගත අගයන්ගෙන්‌ සමන්චිත Gd.
+
+B - A dictionary comprises of an unordered set of key : value pairs separated by commas
+and enclosed in “{", “}" brackets.
+dictionary ප්‍රරූෑපයෙහි දත්තයක්‌ කොමාවලින්‌ වෙන්‌ කරනු ලබන හා “{", "}" වරහන්‌ NE වන
+පටිපාටිගත නොවන key : value (key:value) යුගල කුලකයකින්‌ යුක්ත වේ.
+
+C - A value in a tuple can be modified as in a dictionary.
+
+tuple g6z560& දත්තයක අගයක්‌ dictionary 9625688 දත්තයක්‌ මෙන්‌ විකරණය (modify)
+කළ හැකිය.
+
+Which of the above statements is/are correct?
+QOD ප්‍රකාශ අතුරෙන්‌ සත්‍ය වන්නේ කවරක්‌/ කවර එවා ද?
+
+1) & 0011. 2) B only. 3) C only. 4) AandBonly. 5) Band C only.
+A පමණි. B පමණි. C පමණි. Am B පමණි. B හා C පමණි.
+
+(2012 ~ 46 )
+
+16. Which of the following Python program is syntactically correct?
+පහත දැක්වෙන කුමන පයිතන්‌ ක්‍රමලේඛය HGSHOEO අනුව නිවැරදි GD ද?
+
+17.
+
+1) for i in [8,9,10,11,12]:
+#Generate the multiplication table of i
+print('Multiplication table of',i)
+for j in range(1,12):
+print(i,'*',j,'=',i*j)
+print()
+
+2) for i in [8,9,10,11,12]
+
+#Generate the multiplication table of i
+
+print('Multiplication table of',i)
+for j in range(1,12)
+
+print(i,'*',j,'=',i*j)
+print()
+
+3) for i in [8,9,10,11,12]:
+
+#Generate the multiplication table of i
+print('Multiplication table of',i)
+for j in range(1,12):
+
+print(i,'*',j,'=',i*j)
+print()
+
+4) for i in [8,'9',10,'11',12]:
+
+#Generate the multiplication table of i
+
+print('Multiplication table of',i)
+for j in range(1,12):
+
+print(i,'*',j,'=',i*j):
+print()
+
+5) for i in [8,9,10,11,12]:
+
+#Generate the multiplication table of i
+print('Multiplication table of',i)
+for j in range(1,12):
+
+print(i,'*',j,'=',i*j)
+print():
+
+Consider the following Python program:
+පහත දැක්චෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න:
+
+def fun(a):
+i, 6, j = 1, a[0],@
+while i < len(a):
+if (a[i] > 6):
+c = afi]
+j=i
+1 : 14142 1
+return j
+print (fun([5, 2, 23, 10, -3]))
+
+What Is the output of this program?
+ලමම ක්‍රමලේඛයෙහි ප්‍රතිදානය (output) කුමක්‌ ද ?
+
+1) 23 2) 16 3) 5 4) 2
+
+( 2012 ~ 47 )
+
+5) -3
+
+( 2012 ~ 49 )
+
+18.
+
+19.
+
+Consider the following incomplete Python program:
+පහත දැක්වෙන අසම්පූරිණ පයිතන්‌ ක්‍රමලේඛය සලකන්න:
+
+name = ['Kamal’, 'Ruwan', ‘'Nimal’, 'Wimal' ]
+
+datacount = len(name)
+for i in range(datacount - 1):
+for k in range(i+1, datacount):
+if
+name[i],name[k] = name[k],name[i]
+
+To arrange the data items in the name data structure in the reverse alphabetic order, which
+of the following Python statements should be included at the blank line?
+
+name දත්ත ව්‍යුහයෙහි දත්ත අයිතම ප්‍රතිවරිත්‍ය අකාරාදී පිළිවෙළට (in the reverse alphabetic
+order) පිළියෙල කිරීම සඳුහා ඉහත හිස්තැනෙහි, පහත දැක්වෙන DAC පයිතන්‌ ප්‍රකාශය ඇතුළත්‌ කළ
+
+යුතු දු?
+
+1) name[i] ද name[k ]
+2) name[i] > name[k]
+3) name[i] = name[k] :
+4) name[i] < name[k] ;
+5) name[i] > name[k] ;
+
+Consider the following Python program:
+පහත දැක්චෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න:
+
+411 = open('input.txt'’, 'r')
+42 = open('output.txt’, 'w’')
+for line in f1:
+data = (line.strip()).split(",")
+total = float(data[1]) + float(data[2])
+f2.write('%7s-%4d\n'% (data[@],total))
+f1.close()
+f2.close()
+
+The content of the file "input.txt" is given below.
+"input.txt" ගොනුවෙහි අන්තර්ගතය පහත දී ඇත.
+
+Nimal , 30,60
+Saman, 80,45
+Upali, 100, 80
+
+(2012 ~ 48 )
+
+After executing the program, what would be the content of the file "output.txt" looks like?
+ක්‍රමලේඛය ක්‍රියාත්මක කිරීමෙන්‌ පසු, "output.txt" ගොනුවෙහි අන්තර්ගතය දැක්වෙන ආකාරය කුමක්‌
+
+චේ ද?
+
+1) Nimal 2)Nimal - 96 3)Nimal - 98.0
+Saman Saman ~ 125 Saman ~ 125.0
+Upali Upali - 180 Upali - 180.0
+
+5)Nimal ~ 90 Saman - 125 Upali
+
+4) Nimal, 36, 60, 96
+Saman, 80, 45, 125
+(0311, 1006, 80, 186
+
+180
+
+( 2012 ~ 50 )
+
+20. What is the output of the following Python program?
+
+21.
+
+22.
+
+23.
+
+පහත EMO) ඇති පයිතන්‌ ක්‍රමලේඛනයේ ප්‍රතිදානය කුමක්‌ දු?
+
+5 = "Nimal Perera"
+print(s[1:3])
+
+1) Ni 2) im 3) ra 4) er 5) Pe
+
+( 2013 ~ 10)
+
+Which of the following is a valid Python statement that can be used to open a file called
+“output.txt” so that new data can be added to the end of the file without deleting its
+original content?
+
+මුලින්‌ අඩංගු දෑ මකා නොදමමින්‌, DA දත්ත, ගොනුවේ අගට එකතු කළ හැකි පරිද්දෙන්‌ "output.txt"
+නමින්‌ හැඳින්චෙන ගොනුචක්‌ ව්චෘත කිරීමට භාවිත කළ හැකි පයිතන්‌ වගන්තිය වන්නේ පහත සඳහන්‌
+කවරක්‌ ද?
+
+ය.
+
+open = infile ("output.txt", ' 5")
+infile = open ("output.txt", "r")
+infile = open ("output.txt","a")
+
+open = infile ("output.txt","a")
+infile = open ("output.txt", "w")
+
+RW ට
+෴. ෴෴ (_෴.. eee
+
+ටෟ
+
+(2013-11)
+
+Consider the following Python statements:
+පහත සඳහන්‌ පයිතන්‌ වගන්නි සලකන්න:
+
+a- "423"
+b 123
+Cc ['a’,2,(1,2,3)]
+
+What are the data types of the variables a, b and c, respectively?
+a, 0 සහ C ච්චල්‍යවචල දුත්ත QOz3 පිළිවෙළින්‌ කචරේ ද?
+
+1) List, Integer, String 2) String, Integer, List 3) Integer, Integer, List
+4) String, String, String 5) String, Float, Tuple
+(2013-12)
+
+What will be the output when the following Python code Is executed?
+BAD EMO) ඇති පයිතන්‌ කේතය ක්‍රියාත්මක කළ SO ලැබෙන ප්‍රතිදානය කුමක්‌ චේ ද?
+
+X = 6
+
+while x > @:
+X=xX-2
+print (x, end=' ')
+
+1) 6 2) 4 2 3)246 4)426 5) 6
+
+( 2013 ~ 13 )
+
+24. Which of the following is an invalid Python identifier?
+
+25.
+
+26.
+
+27.
+
+පහත සඳහන්‌ දෑ අතුරින්‌ වලංගු නොවන පයිතන්‌ හඳුන්වනය (identifier) කුමක්‌ ද?
+
+1) _name 2) Name 3) Name_ 4) 6Name 5) _6_names
+
+(2013-14)
+
+Consider the following Python program:
+පහත සඳහන්‌ පයිතන්‌ ක්‍රමලේඛනය සලකන්න:
+
+3 ~ [1, 2]
+b = [3, 4]
+ල ~ 3 4 0
+print (c)
+
+What is the output?
+මෙහි ප්‍රතිදානය කුමක්‌ ද?
+
+1) [4,6] 2) 10 3) [1,2,3,4] A) [[1,2],[3,4]] 595) [1,2]+[3,4]
+(2013 - 15 )
+
+What Is the value after executing the Python expression 160 - 3 * 2 + 2.0?
+16 -3 * 24+ 2. 6 යන පයිතන්‌ ප්‍රකාශනය ක්‍රියාත්මක කළ SO ලැබෙන අගය කුමක්‌ ද?
+
+1) 16 2) 16.6 3) 6 4) 6.6 5) 28
+(2013 - 16)
+
+Which of the following is a syntactically correct Python program?
+පහත සඳහන්‌ දෑ අතුරෙන්‌ කාරක SADA QED නිවැරදි පයිතන්‌ ක්‍රමලේඛනයක්‌ වන්නේ කුමක්‌ ද?
+
+1) def max(a, 0) 2) def max(a, b): 3) def max(a, b)
+if(a > b) if(a > b): if(a > b) then
+return a return a return a
+else else: else return b
+return b return b
+4) def max(a, b) 5) function max(a, b):
+if(a > b): if(a > b):
+return a return a
+else: else:
+return b return b
+
+(2013-17)
+
+28.
+
+29.
+
+30.
+
+Use the following flowchart to answer the questions 25 (Start)
+
+and 26.
+
+ප්‍රශ්න අංක 28 හා 29 ට පිළිතුරු සැපයීම සඳහා දී ඇනි ගැලීමි
+
+සටහන MAD කරන්න, a=0
+
+What Is the output of the algorithm represented by this ඉ£ං
+
+flowchart? Yes ~
+මෙම ගැලීම්‌ සටහන මගින්‌ නිරාපණය ON ඇල්ගොරතමයේ ද මණ 4411:
+ප්‍රතිදානය කුමක්‌ ද? No
+
+1
+
+[Print a /
+0
+ලන
+
+KW [ට
+
+)
+)
+)
+)
+)
+
+ම අ ෆෟ
+
+ටෟ
+
+( 2013 ~ 18 )
+
+Which of the following Python programs correctly represents this flowchart?
+පහත සඳහන්‌ TBs GOO ගැලීම්‌ සටහන නිචැරදිච නිරූපණය කරනු ලබන පයිතන්‌ ක්‍රමලේඛනය
+
+කුමක්‌ ද?
+
+1)1)4~-6 2) 8 ~ 6 3)3 = 6
+while (a > 5): while (a > 5): while not (a > 5):
+a=atil a=atl a=atl
+print(a) print(a) print(a)
+4)a=0 5)a = 0
+while not (a > 5): while (a <= 5):
+a=atil a=atl
+print(a) print(a)
+
+(2013-19)
+
+Which of the following statements is true with respect to programming languages?
+ක්‍රමලේඛන MS) සම්බන්ධයෙන්‌ සත්‍ය වන්නේ පහත සඳහන්‌ කුමන වගන්තිය ද?
+
+1) Machine languages belong to the second generation programming languages.
+යන්ත්‍ර භාෂා අයත්‌ වන්නේ දෙවන පරම්පරාවේ ක්‍රමලේඛන භාෂාවලට ය.
+
+2) Assembly language programs can run directly on any computer.
+ඇසෙමිබිලි භාෂා ක්‍රමලේඛන ඕනෑම පරිගණකයක සෘජුව © ධාවනය කළ හැකි ය.
+
+3) Assembly languages belong to the first generation programming languages.
+ඇසෙමිබිලි භාෂා අයත්‌ වන්නේ පළමුවන පරමිපරාවේ ක්‍රමලේඛන භාෂාවලට ය,
+
+4) Assembly language is more human readable form of machine language.
+ඇසෙමිබිලි භාෂාව යනු මිනිසාට වඩා පහසුවෙන්‌ Bada හැකි යන්ත්‍ර භාෂාවේ © ආකාරයකි,
+
+5) Machine language programs can be translated into assembly language programs by
+using assemblers.
+ATGEOOOKS භාවිතයෙන්‌, යන්ත්‍ර MB ක්‍රමලේඛන ඇසෙමිබිලි භාෂා කමලේ්ඛනවලට
+පර්චර්තනය කළ හැකි ය.
+(2014-03 )
+
+31.
+
+32.
+
+33.
+
+Which of the following statements is true with respect to comments in programming
+languages?
+ක්‍රමලේඛන භාෂාවල විවරණ (comments) සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමන වගන්තිය සත්‍ය GH ද?
+
+1) At the time of execution, comments are translated into special machine instructions.
+ක්‍රියාකරවීම BeOD අවස්ථාවේ දී විචරණ විශේෂ යන්ත්‍ර උපදේශනවලට BOOGDAHG GS.
+
+2) Comments should always be limited to a single line.
+HOO) සෑම SO ම එක්‌ පේළියකට BO) කළ යුතු ය,
+
+3) Comments should Start with the symbol # in all programming languages.
+සියලු © ක්‍රමලේඛන භාෂාවල විවරණ ආරමිභ කළ යුත්තේ සංකේතය සමගිනි.
+
+4) [115 a good practice to include comments in a program to explain its functionality.
+ක්‍රමලේඛන WE BOOS) ඇතුළත්‌ කිරීම එහි කාරය පැහැදිලි කිරීමට ගත හැකි හොඳ පුරැද්දකි.
+
+5) In Python programming, comments should always start at the first column.
+පයිතන්‌ ක්‍රමලේඛනයේ දී විචරණ සෑමව්ට © ආරම්භ කළ යුත්‌තේ පළමුවන තීරැචෙනි.
+(2014-04)
+
+Which of the followings is an invalid Python variable name?
+පයිතන්‌ විචල්‍ය නාම සඳහා වලංගු නොවන්නේ පහත සඳහන්‌ කවරක්‌ ද?
+
+1) MyCountry = 2) mycountry 3) My country 4) My_country 5) _my_country_
+(2014-05)
+
+Which of the following is a syntactically correct Python function?
+කාරක SHOEO අනුකූලව නිවැරදි පයිතන්‌ ශ්‍රිතය (function) Osea පහත සඳහන්‌ කුමක්‌ ද?
+
+1) def isLarger(a,b): 2) def isLarger(a,b): 3) def isLarger(a,b)
+return a> b return a> 0 return a> 0
+
+4) function isLarger(a,b): 5) function
+return a > 6 isLarger(a,b)
+if(a > b)
+return a
+else
+return b
+
+(2014 - 37)
+
+e Use the following flowchart to answer questions 31 and 32.
+ප්‍රශ්න අංක 34 සහ 36 සඳහා පිළිතුරු සැපයීමට පහත දක්වා ඇති ගැලීම්‌ සටහන භාවිත කරන්න.
+
+| Start |
+
+Read the integers for
+the variables A, B, C
+
+J Print B 7 »/ PrintC & J Print A /
+
+vr |
+
+End
+
+34. If a user input 20, 27, 18 for the variables, A, B, C respectively the output will be
+SeosBemag විසින්‌ A, B සහ (_ චිචල්‍ය සඳහා පිළිවෙළින්‌ 20, 27 හා 18 ආදානය (input) කළහොත්‌
+ප්‍රතිදානය (output) විය හැක්කේ,
+
+1) 18 2) 20 3) 27 4) 20, 27 5) 27, 18
+( 2014 - 38 )
+
+35. Which of the following Python programs correctly implements the above flowchart?
+හත DEBS සටහන නිවැරදිව ස්ථාපිත කර ඇත්තේ පහත දක්වා ඇති කචර පයිතන්‌ ක්‍රමලේඛය මගින්‌
+
+e?
+1) int(input("Enter a value for
+int(input("Enter a value for
+int(input("Enter a value for
+
+ඬ
+
+HOW LD
+1 ॥ ॥
+Ow LD
+ara
+Nee ඒ Sree”
+
+else:
+if(B > C):
+print(B)
+else:
+print(C)
+
+int(input("Enter a value for
+int(input("Enter a value for
+int(input("Enter a value for
+
+ඬ
+
+HOW LD
+॥ ॥ ou
+ෆ රා -,
+rare
+Nee See? "෴.
+
+print(C)
+else:
+if(B > C):
+print(B)
+
+3) A
+B
+C
+if (A > B):
+
+if(A > C):
+print(A)
+
+else:
+
+print(C)
+
+else:
+
+if(B > C):
+print(B)
+
+else:
+
+print(C)
+
+රා
+1 ॥ ॥
+
+if (A > 8):
+
+if(A > C):
+print(C)
+
+else:
+
+print(A)
+
+else:
+
+if(B > C):
+print(C)
+
+else:
+
+print(B)
+
+රා
+1 ॥ ॥
+
+if (A > 8):
+
+if(A > C):
+print(A)
+
+else:
+
+print(C)
+
+else:
+
+if(B > C):
+print(C)
+
+else:
+
+print(B)
+
+int(input("Enter a value for
+int(input("Enter a value for
+int(input("Enter a value for
+
+int(input("Enter a value for
+int(input("Enter a value for
+int(input("Enter a value for
+
+int(input("Enter a value for
+int(input("Enter a value for
+int(input("Enter a value for
+
+a= ['a',2,[3, "b',4],[6,"abc",9],8]
+
+print(a[2][2])
+
+1) 2
+
+2) [3, '6',4]
+
+3) '0'
+
+A:
+B:
+C:
+
+A:
+B:
+C:
+
+A:
+B:
+C:
+
+))
+))
+))
+
+))
+))
+))
+
+))
+))
+))
+
+36. What will be the output when the following Python code Is executed?
+පහත EMO) ඇති පයිතන්‌ කේතය ක්‍රියාත්මක we SO ප්‍රතිදානය කුමක්‌ ද?
+
+(2014-39 )
+
+5) 22
+
+( 2014 ~ 40 )
+
+37.
+
+38.
+
+39.
+
+What is the value of variable z after executing the Python statement z=1==2?
+Z=1==2 යන පයිතන්‌ වගන්තිය ක්‍රියාත්මක කළ පසු SOESS සඳහා ලැබෙන අගය කුමක්‌ ද?
+
+16 2) 4. 3) True 4) [3156 5) Null
+
+(2014 - 41)
+
+Which of the following Python expressions shows the correct evaluation order of the
+Python expression 10-4*3/2-5?
+
+10-4*3/2-5 යන පයිතන්‌ ප්‍රකාශනයේ ඇගයීමේ HOz6E පටිපාටිය පහත සඳහන්‌ කුමකින්‌ පෙන්නුම්‌
+කරයි ද?
+
+ය.
+
+(((16 - 4) * 3)/2) - 5
+
+)
+
+2) ((10 - (4 * 3))/2) - 5
+3) 16 - (4 * ((3/2) - 5))
+4) 10 - ((4 * (3/2) - 5)
+5) (10 - ((4 * 3)/2)) - 5
+
+(2014 - 42 )
+
+Consider the following statements about syntax or semantic errors in Python programming
+language:
+
+පයිතන්‌ භාෂාවේ කාරක 58 හෝ @BQKO දෝෂ හෝ සම්බන්ධයෙන්‌ පහත සඳහන්‌ වගන්ති සලකා
+බලන්න:
+
+A - A program with syntax errors will not run to the end of the program.
+කාරක 68 දෝෂ BHD ක්‍රමලේඛයක්‌ OB අවසානය දක්වා ධාවනය නොවේ.
+
+B - A program with only semantic errors will not run to its end.
+@OEIHO දෝෂ පමණක්‌ ඇති ක්‍රමලේඛයක්‌ OB අවසානය දක්වා ධාවනය නොවේ.
+
+C - Syntax errors in programs are also called logical errors.
+ක්‍රමලේඛ කාරක OBOE ඇති දෝෂ තාර්කික දෝෂ ලෙස ද හැඳින්වේ.
+
+D - Programs with semantic errors may not produce correct outputs for some inputs.
+ශබිදාරීථ දෝෂ BBD ක්‍රමලේඛ සමහර ආදාන සඳහා නිවැරදි ප්‍රතිදාන ලබා නොදිය හැකි ය.
+
+1) AandBonly. 2) AandConly. 3) AandDonly. 4) BandConly. 5) Band D only.
+Am 6 පමණි. Am C පමණි. & හා D පමණි. 5 හා C පමණි. B හා D පමණි.
+
+( 2014 ~ 50 )
+
+40. Consider the following statements about computer programming languages:
+
+41.
+
+පර්ගණක ක්‍රමලේඛ භාෂා සම්බන්ධයෙන්‌ පහත වගන්ති සලකා බලන්න:
+
+A - The processor of a typical computer can understand and execute only the machine
+language of that processor.
+
+දර්ශීය (typical) පටරගණකයක සකසනයට DO සකසනයේ යන්ත්‍ර භාෂාව පමණක්‌ තේරැම්‌ ගැනීම
+සහ ක්‍රියාත්මක කිරීම කළ හැකි ය.
+
+B - The processor of a typical computer can understand and execute any machine
+
+language of any processor.
+දර්ශීය පටගණකයක සකසනයට, ඕනෑම සකසනයක ඕනෑම යන්ත්‍ර භාෂාවක්‌ තේරැම්ිගෙන
+ක්‍රියාත්මක කළ හැකි ය.
+
+C - The processor of a typical computer can understand and execute any program in any
+assembly language.
+
+දර්ශීය පටගණකයක සකසනයට, ඕනෑම වසමිබිලි (assembly) භාෂාවකින්‌ වූ ඕනෑම
+ක්‍රමලේඛයක්‌ ඉතේරැමිගෙන කියාත්මක කළ හැකි ය.
+
+D- The processor of a typical computer can understand and execute any program in
+Python language.
+
+දර්ශීය පටගණක සකසනයට, පයිතන්‌ භාෂාවෙන්‌ (Python language) ලියන ලද ඕනෑම
+ක්‍රමලේඛයක්‌ ඉතේරැමිගෙන කියාත්මක කළ හැකි ය.
+
+Which of the above statement(s) is/are correct?
+පර්ගණක ක්‍රමලේඛ MS) සම්බන්ධයෙන්‌ පහත වගන්ති සලකා බලන්න:
+
+1) & 0011. 2) AandBonly. 3) AandConly. 4) 8 4011 ල 0(1%/._ 5) Cand D only.
+A පමණි. Asm B පමණි. Am C පමණි. 5 හා C පමණි. Cem D පමණි.
+
+(2015 -24)
+
+Consider the following Python program:
+පහත පෙන්වා ඇති පයිතන්‌ ක්‍රමලේඛය සලකන්න:
+
+temp = [23,45,2,-2,0]
+print(temp[::2])
+
+What Is the output of the above program?
+QOD ක්‍රමලේඛයේ ප්‍රනිදානය කුමක්‌ ද ?
+
+1) [23,45]
+
+2) [-2,0]
+
+3) [23,2,0]
+
+4) [2,-2,0]
+
+5) [23,45,2,-2,0]
+
+(2015 ~ 48 )
+
+42.
+
+43.
+
+Questions 42 to 45 are based on an algorithm represented by the following flow chart.
+අංක 42 සිට 45 ප්‍රශ්න සඳහා පහත ගැලීම්‌ සටහන මගින්‌ පෙන්වා ඇති ඇල්ගොරිතමය පාදක 6d.
+
+Consider the following statements:
+පහත වගන්ති සලකා බලන්න:
+෴ Read a value for X WA
+
+A - This algorithm takes only a single input.
+මෙම ඇල්ගොරිතමය චක්‌ ආදානයක්‌ පමණක්‌
+ලබා ගනියි.
+
+B - This algorithm does not have any
+repetition(loop).
+මෙම ඇල්ගොරිතමයට කිසිදු පුනරාවර්තනයක්‌
+
+(repetition/loop) ඇතුළත්‌ නොවේ. SL. Read a value for Y ෴
+
+C - If the user inputs -1 for X, the algorithm
+will not terminate. T=T+yY
+
+පරිශීලකයා X සඳහා -1 ආදානය කළහොත්‌
+ඇල්ගොරිතමය නතර නාවේ.
+
+No
+D- When the user inputs for X, the algorithm 14 ~ 14 4- 1
+
+will not terminate till the user enters
+
+another value. Yes
+පරිශීලකයා X සඳහා 1 ආදානය කළහොත්‌ Lo Print T WA
+පරිශීලකයා යළිත්‌ අගයක්‌ ඇතුළත්‌ කරන තුරැ
+
+ඇල්ගොරිතමය නතර නාවේ.
+
+Which of the above statement(s) is/are End
+
+correct?
+QOD වගන්ති අතුරෙන්‌ නිවැරදි වන්නේ කචරක්‌ ද?
+
+1) & 0011. 2) AandBonly. 3) AandDonly. 4) BandConly. 5) Cand [9 901%.
+A පමණි. A හා 8 පමණි. Am [0 පමණි. B හා ල පමණි. Cm D පමණි.
+
+(2015 - 28 )
+
+The algorithm represented by the flowchart is considered as a poor algorithm because it
+
+does not
+ගැලීමි සටහන මගින්‌ නිරූපිත ඇල්ගොරිතමය CHAE G7SEMOBDOs Ges සලකනු ලබන්නේ,
+
+1) terminate for some input values.
+එය සමහර ආදාන අගයන්වල දී නොනවතින නිසා ය.
+
+2) contain finite number of steps.
+එයට නිශ්චිත BGS සංඛ්‍යාවක්‌ නොමැති Hes) ය.
+
+3) specify the next step to be performed at least for a one step of the algorithm.
+ඊළඟ පියචර ගැන සඳහනක්‌ නොමැති අඩු ම වශයෙන්‌ චක්‌ පියචරක්වත්‌ OB ඇති නිසා ය,
+
+4) consist of a sequence of steps.
+Ad පියවර අනුක්‍රමයකින්‌ සමන්විත නොවන නිසා ය,
+
+5) contain any variable type declarations.
+චහි කිසිම විචල්‍ය ප්‍රරෑප (variable type) හඳුන්වාදීමක්‌ ඇතුළත්‌ නොවන නිසා ය.
+
+( 2015 ~ 29 )
+
+44. Which of the following Python programs implements the behavior of the flowchart?
+ගැලීම්‌ සටහනේ හැසිරීම ක්‍රියාවට නංවන්නේ පහත සඳහන්‌ කුමන පයිතන්‌ ක්‍රමලේඛයෙන්‌ ද?
+
+1)
+
+"))
+
+"))
+
+"))
+
+X = int(input("Enter a value : "))
+n=
+t= 6
+while n <= x:
+y = int(input( "Enter the next value:
+t=tt+y
+(1 ස 1 4 14
+print(t)
+X = int(input("Enter a value : "))
+n= 1
+t= 6
+while n <= x:
+y =int(input( "Enter the next value: "))
+1 ස ₹ 4 "%
+(1 ස 0] 4 14
+print(t)
+X = int(input("Enter a value : "))
+n=
+t= 6
+iterate = True
+while n != x:
+y = int(input("Enter the next value:
+අස ( 4 !/
+(1 ස 0] 4 14
+print(t)
+X = int(input("Enter a value : "))
+n=
+t= 6
+while n != x:
+y = int(input( "Enter the next value:
+1 ස ₹ 4 "%
+(1 ස 0] 4 14
+print(t)
+X = int(input("Enter a value : "))
+n= 1
+t= 6
+
+iterate = True
+while iterate:
+
+y = int(input( "Enter the next value: "))
+
+1 ස ₹ 4 "%
+if n == x:
+iterate = False
+else:
+[] ස 0 4 1
+print(t)
+
+(2015 - 31)
+
+45.
+
+46.
+
+47.
+
+The algorithm terminates
+මෙම ඇල්ගොරිතමය නවතින්නේ,
+
+1) for input value 5.
+අගය 5 ආදානය කළ පසුව ය.
+
+2) when values 0,5,4 are given as input one after the other.
+අගයන්‌ 0,5, 4 එකකට පසු එකක්‌ ලෙස ආදානය WE පසු ය,
+
+3) by printing the value 5 when it is given the input values 2,5,4 one after the other.
+අගයන්‌ 2,5, 4 චකකට පසු එකක්‌ ලෙස ආදානය කළ පසු අගය 5 මුද්‍රණය කිරීමෙනි,
+
+4) by printing the value 4 when it is given the input values 2,5,4 one after the other.
+අගයන්‌ 2,5, 4 එකකට පසු එකක්‌ ලෙස ආදානය කළ පසු අගය 4 මුද්‍රණය කිරීමෙනි.
+
+5) 6)/ printing the value 9 when it is given the input values 2,5,4 one after the other.
+අගයන්‌ 2,5, 4 එකකට පසු එකක්‌ ලෙස ආදානය කළ පසු අගය 9 මුද්‍රණය කිරීමෙනි.
+
+( 2015 ~ 30)
+
+Questions from 46 to 49 are based on the following Python program.
+ප්‍රශ්න අංක 46 BO 49 තෙක්‌ ප්‍රශ්න පහත & ඇති පයිතන්‌ ක්‍රමලේඛය මත පාදක 5 ඇත.
+
+# Program ~ [01 . [|
+temp = [23,45,2,-2.0]
+def f(b):
+ni,n2 = b[e@],b[e@]
+for m in b:
+if(m > n1):
+(11 =m
+if(m < n2):
+n2 = m
+return (11, n2
+print(f(temp) )
+
+Consider the following statements about this Python code:
+GOO පයිතන්‌ කේතය සම්බන්ධයෙන්‌ පහත වගන්ති සලකා බලන්න:
+
+A - It contains a comment. චය තුළ BOdgsocsess (ComMent) පචතී.
+
+B - It contains a definition of a function. ශ්‍රිතයක අරිථ ඇක්වීමක්‌ එය තුළ අඩංගු වේ.
+
+C - It does not contain any selections. කිසිදු තේරීමක්‌ (selection) එය QE අඩංගු නොවේ.
+
+D- It does not contain any iterations. කිසිදු පුනරකරණයක්‌ (iteration) එය QE අඩංගු නොවේ.
+
+Which of the above statements are correct?
+QOD සඳහන්‌ කුමන චගන්ති නිවැරදි චේ ද?
+
+1) AandBonly. 2) AandConly. 3) BandConly. 4) BandDonly. 5) Cand [0 only.
+Asm B පමණි. Am C පමණි. 5 හා C පමණි. 5 හා D පමණි. Cem [0 පමණි.
+
+( 2015 ~ 44)
+
+What is the data type of the variable temp in this Python code?
+ලමම පයිතන්‌ කේතයේ temp නමැති චිචල්‍යයෙහි දත්ත ප්‍රරෑපය චන්නේ කුමක්‌ ද?
+
+1) Integer 2) Float 3) Boolean 4) Tuple 5) List
+(2015 - 45 )
+
+48.
+
+49.
+
+50.
+
+51.
+
+What Is the return data type of the function named " 1 '?
+“1” නමැබ්‌ ශිතයේ, ප්‍රත්‍යාගමන (return) දුත්ත ප්‍රරෑපය වන්නේ කුමක්‌ ද්‍ර?
+
+1) Integer 2) Float 3) Boolean 4) Tuple 5) List
+(2015 ~ 46 )
+
+Which of the following value/s is/are in the output of the above program?
+පහත සඳහන්‌ අගය/ අගයන්‌ අතුරෙන්‌ කවරක්‌ ඉහත ක්‍රමලේඛයෙහි ප්‍රතිදානය තුළ පවතී ද?
+
+1) 23 and 45 2) 45 and -2 3) -2 and 0 4) 0 5) 23
+(2015 ~ 47 )
+
+Consider the following statements about compilers and interpreters used in programming
+languages:
+
+ක්‍රමලේඛන භාෂාචන්හි භාවිත Om සම්පාදක හා අර්ථ වින්‍යාසක (compilers and interpreters)
+සම්බන්ධයෙන්‌ පහත දැක්වෙන වගන්ති සලකන්න:
+
+A - Compilers/interpreters are not required to execute a program written in assembly
+language.
+Assembly භාෂාවෙන්‌ ලියා ඇති ක්‍රමලේඛයක්‌ ක්‍රියාත්මක කිරීම සඳහා සම්පාදක හෝ අර්ථ
+වින්‍යාසක අවශ්‍ය නොවේ.
+
+B - Compilers are not essential to execute a program in machine code.
+යන්ත්‍ර කේතචලින්‌ ඇති ක්‍රමලේඛයක්‌ ක්‍රියාත්මක කිරීම සඳහා සම්පාදක අත්‍යවශ්‍යෲ නොවේ.
+
+C - An executable program is translated into a source program by අ compiler.
+ක්‍රියාත්මක කළ හැකි (executable) ක්‍රමලේඛයක්‌ සම්පාදකයක්‌ මගින්‌ මූල ක්‍රමලේඛයක්‌ (source
+program) බවට පර්චරිතනය කරනු ලබයි.
+
+Which of the above statements is/are correct?
+QOD වගන්ති අතුරෙන්‌ නිවැරදි වන්නේ,
+
+1) A only. 2) B only. 3) C only. 4) AandBonly. 5) Band Conly.
+A පමණි. B පමණි. C පමණි. Am 8 පමණි. B හා C පමණි.
+( 2016 - 24)
+
+Consider the following statements about flowcharts:
+ගැලීම්‌ සටහන්‌ සම්බන්ධයෙන්‌ පහත වගන්ති සලකා බලන්න:
+
+A ~ A flowchart is a pictorial representation of an algorithm.
+ගැලීම්‌ සටහනක්‌ යනු ඇල්ගෝරිතමයක චිත්‍රක නිරෑපණයක්‌ එව්‌.
+
+B - A flowchart may have more than one ‘stop’ or ‘end’ termination symbols.
+
+ODEO සටහනක 'නැවතීම' හෝ 'අවසානය' නමි වූ අවසන්‌ කිරීමේ සංකේත චකකට වඩා පැවතිය
+හැකි ය.
+
+C - Algorithms can be represented only by using flowcharts.
+ඇල්ගෝරිතම නිරූපණය WE හැකි වන්නේ ගැලීම්‌ සටහන්‌ භාවිතයෙන්‌ පමණි.
+
+Which of the above statements is/are correct? ඉහත වගන්ති අතුරෙන්‌ නිවැරදි වන්නේ,
+
+1) A only. 2) B only. 3) C only. 4) AandBonly. 5) Band Conly.
+A පමණි. B පමණි. C පමණි. Am 8 පමණි. B හා C පමණි.
+
+( 2016 - 28 )
+
+52.
+
+53.
+
+The algorithm represented by the
+following flowchart reads 5 numbers
+
+and prints the sum of them.
+
+පහත ගැලීම්‌ සටහන මගින්‌ නිරෑපිත
+ඇල්ගෝරිතමය, සංඛ්‍යා 5ක්‌ කියවා
+චිවායේ චේක්‍යය මුද්‍රණය කරනු ලැබේ.
+
+In order to execute the above
+flowchart correctly, A and B should
+be replaced by
+respectively. Which of the followings
+is suitable to fill the blank in the
+above statement?
+
+QOD HES සටහන නිවැරදිච කියාත්මක
+වීම acm A සහ 6 පිළිවෙළින්‌
+මගින්‌ ප්‍රතිස්ථාපනය කළ
+
+යුතු ය.
+හත වැකියේ හිස්තකැන පිරවීම සඳහා
+
+සුදුසු වන්නේ කුමක්‌ ද?
+
+1) i = 6 3:11 1 ද 5
+2) 1 ~ 1 3111 1 - 5
+3) 1 ~ 0 3:11 195 5
+4) 1 ~ 1 311 1 ද 5
+5) i = 13011 25
+
+A
+
+:
+
+tot = 0
+
+Yes
+
+No
+
+Print tot /
+
+Lo Read a value for x WA
+
+tot = tot + x
+
+y
+
+i=it+l
+
+A
+
+| Stop |
+
+(2016-29 )
+
+Which of the following Python programs computes the sum of five given integers?
+පහත සඳහන්‌ පයිතන්‌ ක්‍රමලේඛන අතුරෙන්‌ GED ලද BBO සංඛ්‍යා පහක එකතුව ගණනය කරන්නේ
+
+කුමකින්‌ ද ?
+1)i=1 2) i=
+tot = @ tot
+
+while i > 5:
+X=int(input())
+
+1
+
+6
+
+while i <= 5:
+
+X=int(input())
+
+tot=tot + x tot=tot + x
+i=i +1 i=i +1
+print(tot) print(tot)
+4) 1 = 60 5) i = @
+tot = 6 tot = 6
+
+while i > 5:
+X=int(input())
+
+while i <= 5:
+
+X=int(input())
+
+tot=tot + x tot = tot + x
+1 - 14 1 1 - 142 1
+print(tot) print(tot)
+
+3) i=1
+
+tot 6
+
+while i
+X=int(input())
+tot=tot + x
+i=i+l
+
+print(tot)
+
+(2016 - 30 )
+
+54.
+
+55.
+
+56.
+
+57.
+
+Consider the following Python statement:
+පහත සඳහන්‌ පයිතන්‌ වගන්නිය සලකන්න:
+
+temp = [23,45,2,-2,0][:2: ]
+
+What would be the value of the variable temp after executing the above statement?
+QOD චගන්තිය ක්‍රියාත්මක වූ පසු temp නමි චූ චිචලඅයෙහි පචතින අගය කුමක්‌ ද?
+
+1) 23,45 2) [23,45] 3) 23,2 4) [23,2] 5) [23, 2,6]
+
+( 2016 - 31 )
+
+Which of the following Python code segments is syntactically incorrect?
+පහත EMO) ඇති පයිතන්‌ කේත ඛණ්ඩවලින්‌ කාරක රීති අනුව චැරදි කුමක්‌ ද?
+
+1) if x > 6: 2) if x > 6: 3) if x > 10:
+y=2 y=2 y=1
+else: elseif x > 5:
+y= 3 / ~ 2
+4) if x > 10: 5) if x > 16:
+/ ~ 4. / ~ 34
+elif x > 5: else:
+y=2 if x > 5:
+else: y=2
+y=3 else:
+y=3
+
+(2016 - 39 )
+
+Consider the following Python program segment:
+පහත පයිතන්‌ ක්‍රමලේඛ ඛණ්ඩය සලකන්න:
+
+di = "(1,2,3)"
+d2 = (1,2,3)
+d3 = [1,2,(1,2)]
+
+What would be the types of variables dl, d2 and d3 respectively after the execution of the
+program segment?
+
+QNMD ක්‍රමලේඛ බණ්ඩය ක්‍රියාත්මක කිරීමෙන්‌ පසු d1, d2 සහ d3 යන විචල්‍යයන්ගේ ප්‍රරෑපයන්‌
+පිළිවෙළින්‌ කුමක්‌ චේ ද?
+
+1) tuple, tuple, tuple 2) string, tuple, tuple 3) char, tuple, list
+4) string, tuple, list 5) tuple, tuple, list
+
+(2016 ~ 40 )
+
+Which of the following Python statements is syntactically incorrect?
+පහත සඳහන්‌ කුමන පයිතන්‌ වගන්නිය කාරක 54 අනුව වැරදි වන්නේ ද?
+
+1) a,b=10,15 2)
+
+=1,2 3) a=1,2
+4) a, b=2, (3,5) 5) 2,3
+
+(2016 - 41 )
+
+58.
+
+59.
+
+60.
+
+61.
+
+What will be the value of the variable x, after executing the following Python statement?
+පහත දක්වා ඇති පයිතන්‌ වගන්තිය ක්‍රියාත්මක © පසු SOESES අගය කුමක්‌ චේ ද?
+
+x=3-4*6/3+4+12/4 * 3
+1) -5.0 2) -4.0 3) ~4.6 4) 4.0 5) 5.6
+(2016 ~ 42 )
+
+Which of the following Python functions is syntactically incorrect?
+පහත සඳහන්‌ කුමන පයිතන්‌ ශ්‍රිතය කාරක 58 අනුව වැරදි වන්නේ ද?
+
+1) def fun(x,y): 2) def fun(): 3) def fun(x,y):
+
+return x return 5 pass
+4) def fun: 5) def fun(x,y=5):
+
+return 5 return y,x
+
+(2016-50)
+Consider the following flow chart.
+පහත ගැලීම්‌ සටහන සලකන්න: ( start )
+What is the error with the above flow chart?
+?
+
+QOD ගැලීමි සටහනේ ඇති දෝෂය කුමක්‌ ද? Ve da value for of
+
+1) It has two end symbols.
+චහි ‘end’ සංකේත දෙකක්‌ HBO
+
+2) Print is not a valid keyword. ves Print "Good"
+‘Print’ යනු චලංගු ඉඟි පදයක්‌ නොවීම Hint 00
+
+3) It has no process box. No y
+චහි ‘process’ කොටුවක්‌ නොමැති SO end
+
+4) It has two print symbols. J Print "Bad" /
+& ‘Print’ සංකේත දෙකක්‌ ABO
+
+5) A flow direction is not correct. d
+ගැලීමි දිශාවක්‌ නිවැරදි නොවීම en
+
+(2017-25)
+
+Which of the following statements is true about algorithms?
+ඇල්ගොරිතම සමිබන්ධයෙන්‌ පහත දැක්වෙන කුමන වගන්තිය සත්‍ය වේ ද?
+
+1) A set of steps used to solve a problem is called an algorithm.
+ගැටලුවක්‌ විසඳීමට යොදා ගන්නා පියචරවල සමූහයක්‌ ඇල්ගොරතමයක්‌ ලෙස හැඳින්වේ.
+
+2) & sequence of activities used to solve a problem is called an algorithm.
+ගැටලුවක්‌ විසඳීමට යොදා ගන්නා MBGOE අනුක්‍රමයක්‌ ඇල්ගොරිතමයක්‌ ලෙස හැඳින්වේ.
+
+3) To solve any problem, there can be at most one algorithm.
+ඕනෑම ගැටලුවක්‌ විසඳීම සඳහා වැඩිමනක්‌ ම තිබිය හැක්කේ චක්‌ ඇල්ගොරතමයක්‌ පමණි,
+
+4) Analgorithm can contain an infinite number of steps.
+ඇල්ගොරිතමයකට ESOSD පියවර සංඛ්‍යාවක්‌ BAS හැකි ය.
+
+5) An algorithm does not need to terminate within a finite time.
+ඇල්ගොරිතමයක්‌ පරිමිත කාලයක්‌ තුළ දී අවසන්‌ SOO අවශ්‍ය med.
+
+(2017-29 )
+
+62. Which of the following statements about Python data types/expressions is correct?
+පහත දැක්චෙන කුමන වගන්තිය නිවැරදි චේ ද?
+
+1) String is a mutable data type.
+‘String’, යනු mutable දත්ත ප්‍රරෑපයකි.
+
+2) List is an immutable data type.
+‘List’ යනු immutable දත්ත ප්‍රරෑපයකි.
+
+3) [1, 2, 3] is a tuple.
+[1, 2, 3] යනු tuple යකි.
+
+4) The expression [1, 2, 3] [1] will produce [2] when executed.
+(1, 2, 3] [1] ප්‍රකාශනය ක්‍රියාත්මක කළ SO [2] ලබා දේ.
+
+5) The type of {'a':, 1:(1, 2)} is a Dictionary.
+{'a':1, 1:(1, 2)} ප්‍රරෑපය Dictionary යකි.
+(2017 - 41 )
+
+63. Consider the following values:
+පහත දැක්වෙන Python වගන්තිය සලකන්න:
+
+A - 2.362
+
+B - TRUE
+
+C- "This isn’t a string"
+D- uw
+
+Which of the above values are valid in Python?
+ඉහත දැක්වෙන අගයන්‌ අතුරෙන්‌ කුමක්‌ Python හි වලංගු වේ ද?
+
+1) Aand Bonly. 2) AandConly. 3) 8 4011 0017. 4) A,B and C only. 5) A,C and D only.
+Asm B පමණි. Am C පමණි. 5 හා C පමණි. A, B හා C පමණි. A, C හා [0 පමණි.
+
+( 2017 ~ 42)
+
+64. Consider the following Python statement:
+පහත දැක්වෙන Python වගන්තිය සලකන්න:
+temp = [1, 2, 3, 4, 5, 6] [2::2]
+
+Which of the followings is the value of the variable temp after executing the above
+statement?
+QOD ප්‍රකාශය ක්‍රියාත්මක කිරීමෙන්‌ පසු temp SOESGES අගය පහත දැක්වෙන චවචායින්‌ කුමක්‌ ද?
+
+1)2, 4, 6 2) 3, 5 3) [2, 3] 4) [3, 5] 5) [2, 4, 6]
+
+( 2017 - 43)
+
+65. Consider the following statements:
+පහත දැක්චෙන වගන්ති සලකන්න:
+
+A-a=b=2+ 3
+B-a, b = 2, 3
+C-a, b = (2, 3)
+D-a = (2, 3)
+
+Which of the above are valid assignment statements in Python?
+ඉහත චීවායින්‌ කුමක්‌ Python හි වලංගු පැවරැමි ප්‍රකාශ වන්නේ ද?
+
+1) Aand Bonly. 2) 8 4011 Conly. 3) Cand Donly. 4) A,B and Conly. 5) All of the above.
+Asm B පමණි. 5 හා C පමණි. Cem D පමණි. A, B හා C පමණි. හත සියල්ලම.
+
+( 2017 - 44)
+
+66. Consider the following Python expressions:
+පහත දැක්චෙන ප්‍රකාශ සලකන්න:
+
+A- True or False and True
+B-3 > 2 and False
+C-{2, 3} == {3, 2}
+D-(2, 3) == (3, 2)
+
+Which of the above expressions would result in the Boolean value True?
+QOD කචර ප්‍රකාශ බූලියානු True අගය ප්‍රතිඵලය ලෙස ලබා දේ ද?
+
+1) AandBonly. 2) AandConly. 3) BandConly. 4) BandDonly. 5) Cand [0 only.
+Asm B පමණි. Am C පමණි. 5 හා C පමණි. 5 හා D පමණි. Cem [0 පමණි.
+
+(2017-45 )
+
+67. The content of two files with names “in.csv” and “out.csv” are shown in the figures “Fig. 1”
+and “Fig. 2” respectively.
+"in.csv" සහ “out.csv" යනුවෙන්‌ නම්‌ කරන ලද ගොනුවල අන්තරිගතයන්‌ “Fig.1" හා “Fig.2" රෑප
+සටහන්‌ මගින්‌ පිළිවෙළින්‌ දැක්වේ.
+
+Ruvan, 26, 56
+Ramesh, 0, 5
+Raj, 10, 10
+
+Fig. 1: in.csv
+Ruvan 20 50 76
+
+Ramesh @5 5
+Raj 10 16 26
+
+Fig. 2: out.csv
+
+Which of the following Python programs can be used to transform the data In “in.csv" to
+the content of the file “out.csv’”?
+
+පහත දැක්වෙන කුමන Python ක්‍රමලේඛය “in.csv" QE ඇති දන්ත “out.csv" හි අන්තර්ගතනය බවට
+පරිණාමනය කිරීමට භාවිත කළ හැකි ද?
+
+1) f1=open("in.csv","r")
+f2=open("out.csv", "r")
+for line in f1:
+items=line.strip().split(",
+tot= int (items[1])+int (items[2])
+print(items[@],items[1],items[2],tot,file = £2)
+
+f1.close()
+f2.close()
+
+2) 1=open("in.csv","r")
+f2=open("out.csv", "w")
+
+for line in f1:
+items=line.strip()
+tot=int(items[1])+int(items[2])
+print(items[@],items[1],items[2],tot)
+
+f1.close()
+f2.close()
+
+3) fl=open("in.csv","r")
+f2=open("out.csv", "w")
+
+for line in f1:
+items=line.strip().split(",
+tot= int (items[1])+int (items[2])
+print(items[@],items[1],items[2],tot,file = £2)
+
+f1.close()
+f2.close()
+
+4) f1=open("in.csv","r")
+f2=open("out.csv", "w")
+
+for line in f1:
+items=line.strip().split(",
+tot=items[1]+items[ 2]
+print(items[@],items[1],items[2],tot,file = £2)
+
+f1.close()
+f2.close()
+
+5) f1=open("in.csv","r")
+f2=open("out.csv", "w")
+
+for line in f1:
+items=line.strip().split(",
+tot= int (items[1])+int (items ([2])
+print(items[@],items[1],items[2],tot,file = 11)
+
+f1.close()
+
+f2.close()
+
+(2017 - 46 )
+
+68. Which of the following functions gives the sum of all elements in any list of integers?
+
+69.
+
+ඕනෑම නිබිල ලැයිස්තුවක ඇති BSE © අවයවවල එකතුව ලබා දෙන්නේ පහත සඳහන්‌ කුමන ශ්‍රිතය ද?
+
+1) def F(x): 2) def f(x):
+s=x[0] s=x[@]
+for i in range (@,len(x)): for i in range (1,len(x)):
+S=St1 S=St1
+return s return s
+
+3) def F(x): 4) def f(x):
+s=0 s=0
+for i in x: for i in x:
+S=Sti s=s+x[i |
+return s return s
+
+5) def f(x):
+s=0
+i=@
+while i < len(x):
+s=s+x[i |
+
+return s (2017 - 48)
+
+Questions 23 - 25 are based on the flowchart below.
+
+(Note that n%2 represents n mod 2.)
+
+අංක 69 සට 71 තෙක්‌ ප්‍රශ්න පහත ගැලීමි සටහන
+ආශ්‍රයෙනි. (N%2 යන්නෙන්‌ n Mod 2 දැක්වෙන බව
+සලකන්න.)
+
+i<— |
+result <— 0
+
+Which of the following is/are correct regarding the
+
+algorithm expressed by the above flowchart?
+QOD DBS සටහන මගින්‌ දිරිපත්‌ ගකෙරෙන ඇල්ගෝරිතමය
+සම්බන්ධයෙන්‌ පහත කවරක්‌ නිචැරදි වේ ද?
+
+A ~ It takes 10 inputs.
+එය ආදාන 10 ක්‌ ගනියි.
+
+B - It computes the sum of the even numbers in the
+input.
+
+result <— result +n
+
+එය ආදානයේ G2 රෙට්ටේ සංඛ්‍යාවල චකතුව ගණනය ¥
+කරයි. > i<it+l
+C - To take 100 inputs, only modifying “is i < 10?”
+will be sufficient.
+ආදාන 100 ක්‌ ලබා ගැනීමට “i < 10 2?” යන්න ඉවනස්‌ Yes
+කිරීම පමණක්‌ සෑහේ,
+| No
+1) Aonly. A පමණි
+2) B only. 9 පමණ J output result WA
+3) Conly. B පමණි
+4) Aand B only. A සහ B පමණි
+5) Aand Conly. A සහ B පමණි
+
+(2018 ~ 23 )
+
+70.
+
+71.
+
+72.
+
+If the following were fed as inputs to the above algorithm, what will be the output?
+QDND ඇල්ගෝරිතමයට පහත සංඛ්‍යා ආදාන ලෙස ලබා දුන්නේ DO ප්‍රතිදානය කුමක්‌ චේ ද?
+
+2, 8, 9, 3, 4, 10, 6, 5, 13, 19, 12, 7
+1) 10 2) 30 3) 42 4) 49 5) 56
+( 2018 ~ 24 )
+
+For any given input, outputs of which of the following Python programs will be the same
+as the output produced by the algorithm in the above flowchart?
+
+GED ලද ඕනෑම ආදානයක්‌ BEM) පහත සඳහන්‌ කුමන පයිතන්‌ ක්‍රමලේඛයේ/ වල ප්‍රතිදාන ඉහත ගැලීමි
+සටහන මගින්‌ දක්වන ඇල්ගොරිතමයේ ප්‍රතිදානයට සමාන GH ද?
+
+A. i=1 B. result = 6 Cc. result = @
+result = 6 for i in range(1@): i=1
+while (i<=10): n= int(input() ) while True:
+n= int(input() ) if (not(n%2==@)): n= int(input())
+if (n%2 != 6): result=result+n if (not(n%2==@)):
+result+=n print result result=result+n
+i=i+1 i=i+1
+print result if (i>10):
+break
+
+print result
+
+1) A only. 2) B only. 3) C only. 4) Aand Bonly. 5) All of the above.
+A පමණි. B පමණි. C පමණි. Am 8 පමණි. හත සියල්ලම.
+( 2018 - 25 )
+
+Consider the following statements regarding programming languages and program
+
+translation.
+ක්‍රමලේඛ MS) සහ ක්‍රමලේඛ පථර්වරිතනය BEDE, පහත ප්‍රකාශ සලකන්න.
+
+A ~ Acompiler translates a program one statement at a time.
+සම්පාදකයක්‌ (compiler) චරකට චක්‌ ප්‍රකාශය බැගින්‌, ක්‍රමලේඛයක්‌ පර්චරිතනය කරයි.
+
+B - An assembler converts a program in an assembly language into machine code.
+එලසම්බිලරයක්‌ එසෙම්බලි භාෂාවෙන්‌ ඇති ක්‍රමලේඛයක්‌ යන්ත්‍ර කේතයට හරවයි.
+
+C - An interpreter scans the entire program and translates it as a whole into machine
+
+code.
+අර්ථ වචින්‍යාසකයක්‌ (interpreter) මුළු ක්‍රමලේඛයම පරිලෝකනය (scan) කර As සමස්තයක්‌
+ලෙස යන්ත්‍ර කේතයට පරිවර්තනය කරයි,
+
+Which of the above statements is/are correct?
+QOD MOO ප්‍රකාශයක්‌ BOzE වේ ද?
+
+1) A only. 2) B only. 3) C only. 4) AandConly. 5) Band Conly.
+A පමණි. B පමණි. ල පමණි. Am ල පමණි. B හා ල පමණි.
+
+( 2018 ~ 34)
+
+73.
+
+74.
+
+75.
+
+76.
+
+What Is the value of the following Python expression?
+පහත දැක්චෙන පයිතන්‌ ප්‍රකාශයෙහි අගය කුමක්‌ ද?
+
+(5**2) // 3 * 4
+
+1) 3 2) 5 3) 7 4) 12
+
+5) 4096
+
+(2018 ~ 35 )
+
+What Is the output of the following Python code segment if executed with 30 as input?
+ආදානය 30 ලෙස දී පහත දැක්වෙන පයිතන්‌ කේත ඛණ්ඩය කියාත්මක කළ හොත්‌ ප්‍රතිදානය කුමක්‌ ද?
+
+n = int(raw_input())
+if (n ද 460):
+result = 1
+if (n ද 10):
+result = 2
+elif (n < 20):
+result = 3
+else:
+result = 4
+else:
+result = 5
+print result
+
+1) 1 2) 2 3) 3 4) 4
+
+What Is the output of the following Python code segment?
+පහත දැක්චෙන පයිතන්‌ කේත බණ්ඩයෙහි ප්‍රතිදානය කුමක්‌ ද?
+
+5 ~ 6
+for i in range(1@):
+5 ස 5 4 1
+print 5
+1) 6 2) 16 3) 45 4) 55
+
+What Is the output of the following Python code segment?
+පහත දැක්‌්චෙන පයිතන්‌ කේත බණ්ඩයෙහි ප්‍රතිදානය කුමක්‌ ද?
+
+aList = [2,3,11,13,5,7]
+
+5 = 6
+
+for i in range(len(aList)):
+if (aList[i] > 10):
+
+continue
+5 = Ss + aList[i]
+print s
+1) @ 2) 5 3) 16 4) 17
+
+5) 5
+
+(2018 ~ 46 )
+
+5) 100
+
+(2018 ~ 47 )
+
+5) 41
+
+(2018 ~ 48 )
+
+77.
+
+78.
+
+Consider the following Python code segment with a blank line. (The line numbers on the
+left are shown for guidance only. They are not part of the code).
+
+හිස්‌ පේළියක්‌ සහිත පහත දැක්වෙන පයිතන්‌ කේත ඛණ්ඩය සලකන්න. (OS පසින්‌ දැක්වෙන පේළි අංක
+මග පෙන්වීම සඳහා පමණි. OS කේතයෙහි කොටසක්‌ නොවේ.)
+
+# Function definition starts
+
+NB
+
+3 5 = 31261 + arg2
+
+4 return s
+
+5 # Function definition ends
+6 total = 5(11( 16, 26)
+
+7 print total
+
+The above code should consist of a programmer defined function named ‘sum’. Which of
+the following should be entered in the blank on line 2. so that the function ‘sum’ is correctly
+defined?
+
+GND කේතයෙහි ක්‍රමලේඛක විසන්‌ අර්ථදුක්චන ලද ‘SUM’ නමැති ශ්‍රිතය අඩංගු විය යුතු ය, ‘sum’
+නමැති ශ්‍රිතය නිවැරදිව FBO දැක්වීම සඳහා 2 වන පේළියෙහි හිස්තැනට පහත දැක්වෙන කුමක්‌
+ඇතුළත්‌ කළ යුතු ද?
+
+1) sum(arg1, 31262) : 2) def sum(arg1, 31262) :
+3) function sum(argi1, 31262) : 4) def sum(arg1, arg2, s):
+5) def sum( ):
+(2018 -~ 49 )
+
+Which of the following statements is correct?
+පහත කචර වගන්තියක්‌ සත්‍ය GH ද?
+
+1) A high-level language program that is translated into machine code and executed on
+computer X will not execute on another computer having the same processor as X.
+යන්ත්‍ර කේතයට පට්වචරිතනය කරනු ලැබ, X නමි පරිගණකයෙහි ක්‍රියාත්මක කරනු ලබන හළ
+
+මට්ටමෙහි පර්ගණක භාෂා ක්‍රමලේඛයක්‌, X හි ඇති සකසනයට සමාන සකසනයක්‌ සහිත වෙනත්‌
+පරිගණකයක ක්‍රියාත්මක නොවේ.
+
+2) A program in a high-level language must be first converted into assembly language
+code before converting into machine code.
+
+ඉහළ මට්ටමේ ඇති ක්‍රමලේඛයක්‌ යන්ත්‍ර කේතයට පර්චරිතනය කිරීමට පෙර එසෙමබිලි (assembly)
+භාෂා කේතයට හැරවිය යුතු ය.
+
+3) Interpreted programs run faster than compiled ones.
+
+පර්චරිතනය (interpreted) කරන ලද ක්‍රමලේඛයක්‌ සම්පාදනය කරන ලද (compiled)
+ක්‍රමලේඛයකට වඩා වැඩි වේගයෙන්‌ ක්‍රියාත්මක GS.
+
+4) Programs in some high-level languages are translated into a form called byte-code
+because such byte-codes execute faster than machine codes obtained by usual
+compilations.
+
+ඇතැමි හෙළ මට්ටමේ භාෂාවලින්‌ ඇති ක්‍රමලේඛ QBO කේන (byte-code) නමින්‌ හැඳින්වෙන
+ආකාරයට පරිවර්තනය කරනු ලබන්නේ, එවැනි බයිට කේත සාමාන්‍ය සම්පාදනයෙන්‌ ලබා ගන්නා
+යන්ත්‍ර භාෂාවට වඩා වැඩි වේගයකින්‌ ක්‍රියාත්මක වන නිසා ය.
+
+5) Some modern processors execute programs in high-level languages without
+translating them into machine code.
+
+ඇතැමි නූතන eseoesed (processors) හෙළ මට්ටමේ භාෂාවන්ගෙන්‌ ඇති ක්‍රමලේඛ, යන්ත්‍ර කේතයට
+පර්චර්තනය නොකර කියාත්මක කරයි.
+
+(2019 ~ 43 )
+
+e Consider the following flowchart to answer the
+
+questions 79 to 81:
+
+අංක 79 සිට 81 තෙක්‌ ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා ”
+පහත දැක්‌වෙන ගැලීම්‌ සටහන සලකන්න. 1=8
+result = 1
+79. Which of the following statements is/are correct iS
+about the algorithm expressed by the flowchart?
+අංක 40 සිට 42 ඉතතක්‌ ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා L input n 7
+
+පහත දැක්චෙන ගැලීම්‌ සටහන සලකන්න.
+
+A ~ It takes 8 inputs. Yes
+
+එය ආදාන 8ක්‌ ලබා ගනියි.
+B - It outputs the product of the positive numbers in No
+
+the input. result = result x n
+
+එය ආදානයෙහි ඇති ධන සංඛ්‍යාචල ගුණිතය ප්‍රතිදානය y
+
+කරයි.
+
+i=i-1l
+
+C - If every input is zero, then the output will be zero.
+
+සියලු ම ආදාන ශුන්‍ය වුවහොත්‌ ප්‍රතිදානය ශුන්‍ය එච්‌.
+
+. No
+1) Aonly. A පමණි Isi<O?
+2) Bonly. 8 පමණි
+3) Conly. උ පමණි Yes
+4) Aand B only. A සහ B පමණි 7 output result WA
+5) Band C only. B සහ C පමණි
+(2019 - 40)
+
+80. If the following is fed as the input to the algorithm, what will be the output?
+ආදානය ලෙස ඇල්ගොරිතමයට පහත දී ඇති දෑ ලබා දුන්‌ විට ප්‍රතිදානය කුමක්‌ ද?
+
+3 2 -4 4 1 -9 5 -6 -1
+1) -25920 2) -216 3) 120 4) 216 5) 25920
+
+(2019 - 41 )
+
+81. Which of the following Python programs has/have the same functionality (i.e., the same
+
+output for a given input) as the algorithm in the flowchart above?
+පහත දැක්වෙන කවර පයිතන්‌ MOGGDSO/DMOGGVDOEO හෙත ගැලීම්‌ සටහනෙහි ඇති ඇල්ගොරිතම
+යට සමාන ක්‍රියාකාරීත්වයක්‌ (OHS, දෙන ලද ආදානයකට එකම ප්‍රතිදානය) තිබේ ද?
+
+82.
+
+83.
+
+A, 1=8
+result = 1
+while (i > @):
+n = int(input())
+
+if (n > 6):
+result=result*n
+i=i-1
+
+print (result)
+
+1) A only.
+පමණි
+
+2) B only.
+B පමණි
+
+B. result = 1
+
+for i in range(8):
+n = int(input())
+if (n > 6):
+result=result*n
+print (result)
+
+What Is the value of the following Python expression?
+පහත දැක්චෙන පයිතන්‌ ප්‍රකාශයෙහි අගය කුමක්‌ ද?
+
+(199 // 3) %4 | 8
+
+1) 60 2) @.125
+
+Cc. result = 1
+
+i=8
+while 1:
+n = int(input())
+if (not(n <= @)):
+result=result*n
+i=i-1
+if (i <= 6):
+break
+print (result)
+
+3) C only. 4) Aand Bonly. _ 5) All of the above.
+C පමණි. A හා 6 පමණි. ඉහත සියල්ලම.
+( 2019 -- 42 )
+3) 3 4) 8 5) 5
+(2019 -- 44)
+
+What will be output if the following Python code is executed with "abcabc" as the input?
+පහත දැක්චෙන පයිතන්‌ කේතය, “"abcabc" ආදානය Gos කියාත්මක කළ විට ලැබෙන ප්‍රතිදානය
+
+කුමක්‌ ද?
+
+result = 1
+
+5 = input()
+
+if (len(s) > 3):
+result = 2
+
+if (len(s) < 6):
+result = 3
+
+elif (len(s) > 6):
+result = 4
+
+else:
+result = 5
+
+print(result)
+
+1) 1 2) 2
+
+5) 5
+
+(2019 - 45 )
+
+84. What will be the output of the following Python code?
+පහත දැක්චෙන පයිතන්‌ කේතයෙහි ප්‍රතිදානය කුමක්‌ ද?
+
+x= 100
+
+for i in range(1,5):
+X=x-i
+
+print(x)
+
+1) 6 2) 5 3) 85 4) 90 5) 166
+
+(2019 - 46 )
+
+85. What will be the output of the following Python code segment?
+පහත දැක්චෙන පයිතන්‌ කේත ඛණ්ඩයෙහි ප්‍රතිදානය කුමක්‌ ද?
+
+[1,-2,4,3,2,-7,11,2,8,-1]
+6
+for i in range(len(L)):
+if (L[i] ද @):
+continue
+if (L[i] > 10):
+break
+xX = x + L[i]
+print(x)
+
+1) 60 2) 1 3) 10 4) 21 5) 31
+
+(2019 - 47 )
+
+86. What will be the result when the following Python code is executed?
+පහත දැක්චෙන පයිතන්‌ කේතය කියාත්මක කළ SO ප්‍රතිඵලය කුමක්‌ ද?
+
+xX = 56
+
+def func(y):
+X= 2
+y=4
+
+func(x)
+
+print(x)
+
+1) 56 2) 2 3) 4 4) syntax error 5) name error
+
+(2019 -~ 48 )
+
+87. Which of the following statements regarding compilers and interpreters are correct?
+
+88.
+
+සම්පාදක (compiler) සහ sSObee (interpreter) පිළිබඳව පහත කවර ප්‍රකාශ සත්‍ය චේ ද?
+
+A ~ Acompiler transforms an entire high-level language program into its machine code.
+
+සම්පාදකයක්‌, ඉහළ මටිටමේ (high level) භාෂාවකින්‌ ලියැවුනු මුළු ක්‍රමලේඛයම යන්ත්‍ර කේතයට
+හරවයි.
+
+B ~ An interpreter converts each high-level program statement into the relevant machine
+code during the program run.
+පර්චර්තකයක්‌, ක්‍රමලේඛයක්‌ ක්‍රියාත්මක කිරීමේ දී (execute/run) හෙළු මට්ටමේ ක්‍රමලේඛයෙහි
+එක්‌ එක්‌ වගන්නිය (statement) බැගින්‌ ගගන, එය අදාළ යන්ත්‍ර කේතයට හරවයි.
+
+C - Compiled codes usually run faster than interpreted codes.
+සාමාන්‍යයෙන්‌ සම්පාදනය වූ කේත, පට්චවර්තනය වූ කේතවලට වඩා වැඩි වේගයකින්‌ ධාවනය od.
+
+1) A only. 2) AandBonly. 3) AandConly. 4) BandConly. 5) All of the above.
+
+A පමණි. Am B පමණි. Am C පමණි. 5 හා C පමණි. ඉහත සියල්ලම.
+( 2020 - 16 )
+The questions 88 - 90 are based on the algorithm
+expressed by the flowchart below. The algorithm
+takes a list L of items and an item K as inputs and is |
+expected to output the number of items in L that are Z input list Lf
+equal to K. List indices start at 0. Note that two
+entries, labelled as (P) and (Q) flowchart are blank J input K 7
+(unspecified).
+අංක 88 සිට 90 තෙක්‌ OD ප්‍රශ්නවලට පහත දැක්වෙන count = 0
+ගැලීම්‌ සටහන මගින්‌ ප්‍රකාශ කෙරෙන ඇල්ගොරිතමය පාදක i=0
+වේ. ඇල්ගොරිතමය මගින්‌ ඛ නමි අයිතම (item) n = length of list
+
+ලැයිස්තුවක්‌ (list) සහ K නමි අයිතමයක්‌ ආදානය ලෙස
+ලබාගෙන, L ලැයිස්තුවෙහි ඇති K ට සමාන අයිතම ගණන
+ප්‍රතිදානය කිරීම අපේක්ෂා කෙරේ. ලැයිස්තුවෙහි සූචිය
+(index) ටන්‌ ආරම්භ G5. ගැලීම්‌ සටහනෙහි සහ ලෙස ඇති No
+
+ලේබල හිස්ව ඇති බව චනම්‌ කිසිවක්‌ නිශ්චිතව දක්වා Yes
+නොමැති බව සැලකිය යුතු ය.
+
+For the algorithm to function correctly, what [1
+
+should be inserted at the blank (P)? “ම
+ඇල්ගොරිතමය නිවැරදිව ක්‍රියාත්මක වීම සඳහා නමි 1 14:14
+හිස්තැනට කුමක්‌ ඇතුළත්‌ කළ යුතු ද?
+
+n=n-1 Yes
+
+ND —
+
+n=n+1
+count = count + 1 No
+
+count = count + |
+output count
+count = count +n
+
+KR ටට
+෴. ee ee ee
+
+ටෟ
+
+( 2020 - 32 )
+
+89.
+
+90.
+
+91.
+
+For the algorithm to function correctly, what should be inserted at the blank (Q)?
+ඇල්ගොරිතමය නිවැරදිව ක්‍රියාත්මක වීම සඳහා නමි හිස්තැනට කුමක්‌ ඇතුළත්‌ කළ යුතු ද?
+
+[6 | <n?
+Isi=n?
+
+Is count < n?
+Is count < K?
+Isn > 0?
+
+රෟ අ ටර අට =
+WS මං රි we
+
+(2020 - 33)
+
+Consider the following python programs A, B and C.
+පහත A, B සහ C මගින්‌ දැක්වෙන පයිතන්‌ ක්‍රමලේඛ සලකන්න.
+
+A. L [int(x) for x in input().split() ]
+K = int(input())
+count = @
+for i in range(len(L)):
+if (L[i]== K):
+count = count + 1
+print (count)
+
+B. L = input().split()
+K = input()
+count = @
+n = len(L)
+for i in range(n):
+if (L[i]== K):
+count = count + i
+print(count)
+
+C. L = [int(x) for x in input().split() |
+K = int(input())
+count = i = @
+while (i < len(L)):
+if (L[i]== K):
+count = count + 1
+print(count)
+
+Which of the above python programs implement the given algorithm?
+QOD කුමන ක්‍රමලේඛය / ක්‍රමලේඛ මගින්‌ දී ඇති ඇල්ගොරිතමය කියාත්මක චන්නේ ද?
+
+1) A only. 2) B only. 3) Aand Bonly. 4) Aand Conly. 5) All of the above.
+A පමණි. B පමණි. Am B පමණි. & හා C පමණි. ඉහත සියල්ලම.
+
+( 2020 - 34)
+
+What would be the output of the following Python code, if the input was 17?
+පහත දැක්වෙන පයිතන්‌ කේතයෙහි ආදානය 17 Q SO ප්‍රතිදානය කුමක්‌ ද?
+
+= float(input())
+
+= (n // (n %5)) ** 3
+
+n
+m
+print(m)
+
+1) 24.0 2) 25.5 3) 512.0 4) 614.125 5) an error message
+
+(2020 - 35 )
+
+92.
+
+93.
+
+94.
+
+Suppose that 5 is a string, L is a list and | is a tuple in a Python program. The length of
+each is 10. Consider the following Python statements:
+
+යම්‌ පයිතන්‌ ක්‍රමලේඛයක්‌' යනු තන්තුවක්‌ (string) ද, Lag ලැයිස්තුවක්‌ (list) ද, T යනු උපලැකියානයක්‌
+(tuple) ද වේ. 3 එක එකෙහි දිග (length) 10 කි. පහත පයිතන්‌ ප්‍රකාශ සලකන්න.
+
+A-S[2] = '2'
+B-L[2] = '2'
+C-T[2] = ‘2°
+
+Which of the above three statements will generate an error?
+ඉහත ප්‍රකාශ තුනෙන්‌ කවරක්‌ දෝෂයක්‌ ජනනය (generate) කරනු ලබයි ද?
+
+1) A only. 2) B only. 3) Aand Bonly. 4) Aand Conly. 5) All of the above.
+A පමණි. B පමණි. Am B පමණි. & හා C පමණි. ඉහත සියල්ලම.
+
+( 2020 - 36 )
+
+What would be the output of the following Python code segment?
+පහත දැක්චෙන පයිතන්‌ කේත ඛණ්ඩයෙහි ප්‍රතිදානය කුමක්‌ ද?
+
+5 = "corona virus pandemic"
+V = "aeiou"
+count = @
+
+for i in range(len(S)):
+if (S[i] in V):
+count = count + 1
+print(count)
+
+1) 9 2) 5 3) 8 4) 19 5) 21
+(2020 - 37 )
+
+What would be the output when the following Python code is executed?
+පහත දැක්‌්චෙන පයිතන්‌ කේතය කියාත්මක කළ විට ප්‍රතිද්‍රානය කුමක්‌ චේ ද?
+
+xXx ස 1.
+def myfunc(p, q):
+global x
+0, Q = 0, P
+X =X +)
+myfunc(x, 3)
+print(x)
+
+1) 1 2) 2 3) 3 4) 4 5) an error message
+
+(2020 - 38 )
+
+95.
+
+96.
+
+What would be the output of the following Python code, if the input was 100?
+පහත දැක්චෙන පයිතන්‌ කේතයේ ආදානය 100 විට, ප්‍රතිදානය කුමක්‌ ද?
+
+n = int(input())
+
+if (n > 0):
+m= "Z"
+if (n > 10):
+if (n > 100):
+m= "A"
+elif (n ද 5@):
+m= "B"
+else:
+m= "C"
+else:
+m= "D"
+print(m)
+1) A 2) B 3) C 4) D 5) Z
+
+(2020 - 39 )
+
+Consider the following Python program:
+පහත දැක්චෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+11 = open("inFile.txt", "r")
+f2 = open("outFile.txt", "w")
+checkString = "No"
+for line in f1:
+
+if (checkString not in line):
+
+f2.write(line)
+
+f1.close()
+f2.close()
+
+Which of the following statements are correct about the above program?
+QOD ක්‍රමලේඛය සමිබන්ධයෙන්‌ පහත කවර ප්‍රකාශ සත්‍ය වේ ද?
+
+A ~ The content of the input file (inFile.txt) is checked in a loop, one line at a time.
+ආදාන ගොනුවේ (inFile.txt) අන්තර්ගතය, වරකට එක පේළිය බැගින්‌, ලූපයක්‌ තුළ පර්ක්ෂාවකට
+බළුන්‌ චේ (processed)
+
+B - The total content of one file is written onto another file.
+DW ගොනුවක මුළු අන්තර්ගතය, තවත්‌ ගොනුවක Gazed.
+
+C - If either of the two files does not exist, the program will stop and exit while executing
+
+the first two lines of the code.
+ගොනු දෙකෙන්‌ එක ගොනුවක්‌ හෝ නොමැති විට, ක්‍රමලේඛය OB OE පේළි දෙක ක්‍රියාත්මක
+කිරීමේදී නතර 5 වෙත්වීම (stop and exit) සිදු වේ.
+
+1) A only. 2) B only. 3) Aand Bonly. 4) Aand Conly. 5) All of the above.
+A පමණි. B පමණි. Am B පමණි. & හා C පමණි. ඉහත සියල්ලම.
+
+( 2020 ~ 41 )
+
+97. What would be the output of the following Python code?
+පහත දැක්චෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ ද?
+
+100) :
+
+ද
+
+4
+
+7) ද 96:
+reak
+
+ට 4- tian
+
+( 2020 ~ 40 )
+
+and asks the students to identify the components indicated by
+A, B, C, D and E: Other
+ක්‍රමලේඛකරණය (programming) උගන්වන ගුරැචරයෙක්‌ තම object \
+
+SABRES පහත OZ සටහන ඇඳ OS ඇති A, B, C, D සහ E සංරචක codes
+නම්‌ කරන ලෙස සිසුන්ට කියයි,
+
+98. A teacher of a programming class draws the following diagram | A
+B
+
+Which of the following gives the correct choices for A, B, C, D
+and E? 1! E
+හත A, 6, C, D සහ E සඳහා නිවැරදි තෝරාගැනීම්‌ දක්වන්නේ පහත
+
+කවරක්‌ ද?
+
+1) A-compiler, B - executable code, C - source code, D - linker, E - object code
+A - සම්පාදකය , 6 - ක්‍රියාත්මක කළ හැකි කේතය, C- ප්‍රභව කේතය, D - සන්ධාරකය ,
+E - වස්තු කේතය
+
+2) A-compiler, B - source code, C - executable code, D - object code, E -- linker
+A - සම්පාදකය, B - GMa කේතය, C - ක්‍රියාත්මක කළ හැකි කේතය, D - වස්තු කේතය,
+E -- සන්ධාරකය
+
+3) A ~ linker, B ~ source code, C - object code, D - executable code, E -- compiler
+A - සන්ධාරකය, 6 - ප්‍රභච කේතය, C - වස්තු කේතය, D - ක්‍රියාත්මක කළ හැකි කේතය,
+E — සම්පාදකය
+
+4) A- source code, B - object code, C - linker, D - compiler, E - executable code
+
+A - ප්‍රභහච කේතය, B - වස්තු කේතය, C - සන්ධාරකය, D - සම්පාදකය, E - ක්‍රියාත්මක කළ හැකි
+කේතය
+
+5) A- source code, 8 - compiler, C - object code, D - linker, E - executable code
+
+A - ප්‍රභහච කේතය, B - සම්පාදකය, C - වස්තු කේතය, D - සන්ධාරකය, E - ක්‍රියාත්මක කළ හැකි
+කේතය
+
+( 2021 - 38 )
+
+99.
+
+100.
+
+Which of the following statements is/are correct with respect to Object Oriented
+Programming?
+වස්තු නැඹුරු MOcG@acs(Object Oriented Programming) සමිබන්ධයෙන්‌ පහත කවරක්‌ නිවැරදි
+ද?
+A ~ System output is determined by the object behaviour and their interactions.
+
+වස්තු හැසිරීම හා ඒවායේ අන්තර්ක්‍රියා මගින්‌ පද්ධති ප්‍රතිදානය තීරණය එව්‌.
+
+B - System is modelled as a collection of objects.
+පද්ධතිය වස්තන්ගේ චකතුවක්‌ ලෙස ආකෘතිගත කෙරෙයි.
+
+C - Writing a program in this method is different from writing one according to the
+
+structured programming method.
+මෙලෙස ක්‍රමලේඛයක්‌ ලිවීම, ච්‍යදුහගත ක්‍රමයට ක්‍රමලේඛයක්‌ ලිවීමට වඩා වෙනස්‌ GS.
+
+1) A only. 2) B only. 3) C only. 4) AandConly. 5) All of the above.
+A පමණි. B පමණි. C පමණි. & හා C පමණි. ඉහත සියල්ලම.
+( 2021 - 23)
+Consider the algorithm expressed by the flowchart
+and answer questions 96 and 97:
+ගැලීම්‌ සටහන මගින්‌ ප්‍රකාශ කෙරෙන ඇල්ගොරිතමය ॥
+සලකා 96 සහ 97 ප්‍රශ්නවලට පිළිතුරු සපයන්න. ෴7 input 7 /
+This algorithm takes as input first an integer n (2 1) count = 0
+followed by a sequence of n integers one by one. i=0
+The algorithm is expected to output the count of <
+integers that are less than 100 among the sequence —
+of n inputs. Z input x 2
+
+මෙම ඇල්ගොරතමය මුලින්ම නිබිලයක්‌ n (2 1) ආදානය
+
+කර, නේපසු පිළිවෙළින්‌ N නිබිල සංඛ්‍යාචක්‌ එකින්‌ එක
+ආදානය කරයි, QOD N නිබිල සංඛ්‍යාවල 1000 අඩු නිබිල No
+ගණන ප්‍රනිදානය කිරීම ඇල්ගොරිතමය මගින්‌ අපේක්ෂා
+
+කෙරේ. Yes
+®
+
+For the algorithm to function correctly as fe
+
+expected, what should be inserted at the blank (P)? ₹
+
+ඇල්ගොරිතමයෙන්‌ බලාපොරොත්තුවන නිවැරදි 7 ~ 71-1
+ක්‍රියාකාරිත්වයට හිස්තැන සඳහා පහත කුමක්‌ ඇතුළත්‌
+
+කළ යුතු ද?
+ING
+count = count + 1
+
+ය.
+
+)
+2) count = count + | Yes
+3) count = count + x O
+utput count
+4) n=n-1 L P if
+5)
+
+n=n+1
+
+(2021 - 39 )
+
+101. Which of the following Python programs implement the algorithm in the flowchart?
+පහත කුමන පයිතන්‌ ක්‍රමලේඛ මගින්‌ දී ඇති ගැලීම්‌ සටහනේ ඇල්ගොරිතමය කියාත්මක වන්නේ ද?
+
+A.n = int(input()) B.n = int(input()) C.n = int(input())
+count = @ count = @ count = i = @
+for i in range(n): for i in range(n): while (i <n):
+X=int(input()) X=int(input()) X=int(input())
+if (x < 100): if (x < 100): if (x < 100):
+count=count+i count+=1 count=count+1
+print (count) print(count) print(count)
+1) A only. 2) B only. 3) Aand Bonly. 4) BandConly. 5) Allof the above.
+A පමණි. B පමණි. A හා B පමණි. 5 හා C පමණි. ඉහත සියල්ලම.
+( 2021 -- 40 )
+
+102. What would be the output after executing the following Python code?
+පහත දැක්චෙන පයිතන්‌ කේතය කියාත්මක කළ විට ප්‍රතිදානය කුමක්‌ චේ ද?
+
+n = 117
+m= (n & 127) // (2 * * 3)
+print(m)
+1) 1 2) 14 3) 14.625 4) 15 5) 19
+(2021 - 41 )
+103. What will be the result when the following Python code is executed?
+
+පහත දැක්චෙන පයිතන්‌ කේතය කියාත්මක aE SO ප්‍රතිදානය කුමක්‌ චේ ද ?
+x = 16
+def myfun(a):
+
+global x
+
+a=Xta
+
+x=30
+
+return a
+print(myfun(x) )
+1) 10 2) 26 3) 30 4) 46 5) an error message
+
+104. What will be the output of the following Python code segment?
+
+පහත දැක්චෙන පයිතන්‌ කේත කොටසේ ප්‍රනිදානය කුමක්‌ වේ ද?
+5 = ["covid", "pandemic", "vaccine", "booster", "virus"
+V = "aeiou"
+count = @
+for i in range(len(S)):
+
+for j in range(len(S[i])):
+
+if (S[i][j] in V):
+count = count + 1
+
+print(count)
+1) 0 2) 5 3) 12 4) 13 5) 32
+
+(2021 ~ 42 & 43 )
+
+105. What will be the output when the following Python code is executed?
+පහත දැක්චෙන පයිතන්‌ කේතය කියාත්මක කළ විට ප්‍රතිදානය කුමක්‌ චේ ද?
+
+106.
+
+s=l
+
+for i in range(1,10):
+if (i < 5):
+
+5 ස 5 * i
+elif (i ද 8):
+
+S=s-i
+else:
+
+S=sti
+
+break
+
+print(s)
+
+1) 6 2) 14 3) 23 4) 33
+
+Which of the following statements is/are
+
+correct about the algorithm expressed by the
+
+given flowchart?
+
+දී ඇති ගැලීමි සටහනින්‌ ප්‍රකාශිත ඇල්ගොරිතමය
+
+(algorithm) සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමන
+
+ප්‍රකාශ/ය නිවැරදි දු?
+
+A ~ An input is taken from the user only once.
+SOBOMHGHD චක්චරක්‌ පමණක්‌ ආදානයක්‌
+ගනු ලැබේ.
+
+B - The output of the algorithm is always 9.
+ඇල්ගොරිතමයේ ප්‍රතිදානය සෑමවිටම 9 GS.
+
+No
+
+C - The algorithm outputs the summation of
+
+all the numbers entered.
+ඇතුළත්‌ DO ඇති සියලුම සංඛ්‍යාවල එකතුව
+
+5) 121
+
+4:10
+T=
+
+1.4.
+
+( 2021 ~ 44)
+
+¥
+
+WA Input n /
+
+No
+
+මෙම ඇල්ගොරිතමය ප්‍රතිදානය කරයි.
+
+ය.
+
+A only. A පමණි
+B only. B පමණි
+C only. C පමණි
+A and B only. A සහ 8 පමණි
+B and C only. B සහ C පමණි
+
+RW [ට
+෴. ee ..." "෴* ෴.
+
+ටෟ
+
+( 2022 - 36 )
+
+107. What would be the output of the following Python code if the input was 25?
+පහත දැක්වෙන පයිතන්‌ කේතයේ ආදානය 25 වූ විට, ප්‍රතිදානය කුමක්‌ චේ ද?
+
+xX = int(input())
+xX = (x & (x - 21)) **3
+print (x)
+1) 2 2) 1 3) 3 4) 12 5) 25
+(2022 - 37)
+108. What would be the output of the following Python code?
+
+පහත දැක්චෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ GH ද?
+def fun(paral, para2):
+
+x=foo(para2, paral)
+
+return x
+def foo(para3, para4):
+
+return para3 — para4
+result=fun(2, 4)
+print( "Result is " + str(result))
+1) Result is @
+2) Result is 2
+3) Result is -2
+4) Result is (2, 4)
+5) Result is +2
+
+(2022 - 38 )
+
+109. What would be the output of the following Python code?
+පහත දැක්චෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ GH ද?
+
+def foo(name, age=18, address="Kandy"):
+print (name, address, age)
+foo("Nimal", 25, "Colombo" )
+
+ය.
+
+Nimal Colombo 25
+Nimal, Colombo, 25
+Nimal, Kandy, 18
+Nimal Kandy 18
+Nimal 18 Kandy
+
+RW [ට
+෴~ ee ....෴ ee ෴.
+
+ටෟ
+
+( 2022 - 39 )
+
+110. What would be the output of the following Python code?
+
+111.
+
+112.
+
+පහත දැක්‌්චෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ GH ද?
+
+numbers=[10, 20, 36, 40, 50]
+numbers.pop(1)
+
+numbers. append(6@)
+
+numbers. pop(2)
+print(numbers )
+
+[10, 59, 60]
+
+)
+2) [10, 20, 40, 60]
+3) [10, 30, 50, 60]
+4) [20, 30, 40, 56]
+5) [20, 30, 50, 60]
+(2022 - 40 )
+What would be the output of the following Python code?
+පහත දැක්චෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ GH ද?
+val - 9
+for i in range(5):
+for j in range(2, 3, 1):
+val += 1
+if (val % 2) == 6:
+continue
+val += 2
+else:
+val += 2
+print(val)
+1) 18 2) 24 3) 29 4) 38 5) 39
+(2022 - 41 )
+
+Which of the following is/are correct regarding Python functions?
+පයිතන්‌ QD සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමක්‌ නිවැරදි වන්නේ ද ?
+
+A ~ A Python function can return a data structure that contains multiple values.
+
+පයිතන්‌ ශ්‍රිතයකට අගයන්‌ සමූහයක්‌ ඇති දත්ත වෲහයක්‌ (data structure) ප්‍රත්‍යාගමනය (return)
+කළ හැකි ය.
+
+B - A Python function can be used without passing any parameters to it.
+පයිතන්‌ Gnas, එයට කිසිදු පරාමිති යැවීමකින්‌ තොරව භාවිත කළ හැකි ය,
+
+C - Parameters can be passed to a python function by value or by reference.
+පයිතන්‌ ශ්‍රිතයකට snoSes,eocne (value) හෝ eor@Oeai(reference) හො ලෙස යැවිය හැකි ය.
+
+1) B only. 2) C only. 3) Aand Conly. 4) BandConly. 5) Allof the above.
+B පමණි. C පමණි. Am C පමණි. 5 හා C පමණි. ඉහත සියල්ලම.
+
+( 2022 ~ 42 )
+
+113.
+
+114.
+
+115.
+
+116.
+
+What would be the output of the following Python code, if a = 10, b = 4, and c = 7?
+
+a=10,b=4emMc=7 වන විට පහත පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ වේද ?
+
+ans =a%b+c // (a-b)
+
+print(ans)
+
+1) 3 2) 5 3) 7 4) 9 5) 11
+(2023 - 39 )
+
+What would be the value of the 'result' variable after executing the following Python code?
+
+පහත පයිතන්‌ කේතය ක්‍රියාත්මක කළ පසු ‘result’ SHESGS අගය කුමක්‌ වේද ?
+
+def funci(a,b):
+
+return a+b
+def func2(a,b):
+return a*b
+
+result = func1(3,func2(2,4))
+
+1) 11 2) 12 3) 14 4) 15 5) 26
+(2023 - 40 )
+
+What would be the output of the following Python code, when it gets executed?
+
+පහත පයිතන්‌ කේතය කියාත්මක කළ විට ප්‍රතිදානය කුමක්‌ ede?
+
+def modify_string(input_string):
+
+input_string += " World”
+
+text = "Hello"
+
+modify_string(text)
+
+print(text)
+
+1) Hello 2) Hello Hello 3) Hello World 4) World 5) World Hello
+(2023 - 41)
+
+What would be the output of the following Python code?
+
+පහත පයිතන්‌ කේතය කියාත්මක කළ විට ප්‍රතිදානය කුමක්‌ ede?
+
+original list = [1, 2, 3, 4, 5]
+
+new_list = original list.copy()
+
+new_list.clear()
+
+original list.append(6)
+
+print(original list)
+
+print(new_list)
+
+1) 0] 2) [6] 3) [6] 4) [1,2,3,4,5,6] 5) [ ]
+
+[ ] [ ] [6] [ ] [1,2,3,4,5,6]
+
+( 2023 - 42 )
+
+117.
+
+118.
+
+119.
+
+How many '*' s does this program output?
+පහත ක්‍රමලේඛය, '*' කොපමණ ප්‍රමාණයක්‌ ප්‍රතිදානය කරයි ද?
+1 ස 7
+while 1950:
+i -= 3
+print('*')
+if i<=2:
+break
+else:
+print('*')
+
+1) 1 2) 3 3) 5 4) 7 5) 9
+(2023 - 43)
+
+Which of the data structures among Dictionary, List and Tuple in Python could be used to
+store a collection of key-value pairs where the keys must be unique?
+
+අනන්‍ය යතුරැ සහිත eQOz-Facs (key-value) යුගල එකතුවක්‌ ගබඩා කිරීමට පයිතන්හි Dictionary,
+List සහ Tuple දත්ත ව්‍යහ අතුරින්‌ කුමක්‌ භාවිත කළ හැකි ද?
+
+ය.
+
+Dictionary only
+
+)
+2) List only
+3) Tuple only
+4) Dictionary and List only
+5) List and Tuple only
+(2023 - 44)
+What would be the output of the following python code?
+පහත පයිතන්‌ කේතයේ ප්‍රනිදානය කුමක්‌ ede?
+for i in range(1, 4):
+for j in range (1, i+ 1):
+print(j * i, end=' ')
+print()
+1) 1 2) 1 3) 1 4) 123 5) 12
+2 2 2 4. 2 4. 2 4 6 2 4 6
+3 3 3 3 6 369 369 3 69 12
+
+(2023 - 45 )

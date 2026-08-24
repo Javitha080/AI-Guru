@@ -1,0 +1,1922 @@
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                    2011 LOGIC GATE ESSAY MARKING
+
+   1. A digital circuit takes four binary digits as an input, and produces 1 as its output if the decimal value
+      represented by the four binary digits is a prime number (number which can only be divided by itself
+      and 1), and 0 otherwise. Assume that all four binary digits represent positive decimal values (No bit
+      is allocated for the sign).
+      wxls; mßm:hl (Digital circuit) wdodkh f,i oaúuh ixLHdxl y;rla f.k" tu oaúuh ixLHdxl
+      y;frka ksrEms; oYuh w.h m%:ul ixLHdjla (Prime number) kï (1ka iy tu ixLHdfjka muKla
+      fnfok ixLHd) m%;sodkh f,i 1 ,nd fok w;r" wka iEu úgu 0 ,nd foa' iEu oaúuh ixLHdxl y;rlskau
+      Ok oYuh w.hla ksrEmKh jk nj Wml,amkh lrkak' (,l=K i|yd lsiÿ                   s ìgqjla fjkalr fkdue;')
+
+     (i) The following truth table is designed to describe the above circuit, in which A, B, C and D represents
+         the four binary inputs from the most significant bit to the least significant bit and F(A,B,C,D) as the
+         output of the circuit. Copy the following truth table onto your answer sheet as it is and complete the
+         output column.
+         by; mßm:h úia;r lsÍu i|yd my; olajd we;s i;H;d j.=j (Truth table) ks¾udKh lr we;; fuys A,
+         B, C yd D u.ska oaúuh wdodk y;r jeäu fjfiis ìgqfõ isg wvqu fjfiis ìgqj f;la ksrEmKh jk w;r"
+         F(A, B, C, D) u.ska mßm:fha m%ksodkh ksrEmKh flfrhs' my; olajd we;s i;H;d j.=j" tu
+         wdldrhgu msgm;a lrf.k m%;sodk ;Srej iïmQ¾K lrkak.
+
+          This digital logic question is about creating a circuit that identifies whether a 4-bit binary number is a
+          prime number or not. A 4-bit binary input means the numbers range from 0000 (which is 0 in decimal) to
+          1111 (which is 15 in decimal). That’s a total of 16 possible input values.
+          fuu äðg,a ;d¾lsl m%Yakh jkafka 4-ìÜ oaúuh ixLHdjla m%:ul ixLHdjla o keoao hkak y÷kd
+          .kakd mßm:hla ks¾udKh lsÍuhs' 4-ìÜ oaúuh wdodkhla hkq ixLHd 0000 ^oYufhka 0& isg 1111
+          ^oYufhka 15& olajd mrdihl mj;sk njhs' th uq¿ wdodk w.hka 16 ls'
+
+                           A           B           C           D             F(A,B,C,D)
+                           0           0           0           0                 0
+                           0           0           0           1                 0
+                           0           0           1           0                 1
+                           0           0           1           1                 1
+                           0           1           0           0                 0
+                           0           1           0           1                 1
+                           0           1           1           0                 0
+                           0           1           1           1                 1
+                           1           0           0           0                 0
+                           1           0           0           1                 0
+                           1           0           1           0                 0
+                           1           0           1           1                 1
+                           1           1           0           0                 0
+                           1           1           0           1                 1
+                           1           1           1           0                 0
+                           1           1           1           1                 0
+RAVINDU BANDARANAYAKE                                    -2-                                         #ictfromabc
+
+
+ (ii) Write a Boolean expression to represent the logic function of above circuit in sum of products form.
+      by; mßm:fha nQ,Sh m%ldYkh" .=Ks;j, tl;=jla (Sum of products) f,i ksrEmKh lsÍug nQ,Sh
+      m%ldYkhla ,shkak.
+
+    A minterm is a Boolean expression that represents one single row in a truth table where the output is 1.
+    Each minterm is an AND of all variables, where:
+    Minterm tlla hkq i;H j.=jl tla fma<shla ksfhdackh lrk nQ,shka m%ldYkhls"tys§ m%;sodkh 1 fõ'
+    iEu minterm tllau ish¨ úp,Hhkaf.ka AND tlla fõ" tys§(
+
+    •   You write the variable normally if its value is 1
+        Tn úp,Hh ,shkafka tys w.h 1 kï muks
+    •   You write it with a NOT (bar) if its value is 0
+        tys w.h 0 kï Tn th NOT iuÕ ,shkak'
+
+           A        B       C       D      Decimal F(A,B,C,D) Minterms
+           0        0       0       0         0        0             -
+           0        0       0       1         1        0             -
+           0        0       1       0         2        1       ̅. B
+                                                               A   ̅. C. D̅
+           0        0       1       1         3        1       ̅   ̅
+                                                               A. B. C. D
+           0        1       0       0         4        0             -
+           0        1       0       1         5        1       ̅ . B. C̅. D
+                                                               A
+           0        1       1       0         6        0             -
+           0        1       1       1         7        1       ̅ . B. C. D
+                                                               A
+           1        0       0       0         8        0             -
+           1        0       0       1         9        0             -
+           1        0       1       0        10        0             -
+           1        0       1       1        11        1       A. B̅. C. D
+           1        1       0       0        12        0             -
+           1        1       0       1        13        1       A. B. C̅. D
+           1        1       1       0        14        0             -
+           1        1       1       1        15        0             -
+
+    The expression can be implemented using AND gates for each minterm and a single OR gate to sum them.
+    tla tla minterm i|yd AND oajdr iy tAjdfha idrdxYh i|yd ;ks OR oajdrhla Ndú;fhka m%ldYkh
+    l%shd;aul l< yel'
+
+                    ̅. B
+    F(A, B, C, D) = A  ̅ . C. D ̅. B
+                              ̅+A            ̅ . B. C̅. D + A
+                                   ̅. C. D + A              ̅ . B. C. D + A. B
+                                                                             ̅. C. D + A. B. C̅. D
+RAVINDU BANDARANAYAKE                              -3-                                        #ictfromabc
+
+
+ (iii) Design a logic circuit for the Boolean expression you have obtained for the above part (ii).
+       by; (ii) fldgi i|yd Tn ,nd .;a nQ,Sh m%ldYkh i|yd ;d¾lsl mßm:hla (Logic gate) w¢kak.
+
+     Each minterm is implemented using a 4 input AND gate, and all outputs are combined using a single OR
+     gate. / iEu minterm tllau wdodk 4 AND oajdrhla Ndú;fhka l%shd;aul lrkq ,nk w;r" ish¨u
+     m%;sodkhka ;ks OR oajdrhla Ndú;fhka tAldnoaO flf¾'
+
+
+
+
+     This OR gate combines all the minterms, producing the final output F(A, B, C, D), which will be 1 only
+     if the input represents a prime number (2, 3, 5, 7, 11, or 13).
+     fuu OR oajdrh ish¨u minterms tAldnoaO lr" wjidk m%;sodkh F(A, B, C, D) ksmojhs" th 1 jkafka
+     wdodkh m%:ul ixLHdjla (2, 3, 5, 7, 11, or 13) ksfhdackh lrkafka kï muks
+
+                                                                                     ( 2011 ESSAY - 1[d] )
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2012 LOGIC GATE ESSAY MARKING
+
+   1. A fan in a room can be on (1) or off (0). A control system is required to operate the fan efficiently
+      with the following conditions / functionalities.
+      ldurhl we;s úÿ,s mxldjla l%shd;aulj (on - 1) fyda wl%shj (off - 0) mej;sh yelsh' tu úÿ,s mxldj
+      ld¾hlaIuj l%shd;aul lsÍu i|yd my; oelafjk ;;a;aj$l%shdj,s iys; md,k moaO;shla wjYHj we;'
+
+         1      The fan can manually be switched on or off.
+                úÿ,s mxldj w;ahqrej (manually) l%shd;aul fyda wl%sh fyda l< yels ùu'
+         2      The timer will be either on or off
+                ld,.Klh (timer) l%shd;aulj fyda wl%shj fyda mej;sh yelsh.
+         3      The sensor will detect whether the environment is cold or hot.
+                mßirh isis,a o WKqiqï o hkak ixfõolh (sensor) wkdjrKh lr.kshs.
+         4      The fan will automatically be switched on when the timer is on and the sensor indicates.
+                environment is hot.
+                ld,.Klh (timer) l%shd;aulj (on) we;súg iy mßirh WKqiqï hehs ixfõolh (sensor) fmkakï   q
+                lrk wjia:djl§ úÿ,s mxldj iajhxl%Shj l%shd;aul úh yels ùu.
+
+         The following table assigns Boolean values for the above conditions/functionalities.
+         my; oelafjk j.=j u.ska by; fmkajd we;s fldkafoaisj,g$l%shdj,sj,g wod< nQ,Sh w.hka oelafjhs.
+
+              Condition/functionality                                              Boolean value
+              fldkafoaish$l%shdj,sh                                                 nQ,shdkq w.h
+              Fan switched on manually / mxldj w;ahqrej l%shd;aul lrkq ,nhs'              1
+              Fan switched off manually / mxldj w;ahqrej jid oukq ,nhs'                   0
+              Timer is on / ld,.Klh l%shd;aul ù we;'                                      1
+              Timer is off / ld,.Klh l%shd;aul ù ke;'                                     0
+              Sensor detects cold environment / mßirh isis,a nj ixfõolh y÷kd.kshs'        1
+              Sensor detects hot environment / mßirh WKqiqï nj ixfõolh y÷kd.kshs'         0
+
+     (i) Draw a logic circuit by using a combination of only AND, OR and NOT gates to implement the
+         above control system. / by; md,k moaO;sh l%shd;aul lsÍu i|yd AND, OR iy NOT oajdr
+         ixfhdack muKla wvx.= ;¾lk mßm:hla w¢kak.
+
+          Initially, we describe the inputs and their associated conditions.
+          uq,§" wms wdodk iy tAjdg wod< fldkafoais úia;r lruq'
+
+          •     Manual Control (M)/w;ahqre md,kh:
+                1 → Fan switched ON manually/úÿ,s mxldj l%shd;aulhs
+                0 → Fan switched OFF manually /úÿ,s mxldj l%shd úrys;hs
+          •     Timer /ld,.Klh(T):
+                1 → Timer ON
+                0 → Timer OFF
+          •     Sensor/ ixfõolh(S):
+                1 → COLD/iS;,
+                0 → HOT / WKqiqï
+RAVINDU BANDARANAYAKE                                -5-                                           #ictfromabc
+
+
+
+    Fan Operation Rules / úÿ,s mxld fufyhqï kS;s
+    To control the fan, we use three inputs: Manual switch (M), Timer (T) , and Sensor (S).
+    úÿ,s mxldj md,kh lsÍug" wms wdodk ;=kla Ndú;d lruq( iaúph^M& ghsu¾(T) iy ixfõolh(S)
+
+    The fan should turn on if M = 1 (manually turned on), or if the Timer is ON (T = 1) and the Sensor detects
+    hot (S = 0)
+    M = 1 ^w;ska il%sh lr we;& kï" fyda ghsurh il%sh lr ;sfí kï (T = 1) iy ixfõolh WKqiqï nj
+    y÷kd .kS kï (S = 0)úÿ,s mxldj il%sh úh hq;=h
+
+    A logic circuit is designed using fundamental logic gates to demonstrate the underlying principles of digital
+    logic.
+    ;d¾lsl mßm:hl ks¾udKh lr we;af;a äðg,a ;¾lkfha uQ,sl uQ,O¾u ksrEmKh lsÍu i|yd uQ,sl
+    ;d¾lsl oajdr Ndú;d lrñks'
+
+    To detect hot, we invert the sensor value using a NOT gate. Then we use an AND gate to combine Timer(T)
+    and Sensor (S), and finally an OR gate to combine the manual switch (M )with that result. This gives us
+    the complete logic.
+    WKqiqï nj y÷kd .ekSu i|yd" wms NOT oajdrhla Ndú;fhka ixfõol w.h m%;sf,dau lruq' bkamiq
+    wms ghsu¾(T) iy ixfõolh(S) tAldnoaO lsÍug AND oajdrhla Ndú;d lrk w;r" wjidkfha iaúph(M&
+    tu m%;sM,h iuÕ tAldnoaO lsÍug OR oajdrhla Ndú;d lruq' fuh wmg iïmQ¾K ;¾lkh ,nd fohs'
+
+
+
+
+ (ii) Construct a truth table to represent the functionality of the above system.
+      by; moaO;sfhys l%shdldß;ajh oelafjk i;H;d j.=jla f.dvk.kak.
+
+    Explanation of Inputs and Outputs,
+    wdodk iy m%;sodk meyeÈ,s lsÍu"
+    M (Manual switch): 1 = ON, 0 = OFF
+    T (Timer): 1 = ON, 0 = OFF
+    S (Sensor): 1 = Cold, 0 = Hot
+    Fan output (F) :1 = ON, 0 = OFF
+
+    At this stage, the Boolean expression is derived based on the constructed logic circuit.
+    fuu wÈhf¾§" nQ,shka m%ldYkh jHq;amkak jkafka f.dvkÕk ,o ;d¾lsl mßm:h u; h'
+
+
+
+
+        Boolean Expression / nQ,shka m%ldYkh: F = M + TS̅
+RAVINDU BANDARANAYAKE                                   -6-                                    #ictfromabc
+
+
+
+         Now, we construct the truth table.
+         oeka wms i;H;d j.=j f.dvkÕuq'
+
+          M     T    S     𝐒̅   𝐓𝐒̅       𝐅 = 𝐌 + 𝐓𝐒̅
+          0     0    0     1     0            0
+          0     0    1     0     0            0
+          0     1    0     1     1            1
+          0     1    1     0     0            0
+          1     0    0     1     0            1
+          1     0    1     0     0            1
+          1     1    0     1     1            1
+          1     1    1     0     0            1
+
+ (iii) Write Boolean expression (not simplified) to represent truth table constructed in the (b) (ii) above.
+       by; (b) (ii) fldgfiys f.dvk.k ,o i;H;d j.=j ksrEmKh flfrk nQ,shka m%ldYkhla (iq¿
+       fkdlrk ,o) ,shkak.
+
+     We write the minterms corresponding to each output value of 1 in the truth table.
+     wms i;H j.=fõ 1 ys tla tla m%;sodk w.hg wkqrEm jk .=Ks; mo ,shuq'
+
+          M     T    S    F     Minterms
+           0    0    0     0          -
+           0    0    1     0          -
+           0    1    0     1     ̅ . T. S̅
+                                 M
+           0    1    1     0        -
+           1    0    0     1        ̅. S̅
+                                 M. T
+           1    0    1     1        ̅. S
+                                 M. T
+           1    1    0     1     M. T. S̅
+           1    1    1     1     M. T. S
+
+     We are building a Boolean expression by adding together all the minterms where the Fan Output is 1 in
+     the truth table.(SOP - SUM Of Products)
+     i;H j.=fõ m%;sodkh 1 jk ish¨u .=Ks; mo tl;= lsÍfuka wms nQ,shka m%ldYkhla f.dvkÕuq'
+
+            ̅ . T. S̅ + M. T
+     Fsop = M              ̅. S̅ + M. T
+                                      ̅. S + M. T. S̅ + M. T. S
+
+     Furthermore, the Product of Sums (POS) expression can be derived using the maxterms corresponding to
+     output values of 0.
+     ;jo" 0 ys m%;sodk w.hkag wkqrEm jk Wmßu kshuhka Ndú;fhka tl;+kaf.a .=Ks;hla f,i (POS)
+     m%ldYkh jHq;amkak l< yel'
+RAVINDU BANDARANAYAKE                               -7-                                         #ictfromabc
+
+
+
+         M    T    S    F    Maxterms
+         0    0    0    0    M+T+S
+         0    0    1    0    M + T + S̅
+         0    1    0    1      -
+         0    1    1    0      ̅ + S̅
+                             M+T
+         1    0    0    1         -
+         1    0    1    1         -
+         1    1    0    1         -
+         1    1    1    1         -
+
+    F pos = (M + T + S). (M + T + S̅). (M + T
+                                            ̅ + S̅)
+
+    NOTE :
+    The logic circuit for part (b)(i) can be constructed using corresponding Sum of Products(SOP) expression.
+    (b)(i) fldgi i|yd ;d¾lsl mßm:h wkqrEm (SOP) m%ldYkh Ndú;fhka f.dvk.d .; yel'
+
+
+
+
+                                                                                     ( 2012 ESSAY - 1[ b ] )
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2013 LOGIC GATE ESSAY MARKING
+
+1.(a) A fire alarm system consists of three sensors S1, S2 and S3 to detect smoke, flame and heat
+      respectively. A sensor can either be active (sends the logical value 1) or inactive (Sends the logical
+      value 0). The system automatically triggers the fire alarm when at least two of the sensors are active.
+      .sks wk;=re weÕùfï ix{d moaO;shla S1, S2 yd S3 kï jQ ixfõol ;=klska iukaú; jk w;r tajd
+      ms<sfj<ska we;af;a ÿu, .sks oe,a, yd ;dmh msßlaiSu i|ydh' ixfõolhla tlaflda il%Shj (;d¾lsl
+      w.h 1 m%;s.%yKh lrhs') fyda wl%shj (;d¾lsl w.h 0 m%;s.%yKh lrhs') mej;sh yelsh' wju
+      jYfhka ixfõol folla il%Sh jk úg fuu moaO;sh iajhxl%Shj .sks wk;=re weÕùï ix{d ksl=;a
+      lrhs'
+
+     (i) Construct the truth table to represent the functionality of the above fire alarm system.
+         by; wk;=re weÕùï ix{d moaO;sfha l%shdldÍ;ajh ksrEmKh lrkq ,nk i;H;d j.=j f.dvk.kak
+
+          Identify the Input Variables / wdodk úp,H y÷kd .kak'
+          We are given three inputs / wmg wdodk ;=kla ,nd § we;.
+          •     S1=Smoke sensor / ÿï ixfõolh (1=Active / l%shdldÍ , 0=Inactive / wl%sh )
+          •     S2=Flame sensor / .sksoe,a ixfõolh (1=Active / l%shdldÍ , 0=Inactive / wl%sh )
+          •     S3= Heat sensor / ;dm ixfõolh (1=Active / l%shdldÍ , 0=Inactive / wl%sh)
+
+          So, the inputs are S1, S2, S3 - each can be 0 or 1.
+          tneúka" S1, S2, S3 wdodk - tla tla 0 fyda 1 úh yelsh.
+
+          Identify the Output Variable / m%;sodk úp,Hh y÷kd .kak
+          F = Fire Alarm state / .sks wk;=re weÕùfï ;;ajh
+          •     F = 1 → Alarm is ON /t,duh l%shd;aulhs
+          •     F = 0 → Alarm is OFF /t,duh l%shdúrys;hs
+
+          List All Input Combinations / ish¨u wdodk ixfhdack ,ehsia;=.; lrkak
+
+          Since there are 3 inputs, total combinations = 2³ = 8.
+          wdodk 3la we;s neúka" uq¿ ixfhdack = 2³ = 8.
+
+                        S1        S2       S3       F
+                          0        0         0        0
+                          0        0         1        0
+                          0        1         0        0
+                          0        1         1        1
+                          1        0         0        0
+                          1        0         1        1
+                          1        1         0        1
+                          1        1         1        1
+RAVINDU BANDARANAYAKE                              -9-                                      #ictfromabc
+
+
+ (ii) Derive the Boolean expression to represent the above truth table.
+      by; i;H;d j.=j ksrEmKh lrkq ,nk nq,shdkq m%ldYkh ,nd .kak'
+
+    Find the Minterms / .=Ks; mo fidhkak (Rows where F= 1)
+    From the table, F = 1 only when / F = 1 wjia:d j,§ muKla j.=fjka"
+
+           S1       S2    S3
+            0        1    1
+            1        0    1
+            1        1    0
+            1        1    1
+
+    A Boolean expression where we add OR (+) several product terms AND( ·).
+    .=Ks; mo lsysmhla AND (.) tl;= lrk OR(+) nQ,shka m%ldYkhls'
+
+    So, the Sum of Minterms is / tneúka .=Ks; moj, tl;=j jkafka"
+    F = ̅̅̅
+         S1. S2. S3 + S1. ̅̅̅̅
+                          S2. S3 + S1. S2. ̅̅̅
+                                           S3 + S1. S2. S3
+
+ (b) Consider the logic circuit shown here to answer the sections (i) and (ii) below:
+    my; olajd we;s (i) yd (ii) fldgiaj,g ms<s;=re iemhSug fuys fmkajd we;s ;d¾lsl mßm:h i,lkak:
+
+     A    B     C
+
+
+
+
+                                                                                        Q
+RAVINDU BANDARANAYAKE                              -10-                                         #ictfromabc
+
+
+ (iii) Write and simplify the Boolean expression for the above circuit using Boolean algebra. Show all the
+       workings and algebric rules used for the simplification.
+       nq,shdkq ùc .Ks;h Ndú; lrñka by; mßm:h i|yd nQ,shdkq m%ldYkhla ,shd th ir, lr
+       olajkak' ir, lsÍu i|yd Ndú; lrkq ,enQ ish¿ u ld¾hhka yd ùÔh Í;s ,shd olajkak'
+
+          A B C
+
+                                                            A.B.C
+
+
+                                              ̅
+                                              A
+                                                                                       ̅ . B. C + A. B. C̅
+                                                                         𝑄 = A. B. C + A
+                                                            ̅ . B. C
+                                                            A
+
+
+
+
+                                                             A. B. C̅
+
+                                         C̅
+
+
+
+
+     Therefore / tA ksid,
+                   ̅ . B. C + A. B. C̅
+     Q = A. B. C + A
+     It can be simplified using Boolean laws as follows.
+     my; wdldrhg nQ,shdkq kS;s Ndú;fhka ir, l< yelsh'
+                   ̅ . B. C + A. B. C̅
+     Q = A. B. C + A
+       = B. C(A + A̅ ) + A. B. C̅ [ AB + AC = A(B + C)]     Distributive Law / ú>gk kHdh
+       = B. C. 1 + A. B. C̅        [A+A  ̅ = 1]             Inverse Law / m%;sf,dau kHdh
+       = B. C + A. B. C̅           [A. 1 = A]               Identity Law / i¾jiduH kHdh
+       = B(C + A. C̅ )             [ AB + AC = A(B + C)]    Distributive Law / ú>gk kHdh
+       = B( C + C̅. A)             [A. B = B. A]            Commutative Law / kHdfoaY kHdh
+       = B(A + C)                  [A+A  ̅ . B = A + B]     Redundancy law / iu;srsla; kHdh
+
+     Final simplified form,
+     wjidk ir, l< wdlD;sh,
+     Q = B(A + C)
+RAVINDU BANDARANAYAKE                            -11-                                     #ictfromabc
+
+
+ (iv) Construct the logic circuit using a combination of only AND, OR and NOT gates for the simplified
+      Boolean expression obtained in section b(i) above.
+      by; b (i) fldgfiys ir, lsÍu wjidkfha § ,nd .;a nQ,shdkq m%ldYkh i|yd AND, OR iy
+      NOT hk oajdr ixfhdackhla muKla Ndú; lrñka ;d¾lsl mßm:h f.dvk.kak'
+
+        Simplified form / ir, l< wdlD;sh,
+                 Q = B.(A+C)
+
+
+
+        AND gate             OR Gate
+        AND oajdrh           OR oajdrh
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2014 LOGIC GATE ESSAY MARKING
+
+1.(a) An alarm system has been designed to detect break-ins by using three detectors. They are a motion
+      detector, a glass break detector and a blackout detector. A detector can either be active (sends the
+      logical value 1) or inactive (sends the logical value 0).
+      ixfõol ;=kla Ndú; lr n,y;aldrfhka we;=¿ùï y÷kd .ekSu i|yd ix{d moaO;shla ie,iqï lr
+      we;' fuu ixfõol p,k ixfõolhla" ùÿre ì÷ï ixfõolhla yd wkaOldr ixfõolhla fõ'
+      ixfõolhla tlaflda il%Sh (;d¾lsl w.h 1 ,nd §u) fyda wl%Sh (;d¾lsl w.h 0 ,nd§u) fyda fõ'
+
+          The system automatically detects a break-in and triggers the alarm (sends the logical value 1) only
+          when all the three detectors are simultaneously active, or the blackout detector and anyone of the
+          remaining detectors are active.
+          fuu moaO;sh n,y;aldr we;=¿ ùula (Break-in) iajhxl%Shj y÷kdf.k ix{d moaO;sh l%shd;aul
+          (;d¾lsl w.h 1 ,nd§u) lrkqfha" tl u wjia:dfõ § ixfõol ;=ku il%Sh jkafka kï fyda wkaOldr
+          ixfõolh yd b;sß ixfõol foflka ´kEu ixfõolhla il%Sh jkafka kï muKls'
+
+          Construct a truth table to represent the functionality of the above alarm system.
+          by; ix{d moaO;sfha ld¾hnoaO;djh ksrEmKh lsÍug i;H;d j.=jla f.dvk.kak'
+
+          Let's assume the three sensors as follows / ixfõol ;=k my; mßÈ Wml,amkh lruq
+
+          A → Motion Detector / p,k ixfõolh
+          B → Glass Break Detector / ùÿre ì÷ï ixfõolh
+          C → Blackout Detector / wkaOldr ixfõolh
+
+          The alarm (denoted by X) is triggered when
+          t,dï tl ^X u.ska olajkq ,efí& l%shd;aul jkafka
+
+          1. All three sensors are active
+             ixfõol ;=ku il%Shhs → A = 1, B = 1, C = 1
+
+          2. OR Blackout sensor (C) is active and at least one of the other two (A or B) is active
+             OR wkaOldr ixfõolh (C) il%Shhs iy wju jYfhka wfkla 2ka tlla (A fyda B) il%Sh úh hq;=h'
+
+          So, the truth table for the given scenario is given below.
+          tneúka" § we;s wjia:dj i|yd i;H;d j.=j my; olajd we;
+
+                             A                B                 C              X (Alarm)
+                             0                0                 0                  0
+                             0                0                 1                  0
+                             0                1                 0                  0
+                             0                1                 1                  1
+                             1                0                 0                  0
+                             1                0                 1                  1
+                             1                1                 0                  0
+                             1                1                 1                  1
+RAVINDU BANDARANAYAKE                                -13-                                         #ictfromabc
+
+
+(b)(i) Derive the Boolean expression to represent the truth table constructed in section (a) above.
+       by; (a) fldgfia ,nd.;a i;H;d j.=j ksrEmKh lsÍu i|yd nQ,shdkq m%ldYkhla ,nd fokak.
+
+     Obtaining expression / m%ldYkhla ,nd .eksu
+
+          A B C X (Alarm) Minterms
+          0 0 0     0         -
+          0 0 1     0         -
+          0 1 0     0         -
+          0 1 1     1      ̅
+                           A. B. C
+          1 0 0     0         -
+          1 0 1     1         ̅. C
+                           A. B
+          1 1 0     0         -
+          1 1 1     1      A. B. C
+
+     .
+                      ̅ . B. C + A. B
+         Expression ∶ A             ̅. C + A. B. C
+
+  (ii) Simplify the Boolean expression obtained in section (b) (i) above, using Boolean algebra. Clearly
+       show all the workings and Boolean algebraic rules used for this simplification.
+       by; b(i) fldgfikao ,nd.;a nQ,shdkq m%ldYkh nQ,shdkq ùc .Ks;h Ndú; lr ir, fldg olajkak
+       fuu ir, lsÍu i|yd Ndú; l< .Kkh lsÍï yd nQ,shdkq ùc .Ks; kS;s meyeÈ,sj ,shd olajkak.
+
+     Expression ∶ A   ̅ . B. C + A. B ̅. C + A. B. C
+     :A̅ . B. C + A. B. C + A. B ̅. C                Commutative Law / kHdfoaY kHdh
+     :( A̅ . +A)B. C + A. B  ̅. C                    Distributive Law / ú>gk kHdh
+                      ̅
+     : (1)B. C + A. B. C                             Inverse Law / m%;sf,dau kHdh
+     : B. C + A. B̅. C                               Identity Law / i¾jiduH kHdh
+     : C(B + A. B ̅)                                 Identity Law / i¾jiduH kHdh
+     : C(B + A)                                      Redundancy Law / iu;srsla; kHdh
+     : CB + AC                                       Distributive Law / ú>gk kHdh
+
+ (iii) Construct the logic circuit for the simplified Boolean expression obtained in section (b) (ii) above.
+       by; b (ii) fldgfika ,nd.;a ir, l< nQ,shdkq m%ldYkh i|yd ;d¾lsl mßm:hla f.dvk.kak.
+
+
+
+
+         OR
+RAVINDU BANDARANAYAKE                               -14-                                         #ictfromabc
+
+
+ (c) The analysis of the past incidents where the alarm triggered reveals that break-in attempts have been
+     made only during blackouts. Do you agree with the above statement? Justify your answer.
+     fuu ix{d moaO;sh il%Sh ùï iïnkaOj miq.sh isÿùï úYaf,aIKh lsÍfï § wkdjrKh jkafka
+     n,y;aldrfhka we;=¿ùfï W;aidyhka isÿ ù we;af;a wkaOldr wjia:dj, § muKla nj h' Tn by;
+     m%ldYh yd tlÕ jkafka o? Tfí ms<s;=r ;yjqre lrkak.
+
+    Yes, the statement is correct.
+    Tõ" m%ldYh ksjerÈhs'
+    From the truth table, the alarm (X = 1) only occurs when the blackout detector (C = 1) is active. In every
+    case where the alarm is triggered, the blackout sensor is ON. This shows that break-in attempts were
+    detected only during blackouts.
+    i;H;d j.=fjka" wk;=re weÕùu (X = 1) isÿjkafka wkaOldr ixfõolh (C = 1) il%sh úg muKs'
+    wk;=re weÕùu l%shd;aul jk iEu wjia:djlu" wkaOldr ixfõolh il%sh ù mj;S' fuhska fmkS hkafka
+    ì|jeàfï W;aidyhka wkdjrKh jQfha wkaOldr w;r;=r muKla njhs'
+
+                                                                                        ( 2014 ESSAY - 01 )
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                    2015 LOGIC GATE ESSAY MARKING
+
+1.(a) Explain how to derive a Boolean expression from a given truth table.
+      § we;s i;H;d j.=jla i|yd nQ,shdkq m%ldYkhla jHq;amkak lrk whqre meyeÈ,s lrkak'
+
+          There are two types of Boolean expression types / nQ,shdkq m%ldYk j¾. folla ;sfí'
+
+          ▪     SOP (Sum of Products): Use the rows where output is 1 / m%;sodkh 1 jk fma<s Ndú;d lrkak'
+          ▪     POS (Product of Sums): Use the rows where output is 0 / m%;sodkh 0 jk fma<s Ndú;d lrkak'
+
+          Case 01:
+          Step 1 / mshjr 1:
+          Look at the truth table / i;H;d j.=j foi n,kak'
+          Find all rows where Output = 1 / m%;sodkh = 1 f,i we;s ish¨u fma<s fidhd .kak'
+
+          Step 2 / mshjr 2:
+          For each of these rows / iEu fma<shla i|ydu
+          • Write an AND term / AND mo ,shd olajkak (also called a minterm / @sin).
+          • If input is 1 / wdodkh 1 fõ kï → write the letter as it is / wlaIrh tf,iu ,shd olajkak
+          • If input is 0 / wdodkh 0 fõ kï → write the NOT form / NOT wdldrh ,shd olajkak
+
+          Step 3 / mshjr 3:
+          OR all the minterms together / minterms ish,a,u OR lr tlgu ,shd olajkak
+
+          Case 02:
+          Step 1 / mshjr 1:
+          Look at the truth table / i;H;d j.=j foi n,kak'
+          Find all rows where Output = 0 / m%;sodkh = 0 f,i we;s ish¨u fma<s fidhd .kak'
+
+          Step 2 / mshjr 2:
+          For each of these rows / iEu fma<shla i|ydu:
+          • Write an OR term / OR mo ,shd olajkak (also called a maxterm).
+          • If input is 1 / wdodkh 1 fõ kï → write the NOT form.
+          • If input is 0 / wdodkh 0 fõ kï → write the letter as it is.
+
+          Step 3 / mshjr 3:
+          AND all the maxterms together / maxterms ish,a,u AND lr tlgu ,shd olajkak
+
+          Example Truth Table / WodyrK i;H;d j.=j
+           A B Output
+           0 0 0
+           0 1 1
+           1 0 1
+           1 1 0
+RAVINDU BANDARANAYAKE                                -16-                                         #ictfromabc
+
+
+     When Output = 1 / m%;sodkh = 1 jk úg :
+     A B Output
+     0 0 0
+     0 1 1              ̅. B
+                        A
+     1 0 1                 ̅
+                        A. B
+     1 1 0
+
+                     ̅. B + A. B
+     SOP expression: A         ̅
+
+     When Output = 0 / m%;sodkh = 0 jk úg :
+      A   B     Output
+      0   0     0          A+B
+      0   1     1
+      1   0     1
+      1   1     0          ̅+B
+                           A ̅
+
+                               ̅+B
+     POS expression: (A + B). (A ̅)
+
+ (b) In residential electrical wiring, the following circuit has been used to operate a light in a staircase
+     .Dyia: úÿ,s /yeka weoSfï § mäfm<l iú lrkq ,nk úÿ,s mykla l%shd;aul lsÍu i|yd my;
+     oelafjk mßm:h fhdod .kakd ,§.
+                                     X                                     X
+
+
+
+
+                                    Y                                     Y
+                              Switch s1                             Switch s2
+               Power
+              Source P
+
+                                                     Lamp L
+
+
+
+
+     As in the above circuit, two switches S1 and S2 are installed at the bottom and the top of the staircase
+     to operate the lamp L. The lamp turned on by using the switch S1 at the bottom of the staircase can
+     be turned off by using the switch S2 at the top of the staircase. Further, the lamp turned on by using
+     switch S2 at the top of the staircase can also be turned off by using the switch S1 at the bottom of
+     the staircase. Moreover, the lamp L turned on by a switch can be turned off by the same switch.
+     by; mßm:fha oelafjk f,ig L úÿ,s myk l%shd;aul lsÍu i|yd mäfmf<ys my< iy by< S1 iy S2
+     iaÉp folla ia:dms; lr we;' mäfm< my< § S1 iaúph u.ska o,ajk ,o úÿ,s myk mäfm< by<
+     § S2 iaÉph u.ska ksjd oeóug o mäfm< by< § S2 iaúph u.ska o,ajk ,o úÿ,s myk mäfm< my< §
+     S1 iaÉph u.ska ksjd oeóug o yels fõ' ;j o hï iaúphla u.ska o,ajk ,o L úÿ,s myk tu iaÑph
+     u.ska u ksjd oeïug o yels fõ'
+     Assume that the connections to positions X and Y of a switch in the above circuit are represented by
+     the truth values 1 and 0 respectively and the turned on and turned off states of the lamp L are
+     represented by the truth values 1 and 0 respectively.
+     by; mßm:fha iaÉphla X ia:dkhg iy Y ia:dkhg iïnkaO ù we;s wjia:d i;H;d w.hka 1 iN
+     0 u.ska ms<sfj<ska ksrEmKh jk nj o L õÿ,s myk oe,aù iy ksù we;s wjia:d i;H;d w.hka 1
+     iN 0 u.ska ms<sfj<ska ksrEmKh jk nj o Wml,amkh lrkak'
+RAVINDU BANDARANAYAKE                              -17-                                  #ictfromabc
+
+
+ (i) Construct a truth table to represent the functionality of the above circuit.
+     by; mßm:fha l%shdldß;ajh ksrEmKh lsÍu i|yd i;H;d j.=jla f.dvk.kak
+    Two switches (S1 and S2) are used to control one lamp (L).
+    tla ,dïmqjla (L) md,kh lsÍu i|yd iaúp folla (S1 iy S2) Ndú;d lrhs'
+    Each switch has two positions
+    iEu iaúphlau ;;aj folla we; : X and Y.
+    If a switch connects X, it is considered 0
+    iaúphla X iïnkaO jkafka kï" th 0 f,i ie,fla
+    If it connects Y, it is considered 1
+    th Y iïnkaO lrkafka kï" th 1 f,i ie,fla
+    Lamp turns ON only when the path is complete
+    ,dïmqj l%shd;aul jkafka ud¾.h iïmQ¾K jQ úg muKs'
+
+    Important:
+    The lamp can be turned ON or OFF by either switch. This is called a 2-way switch system, and its
+    logic mimics the XNOR gate. / iaúph u.ska ,dïmqj il%sh fyda wl%sh l< yelsh' fuh 2-way iaúÉ
+    moaO;shla f,i ye¢kafjk w;r tys ;¾lkh XNOR oajdrh wkqlrKh lrhs'
+
+    Let’s construct the truth table for the above scenario.
+    by; wjia:dj i|yd i;H;d j.=j ilia lruq'
+
+     S1   S2   L (Lamp)
+     0    0    1
+     0    1    0
+     1    0    0
+     1    1    1
+
+    This truth table shows that
+    fuu i;H;d j.=j th fmkakqï lrhs'
+    This is the behaviour of an XNOR gate
+    fuh XNOR oajdrhl yeisÍuhs'
+
+ (ii) Derive a Boolean expression to represent the truth table obtained in section (i) above.
+      by; (i) fldgfia § Tn ,nd.;a i;dx;d j.=j ksrEmKh lsÍug nQ,shdkq m%ldYkhla jHq;amkak lrkak'
+
+    From the table, output is 1 when
+    j.=fjka" m%;sodkh 1 jk úg :
+                     ̅̅̅. S2
+    S1 = 0, S2 = 0 → S1   ̅̅̅
+    S1 = 1, S2 = 1 → S1. S2
+
+    So, the Boolean expression (SOP) is
+                                         ̅̅̅. S2
+    tneúka" nQ,shdkq m%ldYkh (SOP) : L = S1   ̅̅̅ + S1. S2
+
+    From the table, output is 0 when
+    j.=fjka" m%;sodkh 1 jk úg :
+
+                          ̅̅̅
+    S1 = 0, S2 = 1 → S1 + S2
+                     ̅̅̅
+    S1 = 1, S2 = 0 → S1 + S2
+                                                    ̅̅̅). ( S1
+    So, the Boolean expression (POS) is : L = (S1 + S2      ̅̅̅ + S2)
+                                                ̅̅̅    ̅̅̅
+    tneúka" nQ,shdkq m%ldYkh (POS) : L = (S1 + S2). ( S1 + S2)
+RAVINDU BANDARANAYAKE                             -18-                                       #ictfromabc
+
+
+ (iii) What is the logic gate which is equivalent to the functionality of the Boolean expression obtained
+       in section (ii) above?
+       by; (ii) oS ,nd .;a nQ,shdkq m%ldYkfha ld¾hhg iu;=,H jk ;d¾lsl oajdrh l=ula o?
+
+    This behaviour is of an: XNOR gate
+    fuh XNOR oajdrhl yeisÍuhs'
+
+
+
+
+ (iv) Construct a logic circuit for the Boolean expression obtained in section (ii) above with NOT, AND
+      and OR gates only.
+      by; (ii) fldgfia § ,nd .;a nQ,shdkq m%ldYkh i|yd NOT, AND iy OR oajdr muKla Ndú; lrñka
+      ;d¾lsl mßm:hla f.dvk.kak'
+        ̅̅̅̅. 𝐒𝟐
+    𝐋 = 𝐒𝟏    ̅̅̅̅ + 𝐒𝟏. 𝐒𝟐
+
+
+
+
+    or
+
+    𝐋 = (𝐒𝟏 + ̅𝐒𝟐
+               ̅̅̅). ( ̅𝐒𝟏
+                        ̅̅̅ + 𝐒𝟐)
+
+
+
+
+                                                                                     ( 2015 ESSAY - 01 )
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                    2016 LOGIC GATE ESSAY MARKING
+
+   1. The top secret recipe for making milk rice at the restaurant chain SLFC is kept in an electronic safe
+      at their head office. The lock (L) of the safe can either be in locked or unlocked states represented
+      by logical truth values 0 and 1 respectively. This lock has three different key holes K1, K2 and K3
+      each with a unique key. These three keys are in the custody of three directors of SLFC. The lock
+      opens when at least two keys are inserted into the corresponding key holes. The situation where the
+      corresponding key is properly inserted into any key hole is represented by the logical truth value 1
+      and all the other situations are represented by the logical truth value 0.
+      SLFC kue;s wdmk Yd,d odufha lsßn;a ms<sfh, lsÍu i|yd Ndú; lrk b;d ryis.; jÜfgdarej
+      m%Odk ld¾hd,fhys we;s wdrlaIs; úoHq;a fiamamqjl ;ekam;a lr we;' fuu fiamamqfjys w.=, (L)
+      w.=¨,d fyda w.=¨ wer fyda wjia:d foflka tll mej;sh yels w;r" tu wjia:d ms<sfj<ska 0 iy 1
+      hk ;d¾lsl i;H;d w.hka u.ska ksrEmKh lrhs' fuu w.=,g K1, K2 iy K3 hk tlsfklg fjkia
+      jQ h;=re isÿre ;=kla we;s w;r iEu h;=re isÿrlg u wkkH jQ h;=rla o we;' fuu h;=re ;=k
+      SLFC wdh;kfha wOHlaIljre ;sfokl= Ndrfha mj;S' h;=re isÿrej,g wju jYfhka wod< h;=re
+      follaj;a we;=<;a lr we;s úg w.=, újD; fjhs' ´kEu h;=re isÿrlg wod< h;=r ksis f,i we;=<;a
+      lr we;s wjia:dj ;d¾lsl i;H;d w.h 1 u.ska o wksla ish¨u wjia:d ;d¾lsl i;H;d w.h 0 u.ska
+      o ksrEmKh fõ'
+
+          Assuming that only the following Integrated Circuits (ICs) are available, construct a logic circuit to
+          operate     the lock (L) of the safe, by using the truth tables and Boolean algebra. Clearly show the
+          truth tables, Boolean expressions and the Boolean algebraic rules used to construct your circuit.
+          my; olajd we;s ix.Dys; mßm: (ICs) muKla we;s nj Wml,amkh lrñka i;H;d j.= iy nQ,shdkq
+          ùc.Ks;h Ndú; lrñka by; w.=, (L) l%shd;aul lsÍu i|yd ;d¾lsl mßm:hla f.dvk.kak' Tfí
+          mßm:h f.dvke.Su i|yd Ndú; l< i;H;d j.=" nQ,shdkq m%ldYk iy ir, lsÍug fhdod.;a nQ,shdkq
+          ùc.Ks; kS;s meyeÈ,s j i|yka lrkak'
+
+               20        19       18        17       16        15       14        13       12        11                        8        7         6        5
+
+
+
+
+                1         2         3        4        5         6         7        8        9        10                        1        2         3        4
+
+          •     There are 3 keyholes: K1, K2, and K3.
+                fodr w.=,a 3 la we; : K1, K2 iy K3 we;'
+
+          •     Each key can be either inserted (1) or not inserted (0).
+                tla tla h;=r we;=<;a l< yelsh (1) fyda we;=<;a lr fkdyelsh (0)'
+
+          •     The lock (L) opens (L=1) only when at least two keys are inserted.
+                fodr w.=, (L) újD; jkafka (L=1) wju jYfhka h;=re folla j;a we;=<;a l< úg muKs'
+RAVINDU BANDARANAYAKE                                -20-                                        #ictfromabc
+
+
+
+    Let’s construct the truth table for the above scenario
+    by; wjia:dj i|yd i;H;d j.=j ilia lruq'
+
+     K1 K2 K3 L (at least 2 keys = 1)
+     0  0  0             0
+     0  0  1             0
+     0  1  0             0
+     0  1  1             1
+     1  0  0             0
+     1  0  1             1
+     1  1  0             1
+     1  1  1             1
+
+    Note: In the truth table the symbols K1, K2, K3, L should be used or should be defined.
+    igyk: i;H;d j.=j ;=< K1, K2, K3, L ixfla; Ndú;d l< hq;=h fyda w¾: oelaúh hq;=h'
+
+    Let’s obtain an expression from the truth table (L=1 instance)
+    i;H;d j.=fjka m%ldYhla ,nd .ksuq ^ L=1 wjia:dj&
+
+     K1 K2 K3 L (at least 2 keys = 1)
+     0  0  0             0
+     0  0  1             0
+     0  1  0             0
+     0  1  1             1
+     1  0  0             0
+     1  0  1             1
+     1  1  0             1
+     1  1  1             1
+
+               ̅̅̅̅. K2. K3 + K1. K2
+    Equation ∶ K1                 ̅̅̅̅. K3 + K1. K2. K3
+                                                     ̅̅̅̅ + K1. K2. K3
+
+    Let’s simplify the above obtained expression using Boolean laws.
+    nQ,shdkq kS;s Ndú;d lrñka by; ,nd.;a m%ldYkh ir, lruq'
+
+    Equation ∶ ̅̅̅̅ K1. K2. K3 + K1. ̅̅̅̅
+                                       K2. K3 + K1. K2. ̅̅̅̅
+                                                        K3 + K1. K2. K3
+      ̅̅̅̅. K2. K3 + K1. K2
+    : K1                  ̅̅̅̅. K3 + K1. K2. (K3
+                                              ̅̅̅̅ + K3)         Distributive Law / ú>gk kHdh
+      ̅̅̅̅                ̅̅̅̅
+    : K1. K2. K3 + K1. K2. K3 + K1. K2. (1)                      Inverse Law / m%;sf,dau kHdh
+    : ̅̅̅̅
+      K1. K2. K3 + K1. ̅̅̅̅
+                          K2. K3 + K1. K2                        Identity Law / i¾jiduH kHdh
+      ̅̅̅̅. K2. K3 + K1. (K2
+    : K1                    ̅̅̅̅. K3 + K2)                       Distributive Law / ú>gk kHdh
+      ̅̅̅̅
+    : K1. K2. K3 + K1. (K3 + K2)                                 Redundancy Law / iu;srsla; kHdh
+    : ̅̅̅̅
+      K1. K2. K3 + K1. K3 + K1. K2                               Distributive Law / ú>gk kHdh
+    : K3(K1 ̅̅̅̅. K2 + K1) + K1. K2                              Distributive Law / ú>gk kHdh
+    : K3(K2 + K1) + K1. K2                                       Redundancy Law / iu;srsla; kHdh
+    : K2. K3 + K1. K3 + K1. K2                                   Distributive Law / ú>gk kHdh
+
+    Note: We can simplify the above expression using Karnaugh maps, but in this question, it is clearly stated
+    to use only Boolean laws.
+    ldfkda is;shï Ndú;fhka by; m%ldYkh ir, l< yels kuq;a" fuu m%Yakhg wkqj" fuu nQ,shdkq
+    kS;s muKla Ndú;d lsÍu i|yd th meyeÈ,sj m%ldY l< we;'
+RAVINDU BANDARANAYAKE                                -21-                                       #ictfromabc
+
+
+
+    Assuming that only the following integrated circuits are available, we draw the above circuit using only
+    1 OR gate and 6 NAND gates.
+    my; oelafjk ix.Dys; mßm: muKla fhdod .; yels hehs Wml,amkh lrñka" by; mßm:h tla
+    OR oajdrhlska iy NAND oajdr 6 la muKla Ndú;fhka iliuq'
+
+    K2. K3 + K1. K3 + K1. K2
+
+    Let’s construct the above expression in to logical circuit.
+    by; m%ldYkhg ;d¾lsl mßm:h f.dv k.uq'
+
+    Note: we can construct an AND gate from two NAND gates.
+    NAND oajdr follska AND oajdrhla iEÈh yelsh'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2017 LOGIC GATE ESSAY MARKING
+
+   1. A switch (A), a temperature sensor (B) and a timer (C) of an air-conditioner determine turned on and
+      turned off states of the air-conditioner. Turned on and turned off states of the air-conditioner as well
+      as the ‘ON’ and ‘OFF’ states of the switch, temperature sensor and the timer are represented by the
+      logical values 1 and 0, respectively.
+      iaúphla (A), WIaK;aj ixfõolhla (B) iy ld,.Klhla (C) u.ska jdhqiólrK hka;%hl l%shd;aul
+      iy l%shd úrys; wjia:d ;SrKh lrhs' jdhqiólrK hka;%fha l%shd;aul iy l%shd úrys; wjia:d o"
+      iaúpfha" WIaK;aj ixfõolfha iy ld,.Klfha, ‘ON’ iy ‘OFF’ wjia:d o ms<sfj<ska ;d¾lsl w.hka
+      1 iy 0 u.ska ksrEmKh lrkq ,efí'
+
+          The air-conditioner can be turned on or off manually by setting the switch to its ‘ON’ or ‘OFF’ states,
+          respectively.
+          The temperature sensor detects the temperature in the room. The temperature sensor sets its state as
+          ‘ON’ or ‘OFF’ when the detected temperature is respectively higher or lower than a pre-defined
+          temperature value. The air-conditioner is automatically turned on or off when the detected
+          temperature is respectively higher or lower than the pre-defined temperature value.
+          The timer sets its state as ‘OFF’ until it reaches a preset time value and sets the state as ‘ON’ once it
+          reached. The air-conditioner is automatically turned off when the timer reaches the preset time value.
+          ms<sfj<ska iaúph tys ‘ON’ fyda ‘OFF’ fyda wjia:dj,g msysgqùu u.ska jdhqiólrK hka;%h w;ahqrej
+          l%shd;aul fyda l%shd úrys; fyda l< yels h' WIaK;aj ixfõolh ldurfha WIaK;ajh wkdjrKh lrkq
+          ,nk w;r tu WIaK;ajh fmr w¾: olajk ,o WIaK;aj w.hlg jvd by< fyda my< fyda úg
+          WIaK;aj ixfõolh tys wjia:dj ms<sfj<ska ‘ON’ fyda ‘OFF’ fyda f,i msysgqjhs' wkdjrKh lrkq
+          ,enQ WIaK;ajh fmr w¾: olajk ,o WIaK;aj w.hg jvd by< fyda my< fyda úg jdhqiólrK
+          hka;%h ms<sfj<ska iajhxl%Shj l%shd;aul fyda l%shdúrys; fyda fõ' ld,.Klh fmr ;SrKh l< ld,
+          w.hlg meñfKk f;la tys wjia:dj ‘OFF’ f,i o meñKs úg tys wjia:dj ‘ON’ f,i o msysgqjhs'
+          ld,.Klh fmr ;SrKh l< ld, w.hg meñKs úg jdhqiólrK hka;%h iajhxl%Shj l%shd úrys; fõ'
+
+   (a) Construct a logic circuit using only NOR gates to control the air-conditioner. Clearly show truth
+          table, Boolean expression and Boolean algebraic rules used for simplification. Assume that the
+          electricity is always supplied to the air-conditioner.
+          jdhqiólrK hka;%h md,kh lsÍug NOR oajdr muKla fhdod .ksñka ;d¾lsl mßm:hla f.dvk.kak'
+          i;Hd;d j.=j, nQ,shdkq m%ldYkh iy ir, lsÍug fhdod.;a nQ,shdkq ùc .Ks; kS;s meyeÈ,s j
+          olajkak' ieuúg u jdhqiólrK hka;%hg úÿ,s iemhqu ,nd § we;s nj Wml,amkh lrkak'
+
+          Identify the Input Variables / wdodk úp,H y÷kd .kak
+          We are given three inputs / wmg wdodk ;=kla ,nd § we;
+          • A = Switch / iaúph (1 = ON, 0 = OFF)
+          • B = Temperature Sensor / WIaK;aj ixfõolh (1 = High temperature / by< WIaK;ajh, 0 = Low
+             temperature / wvq WIaK;ajh)
+          • C = Timer / ghsurh (1 = Time limit reached / ld, iSudj <Õd ù we;, 0 = Time not yet reached /
+             ;ju;a ld,h <Õd ù fkdue;)
+
+          So, the inputs are A, B, C — each can be 0 or 1.
+          tneúka" A, B, C wdodk - tla tla 0 fyda 1 úh yelsh'
+RAVINDU BANDARANAYAKE                           -23-                                 #ictfromabc
+
+
+    Identify the Output Variable / m%;sodk úp,Hh y÷kd .kak
+    • Q = Air-conditioner state / jdhq iólrK ;;a;ajh
+       o Q = 1 → Air-conditioner is ON / jdhq iólrK hka;h % l%shd;aulh
+       o Q = 0 → Air-conditioner is OFF / jdhq iólrK hka;%h wl%shhs
+
+    List All Input Combinations / ish¨u wdodk ixfhdack ,ehsia;=.; lrkak
+    Since there are 3 inputs, total combinations = 2³ = 8.
+    wdodk 3la we;s neúka" uq¿ ixfhdack = 2³ = 8.
+
+        A    B   C   Q
+        0    0   0   0
+        0    0   1   0
+        0    1   0   1
+        0    1   1   0
+        1    0   0   0
+        1    0   1   0
+        1    1   0   1
+        1    1   1   0
+
+    Find the Minterms / Minterms fidhkak (Rows where Q = 1)
+
+    From the table, Q = 1 only when / Q = 1 wjia:d j,§ muKla j.=fjka"
+
+    •       A=0, B=1, C=0 → m2
+    •       A=1, B=1, C=0 → m6
+
+    So, the Sum of Minterms is / tneúka Minterms ys tl;=j jkafka"
+
+      ̅ BC̅ + ABC̅
+    Q=A
+
+    Simplify the Boolean Expression / nQ,shdkq m%ldYkh ir, lrkak
+    =A̅ BC̅ + ABC̅
+    = BC̅(A̅ + A)         Distributive Law / ú>gk kHdh
+    = BC̅(1)              Inverse Law / m%;sf,dau kHdh
+    = BC̅                 Identity Law / i¾jiduH kHdh
+
+    Step-by-Step NOR gate Implementation / mshjfrka mshjr NOR oajdr l%shd;aul lsÍu
+
+    = ̿̿̿̿
+      BC̅                   Double complement Law / oaú;aj m%;sf,dau kHdh
+    = ̅̅̅̅̅̅̅
+      ̅ + C̿
+      B                     De morgan’s Law / ä fuda.ka kHdh
+RAVINDU BANDARANAYAKE                             -24-                                     #ictfromabc
+
+
+    above diagram can be further simplified
+    by; rEm igyk ;jÿrg;a ir, l< yelsh'
+
+
+
+
+ (b) The user of the air-conditioner says that the switch is not required for the operation of the air-
+    conditioner. Do you agree with this statement? Justify your answer.
+    iaúph jdhqiólrK hka;%fha l%shdldß;ajhg wjYH fkdjk nj jdhqiólrK hka;%fha mßYS,lhd lshhs'
+    fuu lshukg Tn tl. jkafka o? Tfí ms<s;=r idOdrKSlrKh lrkak'
+
+    Yes / Tõ.
+    Input that represents Switch (A) is not in the Boolean expression/circuit.
+    iaúph (A) ksfhdackh lrk wdodkh" nQ,shdkq m%ldYkh$mßm:h ;=< fkdue;'
+
+    Therefore, it is not required for the operation of the air-conditioner.
+    tneúka" jdhq iólrK hka;%fha l%shdldß;ajh i|yd th wjYH fkdfõ'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2018 LOGIC GATE ESSAY MARKING
+
+   1. Suppose a logic circuit needs to be implemented for a digital system that has three inputs A, B and C
+      and one output Z. Its behaviour is as follows:
+      A, B iy C kï wdodk ;=kla iy Z kï tla m%;sodkhla iys; ixLHdxl moaO;shla i|yd ;¾lk
+      mßm:hla ia:dmkh lsÍug wjYH hehs is;kak' tys yeisÍu my; mßos fõ'
+
+          If the input C=1, the output Z has the value of A.
+          wdodkh C=1 kï Z m%;sodkh A ys w.h .kS'
+
+          If the input C=0, then output Z has the value of B.
+          wdodkh C=0 kï Z m%;sodkh B ys w.h .kS'
+
+   (a) Obtain the truth table for the output Z.
+       Z m%;sodkh i|yd i;H;d j.=j ,nd .kak'
+
+            A B C Z
+            0 0 0 0
+            0 0 1 0
+            0 1 0 1
+            0 1 1 0
+            1 0 0 0
+            1 0 1 1
+            1 1 0 1
+            1 1 1 1
+
+   (b) Write down either a sum of products (SOP) or a product of sums (POS) Boolean expression for Z.
+       i|yd .=Ks;hkaf.a tl;=j (sum of products) fyda tl;=j, .=Ks;h (product of sums) fyda wdldrhg
+       nQ,shdkq m%ldYkhla ,shkak'
+
+           A B C Z
+           0 0 0 0
+           0 0 1 0
+           0 1 0 1                               ̅ . B. C̅
+                                                 A
+           0 1 1 0
+           1 0 0 0
+           1 0 1 1                                  ̅. C
+                                                 A. B
+           1 1 0 1                               A. B. C̅
+           1 1 1 1                               A. B. C
+
+          Sum of Products expression / .=Ks;hka j, tl;= m%ldYkh (SOP)
+          Z=A ̅ . B. C̅ + A. B
+                             ̅. C + A. B. C̅ + A. B. C
+RAVINDU BANDARANAYAKE                                      -26-                                 #ictfromabc
+
+
+      A B C Z
+                                     A+B+C
+      0 0 0 0
+                                     A + B + C̅
+      0 0 1 0
+      0 1 0 1
+                                       ̅ + C̅
+                                     A+B
+      0 1 1 0                        ̅
+                                     A+B+C
+      1 0 0 0
+      1 0 1 1
+      1 1 0 1
+      1 1 1 1
+
+    Product of Sums expression / tl;=ka j, .=Ks; m%ldYkh (POS)
+    Z = (A + B + C). (A + B + C̅). (A + B
+                                        ̅ + C̅). (A
+                                                  ̅ + B + C)
+
+ (c) Simplify the Boolean expression for Z obtained in (b) above.
+     by; (b) ys Z i|yd Tn ,nd .;a nQ,shkq m%ldYkh iq¿ lrkak'
+
+    Option 1
+    SOP
+                            B. C̅
+
+
+
+
+                                                        Z = A. C + B. C̅
+
+
+
+
+                                    A. C
+    POS
+
+                                                 B+C
+
+
+
+                                                        Z = (A + C̅). (B + C)
+
+
+
+
+    Option 2       A + C̅
+
+    SOP
+    Z=A ̅ . B. C̅ + A. B
+                       ̅. C + A. B. C̅ + A. B. C
+    Z = A. B. C + A. B        ̅ . B. C̅ + A. B. C̅
+                       ̅. C + A                      Commutative Law / kHdfoaY kHdh
+    Z = A. C. (B + B ̅) + B. C̅. (A
+                                  ̅ + A)                      Distributive Law / ú>gk kHdh
+    Z = A. C.  (1)       ̅
+                   + B. C. (1)                       Inverse Law / m%;sf,dau kHdh
+    Z = A. C + B. C̅                                 Identity Law / i¾jiduH kHdh
+
+    POS
+    Z = (A + B + C). (A + B + C̅). (A + B ̅ + C̅). (A
+                                                    ̅ + B + C)
+                   ̅         ̅   ̅
+    Z = (A + B + C). (A + B + C). (A + B + C). (A   ̅ + B + C) Commutative Law / kHdfoaY kHdh
+    Z = (A + C̅). (B + B                  ̅)
+                        ̅). (B + C). (A + A                    Distributive Law / ú>gk kHdh
+    Z = (A + C̅). (1). (B + C). (1)                            Inverse Law / m%;sf,dau kHdh
+              ̅
+    Z = (A + C). (B + C)                                       Identity Law / i¾jiduH kHdh
+RAVINDU BANDARANAYAKE                             -27-                                        #ictfromabc
+
+
+ (d) Using the simplified expression in (c) above, construct a logic circuit for the system using either 2-
+     input NAND gates only or 2-input NOR gates only.
+     by; (c) ys iq¿ lrk ,o m%ldYkh Ndú; lr moaO;sh i|yd wdodk folla iys; NAND oajdr
+     muKla fyda wdodk folla iys; NOR oajdr muKla fyda Ndú; lr ;¾lk mßm:hla f.dvk.kak'
+
+    NAND
+
+    Zsop= A. C + B. C̅
+RAVINDU BANDARANAYAKE          -28-   #ictfromabc
+
+
+
+    NOR
+
+    Zpos = (A + C̅). (B + C)
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                    2019 LOGIC GATE ESSAY MARKING
+
+1.        The Boolean function known as the majority function takes n binary inputs and outputs 1 if a majority
+          (at least half) of the inputs are 1, otherwise it outputs 0. Let us consider the case when n=3, which is
+          the 3-input majority function, whose inputs are A, B and C and the output is Z.
+          nyq;r Y%s;h (majority function) f,i ye¢kafjk nq,shdkq Y%s;h oaúuh wdodk n ,ndf.k" wdodkfhka
+          nyq;rhla (wvq ;rñka wvlaj;a) 1 fõ kï" 1 m%;sodkh lrhs" ke;fyd;a 0 m%;sodkh lrhs'
+          wdodk A, B yd C o m%;sodkh Z o jk n = 3 wjia:dj tkï wdodk 3 ys nyq;r Y%s;h i,luq'
+
+     (a) Give the truth table for the 3-input majority function.
+         wdodk 3 ys nyq;r Y%s;h i|yd i;H;d j.=j bÈßm;a lrkak'
+
+          The Majority Function is a Boolean function that determines the most common value (0 or 1) among a
+          given set of inputs. In other words, it outputs 1 if the majority of the inputs are 1, and it outputs 0 if the
+          majority of the inputs are 0.
+          nyq;r Y%s;h hkq ,nd § we;s wdodk iuQyhla w;r jvd;a fmdÿ w.h (0 fyda 1) ;SrKh lrk nQ,shdkq
+          Y%s;hls' fjk;a jpk j,ska lsjfyd;a" wdodk nyq;rhla 1 kï th 1 m%;sodkh lrhs" wdodk nyq;rh
+          0 kï th 0 m%;sodkh lrhs'
+
+          For three inputs, the Majority Function works as follows.
+          wdodk ;=kla i|yd nyq;r Y%s;h my; mßÈ l%shd lrhs'
+
+          If at least two or more inputs are 1, the output is 1. If at least two or more inputs are 0, the output is 0.
+          wju jYfhka wdodk folla fyda jeä .Kkla 1 kï" m%;sodkh 1 fõ' wju jYfhka wdodk folla fyda
+          jeä .Kkla 0 kï" m%;sodkh 0 fõ'
+
+          If we extend the Majority Function to 4 inputs (A, B, C, D), the output is 1 when at least three inputs are
+          1.
+          nyq;r Y%s;h wdodk 4 la (A,B,C,D) olajd §¾> lrkafka kï" wju jYfhka wdodk ;=kla 1 jk úg
+          m%;sodkh 1 fõ'
+
+          Since n=3, the output becomes 1 if two or three inputs are true, according to the description of majority
+          function.
+          n =3 neúka" nyq;r Y%s;fha úia;rhg wkqj wdodk folla fyda ;=kla i;H kï m%;sodkh 1 njg m;afõ'
+
+            ICN         A            B            C           Z
+            1           0            0            0           0
+            2           0            0            1           0
+            3           0            1            0           0
+            4           0            1            1           1
+            5           1            0            0           0
+            6           1            0            1           1
+            7           1            1            0           1
+            8           1            1            1           1
+RAVINDU BANDARANAYAKE                             -30-                                      #ictfromabc
+
+
+ (b) Using Karnaugh maps, derive a simplified Boolean expression for the output Z in the 3-input majority
+     function.
+     wdodk 3 ys nyq;r Y%s;fhys Z m%;sodkh i|yd iq¿ lrk ,o nq,shdkq m%ldYkhla" ldfkda is;shï
+     (karnaugh maps) Ndú; lrñka jHq;amkak lrkak'
+
+
+
+
+                                           ZSOP = A. B + B. C + A. C
+
+
+
+
+    Alternative Answer:
+
+
+
+
+                                           ZPOS = (A + B) . (B + C) . (A + C)
+
+
+
+
+ (c) Construct a logic circuit for the 3-input majority function using NAND gates only.
+     wdodk 3 ys nyq;r Y%s;h i|yd NAND oajdr muKla Ndú; lrñka ;¾lk mßm:hla f.dvk.kak'
+
+    ZSOP = A.B + B.C + A.C
+RAVINDU BANDARANAYAKE                          -31-   #ictfromabc
+
+
+    NOTE:
+    Drawing the POS circuit using NOR gates.
+    NOR oajdr Ndú;fhka POS mßm:h we£u'
+
+    ZPOS = (A+B) . (B+C) . (A+C)
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                  2020 LOGIC GATE ESSAY MARKING
+
+   1. Consider the logic circuit shown in the figure, in which A, B and C are the inputs and Z is the output.
+      wdodk A, B yd C iy m%;sodkh Z jk my; rEmfhys § we;s ;¾lk mßm:h i,lkak'
+
+
+
+
+   (a) Give the complete truth table for the given circuit.
+       by; mßm:h i|yd iïmQ¾K i;H;d j.=j f.dvk.kak'
+
+                A               B              C          (A+B)          (B+C)          Z= (A+B).(B+C).C
+                0               0              0            0              0                   0
+                0               0              1            0              1                   0
+                0               1              0            1              1                   0
+                0               1              1            1              1                   1
+                1               0              0            1              0                   0
+                1               0              1            1              1                   1
+                1               1              0            1              1                   0
+                1               1              1            1              1                   1
+
+
+   (b) Using a Karnaugh map, derive a simplified sum-of-products (SOP) expression for the output Z.
+       ldfkda is;shula Ndú;fhka Z m%;sodkh i|yd" iq¿ lrk ,o" .=Ks;j, tl;=fjys (sum-of-products –
+       SOP) m%ldYhla jHq;amkak lrkak'
+
+
+
+
+          Z SOP = B.C + A.C
+RAVINDU BANDARANAYAKE                               -33-                                          #ictfromabc
+
+
+ (c) Using a Karnaugh map, derive a simplified product-of-sums (POS) expression for the output Z.
+     ldfkda is;shula Ndú;fhka Z m%;sodkh i|yd" iq¿ lrk ,o" tl;=j, .=Ks;fhys (product-of-sums –
+     POS) m%ldYhla jHq;amkak lrkak'
+
+
+
+
+     Z POS = (A+B).C
+
+ (d) Of the two expressions (SOP and POS) you obtained in (b) and (c) above, which one is better to implement
+     a more simplified logic circuit than the given logic circuit above? Explain your answer.
+     by; fok ,o ;¾lk mßm:hg jvd ir, ;¾lk mßm:hla l%shd;aul lsÍu i|yd" by; (b) iy
+     (c) ys Tn úiska ,nd .kakd ,o m%ldY (SOP iy POS) fol w;=frka ljr tlla jvd fyd| jkafka
+     o? Tfí ms<s;=r meyeÈ,s lrkak'
+
+     The SOP expression / SOP m%ldYkh
+
+     Z SOP = B.C + A.C
+
+
+
+
+     The POS expression / POS m%ldYkh
+
+     Z POS = (A+B).C
+
+
+
+
+     The SOP expression has 4 literals and it uses 3 gates. The POS expression has 3 literals and uses 2 gates.
+     SOP m%ldYkfha mo 4la we;s w;r th ;d¾lsl oajdr 3la Ndú;d lrhs' POS m%ldYkhg mo 3la we;s
+     w;r ;d¾lsl oajdr 2la Ndú;d lrhs'
+
+     Therefore, the POS is better to implement a more simplified logic circuit as it contains less literals.
+     POS m%ldYkfhys wvq mo iy oajdr m%udKhla wvx.= jk neúka POS jvd ir, l< ;d¾lsl mßm:hla
+     l%shd;aul lsÍu jvd iqÿiq fõ'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2021 LOGIC GATE ESSAY MARKING
+
+   1. Consider the logic circuit shown in the figure, in which A, B and C are the inputs and X is the output.
+      wdodk A, B yd C iy m%;sodkh X jk my; rEmfhys § we;s ;¾lk mßm:h i,lkak'
+
+
+
+
+   (a) Show the complete truth table for the given circuit.
+       by; mßm:h i|yd iïmQ¾K i;H;d j.=j f.dvk.kak'
+
+          X= AB̅C̅ + ABC̅ + ABC
+             A        B       C                         ̅
+                                                        B            C̅          ̅C̅
+                                                                                AB          ABC̅         ABC            X
+             0        0       0                         1            1           0           0            0             0
+             0        0       1                         1            0           0           0            0             0
+             0        1       0                         0            1           0           0            0             0
+             0        1       1                         0            0           0           0            0             0
+             1        0       0                         1            1           1           0            0             1
+             1        0       1                         1            0           0           0            0             0
+             1        1       0                         0            1           0           1            0             1
+             1        1       1                         0            0           0           0            1             1
+
+   (b) Complete the Karnaugh map, according to the following format.
+       ldfkda is;shu" my; wdlD;sh mßÈ iïmQ¾K lrkak'
+
+
+
+
+   (c) Using the Karnaugh map, derive an optimal (most simplified) sum-of-products (SOP) expression
+       for the output X. Show the loops clearly on the Karnaugh map.
+       ldfkda is;shu Ndú;fhka" X m%;sodkh i|yd" .=Ks;j, tl;=fjys (sum-of-products – SOP) ir,;u
+       m%ldYh jHq;amkak lrkak' Æm (loops) meyeÈ,s f,i Tnf.a ldfkda is;shfï fmkajkak'
+
+
+
+
+          .   X = AB + AC̅
+RAVINDU BANDARANAYAKE                              -35-                                         #ictfromabc
+
+
+ (d) Using the Karnaugh map, derive an optimal (most simplified) product-of-sums. (POS) expression for
+     the output X. Show the loops clearly on the Karnaugh map.
+     ldfkda is;shu Ndú;fhka" X m%;sodkh i|yd" tl;=j, .=Ks;fhys (product-of-sums – POS) ir,;u
+     m%ldYh jHq;amkak lrkak' Æm meyeÈ,s f,i Tnf.a ldfkda is;shfï fmkajkak'
+
+
+
+
+    .   X = A ( B + ̅̅̅
+                    C)
+
+ (e) Of the optimal SOP and POS expressions you obtained in (c) and (d) above, which is better (or more
+     suitable) to implement a simplified logic circuit? Explain your answer.
+     by; (c) iy (d) i|yd Tn úiska ,nd.kakd ir, SOP iy POS m%ldY fol w;=ßka" jvd;a ir,
+     ;¾lk mßm:hla l%shd;aul lsÍug ljrla jvd WÑ; (iqÿiq) jkafka o? Tfí ms<s;=r meyeÈ,s lrkak'
+
+    Let’s consider the SOP and POS expressions
+    SOP iy POS m%ldYk i,ld n,uq
+
+    SOP expression / .=Ks;j, tl;=fjys m%ldYkh
+
+    X = AB + AC̅
+
+
+
+
+    SOP expression leads to a logic circuit with 2 AND gates, 1 OR gate and 1 NOT gate. A total of 4 gates.
+    SOP m%ldYkh AND oajdr folla" OR oajdr tlla iy NOT oajdr tllaa iys; ;d¾lsl mßm:hlss' uq¿
+    oajdr 4 lss'
+
+    POS expression / tl;=j, .=Ks;fhys m%ldYkh
+
+                ̅̅̅
+    X = A ( B + C)
+
+
+
+
+    POS expression leads to a logic circuit with 1 OR gate, 1 AND gate and 1 NOT gate. A total of 3 gates
+    POS m%ldYkh OR oajdr tllaa" AND oajdr tlla iy NOT oajdr tllaa iys; ;d¾lsl mßm:hlss' uq¿
+    oajdr 3 lss'
+
+    Therefore the POS form is generally better because it uses fewer gates (3 gates) compared to the SOP form
+    which uses 4 gates.
+    tneúka POS m%ldYkh jvd WÑ; jkafka th oajdr 4la Ndú;d lrk SOP m%ldYkhg idfmalaIj wvq
+    oajdr ixLHdjla ^ oajdr 3 la& Ndú;d lrk neúks'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                             Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                   f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2022 LOGIC GATE ESSAY MARKING
+
+1.(a) Consider the logic circuit shown in the following figure in which P, Q and R are the inputs and Z is
+      the output.
+      wdodk P, Q yd R iy m%;sodkh Z jk my; rEmfha § we;s ;¾lk mßm:h i,lkak'
+
+           P       Q       R
+
+
+
+
+                                                                                                      Z
+
+
+
+
+   (i) Draw the complete truth table for the above circuit.
+       by; mßm:h i|yd iïmQ¾K i;H;d j.=j w¢kak'
+
+          Z=̅
+            PQ̅R + ̅
+                   PQR + ̅ ̅ + PQR
+                         PQR
+
+               P            Q            R           𝑃̅           𝑄̅           𝑅̅         𝑃̅ 𝑄̅ 𝑅         𝑃̅𝑄𝑅        𝑃̅𝑄𝑅̅       𝑃𝑄𝑅            Z
+               0            0            0            1            1            1            0              0            0           0           0
+               0            0            1            1            1            0            1              0            0           0           1
+               0            1            0            1            0            1            0              0            1           0           1
+               0            1            1            1            0            0            0              1            0           0           1
+               1            0            0            0            1            1            0              0            0           0           0
+               1            0            1            0            1            0            0              0            0           0           0
+               1            1            0            0            0            1            0              0            0           0           0
+               1            1            1            0            0            0            0              0            0           1           1
+RAVINDU BANDARANAYAKE                             -36-                                      #ictfromabc
+
+
+  (ii) Complete the Karnaugh map relevant to the above circuit according to the following format.
+       by; mßm:hg wod< ldfkda is;shu my; wdlD;sh mßÈ iïmQ¾K lrkak'
+
+
+
+
+  (iii) Using the Karnaugh map, derive the most simplified sum-of-products expression for the output Z.
+        Show the loops clearly on the Karnaugh map.
+        Z m%;sodkh i|yd .=Ks;j, tl;=fjys (sum-of-products) jvd;a ir,;u m%ldYh ldfkda is;shu
+        Ndú;fhka jHq;amkak lrkak' Æm (loops) meyeÈ,s f,i ldfkda is;shfï fmkajkak'
+
+     In order to get the SOP, let’s group the minterms (1) in the K map
+     SOP ,nd .ekSu i|yd" wms ldfkda is;shfï minterms 1 lKavdhï lruq
+
+
+
+
+     ZSOP = ̅
+            PQ + ̅
+                 PR + QR
+
+
+                                                                ̅ BC + AB
+(d) (i) Using Boolean algebra, show that the Boolean expression A       ̅C + ABC̅ + ABC is
+        equivalent to BC + AC + AB.
+        nQ,Sh ùc .Ks;h Ndú;fhka 𝐴̅𝐵𝐶 + 𝐴𝐵̅𝐶 + 𝐴𝐵𝐶̅ + 𝐴𝐵𝐶 nQ,Sh m%ldYh BC + AC + AB g iudk
+        jk nj fmkajkak'
+
+     BC(A̅ + A) + AB
+                   ̅ C + ABC̅       Distributive Law ú>gk kHdh
+     BC. 1 + ABC + ABC̅
+              ̅                     Complement Law oaú;aj m%;sf,dau kHdh
+     BC + AB̅C + ABC̅               Identity Law i¾jiduH kHdh
+     C(B + AB̅) + ABC̅              Distributive Law ú>gk kHdh
+     C(A + B) + ABC̅                Redundancy Law iu;srsla; kHdh
+     CA + CB + ABC̅                 Distributive Law ú>gk kHdh
+     BC + A(C + BC̅)                Distributive Law ú>gk kHdh
+     BC + A(C + B)                  Redundancy Law iu;srsla; kHdh
+     BC + AC + AB                   Distributive Law ú>gk kHdh
+RAVINDU BANDARANAYAKE                             -37-                                       #ictfromabc
+
+
+  (ii) Draw a logic circuit for the above simplified expression in (b)(i) by only using OR and AND gates.
+       by; b (i) ys oelafjk ir,;u m%ldYh i|yd OR iy AND oajdr muKla Ndú;fhka ;d¾lsl
+       mßm:hla we| olajkak.
+
+
+
+
+  (iii) Draw a logic circuit for the above simplified expression in (b)(i) by only using NAND gates.
+        by; b (i) ys oelafjk ir,;u m%ldYh i|yd NAND oajdr muKla Ndú;fhka ;d¾lsl mßm:hla
+        we| olajkak.
+
+
+
+
+     OR
+
+     BC + AC + AB
+     ̿̿̿̿̿̿̿̿̿̿̿̿̿̿̿̿̿̿
+     BC + AC + AB           Double complement Law ú>gk kHdh
+     ̅̅̅̅̅̅̅̅̅̅̅̅̅
+     ̅̅̅̅. AC
+     BC    ̅̅̅̅. ̅̅̅̅
+                 AB         De Morgan’s Law ä fuda.ka kHdh
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                  2023 LOGIC GATE ESSAY MARKING
+
+5. (a) A circuit with three inputs (A, B, C) and one output (Z) is to be designed. The output should be equal to
+       1 when the binary value combination of the three inputs is either 1, 3 or 6. The output should be 0 for
+       other cases.
+       A, B iy C kï jQ wdodk ;=klska yd Z kï jQ tla m%;sodkhlska iukaú; mßm:hla ks¾udKh l<
+       hq;=j we;' wdodk ;=fka oaúuh w.hkaf.a ixfhdackh 1 fyda 3 fyda 6 fyda jk úg" m%;sodkh 1 úh
+       hq;= h' wfkl=;a wjia:d i|yd m%;sodkh 0 úh hq;= h'
+
+          (i) Draw the complete truth table for the above circuit.
+              by; mßm:h i|yd iïmQ¾K i;H;d j.=j w¢kak'
+
+              The output should be equal to 1 when the binary value combination of the three inputs is either 1, 3 or
+              6. The output should be 0 for other cases.
+              wdodk ;=fka oaúuh w.h ixfhdackh 1, 3 fyda 6 jk úg m%;sodkh 1 g iudk úh hq;=h' wfkl=;a
+              wjia:d i|yd m%;sodkh 0 úh hq;=h'
+
+                ICN 𝐀 𝐁 𝐂 Combination Decimal Value                                                𝐙
+                 1  0 0 0    000           0                                                       0
+                 2  0 0 1    001           1                                                       1
+                 3  0 1 0    010           2                                                       0
+                 4  0 1 1    011           3                                                       1
+                 5  1 0 0    100           4                                                       0
+                 6  1 0 1    101           5                                                       0
+                 7  1 1 0    110           6                                                       1
+                 8  1 1 1    111           7                                                       0
+
+              So, the truth table is as follows;
+              tneúka" i;H;d j.=j my; mßÈ fõ'
+
+                ICN        𝐀      𝐁     𝐂     𝐙
+                1          0      0     0     0
+                2          0      0     1     1
+                3          0      1     0     0
+                4          0      1     1     1
+                5          1      0     0     0
+                6          1      0     1     0
+                7          1      1     0     1
+                8          1      1     1     0
+2024 QUIZ SERIES                                   -39-                                          #ictfromabc
+
+
+    (ii) Complete the Karnaugh map relevant to the above circuit according to the following format.
+         by; mßm:hg wod< ldfkda is;shu my; wdlD;sh mßÈ iïmQ¾K lrkak.
+       First, let’s map ICNs.
+       m<uqj" wms ICN is;shï.; lruq'
+
+
+
+
+       Now, let’s complete the K-map with 1/0 value for the relevant ICNs.
+       oeka" wms wod< ICN i|yd 1/0 w.hka u.ska ldfkda is;shu iïmQ¾K lruq'
+
+
+
+
+    (iii) Using the Karnaugh map, derive the most simplified product-of-sums (POS) expression for
+          the output Z. Show the loops clearly on the Karnaugh map.
+          Z m%;sodkh i|yd tl;+kaf.a .=Ks; (product-of-sums) jvd;a ir,;u m%ldYh ldfkda is;shu
+          Ndú;fhka jHq;amkak lrkak' Æm (loops) meyeÈ,s f,i ldfkda is;shfï fmkajkak.
+
+       To derive the most simplified product-of-sums (POS) expression using a K-map:
+       ldfkda is;shu Ndú;fhka jvd;a ir, lrk ,o tl;=fjys ^POS& m%ldYkh jHq;amkak lsÍug(
+       •   Identify and group the 0s ^0 y÷kdf.k lKavdhï lrkak&
+           In a K-map, focus on grouping the cells that contain 0s. Each group of zeros will correspond to a
+           sum term in the POS expression.
+           ldfkda is;shul" 0 wvx.= ffi, ldKav.; lsÍu flfrys wjOdkh fhduq lrkak' iEu ìxÿ
+           iuQyhlau POS m%ldYkfha tl;=jlg wkqrEm fõ'
+       •   Form the sum terms ^tl;= lsÍfï mo idokak&
+           For each group of zeros (0s), form a sum term within that group.
+           tla tla 0 iuQyhla i|yd" tu lKavdhu ;=< tl;= lsÍfï mohla idokak'
+       •   Combine the sum terms ^tl;= lsÍfï mo tAldnoaO lrkak&
+           Combine all the sum terms by multiplying them to get the final POS expression.
+           wjidk POS m%ldYkh ,nd .ekSu i|yd .=K lsÍfuka ish¨u tl;= lsÍfï mo tAldnoaO lrkak'
+                                                              Alternative answer
+
+
+
+
+            .
+                               ̅ + C̅)(B + C)
+                ZPOS = (A + C)(A                                             ̅ + C̅)(A
+                                                              ZPOS = (A + C)(A       ̅ + B)
+RAVINDU BANDARANAYAKE                              -40-                                        #ictfromabc
+
+
+   (iv) Draw a logic circuit for the simplified expression derived in (iii) by only using NOR gates assuming
+        that the complemented inputs A ̅, B
+                                          ̅ and C̅ are also available.
+        by; (iii) ys ,nd.;a ir,;u m%ldYh i|yd NOR oajdr muKla Ndú; flfrk ;d¾lsl mßm:hla
+        we| olajkak' A̅, B
+                         ̅ iy C̅ (wkqmQrl wdodk) fl,skau ,nd.; yels nj Wml,amkh lrkak.
+
+
+
+
+       For Alternative answer
+RAVINDU BANDARANAYAKE                                -41-                                  #ictfromabc
+
+
+                                    ̅C + A
+(b) Using Boolean Algebra show that A    ̅ B + AB                            ̅ B.
+                                                ̅C + BC is equivalent to C + A
+                                ̅     ̅      ̅                           ̅
+    nQ,Sh ùc .Ks;h Ndú;fhka AC + AB + ABC + BC nQ,Sh m%ldYh C + AB g iudk jk nj fmkajkak'
+
+   Method #1
+   =A̅C + A
+          ̅ B + AB
+                 ̅C + BC
+     ̅      ̅
+   = AC + ABC + BC + A̅B             Commutative Law ^kHdfoaY kHdh&
+      ̅ + AB
+   = (A    ̅ + B)C + A̅B             Distributive Law ^ú>gk kHdh&
+      ̅+B
+   = (A             ̅B
+          ̅ + B)C + A                Redundancy Law ^iu;srsla; kHdh&
+      ̅ + 1)C + A
+   = (A         ̅B                   Inverse Law ^m%;sf,dau kHdh&
+            ̅
+   = (1)C + AB                       Identity Law ^i¾jiduH kHdh&
+   =C+A  ̅B                          Identity Law ^i¾jiduH kHdh&
+
+   Method #2
+   =A̅C + A̅ B + AB̅C + BC
+   =A̅C + A̅ B + (AB̅ + B)C          Distributive Law ^ú>gk kHdh&
+     ̅     ̅
+   = AC + AB + (A + B)C              Redundancy Law ^iu;srsla; kHdh&
+   =A̅C + A̅ B + AC + BC             Distributive Law ^ú>gk kHdh&
+   =A̅ C + AC + A̅ B + BC            Commutative Law ^kHdfoaY kHdh&
+      ̅
+   = (A + A)C + A ̅ B + BC           Distributive Law ^ú>gk kHdh&
+             ̅
+   = (1)C + AB + BC                  Inverse Law ^m%;sf,dau kHdh&
+   =C+A  ̅ B + BC                    Identity Law ^i¾jiduH kHdh&
+   = C + BC + A̅B                    Commutative Law ^kHdfoaY kHdh&
+   = C(1 + B) + A̅B                  Distributive Law ^ú>gk kHdh&
+   = C(1) + A̅B                      Identity Law ^i¾jiduH kHdh&
+   =C+A  ̅B                          Identity Law ^i¾jiduH kHdh&
+
+(c) Consider the flip flop circuit shown on the right.
+    ol=Kqmi oelafjk ms<sfmd< (Flip-Flop) mßm:h i,lkak.
+   First, let’s look at the truth table of the following SR latch implemented using NOR gates.
+   m<uqj" NOR oajdr Ndú;fhka l%shd;aul lrk ,o my; oelafjk SR latch tflys i;H;d j.=j n,uq'
+
+       𝐒         𝐑        𝐐         ̅
+                                    𝐐          Comment
+       0         0        -         -          No Change
+       0         1        0         1            Reset
+       1         0        1         0             Set
+       1         1        0         0           Invalid
+
+    (i) Assume that the S input is 1 and the R input is 0. What will be the output at Q?
+        S wdodkh 1 iy R wdodkh 0 hehs Wml,amkh lrkak' Q m%;sodkh l=ula fõ o?
+       Q=1
+
+    (ii) What will be the output at Q if the S input is now made 0?
+         S wdodkh oeka 0 l< úg" Q m%;sodkh l=ula fõ o?
+       Q = 1 (No Change)
+
+   (iii) What will be the output at Q when the R input is now made 1?
+         R wdodkh oeka 1 l< úg" Q m%;sodkh l=ula fõ o?
+       Q=0
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+                   2024 LOGIC GATE ESSAY MARKING
+
+1.(a) Draw the complete truth table for the following circuit.
+      my; mßm:h i|yd iïmQ¾K i;H;d j.=j w¢kak'
+
+
+
+                                                                             𝑍 = ̅̅̅̅̅̅̅̅̅̅̅̅̅
+                                                                                 (𝐴̅. 𝐵) + 𝐶
+
+
+
+
+                     ̅ (𝑨
+               A B C 𝑨          ̅ . 𝑩) + 𝑪 𝒁 = ̅̅̅̅̅̅̅̅̅̅̅̅̅
+                        ̅ . 𝑩) (𝑨               ̅ . 𝑩) + 𝑪
+                                               (𝑨
+               0 0 0 1   0           0            1
+               0 0 1 1   0           1            0
+               0 1 0 1   1           1            0
+               0 1 1 1   1           1            0
+               1 0 0 0   0           0            1
+               1 0 1 0   0           1            0
+               1 1 0 0   0           0            1
+               1 1 1 0   0           1            0
+
+   (b) Write down the following Boolean expression in the simplest form.
+       my; nQ,Sh m%ldYkh ir,u wdldrfhka ,shkak'
+
+          .
+                            ̅) + AB
+              (A + B). (A + B     ̅
+
+                                  ̅ + AB
+          (A + B) ⋅ A + (A + B) ⋅ B     ̅                                Distributive Law / ú>gk kHdh
+                                  ̅
+          (AA + AB) + (A + B) ⋅ B + AB  ̅                                Distributive Law / ú>gk kHdh
+                               ̅ + AB
+          (A + AB) + (A + B) ⋅ B      ̅                                  Idempotent Law / ;foajNdú kHdh
+                        ̅    ̅
+          A + (A + B) ⋅ B + AB                                           Redundancy Law / iu;srsla; kHdh
+                   ̅+B⋅B
+          A + (A ⋅ B      ̅) + AB̅                                       Distributive Law / ú>gk kHdh
+                   ̅         ̅
+          A + (A ⋅ B + 0) + AB                                           Inverse Law / m%;sf,dau kHdh
+               ̅ + AB
+          A + AB      ̅                                                  Identity Law / i¾jiduH kHdh
+               ̅
+          A + AB                                                         Idempotent Law / ;foajNdú kHdh
+          A                                                              Redundancy Law / iu;srsla; kHdh
+
+
+   (c) In a circuit with three inputs A, B and C the output (Z) should be 1 when each of two or three inputs is 1.
+       If none or only one of the inputs are 1, then the output should be 0.
+       A, B iy C kï jQ wdodk ;=klska hq;a mßm:hl wdodk folla fyda ;=kla fyda bka tl tlla 1 úg Z
+       m%;sodkh 1 úh hq;=h'lsisu wdodkhla 1 fkdjk úg iy wdodk tlla muKla 1 úg m%;sodkh 0 úh hq;=h'
+RAVINDU BANDARANAYAKE                               -43-                                           #ictfromabc
+
+
+  (i) Draw the complete truth table for the above circuit.
+      by; mßm:h i|yd iïmQ¾K i;H;d j.=j w¢kak'
+
+            A               B               C                Z
+            0               0               0                0
+            0               0               1                0
+            0               1               0                0
+            0               1               1                1
+            1               0               0                0
+            1               0               1                1
+            1               1               0                1
+            1               1               1                1
+
+ (ii) Complete the Karnaugh map relevant to the above circuit according to the following format.
+      by; mßm:hg wod< ldfkda is;shu my; wdlD;sh mßÈ iïmQ¾K lrkak'
+
+
+
+
+ (iii) Using the Karnaugh map derived, the most simplified sum-of-product (SOP) expression for the output Z.
+       Show the loop clearly on the Karnaugh map.
+       m%;sodkh i|yd .=Ks; j, tl;=fjys (SOP) jvd;a ir,;u m%ldYh ldfkda is;shu Ndú;fhka jHq;amkak
+       lrkak' Æm meyeÈ,sj ldfkda is;shfï fmkajd fmkajkak'
+
+
+
+
+                                                        Z SOP = AB + AC + BC
+
+
+
+
+ (iv) Draw a logic circuit for the most simplified expression derived in the above by using only AND, NOT and
+      OR gates.
+      by; ys ,nd.;a ir,;u m%ldYh i|yd AND, NOT iy OR oajdr muKla Ndú;d flfrk ;d¾lsl
+      mßm:hla we| olajkak'
+RAVINDU BANDARANAYAKE                                    -44-                                             #ictfromabc
+
+
+(b)(i) Explain the use of half adder in digital circuits.
+       wxls; mßm:j, w¾Odl,lfha (half adder) Ndú;h myokak'
+
+                                             A half adder is a basic digital circuit used for adding two single-bit
+                                             binary numbers, producing a sum and a carry-out as outputs. It forms
+                                             the foundation for building more complex circuits like full adders.
+                                             w¾Odl,lh hkq ;ks ìgq oaúuh ixLHd folla tl;= lsÍu i|yd
+                                             Ndú;d lrk uQ,sl wxls; mßm:hls" m%;sodkhka f,i sum iy
+                                             carry-out ksmojhs' th mQ¾Kdl,l jeks jvd;a ixlS¾K mßm:
+                                             ;ekSu i|yd moku idohs'
+
+  (ii) Describe how a flip flop works as a memory element in digital circuits. Explain how it differs from
+       combinational logic gates.
+       wxls; mßm:j, u;l uQ,hka f,i ms<sfmd< fmd<la (flip flop) lrk whqre úia;r lrkak' th ixfhdack
+       ;¾lk oajdrj,ska (combinational logic gates) fjkia jk whqre myokak'
+
+     A flip-flop is a type of digital circuit used to store a single bit of data, either a 0 or a 1. It acts as a memory
+     element, meaning it can keep its value even after the input stops. It changes its state (from 0 to 1 or 1 to
+     0) when it receives a clock signal, making it useful in situations where you need to keep track of a value
+     or sequence over time.
+     ms<sfmd< hkq 0 fyda 1hk tla o;a; ìgqjla .nvd lsÍu i|yd Ndú;d lrk wxls; mßm: j¾.hls'
+     th u;l uQ,hla f,i l%shd lrhs" tkï wdodkh keje;aùfuka miqj mjd tys w.h ;nd .; yel' th
+     ld, ix{djla ,enqKq úg tys ;;a;ajh ^0 isg 1 fyda 1 isg 0 olajd& fjkia lrhs" ld,h;a iuÕ
+     w.hla fyda wkqms<sfj,la ksÍlaIKh lsÍug wjYH wjia:djkays§ th m%fhdackj;a fõ'
+
+     Flip-flops are different from combinational logic gates because these gates produce outputs immediately
+     based on inputs, without storing any value.
+     ms<sfmd<, ixfhdack ;d¾lsl oajdrj,g jvd fjkia jkafka fuu oajdr lsisÿ w.hla .nvd fkdlr" wdodk
+     u; mokïj jydu m%;sodkhka ksmojk neúks'
+
+ (iii) Draw the truth table for a full adder circuit.
+       mQ¾Kdl,l (full adder) mßm:hl i;H;d j.=j w¢kak'
+

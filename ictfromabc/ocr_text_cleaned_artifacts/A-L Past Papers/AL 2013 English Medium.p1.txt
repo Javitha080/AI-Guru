@@ -1,0 +1,519 @@
+| Instructions:
+
+4 Answer all the questions.
+
+%* Write your Index Number in the space provided in the answer sheet.
+
+% Instructions are also given on the back of the answer sheet. Follow those carefully.
+
+%* In each of the questions 1 to 50, pick one of the alternatives from (1), (2), (3), (4), (5) which is correct or most
+
+appropriate and mark your response on the answer sheet with a cross (xX) in accordance with the instructions
+given on the back of the answer sheet.
+
+%* Use of calculators is not allowed.
+
+1. The Boolean expression (x + y) . (x + 7) simplifies to ……
+(1) x (2)x .(y +z) (3)x.y.zZ (4)xty.z (5)x+y+z
+
+2. Which of the following Boolean expressions represents the output (Q) of the circuit shown below?
+A and B are inputs.
+(1) A/.B! + A.B! A ගත ෂෂ
+(2) A.B’ 4- A.B
+(3) A.B + A! B! Q
+(4) A.B + A.B!
+(5) A.B + A’B! Bo
+
+3. A high speed temporary storage, which is a part of the microprocessor that holds data and instructions during
+the execution, is called ……
+
+(1) Registers. (2) RAM. (3) Virtual Memory.
+(4) EPROM. (5) Flash Memory.
+
+4, Microprocessors are usually compared by their clock speed, measured im …… …… or by their word
+SIZE, Measured 11 …… that can be processed in a single clock cycle. Which of the following is
+most appropriate to fill the blanks in the above statement?
+
+(1) Bits, Megahertz (2) Bytes, Gigahertz (3) Gigahertz, Bytes
+(4) Megahertz, Bits (5) Seconds, Bits
+
+5. Typically the cache memory is USed tO StOTE …… ……-
+(1) a large volume of data temporarily. (2) the least frequently accessed data permanently.
+(3) the least frequently accessed data temporarily. (4) the most frequently accessed data temporarily.
+(5) the most frequently accessed data permanently.
+
+6. Sharing a single microprocessor among number of application programs using context switching is known as
+(1) Multi-user processing. (2) Multitasking. (3) Multiprocessing.
+(4) Batch processing. (5) Online processing.
+7. Babbage’s Difference Engine is based OM …… ……
+(1) mechanical technology. (2) vacuum tube technology.
+(3) transistor technology. (4) Integrated Circuit (IC) technology.
+(5) Very Large Scale Integrated (VLSI) Circuit technology.
+
+8. Which of the following components is located outside the microprocessor?
+(1) Arithmetic Logic Unit (ALU) (2) RAM
+(3) Control Unit (4) Registers
+
+(5) Level 1 cache memory
+ම 7
+
+a
+
+9.
+
+10.
+
+11.
+
+12.
+
+13.
+
+14.
+
+15.
+
+16.
+
+Which of the following is an incorrect Karnaugh Map layout to represent a Boolean function of four (4)
+Boolean variables a, b, c and d?
+
+(1) | ab\cd | 01 00 | 10 | 11 (2) | ac\bd | 01 00 | 10 | 11 (3) | ab\cd | 01 | 00 | 11 | 10
+01 01 01
+00 00 00
+10 10 11
+11 11 10
+(4) | ad\bc | 11 | 10 | 00 | 01 (5) | ac\bd | 00 | 10 | 11 | 01
+11 00
+10 10
+00 11
+01 01
+
+What is the output of the following Python program? :
+
+5 = "Nimal Perera"
+print(s[1:3])
+(1) Ni (2) im (3) ra (4) er (5) Pe
+
+Which of the following is a valid Python statement that can be used to open a file called "output.txt"
+so that new data can be added to the end of the file without deleting its original content?
+
+(1) open = infile ("output.txt","r") (2) infile = open ("output.txt", "r")
+
+(3) infile = open (“output.txt","a") (4) open = infile ("output.txt","a")
+
+(5) infile = open ("output.txt", "w")
+
+Consider the following Python statements:
+a = "123"
+b = 123
+c = ['a',2,(1,2,3)]
+What are the data types of the variables a, b and c, respectively?
+
+(1) List, Integer, String (2) String, Integer, List (3) Integer, Integer, List
+(4) String, String, String (5) String, Float, Tuple
+What will be the output when the following Python code is executed?
+xX = 6
+while x > 6:
+X=xX- 2
+print (x, end=' ')
+(1) 6 (2)4 2 (3)2 4 6 (4)4 2 0 (5) 0
+Which of the following is an invalid Python identifier?
+(1) name (2) Name (3) Name_ (4) 6Name (5) _6_names
+Consider the following Python program:
+a= [1, 2]
+b = [3, 4]
+c=at+b
+print(c)
+What is the output?
+(1) [4, 6] (2) 10 (3) [1, 2, 3, 4] (4) [[1, 2] , [3, 41] (5) [1, 2] + [3, 4]
+
+What is the value after executing the Python expression 10-3 *2+2.0?
+(1) 16 (2) 16.0 (3) 6 (4) 6.0 (5) 28
+
+y,
+
+4 ॥
+17. Which of the following is a syntactically correct Python program?
+(1) def max(a, b) (2) def max(a, b): (3) def max(a, b)
+if(a>b) if(a>b): if(a>b) then return a
+return a return a else return b
+else else:
+return b return b
+(4) def max(a, b) (5) function max(a, b):
+if(a>b): if(a>b):
+return a return a
+else: else:
+return b return b
+e Use the following flowchart to answer the questions 18 and 19.
+18. What is the output of the algorithm represented by this flowchart? ලව
+(1) 0
+(2) 5 a=0
+(3) 4
+(4) 10 <
+(5) 15
+a>5? es a=a+l
+19. Which of the following Python programs correctly represents this
+flowchart? No
+(lI) a= 0 (2) a = 6
+while (a>5): while (a>5): 7 Printa /
+a=at+l රි ~ අ 4 1
+print(a) print(a)
+(3) a= 0 (4) a = 0 (stop)
+while not (a>5): while not (a>5):
+a=atti a=at+il1
+print(a) print(a)
+(5) a= 0
+while (a<=5):
+3 ~ 3 4 1
+print(a)
+20. The binary number equivalent to the 2510 is
+(1) 0100101. (2) 0100111. (3) 0011001. (4) 0010110. (5) 0010111.
+21. 124; + 1653 =
+(1) 201s (2) 28940 (3) 2893 (4) 311s (5) 389s
+22. Consider the following attributes related to business:
+A - Speed of services
+B - Purchase and distribution
+C - Security of goods sent
+D - Confidence in quality of items ordered
+Which of the above is/are disadvantage(s) of e-business?
+(1) A only (2) C only (3) A and B only
+(4) C and D only (5) All A, B, C and D
+ද _2.
+
+23. Which of the following is the most appropriate Entity Relationship (ER) diagram to represent students’
+
+24,
+
+25.
+
+26.
+
+27.
+
+participation in different sports in school?
+
+(1) Year of participation
+
+student ! participate m sport
+(2) Year of participation
+
+student m participate 1 sport
+(3) oT
+
+Year of participation
+
+student m participate w sport
+(4) ot
+
+Year of participation
+
+student m participate n sport
+
+(5) Year of participation
+
+student m participate n sport
+Which of the following can be considered as an expert system?
+(1) A bank teller machine (2) A fully automatic washing machine
+(3) A microwave oven (4) A diagnosis system of a health care facility
+
+(5) An electronic blood pressure meter
+
+Which of the following is a testing Strategy which considers the internal implementation of a program into
+account?
+
+(1) Black box testing (2) White box testing (3) Integration testing
+(4) Acceptance testing (5) Unit testing
+
+Which of the following information System development models has an extremely short and linear development
+process?
+
+(1) Waterfall model (2) Object-Oriented model
+(3) Spiral model (4) Incremental Development model
+(5) Rapid Application Development model
+
+Which of the following is correct with respect to a relational database?
+
+(1) Any subset of Alternate Keys is called Candidate Key.
+
+(2) A Primary Key is selected from Alternate Keys.
+
+(3) A Foreign Key is an Alternate Key.
+
+(4) Always Primary Key and Foreign Key are combined to create a Compound Key.
+(5) Primary Key and Foreign Key establish the relationship between two tables.
+
+y,
+
+AL/2013/20/E-I -)-
+
+"a
+
+28.
+
+29.
+
+30.
+
+31.
+
+32.
+
+33.
+
+34.
+
+Consider the following data flow diagram:
+
+Bl B2
+
+A
+
+Cl C2
+
+In the above data flow diagram A, B3 and C2 represent …… …… respectively.
+
+Which of the following terms is the most appropriate to fill the blank?
+(1) a process, an external entity and a data store
+
+(2) an external entity, a process and a data store
+
+(3) an external entity, a data store and a process
+
+(4) a data store, a process and an external entity
+
+(5) a data store, an external entity and a process
+
+Consider the following systems in a human body:
+A - respiratory system
+B - digestive system
+C - nervous system
+D - blood circulatory system
+Which of the above are closed systems?
+(1) A and B only (2) A and C only (3) B and C only
+
+(4) B and D only (5) C and D only
+
+Which of the following statements best describes a non functional requirement of a system?
+(1) A user shall be able to measure the blood pressure using an electronic blood pressure meter.
+(2) A microwave oven should not exceed its temperature above 400°C.
+(3) An electronic calculator should be able to compute square root of a given positive integer.
+(4) An Automatic Teller Machine of a bank shall be able to check the validity of an ATM card.
+(5) An internet banking system shall provide balance inquiry facility to its customers.
+
+Which of the following statements is true with regard to data and information?
+(1) Decision can be made only when a massive volume of data is available.
+
+(2) Validity of information depends on the accuracy of data.
+
+(3) Information obtained by processing data is always accurate.
+
+(4) In order to obtain information, data must be collected from multiple sources.
+(5) The accuracy of information depends only on the accuracy of input data.
+
+Consider the following techniques:
+A - Computer Aided Learning (CAL)
+B - Computer Based Learning (CBL)
+C - Computer Based Assessment (CBA)
+Which of the above techniques is/are used in ICT based Teaching and Learning?
+(1) A only (2) B only (3) A and B only
+(4) B and C only (5) All A, B and C
+
+The generation of monthly salary slips of employees in an organization is an example for
+
+(1) Batch processing. (2) Real time processing. (3) Online processing.
+
+(4) Transaction processing. (5) Interactive processing.
+
+Consider the following statements about Firmware:
+A - Firmware is the program required to bootup a computer system.
+B - Firmware is incorporated in washing machines.
+C - Firmware can be easily changed later on.
+Which of the above statements is/are correct?
+(1) A only (2) B only (3) A and B only
+(4) A and C only (5) B and C only
+
+_2
+
+35. Consider the following components:
+
+A - Web authoring tool
+B - Domain name
+
+C - Web pages
+D - Web server
+Which of the above components are essential for hosting a web site?
+(1) A and B only (2) B and C only (3) A, B and C only
+(4) A, C and D only (5) B, C and D only
+36. Which of the following tag is used to render a heading on an HTML page?
+(1) <h2> (2) <ol> (3) <ul> (4) <hr> (5) <td>
+37. Which of the following could be used to define a new markup language for sharing information?
+(1) CSS (2) XML (3) HTML (4) XHTML (5) JavaScript
+38. Consider the following HTML code segment:
+<dl>
+<dt>Teacher</dt>
+<dd>A person who teaches in a school.</dd>
+<dt>Student</dt>
+<dd>A person who is studying at a school</dd>
+</d1>
+Which of the following shows the correct rendering of the above HTML code segment?
+(1) | Teacher (2) | Teacher
+A person who teaches in a school. - A person who teaches in a school.
+Student Student
+A person who is studying at a school - A person who is studying at a school
+(3) | Teacher (4) | Teacher
+: A person who teaches in a school. : A person who teaches in a school.
+Student Student
+: A person who is studying at a school : A person who is studying at a school
+(5) | Teacher
+- A person who teaches in a school.
+Student
+- A person who is studying at a school
+
+39. Which of the following statements is correct with regard to HTML tags?
+(1) The <br> is used to render a blank line before and after the text.
+(2) The <p> is used to render a blank line before and after the text.
+(3) The <br> is used to render a blank line before the text.
+(4) The <p> is used to render a blank line only before the text.
+(5) The <p> is used to render a blank line only after the text.
+
+40. Consider the following HTML code segments:
+A-<embed height="50" width="100" src="song.mp3"></embed>
+B -<a href="song.mp3">Song</a>
+ල්‌ -<embed height="50" width="100" href="song.mp3"></embed>
+Which of the above code fragment(s) can be used to embed the audio file named ‘song.mp3’ in a web page?
+
+(1) A only (2) B only (3) C only (4) A and B only (5) B and C only
+41, What is the main function of a PROXY server in Internet communication?
+
+(1) Allocate and release IP addresses (2) Translate domain names to IP addresses
+
+(3) Protect a network from viruses (4) Provide printing services to users
+
+(5) Share an Internet connection among several computers
+
+ණී \
+
+7
+
+ඒ
+
+42.
+
+43.
+
+45.
+
+46.
+
+47.
+
+48.
+
+49,
+
+50.
+
+. In the OSI reference model, detection of errors during communication between two computers in a network
+
+An organization has been allocated අ Class C IP address range having a subnet mask of 255.255.255.0. If
+the organization is to setup a web server and an email server, what are the IP addresses that can be allocated
+to these two servers?
+
+(1) 192.248.87.2, 192.248 .32.3 (2) 192.248.87.4, 192.248 .87.5 (3) 192.248 .32.3, 192.248 .33.3
+(4) 192.248.40.2, 192.248.41.3 (5) 192.248 .87.1, 192.248.60.2
+
+In communication networks, ISDN stands for
+
+(1) Integrated Service Domain Name. (2) Internet Service Directory Name.
+(3) Integrated Service Digital Network. (4) Internet Service Digital Network.
+(5) Integrated Service Domain Network.
+
+is a function 01 the ……ී.ී……
+
+(1) physical layer. (2) data link layer. (3) network layer.
+(4) transport layer. (5) application layer.
+
+The command that can be used to login to a remote computer through a network is
+(1) ipconfig. (2) ftp. (3) telnet. (4) tracert. (5) route.
+
+Which of the following devices can be used to connect two physical networks having IP addresses 72.110.0.0
+(subnet mask: 255.255.0.0) and 192.248.10.0 (subnet mask 255.255.255.0)?
+
+(1) Hub (2) Repeater (3) Switch (4) Router (5) Multiplexer
+
+Consider the following statements regarding relational databases:
+
+A - Changing the column order of relations in a database structure does not necessarily require changes in
+application programs.
+
+B - Main objective of normalization of databases is to reduce data redundancy.
+
+C - Adding new data to the database always requires changes to the existing programs.
+Which of the above statements is/are correct?
+(1) A only (2) B only (3) A and B only
+(4) A and C only (5) All A, B and C
+
+Ubiquitous Computing is a/an …… computing environment. The user will be able to use both
+AN …… services.
+
+Which of the following is most appropriate to fill the blanks in the above statement?
+(1) everywhere, mobile, local (2) everywhere, local, remote (3) everywhere, local, paid
+(4) virtual, local, remote (5) virtual, mobile, global
+
+What is the two’s complement of --6107
+(1) 11111010 (2) 00000110 (3) 11111001 (4) 01011111 (5) 00000101
+
+Consider the following two relations:
+student(stdNo, name)
+courseMarks(courseld, std No, marks)
+Which of the following SQL (Structured Query Language) statements on the above relations is syntactically
+correct?
+(1) select stdNo, marks from student, courseMarks
+(2) select * from student and courseMarks
+(3) select s.stdNo and c.marks from student s, courseMarks c
+(4) select student.stdNo, courseMarks.marks from student, courseMarks
+where student.stdNo = courseMarks.stdNo
+(5) select student.stdNo and courseMarks.marks from student and courseMarks
+where student.stdNo = courseMarks.stdNo
+
+AL/2013/20/E-II
+
+ශ්‍රී ලංකා Senne දෙපාටතමේෙන්තුව
+QOMICNSM LP ACHES: HOV HS EMLD
+Departnent.of Examinations;Sri-Lanka
+seen Gungs  ඉඅ1[/1151)1] ! 15217 Ow spd ufLeng, 2013 gacom
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11 පැය නනයි
+HEU, 015)111_1)11111_60 05)1110)60)]1!_! ]ධ]]!! |160) 11 [20 EB ॥ 11 | උඌ277/77/ LosoMNE SMULITEVLD
+| index NOg : ……෴…… |
+Important: For Examiner’s Use Only
+%* This question paper consists of 08 pages. For the Second Paper
+* This question paper comprises of two Part | Question No. Marks
+parts, Part A and Part B. The time 1
+allotted for both parts is three hours. 2
+* Use of calculators is not allowed A 3
+PART A - Structured Essay: 4
+(pages 02-06) 1
+x Answer all the questions on this paper
+itself. Write your answers in the space 2
+provided for each question. Note that the 3
+a 76 B
+space provided is sufficient for your answers 4
+and that extensive answers are not expected. 5
+PART B - Essay: 6
+(pages 07-09)
+. න . , Total
+$ This part consists six questions, of which, four
+are to be answered. Use the papers supplied for Final Marks
+this purpose. In numbers
+% At the end of the time allotted for this paper, In words
+tie the two parts together so that Part A is on Code Numb
+top of Part B before handing them over to the —e
+5 Marking Examiner 1
+upervisor.
+%* You are permitted to remove only Part B of Marking Examiner 2
+the question paper from the Examination Marks checked by :
+Hall. Supervised by :
+[භූ y,
+
+(- ~

@@ -1,0 +1,225 @@
+Development boards
+සංවර්ධන පුචරැ
+
+1. Arduino
+
+The Arduino Uno is one of the most
+popular microcontroller boards for
+beginners and hobbyists.
+
+Arduino යනු ආධුනිකයින්‌ සහ
+විනෝදාංශකරැවන්‌ සඳහා වඩාත්‌ ජනප්‍රිය wee
+පාලක පුචරැ වලින්‌ එකකි.
+
+It features an  8-bit or 32-bit
+microcontroller and is typically used in
+projects that require basic digital and
+analog input/output.
+
+As 8-bit හෝ 32-bit ක්ෂුද්‍ර පාලකයකින්‌
+සමන්විත OD අතර මූලික අංකිත සහ ප්‍රනිසම
+ආදානය/ ප්‍රතිදානය අවශ්‍ය වන ව්‍යාපෘතිවල
+සාමාන්‍යයෙන්‌ භාච්තා GS.
+
+It's programmed using the Arduino IDE,
+which supports C/C++ and is known for its
+simplicity. The Uno is ideal for simple
+electronics projects like controlling LEDs,
+sensors, and motors.
+
+Aca C/C++ සඳහා සහය දක්වන Arduino IDE
+භාවිතයෙන්‌ වැඩසටහන්ගත කර ඇති අතර එය
+එහි සරල බව සඳහා ප්‍රසිද්ධය. LED, සංවේදක
+සහ ඉමෝටර පාලනය කිරීම වැනි සරල
+ඉලෙක්ට්‍රොනික ව්‍යාපෘති සඳහා මතො සුදුසුය.
+
+Examples of this are Arduino Uno, Arduino
+Nano, Arduino pro mini, Arduino Mega,
+Arduino Due etc.
+
+මේ සඳහා උදාහරණ ලෙස Arduino Uno,
+Arduino Nano, Arduino pro mini, Arduino
+Mega, Arduino Due ආදිය ගත හැකිය.
+
+2. ESP
+
+|
+%ං ~ &
+3V3 GND CLK
+4 AS
+
+| VENDOR += DOTT-AM
+
+8 194 2.4GHz 6 මී
+FS} PA 25453
+802.11 b/g/n
+BBRO8 pt
+
+1: (600 (0 20 1a 00
+
+ESP boards are Wi-Fi-enabled
+microcontrollers commonly used in loT
+(Internet of Things) projects.
+
+ESP පුචරු යනු [01 (අන්තරජාල සාර්ව ද්‍රව්‍ය)
+
+ව්‍යාපෘතිවල බහුලව භාවිතා වන WI-Fi සක්‍රීය
+ක්ෂුද්‍ර පාලක GO.
+
+The ESP8266 is a low-cost option with Wi-
+Fi capabilities, while the ESP32 offers more
+power, including dual-core processing,
+Bluetooth, and additional GPIO pins.
+
+ESP8266 WI-Fi හැකියාචන්‌ සහිත අඩු වියදමි
+විකල්පය වන අතර ESP32 ද්විත්ව හර සැකසුමි,
+
+බිලූටූත්‌ සහ අමතර GPIO පින්‌ ඇතුළුව වැඩි
+බලයක්‌ ලබා දෙයි.
+
+Both can be programmed using the
+Arduino IDE or MicroPython, making them
+versatile for a range of applications, from
+home automation to networked sensors.
+
+දෙකම Arduino IDE හෝ MicroPython
+භාවිතයෙන්‌ වැඩසටහන්ගත කළ හැකි අතර,
+ගෘහස්ථ ස්වයංකීයකරණයේ සිට ජාලගත
+සංවේදක දක්වා ව්ව්ධ යෙදුම්‌ සඳහා චිවා
+බහුකාරිය කරයි.
+
+3. Microbit
+
+\
+
+o Sieur. මූ ante
+ne micro:bit
+
+AA Ay MS eweieuic
+
+The Microbit is a small, ARM-based
+microcontroller designed primarily for
+educational purposes.
+
+Microbit aq මූලික වශයෙන්‌ අධ්‍යාපනික
+
+අරමුණු සඳහා නිරිමාණය කර ඇති ARM මත
+පදනම්‌ වූ කුඩා ක්ෂුද්‍ර පාලකයකි.
+
+It has built-in sensors, a 5x5 LED matrix, and
+supports Bluetooth, making it an excellent
+tool for teaching basic programming and
+electronics to children.
+
+එහි ඇති සංවේදක, 5x5 LED matrix සහ
+බිලටූත්‌ සඳහා සහය දක්වයි, As ආධුනිකයන්ට
+මූලික වැඩසටහන්කරණය සහ ඉලෙක්ට්‍රොනික
+
+උපකරණ ඉදෙෞන්වීම සඳහා විශිෂ්ට මෙවලමක්‌
+බවට පත්‌ කරයි.
+
+It can be programmed using a block-based
+editor, JavaScript, or Python, making it
+accessible to users with varying skill levels.
+Aas 5d නිපුණතා මට්ටමි ඇති පරිශීලකයින්ට
+ප්‍රවේශ විය හැකි පදිදි Bees පාදක
+සංස්කාරකයක්‌, ජාචාස්ක්‍ර්්ට්‌ි හෝ පයිතන්‌
+භාවිතයෙන්‌ වැඩසටහන්ගත කළ හැක.
+
+4. Raspberry Pi
+
+The Raspberry Pi is a fully-fledged mini-
+computer that runs අ, Linux-based
+operating system.
+
+Raspberry Pi යනු Linux මත ascend වූ
+මෙහෙයුම්‌ පද්ධතියක්‌ ධාවනය කරන අංග
+සම්පූර්ණ කුඩා පරිගණකයකි.
+
+It is significantly more powerful than
+microcontrollers like Arduino, ESP or Micro
+, and it can be used for a wide variety of
+applications, including web servers, media
+centers, and robotics.
+
+චිය Arduino, ESP හෝ Micro වැනි ක්ෂුද්‍ර
+පාලකයන්ට වඩා සැලකිය යුතු තරමි බලවත්‌ වේ
+සහ එය එවචවෙබ්‌ සර්වර්‌, මාධ්‍ය මධ්‍යස්ථාන සහ
+රොබෝ තාක්ෂණය ඇතුළු SHO ලඉලයදුමි සඳහා
+MAD) කළ හැක.
+
+The Raspberry Pi supports various
+programming languages, including Python,
+C/C++ and Scratch, and is equipped with
+USB ports, HDMI, Ethernet and GPIO pins
+for hardware interfacing.
+
+Raspberry Pi g@dz Python, C/C++ සහ
+Scratch ඇතුළු චිව්ධ ක්‍රමලේඛන භාෂා සඳහා
+සහය දක්වන අතර දෘඬාංග අතුරැමුහුණත සඳහා
+
+USB ports, HDMI, Ethernet සහ GPIO pins
+වලින්‌ සමන්විත වේ.
+
+It's ideal for users who need more
+processing power or want to work on more
+complex projects.
+
+වැඩි සැකසුමි බලයක්‌ අවශ්‍ය හෝ වඩාත්‌
+
+සංකීරණ ව්‍යාපෘතිවල වැඩ කිරීමට අවචශ්‍යෲ
+පරිශීලකයින්‌ සඳහා එය වඩාත්‌ සුදුසු වේ.
+
+QQ2PRHDOCACOEQ
+"(ශමය ගෆගලයැෆල ‘MQraQeocs?
+5191/(000(] *61016211[09 ‘ssadojanaq
+
+'ඉගෆලලෆිඹ
+‘(QQ ධඨශයංඥඅල්‍ය
+
+5.19(1(110090] ‘uoneonpy
+
+(ඉලාරෆගංඌරැශල්‍ර
+‘CQCOQES? |0|
+sysiAqqoy ‘ssadojanap | 0]
+
+(ශුරය ගශකයඥඅලබ
+*අලුෆෆරූලංය ''(ඉල්‍යරෆලනංලැලශඉබලු
+511016211[09 ‘ssadojanap ‘s}siAqqoH
+
+AQeALH®D QLOEEDS
+a2uaipny 19016].
+
+"5919 ‘YD}EIIS ‘+4+9/D ‘UOUY
+
+(10(]1/63 ‘ydussener
+
+(10(]1/6340.121]7]
+‘AI 0011110.1%/ "47ට
+
+Aq] 0011100107 '++5/9
+
+CALA ශළලබඉලල
+5906110016]
+0(11(/1(/16.100 0.1ශ්‌
+
+Q2@ Q2@ Q2@ ගලෆලරය ලෆිඟමලඉ
+(ueiqdsey “b'3) SO paseq-xnurq 3UON 3UON 3UON wiaysks Bunesado
+@B2209 බල
+OldD 40 ‘GSN OsDIW ‘GSN BIA AS Asayyeq 10 gSn 617; AE /191160] jo gsn ein Age | oe jauieq 617, AZL-Z ‘ASN 617, AG A\ddng 19//04
+(Q2@ yOO}NIgG/I4IM
+DDAC@ (ශුම(ෆඉ) QO SEES
+(SjapOW }sSOW MeCLOCC@se
+qS/N 1911191112] ‘Yoo aN! ‘14-1M 01006 ‘yLOOJEN|g (ZEdSJ) (]1001911]8 ‘14-1 UO YLOOJSN|g/I4IM ON) Sauer 711/11129(110
+(ල්‍රම ගශලම ලල NOQE
+japow (ZEdSA) OldD (ල්‍රම P@ES C&L DOQE @8 Oldd
+uo bulpusdap) suid 017 01 92 suid ඳු ve / (99Z8dSJ) OldD LL japow Aq saver) suld 06 - 17]. SUld Old)
+se 480 neck
+(දුට 2] ද 03 dn) 0169 qsouoiw 9156[4 87] 352 | 5 :zegsa/ AW ₹ :99z8dS4 USEld AW 2 - EN ZE a6e101s
+da 006 (ල්‍රම ගුශලම C&L ගඟරූල OLE
+අව 901 45 | 89 9] | ‘ZEdS3I/ 00] 09]. :99Z78dSJ [9[00(41 Aq saver) gy ZLS - GAZ (Vu) 7110111971
+ZHW 01 DOES Bc@oo@
+(7 134 Auaqdsey) ZHD 1 01 dn ZHW 9] | :ද්දුරු5] // ZHW 09 :9928dSJ ZHW 009 - ZH 9 |. paads 420)/9
+(110]- දි 9409-jenp) (ල්‍රම Sees C&L ගඟරූල ගලගුලගල
+(1101-129//110- උද) ESV-X9UOD WHY | (110- 6) 01/1-7:91102 WHY | ඒදරු92 // (111- ද) 99Z8dSI [9[00(41 Aq sauer) 110]- 6/110-9 40559504ශ්‌
+iq Assaqdsey JIQOIDIIN dsj oulnpiy ainjyea4

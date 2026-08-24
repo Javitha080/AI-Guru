@@ -1,0 +1,357 @@
+Instructions:
+% Answer all the questions.
+
+*% In each of the questions 1 to 40, pick one of the alternatives (1), (2), (3), (4) which is
+correct or most appropriate.
+
+% Mark a cross (xX) on the number corresponding to your choice in the answer sheet provided.
+%* Further instructions are given on the back of the answer sheet. Follow them carefully.
+
+1. Following four computers of the same brand are available at four different shops for the same
+price. Each of them has a 1 TB hard disk, 1 VGA port and consumes the same amount of electricity.
+Which one is most suitable to buy?
+
+(1) Processor: 2.9 GHz, Cache: 6MB, RAM: 4GB, 4 USB ports
+
+(2) Processor: 3.1 GHz, Cache: 6MB, RAM: 4GB, 4 USB ports
+(3) Processor: 3.6 GHz, Cache: 12MB, RAM: 8GB, 8 USB ports
+(4) Processor: 3.6 GHz, Cache: 16MB, RAM: 8GB, 8 USB ports
+
+2. Which of the following devices could be used to capture English text from printed documents?
+(1) Bar Code Reader (2) Magnetic Ink Character Reader (MICR)
+
+(3) Optical Character Recognition (OCR) device (4) Optical Mark Recognition (OMR) device
+3. Which of the following is a solid state device?
+
+(1) Compact Disk (2) Hard Disk Drive (3) Magnetic Tape Drive (4) USB Flash Drive
+4. Which of the following executes the instructions of computer programs?
+
+(1) Cache (2) Central Processing Unit (CPU)
+
+(3) Hard Disk (4) Random Access Memory (RAM)
+5. Which of the following is required to network four computers in a star topology?
+
+(1) a firewall (2) modem (3) a server (4) a switch
+6. Which of the following is the octal equivalent of decimal 21610?
+
+(1) 40 (2) 438 (3) 738 (4) 3308
+7. Which of the following is the decimal equivalent of binary 1000 10002?
+
+(1) 2410 (2) 13610 (3) 27210 (4) 102410
+8. Which of the following is the hexadecimal equivalent of octal 15723?
+
+(1) DE8i6¢ (2) 37A16 (3) 371016 (4) 1256216
+9. One Terabyte (1 TB) is equal to
+
+(1) 1024 KB. (2) 1024 x 1024 KB.
+
+(3) 1024 x 1024 x 1024 KB. (4) 1024 x 1024 x 1024 x 1024 KB.
+
+10.
+
+11.
+
+12.
+
+13.
+
+14.
+
+15.
+
+16.
+
+17.
+
+18.
+
+Which of the following statements are true regarding the ASCII coding system?
+
+A-— Characters E and e are represented using the same code.
+13 —# and $ symbols have different codes.
+ල —Sinhala characters do not have ASCII codes.
+
+(1) B only (2) A and C only (3) B and C only (4) All A, B and C
+According to the adjacent logic circuit, what will be the ,4,—-—
+
+respective outputs at P and ට when A, B and C inputs are “22 P
+
+respectively 1, 1 and 0?
+
+C
+
+(1) 0,0 (2) 0,1 (3) 1,0 (4) 1,1
+
+What is the shortcut key combination in a word processing software to select the entire document?
+(1) Ctrl +A (2) Ctrl + B (3) Ctrl + C (4) Ctrl + V
+
+Which of the following icons in a word processing software can be used to align the left and
+right sides of a text parallel to each other?
+
+(1) = (2) = B)= (4) =
+
+Which of the following statements are correct regarding a word processing software?
+A — It lets the user to add tables and images to a document.
+B — Format Painter tool (<%) lets a user to copy formatting like font style and apply it to
+other pieces of text.
+C — Landscape and Portrait are the two page orientations available.
+
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+
+Which of the following icons could be used to format a character as a subscript in a Word
+Processing Software?
+
+(1) & (2) A’ (3) A, (4)U
+
+To answer questions 16 and 17, consider the following spreadsheet segment which contains the
+ICT marks obtained by students for three term tests.
+
+What is the formula to be entered into cell D9, A B ල D E
+to find the number of students who appeared | 1 Name  1stTerm 2nd Term 3rd Term
+for the 3rd term test? 2 |Shanaya 57 20 absent
+(1) =COUNT(B2:D8) 3 Nethmi 45 55 66
+(2) =COUNT(D2:D8) 4 Asjath 75 68 absent
+(3) =SUM(B2:D8) 5 Bimsara 45 57 70
+(4) =SUM(D2:D8) 6 Vasuki 56 67 78
+; 7 MalRaj 45 35 55
+What is the correct formula to be entered | 2 \oconthar 40 60 35
+into cell E2 to calculate the average mark of | 9
+Shanaya for the three term tests? 40
+
+(1) =(57+70+absent)/3
+(2) =(B2+C24+D2)/3
+(3) =AVERAGE(B2:D2)
+(4) =SUM(B2:D2)/3
+
+Which of the following formulas (I, II, III) contain valid cell addresses?
+I: X$1$+Y$1 11: P$14+$Q$2 111: M2*N$2
+(1) I and 11 only (2) 1 and HI only (3) II and 111 only (4) All I, If and 111
+
+y,
+
+OL /2023(2024)/80/E-LI
+
+19.
+
+20.
+
+21.
+
+22.
+
+23.
+
+Questions 19 to 22 are based on the following four partially shown database tables that are
+designed for a bus seat reservation system.
+BUS_STATION
+Bus_station_code Name
+Wi Colombo
+SI Galle
+141 Jaffna
+ROUTE
+
+Note: Routes are identified by the Route code. Many routes can start from the same bus station
+and many routes can end at the same bus station.
+
+Route_code | From_bus_station_code | To_bus_station_code
+11 Wi 141]
+21] Wi SI
+
+ROUTE_INSTANCE
+Note: Assume there 15 only one trip per route per day.
+
+Route_code Date Available_seats
+11 01-07-2024 23
+11 02-07-2024 35
+2 1 01-07-2024 34
+2 1 02-07-2024 35
+
+ROUTE_RESERVATION
+Note: Seat_number uniquely identifies a seat.
+
+Route_code Date Seat_number Passenger_name Passenger_phone
+11 01-07-2024 1 ABC Fernando O111111111
+11 01-07-2024 2 DEF Sivarajah 0333333333
+2 1 01-07-2024 1 IJK Meerasahib 0222222222
+
+What is most suitable to be the primary key of the ROUTE table?
+(1) From_bus_station_code (2) Route_code
+
+(3) To_bus_ station code (4) Route code + From_bus_ station code
+
+What is most suitable to be the primary key of the SEAT RESERVATION table?
+(1) Route_code (2) Route_code + Date
+
+(3) Route _code + Seat_number (4) Route code + Date + Seat_number
+
+What is a foreign key in this database?
+
+(1) Bus_station_code in the BUS_STATION table
+(2) Date in the ROUTE_INSTANCE table
+
+(3) Seat_number in the SEAT RESERVATION table
+(4) To_bus_station_code in the ROUTE table
+
+If it 1s decided to add a description to each route (e.g., Kurunegala-Anuradhapura-Vavuniya to
+Route 1 1), to which table should that field be added?
+(1) BUS_ STATION (2) ROUTE
+
+(3) ROUTE_INSTANCE (4) SEAT RESERVATION
+
+—b+v b2-4ac
+2a ,
+
+If a program is to be wniten to use this equation to find roots, what would be the inputs to this
+
+program?
+
+(1) a,b,c
+
+The roots of a quadratic equation ax? + bx +c = 0 are found by the equation x =
+
+(2) a,b, b?,c (3) x,a,b,c (4) x, a,b, b,c J
+
+‘a ~
+
+24. Suppose you are designing an algorithm to input an employee's age, check if that employee is
+eligible for retirement and output the result. The age of retirement is 60 years. Which of the
+following control structures would be most appropriate to use in this algorithm?
+
+(1) Selection only (2) Sequence only
+
+(3) Iteration and selection only (4) Sequence and selection only
+
+25. Consider the following P, Q and R logical expressions:
+P: (A >= 10) AND NOT (B > 30)
+උල: (A < 10) OR (B < 30)
+R: (A <> 10) OR (B = 30)
+If above A and B contain the values 10 and 10 respectively, which of the following represents
+the correct outcomes of P, Q and R respectively?
+(1) false, false, true (2) false, true, true (3) true, true, false (4) true, true, true
+
+26. Suppose you want to store the full name of a person in a variable. What would be the most
+suitable data type for that variable?
+
+(1) Boolean (2) Char (3) Integer (4) String
+27. When operator precedence in Pascal is considered, what will be the result of 4—1*3+5?
+(1) +4 (2) 6 (3) 14 (4) 24
+
+28.In which of the following instances would you use an if-then-else selection structure in
+structured programming?
+(1) to assign a value to the variable age and print the value stored in age
+(2) to validate a password entered by a user
+(3) to calculate the sum of first 100 integers
+(4) to repeat a task for 15 times
+
+@ Questions 29 and 30 are based on the Pascal codes shown in figures 1 and 2 respectively.
+
+program whileTest; program looptest;
+var var i,j : integer;
+a, sum: integer; begin
+for i := 1 to 2 do
+begin begin
+sum := 0; a:= 1; for j := 1 to 2 do
+while a < 5 do write(i,j);
+begin end;
+sum := sum + a3 end.
+ends) යී? 1; Figure 2
+writeln(sum) ;
+end.
+Figure 1
+29. What would be the output if the code shown in Figure 1 is executed?
+(1) 0 (2) 10 (3) 11 (4) 15
+30. Which nested control structure is visible in the Pascal code of Figure 2?
+(1) iteration (2) iteration (3) selection (4) selection
+inside inside inside inside
+iteration selection iteration selection
+31. A program written in which of the following programming languages can be executed directly
+by the CPU of a computer?
+(1) Assembly (2) C (3) machine language (4) Pascal
+
+32. Which of the following statements are true?
+A-It is important to do ‘Identification of requirements’ correctly in both waterfall and iterative
+incremental models.
+13 — It 15 suitable if ‘integration testing’ is done only when the ‘unit tests’ are successful.
+C—‘System testing’ should be done only after “acceptance testing’.
+
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C J
+
+4 ॥
+
+33. Which of the following will best help the users of a proposed system to get an idea of its
+features and how it will appear?
+
+(1) Interviews with system developers
+
+(2) Questionnaires from system developers
+
+(3) Sample reports / files given to system developers
+
+(4) The prototypes of the proposed system shown by system developers
+
+34. Consider the following steps to send an email using a service like Gmail:
+A — Login to the email account 13 — Click ‘Send’
+C— Click ‘Compose’ or ‘New’ D — Type the subject and the message
+E — Type the “To’ address
+Which of the following gives the correct order of the above steps?
+(1) & ~නෆඕඒ  ~-නෟ ල ඉන 1 න" 1" (2) & න ලඋ ---න9ං 1: --* 1) -ං ॥
+(3) ල්‌ ~* 0 --* 1' -- 1) -- (4) ල්‌ D> 1: --* 2 --9 ॥3
+
+35. Which of the following are true regarding the use of a particular software through SaaS of cloud
+computing?
+A-— The client needs an Internet connection to use the software.
+B — The client needs to design and code the software.
+C — An agreement with the cloud service provider 15 required to use the software.
+
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+36. Which of the following is essential to connect a computer to the Internet?
+(1) a fiber optic connection (2) an uninterruptible power supply
+(3) a web browser (4) aservice from an Internet Service Provider
+
+37. Which of the following statements are true regarding raster images?
+A — If an image uses 7 bits to keep information about each pixel, then that image is capable
+of displaying 2" colours.
+13 — Image resolution refers to the number of pixels that exist within an image.
+C — A graphic with a large number of bits per pixel and a high resolution has a small file
+SIZe.
+
+(1) A only (2) B only (3) A and B only (4) A and C only
+
+38. Which of the following statements are true?
+A-—accdb is an example for a video file type.
+13 — MP3 is an example for an audio file type.
+C — The frames between two key frames in an animation are called tween frames.
+
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+
+39. You have been assigned to design a web page to be used by the out-patients to reserve times
+to meet doctors at a clinic of a government hospital. Which of the following is not essential to
+be included on that page?
+
+(1) A video showing the doctors treating the patients in the clinic
+
+(2) Facility to view times available for reservation on a selected date
+
+(3) Facility to enter patient’s name, NIC number and phone number to complete a reservation
+(4) Information on dates and times the clinic is open and location of the clinic
+
+40. Consider the following statement taken from an HTML file:
+<img src="dunhinda.jpg” alt="Dunhinda" width="100" height="200" align="right">
+Which of the following statements are not true with respect to it?
+(1) The dunhindajpg image is displayed if it exists.
+(2) The Dunhinda text is displayed if dunhinda jpg image file is not available.
+(3) Either the dunhinda. jpg image or Dunhinda text will always appear at the right on the web page.
+(4) The Dunhinda text will always appear on the right of the dunhinda jpg image.
+
+7
+
+1116006)1.1.1.11).1.-60).ඊ:58)..ඒ160060015 56111)
+g fone න 80 | E| LI
+
+SOON QUTHS HITS ! 15,511) (2:11511116001 HO ufLens, 2023(2024)
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 1,11
+HEU, 015111_1)11111 ඳා 0151110)60)]1_! ]ධා])!] 160 1,11
+
+4 Answer five (05) questions only, including first question and four others.
+% First question carries 20 marks and each of the other questions carries 10 marks.

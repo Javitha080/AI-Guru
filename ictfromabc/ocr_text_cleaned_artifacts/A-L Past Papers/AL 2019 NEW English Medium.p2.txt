@@ -1,0 +1,584 @@
+Part A -_ Structured Essay Do not
+Answer all four questions on this paper itself his
+column
+1. (a) (1) Draw the expected output of the following HTML code segment when rendered by a
+web browser.
+<html>
+<body>
+<!--Effects of Social Networking -->
+<p>Social networking has <br> <u>advantages</u> and disadvantages </p>
+</body>
+</html>
+EEE EEE EEE ET
+I |
+
+| I
+
+I |
+
+| I
+
+I |
+
+| I
+
+I |
+
+(11) Draw the expected output of the following HTML code segment when rendered by a
+web browser.
+<html>
+<body>
+<table border="1">
+<caption>Schedule</caption>
+<tr><th>Time</th><th>Event</th></tr>
+<tr><td>8 am</td><td>Drama</td></tr>
+<tr><td>10 am</td><td>News</td></tr>
+<tr><td colspan =2> Lunch</td></tr>
+</table>
+</body>
+</html>
+EEE ET
+| I
+
+| I
+
+I |
+
+| I
+
+| I
+
+(ම 7
+
+AL/2019/20/E-I (NEW) -3- Index NO.? …… ……
+4 ‘
+Do not
+(0) (1) Write two advantages of using external style sheets when creating a web page. write
+in this
+(1) …… GEESE GEE EE EEEEEEES column
+(2) ……..-
+(11) Consider the following HTML elements require the styles as given in the table.
+Element Name Attribute Attribute Value
+P color red
+font-family Calibri
+text-align Justify
+hl color red
+font-family Calibri
+h2 color red
+font-family Calibri
+text-align Justify
+Write an external style sheet 111 the most efficient way to fulfil the above requirements
+using only the CSS group selector concept.
+(c) The following PHP code is intended to add data into 'name' and 'class' fields of the table
+named 'student' in the MYSQL database called 'school_db'. User name and password to
+login to 'school_db' are 'admin' and 'A!2t*' respectively.
+Complete the PHP code segment by filling the blanks.
+<?php
+$conn = new mysqli( ‘localhost’, …… ……~෴~෴~෴ යී ……ඇ……~ අ );
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+
+PSG] = "…… 1010 …… (…… ්‌……~~යසය )
+values ('Piyal', '12-B')";
+if ($cONN->query ( …… ) ==true) {
+echo "New record created successfully";
+} else {
+echo "Error: " . $sql . "<br>" . $conn->error;
+
+$conn->close();
+
+(ම 7
+
+List = {advertising as a revenue model, credit-cards, Government e-Tendering service, Government
+to Citizen (G2C) service, group purchasing, harmful explosives, online marketplace, payment
+gateway, perishable goods, social commerce, subscription as a revenue model, traditional
+marketplace}
+
+Phrases:
+
+(i) a place where buyers and sellers interact physically for exchanging goods and services
+for a price
+
+(11) these are usually prohibited to be sold or purchased through e-commerce systems
+(111) users pay a regular fee to have full access to a website of a business
+
+(iv) a subset of e-commerce that involves using social media to assist in the online buying
+and selling of products and services
+
+(v) facilitates a payment transaction by the transfer of information between the e-commerce
+application and the back-end financial service providers through secure means
+
+(vi) the renewal of vehicle revenue licence using the Online Vehicle Revenue Licence Service
+offered by the relevant government office
+
+Note: Write only the matching item against the phrase number.
+
+(b) Consider the following Python program:
+xX = 6
+n = int (input ())
+while (n>@):
+if n>x:
+xX =n
+n = int (input ())
+print (x)
+
+(i) Write the output of the program if the input is 4 6 3 2 8 -1.
+
+q ~~
+Do not
+2. (a) Match each of the given phrases (1) - (vi) relating to commerce with the most suitable item | write
+from the list below: in this
+column
+
+a
+
+y,
+
+(- ‘
+3. (a) Consider the following Entity Relationship (ER) diagram which represents the information a
+about projects conducted by staff attached to a software development company. in this
+column
+
+DateOfBirth
+
+— CompanyRegNo Name >
+C Stato > Designation
+
+Add
+Staff N 1 Company ress X
+Address
+
+පන <>
+
+ProjectID :
+ProjectName
+StartDate Duration >
+
+(i) The number of hours (NoOfHours) that each staff member works on each project is
+recorded.
+Draw the attribute NoOfHours in the relevant position of the ER diagram with the
+correct symbol and the label.
+
+(11) For each accepted project, a temporary location is rented for the staff, for the duration of
+the project. For each Location, the OwnerName, PhoneNo, Address, Rent, RentedDate
+and RentedPeriod are recorded. One project has only one location. A rented location 15
+used for only one project. When a certain project is completed, the location rented for
+the project will be released and handed over to the owner.
+
+Draw the Entity ‘Location’ with relevant attributes inside the area X in the diagram and
+link it to the existing ER diagram by indicating the cardinality.
+
+(b) Write down the most appropriate term from the given list to fill the blank in each statement
+given below.
+
+List = {ALOHA, Application Layer, CIDR, DHCP, Domain Name System, Network Layer,
+Packet Switching, Parity Bit, Parity Byte, Proxy Server}
+
+(1) …… provides IP addresses for the given URLs and web
+addresses.
+
+(11) File Transfer Protocol (FTP), Simple Mail Transfer Protocol (SMTP) and the Telnet
+
+service are implemented in the …… -- -……
+
+(111) With the …… a device may get a different IP address every
+time it connects to the network.
+
+(LV) ……-…… helps to effectively manage the available IP address
+space
+
+(v) In data transmission, for the process of error detectiONn, අ ……
+is added to a binary string to ensure that the total number of 1-bits in the string is either
+even or odd.
+
+ෂී
+
+4 ~~
+Do not
+4.(a) An operating system uses Process Control Blocks (PCBs) to maintain important information | write
+about each process. in this
+Read the following scenario and answer the given questions: column
+Rani starts a computational application on a single processor computer. While the relevant
+computations are in progress, she starts a web browser application as well, in order to search for some
+information.
+Write down the content that will be stored in the following PCB fields of the computing
+process when the "computing process —» web browser process" context switch is made.
+(i) Program counter
+(11) Process state (Ready, Running or Blocked ?)
+(0) (1) What is meant by contiguous file space allocation?
+(11) Write down one drawback of contiguous file space allocation.
+(111) However, contiguous allocation is feasible to store a set of files on a CD ROM.
+Why?
+(iv) In addition to the normal data items, write down one other information that will exist in
+a file block in the linked file space allocation scheme.
+(c) Assume that a 32 KB program is run on a computer having 32 KB of physical memory.
+The page size of the system is 4 KB. The page table of this process at a particular time 15
+shown on the table below.
+Notes: Page Frame Present /
+e Only a few selected fields of each page table number number absent
+entry is shown. 0 110 1
+e The frame number is indicated in binary. 1 001 1
+e The virtual addresses on page () are from 0 to 2 010 1
+4095 and on page are from 4096 to 8191 and
+so on. 3 100 1
+e The Present/absent bit indicates the validity of 4 011 1
+the entry. If this bit is 1, the entry 15 valid and 5 000 0
+can be used. If it is 0, then the relevant virtual 6 000 0
+age 16 not in physical memory.
+pee py a 7 101 1
+ද 7
+
+4 ‘
+Do not
+(i) Assume this program requires accessing virtual address 8200. To which physical address | write
+will it get transformed to? in this
+column
+(11) Write down one advantage that the use of page tables bring with respect to program
+sizes compared to the size of physical memory.
+(111) Give one reason as to why a particular page of a process could be absent in physical
+memory.
+* %&
+(ම 7
+
+(ee නිර්දේශය / YSMLI LITL GGL Lb / New Syllabus ))
+
+NEW
+
+QOD MICH HL LIF L.6F SF): Gl 6) CVO. S 5: 611.
+
+seen 01119] ඉඅ1[/1151)1] ! 15217 Ow spo ufLeng, 2019 500
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+
+FSG, 0611101116) CsmPspi_ualwied 11 [20 EB ॥ 11 |
+
+Part B
+
+% Answer any four questions only.
+
+1. The Boolean function known as the majority function takes n binary inputs and outputs 1 if a majority
+(at least half) of the inputs are 1, otherwise it outputs 0. Let us consider the case when n=3, which 1s
+the 3-input majority function, whose inputs are A, B and C and the output is Z.
+
+(a) Give the truth table for the 3-input majority function.
+
+(b) Using Karnaugh maps, derive a simplified Boolean expression for the output Z in the 3-input
+majority function.
+
+(c) Construct a logic circuit for the 3-input majority function using NAND gates only.
+
+2. Consider the following scenario:
+
+A school has acquired the following resources to its Administrative (Admin), Laboratory (Lab) and Library
+(Lib) buildings:
+
+Building Resources
+
+Admin 5 computers, 1 printer
+Lab 40 computers, 1 printer
+Lib 10 computers, 1 printer
+
+A school computer network has to be created to fulfil the following requirements:
+
+Each building needs to have its own local area network (LAN) in order to share the
+printer.
+
+The above three networks are also to be interconnected so that the School Information
+System (SIS) which is running on one computer in the Admin building and the Library
+Information System (LIS) running on one computer in the Lib building are accessible
+from all computers.
+
+All computers are to be given efficient Internet connectivity as well. For this purpose, the
+school has subscribed to an Internet Service Provider (ISP) who is to supply the Internet
+connectivity to the Lab building. The Lad building is separated from the other two
+buildings by approximately 500m. One computer in the Lab building is to be used as the
+DNS server. Another computer in the Lab building 1s to be used as the proxy server.
+
+The entire network is to be protected through a firewall.
+
+(a) The Principal has received the 192.248.16.0/24 IP address block for the school. The IP addresses
+for the computers are to be allocated after making three subnets from this address block for the
+three buildings.
+
+Assuming such subnetting is done, write down the relevant network address, subnet mask and the
+allocated range of IP addresses for each building using the following table format to present your
+answer:
+
+Building Network Address | Subnet Mask IP Address Range
+Admin
+Lab
+Lib
+
+2
+
+Va
+
+(b) Give one reason as to why a fully connected (all-to-all) network topology is not suitable for this
+school computer network.
+
+(c) The Lab administrator who is responsible to setup the school computer network has requested
+for switches and a router.
+
+Showing clearly the network connection topology and the devices, draw the network diagram
+to represent the logical arrangement for the school computer network that the Lab administrator
+
+can implement to fulfil the school requirements.
+(d) Give one reason as to why TCP is preferred over UDP as the transport protocol for the school
+computer network.
+
+(a) ABC Books (Pvt.) Ltd. specializes in buying and selling used secondhand books. At present the
+business operations are fully manual (pure brick).
+
+(11 ABC Books (Pvt.) Ltd. starts a website and allows its customers to purchase books online.
+What is the revenue model (method of revenue) applicable in this scenario?
+
+(11) Moving from pure brick type to brick and click business model, what is the most significant
+challenge unique to ABC’s business? Explain your answer.
+
+Hint - Compare with the online sales of new books
+
+(11) ABC Books (Pvt.) Ltd. has proposed to extend its website to an e-commerce marketplace for
+used books. This marketplace supports B2C, B2B and C2C business types and allows other
+businesses to participate as well. Explain briefly between whom the transactions in each of
+the business types B2C, B2B and C2C will take place in the proposed marketplace.
+
+(iv) Other than the revenue model you mentioned in (1) above, identify another suitable revenue
+model to be followed by the ABC Books (Pvt.) Ltd. in their proposed e-commerce
+marketplace.
+
+(v) Identify and write down a possible way to make payments within this e-commerce
+marketplace.
+
+(vi) Briefly explain how book publishing companies can use the proposed e-commerce
+marketplace data for their businesses.
+
+(b) Multi-agent systems can be useful when complex system interactions are implemented. The
+following diagram shows a simplified version of a multi-agent system that manages the secure
+access to the server room of a data-center.
+
+Server Room Door
+
+Database |
+
+0 =
+[| p
+
+Systems Engineer
+
+A
+
+A brief scenario of the usage is as follows:
+
+All authorized system engineers must use their access code, which 1s a 6-digit number to enter
+the restricted server room.
+
+When the access is granted to the server room, a set of movable CCTV cameras starts recording
+the server area.
+
+The processed data of CCTV input are saved in the database. Interactions are shown using A,
+B, C, P, Q, and R arrows.
+
+2
+
+‘4 ~
+
+(i) Identify the agent with no user interactions (self-autonomous) in this setup.
+
+(11) Sense-Compute-Control is a widely used 3-step design style of agent-based system
+implementations.
+From A, Band C interactions, separately identify and write down the most suitable interaction
+arrow to represent each step, i1.e., Sense, Compute, and Control.
+
+(111) ල්‌ and R interaction links are shown for two directions. Explain the reasons for the duplex
+links for both C and R interactions separately.
+
+(iv) Interaction A can be seen as a user-to-agent interaction. Identify an agent-to-agent interaction
+and explain the operational use of that interaction.
+
+(v) Give one reason as to why the CCTV inputs are sent to the database through the Agent 2
+instead of sending directly.
+
+4. (a) The ICT teacher in 4 school needs to process the marks obtained by all the students in a class for
+the ICT subject and compute the average mark for the class. Construct a flow chart to express an
+algorithm for this purpose. Assume that the first input is the number of students in the class, n.
+Next, the marks of n students will be input one-by-one.
+
+(b) Consider the flow chart given below. Note that x%2 represents (x mod 2).
+
+J input n WA
+
+Yes
+
+No
+
+n=n-1l
+
+> Output a J
+
+(1) What would be the output if the first input (n) was 6 and the next inputs were 3, 6, 4, 12,
+11, 9?
+
+(11) What is the purpose of this algorithm?
+
+(111) Develop a Python program to implement the algorithm expressed by the flow chart.
+
+ද 7
+
+ඒ
+
+5.
+
+A vehicle rental company has registered vehicle owners. Vehicles are obtained from the owners and
+rented to the customers. Consider the following relations regarding the vehicle rental company.
+I. Customer (Customer_NIC, Customer_Name, City, Postal_Code)
+II. Vehicle Owner (Owner_Id, Owner_Name, Contact_No)
+III. Vehicle(Vehicle_Reg_No, Description, Owner_Id)
+
+e The Customer relation contains customer’s national identity card number (NIC) which is
+unique, name, city where he/she 1s living and the postal code of the city. A customer lives in
+a single city and there are many customers in one city. The postal code depends on the city.
+
+e The Vehicle_Owner relation contains the Owner_Id which is unique, owner’s name and the
+contact number.
+
+e The Vehicle relation contains the vehicle registration number which is unique, a description
+about the vehicle and the Owner_Id.
+
+A customer can rent more than one vehicle. Also, it is possible to rent one vehicle to many
+customers at different instances. Each vehicle is owned by one owner and one owner can have more
+than one vehicle.
+
+(a) In which normal form do the above relations given in I, 11, 111 above exist? Justify your
+answer.
+
+(b) Convert the above relations to the next Normal Form from the current Normal Form which
+you have stated in 5(a). (Present the contents relevant to the labels ®) to © indicated in the
+following table as your answer.)
+
+Relation No. Next Normal Form Relation/s in Next Normal Form
+I ® ම
+11 ල ගඹ
+111 ® ©
+
+(c) Draw an Entity Relationship (ER) diagram to depict the above relations by identifying the
+relationships, key attributes, other attributes and the cardinality.
+
+(d) It 16 necessary for the company to keep the details of renting vehicles by customers. Create
+a relation called “Rent”, including the details Rent_Date, Start_Time and End_Time.
+
+(e) Write an SQL statement to select Owner_Id and Vehicle_Reg_No of all the vehicles owned
+by each vehicle owner.
+
+y,
+
+6. (a) A blood testing centre has the following activities:
+
+The patient hands over the test request slip to the receiving counter. Receiving counter issues
+an invoice to the patient and sends a copy to the cashier. The patient checks the invoice,
+approves it and hands it over to the cashier with the payment. Cashier issues a receipt to the
+patient and also sends a copy of the receipt to the laboratory. Patient hands over the receipt to
+the laboratory. The laboratory verifies the patient and conducts the blood test and returns the
+updated receipt marked as ‘done’ to the patient. The laboratory sends the report to the receiving
+counter. Later, the patient hands over the updated receipt to the receiving counter and the
+receiving counter hands over the report to the patient with the re-updated receipt marked as
+
+‘issued’.
+
+(i) The context diagram for the above activities, with missing data fows® ,@ ,® , ම and
+
+@), is given in Figure 1 below.
+
+ම
+
+Approved Invoice + Payment
+
+Blood
+
+Patient
+7 Receipt
+
+Testing
+
+Updated Receipt
+
+System
+
+Re-updated Receipt
+
+ම
+
+Figure 1
+
+2
+
+Identify the five missing data flows from the description given above and write them down.
+
+(11) Level 1 of the DFD for the above context diagram 16 shown in Figure 2.
+
+(ඌ | 1.0
+
+2.0
+
+Process @
+
+Blood Test
+(Q) Request
+
+Process
+
+Re-
+updated
+
+(s) Receipt
+
+Patient } ලම
+
+Receipt
+
+Vv
+
+3.0
+
+Updated Receipt
+Figure 2
+
+Process
+Report
+
+(A) Write a suitable term to replace the label M in Process 2.0.
+
+(B) Identify and write down the missing data flow labelled ල.
+
+y,
+
+(0) (i) What is requirement analysis?
+(11) List two advantages of requirement analysis.
+
+(111) Give one method that can be used to verify whether a functional requirement is satisfied
+in a system.
+
+(iv) The following list consists of some functional, non-functional and other requirements of a
+proposed school library management system where users can borrow and return books in
+addition to other usual tasks.
+
+(A) The system should authenticate users through username and password.
+
+(B) The system should enable users to search for books based on the fitle, type, ISBN No.
+or publisher name.
+
+(C) The total cost for the library system should be less than Rs. 500 000.00.
+
+(D) The system should be available 99% of the total time.
+
+(E) The system development should be completed within 9 months.
+
+(F) Book lending details should be preserved even if the system crashes during operation.
+
+(G)The book database of the school library management system must be secured by
+preventing unauthorized access.
+
+(H) Since the Past Pupils Association has indicated its willingness to develop the system,
+preference will be given to them.
+
+From A to H, identify and write down the labels of two functional requirements and
+two non-functional requirements respectively.

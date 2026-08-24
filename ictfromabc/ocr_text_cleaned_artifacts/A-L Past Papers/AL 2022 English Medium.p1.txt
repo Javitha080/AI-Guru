@@ -1,0 +1,675 @@
+Instructions:
+
+% Answer all the questions.
+
+%* Write your Index Number in the space provided in the answer sheet.
+
+% Instructions are also given on the back of the answer sheet. Follow those carefully.
+
+% 777 each of the questions 7 to 50, pick one of the alternatives from (1), (2), (3), (4), (5) which is correct or
+most appropriate and mark your response on the answer sheet with a cross (x) in accordance with the
+instructions given on the back of the answer sheet.
+
+% Use of calculators is not allowed.
+
+1. Which of the following statements is/are correct?
+A - Firmware is a computer program that is usually embedded in the volatile memory of a
+computer.
+B —A printer driver is an example for an application software.
+ල්‌ — Linux 16 an example for a system software.
+
+(1) A only (2) B only (3) C only
+(4) A and B only (5) B and C only
+
+2. Which of the following require(s) real-time processing?
+A -_ generating monthly electricity bills of customers
+B — updating the bank account balance of a customer when she/he withdraws money from an ATM
+ල්‌ — updating the stock balance in a store upon successful completion of each transaction
+(1) A only (2) B only (3) C only
+(4) A and B only (5) B and C only
+
+3. Which of the following lists a computer memory hierarchy in the descending order of access speed?
+(1) hard disk, registers, L2 cache, L1 cache, main memory
+
+(2) main memory, L1 cache, registers, L2 cache, hard disk
+(3) registers, main memory, hard disk, L1 cache, L2 cache
+(4) registers, L1 cache, L2 cache, main memory, hard disk
+(5) L1 cache, L2 cache, registers, main memory, hard disk
+
+4, Which of the following gives the correct results of bit-wise AND and bit-wise OR operations between
+the two binary numbers 010101002 and 11101001. respectively?
+(1) 010000002, 11111101.
+(2) 000000102, 10111001.
+(3) 101111012, 11001010,
+(4) 110000002, 001011002
+(5) 11111101,, 01010011,
+
+5. What is the correct binary equivalent of decimal 12.7540?
+(1) 1011.01, (2) 1011.11, (3) 1100.00 (4) 1100.11, (5) 1100.01,
+
+6. What is the correct 2’s complement binary representation of decimal —41,0 using 8-bits?
+
+| (1)00101001 (2) 01010110 (3) 10101001 (4)11010110 (5 11010111 |
+
+7. The address of an instruction was shown as 10f9 in hexadecimal. What is that address in decimal?
+(1) 25 (2) 1249 (3) 4345 (4) 10159 (5) 16249
+
+8. A particular command can be used to output a text file in its binary format.
+Assume a file contains the following text:
+
+0 Waste!
+
+Referring the Important notes (1) and (11) given below, select the correct output that will result when
+the said command is run on that file.
+
+(1) 00110000 00100000 01010111 01100001 01110011 01110100 01100101 00001010
+
+(2) 00110000 01010111 01100001 01110011 01110100 01100101 00100001 00001010
+
+(3) 00110000 00100000 01010111 01100001 01110011 01110100 01100101 00100001 00001010
+
+(4) 00110000 00100000 01110111 01100001 01110011 01110100 01100101 00100001 00001010
+
+(5) 00110000 00100000 01010111 01100001 01110011 01110100 01100101 00100000 00001010
+
+Important notes:
+(i) The file ends with a LINE FEED character.
+
+(11) Some selected rows from the 7-bit ASCII table are given below:
+
+Character Binary Character Binary
+(LINE FEED) 0001010 a 1100001
+(SPACE) 0100000 e 1100101
+
+! 0100001 6 1110011
+
+0 0110000 ₹ 1110100
+
+W 1010111 WwW 1110111
+
+9. Consider the following logic circuit:
+
+A
+B
+Q
+When B=1/, what would definitely be the output at ට?
+(1)A (2) A (3) B (4) B (5) 0
+
+10. Simplified Boolean expressions help to obtain simpler circuits.
+Which of the following is a simplified form of X + XY?
+(1) X (2) Y (3) XY (4) XY (5) 7(- 7”
+
+y,
+
+11. Consider the following truth table:
+
+ස
+ෆ්‌
+N
+
+| ~.| | ..] ක|ක|ක|ක
+ .]ක|ක| | ~~ ]ක|ක
+ ක|--|ක|~|ක|-~| ක
+ක|ක| |. | ……| ~ත,:ක|ක
+
+What is the correct Karnaugh map for the above truth table?
+
+(1) | (| 00 | 01 | 10 | (2) | S8C 00 | 01 | 11 | 10
+0/|o}o0} 1 1 0/0 | 0
+0 0 1 | 1 1 | 0 | 0
+(3) | SC; 00 | 10 | 01 | 11 (4)| e8C 00 | 10 | 11 | 01
+0 | 0 0 । 1 0 | 0 0
+1 0 0 1 0 । 0
+(5) | (| 00 | 11 | 10 | 01
+0 । 0 1 0
+1, 1, 0 0
+
+12. A program in execution in a computer is called a process. Such a process transits between several states
+during its lifetime. Which of the following correctly represents a possible state transition sequence of
+a process?
+(1) New —>Ready —~>Running —~>Waiting —>Ready —>Running —> Terminated
+(2) New —> Ready —~> Waiting —> Running —> Waiting —~> Running —> Terminated
+(3) New —> Running —> Ready —>Waiting —~> Running —>Ready —~> Terminated
+(4) New —> Running —> Waiting —> Ready — > Waiting —> Running —> Terminated
+(5) New — > Waiting —~> Running—> Ready —~> Running—>Ready —~> Terminated
+
+13. Which of the following is not a task of a computer operating system?
+(1) selecting a memory frame for a page of a process
+(2) maintaining a list of free memory frames
+(3) maintaining a page table for each process
+(4) monitoring the usage of binary files on a hard disk
+(5) swapping processes between main memory and hard disk
+
+ඇර 7
+
+14, The block size of a disk is 4KB. A portion of its File Allocation Table (FAT) at a particular time is shown
+below. The portion shown indicates the blocks of the average.py file as well.
+
+FAT
+
+200 | 202
+201 | 200
+202 | --1
+203 | 201
+204 | 205
+
+Notes: 1. The last block of a file is indicated by —l.
+11. The directory entry of a file contains the block number of the first block of the file.
+
+Which of the following gives the directory entry for the average.py file and the disk space allocated for
+the average.py file respectively?
+
+(1)200,12KB (2)200,16KB (3)200,20KB (4)203,16KB (5) 203, 20KB
+
+15. Which of the following are Transport Layer protocols of the TCP/IP stack?
+A — Transmission Control Protocol (TCP)
+B — User Datagram Protocol (UDP)
+C — File Transfer Protocol (FTP)
+D — Internet Protocol (IP)
+(1) A and B only (2) A and C only (3) B and C only
+(4) B and D only (5) All A, B, C and D
+
+16. Which of the following statements is/are correct about MAC and IPv4 addresses?
+A — MAC addresses are 32 bits in length and are used in the network layer.
+B ~- MAC addresses are 48 bits in length and are used in the datalink layer.
+C — [Pv4 addresses are 32 bits in length and are used in the network layer.
+(1) A only (2) B only (3) C only
+(4) A and C only (5) B and C only
+
+17. Which of the following is/are correct regarding a firewalN
+A —It can monitor and filter outgoing traffic from an internal network.
+B — It protects a network from unauthorized accesses.
+C — It can be a hardware, a software or a combination of both.
+(1) A only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, Band C
+
+18. An organization with the assigned IP address block 193.1.1.0/24 needs to define eight subnets. Each
+subnet should provide for more than 25 IP addresses. Which of the following correctly lists the
+number of bits needed to identify the given network, the total number of bits needed to identify the
+subnets, and the number of bits needed to assign unique IP addresses for this requirement,
+respectively?
+
+(1) 24, 3,5 (2) 24, 5, 3 (3) 24, 27, 5 (4) 27, 3,5 (5) 27, 30, 2
+
+19, Which of the following statements is correct regarding network topologies?
+(1) In bus topology, a central network hub is used to connect all nodes.
+(2) In star topology, a linear cable is used to connect all nodes.
+(3) In ring topology, messages are sent only clockwise.
+(4) In ring topology, each node 15 directly connected only to two of its neighbors.
+(5) In mesh topology, each node is always connected to one other node only.
+
+[ම
+
+ණී ෴
+
+20. Consider the seven layer OSI reference model and match each of the given layers labeled from P to 5
+to the corresponding responsibility of it labeled from 1 to 4.
+
+Layer Responsibility
+
+P — Application layer 1 — binary transmission over the communication medium
+
+ට -- Physical layer 2 —route determination
+
+R — Transport layer 3 — user services that include file transfer, remote access etc.
+
+ට්‌ ~~ Network layer 4 — data delivery from process to process
+(1)P-1,Q-3,R-2,S-4 (2)P-2,Q-4,R-3,S-1
+(3)P-3,Q-1,R-2,S-4 (4)P-3,Q-1,R-4,S-2
+(5)P-4,Q-2,R-1,S-3
+
+21. Which of the following statements is/are correct?
+A -A digital signature ensures the authenticity of a message.
+B — In asymmetric key encryption, different keys are used for encryption and decryption.
+C — The encryption process transforms plaintext to ciphertext.
+(1) A only (2) B only (3) C only
+(4) A and B only (5) All A, Band C
+
+22. Match each of the given data communication protocols labelled from P to T to the corresponding
+descriptions labelled from 1 to 5.
+
+Protocol Description
+
+P — Hyper Text Transfer Protocol (HTTP) 1 — provides directory lookup service for given web
+addresses and URLs
+
+2 — provides a very reliable data transfer service
+
+Q ~~ Transmission Control Protocol (TCP)
+R -- Domain Name System (DNS)
+
+Protocol 3 — used in the world wide web
+ට — Internet Protocol (IP) 4 — provides a connection-less transport service
+T — User Datagram Protocol (UDP) 5 — handles unique addressing of hosts in the Internet
+
+(1)P-2,Q-4,R-1,$-5,T-3
+(2)P-2,Q-5,R-4,S-1,T-3
+(3)P-3,Q-2,R-1,$-5,T-4
+(4)P-3,Q-4,R-5,S-1,T-2
+(5)P—4,Q-2,R-3,S-1,T-5
+
+23. The following diagrams labelled (A), (B) and (C) illustrate three software deployment types.
+
+I
+I t
+Old Sytem
+\ Old System '
+
+I 1
+
+| ।॥ || System
+Old System New System 7
+
+| ! New System I
+
+! 1 ! |
+
+Time” Time Time”
+(A) (B) (C)
+Which of the following correctly represents (A), (B) and (C) deployment types respectively?
+(1) Direct, Phased and Parallel (2) Direct, Pilot and Parallel
+(3) Parallel, Phased and Direct (4) Parallel, Pilot and Phased
+
+(5) Phased, Direct and Pilot
+
+ඇද 7
+
+AL/2022(2023)/20/E-I 6-
+
+24. Consider the information system types in List A and the descriptive examples in List B. Identify the
+most suitable matching between the items in lists A and B.
+List A List B
+Al - Decision Support System (DSS) 131 - asystem that allows to update, create, and
+manage the details in a news website
+B2 - hat handles electronic fund
+A2 - Content Management System (CMS) ne Mat handles electronic run
+B3 - asystem that combines data and
+A3 - Transaction Processing System (TPS) analytical tools for sales forecasting based
+on historical data
+(1) &1 -- 81, &2 -- 82, &3 -- 03
+(2) Al -- 82, &2 -- 81, &3 -- 03
+(3) Al -- 82, &2 -- 03, &3 -B1
+(4) Al -- 83, &2 -- 01, &3 -- 12
+(5) Al -- 13, &2 -- 02, &3 -- 1
+25. Which of the following statements is/are correct regarding System Development Life Cycle (SDLC)
+models?
+A -— In the agile model, small portions of systematically developed working software are delivered
+to the client frequently.
+B — Late changes in the requirements can be easily accomodated in the waterfall model.
+C — Prototyping model can be practiced without client interactions.
+(1) A only (2) B only (3) C only
+(4) A and B only (5) A and C only
+26. Non-functional requirements specify quality attributes of a system. Which of the following is an
+example for a non-functional requirement?
+(1) the email system should allow users to attach files
+(2) each page of the website must load within 4 seconds
+(3) administrator of the E-commerce website should be able to view a list of customers
+(4) a user of the online banking system should be able to view the last transactions
+(5) the ATM machine should allow users to print a receipt
+27. Which of the following Data Flow Diagrams (DFDs) 1s correct with respect to the rules of data flow
+modelling? (Note: A — an external entity, B — a process, C — a data store)
+10] lq 1.0 |
+< A
+OCR sre ee
+| 1:46 Ca Le
+3 A > > 4 > A
+3) ලා - ද @ : ඳු
+6) Cay |
+28. Which of the following statements is correct regarding software testing?
+(1) Integration testing is usually carried out before unit testing.
+(2) Black-box testing techniques are usually used in acceptance testing.
+(3) White box testing examines the behaviour of a software based only on the inputs to a system.
+(4) Unit testing examines the entire system’s functionality as a whole.
+(5) System testing is usually carried out after the user acceptance testing.
+7
+
+AL/2022(2023)/20/E-I
+
+Va
+
+29. Consider the following relational schema:
+
+Student (StudentId, StudentName, Address, Gender, DateOfBirth)
+
+Study (StudentId, SubjectId, Grade)
+
+Subject (SubjectId, SubjectName)
+
+Which of the following is the most suitable Entity Relationship (ER) diagram to correctly represent the
+relationship between Student and Subject entities?
+Note: In the ER diagrams, the entities are drawn without attributes.
+
+(1) | Student i ඤු Subject
+(2) | Student A ඤෑ Subject
+(3) | Student 7 ඤෑ Study
+(4) | Student 7 ඤී Study
+(5) | Student = ඤෑ Subject
+
+ම The tables which are partially extracted from a database used in an information system developed for
+
+a shop are shown below. Answer the questions from 30 to 32 using those tables.
+
+Customer Product
+CusId Fname Lname Location ProdId Name
+උ001 Saman Perera Dehiwala PROO1 Refrigerator
+C002 Kalum Gamage Galle PB401 Blender
+C003 Shiromi Silva Galle PM025 Mobile Phone
+C004 Kalum Perera Kandy PPO09 Inkjet Printer
+Order Order_Product
+Orderld CuslId OrderDate Sellerld Orderld ProdId
+001 උ001 2022-07-14 5001 A003 PROO1
+A002 C002 2022-07-14 5001 001 1710001
+A003 C003 2022-07-18 S002 A002 PB401
+A004 C004 2022-07-20 S002 A003 PM025
+A004 PPO09
+
+30. Which of the following shows the most suitable primary keys for Order and Order_Product
+
+relations?
+
+(1) Order: CuslId,
+
+(2) Order: Orderld,
+
+(3) Order: Orderld,
+
+(4) Order: CusId + SellerId,
+(5) Order: Orderld + Cusld,
+
+Order_ Product: OrderId
+Order_Product: OrderId
+Order_Product: Orderld + ProdId
+Order Product: ProdId
+
+Order_Product: OrderId
+
+2
+
+(ණ්‌ 5
+31. What will be the output after executing the following SQL statement?
+SELECT Customer.Fname, Customer.Lname, Order.Orderld
+FROM Customer INNER JOIN Order ON Customer.CusId = Order.CusId
+WHERE Customer.Location="Galle";
+(1) Fname Lname Orderld (2) Fname Lname Orderld
+Kalum Gamage 001 Kalum Gamage A004
+Kalum Gamage A003 Kalum Perea 001
+Shiromi Silva A002 Kalum Gamage A003
+Shiromi Silva A002
+(3) Fname Lname Orderld (4) Lname Fname Orderld
+Kalum Gamage 001 Gamage Kalum 001
+Kalum Perera A003 Gamage Kalum A003
+Shiromi Silva A002 Silva Shiromi A002
+(5) Fname Lname Orderld
+Kalum Gamage 001
+Shiromi Silva A002
+
+32. Which of the following is correct regarding the Order relation?
+(1) CusId attribute uniquely identifies each tuple in the relation.
+(2) The relation 16 in First Normal Form (1NF).
+(3) The relation 16 in Second Normal Form (2NF).
+(4) Orders of each customer are handled by a unique salesperson.
+(5) The relation consists of a composite primary key.
+
+33. Which of the following statements is/are correct regarding the normalization concept?
+A — In first normal form, atomic attributes are removed from a relation.
+B —In second normal form, partial dependency of attributes on the primary key are removed.
+C — In third normal form, transitive dependency of attributes are removed.
+(1) B only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, Band C
+
+34, Which of the following statements is/are correct regarding Entity Relationship (ER) modelling?
+A — A weak entity is dependent on another entity.
+B ~- A derived attribute is represented as an attribute in a relation.
+C — An entity can contain a multi-value attribute and a composite attribute at the same time.
+(1) A only (2) B only (3) A and C only
+(4) B and C only (5) All A, Band C
+
+ඇද 7
+
+35. The following ER diagram represents a scenario of students borrowing books from a library.
+Which of the following gives the most suitable relation list for the given ER diagram?
+
+Book Name uname)
+AUTHOR <> BOOK <> STUDENT
+UTHO 7 = 7
+
+(1) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+STUDENT (Stu_Id, Stu_FName, Stu_LName, DOB)
+AUTHOR (Aut _Id, Aut_Name)
+AUTHOR_QUALIFICATION (Aut Id, Qualifications)
+
+(2) BOOK (Book Id, Book_Name, ISBN)
+STUDENT (Stu_Id, Stu_LFName, Stu_LName, DOB)
+AUTHOR (Aut _Id, Aut_Name)
+AUTHOR_QUALIFICATION (Aut Id, Qualifications)
+
+(3) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+STUDENT (Stu_Id, Stu_FName, Stu_LName, DOB)
+AUTHOR (Aut Id, Aut_Name, Qualifications)
+
+(4) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+STUDENT (Stu_Id, Stu Name, DOB)
+
+AUTHOR (Aut _ Id, Aut_Name)
+
+AUTHOR_QUALIFICATION (Aut _ Id, Qualifications)
+
+(5) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id) a= 10
+STUDENT (Stu_Id, Stu_Name, DOB) r=
+AUTHOR (Aut Id, Aut_Name) තී
+AUTHOR_QUALIFICATION (Aut Id, Qualifications)
+
+BORROW (Aut Id, Book Id) 7 11001 7
+
+WRITE (Aut 13, Book Id)
+
+36. Which of the following statements is/are correct about
+the algorithm expressed by the given flowchart? Yes
+A — An input is taken from the user only once. No
+
+B — The output of the algorithm is always 9.
+C — The algorithm outputs the summation of all the ඉ
+numbers entered. >
+
+(1) A only
+(2) B only
+
+No
+
+(3) C only
+(4) A and B only
+(5) B and C only Yes
+
+/ Output r 7
+
+2
+
+ten
+
+( ~~
+37. What would be the output of the following Python code if the input was 25?
+xX = int(input())
+xX = (x & (x - 21)) **3
+print (x)
+(1) 0 (2) 1 (3) 3 (4) 12 (5) 25
+38. What would be the output of the following Python code?
+def fun(paral, para2):
+x=foo(para2, paral)
+return x
+def foo(para3, para4):
+return para3 — para4
+result=fun(2, 4)
+print( "Result is " + str(result))
+(1) Result is 0 (2) Result is 2 (3) Result is -2
+(4) Result is (2, 4) (5) Result is +2
+39. What would be the output of the following Python code?
+def foo(name, age=18, address="Kandy"):
+print (name, address, age)
+foo("Nimal", 25, "Colombo" )
+(1) Nimal Colombo 25 (2) Nimal, Colombo, 25
+(3) Nimal, Kandy, 18 (4) Nimal Kandy 18
+(5) Nimal 18 Kandy
+40. What would be the output of the following Python code?
+numbers=[10, 20, 36, 40, 50]
+numbers.pop(1)
+numbers. append(6@)
+numbers. pop(2)
+print(numbers )
+(1) [10, 50, 60] (2) [10, 20, 40, 60] (3) [10, 30, 50, 60]
+(4) [20, 30, 40, 50] (5) [20, 30, 50, 60]
+41. What would be the output of the following Python code?
+val = 9
+for i in range(5):
+for j in range(2, 3, 1):
+val += 1
+if (val % 2) == 6:
+continue
+val += 2
+else:
+val += 2
+print(val)
+(1) 18 (2) 24 (3) 29 (4) 38 (5) 39
+[ම 7
+
+42. Which of the following is/are correct regarding Python functions?
+A —A Python function can return a data structure that contains multiple values.
+19 ~- & Python function can be used without passing any parameters to it.
+ල්‌ — Parameters can be passed to a python function by value or by reference.
+
+(1) B only (2) C only (3) A and C only
+(4) B and C only (5) All A, Band C
+43. Which of the following HTML tags can be used to change the appearance of a word in a text?
+(1) <i>, <em>, <li>, <br> (2) <b>, <i>, <em>, <h1>
+(3) <b>, <em>, <sup>, <li> (4) <i>, <u>, <br>, <sup>
+
+(5) <u>, <i>, <ol>, <b>
+
+44, What would be the output of the following HTML code segment?
+<dl>
+<dt> Vegetable </dt>
+<dd> Potato </dd>
+<dt> Fruit </dt>
+<dd> Orange </dd>
+
+</dl>
+(1) ¢ Vegetable (2) Vegetable (3) 6 Vegetable
+e Potato Potato Potato
+e Fruit Fruit e Fruit
+° Orange Orange Orange
+(4) 1. Vegetable (5) e Vegetable
+Potato ~ Potato
+2. Fruit e Fruit
+Orange ~ Orange
+
+45. Which of the following statements is/are correct regarding HTML and CSS?
+A — CSS can be used to describe how HTML elements are to be displayed on screen.
+B — External CSS can be used to define the style for many HTML pages.
+C — Inline CSS can be used to apply a style to a single HTML element.
+(1) A only (2) A and B only (3) A and C only
+
+(4) B and C only (5) All A, Band C
+
+46. Which of the following HTML code line can be used to create a hyperlink to the website of the
+National Institute of Education? (The URL of the website is http://nie.Ik)
+(1) <a sre = http://nie.lk>National Institute of Education</a>
+(2) <a href = "http://nie.lk">National Institute of Education</a>
+(3) <a img = http://nie.lk>National Institute of Education</a>
+(4) <a href = "http://nie.Ik"</a>National Institute of Education>
+(5) <a src= http://nie.lk</a>National Institute of Education>
+
+47, Which of the following could be used to create an array in PHP?
+A -—$city[] = array("Colombo");
+
+B-city[] | ="Colombo";
+
+C — $city = array("Colombo");
+(1) A only (2) B only (3) C only
+(4) A and C only (5) B and C only
+
+y,
+
+48. Given below is a partially completed PHP script used to connect to a database named Employees using
+MySQLi (procedural method). Which option is most suitable to fill in the blank spaces @ ,
+
+and © respectively?
+<?php
+$servername = "127.0.0.1";
+$username = "username";
+$password = "password";
+
+$conn = mysqli_connect($servername, $username, $password) ;
+if (!$conn) {
+die("Connection failed:
+
+. mysgli_connect_error());
+
+$sql = "CREATE DATABASE භි '
+
+if (mysqli_query(_@ , ©) {
+echo "Database created successfully";
+} else {
+echo "Error creating database:
+
+. mysqli _error($conn) ;
+
+mysqli_close($conn)
+
+(1) $sql, $conn, $Employees (2) $conn, $sql, Employees
+(3) $Employees, $conn, $sql (4) Employees, $conn, $sql
+
+(5) Employees, $sql, $conn
+
+49. Which of the following statements is/are correct?
+A — Quantum computing could be an alternative to overcome the limitations of the existing
+microprocessors.
+B — Natural phenomena such as the behaviour of ant colonies could be used to develop new
+computing models to solve complex problems.
+C — An inference engine of an expert system utilizes the facts in a knowledge base to support
+decision making.
+
+(1) A only (2) A and B only (3) A and C only
+(4) B and C only (5) All A, Band C
+
+50. Which of the following statements is/are correct?
+
+A — E-Commerce encourages to minimize physical interactions between buyers and sellers.
+B — The main purpose of sending a One Time Password (OTP) to a credit card holder’s mobile
+phone during an online payment is to identify the current location of the card owner.
+C - Bitcoin is a leading virtual currency.
+(1) A only (2) B only (3) C only
+(4) A and C only (5) B and C only
+
+the two parts together so that Part A is on top
+of Part B before handing them over to the
+Supervisor.
+
+Code Number
+
+Marking Examiner 1
+
+* You are permitted to remove only Part B of the Marking Examiner 2
+
+question paper from the Examination Hall. Marks checked by :
+
+Supervised by :
+
+(s ශී ලංකා විභාග දෙපාර්තමේන්තුව ෂ්‌
+හි 51600611. LP ACHES: 2160060015 51110)
+Suen Auris  syraqd usHAy (5 _-!11// spl !!/। 64, 2022(2023)
+| තොරතුරු හා සන්නිවේදන නාක්ෂණය 11
+HEU, THT TUT 0151110160]! |]! 16) 11 [20 EB ॥ 11 |
+(” >
+ea Manes අමතර කියවිමි කාලය - මිනිත්තු 10 යි
+CLOSOTNY LOCUM SULUTEVLD Guess amAuy CHIL - 10 (01101 [51561
+Three hours Additional Reading Time _ 10 minutes
+
+Use additional reading time to go through the question paper, select the questions you will answer and
+decide which of them you will prioritise.
+උ J}
+index 1%0. : …… |
+Important: For Examiner’s Use Only
+* This question paper consists of 14 pages. For the Second Paper
+* This question paper comprises of two parts, Part | Question No. Marks
+Part A and Part B. The time allotted for 1
+both parts is three hours. >
+* Use of calculators is not allowed A 3

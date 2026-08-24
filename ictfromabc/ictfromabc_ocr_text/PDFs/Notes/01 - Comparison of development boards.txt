@@ -1,0 +1,134 @@
+Development boards                            2. ESP
+ixj¾Ok mqjre
+
+1. Arduino
+
+The Arduino Uno is one of the most
+popular microcontroller boards for
+beginners and hobbyists.
+Arduino      hkq       wdOqkl
+                            s hska iy
+úfkdaodxYlrejka i|yd jvd;a ckm%sh laIqø
+md,l mqjre j,ska tlls'
+
+It   features   an   8-bit   or    32-bit     ESP      boards       are      Wi-Fi-enabled
+microcontroller and is typically used in      microcontrollers commonly used in IoT
+projects that require basic digital and       (Internet of Things) projects.
+analog input/output.                          ESP mqjre hkq IoT (wka;¾cd, id¾j øjH&
+th 8-bit fyda 32-bit laIqø md,lhlska          jHdmD;sj, nyq,j Ndú;d jk Wi-Fi il%Sh
+iukaú; jk w;r uQ,sl wxls; iy m%;siu           laIqø md,l fõ'
+wdodkh$m%;sodkh wjYH jk jHdmD;sj,
+idudkHfhka Ndú;d fõ'
+                                              The ESP8266 is a low-cost option with Wi-
+It's programmed using the Arduino IDE,        Fi capabilities, while the ESP32 offers more
+which supports C/C++ and is known for its     power, including dual-core processing,
+simplicity. The Uno is ideal for simple       Bluetooth, and additional GPIO pins.
+electronics projects like controlling LEDs,   ESP8266 Wi-Fi yelshdjka iys; wvq úhoï
+sensors, and motors.                          úl,amh jk w;r ESP32 oaú;aj yr ieliqï"
+th C/C++ i|yd iyh olajk Arduino IDE           íÆgQ;a iy wu;r GPIO mska we;=¿j jeä
+Ndú;fhka jevigyka.; lr we;s w;r th            n,hla ,nd fohs'
+tys ir, nj i|yd m%isoaOh' LED" ixfõol
+iy fudagr md,kh lsÍu jeks ir,                 Both can be programmed using the
+bf,lafg%dksl jHdmD;s i|yd b;d iqÿiqh'         Arduino IDE or MicroPython, making them
+                                              versatile for a range of applications, from
+Examples of this are Arduino Uno, Arduino     home automation to networked sensors.
+Nano, Arduino pro mini, Arduino Mega,         folu Arduino IDE fyda MicroPython
+Arduino Due etc.                              Ndú;fhka jevigyka.; l< yels w;r"
+fï i|yd WodyrK f,i Arduino Uno,               .Dyia: iajhxl%ShlrKfha isg cd,.;
+                                              ixfõol olajd úúO fhÿï i|yd tAjd
+Arduino Nano, Arduino pro mini, Arduino
+                                              nyqld¾h lrhs'
+Mega, Arduino Due wdÈh .; yelsh'
+
+
+
+
+                   Ravindu Bandaranayake - ictfromabc.com
+3. Microbit
+                                                 4. Raspberry Pi
+
+
+
+
+The Microbit is a small, ARM-based
+microcontroller designed primarily for
+educational purposes.                            The Raspberry Pi is a fully-fledged mini-
+Microbit hkq uQ,sl jYfhka wOHdmksl               computer that runs a Linux-based
+wruqKq i|yd ks¾udKh lr we;s ARM u;               operating system.
+mokï jQ l=vd laIqø md,lhls'                      Raspberry Pi hkq Linux u; mokï jQ
+                                                 fufyhqï moaO;shla Odjkh lrk wx.
+It has built-in sensors, a 5x5 LED matrix, and   iïmQ¾K l=vd mß.Klhls'
+supports Bluetooth, making it an excellent
+tool for teaching basic programming and          It is significantly more powerful than
+electronics to children.                         microcontrollers like Arduino, ESP or Micro
+tys we;s ixfõol" 5x5 LED matrix iy               , and it can be used for a wide variety of
+íÆgQ;a i|yd iyh olajhs" th wdOqkl      s hkag    applications, including web servers, media
+uQ,sl jevigykalrKh iy bf,lafg%dksl               centers, and robotics.
+WmlrK b.ekaùu i|yd úYsIag fuj,ula                th Arduino" ESP fyda Micro jeks laIqø
+njg m;a lrhs'                                    md,lhkag jvd ie,lsh hq;= ;rï n,j;a fõ
+                                                 iy th fjí i¾j¾" udOH uOHia:dk iy
+It can be programmed using a block-based         frdfnda ;dlaIKh we;=¿ úúO fhÿï i|yd
+editor, JavaScript, or Python, making it         Ndú;d l< yel'
+accessible to users with varying skill levels.
+th úúO ksmqK;d uÜgï we;s mßYS,lhskg          a   The Raspberry Pi supports various
+m%fõY úh yels mßÈ íf,dla mdol                    programming languages, including Python,
+ixialdrlhla" cdjdial%smaÜ fyda mhs;ka            C/C++ and Scratch, and is equipped with
+Ndú;fhka jevigyka.; l< yel'                      USB ports, HDMI, Ethernet and GPIO pins
+                                                 for hardware interfacing.
+                                                 Raspberry Pi mqjre Python" C/C++ iy
+                                                 Scratch we;=¿ úúO l%uf,aLk NdId i|yd
+                                                 iyh olajk w;r oDVdx. w;=reuqyK q ; i|yd
+                                                 USB ports" HDMI" Ethernet iy GPIO pins
+                                                 j,ska iukaú; fõ'
+
+                                                 It's ideal for users who need more
+                                                 processing power or want to work on more
+                                                 complex projects.
+                                                 jeä ieliqï n,hla wjYH fyda jvd;a
+                                                 ixlS¾K jHdmD;sj, jev lsÍug wjYH
+                                                 mßYS,lhska i|yd th jvd;a iqÿiq fõ'
+
+
+
+
+                     Ravindu Bandaranayake - ictfromabc.com
+                                         Feature                Arduino                             ESP                         Microbit                 Raspberry Pi
+
+                                         Processor              8-bit/32-bit (varies by model       ESP8266 (32-bit) / ESP32    ARM Cortex-M0 (32-bit)   ARM Cortex-A53 (32-bit/64-bit)
+                                         ilikh                  j¾.h wkqj fjkia fõ)                 (dual-core 32-bit)
+
+                                         Clock Speed            16 MHz - 600 MHz                    ESP8266: 80 MHz / ESP32:    16 MHz                   Up to 1.5 GHz (Raspberry Pi 4)
+                                         Trf,daiq fõ.h                                              240 MHz
+
+                                         Memory (RAM)           2 KB - 512 KB (varies by model      ESP8266: 160 KB / ESP32:    16 KB                    1 GB to 8 GB
+                                         u;lh                   j¾.h wkqj fjkia fõ)                 520 KB
+
+                                         Storage                32 KB - 2 MB Flash                  ESP8266: 4 MB / ESP32: 4                             microSD card (up to 512 GB)
+                                                                                                                                256 KB Flash
+                                         wdphk                                                      MB+
+                                         GPIO Pins              14 - 54 pins (varies by model       17 GPIO (ESP8266) / 34      25 pins                  26 to 40 pins (depending on
+                                         GPIO mska              j¾.h wkqj fjkia fõ)                 GPIO (ESP32)                                         model
+                                                                                                                                                         j¾.h wkqj fjkia fõ)
+
+                                         Connectivity           Varies (No WiFi/Bluetooth on        Wi-Fi, Bluetooth (ESP32)    Bluetooth, Radio         Wi-Fi, Bluetooth, Ethernet, USB
+                                         iïnkaO;djh             most models)
+                                                                fjkia fõ ^fndfyda udÈ,sj,
+                                                                WiFi/Bluetooth ke;&
+
+                                         Power Supply           5V via USB, 7-12V via barrel jack   3.3V via USB or battery     3V via USB or battery    5V via USB, micro USB, or GPIO
+                                         n, iemhqu
+
+                                         Operating System       None                                None                        None                     Linux-based OS (e.g., Raspbian)
+                                         fufyhqï moaO;sh        ke;                                 ke;                         ke;
+
+
+
+
+Ravindu Bandaranayake - ictfromabc.com
+                                         Programming            C/C++, Arduino IDE                  C/C++, Arduino IDE,         JavaScript, Python       Python, C/C++, Scratch, etc.
+                                         Languages                                                  MicroPython
+                                         l%uf,aLk NdId
+                                         Target Audience        Hobbyists, developers, educators    IoT developers, hobbyists   Education, beginners     Developers, educators, hobbyists
+                                         b,lal.; fm%alaIlhska   úfkdaodxYlrejka" ixj¾Olhska"        IoT ixj¾Olhska"             wOHdmkh i|yd"            ixj¾Olhska" wOHdmkh i|yd"
+                                                                wOHdmkh i|yd                        úfkdaodxYlrejka             wdOqkslhka               úfkdaodxYlrejka
+

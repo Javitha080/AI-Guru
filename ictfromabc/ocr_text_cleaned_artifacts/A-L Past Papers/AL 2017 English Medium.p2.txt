@@ -1,0 +1,288 @@
+Part A -_ Structured Essay Do not
+Answer all four questions on this paper itself ahs
+column
+
+1. Fill in the blanks in the following Data Flow Diagram (Figure 1.1) of the sales information system of
+a company called Bookland, only by using the words in Boldface in the description given below.
+
+Bookland is a book store that specializes in selling rare books, which are usually not available from
+other sources. As a practice, Bookland maintains just a one copy of any book at a time due to the higher
+price of rare books.
+
+Typically, a customer makes a book enquiry over the phone from the Sales Assistant at Bookland.
+She then goes through book details in the Inventory file to check whether such a book is in their
+stock. If the details of the book is found in the Inventory file, the Sales Assistant then refers to
+the Hold-on Requests tray to make sure that the book status is ‘available’ and makes a reply to
+the enquiry. If the book status is ‘available’ and the customer wishes to reserve the book, she then
+takes customer's personal details and places a hold-on request against that book in the Hold-on
+Requests tray making the book no longer available.
+
+When the customer comes to make the payment and collect the book, the Cashier at Bookland
+refers to the Hold-on Requests tray and finds the relevant hold-on request made by the customer. If
+there is a valid hold-on request, she then accepts the payment from the customer, issues a payment
+receipt to the customer and finalizes the sale. The customer is then allowed to take away the book.
+The Cashier also files the copy of the payment receipt in the Sales file, uses it at the end of the
+day to compile a sales report and sends it to the Owner of the Bookland. After every sale, the
+Cashier updates the book details in the Inventory file and keeps the stock up to date. When the
+Owner supplies books to Bookland, he sends details of books to Cashier and the Cashier adds them
+one by one to the Inventory file.
+
+payment Cewsiomer >
+book enquiry
+
+Teply to ।॥ ……
+the enqui
+quiry | /
+Vv y)
+1 |Sales Assistant Handle
+ය. (ම Handle <— poo M1| Inventory <— pan — payments & £~-(-……
+enquiries 215 Inventory
+& hold-on
+requests aw a | \
+| copy of the
+……බ teen eeageneeeeees payment receipt details of
+—~ ෴ books
+hold-on request >
+(M) | ……------……
+M2
+
+Figure 1.1 : Level 1 Data Flow Diagram of Sales Information System of Bookland
+
+ෂී
+
+මූ 7
+
+AL/2017/20/E-II -3- Tindex NO. ……
+
+i . . Do not
+2. (a) In an operating system, what are the events that change the state of a process in the ‘running’ |……
+state? in this
+column
+
+3. (a) (1) Write three key conditions to be satisfied in order to classify a transaction/service between
+two persons as B2B in e-commerce.
+
+(ii) If the seller in the above transaction is replaced by a software agent, state the key proactive
+behaviour that software agent shall have.
+
+y,
+
+name char(3@),
+address char(100),
+primary key (student_no)
+
+(i) Write a query in SQL to add the following data to the student table.
+
+Student number — 10001
+Name — Saman Kumara
+Address — 78, Mahara road, Maharagama
+
+(11) If the address of the student entered in the (i) above should be changed to
+13, School Lane, Jaffna, write a query in SQL to update the relevant record in the student
+table.
+
+4, (a) (i) The Figure 4.1 represents an open system. Using the basic components: input, process, output
+and system boundary as given in the figure, draw a diagram to represent a closed system.
+
+Input > process > Output
+ඩය
+
+System boundary
+Figure 4.1 : An open system
+
+/~ \
+(b) The following SQL statement has been used to create a table in a database. a
+create table student( in this
+student_no char(5), column
+
+y,
+
+Do not
+(ii) Explain the reason for drawing the diagram which you drew for (1) above. write
+in this
+…… column
+(b) A person can own one or more mobile phones. One mobile phone belongs to a single person
+only. Assume that a mobile phone can be uniquely identified by its telephone number. National
+Identity Card number (NIC No) is used to identify a person uniquely.
+Above statements are represented by the ER diagram in Figure 4.2.
+Telephone No CNIC No)
+Mobile Phone [~~ belongs | Person
+to
+Figure 4.2 : ER diagram
+Convert the above ER diagram into 3rd Normal Form relations to be implemented in relational
+database.
+36 &
+ද y,
+
+බි 0915160051-1.11[)/1.-60)5:5 G60 60 SS 61110)
+seen Cungs ඉඅ1[/1151)1] ! 15217 Ow spd ufLeng, 2017 acm
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+HEU, THT TUT 0151110160]! |]! 16) 11 [20 EB ॥ 11 )
+Part B
+
+% Answer any four questions only.
+
+1.
+
+A switch (A), a temperature sensor (B) and a timer (C) of an air-conditioner determine turned on and turned
+off states of the air-conditioner. Turned on and turned off states of the air-conditioner as well as the ‘ON’
+and ‘OFF’ states of the switch, temperature sensor and the timer are represented by the logical values 1 and
+0, respectively.
+
+The air-conditioner can be turned on or off manually by setting the switch to its ‘ON’ or ‘OFF’ states,
+respectively.
+
+The temperature sensor detects the temperature in the room. The temperature sensor sets its state as ‘ON’
+or ‘OFF’ when the detected temperature is respectively higher or lower than a pre-defined temperature value.
+The air-conditioner is automatically turned on or off when the detected temperature is respectively higher or
+lower than the pre-defined temperature value.
+
+The timer sets its state as ‘OFF’ until it reaches a preset time value and sets the state as ‘ON’ once it
+reached. The air-conditioner is automatically turned off when the timer reaches the preset time value.
+
+(a) Construct a logic circuit using only NOR gates to control the air-conditioner. Clearly show truth table,
+Boolean expression and Boolean algebraic rules used for simplification. Assume that the electricity is
+always supplied to the air-conditioner.
+
+(b) The user of the air-conditioner says that the switch is not required for the operation of the air-conditioner.
+Do you agree with this statement? Justify your answer.
+
+A “Demilitarized Zone (DMZ)” is a subnet that contains and exposes an organization’s external-facing services
+such as web servers (public IP addresses) to the Internet while hiding away the rest of the network behind
+a firewall (using local IP addresses).
+
+A network with a DMZ belonging to an organization has been assigned the public IP address range 123.45.67.0
+with subnet mask 255.255.255.224. The DMZ contains the web server and the mail server. It has 4 additional
+subnets for internal use having the private IP address range 10.0.0.0 with the subnet mask 255.0.0.0. Computers
+in each subnet can access resources in all other subnets. The organization decided to connect the 4 subnets
+to the Internet through a proxy server. There is also an application server for its internal clients.
+
+Identify the devices required to establish this network and draw a network diagram to show the logical
+arrangement of the organization’s computer network. Show all the elements of the network with appropriate
+IP addresses. Clearly show all calculations stating assumptions you made.
+
+Further, it is also required to explain the changes done to an IP packet released by a computer to a subnet
+by the proxy server when it travels to the Internet.
+
+A state health authority decided to conduct an awareness program as an online service through Internet to
+reduce dengue infection by transmission of the virus through the mosquitoes. This service provides information
+on how to adopt dengue control approaches, such as cleaning the environment, destroying non-essential
+containers that provide larva habitats etc., in order to minimize mosquitoes’ propagation.
+
+(a) To which e-commerce type does this service belong?
+
+(b) If the service is extended by allowing organizations to register their services targeting minimizing the
+spread, what is the e-commerce type of this extended service? Justify your answer.
+
+(c) Assume that a registered organization provides a service for itself to submit the details of the identified
+dengue breeding places to the state authority online. Why is this service not rightly considered as B2B?
+What is the correct e-commerce type of this service?
+
+2
+
+a
+
+(d) An expert system is proposed to develop policies to fine the owners of the locations where dengue
+mosquitoes have been detected. Accordingly, experts in Attorney General’s Department and epidemiology
+units are consulted. State key contributions that are expected from each expert to develop the Knowledge
+base of the expert system. (Hint: The contribution of one expert should be an input to the decision making
+process of the other expert).
+
+The consumption of electricity at houses is charged based on the number of units consumed. The first 64
+
+units are charged at Rs.5.00 per unit, and the rest at Rs.10.00 per unit.
+
+(a) Draw a flowchart to represent an algorithm that can be used to compute the total amount to be charged
+from a householder when the household number and present and the previous readings of the electricity
+meter are given.
+
+(b) Encode the algorithm given in the (a) above in Python programming language. State all valid assumptions,
+if any.
+
+(c) Develop a function in Python to write household number, meter readings and the total amount to be
+charged at the end of an existing text file named “deb.txt”.
+
+The candidates who have been selected for university entrance should register for the given academic year
+with the university given to them. Candidates who do not register before the ‘Last date’ announced by each
+university will lose their university entrance. Once a candidate registers with the given university, the candidate
+becomes a registered student of that university. Registered students can apply for financial support, such as
+Mahapola scholarships and Bursary, separately. These financial supports could be either full or partial. All
+registered students will receive a laptop. However, its ownership cannot be transferred to another student.
+The user requirements of the above system are listed below. A user shall be able to obtain:
+
+(a) a list of students registered for a given academic year with a given university.
+(b) information (such as model, serial number and warranty period) about the laptops given to each student.
+(c) list of students who applied for financial support.
+
+Draw an Entity Relationship (ER) diagram required to design a database to represent the above system
+description and to satisfy the user requirements. State all your assumptions clearly.
+
+Environmental Institute of Colombo intends to develop a website to provide information on an art competition
+for students. A web page from this website and another web page with the entry form to register for the
+competition are shown in the Figure 6.1 and Figure 6.2 respectively.
+
+Student Art Competition
+
+Theme: Litter on the environment
+
+PRIZES
+= ist place Rs. 10,000/=
+= 2nd place Rs. 7,500/=
+= 3rd place Rs. 5,000/=
+ENTRY FORM
+Please fill and submit this online entry form to enter the competition
+
+Figure 6.1 : A web page of the website
+
+(a) Using appropriate HTML tags, create an HTML file required to render the web page as shown in Figure 6.1.
+Your code should satisfy the following requirements.
+It is required to format the text of the list in ‘Calibri’ font, 14 points high, in red color. The list should
+be bulleted with squares. Format the list by using internal or external style sheets only.
+Further, when a user clicks on the hypertext ‘online entry form’ on the web page, the entry form given
+in Figure 6.2 should be rendered on a new tab/page. Assume that the name of the HTML file of the
+web page with the entry form is ‘form.html’.
+
+2
+
+AL/2017/20/E-II
+
+a
+
+Art Competition Online Entry
+Form 2017
+
+Theme: Litter on the environment
+
+Name: | |
+
+Gender: O Male ටං Female
+
+Grade Category|Grade 1-2 v|
+
+Art media:
+
+() Water Colours
+(J Colour Pencils
+(J) Crayon
+C) Chalk
+
+| Clear your Entries |
+
+| Submit |
+
+Figure 6.2 : Entry form
+
+Grade Category|Grade 1-2 v|
+
+Grade 1 -2
+
+Grade 3 -6
+Grade 7 -10
+Grade 11 -13
+
+Figure 6.3 : Options for Grade Category
+
+(b) Using appropriate HTML tags, create an HTML file to render the entry form given in Figure 6.2. The options
+for ‘Grade Category’ are given in the Figure 6.3. Your code should satisfy the following requirements.
+When the ‘Clear your Entries’ button is clicked, all the entries of the form should be cleared. Similarly,
+when the ‘Submit’ button is clicked, the form should be submitted to the server.

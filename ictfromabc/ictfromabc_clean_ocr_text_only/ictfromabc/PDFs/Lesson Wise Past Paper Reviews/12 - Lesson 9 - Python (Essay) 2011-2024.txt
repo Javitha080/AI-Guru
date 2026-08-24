@@ -1,0 +1,5367 @@
+Instructions are written in binary digits (Os and ] 5) that the processor directly understands.
+උපදෙස්‌ ප්‍රොසෙසරය සෘපුවම තේරැමි ගන්නා ද්විමය ඉලක්කමි වලින්‌ (05 and 15) ලියා ඇත.
+
+2 Very Fast Execution / ඉතා වේගවත්‌ ක්‍රියාත්මක කිරීම
+Since there's no need for translation or conversion, the machine executes the instructions immediately
+and efficiently.
+පරිවර්තනයක්‌ හෝ පරිවර්තනයක්‌ qOas නොවන බැවින්‌ යන්ත්‍රය උපදෙස්‌ ක්ෂණිකව හා කාර්යක්ෂමව
+ක්‍රියාත්මක කරයි.
+
+3 Hardware-Dependent / දෘඞාංග මත යැපෙයි
+Each machine has its own unique machine language. A program written for one type of computer will
+not run on another without major modifications.
+සැම යන්ත්‍රයකටම ආවේණික යන්ත්‍ර භාෂාවක්‌ ඇත. එක්‌ පරිගණක ObMasd සඳහා ලියා ඇති වැඩසටහනක්‌
+විශාල වෙනස්‌ කිරීමි නොමැතිව තවත්‌ පරිගණකයක ක්‍රියාත්මක නොවේ.
+
+4
+
+No Translator Needed / පරිවටිතකයෙකු අවශ්‍ය නොවේ
+
+As the code 15 already in the computer’s native language, 1t can be executed directly without using any
+compiler, interpreter, or assembler.
+
+කේතය දැනටමත්‌ පරිගණකයේ මවි භාෂාවෙන්‌ ඇති බැවින්‌, එය කිසිදු සමිපාදකයක්‌, පරිවරිතකයක්‌ හෝ
+assembler එකක්‌ භාවිතා නොකර කෙලින්ම ක්‍රියාන්මක කළ හැක.
+
+Difficult to Write and Understand / ලිවිමට සහ නේරැමි ගැනීමට අපහසුය
+
+Binary code is not human-friendly. Writing or fixing programs in first-generation languages is very
+difficult and easy to make mistakes in.
+
+ද්විමය කේතය මානව හිතකාමි නොවේ. පළමු පරමිපරාවේ භාෂාවලින්‌ වැඩසටහන්‌ ලිවීම හෝ නිවැරදළි
+කිරීම ඉතා අපහසූ වන අතර වැරදි වීමට වැඩි ඉඩක්‌ ඇත
+
+Not Portable
+
+Programs are specific to the architecture of a given machine and cannot be used on different types of
+processors. / වැඩසටහන්‌ ලබා දි ඇති යන්ත්‍රයක ආකෘතියට SedSm වන අතර විවිධ ප්‍රොසෙසර මත
+භාවිතා කළ නොහැක.
+
+Second-Generation Languages / දෙවන පරමිපරාවේ ක්‍රමලේඛ භාෂාව (2GL)
+
+1
+
+Written in Assembly Language / Assembly භාෂාවෙන්‌ ලියා ඇත
+Uses mnemonic codes like MOV, ADD, SUB etc., which are easier to remember than binary.
+ද්විමයට O08) මතක තබා ගැනීමට පහසු MOV, ADD, SUB යනාදි කේන භාවිතා කරයි.
+
+1:1 Mapping with Machine Instructions / 1:1 යන්ත්‍ර උපදෙස්‌ සමඟ සිතියමිගත කිරීම
+Most assembly instructions have a direct one-to-one correspondence with machine code instructions.
+බොහෝ assembly උපදෙස්‌ යන්ත්‍ර කේත උපදෙස්‌ සමඟ සෘපුව එකින්‌ එක ලිපි හුවමාරැවක්‌ ඇත.
+
+Requires an Assembler / Assembler එකක්‌ අවග්‍ය වේ
+
+An assembler is a translator that converts the assembly language into machine code so it can be
+executed by the CPU.
+
+Assembler යනු Assembly භාෂාව යන්ත්‍ර කේතයක්‌ බවට පරිවරිතනය කරන පරිවර්තකයකි, එබැවින්‌ එය
+CPU මඟින්‌ ක්‍රියාත්මක කළ හැකිය.
+
+Hardware-Dependent / දෘඞාංග මත යැපෙයි
+
+Like 1GL, assembly language is still closely tied to the specific architecture of the hardware. Each
+processor family has its own instruction set.
+
+1GL මෙන්‌, Assembly භාෂාව තවමත්‌ දෘඞාංගයේ නිග්චිත ආකෘතියට සමිපව බැඳි ඇත. සෑම ප්‍රොසෙසර
+වට්ගයකටම තමන්ගේම උපදෙස්‌ මාලාවක්‌ ඇත.
+
+Faster than High-Level Languages / ඉහළ මට්ටමේ භාෂාවලට O8) වේගවත්‌
+
+Assembly programs usually execute faster than programs written in high-level languages because
+they are low-level and efficient.
+
+Assembly වැඩසටහන්‌ සාමාන්‍යයෙන්‌ ඉහළ මට්ටමේ භාෂාවලින්‌ ලියන ලදු වැඩසටහන්වලට වඩා වේගයෙන්‌
+ක්‍රියාත්මක වන්නේ ඒවා පහත්‌ මට්ටමේ සහ කාට්යක්ෂම බැවිනි.
+
+More Readable than Machine Code but Still Complex / යන්ත්‍ර කේතයට වඩා කියවිය හැකි නමුත්‌
+තවමත්‌ සංකීරණය
+
+Easier for humans to read than binary, but still harder to write and debug than modern high-level
+languages like Python or Java.
+
+මිනිසුන්ට ද්විමයට O00) කියවීමට පහසු, නමුත්‌ Python හෝ Java වැනි නවින ඉහල මට්ටමේ භාෂා වලට
+වඩා ලිවීමට සහ දෝෂහරණය කිරීමට අපහසුය.
+
+Used in System-Level Programming / පද්ධති මට්ටමේ ක්‍රමලේඛනයේ භාවිතා වේ
+Often used in embedded systems, device drivers, and real-time applications where direct hardware
+control is necessary.
+
+සෘපු දෘඞාංග පාලනය අවග්‍ය වන කාවැද්දූු පද්ධති, උපාංග ධාවක සහ තත්‍ය කාලීන යෙදුමිවල බොහෝ
+විට භාවිතා වේ.
+
+උපදෙස්‌ එකින්‌ එක ඒවා දිස්වන පිළිවෙලට ක්‍රියාත්මක කරයි.
+
+2 Selection (Decision / Conditional) / තේරීම (තීරණය | කොන්දේසි සහිත)
+
+Chooses between two or more paths based on a condition
+කොන්දේසියක්‌ මත පදුනමිව මාර්ග දෙකක්‌ හෝ කිහිපයක්‌ අතර තෝරා ගනී
+
+3 Iteration (Loop / Repetition) / පුනරාවටතනනය
+Repeats a set of instructions while a condition 15 true (e.g., WHILE loop, FOR loop).
+කොන්දේසියක්‌ සත්‍ය වන විට උපදෙස්‌ මාලාවක්‌ පුනරාවරතනය කරයි (උදා: WHILE loop, FOR loop)
+
+(d) The following Python program is intended to convert user given positive integers to their equivalent
+binary representations. The program should halt when the user inputs the value 0. The program has
+both syntactic and logical errors. The line numbers are not part of the program, but they are used to
+reference the lines.
+පහත දැක්වෙන පයිතන්‌ ක්‍රමලේඛය (Python program) පරිශිලක විසින්‌ දෙනු ලබන ධන HAE, ඒවාට තුල්‍ය
+ද්විමය නියෝපනවලට හැරවීම Hem) නිර්මාණය කර ඇන. පරිගිලක විසින්‌ 0 අගය ඇනුඑකළ විට ක්‍රමලේඛය
+නැවතිය යුතුය. ක්‍රමලේඛයෙහි OGSS දෝෂ (Syntax errors) සහ තාර්කික දෝෂ (Logical errors) යන දෝෂවට්ග
+දෙකම ඇත. GSE අංක, ක්‍රමලේඛයෙහි කොටසක්‌ නොවන අනර ඒවා අදාළ පේළි යොමුව දක්වයි.
+
+ද: int (input ("Enter an integer >)
+while x!=@:
+bn = ""
+while x > 1:
+quotient = int(x/2)
+remainder == x % 2
+bn = bn + str(remainder) ;
+xX = quotient
+bn = str(x) + bn
+6. print ("Binary Number", bn)
+1 xX = int (input("Enter an integer >)
+
+“ක්‌ ය උ රර යු ODA ටෘ 4 ටට [ට PR
+
+(i) State the lines with syntactic errors and state the error.
+වාග්‍රිති දෝෂ සහිත පේළි නමි කර, ඵ්‌ එක එකෙහි දෝෂ ද දක්වන්න.
+
+Line 1:
+Unclosed string and Unclosed bracket / වසා නොදැමු string සහ වසා නොදැමු වරහන
+
+Line 3:
+bn variable should be right indented
+bn SOEBS EHO ඉන්ඩෙන්ටි කළ යුතුය
+
+Line 6:
+== 1S a comparison operator, = should be used for assignment.
+== 62) සංසන්දනාත්මක මෙහෙයවනයකි. = පැවරීම HEH) භාවිතා කළ යුතුය.
+
+1,111ල 7:
+Semicolon at the end is unnecessary.
+අවසානයේ Semicolon එක අනවග්‍යයි.
+
+Line 8:
+Misaligned indentation.Should be indented with the previous line.
+නොගැලපෙන ඉන්ඞඩෙන්ටේෂන්‌. පෙර පේළිය සමඟ ඉන්ඩෙන්ටි කළ යුතුය.
+
+Line 11:
+Unclosed string and Unclosed bracket
+වසා නොදැමු string සහ වසා නොදැමු වරහන
+
+(11) Which lines of the program should be changed and state how they should be changed to obtain
+the desired results. (You are not allowed to add new lines or to delete existing lines.)
+අපේක්ෂිත ප්‍රතිවලය ලබාගැනීම සඳහා, ක්‍රමලේඛයෙහි වෙනස්‌ කළ යුතු පේළි සහ SO) වෙනස්‌ කළ යුත්නේ
+කෙසේදැයි දක්වන්න. (ක්‍රමලේඛයට අලුතින්‌ පේළි එකතුකිරීමට හෝ එහි පේළි ඉවත්‌ කිරීමට හෝ ඔබට අවසර නැත.)
+
+Logical Errors 7 තාරීකික දෝෂ
+
+Line 7: Should be bn = str(remainder) + bn inorder build the binary number in correct order.
+ද්විමය අංකය නිවැරදි අනුපිළිවෙලින්‌ ගොඩනැගීම සදහා bn = str(remainder) + bn විය යුතුයි
+
+Line 9: Should be aligned with line 4 to capture the last bit.
+අවසාන BO එක ග්‍රහණය කර ගැනීම oem) 4 වන පේළිය සමඟ align කළ යුතුය
+
+1 x = int (input ("Enter an integer >”))
+2 while x!=@:
+
+3 bn = ""
+
+4 while x > 1:
+
+5 quotient = int(x/2)
+
+6 remainder = x % 2
+
+7 bn = str(remainder) + bn
+
+8 X = quotient
+
+9 bn = str(x) + bn
+
+1 print ("Binary Number", bn)
+
+1 ද: int (1010001්‌ ( '' [- (1 6|* an integer >”))
+
+me ©
+
+2012 AL PYTHON ESSAY MARKING
+
+1.(a)()Describe how you would determine whether a given positive integer is odd or even.
+ඔබ, & ඇති ධන නිඛිලයක්‌, ඔත්තේ දු ඉරටිට ද යන්න තීරණය කරන්නේ කෙසේදැයි විස්තර කරන්න.
+
+If the remainder of the division of the number by 2 is 1, then the number is odd, otherwise even.
+ODO 28 බෙදිමේ ඉතිරිය ] නමි, එම සංඛ්‍යාව ඔත්තේ, එසේත්‌ නැතිනමි ඉරටිටේ වේ.
+
+Explanation / පැහැදිලි කිරීම:
+
+To determine whether a given positive integer 1s odd or even, you can use division by 2 and check the
+remainder:
+
+ලබා දි ඇති ධන නිඛිලයක්‌ ඔන්තේ හෝ ඉරටිටේ දු යන්න තීරණය කිරීමට, ඔබට 2 න්‌ බෙදිම භාවිතා කර
+ඉතිරිය පරික්ෂා කළ හැකිය:
+
+Method:
+
+Divide the number by 2 / අංකය 23) බෙදන්න.
+
+Check the remainder (you can use the modulus operator % in programming).
+
+ඉතිරිය පරික්ෂා කරන්න (ඔබට ක්‍රමලේඛනයේදි % මොඩියුලස්‌ මෙහෙයවනය භාවිතා කළ හැක).
+
+Rules / නීති:
+If the remainder is 0, the number is even / ඉතිරිය 0 නමි, අංකය ඉරටිටේ.
+If the remainder is 1, the number is odd / ඉතිරිය 1 නමි, අංකය ඔත්තේ වේ.
+
+Example:
+
+Let’s say the number is 7 / අංකය 7 යැයි කියමු:
+7% 2=1— Odd / ඔත්තේ
+
+Or, the number is 12 / නැතහොත්‌, අංකය 12 වේ:
+12 %2=0- Even/ ඉරටිටේ
+
+A number is even if it can be divided evenly into two equal whole parts. If there’s one left over, it’s odd.
+අංකයක්‌ සමාන සම්පුර්ණ කොටස්‌ දෙකකට එකාකාරව බෙදිය හැකි නමි එය ඉරටිටේ වේ. ඉතිරිය එකක්‌ තිබේ
+නමි, එය ඔත්තේ වේ.
+
+(ii) Develop a flowchart to represent an algorithm, based on the CStart )
+method suggested in (1) above, to decide whether a given
+positive integer is odd or even. _.
+: ෴ ෴ Read a positive
+ඉහත (1) කොටසෙහි යෝපිත ක්‍රමය oem කර, දි ඇති ධන වුද
+නිඛිලයක්‌, ඔත්තේ දු ඉරටිට දු යන්න තීරණය කිරීම aca) වන
+
+ඇල්ගොරිතමයක්‌ නිරෑපණය වන ගැලීමි සටහනක්‌ ගොඩනගන්න.
+
+x = the remainder
+of the input
+devided by 2
+
+ary Odd number /
+
+False
+
+/ Even number /
+
+<
+<
+
+(iii) Convert the flowchart you have obtained for the above (11) into a pseudo code.
+ඉහත (11) කොටසෙහි යෝපිත ගැලීමි සටහන Ome කේතයකට (pseudo code) හරවන්න.
+
+Start/Begin
+Read a positive integer
+Divided the number by 2 and get the remainder
+If the remainder equals 1
+Then the number is odd
+Display odd
+Else number is even
+Display even
+Stop/End
+(with or without end if)
+
+( 2012 —S.Essay 3[a] )
+
+2. Consider the following Python program named example.py
+පහත දැක්වෙන example.py පයිතන්‌ ක්‍රමලේඛය සලකා බලන්න.
+
+datasummary = {}
+datakeys = | ]
+def readdata():
+global datakeys, datasummary
+11 = open('input.txt’,'r’)
+line = f1.readline()
+while (line):
+data = line.strip().split(",")
+for dataitem in data:
+if dataitem in datasummary:
+datasummary [dataitem] += 1
+else:
+datasummary[dataitem]| = 1
+datakeys = datakeys + [dataitem]
+line = f1.readline()
+f1.close()
+
+def processdata():
+global datakeys
+for i in range(len(datakeys) - 1):
+for j in range(it+1, len(datakeys)):
+if(datakeys[i] > datakeys[j]):
+datakeys[i], datakeys[j] = datakeys[j], datakeys [i]
+
+def printdata():
+global datakeys, datasummary
+42 = open('output.txt’, 'w')
+for key in datakeys:
+f2.write('{}-{}\n'.format (key, datasummary[key]))
+f2.close()
+
+readdata()
+processdata()
+printdata()
+
+(a)
+
+What are the data types of the variables datasummary and datakeys in the above program?
+ඉහත ක්‍රමලේඛයෙහි datasummary සහ datakeys යන SOEBOE දුත්ත ප්‍රරෑප (data types) මොනවා ද?
+
+The variable datasummary is a dictionary. In Python, a dictionary is used to store data in key-value pairs.
+Here, each unique word or letter from the input file is a key, and the number of times it appears is the
+value.
+
+විචල්‍ය datasummary ශබ්දූකෝෂයකි. පයිතන්‌ හි, key-value යුගලවල දුත්ත ගබඩා කිරීමට ශබ්දකෝෂයක්‌
+භාවිතා කරයි. මෙහිදි, ආදාන ගොනුවේ සෑම අද්විතීය වචනයක්‌ හෝ අකුරක්‌ යතුරක්‌ වන අතර, එය විස්වන
+වාර ගණන අගය වෙේ.
+
+The variable datakeys 15 a list. A list is used to store multiple items 11] a single variable. In this case, it
+keeps track of the unique words or letters as they first appear. These items are later sorted alphabetically
+before writing to the output file.
+
+විචල්‍ය datakeys ලැයිස්තුවකි. ඵක්‌ විචල්‍යයක අයිතම කිහිපයක්‌ ගබඩා කිරිමට ලැයිස්තුවක්‌ භාවිතා කරයි.
+මෙම අවස්ටාවෙහිදි, එය මුලින්ම පෙනෙන පරිදි අද්විතය වචන හෝ අකුරැ නිරීක්‍ෂණය කරයි. මෙම අයිතම
+පසුව ප්‍රතිදාන ගොනුවට ලිවිමට පෙර උඅකාරාදි පිළිවෙලට වර්ග කෙරේ.
+
+(0) Write a Python statement required to insert the program name as a comment at the beginning of the
+
+(c)
+
+above program.
+ඉහත ක්‍රමලේඛය ආරමිභයෙහි, එහි HO, සටහනක්‌ (comment) ලෙස ඇතුළඑකිරිම සඳුහා පයිතන්‌ ප්‍රකාගයක්‌
+ලියන්න.
+
+To add the program name as a comment at the top of the code, you should use the # symbol. The correct
+line would be,
+
+කේතයේ ඉහළින්‌ සටහනක්‌ ලෙස වැඩසටහනේ නම එක්‌ කිරීමට, ඔබ # සංකේතය භාවිනා කළ යුතුය. නිවැරදි
+ප්‍රකාශය වනුයේ,
+
+# example. ["/
+
+This doesn’t affect how the program runs, it just helps anyone reading the code know the file name and
+possibly its purpose.
+
+මෙය වැඩසටහන ක්‍රියාත්මක වන ආකාරය කෙරෙහි බලපාන්නේ නැත, එය කේතය කියවන ඕනෑම කෙනෙකුට
+ගොනු නාමය සහ සමහරවිට එහි අරමුණ දැන ගැනීමට උපකාර කරයි.
+
+What is the result of execution of the command open(‘input.txt’, 7”) in the above program?
+ඉහත ක්‍රමලේඛයෙහි open(‘input.txt','r') යන විධානය ක්‍රියාත්මක කිරීමෙන්‌ ඇතිවන ප්‍රතිඵලය කුමක්‌ දු?
+
+This line opens a file named input.txt in read mode. The 7’ tells Python you want to read the contents of
+the file. If the file exists, Python allows the program to read its contents line by line. If the file doesn't
+exist, the program will crash with a "FileNotFoundError".
+
+මෙම පේළීය input.txt නමින්‌ ගොනුවක්‌ කියවීමේ ආකාරයෙන්‌ විවෘත කරයි. ‘7’ මඟින්‌ ඔබට ගොනුවේ
+අන්තර්ගතය කියවිමට අවග්‍ය බව පයිතන්‌ හට කියයි. ගොනුව තිබේ නමි, පයිතන්‌ වැඩසටහනට එහි
+අන්තර්ගතය පේළියෙන්‌ පේළිය කියවිමට ඉඩ දෙයි. ගොනුව නොපවතී නමි, වැඩසටහන ”/*7/67/0/7*07/77/7/*77707*”
+එකක්‌ මතු කරයි.
+
+(d) Describe the main task of each of the functions readdata(), printdata() and processdata() in the above
+
+program.
+ඉහත ක්‍රමලේඛයෙහි readdata(), printdata() සහ processdata) යන එක්‌ එක්‌ කාර්යයෙහි (each of the
+functions) ප්‍රධාන කාර්යය විස්තර කරන්න.
+
+readdata() reads the input.txt file line by line. Each line is split by commas to get individual data items. It
+then counts how many times each item appears using the dictionary datasummary. It also adds each new
+item to the datakeys list if it's not already there.
+
+readdata() input.txt ගොනුව පේළියෙන්‌ පේළිය කියවයි. තනි දූත්ත අයිතම ලබා ගැනීම සඳහා සැම පේළියක්ම
+කොමා මගින්‌ බෙදුනු ලැබේ. ඉන්පසු එය datasummary ශබ්ද කෝෂය භාවිතයෙන්‌ එක්‌ එක්‌ අයිතමය කොපමණ
+වාර ගණනක්‌ දිස්‌ වේ දැයි ගණන්‌ කරයි. එය දැනටමත්‌ එහි නොමැති නමි, එය සෑම නව අයිතමයක්ම දත්ත
+යතුරැ ලැයිස්තුවට එක්‌ කරයි.
+
+(ලා)
+
+printdata() writes the final output to a new file called output.txt. It goes through each item in the sorted
+datakeys list, finds its count from datasummary, and writes a line in the format item-count for each.
+
+printdatal) අවසාන ප්‍රතිදානය output.txt HS HO ගොනුවකට ලියයි. එය අනුපිළිවෙළට සකසන ලද, datakeys
+ලැයිස්තුවේ එක්‌ එක්‌ අයිතමය Hom ගොස්‌, datasummary එකෙන්‌ එහි ගණන්‌ සොයා, item-count ආකෘති
+
+-~
+
+යට ප්‍රතිදානයක්‌ ලියයි.
+
+processdata() is responsible for sorting the ttems in the datakeys list in the ascending order. It uses two
+nested loops and compares each pair of items. If one item is greater than the other alphabetically, it swaps
+their positions. This is similar to how bubble sort works.
+
+processdata() datakeys ලැයිස්තුවේ ඇති අයිතම ආරෝහණ අනුපිළිවෙලට OOM කරයි. එය nested loops
+දෙකක්‌ භාවිතා කරන අතර සෑම අයිතම යුගලයක්ම සංසන්දනය කරයි. එක්‌ අයිතමයක්‌ අනෙකට අකාරාදී
+පිළිවෙලට වඩා විශාල නමි, එය ඔවුන්ගේ ස්ථාන මාරැ කරයි. මෙය bubble sort ක්‍රියා කරන ආකාරය හා
+සමාන වේ.
+
+If the content of the file input.txt is as given below, what would be the content of the file output.txt
+after the execution of this program?
+
+input.txt ගොනුවෙහි අන්තර්ගතය පහත දි ඇති පරිදි වේ නමි, මෙම ක්‍රමලේඛය ක්‍රියාත්මක වීමෙන්‌ og
+output.txt ගොනුවෙහි අන්තර්ගතය කුමක්‌ වේ ද?
+
+a,d,b,a,n
+d,b,n,x,a
+
+The input.txt file has two lines. The program reads these lines and splits them into individual items. Then
+it counts each item.
+
+input.txt ගොනුවේ පේළි දෙකක්‌ ඇත. වැඩසටහන මෙම රේඛා කියවා JO) තනි අයිතමවලට බෙදා ගනියි.
+එවිට එය එක්‌ එක්‌ අයිතමය ගණන්‌ කරයි.
+
+e "a" appears 3 times /"a" 3 වරක්‌ දිස්වේ
+e "d","b" and "n" each appear 2 times /"d","b" සහ "n" 2 වරක්‌ දිස්වේ
+e "x" appears once /"x" එක්‌ වරක්‌ දිස්වේ
+
+Then the datakeys list 1s sorted alphabetically ['a’, 'b’, 'd’, 'n’, 'x']. Finally, printdata() writes the following
+lines to output.txt.
+
+එවිට datakeys ලැයිස්තුව අකාරාදි පිළිවෙලට O68M කරයි ['a', 'b', 'd','n','x'] අවසාන වශයෙන්‌, printdata()
+output.txt හී පහත අන්තර්ගතය ලියයි
+
+This shows each item followed by how many times it appeared, sorted alphabetically.
+මෙමගින්‌ සෑම අයතමයක්ම එය දුර්ගණය © වාර ගණන අනුව අකාරාදි පිළිවෙලට වර්ග කර පෙන්වයි.
+
+2013 AL PYTHON ESSAY MARKING
+
+1.(a) Explain what is done by the Python interpreter when executing the following program. Your
+explanation should include the types assigned to variables and type conversions.
+පහත සඳහන්‌ ක්‍රමලේඛනය ක්‍රියාත්මක වන විට පයිතන්‌ @dd වින්‍යාසකය (interpreter) මගින්‌ කරනු ලබන
+කාර්යය පැහැදිලි කරන්න. විචල්‍ය (variables) සඳහා පවරනු ලැබු ප්‍රරෑප (types) හා ප්‍රරෑප පරිවර්තනයන්‌
+ඔබේ පැහැදිලි කිරීම තුළ GOH විය යුතුය.
+
+4:24
+b ~ 4.7
+c=at+b
+
+When the Python interpreter executes the program, it processes each line one by one, assigning values and
+determining data types based on the given literals. In the first line, a = 4, the interpreter assigns the integer
+value 4 to the variable a. Since 4 1s written without a decimal point, Python recognizes it as an integer
+(int) type. At this point, a holds the value 4 and is of type int.
+
+පයිතන්‌ පරිවර්තකය වැඩසටහන ක්‍රියාත්මක කරන විට, එය එක්‌ එක්‌ පේළි එකින්‌ එක සකසමින්‌, අගයන්‌
+පවරමින්‌ සහ ලබා දි ඇති වචන මත පදුනමිව දුන්ත OOO තීරණය කරයි. පළමු පේළියේ, a= 4 පරිවර්තකයා
+a විචල්‍යයට පුර්ණ සංඛ්‍යා අගය 4 ලබා දෙයි. 4 ලියා ඇන්තේ දගම ලක්ෂ්‍යයකින්‌ තොරව බැවින්‌, පයිනන්‌
+එය පුර්ණ සංඛ්‍යා (int) වර්ගයක්‌ ලෙස හඳුනා ගනී. මෙම අවස්ථාවේදි, a අගය 4 60H අතර එය int
+වටර්ගයේ වේ.
+
+In the second line, b = 4.7, the interpreter assigns the floating-point number 4.7 to the variable 0. This
+number contains a decimal point, so Python treats it as a floating-point number, or float. Therefore, b holds
+the value 4.7 and 15 of type float.
+
+දෙවන පේළියේ, b= 4.7 පරිවර්තකයා b විචල්‍යයට පාවෙන ලක්ෂ්‍ය අංකය 4.7 ලබා දෙයි. මෙම සංඛ්‍යාවේ
+දුගම ලක්ෂ්‍යයක්‌ අඩංගු වේ, එබැවින්‌ Python එය පාවෙන ලක්ෂ්‍ය අංකයක්‌ හෝ float ලෙස සලකයි. එබැවින්‌,
+b අගය 4.7 උරන අතර එය float වර්ගයේ වේ.
+
+In the third line, c = a + b, the interpreter evaluates the expression on the right-hand side. It needs to add
+an integer (a) and a float (b). To perform this operation, Python automatically performs implicit type
+conversion, it converts the integer a to a float (4.0) so that both operands are of the same type. After the
+conversion, it adds 4.0 and 4.7, resulting in 8.7. The result of this addition is a float, so the variable c is
+assigned the value 8.7 with a data type of float.
+
+තුන්වන පේළියේ, c=atb edddnne) දුකුණු පස ඇති ප්‍රකාශනය ඇගයීමට ලක්‌ කරයි. එයට පුරණ
+සංඛ්‍යාවක්‌ (a) සහ float (b) එකතු කිරීම අවග්‍ය වේ. මෙම මෙහෙයුම සිදු කිරීම oes), Python ස්වයංක්‍රීයව
+ව්‍යංග ආකාරයේ පරිවර්තනයක්‌ සිදු කරයි, එය පුරණ HOMO a float (4.0) බවට පරිවරතනය කරයි, එවිට
+මෙහෙයුමි දෙකම එකම වර්ගයේ වේ. පරිවරතනයෙන්‌ පසුව, එය 4.0 සහ 4.7 එකතු කරයි, ප්‍රතිඵලයක්‌ ලෙස
+8.7 මෙම එකතු කිරීමේ ප්‍රතිවලය float වේ, එබැවින්‌ c විචලඅයට දුන්ත වර්ගයක්‌ සමඟ 8.7 අගය පවරනු
+ලැබේ.
+
+(b) Explain what will happen when the statements of the following Python program are executed.
+පහත සඳුහන්‌ ක්‍රමලේඛනයේ ඇති වගන්ති ක්‍රියාත්මක කිරීමේ දි කුමක්‌ සිදුවේ දැයි විස්තර කරන්න.
+
+total = 6.6
+x = float(input("Enter a number:"))
+while x > 6:
+
+total = total + x
+
+x = float(input("Enter a number:"))
+print(total)
+
+When the Python interpreter executes this program, it follows each line step by step and performs actions
+based on user input and control flow. Here's a detailed explanation of what happens during execution.
+පයිතන්‌ පරිවර්තකය මෙම වැඩසටහන ක්‍රියාත්මක කරන SO, එය එක්‌ එක්‌ පේළිය පියවරෙන්‌ පියවර අනුගමනය
+කරන අතර පරිගිලක ආදානය සහ පාලන ප්‍රවාහය මන GEMGO ක්‍රියා සිදු කරයි. ක්‍රියාත්මක කිරීමේදි සිදුවන්නේ
+කුමක්ද යන්න පිළිබඳු සවිස්තරාත්මක පැහැදිලි කිරීමක්‌ පහත දැක්වේ.
+
+e total = 0.0
+The program initializes a variable called total and sets its value to 0.0, which is a floating-point
+number. This variable will be used to store cumulative sum of all positive numbers entered by the user.
+මෙම වැඩසටහන මගින්‌ total නමින්‌ විචල්‍යයක්‌ ආරමිභ කර එහි අගය 0.0 ලෙස සකසයි, එය පාවෙන
+ලක්ෂ්‍ය අංකයකි. මෙම විචල්‍යය පරිගිලකයා විසින්‌ ඇතුලත්‌ කරන ලදු සියලම ධන සංඛ්‍යා වල සමුච්චිත
+එකතුව ගබඞා කිරීමට භාවිතා කරනු ඇත.
+
+e x = float(input("Enter a number:"))
+The program displays the prompt “Enter a number:” and waits for the user to input a value. The input()
+function captures the input as a string, and float() converts that string into a floating-point number.
+This value is then stored in the variable x.
+වැඩසටහන මඟින්‌ “Enter a number:” යන විමසුම පෙන්වන අතර පරිගීිලකයා අගයක්‌ ඇතුළත්‌ කරන
+තෙක්‌ බලා සිටි. input() ග්‍රිතය ආදානය string එකක්‌ ලෙස ග්‍රහණය කර ගන්නා අතර float() එම string
+එක පාවෙන ලක්ෂ්‍ය අංකයක්‌ බවට පරිවරිතනය කරයි. මෙම අගය පසුව x විචල්‍යයේ ගබඩා වේ.
+
+e while x > 6:
+This line starts a while loop, which checks if the value of x is greater than 0. If this condition is true,
+the loop will execute the indented block of code below it. If the condition is false (e.g., x 16 zero or
+negative), the loop ends, and the program moves to the print(total) statement.
+මෙම පේළිය x හි අගය 0 ට වඞඩා වැඩි දැයි පරික්ශා කරන while ලපයක්‌ ආරමිභ කරයි. මෙම
+කොන්දේසිය සත්‍ය නමි, eno ඊට පහළින්‌ ඇති කේත කොටස ක්‍රියාත්මක කරයි. කොන්දේසිය අසත්‍ය නමි
+(උදා: x ශුන්‍ය හෝ සෘණ), ලපය අවසන්‌ වන අතර වැඩසටහන print(total) ප්‍රකාශය වෙත යයි
+
+e total = total + x
+This line adds the current value of x to total. Since total starts at 0.0, each positive number entered by
+the user increases the total.
+මෙම පේළිය x හි වත්මන්‌ අගය total හි අගයට එකතු කරයි. total 0.08 ආරමිභ වන බැවින්‌, පරිගිලකයා
+විසින්‌ ඇතුලත්‌ කරන සෑම ධන සංඛආනවක්ම total වැඩි කරයි.
+
+e x = float(input("Enter a number:"))
+After updating the total, the program again prompts the user to enter another number, converts it to a
+float, and assigns it to x. This new value is then used in the next iteration of the loop.
+total යාවත්කාලීන කිරීමෙන්‌ පසුව, වැඩසටහන නැවතත්‌ පරිගීිලකයාගෙන්‌ අගයක්‌ ඇතුළත්‌ කරන තෙක්‌
+බලා සිටී. එය පාවෙන ලක්ෂ්‍යක්‌ බවට පරිවරිතනය කර එය x වෙත පවරයි. මෙම නව අගය පසුව
+ened ඊළඟ පුනරාවර්නනයේදී භාවිනා වේ.
+
+ේ print(total)
+Once the user enters a value of () or a negative number, the while loop stops. The program then
+executes this statement, which displays the final sum of all positive numbers that were entered.
+පරිශීලකයා 0 හෝ සෘණ අංකයක්‌ ඇතුළඑ කළ පසු, while loop එක නතර වේ. වැඩසටහන පසුව මෙම
+ප්‍රකාශය ක්‍රියාත්මක කරයි, වය ඇතුළත්‌ කළ සියලම ධන සංඛ්‍යාවල අවසාන එකතුව පෙන්වයි.
+
+The program should read integers one at a time.
+
+දෙන ලඳ HVE (integers) සංඛ්‍යා EMaM උපරීම අගය -
+
+සොයා එය ප්‍රදර්ශනය කිරීම acm) පයිතන්‌ ක්‍රමලේඛනයක්‌ 1 ns: small
+ලිවීමට ඔබෙන්‌ ඉල්ලිමක්‌ කරනු ලැබේ. ක්‍රමලේඛනය මගින්‌
+
+වරකට එක බැගින්‌ නිඛබඛිලයන්‌ කියවිය යුතු වේ. [!
+
+(c) You are requested to write a Python program to find
+and display the maximum value of given 10 integers.
+
+(1) Propose an algorithm to solve the problem using a
+
+flow chart.
+ඉහත ගැටළඑව විසඳිම HED) ඇල්ගොරිතමයක්‌ ගැලීිමි
+Print Max /
+
+සටහන්‌ භාවිත කරමින්‌ යෝජනා කරන්න.
+
+Read අ 1] integer x
+from the user through
+
+Max = x
+
+A
+
+i=it+]
+
+~ . Read an first integer
+Read an first integer from the * පී
+ae ; from the user
+user and assign it to the variable Max J
+
+Assign it to the
+i=0 Stop variable Max
+
+A +
+
+OR
+
+Print Max /
+a Print Max /
+Read an integer x
+from the user through
+
+Read an integer x
+J i the user through
+
+Max = x
+Max = x
+
+i=1i+ 1
+
+A
+
+i=it+]
+
+A
+
+(11) Write a Python program to implement your flow chart proposed in section c (1).
+ඉහත C(i) මගින්‌ යෝපනා කරනු ලැබු ඔබගේ ගැලීමි සටහන ADS කිරීමට පයිතන්‌ ක්‍රමලේඛනයක්‌ ලියන්න.
+
+~ 1000
+for i in range(@,10):
+X = int(input(str(i+1) +" Enter a value : "))
+if x > max:
+max = X
+print( "Maximum value is : ",max)
+
+max
+
+| en |
+
+This starts by setting a variable max to -1000, ensuring that any user input will likely be higher. Then, it
+uses a for loop that runs ten times, asking the user to enter a number each time. The prompt shows the
+count (1 to 10) to indicate which input is being requested. Each entered value is converted to an integer
+and stored in the variable x. The program checks if x is greater than the current max, if it is, it updates max
+to hold the new larger value. After all inputs are entered and compared, the program prints out the largest
+number entered as the maximum value.
+
+මෙය ආරමිභ වන්නේ විචල්‍ය max -10000 ආදේශ කරමින්‌, ඕනැම පරිගීලක ආදානයක්‌ SO වැඩි So හැකි
+බව සහතික කරමිනි. ඉන්පසුව, එය 10 වරක්‌ run වන for loop එකක්‌ භාවිතා කරයි, සැම අවස්ථාවකම
+අංකයක්‌ ඇතුළත්‌ කිරීමට පරිගීලකයාගෙන්‌ ඉල්ලා සිටි. විමසුම මඟින්‌ කුමන ආදානය ඉල්ලා සිටින්නේද යන්න
+දැක්වීමට (] සිට 10 දුක්වා) ගණන පෙන්වයි. ඇනුළත්‌ කළ සැම අගයක්ම පුරණ සංඛ්‍යාවක්‌ බවට පරිවරතනය
+කර Xx විචල්‍යයේ ගබඩා කෙරේ. මෙම වැඩසටහන x වත්මන්‌ උපරිමයට වඩා වැඩි දැයි පරික්ෂා කරයි, එය
+නමි, එය නව විශාල අගය රඳුවා ගැනීමට max යාවත්කාලීන කරයි. සියලුම යෙදවුමි ඇතුළත්‌ කර සංසන්දනය
+කිරීමෙන්‌ පසුව, වැඩසටහන උපරීම අගය ලෙස ඇතුළත්‌ කළ විශාලතම අංකය මුදුණය කරයි.
+
+Or / හෝ
+
+max =- 1000
+i=0
+while i ද 10;
+X= int(input())
+if xX > max:
+max = X
+j=i+1
+print (max)
+
+This program finds the largest number from ten user inputs using a while loop. It starts with max set to -
+1000 and a counter i at 0. Inside the loop, it reads a number x from the user and checks if x is bigger than
+max. If so, it updates max with the new value. The counter i increases by 1 each time, and the loop repeats
+until ten numbers have been entered. Finally, it prints the highest number found.
+
+මෙම වැඩසටහන while loop භාවිතා කරමින්‌ පරිශිලක යෙදුවුමි දුහයකින්‌ විශාලතම සංඛ්‍යාව සොයා ගනි.
+එය ආරමිභ වන්නේ max - 1000 ට සහ කවුන්ටරය i 00 Meda කරමින්‌. ලපය තුළ, එය පරිගිලකයාගෙන්‌
+X අංකයක්‌ කියවන අතර x max ට වඩා SME දැයි පරීක්ෂා කරයි. එසේ නමි, එය නව අගය සමඟ max
+යාවත්කාලීන කරයි. කවුන්ටරය 1 සෑම අවස්ටථටාවකදිම 1 කින්‌ වැඩි වන අතර, අංක දහය ඇතුළත්‌ කරන
+තෙක්‌ ලුපය නැවන සිදු වේ. අවසාන වශයෙන්‌, එය සොයාගත්‌ වැඩිම අංකය මුද්‍රණය කරයි.
+
+Or / හෝ
+
+maximum = int(input( "Input a number: "))
+for i in range(@, 9):
+num = int(input( "Input a number: "))
+maximum = max(num, maximum)
+print( "Maximum value is:", maximum)
+
+This program first reads one number and stores it in maximum. Then, using a for loop that runs 9 more
+times, it keeps reading new numbers as num and compares each one to maximum. If num is larger, maximum
+is updated. After all inputs, it prints the highest number entered.
+
+මෙම වැඩසටහන මුලින්ම ඵක්‌ අංකයක්‌ EQ) ගෙන එය maximum ලෙස ගබඩා කරයි. ඉන්පසුව, 9 වතාවක්‌
+run වන for loop එකක්‌ භාවිතා කරමින්‌, එය නව සංඛ්‍යා num ලෙස කියවමින්‌ එක්‌ එක්‌ අංකය maximum
+සමග සංසන්දනය කරයි. num විශාල නමි, maximum යාවත්කාලින වේ. සියලුම ආදාන වලින්‌ පසුව, එය
+ඇතුල්‌ කළ වැඩිම සංඛනාව මුද්‍රණය කරයි.
+
+Or / හෝ
+
+count = @
+max_value = None
+
+while count ද 16:
+num = int(input(f"Enter integer #{count + 1}: "))
+if count ==
+max _value = num
+elif num > max_value:
+max _value = num
+count += 1
+print(f"The maximum value entered is: {max_value}")
+
+This program starts with count at 0 and max_value set to None. Each time through the loop, it asks the
+user to enter a number, showing which number is being entered using string formatting.On the first input,
+it sets max_value to that number. For later inputs, it updates max_value if a larger number is entered.
+After ten inputs, it prints the maximum value out of the given numbers.
+
+මෙම වැඩසටහන ආරමිභ වන්නේ count 0ට සහ max_value None ලෙස ආදේශ කරමින්‌. ලපය හරහා
+සැම අවස්ථාවකම, එය string formatting භාවිතයෙන්‌ කුමන අංකය ඇතුළත්‌ කරන්නේද යන්න පෙන්වමින්‌
+අංකයක්‌ ඇතුළත්‌ කිරීමට පරිගිලකයාගෙන්‌ අසයි. පළමු ආදානයේදි, එය එම අංකය max_value ට ආදේග
+කරයි. පසු ආදාන HEH), විගාල සංඛ්‍යාවක්‌ ඇතුළත්‌ කළහොත්‌ එය max_value යාවත්කාලීන කරයි. ආදාන
+දහයකට පසු, එය ලබා දි ඇති සංඛ්‍යාවලින්‌ උපරිම අගය මුදුණය කරයි.
+
+Or / හෝ
+
+max_value = int(input("Enter number 1: "))
+for i in range(2, 11):
+num = int(input(f"Enter number {i}: "))
+if num > max_value:
+max _value = num
+print("The maximum value is:", max_value)
+
+This program first reads one number and stores 11 in max_value. Then, using a for loop from 2 to 10, it
+asks the user for more numbers, showing the current number count in the prompt . Each new input is
+compared with max_value, and if it’s bigger, max_value is updated. After all ten numbers are entered,
+it prints the highest value found.
+
+මෙම වැඩසටහන මුලින්ම එක්‌ අංකයක්‌ EQ ගෙන එය max_value හි ගබඩා කරයි. පසුව, 2 සිට 10 eso
+for ලුපයක්‌ භාවිතා කරමින්‌, එය විමසුමේ වන්මන්‌ සංඛ්‍යා ගණන පෙන්වමින්‌, පරිශීලකයාගෙන්‌ සංඛ්‍යා ඉල්ලා
+සිටි. සැම නව ආදානයක්ම max_value සමඟ සසඳුන අතර, එය විශාල නමි, max_value යාවත්කාලීන වේ.
+අංක දහයම ඇතුළත්‌ කළ පසු, එය සොයාගත්‌ ඉහළම අගය මුද්‍රණය කරයි.
+
+2014 AL PYTHON ESSAY MARKING
+
+1.(a) Explain what is done by the Python interpreter when executing the following statements. You should
+state the types of the variables involved.
+පයිතන්‌ අර්ථට්වින්‍යාසකයක්‌ (interpreter) මගින්‌ පහත වගන්ති ක්‍රියාත්මක කරවන SO (execute) සිදුවන්නේ
+කුමක්දැයි පැහැදිලි කරන්න. මේ සඳුහා සමිබන්ධ වන විචල්‍යන්හි ප්‍රරෑප (variable types) දැක්විය යුතු වේ.
+
+(1) x = input("Enter a number")
+
+When this line is executed, the Python interpreter displays the message "Enter a number" on the screen
+and waits for the user to type something. Once the user types their input and presses the Enter key, the
+entered data is captured by the input() function. Regardless of what the user types whether it's a word,
+number, or symbol the input 1s always returned as a string. This string is then assigned to the variable x.
+Therefore, after this line runs, x holds a value of type str (string), even if the user entered digits like 42 or
+3.14.
+
+මෙම පේළිය ක්‍රියාත්මක වු විට, පයිනන්‌ පරිවර්තකය "Enter a number" යනුවෙන්‌ තිරය මත පෙන්වන අතර
+පරිගිලකයා යමක්‌ ටයිප්‌ කරන නෙක්‌ බලා සිටි. පරිගීලභයා තම ආදානය ඇතුලත්‌ කළ පසු, ඇතුළත්‌ කළ
+ESO input() Gone මගින්‌ ග්‍රහණය කර ගනී. පරිශීලකයා කුමක්‌ ටයිප්‌ කළත්‌ එය වචනයක්‌, අංකයක්‌ හෝ
+සංකේතයක්‌ වුවත්‌, ආදානය සෑම විටම string එකක්‌ ලෙස ආපසු ලබාදේ. මෙම string එක පසුව x විචල්‍යයට
+පවරනු ලැබේ. එබැවින්‌, මෙය run පසු, පරිශීලකයා 42 හෝ 3.14 වැනි ඉලක්කමි ඇතුළත්‌ කළද, x str
+(string) වර්ගයේ අගයක්‌ රඳුවා ගනි.
+
+(ii) infile = open("myfile.txt", "r")
+
+In this line, the Python interpreter attempts to open a file named "myfile.txt" located in the current
+working directory. The second argument "r" indicates that the file is being opened in read mode, meaning
+the contents can be read but not modified. If the file exists and is accessible, Python creates a file object
+that provides methods for reading its contents (e.g .read(), .readline()). This object is then stored in the
+variable infile. The type of infile is a file object. If the file does not exist, Python raises a
+FileNotFoundError.
+
+මෙම පේළියේදි, පයිතන්‌ පරිවරතකය වත්මන්‌ ක්‍රියාකාරී නාමාවලියෙහි පිහිටා ඇති "“myfile.txt"He
+ගොනුවක්‌ විවෘත කිරීමට උත්සාහ කරයි. දෙවන තර්කය "r" මඟින්‌ ගොනුව කියවීමේ ආකාරයෙන්‌ විවෘත වන
+බව පෙන්නුමි කරයි, එනමි අන්තර්ගතය කියවිය හැකි නමුත්‌ වෙනස්‌ කළ නොහැක. ගොනුව පවති නමි සහ
+ප්‍රවේශ විය හැකි නම්‌, Python එහි අන්තර්ගතය කියවීම සඳුහා ක්‍රම සපයන ගොනු වස්තුවක්‌ නිරමාණය කරයි
+(e.g .read(), .readline()). මෙය පසුව infile විචලඅයේ ගබඩා වේ. infile වර්ගය ගොනු වස්තුවකි.
+ගොනුව නොමැති නමි, Python FileNotFoundError එකක්‌ මතු කරයි.
+
+Gii)a = "a,b,c".split(",")
+
+This line demonstrates a string operation. The string "a,b,c" contains three characters separated by
+commas. The .split(",") method breaks the string into parts wherever it finds a comma. The result is a list
+of strings ["a", "b", "c"]. This list is then assigned to the variable a. As a result, a is of type list, and each
+element within the list is of type str. This technique 15 commonly used to process comma-separated values
+(CSV) or other delimited data formats.
+
+මෙය string මෙහෙයුමක්‌ පෙන්නුමි කරයි. "a,b,c" string එකෙහි කොමාවෙන්‌ වෙන්‌ කරන EG අක්ෂර තුනක්‌
+අඩංගු වේ. split(",") ක්‍රමයෙන්‌ කොමාවක්‌ සොයාගත්‌ ඕනැම තැනක string එක කොටස්‌ වලට කැඩී යයි. එහි
+ප්‍රතිඵලය වන්නේ string ලැයිස්තුවකි ["a","b", "c"]. මෙම ලැයිස්තුව පසුව a විචල්‍යඅයට පවරනු ලැබේ.
+ප්‍රතිවලයක්‌ ලෙස, a හි වර්ගය ලැයිස්තුවක්‌ වන අතර, ලැයිස්තුවේ ඇති සෑම මුලාංගයක්ම str වර්ගයේ වේ.
+ෂ්‌ කොමාවෙන්‌ වෙන්‌ කළ අගයන්‌ (CSV) හෝ වෙනත්‌ සීමා කළ eso ආකෘති සැකසීමට බහුලව භාවිතා
+වේ.
+
+(0) Factorial of a positive integer n is defined as n x (n-1) X (n-2) X ....... X3x2x Il.
+NDS ධන නිබිලයක ක්‍රමාරෝපිතය අර්ථ දක්වනු ලබන්නේ n x (n-1) xX (n-2) X........ X3xX2Xx1 ලෙසය.
+
+(1) Propose an algorithm by using a flowchart to print the factorial of a given positive_integer n.
+දි ඇති n නමි ධන නිබිලයක ක්‍රමාරෝපිතය මුදුණය කිරීම සඳුහා සුදුසු ඇල්ගොරිතමයක්‌ DOG සටහනක්‌
+ඇසුරෙන්‌ යෝජනා කරන්න.
+
+[9
+
+/ Input n /
+
+fact = |
+—
+
+No
+print fact
+
+Yes
+Vv
+
+fact = fact x i C tn )
+i=17 ]
+
+ම
+
+/ Input n /
+
+y
+
+fact =n
+
+print fact /
+
+Vv
+
+No
+Yes
+
+n=n-1 End
+
+y
+
+fact = fact x n
+
+(ii) Write a Python function to implement your flowchart.
+ඔබේ ගැලීමි සටහන ස්ටාපනය කිරීම සඳුහා පයිතන්‌ ගිතයක්‌ (function) ලියා esOsia.
+
+def factorial(n):
+fact = 1
+i=l
+while i <= n:
+fact = fact * i
+1 :5ස 142 1
+return fact
+
+number = int(input("Enter a positive integer: "))
+if number > 0:
+
+result = factorial(number)
+
+print(f"The factorial of {number} is {result}")
+else:
+
+print( "Please enter a positive integer.")
+
+This Python code calculates the factorial of a given positive integer. It defines a function Factorial (n)
+that uses a while loop to multiply all integers from 1 to n, storing the result in the variable fact. The user
+is prompted to enter a positive integer, and if the input is greater than 0, the program calls the factorial
+function and prints the result. If the input is not a positive integer, it displays a message asking the user to
+enter a valid number.
+
+මෙම පයිතන්‌ කේතය ලබා දි ඇති ධන පුරණ සංඛ්‍යාවක ක්‍රමාරෝපිතය ගණනය කරයි. එහි ප්‍රතිවලය fact
+විචල්‍යයේ ගබඩා කරමින්‌, ] සිට n දුක්වා සියලුම SAE ගුණ කිරීම සඳහා while loop භාවිතා කරන
+factorial(n) Gnas නිටරවචනය කරයි. ධනාත්මක නිඩිලයක්‌ ඇතුළත්‌ කිරීමට පරිගිලකයාගෙන්‌ විමසනු
+ලබන අතර, ආදානය 0 ට වඩා වැඩි නමි, වැඩසටහන විසින්‌ factorial Goo කැඳුවා ප්‍රතිඵලය මුද්‍රණය
+
+කරයි. ආදානය ධන නිඛිලයක්‌ නොවේ නමි, එය පරිගීලකයාට වලංගු අංකයක්‌ ඇතුළත්‌ කරන ලෙස ඉල්ලා
+පණිවිඞයක්‌ පෙන්වයි.
+
+instructions (Os and Is).
+
+ඉහළ මට්ටමේ ක්‍රමලේඛන භාෂා (Python, Java, හෝ C++ වැනි) මිනිසුන්ට කියවිමට, ලිවීමට සහ තේරැමි
+ගැනීමට පහසු වන පරිදි නිටරමාණය කර ඇත. කෙසේ වෙතන්‌, පටිගණඝකයක aeaamcd (CPU) ඉහළ මට්ටමේ
+භාෂා සෘපුවම තේරැමි ගත නොහැක, මන්ද එය ද්විමය උපදෙස්‌ (0 සහ 1) වලින්‌ සමන්විත යන්ත්‍ර භාෂාව
+පමණක්‌ තේරැමි ගනී.
+
+Therefore, compilers or interpreters are necessary to translate programs written in high-level
+languages into machine language, which the computer can execute. එබැවින්‌, ඉහළ මට්ටමේ භාෂාවලින්‌
+ලියා ඇති වැඩසටහන්‌ පරිගණකයට ක්‍රියාත්මක කළ හැකි යන්ත්‍ර භාෂාවට පටරිවරිතනය කිරීම ae)
+සම්පාදක හෝ පරිවර්තක අවග්‍ය වේ.
+
+e A compiler translates the entire high-level program into machine code before execution. This
+machine code is then run by the computer.
+aGaremeae ක්‍රියාන්මක කිරීමට පෙර සමිපුර්ණ ඉහළ මට්ටමේ වැඩසටහන යන්ත්‍ර කේතයට පරිවර්තනය
+කරයි. මෙම යන්ත්‍ර කේතය පසුව පරිගණකය විසින්‌ ක්‍රියාත්මක කරනු ලැබේ.
+
+e Aninterpreter, on the other hand, translates and executes the high-level program line by line, without
+creating a separate machine code file.
+අනෙක්‌ අතට, පරවටරතකයෙකු වෙනම යන්ත්‍ර කේන ගොනුවක්‌ HOOPS නොකර ඉහළ මටිටමේ වැඩසටහන්‌
+පේළියෙන්‌ පේළියට පරිවරිතනය කර ක්‍රියාත්මක කරයි.
+
+In summary, without a compiler or interpreter, the computer cannot execute high-level programs because
+they must first be converted into machine language, which is the only language the processor can
+understand.
+
+සාරාංශයක්‌ ලෙස, සමිපාදකයෙකු හෝ පරිවටතකයෙකු නොමැතිව, SOMOPANGO ඉහළ මටිටමේ වැඩසටහන්‌
+ක්‍රියාත්මක කළ නොහැක, මන්ද එවා පළමුව යන්ත්‍ර භාෂාවට පරිවටතනය කළ යුතු අතර, එය සකසනයට
+තේරැමි ගත හැකි එකම භාෂාවයි.
+
+(0) Your teacher has requested you to write a Python program to record the marks obtained by students
+at the term test. Each student has sat for the same three papers and each mark was given as an integer
+value out of 100 marks. Each student is identified by a unique index member which is also an integer.
+You should record the marks of student in a text file named ‘marks.txt’ in the following format.
+වාර විභාගයක & ළමුන්‌ ලබාගන්නා ලදු ලකුණු වාඊතා කිරීම oes) පයිතන්‌ ක්‍රමලේඛයක්‌ ලියන ලෙස ඔබඛගේ ගුරැතුමා
+විසින්‌ ඔබගෙන්‌ ඉල්ලීමක්‌ කර තිබේ. සැම සිසුවෙක්‌ ම එකම oda පත්‍ර තුනකට පෙනී සිට ඇති අතර සෑම
+
+ලකුණක්ම දි ඇත්තේ 100 න්‌ වන අතර එය HIE අගයක්‌ (integer value) වේ. සෑම සිසුවකුම අනන්‍යය
+සුචි අංකයක්‌ (index number) මගින්‌ හඳුනා ගන්නා අතර සුචි අංකය දූ නිබිලයක්‌ වේ.
+
+You should record the marks of student in a text file named ‘marks.txt’ in the following format.
+ඔබ විසින්‌ පහත පෙන්වා දි ඇති ආකාරයට සිසුන්ගේ ලකුණු ‘marks.txt’ නමැති QD ගොනුවේ (text file) වාරතා කළ
+යුතු වේ.
+
+(i)
+
+Index_no_1,mark_11,mark_12,mark_13
+Index_no_2,mark_21,mark_22,mark_23
+
+Where
+Index_no_X : Index number of the X™ student; X = 1, .................. Jn
+mark XY : Marks obtained by the X® student for the Y™ paper: Y = 1,2,3
+
+Index numbers and marks of the students should be entered through the keyboard, one item at a time
+and the program should be terminated when —1 is entered as the index number.
+
+වරකට එක අයිතමය බැගින්‌ යතුරැ පුවරැව තුළින්‌ සිසුන්ගේ සූචි අංක සහ ලකුණු ඇතුළත්‌ කළ යුතු වේ.
+සුචි අංකය —1 ලෙස ඇතුළත්‌ කළ විට ක්‍රමලේඛය නැවතිය යුතු වේ.
+
+Propose an algorithm by using a flowchart for the program.
+ගැලීමි සටහනක්‌ භාවිතයෙන්‌ මෙම ක්‍රමලේඛය සඳහා ඇල්ගොරිතමයක්‌ යෝජනා කරන්න.
+
+Close the File HC tnd )
+Open the File
+4
+Read a index No Read the Read the
+number (1) first mark (x) second mark (v,
+
+Vv
+
+| write 1, X,V, 2 Read the
+/ to the file third mark (z)
+
+Vv
+
+Yes
+
+>»
+P|
+
+Start
+The program begins execution.
+වැඩසටහන ක්‍රියාත්මක කිරීම ආරමිභ කරයි.
+
+Open the File
+The file where the data will be saved (e.g., a text file or CSV file) is opened for writing.
+EDD සුරකින ගොනුව (උදා: පෙළ ගොනුවක්‌ හෝ CSV ගොනුවක්‌) ලිවීම සඳහා විවෘත කර ඇන.
+
+Read an index number (i)
+The user is prompted to enter a student's index number (a unique identifier).
+පරිගිලකයාට ගිෂ්‍යයෙකුගේ index number (a unique identifier) ඇතුළත්‌ කිරීමට විමසනු ලැබේ.
+
+Check if i=-1
+This is a termination condition.
+මෙය අවසන්‌ කිරීමේ කොන්දේසියකි.
+
+If the user inputs -1, it means there is no more data to enter, and the program skips to closing the file.
+පරිගිලකයා -] ඇතුළත්‌ කරන්නේ නමි, එයින්‌ අදහස්‌ වන්නේ ඇතුළත්‌ කිරීමට තවත්‌ ems නොමැති බවත්‌,
+වැඩසටහන ගොනුව වැසීමට මඟ හරින බවත්ය.
+
+If not, the program continues to collect marks for this index number.
+එසේ නොමැති නමි, වැඩසටහන මෙම index number BE) ලකුණු එකතු කිරීම දිගටම කරගෙන යයි.
+
+Read the first mark (x)
+The user enters the first mark.
+පටරිගිලකයා පළමු ලකුණ ඇතුළත්‌ කරයි
+
+(ii)
+
+Read the second mark (v)
+
+The user enters the second mark.
+පරිගිලකයා දෙවන ලකුණ ඇතුළත්‌ කරයි.
+
+Read the third mark (z)
+The user enters the third mark.
+පරිගිලකයා තුන්වන ලකුණ ඇතුළත්‌ කරයි.
+
+Write i, x, v, 7 to the file
+The program writes the collected data (index number and 3 marks) into the file.
+වැඩසටහන එකතු කරන ලද දත්ත (index number සහ 3 marks) ගොනුවට ලියයි.
+
+Repeat the loop
+After writing the data, the flow returns to step 3 to read the next student’s index number.
+EBD ලිවීමෙන්‌ පසු, ප්‍රවාහය ඊළඟ ගිෂ්‍යයාගේ දර්ගක අංකය කියවීමට 3 වන පියවරට නැවත පැමිණේ.
+
+Close the File
+
+Once the user enters -1 as the index number, the program exits the loop and closes the file, ensuring all
+data is saved properly. / පරිගිලකයා දරට්ගශක අංකය ලෙස -1 ඇතුළත්‌ කළ පසු, වැඩසටහන ලපයෙන්‌ පිටවි
+ගොනුව වසා දමයි, සියලු දත්ත නිසි ලෙස සුරැකී ඇති බව සහතික කරයි.
+
+End
+The program stops running.
+වැඩසටහන ක්‍රියාත්මක විම නතර කරයි.
+
+Summary in One Line
+
+This program collects student index numbers and their three marks, saves them to a file, and stops when
+the index number -1 is entered. / මෙම වැඩසටහන student index numbers සහ ඒවායේ ලකුණු තුන එකතු
+කරයි, ඒවා ගොනුවකට සුරකියි, සහ දර්ශක අංකය -] ඇතුළත්‌ කළ SO නතර වේ.
+
+Write a Python program to implement your flowchart.
+ඔබගේ HOG සටහන ක්‍රියාත්මක කිරීම සඳහා පයිතන්‌ ක්‍රමලේඛයක්‌ ලියන්න.
+
+Python 2.0 Version
+4 = open("marks.txt", "w") # Open the file
+index_no = input( "Enter the next index no: ")
+while index_no != -1:
+
+X = input("Enter the first mark : ")
+
+y = input("Enter the second mark : ")
+
+272 = input("Enter the third mark : ")
+
+data = str(index_no) + "," + str(x) + "," + str(y) + "," + str(z) + "\n'
+f .write(data)
+index_no = input("Enter the next index no: ")
+
+f.close()
+
+input() in Python 2.0 evaluates the input as a Python expression.
+Python 2 හි input() මඟින්‌ ආදානය Python ප්‍රකාශනයක්‌ ලෙස ඇගයීමට ලක්‌ කරයි.
+
+To read strings reliably in Python 2.0, use raw_input() instead.
+Python 2.0 හි විශ්වාසදායක ලෙස string කියවීමට, 8 වෙනුවට raw_input() භාවිතා කරන්න.
+
+If index_no is meant to be an integer, use index_no = int(raw_input("Enter the next index
+
+no: ")).
+index_no යනු පුර්ණ සංඛන්‍යාවක්‌ විමට අදහස්‌ කරන්නේ නමි, index_no = int(raw_input("Enter
+
+the next index no : ")) භාවිතා කරන්න.
+
+Python 3.0 Version
+4 = open("marks.txt", "w") # Open the file
+index_no = int(input("Enter the next index no : "))
+while index_no != -1:
+
+X = input("Enter the first mark : ")
+
+y = input("Enter the second mark : ")
+
+272 = input("Enter the third mark : ")
+
+data = str(index_no) + "," +x+"," 1 07 4 "," 4 24 "\n'
+
+f .write(data)
+
+index_no = int(input("Enter the next index no : "))
+f.close()
+
+1. Opening the File / ගොනුව විවෘත කිරීම
+4 = open("marks.txt", "w") # Open the file
+
+This line opens a file named marks. txt in write mode ("w"
+මෙම පේළීය marks.txt නමි ගොනුවක්‌ ලිවීමේ ආකාරයෙන්‌ ("w") විවෘත කරයි.
+
+If the file doesn’t already exist, 1t will be created.
+ගොනුව දැනටමත්‌ නොපවතී නමි, එය HOO CNG වේ.
+
+If it does exist, its contents will be overwritten.
+එය පවතී නමි, එහි අන්තර්ගතය නැවත ලියනු ලැබේ.
+
+2. Getting the Index Number. / දර්ශක අංකය ලබා ගැනීම
+index_no = int(input("Enter the next index no : "))
+
+The program prompts the user to enter an index number.
+වැඩසටහන පරීගිලකයා දර්ශක අංකයක්‌ ඇතුළත්‌ කිරීමට පොළඹවයි.
+
+The input() takes a string, and we use int() to convert it to an integer.
+input() string ගන්නා අතර, එය පූරණ සංඛ්‍යාවක්‌ බවට පරිවරිතනය කිරිමට aS int() භාවිතා කරමු.
+
+3. Entering the Loop / ලූපයට ඇතුළ විම
+while index_no != -1:
+
+This is the start of a loop that will continue as long as the user doesn’t enter -1.
+පරිගිලකයා -1 ඇතුළත්‌ නොකරන නාක්‌ කල්‌ දිගටම පවතින ලපයක ආරමිභය මෙයයි.
+
+Entering - acts as an exit signal.
+-1 ඇතුළත්‌ කිරීම පිටවිමේ සංඥාවක්‌ ලෙස ක්‍රියා කරයි.
+
+4, Reading the Marks
+
+X = input( "Enter the first mark : ")
+y = input( "Enter the second mark : ")
+Zz = input("Enter the third mark : ")
+
+Here, three marks (x, y, and z) are read from the user as strings.
+මෙහි, ලකුණු තුනක්‌ (x, y, and z) පරිගිලකයාගෙන්‌ string ලෙස කියවනු ලැබේ.
+
+(They could be kept as strings or converted to numbers if needed. )
+(අවග්‍ය නමි ඒවා string ලෙස DA) ගත හැකිය හෝ අංක බවට පරිවරිතනය කළ හැකිය.)
+
+5. Creating the Output Line / ප්‍රතිදාන පේළිය නිටමාණය කිරීම
+
+data = str(index_no) + "," +x+"," 1 07 4 "," 4 24 "\n'
+
+Combines the index number and marks into a comma-separated line.
+CODE අංකය සහ ලකුණු GOODS වෙන්‌ කරන ලදු පේළියකට ඒකාබද්ධ කරයි.
+
+Example:
+101,78,85,90
+
+6. Writing the Line to the File / ගොනුවට පේළිය ලිවිම
+f .write(data)
+
+Writes the combined data line to the marks.txt file.
+එකාබද්ධ දුන්ත පේළිය marks.txt ගොනුවට ලියයි.
+
+7, Getting the Next Index Number / ඊළඟ දර්ශකය ලබාගැනීම.
+index_no = int(input("Enter the next index no : "))
+
+Asks the user for the next index number.
+ඊළඟ දර්ශක අංකය HEM) පරිගිලකයාගෙන්‌ අසයි.
+
+Will exit the loop if the user enters - ]
+පරිගිලකයා -1 ඇතුළත්‌ කළහොත්‌ ලපයෙන්‌ SOO යනු ඇත.
+
+8. Closing the File / ගොනුව අවසන්‌ කිරීම
+f.close()
+
+After the loop finishes, the file is closed to save changes and release resources.
+ලුපය අවසන්‌ © පසු, වෙනස්කමි සුරැකීමට සහ සමිපත්‌ මුදා හැරීමට ගොනුව වසා දමනු ලැබේ.
+
+Differences Between Python 2.0 and 3.0 Python 2.0 3.0 Emo වෙනස්කමි
+
+In Python 2.0, use raw_input() for strings and input() for numbers. / Python 2.0 හි, string සඳහා
+raw_input() සහ සංඛ්‍යා සඳුහා input() භාවිතා කරන්න.
+
+In Python 3.0, input() is always treated as a string, so we explicitly convert index_no to an integer.
+Python 3.0 හි, input() සැමවිටම string ලෙස සලකනු ලැබේ, එබැවින්‌ අපි පැහැදිලිවම index_no පුර්ණ
+සංඛණවක්‌ බවට SOOM කරමු.
+
+Both versions write a comma-separated line for the marks and the index.
+Versions දෙකම ලකුණු සහ දර්ශකය HEM) කොමාවෙන්‌ වෙන්‌ කරන ලද පේළියක්‌ ලියයි.
+
+2016 AL PYTHON ESSAY MARKING
+
+1.(a) Consider the following Python program:
+පහත දැක්වෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න:
+
+#Print the sum of integers from 1 to 5 (including 1 and 5)
+total = 6
+1 ~ 4
+while (i <= 5):
+total = total + i
+i=i+l
+print (total)
+
+(1) What would be the output of the above program when executed? Justify your answer.
+ඉහත ක්‍රමලේඛය ක්‍රියාත්මක කිරීමෙන්‌ ලැබෙන ප්‍රතිදානය කුමක්‌ විය හැකිද? ඔබගේ පිළිතුර සත්‍යාපනය කරන්න.
+
+Nothing/ No output
+කිසිවක්‌ නැත / ප්‍රතිදානයක්‌ නැත.
+
+It has never-ending (infinite) loop
+එයට කිසිදා නිම නොවන (අනන්ත) ලපයක්‌ ඇත.
+
+Explanation / පැහැදිලි කිරීම
+
+1. total =0: Initializes the total variable to 0. This will hold the sum of the numbers.
+total=0: Q@ SOEBG 0 ට ආරමිභ කරයි. මෙය සංඛ්‍යා එකතුව රඳවා ගනී.
+
+2. 1 -- 1 : Initializes the counter variable 1 to 1.
+i=1: ගණින විචල්‍යඅය i 1 ට ආරමිභ කරයි.
+
+3. while (i <= 5): : Starts a loop that should run as long as 1 is less than or equal to 5.
+while (i<=5)::1, 5 ට වඩා අඩු හෝ සමාන වන තාක්‌ ක්‍රියාත්මක විය යුතු ලුපයක්‌ ආරමිභ කරයි.
+
+4, Inside the loop: total = total + i is meant to add the current value of 1 to the total.
+ලූපය තුළ; total =totalt+i යනු 1 හි වත්මන්‌ අගය එකතුවට Amey කිරීමට අදහස්‌ eased.
+
+However, there is a problem/ cae වෙතත්‌, මෙහි ගැටළුවක්‌ තිබේ :
+
+The line i=i+ 1 15 not inside the loop, because it is not indented properly. Therefore:
+1 ~~ 14- 1 රේඛාව E06 HE නොමැත, Ose එය නිසි ලෙස ඉන්ඩෙන්ට්‌ කර නොමැත. එබැවින්‌:
+
+e The while loop becomes an infinite loop, since 1 never increases inside the loop.
+ලුපය තුළ i කිසි විටෙකත්‌ වැඩි නොවන බැවින්‌ while ලපය අනන්ත ලුපයක්‌ බවට පත්වේ.
+
+50 the loop keeps adding i = 1 to total forever, and the line print(total) is never reached.
+එබැවින්‌ ලුපය සදහටම QO ගණනට 1 = 1 එකතු කරන අතර print(total) කිසි විටෙකත්‌ ළඟා නොවේ.
+
+(11) Modify and rewrite the above program, without increasing the number of statements, to compute
+
+(a)
+
+the sum of integers from 1 to 10 (including 1 and 10).
+ඉහත ක්‍රමලේඛයේ ඇති ප්‍රකාශන සංඛ්‍යාව වැඩි නොකරමින්‌ 1 SO 10 es (1 සහ 10 ඇතුලව) ඇති
+නිඛිලවල (integers) එකතුව ගණනය කිරීමට හැකි වන පරිදි එම ක්‍රමලේඛය වෙනස්‌ කොට ලියා දක්වන්න.
+
+total = 6
+
+i 1
+
+while (i <= 5):
+
+total = total + i
+
+1 -~ 1 4 1
+
+print(total)
+
+The line i=i+ 1 15 not inside the loop, because it is not indented properly.
+1 --14- 1 පේළිය ලපය HE නොමැත, මන්ද එය නිසි ලෙස indent කර නොමැත.
+
+( 2016 — S.Essay [4(a)] )
+
+A canteen of a school sells 10 different types of foods. These food types are placed in a shelf. Students
+can select foods while walking alongside the shelf and keep them on a tray. These trays are available
+at the entrance of the canteen. A student, after selecting the food, should proceed to the cashier with
+the food tray for the payment.
+
+පාසලක ආපනගාලාවක්‌ විවිධ ආහාර වර්ග 10ක්‌ අලෙවි කරයි. මෙම MMO වර්ග රාක්කයක අසුරා ඇත.
+සිසුන්ට රාක්කය අසලින්‌ ඇවිදින ගමන්‌ ආහාර වර්ග තෝරාගෙන බන්දේසියක තබා ගත හැකි ය. මෙම
+බන්දේසි ආපනගාලාවට ඇතුලවන ස්ටානයේ තබා ඇත. ආහාර තෝරා ගැනීමෙන්‌ පසු සිසුවකු මුදුල්‌ ගෙවිම
+සඳුහා ආහාර බන්දේසියද රැගෙන මුදුල්‌ අයකැමි වෙත ළඟා විය යුතු ය.
+
+You are asked to develop a computer program to calculate the payment due for a food tray. For this
+purpose, each food type is given a unique integer from 1 to 10. The integer value assigned for each
+food type and its unit price is shown in the following table. / එක්‌ ආහාර බන්දේසියකට ගෙවිය යුතු මුදුල
+ගණනය HOO සඳහා පරිගණක ක්‍රමලේඛයක්‌ සකස්‌ කිරීමට ඔබට භාර කොට ඇත. මේ අරමුණ HEM) සෑම
+ආහාර වර්ගයකටම 1 සිට 10 eso) වූ අනන්‍ය නිඛිලයක්‌ ලබා දි ඇත.පහත දැක්වෙන වගුවෙහි එක්‌ එක්‌
+ආහාර වර්ගයක්‌ සඳුහා ලබා දි ඇති අනන්‍ය නිඛිලය සහ එහි ඒකක මිල දක්වා ඇන.
+
+9
+10.00
+
+10
+12.00
+
+Food type 1
+10.00
+
+Unit price (Rs) 12.00 | 15.00 | 10.00 | 25.00 | 45.00 | 50.00 | 25.00
+
+( 2016 — Essay 4 )
+
+State all the inputs required for the computer program and its expected output.
+පටිගණක ක්‍රමලේඛයකට අවග්‍ය වන ආදාන හා එයින්‌ බලාපොරොත්තු වන ප්‍රතිදානයන්‌ HEM කරන්න.
+
+Inputs ආදාන
+1. Food Type and Price (FT) / ආහාර වටගය සහ මිල (FT)
+॥ An integer between | and 10.
+1 සහ 10 අතර පුටරණ සංඛබනතාවක්‌.
+
+= Each number represents a specific food item.
+සැම අංකයක්ම නිග්චිත ආහාර අයිතමයක්‌ නියෝපනය කරයි.
+
+॥ The loop continues to accept inputs until the user enters 0, which signals the end.
+පරිගිලකයා 0 ඇතුළඑ කරන නෙක්‌ E06 ආදාන පිළිගැනීම දිගටම කරගෙන යයි, එය අවසානය
+සංඥා කරයි.
+
+2. Item Quantity (IQ) / Number of items of the food type
+අයිතම ප්‍රමාණය (10) / ආහාර වර්ගයේ අයිතම ගණන
+
+॥ How many units of the selected food item the student wants.
+ගිෂ්‍යයාට අවග්‍ය තෝරාගත්‌ ආහාර අයිතමයේ ඒකක කීයක්‌ Sede.
+
+3. End of Input Check / Input to indicate end of iteration
+ආදාන පරීකක්‍්ෂාවේ අවසානය / පුනරාවටතනයේ අවසානය දැක්වීමට ආදානය
+
+= The loop ends when FT == 0.
+FT ~-~- (0 වූ විට ලපය අවසන්‌ වේ.
+
+Output ප්‍රතිදානය
+1. The payment due for the tray / බන්දේසිය සඳුහා ගෙවිය යුතු ගෙවිම
+
+The total cost (payment) for all selected food items stored in a variable called price due.
+price due ලෙස හඳුන්වන විචල්‍යයක ගබඩා කර ඇති සියලුම තෝරාගත්‌ ආහාර අයිතම oe)
+total cost (payment)
+
+(b) Draw a flowchart to represent the algorithm required to compute the payment due for a food tray.
+ආහාර බඛබන්දේසියකට ගෙවිය යුතු මුදුල ගණනය කිරීම සඳහා අවශ්‍ය වන ඇල්ගෝරිතමය නිරෑපණය කිරිම
+සඳුහා ගැලීමි සටනක්‌ අඳින්න.
+
+Array with Food prices
+
+Price_due = 0
+
+/ FT = Input food type [4
+
+No
+න [ට) = Input Item Quantity j-> price_due = price_due + price_of_the_food_type*!Q
+
+Yes
+
+/ Output Price _due fp
+
+End
+
+1. Start the program.
+වැඩසටහන ආරමිභ කරන්න.
+
+2. Initialize
+
+A list (or array) which stores the unit prices for food types ] to 10.
+ආහාර O6@ 1 BO 10 eso) එකක SE ගණන්‌ ගබඩා කරන ලැයිස්තුවක්‌ (හෝ අරාවක්‌).
+
+A variable price _011ල to track the total payment, initially set to 0.0.
+මුළු ගෙවිම නිරීක්ෂණය කිරිම සඳුහා price due විචල්‍ය, මුලින්‌ 0.0 ලෙස සකසා ඇත.
+
+3. Main Loop (Input + Calculation)
+
+Input food type (FT)
+If FT == 0: Stop the program and go to print the result.
+FT == 0 නමි; වැඩසටහන නවතා ප්‍රතිඵලය මුද්‍රණය කිරීම.
+
+Otherwise එසේ නොමැතිනමි:
+Input item quantity
+අයිතම ප්‍රමාණය ආදානය කරන්න (100)
+
+Multiply price of that food item by quantity (IQ) and add to price due.
+එම ආහාර අයිතමයේ මිල ප්‍රමාණයෙන්‌ (IQ) ගුණ කර price due ට එකතු කිරීම.
+
+4. Output ප්‍රතිදානය
+When the user enters 0 for the food type, the program ends and prints the total payment due.
+
+පරිගිලකයා ආහාර වර්ගය aem 0 ඇතුළත්‌ කළ SO, වැඩසටහන අවසන්‌ වි ගෙවිය යුතු QO ගෙවිම
+මුද්‍රණය කරයි.
+
+(c) Transform the above flowchart into a Python program.
+ඉහත DOO සටහන පයිතන්‌ ක්‍රමලේඛයකට පරිවඊටතනය කරන්න.
+
+Python Version 3 Answer
+price due = 0.6
+IP = [10.00, 12.00, 15.00, 10.00, 25.00, 45.00, 50.00, 25.00, 10.00, 12.00]
+
+FT = int(input("Enter food type : "))
+
+while FT != 60:
+IQ = int(input("Enter item Quantity : "))
+price due = price due + IP[FT - 1] * IQ
+FT = int(input("Enter food type : "))
+
+print(price_due)
+Explanation of the python code (Python 3)
+
+price_due = 6.0
+Initializes the total cost to 0.0 rupees.
+QO පිරිවැය රැපියල්‌ 0.0 දක්වා ආරමිභ කරයි.
+
+IP = [...]
+
+A list of prices for each food item.
+
+එක්‌ එක්‌ ආහාර අයිතමය සඳහා GE ගණන්‌ ලැයිස්තුවක්‌.
+
+IP[@] corresponds to food type 1, 10 | 1] to type 2, etc. IP[Q]
+ආහාර typel, IP[1] සිට type2 වර්ගය es) යනාදියට අනුරෑප වේ.
+
+FT = int(input("Enter food type : "))
+Asks the user to enter the food type (an integer between 1—10).
+පරිගීලකයා ආහාර වර්ගය (1-10 අතර පුරණ HOO) ඇතුළත්‌ කිරීමට ඉල්ලා සිටි.
+
+input() returns a string, so it's converted to int.
+input() string එකක්‌ ආපසු ලබා දෙයි, එබැවින්‌ එය int බවට edoOma® වේ.
+
+while FT != 0:
+Loop continues until the user enters 0, which ends the input.
+පරිගිලකයා 0 ඇතුළඑ කරන තෙක්‌ ES දිගටම පවතින අතර එය ආදානය අවසන්‌ කරයි.
+
+IQ = int(input("Enter item Quantity : "))
+Asks for the quantity of the selected food type.
+තනෝරාගත්‌ ආහාර වර්ගයේ ප්‍රමාණය ඉල්ලා සිටි.
+
+[01121ලළ (00]ළ = price_due + IP[FT - 1] * IQ
+Gets the unit price using IP[FT - 1] . multiplies it by quantity, and adds to the total.
+IP[FT - 1] භාවිතයෙන්‌ චකක SE ලබා ගනී, එය ප්‍රමාණයෙන්‌ ගුණ කරයි, සහ එකතුවට එකතු කරයි.
+
+FT = int(input("Enter food type : "))
+Repeats the prompt to continue the loop.
+QOH විගටම කරගෙන යාමට විමසුම නැවත කරයි.
+
+print(price_due)
+Finally prints the total price after the loop ends.
+අවසානයේ ලපය අවසන්‌ වු පසු QO මිල මුද්‍රණය කරයි.
+
+Python Version 2 Answer
+price due = 0.6
+IP = [10.00, 12.00, 15.00, 10.00, 25.00, 45.00, 50.00, 25.00, 10.00, 12.00]
+
+FT = int(raw_input( "Enter food type : "))
+
+while FT != 60:
+IQ = int(raw_input("Enter item Quantity : "))
+price due = price due + IP[FT - 1] * IQ
+FT = int(raw_input( "Enter food type : "))
+
+print price due
+
+Explanation of the Python code (Python 2)
+price due = 0.6
+Same as Python 3 initialize total. / Python 3 සේම මුළ එකතුවට සමානයි.
+
+IP = [...]
+List of item prices (same logic) අයිතම මිල ලැයිස්තුව (CMO තර්කනය.)
+
+FT = int(raw_input( "Enter food type : "))
+raw_input() is used in Python 2 to get string input (like input() in Python 3).
+
+Then it’s converted to int. raw_input() යනු ( Python3 හි string input ) ලබා ගැනීමට Python 2 හි
+භාවිතා වේ.
+
+while FT != 60:
+Loop works the same way. / Loop එකම ආකාරයකින්‌ Ga) කරයි.
+
+IQ = int(raw_input("Enter item Quantity : "))
+Prompt and convert quantity (same as above.) / Prompt සහ convert quantity (ඉහත ආකාරයටම වේ.)
+
+price due = price due + IP[FT - 1] * IQ
+Calculate subtotal and add to total. / subtotal ගණනය කර QO එකතුවට එකතු කරන්න.
+
+FT = int(raw_input( "Enter food type : "))
+Repeats the input. / ආදානය නැවත කරන්න.
+
+print price due
+In Python 2, print is not a function by default. So no parentheses.
+Python 2 හි, මුද්‍රණය පෙරනිමියෙන්‌ Gnawd නොවේ. එබැවින්‌ වරහන්‌ නොමැත.
+
+Python 2 vs Python 3 Differences / Python 2 vs Python 3 වෙනස්කමි
+
+Feature Python 2 Python 3
+
+Input function raw_input() — string input() — string
+
+Print statement print value print(value) (function)
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2017 AL PYTHON ESSAY MARKING
+
+1. The consumption of electricity at houses is charged based on the number of units consumed. The
+first 64 units are charged at Rs.5.00 per unit, and the rest at Rs.10.00 per unit.
+Manso විදුලි පටිභෝපනය සඳුහා ගෙවිය යුතු මුදල පරිභෝපනය කරන Ec විදුලි එඒකක ගණන මත CEHd
+වේ. පළමු ඒකක 64 සඳුහා වකකයකට රැ. 5.00 බැගින්‌ ද, ඉතිරි ඒකක සඳුහා ඒකකයකට රැ. 10.00 බැගින්‌
+ද අයකරනු ලැබේ.
+
+(a) Draw a flowchart to represent an algorithm that can be used to compute the total amount to be
+charged from a householder when the household number and present and the previous readings
+of the electricity meter are given.
+ගෘහස්ථටයේ අංකය, පෙර හා වටතමාන විදුලි මනු කියවීමි දුන්‌ SO ගෘහස්ට, හිමිකරැගෙන්‌ අයවිය යුතු
+මුළ මුදල ගණනය කිරීමට භාවිත කළ හැකි ඇල්ගොරිතමයක්‌ නිරෑැපණය කිරීම සඳහා ගැලීමි සටහනක්‌
+අඳින්න.
+
+V
+
+Input household number, previous
+reading and present reading
+
+!
+
+Compute Units _comsumed =
+present - previous
+
+Is units _
+
+amount = (64*5) +
+consumed < 64?
+
+((units_ consumed - 64) * 10)
+
+amount = Display household number,
+units consumed * 5 units consumed and amount
+VV
+
+( 2017 — Essay 4 )
+
+(b) Encode the algorithm given in the (a) above in Python programming language. State all valid
+assumptions, if any.
+ඉහත (a) හි ඉදිරිපත්‌ කරන ලද, ඇල්ගොරිතමය Python ක්‍රමලේඛන භාෂාවෙන්‌ කේතනය කරන්න. වලංගු
+උපකල්පන ඇත්නමි, ඒවා සියල්ල සඳහන්‌ කරන්න.
+
+def calculate 0111(110(15 6[]101 (19, previous_reading, present_reading):
+
+# Assumption: present_reading >= previous reading
+units consumed = present_reading - previous reading
+
+if units consumed <= 64:
+amount = units_consumed * 5.6
+else:
+amount = (64 * 5.@) + ((units_ consumed - 64) * 16.0)
+
+print(f"Household No: {household_no}")
+print(f"Units Consumed: {units _consumed}")
+print(f"Total Amount: Rs.{amount: . 24)" )
+
+return units consumed, amount
+
+Valid Assumptions / වලංගු උපකල්පන:
+
+1.
+
+Present reading is greater than or equal to previous reading
+වටතමාන කියවීම පෙර කියවීමට වඩා වැඩි හෝ සමාන වේ.
+
+You assume present_reading 2 previous _ [9 3011 116 to avoid negative unit consumption.
+සෘණ ඒකක පරිභෝපනය වළක්වා ගැනීම සඳුහා ඔබ present_reading 2 previous reading
+උපකල්පනය කරයි.
+
+If not, you should handle errors or invalid input.
+එසේ නොවේ නමි, ඔබ දෝෂ හෝ වලංගු නොවන ආදානය හැසිරවිය යුතුය.
+
+Readings are non-negative integers
+Gade wag නොවන පුරණ සංඛනාවක්‌ වේ.
+
+Electricity meter readings can’t be negative
+විදුලි මිටර කියවීමි සෑණ විය නොහැක.
+
+The function assumes both readings are valid integers.
+Goo කියවීමි දෙකම වලංගු පුරණ සංඛ්‍යා බව උපකල්පනය කරයි.
+
+Unit rate is fixed
+ඒකක අනුපාතය SOOO වේ
+
+The rate for the first 64 units is Rs.5.00/unit.
+පළමු ඒකක 64 සඳහා අනුපාතය ඒකකයකට 7.5.00 කි.
+
+Any unit beyond 64 is Rs.10.00/unit.
+64 න්‌ ඔබ්බට ඇති ඕනැම Senenceed විකකයකට 67.10.00 කි.
+
+These rates are constant and do not change dynamically.
+මෙම අනුපාත නියත වන අතර ගතිකව වෙනස්‌ නොවේ.
+
+There is no minimum fixed charge or tax
+අවම ස්ටාවර ගාස්තුවක්‌ හෝ Aes නොමැත.
+
+The bill is calculated only based on units consumed, without any base fee, surcharge, or tax.
+පටරීිභෝපනය කරන ඒකක මත cemBO පමණක්‌ බිල්පත ගණනය කරනු ලබන අතර, කිසිදු මුලික
+ගාස්තුවක්‌, අධිභාරයක්‌ හෝ බද්දක්‌ අය නොකෙරේ.
+
+(c)
+
+5. Household number is treated as a string or identifier
+ගෘහ අංකය අනලකුණු වැලක්‌ හෝ හඳුනාගැනීමක්‌ ලෙස සලකනු ලැබේ.
+
+o The household number can be alphanumeric, so it is taken as a string.
+ගෘහ අංකය අක්ෂරාංක විය හැකි බැවින්‌ එය නුලක්‌ ලෙස ගනු ලැබේ.
+
+o It’s not used in calculations - only for identification.
+එය ගණනය HOG OEE භාවිතා නොවේ - හඳුනා ගැනීම oem) පමණ.
+
+6. No error handling for invalid input types
+අවලංගු ආදාන වර්ග oes) දෝෂ හැසිරවීමක්‌ නොමැත.
+
+o The program expects the user to enter correct input types (e.g., integers for readings).
+වැඩසටහන මඟින්‌ පරිගිලකයා නිවැරදි ආදාන O6M (උදා: කියවිමි සඳහා පුර්ණ සංඛ්‍යා) ඇතුළත්‌
+කිරීම අපේක්ෂා කරයි.
+
+o Additional validation would be required for robust production code.
+ගක්තිමත්‌ නිෂ්පාදන කේතයක්‌ සඳහා අමතර වලංගුකරණයක්‌ අවග්‍ය වනු ඇත.
+
+7. No time-based or slab-wise billing beyond the 64-unit threshold
+ඒකක 64 සීමාවෙන්‌ ඔබ්බට කාලය මත o6Hd වු හෝ ස්ලැබි අනුව බිල්පත්‌ නොමැත.
+
+o The billing logic assumes a single break at 64 units and not more complex slabs (e.g., 0--100, 100—
+200, etc.).
+බිල්පත්‌ තරකනය ඒකක 64 කදි තනි බිඳීමක්‌ උපකල්පනය කරන අතර වඞඩාන්‌ සංකීරණ slabs නොවේ
+(උදා: 0-100, 100-200, ආදිය).
+
+Develop a function in Python to write household number, meter readings and the total amount
+to be charged at the end of an existing text file named “deb.txt”.
+
+ගෘහස්ථ අංකය, විදුලි මනු HSS an අය කළ an මුඑ Qcee, පවතින "deb.txt" නමි ව HD ගොනුවක
+අගට ලිවිමට අවග්‍ය Python ගිතයක්‌ ගොඩනගන්න.
+
+def append (09 _file(household_no, previous_reading, present_reading,
+amount) :
+
+4 = open("deb.txt","a")
+
+print(household_no, previous reading, present_reading, amount,
+file=f,sep=",")
+
+f.close()
+
+Or / හෝ
+
+f.write(str(household_ no) +" "+ str(previous reading) +" "+
+
+str(present_reading) +" "+ str(c amount) )
+
+f.write ("%s “s %s %s" %(household no, previous reading, present_reading,
+amount ) )
+
+Assumptions / උපකල්පන:
+
+e present_reading 2 previous reading.
+
+e File deb. txt exists or will be created in the same directory.
+deb. txt ගොනුව එකම නාමාවලියෙහි පවතී හෝ නිරිමාණය වනු ඇත.
+
+e All readings are integers, and bill 1s computed in float (Rs.XX.XX).
+
+2018 AL PYTHON ESSAY MARKING
+
+1.(a) Assume an input which contains a sequence of positive numbers. The sequence has at most 100 numbers.
+If the input sequence has n numbers where n < 100, then the end of the sequence is marked by making
+(n+1)th number —1.
+ධන සංඛ්‍යා අනුක්‍රමයක්‌ ඇති ආදානයක්‌ සලකන්න. අනුක්‍රමයට උපරිම වගයෙන්‌ සංඛ්‍යා 1008 තිබිය හැකි ය.
+n< 100 ලෙස අනුක්‍රමයට සංඛ්‍යා n තිබේ නමි, (n+1) වන සංඛ්‍යාව -1 ලෙස සලකුණු කිරීමෙන්‌ අනුක්‍රමයේ
+අවසානය දැක්වේ.
+
+For e.g., the following input sequence has 8 positive numbers, where 9th input which is —1 marks the end.
+උදාහරණයක්‌ ලෙස පහත දැක්වෙන ආදාන අනුක්‍රමයට ධන සංඛ්‍යා 8ක්‌ ඇති අතර 9 වන ආදානය වන -1
+මගින්‌ අවසානය සනිටුහන්‌ කෙටේ.
+
+23 12 54 76 89 22 44 65 -1
+
+Draw a flowchart that represents an algorithm to output the largest number in a given sequence of n
+positive numbers as described above.
+
+ඉහත විස්තර කරන ආකාරයේ ධන සංඛ්‍යා n ඇති අනුක්‍රමයක විගාලතම සංඛ්‍යාව ප්‍රතිදානය කිරීම ae”)
+ඇල්ගොරිතමයක්‌ ගැලීමි සටහනක්‌ මගින්‌ නිරැපණය කරන්න.
+
+( 2018 — Essay 4 )
+
+To draw the requested flowchart, we have to understand the expected functionality of this algorithm.
+ඉල්ලීමි කරන ලද, ගැලීමි සටහන ඇඳිමට, GOO ඇල්ගොරිනමයේ අපේක්ෂිත ක්‍රියාකාරීන්වය අප eHow ගත
+
+යුතුය.
+
+1. Must collect a data sequence which only contains positive values.
+ධනාත්මක අගයන්‌ පමණක්‌ අඩංගු දුත්ත අනුපිළිවෙලක්‌ එකතු කළ යුතුය.
+
+2. 11-1 entered, the algorithm must come to an end. If not, the algorithm must end after processing 100
+inputs.
+ඇතුළත්‌ කළහොත්‌, ඇල්ගොරිතමය අවසන්‌ විය යුතුය. එසේ නොවේ නමි, ආදාන 1008 සැකසීමෙන්‌ og
+ඇල්ගොරිතමය අවසන්‌ විය යුතුය.
+
+3. Must give the largest number of the given sequence as the output.
+ලබා දි ඇති අනුපිළිවෙලෙහි විශාලතම සංඛනව ප්‍රතිදානය ලෙස ලබා දිය යුතුය.
+
+Your flowchart must fulfill these three requirements or else the flowchart will not function as the question
+described.
+
+ඔබගේ HOG සටහන මෙම අවශ්‍යතා තුන සපුරාලිය යුතුය, නැතහොත්‌ ප්‍රශ්නයේ විස්තර කර ඇති ලෙස
+ගැලීමි සටහන ක්‍රියා නොකරයි.
+
+Vv
+max = -1
+n= 100
+
+!
+
+—/ Input num /
+
+Yes
+
+ඡා
+
+No
+
+No
+
+O
+
+Yes
+
+max = num max = num
+
+| !
+
+_> n=n+] > n=n-1
+
+Yes No
+
+No Yes
+
+/ Output max / / Output max ~~
+
+aD
+
+Both of above flowcharts are correct. Let’s break down the flowchart in the left first.
+ඉහත DOO සටහන්‌ දෙකම නිවැරදියි. පළමුව වමි පස ඇති ගැලීමි සටහන සලකා බලමු.
+
+After starting the algorithm, two variables will be created as 'max' and 'n'. Their initial values will be
+assigned as -1 and 0, respectively.
+
+ඇල්ගොරිතමය ආරමිභ කිරිමෙන්‌ පසු, 'max' සහ 'n' ලෙස විචල්‍ය දෙකක්‌ නිර්මාණය වේ. ඒවායේ ආරමිභක
+අගයන්‌ පිළිවෙලින්‌ -] සහ 0 ලෙස පවරා ඇත.
+
+The variable 'max' is created to store the largest value after comparing the inputs.
+ආදාන අතර සංසන්දනයකින්‌ පසු විශාලතම අගය ගබඩා කිරීම සඳුහා ‘max’ විචල්‍යය නිර්මාණය කර ඇත.
+
+Why the initial value of 'max' 15 -1?
+'max'& ආරම්භක අගය -1 වන්නේ ඇයි?
+
+Since the values entered into the algorithm are positive, it is better to use -1 instead of 0 as the initial value
+of the variable 11140.
+
+ඇල්ගොරිතමයට ඇතුළත්‌ කළ අගයන්‌ ධන බැවින්‌, 'max' විචළ්‍යයේ ආරමිභක අගය ලෙස 0 වෙනුවට -1
+භාවිතා කිරීම වඩාත්‌ සුදුසුය.
+
+If the first input is -1, the algorithm will end while giving -1 as the output so if someone watching only
+the output of the algorithm, they can easily figure out that the algorithm didn’t get any positive inputs. But
+if the initial value is 0, their will be a confusion if the 0 was given as an input or not.
+
+පළමු ආදානය -1 නමි, ඇල්ගොරිතමය ප්‍රතිදානය ලෙස -1 ලබා දෙන අතරතුර අවසන්‌ වේ, එමනිසා
+ඇල්ගොරිතමයේ ප්‍රතිදානය පමණක්‌ නරඹන්නෙකුට, ඇල්ගොරිතමයට කිසිදු ධනාත්මක ආදාන නොලැබුණු බව
+ඔවුන්ට පහසුවෙන්‌ සොයාගත හැකිය. නමුත්‌ ආරමිභක අගය 0 නමි, 0 ආදානයක්‌ ලෙස ලබා දුන්නේද නැද්ද
+යන්න ව්‍යාකූලත්වයක්‌ වනු ඇත.
+
+Thus, assigning -1 as the initial value of 'max' instead of 0 is better.
+මේ අනුව, 0 වෙනුවට 'max' හි ආරම්භක අගය ලෙස -1 පැවරීම වඩාත්‌ සුදුසුය.
+
+The variable 'n' acts as the control variable for the loop. The loop limits the number of inputs the algorithm
+receives from the user.
+
+'n' SOES® E06 HCH) පාලන විචල්‍යය ලෙස ක්‍රියා කරයි. ලපය මඟින්‌ ඇල්ගොරිනමයට පරීගිලකයාගෙන්‌
+ලැබෙන ආදාන ගණන සමා කරයි.
+
+Next, the algorithm takes a number as the input, store value as 'num’, and checks if it equals to -1 or not.
+ඉන්පසුව, ඇල්ගොරිතමයට ආදානය ලෙස අංකයක්‌ ලැබේ, අගය 'num' ලෙස ගබඩා කර එය -1 ට සමානද
+නැද්ද යන්න පරීක්ෂා කරයි.
+
+If the input is -1, the algorithm will output the current value of 'max' and goes to an end. If not, it will go
+to the next decision.
+
+ආදානය -1 නමි, ඇල්ගොරිතමය 'max' හි වත්මන්‌ අගය ප්‍රතිදානය කර අවසානයකට යයි. එසේ නොවේ HG,
+එය ඉන්පසු තීරණයට යයි.
+
+This decision will compare the current values of 'max' and 'num' to determine which is larger.
+මෙම තීරණය මඟින්‌ 'max' සහ ‘num’ හි වත්මන්‌ අගය සංසන්දනය කර විශාලතම කුමක්දැයි බලනු ඇත.
+
+If 'num' is larger than 'max’', the algorithm will update the value inside 'max' by assigning the value of
+‘num’ to it. Then the algorithm moves to the increment.
+
+‘num’ යන්න ‘max’ යන්නට වඩා SHE නමි, ඇල්ගොරිතමය 'num' හි අගය එයට පැවරිීමෙන්‌ ‘max' තුළ
+ඇති අගය යාවත්කාලීන කරයි. එවිට ඇල්ගොරිතමය ඉහල යාම වෙන ගමන්‌ කරයි.
+
+11 '111111]' is smaller than 'max’', the algorithm proceeds to increment step without updating the value of ‘max’.
+‘num’ යන්න 'max' යන්නට වඩා කුඩා නම්‌, ඇල්ගොරිතමය 'max’ හි අගය යාවත්කාලින නොකර ඉහල යාම
+වෙත ගමන්‌ කරයි.
+
+In the increment, the value of 'n' will be increased by one. Then it will check if the value of 'n' is lower
+than 100 or not.
+
+ඉහල DCSE, 'n හි අගය එකකින්‌ වැඩි කෙරේ. OOO එය 'n' හි අගය 100 ට වඩා අඩුද නැද්ද යන්න
+පරික්ෂා කරයි.
+
+If 'n' is lower than 100, the algorithm will repeat itself from getting the input. Otherwise, the algorithm
+will output the current value of 'max' and goes to an end.
+
+'n' යන්න 100 ට වඩා අඩු නමි, ආදානය ලැබීමෙන්‌ ඇල්ගොරිතමය නැවත නැවතත්‌ Be වේ. එසේ නොමැතිනමි,
+ඇල්ගොරිතමය ‘max’ හි වත්මන්‌ අගය ප්‍රතිදානය කර අවසානයකට යයි.
+
+You can alter the flowchart in another way. The flowchart on the right is an altered method.
+ඔබට වෙනත්‌ ආකාරයකින්‌ ගැලීමි සටහන වෙනස්‌ කළ හැකිය. දුකුණු පස ඇති ගැලීමි සටහන වෙනස්‌ කළ
+ක්‍රමයකි.
+
+When altering the flowcharts, you cannot change its core functionality. Most of the time, the factor you
+can change is how the loop runs.
+
+DOO සටහන්‌ වෙනස්‌ කරන විට, ඔබට එහි මුලික ක්‍රියාකාරීත්වය වෙනස්‌ කළ නොහැක. බොහෝ SO, ඔබට
+වෙනස්‌ කළ හැකි සාධකය වන්නේ ලපය ක්‍රියාත්මක වන ආකාරයයි.
+
+The differences between these two flowcharts are in the initial value of the control variable, increment or
+decrement of the value of the control variable and the condition of the loop.
+
+මෙම ගැලීමි සටහන්‌ දෙක GMO වෙනස්කමි වන්නේ පාලන විචලඅ්‍යයේ ආරමිභක අගය, පාලන විචල්‍යයේ ඉහල
+යාම හෝ පහල යාම සහ ලපයේ කොන්දේසියයි.
+
+Left side Flowchart Right side Flowchart
+
+Initial value of n 0 100
+Increment / Decrement of n | Increment; n=n-+1 | Decrement; n=n - 1
+Condition n< 100 n< 1
+
+Flowchart in the left side is the easiest to follow and understand because increments are familiar to most
+people than decrements.
+
+OO පැත්තේ ඇති ගැලීමි සටහන අනුගමනය කිරීමට සහ නේරැමි ගැනීමට පහසුම වේ, මන්ද ඉහල යාම
+බොහෝ දෙනෙකුට පහල යාමට වඞා හුරැපුරැදු බැවිනි.
+
+If the condition, increment or decrement and the initial value causes the algorithm to get and compare 100
+inputs if there weren’t any interruptions, and the core functionality 1s same as the above flowcharts then
+the flowchart is correct.
+
+කොන්දේසිය, ඉහල යාම හෝ පහල DO අගය ඇල්ගොරිතමයට කිසිදු බාධාවක්‌ නොමැති HO ආදාන 100 ක්‌
+ලබා ගැනීමට සහ සංසන්දනය කිරීමට හේතු වේ නමි සහ මුලික ක්‍රියාකාරිත්වය ඉහත ගැලිමි සටහන්‌ වලට
+සමාන නමි, ගැලීමි සටහන නිවැරළි වේ.
+
+(b) Consider the flowchart given below. The algorithm in
+the flowchart takes two inputs, the first input L is a
+list of numbers, the second input K is a given number.
+E ඇති ගැලීමි සටහන සලකන්න. OOS සටහනෙහි
+දැක්වෙන ඇල්ගොරිතමය ආදාන දෙකක්‌ ලබාගන්නා
+අතර පළමු ආදානය වන L, සංඛ්‍යා ලැයිස්තුවක්‌ ද,
+දෙවන ආදානය K, දෙන ලද, සංඛ්‍යාවක්‌ ද, වේ.
+
+(1)
+
+(11)
+
+Input List
+— K
+
+7 7
+
+n= i of L
+i=0
+
+What would be the output if the first input L was
+23, 45, 32, 11,67, 39, 92,51, 74, 89 and the second
+input K was 38?
+
+පළමු ආදානය (L) 23, 45, 32, 11, 67, 39, 92, 51,
+74,89 දූ දෙවන ආදානය (K) 38 & වුයේ නමි,
+ප්‍රතිදානය කුමක්‌ ද?
+
+The best method to answer this question is by
+writing down a table.
+
+මෙම ප්‍රශ්නයට පිළිතුරු FOO හොඳුම ක්‍රමය වන්නේ
+වගුවක්‌ ලිවීමයි.
+
+Yes
+When L = 23, 45, 32, 11, 67, 39, 92, 51, 74, 89
+and K = No
+The constant is n= 10. Output
+නියතය n= 10 වේ. “False”
+
+Turn Li] Is 1.11] = K? | i=0 | Isi<n? | Output । Stop
+1 L[O] ~ 23 140 1 Yes
+2 L[1] ~ 45 140 2 Yes
+3 L[2| = 32 No 3 Yes
+4 1:3| ~ 11 140 4 Yes
+5 L[4| = 67 No 5 Yes
+6 L[5] = 39 No 6 Yes
+7 L[6| = 92 No 7 Yes
+8 L[7] ~ 51 No 8 Yes
+9 L[8| = 74 No 9 Yes
+10 | L[9]=89 No 10 No False
+
+Therefore, the output is ‘False’.
+එමනිසා, ප්‍රතිදානය 'False' වේ.
+
+Briefly explain the aim of this algorithm.
+මෙම ඇල්ගොරිතමයෙහි අරමුණ කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+This algorithm takes a list (L) and a value (K) as inputs. Then it cycles through every single value
+inside the list and checks if there is a value equal to K.
+
+මෙම ඇල්ගොරිතමය ආදාන ලෙස ලැයිස්තුවක්‌ (L) සහ අගයක්‌ (K) ගනී. ඉන්පසු එය ලැයිස්තුව තුළ
+ඇති සෑම අගයක්‌ හරහාම OH ලෙස ගමන්‌ කරමින්‌ |[~ ට සමාන අගයක්‌ තිබේදැයි පරීක්ෂා කරයි.
+
+If the value presents in the list, it will output 'True’. Else it will output ‘False’.
+ලැයිස්තුවේ අගය තිබේ නමි, එය ‘True’ ලෙස ප්‍රතිදානය කරයි. එසේ නොමැතිනමි එය ‘False’ ලෙස
+ප්‍රතිදානය කරයි.
+
+Therefore, the purpose of this algorithm 1s to find a value either present or not in a given list.
+එබැවින්‌, මෙම ඇල්ගොරිතමයේ අරමුණ වන්නේ දී ඇති ලැයිස්තුවක්‌ තුළ අගයක්‌ ඇති හෝ නොමැති බව
+සොයා ගැනීමයි.
+
+(111) Develop a Python program to implement the algorithm 1n the flowchart.
+ACG සටහනේ ඇති ඇල්ගොරිතමය ක්‍රියාත්මක කිරීම සඳහා පයිතන්‌ කේතයක්‌ ගොඩනගන්න.
+
+There are many methods to implement the flowcharts functionality using Python. But the expected
+answer is as follows.
+
+පයිතන්‌ භාවිතයෙන්‌ ගැලීමි සටහන්‌ ක්‍රියාකාරිත්වය ක්‍රියාත්මක කිරීමට බොහෝ ක්‍රම තිබේ. නමුත්‌ අපේක්ෂිත
+පිළිතුර පහත පරීළි වේ.
+
+# Using while Loop - Expected answer
+tempL = input(’Enter the list of numbers: ').split(’,')
+L = [int(i) for i in tempL]
+
+K = int(input('’Enter the value to be searched: '))
+n = len(L)
+i=@
+while i ද n:
+if L[i] == K:
+print('True' )
+break
+i+=1
+
+if not i <n:
+print('False’ )
+
+In this method, the given list is split using commas (,) and stored in tempL variable. Then it rewrites
+the value as integers and stores them in L.
+
+මෙම HOSE, දි ඇති ලැයිස්තුව කොමා (,) භාවිතයෙන්‌ split md, tempL යන විචල්‍යයක්‌ තුළ ගබඩා
+කරනු ලැබේ. ඉන්පසු එය පූරණ සංඛ්‍යා ලෙස නැවත ලියමින්‌ LS ගබඩා කරයි.
+
+Then, the value that needs to be searched is requested as an input and stored after converting into an
+integer. / ඉන්පසු, සෙවිය යුතු අගය ආදානයක්‌ ලෙස ඉල්ලා සිටින අතර පුර්ණ සංඛ්‍යාවක්‌ බවට පරිවරතනය
+කිරීමෙන්‌ පසු ගබඩා කරනු ලැබේ.
+
+There’s a variable called 'n' to store the length of the list L.
+L ලැයිස්තුවේ දිග ගබඩා HOO සඳහා 'n' නමින්‌ විචල්‍යයක්‌ නිර්මාණය කර ඇත.
+
+1 15 the control variable of the while loop. while loop only works if 1 15 lower than n. 11 1 <n is true,
+then the if statement checks if ] ,| 1| 16 equal to K or not. If K 15 equal to L[1], it prints ‘True’ and stops.
+Else, 1 will increase by one and the loop will restart until there’s a match or the condition of the while
+loop becomes false.
+
+1 යනු while ලපයේ පාලන විචල්‍යය වේ. while ලූපය Ha) කරන්නේ 1. ॥ ට වඩා අඩු නමි පමණි. i<n
+සත්‍ය නමි, if ප්‍රකාශය Lili], K ට සමානද නැද්ද යන්න පරික්‍ෂා කරයි. K,L[i] ට සමාන නමි, ඵය ‘True’
+මුද්‍රණය කර නතර වේ. එසේ නොමැතිනමි, i එකකින්‌ වැඩි වන අතර while ලපයේ ගැලපීමක්‌ හෝ
+තත්ත්වය අසත්‍ය වන තෙක්‌ ලපය නැවත ක්‍රියාත්මක වේ.
+
+If the while loop ends without finding a match, it means 1 1s equal to n. So, second if statement becomes
+true when 1 15 greater than or equal to n because the not it used before the condition.
+
+while ලපය, ගැළපීමක්‌ සොයා නොගෙන අවසන්‌ වුවහොත්‌, එයින්‌ අදහස්‌ වන්නේ 1. 11 ට සමාන බවයි.
+එබැවින්‌, දෙවන if ප්‍රකාශය සත්‍ය වන්නේ 1. 1! ට වඩා විගාල හෝ සමාන වන විටය, මන්ද එය කොන්දේසියට
+පෙර not භාවින කර ඇති බැවිනි.
+
+It prints 'False' 11 there isn’t a match.
+ගැළපීමක්‌ නොමැති නමි එය ‘False’ මුද්‍රණය කරයි.
+
+This Python code is a perfect copy of the above flowchart algorithm.
+මෙම පයිතන්‌ කේතය ඉහන AGOGO සටහන්‌ ඇල්ගොරිතමයේ පරීපුඊරණ පිටපතකි.
+
+For extra knowledge, there are other methods to implement this and get the same output. But those
+methods aren’t exactly same as the flowchart algorithm.
+
+අමතර දැනුම OCH), මෙය ක්‍රියාත්මක කිරීමට සහ එකම ප්‍රතිදානය ලබා ගැනීමට වෙනත්‌ ක්‍රම Hod.
+නමුත්‌ එම ක්‍රම ගැලීිමි සටහන්‌ ඇල්ගොරිතමයට හරියටම සමාන නොවේ.
+
+# Using while Loop
+
+tempL = input('Enter the list of numbers: ').split(’,')
+L = [int(i) for i in tempL]
+
+K = int(input('’Enter the value to be searched: '))
+
+index = @
+while index < len(L):
+if L[index] == K:
+print('True' )
+break
+index += 1
+else:
+print('False’ )
+
+This method, the code use len(L) instead of creating a variable to store its value. After the while loop
+ends, there’s an else block instead of the if statement in above code. The else block works when the
+while loop becomes false so the functionality 1s same.
+
+මෙම HOSE, කේතයේ අගය ගබඩා කිරීම සඳහා විචල්‍යයක්‌ නිර්මාණය කිරීම වෙනුවට len(L) භාවිතා
+කරයි. while ලුපය අවසන්‌ වු පසු, ඉහත කේතයේ if ප්‍රකාශය වෙනුවට else බිලොක්‌ එකක්‌ ඇත.
+while ලූපය අසත්‍ය © විට else බිලොක්‌ එක ක්‍රියා කරයි, එබැවින්‌ ක්‍රියාකාරීත්වය සමාන වේ.
+
+# Using while Loop - with found variable
+
+tempL = input('Enter the list of numbers: ').split(’,')
+L = [int(i) for i in tempL]
+
+K = int(input('’Enter the value to be searched: '))
+
+index = @
+found = False
+while index < len(L):
+if L[index] == K:
+found = True
+break
+index += 1
+
+if found:
+print('True' )
+
+else:
+print('False’ )
+
+In this code, there’s a variable named found. Initial value is False and the code will change its value
+to True if a match found. Then the output will be printed using the if else block at the end of the code.
+මෙම කේතයේ, found නමින්‌ විචලඅයක්‌ ඇත. ආරමිභක අගය False වන අතර ගැලපීමක්‌ හමු වුවහොත්‌
+කේතය එහි අගය True ලෙස වෙනස්‌ කරයි. ඉන්පසු කේතයේ අවසානයේ ඇති 11 else බිලොක්‌ එක
+භාවිතයෙන්‌ ප්‍රතිදානය මුද්‍රණය කෙරේ.
+
+# Using for Loop
+
+tempL = input('Enter the list of numbers: ').split(’,')
+L [int(i) for i in tempL |]
+
+K = int(input('’Enter the value to be searched: '))
+
+for element in L:
+
+if element == K:
+print('True' )
+break
+
+else:
+
+print('False’ )
+
+This is almost same; the only difference 15 there’s a for loop instead of the while loop in previous
+codes.
+
+මෙයදු බොහෝ දුරට සමාන GH; එකම වෙනස වන්නේ පෙර කේතවල තිබු while ලපය වෙනුවට මෙහි
+for ලපයක්‌ තිබීමයි.
+
+# Using for Loop without break
+def search_in_list(L, K):
+for element in L:
+if element == K:
+return True
+return False
+
+def main():
+tempL = input('Enter the list of numbers: ').split(',')
+L = [int(i) for i in tempL]
+K = int(input('’Enter the value to be searched: '))
+print(search_in_list(L, K))
+
+main()
+
+In this code, there isn’t a break statement. Instead of break, this uses return to get the output values.
+main function has the codes to get inputs and code to call search in list function grouped.
+
+මෙම කේතයේ, break ප්‍රකාශයක්‌ නොමැත. break වෙනුවට, මෙය ප්‍රතිදාන අගයන්‌ ලබා ගැනීමට return
+භාවිතා කරයි. main ග්‍රිතය තුළ, ආදාන ලබා ගැනීමට කේත සහ search in list Gao ගෙන්වීමට
+කේතය සමුහගත කර ඇත.
+
+# Using in operator
+def search_in_list(L, K):
+return [ද in L
+
+def main():
+tempL = input('Enter the list of numbers: ').split(',')
+L = [int(i) for i in tempL]
+K = int(input('’Enter the value to be searched: '))
+print(search_in_list(L, K))
+
+main()
+
+In this code, for loop is replaced by built-in in operator. in operator works as a sequential searching
+algorithm.
+
+මෙම කේතයේ for EEG, built-in මෙහෙයවනයක්‌ වන in මෙහෙයවනය මඟින්‌ ප්‍රතිස්ටාපනය කර ඇත.
+in මෙහෙයවනය අනුක්‍රමික සෙවුමි ඇල්ගොරිතමයක්‌ ලෙස ක්‍රියා කරයි.
+
+instructions. This will run until the list becomes empty or there’s a match.
+
+අවසාන OMCs, return Gane පුනරාවරිතනය වන සෑම අවස්ටාවකම පළමු අංගය හලා දමමින්‌ ලැයිස්තුව
+කොටස්‌ කිරීම සහ උපදෙස්‌ නැවත ක්‍රියාත්මක කිරීම oem) වේ. ලැයිස්තුව හිස්‌ වන තුරු හෝ ගැලපීමක්‌
+හමු වන තුරැ මෙය ක්‍රියාත්මක වේ.
+
+# Using List comprehension
+def search_in_list(L, K):
+return True if [x for x in L if x == K] else False
+
+def main():
+tempL = input('Enter the list of numbers: ').split(',')
+L = [int(i) for i in tempL]
+K = int(input('’Enter the value to be searched: '))
+print(search_in_list(L, K))
+
+main()
+
+In this code, the function used a shorthand method. It returns True or False based on the if statement.
+මෙම කේතයේ Gwe, කෙටි යෙදුමි ක්‍රමයක්‌ භාවිතා කර ඇත. එය if ප්‍රකාශය මත පදුනමිව True හෝ
+False ආපසු ලබා දෙයි.
+
+Inside the if statement, there’s a for loop and another if statement. This method is called list
+comprehension because,
+
+if ප්‍රකාශය තුළ, for ලපය සහ තවත්‌ if ප්‍රකාශයක්‌ ඇත. මෙම ක්‍රමය list comprehension ලෙස
+හැඳින්වේ. මක්නිසාද යත්‌,
+
+First, the for loop assigns a value to list x and then the if statement checks if x is equal to K. If it
+becomes true, it sends list x to the main if statement and since this 15 a singleton list and contains a
+value, the if becomes true and the return function will give 'True' as output.
+
+පළමුව, for ලූපය x ලැයිස්තුවට අගයක්‌ පවරන අතර පසුව if ප්‍රකාශය x,K ට සමාන දැයි පරික්ෂා
+කරයි. එය ans බවට පත්‌ වුවහොත්‌, එය listx ප්‍රධාන if ප්‍රකාශයට යවන අතර හා මෙය තනි අංගයක්‌
+ඇති ලැයිස්තුවක්‌ වන බැවින්‌, if ans වන අතර return Goo ප්‍රතිදානය ලෙස ‘True’ ලබා දෙනු ඇත.
+
+If x is not equal to any of the values inside L, then x sends to the main if statement will be an empty
+list. Hence, the return function will output 'False’.
+
+x,L තුළ ඇති කිසිදු අගයකට සමාන නොවේ නම, x ප්‍රධාන if ප්‍රකාගයට යවන අතර එය හිස්‌
+ලැයිස්තුවක්‌ වනු ඇත. එබැවින්‌, return Gwe ‘False’ ලෙස ප්‍රතිදානය කරයි.
+
+The main if statement won’t get any inputs unless there’s a match or the for loop ends.
+ගැලපීමක්‌ නොමැති HO හෝ for ලූපය අවසන්‌ වන තුරැ ප්‍රධාන if ප්‍රකාශයට කිසිදු ආදානයක්‌ නොලැබේ.
+
+Why x is a list?
+X ලැයිස්තුවක්‌ වන්නේ ඇයි?
+
+In list comprehension, there’s a standard syntax.
+list comprehension තුළ, සමිමත syntax එකක්‌ වේ.
+
+if [x for x in iterable if condition]
+x— variable name / විචල්‍ය නාමය
+
+iterable — list, range, string or the object you need to iterate on.
+ලැයිස්තුව, range, string හෝ ඔබට පුනරාවටරතනය විමට අවග්‍ය වස්තුව.
+
+condition — The condition for inner if statement. / ඇතුළත if ප්‍රකාශය සඳුහා කොන්දේසිය.
+
+There are syntaxes for set, dictionary comprehension like this.
+මේ ආකාරයටම set, dictionary comprehension සඳහා syntax ඇත.
+
+Example 1
+L = [22, 33, 56, 58, 78, 98, 11]
+K = 78
+Turn | x | x == K/ [x for x in L if x == K] | return
+1 22 | False |] ~
+2 33 | False | ] ~
+3 56 | False ෂූ ~
+4 58 | False | ] ~
+5 78 | True | 78] True
+
+The function returns True because 78 is found in the list.
+78 ලැයිස්තුවේ ඇති නිසා Goo True ලබාදෙයි.
+
+Example 2 / උදාහරණය 2
+L = [22, 33, 56, 58, 78, 98, 11]
+K = [22, 33, 56, 58, 78, 98, 11]
+
+Turn | x | x == K| [x for x in L if x == K] | return
+1 22 | False |] ~
+2 33 | False | ] ~
+3 56 | False | ] -
+4 58 | False | ] -
+5 78 | False | ] -
+6 98 | False | ] -
+7 |11| False | ] False
+
+The function returns False because 12 is not found in the 1151.
+12 ලැයිස්නුවේ නැති නිසා Goo False ලබාදෙයි.
+
+2019 AL PYTHON ESSAY MARKING
+
+1. Consider the following Python program:
+පහත දැක්වෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+ද = 6
+n = int (input ())
+while (n>@):
+if n>x:
+xX =n
+n = int (input ())
+print (x)
+
+(1) Write the output of the program if the input is 4 6 3 2 8 -1.
+ආදානය 4 6 3 2 8-1 වන්නේ නමි ක්‍රමලේඛයෙහි ප්‍රතිදානය ලියා දුක්වන්න.
+
+This program finds the largest positive number entered by the user. It starts by initializing x = 6, then
+continuously takes integer inputs and updates x if the new number is greater than the current maximum.
+The loop stops when a non-positive number (< 0) is entered, and the highest value encountered 15 printed.
+මෙම වැඩසටහන භාවිතා කරන්නා විසින්‌ ඇතුළත්‌ කරන EC විශාලතම ධන අංකය සොයා ගනී. එය x = 6
+න්‌ ආරමිභ කර, පසුව අඛණ්ඩව පුර්ණ සංඛ්‍යා ආදානයන්‌ ලබා ගන්නා අනර නව අංකය වත්මන්‌ උපරිමයට
+වඩා වැඩි නමි x යාවත්කාලීන කරයි. ධන නොවන අංකයක්‌ (<0) ඇතුඑ කළ විට ලුපය නතර වන අතර,
+හමු ව ඉහළම අගය මුදුණය වේ.
+
+Let's study the given code line by line.
+ලබා දී ඇති කේතයේ පේළියෙන්‌ පේළිය අධ්‍යනය කරමු.
+
+x = 6
+A variable x is initialized to @. This variable will store the largest number encountered during execution.
+X විචල්‍යයක්‌ 08 ආරමිභ කර ඇත. GOO විචලඅය ක්‍රියාත්මක කිරීමේදි හමුවු විශාලනම සංඛ්‍යාව ගබඩා කරයි.
+
+n = int(input())
+The first integer from the input is read. The user enters 4, son = 4.
+ආදානයෙන්‌ පළමු පුර්ණ සංඛ්‍යාව කියවනු ලැබේ. පරිගිලකයා 4 ඇතුල්‌ කරයි, එබැවින්‌ n = 4 වේ.
+
+while (n > 6):
+
+The loop runs as long as n is greater than 60. If n becomes 0 or a negative number (like -1), the loop
+terminates.
+
+n, 60 ට වඩා වැඩි වන ms EOS ක්‍රියාත්මක වේ. n, 6 හෝ සෘණ අංකයක්‌ (-1 වැනි) බවට පත්‌ වුවහොත්‌,
+ලූපය අවසන්‌ වේ.
+
+if n > x:
+
+xX =n
+If n is greater than x, x is updated to n. This ensures x always stores largest number encountered so far.
+n, X ට වඩා වැඩි නමි, x, N ලෙස යාවත්කාලීන වේ. x සැමවිටම මෙනෙක්‌ හමු © විශාලතම සංඛ්‍යාව ගබඩා
+කරන බව මෙය සහතික කරයි.
+
+n = int(input())
+A new integer is read from input. The loop continues until a non-positive number (~~ 0) 1s entered.
+
+ආදානයෙන්‌ නව පුරණ සංඛ්‍යාවක්‌ කියවනු ලැබේ. ධන නොවන අංකයක්‌ (<0) ate කරන තෙක්‌ ලපය දිගටම
+ක්‍රියාත්මක වේ.
+
+print(x)
+After exiting the loop, the largest number encountered is printed.
+ලූපය ක්‍රියාත්මක විම අවසන්‌ විමෙන්‌ පසු, හමු වු SMEWO අංකය මුද්‍රණය කරනු ලැබේ.
+
+Repetition n x=0
+1 4 4
+2 6 6
+3 3 6
+4 2 6
+5 8 8
+6 -| 8
+
+Final Output / අවසාන ප්‍රතිදානය
+8
+
+(11) What is the purpose of this program?
+මෙම ක්‍රමලේඛයෙහි අරමුණ කුමක්‌ ද?
+
+e The program finds the largest positive number entered by the user.
+වැඩසටහන, පරිගිලකයා විසින්‌ ඇතුළත්‌ කරන ලදු SHEMO ධන සංඛ්‍යාව සොයා ගනි.
+
+e It continuously accepts user input and updates maximum value until a non-positive number is entered.
+එය අඛණ්ඩඞව පරිගිලක ආදාන ලබාගන්නා අතර, ධන නොවන අංකයක්‌ ඇතුළත්‌ කරන තෙක්‌ උපරිම අගය
+යාවන්කාලීන කරයි.
+
+( 2019 — S.Essay 2[b] )
+
+4.(a) The ICT teacher in a school needs to process the marks obtained by all the students in a class for the
+ICT subject and compute the average mark for the class. Construct a flow chart to express an
+algorithm for this purpose. Assume that the first input is the number of students in the class, n. Next,
+the marks of n students will be input one-by-one.
+පාසලක තොරතුරැ හා සන්නිවේදූන තාක්ෂණය (ICT) MO ආචාර්යවර්යාට පංතියෙහි සියලු ම සිසුන්‌ ICT
+විෂයය සඳුහා ලබාගත්‌ ලකුණු සැකසීමට අවග්‍යව ඇති අතර පංතියෙහි සාමාන්‍ය ලකුණු ගණනය කළ යුතුව
+ඇත. මෙම MHGGO අදාළ ඇල්ගොරිතමයක්‌ ප්‍රකාග වන ගැලීමි සටහනක්‌ ගොඩනගන්න. පළමු ආදානය
+පංතියෙහි සිටින මුඑ සිසුන්‌ සංඛ්‍යාව n යැයි උපකල්පනය කරන්න. ඉන්පසු ॥ සිසුන්ගේ ලකුණු එකින්‌ එක
+ආදානය කරන ලැබේ.
+
+First, you need to understand the purpose of this algorithm. This algorithm gets the ICT marks of the
+students and calculates the average mark for the class.
+
+මුලින්ම ඔබ GOO ඇල්ගොරිතමයේ GOO™HOS තේරැමි Ow යුතුයි. මෙම ඇල්ගොරිතමය සිසුන්ගේ තොරතුරැ
+හා සන්නිවෙදුන තාක්ෂණ ලකුණු ලබා ගැනීමට සහ පන්තියේ සාමාන්‍ය ලකුණ ගණනය කිරිමට වේ.
+
+Then, identify the requirements mentioned in the question.
+ඉන්පසු, ප්‍රශ්නයේ සඳහන්‌ අවග්‍යතා හඳුනාගත යුතුයි.
+
+1 Must get the value for 1]. the number
+
+of students. Star
+කෑ tart
+1 සඳහා අගය, සිසුන්‌ සංඛ්‍යාව ලබා
+
+ගත යුතුය.
+
+2 Must get student marks one by one Y
+
+Ges ලකුණු එකින්‌ එක ලබා ගත Input n
+යුතුය.
+
+3 Must output the average ICT mark
+for the class v
+පන්තිය සඳුහා සාමාන්‍ය තොරතුරැ =
+හා සන්නිවෙදන තාක්ෂණ ලකුණ
+ප්‍රතිදානය කළ යුතුය.
+
+Next, draw the flowchart.
+ඊළඟට, DS සටහන ඇඳිය යුතුය. avg = 0
+
+total /n
+
+y
+
+~
+
+av
+
+Vv
+
+111
+
+4
+
+Output avg
+/ Input mark /
+(
+
+mark of student 1)
+
+y
+y End
+
+total = total + mark
+
+1:17 1
+
+As requested, in the above flowchart, the number of students (n) has been collected at the beginning.
+ඉහත NOG සටහනේ මුලින්‌, ඉල්ලා ඇති පරිදි සිසුන්‌ සංඛ්‍යාව (1) ලබාගෙන ඇත.
+
+There is a variable named 1, which is stored | as the initial value. The purpose of variable 1 is to act as the
+control variable of the loop defined below.
+
+1 නම්‌ විචල්‍යයක්‌ ඇත, එහි ආරමිභක අගය ලෙස ] ගබඩා කර ඇත. 1 විචල්‍යයේ පරමාඊටඊය වන්නේ පහතින්‌
+අට්ට්‌ eso) ඇති ලපයේ පාලන විචල්‍ය ලෙස ක්‍රියා කිරීමයි.
+
+There is another variable named avg which has its value set to 0.
+avg නම්‌ තවත්‌ විචල්‍යයක්‌ ain, OS අගය 0 ලෙස සකසා ඇත.
+
+Then in the decision box, a function is written to check if the value of 1 is greater than the value of 1].
+ඉන්පසු තීරණ කොටුවේ, 1 හි අගය n හි අගයට වඩා වැඩි දැයි පරික්ෂා කිරිමට Gowes ලියා ඇත.
+
+If the answer is ']*10', a loop will initiate with three instructions. The algorithm will ask to input the ICT
+mark of a student and then it will add the mark into total variable. Before the loop ends, it will increase
+the value of 1 by 1.
+
+පිළිතුර 'No' නමි, උපදෙස්‌ තුනක්‌ සමඟ EDGE ආරමිභ වේ. ඇල්ගොරිතමය මඟින්‌ ගිෂ්‍යයෙකුගේ තොරතුරැ
+හා සන්නිවේදන නාක්ෂණ ලකුණ ඇතුළත්‌ කිරීමට අසනු ඇත, ඉන්පසු එම ලකුණ total විචලඅයට එකතු කරනු
+ඇත. EOS අවසන්‌ විමට පෙර, එය 1 හි අගය ] කින්‌ වැඩි කරයි.
+
+This will run until the answer for the decision box becomes 'Yes'.
+තීරණ කොටුව සඳුහා පිළිතුර 'Yes' වන තෙක්‌ මෙය ක්‍රියාත්මක වේ.
+
+Then the algorithm will calculate the average ICT mark for the class using total and n variables and assign
+the value to avg variable.
+
+ඉන්පසු ඇල්ගොරිතමය total සහ n විචල්‍යයන්‌ MS කරමින්‌ පන්තිය සඳුහා සාමාන්‍ය තොරතුරැ හා
+සන්නිවේදූන තාක්ෂණ ලකුණ ගණනය කර ave විචල්‍යයට අගය පවරනු ඇත.
+
+The algorithm will end after giving the value of avg variable as the output.
+ප්‍රතිදානය ලෙස ave විචල්‍යයේ අගය ලබා දිමෙන්‌ පසු ඇල්ගොරිතමය අවසන්‌ වේ.
+
+If there are 5 students in a class and their ICT marks are 55, 98, 32, 67, and 84, the algorithm will work
+as follows.
+
+පන්තියක සිසුන්‌ 5 දෙනෙකු සිටින අතර ඔවුන්ගේ තොරතුරැ හා සන්නිවේදන තාක්ෂණ ලකුණු 55, 98, 32, 67
+සහ 84 නමි, ඇල්ගොරිතමය පහත පරිදි ක්‍රියා කරයි.
+
+Turn n 1 (i>n)? | mark total avg
+
+1 5 1 140 55 0+55=55 0
+
+2 5 2 No 98 55+ 98 ~ 153 | 0
+
+3 5 3 No 32 153 + 32= 185 | 0
+
+4 5 4 No 67 185 + 67 = 252 | 0
+
+5 5 5 No 84 252 + 83 = 335 | 0
+
+6 5 6 Yes 335 335 /5=67
+
+(b) Consider the flow chart given below. Note that x % 2 represents x mod 2.
+පහන දක්වා ඇති ගැලීමි සටහන සලකන්න. එහි x% 2 මගින්‌ x mod 2 නිරැපණය කෙරේ.
+
+යී = JL
+
+<>
+
+input x
+
+<>
+
+a=atl
+y
+n=n-l
+
+> Output a WA
+
+(1) What would be the output if the first input (11) was 6 and the next inputs were 3, 6, 4, 12, 11, 9?
+පළමු ආදානය (n)6 නමි සහ ඉන්පසු ආදාන 3, 6, 4, 12, 11, 9 නමි ප්‍රතිදානය කුමක්‌ වන්නේ ද?
+
+The algorithm runs as follows.
+
+ඇල්ගොරිතමය පහත ආකාරයට ක්‍රියාත්මක වේ.
+
+Turn n=6 (n <= 0)? x (x % 20)? =0
+
+1 6 No 3 No 0
+
+2 5 No 6 Yes 0+1=1
+3 4 No 4 Yes 1+1=2
+4 3 No 12 Yes 2+1=3
+5 2 No 11 No 3
+
+6 1 No 9 No 3
+
+7 0 Yes 3
+
+Therefore, the output is 3.
+එබැවින්‌, ප්‍රතිදානය 3 වේ.
+
+(11) What is the purpose of this algorithm?
+මෙම ඇල්ගොරිතමයෙහි අරමුණ කුමක්‌ ද?
+
+To understand the purpose of this algorithm, a clear view of inputs, outputs, and decisions is crucial.
+මෙම ඇල්ගොරිතමයේ SOO)/HOG තේරැමි ගැනීම HEM) මෙහි ආදාන, ප්‍රතිදාන සහ තීරණ OE පැහැදිලි
+දසුනක්‌ පැවතීම තීරණාත්මක වේ.
+
+According to the table in (b)(1), n + 1 is the number of turns and n is the number of inputs entered to the
+variable x.
+(10)(1) හි ඇති OQOO අනුව OO ගණන n+] න්‌ සහ x GEM ඇතුළ කරන ආදාන ගණන ns දැක්වේ.
+
+As in the algorithm, the main output is the variable a. Since the variable 1] is used to control how many
+times data should be entered to x, variable x becomes the main input.
+
+ඇල්ගොරිතමයට අනුව ප්‍රධාන ප්‍රතිදානය වන්නේ a විචල්‍යයි. n DOES, x සඳුහා Esso GMO කරන වාර
+ගණන පාලනය කිරීමට යොදාගන්නා බැවින්‌ x විචලඅය ප්‍රධාන ආදානය බවට පත්වේ.
+
+x % 2 = 0 decision is the only relation between the main input and output.
+ප්‍රධාන ආදානය සහ ප්‍රතිදානය අතර පවතින එකම සමිඛන්ධතාවය x %2=0 තරණය වේ.
+
+If the decision is true, the algorithm adds | to the variable a. Else it does not modify the variable at all.
+
+තීරණය සත්‍ය වේ HO ඇල්ගොරිතමය a SOEBSO ]ක්‌ එකතු කරයි. නැතහොන්‌ එය කිසිම විටෙක විචල්‍යය
+වෙනස්‌ නොකරයි.
+
+This is more like counting how many inputs can be divided by 2 without a remainder. In another words,
+the algorithm counts how many inputs are even.
+
+මෙය 28 ඉතිරි නැතුව බෙදිය හැකි ආදාන සංඛ්‍යාව ගණනය කිරීමක්‌ වැනිවේ. වෙනත්‌ ආකාරයකින්‌ පැවසුවහොත්‌,
+ඇලිගොරිතමය ඉරටිටේ වන ආදාන සංඛ්‍යාව ගණනය කරයි.
+
+Therefore, the purpose of this algorithm is to count the even numbers in a set of user given numbers.
+එබැවින්‌, GOO ඇල්ගොරිතමයේ පරමාර්ටය වන්නේ පරිගීලකයා ලබා දුන්‌ සංඛ්‍යාවල ඇති ඉරටිටේ සංඛ්‍යා
+ගණන ගණනය කිරිමයි.
+
+(111) Develop a Python program to implement the algorithm expressed by the flow chart.
+ගැලීමි සටහන මගින්‌ ප්‍රකාගවන ඇල්ගොරිතමය ක්‍රියාත්මක කිරීම acm) පයිතන්‌ ක්‍රමලේඛයක්‌ ගොඩනගන්න.
+
+The Python code can be written in many ways, but there are few things that must be in the code.
+පයිතන්‌ කේතය ලිවිමට ආකාර කිහිපයක්‌ පැවතියද කේතය තුළ අනිවාටරයයෙන්ම පැවතිය යුතු දේවල්‌
+කිහිපයක්‌ වේ.
+
+1. There must be variables to perform the tasks carried by variable n, x, and a.
+Nl, X සහ a විචල්‍යයන්‌ විසින්‌ කරන mboca සිදුකිරීමට විචල්‍යයන්‌ පැවතිය යුතුය.
+
+2. User inputs in the algorithm must stay as user inputs in the code.
+ඇල්ගොරිතමය තුළ පරිගිලක ආදාන කේතය තුළද COGED ආදාන ලෙසම පැවතිය යුතුය.
+
+3. Both conditions(decisions) in the algorithm must be in the code.
+ඇල්ගොරිතමය තුළ සඳහන්‌ වන කොන්දේසි (තිරණ) දෙකම කේතය HEC පැවතිය යුතුය.
+
+4. Output from the code must be exactly same as the flowchart(algorithm).
+කේතයේ ප්‍රතිදානය, DOO සටහනේ ප්‍රතිදානය සමඟ BOLO විය යුතුය.
+
+Method 1 - Using for loop / for ලූපය භාවිතයෙන්‌
+
+# Get the number of inputs from the user
+n = int(input())
+
+# Initialize the count of even numbers
+a= 6
+
+# Loop to get inputs from the user
+for i in range(n):
+xX = int(input())
+if x % 2 == @:
+at=1
+
+# Print the count of even numbers
+print(a)
+
+Method 2 - Using while loop / while ලූපය භාවිතයෙන්‌
+
+# Get the number of inputs from the user
+n = int(input())
+
+# Initialize the count of even numbers
+a= 6
+i= 60
+
+# Loop to get inputs from the user
+while i < n:
+xX = int(input())
+if x % 2 ==
+at=1
+i+=1
+
+# Print the count of even numbers
+print(a)
+
+Method 3 - Using while True loop / while True ලූපය භාවිතයෙන්‌
+
+# Get the number of inputs from the user
+n = int(input())
+
+# Initialize the count of even numbers
+a= 6
+i= 60
+
+# Loop to get inputs from the user
+while True:
+if 1 >= n:
+break
+xX = int(input())
+if x % 2 == 60:
+at=1
+i+=1
+
+# Print the count of even numbers
+print(a)
+
+( 2019 — Essay 4 )
+
+2020 AL PYTHON ESSAY MARKING
+
+(1)G) Consider the following Python program:
+පහත දැක්වෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+[1 = [int(x) for x in input().split()]
+L2 = [int(x) for x in input().split()]
+[3 ~ [ |]
+for i in L1:
+for j in L2:
+if (i= =j) and (i not in L3):
+L3.append(i)
+L3.sort()
+print(L3)
+
+Write the output of the program if the first input (that creates L1) is “7 4 1 2 2 8” and the second
+input (that creates L2) is “82456”?
+
+(1.1 නිරමාණය කෙරෙන) පළමු ආදානය “741228” සහ (L2 නිර්මාණය කෙරෙන) දෙවන ආදානය “8 2
+456” නමි ක්‍රමලේඛයෙහි ප්‍රතිදානය ලියා දක්වන්න.
+
+[2,4,8]
+
+Given the input for Ll as "7 4 1 2 2 8" and for L2 as "8 2 4 5 6", let's walk through the program.
+Ll සඳහා "74122 8" ලෙස සහ L2 සඳහා "8245 6" ලෙස ආදානය ලබා දි, වැඩසටහන HOH) ගමන්‌
+කරමු.
+
+11 is created as a list from the input as L1 ~- | 7, 4, 1, 2, 2, 8].L2 is similarly created as L2 ~ | 8. 2, 4, 5, 6].
+The program then initializes an empty list L3:
+
+1,1 යනු L1 =[7, 4, 1, 2,2, 8] ලෙස ආදානයෙන්‌ ලැයිස්තුවක්‌ ලෙස නිරමාණය වේ. වැඩසටහන පසුව හිස්‌
+ලැයිස්තුවක්‌ L3 ආරමිභ කරයි;
+
+The program uses two nested loops to compare each element in L1 with each element in L2. When an
+element from L1 1s found in L2 and is not already in L3, it is added to L3. This ensures that only common
+elements between L1 and L2 are added, without duplicates.
+
+වැඩසටහන Ll හි එක්‌ එක්‌ මුලාංග L2 හි එක්‌ එක්‌ QED සමඟ සංසන්දනය කිරීමට nested ලප දෙකක්‌
+භාවිතා කරයි. ],] හි මුලාංගයක්‌ ],2 හි සොයාගත්‌ විට සහ දැනටමත්‌ L3 හි නොමැති විට, එය L3 වෙත
+එකතු වේ.අනුපිටපත්‌ නොමැතිව Ll සහ L2 අතර පොදු මුලාංග පමණක්‌ Owe වන බව මෙය සහතික කරයි.
+
+e Fori=7, no match in L2
+1 ~ 7 සඳුහා, L2 හි ගැළපිමක්‌ නැත
+
+ [01' 1 ~- 4. 2 1113((]] is found in L2, so 4 15 added to L3
+1 ~ 4 සඳහා, L2 හි ගැලපීමක්‌ දක්නට ලැබේ, එබැවින්‌ 4 ],3 වෙත එකතු වේ
+
+e Fori=1, no match in L2
+1 ~ ] සඳුහා, L2 හි ගැළපීමක්‌ නැත.
+
+ [01' 1 ~- 2. 4211134101] is found in L2, so 2 is added to L3
+1 ~ 2 සඳුහා, L285 ගැලපීමක්‌ දුක්නට ලැබේ, එබැවින්‌ L3 වෙත 2 එකතු වේ
+
+e Fori=2 again (duplicate in L1), since 2 is already in L3, it is not added again
+i=2 සඳුහා නැවතත්‌ (Ll හි අනුපිටපත්‌), 2 දැනටමත්‌ L3 හි ඇති බැවින්‌ OO නැවත එකතු නොවේ
+
+e Fori=8, a match is found in L2, so 8 is added to L3. At this point, L3 = [4, 2, 8]
+1 ~ 8 සඳහා, L2 හි ගැලපීමක්‌ දක්නට ලැබේ, එබැවින්‌ 8 L3 වෙත එකතු වේ. GOO අවස්ටාවේදි,
+L3 = [4. 2, 8]
+
+The program then sorts L3 in ascending order,L3.sort() results in L3 = [2, 4, 8]. Finally, the program prints
+L3, and the output is [2,4, 8]
+
+වැඩසටහන පසුව L3 ආරෝහණ අනපිළිවෙලින්‌ වර්ග කරයි, L3.sort() eHOE@ L3 = [2, 4, 8]. අවසාන
+වගයෙන්‌, වැඩසටහන L3 මුද්‍රණය කරන අතර ප්‍රතිදානය [2,4,8] වේ.
+
+(11) What is the purpose of this program?
+මෙම ක්‍රමලේඛයෙහි අරමුණ කුමක්‌ අ?
+
+The purpose of this Python program is to find and display the common elements between two lists, L1 and
+L2, while eliminating any duplicates. The program compares each element of the first list (L1) with
+elements of the second list (L2). When a match is found, the matching element is added to a new list (L3),
+but only if it is not already present in that list. This ensures that each common element appears only once
+in the final output.
+
+මෙම පයිතන්‌ වැඩසටහනේ අරමුණ වනයේ Ll සහ L2 යන ලැයිස්තු දෙකක්‌ අතර ඇති පොදු QE) සොයා
+ගැනීම සහ ප්‍රදර්ශනය කිරීම, ඕනෑම අනුපිටපත්‌ ඉවත්‌ කිරීමයි. වැඩසටහන පළමු ලැයිස්තුවේ (L1) සැම
+අංගයක්ම දෙවන ලැයිස්තුවේ (L2) මුලාංග සමඟ සංසන්දනය කරයි. ගැළපීමක්‌ සොයාගත්‌ විට, ගැළපෙන
+මුලාංගය නව ලැයිස්තුවකට (],3) එක්‌ කරනු ලැබේ, නමුත්‌ එය දැනටමත්‌ එම ලැයිස්නුවේ නොමැති නමි පමණී.
+මෙමගින්‌ සෑම පොදු මුලාංගයක්ම අවසාන ප්‍රතිදානයේ එක්‌ වරක්‌ පමණක්‌ දිස්වන බව සහතික කරයි.
+
+Additionally, the program sorts the common elements in ascending order before displaying them,
+providing a clear and organized list of shared values between the two input lists.
+
+අතිරටේකව, වැඩසටහන මඟින්‌ පොදු මුලාංග ප්‍රදර්ශනය කිරීමට පෙර JO) ආරෝහණ අනපිළිවෙලට OO
+කරයි, ආදාන ලැයිස්තු දෙක අතර බෙදාගත්‌ අගයන්හි පැහැදිලි සහ සංවිධානාත්මක ලැයිස්තුවක්‌ සපයයි.
+
+In summary, the program effectively performs the task of computing the intersection of two lists and
+presents the result in a sorted, non-redundant form.
+
+සාරාංගයක්‌ ලෙස, GOO වැඩසටහන මඟින්‌ ලැයිස්තු දෙකක ජේදුනය ගණනය කිරීමේ කාර්යය වලදායි ලෙස
+ඉටු කරන අතර එහි ප්‍රතිවලය වර්ග කළ, අතිරික්ත නොවන ආකාරයෙන්‌ ඉදිරිපත්‌ කරයි.
+
+( 2020 — S.Essay 2[b] )
+
+2.(a) You are given two positive integers N1 and N2 as inputs (assume NI < N2) and you have to output
+the list of even numbers between N1 and N2. Construct a flowchart or a pseudo code to express an
+algorithm for this purpose.
+ඔබට NI සහ N2 නමි ධන SAE සංඛ්‍යා දෙකක්‌ ආදාන ලෙස ලබා දී ඇති අතර (NI <N2 යැයි
+උපකල්පනය කරන්න) ඔබ විසින්‌ N1 සහ N2 අතර ඇති ඉරටිටේ සංඛ්‍යා ලැයිස්තුව ප්‍රතිදානය කළ යුතු වේ.
+මෙම කාටරයයට, අදාළ ඇල්ගොරිතමයක්‌ ප්‍රකාශ වන ගැලීමි සටහනක්‌ හෝ ව්‍යාප කේතයක්‌ හෝ ගොඩනගන්න.
+
+Begin
+input N1, N2
+for a = N1 to N2
+
+Method 01:
+
+if (a is even)
+/ Input N1, N2 j-> a=N1 output a
+end-if
+
+end-for
+End
+
+is
+a even
+
+A
+
+or
+
+Yes Begin
+input N1, N2
+
+/ Output a / a = N1
+while a <= N2
+
+y if (a is even)
+output a
+> =at1
+" end-if
+Vv a=atl
+
+End end-while
+End
+
+Method 02:
+
+Begin
+input N1, N2
+if (N1 is odd)
+[11 = N1 +1
+end-if
+N1=NI1+1 while (N1 <= N2)
+output Ni
+[11 = N1 + 2
+end-while
+End
+
+NI =N1+2
+
+*
+
+/ Output N1
+
+Method 03:
+/ Input N1, N2 /
+=NI1-1
+NI Begin
+\ input N1, N2
+N1 = N1 - 1
+R=NI1 mod 2 R = N1 mod 2
+if (R = 1)
+M=N1 +1
+else
+Y N -
+M=N1+1 ෂු ° M=N1+2 M=N1 + 2
+end-if
+repeat
+_ output M
+v M=M +2
+
+/ Output M /
+
+v
+
+M=M+2
+
+No
+Yes
+
+End
+
+until (M <= N2)
+
+is a list of positive integers, K is a positive integer
+
+(b) Consider the flowchart given below. Assume that L
+
+and every element in L is less than M, which 1s a
+
+large integer. J input L, K WA
+¥
+
+පහත දැක්වෙන ගැලීමි සටහන සලකන්න. L යනු ධන
+HVE ලැයිස්තුවක්‌ බවත්‌, K යනු ධන නිබඩිලයක්‌ බවත්‌, L
+හි සෑම සංඛ්‍යාවක්ම M නමි වන SHE නිඛිලයකට වඩා
+
+N = length of L
+
+අඩු බවත්‌ උපකල්පනය කරන්න. J
+Flowchart Explanation X=M
+NOG සටහන පැහැදිලි කිරීම &
+1. Input Stage / ආදාන අදියර a=0
+
+The algorithm starts by taking two inputs
+ඇල්ගොරිතම ආරමිභ වන්නේ ආදාන දෙකකින්‌ -
+No
+
+e A list L of positive integers ෂූ
+1, ධන නිඛිල ලැයිස්තුවක්‌
+
+e A positive integer K
+K ධන SHdeces
+
+Is L[a] > K?
+
+2. Initialization / ආරමිභ කිරීම
+N: The length of the list L 1s determined and stored
+in N.
+L ලැයිස්තුවේ දිග තීරණය කර N හි ගබඩා කර ඇත.
+
+X: A variable is initialized with a value M, where
+M is a large positive integer.
+
+විචල්‍යයක්‌ M අගයකින්‌ ආරමිභ වේ, M යනු SHE
+ධන නිඛිලයකි. X = Lia]
+
+a: A counter variable is initialized to 0. ¥
+කවුන්ටර HOEK 0 ලෙස ආරමිභ වේ. az=atl
+
+VV
+
+3. Loop Start / ලූප ආරමිභය:
+
+The algorithm enters a loop that continues while 9” output X Jf
+a<N (..e., until all elements of L are processed).
+
+ඇල්ගොරිතම a<N වන විට (එනමි, 1, හි සියලුම
+මුලද්‍රව්‍ය සකසන තෙක්‌) ළගටම පවතින ලූපයකට
+ඇතුල්‌ වේ.
+
+4. Conditional Checks / කොන්දේසි සළකා බැලීම:
+For the current element L[a], the following conditions are checked in sequence
+වත්මන්‌ මුලාංගය Lia] සඳහා, පහත කොන්දේසි අනුපිළිවෙලින්‌ පරීක්ෂා කරනු ලැබේ:
+
+॥ි First Check / පළමු පරීක්ෂාව: Is L[a]>K?
+If No, the element is ignored, and the algorithm moves to the next iteration.
+නැත නමි, මුලාංගය නොසලකා හරින අතර, ඇල්ගොරිතම ඊළඟ පුනරාවරතනය වෙත ගමන්‌ කරයි
+
+= Second Check / දෙවන පරික්ෂාව: If L[a]>K , then is L[a]<X?
+
+If Yes, update X with the value L[a].
+ඔව්‌ නමි, X අගය සමඟ Lia] යාවත්කාලීන කරන්න.
+
+5. Increment Counter / වට්ධක ගණකය:
+After processing L[a] , the counter a is incremented by 1.
+Lia] සැකසීමෙන්‌ පසු, ගණකය 1 කින්‌ වැඩි වේ.
+
+6. Termination / අවසන්‌ කිරීම:
+Once all elements are processed (a>N), the loop ends, and the value of X is output.
+සියලුම මුලාංග සැකසූ පසු (a>N), ලපය අවසන්‌ වන අතර XK හි අගය ප්‍රතිදානය වේ.
+
+Key Logic in the Flowchart / ගැලීමි සටහනේ ප්‍රධාන තර්කය
+
+The algorithm identifies the smallest element in the list L that satisfies the condition L[a]>K. If no such
+element exists, X retains its initial value M.
+
+ඇල්ගොරිතම L ලැයිස්තුවේ Lial>K cemaiekG තෘප්තිමත්‌ කරන කුඩාම මුලාංගය හඳුනා ගනී. එවැනි
+මුලාංගයක්‌ නොමැති නමි, X එහි ආරමිභක අගය M රඳවා ගනී.
+
+(i) What would be the output if the first input L was 2, 4, 7, 9, 3, 5 and the next input K was 5?
+පළමු ආදානය වන L හි අගයයන්‌ 2, 4, 7, 9, 3, 5 සහ දෙවන ආදානය වන K හි අගය 5 වුයේ නමි,
+ප්‍රතිදානය කුමක්‌ වන්නේ ද?
+
+Answer : 7
+
+Inputs / ආදාන: L=[2,4,7,9,3,5] and K=5
+
+Step (a) | Lia Condition (L[a]>5) | Condition (L[a]<X) | Update to X Notes
+
+a=0 L[O|=2 | No - No change | L[0]=2 is not >5
+
+a=l L[1]=4 | No - No change | L[1]=4 is not >5
+
+a=2 L|2|=7 | Yes Yes X=7 L[2]=7 is >5 and <M
+a=3 L[3]=9 | Yes No No change | L[3] ~ 9 is >5 but not <7.
+a=4 L[4]=3 | No - No change | L[4]=3 is not >5
+
+a=5 L[5]|=5 | No - No change | L[5]=5 15 not >5
+
+(11) What is the purpose of this algorithm?
+මෙම ඇල්ගොරිතමයෙහි අරමුණ කුමක්‌ ද?
+
+Purpose of the Algorithm / ඇල්ගොටිතමයේ පරමාඊට්ටය
+The algorithm identifies the smallest element in the list L that is greater than a given threshold K.
+ඇල්ගොරිතම මඟින්‌ L ලැයිස්තුවේ ඇති කුඩාම මුලාංගය හඳුනා ගනී, එය ලබා දී ඇති K ට වඩා වැඩි ය.
+
+(111) Develop a Python program to implement the
+
+algorithm expressed by the flowchart.
+DOG සටහනෙහි ප්‍රකාශ වන ඇල්ගොරිතමය ක්‍රියාත්මක HOO සඳහා පයිතන්‌ ක්‍රමලේඛයක්‌ ගොඩනගන්න.
+
+Method 01:
+
+Iterative Approach to Find the Smallest Element Larger Than K
+K ට වඩා SHE කුඩාම මුලාංගය සෙවීමට පුනරාවටතන ප්‍රවේගය
+
+inList = input("Enter the elements in L (space-separated): ")
+
+L = [int(x) for x in inList.split()]
+K = int(input("Enter K: "))
+M = 1000 # A reasonably large value as the initial comparison point
+for i inL:
+if i > K:
+if i< ™M:
+M=i
+
+print( "Smallest element in L that is larger than K is", M)
+Explanation / පැහැදිලි කිරීම:
+
+e Takes input for the list L and the value of K.
+L ලැයිස්තුව සහ K හි අගය HED) ආදානය ලබා OF.
+
+e Mis initialized to a large value (e.g., 1000).
+M විශාල අගයක්‌ ලෙස ආරමිභ කර ඇත (උදා: 1000).
+
+e The list L is iterated through, checking if each element is >K.
+L ලැයිස්තුව පුනරාවරිතනය කර ඇත, එක්‌ එක්‌ මුලාංගය >K දැයි පරීක්ෂා කරයි.
+
+e Ifthe current element is both >K and smaller than M, M is updated.
+වත්මන්‌ මුලාංගය >K සහ M ට වඩා කුඩා නමි, M යාවන්කාලීන වේ.
+
+e After the loop, M holds the smallest element larger than K.
+ලූපයෙන්‌ පසුව, K ට වඩා කුඩාම මුලාංගය M CES) තබා ගනි.
+
+Method 02:
+
+While Loop Approach to Find the Smallest Element Larger Than K
+K ට වඩා SHE කුඩාම මුලාංගය සෙවිමට While go ප්‍රවේගය
+
+[int(x) for x in 1010101₹ ( "Input elements in | (space-separated): ").split()]
+int(input("Input K: "))
+= len(L)
+1000 # A reasonably large value as the initial comparison point
+= 6
+while a < N:
+if L[a] > K:
+if L[a] < X:
+X = L[a]
+a=atl
+print( "Smallest element in L that is larger than K is", X)
+
+ලා ඉඳ ZAC
+
+Explanation / පැහැදිලි කිරීම:
+
+e Takes input for the list L and the value of K.
+L ලැයිස්තුව සහ K හි අගය HED) ආදානය ලබා OF.
+
+e 8For each element, it checks if it is greater than K, and if it is smaller than the current X value.
+එක්‌ එක්‌ මුලාංගය Hem), එය K ට වඩා වැඩි නමි සහ එය වත්මන්‌ X අගයට වඩා කුඩාද යන OO
+එය පරික්‍ෂා කරයි.
+
+e The smallest value greater than K 15 stored in X and printed at the end.
+K ට වඩා වැඩි කුඩාම අගය X හි ගබඩා කර අවසානයේ මුද්‍රණය කෙරේ.
+
+Method 03:
+
+Function with Early Exit / කලින්‌ පිටවීම සමඟ Goa
+
+def find_smallest_sorted(L, K):
+sorted_list = sorted(L)
+for element in sorted list:
+if element > K:
+return element
+return None # Return None if no element satisfies the condition
+
+# Input and usage
+L = [int(x) for x in input("Enter the elements in L (space-separated):
+").split()]
+K = int(input("Enter K: "))
+result = find _smallest_sorted(L, K)
+if result is not None:
+print( "Smallest element in L that is larger than K is", result)
+else:
+print("No element in L is larger than K")
+
+Explanation / පැහැදිලි කිරිම:
+
+The function find 5111411651 50110 sorts the list first, ensuring that the smallest value larger than K
+appears first during iteration.
+
+find smallest sorted ග්‍රිතය පළමුව ලැයිස්තුව අනුපිළිවෙලට සකසයි, පුනරාවරිතනයේදි K ට වඩා කුඩාම
+අගය පළමුව දිස්වන බව සහතික කරයි.
+
+The function exits early when it finds the first valid element, optimizing performance in some cases.
+සමහර අවස්ථාවලදි කාරිය සාධනය ප්‍රශස්ත කරමින්‌ පළමු වලංගු OeEChs0n සොයාගත්‌ විට ගිතය
+ඉක්මනින්‌ පිටවේ.
+
+Method 04:
+
+Recursive Function
+පුනරාවටිතන ග්‍රිත
+
+def find smallest recursive(L, K, smallest=1000, index=@):
+if index == len(L): # Base case: End of list
+return smallest if smallest != 1006 else None
+if L[index] > K and L[ index] ද smallest:
+smallest = | | index ]
+return find _smallest_recursive(L, K, smallest, index + 1)
+# Input and usage
+L = [int(x) for x in input("Enter the elements in L (space-separated):
+").split()]
+K = int(input("Enter K: "))
+result = find _smallest_recursive(L, K)
+if result is not None:
+print( "Smallest element in L that is larger than K is", result)
+else:
+
+print("No element in L is larger than K")
+
+Explanation / පැහැදිලි කිරීම:
+
+A recursive function is used to traverse the list.
+ලැයිස්තුව හරහා ගමන්‌ කිරීමට ganddns ගිතයක්‌ භාවිතා කරයි.
+
+The function keeps track of the current smallest value and the current index.
+Gow වත්මන්‌ කුඩාම අගය සහ වත්මන්‌ දර්ශකය නිරීක්‍ෂණය කරයි.
+
+The recursion stops when the index reaches the end of the list.
+දර්ශකය ලැයිස්තුවේ අවසානයට ළඟා වු විට පුනරාවරිනනය නතර වේ.
+
+2021 AL PYTHON ESSAY MARKING
+
+3.(a) A flowchart is to be drawn for an algorithm to ( Start
+
+calculate and output the areas of triangles. The
+base and height of each triangle are given as
+inputs.
+
+ත්‍රිකෝණවල වට්ගවල ගණනය කර ප්‍රතිඳානය කරන 4 Input base and WA
+
+, |
+කු
+
+ඇල්ගොරිතමයක්‌ සඳහා ගැලීමි සටහනක්‌ ඇඳිමට heicht
+අවග්‍ය ය. එක්‌ එක්‌ Heaigved ආධාරකයේ දිග සහ
+උස ආදාන ලෙස ලැබේ.
+
+1 4 Output area WA
+Note: Area of triangle = 5X base x height 7
+සටහන: තිකෝණයක වර්ගවලය = - X ආධාරකයේ
+දිග X උස
+
+Area = 0.5*base*heigt
+
+The algorithm should stop when an input is less
+than or equal to zero.
+
+යම්‌ ආදානයක්‌ 0 ට සමාන හෝ අඩු © විට හෝ
+ඇල්ගොරිතමය නතර විය යුතු ය.
+
+.
+
+Complete the flowchart by writing the required
+content for the four components left blank.
+
+හිස්ව දක්වා ඇති සංරචක හතර HCH) අවග්‍ය
+අන්තර්ගතයන්‌ ලියා, ගැලීමි සටහන සමපුථඊණ
+කරන්න.
+
+(0) Complete the four (4) blanks (indicated by ...... ) in the following Python program to calculate the
+factorial of an integer.
+නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට අදාළ පහත පයිතන්‌ කේතයේ හිස්තැන්‌ හතර (......
+වලින්‌ දැක්වෙන) සමිපුර්ණ කරන්න.
+
+Note: The factorial of a positive integer is defined as the product of that integer and all the integers
+below it. e.g., factorial of 4 is equal to 1 x 2x 3 x 4 = 24. The factorial of 0 is defined as 1.
+
+සටහන: ධන නිඛිලයක ක්‍රමාරෝපිතය යනු එම නිබිලයේ හා ඊට අඩු සියලු නිබිලවල ගුණිතයයි. උදා: 4 හි
+ක්‍රමාරෝපිතය 1x2x3x4=24 ට සමාන වේ. ඊට අමතරව (0) හි ක්‍රමාරෝපිතය | ලෙස qbO දැක්වේ.
+
+# Get input from user
+num = int(input( "Enter a number:"))
+factorial = 1
+if num < @:
+
+print("Factorial is not defined for negative numbers!")
+elif num ==
+
+print("The factorial of @ is 1")
+else:
+
+for i in range(1,num + 1):
+
+factorial *= i
+
+print ("The factorial of ",num,"is", factorial)
+
+(c) Consider the following Python program:
+පහත පයිතන්‌ ක්‍රමලේඛය සලකන්න.
+
+lower = 2
+
+upper = 5
+
+for num in range(lower, upper + 1):
+flag = 1
+
+if num > 1:
+for i in range(2, num):
+if (num % i) == 60:
+flag = 0
+break
+if flag = = 1:
+print(num)
+
+Write the output of the above program.
+ඉහත ක්‍රමලේඛයේ ප්‍රතිදානය ලියා දක්වන්න.
+
+Answer :
+2
+3
+5
+
+Explanation / පැහැදිලි කිරීම
+
+1. Range Setup / පරාස සැකසුම
+
+The loop iterates over the numbers from lower (2) to upper+ 1 (6), so the values of num will
+be 2, 3, 4 andS.
+
+ලූපය පහළ (2) BO ඉහළ + 1 (6) ESO) සංඛ්‍යා මත පුනරාවරතනය වේ, එබැවින්‌ num හි අගයන්‌ 2,
+3, 4 සහ 5 වනු ඇත.
+
+2. Iteration Details / පුනරාවටතන විස්තර
+
+For num = 2
+flag 16 56( (0 1.
+4136 එක 1 ලෙස සකසා ඇත.
+
+Since num is greater than 1, the inner loop checks for factors from 2 to 1 (which means it doesn't
+run).
+
+num 1 ට 0&) වැඩි බැවින්‌, අභ්‍යන්තර ලුපය 2 සිට ] eso) සාධක සඳුහා පරික්ෂා කරයි (එයින්‌ අදහස්‌
+වන්නේ එය ක්‍රියාත්මක නොවන බවයි).
+
+flag remains 1, so 2 is printed.
+flag, 1 ලෙස පවති, එබැවින්‌ 2 මුද්‍රණය eased.
+
+For num = 3:
+flag is set to 1.
+flag එක 1 ලෙස සකසා ඇත.
+
+The inner loop checks for factors from 2 to 2 (it only checks i = 2).
+අභ්‍යන්තර ලපය 2 BO 2 දක්වා සාධක සඳුහා පරික්ෂා කරයි (එය 1 = 2 පමණක්‌ පරීක්ෂා කරයි).
+
+3 2 is not equal to 0, so the loop does not change flag.
+3 % 2,00 සමාන නොවේ, එබැවින්‌ ලපය flag එක වෙනස්‌ නොකරයි.
+
+flag remains 1, so 3 is printed.
+flag, 1 ලෙස පවති, එබැවින්‌ 3 මුද්‍රණය කෙටේ.
+
+For num = 4
+
+flag is set to 1.
+flag එක 1 ලෙස සකසා ඇත.
+
+The inner loop checks for factors from 2 to 3.
+අභ්‍යන්තර ලපය 2 BO 3 දක්වා සාධක සඳුහා පරික්ෂා කරයි.
+
+Fori = 2, 4 % 2 equals 0, indicating that 4 is divisible by 2
+i = 2 aem, 4 % 2,0 ට සමාන චේ, 4, 2 න්‌ බෙදිය හැකි බව පෙන්නුමි කරයි.
+
+flag 18 set to 0, and the loop breaks.
+Flag 9 ලෙස සකසා ඇති අතර, ලූපය අවසාන වේ.
+
+Since flag is now 6, 4 is not printed.
+දැන්‌ flag එක 6 බැවින්‌, 4 මුද්‍රණය නොකෙටේ.
+
+For num = 5:
+
+flag is set to 1.
+flag එක 1 ලෙස සකසා ඇත.
+
+The inner loop checks for factors from 2 to 4.
+අභ්‍යන්තර ලපය 2 BO 4 es) සාධක සඳුහා පරික්ෂා කරයි.
+
+Fori = 2, 5 % 2isnotequalto®./i = 2 සඳුහා 5 % 2 ට සමාන නොවේ.
+Fori = 3, 5 % 3isnotequalto®@./i = 3 සඳුහා 5 % 3 ට සමාන නොවේ.
+Fori = 4, 5 & 4isnotequalto®./i ~ 4 සඳුහා 5 % 40 සමාන නොවේ.
+
+Since no divisors were found, flag remains 1, so 5 is printed.
+බෙදුමිකාරකය සොයා නොගත්‌ බැවින්‌, flag, 1 ලෙස පවති, එබැවින්‌ 5 මුද්‍රණය කර ඇත.
+
+( 2021 —S.Essay 3 )
+
+8.(a) Suppose the ages (in years) of n(n > 1) students in a school are in a list L. Assuming the list L and
+an integer k are inputs, express an algorithm using either a flowchart or pseudo-code to compute and
+output the average age of students in L whose age 16 less than k years.
+පාසලක සිසුන්‌ n දෙනෙකුගේ (n> 1) වයස්‌ (අවුරැදු ගණනින්‌) L නමි වු ලැයිස්තුවක ඇතැයි සිතන්න. L
+ලැයිස්තුව සහ k නමි නිබිලයක්‌ ආදාන යැයි උපකල්පනය කර, 1, ලැයිස්තුවේ ඇති, අවුරැදු k ට අඩු වයස
+ඇති සිසුන්ගේ සාමාන්‍ය (average) වයස ගණනය කර ප්‍රතිදානය කිරීමට ඇල්ගොරිතමයක්‌ ගැලීමි සටහනක්‌
+
+හෝ ව්‍යාප කේතයක්‌ හෝ මගින්‌ ඉදිරිපත්‌ කරන්න.
+
+[mo]
+1!
+
+n = length of L
+sum = 0
+count = 0
+
+i=0
+
+<
+
+No
+
+Yes
+
+Count = Count + 1
+sum = sum + L|i]
+i=i+1 <—
+output average
+
+average = sum / count
+
+(0) Consider the algorithm expressed by the
+flowchart. L1 and L2 are non-empty lists of
+integers. Each of L1 and L2 has unique elements
+(no duplicates). But there can be elements that are
+in both L1 and L2. The notation L[x] denotes the
+element at Index x of a list L. If there are N
+elements in list L, then the indices are from 0, 1,
+2, ... to (N-1).
+පහන දැක්වෙන ගැලීම සටහනෙන්‌ ඉදිරිපන්‌ කෙරෙන
+ඇල්ගොරිතමය සලකන්න. 1,1 සහ L2 යනු ශුන්‍ය
+නොවන නිඛිල ලැයිස්තු වේ. එම එක්‌ එක්‌ ලැයිස්තුවේ
+ඇත්තේ අනන්‍ය (එක HVE එකවරක්‌ පමණක්‌ ඇති)
+අයිතමය. එහෙත්‌ L1 සහ L2 ලැයිස්තු දෙකේම යමි
+නිඛිලයන්‌ තිබිය හැක. ],[] සංකේතනය මගින්‌ L
+ලැයිස්තුවේ x නමි වු දූර්ශකයේ (index) ඇති
+අයිතමය දක්වයි. ], ලැයිස්තුවේ අයිතම N ගණනක්‌
+ඇතිනමි, දර්ශකයන්‌ 0, 1, 2, ... සිට (N-1) තෙක්‌ වේ.
+
+Pseudo code
+
+A. Using for loop
+for loop භාවිතයෙන්‌
+
+Input L, k
+n = length of L
+sum = 60
+count = @
+for 1 ~ 6 (09 ॥]
+if ( L (1)) < k)
+count = count +1
+sum = sum + L(i)
+end if
+end for
+average = sum / count
+output average
+
+B. Alternative using while loop
+
+while loop භාවිතයෙන්‌
+
+input L,k
+n = length of L
+sum = 60
+count = @
+i= 60
+while ( i< ඈ )
+if ( [(1) < k )
+count = count + 1
+sum = sum + L(i)
+end if
+1 :ස 142 1
+end while
+average = sum / count
+output average
+
+No
+
+$
+J Input lists 11,279
+¥
+
+NI = number of
+
+items in L1
+
+N2 = number of
+
+items in L2
+count = 0
+
+i=0
+ඩූ
+12:20
+
+Yes
+
+count = count + 1
+
+¥
+
+i2=12+1
+
+No
+il =il +1
+
+Understanding the Problem / ගැටලුව තේරැමි ගැනීම
+1. Input / ආදානය
+
+e A list L containing the ages of students.
+සිසුන්ගේ වයස අඩංගු L ලැයිස්තුව.
+
+e An integer k representing the age threshold.
+වයස්‌ සීමාව නියෝපනය කරන k AE.
+
+2. Output / ප්‍රතිදානය
+
+e The average age of the students in list , who are younger than k.
+k ට වඩා බාල L ලැයිස්තුවේ සිටින සිසුන්ගේ සාමාන්‍ය වයස.
+
+Steps to Solve the Problem / ගැටලුව විසඳීමට පියවර
+
+1. Filter the Ages / වයස්‌ තෝරා ගැනිම
+
+e First, we need to identify students whose ages are less than k.
+පළමුව, වයස අවුරැදු k ට අඩු සිසුන්‌ හඳුනා ගත යුතුය.
+
+e This involves iterating through the list L and selecting only those ages that satisfy this condition.
+මෙයට 1, ලැයිස්තුව හරහා පුනරාවරතනය HOO සහ මෙම කොන්දේසිය තෘප්තිමත්‌ කරන වයස්‌
+
+පමණක්‌ තෝරා ගැනීම ඇතුළත්‌ වේ.
+
+2. Calculate the Average / සාමාන්‍යය ගණනය කිරීම
+
+e Sum the ages of the selected students.
+තෝරාගත්‌ සිසුන්ගේ වයස එකතු කරන්න
+
+e Count the number of students who meet the age condition.
+වයස්‌ කොන්දේසි සපුරාලන සිසුන්‌ සංඛ්‍යනාව ගණනය කරන්න.
+
+e Calculate the average by dividing the total sum by the count.
+මුළ එකතුව ගණනින්‌ බෙදීමෙන්‌ සාමාන්‍යය ගණනය කරන්න.
+
+(1) What would be the output if 1.1 = 2, 4, 7, 9, 3, 5 and L2 = 1, 3, 8, 9, 6, 5, 7?
+L1=2, 4, 7, 9, 3, 5 සහ L2=1, 3, 8, 9, 6, 5, 7 වේ නමි, ප්‍රතිදානය කුමක්‌ වේ ද?
+Answer / පිළිතුර
+
+The output would be 4.
+ප්‍රතිදානය 4 වනු ඇත.
+
+The flowchart determines how many elements from ] , are also present in L2. To find this,
+DOS සටහන L1S මුලාංග කියක්‌ L2H දූ තිබේද යන්න තීරණය කරයි. මෙය සොයා ගැනීමට.
+
+1. Compare Elements / මුලාංග සසඳන්න
+
+2 from L1 | is not present in L2
+L2 හි නොමැත.
+
+4 from L1 | 15 not present in L2.
+L2 හි නොමැත.
+
+9 from 1,1 | is present in L2.
+
+L2 හි පවති.
+
+3 from L1 | is present in L2.
+
+L2 හි පවති.
+
+5 from L1 | is present in L2.
+
+L2 හි පවති.
+
+2. Count Matches / සමාන ඉලක්කම්‌ ගණන්‌ කරන්න
+
+The elements that are common between L1 and L2 are 7, 9, 3 and 5.
+L1 සහ L2 අතර පොදු මුලාංග වන්නේ 7. 9.3 සහ 5 ය.
+
+3. Result / ප්‍රතිඵලය
+
+Since there are 4 common elements, the output of the algorithm 15 4.
+පොදු මුලාංග 4ක්‌ ඇති බැවින්‌ ඇල්ගොරිතමයේ ප්‍රතිදානය 4 වේ.
+
+(11) What is the purpose of this algorithm?
+මම ඇල්ගොරිතමයෙහි අරමුණ කුමක්‌ ද?
+
+The purpose of this algorithm is to count the number of elements that are common to both lists L1 and L2.
+මෙම ඇල්ගොරිතමයේ අරමුණ Osicas L1 සහ L2 ලැයිස්තු දෙකටම පොදු මුලාංග සංඛ්‍යාව ගණනය කිරීමයි.
+
+e The algorithm takes two lists, L1 and L2, as input.
+ඇල්ගොරිතම ආදානය ලෙස Ll සහ L2 ලැයිස්තු දෙකක්‌ ගනී.
+
+ ]1[1131-4[35 through each element of L1 and compares it with all elements of L2.
+එය |],] හි එක්‌ එක්‌ මුලාංග හරහා පුනරාවර්තනය වන අතර L2 හි සියලම මුලාංග සමඟ සංසන්දනය
+කරයි.
+
+e For every match found (i.e., an element from L1 that is also in L2), it increments a counter.
+සොයාගන්නා ලදු BO ගැලපීමක්‌ සඳහාම (එනමි, Ll හා L2 හි ඇති මුලාංගයක්‌), එය කවුන්ටරයක්‌ වැඩි
+කරයි.
+
+e The algorithm continues this process until all elements of L1 have been checked.
+L1 හි සියලුම මූලාංග පරීක්ෂා කරන තෙක්‌ ඇල්ගොරිතම මෙම ක්‍රියාවලිය දිගටම කරගෙන යයි.
+
+(111) Develop a Python program to implement the algorithm expressed by the flowchart.
+DOG සටහනෙහි ප්‍රකාශ වන ඇල්ගොරිතමය ක්‍රියාත්මක කිරීම සඳහා පයිතන්‌ ක්‍රමලේඛයක්‌ ගොඩනගන්න.
+
+def count_common_elements(L1, L2):
+count = 6
+11 = 6
+N1 = len(L1)
+
+while 11 ද N11:
+12 = 60
+N2 = len(L2)
+while i2 < N2:
+if [1111] == L2[i2]:
+count += 1
+break
+12 += 1
+11 += 1
+
+return count
+
+inL1 = input("Enter the elements in [1 : ")
+[1 = [int(x) for x in inL1.split()]
+
+inL2 = input( "Enter the elements in [2 : ")
+[2 = [int(x) for x in inL2.split()]
+print(count_common_elements(L1, L2))
+
+The function count_common_elements take two lists, L1 and L2, and returns the number of elements
+that are common between the two lists.
+
+L1 සහ L2 ලැයිස්තු දෙකක්‌ count_common_ elements ග්‍රිතය ගන්නා අතර ලැයිස්තු Gem අතර පොදු
+මුලාංග ගණන ලබා දෙයි.
+
+e count is initialized to 0. This variable keeps track of the number of common elements found.
+count විචලඅය 0 වේ . මෙම විචල්‍යය සොයාගත්‌ පොදු QErO ගණන නිරීක්ෂණය කරයි.
+
+1115 initialized to 0 and represents the index for iterating through the first list, L1.
+11, 0 ලෙස ආරමිභ කර ඇති අතර පළමු ලැයිස්තුව, ],] හරහා පුනරාවරිතනය සඳහා දර්ශකය
+නියෝජනය කරයි.
+
+ ॥11 stores the length of L1.
+N1, L1 දිග ගබඩා කරයි.
+
+Outer Loop / පිටත ලපය
+
+The while 11 < N1 loop iterates through each element in L1.
+11 ද N1950€ while ලපය ],] හි එක්‌ එක්‌ මූුලාංග හරහා පුනරාවරතනය වේ.
+
+Inner 1,001) / අභ්‍යන්තර ලුපය
+
+For each element in L1, the inner while 12 < N2 loop iterates through each element in L2.
+L1 හි එක්‌ එක්‌ මුලාංග සඳුහා, i2<N2 විටදි while ලූපය L2H එක්‌ එක්‌ මුලාංග හරහා පුනරාවරතනය වේ.
+
+Checking for Common Elements / පොළු මුලාංග සඳුහා පරික්ෂා කිරීම
+
+If L1[i1] is equal to 2 | 12 |, it means a common element is found. In this case,
+[1| 111]. L2[i2] ට සමාන නමි, එයින්‌ අදහස්‌ වන්නේ පොදු මුලාංගයක්‌ හමු වි ඇති බවයි. මේ අවස්ටාවේ දි,
+
+e count is incremented by 1.
+count, 1 කින්‌ වැඩි වේ.
+
+e The break statement exits the inner loop, as there's no need to check the remaining elements in L2
+for the current element of L1.
+L1 හි වත්මන්‌ මලාංග sem L2 හි ඉතිරි මුලාංග පරික්ෂා කිරීමට අවග්‍ය නොවන බැවින්‌ break
+ප්‍රකාගය මගින්‌ අභ්‍යන්තර ලපයෙන්‌ පිටවෙයි.
+
+Incrementing Indexes / ed@e වැඩි කිරීම
+
+e i2 15 incremented to move to the next element in [ 2.
+i2,L2 හි SEM මුලාංග වෙත යාමට වැඩි කර ඇත.
+
+e After finishing the inner loop, i1 is incremented to check the next element in [ 1.
+අභ්‍යන්තර ලපය අවසන්‌ කිරීමෙන්‌ පසු, | 1 හි SEM මුලද්‍රව්‍යය පරීක්ෂා කිරීමට 11 වැඩි ceed.
+
+Returning the Result / ප්‍රතිවලය ආපසු ලබා දීම
+
+Once both loops are completed, the function returns the total count of common elements.
+ලුප දෙකම සමිපුර්ණ © පසු, GDS පොදු මුලාංගවල සමිපුර්ණ ගණන ලබා දෙයි.
+
+Input Handling / ආදාන හැසිරවීම
+
+10111 and inL2 are strings of space-separated numbers input by the user.
+inL1 සහ inL2 යනු පරිගීලකයා විසින්‌ space වලින්‌ වෙන්‌ කළ සංඛ්‍යා Manns.
+
+e L1 and 1.2 are lists created by splitting these strings and converting each split element to an integer.
+Ll සහ L2 යනු මෙම strings GQEGOS සහ එක්‌ එක්‌ බෙදිමි මුලාංග පුර්ණ සංඛ්‍යාවකට පරිවරිතනය
+කිරීමෙන්‌ HEM ලදු ලැයිස්තු වේ.
+
+OR
+
+inL1 = input("Enter the elements in [1 : ")
+
+Li
+
+= [int(x) for x in inL1.split()]
+
+inL2 = input( "Enter the elements in [2 : ")
+
+L2
+
+= [int(x) for x in inL2.split()]
+
+count = 6
+for i1 in L1:
+
+for i2 in L2:
+if 11 == 12:
+count = count + 1
+
+print(count)
+
+Input Handling / ආදාන හැසිරවීම
+
+inL1 and inL2 are strings of space-separated numbers input by the user.
+inL1 සහ inL2 යනු පරිශීලකයා විසින්‌ space වලින්‌ වෙන්‌ කළ සංඛ්‍යා ආදානයකි.
+
+L1 and | 2 are lists created by splitting these strings and converting each split element to an integer.
+L1 සහ L2 යනු මෙම strings බෙදිමෙන්‌ සහ එක්‌ එක්‌ බෙදිමි මුලාංග පුර්ණ සංඛ්‍යාවකට පරිවරතනය
+කිරීමෙන්‌ HEM ලදු ලැයිස්තු වේ.
+
+Initialization / ආරමිභ කිරීම
+
+count is initialized to 0. It keeps track of the number of common elements found between [ 1 and 1 2.
+count = 0 ලෙස ආරමිභ කර ඇත. එය | 1 සහ L2 අතර ඇති පොදු QErowm ගණන නිරීක්ෂණය කරයි.
+
+Nested Loops
+
+The outer for loop iterates through each element in L1 (11).
+පිටත for ලපය L1 (11). හි එක්‌ එක්‌ මුලාංග හරහා පුනරාවරතනය වේ.
+
+The inner for loop iterates through each element in L2 (12).
+අභ්‍යන්තරය for ලූපය L2 (12) හි එක්‌ එක්‌ මුලාංග හරහා පුනරාවරතනය වේ.
+
+Checking for Common Elements / පොළු මුලාංග සඳුහා පරික්ෂා කිරීම
+
+Inside the inner loop, if 11 (from L1) is equal to 12 (from L2), it means a common element is found.
+අභ්‍යන්තර ලපය ඇතුළත, il (L1H) , 12 (L285) ට සමාන නමි, එයින්‌ අදහස්‌ වන්නේ පොදු මුලාංගයක්‌
+සොයාගත්‌ බවයි.
+
+count 15 incremented by 1 each time a common element is found.
+පොදු මුලාංගයක්‌ සොයා ගන්නා සැම අවස්ටාවකම count ] කින්‌ වැඩි කෙටේ.
+
+Printing the Result / ප්‍රතිවලය මුද්‍රණය කිරිම
+
+After completing both loops, count is printed. This value represents the total number of common elements
+between L1 and L2.
+
+ES දෙකම සමිපුරණ කිරීමෙන්‌ පසු, count මුද්‍රණය කරනු ලැබේ. මෙම අගය 1,]1 සහ L2 අතර පොදු මුලාංග
+සංඛ්‍යාව නියෝජනය කරයි.
+
+( 2021 — Essay 4 )
+
+2022 AL PYTHON ESSAY MARKING
+
+1. (a) A flowchart is to be drawn for an algorithm to calculate and output the area of a circle. The radius of
+the circle is given as an input.
+වෘත්තයක OOMDEG ගණනය කිරීමට සහ ප්‍රතිදානය කිරිම සඳුහා වු ඇල්ගොරිතමයක්‌ (algorithm) වෙනුවෙන්‌
+ගැලීමි සටහනක්‌ ඇඳුමට අවශ්‍ය වේ. වෘත්තයේ අරය ආදානය (input) ලෙස ලබාදේ.
+
+Note: Area of a circle = 3.14 x Radius x Radius
+සටහන: වෘත්තයක වට්ගඵලය = 3.14 x අරය x අරය
+
+The algorithm should not calculate the area if the input is a negative number.
+ආදානය සෘණ සංඛ්‍යාවක්‌ නම ඇල්ගොරිතමය OHHAEG ගණනය නොකළ යුතු ය.
+
+Complete the flowchart by writing the required content for the four (4) components left blank.
+හිස්ව ඇති අංග හතර HEH) නියමින අන්තර්ගතයන්‌ ලියමින්‌ ගැලීමි සටහන සමිපුර්ණ කරන්න.
+
+Answer:
+As mentioned 11] the question here, to find the area of the circle,
+
+. . Start
+the radius should be given as input.
+
+මෙහි ප්‍රශ්නයේ සඳහන්‌ පරිදි වෘත්තයේ වටර්ගවලය සෙවීම Hea)
+ආදානය ලෙස අරය ලබා දිය යුතු වේ.
+
+। । . JL input radius WA
+Accordingly, the radius should be entered for the first input box.
+ඒ EHO පළමු ආදාන කොටුව සඳුහා අරය ආදානය කළයුතු වේ.
+
+Then, as mentioned, if the input 15 a negative number, then the area
+should not be calculated. So here according to an if condition if it is No
+true then we have to move down to calculate the area. If the
+condition is not true, the program must terminate. Here, the radius
+must be checked as a condition if it is greater than 0. Yes
+ඉන්පසු සඳහන්‌ කර තිඛෙන පරිදි ආදානය සෘණ සංඛආනාවක්‌ වේ නමි
+වර්ගවලය ගණනය නොකල යුතු වේ. එම නිසා මෙහිදි if
+කොන්දේසියකට අනුව එය සත්‍ය වේ නමි වට්ගවලය ගණනය කිරීම area = 3.14*radius*radius
+SCH) පහලට ගමන්‌ කල යුතු වේ. කොන්දේසිය සත්‍ය නොවේ නමි
+
+radius>0?
+
+වැඩසටහන අවසන්‌ කළ යුතු චේ. මෙහිදි අරය 0 ට වඩා විගාලද
+යන්න කොන්දේසියක්‌ ලෙස පරීක්ෂා කළ යුතු වේ. ¥
+v4 Output area 2
+Then if the condition is true then move down from the yes section
+and calculate the area and output the area. There, in the first setting v
+box, area=3.14*radius*radius is calculated and in the output End
+
+box, output are should be specified and the area should be output.
+ඉන්පසු කොන්දේසිය ans වේ නමි ඔව්‌ යන කොටසින්‌ පහලට ගමන්‌
+කර වර්ගවලය ගණනය කර වට්ගවලය ප්‍රතිදානය කළ යුතු චේ.
+එහිදි පළමු සැකසුමි කොටුව තුළ area=3.14*radius*radius
+ලෙස ගනනය කිරීමක්‌ සිදු වී ප්‍රතිදාන කොටුව තුළ output area ලෙස
+සඳහන්‌ කර වට්ගඵලය ප්‍රතිදානය කළ යුතු වේ.
+
+(b) What is the output of the following Python code?
+පහත පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ ද?
+
+S = "Advanced level"
+S1 නූ 81 81
+for c in 5:
+
+if c in ("a" , "e" , "i" , "o" , “"u"):
+pass
+else:
+51 = 51 +c
+print (S1)
+Answer :
+
+Let's study the given code line by line.
+ලබා දී ඇති කේතයේ පේළියෙන්‌ පේළිය අධ්‍යනය කරමු.
+
+S = "Advanced level"
+A string "Advanced level" is substituted for a variable named S.
+"Advanced level" string එකක්‌ 5 නමි විචල්‍යයක්‌ සඳුහා ආදේශ කර Hed.
+
+61 = 111] 111]
+An empty string is created and substituted for a variable named S1.
+හිස්‌ string එකක්‌ H6One කර එය 51] නමි SOEza සඳහා ආදේශ කරනු ලබයි.
+
+for c in 5:
+The loop iterates for the number of terms in the string, taking each element of the string S to c.
+S string හි ඇති එක්‌ එක්‌ අවයවය c වෙත ලබා ගනිමින්‌ string හි ඇති අවයව ප්‍රමාණයට ලපය පුණඊට්කරනයවේ.
+
+if C in ("a" ; "a" ; "1" ; "o" ; "u"):
+Then it checks whether the value of ¢ 15 a, e, 1, 0, Or U.
+ඉන්පසු එම c හි අගය a,e,i,0, හෝ u වේද යන්න පරීක්ෂා කරයි.
+
+pass
+
+If the above check is satisfied then 11 moves to the next iteration if there are more iterations and if there are
+no more iterations then the loop moves to the code section after the loop.
+
+ඉහත පරීක්ෂා කිරීම තෘප්ත වේ නමි තවත්‌ පුනටකටණ පවතීනමි Gem පුනරකරනය වෙතද වෙනත්‌ පුනටකරන
+අවස්ටා නොමැතිනමි ලපයෙන්‌ පසු කේත කොටස්‌ වෙතද ගමන්‌ කරයි.
+
+else:
+If the above condition is not satisfied then this section 15 executed.
+ඉහත කොන්දේසිය oad නොවේනම්‌ මෙම කොටස ක්‍රියාත්මක වේ.
+
+51 = 51 4 ල
+
+If the condition is true then the string portion of the variable c will be added to the string 5 1. There string
+concatenation is done. The + sign is used for that. When concatenating two strings, there is no space or
+nothing between the two parts of the string.
+
+කොන්දේසිය සත්‍ය වේ නමි 51 නමැති string සඳහා c නමැති විචලඅයේ පවතින string කොටස එක්‌ කරයි.
+එහිදි string සංයුක්ත කිරිම සිදු කරයි. ඒ සඳහා භාවිත කරන්නේ + ලකුණ වේ. string දෙකක්‌ සංයුක්ත කිරිමේදි
+එම string කොටස්‌ දෙක අතර හිස්‌ අවකාශයක්‌ හෝ කිසිවක්‌ නොපවතී.
+
+print (51)
+Finally outputs the string 5 ]
+අවසානයේ 51 string එක ප්‍රතිදානය කරයි.
+
+Let's get the output of the code through a trace table.
+කේතය trace table ඵකක්‌ මගින්‌ ප්‍රතිදානය ලබා ගමු.
+
+(c)
+
+(d)
+
+Rep. No Cc S1
+1 "A" " A"
+2 "d' " Ad"
+3 my" " Adv"
+4 "a"
+5 “ne " Advn"
+6 "cr " Advnc"
+7 "en
+8 "dq" " Advncd"
+9 “oe " Advncd "
+10 "1" " Advncd 1"
+11 "en
+12 myn " Advncd lv"
+13 "en
+14 "i" " Advncd lvl"
+
+So the output is as follows.
+එබැවින්‌ ප්‍රතිදානය පහත පරිදි වේ.
+Advncd lvl
+
+What code line(s) in part (b) is/are to be removed to get ‘aeee’ as the output?
+ප්‍රතිදානය ලෙස ‘aece’ ලබාගැනීමට ඉහත (b) කොටසේ ඉවත්‌ කළ යුතු කේත පේළි(ය) කුමක්‌ ද?
+
+Answer:
+
+Here aeee is the few characters that were omitted from the if statement.
+මෙහි aeee යනුවෙන්‌ පවතින්නේ if ප්‍රකාගය මගහැර යන ලද අකුරැ කිහිපය වේ.
+
+If the if statement returns false, the previous output is obtained because the string is concatenated from the
+else section. Accordingly, if the string is concatenated with the true part of the if statement, the output
+mentioned here can be obtained.
+ifemacs අසත්‍ය වුවහොත්‌ පෙර ප්‍රතිදානය ලබා ගැනීමට හැකිවන්නේ else කොටසෙන්‌ string සංයුක්ත කිරීම
+සිදු වන බැවින්‌ ය. ඵ්‌ අනුව if ප්‍රකාශයේ සත්‍ය කොටසින්‌ string සංයුක්ත කිරීම සිදු කලහොත්‌ මෙහි සඳහන්‌
+ප්‍රතිදානය ලබා ගැනීමට හැකි වේ.
+
+Accordingly, this output can be obtained by removing pass and else keywords from this code.
+ඒ අනුව මෙම කේතයේ pass සහ else යන යතුරැ පදු ඉවත්‌ කිරීමෙන්‌ මෙම ප්‍රතිදානය ලබා ගත හැක.
+
+Fill in the blank spaces of the following Python code assuming that the purpose of the code is to copy
+the content of a text file (A) to another text file (B).
+
+QQ ගොනුවක (text file) [A] අන්තර්ගතය තවත්‌ od ගොනුවකට [B] පිටපත්‌ කිරීම කේතයේ අරමුණු යැයි
+උපකල්පනය කරමින්‌ පහන සඳුහන්‌ පයිතන්‌ කේතයේ හිස්තැන්‌ පුරවන්න.
+
+2
+ll
+
+input( "Enter the name of text file A")
+B = input("Enter the name of text file 8")
+
+11 පස ................... (, ................... )
+12 ස ................... (By ................... )
+for line in ...................
+
+Ff2.write (................... )
+11. ...................
+12, ...................
+Answer :
+
+What is required here is to write all the contents of one file in another file.
+මෙහිදි අවශ්‍ය වන්නේ එක්‌ ගොනුවක පවතින සියළුම අන්තර්ගතය වෙනත්‌ ගොනුවක නැවතන ලිවිමට වේ.
+
+Python uses the open function to create File objects.
+පයිතන්‌ හි File objects නිර්මාණය සඳුහා open Goo භාවිත කරයි.
+
+Common structure of the open() function.
+open() Ged පොදු ව්‍යුහය.
+open("filename.txt", "mode" )
+
+There are 4 modes used in Python for handling files.
+පයිතන්‌ හි ගොනු හැසිරවීම සඳුහා භාවිතා කරන ආකාර 4ක්‌ ඇත.
+
+Xx mode
+f=open("data.txt", "x")
+
+This is used to create a new file. Returns an error if a file already exists with name of the file being created.
+නව ගොනුවක්‌ නිර්මාණය කිරීම HEH) මෙය යොදා ගනී. නිරමාණය කරනු ලබන ගොනුවේ නමින්‌ දැනටමත්‌
+ගොනුවක්‌ පවතීිනමි දෝෂයක්‌ ලබා දෙයි.
+
+w mode
+f=open("data.txt", "w")
+
+This is used to insert data into a file.
+ගොනුවකට EMD ඇතුලත්‌ කිරීමට මෙය යොදා ගනි.
+
+a mode
+f=open("data.txt", "a")
+
+What happens here is that a file is opened to write data from the end of an existing file.
+මෙහිදි සිදුවන්නේ පවතින ගොනුවක අවසානයේ සිට දත්ත ලිවිම oem) ගොනුවක්‌ විවෘත කර දිමයි.
+
+r mode
+f=open("data.txt", "r")
+
+Here a file is opened for reading.
+මෙහිදි ගොනුවක්‌ කියවීම සඳහා විවෘත කර දෙනු ලැබේ.
+
+The contents of file A should be written in file B as given in the question. Accordingly, file A should be
+open for reading and file B should be open for writing.
+
+ප්‍රශ්නයේ ලබා දි ඇති ආකාරයට A ගොනුවේ අන්තර්ගතය B ගොනුවේ ලියවිය යුතුය. 5 අනුව A ගොනුව
+කියවීම සඳහා විවෘත විය යුතු අතර B ගොනුව ලිවිම සඳුහා විවෘත විය යුතු වේ.
+
+Accordingly the first 4 lines of the code are as follows.
+ඒ අනුව කේතයේ පළමු පේළි 4 පහත SOE වේ.
+
+A = input("Enter the name of text file A")
+B = input("Enter the name of text file 8")
+11 = open(A, 'r
+
+Then get line by line from file A and write it to file B.
+ඉන්පසූ A ගොනුවේ පේළියෙන්‌ පේළිය ලබා ගෙන එය B ගොනුවට ලිවිය යුතු වේ.
+
+for line in 11:
+
+Accordingly, the code can be written as above.
+ඒ අනුව ඉහතන පරීදි කේතය ලිවිය හැක.
+
+Finally, the two files should be closed.
+අවසානයේදි ගොනු දෙක වැසිය යුතුය.
+
+#2.close() ( 2022 — S.Essay 3 )
+
+8. (a) What is the output of the following python script if 1002 is given as the input?
+දාදානය ලෙෂ 1002 ලබා es විට පහත දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ වේ ද?
+
+A = int(input(“Enter a number:”))
+B= 6
+while(A > 0):
+C=A% 10
+B=B+C
+A=A//10# // is integer division
+print(B)
+
+Answer :-B = 3
+
+Here the code first asks for an input from the user cast it to an integer and store it in a variable
+මෙහිදි කේතය මුලින්ම පරිගිලකයාගෙන්‌ Hannes ඉල්ලා එය OS සංඛ්‍යාවකට හරවා විචලඅයක ගබඩා
+කරයි
+
+When input function takes inputs from the user it always stores them as a string.
+OOD Goo පරිගිලකයාගෙන්‌ ආදාන ලබා ගන්නා විට එය සැම HOO HO) string එකක්‌ ලෙස ගබඩා කරයි.
+
+so, if we directly store it in a variable, it will be problematic to do calculations with it later.
+එබැවින්‌, අපි AG කෙළින්ම විචල්‍යයක ගබඩා කරන්නේ නමි, පසුව එය සමඟ ගණනය කිරීමි කිරීම ගැටළු
+සහගත වනු ඇත.
+
+As a solution before taking the input directly to a variable we can cast it to an integer or a floating-point
+number with the help of the functions;
+
+ආදානය කෙළින්ම විචලඅයකට ගැනීමට පෙර විසඳුමක්‌ ලෙස අපට එය GHOE ආධාරයෙන්‌ පුරණ සංඛ්‍යාවකට
+හෝ ඉපිලෙන ලක්ෂ්‍ය සංඛ්‍යාවකට හැරවිය හැකිය.
+
+int()
+Ffloat()
+
+Next the code creates a variable (B) storing the value 0.
+ඊළඟට කේතය 0 අගය ගබඩා කරමින්‌ SOeEsced (13) නිර්මාණය කරය.
+
+After the code executes a while loop:
+කේතය while ලපය ක්‍රියාත්මක කිරීමෙන්‌ පසු:
+
+There are 2 types of loops in python:
+පයිතන්‌ වල Eo වර්ග 2ක්‌ ඇත:
+
+1. While loops
+
+2. For loops
+
+1. While loops
+
+While loops execute the loop as long as the condition of the loop is true or until the loop hits a break
+statement
+ලුපයේ තත්ත්වය සත්‍ය වන තාක්‌ හෝ ලපයට break ප්‍රකාගය හමුවන තෙක්‌ While ලපය ක්‍රියාත්මක වේ.
+
+In while loops we should manually add a control variable / condition to stop infinite looping
+EO තුළදි අනන්ත EO විම නැවැත්වීමට පාලන SOEzas / කොන්දේසියක්‌ එකතු කළ යුතුය.
+
+Structure of a while loop;
+While ලපයේ ව්‍යුහය;
+
+i = 6 #control variable
+while (Condition):
+#process of the code goes here
+i = i+1 #increament/decreament
+
+2. For loops:
+
+For loops loop until the given range 15 met, it does not loop according to a condition but we can control
+the loop according to a condition using if statements and break statements inside the loop
+
+For ලප, දි ඇති පරාසය සපුරාලන තුරැ පුනරාවර්තනය වේ, එය කොන්දේසියක්‌ අනුව පුනරාවරිතනය
+නොවේ, නමුත්‌ අපට ලුපය තුළ ඇති if ප්‍රකාශ සහ break ප්‍රකාශ භාවිතා කර කොන්දේසියකට අනුව
+ලපය පාලනය කළ හැකිය.
+
+For loops can do the increment by itself
+For ලප වලට වැඩි කිරීම තනිවම කළ හැකිය
+
+For loops can loop through lists, tuples, strings
+ලප වලට ලැයිස්තු, tuple, string හරහා පුනරාවරතනය විය හැකිය.
+
+Mainly we use the range() function with for loops.
+ප්‍රධාන වගයෙන්‌ for ලප සමඟ HES) භාවිතා කරන්නේ range() Gnas.
+
+Structure of a for loop:
+
+for i in (range):
+#process
+
+Here 1 is the control variable, we don’t need to define it prior to the loop.Each time the loop executes, the
+control variable (1) changes according to the range, string, list or tuple given initially.
+
+මෙහි 1 යනු පාලන විචල්‍යය වේ, අපට එය ලපයට පෙර GD දැක්වීමට අවශ්‍ය නොවේ. ලපය ක්‍රියාත්මක
+වන සෑම අවස්ථාවකම, පාලන විචල්‍යය (i) මුලින්‌ ලබා දි ඇති පරාසය, string, ලැයිස්තුව හෝ tuple අනුව
+වෙනස්‌ වේ.
+
+Here the while loop first checks whether A is larger than zero as condition if so the loop will be executed.
+මෙහිදි while ලපය පළමුව පරීක්ෂා කරන්නේ A ශුන්‍යයට වඩා SMeEc යන්නයි. එසේ ලපය ක්‍රියාත්මක වේ.
+
+Inside the loop it does modulus division on A by 10 and stores it in the variable C
+ලූපය තුළ එය A මන ඉතිරි බෙදීම 10 න්‌ සිදු කර එය C විචල්‍යයේ ගබඩා කරයි.
+
+Modulus division returns the remainder of a division as the answer
+ඉතිරි GHEGOE පිළිතුර ලෙස GQEOD ඉතිරිය ලබා දෙයි
+
+At first A = 1002
+මුලදි A= 1002
+
+When A%10 is executed it divides 1002 by 10 and returns the remainder as the answer. This means it
+stores 2 in the variable C in the first iteration.
+
+A%10 ක්‍රියාත්මක කළ විට එය 1002, න්‌ 108 බෙදන අතර ඉතිරිය පිළිතුර ලෙස ලබා දෙයි. මෙයින්‌ අදහස්‌
+කරන්නේ එය පළමු පුනරාවරතනයේදි C විචල්‍යයේ 2 ගබඩා කරන බවයි.
+
+Then [3 + ල්‌ 15 stored inside B
+එවිට B+C ගබඩා වන්නේ B තුළය.
+
+And A is subjected to integer division by 10 and store in A itself
+moe, A, 10 න්‌ SIE GQEOO යටත්‌ වන අතර තුළම ගබඩා කරයි.
+
+This means A is divided by 10 but only the integer part is Considered
+මෙයින්‌ අදහස්‌ කරන්නේ A, 10 න්‌ Qe නමුත්‌ පුර්ණ සංඛ්‍යා කොටස පමණක්‌ සැලකේ.
+
+Next the loop iterate for the 2" time if we trace the loop it gives us the below table
+ඊළඟට ලුපය 2 GOH වතාවටත්‌ පුනරාවරිතනය කරයි. අපි ලපය සැලකුවොත්‌ අපට පහත වගුව ලබා ගත
+හැකිය.
+
+Repetition C B A
+1 2 2 100
+2 0 2 10
+3 0 2 1
+4 1 3 0
+
+So the question asks what is the output of the code the code finally output value stored in B which is 3.
+මෙහි ප්‍රශ්නයේ කේතයේ අවසාන ප්‍රතිදානය ලෙස ॥ හි ගබඩා කර ඇති අගය විමසයි. එය 3 වේ.
+
+(11) What would be the modification required to the B = B + C code line of the above code if the reverse
+of a given positive number is to be printed?
+දෙන ලද ධන සංඛ්‍යාවක ප්‍රතිවර්තනය (reverse) ප්‍රතිදානය කර ගැනීමට, ඉහත පයිතන්‌ කේතයෙ
+B= B+ C පේළිය කෙලෙස වෙනස්‌ විය යුතු දු?
+
+( Example: if the input is 1234, the output should be 4321 )
+( උදා: ආදානය 1234 වු විට, ප්‍රතිදානය 4321 විය යුතු ය )
+
+Answer :-B = 6816 + ල
+
+To solve this problem lets assume the value we input is 4567 and trace the loop for the given code. This
+will give us the following table;
+
+මෙම ගැටළඑව විසඳිම සඳුහා අපි ආදානය කරන අගය 4567 යැයි උපකල්පනය කර ලබා E ඇති කේතය
+සඳුහා ලූපය සොයා ගනිමු. මෙය අපට පහත වගුවෙන්‌ ලබා දෙනු ඇත.
+
+Repetition C B A
+1 7 7 456
+2 6 15 45
+3 5 20 4
+4 4 24 0
+
+If we clearly observe this table, we can see the reverse of the given number is stored in ( from top to
+bottom in the table
+
+අපි මෙම වගුව පැහැදිලිව නිරීක්ෂණය කළහොත්‌, ලබා දි ඇති අංකයේ ප්‍රතිලෝම වගුවේ ඉහළ BO පහළට
+C වලින්‌ ගබඩා කර ඇති බව අපට දැකගත හැකිය.
+
+To get the B to output the reverse order we should make the number 7654 which means 7 should be in
+1000’s place 6 should be 100’s place should be in 10’s place and 4 should be in units place
+
+ප්‍රතිලෝම අනුපිළිවෙලට [3 ලබා ගැනීම සඳහා අපි 7654 අංකය සෑදිය යුතුය, එනමි 7, 1000 ස්ටානයේද
+6, 100 ස්ටානයේදු 5, 10 ස්ටානයේදු සහ 4, 1 ස්ථානයේද තිබිය යුතුය.
+
+This means to make 7654 we should add 7000 + 600 + 50 + 4
+මෙයින්‌ අදහස්‌ කරන්නේ 7654 සෑදීමට අපි 7000+ 600+ 50+4 dag කළ යුතු බවයි.
+
+So if we multiply the 13 variable by 10 before adding the C value we can smoothly achieve the objective,
+ඉතින්‌ අපි ට අගය එකතු කිරීමට පෙර B විචල්‍යය 10 න්‌ ගුණ කළහොත්‌ අපට අරමුණ සාක්ෂාත්‌ moon
+හැකිය,
+
+B=B*10+C
+
+What this does is that it will multiply the value in be by 10 in other words shift the value that is already
+inside B by a place of 10
+
+මෙය Be කරන්නේ එය B හි අගය 10 න්‌ ගුණ කිරීම වෙනත්‌ වචන වලින්‌ කිවහොත්‌ B තුළ දැනටමත්‌
+ඇති අගය 10 ස්ථානයකින්‌ මාරැ කිරීමයි.
+
+Now if we trace the loop for the change we did the table should look like this
+දැන්‌ අපි කරපු වෙනසට අදාළ ලපය පිටපත්‌ කළහොත්‌ වගුව පහත ආකාරයෙන්‌ විය යුතුය.
+
+Repetition C B A
+1 7 7 456
+2 6 76 45
+3 5 765 4
+4 4 7654 0
+
+Now if we print 13 at the end it prints the reverse order of the number we initial give as the input.
+දැන්‌ අපි අවසානයේ B මුද්‍රණය කළහොත්‌ ඵය අප මුලින්‌ දෙන අංකයේ ප්‍රතිලෝම අනුපිළිවෙල මුද්‍රණය කරයි.
+
+(0) Assume that your class is having a party, and each student is asked to bring one food item. The class
+teacher has decided to make the party interesting by introducing one rule: the first and last letters of
+the name of the food item must match with the first and last letters of the student name.
+ඔබගේ පන්තියේ neces පැවැත්වෙන බවත්‌, SO එක්‌ එක්‌ ගිෂ්‍යයාට එක්‌ ආහාර වර්ගයක්‌ බැගින්‌ රැගෙන එන
+ලෙසට ESO) ඇති බවත්‌ සලකන්න. එය වඩාත්‌ රසවත්‌ කිරීමට ගුරැනුමිය එක්‌ නියමයක්‌ හඳුන්වා දෙයි, එනමි,
+ගිෂ්‍යයා ගෙන එන ආහාර වර්ගයේ නමේ පළමු සහ අවසන්‌ ඉංගීසි අක්ෂර ගිෂ්‍යයාගේ නමේ පළමු සහ අවසන්‌
+ඉංගීසි අක්ෂරවලට සමාන විය යුතු බවයි.
+
+For example, percy is allowed to bring potato curry and prageeth is allowed to bring pepper fish.
+
+උදා; percy ශිෂ්‍යයාට potato curry ගෙන ආ හැකි අතර pragecth ගිෂඅයාට pepper fish රැගෙන SOO
+අවසර ලැබේ.
+
+Write a Python function called Party() that takes the student name and the name of the food item as
+parameters. The function should return True or False to indicate whether the student is allowed to
+bring the food item to the party or not.
+
+ඉහත සන්දර්භය සඳුහා ගිෂ්‍යයාගේ නම සහ ආහාර වර්ගයේ HO පරාමිතීන්‌ (parameters) ලෙස ලබාගන්නා
+Party() නමි වු Python Gnas ලියා දක්වන්න. ශිෂ්‍යයාට aaec සඳහා ආහාර වර්ගය රැගෙන SOO අවසර
+ඇතිද නැතිද යන්න පෙන්වීමට Gono පිළිවෙළින්‌ True හෝ False හෝ ප්‍රතිදානය කළ යුතු ය.
+
+Example:
+
+Party ("percy", "potato curry") should return True
+Party(“percy” , “potato curry”) විට True ප්‍රතිදානය විය යුතු ය.
+
+Party ("fareena", "fried rice") should return False
+Party(‘‘fareena” , “fried rice”) විට False ප්‍රතිදානය විය යුතු ය.
+
+Note: You can assume that student name and food item name are always lowercase strings and
+have at least two letters. There may be hyphens and spaces in the names, but these will not
+appear at the beginning or end of the string. The names will not contain numerals.
+
+සටහන: ගිෂ්‍යයාගේ නම සහ ආහාර වර්ගයේ නම සැමවිටම කුඩා අකුරැ (කැපිටල්‌ නොවන), සහිත අක්ෂර
+වැල්‌ (strings) වන බවත්‌ ඒවායේ අවම වශයෙන්‌ අක්ෂර දෙකක්වත්‌ ඇති බවත්‌ ඔබට උපකල්පනය
+කළ හැක. ඒවායේ කෙටිඉර (-) සහ අන්තර (space) තිබිය හැකි නමුදු SO) අක්ෂර වැලේ පළමු සහ
+අවසන්‌ අක්ෂර ලෙස නොපවතියි. නමිවල ඉලක්කමි අන්තර්ගත නොවේ.
+
+Solving this problem is very easy if we have a good knowledge about string slicing, lets revise.
+string slicing ගැන අපට හොඳු දැනුමක්‌ තිබේ නම්‌ මෙම ගැටළුව විසඳිම පහසු වේ, ගැටලුව සලකා බලමු.
+
+Indexes of a string
+string එකක දර්ශක
+
+Let’s take the string “Percy” as an example the indexes of this string will be as follows
+උදාහරණයක්‌ ලෙස “Percy” string එක ගනිමු. මෙම string එකෙහි දුර්ශක පහත OSE වනු ඇත.
+
+We have two methods of indexing 11] python positive and negative.
+පයිතන්‌ ධන සහ සෘණ දටර්ගක කිරීමේ ක්‍රම දෙකක්‌ අපට Hed.
+
+0 1 2 3
+P e r Cc
+-5 -4 -3 -2 -|
+
+Now we can see that we can call the first letter of the string by the index of zero and no matter how long
+the string is we can call the last letter by using the negative index -1 understanding this solves the problem
+itself / දැන්‌ අපිට එකෙහි මුල්‌ අකුර gas cbancas හැඳින්විය හැකි amo Jo කොපමණ දිග වුනත්‌
+අවසාන අකුරට සෘණ දර්ශකය -1 යොදා කතා කිරීමට හැකි බව තේරැමි ගැනීමෙන්‌ ගැටලව විසඳිය හැකිය.
+
+Now we should just check whether the first letter (First index ) of the name is equal to the first letter of the
+food item and the last letter of the name is equal to the last letter of the food item
+
+නමේ මුල්‌ අකුර (පළමු දර්ශකය) ආහාර දුව්‍යයේ මුල්‌ අකුරට සමානද, නමේ අවසාන අකුර ආහාර ද්‍රව්‍යයේ
+අවසාන අකුරට සමානද යන්න දැන්‌ අප විසින්‌ පරීක්ෂා කළ යුතුය.
+
+def Party(name,fditem): #here we define a function where it takes 2 arguments
+a name[@] #here we store the first letter of the name in a variable
+
+b name [-1] #here we store the last letter of the name in b variable
+
+c = fditem[@] #here we store the first letter of the food item in c
+
+d = fditem[-1] #here we store the last letter of the food item in d
+
+if a == c and b == d: #here we check the condition for bringing food
+return True
+
+else:
+return False
+
+we can further simplify this without using many variables instead directly checking the condition;
+තත්වය කෙලින්ම පරීක්ෂා HOO වෙනුවට බොහෝ විචල්‍යයන්‌ භාවිතා නොකර අපට මෙය තවදුරටත්‌ සරල HE
+හැකිය:
+
+def Party(name, fditem):
+
+if name[@] == fditemp[@] and name[-1] == fditem[ -1]:
+return True
+
+else:
+return False
+
+If we dive deeper into the comparison operator (==);
+අපි සැසඳිුමේ මෙහෙයවනය (==) SEE, වැඩිදුර සෙවිමෙන්‌;
+
+This operator checks whether the left side 1s equal to the right side and the operator itself returns whether
+the condition is true or false
+
+මෙම මෙහෙයවනය වමි පැත්ත දුකුණු පැත්තට HOME, යන්න පරීක්ෂා කරන අතර කොන්දේසිය සත්‍යෑද අසත්‍යද
+යන්න මෙහෙයවනය විසින්ම ලබා දෙයි.
+
+This means we can further take away the if condition;
+මෙයින්‌ අදහස්‌ කරන්නේ අපට if කොන්දේසිය තවදුරටත්‌ ඉවත්‌ කළ හැකි බවයි;
+
+def Party(name, fditem):
+return name[@] == fditem[@] and name[-1] == fditem[-1]
+
+(c) Write down the most suitable statements for labels A to H in the flowchart given below which is
+drawn to calculate the factorial of a given positive Integer.
+දෙන ලද, ධන නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට ave, ඇති පහත දැක්වෙන ගැලීමි සටහනේ
+
+A සිට 11 දක්වා ඇති ලේබල HED) වඩාත්ම ගැළපෙන ප්‍රකාගන ලියා දක්වන්න.
+
+Notes :
+
+(i) The factorial of a _ positive (ම,
+
+integer is defined as the product
+of that integer and all the
+integers below it. E.g. factorial J /
+
+of 5 is 5x4x3x2x1 = 120. The
+
+factorial of 0 is defined as 1. Ad
+ධන නිබිලයක ක්‍රමාරෝපිතය යනු ©
+එම නිබිලයේ හා ඊට අඞු BoE
+
+නිබිලවල ගුණිතයයි. උදා: 5 හි
+ක්‍රමාරෝපිතය 5x4x3x2x1 = 120
+වේ. GO අමතරව, 0 හි
+ක්‍රමාරෝාපිතය ] ලෙස Addo |
+දැක්වේ.
+
+(ii) A process box in this flowchart
+
+may contain one or more 4 ® J @ /
+statements.
+මෙම HOG සටහනේ එක්‌ ක්‍රියාවලි
+කොටුවක (process box) ප්‍රකාගන ( ආ )
+එකක්‌ හෝ ඊට වැඩි ගණනක්‌ හෝ
+තිබිය හැකි ය.
+
+©
+
+In this type of flow charts, we should analyse it and start filling it out with obvious points to gain much
+marks as possible
+
+මෙම ආකාරයේ AES සටහන්‌ වලදි, අපි එය විග්ලේෂණය කර හැකිතාක්‌ ලකුණු ලබා ගැනීම HEM) පැහැදිලි
+ලකුණු වලින්‌ එය පිරවීම ආරමිභ කළ යුතුය.
+
+A — Start/ Begin
+
+B- Input=n
+
+C — Factorial = 1
+D-isn==
+
+E - factorial = factorial x n
+F-n=n- 1
+
+G - Display factorial
+
+First it’s obvious that we already know the start and end afterwards we can see two input and output boxes
+where the first one should be taking an input from the user and the other one should output the final answer
+පළමුව, අපි දැනටමත්‌ ආරම්භය සහ අවසානය දුන්නා බව පැහැදිලිය, පසුව අපට ආදාන සහ ප්‍රතිදාන කොටු
+දෙකක්‌ දැකිය හැකිය, එහිදි පළමුවැන්න පරිගිලකයාගෙන්‌ ආදානයක්‌ ලබා ගත යුතු අතර අනෙක අවසාන
+පිළිතුර ප්‍රතිදානය කළ යුතුය.
+
+Input we should take from the user must be the integer that we must calculate the factorial, Hence lets fill
+the B box by Input =n
+
+අපි පරිශිලකයාගෙන්‌ ගත QD ආදානය අපි ක්‍රමාරෝපිතය ගණනය කළ යුතු පුරණ සංඛණනාව විය යුතුය,
+එබැවින්‌ B කොටුව Input=n මගින්‌ පුරවන්නෙමු.
+
+The other output should display the answer lets assume we store the answer in a variable named factorial,
+hence the G box should be Display factorial
+
+අනෙක්‌ ප්‍රතිදානය මගින්‌ පිළිතුර පෙන්විය යුතුය, අපි SEwo factorial නමි විචලඅයක ගබඩා කරන්නේ යැයි
+උපකල්පනය කරමු, එබැවින්‌ G කොටුව Display factorial විය යුතුය.
+
+In the C box we should define the factorial variable let’s use the following Factorial = 1.
+C කොටුව තුළ අපි factorial විචල්‍යය නිර්වචනය කළ යුතුය, පහත සඳුහන්‌ Factorial=1 භාවිනා කරමු.
+
+In the decision box we haven’t given the yes, no branches so let’s assume the yes branch point to G box
+and no branch point to E box
+
+තේරීමි කොටුවේ yes,no MDO ලබා දි නැත, එබැවින්‌ gS yes ශාඛාව G කොටුවට සහ no ශාඛාව E
+කොටුවට උපකල්පනය කරමු.
+
+Now if the user inputs just 1 as the input going to a loop is useless so we should be able to directly point
+to the display output box we can achieve this by using the following condition
+
+දැන්‌ පරිශීලකයා ලපයකට 1 යන ආදානය පමණක්‌ යෙදුවහොත්‌ නිෂ්ඵල වන බැවින්‌, අපට එය කෙලින්ම
+ප්‍රතිදාන කොටුව වෙත යොමු කිරිමට හැකි විය යුතුය. පහත කොන්දේසිය භාවිතා කිරීමෙන්‌ අපට මෙය සාක්ෂාත්‌
+කරගත හැකිය
+
+isn ==
+
+by this if it is true as we initially have the factorial variable set to 1 1f nis 1 this condition will directly
+point to the G box which contain display factorial
+
+මෙය සත්‍ය නමි, අප මුලින්‌ සාධක විචල්‍යය ] ලෙස සකසා ඇති බැවින්‌, n, 1 නමි, මෙම කොන්දේසිය
+සෘපුවම display factorial අඩංගු G කොටුව වෙත යොමු කරයි.
+
+Next in the E and F boxes must be used to calculate the factorial, here note that if the input is 5 the
+factorial should be 5x 4x3x2x 1 this isthe sameas1x5x4x3x2
+
+ඊළඟට E සහ F කොටු, ක්‍රමාරෝපිතය ගණනය කිරීම acm) භාවිතා කළ යුතුය, මෙහි ආදානය 5 නමි
+ක්‍රමාරෝපිතය 5 9 493 9291 විය යුතුය. මෙය 1x5x4x3x2 ට සමාන බව සලකන්න.
+
+So we can use the following algorithm in the E box factorial = factorial x n and in the F box we can do
+the decrement to n as follows
+
+ඉතින්‌ අපිට E කොටුවෙහි factorial = factorial xn යන ඇල්ගොරිතමය භාවිතා කළ හැකිය. නවද F
+කොටුවෙහි අපිට 1 වලට පහත ආකාරයට අඩුවිම සිදුකළ හැකිය.
+
+n=n-1l
+
+( 2022 — Essay 8 )
+
+2023 AL PYTHON ESSAY MARKING
+
+1.(a) Write down the most suitable replacements for labels A to G in the following flowchart which is
+
+drawn to calculate and display the sum of first ten even numbers.
+පළමු ඉරටිටේ සංඛ්‍යා emod එකතුව ගණනය කර ප්‍රදර්ශනය කිරීම සඳහා ave ඇති පහත ගැලීමි සටහනේ
+
+A සිට G තෙක්‌ ලේබල සඳහා වඩාත්‌ සුදුසු ආදේශක ලියා දක්වන්න.
+
+sum = 0
+count = 0
+
+4 -_ [10
+
+13 ~- Yes
+ල්‌ sum=sum-+count / sum += count
+Is count D_Y.
+even? es
+© E— count <21 / count<=20
+F—No
+
+Y
+
+G — display sum
+
+count = count +1 Alternative answers for D, E, & F
+
+D—No
+(©) E— count >20 / count >=21
+
+® F — Yes
+®
+
+7 9 72
+
+What needs to happen here is to check if count is an even number and if it is true then add it to the sum
+variable and add 1 to the count variable. If the test 1s false, 1 should be added directly to the count variable.
+In the loop represented by this flowchart, the initial value of count, the control variable, is 0. The beginning
+of the loop can be identified as where an arrowhead hits when moving from top to bottom. Accordingly,
+its condition should be below the point where the arrowhead hits or where the arrowhead 15 received. Here,
+after the arrowhead hit, there is no condition related to repetition. Therefore, arrows should move to the
+place where the head is. Then the relevant condition should be given there. Here the sum of the first 10
+even numbers should be calculated. The first 10 even numbers end in 20. Therefore, if the value of count
+is less than 21, then the loop should go back up and if not, that is, if the value of count is more than 20,
+sum should be output and the flowchart should be terminated. Accordingly, the answers to the blanks in
+the above flowchart are as follows.
+
+මෙහිදි Be විය යුන්තේ count ඉරටිටේ සංඛ්‍යාවක්ද යන්න පරීක්ෂා කර එය සත්‍ය වන්නේ HO එය sum
+විචල්‍යය සඳහා එකතු කර count විචලඅයට ]ක්‌ එකතු කිරීමයි. පරික්ෂාව අසත්‍ය වන්නේ නමි සෘපුවම count
+විචල්‍යයට ]ක්‌ එකතු කල යුතුය. මෙම ගැලීමි සටහන මගින්‌ නිරැපනය වන ලපයේ පාලන විචල්‍යඅය වන
+count හි ආරමිභක අගය 0 වේ. ඉහල සිට පහලට ගමන්‌ කර පැමිනෙන විට ඊ හිසක්‌ පැමිණි වැදෙන තැන
+
+C865 ආරමිභය HEH) ගත හැක. ඒ අනුව OS කොන්දේසිය එම ඊහිස වැදුන තැනට පහලින්‌ හෝ S හිස
+ලැබුණු තැන තිබිය යුතුය. මෙහි ඊ හිස වැදුනු තැනට පසුව ඇත්තේ පුනරාවරිතනයට අදාළ කොන්දේසියක්‌
+නොවේ. එබැවින්‌ ඊ හිස ලදු තැන වෙත ගමන්‌ කල යුතුය. එවිට එතනට අදාල කොන්දේසිය ලබා දිය යුතුය.
+මෙහිදි පළමු ඉරටිටේ සංඛ්‍යා 10H එකතුව ගණනය කල යුතු වේ. පළමු ඉරටිටේ සංඛ්‍යා 10H අවසානය
+වන්නේ 20 වේ. එබැවින්‌ මෙහිදි count හි අගය 21 ට වඩා අඩුවන්නේ නමි නැවන ඉහලට ගමන්‌ කර ලපය
+ක්‍රියාත්මක විය යුතු බවත්‌ එසේ නොවන්නේ නමි එනමි count හි අගය 20 ට වඩා වැඩි වන්නේ නමි sum
+ප්‍රතිදානය කර ගැලීමි සටහන අවසන්‌ කල යුතු බවත්‌ ය. ඵ්‌ අනුව ඉහත ගැලීමි සටහනේ හිස්තැන්වලට අදාල
+පිළිතුරු පහත පරිදි වේ.
+
+(0) (1) What is the output of the following Python code?
+පහත පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ ද?
+
+def func(n):
+MyNumber=[ |
+for i in range(4,n+1):
+if i%2==0:
+MyNumber. append(i)
+print (MyNumber)
+func(30)
+
+Let's study the given code line by line.
+ලබා දී ඇති කේතයේ පේළියෙන්‌ පේළිය අධ්‍යනය කරමු.
+
+def func(n):
+A function named func is created with a parameter named n.
+n නමි පරාමිතියක්‌ සහිත func නමි ශ්‍රිතයක්‌ නිර්මාණය කරනු ලබයි.
+
+MyNumber=[ |
+Inside the function, an empty list is created and substituted for a variable called MyNumbers.
+Goo තුළදි හිස්‌ ලැයිස්තුවක්‌ නිරමාණය කර එය MyNumbers නමි විචල්‍යයක්‌ සඳහා ආදේශ කරනු ලබයි.
+
+for i in range(4,n+1):
+if 1%2==0:
+MyNumber . append(i)
+
+Here a for loop is mentioned. where 4 to n+1 (including 4 and excluding n+1) is substituted for its control
+variable 1 at each iteration. Then in the loop, it checks if the value of 1%2 is equal to 0. Then that value is
+appended to the MyNumber list. 1%2 means the remainder when 1 15 divided by 2. If nothing is left then it
+is an even number and if ] is left then it 15 an odd number. Accordingly, 1t can be recognized that what
+happens in this code is to calculate even numbers from 4 to a given number, append them to a list, and
+output them. / මෙහිදි for ලපයක්‌ සඳුහන්‌ වෙයි. එහිදි එහි පාලන 5OE3 වන 1 සඳුහා 4 BO n+1(4 ඇතුඑව
+n+] රහිතව) දක්වා එක්‌ එක්‌ පුනරාවරතනයේදි ආදේශ වෙමින්‌ ක්‍රියාත්මක වෙයි. ඉන්පසු ලපය mee 1%2
+හි අගය 0 ට සමාන දැයි පරික්ෂා කරයි. එසේනමි MyNumber ලැයිස්තුව සඳුහා එම අගය append වෙයි.
+i%2 මගින්‌ අදහස්‌ වෙන්නේ i 2න්‌ බෙදූ විට ඉතිරි වන අගයයි. එහිදි කිසිවක්‌ ඉතිරි නොවේෙනමි එය ඉරටිටේ
+සංඛණ්‍යවක්‌ වන අතර ] ක්‌ ඉතිරි වෙනමි එය ඔත්තේ සංඛ්‍යාවක්‌ වේ. ඵ්‌ අනුව මෙම කේතයේදී සිදුවන්නේ 4
+සිට දෙන ලද, සංඛ්‍යාවක්‌ දුක්වා පවතින ඉරට්ටේ සංඛ්‍යා ගණනය කර එවා ලැයිස්තුවකට append කර
+ප්‍රතිදානය කිරීම බව හඳුනා ගත හැක.
+
+print (MyNumber)
+This will output the MyNumber list appended with even numbers.
+ඉරට්ටේ සංඛ්‍යා append කරන ලදු MyNumber ලැයිස්තුව ප්‍රතිදානය කිරිම මෙහිදි සිදු වෙයි.
+
+func (30)
+
+The function is called here. The n parameter of the function is given a value of 30. Accordingly, the output
+is a list of even numbers from 4 to 30.
+
+මෙහිදි ග්‍රිතය කැඳවීම Be කරයි. ග්‍රිතයේ n පරාමිතියට අගය ලෙස ලබා දි ඇත්තේ 30 වේ. ඒ අනුව 4 සිට
+30 Es) ඇති ඉරටිටේ සංඛ්‍යා ලැයිස්තුවක්‌ ලෙස ප්‍රතිදානය කිරීම සිදු වෙයි.
+
+[4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+
+(11) Write down the output in the above Python code when the condition if i1%2==@: is changed to
+
+(c)
+
+if 17%2 !=@:
+ඉහත පයිතන්‌ කේතයේ if i%2==0: කොන්දේසිය if i%2 !=0: ලෙස වෙනස්‌ කළ විට ප්‍රතිදානය කුමක්‌ ද?
+
+Generates even numbers when 1%2==0. Here 1%2!=0 means whether the value obtained when 1 15 divided
+by 2 is unequal to 0. That is, it checks whether the resulting value is 1. So it gets odd numbers. Since
+nothing else changes in the code, the output will be the odd numbers from 4 to 30 as before.
+
+i%2==0 යන්නදි ඉරටිටේ සංඛ්‍යා ජනනය කරයි. මෙහිදි i1%2!=0 යන්නෙන්‌ අදහස්‌ වන්නේ i 2න්‌ බෙදු SO
+ලැබෙන අගය 0ට අසමාන වේද යන්නයි. එනමි ලැබෙන අගය | ද යන්න පරීක්ෂා කරයි. එසේනමි එමගින්‌
+ලැබෙන්නේ ඔත්තේ සංඛ්‍යා වේ. වෙනත්‌ කිසිවක්‌ කේතයේ වෙනස්‌ නොවන බැවින්‌ ප්‍රතිදානය 4 සිට 30 දක්වා
+ඇති ඔත්තේ සංඛ්‍යා පෙර පරිදිම ප්‍රතිදානය කරනු ලබයි.
+
+[5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
+Write down the replacements for the labels of the following Python code which has been written to
+find the Largest of a set of integers.
+
+HIE සමූහයක විශාලතම නිඛිලය සෙවිමට ලියා ඇති පහත පයිතන්‌ කේතයේ ලේබල aca) ආදේගක ලියා
+දුක්වන්න.
+
+def findlargest(myList):
+
+largest = ..A...
+for 1 in ..B.. :
+if i> .C...
+largest = ..D...
+
+print( "largest value is”,..E...)
+list1=[4,6,24,12,8,94,22]
+findlargest (_ )
+
+Here the largest number is calculated through a given sequence of numbers. Where the largest is the first
+element less than the smallest value in the sequence or the first element of the sequence or 0 can be fixed.
+It then takes each element of the sequence and checks if it is greater than the number set as the largest. If
+so, that number is substituted for the largest. Outputs the largest at the end.
+
+මෙහිදි දෙන ලදු සංඛ්‍යා අනුක්‍රමයක්‌ තුළින්‌ විශාලතම සංඛ්‍යාව ගනනය කරනු ලබයි. එහිදි ප්‍රටමයෙන්ම largest
+ලෙස දෙන ලද අනුක්‍රමය තුළ පවතින කුඩාම අගයට වඩා අඩු අගයක්‌ හෝ ලැයිස්නුවේ පළමු මූුලාංගය හෝ
+0 BOOS කළ හැකිය. ඉන්‌ පසු අනුක්‍රමයේ එක්‌ එක්‌ මුලාංගය ගෙන එය largest ලෙස ස්ටවර කළ සංඛ්‍යාවට
+වඩා විශාලදැයි පරික්ෂා කරයි. එසේ වේ නමි largest සඳහා එම සංඛනව ආදේශ කරයි. අවසානයේ විශාලතම
+සංඛ්‍යාව ප්‍රතිදානය කරයි.
+
+Accordingly, the answers matching the blanks from A to F are given below.
+ඒ අනුව A සිට F es) හිස්තැන්‌ වලට ගැලපෙන පිළිතුරැ පහතින්‌ වේ.
+
+A-@/1/2 / 3/ 4 / myList[0] / 01 any negative number
+B-myList
+
+C- largest
+
+D-i
+
+E - largest
+
+F-listi1
+
+( 2023 —S.Essay 3 )
+
+8.(a) Write the output of the Python code given in Figure 8.1.
+රෑපය 8.1 හි දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
+
+def functioni(str):
+newstr= ""
+for character in str:
+if character in "aeiouAEIOU":
+newstr+='*'
+else:
+newstr+=character
+return newstr
+stri="LibrAry"
+str2=function1(str1)
+print(str2)
+
+Figure 8.1
+
+Answer : L*br*ry
+
+The provided Python code defines a function named function! that takes a string as input and replaces
+all vowels (both uppercase and lowercase) with asterisks (*).
+
+ඉදිරිපන්‌ කරන EC පයිතන්‌ esos, functionl නමි වු කාර්යයක්‌ නිරැපණය කරයි, එය ආදාන වශයෙන්‌
+පවතින අකුරැ පෙළක්‌ ගන්නා අතර, සියලුම ස්වර, (*) වලින්‌ ප්‍රතිස්ටාපනය කරයි.
+
+Function Definition
+
+def functionl1(str):
+
+This line defines a function named function1 that takes a single argument str, which represents the
+input string.
+
+මෙම පේළිය function1l නමැති mbae නිර්වචනය කරයි, එය str නමින්‌ එකම ආදාන පරාමිතියක්‌ ගනී,
+එය ආදාන අකුරැ පෙළ නිරැපණය කරයි.
+
+Initializing New String
+
+newstr =
+
+An empty string newstr is created to store the modified string.
+වෙනස්‌ කල string ගබඩා කිරීම සදහා newstr නමි හිස්‌ විචල්‍යයක්‌ නිර්මාණය කෙරේ.
+
+Iterating Through Characters
+
+for character in str:
+
+This loop iterates through each character in the input string str.
+මෙම පුනටර්කරණය ආදාන අකුරැ පෙළ str හි එක්‌ එක්‌ අකුර හරහා ගමන්‌ කරයි.
+
+Checking for Vowels
+
+if character in ‘aeiouAEIOU':
+newstr += ‘*'
+
+else:
+newstr += character
+
+If the current character is a vowel (either uppercase or lowercase), an asterisk (*) is appended to newstr.
+Otherwise, the original character is appended to newstr.
+
+වත්මන්‌ අක්ෂරය vowel එකක්‌ (uppercase හෝ lowercase) නමි (*) ලකුණක්‌ newstr ට ආදේශ කරන
+අතර එසේ නොමැතිනමි එම අකුරම newstr ට ආදේග කරයි.
+
+Returning Modified String
+
+return newstr
+
+The function returns the modified string newstr with vowels replaced by asterisks ( * ).
+මෙම Gone, vowel එකක්‌ Asterisk(*) වලින්‌ ප්‍රතිස්ටාපනය කරන ලදු වෙනස්‌ කළ newstr string එක ලබා
+දෙයි.
+
+Main Execution
+
+stri1 = “LibrAry"
+str2 = function1(str1)
+print(str2)
+
+A string str1 is assigned the value "LibrAry".
+ඉහත කේතයේ, str1 නමින්‌ © stringO"LibrAry" cea ආදේග කරයි.
+
+The functionz1 15 called with str1 as input, and the result is stored in 5 1122.
+function1l ග්‍රිතයට str1 Manns ලෙස ගෙන, ප්‍රතිවලය str2 නමින්‌ ගබඩා කරයි.
+
+The modified string str2 is printed to the console.
+වෙනස්‌ කළ string එක str2 ලෙස (console) එකට මුද්‍රණය කරයි.
+
+Output
+The output of the code will be:
+
+L*br*ry
+
+(b) The function in Figure 8.2 uses the bubblesort algorithm to sort a given list of numbers into ascending
+order. Write down the suitable replacements for the labels P-U to complete the code.
+රෑපය 8.2 හි දැක්වෙන පහත පයිතන්‌ GMa, දෙන ලද, අංක ලැයිස්තුවක්‌ ආරෝහණ ක්‍රමයට සැකසීමට QAcCO
+තේරීමි (bubble sort) ඇල්ගොරිතමය භාවිත කරයි. කේතය සමිපුර්ණ කිරීම සඳුහා P-U ලේඛබලවලට සුදුසු
+ආදෝේගක ලියා දක්වන්න.
+
+def bubblesort(nList): P len(nList)-1
+for pnumber in range(P,Q,R): Q 0
+
+5: ° ° ° ° R 71
+
+if nList[i] > nList[i+1]: S for i in range(pNumber):
+temp = nList[i] ය 2 2 2
+T T nList[i] = nList[i+1]
+U U nList[i+1] = temp
+
+Figure 8.2
+
+Alternative for P, Q, Rand 5
+
+P 0
+Q len(nList) OR len(nList)-1
+R 1
+S for i in range(@, len(nList)-1)
+OR
+for i in range(len(nList)-1)
+OR
+for i in range(@, len(nList) -1-pNumber)
+
+Understanding the Bubble Sort Algorithm - Bubble Sort ඇල්ගොරිනම අවබෝධ කර ගැනීම
+
+Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements,
+and swaps them if they are in the wrong order. This process is repeated until no swaps are needed, indicating
+that the list is sorted.
+
+Bubble sort යනු ලැයිස්තුව හරහා නැවත නැවතත්‌ පියවර ගන්නා, DAE මුලාංග සංසන්දනය කරන සහ වවා
+වැරදි අනුපිළිවෙලක තිබේ නමි එවා මාරු කර සරල ලෙස OOM කිරීමේ ඇල්ගොරිතමයකි. ලැයිස්තුව
+අනුපිළිවෙලට සකස්‌ කර ඇති බව අඟවමින්‌, හුවමාරුවක්‌ GODS නොවන තෙක්‌ මෙම ක්‍රියාවලිය නැවත සිදු
+කෙටේ.
+
+e P,Q,R
+The outer loop iterates over the entire list for each pass. The starting index is 0 (first element), the
+ending index is the length of the list minus 1 (last element), and the step value is 1 (increment by 1 for
+each iteration).
+පිටත ලුපය එක්‌ එක්‌ වටයක්‌ සඳුහා සමිපුර්ණ ලැයිස්තුව මන පුනරාවරිතනය වේ. ආරමිභක cbamea 0
+වන (පළමු මුලාංගය), අවසාන දර්ශකය යනු ලැයිස්තුවේ දිග සෘණ ] (අවසාන මුලාංගය) වන අතර step
+අගය ] වේ (එක්‌ එක්‌ පුනරාවරිතනය acs) | කින්‌ වැඩි කිරීම).
+
+5
+This inner loop compares adjacent elements within a pass. It iterates from the beginning of the list to
+the second-to-last element (index 1).
+මෙම අභ්‍යන්තර E06 ඊළඟ පුනරාවරතනයට යාමේදී WBE මුලාංගය සමඟ සංසන්දනය කරයි. එය
+ලැයිස්තුවේ ආරම්භයේ සිට අවසාන දෙවන මුලාංගය (index i). E980) පුනරාවරිතනය වේ.
+
+e TandU
+These lines perform the swap of adjacent elements if they are in the wrong order.
+මෙම රේඛාව යාබද මුලාංග වැරදි අනුපිළිවෙලක තිබේ නමි ඒවා හුවමාරැ කිරීම Be කරයි.
+
+1. 1: The value at index i+1 is assigned to the variable temp.
+i+1 දර්ශකයේ අගය විචල්‍ය temp ට පවරා ඇත.
+
+2. U: The value of temp (which was originally at index i+1) is assigned to the index 1, effectively
+swapping the elements.
+temp හි අගය (මුලින්‌ 14-1 දුර්ශකයෙහි පැවති) 1 index වෙත පවරනු ලැබේ, ඵලදායි ලෙස මුලාංග
+වෙනස්‌ කරයි.
+
+In Summary
+
+The provided replacements accurately implement the bubble sort algorithm. The outer loop controls the
+number of passes, the inner loop compares adjacent elements, and the T and U lines perform the necessary
+swaps to sort the list in ascending order.
+
+සපයා ඇති ආදේශනය bubble sort ඇල්ගොරිතම නිවැරදිව ක්‍රියාත්මක කරයි. SOM ලපය OS ගණන පාලනය
+කරයි, අභ්‍යන්තර ලුපය යාබද මුලාංග සංසන්දනය කරයි, සහ T සහ U රේඛා ලැයිස්තුව ආරෝහණ
+අනුපිළිවෙලට වර්ග කිරීමට අවග්‍ය හුවමාරැ කිරීමි සිදු කරයි.
+
+def bubbleSort(nList):
+for pNumber in range(@, len(nList)-1, 1):
+for i in range(pNumber):
+if nList[i] > nList[i+1]:
+temp = nList[i]
+nList[i] = nList[i+1]
+nList[i+1] = temp
+
+(c) An estate owner wants a program to determine the minimum currency note combination needed to make
+the pay of each employee. (E.g., Rs. 40,000 should be paid using eight notes of Rs.5000 and not four
+hundred notes of Rs. 100). The program should also output the currency requirement for all employees.
+The program should use the employees.txt file which contains employee pay details. Each line in it contains
+an employee's name and net pay. A Python program written for this purpose is shown in Figure 8.3. A
+sample employees.txt file and the program's output for that file are shown in Figure 8.4.
+එක්‌ එක්‌ සේවකයාගේ වැටුප සැදිමට අවග්‍ය අවම OEE නෝට්ටු එකතුව නිරණය කිරීමට ක්‍රමලේඛයක්‌ වතු
+හිමිකරුවෙකුට අවග්‍ය වේ. (උදා. රැ. 40,000 ක මාසික වැටුප ගෙවිය යුත්තේ රැ. පන්දහසේ නෝටිටු අටකින්‌
+මිස රැ. සියයේ නෝට්ටු 400 කින්‌ නොවේ.) සියලු සේවකයන්‌ සඳුහා මුදුල්‌ අවශ්‍යතාවය දු ක්‍රමලේඛය ප්‍රතිදානය
+කළ QD ය. ක්‍රමලේඛය, සේවකයන්ගේ ශුද්ධ වැටුප්‌ (net pay) විස්තර අඩංගු employees.txt ගොනුව භාවිත
+කළ යුතු ය. එහි එක්‌ එක්‌ පේළියේ සේවකයකුගේ නම සහ ශුද්ධ වැටුප අඩංගු වේ. ඉහත අවශ්‍යතාවය සඳුහා
+ලියවුනු පයිතන්‌ ක්‍රමලේඛය රෑපය 8.3 හි දැක්වේ. සාමිපල employees.txt ගොනුවකුත්‌, එම ගොනුවට අදාළ
+ඉහත ක්‍රමලේඛයේ ප්‍රතිදානයත්‌ රැපය 8.4 හි දැක්වේ.
+
+(1) Write down the suitable replacements for the ten labels A-J in the program given in Figure 8.3.
+රෑපය 8.3 හි දැක්වෙන පයිතන්‌ ක්‍රමලේඛයේ A-J ලේඛල HED සුදුසු ආදේශක ලියා දුක්වන්න.
+
+#currency notes used in Sri Lanka Example 'employees.txt' file:
+notes = [5000,1000,500,100, 50, 26]
+#total notes required from each currency note type Raj 40120
+totals = [0,0,0,0,0,0] Niranjala 51670
+file = A(employees.txt',r')
+while True: Program's output for that file:
+required = [0,0,0,0,0,0]
+# notes required for employee Rai Net pav=40120
+line = file.readline() Re 5000.
+if B line: Rs. 1000 : 6
+මී Rs. 500 : @
+; ; . Rs. 100 : 1
+empDetails = line.spli() Rs. 50: @
+netpay = ini(foar(D)) Rs. 20: 1
+If netpay ද 6:
+continue Niranjala Net pay=51670
+: 10, Rs. 5000 : 10
+prini("\n") Rs. 1000 : 1
+prini(empDetails[@],"Net pay =",netpay) R * 4
+topay = netpay 5. 566 :
+1-0 Rs. 100: 1
+while topay > 0: Rs. 50 : 1
+required[i] = E Rs. 20: 1
+totals[i] = totals[i] + F TOTAL REQUIREMENT:
+Hl = G Rs. 5000 : 18
+. Rs. 1000 : 1
+#print employee netpay breakdown Re 569 : 1
+for i in range(@, len(required)): Rs. 100 : 2
+print("Rs.",notes[i],":",I) Rs. 56 : 4
+J Rs. 20: 2
+print("\nTOTAL REQUIREMENT:" )
+for i in range(®, len(totals)):
+print("Rs.",notes[i],":",totals[i])
+
+Figure 8.3 Figure 8.4
+
+Import Necessary Data - අවග්‍ය ese Import කිටීම
+
+# currency notes used in Sri Lanka
+
+notes = [5000,1000,500, 100,50,20]
+
+# total notes required from each currency note type
+totals = [0,0,0,0,0,0]
+
+Defines the available currency notes and initializes a list to track the total number of each note required
+
+for all employees.
+පවතින මුදුල්‌ නෝටිටු නිටරවචනය කර සියලුම සේවකයින්‌ සඳහා අවග්‍ය එක්‌ එක්‌ නෝටිටුවේ QO සංඛ්‍යාව
+නිරීක්‍ෂණය කිරීමට ලැයිස්තුවක්‌ ආරමිභ කරයි.
+
+Open Employee Data File— Employee දත්ත ගොනුව විවෘත කිටීම
+file = open('employees.txt','r')
+
+Opens the employees.txt file in read mode.
+
+(Employee.txt) ගොනුව කියවීමේ ප්‍රකාරයෙන්‌ විවෘත කරයි
+
+Process Employee Data — Employee දත්ත සැකසිම
+
+while True:
+required = [0,0,0,0,0,0] # notes required for employee
+
+line = file. readline()
+if not line:
+break
+
+e Initializes a list required to track the number of notes required for the current employee.
+වත්මන්‌ සේවකයාට අවශ්‍ය සටහන්‌ ගණන නිරීක්ෂණය කිරීමට අවග්‍ය ලැයිස්තුවක්‌ ආරමිභ කරයි.
+
+e Reads a line from the file.
+ගොනුවෙන්‌ පේළියක්‌ කියවයි.
+
+e Ifthe line is empty (end of file), breaks the loop.
+රේඛාව හිස්‌ නමි (ගොනුවේ අවසානය), ලුපය බිඳ, දූමයි (break).
+
+Extract Employee Details — Employee විස්තර උපුටා ගැනිම
+
+empDetails = line.split()
+netpay = int(float(empDetails[1]))
+if netpay ද 0:
+continue
+
+e Splits the line into a list of employee details (name and net pay).
+ලැයිස්තුවකට සේවක විස්තර පිළිබඳ පාධ බෙදුයි (නම සහ ශුද්ධ ගෙවිම).
+
+e Converts the net pay to an integer.
+ශුද්ධ ගෙවීම පුර්ණ සංඛ්‍යාවකට පරිවටරිතනය කරයි.
+
+e Ifthe net pay is negative, skips the employee.
+ශුද්ධ වැටුප සෘණාත්මක නමි, සේවකයා මඟ හරියි (skip).
+
+Calculate Note Requirements — නොටිටු අවග්‍යතාවය ගණනය කිරීම
+
+print("\n")
+
+print(empDetails[@],"Net pay =",netpay)
+
+topay = netpay
+
+i=@
+
+while topay > 6:
+required[i] = topay // notes[i]
+totals[i] = totals[i] + required[i]
+topay = topay % notes[i]
+i+=1
+
+e Prints the employee's name and net pay.
+සේවකයාගේ නම සහ ශුද්ධ වැටුප මුද්‍රණය කරයි.
+
+e Initializes topay with the net pay to track the remaining amount.
+ඉතිරි Qce නිරීක්‍ෂණය කිරීම සඳහා ශුද්ධ ගෙවිම සමඟ topay ආරමිභ කරයි.
+
+Iterates over the available notes - පවතින සටහන්‌ මත පුනරාවටිතනය කරයි
+
+e Calculates the number of notes of the current denomination required (required|1]).
+අවග්‍ය වත්මන්‌ වටනාකමේ සටහන්‌ ගණන ගණනය කරයි (required).
+
+e Adds the required number of notes to the total for that denomination (totals[1]).
+එම අගය HED) GOs නෝට්ටු ගණන එකතු කරයි Totalli].
+
+e Updates the remaining amount to pay (topay) by taking the modulo of the previous topay and the
+current note value.
+පෙර Topay හි මොඩියුලය සහ වත්මන්‌ නෝට්ටු අගය ගැනීමෙන්‌ ගෙවිමට ඉතිරි OceE (topay)
+යාවන්කාලීන කරයි.
+
+Print Employee Note Breakdown
+
+# print employee netpay breakdown
+for i in range(@, len(required)):
+print("Rs.",notes[i],":", required[i])
+file.close()
+
+Prints the breakdown of notes required for the current employee.
+වත්මන්‌ සේවකයාට අවශ්‍ය නෝට්ටු බිඳුවැටිම මුද්‍රණය කරයි.
+
+Print Total Requirement
+
+print("\nTOTAL REQUIREMENT: ")
+for i in range(@, len(totals)):
+print("Rs.",notes[i],":",totals[i])
+
+Prints the total number of each note required for all employees.
+සියලම සේවකයින්‌ සඳහා අවග්‍ය එක්‌ එක්‌ නෝටිටුවේ මුළ සංඛ්‍යාව මුද්‍රණය කරයි.
+
+Code with blanks field _ හිස්‌ ක්ෂේත්‍ර සමඟ කේතය
+
+# currency notes used in Sri Lanka
+
+notes = [5000,1000,500, 100,50,20]
+
+# total notes required from each currency note type
+totals = [0,0,0,0,0,0]
+
+file = open('employees.txt','r')
+
+while True:
+required = [0,0,0,0,0,0] # notes required for employee
+
+line = file.readline()
+if not line:
+break
+
+empDetails = line.split()
+netpay = int(float(empDetails[1] ) )
+if netpay ද 0:
+
+continue
+
+print("\n")
+print(empDetails[@],"Net pay =",netpay)
+topay = netpay
+i= 6
+while topay > 6:
+required[i] = topay // notes[i]
+totals[i] = totals[i] + required[i]
+topay = topay % notes[i]
+i+=1
+
+# print employee netpay breakdown
+
+for i in range(@, len(required)):
+print("Rs.",notes[i],":", required[i] )
+
+file.close()
+
+print("\nTOTAL REQUIREMENT: ")
+for i in range(@, len(totals)):
+
+print("Rs.",notes[i],":",totals[i])
+
+Answers : )
+
+SS TOAMUAWD>
+
+; Open
+: not OR ''" == OR "" == (with no space between quotes)
+; break
+
+; empDetails[1]
+
+; topay//notes|i|
+
+required|i]
+
+: topay”onotes|[i] OR topay - required |[i|*notes[i]
+: 1-2121
+
+required|i]
+file.close()
+
+(11) The net pay of employees in this estate, does not contain cents. However, what practical problem with
+
+respect to the net pay inputs exists in this code? What modifications will you do to fix that problem?
+මෙම වතුයායේ සේවකයන්ගේ ශුද්ධ වැටුප්වල ශත ගණන්‌ GAD නොවේ. එහෙත්‌ ශුද්ධ වැටුප්‌ ආදාන
+සමිබන්ධයෙන්‌ කුමන ප්‍රායෝගික ගැටලවක්‌ මෙම කේතයේ පවතී ද? එම ගැටලුව විසඳිමට ඔබ කේතයට
+කරන වෙනස්කමි ලියා දක්වන්න.
+
+This code can only handle net payments with the notes provided in the notes array, payments that does
+not divide by 50 or 20 cannot be handled because in the given array all the notes are a factor of 50 or
+20 so payments that doesn’t belong to them cannot be handled.
+
+මෙම කේතයට නෝේටිටු අරාවේ සපයා ඇති නෝටිටු සමඟ QED ගෙවිමි පමණක්‌ හැසිරවිය හැක, 50 හෝ
+20 න්‌ බෙදෙන්නේ නැති ගෙවිමි හැසිරවිය නොහැක, මන්ද ලබා & ඇති අරාවේ සියලම නෝට්ටු 50 හෝ
+20 ක සාධකයක්‌ වන බැවින්‌ ගෙවිමි අයත්‌ නොවන අතර ඔවුන්ට එය හැසිරවිය නොහැක.
+
+As a Solution we can either ignore all the payments that doesn’t divide by 50 or 20, (although this 15
+barely a solution for a successful program)
+
+විසඳුමක්‌ ලෙස අපට 50 හෝ 208 බෙදෙන්නේ නැති සියලුම ගෙවිමි නොසලකා හැරිය හැක, (මෙය සාඊර්ටක
+වැඩසටහනක්‌ සඳුහා යන්තමි විසඳුමක්‌ නොවේ).
+
+Another way to fix this is use lower valued notes (coins) to handle those payments by extending the
+
+notes array as given below.
+මෙය නිවැරදි කිරීමට තවත්‌ ක්‍රමයක්‌ නමි පහත දක්වා ඇති COE නෝටිටු GOO දිගු කිරීමෙන්‌ එම ගෙවිමි
+හැසිරවීමට අඞු වටිනාකමක්‌ ඇති නෝටිටු (කාසි) භාවිතා කිරීමයි.
+
+notes = | 50006, 10096, 5909, 106, 59, 29, 19, 5, 2, 1]
+totals = [9,9,9,9,9,9,9,9,9,0]
+
+( 2023 — Essay 8 )
+
+2024 AL PYTHON ESSAY MARKING
+
+1.(a) Draw a flow-chart to input the name of a text file and to count and print the number of words in
+that file. Assume that the file exists in the computer. (Hint: Go on reading each character in the
+file. Stop when EOF [end of file] character is encountered.)
+පාධ ගොනුවක (text file) නම ආදානය කර, OO ගොනුවේ ඇති වචන සංඛ්‍යාව ගණන්‌ කර මුදුණය කිරීමට
+DOG සටහනක්‌ අදින්න. පාධ ගොනුව පරිගණකයේ ඇති බව උපකල්පනය කරන්න.
+
+(ඉණනිය: ගොනුවේ අනලක්ෂණය බැගින්‌ කියවීම එකදිගට සිදු කරන්න. EOF [end of file] |ගොනුවේ නිමාව |
+අනුලක්ෂණය ආ SO නතර කරන්න.)
+
+V
+
+Count = 0
+inWord = 0
+Get
+filename
+
+| Open file | ර්‌ ॥ ”A
+
+Count = count + |
+Read | inWord = 0 inWord = ]
+character " J
+
+Space or
+newlin?
+
+/
+
+Print count /
+
+Notes/ සටහනී:
+
+1. Other synonyms could be accepted for “inWord” values.
+අගයන්‌ HCH) වෙනත්‌ සමාන පද පිළිගත හැකිය.
+
+e.g., for 0: false, no/ උදා; 0 සඳුහා: අසත්‍ය, නැත
+for 1: true, yes/ 1 සඳුහා: සත්‍ය, ඔව්‌
+
+2. If ‘inequality’ checks are being used, then the ‘yes’. ‘no’ labels need to interchange.
+අසමානතා පරීක්ෂා භාවිතා කරන්නේ නමි, “@H’. "නැත ලේඛල්‌ හුවමාරැ කර ගත යුතුය.
+
+3. For the conditions, the question mark symbol(?) ) 15 essential.
+කොන්දේසි සඳහා, EGendO ලකුණ Heoesma(?) අත්‍යවග්‍ය වේ.
+
+Synonyms for ‘Get’, ‘Print’ acceptable./ ‘Get’, ‘Print? සඳහා සමාන පදු පිළිගත හැකිය.
+Special Note/ විශේෂ සටහන:
+
+1. There were two alternatives in the original marking, but later the second alternative was removed.
+මුල්‌ ලකුණු කිරීමේ පිටපතෙහි විකල්ප දෙකක්‌ තිබුණි, නමුන්‌ පසුව දෙවන විකල්පය ඉවන්‌ කර ඇත.
+
+2. The given answer corresponds to the first alternative in the original marking. In this answer, only
+spaces and newlines are used to identify word boundaries. As a result, other valid word separators are
+not considered. Additionally, numbers (e.g., 33482) and symbol combinations (e.g., %*&*) are also
+counted as words.
+ලබා දී ඇති පිළිතුර QE ලකුණු කිරිමේ පිටපතෙහි පළමු විකල්පයට අනුරෑප වේ. මෙම පිළිතුටෙදි, වචන
+QBS හඳුනා ගැනීමට හිස්තැන්‌ සහ නව රේඛා පමණක්‌ භාවිතා වේ. එහි ප්‍රතිඵලයක්‌ ලෙස, වෙනත්‌ වලංගු
+වචන වෙන්‌ කරන්නන්‌ සලකා බලනු නොලැබේ. ඊට අමතරව, සංඛ්‍යා (උදා: 33482) සහ සංකේත සංයෝපන
+(උඳා:; 9%”&*) දූ වචන ලෙස ගණන්‌ ගනු ලැබේ.
+
+(0) Write down the output of the following Python code.
+පහත පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
+
+def check_values (n) :
+result = []
+for i in range(1, n + 1):
+if 1 % 2 == @ and i % 3 == 60:
+result.append (i)
+return result
+output = check_values (12)
+print (output)
+
+[6, 12]
+
+Function Definition/ ගිත @SO දැක්වීම:
+def check_values(n):
+
+e This defines a function named check values that takes one parameter 1].
+මෙය n පරාමිතියක්‌ ගන්නා check values නමි ග්‍රිතයක්‌ අර්ථ දක්වයි.
+
+Initialize Empty List/ හිස්‌ ලැයිස්තුව ආරමිභ කිරීම:
+result = | ]
+
+e A list named result is created to store values that meet a certain condition.
+යමි කොන්දේසියක්‌ සපුරාලන අගයන්‌ OV) HOO aes) ලැයිස්තු නමි කළ ප්‍රතිවලයක්‌ නිර්මාණය වේ.
+
+Loop Through Numbers from | to n (inclusive)
+1 සිට n E86) සංඛ්‍යා හරහා ES කිරීිම(ඇතුළත්‌):
+
+(c)
+
+for i in range(1, n + 1):
+
+e range(1,n+ 1) means the loop will run for values from | to n (which is 12), so
+පරාසය range(l,n+1) යන්නෙන්‌ අදහස්‌ කරන්නේ ලුපය 1 සිට n 68) අගයන්‌ සඳුහා ක්‍රියාත්මක වන
+බවයි (එය 12) එබැවින්‌:
+
+1 will take values / 1 ලබා අගයන්‌. ]. 2. 3. .... 12
+Check Condition / තත්වය පරික්‍ෂා කිරීම:
+
+if 1 % 2 == 6 andi % 3 ==
+
+e This checks if the number 1 is divisible by both 2 and 3.
+මෙය i අංකය 2 සහ 3 යන දෙකින්ම බෙදිය orHie යන්න පරීක්ෂා කරයි.
+
+e Ifanumber ts divisible by both 2 and 3, it's divisible by 6
+අංකයක්‌ 2 සහ 3 යන දෙකෙන්ම බෙදිය හැකි නමි, එය 6 න්‌ බෙදිය හැකිය.
+
+Append Matching Numbers to result/ ප්‍රතිඵලයට ගැළපෙන සංඛ්‍යා එකතු කිරීම.
+result.append(i)
+
+Return the Result List/ ප්‍රතිඵල ලැයිස්තුව ආපසු ලබාදිම.
+return result
+
+Function Call and Print/ ග්‍රිතය ඇමතුම සහ මුද්‍රණය:
+output = check_values(12)
+print(output)
+
+Final Output/ අවසාන ප්‍රතිදානය:
+[6, 12]
+
+Notes/ සටහන්‌:
+1. Ignore space defects / හිස්තැන්‌ ඳෝෂ නොසලකා හරින්න.
+
+Fill the five blanks (---------------------- ) of the following Python code which has been written to find
+the prime numbers from 2 upto a given number.
+
+දෙකේ BO GED ලද, සංඛ්‍යාවක්‌ තෙක්‌ ඇති ප්‍රටමක 2) (prime numbers) ප්‍රතිදානය කිරීමට ලියා ඇති
+පහන පයිතන්‌ කේතයේ හිස්තැන්‌ (------------- ) පහ පුරවන්න.
+
+Note: A prime number is any whole number greater than 1 that is divisible only by 1 and itself. e.g.,
+Prime numbers from 2 up to number 5 are 2, 3 and 5.
+900m සංඛ්‍යාවක්‌ යනු 1න්‌ සහ එම සංඛන්‍යවෙන්ම පමණක්‌ බෙදිය හැකි 10 වැඩි ඕනැම පුරණ
+OVO. උදා; දෙකේ සිට පහ තෙක්‌ ඇති ප්‍රටමක සංඛ්‍යා වන්නේ 2, 3 සහ 5 වේ.
+
+upper = int (input (‘Enter end of range:'))
+if upper > 1:
+print ("Prime numbers between 2 and ", upper, "are:")
+for num in range (2, upper + 1) :
+for i in range (2, num) :
+if (num % i) ==
+break
+else:
+print (num)
+
+The outer loop goes through numbers from 2 to the upper limit.
+පිටත E06 2 BO ඉහළ BOO දක්වා සංඛ්‍යා හරහා ගමන්‌ කරයි.
+
+2.(a)
+
+The inner loop checks if num has any divisor other than 1 and itself.
+අභ්‍යන්තර ලපය අංකයට ] සහ AS හැර වෙනත්‌ භාපකයක්‌ තිබේදැයි පරීක්ෂා කරයි.
+
+If a divisor is found — not prime — break.
+භාපකයක්‌ හමු වුවහොත්‌ — ප්‍රටමක නොවේ — අවසන්‌ කිරීම
+
+If no divisors are found — else runs — print the prime number.
+NS හමු නොවන්නේ නමි — එසේ නොමැතිනමි ක්‍රියාත්මක වේ — ප්‍රටමක අංකය මුද්‍රණය කරන්න.
+
+Notes/ සටහන්‌:
+
+1. Ignore space defects/ හිස්තැන්‌ දෝෂ නොසලකා හරින්න.
+2. Exact spelling, case needed./ නිවැරදි අක්ෂර වින්‍යාසය, case අවග්‍යයි.
+
+( 2024 —S.Essay 3 )
+
+Write the output of the Python code given in Figure 8.1.
+රෑපය 8.1 හි දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
+
+def calculate(n):
+result = @
+for i in range(1,n+1):
+for j in range(i):
+result += i*j
+return result
+
+print(calculate(A4) )
+Figure / රෑපය 8.1
+
+Answer / පිළිතුර: 35
+
+Explanation / පැහැදිලි කිරීම:
+
+The Python code calculates the result of nested loops where for each i (from 1 to n), a loop iterates ]
+times (from 0 to 1-1) and the value 1 * ] 1s added to result.
+
+පයිතන්‌ කේතය මගින්‌ එක්‌ එක්‌ 1 (1 සිට n eso) acm ] අගයන්‌ (0 BO i - 1 E80) පුනරාවරිතනය
+වන අතර 1 * ] අගය ප්‍රතිවලය (result) සඳහා එකතු කරන අතර එමගින්‌ ප්‍රතිවලය (result) ගණනය කරයි.
+
+e 1 1--*]100] (11115 from 0 to 0 (only 1 iteration)
+ලූපය 0 සිට 0 දුක්වා ධාවනය වේ (1 පුනරාවඊරතනයක්‌ පමණි) :
+result += 1 * (0 ~- ( — result = 0
+
+e 1=2-~j loop runs from 0 to | (2 iterations)
+ලූපය 0 සිට 1 es) ධාවනය වේ (පුනරාවරතන 22 පමණි):
+result += 2 *0 =0 — result = 0
+result += 2 * 1 -- 2 — result =2
+
+e 1=3- ]j loop runs from 0 to 2 (3 iterations)
+ලූපය 0 BO 2 Eso) ධාවනය වේ (පුනරාවරනන 3ක්‌ පමණි):
+result += 3 *0 ~ () — result -- 2
+result += 3 * ] -- 3 — result=5
+result += 3 * 2 =6 — result = 11
+
+e 1=4- >] loop runs from 0 to 3 (4 iterations)
+ලූපය 0 සිට 3 em) ධාවනය වේ (පුනරාවරතනය 4ක්‌ පමණි):
+result += 4 * () =0 — result = 11
+result += 4 * 1 =4 — result = 15
+result += 4 * 2 = 8 — result = 23
+result += 4 * 3 = 12 — result = 35
+
+(b) Figure 8.2 contains a labeled Python code to print the binary equivalent of an input decimal whole number.
+Write down the suitable replacements for the labels P-U to complete the code.
+රෑපය 8.2 හි දැක්වෙන ලේබල සහිත පයිතන්‌ කේතය ආදානය කළ දගමය පුරණ සංඛ්‍යාවකට -es ද්විමය
+
+සංඛ්‍යාව මුද්‍රණය කරයි කේතය
+
+සම්පුර්ණ කිරීම සඳුහා P-U ලේබලවලට සුදුසු ආදේශක ලියා දක්වන්න
+
+reversed binary =
+
+n = float(input( "Ente
+if n%1 != P:
+exit("Please ente
+
+if (n == P):
+print(n)
+
+while n >= 1:
+reversed binary =
+
+n = Q(n) #convert n to an integer
+
+r a whole number:"))
+
+r a whole number.")
+
+reversed binary + R (5)
+
+n= 1
+binary = U[::-1]
+print(binary)
+Figure / රෑපය 8.2
+Answers / පිළිතුරැ:
+P: 0 Q: int R: str
+Sin % 2 T:n // 2 U: reversed_binary
+
+Explanation / පැහැදිලි කිරීම:
+
+P: 0 | ය්‌
+Q: int ~~
+R: str >
+S:n% 2 ad
+T:n//2 =>
+
+U: reversed binary —
+
+To check if the remainder is not 0 (not a whole number)
+ඉතිරිය 0 නොවේදැයි පරික්ෂා කිරීමට (සමිපුර්ණ සංඛ්‍යාවක්‌ නොවේ).
+
+Convert the floating-point number to an integer
+ඉපිලෙන ලක්ෂ්‍ය අංකය පූර්ණ සංඛ්‍යාවකට පරිවර්තනය කිරීම.
+
+Convert the binary digit (remainder) to a string for concatenation
+ද්විමය OEMS (ශේෂය) සංයුක්ත කිරිමට string එකකට පරිවර්තනය කිරීම.
+
+Compute the remainder when 1] 15 divided by 2
+2 න්‌ බෙදූ විට ඉතිරිය ගණනය කිරීම.
+
+Perform integer division to update n
+යාවත්කාලීන කිරීමට පුරණ සංඛ්‍යා බෙදිම සිදු කිරීම.
+
+Use the reversed binary string
+reversed binary භාවිතා කිරීම.
+
+Final code / අවසාන කේතය:
+
+reversed binary =
+n = float(input( "Enter a whole number:"))
+11 n%1 != 0:
+
+exit("Please enter a whole number.")
+
+n = int(n)
+if ( n == 6 ):
+print(n)
+
+while n >= 1:
+reversed binary = reversed binary + str( n % 2 )
+
+n=n// 2
+binary = reversed_binary[::-1]
+print(binary)
+
+Initialization / ආරමිභ කිරීම
+
+reversed binary =
+A string variable reversed_ binary is initialized to store the binary digits of the number in reversed order.
+ද්විමය සංඛ්‍යාවේ ප්‍රතිලෝම අනුපිළිවෙලෙහි ඉලක්කමි ගබඩා කිරිම සඳුහා string විචල්‍ය reversed binary
+ආරමිභ කර ඇත.
+
+Input and Validation / ආදානය වලංගුකරණය
+n = 1103: (1/(10(11 ( "Enter a whole number:"))
+if n%1 != 6:
+
+exit( "Please enter a whole number.")
+
+e The program prompts the user to input a number.
+වැඩසටහන මඟින්‌ අංකයක්‌ ඇතුළත්‌ කිරීමට පරිශීලකයා පොළඹවයි.
+
+ ॥15 initially taken as a floating-point number to validate that it 1s a whole number.
+මුලදි n සමිපුර්ණ සංඛ්‍යාවක්‌ බව තහවුරැ කිරීම සඳහා OSES EMSs සංඛ්‍යාවක්‌ ලෙස ගනු ලැබේ.
+
+e Ifthe remainder of 1] % 1 15 not zero (meaning n has a fractional part), the program exits with the
+message "Please enter a whole number."
+n%1 හි ඉතිරිය ශුනෟ නොවේ නමි (එනමි ॥ ට MBs කොටසක්‌ ඇන), OcAaeOmMen"Please enter a
+whole number." යන පණිවිඩය සමඟ පිටවේ.
+
+Conversion to Integer / නිඛිල බවට පරිවර්තනය
+
+n = int(n)
+if (n == 6):
+print(n)
+
+e The input n is converted into an integer.
+n ආදානය පුරණ සංඛ්‍යාවක්‌ බවට පරිවරතනය වේ.
+
+e Ifthe number entered is 0, the program immediately outputs 0 because the binary representation of 0
+is simply 0.
+ඇතුලත්‌ කරන ලදු සංඛ්‍යාව 0 නමි, 0 හි ද්විමය නිරැපණය සරලව 0 වන බැවින්‌ වැඩසටහන වහාම
+0 ප්‍රතිදානය කරයි.
+
+Binary Conversion Logic / ද්විමය පරිවටරතන තර්කනය
+
+while n >= 1:
+reversed binary = reversed binary + str(n % 2)
+n=n// 2
+
+e This loop repeatedly divides the number n by 2 (integer division) and appends the remainder (n % 2)
+to the reversed_ binary string.
+මෙම ලපය නැවත නැවතත්‌ n සංඛ්‍යාව 2 න්‌ (පුර්ණ සංඛ්‍යා බෙදිම) GEM අතර ඉතිරිය ( 1 % 2)
+reversed binary string එකකට එකතු කරයි.
+
+e As the number is divided, the remainders represent the binary digits of the number but are generated
+in reverse order.
+සංඛ්‍යාව GHE ඇති විට,ඉතිරිය සංඛ්‍යාවේ ද්විමය ඉලක්කමි නියෝජනය කරන නමුත්‌ ප්‍රතිලෝම අනුපිළිවෙලින්‌
+ජනනය වේ.
+
+Reversing the Binary String / දිවිමය String එක ආපසු හැරවීම
+binary = reversed_binary[::-1]
+
+e The [::-1] slicing operation reverses the reversed binary string to get the correct binary representation.
+[::-1] slicing ක්‍රියාව නිවැරදි ද්විමය නිරැපණය ලබා ගැනීමට reversed binary string එක ආපසු හරවයි.
+
+Output / ප්‍රතිදානය
+print(binary)
+
+e The binary representation of the number 1s printed.
+අංකයේ ද්විමය නිරෑපණය මුද්‍රණය කරයි.
+
+Example Execution / උදාහරණ ක්‍රියාත්මක කිරීම
+
+1. Input / ආදානය
+Enter a whole number: 10
+
+2. Steps / පියවර:
+
+e 10% 2=0, append 0 — reversed_binary = "0"
+
+e 10//2=5
+
+e 5% 2=1, append 1 — reversed_binary = "01"
+
+e S5//2=2
+
+e 2% 2=0, append 0 — reversed_binary = "010"
+e 2//2=1
+
+e 1% 2=1, append 1 — reversed binary = "0101"
+e 1//2=0 (oop terminates / ලපය අවසන්‌ වේ ).
+
+3. Reversed Binary / ප්‍රතිලෝම ද්විමය:
+e reversed binary[::-1] gives "1010".
+
+4. Output / ප්‍රතිදානය
+1010
+
+(c) There is a limit imposed on the maximum weight of an airline passenger's bag. Thus when a person 15
+flying, s/he should select the items which are most important for him/her for the trip.
+ගුවන්යාත්‍රා මගියෙකුගේ බෑගයක උපරිම බරට සමාවක්‌ පනවා ඇත එමනිසා පුද්ගලයෙකු පියාසර කරන විට,
+ඔහු/ඇය තම ගමනට වඩාත්ම වැදගත්‌ වන අයිතම තෝරාගත යුතු ය.
+
+From three items, a labeled Python code written to help a person decide on the ‘highest value’ items that
+s/he should choose for a bag, is shown in Figure 8.3. The total weight of the bag should be within the
+airline's capacity limit for a bag which is 50 Kg. The weights, values and the names of the three items are
+in the relevant arrays. The output of the code is given in Figure 8.4.
+
+පුද්ගලයකුට, අයිතම තුනක්‌ අතුරෙන්‌ බාගයකට තනෝරාගත යුතු වටිනාකම (value) 'වැඩිම අයිතම තිරණය
+කිරීමට උදුව්‌ දෙන ලේබල සහිත පයිතන්‌ කේතයක්‌ රෑපය 8.3 හි දැක්වේ. බෑගයේ මුළු බර, ගුවන්‌ සේවය
+බෑගයකට පනවා ඇති ධාරිතා (capacity) සීමාව වන 50 kez තුළ විය යුතු ය. අයිතම තුනෙහි බර (weights),
+වටිනාකමි (values) සහ නමි (names) අදාළ ආරවන්‌ තුළ ඇත. කේතයේ ප්‍රතිදානය රැපය (8.4) හි දැක්වේ.
+
+def item_selector(remainder, weights, values, names):
+A=len(B)
+merged = [(values[i], weights[i], names[i], i) for i in range(n) |
+print("Merged:", merged)
+merged.sort(reverse=True, key=lambda x: x[@])
+print("Sorted records:", merged)
+
+res =
+for value, weight, name, index in merged:
+if remainder >= weight:
+C = D + name +''
+E=F-G
+return res
+
+# Input:
+
+bag capacity = 56
+
+weights = [49, 10, 35]
+
+values = [60, 100, 120]
+
+names = ["Laptop", "Book", "Clothes" ]
+
+selected = H(bag capacity, weights, values, names)
+print( "Selected items:", I)
+
+Figure / රෑපය 8.3
+
+Merged: [(60, 49, ‘Laptop’, 6), (166, 16, ‘Book’, 1), (120, 35, ‘Clothes’, 2) ]
+Sorted records: | (126, 35, 'Clothes', 2), (100, 10, ‘Book', 1), (60, 49,
+‘Laptop’, e)]
+
+Selected items: Clothes Book
+
+Figure / රෑපය 8.4
+
+(1) Write down the suitable replacements for the nine labels (A-I) in the Python code given in Figure 8.3.
+රෑපය හි දැක්වෙන පයිතන්‌ කේතයේ ලේබල නවය (A-I) සඳහා සුදුසු ආදේගක ලියා දුක්වන්න
+
+Notes / සටහන්‌:
+
+e The Python sort() method could be used to sort a list.
+ලැයිස්තුවක්‌ අනුපිළිවෙළට සැකසීමට (sorting) පයිතන්‌ sort() විධිය (method) mda කළ හැකිය
+
+Syntax : list.sort(reverse=True|False, key=myFunc)
+එහි කාරක Sha : list.sort(reverse=True|False, key=myFunc)
+
+e When 'reverse=True'’, the list is sorted into descending order.
+'reverse=True’' විට ලැයිස්තුව අවරෝහණ ක්‍රමයට සැකසේ
+
+e How the sorting is to be done could be indicated through the ‘key’.
+අනුපිළිවෙළට සකස්‌ කළ යුත්තේ කෙසේද, යන්න key හරහා දැන්විය හැකිය
+
+e.g., 'key=lambda x: x[O]' in the above code indicates that the sorting is to be done based on the
+numbers in the 'values' array.
+
+උදා. ඉහත කේතයේ 'key=lambda x: x[0]'  දැනුමි දෙන්නේ 'values' අරාවේ අගයන්‌ මත අනුපිළිවෙළට
+සැකසීම සිදු කළ යුතු බවයි
+
+Answers / පිළිතුරැ;
+A in F  : remainder
+13 : weights ල්‌ : weight
+ලඋ ;: res 11 : item_ selector
+1) : 165 I : selected
+E ;: remainder
+
+Explanation / පැහැදිලි කිරීම :
+
+The number of items
+
+Arn ~ අයිතම ගණන.
+13: weights _, Used to get the length of the list
+8 ලැයිස්තුවේ E® ලබා ගැනීමට භාවිතා කරයි
+ලං res _, Update the result string with the selected item's name
+තෝරාගත්‌ අයිතමයේ නම සමඟ ප්‍රතිඵල තන්තුව යාවත්කාලීන කිරීමට
+D: tes _, Append the name of the item to the result
+ප්‍රතිවලයට අයිතමයේ නම එක්‌ කිරීමට
+. . Update the remaining capacity of the bag
+E: remainder _ * බෑගයේ ඉතිරි DOMO යාවත්කාලින කිරීමට
+F: remainder _, The current capacity before subtracting the weight
+බර GH කිරීමට පෙර වත්මන්‌ ධාරිතාව
+ලුං weight _, Subtract the weight of the selected item
+8 තෝරාගත්‌ අයිතමයේ බර අඩු කිරීම
+11: _, all the function to execute the logic
+item_ selector තටරකය ක්‍රියාත්මක කිරීමට Gone ඇමතීම
+1: selected _, Print the final selected items
+
+අවසාන තෝරාගත්‌ අයිතම මුදුණය කිරීම
+
+Corrected code / නිවැරදි කේතය
+
+def item_selector(remainder, weights, values, names):
+
+n = len(weights)
+
+merged = [(values[i], weights[i], names[i], i) for i in range(n) ]
+
+print("Merged:", merged)
+
+merged.sort(reverse=True, key=lambda x: x[@])
+
+print( "Sorted records:", merged)
+
+res = ''
+
+for value, weight, name, index in merged:
+
+if remainder >= weight:
+
+res = res + name +
+remainder = remainder - weight
+
+return res
+
+# Input:
+
+bag capacity = 56
+
+weights = [49, 10, 35]
+
+values = [60, 100, 120]
+
+names = ["Laptop", "Book", "Clothes" |
+
+selected = item_selector(bag capacity, weights, values, names)
+print( "Selected items:", selected)
+
+1. Function Definition / ශ්‍රිතය qbd දැක්වීම
+
+def item_selector(remainder, weights, values, names):
+
+e remainder:
+Represents the remaining capacity (e.g., bag capacity).
+ඉතිරි ධාරිතාව (උදා., බෑග්‌ ධාරිතාව) නියෝපනය කරයි.
+
+e weights:
+A list of weights (sizes) for each item.
+එක්‌ එක්‌ අයිතමය HCH) බර (ප්‍රමාණ) ලැයිස්තුවක්‌.
+
+e values:
+A list of values associated with each item.
+එක්‌ එක්‌ අයිතමයට සමිබන්ධ අගයන්‌ ලැයිස්තුවක්‌.
+
+® names:
+A list of ttem names corresponding to the weights and values.
+QO සහ අගයන්ට අනුරැප අයිතම නාම ලැයිස්තුවක්‌.
+
+2. Merging the Data / දූත්ත ඒකාබද්ධ කිරීම
+n = len(weights)
+merged = [(values[i], weights[i], names[i], i) for i in range(n)]
+print("Merged:", merged)
+
+e The merged list combines values, weights, names, and indices of the items.
+ඒකාඛද්ධ ලැයිස්තුව අයිතමවල අගයන්‌, බර, නමි සහ chaw එකාබද්ධ කරයි.
+
+e Each tuple (values[i], weights[i], 11411155[ 1]. 1) represents one item
+සැම tuple එකක්ම (values|i], weights[i], names|[i], 1) එක්‌ අයිතමයක්‌ නියෝපනය කරයි:
+
+= values[i] — value of the item / අයිතමයේ අගය
+=» weights[i] — weight of the item / භාණ්ඩයේ බර
+=" namesfli] — name of the item / අයිතමයේ නම
+=] => original index (to maintain item identity, if needed)
+මුල්‌ දර්ශකය (අවග්‍ය නමි, අයිතම අනන්‍යතාවය පවත්වා ගැනීමට).
+Example / උදාහරණය:
+
+e values = [60, 100, 120]
+e weights = [49, 10, 35]
+e names = ["Laptop", "Book", "Clothes"]
+
+The merged list becomes / එකාබද්ධ ලැයිස්තුව බවට පත්‌ වන්නේ.
+Merged: | (60, 49, ‘Laptop’, @), (1066, 10, ‘Book’, 1), (120, 35, ‘Clothes’,
+2)]
+
+3. Sorting the Items / අයිතම Odo කිරීම
+merged.sort(reverse=True, key=lambda x: x[@])
+print( "Sorted records:", merged)
+
+e The merged list is sorted in descending order of values using key=lambda x: x[0], where x[0]
+represents the value of each item.
+එකාබද්ධ කළ ලැයිස්තුව key=lambda x: x[0] භාවිතා කරමින්‌ අගයන්‌ අවරෝහණ අනුපිළිවෙලට වර්ග
+කර ඇත, එහිදි x[0] එක්‌ එක්‌ අයිතමයේ අගය නියෝපනය කරයි.
+
+e Sorting ensures that the items with higher values are considered first.
+වර්ග කිරීම මඟින්‌ ඉහළ අගයන්‌ සහිත අයිතම පළමුව සලකනු ලැබේ.
+
+Sorted Output: After sorting the example data:
+වර්ග කළ ප්‍රතිදානය: උදාහරණ evi OO කිරිමෙන්‌ පසු;
+
+Sorted records: | (126, 35, ‘Clothes’, 2), (100, 10, ‘Book’, 1), (60, 49,
+‘Laptop’, @)]
+
+4. Selecting Items Based on Capacity / ධාටීතාව මත අයිතම enid) ගැනීම
+res = ''
+for value, weight, name, index in merged:
+if remainder >= weight:
+res = res + name 4 '
+
+remainder = remainder - weight
+
+The for loop iterates through the sorted merged list.
+for ලපය අනුපිළිවෙලට එකාබද්ධ කළ ලැයිස්තුව හරහා පුනරාවරතනය වේ.
+
+For each item / එක්‌ එක්‌ අයිතමය සඳහා :
+ ॥1115 weight can fit within the remaining capacity (remainder >= weight), it is selected.
+එහි බර ඉතිරි ධාරිතාව ( remainder >= weight ) MEO ගැලපේ නමි, එය තෝරා OR ලැබේ.
+
+e The item's name is appended to the result string res.
+අයිතමයේ නම ප්‍රතිවල string එක res වෙත අමුණා ඇත
+
+e The remainder is reduced by the weight of the selected item.
+නෝරාගත්‌ භාණ්ඩයේ බර අනුව ඉතිරිය අඩු වේ.
+
+5. Return Result / ප්‍රතිඵලය
+return res
+
+e The function returns a string containing the names of the selected items separated by spaces.
+Goo මඟින්‌ හිස්තැන්වලින්‌ වෙන්‌ කරන ලද, තෝරාගත්‌ අයිතමවල නමි අඩංගු string එකක්‌ ආපසු
+ලබා දේ.
+
+Example Execution / උදාහරණ ක්‍රියාත්මක කිරීම
+
+1. Input / ආදානය:
+bag capacity = 56
+weights = [49, 10, 35]
+values = [60, 100, 120]
+names = ["Laptop", "Book", "Clothes" |
+
+selected = item_selector(bag capacity, weights, values, names)
+print( "Selected items:", selected)
+
+2. Steps / පියවර:
+Merging / ඒකාබද්ධ කිරීම
+
+Merged: | (60, 49, ‘Laptop’, @), (100, 10, 'Book', 1), (120, 35,
+‘Clothes’, 2) ]
+
+3. Sorting by Value/qoo අනුව වටඊග කිරීම:
+Sorted records: | (126, 35, ‘Clothes’, 2), (100, 10, ‘Book’, 1), (60, 49,
+‘Laptop’, @)]
+
+4. Selecting Items / අයිතම තෝරා ගැනීම:
+
+Start with remainder = 50) / remainder = 50 සමඟ ආරමිභ කරයි.
+
+Clothes (weight = 35) | Fits in the bag/ බෑගයට ගැලපේ remainder = 50 - 35 = 15.
+Book (weight = 10) Fits in the bag / @@GO ගැලපේ remainder = 15 - 10=5.
+Laptop (weight = 49) | Does not fit / නොගැලපේ skip.
+
+5. Output / ප්‍රතිදානය:
+Selected items: Clothes Book
+
+(11) Describe the changes that should be done to the code to increase the number of items from three to five.
+අයිතම ගණන තුනේ BO පහ දක්වා ඉහළ දැමිමට ක්‍රමලේඛයට සිදු කළ ay වෙනස්කමි විස්නර කරන්න
+
+Answer / පිළිතුර :
+
+Update the input arrays to include weights, values, and names of additional items needed
+අවග්‍ය අමතර FSMOOE බර, අගයන්‌ සහ නමි ( weights, values, and names ) ඇතුළත්‌ කිරීමට ආදාන
+අරා යාවත්කාලින කරන්න
+
+Explanation / පැහැදිලි කිරීම :
+
+No further changes to the function are required since the code already generalizes to handle any number
+of items based on the length of the arrays. The logic dynamically loops through all provided items.
+අරාවේ දිග මත පදුනමිව ඕනැම අයිතම ගණනක්‌ හැසිරවීමට කේතය දැනටමත්‌ සාමාන්‍යකරණය කර ඇති
+බැවින්‌ ශ්‍රිතයට තවත්‌ වෙනස්‌ HOO අවග්‍ය නොවේ. ලබා & ඇති සියලුම අයිතම හරහා තර්කනය ගතිකව
+ලප්‌ වේ.
+
+weights = [49, 10, 35, 26, 25]
+values = | 60, 100, 120, 80, 90]
+names = ["Laptop", "Book", "Clothes", "Shoes", "Camera" |

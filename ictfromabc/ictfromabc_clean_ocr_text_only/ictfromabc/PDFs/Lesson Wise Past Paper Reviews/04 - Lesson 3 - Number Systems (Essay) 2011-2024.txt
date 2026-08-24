@@ -1,0 +1,483 @@
+2011 NUMBER SYSTEM S.ESSAY MARKING
+
+1.
+
+Show how the computation 5+(-3) is done in 8-bit two's complement arithmetic. Explain how you
+deal with the carry generated from the most significant bit.
+
+බිටු අටේ (8-bit) දෙකෙහි අනුපුරක (Two’s complement) අංක ගණිතය මගින්‌ 5+(-3) ආගණනය කරන
+අයුරැ පෙන්වන්න. වැඩිම වෙසෙසි BQO (Most significant bit) මගින්‌ උත්පාදූනය වු ආනීතය (Carry) සමග
+ඔබ කටයුතු කරන ආකාරය පැහැදිලි කරන්න.
+
+( 2011 S.ESSAY -_ 1[c] )
+
+Let’s convert -3 into 2 5 complement.
+-3, 2 හි අනුපුරක බවට පරිවරතනය කරමු.
+
++3 in Binary ?
++3 ද්විමය ලෙස
+
+8 bit representation
+
+Invert bits
+
+බිටු ප්‍රතිලෝමය 11111100
+Add 1 a
+
+1ක්‌ එකතු HOO
+
+2’s complement
+
+28 අනුපුරකය 11111101
+
+Since 5, is a positive number therefore we can get the 8 bit representation without inverting the bits.
+5 යනු ධන සංඛආාවක්‌ බැවින්‌, අපට බිටු ප්‍රතිලෝම නොකර BQ 8 ක නිරෑැෑපණය ලබා ගත හැකිය.
+
++5 in Binary 101
++5 ද්විමය ලෙස
+8 bit representation
+BQ 8 ක නිරෑපණය 00000101
+Add the 2 binary numbers.
+CHO සංඛ්‍යා 2 එකතු කරන්න.
+5 00000101
+-3 4211111164
+106000066016
+
+During the addition, a carry is generated from the MSB. The carry 15 ignored because it represents the
+sign. The result is taken from the remaining 8 bits.
+
+එකතු කිරිමේදි, MSB වෙතින්‌ carry bit එකක්‌ පනනය වේ. එය ලකුණ නියෝපනය කරන බැවින්‌ එය
+නොසලකා හරිනු ලැබේ. ප්‍රතිවලය ඉතිරි බිටු 8 න්‌ ලබා ගනී.
+
+Therefore the decimal equivalent of 102 is , 210
+එබැවින්‌ 102.4 දශම සමානතාවය, 210 වේ.
+
+2012 NUMBER SYSTEM S.ESSAY MARKING
+
+1. Show how the computation 15+(-5) is done in 8-bit two's complement arithmetic. Explain how you
+deal with the carry generated in the most significant bit.
+බිටු 8 හි (8 bit) දෙකේ අනුපුරක (two’s complement) අංක ගණිතයෙහි 15+(-5) ආගණනය (computa-
+tion) කරනු ලබන්නේ කෙසේදැයි පෙන්වා දෙන්න. වඩාත්ම වෙසෙසි බිටුවෙහි (most significant bit) උත්පාදනය
+වන ආනීතය (carry) ඔබ හසුරැවන්නේ කෙසේදැයි පැහැදිලි කරන්න.
+
+( 2012 S.ESSAY - 3[b] )
+
+Answer with explanation / පැහැදිලි කිරීම සමඟ පිළිතුර:
+15 in 8 bits two’s complement / 15 හි බිටු 8 හි (8 bit) දෙකේ අනුපුරකය (two’s complement),
+
+- 1
+- 1
+- 1
+
+ට්‍ර
+me | ටර | -ූ | Re
+රෟ
+
+= 000011112
+
+5 in 8 bit two’s complement / 5 හි බිටු 8 හි (8 bit) දෙකේ අනුපුරකය (two’s complement),
+
+= 000001012
+
+(-5) in 8 bit two’s complement / (-5) හි බිටු 8 හි (8 bit) දෙකේ අනුපුරකය (two’s complement),
+1 1 1 1 1 0 [ 0
+
++ |
+11 1 1 1 0 [ |[
+
+15+(-5)
+
+00001111
++1 11 11011
+(100 00 |] 010
+
+|
+
+Ignore the carry bit / ආනිතය නොසලකා හරින්න.
+
+Therefore the answer is 000010102/ එබැවින්‌ පිළිනුර 00001010268.
+
+How to Deal with the Carry from the Most Significant Bit (MSB) in Two’s Complement:
+
+දෙකේ අනුපුරකයෙහි (two’s complement), වැඩිම වෙසෙසි බිටුවෙහි (MSB) BO ආනීතය සමඟ කටයුතු
+කරන්නේ කෙසේද:
+
+In two’s complement arithmetic, the carry out of the most significant bit is ignored.
+දෙකේ අනුපුරක අංක ගණිතයේදී, වැඩිම වෙසෙසි බිටු ක්‍රියාත්මක කිරීම නොසලකා හරිනු ලැබේ.
+
+Why / ඇයි?
+Because in two’s complement
+මන්ද දෙකේ අනුපුරකයේ.:
+
+Negative numbers are encoded using bit patterns
+සෘණ සංඛ්‍යා බිටු රටා භාවිතයෙන්‌ කේතනය කර ඇත.
+
+The MSB represents the sign (0 for positive, 1 for negative).
+71513 සංකේතය නියෝජනය කරයි (ධන සඳහා 0, සෘණ සඳුහා 1).
+
+The system is designed so that overflow and negative values are handled within the fixed number of bits
+(e.g., 8 bits).
+
+පද්ධතිය සැලසුමි කර ඇත්තේ පිටාර ගැලීම සහ සෘණ අගයන්‌ BOOS BQ ගණන (උදා; BQ 8) ME
+හසුරැවන පරිදිය.
+
+So what do you do with the carry
+එවිට ඔබ රැගෙන යාමෙන්‌ කරන්නේ කුමක්ද ?
+
+You simply discard it. It does not affect the result.
+ඔබ AG සරලව ඉවතලන්න. එය ප්‍රතිවලය බලපාන්නේ නැත.
+
+Summary / සාරාංශය:
+
+In two's complement, you ignore the carry from the MSB. It does not impact the final result, because
+two's complement arithmetic wraps naturally within the fixed bit width (like 8-bit).
+
+දෙකේ අනුපුරකයේදි, ඔබ MSB වෙතින්‌ ආනීනය නොසලකා හරියි. එය අවසන්‌ QEHOHEGO බලපාන්නේ නැත,
+Ose, දෙකේ අනුපුරක අංක ගණිතය SOOO බිටු පළල (8-බිටි වැනි) තුළ ස්වභාවිකව පැවතීම නිසාය.
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2013 NUMBER SYSTEM S.ESSAY MARKING
+
+1.(a))Convert 1310 and —19;5 into two’s complement numbers. Use 8-bits to represent a number.
+1310 සහ — 19; සහ දෙකෙහි අනුපුරක (two’s complement) සංඛ්‍යාවන්ට පරිවරිතනය කරන්න. සංඛ්‍යාවක්‌
+නිරැපණය කිරීම සඳුහා බිටු 8 ක්‌ භාවිත කරන්න.
+
+(2013 S.ESSAY - 110] )
+
+1. Convert 1310 binary (positive number) / 1319 සංඛ්‍යාව (ධන සංඛ්‍යාව) ද්විමය බවට පරිවරතනය කරන්න
+13106_00001101-
+
+Simply convert to binary and pad to 8 bits.
+පහසුවෙන්‌ ද්විමය බවට පරිවරිතනය කර BQ 8ක්‌ බවට පරිවරිතනය කරන්න
+
+2. Convert --1910 to binary (two’s complement)
+
+191) සංඛ්‍යාව ද්විමය බවට පරිවරතනය කරන්න (දෙකෙහි අනුපුරකය):
+
+First, convert 19:0 10 binary. / පළමුව, 1910 ද්විමය බවට පරිවර්තනය කරන්න:
+1910 0001001 1,
+
+Then, invert the bits / ඉන්පසු, BQ ප්‍රතිලෝම කරන්න.
+00010011 — 11101100
+
+Add 1 / 1ක්‌ එකතු කරන්න:
+11101100 + 1 =11101101
+
+Final Answer (8-bit two’s complement) / අවසාන පිළිතුර (BS 86 දෙකෙහි අනුපුරකය):
+1310 = 000011012
+-19;9 = 111011012
+
+(ii) Compute 1310-- 19:10 by using two’s complement. numbers obtained in section (1) above and give the
+answer in two’s complement form.
+ඉහත (i) කොටසේ දි ලබා ගත්‌ දෙකෙහි අනුපුරක සංඛ්‍යා භාවිත කරමින්‌ 1310-190 ගණනය කර පිළිතුර
+දෙකෙහි අනුපුරකයක ආකාරයෙන්‌ ලබා දෙන්න.
+
+You already have the 8-bit representations / ඔබට දැනටමත්‌ බිටු 8හි නිරෑැපණයන්‌ පවති
+1310 = 000011012
+-19;5 = 11101101,
+
+Now, add them e725, 30) එකතු කරන්න
+
+00001101 3(3)
+11101101 (19)
+1111101 0
+
+No carry is discarded in 8-bit two's complement addition.
+බිටු 8h දෙකේ අනුපුරක එකතු කිරීමේදි කිසිදු රැගෙන යාමක්‌ ඉවත COR නොලැබේ.
+
+Interpretation
+Since the most significant bit (MSB) is 1, it’s a negative number.
+MSB, 1 වන බැවින්‌, එය සෘණ සංඛ්‍යාවකි.
+
+To get its decimal value / එහි දශම අගය ලබා ගැනීමට:
+Invert bits ID ප්‍රතිලෝම කරන්න:
+11111010 — 00000101
+
+Add 1/ 1ක්‌ ee කරන්න:
+00000101 + 1 =00000110 — 6 in decimal
+So, the value is -6 / එබැවින්‌, අගය -—6 වේ
+
+(111) Explain how the positive and negative numbers in two’s complement can be converted into decimal
+numbers.
+දෙකෙහි අනුපුරක ආකාරයට පවතින ධන සහ සෘණ සංඛ්‍යා දූශමය (decimal) සංඛ්‍යා බවට පරිවරතනය
+කරන ආකාරය පැහැදිලි කරන්න.
+
+1. Identify the sign of the final decimal number by most significant bit (MSB)
+අවසාන දුගම සංඛ්‍යාවේ ලකුණ MSB මගින්‌ හඳුනා ගන්න
+
+e If most significant bit is 0 — the number is positive / MSB එක 0 නමි — සංඛ්‍යාව ධන වේ
+= Convert directly to decimal / කෙලින්ම දූශමයට පරිවරිතනය කරන්න
+e If most significant bit is 1 — the number is negative / MSB එක 1 නමි — සංඛ්‍යාව සෘණ වේ
+= Take the sign as negative / ලකුණ සෘණ ලෙස ගන්න
+= Get the binary number / ද්විමය අංකය ලබා ගන්න
+= Invert the bit values / බිටි අගයන්‌ ප්‍රතිලෝම කරන්න
+= Add 1 to the least significant bit/ LSB බිටි එකට 1 එකතු කරන්න
+= Convert the result to decimal / ප්‍රතිඵලය දශමයට පරිවරතනය කරන්න
+« Final answer will be negative / අවසාන පිළිතුර සෑණ වනු ඇත
+
+OR හෝ
+
+2. Apply the reverse process of two’s complement
+දෙකේ අනුපුරකයේ ප්‍රතිලෝම ක්‍රියාවලිය යොදුන්න
+e Understand that the value is stored in two’s complement form
+අගය දෙකේ අනුපුරක ආකාරයෙන්‌ ගබඩා කර ඇති QO නේරැමි ගන්න
+
+e Convert using the two’s complement rules to get the decimal value
+
+2014 NUMBER SYSTEM S.ESSAY MARKING
+
+1. Show that the negative of 00012 is 11112. Note that both numbers are represented in two's
+complement form. 7 0001. හි සෘණ අගය 1111. බව පෙන්වන්න. මෙම සංඛ්‍යා දෙකම දෙකෙහි අනුපුරක
+ආකාරයෙන්‌ ඇති බව සලකන්න.
+
+( 2014 S.ESSAY -_ 2[a] )
+
+Method 1: Normal Method / සාමාන්‍ය ක්‍රමය
+We are asked to find the negative of 00012 (which is +1 11] binary).
+00012. හි සෑණ අගය සොයා ගැනීමට අපෙන්‌ ඉල්ලා සිටි (Oe ද්විමය ආකාරයෙන්‌ +1 වේ).
+
+To convert a positive number into a negatve using two’s complement, we do two steps:
+දෙකේ අනුපුරකය භාවිතයෙන්‌ ධන සංඛ්‍යාවක්‌ සෘණ අගයක්‌ බවට පරිවටතනය කිරීම සඳහා, අපි පියවර
+දෙකක්‌ භාවිතා කරමු;
+
+Step 1: Find the one’s complement / එකෙහි අනුපුරකය සොයා ගන්න
+One’s complement means / එකෙහි අනුපුරකය යන්නෙන්‌ අදහස්‌ වන්නේ:
+= Change all 05 to 15 / සියලුම 0, 1 බවට වෙනස්‌ කරන්න
+
+=" Change all ls to 05 / සියලුම 1, 0 බවට වෙනස්‌ කරන්න
+
+So, 101 / එම නිසා:
+0001 — 1110
+
+Step 2: Add 1 to the result / ප්‍රතිඵවලයට | එකතු කරන්න
+Now, take 1110 and add 1 / දැන්‌, 11100 1 එකතු කරන්න:
+1110+1=1111
+
+Final Result / අවසාන ප්‍රතිවලය:
+So, the negative of 00012 is 11112 (in 4-bit two’s complement).
+එබැවින්‌, 0001. හි සෑණ අගය 11112 වේ (Bd 4 දෙකේ අනුපුරකය me).
+
+Method 2: Reverse Method / ප්‍රතිලෝම ක්‍රමය
+
+We now start from the answer / දැන්‌ අපි පිළිතුරෙන්‌ පටන්‌ ගනිමු : 1111
+
+Let’s check if this represents —1 / මෙය —-1 නියෝපනය කරන්නේ දැයි පරීක්ෂා කරමු
+Step 1: Since the first bit is 1, we know this is a negative number. / පළමු BO Os ] වන බැවින්‌, මෙය
+සෘණ සංඛ්‍යාවක්‌ බව අපි උනිමු.
+
+Step 2: To find its positive value: / එහි ධන අගය සොයා ගැනීමට:
+We again do two steps but in reverse: / අපි නැවතත්‌ පියවර දෙකක්‌ කරන්නෙමු, නමුත්‌ ප්‍රතිලෝමව:
+
+A) From 1111, subtract | / 111123 13 අඩු කරන්න:
+1111 — 1110
+
+B) Take one’s complement of the result / ප්‍රතිවලයේ එකෙහි අනුපුරකය ගන්න
+Change all 1s to Os and Os to 1s: / සියලුම 1, 0 ලෙසත්‌ 0, 1 ලෙසත්‌ වෙනස්‌ කරන්න:
+1110 — 0001
+
+So, 1111 in two’s complement form is —00012 or --]
+එබැවින්‌, 1111 දෙකේ අනුපුරක ආකාරයෙන්‌ —00012 හෝ —-1 වේ
+
+2015 NUMBER SYSTEM S.ESSAY MARKING
+
+1.(a) Assume that in a particular digital device integers are represented in 8-bits two’s complement form.
+
+However, the results of computations are printed in decimal.
+
+එක්තරා සංඛනංක උපක්‍රමයක (digital device) SAE නිරැපණය කරනු ලබන්නේ BQ 8 හි දෙකෙහි අනුපුරක
+ආකාරයට යැයි උපකල්පනය කරන්න. කෙසේ වෙතත්‌ ආගණනයන්හි ප්‍රතිවල දශමය ආකාරයෙන්‌ මුද්‍රණය කරනු
+ලැබේ.
+
+( 2015 S.ESSAY -_ 2[a] )
+
+Give the representation of 1010 in the above device.
+ඉහත උපක්‍රමයෙහි 101 නිරැපණය (representation) කරන ආකාරය දක්වන්න.
+
+Here the question asked to get the 2’s complement of 10. 10 is a positive number. So, it’s enough to get
+the binary value of the decimal number 10. No need to inverse and add one to the binary value.
+
+මෙහිදී, ධන 10 හි 2 හි අනුපුරකය ලබා ගැනීමට ප්‍රශ්නය අසයි. එබැවින්‌, දගශම අංක 10 හි ද්විමය අගය
+ලබා ගැනීම ප්‍රමාණවත්‌ වේ. ද්විමය අගයට එකක්‌ එකතු කර ප්‍රතිලෝම කිරීම අවශ්‍ය නොවේ.
+
+2| 10
+2/5 - 0 4
+
+2|2 - 1 = 1010
+2/1 - 0
+
+2 0 - 1
+
+AS we are representing the 2’s complement value in 8 bits we should add 0 in front of the whole value.
+බිටු 8 කින්‌ 2 හි අනුපුරක අගය නියෝපනය කරන බැවින්‌ සමිපුර්ණ අගය ඉදිරියෙන්‌ 0 එකතු කළ යුතුය.
+
+10 = 000010102
+
+(11) Give the representation of -2510 in the above device.
+
+ඉහත උපක්‍රමයෙහි -251॥ නිරැපණය කරන ආකාරය දක්වන්න.
+
+Here the question asked to get the 2’s complement of -25. Firstly, we want to get the binary value of 25.
+මෙහිදී -25 හි 2 හි අනුපුරකය ලබා ගැනීමට ප්‍රග්නය අසයි. පළමුව, අපට 25 හි ද්විමය අගය ලබා ගත
+යුතුයි.
+
+2/25 A
+
+2 | 12 - |
+
+216 - 0
+
+313 0 = 11001
+2/1 - |
+
+As we represent the 25 complement value in 8 bits we should add Os before the whole value.
+අපි බිටු 8 කින්‌ 2 හි අනුපුරක අගය නියෝපනය කරන බැවින්‌ සමිපුර්ණ අගයට පෙර 0 එකතු කළ යුතුය.
+
+00011001
+
+After this, the binary value should be inverted.
+මෙයින්‌ පසු, ද්විමය අගය ප්‍රතිලෝම කළ යුතුය.
+
+00011001 — 11100110
+
+Finally, add 1 to the inverted binary value.
+අවසාන OCHS, ප්‍රතිලෝම ද්විමය අගයට 1ක්‌ එකතු කරන්න.
+
+1 1 1 0 0 |
+
+1 0
++ ]
+1 1 1 00 1 1 1
+
+So, the answer 15
+එබැවින්‌, පිළිතුර වන්නේ
+
+~~ 11100111
+
+(111) Explain how the computation of 10010 - 2510 done by the device by using your representations given in
+sections (1) and (11) above.
+ඉහත (i) හා (11) හි ඔබ විසින්‌ ලබා දෙන ලදු Sdzos භාවිතයෙන්‌ ඉහත උපක්‍රමය මගින්‌ 10, - 2510 ගණනය
+කරන අයුරැ පහදා දෙන්න.
+
+To compute 10 - 25 using 2's complement representation, a computer does the operation by adding 10 and
+the 2's complement of 25.
+
+2 හි අනුපුරක නිරෑැපණය භාවිතයෙන්‌ 10-25 ගණනය කිරිම aes), පරිගණකයක්‌ 10 සහ 25 හි 2 හි
+අනුපුරකය එකතු කිරීමෙන්‌ මෙහෙයුම සිදු කරයි.
+
+00 0 0 1 0 1 0
++ 1 1 1 0 0 1 1 |
+11 1 1 0 0 0 |
+
+(iv) List the steps necessary to transform the result Obtained in section (111) above into decimal form in
+order to print the answer.
+ඉහත (ill) කොටසින්‌ ලබාගත්‌ ප්‍රතිඵලය මුද්‍රණය කර ගැනීම HEH) දශමය ආකාරයට පරිවර්තනය කර
+ගැනීමට අවග්‍ය පියවර ලියා දක්චන්න.
+
+This is a negative number since the most significant bit is 1. Therefore, this must be converted to binary
+using two's complement.
+
+මෙහි වැඩිම වෙසෙසි BQO ] බැවින්‌ මෙය සෘණ සංඛ්‍යආවකි. එබැවින්‌ මෙය දෙකෙහි අනුපුරකය භාවිතයෙන්‌
+ද්විමය අගය ලබාගත යුතුය.
+
+ඌඟ ධධ.
+ඌඟ ධධ.
+ඌඟ ධධ.
+Core
+me ©
+me ©
+©
+ෆ්‌ ඌ| ඔයා ධධ
+
+After obtaining this answer as above, convert it to decimal.
+ඉහත COE මෙම පිළිතුර ලබා ගැනීමෙන්‌ පසු, එය දශමය බවට පරිවරිතනය කරන්න.
+
+0 0 0| 01] |] |] ||
+27 | 2° | 2 |) 24 | 23 | 2? | 2! | 2°
+128 | 6432, ]16| 8 |4]2]1
+8+4+2+1
+15
+
+So, the answer is 15 in decimal.
+එබැවින්‌, පිළිතුර දගමයෙන්‌ 15 කි.
+
+2018 NUMBER SYSTEM S.ESSAY MARKING
+
+(1)G) Write down the two’s complement representation of 1210 using 8 bits.
+1210 සංඛ්‍යාවෙහි දෙකෙහි අනුපුරකය (two’s complement) බිටු 88 භාවිතයෙන්‌ නිරැපණය වන ආකාරය
+ලියා දක්වන්න.
+
+( 2018 S.ESSAY — 2[b] )
+
+1210 15 a positive number and will not pass through a NOT gate. Therefore, the two's complement of this
+is its binary value.
+
+1210 යනු ධන සංඛ්‍යාවක්‌ නිසා NOT ද්වාරයක්‌ හරහා ගමන්‌ කරනු නොලැබේ. එම නිසා මෙහි දෙකෙහි
+අනුපුරකය වන්නේ මෙහි ද්විමය අගයමයි.
+
+A
+
+NNN WN
+Cle | WIA]
+
+0
+- 0
+1
+1
+
+1210 in two’s complement (8 bits) = 00001100
+1210 දෙකෙහි අනුපුරකයෙන්‌ (බිටු 8) = 00001100
+
+(11) Write down the two’s complement representation of - 0810 using 8 bits.
+— 6819 සංඛ්‍යාවෙහි දෙකෙහි අනුපුරකය බිටු 8ක්‌ භාවිතයෙන්‌ නිරැපණය වන ආකාරය ලියා දක්වන්න.
+
+First, convert the positive number of -68 into a binary number with 8 bits. (+68 in two’s complement)
+පළමුව, -68 හි ධන සංඛ්‍යාව BO 8ක්‌ සහිත ද්විමය සංඛ්‍යාවක්‌ බවට පරිවරිතනය කරන්න. (+68 දෙකෙහි
+
+අනුපුරකයෙන්‌)
+2 | 68_
+2134 - 0 4
+2117 - 0
+2/8 - 1
+2/4 - 0
+2/2 - 0
+211 - 0
+0 - |]
+
+6810 in two’s complement (8 bits) = 01000100
+6810 දෙකෙහි අනුපුරකයෙන්‌ (BQ 8) = 01000100
+
+Now pass the two's complement through a NOT gate. (-68 in one’s complement)
+දැන්‌ එම දෙකෙහි අනුපුරකය NOT ද්වාරයක්‌ හරහා ගමන්‌ කරවන්න. (-68 එකෙහි අනුපුරකයෙන්‌)
+
+01000100 +~NOT—10111011
+
+Now add a binary 1 to the end of this number.
+දැන්‌ මෙම සංඛ්‍යාවේ අගට ද්විමය led එකතු කරන්න.
+
+10111011
++]
+10111100
+
+Now, this is the two’s complement of -6810 . Therefore, -68 in two’s complement = 10111100z.
+දැන්‌, මෙය -68 හි දෙකෙහි අනුපුරකය වේ. එමනිසා -68 හි දෙකෙහි අනුපුරකය = 101111002.
+
+(11) Compute —6810 + 1210 using the above representations (1) and (11).
+ඉහත (i) හා (11) හි නිරැපණය භාවිතයෙන්‌ -- 6810 + 1219 ගණනය කරන්න.
+
+00001100
+1101111100
+11001000
+
+Since both of these added numbers are in two's complement, the answer is also in two's complement.
+මෙම එකතු කළ සංඛ්‍යා දෙකම දෙකෙහි අනපුරකයේ ඇති නිසා ලැබෙන පිළිතුර ද ඇත්තේ දෙකෙහි
+අනුපුරකයෙනි.
+
+Since we know very well that the answer obtained by subtracting -(0810 +1210 15 a negative number, we can
+say that the two's complement number obtained is a negative number. This can be obtained by reversing
+the process and converting it to a decimal number.
+
+-6810 +1210 සුච කිරීමෙන්‌ ලැබෙන පිළිතුර සෘණ සංඛ්‍යාවක්‌ බව අප හොඳටම දන්නා බැවින්‌ ම ලැබී ඇති
+දෙකෙහි අනුපුරක සංඛ්‍යාව සෘණ සංඛ්‍යාවක්‌ බව HO හැකිය. මෙය නැවත, සිදුකළ ක්‍රියාවලිය ආපස්සට කරමින්‌
+EGOS සංඛ්‍යාවක්‌ බවට පත්කළ විට මෙහි සැබෑ අගය ලබාගත හැකිය.

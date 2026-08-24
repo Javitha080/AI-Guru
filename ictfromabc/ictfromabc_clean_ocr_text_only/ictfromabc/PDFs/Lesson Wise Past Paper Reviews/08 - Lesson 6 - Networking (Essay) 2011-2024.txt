@@ -1,0 +1,3946 @@
+2011 AL NETWORKING ESSAY MARKING
+
+1.(a) You have been asked to design two physically separated networks, namely A and B, each having
+exactly 10 computers. The IP addresses of A and B networks are 10.32.5.0 and 10.32.6.0 respectively
+It is required that the computers in the two networks must be able to communicate with each other.
+2 සහ B නමින්‌ එකකට පරිගණක 10 බැගින්‌ ඇතුළත්‌ වන පරිද භෞතික ව වෙන්වු පාල 2ක්‌ නිර්මාණය
+කරන ලෙස ඔබට පවසනු ලැබේ. A හා B පාල සඳුහා IP ලිපින පිළිවෙළින්‌ 10.32.5.0 සහ 10.32.6.0 වේ. පාල 2 හි
+අන්තර්ගත පරිගණක එකක්‌ අනෙක හා සන්නිවේදනය කර ගැනීම අවග්‍යව පවති.
+
+(i) Suggest a suitable subnet mask for each of these networks.
+ඉහත HES Hem) යෝග්‍ය උපපාල වසනයක්‌ (Subnet mask) යෝජනා කරන්න.
+
+Each network needs at least 10 usable IP addresses. We need to find a subnet mask that provides ~ 1 2 IP
+addresses (10 for computers + 1 for network address + 1 for broadcast).
+
+සැම පාලයකටම අවම වගයෙන්‌ භාවිතා කළ හැකි IP GSH 108 අවග්‍ය od. IP ලිපින ~ 12ක්‌ සපයන
+උපපාල ආවරණයක්‌ සොයා ගත යුතුය (පරිගණක සඳුහා 10, පාල ලිපිනය සඳහා ]. විකාශනය සඳුහා 1.)
+
+Then the nearest power of two is 16 (16 = 27). That is, 4 bits are required.
+එවිට ආසන්නම විශාලතම දෙකෙහි බලය 16 වේ (16=2'). එනමි බිටු 4ක්‌ අවග්‍ය වේ.
+
+The subnet mask is obtained by setting all remaining bits to 1.
+CODE ආවරණය ලබාගන්නේ ඉතිරි BQ සියල්ල | කිරීමෙනි.
+
+1111111.11111111.11111111.11110000 = 255.255.255.240
+
+(ii) Name the device required to connect these two physical networks to communicate with each other.
+මෙම භෞතික HE දෙක එකිනෙක සන්නිවේදනය oem) සමිඛන්ධ කිරීමට අවග්‍ය ආමිපන්නය (Device) නමි
+කරන්න.
+
+To allow communication between two physically separated networks (with different IP subnets:
+10.32.5.0/28 and 10.32.6.0/28), you need a device that can:
+
+භෞතිකව වෙන්‌ වු පාල දෙකක්‌ අනර සන්නිවේදනයට ඉඩ දිම aes (විවිධ IP උපපාල &O«:10.32.5.0/28
+සහ 10.32.6.0/28), ඔබට පහත සඳුහන්‌ දෑ කළ හැකි උපාංගයක්‌ අවශ්‍ය වේ:
+
+e Connect different IP networks
+විවිධ IP HE සමිඛන්ධ කිරීම.
+
+e Forward packets between them
+ඒවා අතර පැකටිටු යැවිම.
+
+e Understand IP addressing and routing
+IP ලිපින සහ මාර්ගගත කිරීම තේරැමි ගැනීම.
+
+So, we can use router or layer 3 switch.
+එබැවින්‌ අපට මාර්ගකයක්‌ හෝ 3 ස්ටරයේ ස්විචයක්‌ භාවිතා කළ හැකිය.
+
+(iii) Draw a network diagram for the above network and assign suitable IP addresses for the devices
+in these two networks.
+ඉහත HES සඳුහා HE රෑප සටහනක්‌ ඇඳු මෙම HE දෙකෙහි පවතින ආමිපන්න (Device) ae)
+පැවරීමට යෝග්‍ය IP ලිපින ලියා දුක්වන්න.
+
+Router
+
+Switch
+
+=
+
+Gateway address of network 1: 10.32.5.x (x=1 to 14)
+10.32.5.x (x=1 සිට 14 Eg)
+
+1 ජාලයේ ද්වාර ලිපිනය :
+
+Gateway address of network 2: 10.32.5.y (y=1 to 14)
+10.32.5.y (y=1 සිට 14 Es)
+
+2 ජාලයේ ද්වාර ලිපිනය :
+
+Switch
+
+ip addresses of computers network 1/1 පරිගණක Heed ip GSH
+10.32.5.n (n=1 to 14, but not x/n=1 සිට 14 es, නමුත්‌ x හැර)
+
+ip addresses of computers network 2/2 පරිගණක Heed ip GSH
+10.32.5.m (m=1 to 14, but not y /m=1 සිට 14 දක්වා, නමුත්‌ y හැර)
+
+(0)(1) Compare TCP and UDP protocols in terms of reliability.
+
+විශ්වස්‍යතාව (Reliability) පදුනමි කරගෙන TCP හා UDP නියමාවලි (Protocols) සසඳුන්න.
+
+TCP (Transmission Control Protocol)
+
+UDP (User Datagram Protocol)
+
+Reliable — ensures data 1s delivered correctly and
+in order
+
+විග්වාසදායකයි - eso නිවැරදිව හා පිළිවෙලට
+ලබා දෙන බව සහතික කරයි
+
+Unreliable — no guarantee of delivery, order, or
+duplicate protection
+
+විග්වාස කළ නොහැකියි — බෙදාහැරීම, ඇණවුම
+හෝ අනුපිටපත්‌ ආරක්ෂාව පිළිබඳු සහතිකයක්‌
+නොමැත
+
+Includes error detection and correction
+(acknowledgements, retransmissions)
+
+දෝෂ හඳුනාගැනීම සහ නිවැරදි කිරීම (තහවුරු
+කිරීමි, නැවත සම්ප්‍රේෂණයන්‌) ඇතුළත්‌ වේ
+
+Error detection only (via checksum), but no
+retransmission
+
+දෝෂ අනාවරණය කිරිම (චෙක්සමි හරහා) පමණි,
+නමුත්‌ නැවත සමිප්‍රේෂණයක්‌ නොමැත
+
+Receiver sends acknowledgement for received
+packets
+
+ලැබුණු පැකට්ටු සඳහා ලබන්නා තහවුරැ කිරීමක්‌
+යවයි
+
+Sender does not know if data was received
+EDOM ලැබුනේ දැයි යවන්නා නොදනී
+
+Establishes a connection before data transfer
+EBD මාරැ කිරීමට පෙර සමිඛන්ධතාවයක්‌ ඇති
+කරයි
+
+Sends data without setup
+සැකසුමකින්‌ තොරව දත්ත යවයි
+
+Use for email, web browsing, file transfer (where
+accuracy matters)
+
+ඊමේල්‌, වෙබි QOS කිරීම, ගොනු මාරැ කිරීම
+(නිරවද්‍යතාවය වැදගත්‌ වන විට) සඳුහා භාවිතා
+කරයි.
+
+Use for video streaming, gaming, voice calls
+(where speed matters more than perfection)
+Sen) ප්‍රවාහය, HO) කිරීම, හඞ ඇමතුමි (GOOG,
+පරිපුර්ණත්වයට වඩා වැදගත්‌ වන විට) සඳුහා
+භාවිතා කරයි
+
+(ii) Peer-to-peer (P2P) and client-server models are distributed application architectures. State the
+difference between them.
+සම - සම [Peer-to-peer (P2P)| සහ අනුග්‍රහ - සේවා දායකය (Client-server) යන ආකෘති, විසිරැනු යෙදුමි
+569m (Distributed application architectures) වේ. මේවා අතර වෙනස දක්වන්න.
+
+Client-Server Model Peer-to-Peer (P2P) Model
+සේවාලාභී - සේවාඳායක ආකෘතිය සම සම ආකෘතිය
+Centralized — one server serves multiple clients
+මධ්‍යගත oO - එක්‌ සේවාදායකයක්‌ බහු
+සේවාලාභින්ට සේවය කරයි
+
+Decentralized — all devices (peers) are equal
+විමධ්‍යගත වේ - සියලම උපාංග සමාන වේ
+
+Each peer controls 1ts own data and resources
+සැම සම පරිගණකයක්ම තමන්ගේම දත්ත සහ
+සමිපත්‌ පාලනය කරයි
+
+Peers share resources directly with each other
+
+සම පරිගණක එකිනෙකා සමඟ සෘපුවම සමිපත්‌
+බෙදා ගනි
+
+Highly scalable, more peers = more resources
+ඉහළ පරිමාණය කළ හැකියි, වැඩි සම පරිගණක =
+වැඩි සමිපත්‌
+
+Web browsing, email, banking apps File sharing (e.g., BitTorrent), LAN game sharing
+
+Ze - ගොනු බෙදාගැනීම (උදා: BitTorrent), LAN ක්‍රීඩා
+වෙබි QOS කිරීම, විද්‍යුත්‌ තැපෑල, බැංකු යෙදුමි කිරීම
+
+Server controls data and services
+සේවාදායකය eso සහ සේවා පාලනය කරයි
+
+Clients request, server provides
+සේවාලාභි ඉල්ලිම, සේවාදායකය සපයයි
+
+Limited by server capacity
+සේවාදායක ධාරිතාවයෙන්‌ BO) වේ
+
+(iii) List the differences between hubs and switches in a network.
+පාලයක පවතින නාභි (Hubs) සහ ස්විච (Switches) අතර වෙනස්කමි ලැයිස්තුගත කරන්න.
+
+Hub / නාභිය Switch / ස්විචය
+Layer 1 (Physical layer) Layer 2 (Data Link layer)
+1 වන ස්ටඊරය (භෞතික GOO) 2 වන ස්ටරය (දත්ත සබැඳි BOOS)
+Broadcasts data to all ports Sends data only to the destination port
+සියලම කෙවෙනි වෙත cow විකාගනය කරයි ගමනාන්ත කෙවෙනියට පමණක්‌ දත්ත යවයි
+Not intelligent — no MAC address learning Intelligent — learns and uses MAC addresses
+බුද්ධිමත්‌ ced —MAC ලිපින ඉගෙනීමක්‌ නොමැන | බුද්ධිමත්‌ - MAC ලිපින ඉගෙන ගෙන භාවිතා කරයි
+Shared bandwidth among all devices Dedicated bandwidth per port
+සියලම උපාංග අතර බෙදාගත්‌ කලාප පළල කෙවෙනියට වෙන්වූ කලාප පළල
+Causes more collisions Reduces collisions using switching
+වැඩි ගැටුමි ඇති වේ මාරැ කිරීම භාවිතයෙන්‌ ගැටුමි අඩු කරයි
+All data is visible to all devices Data is sent only to the correct device
+සියලම END සියලුම උපාංග සඳහා දෘශ්‍යමාන වේ | දත්ත යවනු ලබන්නේ නිවැරදි උපාංගයට පමණි
+
+2012 AL NETWORKING ESSAY MARKING
+
+1.(a) The following shows a part of the result obtained by executing the “ping” command to check the
+network connectivity to a host connected to a computer network.
+පරිගණක පාලයකට සමිඛන්ධ කොට ඇති සත්කාරකයකට (host) ඇති HE සබැඳුමක්‌ (connectivity)
+පරීක්ෂාකිරීම සඳුහා “ping” විධානය ක්‍රියාත්මක කිරීමෙන්‌ ලබාගන්නා ලද, ප්‍රතිඵලයෙහි කොටසක්‌ පහත දැක්වේ.
+
+PING www.cam.ac.uk (131.111.8.46) 56(84) bytes of data.
+
+64 bytes from ipv4.www.cam.ac.uk (131.111.8.46) : icmp _seq=1 tt1=242 time=201 ms
+64 bytes from ipv4.www.cam.ac.uk (131.111.8.46) : icmp _seq=2 tt1=242 time=204 ms
+64 bytes from ipv4.www.cam.ac.uk (131.111.8.46) : icmp _seq=3 tt1=242 time=196 ms
+64 bytes from ipv4.www.cam.ac.uk (132.411.8.46) : icmp _seq=4 tt1=242 time=203 ms
+64 bytes from ipv4 www.cam.ac.uk (131.111.8.46) : icmp seg=5 tt1=242 time=195 ms
+
+--- www.cam.ac.uk ping statistics ---
+5 packets transmitted, 5 received,
+
+Using the above information, answer the parts (1), (11), (111) and (iv) given below.
+ඉහත තොරතුරැ භාවිත කරමින්‌ පහත escola සහ ප්‍රග්නවලට පිළිතුරැ සපයන්න.
+
+(i) What is meant by time in the above result?
+ඉහත ප්‍රතිවලයෙහි time මගින්‌ අදහස්‌ කෙරෙනුයේ කුමක්‌ ce?
+
+Round-trip time / වට චාරිකා කාලය (RTT)
+
+It is the time taken by a packet to travel from the source computer to the destination host and back,
+measured in milliseconds.
+
+පැකටිටුවක්‌ මුලාග්‍ර පරිගභකයේ BO ගමනාන්ත ධාරකයට සහ ආපසු ගමන්‌ කිරීමට ගතවන කාලයයි.
+මෙය මිලි තත්පර වලින්‌ මනිනු ලැබේ.
+
+(ii) What is the IP address of the server that hosts the website www.cam.ac.uk?
+www.cam.ac.uk වෙබි අඩවිය ස්ටාපින කොට ඇති සේවාදායක පරිගණකයහි IP ලිපිනය කුමක්‌ ද?
+
+131.111.8.46
+
+(iii) Identify the class of the IP address obtained 111 (11) above.
+ඉහත (11) කොටසෙහි ලබාගත්‌ IP ලිපිනයෙහි පන්තිය හඳුනාගන්න.
+
+First octet/ පළමු අෂ්ටකය: 131
+
+Since 131 is between 128 and 191, it belongs to Class B.
+131, 128 සහ 191 අතර වන බැවින්‌, එය [3 පන්තියට අයත්‌ වේ.
+
+(iv) What is the percentage of packet loss?
+පැකැට්ටු Sead (packet loss) ප්‍රතිශතය කුමක්‌ ද?
+
+Packets transmitted/ aSegegna කරන ලද, පැකටිටු =5
+
+Packets received/ ලැබුණු පැකටිටු =5
+
+Packet loss/ පැකට්ටු නැතිවීම = 0
+
+So/ එබැවින්‌.
+
+Packet loss percentage/ පැකට්ටු හානියෙහි OGa@ma = ((5 - 5) / 5) x 100 =0%
+
+(2012 S.ESSAY )
+
+2.(a) An application running in a computer refers the virtual memory address, 0100110100010111
+during execution. / පරිගණකයක්‌ තුළ ක්‍රියාත්මක වෙමින්‌ පවතින යෙදුමක්‌ (an application) ක්‍රියාත්මක
+විමේදි 0100110100010111 අතාත්ත්වික (virtual) මතක ලිපිනය භා සමිඛන්ධ වෙයි.
+
+(i)
+
+(ii)
+
+Calculate the maximum accessible virtual memory address space, in the above computer in
+Kilo Bytes? / මෙම පරිගණකයේ උපරිම ප්‍රවේග විය හැකි අතාත්ත්වික මතක ලිපින අවකාගය,
+කිලෝබයිටිස්වලින්‌ ගණනය කරන්න.
+
+This is a 16-bit binary address. Since the virtual address 15 16 bits long,
+මෙය BQ 16 ක ද්විමය ලිපිනයකි. අතට්‍ය ලිපිනය BQ 16 ක්‌ EN බැවින්‌,
+
+Maximum number of addresses / උපරිම ලිපින ගණන = 2!° = 65536 bytes.
+
+Convert bytes to kilobytes (KB) / බයිට්‌, කිලෝබයිටි (KB) බවට පරිවර්තනය කිරීම:
+65536 bytes / 1024 = 64KB
+
+What is the range (starting and ending addresses) of the memory address space identified in the
+section (1) above?
+ඉහත (i) හි මතක ලිපින අවකාශයෙහි පරාසය (ආරමිභක සහ අවසාන ලිපින) කුමක්‌ ද?
+
+Since it's 16-bit addressing / එය බිටු 16 ලිපිනයක්‌ බැවින්‌:
+Starting address / ආරමිභක ලිපිනය = 0000000000000000 = 0
+Ending address / අවසන්‌ ලිපිනය = 1111111111111111 = 2" - 1 = 65535
+
+(iii) If a page size is 4 Kbits, how many bits are sufficient to represent the page number? Show your
+
+computation.
+
+පිටුවක තරම (size) කිලෝබිටු 4 ක්‌ නමි, පිටු අංකය නිරෑපණය කිරීම Hew) BQ කියක්‌ ප්‍රමාණවත්‌ වේ
+ද? ඔබේ Posae (computation) දක්වන්න.
+
+Total virtual address space / මුළ අටත්‍ය ලිපින අවකාගය = 2'69 addresses = 65536 bytes
+
+Page size / පිටුවක ප්‍රමාණය = 4 Kbits = 4 x 1024bits = 4096bits / 8 = 512 bytes
+
+Number of pages / පිටු ගණන = 65536 bytes / 512 bytes = 128 pages
+
+(b) Assume that A and B are computers connected to two network segments. When the command
+‘ipconfig’ is executed in these computers, the following information is obtained:
+4, සහ B යනු පාල කොටස්‌ දළෙකකට adasidm පරිගණක දෙකක්‌ යැයි උපකල්පනය කරන්න. මෙම
+පරිගණකවල ‘ipconfig’ ක්‍රියාත්මක කළ විට, පහත දැක්වෙන තොරතුරැ ලැබේ.
+
+1. Incomputer A 2. Incomputer B
+IPv4 address ....................... : 192.168.1.2 IPv4 address ....................... : 192.168.2.3
+Subnet mask ....................... : 255.255.255.0 Subnet mask ........ ............... : 255.255.255.0
+Default gateway ............... : 192.168.1.254 Default gateway ............... : 192.168.2.254
+
+Draw a network diagram for the above two network segments so that both A and B can communicate
+with each other. You should clearly indicate the EP addresses of each device in the diagram.
+
+A සහ B දෙකටම එකිනෙක සමඟ සන්නිවේදනය කළ හැකි වන SOE ඉහත HE කොටස්‌ දෙක HEH) HE
+රෑප සටහනක්‌ අඳින්න. රැප සටහනෙහි එක්‌ එක්‌ උපක්‍රමයෙහි (Device) IP ලිපින පැහැදිලිව දැක්විය යුතුය.
+
+The ipconfig command is a Windows command-line tool used to display and manage the IP configuration
+of a computer.
+
+ipconfig විධානය යනු පරිගණකයක IP වින්‍යාසය පෙන්වීමට සහ කළමනාකරණය කිරීමට භාවිතා කරන
+Windows විධාන පේළි මෙවලමකි.
+
+(c)
+
+(i)
+
+(ii)
+
+The default gateway is the device (usually a router) that connects your computer to other networks,
+especially the internet.
+
+පෙරනිමි ද්වාරය යනු ඔබේ පරිගණකය අනෙකුත්‌ HE වෙත, විගේෂයෙන්‌ අන්තරපාලයට සමිබන්ධ කරන
+උපාංගය (සාමාන්‍යයෙන්‌ රවුටරයක්‌) වේ.
+
+Computer A Gatewa Computer B
+
+192.168.1.2  192.168.1.254 192.168.2.254  192.168.2.3
+
+Briefly explain the main function of each of the following systems in terms of network security.
+පාල ආරක්ෂණය ඇසුරෙන්‌ පහත දක්වෙන පද්ධතිවල ප්‍රධාන කටරනව්‍යය කෙටියෙන්‌ පැහැවිලි කරන්න.
+
+firewall / ගිනිපවුරැ
+
+A firewall is a network security device or software that monitors and controls incoming and outgoing
+network traffic based on predefined security rules. Its main function is to create a barrier between a trusted
+internal network and untrusted external networks, such as the internet. By filtering traffic, the firewall
+helps prevent unauthorized access, malware attacks, and data breaches. It can be configured to block
+certain IP addresses, ports, or applications, ensuring that only safe and approved connections are allowed.
+ගිනිපවුර යනු පූර්ව Addo ආරක්ෂක නීති මත පදුනමිව පැමිණෙන සහ පිටතට යන HE ගමනාගමනය
+නිරක්ෂණය කර පාලනය කරන පාල ආරක්ෂණ උපාංගයක්‌ හෝ මෘදුකාංගයකි. එහි ප්‍රධාන කාරයය වන්නේ
+විග්වාසදායක අභ්‍යන්තර පාලයක්‌ සහ අන්තර්පාලය වැනි විග්වාස කළ නොහැකි බාහිර පාල අතර බාධකයක්‌
+නිර්මාණය කිරීමයි. ගමනාගමනය පෙරහන්‌ කිරීමෙන්‌, ගිනිපවුර අනවසර ප්‍රවේගය, අනිෂ්ට මෘදුකාංග ප්‍රහාර
+සහ EMD බලපෑමි වැළැක්වීමට උපකාරී වේ. ආරක්ෂිත සහ අනුමත සමිබන්ධතා පමණක්‌ අවසර & ඇති බව
+සහතික කරමින්‌, ඇතැමි IP ලිපින කෙවෙනි om) යෙදුමි අවහිර කිරීමට එය වින්‍යාසගත කළ හැකිය.
+
+proxy server / නියෝපිත සේවාදායක පරිගණකය
+
+A proxy Server acts as an intermediary between a user's device and the internet. Its primary role in network
+security 1s to hide the internal network's IP addresses, thereby protecting user identities and locations.
+Additionally, it filters and controls web traffic by allowing or denying access to specific websites, blocking
+harmful content, and caching frequently accessed data to improve speed. Proxy servers also log user
+activities, which helps in monitoring and enforcing security policies within a network.
+
+නියෝපිත සේවාදායකයක්‌ පරිගිලකයාගේ උපාංගය සහ අන්තර්පාලය අතර අතරමැදියෙකු ලෙස ක්‍රියා කරයි.
+පාල ආරක්ෂාවේ එහි ප්‍රධාන කාර්යභාරය වන්නේ අභ්‍යන්තර Heed IP ලිපින සැඟවිම, එමඟින්‌ පරිගිලක
+අනන්‍යතා සහ SOM ආරක්ෂා කිරීමයි. ඊට අමතරව, එය නිශ්චිත වෙබි අඩවි වලට ප්‍රවේශ වීමට ඉඩ දීම
+හෝ ප්‍රතික්ෂේප කිරීම, හානිකර අන්තර්ගතයන්‌ අවහිර කිරීම සහ වේගය වැඩි දියුණු කිරීම සඳුහා නිතර
+ප්‍රවේශ වන ED වාරකගත කිරීම මගින්‌ වෙබි ගමනාගමනය පෙරහන්‌ කර පාලනය කරයි. නියෝපිත
+සේවාදායකයන්‌ පරිගිලක ක්‍රියාකාරකමි දු අධික්ෂණය කරයි, එය පාලයක්‌ තුළ ආරක්ෂක ප්‍රතිපත්ති නිරීක්ෂණය
+කිරීමට සහ බලාත්මක කිරීමට උපකාරී වේ.
+
+(iii) honey pots // හනි පොට්ස්‌
+
+Honeypots are specially designed security systems that imitate vulnerable targets to attract cyber attackers.
+Their main function is to detect, analyze, and learn about intrusion attempts without risking actual network
+resources. These decoy systems lure hackers into interacting with fake data and services, allowing
+administrators to study attack techniques, gather threat intelligence, and strengthen real systems based on
+the findings. Honeypots are useful tools in proactive defense strategies and cyber threat research.
+හනිපොටිස්‌ යනු සයිබර්‌ ප්‍රහාරකයින්‌ ආකර්ෂණය කර ගැනීම HED) අවදානමට ලක්විය හැකි ඉලක්ක
+අනුකරණය කරන විගේෂයෙන්‌ නිර්මාණය කරන ලදු ආරක්ෂක පද්ධති චේ. ඔවුන්ගේ ප්‍රධාන කාරයය වන්නේ
+සැබෑ පාල සමිපත්‌ අවදානමට ලක්‌ නොකර අනවසරයෙන්‌ ඇතුළඑවිමේ උත්සාහයන්‌ හඳුනා ගැනීම, විග්ලේෂණය
+කිරීම සහ ඉගෙන ගැනීමයි. මෙම රැවටිමේ පද්ධති හැකටවරැන්‌ ව්‍යාජ දත්ත සහ සේවාවන්‌ සමඟ අන්තර
+ක්‍රියා කිරීමට පොළඹවන අතර, පරිපාලකයින්ට ප්‍රහාරක ගිල්පීය ක්‍රම අධ්‍යයනය කිරීමට, mdda බුද්ධිය රැස්‌
+කිරීමට සහ සොයාගැනීමි මත පදුනම්ව සැබෑ පද්ධති ශක්තිමත්‌ කිරීමට ඉඩ සලසයි. හනිපොටි යනු ක්‍රියාකාරී
+ආරක්ෂක උපාය මාර්ග සහ සයිබර්‌ තර්පන පර්යේෂණ සඳුහා ප්‍රයෝජනවත්‌ මෙවලමි වේ.
+
+( 2012 ESSAY )
+
+2013 AL NETWORKING ESSAY MARKING
+
+1.(a) Compare and contrast the following communication technologies:
+පහත දක්වා ඇති සන්නිවේෙදූන තාක්ෂණයන්ගේ සංසන්දනය (compare) හා අසමතාවය (contrast) esOsien.
+
+(i) ISDN vs ADSL
+
+ISDN is a digital communication technology that provides voice and data over telephone lines at slower,
+symmetrical speeds.
+ISDN යනු දුරකටන මාර්ග හරහා GH වේගයකින්‌ හඩ සහ enw සපයන ඩිපිටල්‌ සන්නිවේදන නාක්ෂණයකි.
+
+ADSL is a high-speed broadband technology that provides faster, always-on internet with higher download
+than upload speeds.
+
+ADSL යනු උඩුගත කිරීමේ වෙගයට වඩා ඉහළ බාගත කිරීමක්‌ සහිත වේගවත්‌, සැමවිටම ක්‍රියාත්මක
+අන්තටරපාලයක්‌ සපයන අධිවේගි බ්‍රෝඩිබෑන්ඞ්‌ තාක්ෂණයකි.
+
+ISDN (Integrated Services Digital Network) ADSL (Asymmetric Digital Subscriber Line)
+Digital telephone network Broadband internet technology
+GEOG දුරකටන HE පුළල්‌ පරාස අන්තටපාල තාක්ෂණය
+Slower / මන්දුගාමි වේ Faster / වෙගවත්‌ චේ
+(up to 128 kbps with BRI) (typically 1 Mbps to 24 Mbps or more)
+Requires a separate digital phone line Uses existing copper telephone lines
+වෙනම GEOG දුරකටන මාර්ගයක්‌ අවග්‍ය වේ පවතින තඹ දුරකටන මාර්ග භාවිතා කරයි
+Symmetrical (upload and download speeds are Asymmetrical (download is faster than upload)
+equal) / සමමිතික වෙ(උඩුගත කිරීමේ සහ බාගත අසමමිතික වේ (බාගත කිරීම, උඩුගත කිරිමට
+කිරීමේ වේගය සමාන වේ) වඩා වේගවත්‌)
+Dial-up needed for each session Always-on connection
+සැම සැසියකටම ඩයල්‌-අප්‌ අවග්‍ය වේ සැමවිටම ක්‍රියාත්මක සම්බන්ධතාවය
+Voice, video, fax, and data in older systems වාස /කාර්යාල භාවිතය සඳහා ව අල use
+පැරණි පද්ධතිවල හඞ, විඩියෝ, ෆැක්ස්‌ සහ eso
+අන්තර්පාල ප්‍රවේගය
+Both provide digital communication / දෙකම ඩිපිටල්‌ සන්නිවේදනයක්‌ සපයයි
+
+(ii) CDMA vs GSM
+
+CDMA is a mobile technology where users share the same frequency using codes, often without SIM
+cards.
+
+CDMA යනු බොහෝ විට SIM කාඩිපත්‌ නොමැතිව කේන භාවිතා කරමින්‌ එකම සංඛ්‍යාතය බෙදා ගන්නා
+SOO තාක්ෂණයකි.
+
+GSM is a globally used mobile standard uses SIM cards and time-division channels for communication.
+GSM යනු ගෝලීය වගයෙන්‌ භාවිතා වන SOO ප්‍රමිතියක්‌ වන අතර එය සන්නිවෙදනය aca) SIM
+GSD සහ කාල බෙදිමි නාලිකා භාවිතා කරයි.
+
+CDMA (Code Division Multiple Access)
+
+GSM (Global System for Mobile
+Communications)
+
+Code-based (users share same frequency using
+codes) / කේත මත S609 වේ (පරිශීලකයින්‌ කේත
+භාවිතයෙන්‌ එකම සංඛ්‍යාතය බෙදා ගනි)
+
+Time-based (divides channels into time slots) /
+කාලය මත පදුනමි වේ (නාලිකා ME පරනරයන්ට
+බෙදා ඇත)
+
+Traditionally does not use SIM cards
+සාමිප්‍රදායිකව 8S කාඩිපත්‌ භාවිතා නොකරයි
+
+Uses SIM cards for identity and service /
+අනන්‍යතාවය සහ සේවාව acm) SO කාඩිපත්‌
+භාවිතා කරයි
+
+Mainly used in North America and parts of Asia
+ප්‍රධාන වශයෙන්‌ උතුරැ ඇමරිකාවේ සහ ආසියාවේ
+සමහර ප්‍රදේශවල භාවිතා වේ
+
+Worldwide (most widely adopted mobile
+standard) / ලොව පුරා භාවිතා වේ (වඩාත්‌ GE
+ලෙස සමිමත පංගම පමිතිය)
+
+Better call quality in low-signal areas / අඩු සංඥා
+ප්‍රදේශවල වඩා හොඳ ඇමතුම්‌ ගුණාත්මකභාවය
+
+Good call quality, but can degrade in poor
+coverage / GME, ඇමතුමි ගුණාත්මකභාවය, නමුත්‌
+දුර්වල ආවරණයේදී පිරිහිමට ලක්‌ විය හැක
+
+Comparable to GSM-based 3G
+GSM මත ©6098 © 3G හා සැසඳිය හැකිය
+
+Initially slower, but evolved to 3G/4G/5G / මුලදි
+OsHe QDS, නමුත්‌ 3G/4G/5G දක්වා පරිණාමය Sa
+
+Phased out in many countries
+බොහෝ රටවල ක්‍රමානුකූලව ඉවත්‌ කර ඇත
+
+Still active, but being replaced by 4G/S5G
+තවමත්‌ ක්‍රියාකාරී නමුත්‌ 4G/5G මගින්‌ ප්‍රතිස්ථාපනය
+වෙමින්‌ පවතී
+
+(ආ) Give the main function of the following servers:
+පහත Es) ඇති සේවාදායකයන්ගේ ප්‍රධාන කාර්යය ලබා දෙන්න.
+
+(i) Web server / වෙබි සේවාදායකය
+
+e Delivers web pages (HTML, images, etc.) to users via web browsers.
+වෙබි අතිරික්සු හරහා පරිගිලකයින්ට වෙබි පිටු (HTML, රෑප, ආදිය) ලබා දෙයි.
+
+e Hosts websites and handles HTTP/HTTPS requests.
+වෙබි අඩවි සත්කාරකත්වය සපයන emo HTTP/HTTPS ඉල්ලීමි හසුරැවයි.
+
+(ii) Mail server / තැපැල්‌ සේවාදායකය
+
+e provides email facilities to client computers.
+සේවාදායක පරිගණක een) විද්‍යුත්‌ තැපැල්‌ පහසුකමි සපයයි.
+
+e Manages email communication between users and domains.
+පරිගිලකයින්‌ සහ O08 අතර විද්‍යුත්‌ තැපැල්‌ සන්නිවෙදනය කළමනාකරණය කරයි.
+
+(iii) Proxy server / නියෝපන සේවාදායකය
+
+e Allows a local network to access the internet through a single public IP address.
+තනි පොදු IP ලිපිනයක්‌ හරහා ස්ථානීය පාලයකට අන්තර්පාලයට ප්‍රවේශ SOO ඉඩ සලසයි.
+
+e Improves security, controls access, and caches web content.
+ආරක්ෂාව වැඩි දියුණු කරයි, ප්‍රවේශය පාලනය කරයි සහ වෙබි අන්තර්ගතය වාරකගත කරයි.
+
+(iv) DHCP server / DHCP සේවාදායකය
+
+e Dynamically assigns IP addresses to devices on a network.
+පාලයක උපාංග සඳහා ගතිකව IP ලිපින පවරයි.
+
+e Helps manage and simplify network configuration.
+පාල විනනසය කළමනාකරණය කිරීමට සහ සරල කිරීමට උපකාරී වේ.
+
+(c) An organization has installed a web server, a mail server, a proxy server and a DHCP server to
+provide Internet based services to its employees. There are ten (10) computers in the organization
+connected to a local area network. IP addresses are dynamically allocated to these ten computers.
+Assume that adequate network cables and two network switches are provided to connect computers
+to the network. Each switch is capable of connecting a maximum of sixteen (16) computers to the
+network.
+ආයතනයක්‌ එහි සේවකයන්ට eamdsae පාදක සේවා ලබා EO HOCH වෙබි සේවාදායකයක්‌, තැපැල්‌
+සේවාදායකයක්‌, නියෝපන සේවාදායකයක්‌ සහ DHCP සේවාදායකයක්‌ ස්ථාපනය කරනු ලැබ ඇත. මෙම
+ආයතනය තුළ SOS පෙදෙස්‌ පාලයකට සමිඛන්ධ කළ පරිගණක දහයක්‌ (10) පවතී. මෙම පරිගණක දහය
+සඳුහා IP ලිපින වෙන්කර දී ඇත්තේ ගතික ලෙස ය .පාලයට පරිගණක සමිබන්ධ කිරීමට ප්‍රමාණවත්‌ පාල
+රැහැන්‌ හා HE ස්විචි දෙකක්‌ සපයා ඇතැයි උපකල්පනය කරන්න. එක්‌ ස්විචයකට EOSO වගයෙන්‌ පරිගණක
+දුහසයක්‌ (16) සමිඛන්ධ කළ හැක.
+
+(i) Draw a network diagram to show how these ten computers are connected to the local area network.
+
+මෙම පරිගණක දහය (10), ස්ථානීය පෙදෙස්‌ පාලයට aGAsa කර ඇති ආකාරය දැක්වෙන HE
+රැපසටහනක්‌ අඳින්න.
+
+Switch
+
+DHCP Server
+
+(11) Draw a separate network diagram to show how the web server and e-mail server are connected to
+the Internet.
+වෙබි සේවාදායකය හා තැපැල්‌ සේවාදායකය අන්තටර්පාලය සමග සමිබන්ධ කර ඇති ආකාරය දැක්වීමට
+වෙනත්‌ රැපසටහනක්‌ අඳින්න.
+
+Internet Router Firewall
+
+> ණි
+
+Switch
+Web Server
+
+Mail Server
+
+(111) Draw another network diagram to show how the two networks designed in c(i) and c(ii) above can
+be connected using a proxy server in order to provide Internet connectivity to computers connected
+to the local network.
+නියෝපන සේවාදායකයක්‌ භාවිත කරමින්‌ ස්ථානීය පාලයට සමිබන්ධ කර ඇති පරිගණකවලට අන්තර්ජාල
+සමිඛන්ධය ලබා දිමට ඉහත ල (1) හා ර(11) දී අඳින ලදු පාල සටහන්‌ දෙක සමිඛන්ධ කර ඇති අයුරැ
+දැක්වීමට තවත්‌ රැපසටහනක්‌ අඳින්න.
+
+Internet Router Firewall
+~~ යං [:
+Switch
+Web Server Mail Server
+
+Proxy Server
+
+Switch DHCP Server
+
+2014 AL NETWORKING ESSAY MARKING
+
+1.(a) Draw a diagram depicting the seven layers of the OSI reference model.
+OSI සමුද්දේශ ආකෘතියේ ස්ථර නිරූෑපණය කරන රැපසටහනක්‌ අඳින්න.
+
+The OSI (Open Systems Interconnection) Reference Model is a conceptual framework that standardizes
+the functions of a telecommunication or computing system into seven distinct layers. It was developed by
+the International Organization for Standardization (ISO) to guide product developers and facilitate
+interoperability between different systems and protocols.
+
+OSI (විවෘත පද්ධති අන්තර්‌ adasidm) යොමු ආකෘතිය යනු විදුලි ack හෝ පරිගණක පද්ධතියක
+කාර්යයන්‌ වෙනස්‌ BOO හතකට ප්‍රමිතිකරණය කරන සංකල්පීය රාමුවකි. නිෂ්පාදන සංවඊර්ධකයින්ට මග පෙන්විම
+සහ විවිධ පද්ධති සහ නියමාවලි අතර අන්තර ක්‍රියාකාරීත්වය පහසු කිරීම සඳුහා පාත්‍යන්තර ප්‍රමිතිකරණ
+සංවිධානය (ISO) විසින්‌ එය සංවර්ධනය කරන ලදි.
+
+Application layer /eae® ස්ටරය
+Presentation layer / සමර්පණ ස්ටරය
+Session Layer / සැසි ස්තරය
+Transport layer / ප්‍රවාහන BOO
+Network layer / පාල ස්ටරය
+
+Data Link layer / දත්ත සබැඳි BOO
+Physical layer / භෞතික BOO
+
+Physical layer / භෞතික ස්ටරය (Layer 1)
+
+Handles the physical connection between devices. It deals with the transmission of raw bits over a physical
+medium (e.g., cables, fiber optics).
+
+උපාංග අතර භෘතික සමිබඛන්ධතාවය හසුරැවයි. එය භෞතික මාධ්‍යයක්‌ හරහා අමු DQ සමිප්‍රේෂණය කිරීම
+සමිබන්ධයෙන්‌ කටයුතු කරයි (උදා: කේබල්‌, ප්‍රකාශ තන්තු).
+
+Data Link layer / eda සබැඳි ස්ටරය (Layer 2)
+
+Provides error detection and correction, and manages the data frames between directly connected devices
+on the same network. It ensures reliable transmission over the physical layer.
+
+දෝෂ හඳුනාගැනීම සහ නිවැරදි HOO සිදුකරයි, සහ එකම Heed සෘපුව සමිඛන්ධිත උපාංග අතර දත්ත
+රාමු කළමනාකරණය කරයි. එය භෞතික ස්ථරය හරහා විශ්වසනීය සමිප්‍රේෂණය සහතික කරයි.
+
+Network layer / ජාල ස්ටරය (Layer 3)
+Manages data routing and forwarding between different networks. It handles logical addressing (e.g., IP
+
+addresses) and determines the best path for data to reach its destination.
+විවිධ HE අතර essen මාර්ගගත කිරීම සහ ඉදිරියට යැවීම කළමනාකරණය කරයි. එය නාර්කික ලිපින (උදා:
+IP ලිපින) හසුරුැවන අතර දත්ත එහි ගමනාන්තය කරා ළඟා විමට හොඳුම මාර්ගය තීරණය කරයි.
+
+Transport layer / ප්‍රවාහන ස්ටරය (Layer 4)
+
+Ensures reliable data transfer between devices. It handles data segmentation, flow control, and error
+recovery. It ensures that data 1s delivered error-free and in sequence.
+
+උපාංග අතර විශ්වසනීය දුත්ත හුවමාරුැව සහතික කරයි. එය exw ඛණ්ඩනය, ප්‍රවාහ පාලනය සහ cej@
+ප්‍රතිසාධනය හසුරැවයි. esi දෝෂ රහිතව සහ අනුපිළිවෙලින්‌ බෙදා හැරීම සහතික කරයි.
+
+Session Layer / සැසි ස්තරය (Layer 5)
+
+Manages sessions or connections between applications. It establishes, maintains, and terminates
+communication sessions.
+
+යෙදුමි අතර සැසි හෝ සමිඛන්ධතා කළමනාකරණය කරයි. එය සන්නිවේදන සැසි ස්ථාපිත කිරීම, නඩත්තු කිරීම
+සහ අවසන්‌ කිරීම සිදුකරයි.
+
+(b)
+
+Presentation layer / සමටර්පණ ස්ටරය (Layer 6)
+
+Responsible for ensuring that the data sent from the sender's device is in a readable and understandable
+format for the receiving device. It acts as a translator between the application layer and the lower layers,
+handling data formatting, encryption, and compression.
+
+යවන්නාගේ උපාංගයෙන්‌ යවන ලදු EDD ලැබෙන උපාංගය HEM) කියවිය හැකි සහ තේරැමිගත හැකි
+ආකෘතියක ඇති බව සහතික කිරීම සඳුහා වගකීම දුරයි. එය යෙදුමි ස්තරය සහ පහළ ස්තර අතර
+පටරිවර්තකයක්‌ ලෙස ක්‍රියා කරයි, eso ආකෘති සැකසීම, සංකේතනය සහ සමිපීඩඞනය හැසිරවීම ආදිය සිදුකරයි.
+
+Application layer / යෙදුමි ස්ටරය (Layer 7)
+
+Provides network services directly to end-user applications. It’s the layer where communication partners
+are identified, quality of service is determined, and data is presented 111 a usable format.
+
+අවසාන පරිගිලක යෙදුමි වෙත සෘපුවම පාල සේවා සපයයි. එය සන්නිවේදන හවුල්කරැවන්‌ හඳුනාගෙන,
+සේවාවේ ගුණාන්මක භාවය තීරණය කරනු ලබන සහ eso භාවිතා කළ හැකි ආකෘතියකින්‌ ඉදිරිපත්‌ කරන
+ස්ටරයයි.
+
+You have received an email supposedly from the administrator of your email system notifying that
+your email account is about to be closed soon. It requests you to click on a link in the email and enter
+your current user name and the password if you want to continue using your email account. What is
+the main threat to the security if you agree with this request?
+
+ඔබේ විද්‍යුත්‌ තැපැල්‌ පද්ධති පාලකගෙන්‌ (adminstrator) යැයි දැක්වෙන විද්‍යුත්‌ තැපැල්‌ ලිපියක්‌ ඔබට ලැබි
+ඇති අතර එහි ඔබේ විද්‍යුත්‌ තැපැල්‌ ගිණුම වසා දැමිමට ආසන්න බව දැක්වේ. ඔබේ විද්‍යුත්‌ තැපැල්‌ ගිණුම
+තව දුරටත්‌ පවත්වාගෙන යාමට අවග්‍ය නමි එම විද්‍යුත්‌ තැපැල්‌ ලිපියෙහි දැක්වෙන සන්ධානයක්‌ (link) මත
+ක්ලික්‌ කර ඔබේ වට්තමාන පරිශීලක නාමය සහ මුරපදය ඇතුළත්‌ කරන ලෙස ඉල්ලා ඇන. මෙම ඉල්ලීමට
+අවනත SO නිසා ආරක්ෂාවට ඇති විය හැකි ප්‍රධාන තඊර්පනය කුමක්‌ ද?
+
+If you agree to the request in such an email and provide your username and password, you expose yourself
+and your entire email account to phishing. Phishing emails are designed to trick users into revealing
+sensitive information by pretending to be from a trusted source, like an email administrator. These
+attackers create emails that look real, but the links actually lead to fake websites designed to steal your
+information.
+
+එවැනි විද්‍යුත්‌ තැපැලක ඉල්ලීමට ඔබ එකඟ වී ඔබගේ පරිගීලක නාමය සහ මුරපදය ලබා දෙන්නේ HS, ඔබ
+ඔබගේ මුළු විද්‍යුත්‌ තැපැල්‌ ගිණුමම තතුබෑමට නිරාවරණය කරයි. තතුබැෑමි ඊමේල්‌ නිර්මාණය කර ඇත්තේ
+විද්‍යුත්‌ තැපැල්‌ පරිපාලකයෙකු වැනි විග්වාසදායක මුලාග්‍රයකින්‌ පැමිණෙන බව මවාපාමින්‌ පරිගශිලකයින්‌ සංවේදී
+තොරතුරැ හෙළි කිරීමට රැවටිමටයි. මෙම ප්‍රහාරකයින්‌ සැබෑ ලෙස පෙනෙන ඊමේල්‌ නිර්මාණය කරයි, නමුත්‌
+සබැඳි ඇත්ත වශයෙන්ම ඔබේ තොරතුරැ සොරකමි කිරීමට නිර්මාණය කර ඇති ව්‍යාජ වෙබි අඩවි වලට මග
+පාදයි.
+
+Once you enter your credentials on the fake site, the attacker gains full access to your email account. So,
+the attacker can read, delete, or send emails as you, which may include sensitive personal or professional
+information. If your email is linked to other accounts (like banking, social media, or cloud storage), the
+attacker could use password recovery options to gain access to those accounts as well, resulting in more
+serious breaches.
+
+ඔබ ව්‍යාජ වෙබ්‌ අඩවියේ ඔබේ පරිගිලක නාමය සහ මුරපදය ඇතුළත්‌ කළ පසු, ප්‍රහාරකයාට ඔබේ විද්‍යුත්‌
+තැපැල්‌ ගිණුමට සමිපුර්ණ ප්‍රවේගය ලැබේ. එබැවින්‌, ප්‍රහාරකයාට ඔබ ලෙස ඊමේල්‌ කියවීමට, මකා දැමීමට
+හෝ යැවිමට හැකිය, එයට සංවේදි පුද්ගලික හෝ වෘත්තිය තොරතුරැ ඇතුළත්‌ විය හැකිය. ඔබේ විද්‍යුත්‌
+තැපෑල වෙනත්‌ ගිණුමි (බැංකු, සමාජ මාධ්‍ය හෝ වලාකුළු ආචයනය වැනි) සමඟ සමිබන්ධ වී ඇත්නමි,
+ප්‍රහාරකයාට එම ගිණුම්‌ වෙත ප්‍රවේගය ලබා ගැනීම HEM) මුරපද ප්‍රතිසාධන විකල්ප භාවිනා කළ හැකි අතර,
+එහි ප්‍රතිවලයක්‌ ලෙස වඩාත්‌ බරපතල බලපෑමි සිදු වේ.
+
+(c) Draw diagrams to depict the following LAN topologies.
+පහත EsO) ඇති ස්ථානීය පෙදෙස්‌ HE (LAN) ස්ටල විද්‍යාවන්‌ (topology) නිරැපණය කෙරෙන රැපසටහන්‌
+අඳින්න.
+
+LAN (Local Area Network) topologies describe how computers and devices are connected in a network.
+The layout affects how data flows, how easy it is to maintain, and how faults are handled.
+
+LAN (ස්ටානීය ප්‍රදේශ පාල) ස්ටලක මගින්‌ පාලයක්‌ තුළ cSasgua සහ උපාංග සමිබන්ධ වන ආකාරය විස්තර
+කෙරේ. පිරිසැලසුම EMM ගලා යන ආකාරය, නඩත්තු කිරීම කොතරමි පහසුදු සහ දෝෂ හසුරැවන ආකාරය
+
+කෙරෙහි බලපායි.
+. | Backbone cable | .
+Terminator 1 Terminator
+
+[1
+
+Ld
+
+(i) Bus / බසය
+
+(11) Star / තරැව
+
+Central device
+(Switch / Hub)
+
+(iii)Ring / මුදුව
+
+(c) Anew tool MRTT was used to measure the round trip time for data packets on the Internet between
+two machines. One machine is at the location X and the other one is at Y The MRIT reported a
+round trip time between X and Y as 8 ms. The straight-line-distance between point X and point Y is
+3000 km and the maximum speed of light is 300000 km/s. Based on the above information, can this
+tool MRIT be relied upon? Justify your answer.
+
+අන්තර්පාලය හා සමිබන්ධ වු පරිගණක යන්ත්‍ර දෙකක්‌ අතර Esse පැකැටිටුවල වට චාරිකා කාලය (round
+trip time) මැනීම sem MRIT නමි නව මෙවලමක්‌ භාවිත කරන ලදි. එක්‌ යන්ත්‍රයක්‌ K නමි ස්ථානයක
+පවතින අතර අනෙක Y හි පවති. MRIT නමි මෙවලම මගින්‌ X හා Y අතර වට චාරිකා කාලය 8 ms
+ලෙස ලබා දෙන ලදි. X හා Y ලක්ෂ්‍ය අතර සරල ඊරේබිය දුර 3000km ක්‌ සහ ආලෝකයේ උපරිම වේගය
+300 000 km/s වේ. මෙම තොරතුරැ මන පදුනමි ව MRIT මෙවලම පිළිබඳ ව විශ්වාසය නැබිය හැකි ද?
+ඔබේ පිළිතුර තහවුරු කරන්න.
+
+No. / නැත.
+
+To determine whether the MRTT tool is reliable, we need to evaluate if the reported round trip time (RTT)
+of 8 milliseconds (ms) is reasonable given the physical distance and the speed at which signals travel.
+MRTT G@OE8 විශ්වාසදායකද යන්න තීරණය කිරීම සඳහා, සංඥා ගමන්‌ කරන භෞතික දුර සහ වේගය
+අනුව, වාර්තා කරන ලද වට චාරිකා කාලය (RIT) මිලි තත්පර 8 (ms) සාධාරණද යන්න සොයා බලමු.
+
+The straight-line distance between location X and Y is 3000 km, and the maximum speed of light 15
+300,000 km/s. Since the RTT involves sending a signal from X to Y and then back from Y to X, the total
+physical distance the signal must travel is 6000 km.
+
+X සහ Y ස්ථාන අතර සරල රේඛා දුර කිලෝම්ටර 3000 ක්‌ වන අතර ආලෝකයේ උපරිම වේගය තන්පරයට
+කිලෝම්ටර 300,000 කි. RTT යනු X BO Y දක්වා සංඥාවක්‌ යැවීම සහ පසුව Y සිට X දක්වා ආපසු
+යැවීම ඇතුළත්‌ වන බැවින්‌, සංඥාව ගමන්‌ කළ යුතු මුළ භෞතික දුර කිලෝමිටර 6000 කි.
+
+වට චාරිකා කාලය (RTT) = (6000km) / (300000km/s)
+= (2/100)s
+= (2/100) * 1000 ms
+= 20ms
+
+Therefore, MRTT reports only 8 ms, which is less than half the theoretical minimum RTT.
+
+එබැවින්‌, MRTT වාර්තා කරන්නේ Sms පමණක්‌ වන අතර එය නආයාත්මක RTT අගයෙන්‌ අඩකටත්‌ වඩා
+අඩුය.
+
+( 2014 - 02 ESSAY )
+
+2015 AL NETWORKING ESSAY MARKING
+
+1.(a) The IP address 125.214.169.218 is assigned to the server www.doenets.Ik. The ping 125.214.169.218
+command issued from the machine A reported a round trip time (RTT) of 20 ms.
+125.214.169.218 යන IP ලිපිනය www.doenets.lk සේවාදායකය (server) සඳුහා පවරා ඇත. ping
+125.214.169.218 විධානය A නමි යන්ත්‍රයක සිට නිකුත්‌ කළ විට 20ms වට චාරිකා කාලයක්‌ (round trip
+time (RTT)) 5am) විය.
+
+However, the ping www.doenets.Ik command, issued some time later from the machine A, reported an
+error. / කෙසේ වෙතත්‌ මදු වෙලාවකට පසු ping www.doenets.Ik විධානය A නමි යන්ත්‍රයේ සිට ම ලබා
+දුන්‌ විට දෝෂයක්‌ ඇති බව වාරතා විය.
+
+(i) Draw a network diagram to depict the server, machine A and any other required components to
+describe the above scenario. / ඉහත සංසිද්ධිය විස්තර කිරීමට සේවාදායකය, A යන්ත්‍රය හා අවග්‍ය වන
+අනෙකුත්‌ උපකරණ ඇතුළත්‌ ව පාල සටහනක්‌ අඳින්න.
+
+> MachineA/A යන්තුය:
+Can reach the server via IP — ping to 125.214.169.218 works.
+IP ලිපිනය හරහා සේවාදායකයට ළඟා විය හැකිය — 125.214.169.218 වෙත ping කිරිම Ga කරයි.
+
+Cannot reach the server via domain name — ping to www.doenets.Ik fails.
+වසමි නාමය හරහා සේවාදායකයට ළඟා විය නොහැක -~* www.doenets.lk වෙත ping කිරීම අසාර්ටඊකවේ.
+
+> DNS Server/ DNS සේවාදායකය:
+When using the domain name, the system must contact the DNS server to translate www.doenets.Ik
+into an IP address.
+වසමි නාමය භාවිතා කරන විට, www.doenets.lk IP ලිපිනයකට පරිවරිතනය කිරීම සඳුහා පද්ධතිය DNS
+සේවාදායකය සමිබන්ධ කර ගත යුතුය.
+
+If the DNS server is down, misconfigured, or unreachable, name resolution will fail, even if the server
+itself is online.
+
+DNS සේවාදායකය ක්‍රියා විරහිත නමි, O1O& ලෙස වින්‍යාස කර ඇත්නමි හෝ ළඟා විය නොහැකි Hg,
+සේවාදායකයම මාර්ගගතව තිබුණත්‌ නාම විභේදනය අසාඊර්ටක වනු ඇත.
+
+> Server / සේවාඳායකය (www.doenets.lk):
+It is online (ping to its IP works).
+එය මාර්ගගතව ඇත (OH IP ලිපිනයට ping කිරීම ක්‍රියා කරයි).
+
+So, the failure is likely before the server, at the DNS resolution step.
+එබැවින්‌, DNS විභේදන පියවටේදි සේවාදායකයට පෙර adden විමට ඉඩ ඇත.
+
+Machine A
+
+125.214.169.218
+
+Internet
+
+ee
+
+www.doenets.Ik DNS Server
+
+(ii) Identify two possible causes for the above behaviour and explain them using the diagram developed
+in section (a) (1) above.
+ඉහත චර්යාව පැවැතීම HEH) හේතු දෙකක්‌ හඳුනාගෙන මේවා ඉහත (a) (1) කොටස HED) අඳින ලද, HE සටහන
+භාවිත කරමින්‌ පැහැළබිලි කරන්න.
+
+DNS Server is Unreachable or Not Responding
+DNS සේවාදායකයට ළඟා විය නොහැකියි හෝ ප්‍රතිචාර නොදක්වයි
+
+When you run ping www.doenets.lk, your computer (Machine A) must first contact the DNS Server to
+find the IP address of www.doenets.lk. If the DNS server is down, unreachable or misconfigured,
+Machine A cannot resolve the domain name. As a result, the ping to the domain name fails, even though
+the actual web server is online.
+
+ඔබ www.doenets.lk (Machine A) ධාවනය කරන විට, ඔබේ පරිගණකය Machine A www.doenets.lk හි
+IP ලිපිනය සොයා ගැනීමට පළමුව DNS සේවාදායකය හා සමිබන්ධ විය යුතුය. DNS සේවාදායකය ක්‍රියා
+විරහිත නම්‌, ළඟා විය නොහැකි නමි හෝ වැරදි ලෙස වින්‍යාස කර ඇත්නමි, MachineA හට වසමි නාමය
+විසඳිය නොහැක. එහි ප්‍රතිවලයක්‌ ලෙස, සැබෑ වෙබි සේවාදායකය මාටර්ගගතව තිබුණද, වසමි නාමයට චසබට
+කිරීමට අසාඊර්ටක වේ.
+
+DNS Cache Timeout or Incorrect Local DNS Configuration
+DNS 88m පැරණිවීම හෝ වැරදි ස්ටානීය DNS වින්‍යාස කිරීම
+
+Earlier, Machine A may have cached the IP address of www.doenets.|k and used it for the first ping. When
+the cache expired, the next time ping www.doenets.lk was run, it had to query the DNS server again.
+
+මීට පෙර, Machine A විසින්‌ www.doenets.lk හි IP ලිපිනය නිහිත කර පළමු ping සඳුහා එය භාවිතා කර
+තිබිය හැක. නිහිත කල්‌ ඉකුත්‌ වූ විට, ඊළඟ වතාවේ ping www.doenets.lk ක්‍රියාත්මක වූ විට, එයට නැවත
+DNS සේවාදායකය විමසා බැලීමට සිදු වේ.
+
+DNS Resolution Blocked by Firewall or Security Software
+DNS Seen ගිනිපවුර හෝ ආරක්ෂණ මෘදුකාංග මගින්‌ අවහිර කර ඇත
+
+A firewall or antivirus on Machine A or the network may be blocking DNS traffic (port 53). IP-based
+ping works, but name resolution fails.
+
+Machine A හෝ පාලයේ ගිනිපවුර හෝ ප්‍රතිවෛරස මෘදුකාංගයක්‌ DNS ගමනාගමනය අවහිර කරමින්‌ සිටිය
+හැක (port 53). IP මත පදුනමි වු ping ක්‍රියා කරයි, නමුත්‌ නාම විභේදනය අසාඊර්ටක වේ.
+
+(9) An organization has only one public IP address, 192,248. 1 7. 1, allocated to it. The organization has
+decided to allow web browsing on the computers on its LAN with 100 computers. It also wants to
+optimize the usage of its Internet connection by reducing the traffic on the link as much as possible.
+කිසියමි සංවිධානයකට වෙන්‌ කරන ලද, එක්‌ පොදු (public) ලිපිනයක්‌ පමණක්‌ පවතින අතර එය 192.248.17.1
+වේ. මෙම සංවිධානය. සතු පටිගණක 100 කින්‌ සමන්චිත වු ADH පෙඳෙස්‌ පාලයක (LAN) ඇති පරිගණක
+මගින්‌ වෙබි අතරික්සීමට (web browsing) ඉඩ ලබාදිමට මෙම සංවිධානය තිරණය කර තිබේ. තව දු මෙම සංවිධානය
+එහි FHOOHE සමිබන්ධතාවයේ භාවිතාව ප්‍රශස්ත මට්ටමකට ගෙන ඒමට අදහස්‌ කර ඇත්තේ හැකිතාක්‌ දුරට
+සමිඛන්ධතාව (link) මත පවතින තදබදය අඩු කිරීමෙනි.
+
+Draw a network diagram to satisfy the above requirements. Explain the major decisions you made.
+ඉහත අවග්‍යතා නෘප්ත කිරීම පිණිස HE සටහනක්‌ අඳින්න. ඔබ විසින්‌ ගන්නා ලදු ප්‍රධාන තීරණ පැහැදිලි
+කරන්න.
+
+To router
+
+Private IP addresses within the following ranges can
+
+be assigned to the above 100 computers.
+පහත සඳහන්‌ පරාස අතර ඇති පෞද්ගලික IP ලිපින Proxy Server
+
+~ ~ 192.248.17.1
+ඉහත පරිගණක 100 BEM) පැවරිය හැකිය.
+
+ ]0.0.0.0- 10.255.255.255
+ ]72.16.0.0 - 172.31.255.255
+ ]92.168.0.0 - 192.168.255.255 Switch
+
+= =
+
+Machine | Machine 2 Machine 100
+192.168.0.0 192.168.0.1 192.168.0.99
+
+e Introducing a Web Proxy Server to Optimize Bandwidth
+කලාප පළල Eada කිරීම oem වෙබ්‌ නියෝජන සේවාදායකයක්‌ හඳුන්වා දීම
+
+To reduce traffic and improve Internet performance, a web proxy server is placed between the router and
+the internal LAN. This proxy caches frequently accessed web content, so if multiple users request the same
+content, it 1s delivered from the proxy’s cache instead of re-downloading it from the Internet. This
+significantly saves bandwidth and speeds up content delivery, especially during peak usage.
+
+අන්තටරපාල ME@WES අඩු කිරීමට සහ අන්තඊටපාල ක්‍රියාකාරිත්වය වැඩි දියුණු කිරීමට, මාර්ගභය සහ අභ්‍යන්තර
+LAN අතර වෙබි නියෝපන සේවාදායකයක්‌ නබා ඇත. මෙම නියෝපන සේවාදායකය නිතර ප්‍රවේශ වන වෙබි
+අන්තර්ගතය නිහිත කරයි, එබැවින්‌ බහු පරිගිලකයින්‌ එකම අන්තර්ගතය ඉල්ලා සිටියහොත්‌, එය
+අන්තටරපාලයෙන්‌ නැවත බාගත කිරීම වෙනුවට සේවාදායකයේ නිහිතයෙන්‌ ලබා දෙනු ලැබේ. මෙය කලාප පළල
+සැලකිය යුතු ලෙස ඉතිරි කරන අතර අන්තර්ගත බෙදා හැරීම වේගවත්‌ කරයි.
+
+e Use of a Network Switch
+ජාල ස්විචයක්‌ භාවිනා කිරීම
+
+A network switch is used to connect all 100 computers within the LAN. This device provides fast internal
+data transfer between devices and serves as a central communication point. It ensures that each computer
+can communicate efficiently with the router and proxy server without creating traffic congestion, enabling
+smooth local and Internet access.
+
+LAN තුළ ඇති සියලුම පරිගණක 100 සමිබන්ධ කිරීමට පාල ස්විචයක්‌ භාවිතා කරයි. මෙම උපාංගය උපාංග
+අතර වේගවත්‌ අභ්‍යන්තර දත්ත හුවමාරැවක්‌ සපයන EMO මධ්‍යම සන්නිවේදන ස්ථානයක්‌ ලෙස සේවය කරයි.
+අන්තරපාල තදබදයක්‌ ඇති නොකර සෑම පරිගණකයකටම මාර්ගකය සහ නියෝපන සේවාදායකය සමඟ
+කාර්යක්ෂමව සන්නිවේදනය කළ හැකි බව සහතික කරයි, සුමට ස්ථානීය සහ අන්තටර්පාල ප්‍රවේගය සක්‍රීය
+කරයි.
+
+e Use of Network Address Translation
+
+ජාල ලිපින පරිවරතනය භාවිතය (NAT)
+
+The organization has only one public IP address (192.248.17.1), but 100 computers need access to the
+Internet for web browsing. To solve this, Network Address Translation (NAT) is implemented on the
+router. NAT allows all internal (private) IP addresses to be mapped to the single public IP address when
+sending requests to the Internet. This method effectively shares the public IP among all devices and is a
+common solution for conserving public address space.
+
+සංවිධානයට ඇත්තේ එක්‌ පොදු IP ලිපනයක්‌ පමණි (192.248.17.1), නමුත්‌ වෙබි QQ කිරීම new) පරිගණක
+100කට අන්නර්පාලයට ප්‍රවේශය අවශ්‍ය වේ. මෙය විසඳිම HED, පාල ලිපින පරිවර්තනයක්‌ (NAT) මාර්ගකය
+මත ක්‍රියාන්මක කර ඇත. අන්තරපාලයට ඉල්ලිමි යවන විට සියලම අභ්‍යන්තර (පෞද්ගලික) IP ලිපින තනි
+පොදු IP ලිපිනයකට සිතියමිගත කිරිමට NAT ඉඩ දෙයි. මෙම ක්‍රමය සියලම උපාංග අතර පොදු IP වලදායී
+ලෙස බෙදා ගන්නා අතර පොදු ලිපින අවකාශය සංරක්ෂණය කිරීම සඳහා පොදු විසඳුමකි.
+
+2016 AL NETWORKING ESSAY MARKING
+
+1. There are two Local Area Networks (LANs) L1 and L2 which are connected only by a router R.
+These LANs are not connected to any other networks. Machines P and Q are connected to LANs
+L1 and L2 respectively. The machine P has successfully delivered an IP packet IP1 to machine Q.
+R මංහසුරැවක්‌ (Router) මගින්‌ පමණක්‌ සමිඛන්ධ වු 1.1 සහ L2 යන ස්ථානීය පෙදෙස්‌ පාල (LAN) දෙකක්‌
+ඇත. මෙම AAS පෙදෙස්‌ පාල වෙනත්‌ කිසිදු පාලයකට සමිබන්ධ නොවේ. P සහ ට යන්ත්‍ර පිළිවෙළින්‌
+ස්ථානීය පෙදෙස්‌ HE ],1 සහ L2 ට සමිබන්ධ කොට ඇත. P යන්ත්‍රය මගින්‌ ට යන්ත්‍රය වෙන IPI නමි ව
+IP පැකැටිටුවක්‌ සාර්ටකව DO දි ඇත.
+
+In a LAN, an IP packet is sent from the source device to the destination device by inserting it into a
+frame, generated in the data link layer at the source device. In that LAN, source and destination
+devices are uniquely identified by the MAC addresses in that frame.
+
+ස්ථානීය පෙදෙස්‌ පාලයක දි ප්‍රභව උපක්‍රමයෙහි esi සන්ධාන ස්තරය (Data link layer) තුළ දී Same
+කරනු ලබන රාමුවක්‌ තුළ ඛහා IP පැකටිටුවක්‌ ප්‍රභව උපක්‍රමයේ සිට ගමනාන්ත උපක්‍රමය වෙත යවනු ලැබේ.
+එම Heed දි ප්‍රභව සහ ගමනාන්ත උපක්‍රම ඉහත රාමුවෙහි ඇති MAC ලිපින මගින්‌ අනන්‍යව හඳුනාගනු
+ලැබේ.
+
+An IP address is recognized by the network layer but it 16 not recognized by the data link layer.
+IP ලිපිනයක්‌ පාල ස්තරය මගින්‌ හඳුනාගනු ලැබුව දු eso සන්ධාන ස්තරය මගින්‌ ඵය හඳුනාගනු නොලැබේ.
+
+(a) Draw a network diagram to depict the network
+described above using commonly used symbols Router
+and notations.
+ඉහත විස්තර කරන ලද පාලය පිළිබිඹු කිරීම සඳුහා
+පොදු වගයෙන්‌ භාවිත වන සංකේත සහ අංකන යොදා
+ගනිමින්‌ පාල සටහනක්‌ අඳින්න.
+
+LAN 1,1 contains / LAN L1 හි අඩංගු වන්නේ:
+P (Computer) connected to the LAN.
+P (ed@gnenc) LAN වෙත සම්බන්ධ කර ඇත. ©
+
+Router R’s interface (L1 side) connected to LAN LI.
+Router R හි අතුරැමුහුණත LANL1 වෙත සමිබන්ධ කර ඇත.
+
+LAN 1,2 contains / LAN L2 හි අඩංගු වන්නේ:
+Q (Computer) connected to LAN L2.
+(0 (eda@gnenc) LAN ] 2 වෙත සමිබන්ධ කර ඇත.
+
+Router R’s interface (L2 side) connected to LAN L2.
+Router R හි අතුරැමුහුණත LAN L2 වෙත සම්බන්ධ කර ඇත.
+
+The router (R) has two interfaces, one for each LAN.
+මාටර්ගකයට (R) එක්‌ එක්‌ LAN සඳහා අතුරැමුහුණත්‌ දෙකක්‌ ඇත.
+
+(b) State whether the destination IP address of the packet IP1 is the IP address of Q or R when it 1s going
+
+(c)
+
+through LAN L1. Justify your answer.
+(ආ) IP1 පැකැටිටුව Ll ස්ථානීය පෙදෙස්‌ පාලය හරහා ගමන්‌ කරමින්‌ සිටිය දි එහි ගමනාන්ත IP ලිපිනය ට
+ගේ IP ලිපිනය ද, R ගේ IP ලිපිනය € දැයි ලියා දුක්වන්න. ඔබගේ පිළිතුර සත්‍යාපනය කරන්න.
+
+The destination IP address is Q’s IP address.
+ගමනාන්ත IP ලිපිනය (0 හි IP ලිපිනයයි.
+
+The destination IP address always remains the final target's IP address (Q) from the time it leaves P until
+it reaches Q, regardless of how many routers or networks it crosses.
+
+ගමනාන්ත IP ලිපිනය, එය P වෙතින්‌ පිටවන මොහොතේ සිට Q වෙත ළඟා වන තෙක්‌, එය කොපමණ
+මංහසූරැ හෝ පාල හරහා ගමන්‌ කළත්‌, අවසාන ඉලක්කයේ IP ලිපිනය (Q) ලෙස සැමවිටම පවති.
+
+IP addresses are part of the network layer, which is not changed by intermediate routers.
+IP ලිපින යනු HE ස්ටරයේ කොටසක්‌ වන අතර එය FMOOE මංහසුරැ මගින්‌ වෙනස්‌ නොවේ.
+
+Even when traveling on LAN L1 (from P to R), the IP packet still contains Q's IP address because the
+ultimate target is Q.
+
+LAN L1 (P සිට R දුක්වා) මත ගමන්‌ කරන විට පවා, අවසාන ඉලක්කය Q වන බැවින්‌ IP පැකට්ටුවේ
+තවමත්‌ Q හි IP ලිපිනය අඩංගු වේ.
+
+Assume that the IP packet IP1 was in අ frame F2 in LAN L2. State whether the source MAC address
+of frame F2 is the MAC address of P or R. Justify your answer.
+
+(ඇ) IP පැකැටිටුව 1121, 1,2 ස්ථානීය පෙදෙස්‌ Heed දි F2 නමි වු රාමුවක්‌ තුළ තිබුණේ යැයි උපකල්පනය
+කරන්න. F2 හි ප්‍රභව MAC ලිපිනය P ගේ MAC ලිපිනය ද R ගේ MAC ලිපිනය දැයි ලියා දක්වන්න.
+ඔබගේ පිළිතුර සත්‍යාපනය කරන්න.
+
+The source MAC address is R’s MAC address.
+ප්‍රභව MAC ලිපිනය R හි MAC ලිපිනයයි.
+
+When a router forwards a packet from one LAN to another (from L1 to L2), it unwraps the frame from
+LAN L 1 and creates a new frame for LAN L2.
+
+මංහසුරැවක්‌ එක්‌ LAN එකකින්‌ තවත්‌ LAN වකකට (L1 BO L2 Ewa) පැකටිටුවක්‌ යොමු කරන SO, එය
+LAN L1 වෙතින්‌ රාමුව ඉවත්‌ කර LAN ],2 සඳුහා නව රාමුවක්‌ නිර්මාණය කරයි.
+
+In the new frame (F2 on L2)
+නව රාමුවේ (L2 හි F2):
+
+The source MAC address is the router’s (R's) MAC address on L2.
+ප්‍රභව MAC ලිපිනය මංහසුරැවේ (R හි) L2 හි MAC ලිපිනයයි.
+
+The destination MAC address 15 Q's MAC address.
+ගමනාන්ත MAC ලිපිනය Q හි MAC ලිපිනයයි.
+
+The router does not preserve P’s MAC address because MAC addresses are valid only within same LAN.
+MAC ලිපින වලංගු වන්නේ එකම LAN තුළ පමණක්‌ බැවින්‌ මංහසූරැව P හි MAC ලිපිනය සංරක්ෂණය
+නොකරයි.
+
+2017 AL NETWORKING ESSAY MARKING
+
+1. A “Demilitarized Zone (DMZ)” is a subnet that contains and exposes an organization’s external-
+facing services such as web servers (public IP addresses) to the Internet while hiding away the rest of
+the network behind a firewall (using local IP addresses).
+
+"යුධ මුක්ත කලාපයක්‌ (DMZ)" යනු ආයතනයක වෙබි සේවාදායකයින්‌ වැනි බාහිරට මුහුණලා ඇති සේවා
+( පොදු IP ලිපන) අන්තරපාලයට විවෘත කරන අතරතුර පාලයේ ඉතිරිය ගිනිපවුරක්‌ (firewall) පසුපස සඟවනු
+ලබන (පෞද්ගලික IP ලිපින භාවිතයෙන්‌) උපපාලයකි.
+
+A network with a DMZ belonging to an organization has been assigned the public IP address range
+123.45.67.0 with subnet mask 255.255.255.224. The DMZ contains the web server and the mail
+server. It has 4 additional subnets for internal use having the private IP address range 10.0.0.0 with
+the subnet mask 255.0.0.0. Computers in each subnet can access resources in all other subnets. The
+organization decided to connect the 4 subnets to the Internet through a proxy server. There is also an
+application server for its internal clients.
+
+ආයතනයකට අයත්‌ DMZ සහිත පාලයක්‌ සඳුහා 255.255.255.224 cache ආවරණය සහිත 123.45.67.0
+යන පොදු IP ලිපින පරාසය ලබා දි ඇත. මෙම DMZ හි වෙබ්‌ සේවාදායකය හා තැපැල්‌ සේවාදායකය
+අඞංගු වේ. එයට අභ්‍යන්තර භාවිතය සඳුහා අමතර COHE 4ක්‌ ඇති අතර, ඒවාට උපපාල ආවරණය 255.0.0.0
+සහිත 10.0.0.0 යන පුද්ගලික IP ලිපින පරාසය භාවිත කරයි. එක්‌ එක්‌ උපපාලයේ ඇති පරිගණකවලට
+අනෙකුත්‌ සියලු ම උපපාලවල ඇති සමිපත්‌ වෙත ප්‍රවේග විය හැකි ය. මෙම උපපාල 4 නියෝජන සේවාදායකය
+(proxy server) හරහා අන්තටපාලයට සමිබන්ධ කිරීමට ආයතනය තීරණය කළේ ය. එහි අභ්‍යන්තර
+සේවාග්‍රාහකයින්‌ HEM) යෙදුමි සේවාදායකයක්‌ දු ඇත.
+
+Identify the devices required to establish this network and draw a network diagram to show the
+logical arrangement of the organization’s computer network. Show all the elements of the network
+with appropriate IP addresses. Clearly show all calculations stating assumptions you made.
+Further, it is also required to explain the changes done to an IP packet released by a computer to a
+subnet by the proxy server when it travels to the Internet.
+
+මෙම HES ස්ටාපිත කිරීම HEH) අවග්‍ය උපාංග හඳුනාගෙන Manned පරිගණක Heed තාර්කික සැලැස්ම
+පෙන්වීම සඳුහා පාල සටහනක්‌ අඳින්න. පාලයේ සියලු කොටස්‌ සුදුසු IP ලිපින සමග දක්වන්න. ඔබ විසින්‌ සිදු
+කරන EC උපකල්පන පැහැළිලි ව ප්‍රකාග කරමින්‌, සියලු ගණනය කිරිමි දු පැහැදිලි ව දුක්වන්න.
+
+තව ද, පරිගණකයක්‌ උපපාලයක්‌ තුළට මුදාහරින IP පැකැටිටුවක්‌ අන්තරපාලය වෙත ගමන්‌ කිරීමේ දී,
+නියෝපන සේවාදායක මගින්‌ එම පැකටිටුවට සිදු කරන වෙනස්කමි විස්තර කිරීම ද අවග්‍ය වේ.
+
+A Demilitarized Zone (DMZ) in networking is a special subnet that acts as a buffer zone between an
+organization’s internal network and the public Internet. It contains services that need to be accessible from
+outside the organization, such as web servers, mail servers, and FTP servers. These servers are assigned
+public IP addresses so users on the Internet can access them, but they are placed in a separate network
+segment to reduce the risk to the internal network.
+
+පාලකරණයේ යුධ මුක්ත කලාපයක්‌ (DMZ) යනු සංවිධානයක අභ්‍යන්තර DES සහ පොදු අන්තර්පාලය අතර
+බෆර්‌ කලාපයක්‌ ලෙස ක්‍රියා කරන විගේෂ උප ජාලයකි. වෙබි සේවාදායකයන්‌, තැපැල්‌ සේවාදායකයන්‌ සහ
+FTP සේවාදායකයන්‌ වැනි සංවිධානයෙන්‌ පිටත සිට ප්‍රවේග විය යුතු සේවාවන්‌ එහි අඩංගු වේ. අන්තරපාලයේ
+පරිගිලකයින්ට ඒවාට ප්‍රවේග විය හැකි වන SSE මෙම සේවාදායකයන්ට පොදු IP ලිපින පවරා ඇත, නමුත්‌
+අභ්‍යන්තර පාලයට ඇති අවදානම gH කිරීම සඳහා ඒවා වෙනම පාල කොටසක තබා ඇත.
+
+Public IP Block / පොදු IP කොටස (DMZ)
+
+Given IP block / ලබා දි ඇති IP කොටස : 123.45.67.0
+Subnet )//]45]/ උපපාල ආවරණය : 255.255.255.224 > 11111111.11111111.11111111.11100000 > /27
+
+So, public IP block is 123.45.67.0/17
+එමනිසා, පොදු IP කොටස වන්නේ 123.45.67.0/17
+
+Private IP Block (Internal)
+පුද්ගලික IP කොටස (අභ්‍යන්තර)
+
+Given IP block : 10.0.0.0
+ලබා දි ඇති IP කොටස : 10.0.0.0
+
+Subnet Mask : 255.0.0.0 > 11111111.00000000.00000000.00000000 > /8
+උපපාල ආවරණය : 255.0.0.0 D 11111111.00000000.00000000.00000000 > /8
+
+So, private IP block is 10.0.0.0/8
+එමනිසා, පුද්ගලික IP කොටස වන්නේ 10.0.0.0/8
+
+We should borrow 2 bits from host portion to divide into 4 subnets.
+මෙහිදි උපපාල 4 කට GHEOO ධාරක කොටසෙන්‌ බිටු 2 ක්‌ ලබාගත යුතුයි.
+
+2? = 4 subnets (උපපාල)
+
+Then the subnet mask becomes 255.192.0.0
+එවිට උපපාල ආවරණය 255.192.0.0 වේ.
+
+00001010.00000000.00000000.00000000 = 10.0.0.0/10
+00001010.01000000.00000000.00000000 = 10.64.0.0/10
+00001010.10000000.00000000.00000000 = 10.128.0.0/10
+00001010.11000000.00000000.00000000 = 10.192.0.0/10
+
+Subnet Network ID IP range
+
+Subnet | 10.0.0.0 10.0.0.1 - 10.63.255.254
+Subnet 2 10.64.0.0 10.64.0.1 - 10.127.255.254
+Subnet 3 10.128.0.0 10.128.0.1 - 10.191.255.254
+Subnet 4 10.192.0.0 10.192.0.1 - 10.255.255.254
+
+Since any computer in any subnetwork can access resources in all subnetworks, the application server can
+be established in any subnetwork. Since it is for internal clients, it should not be located in the DMZ.
+ඕනෑම උප පාලයක ඕනෑම පරිගණකයකට සියලුම උප පාලයන්හි සමිපත්‌ වෙත ප්‍රවේශ විය හැකි බැවින්‌,
+යෙදුමි සේවාදායකය ඕනෑම උප ජාලයක ස්ටාපිත කළ හැකිය. එය අභ්‍යන්තර සේවාදායකයින්‌ සඳහා වන
+බැවින්‌, එය DMZ හි පිහිටා නොතිබිය යුතුය.
+
+When a computer in the internal network sends a packet to the Internet, the proxy server changes the
+source IP address from the internal private IP (e.g. 10.0.0.20) to its own public IP (e.g. 123.45.67.10). The
+destination IP remains the same. This makes it appear as if the request 15 coming from the proxy server,
+not the internal computer. When the response comes back from the Internet, the proxy server receives it
+and forwards it to the correct internal computer.
+
+අභ්‍යන්තර පාලයේ පරිගණකයක්‌ අන්තරපාලයට පැකට්ටුවක්‌ යවන SO, නියෝපන සේවාදායකය අභ්‍යන්තර
+පුද්ගලික IP ලිපිනයෙන්‌ (උදා; 10.0.0.20) තමන්ගේම පොදු IP ලිපිනයට (උදා: 123.45.67.10) @@@ IP
+ලිපිනය වෙනස්‌ කරයි. ගමනාන්ත IP ලිපිනය එලෙසම පවති. මෙමඟින්‌ ඉල්ලීම අභ්‍යන්තර පරිගණකයෙන්‌ නොව
+නියෝජන සේවාදායකයෙන්‌ පැමිණෙන බව පෙනේ. ප්‍රතිචාරය අන්තර්පාලයෙන්‌ ආපසු පැමිණි විට, නියෝජන
+සේවාදායකය එය ලබාගෙන නිවැරදි අභ්‍යන්තර පරිගණකයට යොමු කරයි.
+
+Internet Router Firewall
+
+Subnet 1
+
+123.45.67.0/17
+
+෴ ෴ ෴෴ ෴෴ ෴ ෴ ෴ ෴ ෴ ඔ ධ෴ ෴ ෴෴ ෴ ෴ ෴ ෴෴ ෴ ඔ෴ ඞෘ
+
+Subnet 2
+
+10.0.0.0/10
+
+Vv
+
+Lt Lt Ld
+
+10.64.0.0/10
+
+යක ශාකා ශාකා කකා ෂා කකා ere ෂා hl ෂා කයි
+
+4 |
+
+ෂෂ කක්‍ෂෂ | | කෂ කක සක්‍කය කකා කක කකා කැ.
+
+2018 AL NETWORKING ESSAY MARKING
+
+1. Consider the following scenario.
+පහත දැක්වෙන සංසිද්ධිය සලකන්න.
+
+The XYZ company has six departments, namely Production, Accounts, Sales, Administration,
+Maintenance and Information Technology Services (IT). The following table shows the number of
+computers available in each of the departments.
+
+XYZ සමාගමට නිෂ්පාදන, BBG, අලෙවි, පරිපාලන, නඩත්තු සහ තොරතුරැ තාක්ෂණ සේවා නමින්‌ දෙපාර්තමේන්තු
+හයක්‌ ඇත. එක්‌ එක්‌ දෙපාර්තමේන්තුවෙහි ඇති පරිගණක සංඛ්‍යාව පහත වගුවෙහි පෙන්වා ඇත.
+
+Department No Department Number of Computers
+100] Production / නිෂ්පාදන 25
+1002 Accounts / ගිණුම්‌ 30
+1003 Sales / අලෙවි 18
+D04 Administration / පරිපාලන 30
+1005 Maintenance / නඩත්තු 25
+1006 IT Services / තොරතුරැ තාක්ෂණ සේවා 28
+
+Each department needs to have their own local area network. Network administrator has received a class
+C IP address block 192.248.154.0/24. It is required to subnet the IP address block to satisfy the
+requirements of each department and allocate IP addresses to them.
+
+එක්‌ එක්‌ දෙපාරිතමේන්තුවට තමන්ගේම SOHO ප්‍රදේශ පාලයක්‌ (LAN) අවග්‍යව පවති. HE පරිපාලක වෙත
+ලපන්තියේ ]92.248. 154.0/24 IP ලිපින කාණ්ඩයක්‌ ලැබි ඇත. සැම දෙපාරතමේන්තුවකම අවශ්‍යතා සපුරාලමින්‌
+එක්‌ එක්‌ දෙපාර්තමේන්තුවට IP ලිපින වෙන්‌ කෙරෙන ආකාරයට, 1]' ලිපන කාණ්ඩය උපපාලනය (subnet) කිරීමට
+අවශ්‍යව ඇත.
+
+(1) How many addresses are available in the IP address block?
+IP ලිපින කාණ්ඩයෙහි කොපමණ ලිපින සංඛ්‍යාවක්‌ Hed ද?
+
+Consider the given IP address.
+
+E ඇති ලිපිනය සලකමු.
+192.248. 154.0/7/24
+
+The "/24" indicates that 24 bits are used for the network portion, leaving 32 - 24 = 8 bits for the host portion.
+"/24" මඟින්‌ පාල කොටස සඳුහා BQ 24 ක්‌ භාවිතා කරන බවත්‌, ධාරක කොටස oem) බිටු 32-24=8 ක්‌
+ඉතිරි වන බවත්‌ දක්වයි.
+
+Network bit / පාල බිටු -24
+Host bit / සත්කාරක බිටු - 8 (32 -- 24--8)
+
+Therefore the number of available addresses is 25 = 256.
+එම නිසා ලබා ගත හැකි ලිපින ගණන 2° = 256 වේ.
+
+(11) What are the first and the last addresses of the IP address block?
+IP ලිපින කාණ්ඩයෙහි පළමු සහ අවසාන ලිපින මොනවා උද?
+
+Now let's find the first address and the last address.
+දැන්‌ පළමු යොමුව සහ අවසාන යොමුව සොයමු.
+
+When all host bits are set to 0, the first address is obtained and when all host bits are set to 1, the last
+address is obtained.
+
+සත්කාරක BQ සියල්ල 0 කළ SO පළමු යොමුව ද. සත්කාරක BQ සියල්ල ] mE SO විට අවසාන යොමුව
+දූ ලැබේ.
+
+First Address / පළමු යොමුව: 192.248.154.0
+Last Address / අවසාන යොමුව: 192.248.154.255
+
+(111) How many host bits are required to create the required subnets?
+අවග්‍ය උපපාල H6@g0e කිරිම සඳුහා සත්කාරක (host) බිටු කොපමණ අවග්‍ය වේ ද?
+
+The number of host bits required to create the number of subnets is calculated by the power of two equals
+the number of subnets required.
+
+උපපාල ගණන නිට්මාණය කිරීමට අවශ්‍ය සත්කාරක බිටු ගණන ගණනය කරගනු ලබන්නේ අවග්‍ය උපපාල
+ගණනට සමාන වන දෙකෙහි බලය මගිනි.
+
+Accordingly, since it is necessary to create 6 subnets, the number of host bits required to create this subnet
+is 3 because the smallest power of 2 that is greater than or equal to 6 is third power of 2.
+ඒ අනුව, උපපාල 6ක්‌ නිරමාණය කරගැනීම අවග්‍ය වන බැවින්‌, මෙම උපපාලය නිර්මාණය කිරීමට අවග්‍ය
+
+සත්කාරක බිටු ගණන 3 වේ, Ose 60 වඩා වැඩි හෝ සමාන වන 2 හි කුඩාම බලය 2 හි තුන්වන බලය වන
+බැවිනි.
+
+(iv) After subnetting, with the relevant network address, subnet mask and allocated range of IP addresses for
+each department.
+උපපාලගත කිරිමෙන්‌ පසු එක්‌ එක්‌ දෙපාටරතමේන්තුව සඳහා අදාළ HE ලිපිනය, උපපාල ආවරණය (subnet
+mask) සහ පවරන ලදු IP ලිපින පරාසය ලියා දක්වන්න.
+
+Note: Use the following table format to present your answer.
+සටහන: ඔබගේ පිළිතුර ඉදිරිපත්‌ කිරීම සඳහා පහත දැක්වෙන වගු ආකෘතිය භාවින කරන්න.
+
+Department No | Network Address | Subnet Mask IP Address Range
+
+1001 192.248. 154.0 255.255.255.192 | 192.248&. 154.0-192.248. 15463
+192.248. 154.1-192.248 154.62
+
+1002 192.248. 154.64 255.255.255.192 | 192.248.154.64-192.248 154.127
+192.248. 154.65-192.248 154.126
+
+1003 192.248.154.128 | 255.255.255.224 | 192.248. 154.128-192.248 154.159
+192.248. 154.129-192.248 154.158
+
+1004 192.248. 154.160 | 255.255.255.224 | 192.248. 154.160-192.248 154.191
+192.248. 154.161-192.248. 154.190
+
+1005 192.248. 154.192 | 255.255.255.224 | 192.248.154.192-192.248&. 154.223
+192.248. 154.193-192.248 154.222
+
+D06 192.248.154.224 | 255.255.255.224 | 192.248 154.224-192.248 154.255
+192.248. 154.225-192.248 154.254
+
+Given above 15 the official answer sheet answer and this can be easily shared through the below method.
+ඉහතින්‌ Eso) ඇත්තේ නිල පිළිතුරු පත්‍රයේ පිළිතුරට OD අතර පහත HOG මගින්‌ මෙය පහසුවෙන්‌
+
+බෙදාගත හැකිය.
+
+[0010101010 100
+
+ආ ෴෴෴෴~෴ 4
+
+64 Nodes
+
+“~~ -~෴෴ය෴෴෴ධ෴෴ධ෴ධ෴~ ෴~෴෴ ෴෴~෴ අ ළ්‌ අ අත
+
+32 Nodes .
+
+0 0 0 0 0 0 (|
+ofojofofofol]::
+1 7777 T
+
+ee ෴෴෴෴෴෴෴
+
+0|0|0|0[0|0
+
+0|0|0|0[0]0
+
+(b) The XYZ Company links the five departments Production, Accounts, Sales, Administration and
+
+Maintenance to the IT Services department and connects those departments to the Internet through the IT
+Services department. The network has been completed by laying the cables and installing six switches, a
+router and a firewall. All six departments are situated 111 six separate buildings.
+XYZ සමාගම ASHEH, ගිණුම්‌, අලෙවි, පරිපාලන සහ නඩත්තු යන දෙපාටරතමේන්තු පහ තොරතුරු තාක්ෂණ
+සේවා දෙපාර්තමේන්තුවට සමිබන්ධ කර, එම දෙපාර්තමේන්තු තොරතුරැ නාක්ෂණ දෙපාර්තමේන්තුව හරහා
+FBDOHEGO සමිඛන්ධ කරයි. රැහැන්‌ අතුරා, සවිච හයක්‌, මාටර්ගකාරකයක්‌ (router) සහ ගිනි පවුරක්‌
+(firewall) deans කර පාලය සමිපුර්ණ කර ඇත. දෙපාර්තමේන්තු හය වෙන වෙනම ගොඩනැගිලි හයක
+ස්ථාන ගත වී ඇත.
+
+The administrator allows all subnets to access the Internet through a proxy server. The proxy server and
+the DNS server are located in the IT Services department.
+
+පාල පරිපාලක විසින්‌ සියලු ම උපපාලවලට, නියෝපන සේවාදායකයක්‌ (proxy server) හරහා අන්තටපාලයට
+ප්‍රවේශ විමට ඉඩ සලසා ඇන. නියෝපන සේවාදායකය සහ DNS සේවාදායකය තොරතුරැ නාක්ෂණ සේවා
+දෙපාරතමේන්තුවෙහි ස්ථාපනය කර ඇත.
+
+Draw the labelled network diagram to show the logical arrangement of the computer network of the XYZ
+company by identifying suitable devices and required cables for all the locations.
+
+සියලු ම ස්ටාන OCH) සුදුසු උපක්‍රම හා අවශ්‍ය රැහැන්‌ හඳුනා ගනිමින්‌, XYZ සමාගමෙහි පරිගණක පාලයෙහි
+තට්කණ සැකැස්ම නිරෑපණය කිරීමට, නමි කරන ලදු පාල රැපසටහන අඳින්න.
+
+Router
+Firewall
+
+ee
+
+‘ ॥
+!
+!
+i Comp - 2 DNS Server !
+1
+
+1
+!
+' 1
+
+Comp - 28
+
+a රආ,"෴රය
+
+1
+Switch - Production 1 Switch - Sales
+
+Comp - 2 Comp - 2
+
+Comp - 18
+
+Meee ee ee em ee ee ee ew ew ew ew ee ee ee ee ee ee ee ee
+
+Comp - 25
+
+See ee eee eee eee
+
+. Switch
+Comp Switc ccounts _Administration Comp
+
+Comp - 2 Comp - 2
+
+¢
+wee eee ee ee ee
+
+Comp - 30 Comp - 30
+
+Switch -Maintenance
+
+Comp - 1 Comp - 2
+
+| Comp - 25 |
+
+(c) After setting up the network any employee of any department was able to access the URL
+
+http://www.nie.lk through a web browser in a computer in his/her department. However, one day an
+employee finds that he cannot access that website from a computer in his department. Write three possible
+reasons for the above problem.
+NOS සැකසීමෙන්‌ අනතුරැව සමාගමෙහි ඕනෑම දෙපාරතමේන්තුවක ඕනෑම සේවකයකුට තම ළදෙපාටරතමේන්තු
+වෙහි පරිගණකයක ඇති වෙබි අතරික්සුවක්‌ මගින්‌ ඒකාකාරි සමිපත්‌ නිග්චායකය http://www.nie.lk වන වෙබි
+අඩවියට සාථට්ථකව පිවිසිය හැකි විය. එසේ නමුදු එක්තරා දිනයකදි එක්‌ සේවකයෙක්‌ තම දෙපාරතමේන්තුවෙහි
+පරිගණකයකින්‌ එම වෙබි අඩවියට ප්‍රවේශ විමට නොහැකි බව දැන ගනියි. ඉහත ගැටළඑවට තුඩු දිය හැකි
+හේතු තුනක්‌ ලියා දක්වන්න.
+
+1) Network Connectivity Issues / පාල සබඳුතා ගැටළු
+
+e The employee’s computer might have lost its connection to the department's switch or the IT Services
+network. chOaweds පරිගණකය දෙපාර්තමේන්තුවේ ස්විචයට හෝ IT සේවා HEGO ඇති සමිබන්ධතාවය
+නැති වී තිබිය හැක.
+
+e A faulty Ethernet cable, disconnected switch, or a network outage could be causing the problem.
+දෝෂ සහිත gandHe කේඛලයක්‌, විසන්ධි වූ ස්විචයක්‌ හෝ පාල ඇනහිටිමක්‌ ගැටඑවට හේතු විය හැක.
+
+e The employee can check if other websites are accessible or if the network icon shows any errors.
+සේවකයාට වෙනත්‌ වෙබි අඩවි වලට ප්‍රවේශ විය හැකිද යන්න හෝ HE නිරෑපකයේ කිසියමි දෝෂයක්‌
+පෙන්නුමි කරන්නේද යන්න පරීක්ෂා කළ හැක.
+
+2) Proxy Server or Firewall Blocking the Website
+නියෝජන සේවාදායකය හෝ ගිනිපවුර මගින්‌ වෙබි අඩවිය අවහිර කිරීම
+
+e Since all departments access the Internet through a proxy server, the IT administrator might have
+blocked http://www.nie.lk due to security policies or restrictions.
+සියලම දෙපාර්තමේන්තු නියෝපන සේවාදායකයක්‌ හරහා අන්තට්පාලයට පිවිසෙන බැවින්‌, ආරක්ෂක
+ප්‍රතිපත්ති හෝ සීමාවන්‌ හේතුවෙන්‌ IT පරිපාලක http://www.nie.lk අවහිර කර තිබිය හැක.
+
+e The firewall might also be preventing access to the website due to updated security rules.
+යාවත්කාලීන කරන ලදු ආරක්ෂක නීති හේතුවෙන්‌ ෆයර්වෝල්‌ වෙබි අඩවියට පිවිසීම වළක්වමින්‌ සිටිය
+හැක.
+
+3) DNS Resolution Failure /DNS පිවිසීම අසමත්‌ විම.
+
+e The DNS server in the IT Services department may not be resolving http://www.nie.lk correctly.
+IT සේවා දෙපාර්තමේන්තුවේ DNS සේවාදායකය http://www.nie.lk නිවැරදිව පිවිසෙන්නේ නැති විය හැක.
+
+e This can happen due to DNS misconfiguration, server downtime, or outdated cache.
+DNS වැරදි වින්‍යාසය, සේවාදායක අක්‍රිය කාලය හෝ යල්‌ පැන ගිය නිහිතය නිසා මෙය සිදුවිය හැක.
+
+In addition, the official answer sheet states the following.
+මීට අමතරව නිළ පිළිතුරැ පත්‍රයේ පිළිතුරු පහත දැක්වේ.
+
+DNS is not working(down) / DNS සේවාදායකය eGo විම
+
+Proxy Server down / නියෝපන සේවාදායකය අක්‍රීය විම
+
+Change the Proxy Settings / නියෝජන සැකසුමි වෙනස්‌ කිරිම
+
+Internet Link is not working / අන්තරපාල සබඳතාව බිඳු වැටිම
+
+Switch 15 broken / No power for the switch / ස්විචය අක්‍රීය වීම හෝ ස්විචයේ විදුලි බලය විසන්ධි SO
+Router is not working / මාර්ගකාරකය අක්‍රීය විම
+
+Cable Damage / Cables not properly connected / රැහැන්‌ කැඩි යාම හෝ නිසි ලෙස සමිබන්ධ 5 නොතිබීම
+Network card of the computer is not working / පාල කාඩිපත Ga) නොකිරීම
+
+Computer is not properly connected to the network / පරිගණකය නිසි ලෙස HEGO සමිඛන්ධ වි නොතිබීම
+TCP/IP configuration of the machine is wrong / TCP/IP වින්‍යාසයෙහි දෝෂ ඇතිවීම
+
+NIE Server down /NIE සේවාදායකය බිඳ වැටිම
+
+2019 AL NETWORKING ESSAY MARKING
+
+1. Write down the most appropriate term from the given list to fill the blank in each statement given below.
+පහත දැක්වෙන එක්‌ එක්‌ වගන්තියෙහි හිස්තැන පිරවීමට වඩාත්ම සුදුසු අයිතමය දි ඇති ලැයිස්තුවෙන්‌ තෝරා
+ලියන්න. (වරහන්‌ තුළ ඇති ඉංගීසි තේරැම ලිවීම අවශ්‍ය නොවේ)
+
+List = {ALOHA, Application Layer (e@e8 ස්ටරය). CIDR, DHCP, Domain Name System (වසමි නාම
+පද්ධතිය ). Network Layer (පාල SOdc), Packet Switching ( පොළි හුවමාරැව). Parity Bit (සමතා BQO), Parity
+Byte (සමතා @BOo), Proxy Server (නියෝපන සේවාදායකය) |
+
+(1) .............--.............................. provides IP addresses for the given URLs and web addresses
+............................................. දෙන ලද URL හා වෙබි ලිපිනවලට අනුරෑප IP ලිපින ලබා දෙයි.
+
+(11) File Transfer Protocol (FTP), Simple Mail Transfer Protocol (SMTP) and the Telnet service are
+implemented in the ................... ... -......................
+ගොනු හුවමාරැ නියමාවලිය (FTP), සරල තැපැල්‌ හුවමාරැ නියමාවලිය (SMTP), සහ Telnet සේවාව
+.................................. හි ක්‍රියාත්මක වේ.
+
+(111) With the .................... ............. a device may get a different IP address every time it connects to the network.
+............................... මගින්‌, යමි උපක්‍රමයකට, එය පාලයකට සම්බන්ධ වන සෑම අවස්ටාවකදි ම වෙනස්‌ IP
+ලිපිනයක්‌ ලැබිමට ඉඩ ඇත.
+
+(1) .............. - --............................ helps to effectively manage the available IP address space.
+........................................... තිබෙන IP ලිපින අවකාශය, කාර්යක්ෂමව කළමනාකරණය කිරීමට ඉවහල්‌ වේ.
+
+(v) In data transmission, for the process of error detection, 3 ................ .................... is added to a binary string
+to ensure that the total number of 1-bits in the string is either even or odd.
+ED සම්ප්‍රේෂණයේදි දෝෂ අනාවරණය කිරිම oem) ද්විමය අනුලක්ෂණ පෙළක (binary string) ඇති මුඑ
+1-බ්ටු ගගන ඔන්තේ හෝ ඉරටිටේ බව නිග්වය කර ගැනීමට එම අනුලක්ෂණ පෙළට
+............................................. ක්‌ එකතු කරනු ලැබේ.
+
+e ALOHA
+
+ALOHA is a simple communication protocol used in networking for data transmission. It was developed
+for wireless networks and allows devices to send data whenever they want. However, if multiple devices
+transmit at the same time, data collisions occur, requiring retransmissions. There are two main types: Pure
+ALOHA and Slotted ALOHA, with the latter reducing collision chances by dividing time into slots.
+ALOHA යනු Ese සමිප්‍රඞේෂණය සඳහා පාලකරණයේදි MSD) කරන සරල සන්නිවේදන නියමාවලියකි. OO
+රැහැන්‌ රහිත පාල සඳුහා සංවර්ධනය කර ඇති අතර උපාංගවලට අවග්‍ය විටෙක දුන්ත යැවිමට ඉඩ සලසයි.
+කෙසේ වෙතත්‌, උපාංග කිහිපයක්‌ එකවර සමිප්‍රේෂණය කරන්නේ නමි, em ඝටිටන සිදු වේ, නැවත සමිප්‍රේෂණය
+කිරීම අවශ්‍ය 68. Pure ALOHA සහ Slotted ALOHA ලෙස ප්‍රධාන වර්ග දෙකක්‌ තිබේ. දෙවැන්න කාලය
+කොටස්‌ වලට බෙදිමෙන්‌ BOOM අවස්ථා අඩු කරයි.
+
+e Application Layer / යෙදුමි ස්ටරය
+
+The Application Layer is the topmost layer in the OSI model, responsible for providing network services
+directly to users and applications. It handles protocols like HTTP (web browsing), FTP (file transfer),
+SMTP (email), and DNS (domain name resolution). This layer ensures proper communication between
+software applications over a network.
+
+යෙදුමි ස්ටරය OSI ආකෘතියේ ඉහළම ස්ටරය වන අනර, පරිගීලකයින්ට සහ යෙදුමි වෙත සෘපුවම පාල
+සේවා සැපයීම සඳහා වගකිව යුතුය. එය HTTP (වෙබි බ්‍රවුසින්‌), FTP (ගොනු හුවමාරැව), SMTP (ඊමේල්‌) සහ
+DNS (වසමි නාම විභේදනය) වැනි නියමාවලි හසුරැවයි. මෙම ස්තරය පාලයක්‌ හරහා මෘදුකාංග යෙදුමි අතර
+නිසි සන්නිවේදනය සහතික කරයි.
+
+e CIDR (Classless Inter-Domain Routing)
+
+CIDR is a method used for efficient IP address allocation and routing. Unlike traditional class-based
+addressing, CIDR allows flexible subnetting using variable-length subnet masks (VLSM). This helps
+reduce IP address wastage and improves routing efficiency, especially with [Pv4 address exhaustion.
+CIDR යනු කාර්යක්ෂම IP ලිපින වෙන්‌ කිරීම සහ මාර්ගගත කිරීම Heo) භාවිතා කරන ක්‍රමයකි. සාමිප්‍රදායික
+පන්ති-පාදක ලිපින මෙන්‌ නොව, CIDR විචල්‍ය-දිග උපපාල ආවරණ VLSM භාවිතයෙන්‌ නම්‍යගීලි උපපාල
+සැකසීමට ඉඩ දෙයි. මෙය IP ලිපින නාස්තිය අවම කිරීමට සහ මාට්ගගත කිරීමේ කාර්යක්‍ෂමතාව වැඩි දියුණු
+කිරීමට උපකාරී වේ, විශේෂයෙන්‌ [Pv4 ලිපින සමඟින්‌
+
+e DHCP (Dynamic Host Configuration Protocol) / ගශතික ධාරක පාලන නියමාවලිය
+
+DHCP is a network protocol that automatically assigns IP addresses and other configuration details (like
+subnet mask and gateway) to devices when they join a network. It simplifies network management, but
+since IP addresses are assigned dynamically, a device may receive a different IP each time it connects
+unless a static IP is set.
+
+DHCP යනු පාලයකට සමිබඛන්ධ වන SO උපාංග වෙත ස්වයංක්‍රීයව IP ලිපින සහ අනෙකුත්‌ වින්‍යාස විස්තර
+(උපපාල ආවරණය සහ දොරටු මග වැනි) ලබා දෙන ජාල නියමාවලියකි. වය පාල කළමනාකරණය සරල
+කරයි, නමුත්‌ IP ලිපින ගතිකව පවරනු ලබන බැවින්‌, ස්ථිතික IP එකක්‌ සකසා නොමැති නමි උපාංගයකට
+සමිබන්ධ වන සෑම අවස්ථාවකම වෙනස්‌ wes එකක්‌ ලැබෙනු ඇත.
+
+e Domain Name System (DNS) / වසමි නාම පද්ධතිය
+
+DNS acts as the internet's phonebook, translating human-readable domain names (like www.google.com)
+into numerical IP addresses that computers use to locate web servers. Without DNS, users would have to
+remember long numerical addresses instead of easy-to-use domain names.
+
+DNS අන්තටර්පාලයේ දුරකටන පොත ලෙස ක්‍රියා කරයි, මිනිසුන්ට කියවිය හැකි O28 නාම (www.google.com
+වැනි) පරිගණක වෙබි සේවාදායකයන්‌ සොයා ගැනීමට භාවිතා කරන සංඛ්‍යාත්මක ]]7 ලිපින බවට පරිවරිතනය
+කරයි. DNS නොමැතිව, පරිශීලකයින්ට භාවිතා කිරීමට පහසු වසමි නාම වෙනුවට දිගු සංඛ්‍යාත්මක ලිපින
+මතක තබා ගත යුතුය.
+
+e Network Layer / පාල ස්ටරය
+
+The Network Layer in the OSI model is responsible for determining the best path for data transmission
+across networks. It handles IP addressing, routing, and packet forwarding, ensuring that data reaches its
+correct destination. Important protocols in this layer include IP (Internet Protocol) and ICMP (used for
+error reporting and diagnostics).
+
+OSI ආකෘතියේ HE ස්ථරය HE හරහා දුන්ත සමිප්‍රේෂණය HEH) හොඳුම මාර්ගය තීරණය කිරීම oem)
+වගකිව යුතුය. එය දුත්ත නිවැරදි ගමනාන්තයට ළඟා වන බව සහතික කරමින්‌ IP ලිපිනය, මාර්ගගත කිරීම
+සහ පැකටි යොමු කිරීම හසූරැවයි. මෙම ස්ටඵරයේ ඇති වැදගත්‌ නියමාවලි අතර IP (අන්තරපාල නියමාවලිය)
+සහ ICMP (දෝෂ වාර්තා කිරීම සහ විනිශ්චය සඳහා භාවිනා වේ) ඇතුළත්‌ වේ.
+
+e Packet Switching / පොදි හුවමාරැව
+
+Packet switching 15 a method of sending data over a network by breaking it into small packets. Each packet
+travels independently and may take different routes to reach the destination, where they are reassembled.
+This technique improves network efficiency and reliability, especially in the internet and modern
+communication networks.
+
+පොළි හුවමාරැව යනු ජාලයක්‌ හරහා දත්ත කුඩා O70 වලට කඩා යැවිමේ ක්‍රමයකි. සෑම පැකටිටුවක්ම
+ස්වාධිනව ගමන්‌ කරන අතර ගමනාන්තය වෙත ළඟා වීමට විවිධ මාර්ග ගත හැකිය, එහිදි SO) නැවන එකලස්‌
+කර ඇත. මෙම තනාකක්‍්ෂණය විශේෂයෙන්‌ අන්තර්පාලය සහ නවින සන්නිවේදන පාල තුළ පාල කාර්යක්ෂමතාව
+සහ විශ්වසනීයත්වය වැඩි දියුණු කරයි.
+
+e Parity Bit / සමතා බිටුව
+
+A parity bit 15 an extra bit added to a binary sequence for error detection during data transmission. It
+ensures that the total number of ] 5 in the data (including the parity bit) is either even (even parity) or odd
+(odd parity). If an error occurs, the parity check can detect it, prompting retransmission.
+
+සමතා බිටුව යනු ese සමිප්‍රේෂණයේදි දෝෂ හඳුනාගැනීම HEM) ද්විමය අනුක්‍රමයකට එකතු කරන OG
+අමතර බිටුවකි. එය දත්තවල මුළ ] ඒවා සංඛ්‍යාව (සමතා බිටු ඇතුඑව) ඉරටිටේ (ඉරටිටේ සමතා) හෝ
+ඔත්තේ (ඔත්තේ සමතා) බව සහතික කරයි. දෝෂයක්‌ සිදුවවහොත්‌, සමතා පිරික්සුම මඟින්‌ එය නැවත
+සම්ප්‍රේෂණය කිරීමට පොළඹවයි.
+
+e Parity Byte / සමතා බයිටය
+A parity byte is similar to a parity bit but is used for larger data blocks. It consists of multiple parity bits,
+each representing a column of bits from multiple bytes of data. This method enhances error detection and
+correction in storage systems, RAID configurations, and data communication protocols.
+සමතා බයිටයක්‌ සමතා බිටුවකට සමාන නමුත්‌ SHE evo වාරණ Hem) භාවිතා වේ. එය ඛහු සමතා BQ
+වලින්‌ සමන්විත වන අතර, ඒ සෑම එකක්ම ඛහු ABO evi වලින්‌ බිටු තීරැවක්‌ නියෝජනය කරයි. මෙම
+
+ක්‍රමය ගබඩා පද්ධති RAID වින්‍යාස කිරීමි සහ දත්ත සන්නිවේදන නියමාවලි වල දෝෂ හඳුනාගැනීම සහ
+නිවැරළි කිරීම වැඩි දියුණු කරයි.
+
+e Proxy Server / නියෝජන සේවාදායකය
+
+A proxy server acts as an intermediary between a user’s device and the internet. It can enhance security,
+improve performance by caching frequently accessed content, and provide anonymity by masking a user’s
+IP address. Proxy servers are widely used in organizations for content filtering, load balancing, and
+network security.
+
+නියෝජන සේවාදායකයක්‌ පරිගිලකයෙකුගේ උපාංගය සහ අන්තටර්පාලය අතර අතරමැදියෙකු ලෙස ක්‍රියා කරයි.
+එය ආරක්ෂාව වැඩි දියුණු කිරීමට, නිතර ප්‍රවේශ වන අන්තර්ගතයන්‌ නිහිත කිරීමෙන්‌ කාර්ය සාධනය වැඩි
+බියුණු කිරීමට සහ පරිගිලකයාගේ IP ලිපිනය වසන්‌ කිරීමෙන්‌ නිරනාමික භාවය සැපයිය හැක. නියෝපන
+සේවාදායකයන්‌ අන්තර්ගත පෙරිම, බර සමතුලිත කිරීම සහ පාල ආරක්ෂාවට ආයතනවල බහුලව භාවිතා වේ.
+
+Accordingly, the answers can be obtained in the following way.
+ඒ අනුව පහත ආකාරයට පිළිතුරැ ලබා ගත හැකිය.
+
+(1) Domain name system provides IP addresses for the given URLs and web addresses.
+Has නාම පද්ධතිය දෙන ලද URL හා වෙබි ලිපිනවලට අනුරෑප IP ලිපින ලබා දෙයි.
+
+(ii) File Transfer Protocol (FTP), Simple Mail Transfer Protocol (SMTP) and the Telnet service are
+implemented in the application layer
+ගොනු හුවමාරැ HaOOCG (FTP), සරල තැපැල්‌ හුවමාරැ HaOOG (SMTP), සහ Telnet සේවාව eweS
+ස්ටරය හි ක්‍රියාන්මක වේ.
+
+(111) With the DHCP a device may get a different IP address every time it connects to the network.
+DHCP මගින්‌, යමි උපක්‍රමයකට, එය පාලයකට සම්බන්ධ වන සෑම අවස්ටාවකදී ම වෙනස්‌ IP ලිපිනයක්‌
+ලැබිමට ඉඩ ඇත.
+
+(iv) CIDR helps to effectively manage the available IP address space.
+CIDR තිබෙන IP ලිපින අවකාශය, කාර්යක්ෂමව කළමනාකරණය කිරිමට ඉවහල්‌ වේ.
+
+(v) In data transmission, for the process of error detection, a parity bit is added to a binary string to ensure
+that the total number of 1-bits in the string 1s either even or odd.
+EdD සම්ප්‍රේෂණයේදි දෝෂ අනාවරණය කිරීම nem) ද්විමය amesego පෙළක (binary string) ඇති Qe
+]-බිටු ගණන ඔත්තේ හෝ ඉරටිටේ බව නිශ්චය කර ගැනීමට එම අනුලක්ෂණ පෙළට සමතා බිටුව ක්‌ එකතු
+කරනු ලැබේ.
+
+( 2019 _ 3[0] S.ESSAY )
+
+2.
+
+(a)
+
+Consider the following scenario:
+පහන දැක්වෙන සංසිද්ධිය සලකන්න:
+
+A school has acquired the following resources to its Administrative (Admin), Laboratory (Lab) and
+Library (Lib) buildings:
+පාසලක්‌ තම පරිපාලන (Admin), විද්‍යාගාර (Lab) හා පුස්තකාල (Lib) ගොඩනැගිලි සඳහා පහන දැක්වෙන
+සමිපත්‌ ලබා ගෙන ඇත.
+
+Building Resources
+
+Admin 5 computers, 1 printer
+Lab 40 computers, 1 printer
+Lib 10 computers, 1 printer
+
+A school computer network has to be created to fulfil the following requirements:
+පහත අවග්‍යතා සපුරා ගැනීම Hem) පාසල්‌ පරිගණක පාලයක්‌ H6@gne කළ QMO ඇත.
+
+e Each building needs to have its own local area network (LAN) in order to share the printer.
+
+Gena හවුලේ භාවිත කිරිමට, එක්‌ එක්‌ ගොඩනැගිල්ල aca) ස්ථානීය ප්‍රදේශ පාලයක්‌ (LAN) බැගින්‌
+අවග්‍ය වේ.
+
+e The above three networks are also to be interconnected so that the School Information System
+(SIS) which is running on one computer in the Admin building and the Library Information
+System (LIS) running on one computer in the Lib building are accessible from all computers.
+සැම පරිගණකයකටම, Admin ගොඩනැගිල්ලෙහි එක්‌ පරිගණකයක ධාවනය වන පාසල්‌ තොරතුරැ
+පද්ධතියට දු (SIS), Lib ගොඩනැගිල්ලෙහි එක්‌ පරිගණකයක ධාවනය Om පුස්තකාල තොරතුරැ පද්ධතියට
+දූ (LIS) ප්‍රවේගවීම සඳහා ඉහත පාල තුන එකිනෙක පාලගත කිරිමට ද අවග්‍ය ය.
+
+e All computers are to be given efficient Internet connectivity as well. For this purpose, the school
+has subscribed to an Internet Service Provider (ISP) who is to supply the Internet connectivity to
+the Lab building. The Lad building is separated from the other two buildings by approximately
+500m. One computer in the Lab building is to be used as the DNS server. Another computer in
+the Lab building is to be used as the proxy server.
+සැම පටිගණකයකටම කාර්යක්ෂම අන්තර්ජාල සමිබන්ධතාවයක්‌ ලබා දීමට දු අවශ්‍ය ය. මේ HEH) පාසල
+අන්තර්පාල සේවා සැපයුමිකරැවකුගේ (ISP) සේවාවකට දායක වී ඇති අතර, එම සැපයුමිකරැු අන්තටර්පාල
+සම්බන්ධතාවය Lab ගොඩනැගිල්ලට ලබාදිමට නියමිත ය. Lab ගොඩනැගිල්ල අනෙකුත්‌ ගොඩනැගිලි
+දෙකෙන්‌ ආසන්න වගයෙන්‌ 500m ක්‌ දුරස්ටව පවති. Lab ගොඩනැගිල්ලෙහි එක්‌ පරිගණකයක්‌ DNS
+සේවාදායකය ලෙස භාවිත කිරීමට යෝපිත ය. එම ගොඩනැගිල්ලේ තවත්‌ පරිගණකයක්‌ නියෝපන
+සේවාදායකය (proxy server) ලෙස භාවිත කිරීමට eaiS ය.
+
+e The entire network is to be protected through a firewall.
+සමිපුර්ණ පාලයම GS පවුරකින්‌ (firewall) ආරක්ෂා කිරීමට දූ eajSo ය.
+
+The Principal has received the 192.248.16.0/24 IP address block for the school. The IP addresses for
+the computers are to be allocated after making three subnets from this address block for the three
+buildings.
+
+විදුහල්පතිට පාසල සඳුහා 192.248.16.0/24 IP ලිපින කාණ්ඩය ලැබි ඇන. ගොඩනැගිලි තුන OEM) මෙම
+ලිපින කාණ්ඩය මගින්‌ වෙනම උපපාල (subnet) තුනක්‌ නිර්මාණය කිරීමෙන්‌ අනතුරැව පරිගණකවලට IP ලිපින
+පැවරීමට අදහස්‌ කෙටේ.
+
+Assuming such subnetting is done. write down the relevant network address, subnet mask and the
+allocated range of IP addresses for each building using the following table format to present your
+answer:
+
+එවැනි උපපාලනය කිරිමක්‌ සිදුකර ඇතැයි උපකල්පනය කර, එක්‌ එක්‌ ගොඩනැගිල්ල සඳහා අදාළ HE ලිපිනය
+(network address), උපපාල ආවරණය (subnet mask) හා පවරන ලදු IP ලිපින පරාසය පහත දැක්වෙන
+වගු ආකෘතිය පිටපත්‌ කර එහි ලියා දක්වන්න.
+
+192.248.16.0/24 IP address can be divided into subnets using FLSM (Fixed Length Subnet Mask) and
+
+VLSM (Variable Length Subnet Mask).
+
+192.248. 16.0/24 IP ලිපිනය FLSM (Fixed Length Subnet Mask) සහ VLSM (Variable Length Subnet
+Mask) භාවිතයෙන්‌ උපපාලවලට බෙදිය හැකිය.
+
+192 . 248 . 16 . 00000000
+
+oa
+
+network part host part
+
+Network ID/ පාල ලිපිනය: 192.248.16.0
+
+Broadcast ID/ විකාශන ලිපිනය: 192.248.16.255
+
+First usable IP/ භාවිතා කළ හැකි පළමු IP ලිපිනය: 192.248.16.1
+Last usable IP/ mdm කළ හැකි අවසාන 112 ලිපිනය: 192.248.16.254
+
+Dividing addresses into subnets using FLSM /FLSM භාවිතයෙන්‌ ලිපින උපපජාලවලට බෙදන අයුරැ,
+
+Building | Network address Subnet mask IP address range
+Admin 192.248.16.0 | 255.255.255.192 192.248. 16.1 — 192.248.16.62
+Or
+192.248. 16.0 — 192.248.16.63
+Lab 192.248.16.64 | 255.255.255.192 192.248.16.65 — 192.248.16.126
+Or
+192.248.16.64 — 192.248.16.127
+Lib 192.248.16.128 | 255.255.255.192 192.248.16.129 — 192.248.16.190
+Or
+192.248. 16. 128 — 192.248 16.191
+
+Alternative answer for any row/ ඕනෑම පේළියක්‌ aca) විකල්ප පිළිතුර :
+
+Network address
+
+Subnet mask
+
+IP address range
+
+192.248.16.192
+
+255.255.255.192
+
+192.248.16.193 — 192.248.16.254
+Or
+192.248.16.192 — 192.248.16.255
+
+Dividing addresses into subnets using VLSM / VLSM භාවිතයෙන්‌ ලිපින උපපාලවලට බෙදුන අයුරැ,
+
+According to the below diagram, addresses can be easily divided using VLSM.
+
+පහන රෑප සටහනට අනුව, ලිපින VLSM භාවිතයෙන්‌ පහසුවෙන්‌ බෙදිය හැකිය.
+
+0
+
+0 0 0 0 0 0 0 =0
+
+ඹූ
+
+0101001000)
+
+0
+
+[o}o}o}ofojojojo.
+
+1 1 tT 1 1 1 |
+
+0[0[0|010/0]90,
+
+= 127
+
+1 0
+
+0 0 0 0 0 0 ~128
+
+110
+
+0101001010
+
+1 0
+
+1 1
+
+1 1 1 1 1 1 =191
+
+0 0 0 0 0 O =192
+
+aii
+
+0/0 }0}o/o}o|
+
+1 |
+
+1 | ] | 1 1 =255
+
+Alternative/ විකල්ප 1:
+Building Network address Subnet mask IP address range
+192.248. 16.1 — 192.248.16.126
+Admin 192.248. 16.0 255.255.255.128 Or
+
+192.248 16.0 — 192.248.16.127
+192.248. 16. 129 — 192.248.16.190
+Lab 192.248. 16. 128 255.255.255.192 Or
+192.248. 16. 128 — 192.248 16.191
+192.248. 16. 193 — 192.248.16.254
+Lib 192.248. 16. 192 255.255.255.192 Or
+192.248. 16.192 — 192.248.16.255
+
+Alternative/ විකල්ප 2:
+Building Network address Subnet mask IP address range
+192.248. 16.1 — 192.248.16.62
+Admin 192.248. 16.0 255.255.255.192 Or
+
+192.248. 16.0 — 192.248. 16.63
+192.248.16.65 — 192.248. 16. 126
+Lab 192.248. 16.64 255.255.255.192 Or
+192.248. 16.64 — 192.248. 16.127
+192.248. 16. 129 — 192.248.16.254
+Lib 192.248. 16. 128 255.255.255.128 Or
+192.248. 16.128 — 192.248.16.255
+
+(b) Give one reason as to why a fully connected (all-to-all) network topology is not suitable for this school
+computer network.
+මෙම පාසල්‌ පරිගණක පාලය oem) සමිපූුරණයෙන්ම සමිබඛන්ධිත (all-to-all) HE සමිබඛන්ධතා ස්ඵලකයක්‌
+යෝග්‍ය නොවීමට එක්‌ හේතුවක්‌ ලියා දක්වන්න.
+
+In networking, all-to-all topology refers to a network setup in which every node or device in the network
+is directly connected to every other node or device.
+
+පාලකරණයේදි, සමිපුර්ණයෙන්ම සම්ඛන්ධිත පාල සමිඛන්ධනා ස්ඵලකයක්‌ යනු පාලයේ සෑම උපාංගයක්ම
+අනෙක්‌ සෑම උපාංගයකටම සෘපුවම සම්බන්ධ වන ජාල සැකසුමකි.
+
+Pies
+
+sf
+
+\
+A
+I/,
+॥।
+
+=z
+
+(c)
+
+There are several reasons to say that all-to-all network topology is not suitable for this school computer
+
+network.
+මෙම පාසල්‌ පරිගණක HEGO සමිපුරණයෙන්ම සමිඛන්ධිත පාල සමිබන්ධතා ස්ඵලකයක්‌ නොගැලපෙන බව
+පැවසීමට හේතු කිහිපයක්‌ තිබේ.
+
+e Cost is high
+අධික පිරිවැය.
+
+e Difficult to install and maintain
+ස්ථාපනය සහ නඞත්තු BOO අපහසු විම.
+
+e Impractical due to buildings being geographically separated
+ගොඩනැගිලි භූගෝලිය Omens වෙන්‌ වි තිබීම හේතුවෙන්‌ ප්‍රායෝගික නැත.
+
+e Difficult to configure
+වින්‍යාස කිරීමට අපහසුය.
+
+e Increased risk of congestion
+MEDES වැඩි විමේ අවදානම.
+
+e There is no such requirement for the school
+පාසල Hem) එවැනි අවග්‍යතාවයක්‌ නොමැත.
+
+The Lab administrator who is responsible to setup the school computer network has requested for
+switches and a router.
+පාසල්‌ පරිගණක Hes පිහිටුවීමේ වගකිම com Lab පරිපාලක විසින්‌ ASO (switches) හා මාර්ගකාරකයක්‌
+(router) ඉල්ලා ඇත.
+
+Showing clearly the network connection topology and the devices, draw the network diagram to
+represent the logical arrangement for the school computer network that the Lab administrator can
+implement to fulfil the school requirements.
+
+පාල සමිබන්ධතා ස්ඵලකය (network connection topology) හා උපක්‍රම (devices) පැහැදිලිව දක්වමින්‌,
+පාසලේ අවග්‍යතා ඉටුකර ගැනීම සඳුහා Lab පරිපාලක විසින්‌ ගොඩනගාගන හැකි පාසල්‌ පරිගණක පාලයයෙහි
+තට්කන සැකස්ම නිරෑපණය කිරීමට HE රැෑපසටහනක්‌ අඳින්න.
+
+The internet is at the top, which 15 connected to a router. The router acts as the central gateway between
+the external network and the internal network, enabling communication between the internal devices and
+the internet.
+
+මං හසුරැවකට සමිබන්ධ වි ඇති අන්තරපාලය ඉහළින්ම ඇත. මං හසූරැව මගින්‌ බාහිර HE සහ අභ්‍යන්තර
+පාලය අතර දොරටුව ලෙස ක්‍රියා කරයි, එය අභ්‍යන්තර උපාංග සහ අන්තටර්පාලය අතර සන්නිවේදනය සඛක්‍ක්‍රීය
+කරයි.
+
+The Firewall is installed to act as a security layer between the internal network and the outside world. It
+controls the traffic flow and prevents unauthorized access to the network.
+
+අභ්‍යන්තර HES සහ HHO ලෝකය අතර ආරක්ෂක ස්ටරයක්‌ ලෙස ක්‍රියා කිරීම සඳුහා ගිනි පවුර ස්ථාපනය
+කර ඇත. එය පාල ගමනාගමනය පාලනය කරන අතර පාලයට අනවසරයෙන්‌ ප්‍රවේශ SO වළක්වයි.
+
+Normally, Fiber optic cables are used for long-distance, because of its high-speed data transmission and
+they are capable of carrying data over much longer distances without signal degradation.
+
+සාමාන්‍යයෙන්‌, ප්‍රකාග තන්තු EQ දුරක්‌ සඳුහා භාවිතා වේ. ඒ මන්ද, OD අධිවේගි දූත්ත සමිප්‍රේෂණය නිසා
+සහ සංඥා පිරිහිමකින්‌ තොරව වැඩි දුරක්‌ esi රැගෙන යාමේ හැකියාවක්‌ ඇති බැවිනි.
+
+Firewall
+
+Laboratory
+
+| com-1 [~~~
+
+Library
+
+com-1 ।
+| com-2 |
+cy —
+Switch-Lib
+-9
+
+com
+
+Administrative
+
+Switch- Admin
+
+Fiber &ptical Cabel
+
+(d) Give one reason as to why TCP is preferred over UDP as the transport protocol for the school
+computer network.
+
+පාසල්‌ පරිගණක ජාලයේ ප්‍රවාහන නියමාවලිය (transport protocol) aga, UDP වෙනුවට TCP භාවිතය
+වඩා යෝග්‍යවිමට එක්‌ හේතුවක්‌ දෙන්න.
+
+A transport protocol is a type of communication protocol that facilitates the reliable transfer of data
+between two devices or systems over a network. It operates at the transport layer of the OSI model.
+ප්‍රවාහන නියමාවලිය යනු පාලයක්‌ හරහා උපාංග හෝ පද්ධති දෙකක්‌ අතර විශ්වාසනිය දුත්ත හුවමාරු
+කිරීමට පහසුකම්‌ සපයන සන්නිවේදන නියමාවලියකි. එය OS] ආකෘතියේ ප්‍රවාහන ස්ථරයේ ක්‍රියාත්මක වේ.
+
+The difference between UDP (User Datagram Protocol) and TCP (Transport Control Protocol) is shown
+
+below.
+UDP (ede දූත්ත a5 නියමාවලිය) සහ TCP (සමිප්‍රඞේෂණ පාලන නියමාවලිය) අතර වෙනස පහත
+දැක්වේ.
+UDP (User Datagram Protocol) TCP (Transport Control Protocol)
+පරිශිලක esa පණිවිඞ නියමාවලිය සම්ප්‍රේෂණ පාලන නියමාවලිය
+Not connection-oriented Connection-oriented
+සමිඛන්ධතා-නැඹුරැ ස්වභාවයක්‌ නොමැත සමිබන්ධතා-නැඹුරැ ස්වභාවයක්‌ පවතී.
+Does not guarantee reliable data transfer Guarantee reliable data transfer
+විග්වාසනය EMM හුවමාරැවක්‌ සහතික නොකරයි විශ්වාසනීය EMM හුවමාරැවක්‌ සහතික කරයි
+Speed is faster Speed is slower
+වේගය වැඩයි වේගය EHS
+used in applications where speed is more important used in applications where reliability is
+than reliability important
+විග්වාසනයත්වයට වඞා වේගය Ocean වන විග්වාසනීයත්වය වැදගත්‌ වන යෙදුමිවල
+යෙදුමිවල භාවිතා වේ භාවිතා වේ
+Ex: Live streaming, Gaming Ex: Web browsing, File transfer
+
+Reasons for preferring TCP over UDP for the school computer network can be,
+පාසල්‌ පරිගණක Hes සඳුහා UDPO වඩා TCP mdm කිරීමට හේතු විය හැක්කේ,
+
+e Features of TCP such as Reliability, In order delivery, Connection-oriented nature, Flow control,
+Congestion control, Error recovery etc.
+TCP හි විශ්වසනීයත්වය, පිළිවෙලට බෙදා හැරීම, සමිබන්ධතා-නැඹුරැ ස්වභාවය, ගැලීම පාලනය, WE WE
+පාලනය, දෝෂ ප්‍රතිසාධනය වැනි විගේෂාංග පැවතීම.
+
+e Can used for web and email applications
+වෙබි සහ ඊමේල්‌ යෙදුමි සඳහා භාවිතා කළ හැක.
+
+e Transmission time required for the school applications is not very critical.
+පාසල්‌ යෙදුමි සඳහා අවශ්‍ය සමිප්‍රේෂණ MEG ඉනා තීරණාත්මක නොවේ.
+
+( 2019 — 02 ESSAY )
+
+2020 AL NETWORKING ESSAY MARKING
+
+1. Match each of the given sentences (1) - (v) relating to computer networks with the most suitable item
+from the list below. / පරිගණක පාලවලට සමිබන්ධ (1) BO (v) තෙක්‌ වන එක්‌ එක්‌ වගන්තිය, ලැයිස්තුවෙහි
+දි ඇති වඩාත්ම සුදුසු අයිතමය සමග ගලපන්න.
+
+List / ලැයිස්තුව = {ADSL Connection (ADSL සමිබන්ධය ). DSL Connection (DSL සමිබන්ධය ). FTP, HTTP,
+Internet Layer (අන්තටපාල ස්තරය ). Malware (අනිෂ්ධ මෘදුකාංග ), Phishing ( තතුබැම ). TCP, Transport Layer
+(ප්‍රවාහන ස්තරය). (10)
+
+(1) A simple and query based communication model with a minimum use of protocol mechanisms applied
+in transport layer. / ප්‍රවාහන ස්තරයෙහි යෙදඳෙන්නා වු නියමාවලි ක්‍රමවේද අවම වශයෙන්‌ MSD OM සරල
+සහ විමසුමි (query) පාදක කරගත්‌ සන්නිවේදන ආකෘතියකි.
+
+(11) A protocol for data communication in the World Wide Web.
+ලෝක SBS වියමනෙහි com asiehdens සඳුහා වන නියමාවලියකි
+
+(111) The layer that defines the addressing and routing structures used for the TCP/IP protocol suite 11] the
+TCP/IP model. / TCP/IP ආකෘතියෙහි TCP/IP නියමාවලිය සඳහා භාවිත වන ලිපිනයන්‌ (addressing) සහ
+මාර්ගකරණ (routing) ව්‍යුහ අටර්ටදුක්වනු ලබන ස්තරයකි
+
+(iv) The process of attempting to get sensitive information from someone by pretending as a trustworthy
+person. / විශ්වාසවන්ත අයකු ලෙස පෙනී සිටිමින්‌ යමිකිසි පුද්ගලයෙකුගෙන්‌ සංවේදි තොරතුරැ ලබා ගැනීමට
+තැත්‌ කෙරෙන ක්‍රියාදාමය
+
+(v) The connection that allows the data transmission at much greater speed and capacity than the
+narrowband services / පටුකලාප (narrowband) සේවාවන්ට වඩා ඉතා වැඩි වේගයෙන්‌ සහ වැඩි ධාරිතාවෙන්‌
+EDD සම්ප්‍රේෂණය සඳහා වන සමිබඛන්ධයකි
+
+Note: Write only the matching item against the phrase number.
+සටහන : වගන්ති අංකයට ඉදිරියෙහි ගැළපෙන අයිතමය පමණක්‌ Ga) දුක්වන්න. (වරහන්‌ තුළ ඇතැමිවිට දි
+ඇති ඉංගිසි තේරැම ලිවිම අවශ්‍ය නොවේ.)
+
+(1)
+(11)
+(111)
+(1%)
+(v)
+
+(1) Asimple and query-based communication model with a minimum use of protocol mechanisms applied in
+the transport layer describes UDP (User Datagram Protocol). UDP is a connectionless protocol that allows
+for fast transmission of data without the overhead of ensuring reliability or order. It is suitable for
+applications where speed is critical, such as video streaming or online gaming, where occasional data loss
+is acceptable.
+ප්‍රවාහන ස්තරයේ යෙදෙන අවම නියමාවලි යාන්ත්‍රණයක්‌ සහිත සරල සහ විමසුමි පදුනමි වූ සන්නිවේදන
+ආකෘතියක්‌ UDP (පරිගිලක exit» නියමාවලිය) විස්තර කරයි. UDP යනු විශ්වසනීයත්වය හෝ අනුපිළිවෙල
+සහතික කිරීමේ පොදු කාරය භාරයකින්‌ නොරව දත්ත වේගයෙන්‌ සමිප්‍රේෂණය කිරීමට ඉඩ සලසන සමිඛන්ධතා
+රහිත නියමාවලියකි. විඩියෝ ප්‍රවාහය හෝ මාර්ගගත ක්‍රීඩා වැනි වෙගය තීරණාත්මක වන යෙදුමි සඳුහා එය
+සුදුසු වේ, විටින්‌ විට essen නැතිවීම පිළිගත හැකිය.
+
+(11) A protocol for data communication in the World Wide Web refers to HTTP (Hypertext Transfer Protocol).
+HTTP 15 the foundation of data communication on the web, allowing browsers to request and receive web
+pages and resources from servers. It operates at the application layer of the Internet protocol suite and
+defines how messages are formatted and transmitted.
+ලෝක ව්‍යාප්ත වෙබයේ enw සන්නිවේදනය සඳුහා වන නියමාවලියක්‌ HTTP (අධිපෙළ හුවමාරැ නියමාවලිය)
+වෙත යොමු කරයි. HTTP යනු වෙබයේ දුත්ත සන්නිවේදනයේ පදනම වන අතර, බ්‍රවුසරයට වෙබ්‌ පිටු සහ
+සම්පත්‌ සේවාදායකයන්ගෙන්‌ ඉල්ලීමට සහ ලබා ගැනීමට ඉඩ සලසයි. එය අන්තර්පාල නියමාවලි කටිටලයේ
+යෙදුමි ස්ටඊරයේ ක්‍රියාත්මක වන අතර පණිවිඩ ආකෘතිකරණය සහ සමිප්‍රේෂණය කරන ආකාරය නිර්වචනය
+කරයි.
+
+(111) The layer that defines the addressing and routing structures used for the TCP/IP protocol suite 11] the
+
+TCP/IP model is the Internet Layer. The Internet Layer is responsible for logical addressing through IP
+addresses and routing packets across networks. It ensures that data can be sent from one host to another
+across interconnected networks, forming a crucial part of the TCP/IP model.
+TCP/IP ආකෘතියේ TCP/IP නියමාවලි කට්ටලය HED) භාවිතා කරන ලිපින සහ මාර්ගගත ව්‍යුහයන්‌ නිරවචනය
+කරන ස්තරය අන්තටරපාල ස්ටරය වේ. අන්තරපාල ස්තරය IP ලිපින හරහා තාර්කික ලිපින සහ පාල හරහා
+පැකටි මාර්ගගත කිරීම සඳහා වගකිව යුතුය. එය TCP/IP ආකෘතියේ තීරණාත්මක කොටසක්‌ වන අන්තට
+සම්බන්ධිත පාල හරහා එක්‌ ධාරකයක සිට තවත්‌ ධාරකයකට දත්ත යැවිය හැකි බව සහතික කරයි.
+
+(iv) The process of attempting to get sensitive information from someone by pretending as a trustworthy person
+describes Phishing. Phishing is a cyber attack technique where attackers impersonate legitimate entities to
+trick individuals into revealing personal information, such as passwords or credit card numbers. It often
+involves deceptive emails or websites that appear authentic.
+විග්වාසවන්ත පුද්ගලයෙකු ලෙස පෙනී සිටිමින්‌ යමෙකුගෙන්‌ සංවේදි තොරතුරැ ලබා ගැනීමට උත්සාහ කිරීමේ
+ක්‍රියාවලිය Phishing විස්තර කරයි. තතුබැමි යනු මුරපද හෝ ක්‍රෙඩිට්‌ කාඩ්‌ අංක වැනි පුද්ගලික තොරතුරැ
+හෙළි කිරිමට පුද්ගලයින්‌ රැවටිමට ප්‍රහාරකයින්‌ නීත්‍යරානුකල ආයතන ලෙස පෙනී සිටින සයිබර්‌ ප්‍රහාර ක්‍රමයකි.
+එය බොහෝ විට ර0ැවටිලිකාර ඊමේල්‌ හෝ අව්‍යාප ලෙස පෙනෙන වෙබි අඩවි ඇතුළත්‌ වේ.
+
+(v) The connection that allows the data transmission at much greater speed and capacity than narrowband
+services refers to ADSL Connection (Asymmetric Digital Subscriber Line). ADSL provides high-speed
+internet access over traditional copper telephone lines, allowing for faster download speeds compared to
+upload speeds. It enables users to have a continuous internet connection while still using their phone line
+for voice calls.
+පටු කලාප සේවාවලට වඩා වැඩි වේගයකින්‌ සහ ධාරිතාවයකින්‌ com සමිප්‍රේෂණයට ඉඩ සලසන සමිඛන්ධනාවය
+ADSL සම්බන්ධතාවය (අසමමිතික අංකිත ග්‍රාහක රේඛාව) වෙත යොමු කරයි. 105], සමිප්‍රදායික තඹ දුරකටන
+මාර්ග HOM) අධිවේගි අන්තටරපාල ප්‍රවේගය ලබා දෙයි, උඩුගත කිරීමේ වේගයට සාපේක්ෂව වේගවත්‌ බාගත
+කිරීමේ වෙගයක්‌ ලබා දෙයි. එය HA ඇමතුමි සඳහා ඔවුන්ගේ දුරකටන මාර්ගය භාවිත කරන අතරතුර
+අඛණ්ඞ GFHONOHE සමිඛන්ධතාවයක්‌ ලබා ගැනීමට පරිගිලකයින්ට හැකියාව ලබා od.
+
+Explanation of Each Item in the List / ලැයිස්තුවේ එක්‌ එක්‌ අයිතමය පැහැදිලි කිරිම
+
+ADSL Connection : ADSL technology allows for high-speed internet access using existing copper
+telephone lines, providing faster download speeds than upload speeds. It enables simultaneous voice and
+data transmission, making it a popular choice for residential broadband.
+ADSL නාක්ශගනය දැනට පවතින තඹ දුරකටන O6O භාවිතයෙන්‌ අධිවේගි අන්තර්පාල ප්‍රවේශයට ඉඩ සලසයි,
+උඩඞුගත කිරීමේ වෙගයට වඩා වේගවත්‌ බාගත කිරීමේ වේගයක්‌ සපයයි. එය නේවාසික බ්‍රෝඩිබෑන්ඩි සඳුහා
+ජනප්‍රිය තේරීමක්‌ කරමින්‌ එකවර හඩ සහ enw සමිප්‍රේෂණය aha කරයි.
+
+DSL Connection : DSL (Digital Subscriber Line) encompasses various technologies, including ADSL,
+that provide internet access via telephone lines. DSL connections offer greater bandwidth than traditional
+dial-up services, allowing for faster internet browsing and data transfer.
+
+DSL (අංකිත ග්‍රාහක රේඛාව) දුරකටන මාර්ග හරහා අන්තර්පාල ප්‍රවේගය සපයන ADSL ඇතුළ විවිධ
+තාක්ෂණයන්‌ ඇතුළත්‌ වේ. 105], සම්බන්ධතා සාමිළදායික ඩයල්‌-අප්‌ සේවාවන්ට වඩා විශාල කලාප පළලක්‌ ලබා
+දෙයි, වේගවත්‌ අන්තර්පාල ගවේෂණය සහ දුන්ත හුවමාරැව HEH) ඉඩ සලසයි.
+
+FTP (File Transfer Protocol / ගොනු හුවමාරැ නියමාවලිය) : FTP is a standard network protocol used to
+transfer files between a client and server over a TCP-based network. It allows users to upload or download
+files, manage directories, and perform file operations on remote servers.
+
+FTP යනු TCP-mes පාලයක්‌ හරහා සේවාලාභියෙකු සහ සේවාදායකයෙකු අතර ගොනු මාරැ කිරීමට භාවිතා
+කරන සමිමත ජාල නියමාවලියකි. එය පරිගිලකයින්ට ගොනු උඩුගත කිරීමට හෝ Dow කිරිමට, නාමාවලි
+කළමනාකරණය කිරීමට සහ දුරස්ථ සේවාදායකයන්‌ මත ගොනු මෙහෙයුමි සිදු කිරීමට ඉඩ සලසයි.
+
+HTTP (Hypertext Transfer Protocol) : HTTP is an application-layer protocol used primarily for
+transmitting hypertext via the web. It enables browsers to request resources from web servers, facilitating
+the exchange of information across the internet.
+
+HTTP යනු මුලික වශයෙන්‌ වෙබි හරහා අධිපෙළ සමිප්‍රේෂණය කිරීම සඳහා භාවිතා කරන යෙදුමි-ස්ථටර
+නියමාවලියකි. එය අන්තර්පාලය හරහා තොරතුරැ හුවමාරැ කර ගැනීමට පහසුකමි සලසමින්‌ වෙබි සථ්වර්‌
+වෙතින්‌ සමිපත්‌ ඉල්ලා සිටිමට බ්‍රවිසර්වලට හැකියාව ලබා දෙයි.
+
+Internet Layer / අන්තටජාල ස්තරය : The Internet Layer is responsible for addressing and routing packets
+using protocols like IP (Internet Protocol). It plays a critical role in ensuring data can traverse multiple
+networks to reach its destination.
+
+IP (අන්තර්පාල නියමාවලිය) වැනි නියමාවලිය භාවිතයෙන්‌ පැකටි ආමන්ත්‍රණය කිරීම සහ මාර්ගගත කිරීම
+සඳුහා අන්තරපාල ස්තරය වගකිව යුතුය. eso එහි ගමනාන්තය කරා ළඟා SOO බහු HE HOM) ගමන්‌
+කළ හැකි බව සහතික කිරීමේදි එය තීරණාත්මක කාර්යභාරයක්‌ ඉටු කරයි.
+
+Malware / අනිෂ්ට මෘදුකාංග: Malware refers to malicious software designed to harm or exploit any
+programmable device or network. Types of malwares include viruses, worms, trojans, ransomware, and
+spyware, each with different methods of attack and impact.
+
+අනිෂ්ට මෘදුකාංග යනු ඕනැම වැඩසටහන්ගත කළ හැකි උපාංගයකට හෝ පාලයකට හානි කිරීමට හෝ
+සුරාකෑමට නිර්මාණය කර ඇති අනිෂ්ට මෘදුකාංග වේ. අනිෂ්ට මෘදුකාංග වර්ග වලට වෛරස්‌, පණුවන්‌,
+ට්‍රෝපන්‌, කප්පම්‌ මෘදුකාංග සහ ඔත්තු මෘදුකාංග ඇතුළත්‌ වේ, ඒ සෑම එකක්ම විවිධ ප්‍රහාර සහ බලපෑමි ක්‍රම
+ඇත.
+
+Phishing / තතුබෑමි: Phishing attacks aim to deceive individuals into providing sensitive information by
+masquerading as trustworthy entities. This technique often involves fraudulent emails or websites
+designed to look legitimate.
+
+තතුබෑමි ප්‍රහාරවල අරමුණ වන්නේ විශ්වාසදායක ආයතන ලෙස වෙස්වලා ගනිමින්‌ සංවේදි තොරතුරැ සැපයීමට
+පුද්ගලයන්‌ රැවටිමයි. මෙම තාක්ශනය බොහෝ විට නීත්‍යානුකල ලෙස පෙනෙන පරිදි නිරමාණය කර ඇති
+වංචනික ඊමේල්‌ හෝ වෙබි අඩවි ඇතුළත්‌ වේ.
+
+TCP (Transmission Control Protocol / සමිප්‍රේෂණ පාලන නියමාවලිය) : TCP is a core protocol within the
+Internet protocol suite that provides reliable, ordered delivery of data between applications over a network.
+It ensures that packets are delivered error-free and in sequence.
+
+TCP යනු පාලයක්‌ හරහා යෙදුමි අතර විශ්වාසදායක, ඇණවුමි කළ ess බෙදා හැරීම සපයන අන්තර්පාල
+නියමාවලි කට්ටලය තුළ ඇති මුලික නියමාවලියකි. පැකට්‌ දෝෂයකින්‌ තොරව සහ අනුපිළිවෙලින්‌ බෙදා හැරීම
+සහතික කරයි.
+
+Transport Layer / ප්‍රවාහන ස්තරය. The Transport Layer manages end-to-end communication between
+devices on a network. It includes protocols like TCP and UDP, which handle data segmentation, error
+checking, and flow control.
+
+ප්‍රවාහන ස්තරය පාලයක උපාංග අතර අන්තයේ සිට අවසානය දක්වා සන්නිවේදනය කළමනාකරණය කරයි.
+EDD ene. දෝෂ පරීක්ෂා කිරීම සහ ප්‍රවාහ පාලනය හසුරැවන TCP සහ UDP වැනි නියමාවලි එයට
+ඇතුළත්‌ වේ.
+
+( 2020 — 3[b] S.ESSAY )
+
+(a)
+
+Consider the following scenario:
+පහත දැක්වෙන සංසිද්ධිය සලකන්න:
+
+The PQR Company has three departments, namely Finance, Marketing and Human Resource (HR). At
+present all the activities of the PQR Company are conducted manually. The company decides to
+computerize all their activities by establishing an IT unit with a computer lab for staff training. Resources
+will be allocated for each department and the IT unit as follows.
+
+POR සමාගමට මුල්‍ය (Finance), අලෙවි කිරිමේ (Marketing) සහ මානව සමිපත්‌ (HR) නමින්‌ දඳෙපාරතමේන්තු
+තුනක්‌ ඇත. වර්තමානයේ දි POR සමාගමෙහි සියලුම ක්‍රියාකාරකමි අත්‍යුරැව (manually) සිදු කෙටේෙ. සමාගම
+විසින්‌ සේවක මණ්ඩලය පුහුණු කිරීම සඳහා පරිගණක විද්‍යාගාරයක්‌ සහිත තොරතුරැ තාක්ෂණ ඒකකයක්‌ (IT
+Unit) ස්ටාපිත කරමින්‌ සියලු ක්‍රියාකාරකමි පරිගණකගත කිරිමට තීරණය කරයි. පහත දැක්වෙන ආකාරයට
+එක්‌ එක්‌ දෙපාර්තමේන්තුවට හා IT ඒකකයට සමිපත්‌ වෙන්‌ කරනු ලැබේ.
+
+Department Resources / සමිපත්‌
+Computers Printer type Software Server
+දොපාටතමේන්තුව සි p erm 8 yp මුද්‍රක වර්ගය
+Finance 28 01 Network Printer Accounting Information System
+01 පාල මුදු්‍රකය ගිණුමිකරණ තොරතුරැ පද්ධතිය (AIS)
+111 40 01 Network Printer Human Resource Information System
+01 HE මුද්‍රකය මානව සමිපත්‌ තනොරතුරැ පද්ධතිය (HRIS)
+IT Unit 50) 01 Printer Learning Management System (LMS)
+01 මුද්‍රකය ඉගෙනුමි කළමනාකරණ පද්ධතිය (LMS)
+Marketing 35 01 Network Printer Marketing Information System (MKIS)
+01 පාල මුදු්‍රකය අලෙවිකරණ තොරතුරැ පද්ධතිය (MKIS)
+
+The company proposes the following:
+සමාගම පහත දැක්වෙන දෑ යෝජනා MOG:
+
+e ALocal Area Network (LAN) for each Department and the IT unit in order to share specific software
+and resources / විශේෂිත වු මෘදුකාංග සහ සමිපත්‌ හවුලේ භාවිත කිරීම සඳහා සැම දෙපාර්නතමේන්තුවකටම
+සහ IT ඒකකයට ස්ථානීය පෙදෙස්‌ ජාලයක්‌ (Local Area Network - LAN).
+
+e LANs in each department to be interconnected via IT unit
+එක්‌ එක්‌ දෙපාරතමේන්තුවෙහි ඇති ස්ටානීය පෙදෙස්‌ HE IT ඒකකය හරහා එකිනෙක සමිඛන්ධ කිරීම
+
+e All computers to be given efficient Internet connectivity with the help of a DNS (Domain Name
+System) and proxy servers / වසමි නාම පද්ධතියක්‌ (DNS) හා proxy සේවාදායක උපකාරයෙන්‌ සියලුම
+පටිගණක een) කාට්යක්ෂම අන්තර්පාල සම්බන්ධතාවක්‌ ලබාදිම
+
+e An Internet Service Provider (ISP) to supply the Internet connectivity to the IT unit
+අන්තටර්පාල සේවා සැපයුමිකරැවකු (ISP) විසින්‌ IT Sama වෙත අන්තරපාල සමිඛන්ධතාව ලබාදිම
+
+e The entire network to be protected through a firewall
+සම්පුර්ණ පාලයම ගිනි පවුරකින්‌ (Firewall) ආරක්ෂා කිරීම
+
+Which network topology is the most suitable to satisfy all the above-mentioned requirements? Give one
+reason to justify your answer. / මෙම සමාගම සඳහා HE පරිපාලක වෙත 192.168.14.0/24 IP ලිපින කාණ්ඩය
+ලැබී ඇත. මෙම ලිපින කාණ්ඩයෙන්‌ උපපාල හතරක්‌ එක්‌ එක්‌ දෙපාර්තමේන්තුව/ඒකකය oem සෑදිම මගින්‌
+නෝඞඩු සඳුහා 11” ලිපින වෙන්‌ කිරීම සිදු කෙටේ.
+
+In a star topology, each department and the IT unit can have a central network switch or router to which
+all devices are connected. This setup simplifies management and troubleshooting since each department’s
+network can operate independently while being interconnected through the IT unit. Additionally, in case
+of a device or link failure, only that specific device is affected, not the entire network, which ensures
+minimal disruption and enhances the overall reliability of the network.
+
+තරැ ස්ටලකය ME, එක්‌ එක්‌ දෙපාර්තමේන්තුවට සහ තොරතුරු තාක්ෂණ ඒකකයට සියලුම උපාංග සමිඛන්ධ
+කර ඇති මධ්‍යම HE ස්විචයක්‌ හෝ මං හසුරැවක්‌ තිබිය හැකිය. එක්‌ එක්‌ දෙපාරතමේන්තු පාලයට තොරතුරැ
+තාක්ෂණ ඒකකය හරහා අන්තර්‌ සම්බඛන්ධිතව ස්වාධීනව ක්‍රියා කළ හැකි බැවින්‌ මෙම සැකසුම කළමනාකරණය
+සහ දෝග නිරාකරණය සරල කරයි. SO අමතරව, උපාංගයක්‌ හෝ සබැඳියක්‌ අසාර්ටක වු විට, බලපාන්නේ
+එම විශේෂිත උපාංගයට මිස සමස්ත පාලයට නොව, අවම බාධා කිරීමි සහතික කරන සහ ජාලයේ සමස්ත
+විග්වසනීයත්වය වැඩි දියුණු කරයි.
+
+(b) The Network Administrator has received 192.168.14.0/24 as the IP address block for the company. The IP
+addresses for the nodes are to be allocated after making four subnets from this address block for each
+department/unit. මෙම සමාගම sem පාල පරිපාලක වෙත 192.168.14.0/24 IP ලිපන කාණ්ඩය ලැබී ඇත.
+මෙම ලිපින කාණ්ඩයෙන්‌ උපපාල හතරක්‌ එක්‌ එක්‌ දෙපාටතමේන්තුව/ඵඒකකය සඳුහා සෑදිම මගින්‌ නෝඩු aco)
+IP ලිපින වෙන්‌ කිරීම සිදු කෙරේ.
+
+The following incomplete table shows the sub-netting. Write down the missing IP addresses for each
+department/unit using the following table format. (Assume that subnetting 15 done under the consideration
+of future expansion of each department/unit.)
+
+පහන දැක්වෙන අසමිපුර්ණ වගුවෙහි උපපාලකරණය පෙන්වා ඇත. මෙම OM ආකෘතිය අනුගමනය කරමින්‌
+
+එක්‌ එක්‌ දෙපාටරතමේන්තුව/ව්කකය සඳුහා දි නොමැති [POSH ලියා දුක්වන්න. (උපපාලකරණය කරනු ලබන්නේ
+එක්‌ එක්‌ දෙපාරතමේන්තුවෙහි/ඵඒකකයෙහි අනාගත ව්‍යාප්තිය සලකමින්‌ බව උපකල්පනය කරන්න.)
+
+192.168.14.0
+
+11000000.10101000.00001110.00000000
+
+QR ය,
+Network Part Host Part
+
+11 00
+192.168.14.193—) 192.168.14.1-
+
+11000000. 10101000.00001110.000000}00 eee 192.168. 14.62
+00 |
+
+192.168.14.129— 192.168.14.65 —
+Zo! 192168.14.190 | 192.168.14.126
+00 SS 10 10 01
+
+Department Network ID Broadcast 11) | Subnet Mask Usable IP Address
+
+දෙපාර්තමේන්තුව | ජාල ID විකාගන ID උපජාල Range
+ආවරණය භාවිත කළ හැකි IP
+ලිපින පරාසය
+Finance 192.168.14.0 | 192.168.14.63 | 255.255.255.192 | 122-108.14.1 ~
+
+192.168. 14.62
+192.168.14.65 —
+
+HR 192.168.1464 | 192.168.1464 | 255.255.255.192 192.168. 14.126
+192.168.14.129 —
+
+IT Unit 192.168.14.128 | 192.168.14.191 | 255.255.255.192 192.168 14.190
+
+Marketing 192.168.14.192 | 192.168.14.255 | 255.255.255.192 192,108.14. 103 —
+
+192.168.14.254
+
+(c) Showing clearly the connection topology and the devices, draw the logical arrangement for the company
+network that the network administrator can implement to fulfill the company’s requirements. (Assume that
+additional IP addresses can be obtained. )
+සම්බන්ධ කිරීමේ ස්ඵලකය (topology) සහ උපක්‍රම පැහැදිලිව පෙන්වමින්‌, සමාගමෙහි අවග්‍යතා සපුරාලීමට
+පාල පරිපාලක විසින්‌ ක්‍රියාත්මක කළ හැකි සමාගමෙහි පාලයේ තාර්කික සැකසුම අඳින්න. (අමතර IP ලිපින
+ලබාගත හැකි බව උපකල්පනය කරන්න.)
+
+ස eee ee ee
+
+¢
+
+¢ ~
+
+Comp - 2 / \ DNS Server
+
+| Printer | | Comp - 50 | | LMS |
+
+ක කා න ee ක ක සෟ සෲ කෲ කෲ ew
+
+Fiber Optical Cable
+
+Twisted Pair
+
+2” Marketing - Department -- - - -
+
+Twisted Pair
+
+| Printer || Comp-40]| HRIS |
+
+රා බබබබ්බබබබ්බං- Human Resource Department - v4
+Switch-AR ] |
+1
+1
+
+ඬණ ය යෲ ee ee සෲ සෲ කක කකා සෲ කෲ
+
+ණ්‌
+=
+
+Meee සා ශා සා සා ශා wee www සා කා සා ewww we කා සා ww ew ew ew කා කා ew ew
+
+| Switch - Finance | Twisted P:
+Wis: € air
+
+Comp - I Printer
+॥ Comp - 2 | Comp - 28 | ;
+
+(d) Network administrator decides to dynamically manage the IP addresses of the entire network. Write down
+the mechanism that needs to be implemented to achieve this task.
+මුළු පාලයෙහිම IP ලිපින ගතිකව (dynamically) කළමනාකරණය කිරිමට HE පරිපාලක තීරණය කරයි. මෙම
+Mac ඉෂ්ට කර ගැනීමට කියාත්මක කළ යුතු යාන්ත්‍රනය (mechanism) ලියා දක්වන්න.
+
+Automatic IP Assignment / ස්වයංක්‍රීය IP පැවරැම
+Devices get IP addresses automatically without manual setup.
+උපාංග අතින්‌ සැකසුමකින්‌ තොරව ස්වයංක්‍රියව IP ලිපින ලැබේ.
+
+Prevents IP Conflicts / IP ගැටුමි වළක්වයි:
+
+Ensures each device has a unique IP address.
+සැම උපාංගයකටම අනන්‍ය IP ලිපිනයක්‌ ඇති බව සහතික කරයි.
+
+Easy Network Expansion / පහසු ජාල පුඑල්‌ කිරීම
+New devices can connect easily, without extra configuration.
+
+( 2020 - 02 ESSAY )
+
+2021 AL NETWORKING ESSAY MARKING
+
+1.(a) Cloud Computing allows us to obtain computing resources and capabilities as a service. The three
+main types of cloud computing services are: Infrastructure as a Service (laaS), Platform as a Service (PaaS),
+and Software as a Service (SaaS).From those three cloud computing service types, write down the
+suitable service type for each of the following scenarios.
+සේවාවක්‌ ලෙස පරිගණක සමිපත්‌ (computing resources) සහ හැකියා (capabilities) ලබාගැන්මට OEE
+පරිගණනය (cloud computing) අපට ඉඩ දෙයි. වළාකුළු පරිගණනයේ මුලික සේවා ආකෘති තුනකි. එනමි,
+යටිතල පහසුකමි සේවාවක්‌ ලෙස (Infrastructure as a Servics -- 1445), පසුතලය සේවාවක්‌ ලෙස (Platform
+as a Servics — PaaS), සහ මෘදුකාංග සේවාවක්‌ ලෙස (Software as a Service -- 5445) වේ.පහත එක්‌ එක්‌
+අවස්ටාවට ගැළපෙන සේවා ආකෘතිය, ඉහත සේවා ආකෘති තුනෙන්‌ කුමන එකදැයි තෝරා ලියන්න.
+
+(i) To obtain an environment for application deployment and execution from a cloud service provider
+යෙදුමි ස්ටාපනය කිරීමට හා ක්‍රියාත්මක කිරීමට පරිසරයක්‌ වළාකුළු පරිගණන සේවා සැපයුමිකරැවකුගෙන්‌
+ලබාගැනීම
+
+Platform as a Service / පසුතලය සේවාවක්‌ ලෙස (PaaS)
+
+(11) To obtain hard disk space for data storage from a cloud service provider
+EDD සුරැකීම සඳහා, cad Ado ඉඩකඩ වළාකුළු පරිගණන සේවා සැපයුමිකරැවකුගෙන්‌ ලබාගැනීම
+
+Infrastructure as a Service / යටිතල පහසුකමි සේවාවක්‌ ලෙස (laaS)
+
+(111) To obtain data file sharing, office applications and email services from a cloud service provider
+EDD ගොනු හවුලේ GOMOPdG, MODE යෙදුමි සහ ඉ-තැපැල්‌ සේවා වළාකුළු පරිගණන සේවා සැපයුමිකරැව-
+-කුගෙන්‌ ලබාගැනීම
+
+Software as a Service / මෘදුකාංග සේවාවක්‌ ලෙස (SaaS)
+
+Platform as a Service / පසුනලය සේවාවක්‌ ලෙස (PaaS)
+
+Platform as a Service (PaaS) provides a cloud-based environment for developers to build, test, and deploy
+applications without worrying about managing the underlying infrastructure. It offers tools, middleware,
+and services needed for application development, making it easier to focus on coding rather than handling
+servers or storage. PaaS simplifies the development process by offering pre-configured environments that
+support various programming languages and frameworks, along with built-in scalability, load balancing,
+and security features. Examples include Google App Engine and Microsoft Azure.
+
+පසුතලය සේවාවක්‌ ලෙස (PaaS) සංවර්ධකයින්ට පවතින යටිතල පහසුකමි කළමනාකරණය කිරීම ගැන කරදුර
+නොවි යෙදුමි නැනීමට, පරීක්ෂා කිරීමට සහ යෙදවීමට වලාකුඑ මත පදුනමි වු පරිසරයක්‌ සපයයි. එය යෙදුමි
+සංවට්ධනය සඳුහා අවශ්‍ය මෙවලමි, මිඞිල්වෙයාටර්‌ සහ සේවා සපයන අතර, සේවාදායකයන්‌ හෝ OHH) HOO
+හැසිරවීමට වඩා කේතීකරණය කෙරෙහි අවධානය යොමු කිරීම පහසු කරයි. 17445 විසින්‌ විවිධ ක්‍රමලේඛන භාෂා
+සහ රාමු සඳුහා සහය වන පුඊටර්ව-වින්‍යාස කළ පරිසරයන්‌, ගොඩනඟන ලද පරිමාණය, පැටවුමි තුලනය සහ
+ආරක්ෂක විශේෂාංග සමඟින්‌ සංවර්ධන ක්‍රියාවලිය සරල කරයි. උදාහරණ ලෙස Google App Engine සහ
+Microsoft Azure ඇතුළත්‌ වේ.
+
+Infrastructure as a Service / යටිතල පහසුකමි සේවාවක්‌ ලෙස (1325)
+
+Infrastructure as a Service (1435 ) is a cloud service model that provides virtualized computing resources
+over the internet. It allows users to rent essential IT infrastructure—such as virtual machines, storage, and
+networking components—on a pay-as-you-go basis, giving them the flexibility to scale resources up or
+down as needed. IaaS offers the most control over the cloud environment, as users can manage and
+configure the virtualized hardware according to their specific needs. This service model is ideal for
+businesses that require high levels of customization and control. Examples include Amazon Web Services
+(AWS) and Microsoft Azure.
+
+(b)
+
+යටිතල පහසුකමි සේවාවක්‌ ලෙස (1445) යනු අන්තරපාලය හරහා අටත්‍ය කළ පරිගණක සමිපත්‌ සපයන
+වලාකුඑ සේවා ආකෘතියකි. එය පරිගීලකයින්ට අවශ්‍ය පරිදි සමිපත්‌ ඉහළට හෝ පහළට පරීමාණය කිරීමට
+නම්‍යගිලිත්වය ලබා දෙමින්‌ ගෙවන පදනම මත අතට්‍ය යන්ත්‍ර, ගබඩා කිරීම සහ පාලකරණ සංරචක වැනි
+අත්‍යවග්‍ය තොරතුරැ තාක්ෂණ යටිතල පහසුකමි කුලියට ගැනීමට ඉඩ සලසයි. laaS විසින්‌ වලාකුළු පරිසරය
+මත වඩාත්ම පාලනය ලබා දෙයි, පරිගිලකයින්ට ඔවුන්ගේ විශේෂිත අවශ්‍යතා අනුව අටත්‍යකරණය කළ දෘඞාංග
+කළමනාකරණය කිරීමට සහ වින්‍යාස කිරීමට හැකිය. ඉහළ මට්ටමේ අභිරැච්කරණය සහ පාලනය අවග්‍ය වන
+ව්‍යාපාර සඳුහා මෙම සේවා ආකෘතිය වඩාත්‌ සුදුසු වේ. උදාහරණ ලෙස Amazon Web Services (AWS) ) සහ
+Microsoft Azure ඇතුළත්‌ වේ.
+
+Software as a Service / මෘදුකාංග සෙවාවක්‌ ලෙස (SaaS)
+
+Software as a Service (SaaS) is a cloud computing model where software applications are delivered over
+the internet and accessed through a web browser. Users do not need to install or maintain the software on
+their local devices, as the service provider hosts, manages, and updates the software on their behalf. SaaS
+is commonly used for applications such as email, customer relationship management (CRM), and
+collaboration tools, offering a convenient, subscription-based model with automatic updates and
+maintenance handled by the provider. Examples include Google Workspace, Salesforce, and Dropbox.
+මෘදුකාංග සේවාවක්‌ ලෙස (SaaS) යනු වලාකුළු සේවා ආකෘතියක්‌ වන අතර එහිදි මෘදුකාංග යෙදුමි
+අන්තටරපාලය හරහා බෙදාහරින අතර වෙබි බ්‍රවුසරයක්‌ හරහා ප්‍රවේශ වේ. සේවා සපයන්නා ඔවුන්‌ වෙනුවෙන්‌
+මෘදුකාංග සත්කාරකත්වය, කළමනාකරණය සහ යාවත්කාලීන කරන බැවින්‌ පරිගිලකයින්ට ඔවුන්ගේ දේගිය
+උපාංග මත මෘදුකාංග ස්ටාපනය කිරීමට හෝ නඩත්තු කිරීමට අවග්‍ය නොවේ.සාමාන්‍යයෙන්‌ විද්‍යුත්‌ තැපෑල,
+පාරිභෝගික සම්බන්ධතා කළමනාකරණය ((]11])) සහ සහයෝගිතා මෙවලමි වැනි යෙදුමි සඳහා භාවිතා කරයි,
+සපයන්නා විසින්‌ හසුූරැවන ස්වයංක්‍රීය යාවත්කාලීන සහ නඩත්තු සමඟ පහසු, දායකත්ව පදුනමි ආකෘතියක්‌
+ඉදිරිපත්‌ කරයි. උදාහරණ ලෙස Google Workspace, Salesforce සහ Dropbox ඇතුළත්‌ වේ.
+
+Fill the blanks in the following statements with suitable words from the given list of words.
+පහත වගන්තිවල ඇති හිස්තැන්‌ සඳුහා සුදුසු පදු දි ඇති පදු ලැයිස්තුවෙන්‌ තෝරා ලියන්න.
+
+(1) Encryption helps to ensure the confidentiality of our data and information.
+
+Encryption අපගේ දූත්ත හා තොරතුරැවල රහස්‍යභාවය තහවුරැ කිරීමට උදුවි වේ.
+
+(11) Phishing is the attempt to acquire sensitive information by pretending as a trustworthy entity in an
+
+electronic communication.
+විද්‍යුත්‌ සන්නිවේෙදනයකදි, විශ්වාසවන්ත පාර්ගවයක්‌ ලෙස FROGS සංවේදි තොරතුරැ ලබාගැනීමට තැත්‌ කිරීම
+Phishing ලෙස හැඳින්වේ.
+
+(111) The illegal copying, distribution, or use of software is known as Software piracy and Copyright helps
+
+us to protect our software from such illegal use.
+මෘදුකාංග නීතිවිරෝධී ලෙස පිටපත්‌ (copy) කිරීම, බෙදාහැරීම හෝ භාවිතය Software piracy ලෙස හැඳුන්වෙන
+අතර, Copyright අපගේ මෘදුකාංග එවැනි නීතිවිරෝධී භාවිතයන්ගෙන්‌ ආරක්ෂා කරගැනීමට CEH වේ.
+
+Encryption / සංකේතනය
+
+Encryption is a process used to protect data by converting it into a code to prevent unauthorized access.
+This transformation involves using an algorithm and a key to encode the information, making it unreadable
+to anyone who does not have the key to decrypt it. Encryption is widely used to secure sensitive data, such
+as financial information, personal data, and communications, both during transmission and while stored.
+It plays a crucial role in ensuring confidentiality and data integrity in various digital environments.
+සංකේතනය යනු අනවසරයෙන්‌ ප්‍රචවේග SO වැළැක්වීම සඳහා කේතයක්‌ බවට පරිවර්තනය කිරිමෙන්‌ eso
+ආරක්ෂා කිරීමට භාවිතා කරන ක්‍රියාවලියකි. මෙම පරිවර්තනයට තොරතුරු සංකේතනය කිරීමට
+ඇල්ගොරිතමයක්‌ සහ යතුරක්‌ භාවිතා කිරීම ඇතුළත්‌ වන අතර, එය විකේතනය කිරීමට SMO නොමැති ඕනැම
+කෙනෙකුට එය කියවිය නොහැක. සමිප්‍රේෂණය කිරීමේදි සහ ගබඩා කිරීමේදි මූල්‍ය නොරතුරැ, පුද්ගලික evo
+සහ සන්නිවේදනයන්‌ වැනි සංවේදි දූත්ත සුරක්ෂිත කිරීමට සංකේතනය බහුලව භාවිතා වේ. විවිධ ඩිපිටල්‌
+පරිසරයන්‌ තුළ රහස්‍යභාවය සහ දුත්ත අඛණ්ඩතාව සහතික කිරීම සඳුහා එය තීරණාත්මක කාර්යභාරයක්‌ ඉටු
+කරයි.
+
+Copyright / ප්‍රකාගන හිමිකම
+
+Copyright 15 a legal protection granted to the creators of original works, such as literature, music, art, and
+software. It gives the creator exclusive rights to reproduce, distribute, perform, display, or license their
+work, typically for a certain period. Copyright aims to encourage creativity by ensuring that creators can
+control and benefit from their intellectual property. Infringing on copyright, such as copying or using
+someone else's work without permission, is illegal and can result in legal penalties.
+
+ප්‍රකාගන හිමිකම යනු සාහිත්‍යය, සංගීතය, චිත්‍ර, සහ මෘදුකාංග වැනි මුල්‌ කෘතිවල නිරමාපකයන්ට ලබා දී ඇති
+නීතිමය ආරක්ෂාවකි. එය සාමාන්‍යයෙන්‌ නිග්චිත කාල සීමාවක්‌ සඳුහා ඔවුන්ගේ කාඊර්යය ප්‍රතිනිෂ්පාදනය කිරීමට,
+බෙදා හැරීමට, ක්‍රියාත්මක කිරීමට, ප්‍රදුර්ගනය කිරීමට හෝ බලපත්‍ර ලබා දිමට නිර්මාපකයාට තනි අයිතිය ලබා
+දෙයි. ප්‍රකාගන හිමිකම අරමුණු කරන්නේ නිර්මාණකරැවන්ට ඔවුන්ගේ බුද්ධිමය දේපළ පාලනය කිරීමට සහ
+ප්‍රතිලාභ ලබා ගැනීමට හැකි බව සහතික කිරීම මගින්‌ නිටරමාණගිලිත්වය දිරිමත්‌ කිරීමයි. අවසරයකින්‌ තොරව
+වෙනත්‌ කෙනෙකුගේ කෘතියක්‌ පිටපත්‌ කිරීම හෝ භාවිතා කිරීම වැනි ප්‍රකාගන හිමිකම උල්ලංඝනය කිරීම නීති
+විරෝධි වන අතර නීතිමය EHOGOEO හේතු විය හැක.
+
+Phishing / තතුබෑමි
+
+Phishing 15 a type of cyber attack in which attackers attempt to deceive individuals into providing sensitive
+information, such as passwords, credit card numbers, or personal details. This is typically done through
+fraudulent emails, websites, or messages that appear to be from legitimate sources, such as banks, social
+networks, or trusted companies. Phishing attacks exploit human psychology, often using urgency or fear
+to trick victims into divulging confidential information, which can then be used for identity theft or
+financial fraud.
+
+තතුබෑමි යනු මුරපද, ක්‍රෙඩ්ට්‌ කාඞ්‌ අංක oH} පුද්ගලික තොරතුරැ වැනි සංවේදි නොරතුරැ සැපයීමට ප්‍රහාරකයන්‌
+පුද්ගලයන්‌ රැවටිමට උත්සාහ කරන සයිබර්‌ ප්‍රහාරයකි. මෙය සාමාන්‍යයෙන්‌ සිදු කරනු ලබන්නේ බැංකු, සමාප
+පාල, හෝ විශ්වාසදායී සමාගමි වැනි නීත්‍යානුකල මූලාශ්‍රවලින්‌ පෙනෙන වංචනික ඊමේල්‌, වෙබි අඩවි හෝ
+පණිවිඞ හරහාය. තතුබෑමි ප්‍රහාර මානව මනෝවිද්‍යාව සුරාකෑම, බොහෝ විට හදිස්සිය හෝ බිය උපයෝගි කර
+ගනිමින්‌ වින්දිතයන්‌ රහසිගත තොරතුරැ හෙළි කිරීමට පොළඹවයි, පසුව එය අනන්‍යතා සොරකමි කිරීම හෝ
+මුල්‍ය වංචාව සඳුහා භාවිතා කළ හැකිය.
+
+1712 2141-15111 / කොල්ලකෑම
+
+Plagiarism is the act of using someone else's work, ideas, or expressions without proper acknowledgment,
+presenting them as one's own. This can include copying text, images, or code from another source without
+giving credit to the original author. Plagiarism is considered unethical and is often a violation of academic
+or professional integrity. In many educational and professional settings, 1t can lead to serious
+consequences, such as loss of reputation, legal penalties, or academic disciplinary actions.
+
+කොල්ලකෑම යනු වෙනත්‌ කෙනෙකුගේ වැඩ, අදහස්‌ හෝ ප්‍රකාගන නිසි පිළිගැනීමකින්‌ තොරව භාවිතා කරමින්‌,
+එවා තමාගේ යැයි ඉදිරිපත්‌ කිරීමයි. මුල්‌ කතුවරයාට දැනුමි දිමකින්‌ තොරව වෙනත්‌ මුලාග්‍රයකින්‌ පෙළ, පින්තූර
+හෝ කේතය පිටපත්‌ කිරීම මෙයට ඇතුළත්‌ විය හැක. කොල්ලකෑම සදාචාර විරෝධි ලෙස සලකනු ලබන අතර
+එය බොහෝ විට ශාස්ත්‍රී හෝ වෘත්තිය අඛණ්ඩතාව උල්ලංඝනය කිරීමකි. බොහෝ අධ්‍යාපනික සහ වෘත්තිය
+සැකසුමි වලදි, එය කීිරතිය නැතිවිම, නතිමය උඩුවමි හෝ ශාස්ත්‍රී විනය ක්‍රියාමාර්ග වැනි බරපතල
+ප්‍රතිවිපාකවලට තුඩු දිය හැකිය.
+
+Software Piracy / මෘදුකාංග කොල්ලකෑම
+
+Software piracy is the unauthorized copying, distribution, or use of software. This illegal activity involves
+duplicating software without purchasing the proper licenses, sharing software with others, or using cracked
+versions of programs to bypass licensing restrictions. Software piracy undermines the revenue of software
+developers and companies, leading to economic losses and potentially harming the development of new
+software. It is considered a serious offense and is punishable by law, with penalties ranging from fines to
+imprisonment.
+
+මෘදුකාංග කොල්ලකෑම යනු මෘදුකාංග අනවසරයෙන්‌ පිටපත්‌ කිරීම, බෙදා හැරීම හෝ භාවිතයයි. මෙම නීති
+විරෝධි ක්‍රියාකාරකමට නිසි බලපත්‍ර මිලදි නොගෙන මෘදුකාංග අනුපිටපත්‌ කිරීම, මෘදුකාංග අන්‌ අය සමඟ
+බෙදා ගැනීම හෝ බලපත්‍ර සීමාවන්‌ මඟ හැරීම සඳහා වැඩසටහන්වල cracked අනුවාද භාවිතා කිරීම ඇනුළතන්‌
+වේ. මෘදුකාංග කොල්ලකෑම මෘදුකාංග සංවර්ධකයින්ගේ සහ සමාගම්වල ආදායම අඩාල කරයි, ආර්ථික පාඩු
+වලට තුඩු දෙන අතර නව මෘඅදුකාංග සංවර්ධනයට හානි කළ හැකිය. එය බරපතල වරදක්‌ ලෙස සලකනු
+ලබන අතර නීතියෙන්‌ දඩුවමි ලැබිය හැකි අතර cH මුදුලේ සිට සිරගත කිරීම දක්වා දඩුවමි ලැබිය හැකිය.
+
+( 2021 — 2[4 & 0] S.ESSAY )
+
+2.(a) Parity Check is a simple technique to detect errors in data communications.
+සමතා පරීක්ෂාව යනු essen සන්නිවේෙදුනයෙදි සිදුවන දෝෂ සොයාගැනීමෙ සරල ශිල්පීය ක්‍රමයකි.
+
+Assume the seven bits 1010110 need to be transmitted. Explain how the odd parity check can be
+performed to detect any error in its transmission.
+
+1010110 යන බිටු හත සමිප්‍රේෂණය කළ යුතු යැයි සිනන්න, එය සමිප්‍රේෂණයේදි යම්‌ දෝෂයක්‌ සිදුව ඇතිදැයි
+සොයාබැලීමට ඔත්තේ සමතා (odd parity) පරීක්ෂාව සිදු කළ හැකි අයුරැ පහදන්න.
+
+Parity Check / සමතා පරීක්ෂාව
+
+Parity checking is a basic error detection technique used in digital communication systems to ensure
+that data is transmitted without errors. It works by adding an extra bit, called the parity bit, to a set
+of data bits. The role of the parity bit is to make sure that the total number of 1's in the data (including
+the parity bit) follows a certain rule, which can be either odd or even parity.
+
+සමනා පරීක්ෂාව යන com දෝෂයකින්‌ තොරව සමිප්‍රේෂණය වන බව සහතික කිරීම සඳහා අංකිත සන්නිවේදන
+පද්ධතිවල භාවිනා කරන මුලික දෝෂ හඳුනාගැනීමේ ක්‍රමයකි. එය ක්‍රියා කරන්නේ දත්ත බිටු කාණ්ඛයකට සමතා
+බිටු ලෙස හැඳින්වෙන අමතර බිටුවක්‌ එකතු කිරීමෙනි. සමානාත්මතා බිටුවෙහි කාර්යභාරය වන්නේ දත්තවල
+ඇති මුළු 1 සංඛ්‍යාව (සමනා බිටුවද ඇතුඑව) ඔත්තේ හෝ ඉරටිටේ සමාන විය හැකි නිශ්චිත රිතියක්‌ අනුගමනය
+කරන බවට වග බලා ගැනීමයි.
+
+There are two main types of parity checking / සමානාත්මතාවය පිරික්සීමේ ප්‍රධාන වර්ග දෙකක්‌ තිබේ.
+
+1. Even Parity / ඉරට්ටේ සමතා පරීක්ෂාව
+In even parity, the parity bit is added in such a way that the total number of 1's in the data
+(including the parity bit) is even.
+ඉරටිටේ සමතා පරිීකක්‍්ෂාවෙදි, දූත්තවල ඇති QO ] GAMO (සමතා BQOE ඇතුඑව) ඉරටිටේ වන
+ආකාරයට සමතා බිටුවක්‌ එකතු වේ.
+
+If the number of 1's in the original data is already even, the parity bit is set to 0. If the number of
+1's is odd, the parity bit is set to 1.
+
+මුල්‌ දූන්තචල 1 සංඛ්‍යාව දැනටමත්‌ ඉරටිටේ HS, BOm BQO 0 ලෙස සකසයි. | සංඛ්‍යාව ඔත්තේ නමි,
+සමතා බිටුව 1 ලෙස සකසයි.
+
+Example / උදාහරණය
+
+e Data (දත්ත) : 110011 (4 ones)
+Since there are already an even number of I's, the parity bit is 0.
+දැනටමත්‌ 1 හි ඉරටිටේ සංඛ්‍යාවක්‌ ඇති බැවින්‌, සමතා BQO 0 වේ.
+
+e Transmitted data with parity bit (සමතා BQO සමඟ සම්ප්‍රේෂණය කළ Ese): 1100110
+If the number of 1's in the data changes during transmission, it will no longer be even, and the
+error will be detected.
+සම්ප්‍රේෂණය අතරතුර දත්තවල 1 හි සංඛ්‍යාව වෙනස්‌ වුවහොත්‌, එය නවදුරටත්‌ සමාන නොවන අතර
+දෝෂය අනාවරණය වේ.
+
+2. Odd Parity / ඔත්තේ සමතා පරීක්‍ෂාව
+In odd parity, the parity bit 16 added to make the total number of 1'5 odd.
+ඔත්තේ සමතා පරිකක්‍්ෂාවෙදි, 1 හි QO සංඛ්‍යාව ඔත්තේ කිරිමට සමතා බිටු එකතු කරනු ලැබේ.
+
+If the number of 1's in the original data is even, the parity bit 16 set to 1. If the number of I's 15
+odd, the parity bit 1s set to 0.
+
+මුල්‌ දූත්තවල ] හි සංඛ්‍යාව ඉරටිටේ නමි, සමතා BQO ] ලෙස සකසයි. 1 හි සංඛ්‍යාව ඔත්තේ නමි,
+සමතා බිටුව 0 ලෙස සකසයි.
+
+Example / උදාහරණ
+
+e Data (දත්ත) : 101010 (3 ones)
+The number of 1's is odd, so the parity bit is 0.
+1 හි සංඛ්‍යාව ඔත්තේ, එබැවින්‌ සමනා DAO 0 වේ.
+
+e Transmitted data with parity bit (සමතා BQO සමඟ සම්ප්‍රේෂණය mE essen) : 1010100
+If the number of 1's becomes even due to a transmission error, the system can detect it.
+සම්ප්‍රේෂණ දෝෂයක්‌ හේතුවෙන්‌ 1 හි සංඛ්‍යාව ඉරටිටේ නමි, පද්ධතියට එය හඳුනාගන හැකිය
+
+~
+
+(b)
+
+Below shows, how the odd parity check can be performed.
+ඔත්තේ සමතනා පරීක්ෂාව Be කළ හැකි ආකාරය පහත dE වේ.
+
+1. Count the number of 1's in the data 0115 / ese බිටු වල 1 හි සංඛ්‍යාව ගණන්‌ කරමු
+The binary sequence 1010110 consists of four ']' bits, which are located at positions 1, 3, 5 and 6.
+1010110 වන ද්විමය අනුක්‍රමය ] හි බිටු හතරකින්‌ සමන්විත වන අතර ඒවා ]. 3. 5 සහ 6 යන ස්ටානවල
+පිහිටා ඇත.
+
+2. Determine the parity bit / සමානාත්මතාවය තරණය කරමු
+Since odd parity is required, the total number of 1's, including the parity bit, should be odd. Currently,
+there are four 1's, which is an even number. To make the number of 1's odd, we add a parity bit with
+the value 1.
+ඔත්තේ සමතා පරික්ෂාව අවග්‍ය බැවින්‌, සමතා BQO ඇතුඑව 15 QO සංඛ්‍යාව ඔත්තේ විය යුතුය.
+දැනට, ] හතරක්‌ ඇත, එය ඉරටිටේ අංකයකි. ] හි සංඛ්‍යාව ඔත්නේ කිරීමට, aS | අගය සමඟ සමතා
+බිටුව එකක්‌ එකතු කරමු.
+
+3. Transmit the data with the parity bit / සමතා BQO සමඟ esi සමිප්රේෂණය කරන්න
+The data to be transmitted, including the parity bit, is 10101101 (the original 7 bits plus the parity bit).
+සමතා BOO ඇතුඑව සම්ප්‍රේෂණය කළ යුතු ese (10101101 මුල්‌ BQ 7 සභ සමතා BQO) වේ.
+
+4. Error detection at the receiver / ග්‍රාහකයේ දෝෂ හඳුනාගැනීම
+After receiving the data, the receiver will count the number of 1's in the received message. If the
+number of 1's is odd, it assumes no error occurred. If the number of I's is even, it indicates that an
+error has occurred during transmission.
+EDD ලැබීමෙන්‌ පසූ, ග්‍රාහකයා ලැබුණු පණිවිඩය්‌ 1 ගණන ගණන්‌ කරයි. 1 හි සංඛ්‍යාව ඔත්තේ නමි, එය
+කිසිදු දෝෂයක්‌ සිදු නොවූ බව උපකල්පනය කරයි. ] හි සංඛ්‍යාව ඉරටිටේ නමි, එය සමිප්‍රේෂණය කිරිමේදි
+දෝෂයක්‌ සිදුවී ඇති බව පෙන්නුමි කරයි.
+
+In summary, the odd parity check adds a parity bit to ensure the total number of 1's is odd. This way, if the
+data changes during transmission (for example, if a bit is flipped), the error can be detected.
+
+සාරාංශයක්‌ ලෙස, ඔන්තේ සමතා පරික්ෂාව මගින්‌ ] හි සමිපුර්ණ සංඛ්‍යාව ඔත්තේ බව සහතික කිරීම ae)
+සමතා බිටුවක්‌ එක්‌ කරයි. මේ ආකාරයෙන්‌, සමිප්‍රේෂණය අතරතුර දත්ත වෙනස්‌ වුවහොත්‌ (උදාහරණයක්‌ ලෙස,
+බිටුවක්‌ පෙරළුවහොත්‌), දෝෂය හඳුනාගත හැකිය.
+
+The ABC company has two main divisions, namely Production and Marketing. Under the
+Production division, there are three units, namely Stores, Supplies and Operations having 10, 12
+and 18 computers, respectively. Marketing division has 40 computers. ABC company has been given
+the 192.174.19.0/25 IP address block. All the computers of the ABC company are to be assigned IP
+addresses after making the subnets from this address block.
+
+ABC සමාගමේ නිපැයුම්‌ සහ අලෙවි ලෙස මුලික අංශ දෙකක්‌ ඇත. නිපැයුමි අංශය යටතේ, පරිගණක
+පිළිවෙළින්‌ 10 ක්‌, 12 ක්‌ සහ 18 කින්‌ සමන්විතව, ගබඩා, සැපයුමි සහ මෙහෙයුමි ලෙස ඒකක තුනක්‌ ඇත.
+අලෙවි අංශයට පරිගණක 40 ක්‌ ඇත. ABC සමාගමට 192.174.19.0/25 IP ලිපින කාණ්ඩය ලැබී ඇත.
+මෙම ලිපින කාණ්ඩයෙන්‌ උපපාල සාදා, ABC ්‌ සමාගමේ BoE පටිගණකවලට IP ලිපින ලබා දිය යුතු වේ.
+
+The following incomplete table shows the sub-netting. Copy it to your answer’ sheet and fill the
+
+empty entries.
+පහන දැක්වෙන අසමිපුර්ණ වගුවෙහි එම උපපාලකරණය පෙන්වා ඇත, එම වගුව ඔබගේ පිළිතුරු පතට
+පිටපත්‌ කර, එහි ඇති හිස්තැන්‌ පුරවන්න.
+
+Here 192.167.19.0/25 is a classless network. This should be divided into subnets in VLSM(Variable
+Length Subnet Mask) Method.
+
+මෙහිදි 192. 167. 19.0/25 යනු පන්ති රහිත (classless) පාලයකි. මෙය VLSM( Variable Length Subnet Mask)
+ආකාරයෙන්‌ උපපාලවලට බෙදිය යුතු වේ.
+
+192. 174. 19.0/25 Minimum / අවම - 0000000
+192 .174.19.00000000
+\ ₹ /॥ Y J Maximum / උපරිම - 1111111
+
+Block Part Host Part
+
+e Block Address — 192.174.19.0
+e Broadcasting Address — 192.174.19.127
+e No. of Addresses — 2’ = 128
+e No. of Usable = 128 — 2*4 = 128 — 8 = 120
+Division / Network Broadcast Subnet No. of Usable IP Address
+Unit ID ID Mask Nodes Range
+Marketing | 192.174.19.0 192.174.19.63 | 255.255.255.192 64 192.174.19.1 —
+oe ඡ්‌ ee 192.174.19.62
+192.174.19.65 —
+Stores 192.174.19.64 | 192.174.19.79 | 255.255.255.240 16 192.174.19.78
+192.174.19.97 —
+Supplies | 192.174.19.96 | 192.174.19.111 | 255.255.255.240 16 192 17419 110
+Operations 192.174.19.159 32
+
+Given above is the official answer sheet answer and this can be easily shared through the below method.
+ඉහතින්‌ es) ඇත්තේ නිල පිළිතුරු පත්‍රයේ පිළිතුර වන අතර පහත HOG මගින්‌ මෙය පහසුවෙන්‌ බෙදාගත
+
+හැකිය.
+oo GiNopEs කක්‌
+' |0 00000: ! 000 0:
+‘4010/0|0]0]0] 0}: .:1]10]0]0 0000,
+] 1 1 । । 1 1! ] !। 1 1 |
+ofo[o[o [0] 0] 0[0 fp (fofo[o[olo]o[ fa popspe
+0 0 0 07%
+1100010010 .---|--|------ 22.--.------ 1011100 00!
+i 0 0 0 0 0 | 1 1 1 1 |
+'1|0|0010,00!;! <— >!
+1 |] 1 1 ![--- ය්‌ 16 40101:5__ |
+| 32 NODES” |
+Division / Network Broadcast Subnet No. of | Usable IP Address
+Unit ID ID Mask Nodes Range
+Marketi 192.174.19.0 | 192.174.19.63 | 255.255.255.192 64 192.174.19.1 —
+arketing 174.19. 174.19. 255,255. 192.174.19.62
+192.174.19.65 —
+Stores 192.174.19.64 | 192.174.19.79 | 255.255.255.240 16 192.174.19.78
+192.174.19.81 —
+Supplies | 192.174.19.80 | 192.174.19.95 | 255.255.255.240 16 192.174.19.94
+192.174.19.97 —
+Operations | 192.174.19.96 | 192.174.19.127 255.255.255. 32 192. 174 19 126
+
+(c) Mohan has ten (10) desktop computers and a router having 2 ports with a 64 Mbps Internet
+connection. Each computer has an adequate number of network interface cards. He also has
+a sufficient number of RJ 45 connected twisted pair cables.
+මොහාන්‌ සතුව මේස පරිගණක 108 සහ කෙවෙනි (ports) දෙකකින්‌ යුත්‌ 64 Mbps අන්තටඊර්පාල
+සමිඛන්ධතාවයක්‌ සහිත මංහසුරැවක්‌ (router) ඇත. සෑම පරිගණකයකටම ප්‍රමාණවත්‌ පාලකරන අතුරැමුහුණත්‌
+
+කාඩ්පත්‌ (Network Interface Cards) ඇත. ඔහුට RJ 45 ට සමිබන්ධ කෙරෙන ඇඹරි යුගල (twisted pair)
+කේබල අවග්‍ය ප්‍රමාණයක්‌ දූ ඇත.
+
+Mohan wants to start an Internet Browsing Center with the above equipment and seeks your advice
+for it. He informs you that he is not in a position to invest money for any new equipment.
+
+ඉහත උපකරණ භාවිත කොට අන්තරඊරපාල CHOM බැලීමි (browsing) ස්ටානයක්‌ ආරමිභ කිරීමට මොහාන්‌
+අදහස්‌ කර, ඒ සඳුහා ඔබගේ උපදෙස්‌ පතයි. වෙනත්‌ උපකරණ සඳහා මුදුල්‌ ආයෝජනය කිරීමට ඔහු
+අහොහොසත්‌ බව ද පවසයි.
+
+(1) Which network topology will you suggest for Mohan?
+මොහාන්‌ OE) ඔබ යෝජනා කරන පාල ස්වඵලකය (network topology) කුමක්‌ ද?
+
+Ring Topology (මුදු ස්ටල විද්‍යාව) or mesh Topology (බැඳි ස්ටල විද්‍යාව)
+
+NOTE: mesh topology is acceptable as an answer. But may not be very beneficial due to extra
+interconnections needed, performance degradation and inadequate user requirement to go for a mesh.
+
+QE HOE විද්‍යාව පිළිතුරක්‌ ලෙස පිළිගත හැකිය. නමුත්‌ අවග්‍ය අමතර අන්තර සමිබන්ධතා, කාරිය සාධනය
+පිරිහීම සහ දැලක්‌ සඳහා යාමට ප්‍රමාණවත්‌ පරිගිලක අවශ්‍යතා හේතුවෙන්‌ එතරමි ප්‍රයෝපනවත්‌ නොවනු ඇත.
+
+(11) Draw the logical arrangement of the network that you propose.
+ඔබ යෝජනා කරන ජාලයේ mdSen සැකසුම අඳින්න.
+
+Ring Topology Mesh Topology
+Node 03 Node 04
+Node 05
+Node 04 Node 02 OR
+Node 06 Node 02
+Node 01
+
+Node 01
+
+(111) Mohan would like to improve the connection speed to the clients while saving the existing bandwidth
+of the Internet connection. Further he needs to have the control of the Internet access while ensuring
+the privacy of the client. What is the technical suggestion you would give for this?
+පවතින අන්තටපාල සමිඛන්ධතාවයේ කලාප පළල (bandwith) පිරිමසින අතරම සේවාපේක්ෂකයාට වඩා
+වේගවත්‌ සමිබන්ධතාවයක්‌ ලබාදිමටදු මොහාන්ට අවශ්‍ය ය. ඊට අමතරව සේවාපේක්ෂකයාගේ පෞද්ගලිකන්වය
+තහවුරැ කරමින්‌ අන්තර්පාල ප්‍රවේශයේ පාලනයක්‌ ලබාගැනීමටදු ඔහු අපේක්ෂා කරසි. 5 සඳහා ඔබ ලබාදෙන
+තාක්ෂණික යෝපනාව කුමක්‌ ද?
+
+Use a Proxy Server (Proxy Server එකක්‌ භාවිතා කිරීම)
+
+A proxy server acts as an intermediary between clients (computers) and the Internet. This solution would
+benefit Mohan’s center by improving connection speeds, saving bandwidth, and enhancing control over
+Internet access while ensuring client privacy.
+
+ප්‍රොක්සි සේවාදායකයක්‌ සේවාදායකයින්‌ (පරිගණක) සහ අන්තටපාලය අතර අතරමැදියෙකු ලෙස Ga) කරයි.
+මෙම විසඳුම මොහාන්ගේ මධ්‍යස්ටානයට සමිබන්ධතා වේගය වැඩි දියුණු කිරීම, කලාප පළල ඉතිරී කිරීම සහ
+සේවාලාභින්ගේ පෞද්ගලිකත්වය සහතික කරන අතරම අන්තටරපාල ප්‍රවේශය පිළිබඳ පාලනය වැඩි දියුණු
+කිරීම මගින්‌ ප්‍රතිලාභ ලබයි.
+
+Bandwidth optimization / කලාප පළල ළශස්තකරණය
+
+Caching frequently accessed web content locally, reducing data usage, and improving speed.
+
+නිතර ප්‍රවේග වන GOD අන්තර්ගතයන්‌ මතක තබා ගැනම, com භාවිතය අඩු HOO සහ වෙගය වැඩි දියුණු
+කිරීම.
+
+Control of Internet access / අන්තර්පාල ප්‍රවේශය පාලනය කිරීම
+
+Allowing Mohan to block or limit access to specific websites and set rules for Internet use.
+මොහාන්ට නිශ්චිත වෙබි GASOEO ප්‍රවේශය අවහිර කිරීමට හෝ BO) කිරීමට ඉඩ F&O සහ අන්තටඊපාල
+
+අහ 725 amy
+
+භාවිතය aceon) SS රිති සැකසීම.
+
+Ensuring privacy / පුද්ගලිකත්වය සහතික කිරීම
+
+Masking client IP addresses, enhancing privacy by hiding user identities from external websites.
+සේවාදායක IP ලිපින වසන්‌ කිරීම, බාහිර වෙබි අඩවි වලින්‌ පරිගීලතභබ අනන්‍යතා සඟවා පුද්ගලිකත්වය වැඩි
+දියුණු කිරීම.
+
+(iv) There is need to protect this private network by filtering the communication traffic and blocking
+outsiders from gaining unauthorized access. What mechanism will you suggest to achieve this?
+සන්නිවේදන ගමනාගමන (communication traffic) පෙරහනකට (filter) ලක්කරන අතරම, පිටස්තරයන්ගේ
+අනවසර ප්‍රවේගයන්‌ වළකමින්‌ මෙම පෞද්ගලික HES ආරක්ෂා කරගැනීමටද අවග්‍ය ය. ඒ HEM) ඔබ
+යෝජනා කරන යාන්ත්‍රණය කුමක්‌ අ?
+
+Have a Firewall (ගිනි පවුරක්‌ භාවිතා කිරීම)
+
+It is advisable to implement a firewall to protect Mohan's private network and block unauthorized access.
+A firewall acts security barrier between the internal network and external networks (such as the Internet),
+filtering communication traffic and ensuring that only authorized data can enter or leave network.
+මොහාන්ගේ පුද්ගලික පාලය ආරක්ෂා කිරීමට සහ අනවසර පිවිසූමි අවහිර කිරීමට firewall ක්‍රියාත්මක කිරීම
+සුදුසු වේ සෙරැඅකක අභ්‍යන්තර පාලය සහ බාහිර පාල (අන්තර්පාලය වැනි) අතර ආරක්ෂක බාධකයක්‌
+ලෙස ක්‍රියා කරයි, සන්නිවේදන ගමනාගමනය පෙරීම සහ බලයලත්‌ END පමණක්‌ පාලයට ඇතුළඑු විමට හෝ
+පිටවීමට හැකි බව සහතික කරයි.
+
+e Unwanted traffic filtering / අනවග්‍ය තදුබදුය පෙරිම
+A firewall can inspect incoming and outgoing traffic based on predefined security rules, block harmful
+or suspicious traffic, and allow only legitimate communication.
+ගිනි පවුර පුර්ව නිශ්චිත ආරක්ෂක නීති මත පදුනම්ව පැමිණෙන සහ පිටනට යන ගමනාගමනය පරීක්ෂා
+කළ හැකිය, හානිකර හෝ සැක සහිත ගමනාගමනය අවහිර කිරීම සහ නිත්‍යානුකූල සන්නිවේදනයට
+පමණක්‌ ඉඩ ලබා ඳේ.
+
+e Preventing unauthorized access / අනවසරයෙන්‌ ප්‍රවේශ විම වැලැක්වීම
+Blocks outsiders from accessing the private network by limiting which services and ports are exposed
+to the outside world.
+බාහිර ලෝකයට නිරාවරණය වන්නේ කුමන සේවාවන්‌ සහ කෙවෙනි සමා කිරීමෙන්‌ බාහිර පුද්ගලයින්ට
+පුද්ගලික පාලයට ප්‍රවේශ SO අවහිර කරයි.
+
+e Elastic Packet Inspection / ප්‍රත්‍යස්ට්‌ පැකට්‌ පරීක්ෂණය (SPI) — Modern firewalls use SPI to analyze
+packet headers and ensure that incoming traffic is part of legitimate sessions, further preventing
+
+malicious attacks.
+නවින ගිනි පවුර විසින්‌ and Gdbe විග්ලේෂණය කිරීමට සහ එන ගමනාගමනය නීත්‍යානුකූලව පවතින
+සැසිවල කොටසක්‌ බව සහතික කිරීමට SPI භාවිතා කරයි, ද්වේෙඝසහගත ප්‍රහාර තවදුරටත්‌ වළක්වයි.
+
+The firewall provides a strong layer of security protecting Mohan's network from threats while maintaining
+the privacy and integrity of customer communications.
+
+Firewall මඟින්‌ පාරිභෝගික සන්නිවේදනයේ පෞද්ගලිකත්වය සහ අඛණ්ඞනාව පවත්වා ගනිමින්‌ මොහාන්ගේ
+පාලය තට්පනවලින්‌ ආරක්ෂා කරමින්‌ ශක්තිමත්‌ ආරක්‍ෂිත ස්ටරයක්‌ සපයයි.
+
+(v) Include the solutions that: you proposed for (111) and (iv) above in the logical network arrangement
+that you drew for (11).
+ඉහත (111) සහ (iv) BF ඔබ යෝපනා කළ විසඳුමි, (ii) acm) ඔඛ විසින්‌ අඳින ලද, තාර්කික පාල
+රැපසටහනේ ඇතුළත්‌ කරන්න.
+
+Ring Topology Mesh Topology
+
+PROXY FIREWALL PROXY FIREWALL
+PC2 PC1 @ oo PC2 PC1 කණ ස අ
+දුටු = | = = |
+PC3 PC7 2 OR PC3 PC7 E>
+] ॥ ROUTER = ROUTER
+PC4 PC5 PC6 ණෑ PC4 PC5 PC6 ණී
+a “= = = == =
+
+(2021 - 02 ESSAY )
+
+2022 AL NETWORKING ESSAY MARKING
+
+1. The diagram below shows the OSI reference model and its mapping to the TCP/IP model. Write the
+correct names of the layers indicated by the labels P, Q, R, S, T and U.
+OSI යොමු ආකෘතිය (reference model) සහ TCP/IP ආකෘතිය අතර අනුරෑපිතාව පහත රෑපයේ දැක්වේ.
+P,Q,R,S,T සහ U ලේබලවලින්‌ නිරැපිත ස්තරවල නිවැරදළි නාමයන්‌ ලියා දක්වන්න.
+
+OSI Reference Model TCP/IP Model
+P
+Presentation Layer 5
+eeewsion Layer P - Application Layer යෙදුමි ස්තරය
+සැසි ස්තරය Q - Network Layer පාල ස්තරය
+Transport Layer T R - Data Link Layer දත්ත සම්බන්ධක ස්තරය
+ප්‍රවාහන ස්තරය 5 - Application Layer යෙදුමි ස්තරය
+Q U T - Transport Layer ප්‍රවාහන ස්තරය
+R U - Internet Laver අන්තටරපාල ස්තරය
+Network Access Layer
+Physical Layer පාල ප්‍රවේග ස්තරය
+
+භෞතික GOOG
+
+OSI Model (Open Systems Interconnection Model)
+
+The OSI model is a conceptual framework used to understand and implement standard protocols in
+network communications. It divides the communication process into seven layers, each with specific
+functions.
+
+OSI ආකෘතිය යනු පාල සන්නිවේදනයේ සමිමත නියමාවලිය නතේරැමි ගැනීමට සහ ක්‍රියාත්මක කිරීමට භාවිතා
+
+කරන සංකල්පිය රාමුවකි. එය සන්නිවේෙදුන ක්‍රියාවලිය HOO හතකට බෙදා ඇත, මේවාට එක්‌ එක්‌ විගේෂිත
+කාර්යයන්‌ ඇත.
+
+Physical Layer (Layer 1)
+
+භෞතික ස්තරය (1 වන ස්තරය)
+
+Transmits raw bit stream over a physical medium.
+
+භෞතික මාධ්‍යයක්‌ හරහා raw bit stream සමිප්‍රේෂණය කරයි.
+
+Data Link Layer (Layer 2)
+
+ese සමිබන්ධක ස්තරය (2 වන ස්තරය)
+
+Provides node-to-node data transfer and handles error correction from the physical layer.
+node-to-node Es හුවමාරුව සපයන අතර භෞතික ස්ටරයෙන්‌ දෝෂ නිවැරදි කිරීම හසුරැවයි.
+
+Network Layer (Layer 3)
+
+ජාල ස්තරය (3 වන ස්තරය)
+
+Determines the best physical path for data to reach its destination.
+
+EDD එහි ගමනාන්තයට ළඟා විමට EMCO භෞතික මාර්ගය තීරණය කරයි.
+
+Transport Layer (Layer 4)
+
+ප්‍රවාහන ස්තරය (4 වන ස්තරය)
+
+Ensures complete data transfer with error recovery and flow control.
+
+දෝෂ ප්‍රතිසාධනය සහ ප්‍රවාහ පාලනය සමඟ සම්පුර්ණ දූත්ත හුවමාරැව සහතික කරයි.
+
+Session Layer (Layer 5)
+
+සැසි ස්තරය (5 වන ස්තරය)
+
+Manages sessions or connections between applications.
+යෙදුමි අතර සැසි හෝ සමිබන්ධතා කළමනාකරණය MOG.
+
+Presentation Layer (Layer 6)
+
+සමට්පණ ස්තරය (6 වන ස්තරය)
+
+Translates data between the application layer and the network format, including encryption and
+compression.
+
+සංකේතනය සහ සමිපීඞනය ඇතුළුව යෙදුමි ස්ටරය සහ HE ආකෘතිය අතර es පරිවරතනය කරයි.
+
+Application Layer (Layer 7)
+
+යෙදුමි ස්තරය (7 වන ස්තරය)
+
+Provides network services to end-users.
+අවසාන පරිගිලකයින්ට HE සේවා සපයයි.
+
+TCP/IP Model (Transmission Control Protocol/Internet Protocol Model)
+
+The TCP/IP model is a simplified, more practical version of the OSI model. It consists of four layers that
+correspond closely to certain layers of the OSI model.
+
+TCP/IP ආකෘතිය යනු OSI ආකෘතියේ සරල කළ, වඩාත්‌ ප්‍රායෝගික අනුවාදුයකි. එය OSI ආකෘතියේ ඇතැමි
+ස්ටරවලට සමිපව අනුරෑප වන ස්ටර හතරකින්‌ සමන්විත වේ.
+
+Network Access Layer (Link Layer)
+
+ජාල ප්‍රවේශ ස්තරය (සබැඳි ස්තරය)
+
+Corresponds to the OSI's physical and data link layers. Handles the physical transmission of data.
+OSI හි භෞතික සහ දුන්ත සමිඛන්ධක ස්ටරවලට අනුරෑප වේ. esi භෞතික සමිප්‍රේෂණය හසුරැවයි.
+
+Internet Layer
+
+අන්තටපාල ස්තරය
+
+Corresponds to the OSI's network layer. Handles logical addressing and routing.
+OSI හි පාල ස්ටරයට අනුරෑප වේ. තාර්කික ලිපින සහ මාර්ගගත කිරීම හසුරැවයි.
+
+Transport Layer
+
+ප්‍රවාහන ස්තරය
+
+Corresponds to the OSI's transport layer. Ensures reliable data transfer between host systems.
+
+OSI හි ප්‍රවාහන ස්තරයට අනුරැප වේ. ධාරක පද්ධති අතර විශ්වසනීය esi හුවමාරැව සහතික කරයි.
+
+Application Layer
+
+යෙදුමි ස්තරය
+
+Corresponds to the OSI's session, presentation, and application layers. Provides application services to the
+user.
+
+OSI හි සැසි, ඉදිරිපත්‌ කිරීම සහ යෙදුමි BOO වලට අනුරෑප වේ. පරිගිලකයාට යෙදුමි සේවා සපයයි.
+
+( 2022 — 4[6] S.ESSAY )
+
+6. (a) Write down the most suitable terms to replace the blanks labelled to in the following paragraph
+related to data encryption.
+EDD ගුප්ත කේතනය සමිඛන්ධව පහත දි ඇති පේදයේ BO eso) ලේබල කර ඇති හිස්තැන්වලට ආදේග
+කළ හැකි වඩාත්‌ සුදුසු පදු ලියා දක්වන්න.
+
+There are two types of encryption techniques used namely, symmetric key encryption and asymmetric key
+
+encryption. In ........... Pow... key encryption, the same key is used for encrypting and decrypting the
+information. In this scheme, to exchange information, users must share a ........... 0........... key
+among themselves. In ........... 1%........... key encryption, different keys are used for encrypting and
+decrypting the information. In this technique, users usually have a pair of dissimilar keys known as a
+biveeeeeees ට........... key and ...........T........... key. When one key is used for encryption, the other key
+can decrypt the ........... | Ore back to the original plain text.
+
+සමමිතික යතුරැ කේතනය (symmetric key encryption) සහ අසමමිතික යතුරැ කේතනය (asymmetric key
+encryption) වශයෙන්‌ නමි කරන ලද, ගුප්ත කේතන GESe ක්‍රම (encryption techniques) දෙකක්‌ පවති.
+අ“ P........... යතුරු කේතයේ දි, නොරතුරැ ගුප්ත කේතනය සහ විකේතනය (decryption) සඳහා එකම
+යතුර යොදාගැනේ. GOO කුමයේදි පරිගිලකයින්‌ විසින්‌ නොරතුරැ හුවමාරැ කිරීමට ........... 0........... යතුරක්‌
+හවුලේ පරිහරණය කළ යුතුය. ........... R........... යතුරු කේතනයේදි තොරතුරු ගුප්ත කේතනය සහ
+විකේතනය සඳුහා වෙනස්‌ යතුරැ භාවිත කෙරේ. මෙම ක්‍රමවේදයේදිී පරිගිලකයින්ට සාමාන්‍යයෙන්‌
+“අනි 5........... යතුර සහ ....................... යතුර ලෙස නමි කරන ලදු අසමාන යතුරැ යුගලක්‌ ඇත. එක්‌
+යතුරක්‌ ගුප්න කේතනය සඳුහා යොදාගන්නා විට අනෙක්‌ යතුරෙන්‌ ........... ච........... නැවත ආරමිභක සරල
+පෙළට (plain text) විකේතනය කළ හැකි ය.
+
+Symmetric සමමිතික
+
+Public පොදු/එකම
+
+asymmetric අසමමිතික
+
+Public පොදු | Private පෞද්ගලික
+Private පෞද්ගලික | Public පොදු
+Cipher text කේතික පෙළ
+
+ථු කුණ සර:
+
+Encryption 15 a process used to convert plain text or data into an unreadable format, known as ciphertext,
+to protect it from unauthorized access. This transformation is achieved using algorithms and encryption
+keys. The primary purpose of encryption is to ensure the confidentiality and integrity of data.
+
+සංකේතනය යනු සරල පෙළ 6H) eso කියවිය නොහැකි ආකෘතියක්‌ බවට පරිවරතනය කිරිමට භාවිතා කරන
+ක්‍රියාවලියකි, එය කේතික පෙළ ලෙස හැඳින්වේ, එය අනවසරයෙන්‌ ප්‍රවේශ විමෙන්‌ ආරක්ෂා කරයි. මෙම
+පරිවර්තනය ඇල්ගොරිනම සහ සංකේතාංකන යතුරැ භාවිතයෙන්‌ සිදු කෙටේ. සංකේතනය කිරීමේ මුලික අරමුණ
+වන්නේ දත්තවල රහස්‍යභාවය සහ එකාග්‍රතාවය සහතික කිරීමයි.
+
+Here’s a detailed explanation of encryption:
+සංකේතනය පිළිබඳ සවිස්තරාත්මක පැහැදිලි HOO මෙසේය.
+
+Key Concepts ප්‍රධාන සංකල්ප
+ේ Plaintext සරල පෙළ
+
+The original, readable data or message that is to be encrypted.
+සංකේතනය කළ යුතු මුල්‌, කියවිය හැකි evo හෝ පණිවිඩය.
+
+e Ciphertext කේතික පෙළ
+
+The encrypted, unreadable format of the plaintext, which can only be decrypted back to plaintext using
+the correct key.
+
+HOLOE යතුර භාවිතයෙන්‌ පමණක්‌ නැවත සරල පෙළට විකේතනය HE හැකි සරල පෙළෙහි සංකේතනය
+කළ, කියවිය නොහැකි ආකෘතිය.
+
+Encryption Key සංකේතාංකන යතුර
+
+A string of bits used by an encryption algorithm to convert plaintext into ciphertext.
+සරල පෙළ සංකේතික පෙළ බවට පරිවටථරතනය කිරීමට කේතාංකන ඇල්ගොරිතමයක්‌ මගින්‌ භාවිතා කරන
+බිටු පෙළකි.
+
+Decryption විකේතනය
+
+The reverse process of encryption, where ciphertext is converted back into plaintext using an
+appropriate key.
+
+ගුප්තකේතනයේ ප්‍රතිලෝම ක්‍රියාවලියයි. මෙහිදි කේතාංක පෙළ සුදුසු යතුරක්‌ භාවිතයෙන්‌ සරල පෙළ බවට
+පරිවර්තනය කරයි.
+
+Types of Encryptions
+සංකේතාංකන OS@
+
+1.
+
+11.
+
+Symmetric Key
+සමමිතික යතුර
+Encryption සංකේතනය
+
+Uses the same key for both encryption and decryption.
+සංකේතනය සහ විකේතනය යන දෙකටම එකම යතුර භාවිතා කරයි.
+
+Pros: Faster and efficient for processing large amounts of data.
+වාසි: SME දත්ත ප්‍රමාණයක්‌ සැකසීම HEM) වේගවත්‌ හා කාටරයක්ෂම වේ.
+
+Cons: Key distribution can be challenging, as the same key must be securely shared among users.
+අවාසි: යතුරැ බෙදා හැරීම අභියෝගාත්මක විය හැක, එකම යතුර පරිගිලකයන්‌ අතර ආරක්‍ෂිතව බෙදාගත
+
+යුතුය.
+Examples: AES (Advanced Encryption Standard), DES (Data Encryption Standard).
+
+Asymmetric Key
+අසමමිතික යතුර
+
+Encryption සංකේතනය
+
+Uses a pair of keys — a public key for encryption and a private key for decryption.
+සංකේතනය OEM) පොදු යතුරක්‌ සහ විකේතනය සඳහා පුද්ගලික යතුරක්‌ ලෙස යතුරැ යුගලයක්‌ භාවිතා
+කරයි.
+
+Pros: Enhanced security as the private key is never shared; only the public key is distributed.
+වාසි: පුද්ගලික යතුර SS විටෙක බෙදා නොගන්නා බැවින්‌ ආරක්ෂාව ඉහළ යි. බෙදා හරිනු ලබන්නේ
+පොදු යතුරක්‌ පමණි.
+
+Cons: Slower than symmetric encryption and requires more computational resources.
+අවාසි: සමමිතික සංකේතනයට Of) මන්දුගාමි වන අතර වැඩි පරිගණක සමිපත්‌ අවශ්‍ය වේ.
+
+Examples: RSA (Rivest-Shamir-Adleman), ECC (Elliptic Curve Cryptography).
+
+(b) Suppose that the ABC Company has received the 192.248.154.0/25 IP address block to be distributed
+among its four departments.
+තම දෙපාර්තමේන්තු හතර අනර බෙදාහැරීම සඳහා ABC ආයතනය වෙත 192.248.154.0/25 IP ලිපින
+කාණ්ඩය ලැබී ඇති බව සලකන්න.
+
+It is required to subnet the above IP address block to satisfy the following requirements. Assume that
+each department is located in a separate building.
+
+ඉහත IP ලිපින කාණ්ඩය පහත අවග්‍යනා සමිපුර්ණ කරන ලෙස උපපාලනය කිරීම අවග්‍ය වේ. OS එක්‌
+දෙපාර්තමේන්තුව වෙන්‌ වෙන්‌ ගොඩනැගිලිවල ස්ථාපනය කර ඇති බව උපකල්පනය කරන්න.
+
+Subnet Number Department Name Number of Computers
+5001 Accounts 30
+S002 Sales 28
+9003 Service 18
+S004 Administration 24
+
+(i) Write the first address and the last address in the given address block.
+
+අ අර උහු
+
+දි ඇති ලිපින කාණ්ඩයේ පළමු යොමුව (address) සහ අවසාන යොමුව ලියන්න.
+
+Consider the given IP address.
+
+E ඇති ලිපිනය සලකමු.
+
+192.248. 154.0/25
+
+Network bit පාල බිටු - 25
+Host bit සත්කාරක බිටු - 7 (32-25 ~7)
+
+Now let's find the first address and the last address.
+දැන්‌ පළමු යොමුව සහ අවසාන යොමුව සොයමු.
+
+192.248.154.0 | 0000000
+
+<—Network part > <Host part >
+
+When all host bits are set to 0, the first address is obtained and when all host bits are set to 1, the last
+address is obtained.
+සත්කාරක බිටු සියල්ල 0 කළ SO පළමු යොමුව දු සත්කාරක BQ සියල්ල | කළ SO අවසාන යොමුව ද ලැබේ.
+
+First address පළමු යොමුව - 192.248.154.00000000_ - 192.248.154.0
+Final address අවසාන යොමුව - ]92.248. 154.0111]1111] - 192.248.154.127
+
+(11) Write the subnet mask of the given address block in dotted decimal notation.
+දි ඇති ලිපින කාණ්ඩයේ උපපාල ආවරණය (subnet mask) තිත්‌ දුශමක අංකනයකින්‌ (dotted decimal
+notation) ලියා දුක්වන්න.
+
+The easiest way to find subnet mask is to,
+උපපාල ආවරණය සෙවීමට ඇති පහසුම ක්‍රමය වන්නේ,
+
+All the bits 11] the network part of the address are set to 1 and all the bits in the host part are set to 0.
+ලිපිනයේ HE කොටසේ ඇති DQ සියල්ලම ] බවට පත්‌ කිරීමත්‌, සත්කාරක කොටසේ ඇති බිටු සියල්ලම 0
+බවට පත්‌ කිරීමත්‌ ය.
+
+Accordingly, 3 අනුව,
+
+192. 248. 154. 0/25
+11111111. 11111111. 11111111. 10000000
+255. 255. 255. 128
+
+Subnet mask උපපාල ආවරණය - 255.255.255.128
+
+(111) How many host bits are needed to create the required number of subnets?
+අවශ්‍ය COOE ගණන නිර්මාණය කිරීමට අවැසි සත්කාරක බිටු (host bits) ගණන කොපමණ ද?
+
+The number of host bits required to create the number of subnets is calculated by the power of two equals
+
+the number of subnets required.
+
+උපපාල ගණන නිට්මාණය කිරීමට අවශ්‍ය සත්කාරක බිටු ගණන ගණනය කරගනු ලබන්නේ අවග්‍ය උපපාල
+ගණනට සමාන වන දෙකෙහි බලය මගිනි.
+
+Accordingly, since it is necessary to create 4 subnets, the number of host bits required to create this subnet
+is 2 because 4 is the second power of 2.
+ඒ අනුව මෙහිදි උපපාල 4 ක්‌ HOOP කරගැනීම අවග්‍ය බැවින්‌, 4 යනු 2 හි දෙවෙනි බලය නිසා මෙම
+උපපාලය නිර්මාණය කරගැනීම අවග්‍ය සත්කාරක බිටු ගණන වන්නේ 2 කි.
+
+4 22
+\
+
+(iv) Once subnetting is done, fill the following table.
+
+Number of host bits
+
+උපපාලනයෙන්‌ අනතුරැව පහත EO) ඇති වගුව සමිපුර්ණ කරන්න.
+
+Rumber| Address ලම රෲ | address | Address
+S001 192.248.154.0 | 255.255.255.224 | 192.248.154.1 | 192.248.154.30 | 192.248.154.31
+S002 192.248.154.32 | 255.255.255.224 | 192.248.154.33 | 192.248.154.62 | 192.248.154.63
+S003 192.248.154.64 | 255.255.255.224 | 192.248.154.65 | 192.248.154.94 | 192.248.154.95
+S004 192.248.154.96 | 255.255.255.224 | 192.248.154.97 | 192.248.154.126 | 192.248.154.127
+
+Let's solve the above problem as follows.
+ඉහත ගැටලුව පහන පරිඳි විසදුමු.
+
+192.248.154.0/25
+
+192.248.154.011
+
+00000
+
+Network Address - 192.248.154.96
+
+192.248.154.011
+
+11111
+
+Broadcast Address - 192.248.154.127
+Usable Range — (192.248 .154.97 — 192.248.154.126)
+
+192.248.154.0/25
+
+192.248.154.010
+
+192.248.154.0/25
+
+192.248.154.000
+Network Address - 192.248.154.0
+192.248.154.000
+
+00000
+
+11111
+
+Broadcast Address - 192.248.154.31
+
+SI
+
+S3
+
+00000
+
+Network Address - 192.248.154.64
+
+192.248.154.010
+
+11111
+
+Broadcast Address - 192.248.154.95
+
+Usable Range — (192.248.154.65 — 192.248. 154.94)
+
+S2
+
+(192.248.154.1 — 192.248.154.30)
+
+192.248.154.0/25
+
+192.248.154.001
+
+00000
+
+Network Address - 192.248. 154.32
+
+192.248.154.001
+
+11111
+
+Broadcast Address - 192.248.154.63
+
+(192.248.154.33 — 192.248.154.62)
+
+Now let's look at the relevant subnet mask.
+දැන්‌ අපි අදාළ උපපාල ආවරණය සොයා බලමු.
+
+Since 2 host bits were used to create 4 subnets, the network part now has 27 bits and the host part has 5
+bits.
+
+උපපාල 4ක්‌ නිර්මාණය කර ගැනීම Hem) සත්කාරක බිටු 28 භාවිත කළ නිසා මේ වන SO HE කොටස
+සතුව බිටු 27 se සත්කාරක කොටස සතුව බිටු 5 se පවතී.
+
+The subnet mask is created by setting all bits in the network segment to 1 and all bits in the host segment
+to 0, so the resulting subnet mask 15.
+
+උපපාල ආවරණය HOH ලබන්නේ HE කොටසේ ඇති සියලම BQ ] කිරීමෙන්‌ සහ සත්කාරක කොටසේ
+ඇති සියලුම බිටු 0 කිරීමෙන්‌ නිසා මෙහි දි ලැබෙන උපපාල ආවරණය වන්නේ
+
+192. 248. 154. 0/27
+1111111. 1111111. 11111111. 111 00000
+255. 255. 255. 224
+
+(d) (1) Write one difference between User Datagram Protocol (UDP) and Transmission Control Protocol
+(TCP) transport layer protocols.
+පරිශිලක දත්ත පණිවිඩ නියමාවලිය (UDP) සහ සමිප්‍රේෂණ පාලන නියමාවලිය (TCP) යන ප්‍රවාහන ස්ටරයේ
+නියමාවලි අතර ඇති එක්‌ වෙනස්කමක්‌ ලියන්න.
+
+Feature UDP TCP
+
+Connection Connectionless Connection-oriented
+
+සම්ඛන්ධතාවය සම්බන්ධයක්‌ නැති සමිබන්ධතා-නැඹුරැ
+
+Speed Faster (Low latency) Slower
+
+වේගය වේගවත්‌ (අඩු ප්‍රමාදය) වේගය අඞු
+
+Reliability Less reliable, no error checking Reliable, error checking and correction
+
+විග්වසනියත්වය | GH විශ්වාසනීය, දෝෂ පරීක්ෂාවක්‌ | විග්වසනීය, දෝෂ පරීක්ෂා කිරීම සහ HOE
+නැත කිරීම
+
+Ordering No guarantee of order Guarantees order of packets
+
+අනුපිළිවෙල අනුපිළිවෙල පිළිබඳ සහතිකයක්‌ පැකටි අනපිළිවෙල සහතික කරයි
+නොමැත
+
+Use Cases Streaming, Online gaming, DNS_ | Web browsing, E-mail, File transfers
+
+භාවිත ප්‍රවාහය, මාර්ගගත ක්‍රීඩා, (DNS) වෙබ්‌ බ්‍රවුසින්‌, විද්‍යුත්‌ තැපැල්‌, ගොනු මාරැ කිරීමි
+
+UDP (User Datagram Protocol)
+UDP (පරිශීලක දුන්ත නියමාවලිය)
+
+UDP (User Datagram Protocol) is a communication protocol used across the Internet for especially time-
+sensitive transmissions such as video playback or DNS lookups.
+
+UDP (User Datagram Protocol) යනු විඩියෝ නැවත ධාවනය හෝ වසමි නාම සේවාදායක cade වැනි කාල
+සංවේදි සම්ප්‍රේෂණ සඳහා අන්තර්පාලය හරහා භාවිතා කරන සන්නිවේදන නියමාවලියකි.
+
+TCP (Transmission Control Protocol)
+
+TCP (සම්ප්‍රේෂණ පාලන නියමාවලිය)
+
+TCP (Transmission Control Protocol) is another communication protocol, used for reliable and ordered
+delivery of a stream of data.
+
+TCP (aSegegn පාලන නියමාවලිය) යනු තවත්‌ සන්නිවේදන නියමාවලියක්‌ වන අතර, දුන්ත ප්‍රවාහයක්‌
+විග්වාසදායක සහ අනුපිළිවෙළක්‌ සහිත බෙදාහැරීම සඳුහා භාවිතා වේ.
+
+(11) Write two main functions of a router.
+මං හසුරැවක (router) ප්‍රධාන කාර්යයන්‌ දෙකක්‌ ලියා දක්වන්න.
+
+A router is a networking device that forwards data packets between computer networks.
+මං හසුරැව යනු පරිගණක HE අතර දත්ත S720 යොමු කරන පාලකරණ උපාංගයකි.
+
+Routers perform the traffic directing functions on the Internet.
+මං හසුරැව අන්තටරපාලයේ තදබදය මෙහෙයවිමේ කාථයයන්‌ ඉටු කරයි.
+
+Data sent through the internet, such as a web page or email, 15 in the form of data packets.
+වෙබි පිටුවක්‌ හෝ විද්‍යුත්‌ තැපැලක්‌ වැනි අන්තරපාලය හරහා යවන ess, EMD පැකට්‌ ආකාරයෙන්‌ වේ.
+
+A router is connected to at least two networks, commonly two LANs (Local Area Networks) or WANs
+(Wide Area Networks) or a LAN and its ISP's (Internet Service Provider) network.
+මංහසුරැව අවම වගයෙන්‌ HE දෙකකට සමිබන්ධ වේ, සාමාන්‍යයෙන්‌ LAN (පුරවර ප්‍රඳේශ) හෝ WAN
+
+(පුළුල්‌ ප්‍රදේශ HE) දෙකකට oa} LAN සහ එහි ISP (අන්තරපාල සේවා සපයන්නා) HES සමග සමිඛන්ධ
+වේ.
+
+Routers are located at gateways, the places where two or more networks connect.
+මංහසුරැව SHO) ඇත්තේ, HE දෙකක්‌ හෝ වැඩි ගණනක්‌ සමිබන්ධ වන ද්වාර පවතින ස්ටානවල ය.
+
+Main Functions of a Router
+
+මංහසුරැුවක ප්‍රධාන කාටයයන්‌
+
+Packet Forwarding දූත්ත පැකටිටු ප්‍රවාහනය
+
+End-to-End data routing ආරමිභයේ සිට අවසානය eso) දුත්ත මාර්ගගත කිරිම
+Network Address Translation පාල ලිපින SSOSmae (NAT)
+
+DHCP Server ගතික ධාවක පාලන නියමාවලිය (Dynamic Host Configuration Protocol)
+Firewall and Security Gago සහ ආරක්ෂාව
+
+Quality of Service ගුණාත්මක සේවය (QoS)
+
+Wireless Connectivity රැහැන්‌ රහිත සමිබන්ධතාව
+
+VPN (Virtual Private Network) Support අතට පෞද්ගලික පාල සේවාව
+
+Periodically, sharing routing tables with other router(s)
+
+වරින්‌ OO අනෙකුත්‌ මං හසුරැ/රවුටර්‌ සමඟ මාර්ගගත කිරිමි වගු යාවත්‌ කාලින කිරීම
+
+(d) (1) What is the functionality of a Domain Name System (DNS) server?
+වසමි නාම පද්ධති (DNS) සේවාදායකයක ක්‍රියාකාරිත්වය කුමක්‌ ද?
+
+A DNS (Domain Name System) server is a server that translates human-readable domain names (like
+www.example.com) into machine-readable IP addresses (like 192.0.2.1).
+
+DNS (වසම්‌ නාම පද්ධතිය) සේවාදායකයක්‌ යනු මිනිසුන්ට කියවිය හැකි වසමි නාම (www.example.com)
+වැනි) යන්ත්‍රවලට කියවිය හැකි IP ලිපින (192.0.2.1 වැනි) බවට පරිවර්තනය කරන සේවාදායකයකි.
+
+Functionality of a DNS Server
+DNS සේවාදායකයක ක්‍රියාකාරිත්වය
+e Domain Name Resolution වසමි නාම විභේදනය
+
+Function: | Converts domain names into IP addresses.
+කාර්යය : වසමි නාම IP ලිපින බවට පරිවරිතනය කරයි.
+
+e Hierarchy and Redundancy ධුරාවලිය සහ අතිරික්තය
+
+Function: — Ensures efficient and reliable domain name resolution through a hierarchical structure.
+කාර්යය : ධුරාවලි ව්‍යුහයක්‌ හරහා කාර්යක්ෂම සහ විග්වාසනීය O00 නාම විභේදනය සහතික කරයි.
+
+~
+
+Caching නිහිත කිරීම
+
+Function: Stores recent DNS query results temporarily to speed up future requests.
+MOE : අනාගත ඉල්ලීමි වේගවත්‌ කිරීම aes) මෑන DNS විමසුමි ප්‍රතිඵල තාවකාලිකව ගබඩා කරයි.
+
+Forwarding යොමු කිරීම
+Function: Directs queries to other DNS servers if it doesn't have the requested information.
+Mad : ඉල්ලූ තොරතුරැ නොමැති HO වෙනත්‌ DNS සේවාදායකයන්‌ වෙත විමසුමි යොමු කරයි.
+
+Load Balancing ප්‍රමාණය තුලනය
+
+Function: Distributes the load of DNS queries across multiple servers to enhance performance and
+reliability.
+
+කාර්යය : කාරය සාධනය සහ විශ්වසනීයත්වය වැඩි දියුණු කිරීම සඳහා බහු සේවාදායකයන්‌ හරහා
+DNS විමසුම්‌ හාරය බෙදා හරිනු ලැබේ.
+
+(11) What is the functionality of a Dynamic Host Configuration Protocol (DHCP) server?
+ගතික ධාරක පාලක නියමාවලි (DHCP) සේවාදායකයක ක්‍රියාකාරිත්වය කුමක්‌ ද?
+
+A Dynamic Host Configuration Protocol (DHCP) server plays a crucial role in managing and automating
+the assignment of IP addresses and other network configuration details to devices on a network.
+
+ගතික ධාරක පාලන නියමාවලිය (DHCP) සේවාදායකයක්‌ පාලයක උපාංග වෙත IP ලිපින සහ අනෙකුත්‌ පාල
+වින්‍යාස විස්තර පැවරීම කළමනාකරණය සහ ස්වයංක්‍රීය කිරීම සඳුහා තීරණාත්මක කාර්යභාරයක්‌ ඉටු කරයි.
+
+Here are the key functionalities of a DHCP server:
+
+1)11(]) සේවාදඳායකයේ ප්‍රධාන ක්‍රියාකාරීත්වයන්‌ මෙසේය
+
+Automatic IP Address Assignment
+ස්වයංඛ්‍රිය IP ලිපින පැවරීම
+
+Configuration of Network Parameters
+ජාල පරාමිතීන්‌ වින්‍යාස කිරිම
+
+IP Address Pool Management
+IP ලිපින සංචිත කළමනාකරණය
+
+Address Resolution and Conflict Detection
+ලිපින විසඳුම සහ ගැටුමි හඳුනාගැනීම
+
+Dynamic and Static Allocation
+ගතික සහ Soha වෙන්‌ කිරීම
+
+Centralized Management
+මධ්‍යගත කළමනාකරණය
+
+Assigning IP addresses/addresses to devices joining a network
+පාලයකට එකතුවන උපාංග වලට IP යොමු / ලිපින ලබාදිම
+
+Provision of IP references / addresses for a certain period of time
+යම්‌ කාල සීමාවකට, IP යොමු /ලිපින ලබාදිම
+
+( 2022 - 06 ESSAY )
+
+2023 AL NETWORKING ESSAY MARKING
+
+1.(a) Draw a sketch to show how a file server (FS), a printer (P), a switch (S) and two computers (C1 and C2)
+should be connected in a star topology.
+තාරකා ස්ටලකයකට (star topology) අනුව ගොනු සේවාදායකයක්‌ (file server) [FS], මුද්‍රකයක්‌ [17|,ස්විචයක්‌
+[S] සහ පරිගණක දෙකක්‌ [Cl සහ C2] සමිබන්ධ කළ යුතු ආකාරය දැක්වීමට දළ සටහනක්‌ අඳින්න.
+
+Option 01 Option 02
+
+od FS 6]
+
+e And here the printer can be connected even to the C1 computer.
+එමෙන්ම මෙහිදි Cl පරිගණකයට වුවද මුදුණ යන්ත්‍රය සම්බන්ධ කල හැක.
+
+(0) A port number is also used along with an IP address in a network communication. Why?
+පාල aHAscSeanamée, IP යොමුවට අමතරව කෙවෙනි අංකයක්‌ ද (port number) භාවිත වේ. ඒ ඇයි?
+
+It identifies the process involved in the relationship.
+එය සමිඛන්ධතාවයට අදාළ වන ක්‍රියාවලිය හදුනා ගනි.
+
+Explanation - පැහැදිලි කිරීම
+
+e [PAddress: Think of it as the street address of a house. It tells the network where to send the data.
+
+IP ලිපිනය; එය නිවසක SE ලිපිනය ලෙස සිතන්න. essen යැවිය යුතු ස්ටානය එය HEGO කියනු ලැබේ.
+
+e Port Number: Think of it as the room number inside the house. It tells the network which specific
+service or application inside the device should receive the data.
+කෙවෙනි අංකය: එය නිවස ME ඇති කාමර අංකය ලෙස සිතන්න. උපාංගය තුළ ඇති විගේෂිත සේවාව
+හෝ යෙදුම දුත්ත ලබා ගත යුතු පාලයට එය කියයි.
+
+When combined, the IP address and port number make sure data gets to the right device and the correct
+application or service on that device.
+
+MAPA කළ විට, IP ලිපිනය සහ කෙවෙනි අංකය දත්ත HOCOE උපාංගයට සහ එම උපාංගයේ නිවැරදි
+යෙදුමට හෝ සේවාවට ලැබෙන බවට වග බලා ගනි.
+
+(c) Consider a subnet with the network address 192.168.56.128/26.
+192.168.56.128/26 පාල යොමුව සහිත උපපාලයක්‌ සලකන්න.
+
+(1) Write an example IP address that can be assigned to a host attached to this subnet (in dotted decimal
+notation). / මෙම උපපාලයට සමිඛන්ධ සත්කාරකයට (host) පැවරිය හැකි IP යොමුවක්‌ සඳහා උදාහරණයක්‌
+තිත්‌ දගමක අංකනයකින්‌ (dotted decimal notation) ලියා දුක්වන්න.
+
+An example IP address is: 192.168.56.138
+උදාහරණ IP ලිපනයක්‌: 192.168.56.138
+
+Any answer between 192.168.56.129 and 192.168.56.190 (both inclusive) is acceptable.
+192.168.56.129 සහ 192. 168.56. 190 (දෙකම ඇතුඑව) අතර පවතින ඕනෑම SEndsie, පිළිගත හැකිය.
+
+(11) Write the first and the last usable host addresses in this network (in dotted decimal notation).
+මෙම පාලයේ භාවිත කළ හැකි පළමු සහ අවසාන සත්කාරක IP යොමු තිත්‌ coos අංකනයකින්‌ ලියන්න.
+
+192.168.56.128/26
+
+192. 168. 56. 10000000
+
+Net ID Host ID
+
+192.168.56.10 000000 = 192.168.56.128 (Net. ID)
+192.168.56.129 — First Usable IP Address
+192.168.56.10 111111 = 192.168.56.191 (Broadcast ID)
+192.168.56.190 — Last Usable IP Address
+
+Therefore, the first address is (වමනිසා පළමු ලිපිනය) — 192.168.56.129
+Therefore, the last address is (එමනිසා අවසාන ලිපිනය) — 192.168.56.190
+
+(111) How many host addresses are available for use 11] this subnet
+මෙම උපපාලයේ සන්කාරක සඳුහා භාවිත කිරීමට ඇති IP යොමු ගණන කොපමණ ද?
+
+64 — (NetworkID + BroadcastID) = 64 - 2 = 62
+
+(d) Suppose an Internet Service Provider owns the 192.168.56.32/26 IP address block. Assume that the
+provider wants to create four subnets namely, Subnet A, Subnet B, Subnet C and Subnet D from this
+address block with each subnet having the same number of IP addresses.
+අන්තටරපාල සේවා සැපයුමිකරැවකු සතුව 192.168.56.32/26 යොමු meas ඇතැයි සිතන්න. මෙම යොමු
+කාණ්ඩයෙන්‌, subnet A, subnet B, subnet C සහ subnet D ලෙසින්‌ උපපාල හතරක්‌ සෑම උපපාලයකටම
+සමාන IP යොමු ගණනක්‌ ලැබෙන ලෙසින්‌ GZEOO සැපයුමිකරුැට අවග්‍ය වේ යැයි උපකල්පනය කරන්න.
+
+(i) Write the subnet mask of the above given IP address block in dotted decimal notation.
+දි ඇති IP යොමු කාණ්ඩයේ උපපාල ආවරණය (subnet mask) තිත්‌ දඟශමය අංකනයකින්‌ ලියා දක්වන්න.
+
+Subnet mask - උපපාල ආවරණය ( 1611) - |] , 110% 11) 0 )
+11111111.1111111.11111111.11000000 = 255.255.255.192
+
+(11) Write the number of host bits needed to create the required number of subnets.
+නියමිත උපපාල ගණන නිට්මාණය කිරීමට ඇවැසි සත්කාරක බිටු (host bits) ගණන කොපමණ ද?
+
+4 subnets(G@eaH@) 4ක්‌) = 2”
+n= 2 (number of host bits - සත්කාරක බිටු ගණන)
+
+(111) Once subnetting is done, fill in the following table.
+උපපාලනයෙන්‌ අනතුරැව පහන EO) ඇති වගුව සමිපුර්ණ කරන්න.
+
+Alternative 1
+
+Subnet Network First Usable IP Last Usable IP Broadcast
+Address Address Address Address
+A 192.168.56.0 192.168.56.1 192.168.56.14 192.168.56.15
+B 192.168.56.16 192.168.56.17 192.168.56.30 192.168.56.31
+C 192.168.56.32 192.168.56.33 192.168.56.46 192.168.56.47
+D 192.168.56.48 192.168.56.49 192.168.56.62 192.168.56.63
+
+Alternative 2
+
+Subnet Network First Usable IP Last Usable IP Broadcast
+Address Address Address Address
+A 192.168.56.32 192.168.56.33 192.168.56.38 192.168.56.39
+B 192.168.56.40 192.168.56.41 192.168.56.46 192.168.56.47
+C 192.168.56.48 192.168.56.49 192.168.56.54 192.168.56.55
+D 192.168.56.56 192.168.56.57 192.168.56.62 192.168.56.63
+
+(iv) Write two functions of a proxy server in a computer network.
+නියෝපත සේවාදායකයක (proxy server) ප්‍රධාන කාඊරයන්‌ දෙකක්‌ ලියා දක්වන්න.
+
+A Proxy Server is an intermediary server that sits between a client (such as a web browser) and another
+server (like a web server). It acts as a gateway, facilitating requests from the client and forwarding them
+to the appropriate server, and then returning the response from the server back to the client. Proxy servers
+are used for a variety of purposes, including privacy, security, caching, and controlling access to resources.
+Proxy Server යනු සේවාලාභියෙකු (වෙබි බ්‍රවුසරයක්‌ වැනි) සහ තවත්‌ සේවාදායකයක්‌ (වෙබි සේවාදායකයක්‌
+වැනි) අතර පවතින අතරමැදි සේවාදායකයකි. එය ද්වාරයක්‌ ලෙස ක්‍රියා කරයි, සේවාලාභියාගෙන්‌ ඉල්ලිමි පහසු
+කර SO) සුදුසු සේවාදායකය වෙත යොමු කරයි, පසුව සේවාදායකයෙන්‌ ලැබෙන ප්‍රතිචාරය සේවාදායකයා වෙත
+
+ආපසු ලබා දෙයි. proxy සේවාදායකයන්‌ පුද්ගලිකත්වය, ආරක්ෂාව, හැඹිලිගත කිරීම සහ සමිපත්‌ වෙත
+ප්‍රවේගය පාලනය කිරීම ඇතුළු විවිධ අරමුණු HEH) භාවිතා වේ.
+
+Acting as an intermediary between the user's computer and the Internet / Providing access to the
+uncensored Internet / Allowing client computers to make indirect network connections that are not
+direct to other network services / Helping users browse websites anonymously / Providing a high level
+of privacy / Users’ real IP addresses hiding
+
+පරිශිලකයාගේ පරිගණකය හා අන්තර්පාලය අතර අතරමැදියෙකු ලෙස කටයුතු කිරීම / වාරණය නොකළ
+අන්තරපාලයට ප්‍රවේශය ලබාදිම | සේවාලාභී පරටිගණකවලට වෙනත්‌ පාල සේවා වෙත සෘපු නොවන OM
+පාල සමිබන්ධතා ඇති කර ගැනීමට ඉඩ ලබා දිම | පරිගීිලකයින්ට නිරනාමිකව වෙබි අඩවි පිරික්සීමට
+උපකාර කිරීම / ඉහළ මට්ටමේ පෞද්ගලිකතවයක්‌ ලබාදිම | පරිශීලකයින්ගේ සැබෑ ]]2 ලිපින සැගවීම
+
+Storing recently requested web items/pages for future request
+අනාගත ඉල්ලිම සදහා මෑතකදි ඉල්ලු වෙබි අයිතම / SQ ගබඩා කිරිම
+
+Caching reduces the time it takes to access web pages
+හැඹිලිගත කිරීම නිසා වෙබි SQ වෙත පිවිසීමට ගතවන MES GH කිරීම
+
+Securing the network by spying on outside / preventing attackers from entering a private network
+NES පිටතින්‌ සගවා OO පාලය සුරක්ෂිත කිරීම / ප්‍රහාරකයන්‌ පුද්ගලික පාලකයකට ඇතුළු වීම වැලැක්වීම
+
+Acting as a firewall
+ගිනි පවුරක්‌ ලෙස ක්‍රියා කිරීම
+
+Save network bandwidth / Improve network performance / Share network connections.
+පාල කලාප පළල සුරැකීම / පාල කාරය සාධනය වැඩි දියුණු SSO / HE සමිබන්ධතා බෙදාගැනීම
+
+Helping users control their Internet usage
+පරිගිලකයින්ගේ අන්තටරපාල භාවිතය පාලනය කිරීමට උදවු කිරීම
+
+(v) Write two properties of MAC addresses assigned to devices connected to a network.
+පරිගණක පාලයකට සමිඛන්ධ උපාංගවලට පැවරෙන MAC යොමුවල ගති ලක්ෂණ ළෙකක්‌ ලියා දක්වන්න.
+
+A MAC Address (Media Access Control Address) is a unique identifier assigned to a network interface
+controller (NIC) for communications at the data link layer of a network segment. It is used in various
+networking technologies, including Ethernet, Wi-Fi, and Bluetooth, to identify devices on a local network.
+MAC ලිපිනය (මාධ්‍ය ප්‍රවේශ පාලන ලිපිනය) යනු HE කොටසක essen සමිඛන්ධක ස්ථරයේ සන්නිවෙදනය
+සඳුහා ජාල අතුරැමුහුණත්‌ පාලකයකට (NIC) පවරා ඇති අනන්‍ය හඳුනාගැනීමකි. එය AAS පාලයක උපාංග
+හඳුනා ගැනීම සඳුහා Smdend, Wi-Fi සහ බිලටුන්‌ ඇතුඑ විවිධ පාලකරණ නාක්ෂණයන්හි භාවිතා වේ.
+
+e Their length is 48 bits. / They are divided into 6 parts separated by (colon). / is a six-byte hexadecimal
+address. / is a 48-bit address that contains six groups of two hexadecimal digits separated by ":".
+ඒවායේ දිග බිටු 485. / ඒවා : (colon) මගින්‌ වෙන්‌ කරන ලද, කොටස්‌ 6කට බෙදා ඇත. / එය ABO
+හයක ෂඩි දුඟම ලිපිනයකි. / එය (48-bit) ලිපිනයක්‌ වන අතර එය ":" මගින්‌ වෙන්‌ කරන ලද ෂඩි
+
+දශමය ඉලක්කමි දෙකක කාණ්ඩ හයක්‌ අඩංගු වේ.
+
+e They are physical addresses. / They are encoded on the device itself. / They are attached to the
+networking interface (host).
+එවා භෞතික ලිපින වේ. / එවා උපාංගයේම කේතගත කර ඇත. / SO) පාලකරණ අතුරැමුහුණතට
+(ධාරකයට) අමුණා ඇත.
+
+e They are assigned by the manufacturer.
+ඒවා නිෂ්පාදූකයා විසින්‌ පවරනු ලැබේ.
+
+e They are permanent. / cannot change them.
+එවා ස්ථිර වේ. / SO) වෙනස්‌ කල නොහැක.
+
+e They are unique addresses assigned to the host's interfaces. / MAC address sharing is not allowed.
+එවා සත්කාරකයේ අතුරැමුහුණත්‌ සදහා පවරා ඇති අනන්‍ය ලිපින වේ. / MAC ලිපිනය බෙදා ගැනීමට
+අවසර නැත.
+
+e MAC address is in the data link layer.
+MAC ලිපිනය දත්ත සමිඛන්ධක ස්ටරයේ ක්‍රියාත්මක වේ.
+
+e The MAC address cannot be easily found by a third party.
+MAC ලිපිනය තෙවන HSGHOaGDO පහසුවෙන්‌ සොයාගත නොහැක.
+
+2024 AL NETWORKING ESSAY MARKING
+
+1.(a) Draw a sketch to show how a computer and a printer should he connected in a point-to-point topology
+using a twisted pair Ethernet cable.
+සෘපු ලක්ෂ්‍ය ස්ටලකයකට (point-to-point topology) අනුව, පරිගණකයක්‌ සහ මුද්‍රකයක්‌ ඇඹරි යුගල Smdead
+කේඛලයකින්‌ සමිබන්ධ කළ යුතු ආකාරය දැක්වීමට දළ සටහනක්‌ අඳින්න.
+
+Point-to-point topology is a type of topology that works on the functionality of the sender and receiver. It
+is the simplest communication between two nodes, in which one is the sender and the other one is the
+receiver. Point-to-Point provides high bandwidth.
+
+Gag ලක්ෂ්‍ය ස්ටලකය යනු යවන්නාගේ සහ ග්‍රාහකයාගේ ක්‍රියාකාරිත්වය මත Ga කරන ස්ටලක වර්ගයකි.
+එය නෝඩි දෙකක්‌ අතර ඇති සරලම සන්නිවේදනය වන අතර, එකක්‌ ප්‍රභවය වන අතර අනෙක ග්‍රාහකයා
+වේ. සෘපු ලක්ෂ්‍ය ස්ටලකය ඉහළ කලාප පළලක්‌ සපයයි.
+
+In this topology :
+මෙම SOE විද්‍යාව තුළ:
+
+There's a dedicated connection between the computer and the printer.
+පටිගණකය සහ මුද්‍රණ යන්ත්‍රය අතර විශේෂිත සමිබඛන්ධනාවයක්‌ ඇත.
+
+Data flows directly between the two devices without passing through any intermediate devices like a hub
+or switch.
+නාහභියක්‌ හෝ ස්විචයක්‌ වැනි කිසිදු අතරමැදි උපාංග හරහා ගමන්‌ නොකර සෘපුවම උපාංග දෙක අතර දත්ත
+ගලා යයි.
+
+This setup is ideal for short distances and when only two devices need to communicate.
+මෙම සැකසුම කෙටි දුර සඳහා සහ උපාංග දෙකක්‌ පමණක්‌ සන්නිවේදනය කිරීමට අවග්‍ය SO සුදුසු වේ.
+
+Twisted Pair Cable |
+
+(b) Consider a network consisting of two separate local area networks (LANs) of two departments A and B.
+
+Each department's LAN has four computers (named C1 to C4 in A, and C5 to C8 in B respectively). In
+addition, a common server (SVR) for the use of these two departments is also included.
+A සහ B දොෙපාරිතමේන්තු දෙකෙහි වෙන වෙනම avd SOHO ප්‍රදේශ ජාල (LAN) දෙක අඩංගු HE
+සලකන්න. එක්‌ එක්‌ දෙපාරතමේන්තුවේ ස්ථානීය ප්‍රදේශ පාලයේ පරිගණක හතර බැගින්‌ (පිළිවෙළින්‌ C1, C2,
+C3 සහ C4 පරිගණක AS සහ (5. C6, (ල7 සහ C8 පරිගණක BS ලෙස) ඇත. ඊට අමතරව එම
+දඳෙපාටරතමේන්තු දෙකෙහි භාවිතය සඳුහා SVR නමි © පොදු සේවාදායකයක්‌ (server) & ඇතුළත්‌ කර ඇත.
+
+(1) Draw the diagram of this network. Clearly indicate on it the network devices that are used to establish the
+two local area networks and to connect the entire network to the Internet.
+එම පාලයේ රෑප සටහන අඳින්න. AHO ප්‍රදේශ HE දෙක ස්ටාපනය කිරීමට සහ සමස්ථ HEO
+අන්තටපාලයට සමිබන්ධ කිරීමට භාවිතා කරන ජාල උපාංග පැහැදිලිව එහි දක්වන්න.
+
+ISP Router Firewall
+Switch |
+
+අංෆනෆනෆනෆනෆෆෆ ත්‌~ ෆ~ෆෆ ෆ්‌ ෆෆ ෆන ෆන්‌ ඵක ee ne
+
+[ Switch 3 ' Switch 2 |
+। i] । I
+। ' | ।
+! | [ | ! ! | | | !
+! 2 । ! ।
+,; cl Le JL LCA] SVR ‘Los | C6 [71 65| !
+‘ ය්‌ ‘ ය
+ඤඞ$॥0004/111601%48 ~~" DepartmentB ක
+
+(11) Give the reasons for the placement of these devices in their respective locations.
+එම උපාංග SOO අදාළ තැන්වල ස්ථානගත කිරීමට හේතු දක්වන්න.
+
+Switches / ස්ව්ච:
+
+Placed within each department's LAN: Switches are designed to connect multiple devices within a local
+area network. By placing them within each department, they efficiently handle communication between
+the computers (C1-C4 in department A and C5-C8 in department B) within that specific network segment.
+ස්විචයන්‌ ස්ටානීය ප්‍රදේග ජාලයක්‌ තුළ උපාංග කිහිපයක්‌ සමිඛන්ධ කිරීමට සැලසුමි කර ඇත. ඒවා එක්‌ එක්‌
+දෙපාර්තමේන්තු තුළ තැබීමෙන්‌, එවා OO විශේෂින පාල කොටස තුළ පරිගණක (C1-C4, A දෙපාරනමේන්තුවේ
+සහ C5-C8,B දෙපාර්තමේන්තුවේ) අතර සන්නිවේදනය කාර්යක්ෂමව හසුරැවයි.
+
+Router / මංහසුරැව:
+
+The primary function of a router is to connect different networks. In this case, it 1s installed to facilitate
+communication and data exchange between the Internet and the internal network.
+
+මංහසූරැවේ මුලික mbace වන්නේ විවිධ HE සමිබන්ධ කිරීමයි. මෙම FOADGOHE, එය අන්තරපාලය සහ
+අභ්‍යන්තර HES අතර සන්නිවේදනය සහ essen හුවමාරැ කර ගැනීම HEM) සවිකර ඇත.
+
+Firewall / ගිනි පවුර:
+
+Placed between the router and the Internet connection: The firewall acts as a security barrier, controlling
+incoming and outgoing network traffic. By placing it between the internal network and the external
+Internet connection, 11 protects the internal network from unauthorized access, malicious attacks, and data
+breaches.
+
+ගිනිපවුර ආරක්ෂිත බාධකයක්‌ ලෙස Ha) කරයි, එන සහ පිටතට යන HE ගමනාගමනය පාලනය කරයි. එය
+අභ්‍යන්තර පාලය සහ බාහිර අන්තර්පාල සමිබන්ධතාව අතර තැබීමෙන්‌, එය අභ්‍යන්තර පාලය වෙත
+අනවසරයෙන්‌ ප්‍රවේග වීම, අනිෂ්ට ප්‍රහාර සහ EHD සොරාගැනීමි වලින්‌ ආරක්ෂා කරයි.
+
+(111) Suppose a unit of data 15 being sent from C1 to C6. Indicate that data flow in the above network diagram
+using dotted lines.
+C1 සිට C6 තෙක්‌ es ඒකකයක්‌ යැවීම සලකන්න. එම es ගැලීම ඉහත HE රෑපයේ කඩ ඉරි මගින්‌
+
+පෙන්වන්න.
+ISP Router Firewall
+
+Switch |
+
+යො කො සෲ සෲ meee eee 2 2 ක
+
+¢
+ඒ
+
+Department A Department B
+
+(c) Suppose an organization is assigned the 192.168.100.0/24 IP address block. Assume that the organization
+needs to create six subnets, namely S1, S2, S3, S4, 55 and 56 from this address block with each subnet
+having at least 25 usable IP addresses.
+ආයතනයකට 192.168.100.0/24 IP යොමු කාණ්ඩය ලබාදි ඇත. මෙම යොමු කාණ්ඩයෙන්‌ $1, 52, 53. 54, S85
+සහ 506 ලෙසින්‌ උපපාල හයක්‌, ඒ එක්‌ එක්‌ උපපාලයට IP යොමු GOO වගයෙන්‌ 25 ක්‌ භාවිතා කළ හැකි
+ලෙසින්‌ AZEOO ආයනතනනයකට අවග්‍ය වේ යැයි උපකල්පනය කරන්න.
+
+(i) Write the subnet mask of the above given IP address block in dotted decimal notation.
+ඉහත & ඇති IP යොමු කාණ්ඩයේ උපපාල ආවරණය (subnet mask) තිත්‌ දශමය අංකනයෙන්‌ ලියා දක්වන්න.
+
+The subnet mask is obtained by setting the number of network bits and the number of subnet bits to 1 and
+the other bits to 0.
+
+උපපාල ආවරණය ලබාගන්නේ පාල බිටු ගණන සහ උපපාල DQ ගණන ] බවට පත්‌ කර අනෙක්‌ BQ 0
+බවට පත්‌ කිරීමෙනි.
+
+The given IP address range is 192.168.100.0/24. That is, the network part has 24 bits and the host part has
+8 bits. Here, 6 subnets need to be created. Let's find the number of bits required for that.
+
+ලබා දි ඇති IP ලිපින කාණ්ඩය 192.168.100.0/24 වේ. එනමි HE කොටසට බිටු 24 ක්‌ අයත්‌ වන අතර
+ධාරක කොටසට බිටු 8 ක්‌ අයත්‌ වේ. මෙහිදි උපපාල 6ක්‌ සෑළිය යුතුය. 5 සඳහා අවශ්‍ය බිටු ගණන සොයමු.
+
+The power of two, greater than 6, 15 8.
+6 ට වැඩි, ආසන්නතම දෙකෙහි බලය වන්නේ 8 වේ.
+
+Subnet bits — 8
+Subnet bits — 23
+
+Subnet bits = 3
+
+Accordingly, the subnet mask here should be,
+ඒ අනුව මෙහි උපපාල ආවරණය විය යුත්තේ,
+
+11111111.11111111.11111111.11100000
+255.255.255.224
+
+(11) For each subnet, list the network address, first usable IP address, last usable IP address and the broadcast
+address in a table.
+එක්‌ එක්‌ උපපාලය SEM) SHE යොමුව (network address), භාවිතා කළ හැකි පළමු IP යොමුව, භාවිත කළ
+
+හැකි අවසාන IP යොමුව සහ විකාශන ලිපිනය (broadcast address) වගුවක ලැයිස්තුගත කරන්න.
+
+00 | | | | |
+oo1L| | | | |
+72-91 [TTT
+දා] | | | | =< ULL | | | |
+Row [111]
+10] | | | | |
+10 | | | | |
+11 || | | |
+First usable IP Last usable IP
+Subnet | Network address address address Broadcast address
+උපපාලය ජාල යොමුව භාවිතා කළ හැකි භාවිත කළ හැකි විකාගන ලිපිනය
+පළමු IP යොමුව අවසාන IP යොමුව
+Sl 192.168.100.0 192.168.100.1 192.168.100.30 192.168.100.31
+S2 192.168.100.32 192.168.100.33 192.168.100.62 192.168.100.63
+S3 192.168.100.64 192.168.100.65 192.168.100.94 192.168.100.95
+S4 192.168.100.96 192.168.100.97 192.168.100.126 192.168.100.127
+S5 192.168.100.128 192.168.100.129 192.168.100.158 192.168.100.159
+S6 192.168.100.160 192.168.100.161 192.168.100.190 192.168.100.191
+
+(d)(1) What is the role of the Domain Name System (DNS) when the user enters a web address
+(e.g., http://www.gmail.com) into the URL field of a web browser?
+පරිගිලකයෙකු වෙබි අතරික්සුවක (URL) ක්ෂේත්‍රයට වෙබි ලිපිනයක්‌ ( උදා. http://www.gmail.com) ඇතුළත්‌
+කළ විට, වසමි නාම පද්ධතියේ (DNS හි) කාර්යභාරය කුමක්‌ ද?
+
+When a user enters a web address, such as http://www.gmail.com, into a browser, the Domain Name
+System (DNS) plays a role in resolving the domain name into an IP address, which is essential for
+establishing communication with the target web server.
+
+පරිගීිලකයෙකු http://www.gmail.com වැනි වෙබි ලිපිනයක්‌ වෙබි අතරික්සුවකට ඇතුඑ කළ SO, වසමි නාමය
+IP ලිපිනයකට විසඳුමේ කාර්යභාරයක්‌ වසමි නාම පද්ධතිය (DNS) ඉටු කරයි, එය ඉලක්කගත වෙබි
+සේවාදායකය සමඟ සන්නිවේදනය ස්ථාපිත කිරීම සඳහා අත්‍යවග්‍ය වේ.
+
+DNS translates the human-readable domain name (www.gmail.com) into a machine-readable IP address
+(e.g., 142.250.190.165). This is because devices on the internet communicate using IP addresses, not
+domain names.
+
+DNS මගින්‌ මිනිසුන්ට කියවිය හැකි O08 නාමය (www.gmail.com) යන්ත්‍රයෙන්‌ කියවිය හැකි IP ලිපනයක්‌
+බවට පරිවටතනය කරයි (උදා:142.250. 190. 165), මෙයට හේතුව අන්තරපාලයේ ඇති උපාංග වසමි නාම
+නොව IP ලිපින භාවිතයෙන්‌ සන්නිවේදනය කිරීමයි.
+
+The DNS acts as a distributed database that maps domain names to their corresponding IP addresses,
+enabling efficient and user-friendly access to internet resources. Without DNS, users would need to
+remember numerical IP addresses for every website, which would be impractical.
+
+DNS මඟින්‌ O88 නාම ඒවායේ අනුරෑැෑප IP ලිපිනවලට සිතියමිගත කරන බෙදා හරින ලද EDD සමුදායක්‌
+ලෙස ක්‍රියා කරන අතර එමඟින්‌ අන්තරපාල සමිපත්‌ වෙත කාර්යක්ෂම සහ පරිගිලක හිතකාමි ප්‍රවේගයක්‌ ලබා
+දේ. DNS නොමැතිව, පරිගිලකයින්ට සෑම වෙබ්‌ අඩවියක්‌ සඳහාම සංඛ්‍යාත්මක IP ලිපින මතක තබා ගැනීමට
+අවග්‍ය වනු ඇත, එහෙත්‌ එය ප්‍රායෝගික නොවනු ඇත.
+
+(11) What is meant by the ‘hierarchical and distributed structure’ of the DNS?
+
+(e)
+
+වසමි නාම පද්ධතියේ ‘QMHOG (hierarchical) සහ විස්තෘත (distributed) වෘහය යන්නෙන්‌ කුමක්‌ අදහස්‌ වේද?
+
+The hierarchical and distributed structure of the DNS (Domain Name System) refers to the way the system
+is organized and operates to efficiently resolve domain names into IP addresses across the global internet.
+DNS (වසමි නාම පද්ධතිය) හි QOOG සහ විස්තෘත ව්‍යුහය යනු පද්ධතිය සංවිධානය කර ඇති ආකාරය
+සහ ගෝලිය අන්තර්පාලය පුරා වසමි නාම IP ලිපින බවට කාටරයක්‍ක්ෂමව විසඳිම සඳුහා ක්‍රියාත්මක වන
+ආකාරයයි.
+
+The hierarchical structure of DNS ensures logical and organized resolution of domain names, while the
+distributed structure ensures scalability, reliability, and efficiency. Together, these features make the DNS
+a robust and indispensable system for managing internet traffic.
+
+DNS හි ධුූරාවලි වෘඅහය O88 නාමවල තාර්කික සහ සංවිධානාත්මක විභේදනය සහතික කරන අතර විස්තෘත
+ව්‍යුහය පරිමාණය, විග්වසනීියත්වය සහ කාර්යක්ෂමතාව සහතික කරයි. මෙම විශේෂාංග එක්ව, අන්තට්පාල
+ගමනාගමනය කළමනාකරණය කිරීම සඳහා DNS ශක්තිමත්‌ සහ අත්‍යවග්‍ය පද්ධතියක්‌ බවට පන්‌ කරයි.
+
+Write down the name of the TCP/IP model layer responsible for each of the following tasks:
+පහත එක්‌ එක්‌ කාරය සඳහා වගකීම පැවරෙන TCP/IP ආකෘති BOO නාමය ලියා දක්වන්න.
+
+(i) maintaining a smooth connection between the application and the user
+
+යෙදුම සහ පරිගීිලකයා අතර සුමට (smooth) සමිබන්ධයක්‌ පවත්වා ගැනීම
+
+Application Layer / යෙදුමි ස්ටරය
+
+The Application Layer provides services that enable communication between the user and applications. It
+ensures smooth interaction by managing protocols like HTTP, FTP, SMTP, etc.
+
+පරිගිලකයා සහ යෙදුමි අතර සන්නිවේදනය සක්‍රීය කරන සේවාවන්‌ සපයයි. එය HTTP, FTP, SMIP වැනි
+නියමාවලි කළමනාකරණය කිරිමෙන්‌ සුමට අන්තරක්‍රියා සහතික කරයි.
+
+(11) sending and receiving data in binary form
+
+ද්විමය ආකාරයට EHD GIO සහ ලබාගැනීම
+
+Network Access Layer / ජාල ප්‍රවේග ස්ටරය
+
+The Network Access Layer is responsible for sending and receiving data at the physical and link layers,
+handling binary data transmission over the physical medium (e.g., cables, wireless).
+
+භෞතික සහ EMM සබැඳි BOOCHOE EMM යැවීම සහ ලබා ගැනීම, භෞතික මාධ්‍යය HOM) ද්විමය eso
+සම්ප්‍රේෂණය හැසිරවීම (උදා: කේබල්‌, රැහැන්‌ රහිත) OCH) පාල ප්‍රවේශ BOOS වගකිව යුතුය.
+
+(111) specifying the path that the data packets will use for transmission
+
+EBD පැකට්ටු සම්ප්‍රේ॥ෂණයෙට භාවිත කරන මග සදහන්‌ HOO
+
+Internet Layer / අන්තර්ජාල සටරය
+
+The Internet Layer is responsible for routing and logical addressing. It determines the path the data packets
+take to reach their destination using protocols like IP (Internet Protocol).
+
+මාර්ගගත කිරීම සහ තාර්කික ආමන්ත්‍රණය කිරීම සඳුහා අන්තර්පාල ස්ටරය වගකිව ane. IP (අන්තර්පාල
+නියමාවලිය) වැනි නියමාවලිය භාවිතයෙන්‌ දත්ත පැකටි ඔවුන්ගේ ගමනාන්තයට ළඟා විමට ගන්නා මාඊර්ගය
+එය තරණය කරයි.
+
+(iv) dividing data into packets
+
+EBD, පැකටිටුවලට බෙදිම
+
+Transport Layer / ප්‍රවාහන GOO
+
+The Transport Layer segments the data into smaller packets for transmission and ensures reliable
+delivery using protocols like TCP (Transmission Control Protocol) or UDP (User Datagram Protocol).
+ප්‍රවාහන ස්ටරය දුත්ත සමිප්‍රේෂණය සඳුහා කුඩා පැකට්‌ වලට කොටස්‌ කරන අතර TCP (සමිප්‍රේෂණ පාලන
+නියමාවලිය) oe} UDP (පරිශීලක දුත්තග්‍රෑමි ප්‍රොටෝකෝලය) වැනි නියමාවලිය භාවිතයෙන්‌ විග්වාසදායක
+බෙදා හැරීම සහතික කරයි.
+
+(f) Suppose Kamal wants to send the secret message ADD to Nimal. Kamal converts ADD to CEE before
+sending it to Nimal.
+රහසිගත ADD පණිවිඩය නිමල්‌ වෙත යැවීමට කමල්ට අවග්‍ය වේ යැයි සලකන්න. කමල්‌ ADD නිමල්‌ වෙත
+යැවීමට පෙර එය CEE බවට පරිවරතනය කරයි.
+
+(1) Write down the encryption key used by Kamal in this communication.
+මෙම සන්නිවේදනයේ කමල්‌ භාවිතා කළ කේතන යතුර (encryption key) ලියා දුක්වන්න.
+
+To convert the secret message, ADD to CEE, Kamal is using a substitution cipher, where each letter of
+the plaintext 15 replaced by another letter.
+
+රහස්‌ පණිවිඩය ADD, CEE බවට පරිවරතනය කිරීම nem, කමල්‌ ආදේගක කේතාංකයක්‌ භාවිනා කරයි,
+එහිදි සරල පාධයෙහි සෑම අකුරක්ම වෙනත්‌ අකුරකින්‌ ප්‍රතිස්ථාපනය වේ.
+
+Step-by-Step Explanation / පියවරෙන්‌ පියවර පැහැදිලි කිරීම
+
+e Original message / මුල්‌ පණිවිඩය: ADD
+e Encrypted message / කේතනය කළ පණිවිඩය: (121
+
+Now, let's look at the letter-by-letter transformation,
+දැන්‌, අකුරෙන්‌ අකුර පරිවරිතනය දෙස බලමු,
+
+A— C: Ais substituted with C.
+A>-C:A C සමඟ ආදේශ කර ඇත.
+
+1) -- 12: 1) 15 substituted with E.
+D—E:D E සමඟ ආදේශ කර ඇත.
+
+D — E: Dis substituted with E again.
+1) -- E: D නැවතත්‌ E සමඟ ආදේශ කර ඇත.
+
+This indicates that Kamal has shifted each letter by +2 positions in the alphabet. Specifically
+මෙයින්‌ ඇඟවෙන්නේ කමල්‌ හෝඩියේ සෑම අකුරක්ම +2 ස්ටානවලින්‌ මාරු කර ඇති බවයි. විගේෂයෙන්‌
+
+~ A— C (shifted by 2)
+-A—>C(2 න්‌ මාරු කර ඇත)
+
+~ 1) — E (shifted by 1)
+-D—E(1 න්‌ මාරු කර ඇත)
+
+~ 1) ~~* E (shifted by 1 again)
+-D— 1: (නැවත | න්‌ මාරු කර ඇත)
+
+Thus, the encryption key Kamal used appears to be a shift of +2 for the first letter, and a shift of +1 for
+the subsequent letters.
+
+මේ අනුව, කමල්‌ භාවිතා කළ කේතාංකන යතුර පළමු අකුර Hes) +2 මාරැවක්‌ සහ ඊළඟ අකුරැ සඳහා
++] මාරැවක්‌ ලෙස පෙනේ.
+
+Final Answer / ර
+The encryption key used by Kamal in this communication 15.
+මෙම සන්නිවේදනයේදි කමල්‌ භාවිතා කරන කේතාංකන යතුර වන්නේ,
+
+Shift of +2 for the first letter
+පළමු අකූර සඳුහා +2 මාරැ කරන්න (A — C)
+
+Shift of +1 for the second and third letters (D — E, D > E)
+දෙවන සහ තෙවන අකූරැ OCH) +1 මාරැ කරන්න (D—E,D— 1)
+
+(11) If Nimal receives ECD from Kamal in a separate communication using the same security scheme, what
+is the original message from Kamal?
+එම ආරක්ෂක ක්‍රමවේදයම භාවිතා කරමින්‌ කරන තවත්‌ සන්නිවේෙදනයක දී SOG වෙත කමල්ගෙන්‌ ECD
+පණිවඩඞය ලැබුණි නම්‌, කමල්ගේ මුල්‌ පණිවිඞය කුමක්‌ ද?
+
+If Nimal receives the ciphertext ECD and Kamal uses the same encryption key (+2, +1, +1) for the
+encryption, we can reverse the process by subtracting the key values from the positions of the ciphertext
+characters to retrieve the original plaintext.
+
+නිමල්ට ECD කේතාංක පාධය ලැබුනහොත්‌ සහ DOG කේතනය සඳහා එකම කේතාංකන යතුර (+2, +1, +1)
+භාවිතා කරන්නේ නමි, මුල්‌ සරල පාධ ලබා ගැනීම සඳුහා කේතාංක පාධ අක්ෂරවල ස්ටානවලින්‌ යතුරැ අගයන්‌
+අඞු කිරීමෙන්‌ අපට ක්‍රියාවලිය ආපසු හැරවිය හැකිය.
+
+Ciphertext: E (position 5)
+කේතාංක පෙළ; E (sda 5)
+
+Subtract the first encryption key value (+2)
+පළමු කේතාංකන යතුරැ අගය (+2) EQ කරන්න
+
+5-2=3
+
+The 3rd letter in the alphabet is (ට.
+හෝඩියේ 3 වන අකුර C 8.
+
+Ciphertext: C (position 3)
+කේතාංක COG: C (eae 3)
+
+Subtract the second encryption key value (+1)
+දෙවන කේතාංකන යතුරැ අගය (+1) අඩු කරන්න
+
+3-1=2
+
+The 2nd letter in the alphabet is B.
+හෝඩියේ 2 වන අකුර B වේ.
+
+Ciphertext: 1) (position 4)
+කේතාංක පෙළ: D (aac 4)
+
+Subtract the third encryption key value (+1)
+තුන්වන කේතාංකන යතුරැ අගය (+1) FQ කරන්න
+
+4-1=3
+
+The 3rd letter in the alphabet is C
+හෝඩියේ 3 වන අකුර C 8.
+
+Original Message
+මුල්‌ පණිවිඩය
+
+The original message from Kamal is CBC
+කමල්ගේ මුල්‌ පණිවිඩය CBC වේ.

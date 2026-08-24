@@ -1,0 +1,723 @@
+Part A — Structured Essay Do not
+. . . t
+Answer all four questions on this paper itself a his
+. column
+1. (a) Draw the expected output of the following HTML code segment when rendered by a web
+browser.
+<html>
+<body>
+<ul style="list-style-type:none;">
+<li>Cricket</li>
+<1i>Football</1i>
+<1i>Hockey</1i>
+</ul>
+</body>
+</html>
+Note: Consider the following dotted line box as the display area of the browser.
+1~ ~ ~~~~~~~ RR RR RR RR RR RR ~~~ ~~~ ~~ ~~~ ee ee
+I ]
+
+I |
+
+I |
+
+I |
+| I
+I |
+I |
+
+ ී  ……ඉඔ෴ ්‌ ~~ ස . . .. ~~ …… ෴ ee ee ee ee ee ee i
+(b) A registration form for a speech competition and its labeled HTML source are given in
+Figures 1.1 and 1.2 respectively.
+Back to the nature!
+Speech Competition
+Registration form
+Name: |
+Gender: O Male © Female
+District: |Colombo v|
+Email: |
+() Subscribe for newsletter?
+Submit
+y Western Province Environment
+Figure 1.1
+ද 7
+
+AL/2023(2024)/20/E-II -3- Index NO? ……
+4 >
+Do not
+<html> aki
+<(A)>Back to the nature! </(A)> column
+<(B)>Speech Competition</(®)>
+<h3>Registration form</h3>
+<form method="(C)" (D)="./action_page.php">
+<label for="name">Name:</label>
+<input type="(B)" name="name" ><br><br>
+<label for="gender">Gender:</label>
+<input type="(F)" name="gender" id="male" value="male">
+<label for="male">Male</label>
+<input type="(F)" name="gender" id="female" value="female">
+<label for="female">Female</label> <br><br>
+<label for="(G)">District: </label>
+දලු name="district" id="district">
+<option value="colombo">Colombo</option>
+<option value="gampaha" >Gampaha</option>
+<option value="kalutara">Kalutara</option>
+</@)><br><br>
+<label for="email">Email:</label>
+<input type="email" name="email"><br><br>
+<input type="()" name="newsletter" id="newsletter">
+<label for="newsletter">Subscribe for newsletter?</label><br><br>
+<input type="Q)" value="Submit" >
+</form>
+<br>
+<(K) ="wpeLogo. jpg” alt="(1)" width="50" height="60">
+<(M) ="https: //www.wpe. 1k" title="(N)" Western Province Environment</a>
+</html>
+Figure 1.2
+For each of the labels (ම) to () in the HTML code in Figure 1.2, choose a suitable
+replacement from the given list. In the answer table, write down the number of the
+replacement for each label.
+List:
+1: action 2: a href 3: caption 4: checkbox 5: district
+6: font 7: hil 8: h2 9: h3 10: head
+11: img src 12: More details 13: name 14: post 15: radio
+16: select 17: submit 18: text 19: th 20: WPE logo
+Answer table:
+ඞෲ ම: ©: ශ්‍ර: ©: ®: ©:
+2
+
+Don
+(c) The action_page.php file mentioned in the given code of Figure 1.2 is shown below. vnte
+in this
+<?php column
+$servername = "localhost"; $username = "root"; $password = "";
+$dbname = "environment";
+
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname) ;
+
+// Section P
+
+$name = $ POST['name']; $gender = $ POST['gender']); $district = $_
+POST['district']; $email = $ POST[‘email']; $newsletter = $ POST(['news-
+letter' |];
+
+// section P end
+
+77 Section OQ
+
+$sql = "INSERT INTO applicants (name, gender, district, email,
+newsletter) VALUES ('$name', '$gender', ‘$district', '$email’,
+‘¢newsletter')";
+
+// section Q end
+
+if ($conn->query($sql) === TRUE) {
+
+echo "Data inserted successfully!";
+} else {
+
+echo "Error: " . $sql . "<br>" . $conn->error;
+
+// Close the connection
+mysqli_close($conn);
+
+Write down the purpose of section P and the purpose of section Q.
+
+2. (a) A simple and high-level view of the data lifecycle consists of three steps. Write the 2"? and
+the 3™ steps of the data life cycle.
+
+6 1 step is the creation of data
+
+6 2972 STEP 13 …….……
+
+OB SCE IS ……
+
+(0) (1) Modern Artificial Intelligence relies on large amounts of data, which are often
+managed with cloud-based storage solutions. What is the cloud computing service
+model used here?
+
+(ii) Quantum computers, although seen as a promising type of computing machines for
+the future, are still expensive to own, operate and maintain. Suggest a technical
+approach to make the computing power of the quantum computers accessible to
+the public users as per their needs, at an affordable price.
+
+(c) For the box in each of the following statements, select a suitable replacement from the
+given list and write the number of the selected replacement in the box.
+
+List : {1 - B2B, 2 - C2B, 3 - G2C, 4 - a payment gateway, 5 - a reverse auction,
+
+6 - a virtual storefront, 7 - a web portal, 8 - an online auction, 9 - an online
+
+marketplace}
+෴ 7
+
+ඒ
+
+. . . . . . Do not
+(i) A web-based platform that provides_a single point of access to arrange of information | ……;(-
+
+from different sources, is known as . in this
+column
+
+(11) When one requests to renew his/her vehicle revenue license and pays online
+for it through the official website, he/she is performing an e-commerce transaction
+
+| | type.
+
+(111) The ABC e-commerce company does not allow buyers to explore competitor products
+from other sellers within its website. ABC website operates as .
+
+(iv) | | buyers bid for the prices at which they are willing to buy a given product or
+service.
+(v) An online shopping website is suitable to be connected | |.
+
+(d) (1) Your friend thinks the digital divide is a tool used for arithmetic division. Briefly explain
+to your friend what the digital divide 15,
+
+(11) E-waste is becoming a major environmental problem in Sri Lanka. Suggest a step
+that we can take to reduce the environmental impact of our e-waste.
+
+3. (a) Write down the most suitable replacements for labels A) to@ in the following flowchart
+which is drawn to calculate and display the sum of first ten even numbers.
+
+sum = 0
+
+v ලං : ……
+
+count = 0
+
+hm |
+Is count
+even?
+T <4
+
+count = count +1
+
+2
+
+ම
+
+7 ම /
+
+End
+
+y,
+
+ඒ
+
+Don
+(b) (1) What is the output of the following Python code? vnte
+def func(n): in this
+MyNumber=[ | column
+for i in range(4,n+1):
+if i%2==0:
+MyNumber.append(i)
+print (MyNumber )
+func (30)
+
+(11) Write down the output in the above Python code when the condition if i%2==@:
+is changed toif 172 !=@:
+
+(c) Write down the replacements for the labels of the following Python code which has been
+written to find the Largest of a set of integers.
+
+def findlargest(myList):
+
+largest = @
+
+for i in @):
+
+if iQ
+largest = (0)
+
+print("largest value is",®)
+list1=[4,6,24,12,8,94,22]
+findlargest (®)
+
+4. A team in the school IT society has been requested to develop a software to help students
+reserve computers in the school laboratory. The students are to be given the facility to update
+their information. The administrator should be given the facility to add/remove students
+to/from the system.
+
+(a) The following is the data flow diagram (DFD) prepared by the development team for
+
+the above system.
+
+Results D1 S)
+
+StudentId
+
+2.0 |
+
+© ts
+weet Details ව
+
+SS
+
+Student Details 3.0 | Sor
+ලවේ x “| Manage
+“Confirmation | Students
+
+ද 7
+
+ඒ
+
+; ; ; Do not
+A numbered list of replacements for the labels ®) to @® are given below. Write down | write
+
+in the relevant box the number of the most suitable replacement for each of the labels | in this
+given in the DFD. column
+
+List : {1 — Administrator, 2 — Handle request, 3 — Reservations, 4 — Request details,
+5 — Student, 6 — Students, 7 — Student details, 8 - Update student details}
+
+ල-| |ලං| | @-[ |
+ඉ-| ]o-[ |-| | ඉ-
+
+(0) The computers are to be made available for students only for 30-minute slots between
+8 am - 5 pm on weekends. However a student is allowed to reserve only a maximum of
+two 30-minute slots per weekend.
+
+Write down one functional requirement with respect to computer reservations.
+
+(c) Give one technical aspect that the development team should check when conducting the
+technical feasibility study of this project.
+
+(d) The waterfall model is suggested for the above development. Why is a proper requirement
+analysis critical in this project to ensure its timely completion?
+
+(e) Three students are to develop the reservation, update student details and manage students
+modules separately. The IT teacher had taught different types of software testing. What is
+meant by “integration testing” in this system?
+
+(f) The IT teacher suggests the team doing a direct deployment of this software. Give one reason
+as to why the teacher did not suggest a parallel deployment.
+
+(g) One member of the IT society wants a COTS (Commercial-Off-The-Shelf) software to be
+considered for this system instead of developing it. Give one reason as to why the team
+should reject it.
+
+eee ee
+
+ද y,
+
+හි091516051-1.111)1.--60)5:5)- Gl 60) 60 SS 61114)
+seen 011015]5 ඉ111151)1] usHAy wy smu ufLeme, 2023(2024)
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+
+55ONGD, 0511011160 0151101601! ]බා]/1 160 11 [20 EB | 11 |
+
+Part B
+% Answer any four questions only.
+
+5. (a) A circuit with three inputs (A, B, ට) and one output (Z) is to be designed. The output should be
+equal to 1 when the binary value combination of the three inputs is either 1, 3 or 6. The output
+should be 0 for other cases.
+
+(i) Draw the complete truth table for the above circuit.
+
+(11) Complete the Karnaugh map relevant to the above circuit according to the following format:
+
+AB
+00 01 11 10
+
+(111) Using the Karnaugh map, derive the most simplified product-of-sums (POS) expression for
+the output Z. Show the loops clearly on the Karnaugh map.
+
+(iv) Draw a logic circuit for the simplified expression derived in (111) by only using NOR gates
+assuming that the complemented inputs A, B and C are also available.
+
+(b) Using Boolean Algebra show that AC + AB + ABC + BC is equivalent to C + AB.
+
+(c) Consider the flip flop circuit shown on the right: R
+
+(i) Assume that the S input is 1 and the R input 1s 0. Q
+What will be the output at Q?
+
+(11) What will be the output at Q if the S input is now
+made 0?
+
+(111) What will be the output at Q when the R input is Q
+now made 1?
+
+6. (a) Draw a sketch to show how a file server (FS), a printer (P), a switch (S) and two computers
+(C1 and C2) should be connected in a star topology.
+
+(b) A port number is also used along with an IP address in a network communication. Why?
+(c) Consider a subnet with the network address 192.168.56.128/26.
+
+(1) Write an example IP address that can be assigned to a host attached to this subnet (in dotted
+decimal notation).
+
+(11) Write the first and the last usable host addresses in this network (in dotted decimal notation).
+
+(111) How many host addresses are available for use 111 this subnet?
+[ම
+
+ඒ
+
+(d) Suppose an Internet Service Provider owns the 192.168.56.32/26 IP address block. Assume that
+the provider wants to create four subnets namely, Subnet A, Subnet B, Subnet C and Subnet
+D from this address block with each subnet having the same number of IP addresses.
+
+(i) Write the subnet mask of the above given IP address block in dotted decimal notation.
+(11) Write the number of host bits needed to create the required number of subnets.
+
+(111) Once subnetting is done, fill in the following table.
+
+First usable IP Last usable IP
+
+address address Broadcast Address
+
+Subnet Network address
+
+Subnet A
+Subnet B
+Subnet C
+Subnet D
+
+(e) (1) Write two functions of a proxy server in a computer network.
+
+(11) Write two properties of MAC addresses assigned to devices connected to a network.
+
+7. (a) Assume that you are given an Arduino UNO board (Figure 7.1) along with the following items:
+e Passive Infrared Sensor (PIR) for motion detection (Figure 7.2)
+e Sensor for ambient light detection
+e LEDs, Resistors, and a Power supply
+
+PIR Sensor
+
+aa [1 ॥ ay
+va DIGITAL (PwH~) පි 8
+
+——vcc
+
+——{orp
+
+————|GND
+
+Figure 7.2
+
+Figure 7.1
+
+(i) Identify the parts marked as A, B, C, and D in Figure 7.1 and briefly explain each of their
+functionalities.
+
+(11) Assume that you want to build an IoT setup that switches an LED light on when motion
+is detected. It is further required to switch on this LED only during night time. Draw a
+schematic diagram connecting the Arduino board and the items given above as necessary
+in order to build this setup.
+
+(b) An e-commerce warehouse automation system includes a set of agent-based robots which move
+ordered goods to their respective dispatch areas to start relevant shipments.
+The Figure 7.3 shows the latter part of this system. A Quality Control (QC) Officer inspects the
+goods of each order as it passes on a conveyor belt and confirms to a software system (Delivery
+Handler Agent) that the order has passed QC. The Delivery Handler Agent directs the package to
+a mobile robot at the loading area. The robot agent reads the package barcode to determine the
+appropriate dispatch area. It then navigates the robot to the relevant dispatch area, scanning the
+path and avoiding obstacles while on the move. The Dispatch Handler Agent, another software,
+validates each package at the dispatch areas and informs the Dispatch Officer to confirm its decision.
+The Dispatch Officer can override Dispatch Handler decisions if needed and directs the confirmed
+
+packages to the postal division.
+ද y,
+
+Dispatch )
+ක | SS <@) Area 1 ~ කක
+Delivery -————— | Dispatch
+Handler දහ, 0 Handler Tp
+Ti Agent Agent
+॥ තේ {2 (හෲ Dispatch
+ල්‌ | Officer
+ණී 233
+Quality Control ttt © "41, (ඨෟ අ,
+; [11 Loading -
+Officer fa we ow
+
+their operation
+
+respect to each
+
+(iv), above.
+
+Conveyor Belt Package Moving Floor Area with
+
+Multi Agent Robots
+Figure 7.3
+
+of the following.
+
+(a) Control of the robot mobility
+(b) Decision making process (relevant to moving packages from loading area to dispatch areas)
+
+8. (a) Write the output of the Python code given in Figure 8.1.
+
+(i) Software Agents demonstrate certain characteristics which make their behaviour unique.
+Briefly explain the following two characteristics of a software agent:
+(a) autonomous
+(b) cooperative
+
+(11) Name a self-autonomous agent and a user agent in the given example.
+
+(111) If the set of multi-agent robots behave satisfying only the autonomous characteristics but
+fails to cooperate, write down one of the most likely observations that will be seen during
+
+(iv) If this system is redesigned by replacing the multi-agent behaviour with centralized control
+and a broker agent for communication, identify one main change that will be seen with
+
+(v) Draw a box and arrow diagram for the new solution with centralized control, mentioned in
+
+(Note: A box and arrow diagram uses boxes to show system components and arrows to show
+connections between those components)
+
+def function1(str):
+newstr = ''''
+
+for character in str:
+
+if character in
+
+newstr +=
+
+"aelouAEIOU':
+bit
+else:
+newstr += character
+return newstr
+51121 = "LibrAry"
+str2 = function1(str1)
+
+print(str2)
+
+Figure 8.1
+
+(b) The function in Figure 8.2 uses the bubblesort algorithm to sort a given list of numbers into
+ascending order. Write down the suitable replacements for the labels P-U to complete the code.
+
+def bubbleSort (nList):
+for pNumber in range(P,Q,R):
+S:
+if nList[i]>nList[i+1]:
+temp = nList[i]
+T
+U
+
+Figure 8.2
+
+y,
+
+AL/2023(2024)/20/E-II
+
+(c) An estate owner wants a program to determine the minimum currency note combination needed
+to make the pay of each employee. (E.g., Rs. 40,000 should be paid using eight notes of Rs.
+5000 and not four hundred notes of Rs. 100). The program should also output the currency
+requirement for all employees. The program should use the employees.txt file which contains
+employee pay details. Each line in it contains an employee's name and net pay.
+
+A Python program written for this purpose is shown in Figure 8.3. A sample employees.txt file
+
+and the program's output for that file are shown in Figure 8.4.
+
+(1) Write down the suitable replacements for the ten labels A-J in the program given in Figure
+8.3.
+
+# currency notes used in Sri Lanka
+notes = [5000,1000,500, 100,50,20]
+# total notes required from each currency note type
+totals = [0,0,0,0,0,0]
+
+file = A(‘employees.txt','r’)
+
+while True:
+required = [0,0,0,0,0,0] # notes required for employee
+
+line = file. readline()
+if B line:
+C
+
+emp Details = line. split()
+netpay = int(float (D))
+
+Example ‘employees.txt’ file:
+
+Raj 40120
+Niranjala 51670
+
+Program’s output for that file:
+
+Raj Net pay = 40120
+Rs. 5000: 8
+
+Rs. 1000: 0
+
+Rs. 500: 0
+
+Rs. 100: 1
+
+Rs. 50:0
+
+Rs. 20:1
+
+if netpay <0: Niranjala Net pay = 51670
+continue Rs. 5000 : 10
+Rs. 1000: 1
+print("\n") Rs. 500: 1
+print(empDetails[0]," Net pay =",netpay) Rs. 1960 : 4
+topay = netpay Rs. 50:1
+i=0 Rs. 20:1
+while topay > 0:
+required|[i] = E TOTAL REQUIREMENT:
+a . Rs. 5000 : 18
+totals[i] = totals[i] + F 95 1696 : 1
+topay = G Rs. 500:1
+H Rs. 100: 2
+Rs. 50:1
+# print employee netpay breakdown Rs. 20:2
+for i in range(0, len(required)):
+print("Rs." ,notes[i],":", 1)
+print("\nTOTAL REQUIREMENT: ")
+for i in range(0, len(totals)):
+print("Rs." ,notes[i],":" ,totals[i])
+Figure 8.3 Figure 8.4
+
+(11) The net pay of employees in this estate, does not contain cents. However, what practical
+problem with respect to the net pay inputs exists in this code? What modifications will
+you do to fix that problem?
+
+y,
+
+AL/2023(2024)/20/E-II
+4 0,
+
+9. (a) Consider the following requirements relevant to a database that is expected to manage divisions,
+officers and tasks in an office.
+
+The office consists of a number of divisions. Each division has a unique name. The division
+may have several locations. A division handles a number of tasks each of which has a unique
+number, a name and a date in which the task was assigned to the division. Each officer's name
+(consisting of a first name and a surname), NIC (National Identity Card) number, address and
+phone number is to be stored. An officer is assigned to one division but may work on several
+tasks which may not be controlled by the same division. Each division is managed by one of
+its officers and the starting date in which the officer started managing the division 1s stored.
+
+Draw an ER diagram for this application showing the entities, attributes and relationships.
+Underline primary keys.
+
+(b) Write two advantages of converting a database table into a normal form.
+
+(c) Consider the following Show table related to theatres and the movies that they screen.
+
+Theatre Movie Day Time Screen Year
+Sarasi MI-4 Wednesday 10:00 Si 2022
+Sarasi MI-4 Wednesday 15:00 Si 2022
+Palazzo Spider man Friday 10:00 S2 2019
+Palazzo Avengers Friday 10:00 Si 2019
+Vega Iron man Thursday 10:00 Si 2020
+Note:
+e A theatre can screen more than one movie at the same time on different screens.
+e Year field gives the year in which the relevant film was released.
+(1) In which normal form does the Show table exist? Justify your answer.
+(ii) Convert the Show table to its next normal form.
+(d) Consider the following Employee table:
+
+Emp_ID | Emp_Name DoB Department Designation DoJ Salary
+E110 Saman 15/10/1970 | Bio Technology Professor 12/04/2001 | 145000
+E111 Kumar 25/05/1980 | Mechanical Assistant Professor | 02/05/2006 | 100000
+E115 Raja 10/08/1982 | Engineering | Assistant Professor | 05/05/2001 98000
+E114 Jennifer | 11/09/1975 | Engineering | Assistant Professor | 03/06/2001 | 197000
+E117 Ismail 15/05/1979 Civil Assistant Professor | 10/05/2005 103000
+
+(i) Write the most suitable SQL statement to create the Employee table with a suitable
+
+primary key.
+
+(11) Write the required SQL statement to insert the record for the following employee:
+Emp_ID = E119, Emp_Name = “John”, DoB = “15/06/1971”, Department = “IT”,
+
+Designation = “Professor”, DoJ = “15/07/2001”, Salary, = 107000
+
+SELECT Emp_ID, Emp_Name
+FROM Employee
+WHERE Salary>103000;
+
+“Civil” department.
+
+(111) Write the output obtained by applying the following SQL query:
+
+(iv) Write the appropriate SQL query to find the names of all employees who work in the
+
+y,
+
+10. (4) (1) What is the repeating cycle that a processor in a computer is involved in since the computer
+is started till it 16 shutdown?
+
+(11) Which program's instructions get executed in the processor of a computer during a context
+switch?
+
+(111) A register is a group of binary cells suitable for holding binary information and is constituted
+by a collection of flip-flops. How many flip-flops are needed to make an n-bit register?
+
+(b) A user runs the following Python codes on a computer. The code on left prints the lines of a file
+on the screen while the other code docs an average computation.
+
+fileReader.py average.py Los
+
+A = input (“Enter filename”) | total = 0
+11 = open(A, “r’) for num in range (10000): > AP
+
+. කාය We es
+for line in 11: total += num slat
+
+print(line) average = total/10000 “SFP
+f1.closeQ print(average) a
+
+Memory
+Figure 10.1
+
+The computer’s memory at a particular time is shown in the figure 10.1. The memory frames
+occupied by the operating system, the fileReader process and the average process are indicated
+on it by OS, FP and AP respectively.
+
+Selecting from OS, AP and FP, write down the most likely place where each of the following is
+stored.
+
+(i) content of variable A of the fileReader process
+(11) the Process Control Block (PCB) of the average process
+
+(c) Of the above two python processes, one of them will go through the RUNNING ~ං BLOCKED
+state transition more than the other. Which process is that? Give the reason for it.
+
+(d) Assume that when the fileReader process of (b) above is in progress a context switch occurs
+and a different process is run. When the fileReader process is given the chance to run again, the
+file is read from where it stopped. Which data structure facilitates that feature?
+
+(€) A computer uses 32-bit virtual addresses. This computer has a 1 GB (2*° bytes) physical memory
+and a 4 KB page size.
+
+(1) Write down the number of frames in physical memory as a power of 2.
+
+(11) Assume that in addition to memory frame information, each page table entry for a
+virtual page in this computer contains some additional information consisting of a total of
+four bits. If the total size of the page table required for each process on this computer
+assuming that all virtual pages are in use is given as 2? x q bits, write down the values
+of p and q.
+
+(111) If the virtual address 4097 of a particular process 1s mapped to Frame 2 of physical mem-
+ory, write down in decimal form, the physical address corresponding to the virtual address
+4097. (Assume that page numbers, frame numbers and addresses begin from 0)
+
+(1) The test.py file is stored on blocks 218 and 220 respectively in a disk that uses a File
+Allocation Table (FAT) to manage its storage. The disk uses 4 KB blocks.
+
+(1) Write down an important number in the directory entry for the test.py file that will help
+the operating system to find the blocks of the file.
+
+(11) Give an example size for fest.py that will result in internal fragmentation.
+
+(111) Assume that block 219 16 also to be added for the ¢est.py file. Show in a diagram the
+FAT entries for the fest.py file after this addition.
+(-1 indicates last block)
+
+3£ 3% 1

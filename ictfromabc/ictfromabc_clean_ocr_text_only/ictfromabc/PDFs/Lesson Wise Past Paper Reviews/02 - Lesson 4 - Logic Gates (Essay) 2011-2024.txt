@@ -1,0 +1,1920 @@
+2011 LOGIC GATE ESSAY MARKING
+
+1. A digital circuit takes four binary digits as an input, and produces 1 as its output 11 the decimal value
+represented by the four binary digits is a prime number (number which can only be divided by itself
+and 1), and 0 otherwise. Assume that all four binary digits represent positive decimal values (No bit
+is allocated for the sign).
+අංකිත පරිපටයක (Digital circuit) ආදානය ලෙස ද්විමය සංඛ්‍යාංක හතරක්‌ ගෙන, OO ද්විමය සංඛණ්‍යංක
+හතරෙන්‌ නිරැපිත දශමය අගය ප්‍රටමක සංඛනවක්‌ (Prime number) නමි (1න්‌ සහ එම සංඛනවෙන්‌ පමණක්‌
+GQGED සංඛ්‍යා) ප්‍රතිදානය ලෙස 1 ලබා දෙන අතර, අන්‌ සෑම විටම 0 ලබා දේ. සෑම ද්විමය සංඛ්‍යාංක හතරකින්ම
+ධන දශමය අගයක්‌ නිරැපණය වන බව උපකල්පනය කරන්න. (ලකුණ සඳුහා කිසිදු බිටුවක්‌ වෙන්කර නොමැත.)
+
+(1) The following truth table is designed to describe the above circuit, in which A, B, C and D represents
+the four binary inputs from the most significant bit to the least significant bit and F(A,B,C,D) as the
+output of the circuit. Copy the following truth table onto your answer sheet as it is and complete the
+output column.
+ඉහත පරිපටය විස්තර කිරීම සඳහා පහත දක්වා ඇති සත්‍යතා වගුව (Truth table) නිරමාණය කර ඇත; මෙහි A,
+B, C හා 1) මගින්‌ ද්විමය ආදාන හතර වැඩිම වෙසෙසි බිටුවේ BO අඩුම වෙසෙසි බිටුව තෙක්‌ නිරැපණය වන අතර,
+F(A, B, C, D) මගින්‌ පරිපටයේ ප්‍රනිදානය නිරැපණය කෙරෙයි. පහත දක්වා ඇති සත්‍යතා වගුව, එම
+ආකාරයටම පිටපත්‌ කරගෙන ප්‍රතිදාන තීරැව සමිපුර්ණ කරන්න.
+
+This digital logic question is about creating a circuit that identifies whether a 4-bit binary number is a
+prime number or not. A 4-bit binary input means the numbers range from 0000 (which 1s 0 in decimal) to
+1111 (which is 15 in decimal). That’s a total of 16 possible input values.
+
+මෙම ඩිපිටල්‌ තාර්කික ප්‍රශ්නය වන්නේ 4-බිටි ද්විමය සංඛ්‍යාවක්‌ ප්‍රටමක සංඛණවක්‌ ද නැද්ද යන්න හඳුනා
+ගන්නා පරිපටයක්‌ නිර්මාණය කිරීමයි. 4-බිටි ද්විමය ආදානයක්‌ යනු සංඛ්‍යා 0000 (අගමයෙන්‌ 0) සිට 1111
+(දගමයෙන්‌ 15) දක්වා පරාසයක පවතින බවයි. එය මුළ ආදාන අගයන්‌ 16 කි.
+
+A | ॥ ල | D F(A,B,C,D)
+0 0 0 0 0
+0 0 0 1 0
+0 0 1 0 ]
+0 0 1 1 1
+0 1 0 0 0
+0 1 0 1 ]
+0 1 1 0 0
+0 1 1 1 ]
+1 0 0 0 0
+1 0 0 1 0
+1 0 1 0 0
+1 0 1 1 ]
+1 1 0 0 0
+1 1 0 1 ]
+1 1 1 0 0
+1 1 1 1 0
+
+(11) Write a Boolean expression to represent the logic function of above circuit in sum of products form.
+ඉහත පරිපටයේ බූලීය ප්‍රකාශනය, ගුණිතවල එකතුවක්‌ (Sum of products) ලෙස නිරෑපණය කිරිමට QO
+ප්‍රකාශනයක්‌ ලියන්න.
+
+A minterm is a Boolean expression that represents one single row in a truth table where the output is 1.
+Each minterm is an AND of all variables, where:
+
+Minterm එකක්‌ යනු ams වගුවක එක්‌ පේළියක්‌ නියෝපනය කරන බුලියන්‌ ප්‍රකාශනයකි,ඵහිදි ප්‍රතිදානය 1 වේ.
+සෑම minterm එකක්ම සියලු විචල්‍යයන්ගෙන්‌ AND Ose වේ, එහිදි:
+
+e You write the variable normally if its value is 1
+ඔබ විචල්‍යය ලියන්නේ එහි අගය 1 නමි පමනි
+
+e You write it with a NOT (bar) if its value is 0
+එහි අගය 0 නමි ඔබ එය NOT සමඟ ලියන්න.
+
+A B C 1) | Decimal | F(A,B,C,D) | Minterms
+0 0 0 0 0 0 -
+0 0 0 1 1 0 -
+0 0 1 0 2 1 A.B.C.D
+0 0 1 1 3 1 A.B.C.D
+0 1 0 0 4 0 -
+0 1 0 1 5 1 A.B.C.D
+0 1 1 0 6 0 -
+0 1 1 1 7 1 A.B.C.D
+1 0 0 0 8 0 -
+1 0 0 1 9 0 -
+1 0 1 0 10 0 -
+1 0 1 1 11 1 A.B.C.D
+1 1 0 0 12 0 -
+1 1 0 1 13 1 A.B.C.D
+1 1 1 0 14 0 -
+1 1 1 1 15 0 -
+
+The expression can be implemented using AND gates for each minterm and a single OR gate to sum them.
+එක්‌ එක්‌ minterm සඳුහා AND ද්වාර සහ ඒවායේ සාරාංගය සඳුහා තනි OR ද්වාරයක්‌ භාවිනයෙන්‌ ප්‍රකාශනය
+ක්‍රියාත්මක කළ හැක.
+
+F(A, B,C,D) =A.B.C.D+A.B.CD+A.B.C.D+AB.C.D+A.B.C.D+A.B.C.D
+
+(111) Design a logic circuit for the Boolean expression you have obtained for the above part (11).
+ඉහත (ii) කොටස HEM) ඔබ ලබා ගත්‌ QOS ප්‍රකාශනය සඳුහා නාර්කික පරිපටයක්‌ (Logic gate) අඳින්න.
+
+Each minterm is implemented using a 4 input AND gate, and all outputs are combined using a single OR
+9216. / සෑම minterm එකක්ම ආදාන 4 AND ද්වාරයක්‌ භාවිතයෙන්‌ ක්‍රියාත්මක කරනු ලබන අතර, සියලුම
+ප්‍රතිදානයන්‌ තනි OR ද්වාරයක්‌ භාවිතයෙන්‌ එකාබද්ධ කෙටේ.
+
+A B Cc D
+
+VIYIY
+
+"නයට PS
+
+This OR gate combines all the minterms, producing the final output F(A, B, C, D), which will be 1 only
+if the input represents a prime number (2, 3, 5, 7, 11, or 13).
+
+මෙම OR ද්වාරය සියලුම minterms ඒකාබද්ධ කර, අවසාන ප්‍රතිදානය F(A, B, C, D) නිපදවයි, එය 1 වන්නේ
+ආදානය ප්‍රට්මක සංඛ්‍යආාවක්‌ (2. 3, 5, 7, 11. or 13) නියෝජනය කරන්නේ නමි පමනි
+
+( 2011 ESSAY - 1[d] )
+
+2012 LOGIC GATE ESSAY MARKING
+
+1. A fan in a room can be on (1) or off (0). A control system is required to operate the fan efficiently
+with the following conditions / functionalities.
+කාමරයක ඇති SEG පංකාවක්‌ ක්‍රියාත්මකව (on - 1) හෝ අක්‍රියව (off-0) පැවතිය හැකිය. එම විදුලි පංකාව
+කාට්යක්ෂමව ක්‍රියාත්මක කිරීම සඳුහා පහත දැක්වෙන තත්ත්ව/ක්‍රියාවලි සහිත පාලන පද්ධතියක්‌ අවග්‍යව ඇත.
+
+1 The fan can manually be switched on or off.
+විදුලි පංකාව අත්යුරැව (manually) ක්‍රියාත්මක හෝ අක්‍රිය හෝ කළ හැකි විම.
+
+2 The timer will be either on or off
+කාලගණකය (timer) ක්‍රියාත්මකව හෝ අක්‍රියව හෝ පැවතිය හැකිය.
+
+3 1116 sensor will detect whether the environment is cold or hot.
+පරිසරය සිසිල්‌ දු උණුසුමි ද යන්න සංවේදකය (sensor) අනාවරණය කරගනියි.
+
+4 The fan will automatically be switched on when the timer is on and the sensor indicates.
+environment is hot.
+කාලගණකය (timer) ක්‍රියාත්මකව (on) ඇතිවිට සහ පරිසරය උණුසුමි යැයි සංවේදකය (sensor) පෙන්නුමි
+කරන අවස්ටාවකදි විදුලි පංකාව ස්වයංක්‍රීයව ක්‍රියාත්මක විය හැකි වීම.
+
+The following table assigns Boolean values for the above conditions/functionalities.
+පහත දැක්වෙන වගුව මගින්‌ ඉහත පෙන්වා ඇති කොන්දේසිවලට/ක්‍රියාවලිවලට අදාළ QOS අගයන්‌ දැක්වෙයි.
+
+Condition/functionality Boolean value
+කොන්දේසිය/ක්‍රියාවලිය බුලියානු අගය
+Fan switched on manually 7 පංකාව අත්්‍යයුරැව ක්‍රියාත්මක කරනු ලබයි.
+
+Fan switched off manually 7 පංකාව අත්යුරැව වසා දුමනු ලබයි.
+
+Timer is on / කාලගණකය ක්‍රියාත්මක වී ඇත.
+
+Timer is off / කාලගණකය ක්‍රියාත්මක වී නැත.
+
+Sensor detects cold environment / පරිසරය සිසිල්‌ බව සංවේදකය හඳුනාගනියි.
+Sensor detects hot environment / පරිසරය උණුසුමි බව සංවේදකය හඳුනාගනියි.
+
+ඌ ය ඌ  ඌ
+
+(1) Draw a logic circuit by using a combination of only AND, OR and NOT gates to implement the
+above control system. / ඉහත පාලන පද්ධතිය ක්‍රියාත්මක කිරීම සඳහා AND, OR සහ NOT ද්වාර
+සංයෝපන පමණක්‌ අඞංගු තට්කන පරිපටයක්‌ අඳින්න.
+
+Initially, we describe the inputs and their associated conditions.
+මුලදි, අප ආදාන සහ SOO අදාළ කොන්දේසි විස්තර කරමු.
+
+e Manual Control (1/])/අත්යුරු පාලනය:
+1 — Fan switched ON manually/SeS ome ක්‍රියාත්මකයි
+0 — Fan switched OFF manually /Se@ ome ක්‍රියා විරහිතයි
+
+e 11112 /කාලගණකය,ැ/ ] ):
+1 — Timer ON
+0 — Timer OFF
+
+e Sensor/ සංවේදකය( 5):
+1 — COLD/8ae@
+0 — HOT / උණුසුම්‌
+
+Fan Operation Rules / විදුලි පංකා මෙහෙයුමි නීති
+To control the fan, we use three inputs: Manual switch (11). Timer (T) . and Sensor (5).
+SEG පංකාව පාලනය කිරීමට, අපි ආදාන තුනක්‌ භාවිතා කරමු: ASOa(M) ටයිමඊ( 1) සහ සංවේදුකය(5)
+
+The fan should turn on 11 M = 1 (manually turned on), or if the Timer is ON (T = 1) and the Sensor detects
+hot (S = 0)
+
+M=1 (අතින්‌ සක්‍රිය කර ඇත) නම්‌, හෝ ටයිමරය සක්‍රිය කර තිබේ නමි (T= 1) සහ සංවේදකය උණුසුමි බව
+හඳුනා ගනී නමි (03 ~- 0)විදුලි පංකාව සක්‍රිය විය යුතුය
+
+A logic circuit is designed using fundamental logic gates to demonstrate the underlying principles of digital
+logic.
+
+තාර්කික පරිපටයක නිර්මාණය කර ඇත්තේ ඩිපිටල්‌ තර්කනයේ මුලික මුලධර්ම නිරෑැපණය කිරිම nem) මුලික
+තාර්කික ද්වාර භාවිතා කරමිනි.
+
+To detect hot, we invert the sensor value using a NOT gate. Then we use an AND gate to combine Timer(T)
+and Sensor (S), and finally an OR gate to combine the manual switch (M )with that result. This gives us
+the complete logic.
+
+උණුසුම්‌ බව හඳුනා ගැනීම oem, අපි NOT ද්වාරයක්‌ භාවිතයෙන්‌ සංවේදක අගය ප්‍රතිලෝම කරමු. ඉන්පසු
+අපි ටයිමර(]) සහ acdema(S) ඒකාබද්ධ කිරීමට AND ද්වාරයක්‌ භාවිතා කරන අතර, අවසානයේ ස්විචය/( 11)
+එම ප්‍රතිවලය සමඟ එකාබද්ධ කිරීමට OR ද්වාරයක්‌ භාවිතා කරමු. මෙය අපට සමිපුර්ණ තර්කනය ලබා දෙයි.
+
+MT S$
+
+——
+
+(11) Construct a truth table to represent the functionality of the above system.
+ඉහත පද්ධතියෙහි ක්‍රියාකාරීත්වය දැක්වෙන Hosen) වගුවක්‌ ගොඩනගන්න.
+
+Explanation of Inputs and Outputs,
+ආදාන සහ ප්‍රතිදාන පැහැදිලි කිරීම,
+
+M (Manual switch): 1 = ON, 0 = OFF
+T (Timer): 1 = ON, 0 = OFF
+
+S (Sensor): 1 = Cold, 0 = Hot
+
+Fan output (F) :1 = ON, 0 = OFF
+
+At this stage, the Boolean expression 15 derived based on the constructed logic circuit.
+මෙම අදියරේදි, බුලියන්‌ ප්‍රකාගනය ව්‍යුත්පන්න වන්නේ ගොඩනඟන Ec තාර්කික COCO මත ය.
+
+MT S$
+
+F=M+tT.S'
+
+T.S'
+
+Sa
+
+Boolean Expression / බුලියන්‌ ප්‍රකාශනය: 1 -- M+ TS
+
+Now, we construct the truth table.
+දැන්‌ අපි සත්‍යතා වගුව ගොඩනඟමු.
+
+%1| 1 | 5 | 5 | 15 | F=M+TS
+0। 010, 17 0 0
+0।011 0.10 0
+0। 1| 0 1 | 1 1
+0)0।1]1।।] 010 0
+1010 11|0 1
+10111 010 1
+1} 1])]0O]17) 1 1
+1।।।1]11 010 1
+
+(111) Write Boolean expression (not simplified) to represent truth table constructed in the (b) (11) above.
+ඉහත (b) (11) කොටසෙහි ගොඩනගන ලද සත්‍යතා වගුව නිරැෑපණය කෙරෙන බුලියන්‌ ප්‍රකාශනයක්‌ (@®
+නොකරන ලදු) ලියන්න.
+
+We write the minterms corresponding to each output value of 1 in the truth table.
+අපි සත්‍ය වගුවේ 1 හි එක්‌ එක්‌ ප්‍රතිදාන අගයට අනුරෑප වන QAM පදු ලියමු.
+
+%, | 1 |S | F | Minterms
+0।010ඟඤ1|0 -
+
+O}; 0] 1] 0 -
+
+O; 1 | 0।1| M.T.S
+O} 1] 1 | 0 -
+
+1। 0|0।| 1 M.T.S
+1/0}; 1) 1 M.T.S
+1/1]0) 1 M.T.S
+
+1} 1]1)]1 M.T.S
+
+We are building a Boolean expression by adding together all the minterms where the Fan Output is 1 in
+the truth table.(SOP - SUM Of Products)
+සත්‍ය වගුවේ ප්‍රතිදානය 1 වන සියලුම ගුණිත පද එකතු කිරීමෙන්‌ අපි Qlos omances ගොඩනඟමු.
+
+Fsop = M.T.S + M.T.S+ M.T.S+M.T.S+M.T.S
+
+Furthermore, the Product of Sums (POS) expression can be derived using the maxterms corresponding to
+output values of 0.
+
+තවද, 0 හි ප්‍රතිදාන අගයන්ට අනුරැප වන උපරිම නියමයන්‌ භාවිතයෙන්‌ එකතන්ගේ ගුණිතයක්‌ ලෙස (POS)
+ප්‍රකාශනය ව්‍යුත්පන්න කළ හැක.
+
+Maxterms
+M+T+S
+M+T+S
+
+M+T+S
+
+ය || .|ක|ක|[ක|ක|
+-|।.3න।ක| ක|.-- | .නේ(|।ය|_ය | =»
+
+-2|।ය| | යක|.:-|| ක| | යක|।ර
+
+ක | ඞෲ | PR OTK | CO] OC] පෑ
+[]
+
+F pos = (M+ T+S).(M+T+S).(M+T+S)
+
+NOTE:
+
+The logic circuit for part ( 0 )(1) can be constructed using corresponding Sum of Products(SOP) expression.
+(b)(i) කොටස සඳහා නාර්කික පරිපටය අනුරෑප (SOP) ප්‍රකාශනය භාවිතයෙන්‌ ගොඩනගා OM හැක.
+
+MTS
+
+U
+
+Mm
+
+ee"
+MN,
+a
+
+VY
+
+Y
+
+Y
+ට GU
+
+(2012 ESSAY - 110 ] )
+
+2013 LOGIC GATE ESSAY MARKING
+
+1.(4) A fire alarm system consists of three sensors 51, 52 and 53 to detect smoke, flame and heat
+respectively. A sensor can either be active (sends the logical value 1) or inactive (Sends the logical
+value 0). The system automatically triggers the fire alarm when at least two of the sensors are active.
+ගිනි අනතුරු ඇඟවීමේ සංඥා පද්ධතියක්‌ 51, 52 හා 53 නමි වු සංවේදක තුනකින්‌ සමන්විත වන අතර SO)
+පිළිවෙළින්‌ ඇත්තේ දුම, ගිනි දැල්ල හා තාපය පිරික්සීම සඳහාය. සංවේදකයක්‌ එක්කෝ සක්‍රීයව (තාර්කික
+අගය 1 ප්‍රතිග්‍රහණය කරයි.) හෝ අක්‍රියව (තාර්කික අගය 0 ප්‍රතිග්‍රහණය කරයි.) පැවතිය හැකිය. අවම
+වගයෙන්‌ සංවේදක දෙකක්‌ සක්‍රීය වන විට මෙම පද්ධතිය ස්වයංක්‍රීයව ගිනි අනතුරැ ඇඟවීිමි සංඥා නිකුත්‌
+කරයි.
+
+(1) Construct the truth table to represent the functionality of the above fire alarm system.
+ඉහත අනතුරැ ඇඟවිමි සංඥා පද්ධතියේ ක්‍රියාකාරීත්වය නිරැපණය කරනු ලබන සන්‍යතා වගුව ගොඩනගන්න
+
+Identify the Input Variables / ආදාන විචල්‍ය හඳුනා ගන්න.
+We are given three inputs / අපට ආදාන තුනක්‌ ලබා දි ඇත.
+
+e §1=Smoke sensor / දුමි සංවේදකය (1=Active / ක්‍රියාකාරි , 0=Inactive/aGo )
+e §S2=Flame sensor / ගිනිදැල්‌ සංවේදකය (1=Active / ක්‍රියාකාරි , 0=Inactive / අකිය )
+e §S3= Heat sensor / me සංවේදකය (1=Active/Gaemd , 0=Inactive / අක්‍රිය)
+
+So, the inputs are $1, S2, S3 - each can be 0 or 1.
+එබැවින්‌, 51. 52, 53 ආදාන - එක්‌ එක්‌ 0 හෝ ] විය හැකිය.
+
+Identify the Output Variable // ප්‍රතිදාන SOE26 හඳුනා ගන්න
+F = Fire Alarm state / ගිනි අනතුරු ඇඟවීමේ තත්වය
+
+e F=1-— Alarm is ON /චලාමය ක්‍රියාත්මකයි
+e F=0-— Alarm is OFF /චලාමය ක්‍රියාවිරහිතයි
+
+List All Input Combinations / සියලුම ආදාන සංයෝපන ලැයිස්තුගත කරන්න
+
+Since there are 3 inputs, total combinations = 2? = 8.
+ආදාන 3ක්‌ ඇති බැවින්‌, Q© සංයෝජන = 23 = 8.
+
+1 | 2 |S3 | F
+0 0 0 0
+0 0 1 0
+0 1 0 0
+0 1 1 1
+1 0 0 0
+1 0 1 1
+1 1 0 1
+1 1 1 1
+
+(11) Derive the Boolean expression to represent the above truth table.
+ඉහත සත්‍යතා වගුව නිරෑැපණය කරනු ලබන බුලියානු ප්‍රකාශනය ලබා ගන්න.
+
+Find the Minterms / ගුණිත පදු සොයන්න (Rows where F= 1)
+From the table, F = 1 only when / F = 1 අවස්ටා වලදි පමණක්‌ වගුවෙන්‌,
+
+S1 S2 S3
+
+ele | | ඌඋඌ
+al | Ol
+S/| Ole |
+
+A Boolean expression where we add OR (+) several product terms AND( -‘).
+Qin පදු කිහිපයක්‌ AND (.) එකතු කරන OR(+) බූලියන්‌ ප්‍රකාශනයකි.
+
+So, the Sum of Minterms is / එබැවින්‌ ගුණිත පදවල එකතුව වන්නේ,
+F = 61,652, 53 + 51, 52, 53 + 51. 52, 53 + 51. 52. 53
+
+(0) Consider the logic circuit shown here to answer the sections (i) and (11) below:
+පහත දක්වා ඇති (1) හා (ii) කොටස්වලට පිළිතුරු සැපයීමට මෙහි පෙන්වා ඇති තාර්කික පරිපටය සලකන්න:
+
+A B C
+o Oo ර
+
+>
+>
+
+(111) Write and simplify the Boolean expression for the above circuit using Boolean algebra. Show all the
+
+workings and algebric rules used for the simplification.
+QoQ SS ගණිතය භාවිත කරමින්‌ ඉහත පරිපටය සඳහා QEwWA ප්‍රකාශනයක්‌ ලියා එය සරල කර
+
+Pa ඈඇ෴
+
+දක්වන්න. සරල කිරීම සඳහා භාවිත කරනු ලැබූ සියළු ම කාර්යයන්‌ හා විපිය රිති ලියා දක්වන්න.
+
+A BC
+
+A.B.C
+
+A _ _
+> Q=A.B.C+A.B.C+A.B.C
+
+| \ ABC a
+US
+se
+
+Therefore / ඒ නිසා,
+
+Q=A.B.C+A.B.C+A.B.C
+
+It can be simplified using Boolean laws as follows.
+පහන ආකාරයට බුූුලියානු නිති භාවිතයෙන්‌ සරල කළ හැකිය.
+
+Q=A.B.C+A.B.C+AB.C
+
+= B.C(A+A)+A.B.C [AB+AC=A(B+C)] Distributive Law / විඝටන න්‍යාය
+
+= B.C.1 + A.B.C [A+A=1] Inverse Law / ප්‍රතිලෝම න්‍යාය
+
+= B.C+A.B.C [A.1 =A] Identity Law / සර්වසාම්‍ය න්‍යාය
+
+= B(C+A.C) [AB + AC = A(B+ C)] Distributive Law / විඝටන න්‍යාය
+
+= B(C+C.A) [A.B = B.A] Commutative Law / න්‍යාදේශ න්‍යාය
+= B(A+C) [A+A.B=A+B] Redundancy law / සමතිරික්ත න්‍යාය
+
+Final simplified form,
+අවසාන සරල කළ ආකෘතිය.
+
+Q=B(A+C)
+
+(iv) Construct the logic circuit using a combination of only AND, OR and NOT gates for the simplified
+Boolean expression obtained in section b(i) above.
+ඉහත b (i) කොටසෙහි සරල කිරීම අවසානයේ දි ED ගත්‌ බූලියානු ප්‍රකාගනය සඳුහා AND, OR සහ
+NOT යන ද්වාර සංයෝපනයක්‌ පමණක්‌ භාවිත කරමින්‌ නාරකික පරිපටය ගොඩනගන්න.
+
+Simplified form / සරල කළ ආකෘතිය.
+
+Q= B(AtC)
+AND gate OR Gate
+AND ද්වාරය OR ද්වාරය
+ABC
+
+19
+
+Bx:
+
+2014 LOGIC GATE ESSAY MARKING
+
+1.(a) An alarm system has been designed to detect break-ins by using three detectors. They are a motion
+detector, a glass break detector and a blackout detector. A detector can either be active (sends the
+logical value 1) or inactive (sends the logical value 0).
+සංවේදක තුනක්‌ භාවිත කර බලහත්කාරයෙන්‌ GOSS හඳුනා ගැනීම සඳහා සංඥා පද්ධතියක්‌ සැලසුමි කර
+ඇත. මෙම සංවේදක චලන සංවේදකයක්‌, විදුරැ BES සංවේදකයක්‌ හා අන්ධකාර සංවේදකයක්‌ වේ.
+
+සංවේදකයක්‌ එක්කෝ සක්‍රීය (තාරකික අගය 1 ලබා දිම) හෝ අක්‍රීය (තාර්කික අගය (0 ලබාදීම) හෝ වේ.
+
+The system automatically detects a break-in and triggers the alarm (sends the logical value 1) only
+when all the three detectors are simultaneously active, or the blackout detector and anyone of the
+remaining detectors are active.
+
+මෙම පද්ධතිය බලහත්කාර ඇතුළ විමක්‌ (Break-in) BOoeGSO හඳුනාගෙන සංඥා පද්ධතිය ක්‍රියාත්මක
+(තාර්කික අගය 1 ලබාදිම) කරනුයේ, එක ම අවස්ටාවේ දි සංවේදක තුනම සක්‍රිය වන්නේ නමි හෝ අන්ධකාර
+සංවේදකය හා ඉතිරි සංවේදක දෙකෙන්‌ ඕනැම සංවේදකයක්‌ සක්‍රීය වන්නේ නමි පමණකි.
+
+Construct a truth table to represent the functionality of the above alarm system.
+ඉහත සංඥා පද්ධතියේ කාටරියබද්ධනාවය නිරෑැපණය කිරීමට සත්‍යතා වගුවක්‌ ගොඩනගන්න.
+
+Let's assume the three sensors as follows / සංවේෙදක තුන පහත පරිදි උපකල්පනය කරමු
+
+A — Motion Detector /O@H සංවේදකය
+13 — Glass Break Detector / විදුරු බිඳුමි සංවේෙදකය
+C — Blackout Detector / අන්ධකාර සංවේදකය
+
+The alarm (denoted by X) is triggered when
+එලාමි එක (X මගින්‌ දක්වනු ලැබේ) ක්‍රියාත්මක වන්නේ
+
+1. All three sensors are active
+සංවේදක තුනම සකුයයි —A = 1.5 = 1,C = 1
+
+2. OR Blackout sensor (C) is active and at least one of the other two (A or B) is active
+OR අන්ධකාර සංවේදකය (C) සක්‍රීයයි සහ අවම වගයෙන්‌ අනෙක්‌ 23} එකක්‌ (25, හෝ 5) සක්‍රීය විය යුතුය.
+
+So, the truth table for the given scenario is given below.
+එබැවින්‌, දි ඇති අවස්ටාව OCH) සත්‍යතා වගුව පහත දුක්වා ඇත
+
+A B C X (Alarm)
+0 0 0 0
+0 0 1 0
+0 1 0 0
+0 1 1 1
+1 0 0 0
+1 0 1 1
+1 1 0 0
+1 1 1 1
+
+(b)G) Derive the Boolean expression to represent the truth table constructed in section (a) above.
+ඉහත (a) කොටසේ ලබාගත්‌ සත්‍යතා වගුව නිරැෑපණය කිරීම Hem) බූලියානු ප්‍රකාගනයක්‌ ලබා දෙන්න.
+
+Obtaining expression / ප්‍රකාගනයක්‌ ලබා ගැනිම
+
+A | B/C | 3% (4 14111) | Minterms
+01010 0 ~
+0O;0]1 0 ~
+
+O| 1 {0 0 -
+O;1]1 1 A.B.C
+1{/0]0 0 ~
+1।0|1| 1 A.B.C
+1{/1]0 0 ~
+1।! || 1 &, 0. (
+
+Expression: A.B.C+ A.B.C+A.B.C
+
+(11) Simplify the Boolean expression obtained in section (b) (1) above, using Boolean algebra. Clearly
+show all the workings and Boolean algebraic rules used for this simplification.
+ඉහත b(i) කොටසෙන්ද ලබාගත්‌ බූලියානු ප්‍රකාශනය බුලියානු විප ගණිතය භාවිත කර සරල කොට දක්වන්න
+මෙම සරල කිරීම සඳහා භාවිත කළ ගණනය කිරීමි හා ඛබූලියානු විප ගණිත නීති පැහැදිලිව ලියා දක්වන්න.
+
+Expression: A.B.C + A.B.C+ 4. 0. (
+
+-A.B.C+A.B.C+ A.B.C Commutative Law / asedé@ න්‍යාය
+:(A.+A)B.C+ A.B.C Distributive Law / විඝටන න්‍යාය
+:(1)B.C + A.B.C Inverse Law/ ප්‍රතිලෝම ama
+:B.C+ A.B.C Identity Law / සර්වසාම්‍ය න්‍යාය
+:C(B + A.B) Identity Law / සර්වසාම්‍ය න්‍යාය
+
+: (0 +A) Redundancy Law / සමතිරික්ත න්‍යාය
+: (0 + AC Distributive Law / විඝටන න්‍යාය
+
+(11) Construct the logic circuit for the simplified Boolean expression obtained in section (b) (11) above.
+ඉහත b (ii) කොටසෙන්‌ ලබාගත්‌ සරල කළ QOOHM ප්‍රකාශනය aca) තාර්කික පරිපටයක්‌ ගොඩනගන්න.
+
+ABC
+
+OR
+
+ABC
+
+(c) The analysis of the past incidents where the alarm triggered reveals that break-in attempts have been
+
+made only during blackouts. Do you agree with the above statement? Justify your answer.
+මෙම සංඥා පද්ධතිය සක්‍රීය SO සමිබන්ධව පසුගිය සිදුවිමි Sahogego කිරීමේ දි අනාවරණය වන්නේ
+බලහත්කාරයෙන්‌ ඇතුළවිමේ උත්සාහයන්‌ සිදු වී ඇත්තේ අන්ධකාර අවස්ථාවල දී පමණක්‌ බව ය. ඔබ ඉහත
+
+ප්‍රකාශය හා එකඟ වන්නේ ද? ඔබේ පිළිතුර තහවුරැ කරන්න.
+
+Yes, the statement is correct.
+ඔව්‌, ප්‍රකාශය නිවැරදියි.
+
+From the truth table, the alarm (x = 1) only occurs when the blackout detector (C = 1) is active. In every
+case where the alarm is triggered, the blackout sensor is ON. This shows that break-in attempts were
+detected only during blackouts.
+
+සත්‍යතා වගුවෙන්‌, අනතුරැ ඇඟවීම (xX = 1) සිදුවන්නේ අන්ධකාර සංවේදකය (C=1) සක්‍රිය විට පමණි.
+අනතුරැ ඇඟවීම ක්‍රියාත්මක වන සෑම අවස්ටාවකම, අන්ධකාර සංවේදකය සක්‍රිය වි පවති. මෙයින්‌ පෙනි යන්නේ
+බිඳුවැටිමේ උත්සාහයන්‌ අනාවරණය වුයේ අන්ධකාර අතරතුර පමණක්‌ බවයි.
+
+( 2014 ESSAY - 01 )
+
+2015 LOGIC GATE ESSAY MARKING
+
+1.(a) Explain how to derive a Boolean expression from a given truth table.
+දි ඇති සත්‍යතා වගුවක්‌ සඳහා බුලියාන ප්‍රකාශනයක්‌ ව්‍යත්පන්න කරන අයුරැ පැහැදිලි කරන්න.
+
+There are two types of Boolean expression types / බූලියානු ප්‍රකාගන වර්ග දෙකක්‌ තිබේ.
+
+= SOP (Sum of Products): Use the rows where output is 1 / ප්‍රතිදානය 1 වන පේළි භාවිතා කරන්න.
+= POS (Product of Sums): Use the rows where output is 0 / ප්‍රතිදානය 0 වන පේළි භාවිතා කරන්න.
+
+Case 01:
+
+Step ] / පියවර 1:
+
+Look at the truth table / සත්‍යතා වගුව දෙස බලන්න.
+
+Find all rows where Output = 1 7 ප්‍රතිදානය = 1 ලෙස ඇති සියලුම පේළී සොයා ගන්න.
+
+Step 2 / පියවර 2:
+
+For each of these rows / සෑම පේළියක්‌ සඳහාම
+
+e Write an AND term 7 AND පදු ලියා දක්වන්න (also called a minterm / @sin).
+
+e Ifinputis1 / ආදානය 1 වේ නමි — write the letter as it is / අක්ෂරය එලෙසම ලියා දක්වන්න
+e IfinputisO/ ආදානය 0 වේ නමි — write the NOT form / NOT emda ලියා දුක්වන්න
+
+Step 3 / පියවර 3:
+OR all the minterms together / minterms සියල්ලම OR කර එකටම ලියා දක්වන්න
+
+Case 02:
+
+Step ] / පියවර 1:
+
+Look at the truth table / සත්‍යතා වගුව දෙස බලන්න.
+
+Find all rows where Output =0/ ප්‍රතිදානය =0 ලෙස ඇති සියලුම පේළි සොයා ගන්න.
+
+Step 2 / පියවර 2:
+
+For each of these rows / සැම පේළියක්‌ සඳහාම:
+
+e Write an OR term / OR පදු ලියා දුක්වන්න (also called a maxterm).
+e Ifinputis1/ ආදානය 1 වේ නමි — write the NOT form.
+
+e Ifinput isO/ ආදානය 0 වේ නමි — write the letter as it is.
+
+Step 3 / පියවර 3:
+AND all the maxterms together / maxterms සියල්ලම AND කර එකටම ලියා cwsOsie
+
+Example Truth Table / උදාහරණ සත්‍යනා වගුව
+
+A | B | Output
+01010
+O|1/1
+1 )0।1
+11 0
+
+(b)
+
+When Output = 1 / ප්‍රතිදානය =1 වන විට :
+
+A | B | Output
+
+O | 0 | 0
+
+O;1/]1 A.B
+1/0); 1 A.B
+1 {1/0
+
+SOP expression: A.B + A.B
+
+When Output = 0 / ප්‍රතිදානය =0 වන විට :
+
+A | B | Output
+
+0 |0 | 0 A+B
+O}|1 {1
+
+110|1
+
+11110 A+B
+
+POS expression: (A + B). (A + B)
+
+In residential electrical wiring, the following circuit has been used to operate a light in a staircase
+Manso විදුලි රැහැන්‌ ඇදිමේ දි පඩිපෙළක සවි කරනු ලබන විදුලි පහනක්‌ ක්‍රියාත්මක HOO acm) පහත
+දැක්වෙන පරිපටය යොදා ගන්නා ලදී.
+
+X X
+oS O
+5 oO
+Y Y
+Switch 51 Switch s2
+Power
+Source P
+
+Lamp L
+
+a
+WJ
+
+As in the above circuit, two switches S1 and S2 are installed at the bottom and the top of the staircase
+to operate the lamp L. The lamp turned on by using the switch S1 at the bottom of the staircase can
+be turned off by using the switch S2 at the top of the staircase. Further, the lamp turned on by using
+switch S2 at the top of the staircase can also be turned off by using the switch S1 at the bottom of
+the staircase. Moreover, the lamp L turned on by a switch can be turned off by the same switch.
+
+ඉහත පරිපටයේ දැක්වෙන ලෙසට L විදුලි පහන ක්‍රියාත්මක කිරීම nem) පඩිපෙළෙහි පහළ සහ ඉහළ 51 සහ 52
+SHO දෙකක්‌ ස්ටාපිත කර ඇත. පඩිපෙළ පහළ දී 51 ස්විචය මගින්‌ දල්වන ලද විදුලි පහන පඩිපෙළ ඉහළ
+E 52 ස්ච්ිචය මගින්‌ නිවා දැමිමට දු පඩිපෙළ ඉහළ දි 52 ස්විචය මගින්‌ දල්වන ලද විදුලි පහන පඩිපෙළ පහළ දී
+
+51 ස්ච්චය මගින්‌ නිවා දැමිමට දු හැකි වේ. තව ද යමි ස්විචයක්‌ මගින්‌ දුල්වන ලදු L විදුලි පහන එම ස්චිචය
+මගින්‌ ම නිවා දැමිමට දු හැකි වේ.
+
+Assume that the connections to positions X and Y of a switch in the above circuit are represented by
+the truth values 1 and 0 respectively and the turned on and turned off states of the lamp L are
+represented by the truth values 1 and 0 respectively.
+
+ඉහත පරිපටයේ ස්විචයක්‌ X ස්ථානයට සහ Y ස්ථානයට සමිබන්ධ වී ඇති අවස්ථා සත්‍යතා අගයන්‌ 1 සභ
+0 මගින්‌ පිළිවෙළින්‌ නිරැපණය වන බව දූ L විදුලි පහන දැල්වි සහ නිවි ඇති අවස්ටා සන්‍යතා අගයන්‌ 1]
+සභ 0 මගින්‌ පිළිවෙළින්‌ නිරැපණය වන බව ද උපකල්පනය කරන්න.
+
+(i) Construct a truth table to represent the functionality of the above circuit.
+ඉහත පරීපටයේ ක්‍රියාකාරින්වය නිරැපණය කිරීම සඳහා සන්‍යතා වගුවක්‌ ගොඩනගන්න
+
+Two switches (5 1 and 52) are used to control one lamp (L).
+එක්‌ ලාමිපුවක්‌ (L) පාලනය කිරීම සඳුහා ASO දෙකක්‌ (51 සහ 52) භාවිතා කරයි.
+
+Each switch has two positions
+සැම ස්විචයක්ම තත්ව දෙකක්‌ ඇත : X and Y.
+
+If a switch connects X, it is considered 0
+ස්විචයක්‌ X සමිබන්ධ වන්නේ නමි, එය 0 ලෙස සැලකේ
+
+If it connects Y, it is considered 1
+එය Y සමිබන්ධ කරන්නේ නමි, එය 1 ලෙස සැලකේ
+
+Lamp turns ON only when the path is complete
+ලාමිපුව ක්‍රියාත්මක වන්නේ මාර්ගය සමිපුර්ණ වු SO පමණි.
+
+Important:
+
+The lamp can be turned ON or OFF by either switch. This is called a 2-way switch system, and its
+logic mimics the XNOR gate. / ස්විචය මගින්‌ ලාමිපුව සක්‍රිය හෝ අක්‍රිය කළ හැකිය. මෙය 2-way ddd
+පද්ධතියක්‌ ලෙස හැඳින්වෙන අතර එහි තර්කනය XNOR ද්වාරය අනුකරණය කරයි.
+
+Let’s construct the truth table for the above scenario.
+ඉහත FOSOO සඳහා සත්‍යතා වගුව සකස්‌ කරමු.
+
+1 | 52 | L(Lamp)
+1
+
+~~ | Lael | ඌ | ඌ | උල
+
+2] | 2
+
+0
+0
+1
+
+This truth table shows that
+මෙම සත්‍යතා වගුව එය පෙන්නුමි කරයි.
+
+This is the behaviour of an XNOR gate
+මෙය XNOR ද්වාරයක හැසිරීමයි.
+
+(11) Derive a Boolean expression to represent the truth table obtained in section (i) above.
+ඉහත (1) කොටසේ දි ඔබ ලබාගත්‌ සතාංතා වගුව නිරෑපණය කිරීමට බූලියානු ප්‍රකාශනයක්‌ ව්‍යුත්පන්න කරන්න.
+
+From the table, output is 1 when
+
+වගුවෙන්‌, ප්‍රතිදානය 1 වන විට :
+
+S1 =0,S2=0— $1.52
+S1=1,S2=1—S1.82
+
+So, the Boolean expression (SOP) is
+එබැවින්‌, බුලියානු ප්‍රකාශනය (SOP): L =S$1.$2+ 51, 52
+
+From the table, output is 0 when
+
+වගුවෙන්‌, ප්‍රතිදානය 1 වන විට :
+
+51:20, 52 1-- 512 52
+S1=1,S2=0—-S1+4+S82
+
+So, the Boolean expression (POS) is : L = (51 + S82). (
+
+එබැවින්‌, බුූලියානු ප්‍රකාගනය (POS): L = (S1+S82).(S1
+
+(111) What is the logic gate which is equivalent to the functionality of the Boolean expression obtained
+in section (11) above?
+
+ඉහත (11) දි ලබා ගත්‌ ඛබූලියානු omaned m6asd සමතුල්‍ය වන තාර්කික ද්වාරය කුමක්‌ ද?
+This behaviour is of an: XNOR gate
+
+මෙය XNOR ද්වාරයක හැසිරීමයි.
+
+Si ඛ්‍ය
+
+Hep
+
+(iv) Construct a logic circuit for the Boolean expression obtained in section (11) above with NOT, AND
+and OR gates only.
+
+ඉහත (11) කොටසේ දි ED ගත්‌ බුලියානු ප්‍රකාශනය aca) NOT, AND සහ OR ද්වාර පමණක්‌ භාවිත කරමින්‌
+තාර්කික පරිපටයක්‌ ගොඩනගන්න.
+
+L = 51, 52 + 51.52
+
+1 S2
+
+9 9
+
+vy
+ay
+
+or
+
+1, = (51 - 52). ( 51 -- 52)
+
+Si S2
+Bs
+
+11 ඉ
+
+අ
+
+( 2015 ESSAY - 01 )
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2016 LOGIC GATE ESSAY MARKING
+
+1. The top secret recipe for making milk rice at the restaurant chain SLFC is kept in an electronic safe
+
+at their head office. The lock (L) of the safe can either be in locked or unlocked states represented
+by logical truth values 0 and 1 respectively. This lock has three different key holes K1, K2 and K3
+each with a unique key. These three keys are in the custody of three directors of SLFC. The lock
+opens when at least two keys are inserted into the corresponding key holes. The situation where the
+corresponding key is properly inserted into any key hole is represented by the logical truth value 1
+and all the other situations are represented by the logical truth value 0.
+SLFC නමැති ආපන ගාලා දාමයේ කිරිබත්‌ පිළියෙල කිරීම සඳහා භාවිත කරන ඉතා රහසිගත වට්ටෝරැව
+ප්‍රධාන කාර්යාලයෙහි ඇති ආරක්ෂිත විද්‍යුත්‌ සේප්පුවක තැන්පත්‌ කර ඇත. මෙම සේප්පුවෙහි අගුල (L)
+අගුලලා හෝ අගුලු ඇර හෝ අවස්ථා දෙකෙන්‌ එකක පැවතිය හැකි අතර, එම අවස්ථා පිළිවෙළින්‌ 0 සහ ]
+යන තාර්කික සත්‍යතා අගයන්‌ මගින්‌ නිරැපණය කරයි. මෙම අගුලට 1], K2 සහ K3 යන එකිනෙකට වෙනස්‌
+වු යතුරැ සිදුරු තුනක්‌ ඇති අතර සෑම යතුරැ සිදුරකට ම අනන්‍ය වු යතුරක්‌ දු ඇත. මෙම යතුරැ තුන
+SLFC ආයතනයේ අධ්‍යක්ෂකවරැ තිදෙනකු භාරයේ පවති. යතුරැ සිදුරුවලට අවම වගයෙන්‌ අදාළ යතුරැ
+දෙකක්වත්‌ ඇනුළන්‌ කර ඇති විට අගුල විවෘත වෙයි. ඕනෑම යතුරැ සිදුරකට අදාළ යතුර නිසි ලෙස ඇනුළතන්‌
+කර ඇති අවස්ටාව තාර්කික සත්‍යතා අගය 1 මගින්‌ දු අනික්‌ සියලම අවස්ටා තාර්කික සත්‍යතා අගය 0 මගින්‌
+දු නිරෑැපණය වේ.
+
+Assuming that only the following Integrated Circuits (ICs) are available, construct a logic circuit to
+operate the lock (L) of the safe, by using the truth tables and Boolean algebra. Clearly show the
+truth tables, Boolean expressions and the Boolean algebraic rules used to construct your circuit.
+පහත දක්වා ඇති සංගෘහිත පරිපථ (ICs) පමණක්‌ ඇති බව උපකල්පනය කරමින්‌ සත්‍යතා වගු සහ බුලියානු
+විපගණිතය භාවිත කරමින්‌ ඉහත අගුල (L) ක්‍රියාත්මක කිරීම සඳුහා තාර්කික පරිපටයක්‌ ගොඩනගන්න. ඔබේ
+පරිපටය ගොඩනැගිම සඳුහා භාවිත කළ සත්‍යතනා වගු, බුලියානු ප්‍රකාශන සහ සරල කිරීමට යොදාගත්‌ බුලියානු
+විපගණිත නීති පැහැවිලි ව සඳහන්‌ කරන්න.
+
+20 19 18 17 16 15 14 13 12 11 ඊ්‌ 7 6 5
+[1 ][ ][ ][ ]1[ ]1([ 101 ]1[ ]1[ 1]1[  )] [1 ][ ]1[ 1]1[ ]
+
+e There are 3 keyholes: K1, K2, and K3.
+දොර අගුල්‌ 3 ක්‌ ඇත : K1,K2 සහ K3 ඇත.
+
+e Each key can be either inserted (1) or not inserted (0).
+එක්‌ එක්‌ යතුර ඇතුළත්‌ කළ හැකිය (1) හෝ ඇතුළත්‌ කර නොහැකිය (0).
+
+e The lock (L) opens (L=1) only when at least two keys are inserted.
+දොර අගුල (L) විවෘත වන්නේ (].--] ) අවම වශයෙන්‌ යතුරැ දෙකක්‌ වත්‌ ඇතුළත්‌ කළ විට පමණි.
+
+Let’s construct the truth table for the above scenario
+QOD අවස්ටාව සඳහා සත්‍යනා වගුව සකස්‌ කරමු.
+
+K1 | K2 | K3 | L (at least 2 keys = 1)
+O | 0 | 0 0
+0 | 0 1 0
+0 1 0 0
+0 1 1 1
+1 0 | 0 0
+1 0 1 1
+1 1 0 1
+1 1 1 1
+
+Note: In the truth table the symbols 161, K2, K3, L should be used or should be defined.
+සටහන: සන්‍යතා වගුව තුළ K1, K2, K3, L සංකේත Mdm කළ යුතුය හෝ අර්ට්‌ දැක්විය යුතුය.
+
+Let’s obtain an expression from the truth table (L=1 instance)
+සත්‍යතා වගුවෙන්‌ ළ්‍රකාගයක්‌ ලබා ගනිමු ( 1.--] අවස්ථාව)
+
+K1 | K2 | K3 | 1, (at least 2 keys = 1)
+O | 0। 0 0
+O | 0 1 0
+0 1 0 0
+0 1 1 1
+1 0 | 0 0
+1 0 1 1
+1 1 0 1
+1 1 1 1
+
+Equation : K1.K2. 1(3 + K1.K2. K3 + K1.K2. K3 + 1. K2. K3
+
+Let’s simplify the above obtained expression using Boolean laws.
+බුලියානු නීති භාවිතා කරමින්‌ ඉහත ලබාගත්‌ ප්‍රකාශනය සරල කරමු.
+
+Equation : K1.K2. 1(3 + K1.K2. K3 + K1.K2. K3 + 1. K2. K3
+
+: 11. K2.K3 + K1.K2. K3 + K1. K2. අල + K3) Distributive Law / විඝටන න්‍යාය
+:K1.K2.K3 + K1. K2.K3 + K1.K2. (1) Inverse Law / ප්‍රතිලෝම න්‍යාය
+:K1.K2.K3 + K1. K2.K3 + 1( 1.12 Identity Law / සරවසාම්‍ය න්‍යාය
+:K1.K2.K3 + K1. (K2. K3 + K2) Distributive Law / විඝටන න්‍යාය
+:K1.K2.K3 + K1. (K3 + K2) Redundancy Law / සමතිරික්ත න්‍යාය
+:K1.K2.K3 + K1.K3 + K1.K2 Distributive Law / විඝටන න්‍යාය
+
+: 1(3(1(1.1(2 + K1) + K1.K2 Distributive Law / විඝටන න්‍යාය
+
+: 1(3 (102 + K1) + K1. 12 Redundancy Law / සමතිරික්ත න්‍යාය
+: 12, 1(3 + K1.K3 + K1.K2 Distributive Law / විඝටන න්‍යාය
+
+Note: We can simplify the above expression using Karnaugh maps, but in this question, it is clearly stated
+to use only Boolean laws.
+
+කානෝ සිතියමි භාවිනයෙන්‌ ඉහත ප්‍රකාශනය BOE කළ හැකි නමුන්‌, මෙම ප්‍රශ්නයට අනුව, මෙම බ්‍රලියානු
+නීති පමණක්‌ භාවිතා කිරීම සඳහා එය පැහැළිලිව ප්‍රකාශ කළ ඇත.
+
+Assuming that only the following integrated circuits are available, we draw the above circuit using only
+
+1 OR gate and 6 NAND gates.
+පහන දැක්වෙන සංගෘහිත OOOO පමණක්‌ යොදා ගත හැකි යැයි උපකල්පනය කරමින්‌, ඉහත පරිපටය එක්‌
+OR ද්වාරයකින්‌ සහ NAND ද්වාර 6 ක්‌ පමණක්‌ භාවිනයෙන්‌ සකසමු.
+
+122, K3 + K1. 1(3 + K1.K2
+
+Let’s construct the above expression in to logical circuit.
+ඉහත ප්‍රකාශනයට MoH පරිපටය ගොඩ නගමු.
+
+Note: we can construct an AND gate from two NAND gates.
+NAND ද්වාර දෙකකින්‌ AND ද්වාරයක්‌ azo හැකිය.
+
+1] K2 K3
+-----KI.K2-.--,
+
+“෴ 4 ෴ ole
+*෴ යා නා ණා න
+
+“see සා කා කෟ eee සෟ සෟ ඤෲ න
+
+2017 LOGIC GATE ESSAY MARKING
+
+(a)
+
+A switch (A), a temperature sensor (B) and a timer (C) of an air-conditioner determine turned on and
+turned off states of the air-conditioner. Turned on and turned off states of the air-conditioner as well
+as the ‘ON’ and ‘OFF’ states of the switch, temperature sensor and the timer are represented by the
+logical values 1 and 0, respectively.
+
+ස්විචයක්‌ (A), උෂ්ණත්ව සංවේදුකයක්‌ (1) සහ කාලගණකයක්‌ (C) මගින්‌ වායුසමිකරණ යන්ත්‍රයක ක්‍රියාත්මක
+සහ ක්‍රියා විරහිත අවස්ථා තීරණය කරයි. වායුසමිකරණ යන්ත්‍රයේ ක්‍රියාත්මක සහ ක්‍රියා විරහිත අවස්ටා ද,
+ස්විචයේ, උෂ්ණත්ව සංවේදූකයේ සහ කාලගණකයේ, ‘ON’ සහ ‘OFF’ අවස්ටා දු පිළිවෙළින්‌ තාරකික අගයන්‌
+1 සහ 0 මගින්‌ නිරැපණය කරනු ලැබේ.
+
+The air-conditioner can be turned on or off manually by setting the switch to its ‘ON’ or ‘OFF’ states,
+respectively.
+
+The temperature sensor detects the temperature in the room. The temperature sensor sets its state as
+‘ON’ or ‘OFF’ when the detected temperature is respectively higher or lower than a pre-defined
+temperature value. The air-conditioner is automatically turned on or off when the detected
+temperature is respectively higher or lower than the pre-defined temperature value.
+
+The timer sets its state as ‘OFF’ until it reaches a preset time value and sets the state as ‘ON’ once it
+reached. The air-conditioner is automatically turned off when the timer reaches the preset time value.
+පිළිවෙළින්‌ ස්විචය එහි ‘ON’ හෝ ‘OFF’ හෝ අවස්ටාවලට පිහිටුවීම මගින්‌ වායුසමිකරණ යන්ත්‍රය අත්යුරැව
+ක්‍රියාත්මක හෝ ක්‍රියා SOSH හෝ කළ හැකි ය. උෂ්ණත්ව සංවෙදූකය කාමරයේ උෂ්ණත්වය අනාවරණය කරනු
+ලබන අතර එම උෂ්ණත්වය පෙර අර්ථ දක්වන EC උෂ්ණත්ව අගයකට වඩඞා ඉහළ හෝ පහළ හෝ විට
+උෂ්ණත්ව සංවේදකය එහි අවස්ථාව පිළිවෙළින්‌ ‘ON’ හෝ ‘OFF’ හෝ ලෙස පිහිටුවයි. අනාවරණය කරන
+ලැබූ උෂ්ණත්වය පෙර gO දක්වන ලද උෂ්ණත්ව අගයට වඞා ඉහළ හෝ පහළ හෝ විට වායුසමිකරණ
+යන්ත්‍රය පිළිවෙළින්‌ ස්වයංක්‍රීයව ක්‍රියාත්මක හෝ ක්‍රියාවිරහිත හෝ වේ. කාලගණකය පෙර තීරණය කළ කාල
+අගයකට පැමිණෙන තෙක්‌ එහි අවස්ටාව ‘OFF’ ලෙස දු පැමිණි විට එහි අවස්ථාව ‘ON’ ලෙස දූ පිහිටුවයි.
+කාලගණකය පෙර තීරණය කළ කාල අගයට පැමිණි විට වායුසමිකරණ යන්ත්‍රය ස්වයංක්‍රීයව ක්‍රියා විරහිත වේ.
+
+Construct a logic circuit using only NOR gates to control the air-conditioner. Clearly show truth
+table, Boolean expression and Boolean algebraic rules used for simplification. Assume that the
+electricity is always supplied to the air-conditioner.
+
+වායුසමිකරණ යන්ත්‍රය පාලනය කිරිමට NOR ද්වාර පමණක්‌ යොදා ගනිමින්‌ තාර්කික පරිපටයක්‌ ගොඩනගන්න.
+සත්‍යාතා වගුව, බුලියානු ප්‍රකාශනය සහ සරල කිරීමට යොදාගත්‌ බුලියානු විප ගණින නීති පැහැදිලි ව
+දුක්වන්න. සැමවිට ම වායුසමිකරණ යන්ත්‍රයට විදුලි සැපයුම ලබා දි ඇති බව උපකල්පනය කරන්න.
+
+Identify the Input Variables / ආදාන විචල්‍ය හඳුනා ගන්න
+
+We are given three inputs / අපට ආදාන තුනක්‌ ලබා දි ඇත
+
+e A= Switch / ස්විචය (1 = ON, 0 = OFF)
+
+e B= Temperature Sensor / උෂ්ණත්ව සංවේදකය (1 = High temperature / ඉහළ උෂ්ණත්වය. 0 = Low
+temperature / අඩු උෂ්ණත්වය )
+
+e C=Timer / ටයිමරය (1 = Time limit reached / කාල සීමාව ළඟා වි ඇත. 0 = Time not yet reached /
+තවමත්‌ කාලය ළඟා වී නොමැත)
+
+So, the inputs are A, B, C — each can be 0 or 1.
+එබැවින්‌, A,B,C ආදාන - එක්‌ එක්‌ 0 හෝ 1 විය හැකිය.
+
+Identify the Output Variable / ප්‍රතිදාන විචල්‍යය හඳුනා ගන්න
+
+e Q=Aijr-conditioner state / වායු සමිකරණ තත්ත්වය
+ර Q=1- Air-conditioner is ON / වායු සමිකරණ යන්ත්‍රය ක්‍රියාත්මකය
+ර Q=0- Air-conditioner is OFF / වායු සමිකරණ යන්ත්‍රය අක්‍රියයි
+
+List All Input Combinations / සියලුම ආදාන සංයෝජන ලැයිස්තුගත කරන්න
+Since there are 3 inputs, total combinations = 2? = 8.
+
+ආදාන 3ක්‌ ඇති බැවින්‌, O© සංයෝජන = 2? = 8.
+
+>
+
+Pele TOOT || Ol/Olnm
+
+ef fe OO] O]o
+
+RIOR LO]elolAlola
+ක|෴|ක|ක|ත|~|ක|කථ
+
+Find the Minterms / Minterms සොයන්න (Rows where Q = 1)
+From the table, Q = 1 only when /Q = 1 අවස්ටා වලදි පමණක්‌ වගුවෙන්‌,
+
+° A=0, B=1,C=0—> m2
+e A=1, B=1,C=0 > m6
+
+So, the Sum of Minterms is / එබැවින්‌ Minterms හි එකතුව වන්නේ,
+
+Q = ABC + ABC
+
+Simplify the Boolean Expression / බුූලියානු ප්‍රකාශනය සරල කරන්න
+= ABC + ABC
+
+= BC(A + A) Distributive Law / විඝටන න්‍යාය
+
+= BC(1) Inverse Law / ප්‍රතිලෝම න්‍යාය
+
+= BC Identity Law / සර්වසාම්‍ය න්‍යාය
+
+Step-by-Step NOR gate Implementation / පියවරෙන්‌ පියවර NOR ද්වාර ක්‍රියාත්මක කිරීම
+
+— BC Double complement Law / ද්විත්ව ප්‍රතිලෝම න්‍යාය
+=B+C De morgan’s Law / ඩි මෝගන්‌ න්‍යාය
+BC
+
+above diagram can be further simplified
+ඉහත රැප සටහන තවදුරටත්‌ සරල කළ හැකිය.
+
+BC
+
+(0) The user of the air-conditioner says that the switch is not required for the operation of the air-
+
+conditioner. Do you agree with this statement? Justify your answer.
+ස්විචය වායුසමිකරණ යන්ත්‍රයේ ක්‍රියාකාරීත්වයට අවග්‍ය නොවන බව වායුසමිකරණ යන්ත්‍රයේ පරිගිලකයා කියයි.
+මෙම කියමනට ඔබ එකග වන්නේ ද? ඔබේ පිළිතුර සාධාරණීකරණය කරන්න.
+
+Yes / ඔව්‌.
+Input that represents Switch (A) is not in the Boolean expression/circuit.
+ස්විචය (A) නියෝජනය කරන ආදානය, බුලියානු ප්‍රකාගනය/පරිපටය ME නොමැත.
+
+Therefore, it 15 not required for the operation of the air-conditioner.
+එබැවින්‌, වායු සමිකරණ යන්ත්‍රයේ ක්‍රියාකාරීත්වය සඳහා එය අවග්‍ය නොවේ.
+
+2018 LOGIC GATE ESSAY MARKING
+
+1. Suppose a logic circuit needs to be implemented for a digital system that has three inputs A, B and C
+and one output Z. Its behaviour is as follows:
+A, Baa C නමි ආදාන තුනක්‌ සහ Z නමි එක්‌ ප්‍රතිදානයක්‌ සහිත සංඛ්‍යාංක පද්ධතියක්‌ සඳහා mda
+පටිපටයක්‌ ස්ටාපනය කිරීමට අවග්‍ය යැයි සිතන්න. එහි හැසිරීම පහත පරිදි වේ.
+
+If the input C=1, the output Z has the value of A.
+ආදානය C=1 නමි 7 ප්‍රතිදානය A හි අගය ගනී.
+
+If the input C=0, then output Z has the value of B.
+ආදානය C=0 නමි Z ප්‍රතිදානය BS අගය ගනී.
+
+(a) Obtain the truth table for the output 2.
+Z ප්‍රතිදානය සඳහා සත්‍යතා වගුව ලබා ගන්න.
+
+| ॥ | € |.
+0।010,0
+O}|O} 140
+O}; 1} 0} 1
+O}; 1} 140
+1101010
+1}O0} 141
+1} 1} 0} 1
+1} 1} td
+
+(b) Write down either a sum of products (SOP) or a product of sums (POS) Boolean expression for Z.
+
+සඳහා ගුණිතයන්ගේ එකතුව (sum of products) හෝ එකතුවල ගුණිතය (product of sums) හෝ ආකාරයට
+බුලියානු ප්‍රකාගනයක්‌ ලියන්න.
+
+4 | | (| 7;
+0।010බ10
+0।01110 oo
+0 |] |0| 1)|---~-££ AB.C
+O;1]1 {0
+1);0]0]0 _
+1/o/1/1/-A.B.C
+1/1/o/1/<—AB.C
+1/1/1]/1/ AB.C
+
+Sum of Products expression / ගුණිතයන්‌ වල එකතු ප්‍රකාශනය (SOP)
+Z=A.B.C+A.B.C+A.B.C+A.B.C
+
+A+B+C
+m— A+B+C
+
+A
+
++—— A+B+C
+mm —A+B+C
+
+|... ...!| ..।ක]ක|ක|ක|෴
+| .-.|ක|ය||.--।ක|ක|1ඝ
+PLO RIOR LOR [OA
+කක | | න] ක|ක|--|ක|ක|।!
+
+Product of Sums expression / එකතුන්‌ වල ගුණිත ප්‍රකාශනය (POS)
+Z=(A+B+C).(A+B+C).(A+B+C).(A+B+C)
+
+(c) Simplify the Boolean expression for Z obtained in (b) above.
+ඉහත (b) හි Z ae) ඔබ ලබා ගත්‌ බුලියනු ප්‍රකාශනය සුළු කරන්න.
+
+Option 1
+SOP
+B.C
+ද 00 0] 11 10
+C
+oie
+Z=A.C+B.C
+1 |o| 0 |!)
+A.C
+POS
+A B+C
+ල 00 01 Il 10
+001) । । to | _
+4 ෴෴|_ 7 -- (4 4. ෆ. ආ 4- ෆා
+
+Option2 A+C
+
+SOP
+Z=A.B.C+A.B.C+A.B.C+A.B.C
+Z=A.B.C+A.B.C+A.B.C+A.B.C Commutative Law / න්‍යාදේශ න්‍යාය
+
+Z=A.C.(B+B)+B.C.(A+A) Distributive Law / විඝටන න්‍යාය
+Z = A.C.(1) + B.C. (1) Inverse Law / ප්‍රතිලෝම න්‍යාය
+Z=A.C+B.C Identity Law / සර්වසාම්‍ය න්‍යාය
+
+POS
+
+Z=(A+B+C).(A+B+4+C).(A+B+C).(A+B+C)
+Z=(A+B+C).(A+B+4+C).(A+B+4+C).(A+B+C) Commutative Law / න්‍යාදේග න්‍යාය
+Z=(A+C).(B+B).(B+C).(A+A) Distributive Law / විඝටන න්‍යාය
+
+7 = (A+ C).(1).(B + C). (1) Inverse Law / ප්‍රතිලෝම න්‍යාය
+
+Z = (A+C).(B+C) Identity Law / සර්වසාම්‍ය න්‍යාය
+
+(d) Using the simplified expression in (c) above, construct a logic circuit for the system using either 2-
+input NAND gates only or 2-input NOR gates only.
+
+ඉහත (c) හි සුබ කරන ලද ප්‍රකාශනය භාවිත කර පද්ධතිය HEH) ආදාන දෙකක්‌ සහිත NAND ද්වාර
+පමණක්‌ හෝ ආදාන දෙකක්‌ සහිත NOR ද්වාර පමණක්‌ හෝ භාවිත කර තර්කන පරිපටයක්‌ ගොඩනගන්න.
+
+NAND
+
+Zsop= A.C + B.C
+ABC
+
+0
+_ 2
+
+~~
+
+ෂ්‌
+
+මු
+
+ට
+
+NOR
+
+Zpos = (A + C).(B + C)
+
+ABC
+>
+D>
+ABC
+=>
+D>
+ABC
+
+2019 LOGIC GATE ESSAY MARKING
+
+(a)
+
+The Boolean function known as the majority function takes n binary inputs and outputs 1 if a majority
+(at least half) of the inputs are 1, otherwise it outputs 0. Let us consider the case when n=3, which 15
+the 3-input majority function, whose inputs are A, B and C and the output is Z.
+
+බහුතර Gow (majority function) ලෙස හැඳින්වෙන බුලියානු Gow ද්විමය ආදාන n ලබාගෙන, ආදානයෙන්‌
+බහුතරයක්‌ (අඩු තරමින්‌ අඩක්වත්‌) 1 වේ නමි, 1 ප්‍රතිදානය කරයි, නැතහොත්‌ (0 ප්‍රතිදානය කරයි.
+
+ආදාන A,B හා Ce ප්‍රතිදානය 7/ දු වන n=3 අවස්ථාව එනමි ආදාන 3 හි බහුනර ශ්‍රිතය සලකමු.
+
+Give the truth table for the 3-input majority function.
+ආදාන 3 හි බහුතර ගිතය HEH) සත්‍යතා වගුව ඉදිරිපත්‌ කරන්න.
+
+The Majority Function is a Boolean function that determines the most common value (0 or 1) among a
+given set of inputs. In other words, it outputs 1 if the majority of the inputs are 1, and it outputs () if the
+majority of the inputs are 0.
+
+බහුතර ශ්‍රිතය යනු ලබා දි ඇති Man සමහයක්‌ අතර වඩාත්‌ පොදු අගය (0 හෝ 1) තීරණය කරන බුලියානු
+ග්‍රිතයකි. වෙනත්‌ වචන වලින්‌ කිවහොත්‌, ආදාන බහුතරයක්‌ ] නමි එය ] ප්‍රතිදානය කරයි, ආදාන බහුතරය
+0 නමි එය 0 ප්‍රතිදානය කරයි.
+
+For three inputs, the Majority Function works as follows.
+ආදාන තුනක්‌ සඳුහා බහුතර Gow පහත SOE ක්‍රියා කරයි.
+
+If at least two or more inputs are 1, the output is 1. If at least two or more inputs are 0, the output is 0.
+අවම වගයෙන්‌ ආදාන දෙකක්‌ හෝ වැඩි ගණනක්‌ ] නමි, ප්‍රතිදානය ] වේ. අවම වගයෙන්‌ ආදාන දෙකක්‌ හෝ
+වැඩි ගණනක්‌ 0 නමි, ප්‍රතිදානය 0 වේ.
+
+If we extend the Majority Function to 4 inputs (A, B, C, D), the output is 1 when at least three inputs are
+1.
+
+බහුතර Goo ආදාන 4 ක්‌ (&.13.(.1)) esa) දිර්ඝ කරන්නේ නමි, අවම වශයෙන්‌ ආදාන තුනක්‌ ] වන විට
+ප්‍රතිදානය ] වේ.
+
+Since n=3, the output becomes ] if two or three inputs are true, according to the description of majority
+function.
+n=3 බැවින්‌, බහුතර ග්‍රිතයේ විස්තරයට අනුව ආදාන දෙකක්‌ හෝ තුනක්‌ ans නමි ප්‍රතිදානය | බවට පත්වේ.
+
+ICN | A B C Z
+1 0 0 0 0
+2 0 0 1 0
+3 0 1 0 0
+4 0 1 1 1
+ට්‌ 1 0 0 0
+6 1 0 1 1
+7 1 1 0 1
+8 1 1 1 1
+
+(b) Using Karnaugh maps, derive a simplified Boolean expression for the output Z in the 3-input majority
+function.
+ආදාන 3 හි බහුතර ගිතයෙහි Z ප්‍රතිදානය සඳහා සුළු කරන ලද බුලියානු ප්‍රකාශනයක්‌, කානෝ සිතියමි
+(karnaugh maps) භාවිත කරමින්‌ ව්‍යත්පන්න කරන්න.
+
+A.B
+AB /
+ල 00 01 11/10
+0। 0| 0//1 0
+
+Zsop = A.B + B.C + A.C
+
+(2 [ට] :
+ං
+
+B.C A.C
+
+Alternative Answer:
+
+A+C
+
+AB /
+ලැ. 00 01/11 10
+
+"රී » UN % Zpos = (A+ B).(B+C).(A+C)
+
+1 hoy | 1 | |
+/ B+C
+
+A+B
+
+(c) Construct a logic circuit for the 3-input majority function using NAND gates only.
+ආදාන 3 හි බහුතර Gow aem) NAND ද්වාර පමණක්‌ භාවිත කරමින්‌ තර්කන පරිපටයක්‌ ගොඩනගන්න.
+
+DD
+ඔතා“
+රං
+
+Zsop =A.B+ B.C +A.C
+
+ABC ABC
+
+ABC
+
+Y age
+
+ule
+ෆ්‌
+
+NOTE:
+
+Drawing the POS circuit using NOR gates.
+NOR ද්වාර භාවිතයෙන්‌ POS 868008 ඇඳිම.
+
+Zpos = (A+B) . (B+C) . (A+C)
+
+ABC ABC
+
+AB
+
+y uy
+
+“e
+
+2020 LOGIC GATE ESSAY MARKING
+
+1. Consider the logic circuit shown in the figure, in which A, B and C are the inputs and Z 1s the output.
+ආදාන A,B හා ල්‌ සහ ප්‍රතිදානය Z වන පහන රැෑපයෙහි දී ඇති නර්කන පරිපටය සලකන්න.
+
+A
+Bx
+B
+
+C—
+
+(a) Give the complete truth table for the given circuit.
+ඉහත පරීපටය සඳුහා සමිපුර්ණ සත්‍යනා වගුව ගොඩනගන්න.
+
+A B C (A+B) | (B+C) | Z=(A+B).(B+C).C
+0 0 0 0 0 0
+0 0 1 0 1 0
+0 1 0 1 1 0
+0 1 1 1 1 1
+1 0 0 1 0 0
+1 0 1 1 1 1
+1 1 0 1 1 0
+1 1 1 1 1 1
+
+(0) Using a Karnaugh map, derive a simplified sum-of-products (SOP) expression for the output 7.
+කානෝ සිතියමක්‌ භාවිතයෙන්‌ Z ප්‍රතිදානය සඳුහා, GO කරන ලද, ගුණිතවල එකතුවෙහි (sum-of-products —
+SOP) ප්‍රකාශයක්‌ ව්‍යුත්පන්න කරන්න.
+
+ද්‌ 00 01 |] 10
+C
+
+0!/o0}!o0!o0]0
+1 | 0 Gio
+\ ac A.C
+
+Z sop=B.C+A.C
+
+(Cc)
+
+(d)
+
+Using a Karnaugh map, derive a simplified product-of-sums (POS) expression for the output Z.
+කානෝ සිතියමක්‌ භාවිතයෙන්‌ Z ප්‍රතිදානය oem, සුබ කරන ලදු, එකතුවල ගුණිතයෙහි (product-of-sums —
+POS) ප්‍රකාශයක්‌ ව්‍යුත්පන්න කරන්න.
+
+AB
+
+ල 00 01 1] 10
+
+0 (100 සුලු
+॥ (07 l 1 ॥ C
+IN
+NASB
+Z pos = (A+B).C
+
+Of the two expressions (SOP and POS) you obtained in (b) and (c) above, which one is better to implement
+amore simplified logic circuit than the given logic circuit above? Explain your answer.
+
+ඉහත දෙන ලදු DOMHM පරිපටයට වඩා සරල තර්කන පරිපටයක්‌ කියාත්මක කිරීම සඳහා, ඉහත (0) සහ
+(c) හි ඔබ විසින්‌ ලබා ගන්නා ලදු ප්‍රකාශ (SOP සහ POS) දෙක අතුරෙන්‌ කවර එකක්‌ වඩා හොඳ වන්නේ
+ද? ඔබේ පිළිතුර පැහැදිලි කරන්න.
+
+The SOP expression / SOP ප්‍රකාශනය
+Z SOP — B.C+A.C
+
+ABC
+
+The POS expression / POS ප්‍රකාශනය
+Z pos = (A+B).C
+
+ABC
+|
+
+The SOP expression has 4 literals and it uses 3 gates. The POS expression has 3 literals and uses 2 gates.
+SOP ළකාශනයේ පද 4ක්‌ ඇති amo එය නාර්කික ද්වාර 3ක්‌ භාවිතා කරයි. POS ප්‍රකාශනයට ce 3ක්‌ ඇති
+අතර mdbSe ද්වාර 2ක්‌ භාවිතා කරයි.
+
+Therefore, the POS is better to implement a more simplified logic circuit as it contains less literals.
+POS emancad අඩු පදු සහ ද්වාර ප්‍රමාණයක්‌ අඞංගු වන බැවින්‌ POS වඩා සරල කළ තාර්කික පරිපටයක්‌
+ක්‍රියාත්මක කිරීම වඩා සුදුසු වේ.
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2021 LOGIC GATE ESSAY MARKING
+
+1. Consider the logic circuit shown in the figure, in which A, B and C are the inputs and X is the output.
+ආදාන A,B හා C සහ ප්‍රතිදානය X වන පහන රැෑපයෙහි දි ඇති නර්කන පරිපටය සලකන්න.
+
+ABC
+
+B
+a
+B
+
+(a) Show the complete truth table for the given circuit.
+ඉහත පරීපටය සඳුහා සමිපුර්ණ සත්‍යනා වගුව ගොඩනගන්න.
+
+X= ABC + ABC + ABC
+
+A B C B C ABC | ABC | ABC x
+0 0 0 1 1 0 0 0 0
+0 0 1 1 0 0 0 0 0
+0 1 0 0 1 0 0 0 0
+0 1 1 0 0 0 0 0 0
+1 0 0 1 1 1 0 0 1
+1 0 1 1 0 0 0 0 0
+1 1 0 0 1 0 1 0 1
+1 1 1 0 0 0 0 1 1
+
+(0) Complete the Karnaugh map, according to the following format.
+කානෝ සිතියම, පහත ආකෘතිය පරිදි සමිපුර්ණ කරන්න.
+
+AB
+ල 00 01 tl 10
+
+0 | 0 0 | 14 1
+
+] 0 0 ] 0
+
+(c) Using the Karnaugh map, derive an optimal (most simplified) sum-of-products (SOP) expression
+for the output X. Show the loops clearly on the Karnaugh map.
+කානෝ සිතියම භාවිතයෙන්‌, X ප්‍රතිදානය oem, ගුණිතවල එකතුවෙහි (sum-of-products —SOP) සරලතම
+emacs ව්‍යුත්පන්න කරන්න. ලුප (loops) පැහැදිලි ලෙස ඔබගේ mea} සිතියමේ පෙන්වන්න.
+
+AB
+00 Ol tl 10
+
+[॥ 0) 0 AL»
+
+1 | 0} 0 |\L/} 0 "ට ල
+
+X = AB + AC
+
+(d) Using the Karnaugh map, derive an optimal (most simplified) product-of-sums. (POS) expression for
+the output X. Show the loops clearly on the Karnaugh map.
+කානෝ සිතියම භාවිතයෙන්‌, X ප්‍රතිදානය සඳහා, එකතුවල ගුණිතයෙහි (product-of-sums — POS) සරලතම
+ප්‍රකාගය ව්‍යත්පන්න කරන්න. EO පැහැදිලි ලෙස ඔබගේ කානෝ සිතියමේ පෙන්වන්න.
+
+AB 0
+00 01 1 10
+
+0 79 1 | |
+| 0 )
+] 0) of (
+
+|
+෴
+න \pit
+X=A(B+C)
+
+(6) Of the optimal SOP and POS expressions you obtained in (c) and (4) above, which is better (or more
+suitable) to implement a simplified logic circuit? Explain your answer.
+ඉහත (c) සහ (d) BEM ඔබ විසින්‌ ලබාගන්නා සරල SOP සහ POS ප්‍රකාශ දෙක අතුරින්‌, වඩාත්‌ සරල
+තට්කන පරීපටයක්‌ ක්‍රියාත්මක කිරීමට කවරක්‌ වඩා උචිත (සුදුසු) වන්නේ ද? ඔබේ පිළිතුර පැහැදිලි කරන්න.
+
+Let’s consider the SOP and POS expressions
+SOP සහ POS පළකාශන සලකා බලමු
+
+SOP expression / ගුණිතවල එකතුවෙහි ප්‍රකාගනය
+X = AB+ AC
+
+ABC
+
+1 [_-
+
+SOP expression leads to a logic circuit with 2 AND gates, 1 OR gate and 1 NOT gate. A total of 4 gates.
+SOP ප්‍රකාශනය AND ද්වාර දෙකක්‌, OR ද්වාර එකක්‌ සහ NOT ද්වාර එකක්‌ සහිත තාර්කික පරිපටයකි. Ge
+ද්වාර 4 කි.
+
+POS expression / එකතුවල ගුණිතයෙහි ප්‍රකාශනය
+
+X=A(B+C)
+
+ABC
+
+4
+
+X
+
+।
+
+POS expression leads to a logic circuit with 1 OR gate, 1 AND gate and 1 NOT gate. A total of 3 gates
+POS ප්‍රකාශනය OR ද්වාර එකක්‌, AND ද්වාර එකක්‌ සහ NOT ද්වාර එකක්‌ සහිත තාර්කික පරිපටයකි. මුඑ
+ද්වාර 3 කි.
+
+Therefore the POS form is generally better because it uses fewer gates (3 gates) compared to the SOP form
+which uses 4 gates.
+
+එබැවින්‌ POS ළකාශනය වඩා cdo වන්නේ එය ද්වාර 4ක්‌ mdm කරන SOP ප්‍රකාශනයට සාපේක්ෂව අඩු
+ද්වාර සංඛ්‍යාවක්‌ ( ද්වාර 3 ක්‌) භාවිතා කරන බැවිනි.
+
+2022 LOGIC GATE ESSAY MARKING
+
+1.(a) Consider the logic circuit shown in the following figure in which P, Q and R are the inputs and Z is
+the output.
+ආදාන 7”, ට හා R සහ ප්‍රතිදානය Z වන පහත රෑපයේ දී ඇති තරකන පරිපටය සලකන්න.
+
+7 Q R
+
+| උඌැ
+|, fT
+
+_-- ඈ ඈ [ටං |
+ran
+Z
+|, ඈ ඈ [ට _
+ප කත
+71% 7”?|%
+71% ।
+(i) Draw the complete truth table for the above circuit.
+ඉහත C6000 සඳුහා සමිපුර්ණ සන්‍යතා වගුව අඳින්න.
+7 = PQR+ PQR+ PQR+ PQR
+P Q R P 0 R POR | PQR | PQR | PQR 7
+0 0 0 1 1 1 0 0 0 0 0
+0 0 1 1 1 0 1 0 0 0 1
+0 1 0 1 0 1 0 0 1 0 1
+0 1 1 1 0 0 0 1 0 0 1
+1 0 0 0 1 1 0 0 0 0 0
+1 0 1 0 1 0 0 0 0 0 0
+1 1 0 0 0 1 0 0 0 0 0
+1 1 1 0 0 0 0 0 0 1 1
+
+~
+
+(11) Complete the Karnaugh map relevant to the above circuit according to the following format.
+ඉහත පරිපථයට අදාළ කානෝ සිතියම පහත ආකෘතිය ode සමිපුර්ණ කරන්න.
+
+PQ
+
+R 00 01 1] 10
+
+Qo | 0 0 |} 0
+
+(111) Using the Karnaugh map, derive the most simplified sum-of-products expression for the output Z.
+Show the loops clearly on the Karnaugh map.
+Z ප්‍රතිදානය සඳුහා ගුණිතවල එකතුවෙහි (sum-of-products) වඩාත්‌ සරලතම ප්‍රකාශය කානෝ සිතියම
+භාවිතයෙන්‌ ව්‍යුත්පන්න කරන්න. ලුප (loops) පැහැදිලි ලෙස කානෝ සිතියමේ පෙන්වන්න.
+
+In order to get the SOP, let’s group the minterms (1) in the K map
+SOP ලබා ගැනීම සඳහා, අපි කානෝ සිතියමේ minterms | කණ්ඩායමි කරමු
+
+PQ
+॥ ද. 00 01 11 10
+
+27500 = PQ+ PR+ QR
+
+(d) (i) Using Boolean algebra, show that the Boolean expression ABC + ABC + ABC + ABC is
+equivalent to BC + AC + AB.
+
+Qo SS ගණිතය භාවිතයෙන්‌ ABC + ABC + ABC + ABC බුලිය ප්‍රකාශය BC+ACH+AB ට සමාන
+වන බව පෙන්වන්න.
+
+BC(A + A) + ABC + ABC Distributive Law විඝටන න්‍යාය
+
+BC.1 + ABC + ABC Complement Law ද්විත්ව ප්‍රතිලෝම න්‍යාය
+BC + ABC + ABC Identity Law සර්වසාම්‍ය න්‍යාය
+
+C(B + AB) + ABC Distributive Law විඝටන න්‍යාය
+
+C(A + B) + ABC Redundancy Law සමතිරික්ත න්‍යාය
+CA+CB+ ABC Distributive Law විඝටන න්‍යාය
+
+BC + A(C + BC) Distributive Law විඝටන න්‍යාය
+
+BC + A(C + 0) Redundancy Law සමතිරික්ත න්‍යාය
+
+BC+ AC + AB Distributive Law විඝටන න්‍යාය
+
+(11) Draw a logic circuit for the above simplified expression in (0 )(1) by only using OR and AND gates.
+ඉහත b(i) හි දැක්වෙන සථරලනම omacs ace) OR සහ AND ද්වාර පමණක්‌ භාවිතයෙන්‌ තාර්කික
+පරිපටයක්‌ ඇඳ දක්වන්න.
+
+ABC
+
+BC+AC+AB
+
+“5
+
+(111) Draw a logic circuit for the above simplified expression in (b)(1) by only using NAND gates.
+ඉහත 0 (1) හි දැක්වෙන සථරලතම ප්‍රකාශය aca) NAND ද්වාර පමණක්‌ භාවිතයෙන්‌ mdSea පරිපටයක්‌
+ඇඳු දක්වන්න.
+
+ABC
+
+PY
+>>
+
+v Lae
+
+ABC
+Dre
+OR
+BC + AC + AB
+BC + AC + AB Double complement Law විඝටන න්‍යාය
+
+BC. AC. AB De Morgan’s Law ඩි මෝගන්‌ න්‍යාය
+
+2023 LOGIC GATE ESSAY MARKING
+
+5. (a) A circuit with three inputs (A, B, C) and one output (Z) is to be designed. The output should be equal to
+1 when the binary value combination of the three inputs is either 1, 3 or 6. The output should be 0 for
+other cases.
+
+A, Bae C නමි වු ආදාන තුනකින්‌ හා Z නමි වු එක්‌ ප්‍රතිදානයකින්‌ සමන්විත පරිපටයක්‌ නිර්මාණය කළ
+යුතුව ඇත. ආදාන තුනේ ද්විමය අගයන්ගේ සංයෝපනය ] හෝ 3 හෝ 6 හෝ වන විට, ප්‍රතිදානය ] විය
+යුතු ය. අනෙකුත්‌ අවස්ටා සඳුහා ප්‍රතිදානය 0 විය යුතු ය.
+
+(1) Draw the complete truth table for the above circuit.
+ඉහත පරිපටය HEM) සමිපුර්ණ සතන්‍යතා වගුව අඳින්න.
+
+The output should be equal to 1 when the binary value combination of the three inputs is either 1, 3 or
+6. The output should be 0 for other cases.
+
+ආදාන තුනේ ද්විමය අගය සංයෝජනය 1,3 හෝ 6 වන විට ප්‍රතිදානය ] ට සමාන විය යුතුය. අනෙකුත්‌
+අවස්ථා සඳුහා ප්‍රතිදානය 0 විය යුතුය.
+
+ICN | & | B | C | Combination | Decimal Value | 7.
+1 01010 000 0 0
+2 0;0]1 001 1 1
+3 0110 010 2 0
+4 0|।।] | 011] 3 1
+5 1010 100 4 0
+6 101] 101 5 0
+7 11100 110 6 1
+8 11] 111 7 0
+
+So, the truth table is as follows;
+එබැවින්‌, සත්‍යතා වගුව පහත SOE වේ.
+
+ICN
+
+රද | -ූ।| DA] රෟ । 4~ | ටං | (ට | ඞ_ඞ-
+
+| ~~ | | | ක।ක|ක|ක|සත
+| 52।1ය| ය| ත| ~। ෆය। ය|දෑ
+--2।යය।|-ත2। ය। | ය।|-ෆත।ය|[ඌ
+ක| ||| ය|ය।|।-ත।।| සෑ
+
+2024 QUIZ SERIES -39- #ictfromabec
+
+(11) Complete the Karnaugh map relevant to the above circuit according to the following format.
+ඉහත පරිපටයට අදාළ කානෝ සිතියම පහත ආකෘතිය පරීදි සමිපුර්ණ කරන්න.
+
+First, let’s map ICNs.
+පළමුව, අපි ICN සිතියමිගත කරමු.
+
+AB
+
+ල
+
+0
+
+00 01 11 10
+
+| 3 7 5
+
+2 4 8 6
+
+Now, let’s complete the K-map with 1/0 value for the relevant ICNs.
+
+දැන්‌,
+
+අපි අදාළ ICN සඳුහා 1/0 අගයන්‌ මගින්‌ කානෝ සිතියම සමිපුරණ කරමු.
+
+AB
+
+00 01 Il 10
+
+0 0 ] 0
+
+l | 0 0
+
+(111) Using the Karnaugh map, derive the most simplified product-of-sums (POS) expression for
+the output Z. Show the loops clearly on the Karnaugh map.
+Z ප්‍රතිදානය සඳහා එකතන්ගේ ගුණිත (product-of-sums) වඩාත්‌ සරලතම ප්‍රකාශය men) සිතියම
+භාවිතයෙන්‌ ව්‍යුත්පන්න කරන්න. ලුප (loops) පැහැදිලි ලෙස කානෝ සිතියමේ පෙන්වන්න.
+
+To derive the most simplified product-of-sums (POS) expression using a K-map:
+කානෝ සිතියම භාවිතයෙන්‌ වඩාත්‌ සරල කරන ලදු එකනුවෙහි (POS) ප්‍රකාශනය ව්‍යුත්පන්න කිරීමට:
+
+Identify and group the 0s (0 හඳුනාගෙන කණ්ඩායමි කරන්න)
+In a K-map, focus on grouping the cells that contain Os. Each group of zeros will correspond to a
+sum term in the POS expression.
+
+කානෝ සිතියමක, 0 අඩංගු සෛල කාණ්ඩගත HOO කෙරෙහි අවධානය යොමු කරන්න. සෑම බිංදු
+
+සමුහයක්ම POS ප්‍රකාගනයේ එකතුවකට අනුරෑප වේ.
+Form the sum terms [වකතු කිරීමේ පද සාදුන්න)
+
+For each group of zeros (Os), form a sum term within that group.
+
+එක්‌ එක්‌ 0 සමුහයක්‌ aes, එම කණ්ඩායම තුළ එකතු කිරිමේ පදයක්‌ සාදුන්න.
+
+Combine the sum terms [වකතු කිරීමේ පදු වකාබද්ධ කරන්න)
+Combine all the sum terms by multiplying them to get the final POS expression.
+
+අවසාන 1205 ළකාගශනය ලබා ගැනීම සඳුහා ගුණ කිරීමෙන්‌ සියලුම එකතු කිරීමේ පදු ඒකාබද්ධ කරන්න.
+
+A
+AB AB
+ල්‌ 00 Ol 11 10 gt C 00 Ol j 1] 10
+)
+
+Alternative answer
+
+A+C C
+
+|
+
++B
+
+0 |) o 1 |C 00 | of 1 |/o\—
+1 | | । (ලෟ | 09 Ae ] | | । (ලෘ (0
+
+Zpos = (A+ C)(A+ C)(B + C) Zpos = (A+ C)(A+ C)(A + B)
+
+>|
+ෆෲ
+
+(iv) Draw a logic circuit for the simplified expression derived in (111) by only using NOR gates assuming
+that the complemented inputs A, B and C are also available.
+ඉහත (111) හි ලබාගත්‌ සරලතම ප්‍රකාශය සඳුහා NOR ද්වාර පමණක්‌ භාවිත කෙරෙන නාඊරකික පරිපටයක්‌
+ate, දක්වන්න. A, B සහ C (අනුපුරක ආදාන) කෙලින්ම ලබාගත හැකි බව උපකල්පනය කරන්න.
+
+ABC ABC
+
+Ds —
+
+ale
+
+ici
+
+For Alternative answer
+
+ABC ABC
+
+Be
+
+_ ඊට
+
+AB
+
+2
+
+-44_
+
+
+(b) Using Boolean Algebra show that AC + AB + ABC + BC is equivalent to C + AB.
+බූලීය 55 ගණිතය භාවිතයෙන්‌ AC + AB + ABC + BC බුූලිය ප්‍රකාශය C+AB ට සමාන OM බව පෙන්වන්න.
+
+Method #1
+
+= AC+ AB + ABC + BC
+= AC+ ABC + BC+ AB
+= (A+ AB+B)C+ AB
+= (A+B+B)C+ AB
+= (A+1)C+ AB
+
+= (1)C + AB
+
+=C+ AB
+
+Method #2
+
+= AC+AB+ABC+BC
+= AC + AB + (AB + B)C
+= AC+ AB+(A+B)C
+= AC+AB+AC+ BC
+= AC+AC+AB+ BC
+= (A+ A)C+ AB+ BC
+= (1)C + AB + BC
+=C+AB+BC
+=C+BC+ AB
+
+= C(1 +B) +AB
+
+= C(1) + AB
+=C+AB
+
+Commutative Law (න්‍යාදේශ න්‍යාය)
+Distributive Law (විඝටන න්‍යාය)
+Redundancy Law (සමතිරික්ත න්‍යාය)
+Inverse Law (ප්‍රතිලෝම න්‍යාය)
+Identity Law (සර්වසාම්‍ය න්‍යාය)
+Identity Law (සර්වසාම්‍ය න්‍යාය)
+
+Distributive Law (විඝටන න්‍යාය)
+Redundancy Law (සමතිරික්ත න්‍යාය)
+Distributive Law (විඝටන න්‍යාය)
+Commutative Law (න්‍යාදේශ න්‍යාය)
+Distributive Law (විඝටන න්‍යාය)
+Inverse Law (ප්‍රතිලෝම න්‍යාය)
+Identity Law (සර්වසාම්‍ය න්‍යාය)
+Commutative Law (න්‍යාදේශ න්‍යාය)
+Distributive Law (විඝටන න්‍යාය)
+Identity Law (සර්වසාම්‍ය න්‍යාය)
+Identity Law (සර්වසාම්‍ය න්‍යාය)
+
+(c) Consider the flip flop circuit shown on the right.
+දුකුණුපස දැක්වෙන පිළිපොළ (Flip-Flop) පරිපටය සලකන්න.
+
+First, let’s look at the truth table of the following SR latch implemented using NOR gates.
+eEg©, NOR ද්වාර භාවිතයෙන්‌ ක්‍රියාත්මක කරන Ec පහන දැක්වෙන SR latch එකෙහි සත්‍යතා වගුව බලමු.
+
+5 R Q Q Comment R Q
+0 0 - - No Change
+
+0 1 0 1 Reset
+
+1 0 1 0 Set =
+1 1 0 0 Invalid S Q
+
+(1) Assume that the S input is 1 and the R input is 0. What will be the output at Q?
+5 ආදානය 1 am R ආදානය 0 යැයි උපකල්පනය කරන්න. ට ප්‍රතිදානය කුමක්‌ වේ ද?
+
+Q=1
+(11) What will be the output at Q 11 the 5 input is now made 0?
+5 ආදානය දැන්‌ 0 කළ විට, QO ප්‍රතිදානය කුමක්‌ වේ ද?
+Q = 1 (No Change)
+(111) What will be the output at Q when the R input is now made 1?
+R ආදානය දැන්‌ 1 කළ විට, ට ප්‍රතිදානය කුමක්‌ වේ ද?
+Q=0
+
+2024 LOGIC GATE ESSAY MARKING
+
+1.(a) Draw the complete truth table for the following circuit.
+පහන GOSOS සඳුහා සමිපුර්ණ සත්‍යතා වගුව අඳින්න.
+
+ABC
+। [~~ Z=(A.B)+C
+Z
+A|B|C|A| (A.B) | (4.4) 4 6 | Z=(A.B)+C
+0|0|0)|1 0 0 ]
+0।|0|।1|1 0 ] 0
+0।1|।0)|1 ] ] 0
+0।1।]1 |] ] ] 0
+10।0)0| 0 0 ]
+10।10| 0 ] 0
+11 0)0| 0 0 ]
+11] 0| 0 ] 0
+
+(0) Write down the following Boolean expression in the simplest form.
+පහත QOS ප්‍රකාගනය සරලම ආකාරයෙන්‌ ලියන්න.
+
+(A +B).(A+B)+AB
+
+(A+B)-A+(A+B)-B+AB Distributive Law / විඝටන න්‍යාය
+(AA + AB) + (A+ B)-B+AB Distributive Law / විඝටන න්‍යාය
+
+(A + AB) + (A+B)-B+AB Idempotent Law/ තදේවභාවි න්‍යාය
+A+(A+B)-B+AB Redundancy Law / සමතිරික්ත න්‍යාය
+A+(A-B+B-B)+AB Distributive Law / විඝටන න්‍යාය
+A+(A-B+0)+AB Inverse Law/ ප්‍රතිලෝම න්‍යාය
+A+AB+AB Identity Law / සර්වසාම්‍ය න්‍යාය
+
+A+ AB Idempotent Law / තදේවභාවි න්‍යාය
+A Redundancy Law / සමතිරික්ත න්‍යාය
+
+(c) In acircuit with three inputs A, B and C the output (Z) should be 1 when each of two or three inputs is 1.
+If none or only one of the inputs are 1, then the output should be 0.
+A,Baa C නමි වු ආදාන තුනකින්‌ යුත්‌ පරිපටයක ආදාන දෙකක්‌ හෝ තුනක්‌ හෝ ඉන්‌ එක එකක්‌ 1 විට 7
+ප්‍රතිදානය ] විය යුතුය.කිසිම mance | නොවන විට සහ ආදාන එකක්‌ පමණක්‌ 150 ප්‍රතිදානය 0 විය යුතුය.
+
+(1) Draw the complete truth table for the above circuit.
+ඉහත C6000 සඳුහා සමිපුර්ණ සන්‍යතා වගුව අඳින්න.
+
+A B C Z
+0 0 0 0
+0 0 1 0
+0 1 0 0
+0 1 1 1
+1 0 0 0
+1 0 1 1
+1 1 0 1
+1 1 1 1
+
+(11) Complete the Karnaugh map relevant to the above circuit according to the following format.
+ඉහත පරිපථයට අදාළ කානෝ සිතියම පහත ආකෘතිය ode සමිපුර්ණ කරන්න.
+
+දෲ 0 11 10
+C
+
+0; 0 | 0 ॥ 0
+
+] | 0। | ] ]
+
+(111) Using the Karnaugh map derived, the most simplified sum-of-product (SOP) expression for the output 7.
+Show the loop clearly on the Karnaugh map.
+ප්‍රතිදානය සඳහා ගුණිත OE එකතුවෙහි (SOP) වඩාත්‌ සරලතම ප්‍රකාශය කානෝ සිතියම භාවිතයෙන්‌ ව්‍යුත්පන්න
+කරන්න. ලප පැහැදිලිව කානෝ සිතියමේ පෙන්වා පෙන්වන්න.
+
+AB
+ල 00 01 11 10
+0} 010 711 6 AB
+ZSOP = AB+ AC + BC
+' ලග 9
+
+BC
+
+(iv) Draw a logic circuit for the most simplified expression derived in the above by using only AND, NOT and
+OR gates.
+ඉහත හි ලබාගත්‌ සරලතම ප්‍රකාශය ace) AND, NOT සහ OR ද්වාර පමණක්‌ භාවිතා කෙරෙන තාර්කික
+පටිපටයක්‌ ඇඳු දක්වන්න.
+
+ABC
+
+06
+DD.
+BD,
+
+(0)(1) Explain the use of halfadder in digital circuits.
+අංකිත පරිපටවල අර්ධාකලකයේ (halfadder) භාවිතය CHEB.
+
+A A half adder is a basic digital circuit used for adding two single-bit
+B SUM binary numbers, producing a sum and a carry-out as outputs. It forms
+the foundation for building more complex circuits like full adders.
+oe අර්ධාකලකය යනු තනි බිටු ද්විමය සංඛ්‍යා දෙකක්‌ එකතු HOO aco)
+C-out
+
+භාවිතා කරන මුලික අංකිත පරිපටයකි, ප්‍රතිදානයන්‌ ලෙස sum සහ
+carry-out නිපදුවයි. එය පුර්ණාකලක වැනි වඩාත්‌ සංකීරණ පරිපට
+තැනීම HED) පදනම සාදයි.
+
+(11) Describe how a flip flop works as a memory element in digital circuits. Explain how it differs from
+combinational logic gates.
+අංකිත පරිපටවල මතක මුලයන්‌ ලෙස පිළිපොළ පොළක්‌ (flip flop) කරන අයුරැ විස්තර කරන්න. එය සංයෝපන
+තර්කන ද්වාරවලින්‌ (combinational logic gates) වෙනස්‌ වන අයුරැ පහදන්න.
+
+A flip-flop is a type of digital circuit used to store a single bit of data, either a 0 or a 1. It acts as a memory
+element, meaning it can keep its value even after the input stops. It changes its state (from 0 to 1 or | to
+0) when it receives a clock signal, making it useful 111 situations where you need to keep track of a value
+or sequence over time.
+
+පිළිපොළ යනු 0 හෝ las එක්‌ දත්ත බිටුවක්‌ ගබඩා HOO සඳහා භාවිතා කරන අංකිත පරිපට වර්ගයකි.
+එය මනක මුලයක්‌ ලෙස ක්‍රියා කරයි, එනමි ආදානය නැවැත්වීමෙන්‌ පසුව පවා එහි අගය තබා ගත හැක. එය
+කාල සංඥාවක්‌ ලැබුණු විට එහි නත්ත්වය (0 BO ] හෝ ] සිට 0 දක්වා) වෙනස්‌ කරයි, කාලයත්‌ සමඟ
+අගයක්‌ හෝ අනුපිළිවෙලක්‌ නිරීක්ෂණය කිරීමට අවග්‍ය අවස්ටාවන්හිදි එය ප්‍රයෝජනවත්‌ වේ.
+
+Flip-flops are different from combinational logic gates because these gates produce outputs immediately
+based on inputs, without storing any value.
+
+පිළිපොළ. සංයෝජන තාර්කික ද්වාරවලට වඩා වෙනස්‌ වන්නේ මෙම ද්වාර කිසිදු අගයක්‌ ගබඩා නොකර, ආදාන
+මත පදනම්ව වහාම ප්‍රතිදානයන්‌ නිපදවන බැවිනි.
+
+(111) Draw the truth table for a full adder circuit.
+පුර්ණාකලක (full adder) පරිපටයක සත්‍යතා වගුව අඳින්න.
+
+න මු ක්‍ෂ
+
+111
+
+Cout

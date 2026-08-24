@@ -1,0 +1,4407 @@
+2011 DATABASE ESSAY MARKING
+
+1. Consider the following scenario.
+පහන දක්වා ඇති සංසිද්ධිය සලකන්න.
+
+Students in a school participate in different sports such as volleyball, track and field athletics, table
+tennis, etc. The principal wants to maintain a registry with admission number, student name, home
+address, class, and sports he/she participates. A student can participate in more than one sport. For
+a particular sport, there can be more than one student. Each student can participate pre-defined
+
+number of hours in a sport.
+
+පාසලක සිසුහු වොලිබෝල්‌, පවන හා පිටිය මලල HO, මේස පන්දු ME විවිධ ක්‍රීඩා සඳුහා සහභාගි වෙති.
+ක්‍රීඩා සඳහා සහභාගි වන සිසූ සිසුවියන්ගේ ඇතුළත්විමේ අංකය, Ges නාමය, නිවසේ ලිපිනය, පන්තිය හා
+සහභාගි වන GO) ඇතුළන්‌ නාම ලේඛනයක්‌ පවත්වාගෙන යාමට විදුහල්පතිවරයාට අවශ්‍යව ඇත. එක්‌ සිසුවකුට
+එක්‌ එක්‌ ක්‍රීඩාවකට OO) සහභාගි විය හැකිය. එක්‌ නිශ්චිත ක්‍රීඩාවක්‌ සඳහා එක්‌ සිසුවකුට වඩා වැඩි සංඛනාවක්‌ සිටිය
+හැකිය. එක්‌ එක්‌ ගිෂ්‍යයාට කලින්‌ නියම කරන ලදු පැය ගණනක්‌ ක්‍රීඩාවක්‌ සඳුහා සහභාගී විය හැකිය.
+
+(a) Draw an ER diagram for the above scenario.
+ඉහත සංසිද්ධිය සඳුහා ER සටහනක්‌ අඳින්න.
+
+Entities / භූනාටත
+1. Student
+
+o Attributes / උපලක්ෂණ:
+= Admission Number (Primary Key)/ ඇතුළත්‌ විමේ අංකය (ප්‍රාටමික යතුර)
+Student Name / ශිෂ්‍ය නාමය
+Home Address / නිවසේ ලිපිනය
+= Class / පන්තිය
+2. Sport
+
+Relationship / සම්බන්ධතා
+
+e Participates
+
+o Many-to-Many (A student can participate in many sports, and a sport can have many students)
+බහු-බහු සමිබධතාව (ගිෂ්‍යයෙකුට බොහෝ ක්‍රීඩා acm) සහභාගී විය හැකි අතර, ක්‍ර්‍රඩාවකට බොහෝ
+සිසුන්‌ සිටිය හැක)
+
+o Attribute of relationship: Hours (pre-defined number of hours per sport)
+පැය (ක්‍රිඩාවකට පෙර නිර්වචනය කරන ලද පැය ගණන)
+
+Admission
+number
+home Address Student Sport
+m n
+
+(b)
+
+(c)
+
+Classify with reasons whether the cardinality of relationship(s) identified in section (a) is one- to-
+one, one-to-many, or many-to-many.
+
+ඉහත (a) කොටසේදි හඳුනාගත්‌ සමිඛන්ධතාවෙහි/සමිබන්ධතා වල ගණනීයනාව එකට-එඵකක්‌ (one-to-one) එකට-
+බොහෝමයක්‌ (one-to-many) හෝ බොහෝමයකට-බොහෝමයක්‌ (101411/-(0-111411977) වන්නේ දැයි හේතු දක්වමින්‌
+වර්ගීකරණය කරන්න.
+
+Cardinality tells us how many instances of one entity can be associated with instances of another entity.
+ගණියතාවය අපට ds Qgmdoy අවස්ටාවක්‌ තවත්‌ භතාරත අවස්ථා කියක්‌ සමඟ සමිබන්ධ කළ හැකිද යන්න
+කියයි.
+
+There are 3 common cases / පොදු අවස්ථා 3 ක්‌ ඇත
+
+One-to-one / ඒක - ඒක (1:1)
+
+Each entity instance links to exactly one in the other entity.
+
+සෑම භතාරථත අවස්ටාවක්ම අනෙක්‌ භතාරතයේ හරියටම එකකට සමිබන්ධ වේ.
+
+One-to-many ඒක - බහු (1:N)
+
+One instance in entity A links to many in entity B, but entity 13 5 instance links to only one in entity A. A
+භූතාරතයක එක්‌ අවස්ටාවක්‌ තවත්‌ B භතාරිතයක බොහෝ දෙනෙකුට සමිබන්ධ වේ, නමුත්‌ B භූතාරිතය එක්‌
+අවස්ටාවක්‌ A භනාරතයේ එක්‌ අවස්ථාවක්‌ සමඟ පමණක්‌ සමිඛන්ධ වේ.
+
+Many-to-many බහු -- බහ (M:N)
+Many instances in A link to many in B and vice versa.
+7, හි බොහෝ GOa B හි බොහෝ දෙනෙකුට සමිබන්ධ වේ
+
+Checking this scenario / සිදුවීම සලකා බැලීම.
+
+One student can participate in more than one sport එක්‌ සිසුවෙකුට එක්‌ GHOMO වඩා සහභාගී විය හැකිය
+More than one student can participate in the same sport එකම ක්‍රීඩාවට එක්‌ සිසුවෙකුට වඩා සහභාගි විය
+හැකිය
+
+Relationship Cardinality Reason
+One student can participate in more than one sport. More than
+Participate Many-to-many one student can participate in a sport.
+බහු — AH එක්‌ සිසුවෙකුට එක්‌ HMOMO OO) සහභාගි විය හැකිය.
+
+ක්‍රීඩාවකට එක්‌ සිසුවෙකුට වඩා සහභාගි විය හැකිය.
+
+“ER diagrams do not allow attributes to be assigned on relationships”. State whether this statement
+is true or false. Explain your answer by using the given scenario.
+
+“ER සටහන්‌ තුළ, සමිබන්ධතා (Relationships) මත උපලක්ෂණ (Attributes) පැවරීමට ඉඞ නොදේ.” මෙම
+කියමන සත්‍ය හෝ අසත්‍ය දැයි ප්‍රකාශ කරන්න. දි ඇති සංසිද්ධිය භාවිත කරමින්‌ ඔබේ පිළිතුර පැහැදිලි
+කරන්න.
+
+False / අසන්‍ය වේ
+
+Reason: In this scenario, ''Number of Hours" is an attribute of the Participate relationship between
+Student and Sport.
+
+හේතුව: මෙම අවස්ටාවෙහිදි, "Number of Hours" යනු ගිෂ්‍යයා සහ GOO අතර Participate හි
+සම්බන්ධතාවයේ ගුණාංගයකි.
+
+ER diagrams can show such attributes, so the statement is wrong.
+ER රැප සටහන්‌ එවැනි ගුණාංග පෙන්විය හැකි බැවින්‌, ප්‍රකාශය වැරදිය.
+
+(d) A database designer suggested the following relation for the above system. State two weaknesses of
+this relation and suggest necessary modifications.
+EDO සමුදාය සැලසුමිකරැවෙක්‌ ඉහත පද්ධතිය aca) පහත දැක්වෙන සමිබඛන්ධය (Relation) යෝජනා
+කළේය. මෙම සමිබන්ධයේ ඇති දුර්වලතා ළෙකක්‌ දක්වා, ඵ්‌ සඳුහා අවශ්‍ය වෙනස්‌ කිරීමි යෝජනා කරන්න.
+
+AdmissionNo | StudentName | HomeAddress | Class | SportName
+ඇතුළත්‌ විමේ අංකය | සිසුවාගේ නම නිවසේ ලිපිනය | පන්තිය | HOGS නම
+
+Weaknesses / දුර්වලතා
+
+1. Data Duplication / දූත්ත අනුපිටපත්‌ කිරීම
+
+A student participating in multiple sports will cause their name, address, class, etc., to be repeated multiple
+times. This leads to redundancy and inefficiency in storage and increases the risk of inconsistent data.
+බහු HO) වලට සහභාගී වන ගිෂ්‍යයෙකු ඔවුන්ගේ නම, ලිපිනය, පන්තිය යනාදිය කිහිප වතාවක්‌ පුනරාවරිතනය
+විමට හේතු චේ. මෙය ගබඩා කිරීමේදි අතිරීක්තතාවයට සහ අකාරයක්ෂමතාවයට හේතු වන අතර නොගැලපෙන
+EBD ඇතිවිමේ අවදානම වැඩි කරයි.
+
+2. Missing Attribute “Hours” / “Hours” යන ගුණාංගය නොපවතී
+
+The attribute ‘Hours’ (likely representing how long a student participates in a sport) is missing. It should
+be part of the relationship between Student and Sport in a separate participation (or join) table. (ගිෂ්‍යයෙකු
+ක්‍රඩාවකට කොපමණ කාලයක්‌ සහභාගි වේද යන්න නිරැපණය කරන) ‘Hours’ යන ගුණාංගය අතුරැදහන්‌ වි
+ඇත. එය වෙනම සහභාගිත්ව (හෝ සමිබන්ධ විමේ) වගුවක ශිෂ්‍යයා සහ HHO අතර සමිබඛන්ධනාවයේ
+කොටසක්‌ විය යුතුය.
+
+Suggested Modifications / යෝපිත වෙනස්‌ කිරීමි
+
+The relation should be broken into three separate tables using Normalization
+ප්‍රමතකරණය භාවිතයෙන්‌ සමිබන්ධතාවය වෙනම වගු තුනකට බෙදිය යුතුය.
+
+Student Table
+
+Attributes: Admission No, Name, Address, Class (Each student only appears once.)
+උපලක්ෂණ: ඇතුළත්‌ විමේ අංකය, HO, ලිපිනය, පන්තිය (සැම සිසුවෙකුම එක්‌ වරක්‌ පමණක්‌ දවිස්වේ.)
+
+Sport Table
+Attributes: Sport Code, Sport Name (Each sport 15 listed only once.)
+උපලක්ෂණ: HO) කේතය, GO) නාමය (සැම HHOHO ලැයිස්තුගත කර ඇත්තේ එක්‌ වරක්‌ පමණි.)
+
+Participate Table (Relationship Table)
+Attributes: Admission No, Sport Code, No of Hours
+උපලක්ෂණ;: ඇතුළත්‌ විමේ අංකය, HO) කේතය, පැය ගණන
+
+(Captures the relationship between students and sports, including how many hours they participate.) (ඔවුන්‌
+සහභාගි OF පැය ගණන ඇතුළඑව සිසුන්‌ සහ HA) අතර සමිබන්ධතාවය ග්‍රහණය කරයි.)
+
+( 2011 S.ESSAY - 03 )
+
+2018 DATABASE MCQ MARKING
+
+1. Consider the following ER diagram.
+පහත දැක්වෙන ER සටහන සලකා බලන්න.
+
+Desk House (House 1D)
+Lo la
+
+Class
+1
+
+Obtains
+Marks for
+
+Subject ID
+
+Name Student ID
+
+NIC
+
+(a) State the most relevant entity or relationship in the above ER diagram to add an attribute to represent
+marks obtained by a student for a subject.
+Gesarg විසින්‌ විෂයයකට ලබාගත්‌ ලකුණු නිරෑපණය කිරීමට උපලක්ෂණයක්‌ (attribute) එකතුකිරීම aco)
+ඉහත ER සටහනෙහි වඩාත්‌ අදාළ භූතාට්ඊය (entity) හෝ සමිඛන්ධතාව (relationship) දුක්වන්න.
+
+Relationship - Obtains Marks for
+
+The attribute Marks belongs on the relationship “Obtains Marks for” between Student and Subject,
+because the value is specific to one particular student—subject pair (not to the student alone or to the subject
+alone).
+
+Marks යන උපලක්ෂණය අයත්‌ වන්නේ Student සහ Subject අතර “Obtains Marks for” සමිබන්ධතාවයට
+ය, මන්දු අගය එක්‌ විගේෂිත student-subject යුගලයකට විශේෂිත වේ (GeanoO පමණක්‌ හෝ විෂයයට
+පමණක්‌ නොවේ).
+
+ව
+
+
+(b) Classify all the relationships in the above ER diagram as one-to-one, one-to-many or many-to-many.
+
+Justify your answer.
+
+ඉහත ER සටහනෙහි ඇති සමිබන්ධතා ඒක-ඒඵ්ක, ඒක-බහු, බහු-බහු ලෙස වර්ගීකරණය කරන්න. ඔබේ පිළිතුර
+
+සාධාරණීකරණය කරන්න.
+
+Relationship Type Why
+
+One class has many student while one student belongs
+Class — Has — 1: N (one-to-many/ | to class.
+Student ඒක - OQ) එක්‌ පන්තියක බොහෝ සිසුන්‌ සිටින අතර සිසුවෙකු එක්‌
+
+පන්තියකට අයත්‌ වේ.
+
+Student — Has —
+Desk
+
+1:1 (one to one/
+ඵක - ඒක)
+
+A student has a desk while one desk belongs for a
+single student.
+
+එක්‌ සිසුවෙකුට මේසයක්‌ ඇති අතර, එක්‌ මේසයක්‌ තනි
+සිසුවෙකුට අයත්‌ වේ.
+
+House — Has —
+
+1: N (one-to-many/
+
+A student should belong to a house while one or more
+student belong to the same house.
+
+Student ඒක - OQ) ගිෂ්‍යයෙකු නිවසකට අයත්‌ විය යුතු අතර, එක්‌ සිසුවෙකු
+හෝ කිහිප දෙනෙකු එකම නිවසකට අයත්‌ විය හැකිය.
+Student — M:N A student sit or multiple subjects 15 being taken by
+. one or more students.
+205 Marks for Oa Oa) බහුවිධ විෂයයන්‌ සඳුහා Ges වෙන්කිරීමක්‌ එක්‌ සිසුවෙකු
+ubjec නු - බහු හෝ කිහිප දෙනෙකු විසින්‌ පවත්වනු ලැබේ.
+
+(c) Write the structure of the tables including their attributes when the above ER diagram is converted
+
+to a relational database.
+
+ඉහත ER සටහන සමිඛන්ධතා (relational) ed සමුදායකට හැර වු විට ලැබෙන වගු සභ ඒවායේ
+
+උපලක්ෂණ ලියා දක්වන්න.
+
+Tables relations with following information / පහත තොරතුරැ සමඟ වගු සමිබන්ධතා
+
+Desk (deskID)
+
+Class(classID)
+
+House(HouseID, Name)
+
+Student(StudentID,NIC,Name)
+Subject(SubjectID, Title)
+Marks(SudentID, SubjectID, Marks)
+
+(d) State the primary key for any table suggested in (c) above.
+ඉහත (c) හි යෝපනා කරන ලද, ඕනෑම වගුවක්‌ oem) ප්‍රාටමික යතුර (primary key) ලියා දක්වන්න.
+
+Desk - deskID
+House - HouseID
+Class - classID
+Student - StudentID
+Subject - SubjectID
+
+Marks - SudentID + SubjectID
+
+(e) Using the tables you have suggested in (c) above, write an SQL statement to get marks obtained for
+the subject with the value of Subject ID ALOO1 by the student with the value of Student ID 51001.
+ඉහත (c) හි යෝජනා කරන EF OQ භාවිතකරමින්‌ Subject ID හි අගය 1,001 Om විෂයය සඳුහා Student ID හි
+අගය STOO] වන ගිෂ්‍යයා ලැබු ලකුණු ලබාගැනීම සඳුහා SQL ප්‍රකාගයක්‌ ලියන්න.
+
+select marks from marks where StudentID=’ST@@1’ and SubjectID=’ &[ 061
+
+SELECT marks
+
+This tells the database to show the marks column (the score/grade).
+මෙය END සමුදායට ලකුණු තීරැව (ලකුණු/ගේටූය) පෙන්වීමට කියයි.
+
+FROM marks
+This means the data will be taken from the "marks" table.
+මෙයින්‌ අදහස්‌ කරන්නේ දත්ත "marks" වගුවෙන්‌ ලබා ගන්නා බවයි.
+
+WHERE StudentID = ' 51661' AND SubjectID = 'AL@Q1'
+
+This filters the rows. It selects only the row(s) where:
+මෙය GSE තෝරයි. එය තෝරා ගන්නේ:
+
+e StudentID is '5 100]'
+e = SubjectID is 'ALOOI'
+
+2013 DATABASE ESSAY MARKING
+
+1.(a) Describe the relationship between a primary key and a foreign key in relational databases.
+සම්බන්ධක EDM සමුදායයන්ගේ HOG යතුර හා ආගන්තුක යතුර අතර සමිබඛන්ධය විස්තර කරන්න.
+
+Primary key of a table and foreign key of a table establish the relationship in a database.
+වගුවක ප්‍රාට්මික යතුර සහ වගුවක ආගන්තුක යතුර දුත්ත සමුදායක සම්බන්ධතාවය AOS කරයි.
+
+Primary key: Identify each record in a database table uniquely. (This removes data duplication).
+ප්‍රාටමික යතුර: Essen QE) වගුවක සෑම වාරතාවක්ම අනන්‍ය ලෙස හඳුනා OS. (මෙය දත්ත අනුපිටපත්‌ කිරීම
+ඉවත්‌ කරයි).
+
+Foreign key: Foreign key of a table is a primary key of another table.
+ආගන්තුක යතුර: වගුවක ආගන්තුක යතුර තවත්‌ වගුවක HOG යතුරකි.
+
+Explanation / පැහැදිලි කිරීම:
+
+In relational databases, a primary key and a foreign key are used to maintain relationships between tables.
+සමිබන්ධතා EDM සමුදායන්හි, ප්‍රාටමික යතුරක්‌ සහ ආගන්තුක යතුරක්‌ වගු අතර සමිබන්ධතා පවත්වා ගැනීමට
+භාවිතා කරයි.
+
+Primary Key / ප්‍රාටරමික යතුර
+
+A primary key is a column (or set of columns) in a table that uniquely identifies each record.
+ප්‍රාටමික යතුරක්‌ යනු එක්‌ එක්‌ QHOMO අනන්‍ය ලෙස හඳුනා ගන්නා වගුවක තීරැවකි (හෝ තීරැ කටිටලයකි).
+It cannot be null and must be unique / එය ශුන්‍ය විය නොහැකි අතර ආවේණික විය යුතුය.
+
+Each table has only one primary key / සැම වගුවකටම ඇත්තේ එක්‌ ප්‍රාටමික යතුරක්‌ පමණි.
+
+Foreign Key / ආගන්තුක යතුර
+
+A foreign key is a column in one table that refers to the primary key in another table.
+
+ආගන්තුක යතුරක්‌ යනු තවත්‌ වගුවක HOG යතුර සඳහන්‌ කරන එක්‌ වගුවක HOH.
+
+It is used to create a relationship between two tables.
+
+එය වගු දෙකක්‌ අතර සමිබඛන්ධතාවයක්‌ නිර්මාණය කිරීමට භාවිතා කරයි.
+
+It can have duplicate values and may allow NULLs (unless restricted).
+
+එයට අනුපිටපන්‌ අගයන්‌ තිබිය හැකි අනර හිස්‌ අගයයන්‌ වලට ඉඩ දිය හැකිය (සීමා කර නොමැති HG).
+
+Example / උදාහරණය:
+In a CourseEnrollment table / CourseEnrollment වගුවක:
+EnrollID | StudentID | Course
+E001 1001 CS101
+E002 1002 CS102
+
+Here, StudentID is a foreign key that refers to the primary key in the Student table.
+මෙහි StudentID යනු Student වගුවේ HOG යතුර සඳහන්‌ කරන ආගන්තුක යතුරකි.
+
+(b) Convert the following ER diagram to table structures in a relational database. The attribute capacity
+
+(c)
+
+may have values such as captain, vice captain, member etc.
+පහත පෙන්වා ඇති ER සටහන සමිඛන්ධක දුත්ත සමුදාය වගු ආකෘතිවලට පරිවර්තනය කරන්න. capacity
+උපලක්ෂණය සඳුහා captain, vice captain, member ආදි වගයෙන්‌ වු අගයයන්‌ පැවතිය හැකි ය.
+
+student n
+
+| participate | m sport
+
+1. student(studentId, name)
+
+2. sport(sportId, name)
+
+3. studentSport(studentld, sportId, year, capacity) or / හෝ
+studentSport(studentld, sportld, year, capacity)
+
+Note:
+1. Three table to represent student, sport, and participate.
+student, sport සහ participate නියෝජනය කිරීමට වගු තුනක්‌ පැවතීම.
+
+2. Relating participate relation with other two tables.
+අනෙකුත්‌ වගු දෙක සමඟ සහභාගිත්ව BIVHAMOG සමිබන්ධ කිරීම.
+
+3. Proper attributes in each table with the identified primary key.
+හඳුනාගත්‌ ප්‍රාටමික යතුර සහිත සෑම වගුවකම HS උපලක්ගණ.
+
+Based on the table structures obtained in section 4(b) above answer the following questions.
+ඉහත 4(b) කොටසෙහි දී ලබා ගත්‌ OQ ආකෘතීන්‌ ce ne කර ගෙන පහත සඳුහන්‌ eda සඳුහා පිළිතුරැ
+දෙන්න.
+
+Write an SQL statement to get a list of sports that do not have captains.
+නායකයින්‌ නොමැති HMHOseads ලැයිස්තුවක්‌ ලබා ගැනීමට SOL වගන්තියක්‌ ලියන්න.
+
+SELECT distinct sportId FROM studentSport
+WHERE capacity <> ‘captain’
+
+This query retrieves a list of unique (non-repeating) sportId values from the studentSport table excluding
+the rows where the capacity 15 'captain'. The <> 'captain' condition filters out any student who has the role
+of captain, and DISTINCT ensures that even if multiple students have the same sportlId, 1t only appears
+once in the result.
+
+මෙම විමසුම studentSport වගුවෙන්‌ අනන්‍ය (පුනරාවරිතනය නොවන) sportld අගයන්‌ ලැයිස්තුවක්‌ ලබා ගනි,
+එහිදි capacity 'captain' වේ. <> 'captain' කොන්දේසිය මඟින්‌ නායකයාගේ භූමිකාව ඇති ඕනෑම ගිෂ්‍යයෙකු
+තෝරන අතර, බොහෝ සිසුන්ට එකම sportld තිබුණත්‌ එය ප්‍රතිඵලයේ එක්‌ වරක්‌ පමණක්‌ දිස්වන බව
+DISTINCT සහතික කරයි.
+
+Or / හෝ
+
+SELECT distinct name
+
+FROM studentSport
+
+WHERE capacity <> ‘captain’ AND
+studentSport.sportId = sport.sportId
+
+This query selects the unique names of students from the studentS port table who are not captains (capacity
+<> 'captain') and are associated with a sport where the sportId in studentSport matches a sportld 111 the
+sport table.
+
+මෙම විමසුම studentSport වගුවෙන්‌ නායකයින්‌ නොවන (capacity <> 'captain') සහ studentSport හි sportld
+සමඟ sport වගුවේ sportl™d ගැලපෙන GHOs සමඟ සමිබන්ධ සිසුන්ගේ අනන්‍ය නමි තෝරා ගනී.
+
+Or / හෝ
+
+SELECT distinct name
+
+FROM studentSport
+
+WHERE NOT(capacity = ‘captain’ ) AND
+studentSport.sportId = sport.sportId
+
+This query selects the unique names of students from the studentSport table who are not captains and are
+linked to a valid sport by checking that studentSport.sportId = sport.sportld.
+
+මෙම විමසුම studentSport වගුවෙන්‌ නායකයින්‌ නොවන සහ වලංගු ක්‍රීඩාවකට සමි්ඛන්ධ වී ඇති සිසුන්ගේ
+අනන්‍ය නමි studentSport.sportld = sport.sportlId බව පරික්ෂා කිරීමෙන්‌ තෝරා ගනි.
+
+The NOT(capacity = 'captain') condition excludes all students who are captains.
+NOT(capacity ='captain') කොන්දේසිය නායකයින්‌ වන සියලුම සිසුන්‌ බැහැර කරයි.
+
+(11) Write an SQL statement to obtain a list of students (studentId and name) who participate in any sport
+as a captain.
+නායකයකු ලෙස ඕනෑම ක්‍රීඩාවකට සහභාගි වන ගිෂ්‍යයන්ගේ ලැයිස්තුවක්‌ (studentId and name) EQ) ගැනීමට
+SOL වගන්තියක්‌ ලියන්න.
+
+SELECT student.studentId, student.name FROM student, studentSport
+WHERE student.studentId = studentSport.studentId AND
+studentSport.capacity = ‘captain’
+
+This query retrieves ID and name of students who are captains from two tables: student and studentSport.
+මෙම විමසුම student සහ studentSport යන OQ දෙකකින්‌ නායකයින්‌ වන සිසුන්ගේ හැඳුනුමිපත සහ නම
+ලබා ගනී.
+
+It performs an implicit join by matching rows where student.studentId = studentSport.studentld, and then
+filters to include only those rows where the student's role (capacity) is ‘captain’.
+
+එය student.studentld = studentSport.studentlId යන පේළි ගැලපීමෙන්‌ සමිඛන්ධ කිරීමක්‌ Be කරයි, ඉන්පසු
+ගිෂ්‍යයාගේ භූමිකාව (capacity) 'captain'Oa පේළි පමණක්‌ ඇතුළත්‌ කිරීමට තෝරයි.
+
+So, the result shows the IDs and names of all students who hold the captain position in any sport.
+එබැවින්‌, QHOEG ඕනෑම ක්‍රීඩාවක නායක තනතුර com සියලුම සිසුන්ගේ හැඳුනුමිපත්‌ සහ නමි පෙන්වයි.
+
+( 2013 S.ESSAY - 04 )
+
+2. Draw an Entity Relationship (ER) diagram to represent the scenario given below. The attributes and
+the primary keys of entities should be clearly indicated. State if any assumptions that you make
+clearly.
+පහත සංසිද්ධිය නිරෑපණය කිරීමට භතාර්ට සමිබඛන්ධික ER සටහනක්‌ අඳින්න. භූතාට්ට (entity) වල උප
+ලක්ෂණ (attributes) සහ ප්‍රාට්මික යතුරැ (primary keys) පැහැදිලිව දක්වන්න. ඔබගේ උපකල්පන ඇත්නමි,
+පැහැදිලිව ලියා දක්වන්න.
+
+ABC cab Service Company does not own any car. Private car owners can register with the company
+and also rent their cars. Some car owners provide more than one car to the company. The company
+hires drivers for these cars. Any car available for rent can be driven by different drivers on different
+days. Car owners are responsible for maintenance of their cars in order to provide a reliable service
+to the customers, After completing each hire, the driver informs his current location to the company.
+When a customer requests a car, the company looks for the availability of a car in the vicinity of the
+calling area. If a car is available, company assigns that to the customer and informs both customer
+and the driver. The company tries its best to assign the nearest available car to the customer to make
+its services more efficient. The company keeps customer information such as name, address and the
+contact telephone number to provide a better service to their regular customers. The customers can
+also inform to the company whether they are happy with the services provided by the driver. This
+information is used when assigning drivers to the customers. Each car owner, car, driver and the
+customer are given "ownerld", "card", "driverlId", and the "custId" respectively to identify them
+uniquely. / ABC කැබි සේවා සමාගම සතුව එකදු md රටයක්වත්‌ නොමැත. පෞද්ගලික කාර්‌ රට හිමියන්ට
+මෙම සමාගම හා ලියාපදිංචි විය හැකි අතර ඔවුන්ගේ කාරි රථ කුලියට දිමට දු හැකිය. සමහර රට හිමියන්‌
+එක රටයකට වඩා සමාගමට ලබා oc. සමාගම විසින්‌ මෙම කාර්‌ රට සඳුහා ථටියදුරන්‌ කුලි පදනම මත බඳුවා
+ගනු ලබන අතර මෙම mb රට විවිධ දිනවල දී විවිධ රියදුරන්‌ විසින්‌ පැදුවිය හැකිය. පාරිභෝගිකයන්ට
+විග්වාසවන්ත සේවාවක්‌ ලබා EO HCH) වාහන නඩත්තු කිරීම රට හිමියන්ගේ වගකීමකි. සෑම කුලි ගමනක ම
+අවසානයේ දී රියදුරා විසින්‌ තමා ඉන්නා ස්ටානය මෙම සමාගමට දන්වයි. පාරිභෝගිකයකු mb රටයක්‌ ඉල්ලා
+සිටි විටක දි සමාගම විසින්‌ පාරිභෝගිකයා කටා කළ Ome සමිපයේ ඇති කාර්‌ රට පිළිබඳව සොයා බලයි.
+කාර්‌ රටයක්‌ පවතින්නේ නමි, එය පාරිභෝගිකයාට අනුයුක්ත කර, ඒ බව පාරිභෝගිකයාට හා mb dded
+රියදුරු යන දෙපළට ම දන්වනු ලබයි. තම සේවාව වඩා කාර්යක්ෂමව ලබා EO සඳුහා පාරිභෝගිකයාට
+සමිපතම ස්ථානයේ ඇති කාර්‌ රටයට ඔහුව අනුයුක්ත කිරීම සඳහා සමාගමට හැකි උපරිම උත්සාහය ගනු
+ලබයි. මෙම සමාගම ඔවුන්ගේ සේවය නිරන්තරයෙන්‌ ලබා ගන්නා මගීනට වඩා හොඳු සේවයක්‌ ලබා දිම සඳුහා
+නම, ලිපිනය හා දුරකටන අංකය වැනි පාරිභෝගික තොරතුරැ ආයතනය සතුව තබා ගනී. පාරිභෝගිකයාට ද
+ටියදුරැ විසින්‌ ලබා දුන්‌ සේවය සමිබන්ධව තමන්‌ සතුටු වන්නේ දූ යන වග ආයතනයට දැන්විය හැකිය.
+පාරිභෝගිකයින්ට රියදුරන්‌ අනුයුක්ත කිරීමේ දි මෙම තොරතුරැ භාවිත කරනු ලැබේ. සෑම කාර්‌ රට හිමිකරැවෙක්‌
+ම, කාර්‌ රටයක්‌ ම, රියදුරෙක්‌ ම හා පාරිභෝගිකයකු ම අනන්‍යව හඳුන්වා දිම සඳහා පිළිවෙළින්‌ "ownerld",
+"carld", "driverlId" හා "ලා5(11" භාවිත කරනු ලැබේ.
+
+Entities and Attributes / භූතාට්ට හා උපලක්‍ක්ෂණ
+
+. Car Owner
+e § Attributes:/ උපලක්ෂණ :
+ownerlD (Primary Key)
+
+e Private individuals who own one or more cars and register them with the company.
+මෝටර්‌ 6O එකක්‌ හෝ කිහිපයක්‌ හිමිකාරිත්වය දරන, JO) සමාගම සමඟ ලියාපදිංචි කරන පුද්ගලික
+පුද්ගලයින්‌.
+
+e Car owners are responsible for maintaining the vehicles they provide.
+ඔවුන්‌ සපයන වාහන නඞත්තු HOO සඳුහා මෝටර්‌ OO හිමියන්‌ වගකිව යුතුය.
+
+. Company
+e No attributes explicitly shown / කිසිදු උපලකක්‍්ෂණයක්‌ පැහැදිලිව පෙන්වා නැත.
+
+e ABC Cab Service Company coordinates car rental, driver hiring, and customer requests.
+ABC කැබි සේවා සමාගම මෝටර්‌ රට කුලියට දිම, රියදුරු ACH) ගැනීම සහ පාරිභෝගික ඉල්ලිමි
+සම්බන්ධීකරණය කරයි.
+
+Note: The company does not own cars, only manages them.
+සටහන: සමාගමට මෝටර්‌ OO නොමැති අතර ඒවා කළමනාකරණය කිරීම පමණි.
+
+Driver
+Attributes:/ උපලක්ෂණ :
+driverID (Primary Key)
+
+Drivers are hired by the company to drive cars owned by registered car owners.
+ලියාපදිංචි මෝටර්‌ රට හිමියන්‌ සතු මෝටර්‌ රට a7e5O HEH) සමාගම විසින්‌ රියදුරන්‌ @COH) ගනු ලැබේ.
+
+They report their location after every hire and may drive different cars.
+ඔවුන්‌ සෑම කුලියට ගැනීමෙන්‌ පසූ ඔවුන්ගේ ස්ථානය Hd) කරන අතර විවිධ මෝටර්‌ රට ධාවනය HE
+හැකිය.
+
+Car
+Attributes:/ උපලක්ෂණ :
+carID (Primary Key)
+
+Cars registered by car owners for renting.
+කුලියට දිම HEM) මෝටර්‌ රට හිමියන්‌ විසින්‌ ලියාපළිංචි කරන ලදු මෝටරි රට.
+
+A single car may be driven by many drivers and assigned to different customers.
+තනි මෝටර්‌ රටයක්‌ chem} SGweds විසින්‌ ධාවනය කළ හැකි අතර විවිධ ගනුදෙනුකරැවන්ට පවරන
+ලැබේ.
+
+Customer
+
+Attributes:/ උපලක්ෂණ :
+
+e custID (Primary Key)
+e name
+
+e address
+
+e contactTP
+
+Customers who request cars from the company.
+සමාගමෙන්‌ මෝටර්‌ CO ඉල්ලා සිටින පාරිභෝගිකයින්‌.
+
+Their data and feedback help the company provide better service and improve driver allocation.
+ඔවුන්ගේ EOD සහ ප්‍රතිපෝෂණ සමාගමට වඩා GMC සේවාවක්‌ සැපයීමට සහ රීයදුරැ වෙන්‌ කිරීම
+වැඩිදියුණු කිරීමට උපකාරී වේ.
+
+Relationships and Cardinalities / සබඳුතා සහ ගණියනාවයන්‌
+
+1)
+
+2)
+
+3)
+
+Register
+Car Owner — Register — Company
+
+e 1: mrelationship/da බහු සමිඛන්ධතාවයකි.
+
+e Many car owners can register with one company./ බොහෝ මෝටරි රට හිමියන්ට එක්‌ සමාගමක
+ලියාපදිංචි විය හැකිය.
+
+Rent
+Car Owner — Rent — Car
+
+e Acar owner may rent out multiple cars to the company.
+
+මෝටර්‌ රට හිමිකරුවෙකුට සමාගමට මෝටර්‌ රට කිහිපයක්‌ කුලියට ළය හැකිය.
+e Each car belongs to exactly one owner.
+
+සැම මෝටර්‌ රටයක්ම හරියටම එක්‌ හිමිකරැවෙකුට අයත්‌ වේ.
+
+Hire
+Company — Hire — Driver
+e 1: mrelationship/da බහු සමිඛන්ධතාවයකි.
+
+e The company hires many drivers / සමාගම බොහෝ රියදුරන්‌ බඳවා ගනී.
+e Adriver is hired by only one company / රියදුරෙකු බඳුවා ගනු ලබන්නේ එක්‌ සමාගමකින්‌ පමණි.
+
+4) Drives
+Driver — Drives — Car
+
+e m-:nrelationship/AQ බහු සමිබන්ධතාවයකි.
+e Drivers can drive multiple cars / ඊයදුරන්ට බොහෝ මෝටර්‌ රට පැදුවිය හැකිය.
+e Cars can be driven by multiple drivers on different days.
+
+විවිධ දිනවල රියදුරන්‌ කිහිප දෙනෙකුට මෝටර්‌ රට ධාවනය කළ හැකිය.
+
+5) Request
+Customer — Request — Car
+
+e m-:nrelationship/AQ බහු සමිබන්ධතාවයකි.
+e Acustomer may request any available car.
+පාරිභෝගිකයෙකුට ලබා ගත හැකි ඕනැම මෝටර්‌ රථයක්‌ ඉල්ලා සිටිය හැක.
+e Each car may be requested by many different customers over time.
+කාලයත්‌ සමඟ එක්‌ එක්‌ මෝටර්‌ රටය විවිධ ගනුදෙනුකරැවන්‌ විසින්‌ ඉල්ලා සිටිය හැක.
+
+Now let's draw the ER diagram for the question
+දැන්‌ අපි ප්‍රශ්නයට අදාල ER රෑප සටහන Gea.
+
+Car Owner Register Company
+]
+! . Hire
+Rent Drives
+m
+n n
+m
+Car Driver
+Request m
+
+C said >
+Customer
+
+contactTP
+
+(2013 ESSAY - 05 )
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2014 DATABASE ESSAY MARKING
+
+1. You are given the following two tables in a relational database.
+සමිබන්ධක EMM සමුදායකට අයත්‌ පහත දැක්වෙන වගු දෙක ඔබට දි ඇතැයි සලකන්න.
+
+house student
+houseID | name studentID | name grade | houseID
+1151 Gamunu STU001 | Ranjith | 13 HS1
+HS2 Tissa STU002 Gopy 12 1151
+1153 Wijaya STU003 | Vipula 12 HS2
+HS4 Parakum STU004 | Hakeem | 11 HS3
+
+(a) The above tables were created by converting the ER diagram given below.
+පහත පෙන්වා ඇති qQmnd සමිඛන්ධක eamoa(ER diagram) පරිවර්තනය කිරීමෙන්‌ ඉහත OQ තනා ඇත.
+
+ඩු studentID Cr» E
+
+house B <> C student
+
+Fill in the following blanks with the suitable labels or necessary information for the A, B, C, D and
+E shown in the ER diagram.
+පහත පෙන්වා ඇති QmdO සමිඛන්ධක odmoa(ER diagram) පරිචර්තනය කිරීමෙන්‌ ඉහත OQ තනා ඇත.
+
+A - name
+B - 1
+C-m
+
+D - name or grade
+E - grade or name
+
+(b) State whether the relationship between the tables student and house, is one-to-one, one-to-many, or
+many-to-many. Justify your answer using suitable data from the above tables.
+student හා house යන වගු දෙක EMO සමිඛන්ධනාවය එක-එක, එක-බහු හෝ බහු-බහු දැයි ප්‍රකාශ කරන්න.
+ඉහත වගුවල ඇති සුදුසු දත්ත භාවින කර ඔබේ පිළිතුර තහවුරැ කරන්න.
+
+One to many / 111: ] / many to one / ඒක - බහු
+
+Note: 1: m no marks
+
+One student belongs to one house (Any row from the student table)
+එක්‌ සිසුවෙකු එක්‌ නිවසකට අයත්‌ වේ (Ges වගුවේ ඕනෑම පේළියක්‌)
+
+One house can have more than one student (First two rows in the student table)
+& නිවසක එක්‌ සිසුවෙකුට වඩා සිටිය හැකිය (Ges වගුවේ SEQ පේළි දෙක)
+
+(c)
+
+Explanation / පැහැදිලි කිරීම:
+
+The relationship between the student and house tables is one-to-many (1:M) where one house can be
+associated with many students, but each student belongs to only one house.
+
+student සහ house OQ අතර සමිබන්ධතාවය ඒක - AWM වේ, එහිදි එක්‌ නිවසක්‌ බොහෝ සිසුන්‌ සමඟ
+සම්බන්ධ කළ හැකිය, නමුත්‌ සැම සිසුවෙකුම අයත්‌ වන්නේ එක්‌ නිවසකට පමණි.
+
+From the student table / student වගුවෙන්‌.
+
+e Both 5 ] (001 (Rajith) and STU002 (Gopy) are linked to houseID = 115 1. showing that multiple
+students can belong to the same house. / STU001 සහ STU002 යන දෙකම houseID = HS1 1] සමඟ
+සමිබන්ධ කර ඇති අතර, එය බහු සිසුන්‌ එකම නිවසකට අයත්‌ විය හැකි බව පෙන්වයි.
+
+e Each student has only one houseID, showing that each student is assigned to one and only one house.
+සැම සිසුවෙකුටම ඇත්තේ houselD, එකක්‌ පමණි, සෑම සිසුවෙකුම එක්‌ නිවසකට පමණක්‌ පවරා ඇති බව
+පෙන්වයි.
+
+Therefore, the relationship between student and house is one-to-many (m:1), because each house can
+have many students, but each student belongs to exactly one house.
+
+එබැවින්‌, ගිෂ්‍යයා සහ නිවස අතර සමිඛන්ධතාවය one-to-many (m:1) වේ, මක්නිසාද යත්‌ සැම නිවසකටම
+බොහෝ සිසුන්‌ සිටිය හැකි නමුත්‌ සෑම සිසුවෙකුම හරියටම එක්‌ නිවසකට පමණක්‌ අයත්‌ වේ.
+
+Write the output of the following SQL statements based on the above tables, if any, otherwise state
+the error. / ඉහත OQ මත පදනමි ව පහත දක්වා ඇති ව්‍යුහගත විමසුමි භාෂා (SQL) වගන්තිවල ප්‍රතිදානයන්‌
+පවතින්නේ නමි ලියා දක්වන්න. නොවසේ නමි දෝෂය ප්‍රකාග කරන්න.
+
+(1) select * from student where houseID = 'HS3'
+
+studentID | name grade | houseID
+STU004 Hakeem | 11 HS3
+
+SELECT * means "select all columns" from the table.
+SELECT * යන්නෙන්‌ අදහස්‌ කරන්නේ වගුවෙන්‌ "සියලු තීරු තෝරන්න" යන්නයි.
+
+FROM student means the table you're selecting data from; the table named student.
+FROM student යන්නෙන්‌ අදහස්‌ කරන්නේ ඔබ දුන්ත තෝරා ගන්නා වගුවයි, එනමි student ලෙස නමි කර
+ඇති වගුවයි.
+
+WHERE housed = 'HS3' is a condition. It tells the database to only return the rows where the value in
+the houseID column 15 'HS3'. / WHERE housed = 'HS3' යනු කොන්දේසියකි. එය houseID තීරැවේ අගය
+'HS3' වන පේළි පමණක්‌ ආපසු ලබා දෙන ලෙස දත්ත සමුදායට කියයි.
+
+(11) select studentID, houseID, name from student, house
+
+Error / දෝෂ සහිතයි
+Attribute name and houseID (one is enough) appear in both tables.
+name සහ houselID උපලක්ෂණ OF දෙකෙහිම දිස්වේ. (එකක්‌ ප්‍රමාණවත්‌ වේ.)
+
+Explanation / පැහැදිලි කිරීම:
+This error occurs because / මෙම දෝෂය ඇති වන්නේ.
+
+e Both tables (student and house) contain a column called name.
+
+OQ දෙකෙහිම (student and house) name ලෙස හැඳින්වෙන තරැවක්‌ අඩංගු වේ.
+
+e The query does not specify whether name refers to student .name or house.name.
+විමසුමේ name, student.name හෝ house.name යන්න සඳුහන්‌ කරන්නේද යන්න නිශ්චිතව දක්වා
+නැත.
+
+( 2014 S.ESSAY - 03 )
+
+2. Draw an Entity Relationship (ER) diagram to represent the scenario given below. In your diagram
+the attributes and primary keys should be clearly indicated. Clearly state your assumptions, if any.
+පහත පෙන්වා ඇති සංසිද්ධිය නිරැපණය කිරීමට භූතාඊර්ට සමිඛන්ධතා (ER) රැපසටහනක්‌ අඳින්න. ඔබගේ
+රැපසටහනේ උපලක්ෂණ (attributes) හා ප්‍රාටමික යතුරැ (primary keys) පැහැදිලි ව දැක්විය යුතු ය. ඔබගේ
+උපකල්පන වෙතොත්‌ පැහැදිලි ව ප්‍රකාග කරන්න.
+
+The EST University has three faculties: Education, Science, and Information Technology. Each
+faculty can offer one or more degree programs. The Faculty of Education and the Faculty of Science
+offer Bachelor of Education and Bachelor of Science degree programs respectively. However, the
+Faculty of Information Technology offers two degree programs: Bachelor of Science in Information
+Technology and Bachelor of Science in Software. Engineering. At the time of the registration,
+students should pay the full degree program fee which may differ from one degree program to
+another. A student can enroll in only one degree program at a time. A degree program has two types
+of course units: compulsory and optional. A course unit can be available in more than one degree
+program. EST university has many lecturers. A lecturer can be assigned to one or more course units.
+A course unit can be assigned to one or more lecturers. Number of hours allocated for a course unit
+is distributed among the assigned lecturers when more than one lecturer is assigned to a course unit.
+Each faculty, degree program, course unit, lecturer, and student are uniquely identified by
+‘facultyID’, ‘degreeID’, ‘courseID’, ‘lecturerID’ and ‘studentID’ respectively.
+
+EST නම්‌ වු විශ්ව විද්‍යාලයට SD තුනක්‌ පවතී. ඒවා අධ්‍යාපන, විද්‍යාව හා නොරතුරැ තාක්ෂණ නමි වේ. එක්‌
+එක්‌ BOGO උපාධි පාධමාලා එකක්‌ හෝ වැඩි ගණනක්‌ ලබාදිය හැකි වේ. අධ්‍යාපන පිධය හා විද්‍යා B00
+මගින්‌ අධ්‍යාපනවේදි හා විදු්‍යාවේදි උපාධි පාධමාලා පිළිවෙළින්‌ පවත්වනු ලැබේ. කෙසේ වෙතත්‌ තොරතුරැ
+තාක්ෂණ පිධය තොරතුරැ නාක්ෂණවේදය පිළිබඳු විද්‍යාවේදි උපාධිය හා මෘදුකාංග ඉංජිනේරැ විද්‍යාව පිළිබඳු
+විද්‍යාවේදි උපාධිය යන උපාධි පාධමාලා දෙකක්‌ පවත්වනු ලබයි. සමිපුර්ණ උපාධි පාධමාලා ගාස්තුව සිසුන්‌
+විසින්‌ ලියාපදළිංචිය ලබා ගන්නා අවස්ටාවේ දී ගෙවිය යුතු වන අතර එම ගාස්තු උපාධි පාධමාලාවෙන්‌
+පාධමාලාවට වෙනස්‌ විය හැක. එක්‌ සිසුවකුට එක්‌ අවස්ටාවක දි ඇතුළත්‌ විය හැක්කේ එක්‌ උපාධි පාධමාලාවකට
+පමණකි. උපාධි පාධමාලාචකට ආකාර දෙකක පාධමාලා ඒකක (course units) පවතින අතර ඒවා අනිවාටය හා
+විකල්ප පාධමාලා ඒකක වේ. එක්‌ පාධමාලා ඒකකයක්‌ උපාධි පාධමාලා ගණනක්‌ නුළ පැවතිය හැකි ය. EST
+විග්වවිද්‍යපාලයේ කටිකාචාර්යවරු බොහෝ දෙනෙක්‌ සිටිති. කටිකාචාර්යවරයකුට එක්‌ පාධමාලා ඒකකයක්‌ හෝ
+වැඩි ගණනක්‌ පැවරිය හැකි ය. තව ද එක්‌ පාධමාලා ඒකකයක්‌ එක්‌ කථටිකාචාර්යවරයෙකුට හෝ වැඩි දෙනෙකුට
+පැවරිය හැකි ය. එක්‌ පාධමාලා ඒකකයක්‌ කථිකාචාර්යවරැ කිහිප දෙනෙකු අතර පවරා ඇති විට පාධමාලා
+ඒකකයකට අදාළ පැය ගණන පවරා ඇති කටිකාචාරයවරු අතර බෙදුනු ලැබේ. ‘facultyID’, ‘degreeID’,
+‘courseID’, ‘lecturerID’ සහ ‘studentID’ මගින්‌ පිළිවෙළින්‌ එක්‌ එක්‌ GOS, උපාධි පාධමාලාව, පාධමාලා
+ඒකකය, කටිකාචාරියවරයා සහ සිසුවා අනන්‍යව හඳුන්වනු ලැබේ.
+
+Entities and Attributes / භූතාට්ට හා උපලක්ෂණ
+
+. Faculty
+e § Attributes:/ උපලක්ෂණ :
+
+e facultyID (Primary Key)
+e FacultyName
+
+e A faculty can offer one or more degree programs.
+පීධයකට උපාධි වැඩසටහන්‌ එකක්‌ හෝ කිහිපයක්‌ ඉදිරිපත්‌ කළ හැකිය.
+
+e Example faculties: Education, Science, IT
+
+. DegreeProgram
+e Attributes:/ උපලක්ෂණ :
+
+e degreeID (Primary Key)
+e DegreeName
+e ProgramFee
+
+e Each degree program belongs to one faculty
+සෑම උපාධි වැඩසටහනක්ම එක්‌ පිධයකට අයත්‌ වේ.
+
+e Example degree programs:
+e Bachelor of Education
+e Bachelor of Science
+e Bachelor of Science in IT
+e Bachelor of Science in Software Engineering
+
+3. Student
+
+e § Attributes:/ උපලක්ෂණ :
+e studentID (Primary Key)
+
+e A student registers for exactly one degree program.
+ගිෂ්‍යයෙක්‌ හරියටම එක්‌ උපාධි වැඩසටහනක්‌ HEM) ලියාපදිංචි වේ.
+
+e Students pay the full program fee at registration.
+ලියාපදිංචි SESE සිසුන්‌ සමිපුර්ණ වැඩසටහන්‌ ගාස්තුව ගෙවයි.
+
+4. CourseUnit
+
+e § Attributes:/ උපලක්ෂණ :
+e courselID (Primary Key)
+e NumberOfHours
+
+5. Lecturer
+
+e § Attributes:/ උපලක්ෂණ :
+e lecturerID (Primary Key)
+
+e A lecturer can be assigned to multiple course units.
+කටිකාචාර්යවරයෙකුට SHADE) ඒකක කිහිපයක්‌ සඳුහා අනියුක්ත කළ හැකිය.
+
+Relationships and Cardinalities / සබඳුනා ගණියනාවයන්‌
+
+1) Faculty — Has — DegreeProgram
+e 1: mrelationship/da බහු සමිබන්ධතාවයකි.
+e One faculty can have many degree programs
+එක්‌ පධයකට උපාධි වැඩසටහන්‌ කිහිපයක්‌ තිබිය හැකිය.
+e Each degree program belongs to exactly one faculty
+සෑම උපාධි වැඩසටහනක්ම හරියටම එක්‌ පධයකට අයත්‌ වේ.
+
+2) DegreeProgram — RegisterWith <— Student
+e 1:mrelationship/ එක QQ සමිබන්ධතාවයකි.
+e Astudent registers with only one degree program
+ගිෂ්‍යයෙකු ලියාපදිංචි වන්නේ එක්‌ උපාධි වැඩසටහනකට පමණි.
+e Each degree program can have many students
+සෑම උපාධි වැඩසටහනකටම බොහෝ සිසුන්‌ සිටිය හැකිය.
+
+3) DegreeProgram — Has — CourseUnit
+e m:nrelationship/@Q බහු සමිබන්ධතාවයකි.
+e Each course unit can be shared across degree programs
+සෑම පාධමාලා එඒකකයක්ම උපාධි වැඩසටහන්‌ හරහා බෙදා ගත හැකිය.
+
+4) Lecturer — AssignedTo — CourseUnit
+e m:nrelationship/(gq බහු සමිඛන්ධතාවයකි.
+e Indicates how many hours a lecturer is assigned to a course unit
+කටිකාචාර්යවරයෙකුට HAODE) වකකයකට පවරා ඇති පැය ගණන දක්වයි.
+e Acourse unit can be taught by multiple lecturers
+පාධමාලා ඒකකයක්‌ කටිකාචාර්යවරැන්‌ කිහිප දෙනෙකු විසින්‌ ඉගැන්විය හැකිය.
+
+Now let's draw the ER diagram for the question
+දැන්‌ අපි ප්‍රශ්නයට අදාල ER රෑප සටහන Gt.
+
+Has EST
+degreeID
+facultyID
+m DegreeProgram
+Faculty
+FacultyName Has
+Type
+
+Student
+
+NumberOfHours
+
+lecturerID
+
+AssingedHours
+
+(2013 ESSAY - 05 )
+
+2015 DATABASE ESSAY MARKING
+
+1.(a) Consider the following Data Definition Language statement to answer the questions b (1) and 0 (11).
+b (i) හා 0 (ii) ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳුහා පහත දක්වා ඇති දූත්ත අර්ථ දැක්වීමේ භාෂා (DDL)
+වගන්තිය සලකා බලන්න:
+
+CREATE TABLE unit (
+instituteCode varchar(10) NOT NULL,
+unitCode varchar(10) NOT NULL,
+unitTitle varchar(50) DEFAULT NULL,
+PRIMARY KEY (instituteCode,unitCode),
+FOREIGN KEY (instituteCode) REFERENCES institute(instituteCode))
+
+(1) What is the primary key of the above table?
+මෙහි සඳහන්‌ වගුවේ HOG යතුර කුමක්‌ ද?
+
+instituteCode + unitCode
+
+Explanation / පැහැදිලි කිරීම:
+The primary key is the combination of instituteCode and unitCode.
+QOGe යතුර යනු instituteCode සහ unitCode OE සංයෝපජනයයි.
+
+The line PRIMARY KEY (instituteCode, unitCode) defines a composite primary key.
+PRIMARY KEY (instituteCode, unitCode) පේළිය සංයුක්ත ප්‍රාටමික යතුරක්‌ qdD esos.
+
+This means that both fields together uniquely identify each record in the unit table.
+මෙයින්‌ අදහස්‌ කරන්නේ ක්ෂේත්‍ර 2© එක්ව unit වගුවේ සෑම වාරතාවක්ම අනන්‍ය ලෙස හඳුනා ගන්නා බවයි.
+
+You cannot have two rows with the same combination of instituteCode and unitCode.
+instituteCode සහ unitCode වල එකම සංයෝජනය සහිත පේළි දෙකක්‌ තිබිය නොහැක.
+
+(ii) What are the integrity constraints used in the above DDL?
+ඉහත DDL හි භාවිත කර ඇති ඒකාබද්ධ සංරෝධක (integrity constraints) මොනවා ද?
+
+NOT NULL,
+PRIMARY KEY,
+FOREIGN KEY
+
+Explanation / පැහැදිලි කිරීම:
+
+An integrity constraint is a rule used in a database to make sure the data is accurate, consistent, and
+reliable.
+
+ඒකාඛද්ධ සමිබාධකයක්‌ යනු දුත්ත නිවැරදි, ස්ටාවර සහ විශ්වාසදායක බව සහතික කිරීම සඳහා evo
+සමුදායක භාවිතා කරන රිීතියකි.
+
+These rules prevent invalid data from being entered into the database and help maintain the correct
+relationships between data in different tables.
+
+මෙම නීති මගින්‌ වලංගු නොවන දත්ත, EMM සමුදායට ate විම වළක්වන අතර විවිධ වගු වල දුත්ත
+අතර නිවැරදි සමිබන්ධතා පවත්වා ගැනීමට උපකාරී වේ.
+
+(b)
+
+(i)
+
+Integrity constraints in the code / කේතයේ ඒකාබද්ධ සමිබාධක;
+NOT NULL:
+
+Applied to instituteCode and unitCode.
+
+instituteCode සහ unitCode සඳහා අදාළ වේ.
+
+Ensures that these two fields must have values (cannot be left empty).
+මෙම ක්ෂේත්‍ර දෙකෙහි අගයන්‌ තිබිය යුතු බව සහතික කරයි (හිස්ව තැබිය නොහැක).
+
+PRIMARY KEY (instituteCode, unitCode):
+Ensures that the combination of instituteCode and unitCode is unique and not null.
+
+instituteCode සහ unitCode සංයෝපනය අද්විතීය බවත්‌ ශුන්‍ය නොවන බවත්‌ සහතික කරයි.
+
+This maintains the entity integrity of the table.
+මෙය වගුවේ භතාඊරත අඛණ්ඩනාව පවත්වා ගනි.
+
+FOREIGN KEY (instituteCode) REFERENCES institute(instituteCode):
+Ensures that the value of instituteCode in the unit table must exist in the institute table.
+unit වගුවේ ඇති instituteCode හි අගය institute වගුවේ පැවතිය යුතු බව සහතික කරයි.
+
+This maintains referential integrity between unit and institute.
+මෙය unit සහ institute අතර යොමු අඛණ්ඩනාව පවත්වා ගනි.
+
+Consider the following table:
+පහත වගුව සලකා බලන්න:
+
+index | name address class
+1022 S.M.G.D. No. 15, Peradeniya Road, Kandy 8B
+Dayasiri
+566 3 M D. . No. 147/7, Katugasthota Road, Kandy | 11 ට
+riyangani
+923 F.D.C. “Sadasir1”, Colombo Road, Mawanella 10
+Jayasingha
+
+What is the cardinality of the above table?
+ඉහත වගුවේ ගණනීියතාව (cardinality) කුමක්‌ ද?
+
+The cardinality is 3 / ගණනියතාවය 38.
+Explanation / පැහැදිලි කිරීම:
+Cardinality means the number of rows (records) in a table.
+
+ගණනීයතාවය යන්නෙන්‌ අදහස්‌ කරන්නේ වගුවක ඇති පේළි ගණන (වාඊතා) ය.
+
+In this case, there are 3 rows (each representing one student).
+මෙම අවස්ටාවේදි, පේළි 3 ක්‌ ඇත (එක්‌ එක්‌ Geese) නියෝපනය කරයි).
+
+So, the cardinality is 3.
+එබැවින්‌, ගණනීයතාවය 3 කි.
+
+(11) What is the degree of the above table?
+
+ඉහත වගුවේ තත්ත්වය (degree) කුමක්‌ ද?
+
+The degree is 4 / තත්වය 46.
+
+Explanation / පැහැදිලි කිරීම:
+Degree means the number of columns (attributes or fields) in a table.
+තත්වය යනු වගුවක ඇති තීර, ගණන (ගුණාංග හෝ sos) ය.
+
+The table has the following 4 columns / වගුවේ පහත තිරැ 4 ඇත:
+
+1. index
+2. name
+3. address
+4. class
+
+So, the degree is 4 / එබැවින්‌, තත්ව 4 කි.
+
+(2014 S.ESSAY - 03 )
+
+2. A pharmacy named “DR Chemists” sells drugs to patients. A patient should produce a prescription
+
+to a pharmacist at the pharmacy to buy drugs. A prescription has one or more drugs prescribed by a
+doctor. A doctor can issue more than one prescription for a patient. However, a prescription is issued
+by one doctor. Pharmacist prepares a bill for each prescription and gives it to the patient. Five (05)
+pharmacists at the pharmacy handle all prescriptions.
+“DR Chemists” නමි ඔසුසල රෝගීන්‌ GEO) බෙහෙත්‌ විකුණනු ලැබේ. බෙහෙත්‌ GE දි ගැනීම සඳහා රෝගියකු
+විසින්‌ බෙහෙත්‌ නුන්ඩුවක්‌ ඔසුසලේ සිටින ඔඹෟෂධවේදියෙකුට ඉදිරිපත්‌ කළ යුතු වේ. වෛද්‍යවරයකු විසින්‌
+නිර්දේශ කරන ලදු බෙහෙත්‌ එකක්‌ හෝ වැඩි ගණනක්‌ තන්ඩඞුවක පවතී. වෛද්‍යවරයකුට එක්‌ රෝගියකු සඳුහා
+එක්‌ බෙහෙත්‌ තුන්ඩුවකට වඩා වැඩි තුන්ඩු සංඛ්‍යාවක්‌ ලබා දිය හැකි වන නමුත්‌ එක්‌ බෙහෙත්‌ තුන්ඩුවක්‌ එක්‌
+වෛද්‍යවරයකු චිසින්‌ පමණක්‌ නිකුත්‌ කළ යුතු. ය. එක්‌ බෙහෙත්‌ තුන්ඩුවක්‌ සඳහා බිල ඹෟෂධවේදියා විසින්‌ සකස්‌
+කරන අතර එය රෝගියා වෙත ලබා දේ. සියලු බෙහෙත්‌ තුන්ඩු ඔසු සලේ සිටින ඹෟෂධවේදීන්‌ පස්දෙනකු (05)
+මගින්‌ හසුරැවන ලබයි.
+
+A pharmacist handles more than one prescription while one prescription is handled only by one
+pharmacist. The upper part of the prescription contains the patient information such as name, age,
+address and telephone number. The middle part of the prescription consists of one or more drug
+names, quantities to be issued and the dosages. At the bottom part name, address and telephone
+number of the hospital and the name of the doctor are available.
+
+ඕනෑම ඔෟෂධවේදියකු එක්‌ බෙහෙත්‌ තුන්ඩුවකට වඩා හසූරැවන ලබන අතර එක්‌ බෙහෙත්‌ තුන්ඩුවක්‌ හැසිර
+විය යුත්තේ එක්‌ ඹෟෂධවේදියකු මගින්‌ පමණකි. බෙහෙත්‌ තුන්ඩුවක මුල්‌ කොටසෙහි රෝගියායේ විස්තර ලෙස
+නම, වයස, ලිපිනය සහ දුරකටන අංකය සඳුහන්‌ වේ. බෙහෙත්‌ තුන්ඩුවේ මැද කොටස සමනවිත වන්නේ
+බෙහෙත්‌ OOM එකක්‌ හෝ වැඩි සංඛ්‍යාවක නමි, ලබා දිය යුතු බෙහෙත්‌ ප්‍රමාණ සහ මාත්‍රාවයි. අවසන්‌ කොටසේ
+සඳහන්‌ වන්නේ ආරෝග්‍ය ගාලාවෙහි නම, ලිපිනය, දුරඟඝටන අංකය සහ වෛද්‍යවරයාගේ නමයි.
+
+The owner of the pharmacy wants to keep the necessary information to prepare the following list of
+reports. / ඔසුසලෙසහි අයිතිකරැට පහත ලැයිස්තුවේ සඳුහන්‌ වාරතා පිළියෙල කිරීම සඳහා අවශ්‍ය තොරතුරැ තබා
+ගැනීමට අවශ්‍ය ව ඇත.
+
+1. Number of prescriptions handled by each pharmacist.
+එක්‌ එක්‌ ඔඹෟෂධවේදියා විසින්‌ හසුරුැවනු ලබන බෙහෙත්‌ MH සංඛ්‍යාව
+
+2. Number of prescriptions issued by each doctor.
+එක්‌ එක්‌ වෛද්‍යවරයා චිසින්‌ නිකුත්‌ කරන ලදු බෙහෙත්‌ Ma සංඛ්‍යාව
+
+3. List of information about doctors, their hospitals and drugs prescribed by them.
+වෛද්‍යවරැන්‌, ඔවුන්ගේ ආරෝග්‍ය ME) හා ඔවුන්‌ නිටරදේශ කරන ලදු බෙහෙත්වල තොරතුරැ
+
+4. List of daily cash collection of the pharmacy.
+ඔසුසලෙහි දෛනික Gee එකතුව
+
+Prepare an ER diagram to model the data required to produce the above reports. State clearly all
+your assumptions, if any.
+
+ඉහත වාර්තා පිළියෙල කිරීම සඳහා අවශ්‍ය වන eso ආකෘතිකරණය කිරීම සඳුහා ER රැප සටහනක්‌
+අඳින්න. ඔබගේ උපකල්පන ඇත්නමි පැහැදිලි ව සඳහන්‌ කරන්න.
+
+Entities and Attributes / භූතාට්ට හා උපලක්ෂණ
+
+. Pharmacist
+e § Attributes:/ උපලක්ෂණ :
+e None shown explicitly./ කිසිවක්‌ a7zavE GO පෙන්වා නැත.
+
+e Relationships / සබඳුතා:
+e Prepare — A pharmacist prepares a bill/ ඔෟපෂධවේදියෙක්‌ බිල්පතක්‌ සකස්‌ කරයි.
+
+e Produce — A pharmacist produces (handles) prescriptions
+ඔෟෂධවේදියෙක්‌ බෙහෙත්‌ වටිටෝරැ නිෂ්පාදනය කරයි (හසුරැවයි).
+
+e Each pharmacist can handle many prescriptions.
+සෑම ඔෟෂධවේදියෙකුටම බොහෝ බෙහෙත්‌ වටිටෝරැ හැසිරවිය හැකිය.
+
+. Patient
+e Attributes:/ උපලක්ෂණ :
+e None shown explicitly./ කිසිවක්‌ a7zavE GO පෙන්වා නැත.
+
+e Relationship:/ සබඳතා:
+e Produce — A patient produces a prescription./ රෝගියෙක්‌ බෙහෙත්‌ වටිටෝරැවක්‌ සාදයි.
+
+e Prepare — The pharmacist prepares a bill for the patient's prescription.
+ඔඹෟෂධවේදියා රෝගියාගේ බෙහෙත්‌ වටිටෝරැව සඳහා බිල්පනක්‌ සකස්‌ කරයි.
+
+e Each patient can have many prescriptions.
+සැම රෝගියෙකුටම බොහෝ බෙහෙන්‌ වටිටෝරැ තිබිය හැකිය.
+
+3. Prescription
+
+e § Attributes:/ උපලක්ෂණ :
+e None shown explicitly./ කිසිවක්‌ a7zavE GO පෙන්වා නැත.
+e Acentral entity in this model./ මෙම ආකෘතියේ කේන්ද්‍රීය භතාරටයයි.
+
+e Relationship:/ සබඳතා:
+e Connected to: Patient, Pharmacist, Doctor, Drug, Bill.
+සමිබන්ධිත: Patient, Pharmacist, Doctor, Drug, Bill.
+e Can include many drugs (n:1 relationship with Drug).
+බොහෝ QQ ඇතුළත්‌ විය හැකිය (n:1 ඔඹෘෂධ සමඟ සම්ිඛන්ධතාවය).
+16 linked to one doctor (via Prescribe) / එක්‌ වෛද්‍යවරයෙකුට සමිඛන්ධ කර ඇත.
+e Associated with one hospital (via has) / එක්‌ රෝහලක්‌ සමඟ සමිඛන්ධ වි ඇත.
+e Used to prepare a bill / බිල්පතක්‌ සකස්‌ කිරීමට භාවිතා කරයි.
+
+4. Doctor
+
+e § Attributes:/ උපලක්ෂණ :
+e DName (Doctor Name).
+
+e Relationship:/ සබඳතා:
+
+e Prescribe— A doctor prescribes a prescription
+වෛද්‍යවරයෙක්‌ බෙහෙත්‌ වටිටෝරැවක්‌ නියම කරයි.
+
+e One doctor can prescribe many prescriptions.
+එක්‌ වෛද්‍යවරයෙකුට බොහෝ බෙහෙත්‌ වටිටෝරැ නියම කළ හැකිය.
+
+5. Hospital
+
+e § Attributes:/ උපලක්ෂණ :
+e HName, Address, ContactNo.
+
+e Relationship:/ සබඳතා:
+
+e Has — A hospital is associated with a prescription (through the doctor).
+රෝහලක්‌ බෙහෙත්‌ වටිටෝරැවක්‌ සමඟ සමිඛන්ධ වේ (වෛද්‍යවරයා හරහා).
+
+e One hospital can be linked to many prescriptions (via doctors).
+එක්‌ රෝහලක්‌ බොහෝ බෙහෙත්‌ වටිටෝරැ වලට (වෛද්‍යවරැන්‌ හරහා) සමිබන්ධ කළ හැක.
+
+6. Drug
+
+e § Attributes:/ උපලක්ෂණ :
+e None shown explicitly / කිසිවක්‌ පැහැදිලිව පෙන්වා නැත.
+
+e Relationship:/ සබඳතා:
+e Has — A prescription has many drugs / බෙහෙත්‌ වට්ටෝරැවක බොහෝ ඹෟෂධ Hed.
+
+7. Bill
+
+e § Attributes:/ උපලක්ෂණ :
+e None shown explicitly / කිසිවක්‌ පැහැදිලිව පෙන්වා නැත.
+
+e Relationship:/ සබඳතා:
+
+e Prepare—A pharmacist prepares a bill for each prescription.
+ඔෟෂධවේදියෙක්‌ සැම බෙහෙත්‌ වටිටෝරැවක්‌ HEMO බිල්පතක්‌ සකස්‌ කරයි.
+
+Now let's draw the ER diagram for the question.
+ඳැන්‌ අපි ප්‍රශ්නයට අදාල ER රෑප සටහන Gea.
+
+Pharmacist Prepare Bill
+
+Produce Patient
+
+— n 1
+ContactNo) Prescription Drug
+Hospital <> Doctor
+
+රෘ Caddies > name
+
+(2013 ESSAY - 05 )
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2014 DATABASE ESSAY MARKING
+
+1. An education institute maintains a timetable to manage its lectures, practical classes and seminars.
+The timetable consists of two hour time periods: 8.00 a.m. - 10.00 a.m., 10.00 a.m. - 12.00 noon, 1.00
+p.m. - 3.00 p.m. and 3.00 p.m. - 5.00 p.m. Lectures, practical classes and seminars are assigned to
+one or more time periods. A lecture is assigned to a lecturer and a practical class is conducted by a
+group of demonstrators. At least two lecturers are responsible for a seminar.
+අධ්‍යාපනික ආයතනයක්‌ එහි දේගන, ප්‍රායෝගික පංති හා සම්මන්ත්‍රණ හැසිර විම සඳහා කාලසටහනක්‌ පවත්වා
+ගෙන යයි. කාල සටහන පෙ.ව. 08.00 සිට පෙ.ව. 10.00, පෙ.ව. 10.00 සිට මධ්‍යහ්න 12.00, ප.ව. 01.00 සිට ප.ව.
+
+03.00, සහ ප.ව. 03.00 සිට ප.ව. 05.00 ලෙස පැය දෙකෙහි කාල පරීචිජේදවලින්‌ යුක්ත වේ. දේගන,
+ප්‍රායෝගික පංති සහ සම්මන්ත්‍රණ කාලපරිවිජේද එකක්‌ හෝ වැඩි ගණනකට අනුයුක්ත කොට ඇත. දේශනයක්‌
+දේශකවරයකුට පවරා ඇති අනර ප්‍රායෝගික පංති ප්‍රදර්ශකවරැන්‌ සමුහයක්‌ විසින්‌ පවත්වනු ලබයි.
+
+සමිමන්ත්‍රණයක වගකීම අවම වශයෙන්‌ දේශකවරැන්‌ දෙදෙනකුට පැවරේ.
+
+Draw an Entity Relationship (ER) diagram for the above system. State all your assumptions clearly.
+ඉහත පද්ධතිය HEH) HMOD සමිඛන්ධතා (ER-Entity Relationship) රෑප සටහනක්‌ අඳින්න. ඔබගේ
+උපකල්පන පැහැදිලි ව ලියා දක්වන්න.
+
+Entities and Attributes:
+භූතාට්ට හා උපලක්ෂණ
+
+1. EducationInstitute
+
+e Attributes / උපලක්ෂණ:
+No specific attributes are shown directly in the diagram.
+මෙහි සෘපුවම පෙන්වා ඇති උපලක්ෂණ කිසිවක්‌ නැත.
+
+e Relationships / සබඳුතා:
+Maintains timetable
+කාලසටහන පවත්වාගෙන යයි.
+
+2, TimeTable
+
+e Attributes / උපලක්ෂණ:
+e Period
+
+e Relationship / සබඳුතා:
+e assigns Lecture/ දේශනය පැවරීම
+e assign Seminar/ සමිමන්ත්‍රණය පැවරීම
+e assigns Practical/ ප්‍රායෝගික පැවරීම
+
+3. Lecture
+
+e § Attributes:/ උපලක්ෂණ :
+None shown explicitly./ කිසිවක්‌ පැහැදිලිව පෙන්වා නැත.
+
+e Relationship:/ සබඳතා:
+Assigned to ] Lecturer / එක්‌ කටිකාචාර්යවරයෙකුාට පවරා ඇත
+
+Seminar
+
+Attributes:/ උපලක්ෂණ:;
+None shown explicitly. / කිසිවක්‌ පැහැදිලිව පෙන්වා නැත.
+
+Relationship:/ සබඳතා;
+Assigned to many Lecturers / බොහෝ කටිකාචාර්යවරැන්ට පවරා ඇත
+
+Practical
+
+Attributes:/ උපලක්ෂණ:;
+None shown explicitly./ කිසිවක්‌ පැහැදිලිව පෙන්වා නැත.
+
+Relationship:/ සබඳතා;
+Assigned to many Demonstrators / බොහෝ නිරෑැපකයින්ට පවරා ඇත
+
+Lecturer
+
+Attributes / උපලක්ෂණ:
+None shown explicitly./ කිසිවක්‌ පැහැදිලිව පෙන්වා නැත.
+
+Demonstrator
+
+Attributes:/ උපලක්ෂණ:;
+None shown explicitly./ කිසිවක්‌ පැහැදිලිව පෙන්වා නැත.
+
+Relationships and Cardinality:
+සම්බන්ධතාවයන්‌ සහ ගණියතනාවය:
+
+Education Institute maintains TimeTable / අධ්‍යාපන ආයතනය කාලසටහනක්‌ පවත්වාගෙන යයි
+
+e One institute maintains many timetables (1:N)
+එක්‌ ආයතනයක්‌ බොහෝ කාලසටහන්‌ පවත්වාගෙන යයි (1:N)
+
+TimeTable is assigned to / කාලසටහන පවරා ඇත්තේ:
+
+e Many Lectures / බොහෝ දේශන
+e Many seminars / 6Qeo} සම්මන්ත්‍රණ
+e Many practicals / බොහෝ ප්‍රායෝගික ක්‍රියාකාරකමි
+
+Cardinality: N for each
+Lecture 15 assigned to 1 Lecturer / දේශනය කටිකාචාර්යවරැන්‌ එක්‌ අයෙකුට පවරා ඇත.
+
+e 1:1 relationship
+
+Practical is assigned to many Demonstrators / ප්‍රායෝගික කටයුතු බොහෝ නිරැපකයින්ට පවරා ඇත.
+
+e M:N relationship
+
+Summary:
+
+This ER diagram represents a system used by an education institute to manage its timetable.
+මෙම ER රෑප සටහන අධ්‍යාපන ආයතනයක්‌ විසින්‌ OS කාලසටහන කළමනාකරණය කිරීම oem) භාවිතා කරන
+පද්ධතියක්‌ නියෝපනය කරයි.
+
+The education institute maintains a timetable.
+අධ්‍යාපන ආයතනය කාලසටහනක්‌ පවත්වාගෙන යයි.
+
+The timetable includes lectures, seminars, and practical classes.
+කාලසටහනට දේගන, සමිමන්ත්‍රණ සහ ප්‍රායෝගික පන්ති ඇතුළත්‌ වේ.
+
+Each lecture is conducted by exactly one lecturer.
+
+සැම දේශනයක්ම හරියටම එක්‌ කථිකාචාර්යවරයෙකු විසින්‌ පවත්වනු ලැබේ.
+
+Each seminar is handled by two or more lecturers.
+සෑම සම්මන්ත්‍රණයක්ම කටථිකාචාරයවරැන්‌ දෙදෙනෙකු හෝ වැඩි ගණනක්‌ විසින්‌ මෙහෙයවනු ලැබේ.
+
+Each practical class is conducted by a group of demonstrators (i.e., multiple demonstrators).
+
+සෑම ප්‍රායෝගික පන්තියක්ම පවත්වනු ලබන්නේ නිරෑපකයින්‌ කණ්ඩායමක්‌ විසිනි (එනමි, බහු නිරෑපකයින්‌).
+
+Now let's draw the ER diagram for the question.
+දැන්‌ අපි ප්‍රශ්නයට අදාල ER රෑප සටහන අදිමු.
+
+educationenstitute
+
+period
+timetable
+n n
+n
+assign assign assign
+lecture seminar practical
+assign assign assign
+n n
+]
+lecturer demonstrator
+
+(2013 ESSAY - 05 )
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2017 DATABASE ESSAY MARKING
+
+1.(a) The following SQL statement has been used to create a table in a database.
+Eom සමුදායක්‌ ne පහන දී ඇති SOL වගන්තිය භාවිත කර වගුවක්‌ නිර්මාණය කර ඇත.
+
+create table student(
+student_no char(5),
+
+name char(3@),
+
+address char(10@),
+primary key (student_no)
+
+)
+
+(1) Write a query in SQL to add the following data to the student table.
+පහත දූත්තය student OQOO ඇතුළත්‌ කිරීමට SQL විමසුමක්‌ (query) ලියන්න.
+
+Student number — 10001
+Name -- Saman Kumara
+Address — 78, Mahara road, Maharagama
+
+INSERT into student (student_no, name, address)
+values ('10001', 'Saman Kumara’, ' 78, Mahara road, Maharagama' ) ;
+
+Or / හෝ
+
+INSERT into student
+values ('10001', 'Saman Kumara’, ' 78, Mahara road, Maharagama' ) ;
+
+Explanation / පැහැදිලි කිරීම
+
+The INSERT INTO statement is used to add a new row. Column names are specified (student_no, name,
+address) to clarify the data mapping. Text values are enclosed in single quotes.
+
+නව පේළියක්‌ ඵක්‌ කිරීමට INSERT INTO ළ්‍රකාගය භාවිතා කරයි. ein සිතියමිගන කිරීම පැහැදිලි කිරීම
+සඳුහා තීරැ නාම (5110211110. name, address) දුක්වා ඇත. පාධ අගයන්‌ තනි උද්ධෘතවලට මැදි කර ඇත.
+
+(11) If the address of the student entered in the (1) above should be changed to 13, School Lane, Jaffna,
+write a query in SQL to update the relevant record in the student table.
+ඉහත (1) හි ඇතුළත්‌ කළ ගිෂ්‍යයාගේ ලිපිනය 13, School Lane, Jaffna ලෙස වෙනස්‌ විය යුතු නමි, student
+වගුවෙහි ඇති අදාළ උපලැකිය (record) යාවත්කාල කිරීමට SQL විමසුමක්‌ ලියන්න.
+
+UPDATE student
+SET address = '13, School Lane, Jaffna’
+WHERE student_no = '10@01';
+
+Or / හෝ
+UPDATE student
+
+SET address = '13, School Lane, Jaffna’
+WHERE student_no like ' 10601' ;
+
+Or / හෝ
+
+UPDATE student
+SET address = '13, School Lane, Jaffna’
+WHERE student_no like '10001%' ;
+
+Or / හෝ
+
+Assumption: Only one student record in the database.
+උපකල්පනය: දත්ත සමුදායේ ඇත්තේ එක්‌ Ges වාර්තාවක්‌ පමණි.
+
+UPDATE student
+SET address = '13, School Lane, Jaffna’
+
+Explanation / පැහැදිලි කිරීම
+
+UPDATE student indicates that we're modifying the student table. SET address ~~ '...' specifies the new
+value for the address column. WHERE student _no='10001" ensures that only the correct student's address
+is changed (based on the primary key). Always use a WHERE clause when updating data to avoid changing
+all rows in the table.
+
+UPDATE student මගින්‌ පෙන්නුමි කරන්නේ student වගුව වෙනස්‌ කරන බවයි. SET address -- '...' ලිපින
+
+තීරැව සඳහා නව අගය නියම කරයි. WHERE 5001161110 ~- '10001' නිවැරදි ගිෂ්‍යයාගේ ලිපිනය පමණක්‌
+වෙනස්‌ වන බව සහතික කරයි (ප්‍රාටික යතුර මත පදුනමිව). වගුවේ ඇති සියලුම පේළි වෙනස්‌ නොකිරීමට
+EDD යාවත්කාලීන කිරීමේදි සෑම විටම WHERE වගන්තිය භාවිතා කළ යුතුය.
+
+LIKE condition filters the rows. Only the rows where the student_no starts with 10001 will be updated.
+The % is a wildcard meaning “any characters after this”. the % is not compulsory because here we
+matching one exact value. It depends on what you're trying to match in the LIKE condition.
+
+LIKE කොන්දේසිය පේළි තෝරයි. student no 10001 න්‌ ආරමිභ වන පේළි පමණක්‌ යාවත්කාලීන වේ. % යනු
+“මෙයින්‌ පසු ඕනැම අකක්‍්ෂරයක්‌~ යන අර්ථඊය ඇති wildcard එකකි. % අනිවාරිය නොවේ, මන්ද මෙහිදි අපි
+එක්‌ නිශ්චිත අගයක්‌ සොයන බැවිනි. එය LIKE කොන්දේසිය තුළ ඔබ ගැලපීමට උත්සාහ කරන oe මත රඳා
+පවතී.
+
+( 2017 S.ESSAY _ 3[b] )
+
+2.(a) A person can own one or more mobile phones. One mobile phone belongs to a single person
+
+only. Assume that a mobile phone can be uniquely identified by its telephone number. National
+Identity Card number (NIC No) is used to identify a person uniquely. Above statements are
+represented by the ER diagram in Figure 4.2.
+
+එක්‌ පුද්ගලයකුට පංගම දුරකටන එකක්‌ හෝ කිහිපයක්‌ හෝ අයිති විය හැකි ය. එක්‌ SOMO දුරකටනයක්‌
+අයත්‌ වන්නේ එක්‌ පුද්ගලයකුට පමණි. දුරකටන අංකයෙන්‌ පංගම දුරකටනයක්‌ අනන්‍යව හඳුනාගත හැකි බව
+උපකල්පනය කරන්න. පාතික හැඳුනුමිපත්‌ අංකය (පා.හැ. අංකය) පුද්ගලයකු අනන්‍යව හඳුනාගැනීමට යොදා
+ගනී. රෑපය 4.2 හි දැක්වෙන ER සටහන මගින්‌ ඉහත ප්‍රකාශ නිරෑපණය කරයි.
+
+Convert the above ER diagram into 3rd Normal Form relations to be implemented in relational
+
+database.
+
+මෙම ER සටහන සමිබන්ධක දත්ත සමුදායක්‌ තුළ SHED කළ හැකි 3 වන ප්‍රමන ආකාරයේ සමිබඛන්ධකවලට
+පත්‌ කරන්න.
+
+person(NICNo)
+mobilePhone(TelephoneNo, NICNo)
+
+Explanation/ පැහැදිලි කිරීම:
+
+To convert the ER diagram into 3 NF it should already be in 299 NF
+ER රෑප සටහන තෙවන GOW ආකාරය බවට පරිවර්තනය කිරීම සඳහා එය දැනටමත්‌ දෙවන ප්‍රමත
+ආකාරයෙහි තිබිය යුතුය.
+
+erson
+
+NICNo
+
+PK
+
+ථී
+|
+
+mobilePhone
+
+TelephoneNo | NICNo
+
+FK
+
+( 2017 S.ESSAY — 410] )
+
+3. The candidates who have been selected for university entrance should register for the given academic
+year with the university given to them. Candidates who do not register before the ‘Last date’
+announced by each university will lose their university entrance. Once a candidate registers with the
+given university, the candidate becomes a registered student of that university. Registered students
+can apply for financial support, such as Mahapola scholarships and Bursary, separately. These
+financial supports could be either full or partial. All registered students will receive a laptop.
+However, its ownership cannot be transferred to another student. The user requirements of the above
+system are listed below.
+විග්වවිදපාල ප්‍රවේශයට තෝරාගන්නා ලදු අපේක්ෂකයන්‌ එම අධ්‍යයන වර්ෂය සඳුහා ඔවුන්ට ලබා දුන්‌
+විග්වවිද්‍යාලයෙහි ලියාපදිංචි විය යුතු ය. එක්‌ එක්‌ විශ්වවිද්‍යාලය විසින්‌ ප්‍රකාශයට පත්‌ කරන 'අවසන්‌ දිනයට'
+පෙර ලියාපදිංචි නොවන අපේක්ෂකයන්ට විශ්වවිද්‍යාල ප්‍රවේශය අහිමි වනු ඇත. යමි අපේක්ෂකයකු ලබා දුන්‌
+විග්වවිද්‍යාලයේ ලියාපදිංචි වූ විට එම අපේක්ෂකයා එම විශ්වවිද්‍යාලයේ ලියාපදිංචි Gesary බවට පත්‌ වේ.
+ලියාපදිංචි ව ගිෂ්‍යයන්ට මහපොළ ගිෂ්‍යත්ව හා ගිෂණධාර වැනි මූල්‍යමය ආධාර සඳුහා වෙන වෙන © අයදුමි
+DE හැකි ය. මෙම මුල්‍යමය ආධාර පුරණ හෝ අර්ධ හෝ විය හැකි ය. ලියාපදිංචි වූ සැම ගිෂ්‍යයෙකුට ම
+ලැප්ටොප්‌ පරිගණකයක්‌ ලැබෙයි. එහෙත්‌ එහි අයිතිය වෙනත්‌ ගිෂ්‍යයකුට පැවරිය නොහැකි ය.
+
+A user shall be able to obtain
+ඉහත පද්ධතියෙහි පරිගිලක අවග්‍යතා පහන දැක්වේ. පරිශීලකයකුට,
+
+(a) a list of students registered for a given academic year with a given university.
+දෙන EC විශ්වවිද්‍යාලයක දෙන ලද අධ්‍යයන වර්ෂයක්‌ HEH) ලියාපදිංචි ව ගිෂ්‍යයන්ගේ ලැයිස්තුවක්‌
+ලබා ගැනීමට හැකි විය යුතු ම ය.
+
+(b) information (such as model, serial number and warranty period) about the laptops given to each
+student. / එක්‌ එක්‌ ගිෂ්‍යයාට ලබා දුන්‌ ලැප්ටොප්‌ පරිගණකයේ විස්තර (මාදිලිය, අනුක්‍රමික අංකය සහ
+වගකිීමි කාලය වැනි) ලබා ගත හැකි විය යුතු ම ය.
+
+(c) list of students who applied for financial support.
+මුල්‍යමය ආධාර සඳුහා අයදුමි කළ ගිෂ්‍යයන්ගේ ලැයිස්තුවක්‌ ලබා ගත හැකි විය යුතු ම ය.
+
+Draw an Entity Relationship (ER) diagram required to design a database to represent the above
+system description and to satisfy the user requirements. State all your assumptions clearly.
+
+ඉහත පද්ධති විස්තරය නිරෑැපණය වන හා පරිශීලක අවග්‍යතා ඉටු කරගත හැකි ess සමුදායක්‌ නිර්මාණය
+කිරීමට අවශ්‍ය භූතාර්ට්‌ සමිබන්ධතා (ER) සටහනක්‌ අඳින්න. ඔබගේ උපකල්පන පැහැදිලිව සඳුහන්‌ කරන්න.
+
+Entities and Attributes / භූතාට්ට හා උපලක්ෂණ
+1. Student
+
+e Attributes / උපලක්ෂණ:
+None directly shown here / මෙහි සෘපුවම පෙන්වා ඇති කිසිවක්‌ නැත.
+
+e Relationships / සබඳුතා:
+Registers with a University/ විශ්ව විද්‍යාලයක ලියාපදිංචි විම
+
+Owns a Laptop/ උකුල්‌ පරිගණකයක්‌ අයිතියි
+Applies for Financial Support/ මුලෟ ආධාර සඳුහා අයදුමි කරයි.
+
+2. University
+
+e Attributes:/ උපලක්ෂණ :
+academic year
+
+e Relationship:/ සබඳතා:
+Registered by Students/ සිසුන්‌ විසින්‌ ලියාපදිංචි කර ඇත
+
+3. Laptop
+
+e § Attributes:/ උපලක්ෂණ :
+model
+serial no
+
+warranty period
+
+4. Financial support
+
+e § Attributes:/ උපලක්ෂණ :
+payment type
+name
+
+5. Candidate (weak entity, shown with a dashed ellipse)
+(දුර්වල HMdbO, ඉරි සහිත ඉලිප්සයක්‌ සහිතව පෙන්වා ඇත)
+
+e Exists in the context of an "apply for" relationship.
+"apply for" සම්බන්ධතාවයක සන්දර්භය තුළ පවති.
+
+e Not fully detailed; likely a specialization/generalization with Student or an external applicant.
+සමිපුර්ණයෙන්‌ විස්තර කර නැත. බොහෝ විට ගිෂ්‍යයෙකු හෝ බාහිර අයදුමිකරුැවෙකු සමඟ
+විශේෂිකරණය/සාමාන්‍යකරණයක්‌ විය හැකිය.
+
+Relationships and Cardinality / සමිබන්ධතාවයන්‌ සහ ගණීයනාවය:
+
+e register with (Student - University)
+Cardinality / ගණියතාවය:
+Many students (m) register with one university (1)
+බොහෝ සිසුන්‌ (දළ වශයෙන්‌) එක්‌ SGO විද්‍යාලයක GME වේ (1)
+
+Attributes / උපලක්ෂණ :
+last_date, 4230311112 _year
+
+e owns (Student - Laptop)
+Cardinality / ගණියතාවය:
+One student (1) owns one laptop (1)
+එක්‌ සිසුවෙකුට (1) එක්‌ ලැප්ටොප්‌ පරිගණකයක්‌ තිබේ (1)
+
+e apply for (Student - Financial support)
+Cardinality / ගණියතාවය:
+One student can apply for many financial support programs (111). and one financial support can be
+applied by many students (n)
+එක්‌ සිසුවෙකුට බොහෝ මුල්‍ය ආධාර වැඩසටහන්‌ HEH) අයදුමි කළ OLD අතර, එක්‌ ගිෂ්‍යයෙකුට බොහෝ
+දෙනෙකුට මල්‍ය ආධාර සඳුහා අයදුමි කළ හැකිය (n)
+
+e apply for (Candidate - University) (dashed part)
+Indicates a weak relationship, possibly for candidates applying to universities before becoming
+students.
+දුර්වල සම්බන්ධතාවයක්‌ පෙන්නුමි කරයි, බොහෝ SO සිසුන්‌ SOO පෙර SHO විද්‍යාලවලට අයදුමි කරන
+අපේක්ෂකයින්‌ සඳුහා.
+
+Special Notes:
+
+e Dashed ellipse and double rectangle (Candidate & apply for) suggest:
+ඉරි සහිත ඉලිප්සය සහ ද්විත්ව සෘපුකෝණාස්‍රය (Candidate සහ apply for) යෝජනා කරන්නේ:
+
+Weak entity: Candidate depends on another entity (likely University) for its identification.
+දුර්වල භතාරතය: අපේක්ෂකයා හඳුනා ගැනීම OCH) වෙනත්‌ ආයතනයක්‌ (බොහෝ විට විශ්ව විද්‍යාලයක්‌)
+මත යැපේ.
+
+Candidate 15 probably an applicant before becoming a Student.
+අපේක්ෂකයා ගිෂ්‍යයෙකු වීමට පෙර අයදුමිකරැවෙකු විය හැකිය.
+
+Summary:
+
+This ER diagram models a university enrollment system:
+මෙම ER රෑප සටහන SHO විද්‍යාල ඇතුළත්‌ විමේ පද්ධතියක්‌ ආදර්ගනය කරයි:
+
+e Students register at universities and can apply for financial support. / සිසුන්ට විශ්ව විද්‍යාලවල ලියාපදිංචි
+වන අතර මුල්‍ය ආධාර HEH) ඉල්ලුමි කළ හැකිය.
+
+e Each student owns one laptop with detailed attributes. / සැම සිසුවෙකුටම සවිස්තරාත්මක ගුණාංග සහිත
+එක්‌ ලැප්ටොප්‌ පරිගණකයක්‌ හිමි වේ.
+
+e The system also accounts for non-student candidates applying to universities. / විශ්වවිද්‍යාලවලට අයදුමි
+කරන Ges නොවන අපේක්ෂකයින්‌ සඳහා දු මෙම පද්ධතිය ගිණුමිගත කෙරේ.
+
+Now let's draw the ER diagram for the question.
+දැන්‌ අපි ප්‍රශ්නයට අදාළ ER රෑප සටහන GE.
+
+candidate
+
+University
+
+register with
+
+academic __
+year
+
+Student
+
+m
+
+apply for
+[ 1]
+Financial
+Laptop support
+model 20007 අ haa name
+period RS
+
+(2017 ESSAY - 05 )
+
+2018 DATABASE ESSAY MARKING
+
+1.(a) Consider the following Entity Relationship (ER) diagram:
+පහත Eso) ඇති HMO සමිබඛන්ධතා (ER) සටහන සලකන්න.
+
+COMPANY L—! <> M STAFF
+
+<i> !
+Relationship DEPENDANT
+
+ල්‍ය ලග
+
+(i) Briefly explain why the ‘Phone’ attribute 1s shown using a different symbol compared to other
+attributes.
+අනෙකුත්‌ උපලක්ෂණ (attributes) සමග සැසඳිමේ දි ‘Phone’ උපලක්ෂණය, වෙනස්‌ සංකේතයකින්‌ දක්වා
+ඇත්තේ ඇයි දැයි කෙටියෙන්‌ පැහැදිලි කරන්න.
+
+CompanyRegNo
+
+001
+
+DEPENDANT_OF
+
+In the ER diagram, the 'Phone' attribute is shown using a double oval instead of a single oval.
+ER රෑප සටහනෙහි, 'Phone' උපලක්ෂණය තනි ඕවලාකාර හැඩයක්‌ වෙනුවට ද්වින්ව ඕවලාකාර හැඩයක්‌
+භාවිතයෙන්‌ පෙන්වා ඇත.
+
+This means ‘Phone’ is a multivalued attribute, a staff member can have more than one phone number.
+මෙහි තේරැම 'Phone' යනු බහු-අගයන්‌ සහිත උපලක්ෂණයක්‌ වන අතර, mba මණ්ඩල සාමාපිකයෙකුට
+දුරකටන අංක එකකට වඩා තිබිය හැකිය.
+
+In contrast, other attributes like Name or Address are single-valued (only one value for each entity
+instance), so they are drawn with a single oval.
+
+ඊට වෙනස්ව, නම හෝ ලිපිනය වැනි අනෙකුත්‌ උපලක්ෂණ තනි-අගයන්‌ සහිත වේ (එක්‌ එක්‌ qmdo
+අවස්ටාව සඳහා එක්‌ අගයක්‌ පමණි), එබැවින්‌ SO) තනි ඕවලාකාර හැඩයකින්‌ ඇඳු ඇත.
+
+(ii) Briefly explain why DEPENDANT entity is shown using a different symbol compared to
+COMPANY.
+
+COMPANY සමග සැසඳිමේ දි DEPENDANT mde (entity) වෙනස්‌ සංකේතයකින්‌ eso) ඇත්තේ
+ඇයි දැයි කෙටියෙන්‌ පැහැවිලි කරන්න.
+
+In the ER diagram, the DEPENDANT entity is drawn with a double rectangle, while COMPANY is drawn
+with a single rectangle.
+
+ER රෑප සටහනෙහි, DEPENDANT gmbdac ද්විත්ව සෘපුකෝණාස්‍රයකින්‌ ඇඳ ඇති අතර, COMPANY
+තනි සෘපුකෝණාස්‍රයකින්‌ ඇඳු ඇත.
+
+This means DEPENDANT is a weak entity, and COMPANY ts a regular (strong) entity.
+මෙයින්‌ අදහස්‌ කරන්නේ DEPENDANT යනු දුර්වල හතාරිතයක්‌ වන අතර COMPANY යනු ශක්තිමත්‌
+භතාර්තයකි.
+
+A weak entity (DEPENDANT) cannot be uniquely identified by its own attributes alone. It needs a
+connection to a strong entity (STAFF) through a relationship (DEPENDANT _ OF) for identification.
+දුර්වල භූතාරතයක්‌ (DEPENDANT) 880 ගුණාංග මගින්‌ පමණක්‌ අනන්‍ය ලෙස හඳුනාගත නොහැක. හඳුනා
+ගැනීම සඳුහා සමිඛන්ධනාවයක්‌ (DEPENDANT OF) හරහා ශක්තිමත්‌ භූතාරතයකට (STAFF)
+සම්බන්ධතාවයක්‌ අවශ්‍ය වේ.
+
+A strong entity (COMPANY) can be uniquely identified by its own attributes, like CompanyRegNo,
+without relying on any other entity.
+
+ශක්තිමත්‌ භූතාරතයක්‌ (COMPANY) වෙනත්‌ කිසිදු භතාර්තයක්‌ මත විග්වාසය නොතබා, CompanyRegNo
+වැනි එහිම ගුණාංග මගින්‌ අනන්‍ය ලෙස හඳුනාගත හැකිය.
+
+(111) The following relational tables are constructed using the ER diagram shown above. In each of the
+tables, the field names are missing.
+ඉහත දැක්වෙන භූතාථට්ථට සම්බන්ධතා සටහන භාවිත කර පහත සමිඛන්ධතා වගු ගොඩනගනු ලැබේ. ඵක්‌ එක්‌
+වගුවෙහි ක්ෂේත්‍ර නාම දුක්වා නොමැත.
+
+COMPANY (.............. (ආ)............. )
+STAFF (............ (ල.............. )
+
+STAFF PHONE (.............. 1.) )
+DEPENDANT (............. (9).............. )
+
+Identify the missing field names in each table and write them down against (17) - (5).
+එක්‌ එක්‌ OQCOS දක්වා නොමැති ක්ෂේත්‍ර නාම හඳුනාගෙන (P) සිට (5) ඉදිරියෙහි ලියා දක්වන්න.
+
+17 > CompanyRegNo, Name, Address
+
+Q > StaffID, CompanyRegNo, Name, Address, DateOfBirth, Since
+
+01
+
+Q > StaffID, CompanyRegNo, Name, Address, DateOfBirth
+
+R > StaffID, Phone
+
+S > StaffID, Name, Relationship, Gender, DateOfBirth
+
+(iv) Write an SQL statement to display Names and Addresses of all the STAFF.
+කාට්යමණ්ඩඞඩලයෙහි (STAFF) සියල්ලන්ගේම නමි සහ ලිපින ප්‍රදර්ශනය කිරීම nem SQL emacs ලියන්න.
+
+SELECT Name, Address FROM STAFF;
+
+SELECT
+
+This keyword 15 used to tell the database what columns you want to retrieve (display).
+
+මෙම මුල පදය භාවිතා කරන්නේ ඔබට ලබා ගැනීමට (දර්ගනය කිරීමට) අවශ්‍ය තරැ මොනවාද යන්න evo
+සමුදායට පැවසමටයි.
+
+Name, Address
+
+These are the column names you are selecting from the table. In this case:
+වගුවෙන්‌ ඔබ තෝරා ගන්නා HOZ නමි මේවාය. GOO අවස්ටාවේදි,
+
+Name
+shows the names of the staff.
+කාර්ය මණ්ඞලයේ නමි පෙන්වයි.
+
+Address
+
+shows the addresses of the staff.
+කාරිය මණ්ඩලයේ ලිපිනයන්‌ පෙන්වයි.
+
+FROM STAFF
+This tells the database which table to get the data from. Here, the table name is STAFF.
+මෙය EM සමුදායට දුත්ත ED ගත යුතු වගුව කියයි. මෙහිදි වගුවේ නම STAFF වේ.
+
+(v) Write an SQL statement to display the names of the dependants of staff member with StaffID =
+"E001124'.
+StaffID = 'E001124' වන කාර්යමණ්ඩල සාමාජිකයාගේ wtcosinsiess (DEPENDANT) නමි ප්‍රදර්ශනය කිරීම
+සඳහා 5ට1, ප්‍රකාශයක්‌ ලියන්න.
+
+SELECT Name FROM DEPENDANTS WHERE StaffID = 'EQQ1124' ;
+
+SELECT Name
+
+This will display the names of the dependants.
+මෙය යැපෙන්නන්ගේ නමි පෙන්වනු ඇත.
+
+FROM DEPENDANTS
+
+It will get the data from the DEPENDANTS table.
+එය යැපෙන්නන්ගේ වගුවෙන්‌ දුත්ත ලබා ගනී.
+
+WHERE StaffID = ' £661124'
+This filters the records and shows only the dependants of the staff member whose StaffID is 'E001124'.
+මෙය රෙකෝඩ තෝරා 'EN01124' StafflID ඇති mda මණ්ඩල සාමාපිකයාගේ යැපෙන්නන්‌ පමණක්‌ පෙන්වයි.
+
+This code can be written in another way.
+මෙම කේතය තවත්‌ ආකාරයකට ලිවිය හැක.
+
+SELECT Name FROM DEPENDANTS WHERE StaffID LIKE ' £961124' ;
+
+StaffID LIKE 'E@@1124'
+This will find records where Staff1D 15 exactly 'E001124', because there is no wildcard (%) used here.
+So, it behaves the same as = in this case. But for exact matches, it's better to use =.
+මෙය StafflD හරියටම 'EN01124' වන රෙකෝඩ සොයා ගනු ඇත, Ose, මෙහි wildcard (%) භාවිතා කර
+නොමැත. එබැවින්‌, මෙම අවස්ටාවේදි එය = ලෙසම ක්‍රියා කරයි. නමුත්‌ නිග්චිත ගැලපීමි සඳුහා, = භාවිතා
+කිරීම වඩාත්‌ සුදුසු වේ.
+
+( 2018 S.ESSAY — 03 )
+
+2. The following two tables CLASS and STUDENT are constructed by using the Entity Relationship
+(ER) diagram shown in Figure.
+පහන දැක්වෙන CLASS සහ STUDENT වගු දෙක, රෑපයෙහි දි ඇති ER සටහන භාවිත කර නිර්මාණය
+
+කර ඇත.
+CLASS Table
+ClassID ClassName ClassTeacher Stream Year
+1111 12 -- & A. B. Perera Physical Science 2017
+1112 12 -- 0 N. Mohamed Bio Science 2017
+1113 13-A E. Selvadurai Arts 2017
+1114 13-B L. De Silva Commerce 2018
+STUDENT Table
+Index Number ClassID Initials Surname DateOfBirth
+8991 1112 E. Nazeer 1999.12.06
+8993 1111 ට්‌. Sivalingam 1999.02.06
+8995 1112 W. Fernando 1999.11.11
+8997 1113 U. 11. De Silva 1999.08.06
+
+CLASS @ are ® | srupent -Cadesdumive)
+
+(a) What is the cardinality of the relationship between the entites STUDENT and CLASS, denoted
+by (A) and (B) above? Note: Write down suitable labels for (A) and (B), respectively.
+(A) සහ (B) ලෙස es ඇති CLASS සහ STUDENT යන භුතාර්ට අතර සමිබඛන්ධනාවෙහි
+ගණනයතාවය කුමක්‌ ද? සටහන: (A) සහ (B) සඳුහා සුදුසු ලේබල පිළිවෙළින්‌ ලියා දක්වන්න.
+
+A=1
+B=M/N/m/n
+
+Explanation / පැහැදිලි කිරීම;
+
+Each class can have many students enrolled in 11. For example, both students with Index number as
+8991 and 8995 are in the same class, which 15 12-B (ClassID 1112).
+
+සැම පන්තියකටම බොහෝ සිසුන්‌ ඇතුළත්‌ කර ගත හැකිය. උදාහරණයක්‌ ලෙස, 8991 සහ 8995 ලෙස
+දුර්ශක අංක ඇති සිසුන්‌ දෙදෙනාම 12-B(ClassID 1112) යන එකම පන්තියේ සිටිති.
+
+However, each student belongs to a single class. Here, IndexNumber in STUDENT table 15 unique in
+each record and one record only consists of one ClassID. Also, a student record cannot exist without
+referencing a valid ClassID. / කෙසේ වෙතත්‌, සෑම සිසුවෙකුම එක්‌ පන්තියකට අයත්‌ වේ. මෙහිදි,
+STUDENT වගුවේ IndexNumber සැම උපලැකියානයකම අනන්‍ය වන අතර එක්‌ උපලැකියානයක FH
+වන්නේ එක්‌ ClassID එකක්‌ පමණි. ඵවසේම, වලංගු ClassID එකක්‌ යොමු නොකර Ges උපලැකියානයක්‌
+පැවතිය නොහැක.
+
+In the STUDENT table, ClassID is repeated for multiple students who are in the same class. This
+confirms the “many” side (STUDENT) is tied to a single “one” side (CLASS).
+
+STUDENT වගුවේ, එකම පන්තියේ සිටින බහු සිසුන්‌ Hes ClassID පුනරාවර්තනය වේ. මෙය “බහු”
+පැත්ත (STUDENT), තනි “ඒක” පැත්තට (CLASS) බැඳි ඇති බව තහවුරැ කරයි.
+
+Therefore, this 15 a one-to-many relationship.
+එබැවින්‌, මෙය ඒක-බහු සමිබන්ධනාවයකි.
+
+(b) Explain how a relationship is established between the two tables using primary key(s) and foreign
+key(s) in the above example.
+ඉහත උදාහරණයෙහි OSM යතුර/යනුරැ සහ ආගන්තුක යතනුර/යතුරැ භාවිතයෙන්‌ OQ ළෙක අතර
+සමිඛන්ධතාවයක්‌ (relationship) ගොඩනැගෙන ආකාරය පැහැදිලි කරන්න.
+
+ClassID 1s the primary key in CLASS table. IndexNumber is the primary key in STUDENT table. As
+in the given tables, ClassID 15 also a separate field in STUDENT table. Therefore, ClassI[D, which is
+the primary key of CLASS table is used as the foreign key in STUDENT table.
+
+CLASS වගුවේ ප්‍රාට්මික යතුර ClassID වේ. STUDENT වගුවේ ප්‍රාටමික යතුර IndexNumber වේ.
+වගුවල දි ඇති ආකාරයට අනුව, ClassID යනු STUDENT වගුවේ දූ ඇති වෙනම ක්ෂේතු්‍රයකි. එබැවින්‌,
+CLASS වගුවේ ප්‍රාටමික යතුර වන ClassID, STUDENT වගුවේ ආගන්තුක යතුර ලෙස භාවිතා කරයි.
+
+(c)(i) Are the two tables STUDENT and CLASS, in second normal form (2NF)? Explain a reason for
+
+your answer referring to tables. / STUDENT සහ CLASS වගු දෙවන ප්‍රමත (2NF) ආකාරයෙන්‌ පවතී
+6? ඔබේ පිළිතුරට හේතුවක්‌ OD ආශ්‍රයෙන්‌ පැහැදිලි කරන්න.
+
+Yes. / ඔව්‌.
+
+Both STUDENT and CLASS tables are in INF as all fields are atomic. (No repeating records)
+සියලුම ක්ෂේත්‍ර පරමාණුක බැවින්‌ STUDENT සහ CLASS වගු දෙකම INF හි ඇත. (පුනරාවරතනය
+වන උපලැකියාන නොමැත)
+
+Primary key is not composite in both tables. Only ClassID is the primary key in CLASS table and only
+IndexNumber is the primary key in STUDENT table. Hence, there are no partial dependencies.
+Therefore, the tables are in 2NF. / වගු දෙකෙහිම ප්‍රාටික යතුර සංයුක්ත නොවේ. CLASS වගුවේ
+ප්‍රාටිමික යතුර ClassID පමණක්‌ වන අතර STUDENT වගුවේ ප්‍රාටමික යතුර IndexNumber පමණි.
+එබැවින්‌, අර්ධ පරායත්තතා නොමැන. එබැවින්‌, වගු 2111* හි ඇත.
+
+Every non-prime attribute of each relation is fully functional dependent on the primary key. Therefore,
+they are in 3NF as no transitive dependencies exists.
+
+සෑම සමි්බන්ධතාවයකම සෑම ප්‍රාටමික නොවන උපලකක්‍්ෂණයක්ම HOG යතුර මත සම්පුර්ණයෙන්ම Oe)
+පවති. එබැවින්‌, කිසිදු සංක්‍රාන්ති පරායත්තතාවයක්‌ නොපවතින බැවින්‌ JO) 3NF හි ඇත.
+
+Therefore, both tables are already in 2NF.
+එබැවින්‌, වගු දෙකම දැනටමත්‌ 21]]' හි ඇත.
+
+(11) Briefly explain one key advantage of normalisation.
+ප්‍රමතකරණයෙහි ප්‍රධාන වාසියක්‌ කෙටයෙන්‌ පැහැදිලි කරන්න.
+
+Advantages of normalization in databases / දූත්ත සමුදායන්‌ ප්‍රමතකරණයේ වාසි:
+
+1. Data integrity and consistency
+
+680 අඛණ්ඩතාව සහ අනුකූලනාව
+
+e Data integrity is maintained, reducing update, delete, and insert anomalies.
+යාවත්කාලීන කිරීම, මකා දැමිම සහ ඇතුළත්‌ කිරීමේ විෂමතා අඩු කරමින්‌ ew අඛණ්ඩතාව පවත්වා
+ගෙන යනු ලැබේ.
+
+e The database is ACID compliant (Atomicity, Consistency, Isolation, Durability), ensuring reliable
+transactions. / දූත්ත සමුදාය ACID අනුකූල චේ (පරමාණුකතාව, අනුකූලතාව, වෙන්ව පැවතිම,
+කල්පැවැත්ම), එමඟින්‌ විශ්වාසදායක ගනුදෙනු සහතික කරයි.
+
+2. Elimination of data redundancy and duplication
+
+ena අතිරික්තය සහ අනුපිටපන්‌ කිරීම ඉවත්‌ කිරීම
+
+No data duplication, preventing multiple copies of the same data.
+EBD අනුපිටපත්‌ කිරීමක්‌ නොමැති අතර එකම දත්තවල බහු පිටපත්‌ වළක්වයි.
+
+A smaller size database is achieved by eliminating redundant data.
+අතිරික්ත EM ඉවත්‌ කිරීමෙන්‌ කුඩා ප්‍රමාණයේ දුන්ත සමුදායක්‌ ED ගත හැකිය.
+
+3. Improved performance and faster access
+
+වැඩිදියුණු කළ කාටයසාධනය සහ වේගවත්‌ ප්‍රවේශය
+
+e Faster access speed, as there are fewer indexes per table.
+වගුවකට ඇති caw ගණන අඞු බැවින්‌, ප්‍රවේශය වේගවත්‌ වේ.
+
+e Searching, sorting, and creating indexes is faster, as tables are narrower. Also, more rows fit on a
+data page.
+වගු පටු බැවින්‌ දර්ශක සෙවිම, වර්ග කිරීම සහ නිර්මාණය කිරීම වෙගවත්‌ වේ. එසේම, එක්‌ දුත්ත
+පිටුවකට වැඩි පේළි ගණනක්‌ ගැලපිය හැකිය.
+
+e Updates run quickly, as no data is duplicated in multiple locations.
+ස්ටාන කිහිපයක කිසිදු දූත්තයක්‌ අනුපිටපත්‌ කර නොමැති බැවින්‌ යාවත්කාලින කිරීමි ඉක්මනින්‌
+ක්‍රියාත්මක වේ.
+
+e Data inserts run quickly, since there is a single insertion point for each piece of data, avoiding
+duplication.
+EDD ඇතුළු කිරීමි ඉක්මනින්‌ ක්‍රියාත්මක වේ. මන්ද, එක්‌ එක්‌ estos aca) තනි ඇතුළත්‌ කිරීමේ
+ලක්ෂ්‍යයක්‌ ඇති බැවින්‌, අනුපිටපත්‌ කිරීම වළක්වයි.
+
+e Tables are usually smaller, allowing them to fit into buffer, which improves database performance.
+OQ සාමාන්‍යයෙන්‌ කුඩා වන අතර, SO) buffer එකට ගැළපීමට ඉඩ සැලසීම මඟින්‌ දුන්ත He)
+කාර්ය සාධනය වැඩි දියුණු වේ.
+
+4. Ease of Maintenance and Modification
+
+නඩත්තු කිරීමේ සහ වෙනස්‌ කිරීමේ පහසුව
+
+Conceptually cleaner and easier to maintain and change database structure.
+සංකල්පමය වගයෙන්‌ නිරවුල්‌ සහ නඩත්තු කිරිමට හා ess සමුදා ව්‍යුහය වෙනස්‌ කිරීමට පහසුය.
+
+(d) Write an SQL statement to insert the following record to the CLASS table:
+CLASS වගුවට පහත දැක්වෙන උපලැකියානය ඇතුළන්‌ කිරීම සඳහා SOL පකාශයක්‌ ලියන්න.
+
+| 1115 । 13 - ල්‌ | &.0. 0110145604 | Technology | 2018 |
+
+INSERT INTO CLASS
+VALUES ('1115', '13-C', 'A.B. Jinasena’, ‘Technology’, '2018');
+
+Alternative answers / විකල්ප පිළිතුරැ :
+
+INSERT INTO CLASS
+VALUES (1115, '13-C', 'A.B. Jinasena’', ‘Technology’, 2018);
+
+INSERT INTO CLASS (ClassID, ClassName, ClassTeacher, Stream, Year)
+VALUES ('1115', '13-C', 'A.B. Jinasena’, ‘Technology’, '2018');
+
+INSERT INTO CLASS (ClassID, ClassName, ClassTeacher, Stream, Year)
+VALUES (1115, '13-C', 'A.B. Jinasena’', ‘Technology’, 2018);
+
+( 2018 ESSAY - 05 )
+
+Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
+
+
+2019 DATABASE ESSAY MARKING
+
+1.(a) Consider the following Entity Relationship (ER) diagram which represents the information about projects
+conducted by staff attached to a software development company.
+මෘදුකාංග සංවර්ධන සමාගමක කාර්ය මණ්ඩලය (Staff) විසින්‌ කරනු ලබන ව්‍යාපෘතිවලට (Project) අදාළ
+තොරතුරැ දැක්වෙන පහත භූතාට්ට සම්බන්ධතා සටහන (ER Diagram) සලකන්න.
+
+DateOfBirth
+
+ක්‍ෂ CompanyRegNo
+C Stato > Designation xX
+
+Add
+Staff N 1 Company i
+Address
+
+> <=>
+
+ProjectiID :
+ProjectName
+StartDate eBuaton >
+
+(1) The number of hours (NoOfHours) that each staff member works on each project is recorded. Draw the
+attribute NoOfHours in the relevant position of the ER diagram with the correct symbol and the label.
+එක්‌ එක්‌ ede මණ්ඩල සාමාපකයා (staff member) එක්‌ එක්‌ ව්‍යාපෘතියෙහි (Project) සේවයෙහි යෙදෙන (work)
+පැය ගණන (110ට011101115) සටහන්‌ කරනු ලැබේ. නිවැරළි සංකේතය සහ ලේඛලය සමග NoOfHours උපලැකිය
+ER සටහනෙහි අදාළ ස්ටානයෙහි අඳින්න.
+
+Empolys Company
+
+x
+
+| Address
+
+has Location
+ට... නපයසාාාා,ෙව
+
+Staff |
+N
+
+NoOft Hourse
+
+(11) For each accepted project a temporary location 15 rented for the staff, for the duration of the project. For
+each Location, the OwnerName, PhoneNo, Address, Rent, RentedDate and RentedPeriod arc recorded.
+One project has only one location. A rented location is used for only one project. When a certain project
+is completed, the location rented for the project will be released and handed over to the owner.
+භාරගන්නා වු සැම ව්‍යාපෘතියක්‌ සඳුහාම ව්‍යාපෘතියෙහි කාල වකවානුවට කාරය මණ්ඩලය වෙනුවෙන්‌ තාවකාලික
+ස්ටානයක්‌ (Location) කුලියට ගනු E260. සෑම ස්ථානයක්‌ සඳුහාම අයිතිකරැගේ නම (Owner Name), දුරකටන
+අංකය (1710116110 ), ලිපිනය (Address), කුලිය (Rent), කුලියට ගත්‌ දිනය (RentedDate) සහ කුලියට ගත්‌ කාල
+
+පරිච්ජේදය (RentedPeriod) සටහන්‌ කරනු ලැබේ. එක්‌ ව්‍යාපෘතියක්‌ සඳහා එක්‌ ස්ටානයක්‌ පවති. කුලියට ගත්‌
+එක්‌ ස්ථානයක්‌ එක්‌ ව්‍යාපෘතියක්‌ සඳහා පමණක්‌ භාවිත කෙරේ. කිසියමි ව්‍යාපෘතියක්‌ නිම වු විට, එම ව්‍යාපෘතිය
+සඳුහා කුලියට ගත්‌ ස්ටානය නිදහස්‌ කර, අයිතිකරු වෙන භාරදෙන ලැබේ.
+
+Draw the Entity ‘Location’ with relevant attributes inside the area X in the diagram and link it to the
+existing ER diagram by indicating the cardinality.
+
+Location නමි භතාර්ඊය අදාළ උපලැකි සහිතව රැපසටහනෙහි X නමි ප්‍රදේශය තුළ ඇඳ, පවතින ER සටහන
+සමග ගණනියතාව දක්වමින්‌ සමිබන්ධ කරන්න.
+
+Weak Entity / දුර්වල භූතාටතය : Location
+
+A weak entity is an entity that does not have a sufficient attribute to uniquely identify its instances without
+depending on another entity. Location 15 a weak entity in this case because it does not have a primary key.
+Instead, it relies on the Project entity.
+
+දුර්වල භූතාඊරතයක්‌ යනු වෙනත්‌ භතාඊරනයක්‌ මත යැපීමෙන්‌ තොරව එහි අවස්ටා අනන්‍ය ලෙස HED) ගැනීමට
+ප්‍රමාණවත්‌ නොවන භතාරථටයකි. Location හි ප්‍රාටික යතුරක්‌ නොමැති නිසා මෙම සිද්ධියේදි එය දුර්වල
+භතාරතයකි. ඒ වෙනුවට, ඵය Project භූතාරි්තය මත රඳා පවති.
+
+Reason: A location is rented only for a specific project, and once the project ends, the location is no longer
+relevant.
+
+හේතුව: AGS ව්‍යාපෘතියක්‌ සඳුහා පමණක්‌ ස්ථානයක්‌ කුලියට ගෙන ඇති අතර, ව්‍යාපෘතිය අවසන්‌ වු පසු,
+එම ස්ථානය තවදුරටත්‌ අදාළ නොවේ.
+
+Weak Relationship / දුරවල සමිබන්ධතාව : has
+
+A weak relationship is a relationship that links a weak entity to its strong entity. In this case, the
+relationship "has" between Project and Location is a weak relationship.
+
+දුර්වල සම්බන්ධතාවයක්‌ යනු දුර්වල Qmdnas එහි ශක්තිමත්‌ භතනාරතයක්‌ සමිබන්ධ කරන සමිබන්ධතාවයකි.
+මෙම අවස්ටාවෙහිදි, Project සහ Location අතර has සමිබන්ධතාවය දුර්වල සමිඛන්ධනාවයකි.
+
+Reason: A location cannot exist in the system without a project. It is rented only for a project, and once
+the project ends, the location 15 no longer recorded.
+
+හේතුව: ව්‍යාපෘතියක්‌ නොමැතිව පද්ධතිය තුළ ස්ටානයක්‌ පැවතිය නොහැක. එය ව්‍යාපෘතියක්‌ සඳහා පමණක්‌
+කුලියට ගෙන ඇති අතර, ව්‍යාපෘතිය අවසන්‌ වු පසු, ස්ටානය නවදුරටන්‌ සටහන්‌ නොවේ.
+
+Cardinality / ගණනීයතාව : One-to-One (1:1) Relationship / ඒක-ඒක (1:1) සම්බන්ධතාවය
+
+Each project has exactly one rented location, and each location is assigned to only one project.The
+existence of the location depends on the project.
+
+සැම ව්‍යාපෘතියකටම හරියටම එක්‌ කුලියට ගත්‌ ස්ථානයක්‌ ඇති අතර, සෑම ස්ථානයකම එක්‌ ව්‍යාපෘතියකට
+පමණක්‌ පවරා ඇත. ස්ටානයේ පැවැත්ම ව්‍යාපෘතිය මත රඳා පවති.
+
+2.
+
+(a)
+
+A vehicle rental company has registered vehicle owners. Vehicles are obtained from the owners and
+rented to the customers. Consider the following relations regarding the vehicle rental company.
+
+එක්තරා වාහන කුලියට සැපයීමේ සමාගමකට ලියාපදිංචි වාහන හිමිකරැවන්‌ ඇත. හිමිකරැවන්ගෙන්‌ වාහන
+ලබාගෙන පාරිභෝගිකයන්‌ වෙත කුලියට ලබා oc. වාහන කුලියට සැපයීමේ සමාගමට අදාළ පහත දැක්වෙන
+
+සමිබන්ධතා (relations) සලකන්න.
+
+I. Customer (Customer_NIC, Customer_Name, City, Postal_Code)
+II. Vehicle_Owner (Owner_Id, Owner_Name, Contact_No)
+111. Vehicle(Vehicle_Reg No, Description, Owner_Id)
+
+e The Customer relation contains customer’s national identity card number (NIC) which 1s unique,
+
+name, city where he/she is living and the postal code of the city. A customer lives 11] a single city
+and there are many customers in one city. The postal code depends on the city.
+Customer (@demiGec)) සමිඛන්ධතාවයෙහි අනන්‍යවන Customer_NIC (පාරිභෝගිකයාගේ පාතික
+හැඳුනුමිපත්‌ අංකය), Customer_Name (නම), ඔහු/ඇය පවත්වන City (නගරය) සහ එම නගරයෙහි
+Postal_Code (තැපැල්‌ කේතය) GOoq වේ. එක්‌ පාරිභෝගිකයකු එක්‌ නගරයක පිවත්වන අතර එක්‌
+නගරයක්‌ තුළ පාරිභෝගිකයන්‌ රාගියක්‌ පිවත්‌ විය හැක. තැපැල්‌ කේතය, නගරය මත රඳා පවතී
+(depends).
+
+e The Vehicle_Owner relation contains the Owner_Id which is unique, owner’s name and the
+contact number.
+Vehicle_Owner (වාහනය - හිමිකරැ) සමිබන්ධතාවයෙහි අනන්‍ය © Owner Id (හිමිකරු හැඳුනුමි
+අංකය), Owner _Name (හිමිකරුගේ නම) සහ Contact_No (ඇමතුමි අංකය) අඩංගු වේ.
+
+e The Vehicle relation contains the vehicle registration number which is unique, a description
+about the vehicle and the Owner_Id.
+Vehicle (වාහනය) සමිබඛන්ධතාවයෙහි අනන්‍ය වු වාහනයේ Vehicle Reg No (ලියාපදිංචි අංකය),
+Description (වාහනය පිළිබඳු විස්තරය) සහ Owner_Id (හිමිකරැ හැඳුනුමි අංකය) අඩංගු වේ.
+
+A customer can rent more than one vehicle. Also, it is possible to rent one vehicle to many customers
+at different instances. Each vehicle is owned by one owner and one owner can have more than one
+vehicle. / පාරිභෝගිකයකුට වාහන එකකට OH) කුලියට ගත හැකිය. තවද කිසියමි වාහනයක්‌ පාරිභෝගිකයන්‌
+කිහිපදෙනකුට වෙනස්‌ අවස්ටාවල දී කුලියට දිය හැකිය. GO වාහනයකටම තනි හිමිකරැවකු සිටින අතර,
+එක්‌ හිමිකරුවකුට වාහන එකකට වඩා තිබිය හැකිය.
+
+In which normal form do the above relations given in I, II, 111 above exist? Justify your answer.
+ඉහත I, 1] හා Ill හි ඇති සමිබන්ධතා පවතින්නේ කුමන ප්‍රමනකරණයෙහි ද? ඔබේ පිළිතුර සාධාරණීකරණය
+කරන්න.
+
+First Normal Form — පළමු ප්‍රමටකරණය (1 NF)
+e Atomicity - පරමාණුකත්වය
+Ensures that each column contains only atomic (indivisible) values. This means no repeating groups
+
+or arrays.
+එක්‌ එක්‌ තීරැවෙහි පරමාණුක (බෙදිය නොහැකි) අගයන්‌ පමණක්‌ අඩංගු බව සහතික කරයි. මෙයින්‌ අදහස්‌
+කරන්නේ පුනරාවරතන කණ්ඩායමි හෝ අරා නොමැති බවයි.
+
+e Uniqueness - අනන්‍ය බව
+Each column must contain unique values, and each row must be unique.
+සැම තීරැවකටම අනන්‍ය අගයන්‌ GHD විය යුතු අතර, එක්‌ එක්‌ පේළිය අනන්‍ය So යුතුය.
+
+e Single Value- තනි අගය
+Each field should contain only a single value, not a set of values.
+සෑම ක්ෂේත්‍රයකම අඞංගු So යුත්තේ එක්‌ අගයක්‌ පමණක්‌ මිස අගයන්‌ සමුහයක්‌ නොවේ.
+
+Second Normal Form / දෙවන ප්‍රමටකරණය (2NF)
+e INF Compliance - INF අනුකූලතාව
+
+The table must already be in First Normal Form (1 NF).
+වගුව දැනටමත්‌ පළමු ප්‍රටමකරණයේ තිබිය යුතුය.
+
+e Full Functional Dependency - පුර්ණ කාටයබද්ධ පරායත්තතාව
+Every non-key attribute must be fully functionally dependent on the entire primary key, not just a
+
+part of it. This eliminates partial dependencies.
+සෑම යතුරු නොවන උපලක්ෂණයක්ම එහි කොටසක්‌ පමණක්‌ නොව සමිපූර්ණ ප්‍රාටමික යතුර මත පුට්ණ
+කාටර්යබද්ධව රඳා පැවතිය යුතුය. මෙය ආංශික පරායත්තතා ඉවත්‌ කරයි.
+
+Third Normal Form - තුන්වන ප්‍රමටකරණය (3NF)
+
+e 2NF Compliance - 2NF අනුකූලතාව
+The table must already be in Second Normal Form (2NF).
+වගුව දැනටමත්‌ දෙවන EOOMdOPvewss (2NF) තිබිය යුතුය.
+
+e No Transitive Dependency - සංක්‍රාන්ති පරායත්තතාව නැත
+All non-key attributes must be directly dependent on the primary key, meaning there should be no
+transitive dependencies. This eliminates dependencies where non-key attributes depend on other
+non-key attributes.
+සියලම ප්‍රධාන නොවන උපලක්ෂණ ප්‍රාටමික යතුර මත කෙලින්ම රඳා පැවතිය යුතුය, එනමි සංක්‍රාන්ති
+පරායත්තතා නොතිබිය යුතුය. මෙමගින්‌ යතුර නොවන උපලක්ෂණ වෙනත්‌ ප්‍රධාන නොවන උපලක්ෂණ
+මත රඳා පවතින පරායත්තතා ඉවත්‌ කරයි.
+
+I> Customer Relation / පාටිභෝගික සම්බන්ධතාවය
+
+e Customer NIC is the primary key (unique).
+Customer NIC එක ප්‍රාටමික යතනුරයි (එකීය වේ).
+
+e Postal Code depends on City, not directly on Customer NIC. This indicates a transitive dependency.
+තැපැල්‌ කේතය (Postal Code),Customer NIC මත කෙලින්ම නොව නගරය (City) මත රඳා පවති. මෙය
+සංක්‍රාන්ති පරායත්තතාවක්‌ පෙන්නුමි කරයි.
+
+Therefore, the Customer relation is in 2NF (Second Normal Form) because it has a primary key and no
+repeating groups, but it's not in 3NF due to the transitive dependency.
+
+එබැවින්‌, පාරිභෝගික සමිබන්ධතාවය INF (දෙවන සාමාන්‍ය ආකෘතිය) තුළ ඇත, Ose එයට ප්‍රාට්මික යතුරක්‌
+ඇති අතර පුනරාවරතන කණ්ඩායමි නොමැති නමුත්‌ සංක්‍රාන්ති පරායත්තනාව නිසා එය 3NF හි නොමැත.
+
+II > Vehicle Owner Relation / වාහන හිමිකරැ සමිබන්ධතාවය
+e Owner Id is the primary key.
+Owner Id එක QOS යනුරය.
+
+e All non-key attributes (Owner Name, Contact No) depend directly on the primary key.
+සියලුම යතුරු නොවන ගුණාංග (Owner Name, Contact No) MdSe යතුර මත කෙලින්ම රඳා පවතී.
+
+Therefore, the Vehicle Owner relation is in 3NF (Third Normal Form) because it's in INF, 2NF, and
+there are no transitive dependencies.
+
+එබැවින්‌, වාහන හිමිකරැ සමිබන්ධතාවය 3NF (තෙවන සාමාන්‍ය ආකෘතිය) ME ඇත, Ose, එය INF, 2NF
+වල වන අතර සංක්‍රාන්ති පරායත්තතා නොමැත.
+
+III > Vehicle Relation / වාහන සමිබඛන්ධතාවය
+e Vehicle Reg. No is the primary key.
+Vehicle Reg. No එක ප්‍රාටමික යතුරය.
+
+e Sometime Description depends on Vehicle Reg. No.
+සමහර විට Description එක Vehicle Reg. No. මත රඳා පවතී.
+
+e Sometime Owner Id depends on Vehicle Reg. No.
+සමහර විට Owner Id එක Vehicle Reg. No. මත රඳා පවති.
+
+Therefore, the Vehicle relation 15 in 2NF (Second Normal Form) because it's in 1NF and all non-key
+attributes are fully functionally dependent on the primary key, but it's not in 3NF due to the lack of
+transitive dependencies (there are none).
+
+එබැවින්‌, වාහන සමිබන්ධතාවය INF (දෙවන සාමාන්‍ය ආකෘතිය) තුළ ඇත, Ose එය INF හි ඇති අතර
+සියලම යතුරැ නොවන ගුණාංග ප්‍රාටමික යතුර මන පුරණ කාටරයබද්ධව රඳා පවති, නමුත්‌ සංක්‍රාන්ති පරායත්තතා
+නොමැතිකම නිසා එය 3NF හි නොමැත (කිසිවක්‌ නැත).
+
+(0) Convert the above relations to the next Normal Form from the current Normal Form which you have
+stated in 5(a). (Present the contents relevant to the labels to indicated in the following table as
+your answer.)
+ඉහත සමිඛන්ධතා, ඔබ විසින්‌ 5 (a) කොටසෙහි සඳහන්‌ කරන ලදු දැනට පවතින ප්‍රමතකරණයෙන්‌, මිළඟ
+ප්‍රමතකරණයට හරවන්න. (පහත වගුවෙහි සිට දක්වා වන ලේඛලවලට අදාළ දෑ ඔබේ පිළිතුර ලෙස ඉදිරිපත්‌
+කරන්න.)
+
+Relation No. Next Normal Form Relation/s in Next Normal Form
+I ® ව
+11 ල ©)
+111 ® ©
+
+Relation I
+P: 3NF
+S: Customer (Customer_NIC, Customer Name, City)
+
+Customer City(City, Postal. Code)
+
+Relation II
+Q: 3NF / It cannot be normalized further from 3NF
+T: Vehicle Owner (Owner_Id, Owner Name, Contact No)
+
+Relation 111
+R: 3NF / It cannot be normalized further from 3NF
+U:Vehicle(Vehicle Reg No, Description, Owner_Id)
+
+Explanation of Conversions / පටිවටරතන පැහැදිලි කිරීම
+
+Customer (1 NF to 2NF):
+e We remove the transitive dependency by creating a new table called City (City, Postal Code).
+අපි City (City, Postal Code) නමින්‌ නව වගුවක්‌ නිර්මාණය කිරීමෙන්‌ සංක්‍රාන්ති පරායත්තතාව ඉවත්‌ කරමු.
+
+e The Customer table now only has attributes directly dependent on the primary key (Customer NIC).
+පාරිභෝගික වගුවේ දැන්‌ ඇත්තේ HOGe යතුර මත සෘපුවම රඳා පවතින ගුණාංග පමණි.
+
+e The City table establishes the relationship between City and Postal Code.
+නගර (City) වගුව නගරය සහ තැපැල්‌ කේතය අතර සමිඛන්ධතාවය ස්ථාපිත කරයි.
+
+Vehicle Owner (Already in 3NF):
+e No changes are needed as it's already in 3NF.
+එය දැනටමත්‌ 3NF හි ඇති බැවින්‌ වෙනස්කම්‌ අවග්‍ය නොවේ.
+
+Vehicle (2NF to 3NF):
+e There are no transitive dependencies in Vehicle table, so it is already in 3NF. No changes are needed.
+
+වාහන වගුවේ සංක්‍රාන්ති පරායත්තනා නොමැත, එබැවින්‌ එය දැනටමත්‌ 3NF හි ඇත. කිසිදු වෙනසක්‌
+අවශ්‍ය නොවේ.
+
+(c) Draw an Entity Relationship (ER) diagram to depict, the above relations by identifying the
+relationships, key attributes, other attributes and the cardinality.
+සමිඛන්ධතාවයන්‌ (relationships), යතුරැ උපලැකි (key attributes), වෙනත්‌ උපලැකි සහ ගණනියතනා (cardinality)
+හඳුනාගනිමින්‌ ඉහන සම්බන්ධනා නිරෑපණය කිරීම සඳහා භූතාටට-සම්බන්ධතා (ER) සටහනක්‌ අඳින්න.
+
+Customer <> 1 Customer City
+
+M
+
+॥
+Ay
+
+=
+
+Postal_Code
+
+Of
+
+rents
+
+Vehicle - ය ට L Vehicle_Owner
+
+Owner_Name
+
+Vehicle Reg _No Description
+
+|
+[
+[-
+
+(d) It is necessary for the company to keep the details of renting vehicles by customers. Create a relation
+called “Rent”, including the details Rent_Date, Start_Time and End_Time.
+පාරිභෝගිකයන්‌ විසින්‌ වාහන කුලියට ගැනීම පළිබඳ විස්තර සමාගම විසින්‌ තබා ගැනිම අවගෲ වේ. Rent_Date
+(කුලියට ගත්‌ දිනය), Start_Time (ආරමිභ © වේලාව) හා End_Time (අවසන්‌ වූ වේලාව) යන විස්තර ද ඇතුළත්‌
+වන Rent (කුලියට ගැනීම) ලෙස හැඳින්වෙන සමිඛන්ධතාවයක්‌ (relation) නිරමාණය කරන්න.
+
+Customer Name
+
+॥
+Ay
+
+1
+Customer we <> 4 Customer_City
+
+M
+
+Postal_Code
+
+Of
+
+rents
+
+(\
+
+i=
+
+॥
+Vehicle L Vehicle_Owner
+Vehicle Reg_No Owner id
+
+Owner Name
+
+(ලා)
+
+Alternative / විකල්ප 1:
+Rent(Customer NIC, Vehicle Reg No, Rent Date, Start_Time, End Time)
+
+Alternative / විකල්ප 2:
+
+CREATE TABLE Rent
+
+(Customer_NIC varchar(10),
+
+Vehicle Reg No varchar(8), Rent_Date date, Start_Time time, End_Time time,
+PRIMARY KEY (Customer_NIC, Vehicle Reg No);
+
+Write an SQL statement to select Owner_Id and Vehicle_Reg No of all the vehicles owned by each
+vehicle owner.
+
+එක්‌ එක්‌ වාහන හිමිකරැට අයිති සියලු ම වාහනවල Owner_Id (හිමිකරැ හැඳුනුමි අංකය) සහ Vehicle_Reg_No
+(වාහනයේ ලියාපදිංචි අංකය) Select (තෝරා ගැනීම) සඳහා SQL වගන්තියක්‌ ලියා දක්වන්න.
+
+SELECT Owner_Id, Vehicle Reg No FROM Vehicle;
+SELECT Owner_Id,Vehicle Reg No FROM Vehicle GROUP BY Owner_Id;
+
+2020 DATABASE ESSAY MARKING
+
+1.(a) Consider the following description relating to details of players attached to different sports clubs.
+විවිධ HO) සමාපවලට අයත්‌ වන ක්‍රඩකයන්ගේ නොරතුරැවලට සමිබන්ධ පහත දැක්වෙන විස්තරය සලකන්න.
+
+A player always belongs to a sports club and he/she can be identified uniquely by the NIC (National
+Identity Card) number. Further a player has a name which consists of a surname and initials.
+ක්‍රීඩකයකු සැමවිටම GO) සමාපයකට (sports club) අයත්‌ වන අතර ඔහු හෝ ඇය ජාතික හැඳුනුමිපත්‌ අංකය
+(NIC) මගින්‌ අනන්‍යව හඳුනාගනු ලැබේ. තවද ක්‍රිඩකයකුට වාසගම (surname) සහ මුල අකුරැ (initials)
+වලින්‌ සමන්විත නමක්‌ (name) පවති.
+
+A club which is uniquely identified by its name can have many players. A player can play games.
+Each game in this context is given a unique code and a description. A player can play more than one
+game and each game 1s played by at least one player.
+
+ක්‍රීඩා සමාපයක්‌ අනන්‍යව හඳුනාගනු ලබන්නේ එහි නමින්‌ (name) වන අතර, එයට බොහෝ ක්‍රිඩකයන්‌ සිටිය
+හැකි ය. ක්‍රීඩකයකුට (player) ක්‍රීඩාවලට (games) ක්‍රීඩා කළ (play) හැකි වේ. මෙහි එක්‌ එක්‌ GMOO අනන්‍ය
+වු කේතයක්‌ (code) සහ විස්තරයක්‌ (description) ඇත. ක්‍රිඩකයකුට ක්‍රිඩා එකකට වැඩි සංඛ්‍යාවකට GO) කළ
+හැකි වන අතර එක්‌ ක්‍රීඩාවක අඩු තරමින්‌ එක්‌ ක්‍රීඩකයකුවත්‌ ක්‍රීඩා කරනු ලබයි.
+
+Note: Use only the relevant words in the above description when drawing the Entity-Relationship
+(E-R) diagrams for the following questions.
+
+සටහන : can ප්‍රශ්න සඳුහා භූනාට්ට-සමිඛන්ධනා (ER) සටහන්‌ ඇඳීමේ දී ඉහත විස්තරයේ සපයා ඇති
+අදාළ වචන පමණක්‌ යොදා ගන්න.
+
+(i) Draw an ER diagram for the above description.
+ඉහත විස්තරය සඳුහා ER සටහනක්‌ අඳින්න.
+
+Let’s go through the given question step by step.
+දි ඇති ජේදය පියවරෙන්‌ පියවර අධ්‍යනය කරමු.
+
+e “A player always belongs to a sports club and he/she can be identified uniquely by the NIC
+(National Identity Card) number.”
+“ක්‍රීඩකයකු සැමවිටම ක්‍රීඩා සමාජයකට (sports club) අයත්‌ වන අතර ඔහු හෝ ඇය ජාතික හැඳුනුමිපත්‌
+අංකය (NIC) මගින්‌ අනන්‍යව හඳුනාගනු ලැබේ.”
+
+This line describes entity "Player", which has unique attribute called NIC that can identify each player.
+මෙම පේළිය එක්‌ එක්‌ ක්‍රීඩකයා හඳුනා ගත හැකි NIC නමින්‌ අනන්‍ය ගුණාංගයක්‌ ඇති "Player" භූතාර්ටය
+විස්තර කරයි.
+
+Additionally, “A player always belongs to a sports club” part specifies a relationship between
+"Player" and "Club" entities, indicating that every player must be associated with one sports club,
+indicating that it is a total participation.
+
+තවද, “ක්‍රීඩකයකු සැමවිටම ක්‍රීඩා සමාජයකට (sports club) අයත්‌ වන අතර” කොටස "Player" සහ
+"Club" භුූතාර්ට්‌ අතර සමිඛන්ධනාවයක්‌ දක්වයි, සෑම ක්‍රීඩකයෙක්ම එක්‌ HA) සමාපයක්‌ සමඟ සමිබන්ධ
+විය යුනු බව පෙන්නුමි කරයි, එය පුරණ සහභාගීත්වයක්‌ බව පෙන්නුමි කරයි.
+
+e “Further a player has a name which consists of a surname and initials.”
+
+“නවද ක්‍රීඩකයකුට වාසගම (surname) මුල අකුරැ (initials) වලින්‌ සමන්විත නමක්‌ (name) පවතී.”
+
+Here, non-key attributes of "Player" entity are described. The name attribute of the player is not a
+single attribute but a composite one, consisting of surname and initials.
+
+මෙහිදි, "Player" භූතාර්ටයේ යතුරු නොවන coe@eseg විස්තර කෙරේ. ක්‍රිඩඛකයාගේ නම උපලක්ෂණය
+තනි උපලක්ෂණයක්‌ නොව වාසගම සහ මුලකුරැ වලින්‌ සමන්විත සංයුක්ත උපලක්ෂණයකි.
+
+e “A club which is uniquely identified by its name can have many players.player can play games.”
+“ක්‍රීඩා සමාජයක්‌ අනන්‍යව හඳුනාගනු ලබන්නේ එහි නමින්‌ (name) වන අතර, එයට බොහෝ ක්‍රීඩකයන්‌
+සිටිය හැකිය. ක්‍රීඩකයකුට (player) ක්‍රීඩාවලට (games) ක්‍රීඩා කළ (play) හැකි වේ.”
+
+This defines the "Club" entity and its attributes, with the name attribute being unique for each club.
+මෙය "Club" භූතාරටය සහ එහි උපලක්ෂණ නිර්වචනය කරයි, නම උපලක්ෂණය එක්‌ එක්‌ සමාපය සඳහා
+අනන්‍ය වේ.
+
+This line and “A player always belong to a sports club” part of one of the previous lines suggest a
+one-to-many relationship between "Club" and "Player" entities, meaning a single sports club can have
+multiple players, but each player belongs to only one sports club.
+
+මෙම පේළිය සහ පෙර පේළි වලින්‌ එකක්‌ වන “ක්‍රීඩකයකු සැමවිටම ක්‍රීඩා සමාජයකට (sports club) අයත්‌
+වන අතර යන කොටස "Club" සහ "Player" භූතාර්ට්‌ අතර ඒක-බහු සමිබන්ධතාවයක්‌ යෝජනා කරයි,
+එයින්‌ අදහස්‌ වන්නේ එක්‌ ක්‍රීඩා සමාපයකට ක්‍රීඩකයන්‌ කිහිප දෙනෙකු සිටිය හැකි නමුත්‌ සැම ක්‍රීඩකයෙකුම
+එක්‌ ක්‍රීඩා සමාජයකට පමණක්‌ අයත්‌ වේ.
+
+It also indicates a relationship between "Player" and "Game" entities.
+එය "Player" සහ "Game" QMdO අතර සමිඛන්ධයක්‌ දූ EsOG.
+
+e “Each game in this context is given a unique code and a description.”
+“මෙහි එක්‌ එක්‌ ක්‍රීඩාවට අනන්‍ය © කේතයක්‌ (code) විස්තරයක්‌ (description) ඇත.”
+
+This describes the attributes of the "Game" entity. Each game is uniquely identified by a code and has
+an additional attribute, description, that provides more details about the game.
+
+මෙය "Game" භූතාර්ටයේ උපලක්ෂණ විස්තර කරයි. සෑම ක්‍රීඩාවක්ම කේතයකින්‌ අනන්‍ය ලෙස හඳුනාගෙන
+ඇති අතර ක්‍රීඩාව පිළිබඳ වැඩි විස්තර සපයන අමතර උපලක්ෂණයක්‌, විස්තරයක්‌ ඇත.
+
+e “A player can play more than one game and each game is played by at least one player.”
+“ක්‍රීඩකයකුට GO) චවකකට වැඩි සංඛ්‍යාවකට GH) කළ හැකි වන අතර එක්‌ ක්‍රීඩාවක අඩු තරමින්‌ එක්‌
+ක්‍රීඩකයකුවත්‌ ක්‍රීඩා කරනු ලබයි.”
+
+This suggests a many-to-many relationship between "Player" and "Game" entities, where players can
+engage in multiple games, and each game must have at least one player involved, indicating it has a
+total participation.
+
+මෙය "Player" සහ "Game" QMdO අතර බහු-බහු සමිබන්ධතාවක්‌ යෝජනා කරයි, SHE ක්‍රිඩකයින්ට
+විවිධ ක්‍රීඩා වල නිරත විය හැකි අතර, සෑම HHOMOO අවම වගයෙන්‌ එක්‌ ක්‍රීඩකයෙකු හෝ සමිබන්ධ
+විය යුනු අනර, එයට පුර්ණ සහභාගීත්වයක්‌ ඇති බව පෙන්නුමි කරයි.
+
+Now, let’s draw an Entity-Relationship (ER) diagram using only relevant words in the given description.
+දැන්‌, ලබා දි ඇති විස්තරයේ අදාළ වචන පමණක්‌ භාවිතා කරමින්‌ භුතාට්ට-සමිඛන්ධතා රෑප සටහනක්‌ GEQ.
+
+Mic
+Kien >
+Player Kien > to club
+
+'
+
+(11) Extend the ER diagram 101 above (1) to include number of hours played by each player for each game.
+එක්‌ එක්‌ ක්‍රීඩකයා විසින්‌ Oc} එක්‌ GMO කරන ලද පැය ගණන ඇතුළත්‌ කිරීම oem ඉහත (i) හි අඳින
+ලදු ER සටහන දිර්ඝ කරන්න.
+
+Here, we need to record the number of hours each player has played for each game. However, adding it
+directly to the "Player" or "Game" entity would not be ideal, because it doesn’t belong to one entity but
+
+depends on both.
+මෙහිදි, අපි ඵක්‌ එක්‌ ක්‍රීඩකයා එක්‌ එක්‌ HHO සඳහා HA) කළ පැය ගණන වාර්තා කළ යුතුය. කෙසේ වෙතත්‌,
+
+එය "Player" හෝ "Game" භූතාර්ටයට කෙලින්ම එකතු කිරිම සුදුසු නොවේ, මන්දු ඵය එක්‌ භුතාර්ඊයකට
+අයන්‌ නොවන නමුත්‌ දෙකම මත රඳා පවති.
+
+Therefore, we can identify it as a descriptive attribute of Player-Game relationship.
+එබැවින්‌, අපට එය Player-Game සමිබන්ධතාවයේ විස්තරාත්මක උපලක්ෂණයක්‌ ලෙස හඳුනාගත හැකිය.
+
+Player = ද > ! club
+n
+
+(111) Player may have sponsor who has unique title. A sponsor can give sponsorship only for one player.
+Extend further the ER diagram 11] part (11) above to include the sponsor’s details.
+අනන්‍ය නමක්‌ (unique title) සහිත අනුග්‍රාහකයකු (sponsor) ක්‍රිීඩකයකුට සිටිය හැක. අනුග්‍රාහකයකුට එක්‌
+ක්‍රඩකයකුට පමණක්‌ අනුග්‍රාහකත්වය දැක්විය හැකි ය.
+ඉහත (ii) හි ER සටහන, අනුග්‍රාහක විස්තර ඇතුළත්‌ කිරීම සඳහා තවදුරටත්‌ දිර්ඝ කරන්න.
+
+Here, it describes "Sponsor" entity with a one-to-one relationship between "Player" and "Sponsor". This
+relationship reflects that sponsor can be associated with one player and each player may have one sponsor.
+මෙහිදි, එය "Player" a "Sponsor" අතර Sea-Sa සමිබන්ධයක්‌ ඇති "Sponsor" Qm6de විස්තර කරයි.
+
+මෙම සබඛඳතනාවයෙන්‌ පිළිබිඹු වන්නේ අනුග්‍රාහකයෙකු එක්‌ ක්‍රීඩකයෙකු සමඟ සම්බන්ධ කළ හැකි අතර සැම
+ක්‍රඩකයෙකුටම එක්‌ අනුග්‍රාහකයෙකු සිටිය හැකි බවයි.
+
+ලට ලව
+
+NIC) CName>
+1 1|
+
+Sponsor 1 <has > 1 Player mn ද > club
+n
+
+(b) The ‘Winner’ table given below contains the details of the players who won different matches and
+medals. There is a fixed amount of prize money given to each medal type. A Gold medal has
+Rs.20,000/=, a Silver medal has Rs. 10,000/= and a Bronze medal has Rs. 5,000/=. Consider the
+primary key of the Winner table as NIC and MatchID.
+ක්‍රීඩකයන්‌ පයග්‍රහණය කරන ලදු ක්‍රීඩා (games) සහ පදක්කමි (medals) පිළිබඳ විස්තර පහත ‘Winner’
+වගුවෙහි ඇතුළත්‌ වේ. එක්‌ එක්‌ පදුක්කමි (medals) වර්ගය sem නිශ්චිත ත්‍යාග මුදුලක්‌ ඇත. රන්‌ (gold)
+පදුක්කමක්‌ සඳුහා රැ.20,0007- ක්‌ ද, රිදි (silver) පදක්කමක්‌ සඳුහා 2.10,000/- ක්‌ දූ ලෝකඩ (bronze)
+පදක්කමක්‌ ace) රැ.5,000/- ක්‌ දූ ලැබේ. Winner වගුවෙහි ප්‍රාටමික යනුර NIC සහ MatchID ලෙස
+
+සලකන්න.
+Winner Table
+NIC MatchID MedalType Prize
+951477751V BD-2 Silver 10000
+985467923V BD-2 Gold 20000
+995874159V BD-1 Gold 20000
+997656614V BD-3 Silver 10000
+951477751V BD-1 Bronze 5000
+
+(1) Write an SQL statement to display the number of players who won “Gold” medals.
+රන්‌ පදුක්කමි දිනන ලද, ක්‍රීඩකයන්‌ සංඛ්‍යාව ප්‍රදර්ශනය කිරීම සඳහා SOL ප්‍රකාගයක්‌ ලියා දක්වන්න.
+
+To display the number of players who won “Gold” medals, we have to use a SELECT query with COUNT.
+“Gold” පදුක්කමි දිනු ක්‍රිඩකයින්‌ සංඛ්‍යාව cosdOO, අපට COUNT සහින SELECT විමසුමක්‌ භාවිතා කිරීමට
+සිදුවේ.
+
+Answer #1:
+
+SELECT COUNT(DISTINCT NIC)
+FROM Winner
+WHERE MedalType = 'Gold';
+
+This query counts the distinct NICs of players who have won a medal with MedalType = ‘Gold’.
+DISTINCT is used to avoid counting the same player multiple times if they have won multiple gold
+medals.
+
+මෙම විමසුම MedalType = ‘Gold’ සමඟින්‌ පදක්කමක්‌ දිනු ක්‍රිඩකයන්ගේ වෙනස්‌ පාතික හැඳුනුමිපත්‌ ගණන්‌
+කරයි. DISTINCT භාවිතා කරනුයේ එකම ක්‍රඩකයා රන්‌ පදක්කමි කිහිපයක්‌ දිනාගෙන ඇන්නමි කිහිප වතාවක්‌
+ගණන්‌ කිරීම වැළැක්වීමටය.
+
+Answer #2:
+
+SELECT COUNT(*)
+FROM Winner
+WHERE MedalType = ‘Gold’;
+
+This is a valid answer but it is not fully correct. This query counts all rows where MedalType is Gold. If
+a player has won multiple gold medals (multiple entries with MedalType = 'Gold' for the same NIC),
+each entry will be counted separately.
+
+මෙය වලංගු පිළිතුරක්‌ වන නමුත්‌ එය සමිපුර්ණයෙන්ම නිවැරදි නොවේ. මෙම විමසුම MedalType යන්න Gold
+වන සියලුම පේළි ගණන්‌ කරයි. ක්‍රීඩකයෙකු රන්‌ පදක්කමි කිහිපයක්‌ දිනාගෙන තිබේ නමි (එකම පාතික
+හැඳුනුමිපත aca) MedalType = ‘Gold’ සමඟ බහුවිධ ඇතුළත්‌ S69), එක්‌ එක්‌ ප්‍රවේශය වෙන වෙනම
+ගණන්‌ කරනු ලැබේ.
+
+(11) In which normal form does the above table exist? Justify your answer.
+ඉහත වගුව පවතින්නේ කුමන ප්‍රමතකරණයෙහි (normal form) ද? ඔබේ පිළිතුර සාධාරණීය කරන්න.
+
+First Normal Form / පළමු ප්‍රමතකරණය (INF)
+A table 1s assigned to as being in First Normal Form if a column does not hold multiple values regarding
+a single record. Tables in First Normal Form can hold only single-valued attributes.
+
+HOt) තනි වාර්තාවක්‌ සමිබන්ධයෙන්‌ බහුවිධ අගයන්‌ නොමැති නමි වගුවක්‌ පළමු ප්‍රමතකරණය ලෙස පවරනු
+ලැබේ. පළමු ප්‍රමතකරණයේ ඇති වගු වල නබා ගත හැක්කේ තනි අගයක්‌ සහිත උපලක්ෂණ පමණි.
+
+Second Normal 1' 01111 / දෙවන ප්‍රමනකරණය (2NF)
+First, the table has to be in First Normal Form. Then, the table is checked for partial dependencies. If the
+value of non-primary attribute can be defined using part of primary key then it is called partial dependency.
+
+පළමුව, වගුව පළමු ප්‍රමනකරණයේ විය යුතුය. ඉන්පසුව, වගුව ආංගික පරායත්තනා සඳුහා පරීක්ෂා කරනු
+ලැබේ. HOGA නොවන උපලක්ෂණයක අගය ප්‍රාටමික යතුටේ කොටසක්‌ භාවිතයෙන්‌ අර්ට්‌ දැක්විය හැකි නමි
+එය ආංගික පරායත්තතාවයක්‌ ලෙස හැඳින්වේ.
+
+Third Normal Form / තුන්වන ප්‍රමතකරණය (3NF)
+The table must be in the Second Normal Form. Then, the table is checked for transitive dependencies. It
+is when the value of a non-primary attribute can be defined using another non-primary attribute.
+
+වගුව දෙවන ප්‍රමනකරණයේ තිබිය යුතුය. ඉන්පසුව, සංක්‍රාන්ති පරායත්තතා සඳුහා වගුව පරීක්ෂා කරනු ලැබේ.
+එය ප්‍රාටිමක නොවන උපලක්ෂණයක අගය වෙනත්‌ ප්‍රාටමික නොවන උපලක්ෂණයක්‌ භාවිතයෙන්‌ FdO දැක්විය
+හැකි අවස්ටාවයි.
+
+ONF | INF | 2NF | 3NF
+Multivalued columns / බහුවිධ අගය තීරැ x x
+Partial Dependency / ආංගික පරායත්තතා x
+Transitive Dependency / සංක්‍රාන්ති පරායත්තතා
+
+(ONF means an Unnormalized Database / ONF යනු ප්‍රමතකරණය නොව දත්ත සමුදායකි)
+
+In 1NF, a table should have no repeating groups and should contain only atomic (indivisible) values. Here,
+the given Winner table meets this requirement as each cell holds a single value, and there are no repeating
+groups.
+
+INF හි, වගුවක පුනරාවටිතන කණ්ඩායමි නොතිබිය යුතු අතර පරමාණුක (බෙදීම කළ නොහැකි) අගයන්‌
+පමණක්‌ අඞංගු විය යුතුය. මෙහිදි, ලබා & ඇති Winner වගුව මෙම අවශ්‍යතාවය සපුරාලන්නේ එක්‌ එක්‌
+කොටුව තනි අගයක්‌ ඇති බැවින්‌ සහ පුනරාවරිතන කණ්ඩායමි නොමැති බැවිනි.
+
+The table has a composite primary key (NIC, MatchID). There is no partial dependency (2NF) since a
+non-key attribute (MedalType, Prize) depends on the entire composite key.
+
+වගුවේ සංයුක්ත QOS යතුරක්‌ ඇත (NIC, MatchID). එක්‌ එක්‌ යතුරු-නොවන උපලක්ෂණ (MedalType,
+Prize) සමිපුර්ණ සංයුක්ත යතුර මත රඳා පවතින බැවින්‌ ආංශික පරායත්තතා (2NF) නොමැත.
+
+However, it does not meet the requirements for 3NF because the Prize attribute is dependent on MedalType
+rather than the composite key (NIC, MatchID).
+කෙසේ වෙතත්‌, එය 3NF BEM) අවශ්‍යතා සපුරාලන්නේ නැත, මන්ද Prize උපලක්ෂණය සංයුක්ත යතුර (NIC,
+MatchID) ට වඩා MedalType මත රඳා පවති.
+
+Therefore, Winner table is in Second Normal Form (2NF).
+එබැවින්‌, Winner වගුව දෙවන ප්‍රමතකරණයේ (2NF) වේ.
+
+(111) Convert the above table to the next normal form. (It is not required to write the data in the tables
+derived in next normal form.)
+ඉහත වගුව ඊළඟ ප්‍රමතකරණයට හරවන්න. (ඊළඟ ප්‍රමතකරණයේ දි ව්‍යුත්පන්න වන OMOE ED ලිවිම
+අනවග්‍ය වේ.)
+
+To convert the table to Third Normal Form (3NF), we need to remove the transitive dependency of the
+Prize on MedalType. This requires splitting the table into two tables:
+
+වගුව තුන්වන ප්‍රමතකරණයට (3NF) esOdmae කිරීමට, අපි MedalType මත Prize හි සංක්‍රාන්ති පරායත්තතා
+ඉවත්‌ කළ යුතුය. මේ සඳුහා වගුව වගු දෙකකට බෙදිම අවග්‍ය වේ:
+
+Winner (NIC, MatchID, MedalType)
+Medal (MedalType, Prize)
+
+In 3NF, there should be no transitive dependencies, meaning all non-key attributes must depend on the
+primary key. By separating the Prize into a new table (Medal), the Winner table now has only attributes
+dependent on its composite primary key (NIC, MatchID).
+
+3NF හි, සංක්‍රාන්ති පරායත්තනා නොතිබිය යුතුය, එනමි සියලුම OSG නොවන උපලක්ෂණ QOGe යනුර මත
+රඳා පැවතිය යුතුය. Prize නව වගුවකට (Medal) වෙන්‌ කිරීමෙන්‌, Winner වගුවේ දැන්‌ ඇත්තේ එහි සංයුක්ත
+ප්‍රාටමික යතුර (NIC, MatchID) මත සමිපුර්ණයෙන්ම රඳා පවතින උපලක්ෂණ පමණි.
+
+2021 DATABASE ESSAY MARKING
+
+1.(a) A virtual supermarket has registered suppliers to supply the customer orders placed online. The
+supermarket always fulfils its customer orders through these suppliers. One supplier is responsible
+only for the customers who live in the supplier’s area. A customer has only one supplier. Each
+supplier is characterized by a code (unique), address and contact numbers. A
+මාර්ගගතව @€5en ව පාරිභෝගික ඇනවුමි සැපයීමට අනත්‍ය සුපිරි වෙළෙඳසැලකට ලියාපදවංචි
+සැපයුමිකරුවන්‌ ඇත. සුපිටි වෙළෙඳසැල සැමවිටම නම පාරිභෝගික ඇනවුමි සපුරාලන්නේ මෙම
+සැපයුමිකරුවන්‌ හරහා ය. එක්‌ සැපයුමිකරැවකු වගකිව යුතු වන්නේ තම ප්‍රදේශයේ සිටින පාරිභෝගිකයින්‌
+ගැන පමණි. එක්‌ පාරිභෝගිකයකුට සිටින්නේ එක්‌ සැපයුමිකරුවකු පමණි. සෑම සැපයුමිකරැවකුටම කේතයක්‌
+(අනන්‍ය), ලිපිනයක්‌ සහ දුරකටන අංක ඇත. එක්‌ සැපයුමිකරැවකුට දුරකටන අංක කිහිපයක්‌ තිබිය හැක.
+
+supplier can have several contact numbers. Each customer is characterized by an email address
+(unique), name and location. A customer can confirm orders. Each order has only one supplier and
+one customer.An order is characterized by an order number (unique), description and a value. A
+supplier can supply more than one order. / සැම පාරිභෝගිකයකුටම, ඉ-ලිපිනයක්‌ (අනන්‍ය), නමක්‌ සහ පදිංචි
+ස්ටානයක්‌ ඇත. පාරිභෝගිකයකුට, ඇනවුමි තහවුරැ කළ හැක. සැම ඇනවුමකටම එක්‌ සැපයුම්කරැවකු පමණක්‌
+සහ එක්‌ පාරිභෝගිකයකු පමණක්‌ ඇන. ඇනවුමක්‌, ඇනවුම්‌ අංකයකින්‌ (අනන්‍ය), විස්තරයකින්‌ හා වටිනාකමකින්‌
+සමන්විත ය. එක්‌ සැපයුමිකරුැවකුට එකකට වඩා වැඩි ඇනවුමි ගණනක්‌ සැපයිය හැක.
+
+Note : Use only the terms from the list given below for your ER diagrams of parts (i) and (ii).
+සැ.යු : පහන (i) සහ (ii) කොටස්‌ ees භූතාට්ට සම්බන්ධතා (ER) සටහන්‌ ඇඳිමේදී ලැයිස්තවේ & ඇති
+ee, පමණක්‌ භාවිත කරන්න. (එම පදු භාෂා දෙකින්ම ලියා දැක්වීම අනවශ්‍ය ය.)
+
+ලැයිස්තුව: { ලිපිනය (address), ඵපන්ත (agent), කේතය (code), තහවුරැ කරයි (confirms), දුරකටන_අංකය
+(contactNo), පාරිභෝගිකයා (customer), විස්තරය (description), ඉ-ලිපිනය (email),
+කුලියට_ ගනියි (hires), පදිංචි ස්ටානය (location), නම (name), ඇනවුම (order),
+ඇනවුමි_ අංකය (orderNo), සැපයුමිකරැ (supplier), සපයයි (supplies), වටිනාකම (value) }
+
+(i) Draw the Entity Relationship (ER) diagram for the above description.
+ඉහත විස්තරය සඳුහා භූතාටට සමිඛන්ධතා (ER) සටහනක්‌ අඳින්න.
+
+Let’s go through the given question paragraph by paragraph.
+දි ඇති ජේදය පියවරෙන්‌ පියවර අධ්‍යනය කරමු.
+
+A virtual supermarket has registered suppliers to supply the customer orders placed online. The
+supermarket always fulfils its customer orders through these suppliers. One supplier is responsible only
+for the customers who live in the supplier’s area. A customer has only one supplier. Each supplier 15
+characterized by a code (unique), address and contact numbers. A supplier can have several contact
+numbers. / මාර්ගගතව ඉදිරිපත්‌ © පාරිභෝගික ඇනවුමි සැපයීමට අතත්‍ය සූපිරි වෙළෙඳසැලකට ලියාපදිංචි
+සැපයුමිකරුවන්‌ ඇත. සුපිටි වෙළෙඳසැල සැමවිටම නම පාරිභෝගික ඇනවුමි සපුරාලන්නේ මෙම
+සැපයුමිකරුවන්‌ හරහා ය. එක්‌ සැපයුමිකරැවකු වගකිව යුතු වන්නේ තම ප්‍රදේශයේ සිටින පාරිභෝගිකයින්‌
+ගැන පමණි. එක්‌ පාරිභෝගිකයකුට සිටින්නේ එක්‌ සැපයුමිකරුවකු පමණි. සෑම සැපයුමිකරැවකුටම කේතයක්‌
+(අනන්‍ය), ලිපිනයක්‌ සහ දුරකටන අංක ඇත. එක්‌ සැපයුමිකරැවකුට දුරකටන අංක කිහිපයක්‌ තිබිය හැක.
+
+- This paragraph hints that there are two entities: "Supplier" and "Customer".
+මෙම පේදුය මඟින්‌ භූතාටර්ට්‌ දෙකක්‌ ඇති බවට ඉඟි කරයි: "Supplier / සැපයුමිකරැ' සහ "Customer /
+පාරිභෝගිකයා".
+
+- Supplier-Customer relationship is a one-to-many relationship, because one supplier can serve many
+customers, but each customer is served by only one supplier. / සැපයුමිකරැ-පාරිභෝගික සමිබන්ධතාවය
+යනු එඒක-බහු සබඳුතාවකි, මන්ද එක්‌ සැපයුමිකරුවෙකුට බොහෝ ගනුදෙනුකරැවන්ට සේවය කළ හැකි
+නමුත්‌ සෑම පාරිභෝගිකයෙකුටම එක්‌ සැපයුමිකරුවෙකු පමණක්‌ සේවය කරයි.
+
+- Attributes of "Supplier" entity are code (primary key), address and contactNo (multi-valued attribute).
+"Supplier" භුතාර්ටයේ උපලක්ෂණය වන්නේ code (ප්‍රාටමික යතුර), address සහ contactNo (බහු වටිනාකමි
+සහිත උපලක්ෂණය) වේ.
+
+Each customer is characterized by an email address (unique), name and location.
+සෑම පාටීභෝගිකයකුටම, ඉ-ලපිනයක්‌ (අනන්‍ය), නමක්‌ සහ පදිංචි ස්ටානයක්‌ ඇත.
+
+This describes the attributes of "Customer" entity; which are email (primary key), name and location.
+මෙය "Customer" භූතාර්ටයේ ගුණාංග විස්තර කරයි, email (ප්‍රාටමික යතුර), name සහ location වේ.
+
+A customer can confirm orders. Each order has only one supplier and one customer.
+පාරිභෝගිකයකුට, ඇනවුම්‌ තහවුරැ කළ හැක. සෑම ඇනවුමකටම එක්‌ සැපයුම්කරැවකු පමණක්‌ සහ එක්‌
+පාරිභෝගිකයකු පමණක්‌ ඇත.
+
+- Another entity called "Order" is introduced.
+"Order / ඇණවුම" නමින්‌ තවත්‌ භුතාර්ටඊයක්‌ හඳුන්වා දෙනු ලැබේ.
+
+- Each customer can place multiple orders, but an order is placed by only one customer. Therefore, the
+cardinality of Customer-Order relationship 15 one-to-many.
+සෑම පාරිභෝගිකයෙකුටම බහුවිධ ඇණවුම්‌ කළ හැකි නමුත්‌ ඇණවුමක්‌ ලබා දෙන්නේ එක්‌ පාරිභෝගිකයෙකුට
+පමණි. එබැවින්‌, පාරිභෝගික-ඇණවුම්‌ සම්බන්ධතාවයේ ගණනියතාව He-DeqQ වේ.
+
+- Customer-Order relationship and Supplier-Customer relationship ensure that every Order has one
+specific Customer who places it and one specific Supplier who fulfills it.
+පාරිභෝගික-ඇණවුමි GGVHAGS සහ සැපයුමිකරැ-පාරිභෝගික සබඳුනාවය සෑම ඇණවුමකටම එක්‌ Addo
+පාරිභෝගිකයෙකු සිටින බව සහතික කරයි.
+
+An order is characterized by an order number (unique), description and a value. A supplier can
+
+supply more than one order.
+ඇනවුමක්‌, ඇනවුම්‌ අංකයකින්‌ (අනන්‍ය), විස්තරයකින්‌ හා වටනාකමකින්‌ සමන්විත ය. එක්‌ සැපයුමිකරැවකුට ඵවකකට
+වඩා වැඩි ඇනවුමි ගණනක්‌ සැපයිය හැක.
+
+Attributes of "Order" entity are orderNo (primary key), description and value. And it has given that a
+supplier can supply more than one order.
+
+"Order" Qmdded ගුණාංග වන්නේ orderNo (ප්‍රාටමික යතුර), description සහ value යි. සැපයුමිකරැවෙකුට
+ඇණවුම්‌ එකකට O8}) සැපයිය හැකි බව එය ලබා දි ඇත.
+
+By combining all the details provided in the paragraph, the ER diagram can be drawn as follows.
+ජේදුයේ eso) ඇති සියලුම විස්තර ඒකාබද්ධ කිරීමෙන්‌, ER රෑප සටහන පහත SOF ඇඳිය හැකිය.
+
+Answer | / පිළිතුර |
+
+1 m
+Supplier Customer
+
+1
+code email
+<— Address name
+description ය C value >)
+m
+
+Order
+
+Answer 2 / පිළිතුර 2
+
+code Caaaress > Come email
+
+Supplier Customer
+1
+description <>
+
+Order Confirms
+m
+
+The ternary relationship between Supplier, Customer and Order is not necessary, as that connection can
+be made through Customer-Order and Supplier-Customer relationships.
+
+සැපයුමිකරැ, පාරිභෝගිකයා සහ ඇණවුම අතර ත්‍රිත්ව සමිබන්ධතාවය අවශ්‍ය නොවේ. මන්ද, පාරිභෝගික-
+ඇණවුම සහ සැපයුමිකරැ-පාරිභෝගික සබඳුතා හරහා එම සමිබන්ධතාවය ඇති කළ හැකිය.
+
+(11) Sometimes suppliers hire agents to support the order supplies. However, the supermarket identifies
+the agents only through registered supplier codes. An agent is characterized by a name and a contact
+number. Each agent is working only for one supplier and a supplier is also getting only one agent’s
+service.Add these details: to the ER diagram you drew for part (1).
+ඇනවුම සැපයිම GEM) සැපයුමිකරුවෝ ඇතැමිවිට ඒපන්තවරැ කුලියට ගනිති. එසේ වුවත්‌ සුපිරි වෙළෙඳසැල
+ඒපන්තවරැ හඳුනාගන්නේ ලියාපදිංචි සැපයුමිකරුවන්ගේ කේත හරහා ය. ඒපජන්තවරයකුට නමක්‌ සහ දුරකටන
+අංකයක්‌ ඇත. එක්‌ ඒපජන්තවරයෙක්‌ එක්‌ සැපයුමිකරැවකුට පමණක්‌ සේවය කරන අතර, එක්‌ සැපයුමිකරැවකු
+එක්‌ ඒපන්තවරයකුගේ සේවය පමණක්‌ ලබාගනියි.මෙම විස්තර ඉහත (i) හි අඳින ලදු ER සටහනට එකතු
+කරන්න.
+
+So, "Agent" 1s a weak entity because it is dependent on the Supplier for its identification (since the
+supermarket recognizes the agent based on the registered supplier codes). Its’ attributes are name and
+contactNo.
+
+එබැවින්‌, "Agent / නියෝපිතය)" යනු දුර්වල භුතාරටයකි, මන්ද එය එය හඳුනා ගැනීම HEM) සැපයුමිකරු
+මත රඳා පවතී (සුපිරි වෙළඳසැල ලියාපදිංචි සැපයුමිකරුවන්ගේ කේත මත පදනම්ව නියෝපිතයා හඳුනා
+ගන්නා බැවින්‌). එහි ගුණාංග වන්නේ name සහ contactNo යි.
+
+As "Agent" is a weak entity, there is a total participation between Agent and Supplier.
+"Agent / නියෝජිතයා" ළුර්චල Qmddas බැවින්‌, නියෝපතයා සහ සැපයුමිකරැ අතර පුරණ සහභාගිත්වයක්‌
+ඇත.
+
+Each Agent works for only one Supplier, and each Supplier has only one Agent. Therefore, there 15 a one-
+to-one relationship between Supplier and Agent.
+
+සෑම නියෝපිතයෙකුම එක්‌ සැපයුමිකරැවෙකු HCH) පමණක්‌ HO) කරන අතර සෑම සැපයුමිකරැවෙකුටම
+ඇත්තේ එක්‌ නියෝපිතයෙකු පමණි. එබැවින්‌, සැපයුමිකරු සහ නියෝපිතයා අතර ඵක-ඒක සමිඛන්ධයක්‌ පවති.
+
+Updated ER diagram answer 1 / යාවත්කාලීන ER රෑප සටහන පිළිතුර 1
+
+Supplier p< >— ෴ Customer ලැ 9)
+
+1
+description
+Order
+
+orderNo
+
+| Agent |
+
+Updated ER diagram answer 2 / යාවත්කාලීන ER රෑප සටහන පිළිතුර 2
+
+Supplier See Customer
+1 1
+
+description
+
+m
+
+Order
+
+orderNo
+
+(b) A building construction company signs contracts with its clients. Each contract is handled by an
+agent of the company.
+ගොඩනැගිලි ඉදිකිරීම සමාගමක්‌ තම සේවාපේක්ෂකයන්‌ (clients) සමග කොන්ත්‍රාත්තු (ගිවිසුමි) අත්සන්‌ කරයි.
+එක්‌ එක්‌ කොන්තාත්තුව සමාගමේ ඒපන්තවරයකු විසින්‌ හසුරැවනු ලැබේ.
+
+The Contracts table contains the details of the contracts. It has contract number, agent’s code, name
+and mobile phone number represented with CNo, ACode, AName and AMobile attributes
+respectively. The client’s name is represented with Client. Primary key of the Contracts table is CNo.
+Contracts වගුවෙහි කොන්ත්‍රාත්තු පිළිබඳ විස්තර අඩංගු වේ. කොන්ත්‍රාත්තු අංකය, ඵ්පන්තවරයාගේ කේතය,
+නම සහ SOMO දුරකටන අංකය පිළිවෙළින්‌ CNo, ACode, AName සහ AMobile උපලැකිවල දැක්වේ.
+සේවාපේක්ෂකයාගේ නම Clients මගින්‌ දැක්වේ. Contracts වගුවේ ප්‍රාටමික යතුර CNo වේ.
+
+Contracts
+CNo ACode AName AMobile Client
+C-112 EP003 Anura 0714545866 Srimal
+C-103 EP006 Navod 0774511320 Abish
+C-116 EP003 Anura 0714545866 Nehara
+C-224 EPO15 Virah 0763538147 Sirimal
+
+(1) Write an SQL statement to change in the Contracts table, the mobile number of the agent whose
+agent code is EPO03 to 0772222222.
+Contracts වගුවේ EP003 එපන්ත කේතය සහිත ඒපජන්තවරයාගේ දුරකටන අංකය 0772222222 ලෙස වෙනස්‌
+කිරීමට SOL ප්‍රකාශයක්‌ ලියන්න.
+
+To update the mobile number of the agent with the code EP003 in the Contracts table, the SQL query
+would look like this:
+
+ගිවිසුමි වගුවේ EP003 කේතය සමඟ නියෝපිතයාගේ පංගම දුරකටන අංකය යාවත්කාලීන කිරීමට, SOL
+විමසුම මේ ආකාරයෙන්‌ පෙනෙනු ඇත:
+
+UPDATE Contracts SET AMobile = ' 6772222222 ' WHERE ACode = 'EPQ@Q@3';
+
+This query updates the AMobile field to 0772222222 where the ACode is equal to 'EP003'.
+මෙම විමසූම AMobile ක්ෂේත්‍රය 0772222222 වෙත යාවත්කාලින කරයි, එහිදි ACode 'EP003'O සමාන වේ.
+
+(11) In which normal form does the Contracts table exist?
+ඉහත Contracts වගුව කුමන ප්‍රමතකරණයෙහි පවතී ද?
+
+The table is in First Normal Form ( ] |||") because it has atomic values, and there are no repeating groups.
+The primary key of the table is CNo (contract number).
+
+වගුව පරමාණුක අගයන්‌ ඇති නිසාත්‌, පුනරාවර්තන කණ්ඩායමි නොමැති නිසාත්‌ පළමු ප්‍රතමකරණ ආකාරයෙන්‌
+(INF) ee. වගුවේ ප්‍රාට්මික යතුර CNo (contract number) වේ.
+
+There are no partial dependencies because all non-key attributes (like AName, AMobile, Client) depend
+on the entire primary key (CNo) and not on a part of the key. Although the agent’s details could be moved
+to a separate table to avoid redundancy, there is no violation of 2NF since no non-key attribute depends
+only on a part of the key.
+
+සියලම ප්‍රධාන නොවන ගුණාංග (AName, AMobile, Client වැනි) යතුරේ කොටසක්‌ මත නොව සමපුට්ණ
+ප්‍රාටමික යතුර (CNo) මත රඳා පවතින නිසා අර්ධ පරායත්තතා නොමැත. අතිරික්ත විම වළක්වා ගැනීම සඳුහා
+
+නියෝපිතයාගේ විස්තර වෙනම වගුවකට ගෙන යා හැකි වුවද, 2ZNF උල්ලංඝනයක්‌ නොමැත, මන්ද යතුර
+නොවන ගුණාංගයක්‌ යතුරේ කොටසක්‌ මත පමණක්‌ රඳා පවති.
+
+So, the table is indeed in 2NF but not in 3NF, as some attributes (like agent details) depend on another
+non-primary attribute (ACode).
+
+එබැවින්‌, වගුව ඇත්ත වගයෙන්ම 2NF හි ඇති නමුත්‌ 3NF හි නොවේ, සමහර ගුණාංග (නියෝපිත විස්තර
+වැනි) වෙනත්‌ ප්‍රාටමික නොවන ගුණාංගයක්‌ (ACode) මත රඳා පවතී.
+
+So, the answer is 2NF.
+එබැවින්‌, පිළිතුර 2NF වේ.
+
+(11) Convert the Contracts table into next normal form. (It is not necessary to write the data in derived
+relations in the next normal form.)
+Contracts වගුව ඊළඟ ප්‍රමතකරණයට හරවන්න. (ඊළඟ ප්‍රමතකරණයේදී ව්‍යුත්පන්න වන වගුවල දත්ත GOO
+අනවග්‍ය වේ.)
+
+To move the Contracts table into the next normal form, Third Normal Form (3NF), we need to remove
+any transitive dependencies. A transitive dependency occurs when a non-key attribute depends on another
+non-key attribute rather than directly on the primary key.
+
+Contracts වගුව SEM සාමාන්‍ය පෝරමය, තුන්වන සාමාන්‍ය පෝරමය (3NF)GOm ගෙන යාමට, අපට කිසියම්‌
+සංක්‍රාන්ති පරායත්තතා ඉවත්‌ කිරීමට අවශ්‍ය වේ. සංක්‍රාන්ති පරායත්තතාවයක්‌ ඇති වන්නේ ප්‍රාටමික යතුර මත
+කෙලින්ම නොව යතුරැ නොවන ගුණාංගයක්‌ වෙනත්‌ යතුර නොවන ගුණාංගයක්‌ මත රඳා පවතින විටය.
+
+In the current table, the attributes AName and AMobile depend on ACode (agent code), not directly on
+the primary key CNo. Therefore, we need to separate the agent details from the Contracts table to eliminate
+the transitive dependency.
+
+වත්මන්‌ වගුවේ, AName සහ AMobile යන ගුණාංග රඳා පවතින්නේ ප්‍රාටමික යතුර CNo මත නොව, ACode
+(නියෝපත කේතය) මත ය. එබැවින්‌, සංක්‍රාන්ති යැපීම ඉවත්‌ කිරීම සඳුහා අපට නියෝපිත විස්තර කොන්ත්‍රාත්‌
+වගුවෙන්‌ වෙන්‌ කිරීමට අවග්‍ය වේ.
+
+Steps to convert to 3NF /3NF චෙත පරිවරනනය කිරීමට පියවර:
+
+1. Create a separate Agents table / වෙනම නියෝපිත වගුවක්‌ සාදන්න
+
+Move agent details (AName and AMobile) to a separate table, where ACode will be the primary key.
+නියෝපිත විස්තර (AName සහ AMobile) වෙනම වගුවකට ගෙන යන්න, එහිදි ACode ප්‍රාට්මික යතුර
+වනු ඇත.
+
+Agent (ACode, AName, AMobile)
+
+This table holds the unique information about each agent, eliminating the transitive dependency.
+සංක්‍රාන්ති යැපීම ඉවත්‌ කරමින්‌ එක්‌ එක්‌ නියෝජිතයා පිළිබඳු අනන්‍ය නොරතුරැ මෙම වගුවේ ඇත.
+
+2. Keep the Contracts table / ගිවිසුමි වගුව තබා ගන්න
+
+The Contracts table will now store only the contract-related information, along with a foreign key
+reference to the Agents table.
+
+Contracts වගුවේ දැන්‌ ගබඩා කරනු ලබන්නේ නියෝපිත වගුව HED) ආගන්තුක ප්‍රධාන යොමුවක්‌ සමඟ
+ගිවිසුමට අදාළ තොරතුරැ පමණි.
+
+Contract (CNo, Client, ACode)
+
+2022 DATABASE ESSAY MARKING
+
+1.(a) Draw the Entity Relationship (ER) diagram for the following scenario.
+පහත සන්දර්භය සඳහා භතාර්ට්‌ සම්බන්ධතා සටහන අඳින්න.
+
+A student uses the following data to register for subjects. Each subject is represented by its subject
+number (subjectNumber), subject name (subjectName) and prerequisite subject. A student can
+register for more than one subject during a semester. Each student has a first name (studentFname),
+a last name (studentLname) and a unique student number (studentid). Student, age (age) 1s required
+to register for subjects. Subjects are offered based on the availability of the resources. Hence some
+subjects will not be offered during a semester. A subject offered in a semester (subject_offering)
+includes subjectNumber, year, semester, teacher identifier (teacherld), and classroom. One
+subject_offering is assigned to a single teacher who is represented by a teacherld, name of the teacher
+(teacherName), and qualifications. Teacher can have several qualifications. Marks are awarded to
+students for each subject that they register.
+
+ගිෂ්‍යයෙක්‌ විෂයන්‌ සඳුහා ලියාපදිංචි වීමට පහත සඳහන්‌ දන්ත භාවිත කරයි. සැම විෂයක්‌ සඳහාම එයට
+ආවේණික විෂය අංකයක්‌ (subjectNumber), විෂය නමක්‌ (subjectName) සහ පුර්ව අවග්‍යතා විෂයක්‌
+(prerequisite subject) ඇත. එක්‌ අධ්‍යයන වාරයක්‌ තුළ, එක්‌ ගිෂ්‍යයෙකුට විෂයන්‌ එකකට වැඩි ගණනක්‌
+සඳුහා ලියාපදිංචි විය හැකිය. සෑම ගිෂ්‍යයෙක්‌ සඳුහාම මුල්‌ නමක්‌ (studentFname), වාසගමක්‌
+(studentLname) සහ අනන්‍ය වු Ges අංකයක්‌ (studentld) ඇත. විෂයන්‌ සඳුහා ලියාපදිංචි වීමට, ගිෂ්‍යාගේ
+වයස (age) අවග්‍ය වේ. සමිපත්‌ ලබා ගැනීමේ හැකියාව මත පදූනමිව විෂයන්‌ පිරිනැමෙයි. එබැවින්‌ සමහර
+අධ්‍යයන වාර තුළ සමහර විෂයන්‌ පිරිනැමෙන්නේ නැත. විෂය පිරිනැමිමක්‌ (subject_offering) තුළ, විෂය
+Eoencs (subjectNumber), වර්ෂය (year), අධ්‍යයන වාරය (semester), ගුරුවරයාගේ හඳුන්වනය (1640116110)
+සහ පන්නි කාමරය (classroom) අඩංගු වේ. එක්‌ විෂය පිරිනැමිමක්‌ (subject_offering) එක්‌ ගුරැවරයකු
+මගින්‌ ඉගැන්වෙන අතර, සෑම ගුරැවරයකුටම හඳුන්වනයක්‌ (teacherld), නමක්‌ (teacherName) සහ සුදුසුකමි
+(qualifications) ඇත. ගුරැවරයාට සුදුසුකමි කිහිපයක්‌ තිබිය හැකිය. ලියාපදිංචි ව සැම විෂයක්‌ සඳහාම
+සිසුන්ට ලකුණු ප්‍රදානය කෙටේ.
+
+Use only the terms from the list given below for the entities and attributes in your ER diagram.
+You have the freedom to choose relationship names.
+
+ඔබේ ER සටහනේ භූතාථරට (entities) ලාක්ෂණික (attributes) සඳුහා පහන ලැයිස්තුවේ & ඇති පදු
+පමණක්‌ භාවිත කරන්න. සමිබන්ධනා (relationships) eee) නමි තෝරාගැනීමට ඔබට නිදහස ඇත.
+
+List: {age, classroom, DOB, marks, qualification, semester, student, studentFname, studentld,
+studentLname, subject, subject_offering, subjectName, subjectNumber, teacher, teacherld,
+teacherName, year}
+
+Note: DOB -- Date of Birth
+
+Let’s go through the given paragraph line by line.
+E ඇති ජේදුයේ පේළියෙන්‌ පේළිය විමසමු.
+
+A student uses the following data to register for subjects.
+ගිෂ්‍යයෙක්‌ විෂයන්‌ සඳුහා ලියාපදිංචි වීමට පහත සඳුහන්‌ දුන්ත භාවිත කරයි.
+
+This depicts the relationship between Student and Subject.
+මෙය ගිෂ්‍යයා (Student) සහ See (Subject) අතර සමිබන්ධය නිරැපණය කරයි.
+
+Each subject is represented by its subject number (subjectNumber), subject name (subjectName) and
+prerequisite subject.
+
+සෑම විෂයක්‌ සඳහාම එයට ආවේණික විෂය eroenced (subjectNumber), විෂය නමක්‌ (subjectName) සහ QO
+අවශ්‍යතා විෂයක්‌ (prerequisite subject) ඇත.
+
+This describes attributes of Subject entity.
+මෙය විෂය (Subject) භූතාර්ටයේ උපලක්ෂණ විස්තර කරයි.
+
+e Primary key (ප්‍රාටමික යතුර) — subjectNumber
+e Other attributes (වෙනත්‌ උපලක්ෂණ) — subjectName
+
+Here prerequisite subject is not another attribute of the Subject entity as it is not a feature/quality of a
+subject. It is an instance of the Subject entity. It depicts that a particular subject has a connection with
+another subject, called a prerequisite subject. Therefore, it is a binary relationship where an entity has a
+relationship with itself.
+
+මෙහිදි prerequisite subject විෂය (Subject) භූතාර්ටයෙහි වෙනත්‌ උපලක්ෂණයක්‌ නොවේ, මන්ද, එය විෂයක
+ලක්ෂණයක්‌/ගුණයක්‌ නොවේ. එය විෂය (Subject) භූතාර්ටඊයෙහි අවස්ටාවකි. යමි විෂයක්‌ පුර්ව අවග්‍යතා
+විෂයක්‌ (prerequisite subject) ලෙස හැඳින්වෙන වෙනත්‌ විෂයයක්‌ සමඟ සමිඛන්ධතාවක්‌ ඇති බව එය
+නිරෑපණය කරයි. එබැවින්‌, එය ද්විමය සම්බන්ධතාවයක්‌ වන අතර එහිදි භතාඊර්ඊයක්‌ තමා සමඟම
+සම්බන්ධතාවයක්‌ ඇත.
+
+prerequisite
+
+subjectNumber
+
+subject require
+
+subjectName
+
+mainsubject
+
+A student can register for more than one subject during a semester.
+
+එක්‌ අධ්‍යයන වාරයක්‌ me, එක්‌ ශිෂ්‍යයෙකුට විෂයන්‌ එකකට වැඩි ගණනක්‌ of) ලියාපදිංචි විය හැකිය.
+
+This describes the cardinality of Student, Subject relationship.
+මෙය Hea (Student), විෂය (Subject) සම්බන්ධතාවයේ ගණනියතාව විස්තර කරයි.
+
+While a subject can have more than one student, a student can register for more than one subject during
+a semester. (M:N, many-to-many relationship)
+
+විෂයකට සිසුන්‌ එකකට වඞා සිටිය හැකි අතර, Gesowyqo අධ්‍යයන වාරයක්‌ ne එක්‌ විෂයකට වඩා
+ලියාපදිංචි විය හැකිය. (M:N, බහු-බහු සමිබන්ධනාවයක්‌)
+
+Each student has a first name (studentFname), a last name (studentLname) and a unique student number
+(studentid). Student, age (age) 15 required to register for subjects.
+
+සැම Gesens සඳහාම මුල්‌ නමක්‌ (studentFname), වාසගමක්‌ (studentLname) සහ අනන්‍ය වු Ges අංකයක්‌
+(studentld) ඇත. විෂයන්‌ සඳුහා ලියාපදිංචි විමට, ගිෂ්‍යාගේ වයස (age) අවග්‍ය වේ.
+
+This describes attributes of Student entity.
+මෙය Gea (Student) භූතාර්ටයේ උපලක්ෂණ විස්තර කරයි.
+
+But as the age of a student changes with time, we have to keep updating its value. As it 15 not practical
+instead of taking user input for ‘age’, ‘date of birth’ of each user is recorded. Then age of the user is
+calculated and stored with in ‘age’, and we don’t have to change its value with time as the system
+automatically updates its value. Those type of attributes are known as derived attributes.
+
+නමුත්‌ කාලයත්‌ සමඟ ගිෂ්‍යයෙකුගේ වයස වෙනස්‌ වන SO අපට එහි වටිනාකම යාවත්කාලින කිරීමට සිදුවේ.
+‘age’ සඳුහා GOGEM ආදානය ලබා ගැනීම ප්‍රායෝගික නොවන බැවින්‌ එය වෙනුවට, එක්‌ එක්‌ පරිගීලකයාගේ
+‘date of birth’ සටහන්‌ කර ගැනේ. එවිට eSGenaes වයස ගණනය කර ‘age’ සමඟ ගබඩා කරනු ලබන
+අතර, පද්ධතිය ස්වයංක්‍රීව එහි අගය යාවත්කාලීන කරන බැවින්‌ අපට එහි අගය කාලයත්‌ සමඟ වෙනස්‌
+කිරීමට අවග්‍ය නොවේ. එවැනි උපලක්ෂණ, ව්‍යුත්පන්න උපලක්ෂණ ලෙස හැඳින්වේ.
+
+Derived attributes ව්‍යුත්පන්න උපලක්ෂණ
+
+Derived attributes are typically represented by a dashed oval. Derived attributes are not stored directly in
+the database; instead, they are computed when needed.
+
+ව්‍යුත්පන්න උපලක්ෂණ සාමාන්‍යයෙන්‌ කඞඉරි සහිත ඕවලාකාරයකින්‌ නිරැපණය කෙරේ. ව්‍යුත්පන්න උපලක්ෂණ
+සෘපුවම දුන්ත ගබඩාවේ ගබඩා කර නැත. ඒ වෙනුවට, SO) අවශ්‍ය SO ගණනය කරගනු ලැබේ.
+
+e Primary key (ප්‍රාටමික යතුර) — studentid
+e Derived attribute (ව්‍යුත්පන්න උපලක්ෂණය) — age
+e Other attributes (වෙනත්‌ උපලක්ෂණ) — studentFname, studentLname, DOB
+
+student DOB
+
+Subjects are offered based on the availability of the resources. Hence some subjects will not be offered
+during a semester.
+
+සම්පත්‌ ලබා ගැනීමේ හැකියාව මත පදුනමිව විෂයන්‌ පිරිනැමෙයි. එබැවින්‌ සමහර අධ්‍යයන වාර ME සමහර
+විෂයන්‌ පිරිනැමෙන්නේ නැත.
+
+Even though previously it was given that students can register for subjects, here it has given that “Subjects
+are offered based on the availability of the resources”, which means that a student can not register for any
+subject of his/her liking in a given semester; and that subjects offered in a particular semester may vary
+due to the availability of resources.
+
+සිසුන්ට විෂයයන්‌ OCH) ලියාපදිංචි විය හැකි බව GO පෙර ලබාදි තිබුණද, මෙහි දි ඇත්තේ “සමිපත්‌ ලබා
+ගැනීමේ හැකියාව මත පදුනමිව විෂයන්‌ පිරිනැමෙයි” යන්නයි, එනමි ගිෂ්‍යයෙකුට යමි අධ්‍යයන වාරයක තමන්‌
+කැමති විෂයයක්‌ සඳුහා ලියාපදිංචි විය නොහැකි බවත්‌, යමි අධ්‍යයන වාරයක ඉදිරිපත්‌ කරනු ලබන විෂයයන්‌
+සම්පත්‌ ඇති බව නිසා වෙනස්‌ විය හැකි බවත්‌ ය.
+
+Therefore, if we create a direct relationship between student and subject, that won’t be correct as a student
+can not register for any subject. So, the relationship should be made through subject_ offering, as a student
+can only register to the subjects offered with in a certain semester.
+
+එබැවින්‌, අපි ගිෂ්‍යයා (Student) සහ See (Subject) අතර සෘපු සම්බන්ධතාවයක්‌ ඇති කලහොත්‌, ගිෂ්‍යයෙකුට
+කිසිදු විෂයයක්‌ සඳහා ලියාපදිංචි විය නොහැකි බැවින්‌ එය නිවැරදි නොවේ. එබැවින්‌, ගිෂ්‍යයෙකුට ලියාපදිංචි
+විය හැක්කේ යම්‌ අධ්‍යයන වාරයක දී ඉදිරිපත්‌ කරන විෂයයන්‌ සඳහා පමණක්‌ බැවින්‌, විෂය පිරිනැමිමක්‌
+(subject 0119511119) හරහා සමිබන්ධතාවය ඇති කළ යුතුය.
+
+The following relationship is not correct.
+පහත සමිබන්ධනාවය නිවැරළි නොවේ.
+
+student M <> N subject
+
+So, the relationship between student and subject should be as follows;
+එබැවින්‌, Ges) (Student) සහ විෂය (Subject) අතර සමිඛන්ධය පහත COE විය යුතුය;
+
+IM N M N
+
+student registers subject_offering subject
+
+Even though subject_ offering is a separate entity, it cannot exist without the subject entity. Therefore, it is
+considered a weak entity. Subject offering relies on the subject entity for its definition and context,
+meaning that each subject_offering must be associated with specific subject for it to meaningful and valid.
+විෂය පිරිනැමීම (subject offering) වෙනම භූතාඊරටයක්‌ වුවඳ, එයට විෂය (Subject) Qmdde නොමැතිව
+පැවතිය නොහැක. එබැවින්‌ එය දුර්වල භතාඊර්ඊයක්‌ ලෙස සැලකේ. විෂය පිරිනැමීම (subject offering), එහි
+නිරචචනය සහ සන්දර්භය සඳුහා විෂය (Subject) භූතාරටය මත රඳා පවති, එයින්‌ අදහස්‌ වන්නේ එක්‌ එක්‌
+විෂය පිරිනැමීම (subject offering) අරටවත්‌ සහ වලංගු විමට නිශ්චිත විෂයයක්‌ සමඟ සමිබන්ධ විය යුතු
+බවයි.
+
+Every weak entity has total participation 11] its relationship with the strong entity. So, the subject_offering’s
+line should be double-lined, depicting its total participation with Subject.
+
+සෑම දුර්වල භතාර්ටයකටම ප්‍රබල HMHOG සමඟ ඇති සම්බන්ධයට පුර්ණ සහභාගිත්වයක්‌ ඇත. එබැවින්‌,
+විෂය (Subject) සමඟ එහි පුර්ණ සහභාගිත්වය නිරැපණය කරමින්‌, විෂය පිරිනැමීමෙහි (subject_offering)
+හි රේඛාව ද්විත්ව ටේඛා කළ යුතුය.
+
+student registers subject_offering subject
+
+A subject offered in a semester (subject_ offering) includes subjectNumber,year,semester,teacher identifier
+(teacherld), and classroom.
+
+විෂය පිරිනැමීමක්‌ (subject offering) තුළ, විෂය අංකය (subjectNumber), වර්ෂය (year), අධ්‍යයන වාරය
+(semester), ගුරුවරයාගේ හඳුන්වනය (teacherld) සහ පන්නි කාමරය (classroom) අඩංගු වේ.
+
+As subject_offering is a weak entity, it doesn’t have a primary key. Weak entities do have a partial key for
+uniquely identifying instances of the weak entity.
+
+විෂය පිරිනැමීම (subject_offering) දුර්වල Hmbddae බැවින්‌, එයට ප්‍රාටමික යතුරක්‌ නොමැත. දුර්වල
+භතාර්ටවලට දුර්වල භූතාර්ටයේ අවස්ථා අනන්‍ය ලෙස හඳුනා ගැනම Hew) GSO යතුරක්‌ ඇත.
+
+But here partial key of subject_ 0113171112 has not specified.
+නමුත්‌ මෙහි විෂය පිරිනැමිමෙහි (subject offering) අර්ධ යතුර සඳහන්‌ කර නොමැත.
+
+subjectNumber is the primary key of its strong entity (Subject entity), and teacherld is the foreign key
+from Teacher entity. Foreign key depicts the relationship between subject_offering and Teacher.
+subjectNumber යනු එහි ප්‍රබල භූතාට්ඊයේ (Subject භූතාර්ටය) ප්‍රාටික යතුර වන අතර, teacherld යනු
+ගුරැ (Teacher) භතාටරටයේ ආගන්තුක යතුර වේ. ආගන්තුක යතුර විෂය පිරිනැමිමක්‌ (subject_offering) සහ
+ගුරැවරයා (Teacher) අතර සමිබඛන්ධය නිරෑැපණය කරයි.
+
+e Normal attributes (සාමාන්‍ය උපලක්ෂණ) — year, semester, classroom
+
+semester
+
+subject_offering
+
+One subject_offering is assigned to a single teacher...
+
+එක්‌ විෂය පිරිනැමිමක්‌ (subject_offering) එක්‌ ගුරැවරයකු මගින්‌ ඉගැන්වෙන අතර...
+
+This describes the cardinality of subject_ offering, Teacher relationship.
+මෙය විෂය පිරිනැමිම (subject offering), ගුරැවර (Teacher) සමිඛන්ධතාවයේ ගණනියතාව විස්තර කරයි.
+
+One subject_ offering is assigned to one teacher. And teacher can teach for one or more subject_offering(s).
+(1:M, one-to-many relationship)
+
+එක්‌ විෂය පිරිනැමීමක්‌ (subject offering) එක්‌ ගුරැවරයෙකුට පවරා ඇත. ගුරැවරයෙකුට විෂය පිරිනැමිමි
+(subject_offering) එකක්‌ හෝ කිහිපයක්‌ සඳහා ඉගැන්විය හැක. (1:M, වක-බහු සම්බන්ධතාවයක්‌)
+
+... a Single teacher who is represented by a teacherld, name of the teacher (teacherName), and
+qualifications. Teacher can have several qualifications.
+
+...සෑම ගුරැවරයකුටම හඳුන්වනයක්‌ (teacherId), නමක්‌ (teacherName) සහ සුදුසුකමි (qualifications) ඇත.
+ගුරැවරයාට සුදුසුකමි කිහිපයක්‌ තිබිය හැකිය.
+
+This describes attributes of Teacher entity.
+මෙය ගුරැ (Teacher) භූතාර්ටයේ උපලක්ෂණ විස්තර කරයි.
+
+The line “Teacher can have several qualifications” signifies that the attribute ‘qualification’ can hold
+multiple values. Therefore, ‘qualification’ should be taken as a multivalued attribute. Multivalued
+attributes are represented by double-lined ovals in ER diagrams. / “ගුරැවරයාට සුදුසුකමි කිහිපයක්‌ තිබිය
+හැකිය” යන පේළියෙන්‌ අදහස්‌ වන්නේ ‘acegee’ (qualification) යන උපලකක්‍්ෂණයට බහු අගයන්‌ තිබිය හැකි
+බවයි. එහෙයින්‌ 'සුදුසුකමි (qualification) බහු වටිනාකමි සහිත උපලක්ෂණයක්‌ ලෙස ගත යුතුය. බහු වටිනාකමි
+සහිත උපලක්ෂණ ER රෑප සටහන්‌ වල ද්විත්ව 662 සහිත ඕවලාකාර මගින්‌ නිරෑැපණය කෙරේ.
+
+e Primary key (ප්‍රාටමික යතුර) — teacherld
+e Multivalued attribute (බහු OodmaS සහිත උපලක්ෂණය) — qualification
+e Other attributes (වෙනත්‌ උපලක්ෂණ) — teacherName
+
+teacherName
+
+teacher
+
+Marks are awarded to students for each subject that they register.
+
+ලියාපදිංචි © සෑම විෂයක්‌ සඳුහාම සිසුන්ට ලකුණු ප්‍රදානය කෙටේ.
+
+‘Marks’ is a descriptive attribute, as it describes properties of the relationship between Student and
+subject_ offering rather than the entities themselves. ‘Marks’ is specific to each instance of the relationship,
+meaning it is unique for each combination of Student and subject_ offering.
+
+*ලකුණු' (Marks) යනු විස්තරාත්මක උපලක්ෂණයකි, එය HMOdOEO වඩා ගිෂ්‍ය (Student) සහ විෂය පිරිනැමීම
+(subject 0119111196) අතර සමිබන්ධතාවයේ උපලක්ෂණ විස්තර කරයි. සබඳතාවයේ එක්‌ එක්‌ අවස්ටාවට 'ලකුණු
+
+(Marks) විශේෂිත වේ, එයින්‌ geod වන්නේ එය Ges (Student) සහ විෂය පිරිනැමීම (subject offering)
+එක්‌ එක්‌ සංයෝපනය සඳුහා අනන්‍ය වේ.
+
+By combining all the details provided in the paragraph, the ER diagram can be drawn as follows;
+ජේදයේ eso) ඇති සියලුම විස්තර ඒකාබද්ධ කිරීමෙන්‌, ER රෑප සටහන පහත OOF GEG හැකිය:
+
+“~~ ෆං .
+studentld ( age year semester teacherld teacherName
+
+student M enrols N subject_offering Mil <> සි teacher
+
+M
+
+studentLname j ॥
+
+<>
+
+perequisite
+wf
+
+subject <>
+Se”
+| mainsubject
+
+॥
+
+(0) Use the following Employee, and Assign Project denormalized tables to answer parts (1), (11), (111),
+(iv) and (v). Please note that primary key(s) of each table is(are) underlined.
+(1), (11), (111), GV) සහ (Vv) යන කොටස්වලට පිළිතුරු ලබාදිමට පහත සඳුහන්‌ Employee (සේවක) සහ
+Assign Project (ව්‍යාපෘති අනියුක්තයන්‌ යන ප්‍රමතකරණය නොවු වගු භාවිත කරන්න. එක්‌ එක්‌ වගුවේ
+
+ප්‍රාට්මික යතුර(රැ) යටින්‌ ඉරි ඇඳ ඇති බව සලකන්න.
+
+Employee
+Employeeld FullName DOB Salary
+E001 Saman Perera 12/02/1978 140000
+E002 Upul Fernando 23/05/1982 44000
+E005 Chris Peris 11/08/1980 44000
+E007 Kamala Gamage 08/08/1973 52000
+E008 Sunil Perera 25/04/1969 115000
+10011 Vipul Namal 09/02/1977 38000
+Assign Project
+ProjectId Employeeld PName Description
+P04 E002 Sales Implement sales management system
+P04 E008 Sales Implement sales management system
+P06 E007 HRM Implement sales HRM system
+1707 E002 Library Implement library management system
+PO9 E001 Inventory Implement Inventory management system
+PO9 E007 Inventory Implement Inventory management system
+
+(1) Write down the output of the following SQL statement:
+පහත SQL ප්‍රකාශයේ ප්‍රතිදානය ලියා දුක්වන්න.
+
+SELECT Employee.FullName, Employee.Salary
+FROM Employee, Assign Project
+
+WHERE Assign Project Employeeld = Employee Employeeld;
+
+The two tables detail employee information and project assignments. The "Employee" table lists
+employees with their ID, name, date of birth, and salary, where Employeeld is the primary key. The
+"Assign Project" table shows which projects are assigned to which employees, identified by their
+employee ID (foreign key), and includes the project ID (primary key), project name and description.
+
+OQ දෙක සේවක තොරතුරැ සහ ව්‍යාපෘති පැවරැමි විස්තර කරයි. "Employee" වගුවේ සේවකයින්‌ ඔවුන්ගේ
+හැඳුනුමිපත, නම, උපන්‌ දිනය සහ වැටුප සමඟ ලැයිස්තූගත කරයි, එහිදි Employeeld ප්‍රාටමික යතුර වේ.
+"Assign Project" වගුව මඟින්‌ ඔවුන්ගේ සේවක හැඳුනුමිපත (ආගන්තුක යතුර) මගින්‌ හඳුනාගෙන, ව්‍යාපෘති
+හැඳුනුමිපත (ප්‍රාටමික යතුර), ව්‍යාපෘති නම සහ විස්තරය ඇතුළත්‌ වන සේවකයින්ට පවරන ලද ව්‍යාපෘති
+
+පෙන්වයි.
+
+SELECT Employee.FullName, Employee.Salary
+
+SELECT:
+This clause specifies the columns you want to retrieve from the tables.
+මෙම වගන්තිය ඔබට වගු වලින්‌ EQ ගැනීමට අවශ්‍ය GOL HOO කරයි.
+
+Employee.FullName, Employee.Salary:
+
+These are the columns selected for output. The Employee. prefix indicates that these columns are from the
+"Employee" table.
+
+මේවා ප්‍රතිදානය HEH) තෝරාගත්‌ තිරැ 6d. Employee. උපසර්ගය පෙන්නුමි කරන්නේ මෙම Hdz "Employee"
+වගුවෙන්‌ බවයි.
+
+FROM Employee, Assign Project
+
+FROM:
+This clause specifies the tables from which to retrieve the data.
+මෙම වගන්තිය දත්ත ලබා ගැනීමට වගු නියම කරයි.
+
+Employee, Assign Project:
+These are the tables involved in the query.
+මෙම විමසුමට සම්බන්ධ OM වේ.
+
+WHERE Assign Project.EmployeeId = Employee. [11] 10%/5610;
+
+WHERE:
+This clause specifies the condition for filtering the rows.
+මෙම වගන්තිය පේළි පෙරීම (filter කිරීම) සඳුහා කොන්දේසිය නියම කරයි.
+
+Assign _Project.EmployeeId = Employee.Employeeld:
+
+This condition matches rows from the "Assign Project" table with rows from the "Employee" table where
+the Employeeld values are equal. This joins the two tables on the Employeeld column.
+
+මෙම කොන්දේසිය "Assign Project" වගුවේ ඇති පේළි හා Employeeld අගයන්‌ සමාන වන "Employee"
+වගුවේ ඇති පේළි සමඟ ගැලපේ. මෙය Employeeld තරැව මත වගු දෙක සමිඛන්ධ කරයි.
+
+So, this query basically retrieves the names and salaries of employees who have been assigned to projects
+by matching their Employeeld in the "Assign Project" table with their Employeeld in "Employee" table.
+එබැවින්‌, මෙම විමසුම මුලික වගයෙන්‌ "Assign Project" වගුවේ ඇති ඔවුන්ගේ Employeeld සහ "Employee"
+වගුවේ ඇති Employeeld සමඟ ගැලපීමෙන්‌ ව්‍යාපෘති සඳුහා අනුයුක්ත කර ඇති සේවකයින්ගේ නමි සහ
+වැටුප්‌ ලබා ගනි.
+
+Output ප්‍රතිදානය :-
+
+$--------------- $----------- +
+| FullName | Salary |
+$--------------- $----------- +
+| Upul Fernando | 4400e.e@ |
+| Sunil Perera | 115000@.00 |
+| Kamala Gamage | 52000.00 |
+| Upul Fernando | 4400e.e@ |
+| Saman Perera | 140000.00 |
+| Kamala Gamage | 52000.00 |
+$--------------- $----------- +
+
+Here, repeated data occurs because each row in the "Assign Project" table that matches a row in the
+"Employee" table produces a result. Since employees can be assigned to multiple projects, each
+assignment will produce a row in the result set.
+
+මෙහිදි, නැවත නැවත EHH ඇති වන්නේ "Employee" වගුවේ ඇති පේළියකට ගැලපෙන "Assign Project"
+වගුවේ එක්‌ එක්‌ පේළියක්‌ ප්‍රතිඵලයක්‌ නිපදවන බැවිනි. සේවකයින්‌ බහු ව්‍යාපෘති සඳුහා පැවරිය හැකි බැවින්‌,
+සෑම පැවරැමක්ම ප්‍රතිවල කට්ටලයේ පේළියක්‌ ඇති කරයි.
+
+(11) Write an SQL statement to display the names of the employees who are assigned to project P04.
+P04 OMeEaHaO(project) අනියුක්ත කර ඇති සේවකයන්ගේ නමි ප්‍රදර්ශනය කිරීමට SQL ප්‍රකාගයක්‌ ලියන්න.
+
+The statement in SQL which 15 used to retrieve data from tables in a database is the SELECT statement.
+It typically follows the following format:
+
+EDO සමුදායක OQ වලින්‌ ED ලබා ගැනීමට භාවිතා කරන SQL හි ප්‍රකාශය SELECT gman. do
+සාමාන්‍යයෙන්‌ පහත ආකෘතිය අනුගමනය කරයි;
+
+SELECT column_name1, column_name2,
+FROM table _name1, table name2,
+WHERE condition;
+
+JOIN Clauses in SQL
+SQL හි JOIN වගන්ති
+
+In SQL, joins are used to combine rows from two or more tables based on a related column between
+them. Here are explanations of the common types of joins:
+
+SQL හි, ඒවා අතර සමිඛන්ධිත තීරැවක්‌ මත පදනමිව වගු දෙකකින්‌ හෝ වැඩි ගණනකින්‌ පේළි ඒකාබද්ධ
+කිරීමට සමිඛන්ධ කිරීමි භාවිතා කරයි. පොදු සමිබන්ධක වර්ග පිළිබඳ පැහැදළිලි කිරීමි මෙන්න:
+
+1. INNER JOIN
+
+An INNER JOIN returns only the rows that have matching values in both tables.
+INNER JOIN &s5e3 ලබා දෙන්නේ වගු GEGDHO ගැලපෙන අගයන්‌ ඇති පේළි පමණි.
+
+SELECT columns
+
+FROM table1
+
+INNER JOIN table2
+
+ON table1.column = table2.column;
+
+2. LEFT JOIN (or LEFT OUTER JOIN)
+
+A LEFT JOIN returns all the rows from the left table and the matched rows from the right table. If
+no match 15 found, NULL values are returned for columns from the right table.
+
+LEFT JOIN එකක්‌ වම්‌ වගුවෙන්‌ සියලුම පේළි සහ දකුණු වගුවෙන්‌ ගැලපෙන පේළි ආපසු ලබා දෙයි.
+ගැළපීමක්‌ සොයාගත නොහැකි නමි, දකුණු වගුවෙන්‌ තීරැ සඳුහා NULL අගයන්‌ ආපසු ලබා දෙනු ඇන.
+
+SELECT columns
+
+FROM table1
+
+LEFT JOIN table2
+
+ON table1.column = table2.column;
+
+3. RIGHT JOIN (or RIGHT OUTER JOIN)
+
+A RIGHT JOIN returns all the rows from the right table and the matched rows from the left table. If
+no match is found, NULL values are returned for columns from the left table.
+
+RIGHT JOIN ®ened දුකුණු වගුවේ ඇති සියලුම පේළි සහ OG වගුවෙන්‌ ගැලපෙන පේළි ලබා දෙයි.
+ගැළපීමක්‌ සොයාගත නොහැකි නමි, වමි වගුවෙන්‌ තීරැ සඳුහා NULL අගයන්‌ ලබා දෙනු ඇත.
+
+SELECT columns
+
+FROM table1
+
+RIGHT JOIN table2
+
+ON table1.column = table2.column;
+
+4. FULL JOIN (or FULL OUTER JOIN)
+
+A FULL JOIN returns all rows when there 15 a match in either the left table or the right table. If there
+is no match, the result is NULL on the side where there is no match.
+
+FULL JOIN එකක්‌ OG වගුවේ හෝ දකුණු වගුවේ ගැළපීමක්‌ ඇති SO සියලම පේළි ලබා දෙයි. ගැළපීමක්‌
+නොමැති නමි, ප්‍රතිවලය NULL Osicss ගැළපීමක්‌ නැති පැත්තේ ය.
+
+SELECT columns
+
+FROM table1
+
+FULL JOIN table2
+
+ON table1.column = table2.column;
+
+So, to display the names of the employees who are assigned to project "P04", you can use any of the
+following SQL statements.
+
+එබැවින්‌, "P04" ව්‍යාපෘතියට පවරා ඇති සේවකයින්ගේ නමි ප්‍රදර්ශනය කිරීමට, පහත SQL ප්‍රකාශයන්‌ භාවිතා
+කළ හැක.
+
+Using a basic join in the WHERE clause:
+WHERE OosSed මුලික එකතුවක්‌ භාවිතා කිරීම:
+
+SELECT Employee. [ [11 1] 13116
+
+FROM Employee, Assign Project
+
+WHERE Employee.EmployeeId = Assign Project.EmployeeId AND
+Assign Project.ProjectId = 'PQ@4';
+
+Using an INNER JOIN:
+INNER JOIN භාවිතා කිරීම:
+
+SELECT Employee. FullName
+
+FROM Employee INNER JOIN Assign Project ON Employee.EmployeelId =
+Assign Project.EmployeeId
+
+WHERE Assign Project.ProjectId = 'PQ4';
+
+Using an INNER JOIN with table aliases:
+වගු අන්වර්ථ සහිත INNER JOIN භාවිතා කිරීම;
+
+SELECT E.FullName
+
+FROM Employee as E INNER JOIN Assign Project as A ON E.EmployeelId =
+A.EmployeelId
+
+WHERE A.ProjectId = 'PQ4';
+
+(111) In which normal form does the Assign Project table exist?
+Assign Project වගුව කුමන ප්‍රමත අවස්ටාවෙහි පවති ද?
+
+ONF | INF | 2NF | 3NF
+
+Multivalued Columns (බහු අගය කළ තරැ) Yes | No | No | No
+
+Partial Dependencies (ආංශික පරායත්තතා) Yes | Yes | No | No
+
+Transitive Dependencies (සංක්‍රාන්ති පරායත්තතා) | Yes | Yes | Yes | No
+
+To determine the normal form of the Assign Project table, we need to follow a step by step process.
+Assign Project වගුවේ ප්‍රමත අවස්ථාව තීරණය කිරීම Hem, පියවරෙන්‌ පියවර කියාවලියක්‌ අනුගමනය
+කළ යුතුය.
+
+Step 1: Ensure First Normal Form (1NF)
+පියවර 1: පළමු ප්‍රමත අවස්ථාව (INF) සහතික කරන්න
+
+In INF, table columns should contain indivisible values. There cannot be any multivalued columns.
+INF හි, වගු තීරැවල බෙදිය නොහැකි අගයන්‌ අඩංගු විය යුතුය. බහු අගය කළ HOC තිබිය නොහැක.
+
+Therefore, the table Assign Project meets the INF criteria.
+එබැවින්‌, Assign Project වගුව INF නිරණායක සපුරාලයි.
+
+Step 2: Ensure Second Normal Form (2NF)
+පියවර 2: දෙවන ප්‍රමත අවස්ටාව (2NF) සහතික කරන්න
+
+e 2NF requires that the table is in ] NF.
+2NF සඳහා වගුව INF හි තිබීම අවග්‍ය වේ.
+
+e All non-key attributes should fully functionally dependent on the entire primary key.
+සියලම යනුරැ නොවන ගුණාංග සම්පුර්ණ ප්‍රාට්මික යතුර මන සම්පුර්ණයෙන්ම ක්‍රියාකාරීව රඳා පැවතිය යුතුය.
+
+Let's assume the primary key is a composite key of ProjectId and Employeeld.
+ප්‍රාටමික යතුර ProjectiId සහ Employeeld හි සංයුක්ත යතුරක්‌ යැයි උපකල්පනය කරමු.
+
+Identify functional dependencies:
+ක්‍රියාකාරී පරායත්තතා හඳුනා ගන්න:
+
+e PName - Projectld
+e Description - Projectld
+
+Since PName and Description depend only on ProjectId and not on the entire composite key, this table has
+partial dependencies.
+
+PName සහ Description, ProjectId මත පමණක්‌ රඳා පවතින අතර සමිපුර්ණ සංයුක්ත යතුර මත රඳා
+නොපවතින බැවින්‌, මෙම වගුවට ආංගික පරායත්තතා ඇත.
+
+Therefore, the table Assign Project is not in 2NF due to partial dependencies.
+එබැවින්‌, MGen පරායත්තතා හේතුවෙන්‌ Assign Project වගුව 2NF හි නොමැත.
+
+Step 3: Ensure Third Normal Form (3NF)
+පියවර 3: තෙවන 98m අවස්ථාව (3NF) aaGen කරන්න
+
+e 3NF requires that the table 15 in 2NF.
+3NF සඳහා වගුව 2NF හි තිබිම අවග්‍ය වේ.
+
+e Non-key attributes should not depend on other non-key attributes.
+ප්‍රධාන නොවන ගුණාංග වෙනත්‌ ප්‍රධාන නොවන ගුණාංග මත රඳා නොසිටිය යුතුය.
+
+Since the table is not in 2NF, it cannot be in 3NF.
+වගුව 2NF හි නොමැති බැවින්‌ එය 3NF හි තිබිය නොහැක.
+
+Therefore, Assign Project table is in 1 NF.
+එබැවින්‌, Assign Project වගුව INF හි ඇත.
+
+(iv) What needs to be done to convert the Assign_Project table into its next normal form? Justify your
+
+answer. / Assign Project වගුව ඊළඟ GOD අවස්ටාවට හැරවීමට කුමක්‌ කළ යුතු ද? ඔබේ පිළිතුර
+සාධාරණීකරණය කරන්න.
+
+To convert the Assign Project table into its next normal form, which is the Second Normal Form (2NF),
+we need to remove the partial dependencies. This can be done by creating separate tables where each non-
+key attribute is fully functionally dependent on the primary key.
+
+Assign Project වගුව එහි මිළඟ සාමාන්‍ය ස්වරූපයට පරිවරතනය කිරීමට, එනමි දෙවන සාමාන්‍ය පෝරමය
+(2NF) වෙත පරිවටරතනය කිරීමට, ආංගික පරායත්තතා ඉවත්‌ කිරීමට අවශ්‍ය වේ. ප්‍රාටමික යනුර මත එක්‌
+එක්‌-යතුරු නොවන ගුණාංග සමිපුර්ණයෙන්ම ක්‍රියාකාරීව රඳා පවතින වෙනම වගු සැදඳිමෙන්‌ මෙය කළ හැක.
+
+Steps to Convert to 2NF:
+2NF වෙත පරිවර්තනය කිරීමට පියවර:
+
+Identify Partial Dependencies.
+ආංගික පරායත්තතා හඳුනා ගන්න.
+
+In the Assign Project table, PName and Description depend only on ProjectId and not on the
+composite key (ProjectId, Employeeld).
+
+Assign Project වගුවේ, PName සහ Description රඳා පවතින්නේ ProjectlId මත පමණක්‌ වන අතර
+සංයුක්ත යතුර (Projectid, Employeeld) මත නොවේ.
+
+Ccreate separate tables to eliminate partial dependencies.
+ආංගික පරායත්තනා ඉවත්‌ කිරීම සඳුහා වෙනම වගු සාදන්න.
+
+First, we have to create a Project Table. This table will have the columns ProjectId, PName and
+Description. Its purpose is to store information about projects, ensuring that PName and Description
+are dependent only on Projectld.
+
+මුලින්ම Project වගුවක්‌ සාදාගත යුතුයි. මෙම වගුවේ Projectld, PName සහ Description යන තරැ
+een. PName සහ Description, ProjectiId මත පමණක්‌ රඳා පවතින බව සහතික කරමින්‌ ව්‍යාපෘති
+BEDE, තොරතුරු ගබඩා කිරීම එහි අරමුණයි.
+
+Projectld PName Description
+
+P04 Sales Implement sales management system
+
+P06 HRM Implement sales HRM system
+
+1707 Library Implement library management system
+PO9 Inventory Implement Inventory management system
+
+Then, we have to create Assign Project Table. This table will have the columns ProjectIld and Employeeld.
+Its purpose is to store the assignment of employees to projects.
+
+ඉන්පසු, Assign Project වගුවක්‌ සාදාගත යුතුයි. මෙම වගුවේ ProjectlId සහ Employeeld යන තීරැ ඇත.
+එහි අරමුණ වන්නේ ව්‍යාපෘති HEM) සේවකයින්‌ පැවරිම ගබඩා කිරිමයි.
+
+Projectld Employeeld
+P04 E002
+P04 E008
+P06 E007
+P07 E002
+P09 E001
+P09 E007
+
+(v) Give an example SQL query where the update anomaly can occur in Assign Project table.
+Assign Project වගුවේ යාවත්කාලින කිරිමේ විෂමතාවක්‌ (update anomaly) ඇති විය හැකි SQL විමසුමකට
+(query) උදාහරණයක්‌ දෙන්න.
+
+Insertion, deletion and update anomalies can happen in tables which are not fully normalized, just like
+Assign Project table given in this question.
+
+මෙම ප්‍රශ්නයේ දි ඇති Assign Project වගුව මෙන්‌, සම්ිපුරඞභයෙන්‌ ප්‍රමතකරණය නොකළ OQ තුළ ඇතුළු
+කිරීම, මකා දැමීම සහ යාවත්කාලීන විෂමතා සිදු විය හැක.
+
+Inconsistent data and foreign key mismatch are the outcomes of update anomalies.
+නොගැලපෙන EWM සහ ආගන්තුක යතුරැ නොගැලපීම යාවත්කාලීන විෂමතාවල ප්‍රතිඵල වේ.
+
+Inconsistent Data
+නොගැලපෙන දුත්ත:
+
+When updating only specific rows instead of all related rows, it causes data inconsistency. For example,
+updating the PName or Description for only one Employeeld does not propagate the changes to all rows
+related to the same project.
+
+BaQ@® සමිබන්ධිත පේළි වෙනුවට විශේෂිත පේළි පමණක්‌ යාවත්කාලීන කරන SO, එය දුත්ත නොගැලපීම
+ඇති කරයි. උදාහරණයක්‌ ලෙස, එක්‌ Employeeld සඳහා පමණක්‌ PName හෝ Description යාවත්කාලීන කිරිම
+එකම ව්‍යාපෘතියට අදාළ සියලුම පේළවලට වෙනස්කමි ප්‍රචාරය නොකරයි.
+
+Ex:
+
+UPDATE Assign Project
+
+SET PName = 'SalesSys'
+WHERE EmployeeId = 'E@Q@8';
+
+This query changes the PName for projects where Employeeld is 'E008' from 'Sales' to 'SalesSys'.
+මෙම විමසුම මගින්‌ Employeeld, 'E008' Om ව්‍යාපෘති see) PName 'Sales' සිට 'SalesSys' es) වෙනස්‌
+කරයි.
+
+If there are other rows with the same project (ProjectId P04 in this case) assigned to different employees,
+and they still have the old PName, this results in inconsistency. The project names for the same project
+differ based on the employee.
+
+එකම ව්‍යාපෘතියක්‌ සහිත වෙනත්‌ පේළි තිබේ නමි (මෙම අවස්ටාවේදි, Projectild, P04) විවිධ සේවකයින්ට පවරා
+ඇති අතර, ඔවුන්‌ සතුව තවමත්‌ පැරණි PName තිබේ නමි, මෙය නොගැලපීමකට හේතු වේ. සේවකයා මත
+පදුනම්ව එකම ව්‍යාපෘතිය සඳුහා ව්‍යපෘති නමි වෙනස්‌ වේ.
+
+Ex:
+UPDATE Assign Project
+SET Description = ‘Inventory System'
+
+WHERE EmployeeId = 'E@Q@8';
+
+This query updates the Description for projects where Employeeld is 'E008' to 'Inventory System’.
+මෙම විමසුම Employeeld, 'E008' ලෙස ඇති ව්‍යාපෘති සඳුහා විස්තරය Inventory System' වෙත යාවත්කාලීන
+කරයි.
+
+If the same project (ProjectId P04 in this case) is assigned to other employees, the Description will differ
+for the same project, leading to inconsistency.
+
+එකම ව්‍යාපෘතිය (මෙම අවස්ටාවේදි Projectild, P04) වෙනත්‌ සේවකයින්ට පවරනු ලැබුවහොත්‌, එම ව්‍යාපෘතිය
+සඳුහා විස්තරය වෙනස්‌ වන අතර, එය අනුකූලතාවයට හේතු වේ.
+
+Foreign Key Mismatch
+ආගන්තුක යතුරැ නොගැලපීම:
+
+Changing Employeeld in the Employee table without reflecting the changes in the Assign Project table
+causes foreign key mismatches. The Assign Project table will refer to an old Employeeld which no longer
+exists in the Employee table.
+
+Assign Project වගුවේ වෙනස්කමි පිළිබිඹු නොකර Employee වගුවේ Employeeld වෙනස්‌ කිරීම ආගන්තුක
+යතුරු නොගැලපීමි ඇති කරයි. Assign Project වගුව Employee වගුවේ තවදුරටත්‌ නොපවතින පැරණි
+Employeeld වෙත යොමු වනු ඇත.
+
+Ex:
+
+UPDATE Employee
+
+SET EmployeelId = 'E@@3'
+WHERE EmployeelId = 'E@Q@2';
+
+This query updates the Employeeld in the Employee table from 'E002' to 'E003'.
+මෙම විමසුම Employee වගුවේ Employeeld 'E002' සිට 'EN03' eso) යාවත්කාලීන කරයි.
+
+If the Employeeld in the Assign Project table is not updated accordingly, it leads to a foreign key
+inconsistency. The Assign Project table will still have 'E002' for the projects assigned to that employee,
+causing a mismatch with the updated Employee table.
+
+Assign Project වගුවේ Employeeld 5 අනුව යාවත්කාලින නොකළහොත්‌, එය ආගන්තුක යතුරැ
+නොගැලපීමකට මග පාදයි. Assign Project වගුවේ තවමත්‌ එම සේවකයාට පවරා ඇති ව්‍යාපෘති සඳුහා 'EN02'
+ඇත, එය යාවත්කාලීන Employee වගුව සමඟ නොගැලපිමක්‌ ඇති කරයි.
+
+( 2022 ESSAY - 09 )
+
+2023 DATABASE ESSAY MARKING
+
+1.(a) Consider the following requirements relevant to a database that 1s expected to manage divisions, officers
+and tasks in an office.
+කාර්යාලයක Eom (divisions), නිලධාරීන්‌ (officers) සහ කාර්යයන්‌ (tasks) කළමනාකරණයට භාවිත කිරීමට
+බලාපොරොත්තු වන දුත්ත සමුදායකට අදාළ පහත අවග්‍යතා සලකන්න.
+
+The office consists of a number of divisions. Each division has a unique name. The division may have
+several locations, A division handles a number of tasks each of which has a unique number, a name and a
+date in which the task was assigned to the division. Each officer's name (consisting of a first name and a
+surname), NIC (National Identity Card) number, address and phone number is to be stored. An office is
+assigned to one division but may work on several tasks which may not be controlled by the same division.
+Each division is managed by one of its officers and the starting date in which the officer started managing
+the division is stored.
+
+MODES අංග කිහිපයකින්‌ සමන්විත වේ. සෑම අංගශයකටම අනන්‍ය නමක්‌ ඇත. අංගය ස්ටාන කිහිපයක
+තිබිය හැකි ය. අංශයක්‌ කාරයන්‌ කිහිපයක්‌ හසුරැවයි. ඒ සෑම කාර්යකටම අනන්‍ය අංකයක්‌, නමක්‌ සහ එම
+macs එම අංශයට පැවරැණු දිනය ඇත. සෑම නිලධාරියකුගේම නම (මුල්‌ නම සහ වාසගමින්‌ සෑදුන), NIC
+(පාතික හැඳුනුමිපත්‌) අංකය, ලිපිනය සහ දුරකටන අංකය ආචය කෙරේ. නිලධාරියෙකු එක්‌ අංශයකට
+අයත්වුවත්‌, එම අංශයම මගින්‌ පාලනය නොවන කාථටයන්‌ කිහිපයකදු නිරත විය හැකි ය. සෑම අංශයක්ම එම
+අංගයේ නිලධාරියකු විසින්‌ කළමනාකරණය කෙරෙන අතර, එම නිලධාරියා එම අංශය කළමනාකරණය කිරිම
+ඇරඹු දිනය දූ HOG කෙටේ.
+
+Draw an ER diagram for this application showing the entities, attributes and relationships. Underline
+primary keys.
+
+මෙම යෙදුම HEM) භූතාටට (entities), උපලක්ෂණ (attributes) සහ සමිඛන්ධතා දැක්වෙන ER සටහනක්‌
+අඳින්න. ප්‍රාටමික යතුරැ යටින්‌ ඉරි අඳින්න.
+
+First_name
+> Gor
+Name Phone_number.
+OFFICER Gas D> DIVISION
+Surname
+
+1
+MANAGES
+Handed _ date
+
+Start_date Task_number
+
+TASK
+
+Task name
+
+(b) Write two advantages of converting a database table into a normal form.
+EDO සමුදා වගුවක්‌ ප්‍රමත අවස්ථාවකට (normal form) හැරවීමේ OB දෙකක්‌ ලියා දක්වන්න.
+
+Elimination of Redundancy and Data Anomalies - අතිරික්තය සහ දූත්ත විෂමතා ඉවත්‌ කිරීම
+Improved Data Integrity and Consistency - වැඩිදියුණු කළ EXD අඛණ්ඩතාව සහ අනුකූලතාව
+Enhanced Query Performance - වැඩි දියුණු කළ විමසුමි කාර්ය සාධන
+
+Better Scalability- වඩා හොඳ පරිමාණ
+
+Easier Maintenance and Updates - පහසු නඩත්තු සහ යාවත්කාලීන කිරීම
+
+Improved Security - වැඩි දියුණු කළ ආරක්ෂාව
+
+Data Integrity Enforcement Through Constraints - සමාවන්‌ හරහා Esso අඛණ්ඩතාව බලාත්මක කිරිම
+Facilitates Data Migration and Integration - දත්ත සංක්‍රමණය සහ වඵකාඛද්ධ කිරිම පහසු කරයි
+Reduced Data Duplication - අඩු කළ exo අනුපිටපත්‌
+
+Elimination of Redundancy and Data Anomalies - අතිරීක්තය සහ දූත්ත විෂමතා ඉවත්‌ කිරීම
+
+Redundancy: By converting a database table into a normal form, you minimize redundant data. This
+means that the same piece of data is not unnecessarily duplicated across multiple rows, which saves
+storage space and makes data management more efficient.
+
+අතිරික්තය: ED සමුදා වගුවක්‌ ප්‍රමටකරණ ආකෘතියකට පරිවටතනය කිරීමෙන්‌, ඔබ අතිරික්ත evi අවම
+කරයි. මෙයින්‌ අදහස්‌ කරන්නේ එකම දත්ත කැබැල්ලක්‌ පේළී කිහිපයක්‌ හරහා අනවග්‍ය ලෙස අනපිටපත්‌
+නොවන අතර එමඟින්‌ ගබඩා ඉඩ ඉතිරි වන අනර දුන්ත කළමනාකරණය වඛඞාත්‌ කාර්යක්ෂම වේ.
+
+Anomalies: Normalization helps eliminate anomalies in the database. For instance, without
+normalization, operations such as insertions, updates, or deletions can lead to inconsistent data states
+(insertion, update, and deletion anomalies). Normalization ensures that data integrity is maintained.
+විෂමතා: ප්‍රමට්කරණය දන්ත සමුදායේ විෂමතා ඉවත්‌ කිරීමට උපකාරී වේ. නිදසුනක්‌ ලෙස, ප්‍රමටකරණයකින්‌
+තොරව, ඇතුළත්‌ කිරීමි, යාවත්කාලීන කිරීමි හෝ මකාදැමිමි වැනි ක්‍රියා හේතුවෙන්‌ අනාකුල cow තත්ත්වයන්‌
+(ඇතුළත්‌ කිරීම, යාවත්කාලින කිරීම සහ මකා දැමිමේ විෂමතා) ඇති විය හැක. ප්‍රමට්කරණය enw
+අඛණ්ඞතාව පවත්වා ගෙන යන බව සහතික කරයි.
+
+Improved Data Integrity and Consistency - වැඩිළියුණු කළ EXO අඛණ්ඞඩතාව අනුකූලතාව
+
+Integrity: Normal forms enforce data integrity rules that ensure the accuracy and reliability of the data
+within the database. For example, in higher normal forms, relationships between tables are clearly
+defined, reducing the risk of mismatched data.
+
+අඛණ්ඩඞඩතාව: ප්‍රමටකරණ Head දුත්ත සමුදාය තුළ දත්තවල නිරවද්‍යතාවය සහ විග්වසනියත්වය සහතික
+කරන EOD අඛණ්ඩනා නීති බලාත්මක කරයි. උදාහරණයක්‌ ලෙස, ඉහළ ප්‍රමටකරණ ආකාරවලදි, වගු අතර
+සමිඛන්ධතා පැහැදිලිව නිර්වචනය කර ඇති අතර, නොගැලපෙන ED අවදානම අඩු කරයි.
+
+Consistency: With a well-normalized database, changes made to data in one place are automatically
+propagated throughout the database, ensuring consistency. This means that all views and reports
+derived from the database reflect the most current data, leading to more accurate decision-making.
+අනුකූලතාව: හොඳින්‌ ප්‍රමටකරණය කරන E€ EH සමුදායක්‌ සමඟින්‌, coi ගබඩාව පුරා ඵක තැනක සිදු
+කරන ලද වෙනස්කමි ස්වයංක්‍රීවව ප්‍රචාරණය වන අතර, අනුකූලතාව සහතික කරයි. මෙයින්‌ අදහස්‌ කරන්නේ
+EDD සමුදායෙන්‌ ලබාගත්‌ සියලුම දර්ශන සහ වාර්තා වඩාත්‌ වඊතමාන දුත්ත පිළිබිඹු කරන අතර එය
+වඩාත්‌ නිවැරදි තරණ ගැනමට මග පාදයි.
+
+Enhanced Query Performance - වැඩි දියුණු කළ විමසුමි කාටය සාධනය
+
+By reducing redundancy and organizing data into related tables, normalized databases can improve query
+performance. Indexes can be more effectively used, and queries can be more efficient because the database
+engine has fewer rows to scan and join operations are simplified.
+
+අතිරික්තය අඩු කිරීමෙන්‌ සහ අදාළ වගුවලට දත්ත සංවිධානය කිරීමෙන්‌, ප්‍රමටකරණය කළ eso සමුදායන්‌
+විමසුම්‌ කාර්ය සාධනය වැඩි දියුණු කළ හැක. දර්ශක වඩාත්‌ ඵලදායි ලෙස භාවිතා කළ හැකි අතර, දුත්ත
+සමුදා එන්පිමට ස්කෑන්‌ කිරීමට සහ සම්බන්ධ විමට පේළි අඩු බැවින්‌ විමසුමි වඩාත්‌ කාර්යක්ෂම විය හැකි අතර
+මෙහෙයුමි සරල කර ඇත.
+
+(Cc)
+
+Better Scalability - වඩා හොඳු පරිමාණය
+
+A normalized database is generally easier to scale. As the database grows, maintaining it becomes less
+cumbersome because the data 15 logically organized and free from unnecessary duplication. This makes 11
+simpler to add new data, tables, or relationships without disrupting the existing structure.
+
+ප්‍රමටකරණය කළ දත්ත සමුදායක්‌ සාමාන්‍යයෙන්‌ පරිමාණය කිරීමට පහසුය. esi සමුදාය වර්ධනය වන HO,
+EDD තාර්කිකව සංවිධානය වි ඇති අතර අනවග්‍ය අනුපිටපත්‌ වලින්‌ තොර බැවින්‌ එය නඩත්තු කිරීම අපහසු
+වේ.පවතින ව්‍යුහයට බාධා නොකර නව දත්ත, වගු හෝ සමිඛන්ධතා එකතු කිරීම මෙමගින්‌ පහසු කරයි
+
+Easier Maintenance and Updates - පහසු නඩත්තු සහ යාවත්කාලීන
+
+When a database is normalized, maintaining and updating it becomes more manageable. Schema changes,
+such as adding new fields or modifying existing ones, can be done with minimal impact on the overall
+database structure. This flexibility makes it easier to adapt to changing business requirements.
+
+EDD සමුදායක්‌ ප්‍රමටකරණය O විට, එය නඩත්තු කිරීම සහ යාවත්කාලීන කිරීම වඩාත්‌ කළමනාකරණය කළ
+හැකි වේ. නව ක්ෂේත්‍ර එකතු කිරීම හෝ පවතින ඒවා වෙනස්‌ කිරීම වැනි යෝජනා ක්‍රම වෙනස්‌ කිරීමි, සමස්ත
+EDD සමුදා ව්‍යුහයට අවම බලපෑමක්‌ සහිතව සිදු කළ හැක. මෙම නම්‍යගිලිභාවය වෙනස්වන වනපාරික
+අවග්‍යතාවලට අනගත SO පහසු කරයි.
+
+Consider the following Show table related to theatres and the movies that they screen.
+රඟහල්‌ (theatre) සහ ඒවායේ තිරගතකරන චිත්‍රපට (Movies) සමිබන්ධ පහත Show වගුව සලකන්න.
+Theatre Movie Day Time Screen Year
+Sarasi MI - 4 Wednesday 10:00 Si 2022
+Sarasi MI - 4 Wednesday 15:00 Si 2022
+Palazzo Spider man Friday 10:00 S2 2019
+Palazzo Avengers Friday 10:00 Si 2019
+Vega Iron man Thursday 10:00 Si 2020
+Note:
+
+e A theatre can screen more than one movie at the same time on different screens.
+රඟගහලකට එකම වේලාවේදි, තිර (screen) කිහිපයක, වෙනස්‌ චිත්‍රපට ප්‍රදර්ශනය කළ හැකි ය.
+
+6 Year field gives the year in which the relevant film was released.
+Year ක්ෂේත්‍රයෙන්‌ දැක්වෙන්නේ අදාළ චිත්‍රපටය එළිදැක්වූ වසරයි.
+
+(1) In which normal form does the Show table exist? Justify your answer.
+Show වගුව කුමන ප්‍රමත අවස්ටාවෙහි පවතී ද? ඔබේ පිළිතුර සාධාරණීකරණය කරන්න.
+
+Second Normal Form - දෙවන ප්‍රමටකරණය / 2nd / 2111
+
+Proof — සාධනය
+
+e This table does not exist in INF because all attributes depend on the primary key.
+සියලම උපලක්ෂණ ප්‍රාටමික යතුර මත රඳා පවතින බැවින්‌ මෙම වගුව INF හි නොපවතී
+
+e Has no partial dependencies. Therefore This table exist in 2NF
+අර්ධ යැපීමි නොමැත. එබැවින්‌ මෙම වගුව 2NF හි පවතී
+
+e This table exist in | |" but not 3NF because it has 3 Transitive Dependencies. Therefore, exist in
+2NF. / මෙම වගුව INF හි පවතින නමුත්‌ 3NF oened එයට සංක්‍රාන්ති පරායත්තනා 3ක්‌ ඇත. එබැවින්‌,
+2NF හි පවතී
+
+First Normal Form - පළමු ප්‍රමටකරණය (INF)
+
+e Atomicity - පරමාණුකත්වය
+Ensures that each column contains only atomic (indivisible) values. This means no repeating
+groups or arrays. / එක්‌ එක්‌ තිරැවෙහි පරමාණුක (බෙදිය නොහැකි) අගයන්‌ පමණක්‌ අඩංගු QO සහතික
+කරයි. මෙයින්‌ අදහස්‌ කරන්නේ පුනරාවරිතන කණ්ඩායමි හෝ අරා නොමැති බවයි.
+
+Uniqueness - අනන්‍ය බව
+
+Each column must contain unique values, and each row must be unique.
+සැම තීරැවකටම අනන්‍ය අගයන්‌ අඞංගු විය යුතු අතර, එක්‌ එක්‌ පේළිය අනන්‍ය විය යුතුය.
+
+Single Value - තනි අගය
+Each field should contain only a single value, not a set of values.
+සැම ක්ෂේත්‍රයකම අඞංගු So යුත්තේ එක්‌ අගයක්‌ පමණක්‌ මිස අගයන්‌ සමුහයක්‌ නොවේ.
+
+Second Normal Form - දෙවන පු්‍රමටකරණය (2NF)
+
+INF Compliance - INF අනුකූලතාව
+The table must already be in First Normal Form (1 NF).
+වගුව දැනටමත්‌ පළමු සාමාන්‍ය පෝරමයේ (INF) BAG යුතුය.
+
+Full Functional Dependency - සමිපුර්ණ ක්‍රියාකාරී යැපීම
+Every non-key attribute must be fully functionally dependent on the entire primary key, not just a
+part of it. This eliminates partial dependencies.
+
+සෑම යතුරු නොවන උපලකක්‍්ෂණයක්ම එහි කොටසක්‌ පමණක්‌ නොව සමිපූර්ණ ප්‍රාටමික යතුර මත
+සම්පුර්ණයෙන්ම ක්‍රියාකාරීව රඳා පැවතිය යුතුය. මෙය අර්ධ යැපීමි ඉවත්‌ කරයි.
+
+Third Normal Form - තුන්වන පුමටකරණය (3NF)
+
+2NF Compliance - 2NF අනුකූලතාව
+The table must already be in Second Normal Form (2NF).
+වගුව දැනටමත්‌ දෙවන ප්‍රමට්කරණයෙන්‌ (121]') තිබිය යුතුය.
+
+No Transitive Dependency - සංක්‍රාන්ති යැපීම නැත
+
+All non-key attributes must be directly dependent on the primary key, meaning there should be no
+transitive dependencies. This eliminates dependencies where non-key attributes depend on other
+non-key attributes.
+
+සියලුම ප්‍රධාන නොවන උපලකක්‍්ෂණ ප්‍රාට්මික යතුර OM කෙලින්ම රඳා පැවතිය QMS, එනමි සංක්‍රාන්ති
+පරායත්තතා නොතිබිය යුතුය. මෙමගින්‌ යතුර නොවන උපලක්ෂණ වෙනත්‌ ප්‍රධාන නොවන උපලක්ෂණ
+මත රඳා පවතින පරායත්තතා ඉවත්‌ කරයි.
+
+(11) Convert the Show table to its next normal form.
+Show වගුව එහි ඊළඟ GOD අවස්ටාවට හරවන්න.
+
+A: Show(Theatre, Day, Time, Screen, Movie)
+B: Movie_Year(Movie, Year)
+
+Explanation - පැහැදිලි කිරීම
+Step 1
+
+Ensure 2NF Compliance
+2NF අනුකූලතාව සහතික කරන්න
+
+Ensure that your table is already in Second Normal Form (2NF). This means:
+ඔබගේ වගුව දැනටමත්‌ දෙවන ප්‍රමටකරණයේ (2NF) ඇති බව සහතික කර ගන්න. මෙයින්‌ අදහස්‌ වන්නේ
+
+The table is in First Normal Form ( 1 |!" ).
+වගුව පළමු ප්‍රමටකරණයේ (INF) ඇත
+
+There are no partial dependencies; every non-key attribute is fully functionally dependent on the
+entire primary key.
+
+අර්ධ aS නොමැන. සැම යතුරු නොවන උපලක්ෂණයක්ම සමිපුර්ණ ප්‍රාට්ක යතුර මන
+සම්පුර්ණයෙන්ම ක්‍රියාකාරීව රඳා පවතී.
+
+Step 2
+Identify Transitive Dependencies
+සංක්‍රාන්ති පරායත්තතා හඳුනා ගැනිම
+
+Identify any transitive dependencies in the table. A transitive dependency exists when a non-key
+
+attribute depends on another non-key attribute rather than directly on the primary key.
+
+වගුවේ ඇති සංක්‍රාන්ති පරායත්තතා හඳුනා ගන්න. සංක්‍රාන්ති පරායත්තතාවයක්‌ පවතින්නේ ප්‍රාටමික යතුර
+
+5° කෙලින්ම නොව යතුරැ නොවන උපලක්ෂණයක්‌ වෙනත්‌ යතුර නොවන උපලක්ෂණයක්‌ මත රඳා පවතින
+ටය.
+
+Step 3
+Remove Transitive Dependencies
+සංක්‍රාන්ති යැපීමි ඉවත්‌ කිරීම
+
+To remove transitive dependencies, you need to create new tables to hold the attributes that are
+transitively dependent on non-key attributes and update the original table to reference these new tables.
+සංක්‍රාන්ති පරායත්තතා ඉවත්‌ කිරීම HEM) යතුරැ-නොවන උපලක්ෂණ මත සංක්‍රාන්ති ලෙස රඳා පවතින
+උපලක්ෂණ රඳවා DD) ගැනීමට සහ මෙම නව වගු යොමු කිරීමට මුල්‌ වගුව යාවත්කාලීන කිරීමට ඔබ
+නව වගු HzEo යුතුය
+
+(d) Consider the following Employee table:
+පහත Employee (සේවකයා) වගුව සලකන්න.
+
+Emp ID | Emp Name DoB Department Designation DoJ Salary
+E110 Saman 15/10/1970 | Bio Technology Professor 12/04/2001 | 145000
+Elll Kumar 25/05/1980 Mechanical Assistant Professor | 02/05/2006 | 100000
+E115 Raja 10/08/1982 Engineering Assistant Professor | 05/05/2001 | 98000
+E114 Jennifer 11/09/1975 Engineering Assistant Professor | 03/06/2001 | 197000
+E117 Ismail 15/05/1979 Civil Assistant Professor | 10/05/2005 | 103000
+
+(1) Write the most suitable SQL statement to create the Employee table with a suitable primary key.
+සුදුසු QOS යතුරක්‌ සමග Employee වගුව සැදිමට වඩාත්ම සුදුසු SQL ප්‍රකාශය ලියන්න.
+
+CREATE TABLE Employee (
+
+);
+
+Emp ID VARCHAR(4) PRIMARY KEY,
+Emp Name VARCHAR(5@),
+
+DoB DATE,
+
+Department VARCHAR(5@),
+Designation VARCHAR(5@),
+
+DoJ DATE,
+
+Salary DECIMAL(10,2)
+
+J
+
+Explanation - පැහැදිලි කිරීම
+
+Emp_ID VARCHAR(4) PRIMARY KEY
+
+Creates a column Emp _ ID with a max length of 4 characters, and sets it as the primary key (unique
+identifier). / උපරිම දිග අක්ෂර 4ක්‌ සහිත Emp ID තීරැවක්‌ සාදා, එය ප්‍රාටමික යතුර (අද්විත්ය
+හැඳුනුමිකාරකය) ලෙස සකසයි.
+
+Emp_Name VARCHAR(S50)
+Creates a column Emp Name with a max length of 50 characters.
+Ce5® අක්ෂර 50ක්‌ සහිත Emp Name තීරැවක්‌ සාදයි.
+
+DoB DATE
+Creates a column DoB to store dates (date of birth).
+ED (උපන්‌ දිනය) ගබඩා කිරීමට DoB තරැවක්‌ සාදයි.
+
+Department VARCHAR(S0)
+Creates a column Department with a max length of 50 characters.
+C059 දිග අක්ෂර 50ක්‌ සහිත Department තීරැවක්‌ සාදයි.
+
+e Designation VARCHAR(50)
+Creates a column Designation with a max length of 50 characters.
+Ce5® අක්ෂර 50ක්‌ සහිත Designation තීරැවක්‌ සාදයි.
+
+e DoJ DATE
+Creates a column DoJ to store dates (date of joining).
+EX) ගබඩා කිරීමට Do] තීරැවක්‌ නිරමාණය කරයි.
+
+e Salary DECIMAL(10,2)
+Creates a column Salary to store decimal numbers with up to 10 digits, 2 of which are after the decimal
+point. / ඉලක්කමි 10ක්‌ දුක්වා දශම සංඛ්‍යා ගබඩා කිරීමට වැටුප්‌ තිරැවක්‌ (Salary) HHO sve කරයි, ඉන්‌
+2ක්‌ දශම ලක්ෂයට පසුවය
+
+This statement defines a table Employee with columns for employee ID, name, date of birth, department,
+designation, date of joining, and salary.
+
+මෙම ප්‍රකාශය සේවක හැඳුනුමිපත, HO, උපන්‌ දිනය, දෙපාරතමේන්තුව, තනතුර, සමිබන්ධ O දිනය සහ වැටුප්‌
+aca) තීරැ සහිත Employee වගුවක්‌ අර්ථ esos.
+
+(11) Write the required SQL statement to insert the record for the following employee:
+පහන සේවකයාට අදාළ රෙකෝඩඞය ඇතුළත්‌ කිරීම සඳහා අවග්‍ය SOL ප්‍රකාශය ලියන්න.
+
+Emp ID=E119, Emp [14116 ~- "John", DoB = "15/06/1971", Department = "IT",
+Designation = "Professor", DoJ = "15/07/2001", Salary = 107000
+
+INSERT INTO Employee (Emp_ID, Emp Name, DoB, Department, Designation, DoJ,
+Salary)
+
+VALUES ('E119', ‘John’, ‘'15-@6-1971', ‘IT’, ‘Professor’, '15-@7-2001',
+107000) ;
+
+OR
+
+INSERT INTO Employee
+
+VALUES ('E119', ‘John’, ‘'15-@6-1971', ‘IT’, ‘Professor’, '15-@7-2001',
+107000) ;
+
+Explanation - පැහැදිලි කිරීම
+
+SQL Query 1
+
+INSERT INTO Employee (Emp_ID, Emp Name, DoB, Department, Designation, DoJ,
+Salary)
+
+VALUES ('E119', ‘John’, ‘'15-@6-1971', ‘IT’, ‘Professor’, '15-@7-2001',
+107000) ;
+
+1. INSERT INTO Employee (Emp_ID, Emp Name, DoB, Department, Designation, DoJ,
+Salary):
+
+This part of the query specifies the table (Employee) and the exact columns (Emp ID, Emp Name,
+DoB, Department, Designation, DoJ, Salary) into which the values will be inserted.
+
+මෙම කොටසෙහි අගයන්‌ ඇතුළත්‌ කරනු ලබන වගුව (Employee) සහ අදාළ තරැ (Emp ID,
+Emp Name, DoB, Department, Designation, DoJ, Salary) සඳහන්‌ කරයි.
+
+2. VALUES ('E119', ‘John’, '15-@6-1971', ‘IT’, ‘Professor’, '15-07-2001',
+1070@@):
+
+This part provides the actual values to be inserted into the specified columns. Each value corresponds
+to one of the columns listed before.
+
+මෙම කොටස මඟින්‌ නියම කරන ලද තීරැවලට ඇතුළත්‌ කළ QM සැබෑ අගයන්‌ සපයයි. සැම අගයක්ම
+පෙර ලැයිස්තුගත කර ඇති තීරැ වලින්‌ එකකට අනුරෑප වේ.
+
+The query inserts a new record into the Employee table with specified values for each column, ensuring
+correct data placement due to the explicit column names.
+
+මෙමඟින්‌ එක්‌ එක්‌ තීරැව සඳුහා නිග්චිත අගයන්‌ සහිත නව වාරඊතනාවක්‌ Employee OQOO ඇතුළත්‌ කරයි
+පැහැළවිලි තිරුැව හේතුවෙන්‌ නිවැරදි දත්ත ස්ටානගත කිරීම සහතික කරයි
+
+SQL Query 2
+
+INSERT INTO Employee VALUES ('E119', ‘John’, '15-06-1971', ‘IT’, ‘Professor’,
+'15-07-2001', 107000);
+
+1. INSERT INTO Employee VALUES:
+
+This part of the query specifies the table (Employee) into which the values will be inserted, but does
+not explicitly list the column names.
+
+මෙම කොටසෙහි අගයන්‌ ඇතුළත්‌ කරන වගුව (Employee) සඳහන්‌ කරයි, නමුත්‌ තීරැ නාම පැහැදිලිව
+ලැයිස්තුගත නොකරයි.
+
+2. ('E119', ‘John’, '15-66-1971', '11', ‘Professor’, '15-07-20@1', 167960) :
+
+This part provides the values to be inserted in the default order of columns in the table. The order of
+
+values must match the column order in the table schema.
+මෙම කොටස වගුවේ තීරැ OE පෙරනිමි අනුපිළිවෙලට ඇතුළත්‌ කළ යුතු අගයන්‌ සපයයි. අගයන්‌
+අනුපිළිවෙල වගු සැලැස්මේ තීරැ අනුපිළිවෙලට ගැළපිය යුතුය.
+
+The query inserts a new record into the Employee table assuming the values match the order of columns
+in the schema, which can be less reliable 11 the column order changes.
+
+මෙමඟින්‌ Employee වගුවට නව වාර්තාවක්‌ ඇතුළත්‌ කරයි, අගයන්‌ යෝජනා ක්‍රමයේ තීරැ අනුපිළිවෙලට
+ගැළපෙන බව උපකල්පනය කරයි, තීරැ අනුපිළිවෙල වෙනස්‌ වුවහොත්‌ දෝග සහිත විය හැක.
+
+(111) Write the output obtained by applying the following SQL query:
+පහන SOL විමසුම acm) ලැබෙන ප්‍රතිදානය ලියන්න.
+
+SELECT Emp_ID, Emp Name
+FROM Emptoyee
+WHERE Salary>1030@0;
+
+Emp ID Emp Name
+
+E110 Saman
+
+E114 Jennifer
+
+E119 John
+Explanation
+
+1. SELECT Emp_ID, Emp_Name:
+
+This part of the query specifies that you want to retrieve the Emp ID and Emp Name columns.
+These columns contain the employee [Ds and names, respectively.
+
+මෙම කොටස @Q2O Emp ID සහ Emp Name තරැ ලබා ගැනීමට අවශ්‍ය බව සඳුහන්‌ කරයි. මෙම
+තීරැවල පිළිවෙලින්‌ සේවක හැඳුනුමිපත්‌ සහ නමි අඩංගු වේ.
+
+2. FROM Employee:
+
+This indicates the source table from which to retrieve the data. Employee is the name of the table
+containing employee information.
+මෙම ESM ED ගැනීමට මුලාශ්‍ර වගුව දක්වයි. Employee යනු සේවක තොරතුරැ අඩංගු වගුවේ HOG.
+
+3. WHERE Salary > 103000:
+
+e The WHERE clause filters the records to include only those where the Salary column has value
+greater than 103,000.
+103,0000 වැඩි වැටුප්‌ ඇති වාර්තා පමණක්‌ පෙරහන්‌ කිරිමට WHERE වගන්තිය කටයුතු කරයි.
+
+e The > operator checks for values greater than the specified amount, ensuring that only records
+with salaries exceeding 103,000 are selected.
+103,000 ඉක්මවන වැටුප්‌ සහිත වාරතා පමණක්‌ තෝරාගෙන ඇති බව සහතික කරමින්‌ >
+මෙහෙයවනය නියමිත මුදලට වඩා වැඩි අගයන්‌ පරීක්ෂාවක්‌ සිදු කරයි.
+
+The query filters the Employee table to find employees with a salary greater than 103,000, retrieving their
+IDs and names for those who meet this condition.
+
+මෙම කොන්දේසිය සපුරාලන අයගේ හැඳුනුමිපත්‌ සහ නමි ලබා ගැනීම wes) 103,000 ට වැඩි වැටුපක්‌ ඇති
+සේවකයින්‌ ඇති විමසුම සොයා ගැනීමට Employee වගුව පෙරහන්‌ කරයි.
+
+(iv) Write the appropriate SQL query to find the names of all employees who work in the "Civil" department.
+Civil දෙපාර්තමේන්තුවේ වැඩ කරන සියලු සේවකයන්ගේ නමි සොයාගැනීමට සුදුසු SOL ප්‍රකාශයක්‌ ලියන්න.
+
+SELECT [£ [110 _ [13116 FROM Employee WHERE Department='Civil' ;
+Explanation - පැහැදිලි කිරීම
+
+1. SELECT Emp_Name
+This part of the query specifies that you want to retrieve the Emp Name column. Emp Name refers
+to the names of the employees.
+මෙම කොටස QO Emp Name තීරැව ලබා ගැනීමට අවශ්‍ය බව සඳුහන්‌ M06. Emp Name යනු
+සේවකයින්ගේ නමි වලට යොමු වේ.
+
+2. FROM Employee
+This indicates the source table from which to retrieve the data. Employee is the name of the table
+containing employee information.
+මෙම EXD ලබා ගැනීමට මුලාශ්‍ර වගුව E206. Employee යනු සේවක moder අඩංගු වගුවේ HOG.
+
+3. WHERE Department = ‘Civil’:
+
+e The WHERE clause filters the records to include only those where the Department column has
+the value 'Civil'.
+Department තීරැවේ 'Civil’ අගය ඇති SO) පමණක්‌ ඇතුළත්‌ කිරිමට WHERE වගන්තිය වාර්තා
+පෙරහන්‌ කරයි.
+
+e The = operator checks for equality. In this case, it ensures that only records with 'Civil' in the
+Department column are selected.
+=§ond සමානාත්මතාවය සඳුහා පරික්ෂා කරයි. මෙම අවස්ථටාවේදි, Department තීරැවේ 'Civil'
+සහිත වාරතා පමණක්‌ තෝරාගෙන ඇති බව සහතික කරයි.
+
+The SQL query filters the Employee table by evaluating each row to determine if the Department column
+contains the value 'Civil'. For each row where this condition is met, the query retrieves the corresponding
+Emp Name. The result is a list of employee names from the 'Civil’ department.
+Department 80268 'Civil' අගය Sede, යන්න තීරණය කිරීම oem එක්‌ එක්‌ පේළිය ඇගයීම මගින්‌
+Employee වගුව පෙරහන්‌ කරයි. මෙම කොන්දේසිය සපුරා ඇති සැම පේළියක්‌ සඳුහාම, අනුරැප Emp Name
+ලබා ගනී. එහි ප්‍රතිඵලය වන්නේ 'Civil' දෙපාර්තමේන්තුවේ සේවක නමි ලැයිස්තුවකි.
+
+( 2023 ESSAY - 09 )
+
+2024 DATABASE ESSAY MARKING
+
+1.(a) Consider the following description relevant to a database that 15 to be developed for a fuel station to
+manage the details of customer transactions:
+ඉන්ධන පිරවුමිහලක පාරිභෝගික ගනුදෙනු පිළිබඳු තොරතුරැ කළමනා කරණය HEH) සංවර්ධන කිරීමට
+බලාපොරොත්තු වන දත්ත සමුදායකට අදාළ පහත විස්තරය සලකන්න.
+
+e Each customer [Customer] has a unique identifier [Cid], a name [Cname] (consisting of a first name
+[Cfname] and a surname [Csname]) and a phone number [Cphone]. Each customer may have multiple
+phone numbers. Each customer owns [owns] one or more vehicles.
+සැම පාරිභෝගිකයකුටම [Customer] අනන්‍ය හඳුන්වනයක්‌ [Cid], නමුත්‌ [Cname] (මුල්‌ නම [Cfname] සහ
+වාසගමෙන්‌ [Csname] සැදුන) සහ දුරකටන අංකයක්‌ [Cphone] ඇත. එක්‌ පාරිභෝගිකයකුට දුරකටන අංක
+කිහිපයක්‌ තිබිය හැක. එක්‌ පාරිභෝගිකයකුට වාහන එකක්‌ හෝ වැඩි ගණනක්‌ හෝ අයිති [owns] විය හැක.
+
+e Each vehicle [Vehicle] has a unique vehicle number [Vno] and a model [Vmodel]. Each vehicle is owned
+by only one customer.
+සැම වාහනයකටම [Vehicle] අනන්‍ය වාහන අංකයක්‌ [Vno] සහ මාදිලියක්‌ [Vmodel] ඇත. එක්‌ වාහනයක්‌
+අයිති එක්‌ පාරිභෝගිකයකුට පමණි.
+
+e The fuel station sells several petrol types [Petrol]. Each petrol type has a unique identifier [Pid] and a price
+per liter [Pprice].
+ඉන්ධන පිරවුමිහල, පැටිරෝල්‌ වර්ග [Petrol] කිහිපයක්‌ විකුණයි. සැම පැටිරෝල්‌ වර්ගයකටම අනන්‍ය
+හඳුන්වනයක්‌ [Pid] සහ ලීටරයකට මිලක්‌ [Pprice] ඇත.
+
+e Different petrol types can be purchased for a vehicle [purchases], and each petrol type may be purchased
+for multiple vehicles.
+වාහනයක්‌ සඳහා විවිධ පැටිරෝල්‌ වර්ග මිලට ගත [purchases] හැකි ය. එක්‌ එක්‌ පැටිරෝල්‌ වර්ගය වාහන
+ගණනාවකට මිලට ගත හැක.
+
+e Each petrol purchase is recorded with a vehicle number [Vno], a petrol type identifier [Pid], the quantity
+of petrol sold [Sqty] and the date of sale [Sdate].
+සෑම පැටිරෝල්‌ GEO ගැනීමක්‌ සඳුහාම, වාහන අංකය [Vno]. පැටිරෝල්‌ වර්ග හඳුන්වනය [Pid], විකිණු
+පැටිරෝල්‌ ප්‍රමාණය [Sqty] සහ විකිණු දිනය [Sdate] සටහන්‌ කෙටේ.
+
+e Each employee [Employee] has a unique number [Eno], a name [Ename], a position [Eposition] and a
+type [Etype] (which could be either full-time or part-time). An employee may sell [sells] multiple petrol
+types. Each petrol type can be sold by many employees.
+සැම සේවකයකුටම [Employee] | අනන්‍ය අංකයක්‌ [Eno], නමක්‌ [Ename], තනතුරක්‌ [Eposition] සහ වට්ගයක්‌
+[Etype] (පුර්ණ කාලීන හෝ අර්ධ කාලීන හෝ වන) ඇත. එක්‌ සේවකයකුට පැටිරෝල්‌ වර්ග ගණනාවක්‌ අලෙවි
+කළ [sells] හැක. එක්‌ එක්‌ පැටිරෝල්‌ වර්ගය අලෙවි කිරීම බොහෝ සේවකයන්ට කළ හැක.
+
+(1) Draw an ER Diagram for this application showing the entities, attributes and relationships.
+මෙම යෙදුම aes භූතාඊට්ට (entities), උපලක්ෂණ (attributes) සහ සමිඛන්ධතා (relationships) දැක්වෙන
+ER සටහනක්‌ අදින්න. යතුරු උපලක්ෂණ (key attributes) යටින්‌ ඉරි අඳින්න.
+
+Underline the key attributes. Note: Use only the terms given within square brackets in the above
+description for the entities, attributes and relationships. Use upper case letters for entities and relationships.
+සටහන: MnO, උපලක්ෂණ සහ සමිබන්ධතා සඳහා ඉහත විස්තරයේ කොටු වරහන්‌ තුළ දි ඇති oc පමණක්‌
+භාවිත කරන්න. භුතාර්ට සහ සමිබන්ධනා සඳුහා ඉංගිසි කැපිටල්‌ අකුරැ යොදන්න.
+
+ලල > Customer Employee
+ලූ
+M N
+Vehicle
+
+Vmodel C sate > Pprice
+
+(11) Write the relational schema for the ER diagram.
+ER සටහන සඳුහා සමිඛන්ධතා පරිපාටික සටහන (relational schema) ලියා EmOsien.
+
+N M Petrol
+
+Note: List only the tables with their attribute names. Underline the primary keys. Draw an arrow from
+each foreign key to the table it references with arrow head pointing to primary key of the referenced table.
+සටහන: වගු, එවායේ උපලක්ෂණ නම්‌ සමඟ පමණක්‌ ලැයිස්තුගත කරන්න. ප්‍රාටමික යතුරැ (primary keys)
+යටින්‌ ඉටි අඳින්න. එක්‌ එක්‌ ආගන්තුක යතුර (foreign key) එය යොමු කරන වගුවට ඊතලයකින්‌ සමිඛන්ධ
+කරන්න. ඊතලයේ හිස මගින්‌ යොමු කරන වගුවේ ප්‍රාට්මික යතුර පෙන්විය යුතු ය.
+
+A Relational Schema is the formal description of a database structure that represents entities, attributes,
+and relationships. It is derived from the ER (Entity-Relationship) diagram and shows how entities are
+organized into tables with attributes, primary keys, and foreign keys.
+
+සම්බන්ධතා පටිපාටික සටහන යනු භූතාඊර්ට, උපලක්ෂණ සහ සම්බන්ධතා නියෝපනය කරන දත්ත oe)
+ව්‍යුහයක විධිමත්‌ විස්තරයයි. එය ව්‍යුත්පන්න වි ඇත්තේ ]-1* (භුතාර්ට-සමි්බන්ධතා) රෑප සටහනෙන්‌ වන අතර,
+භුතාර්ට, උපලක්ෂණ, ප්‍රාටමික යතුරු සහ ආගන්තුක යතුරැ සහිත වගුවලට සංවිධානය කර ඇති ආකාරය
+පෙන්වයි.
+
+Customer (Cad, Cfname, Csname, Cphone)
+
+Vehicle (Vno, Vmodel, Cid)
+Petrol (Pid, Pprice)
+
+Petrol Vehicle (Pid, Vno, Sqty, Sdate)
+
+PetrolEmployee (Pid, Eno)
+
+Employee (Eno, Ename, Etype, Eposition)
+
+(b) Consider the following Result table containing the details about students, their subjects, the teachers of
+those subjects, the exam dates and the marks.
+සිසුන්‌, ඔවුන්ගේ විෂයයන්‌, එම විෂයවල ගුරැවරැන්‌, විභාග දිනයන්‌ සහ ලකුණු දැක්වෙන පහත Result වගුව
+
+සලකන්න.
+Student | Student | Subject Subject Teacher | Teacher
+ID Name | 1) 7 Name” ID Name | Exam_Date | Mark
+101 Arun SU101 ICT 2001 Smith 2024-09-20 85
+102 Kamal SU102 Physics 2002 Johnson | 2024-09-21 78
+103 Fernando | SU101 ICT 2001 Smith 2024-09-20 90
+104 Haran SU103 Maths 2003 Williams | 2024-09-19 88
+105 Bob SU101 ICT 2001 Smith 2024-09-20 65
+101 Arun SU102 Physics 2002 Johnson | 2024-09-21 68
+103 Fernando SU103 Maths 2003 Williams | 2024-09-19 76
+
+In which normal form does the Result table exist? Justify your answer.
+
+Result වගුව කුමන ප්‍රමත අවස්ටාවෙහි පවතී ද? ඔබේ පිළිතුර සාධාරණීකරණය කරන්න.
+
+1** Normal Form / ]වන ප්‍රමත අවස්ථාව (1:17)
+
+The table satisfies INF because all columns contain atomic values. No repeating groups or multivalued
+attributes exist.
+සියලම HOt පරමාණුක අගයන්‌ අඩංගු වන නිසා වගුව INF තෘප්තිමත්‌ කරයි. පුනරාවර්තන කණ්ඩායමි හෝ
+බහු වටිනාකමි සහිත උපලක්ෂණ නොමැත.
+
+The table does not satisfy 2NF because there are partial dependencies:
+ආංගික පරායක්තතා ඇති බැවින්‌ වගුව 2NF නෘප්තිමත්‌ නොවේ:
+
+e The Teacher Name, Teacher ID and Subject Name dependent on Subject ID and not on the full
+
+primary key, which seems to be (Student _ID, Subject ID).
+
+Teacher Name, Teacher ID සහ Subject Name රඳා පවතින්නේ Subject ID මත මිස සමිපුර්ණ
+ප්‍රාටමික යතුර ලෙස පෙනෙන (Student ID, Subject ID) මත නොවේ.
+
+e 11211] all non-prime attributes must depend on the whole primary key, not just part of it.
+2NF හි, සියලුම ප්‍රාටමික නොවන උපලක්ෂණ එහි කොටසක්‌ පමණක්‌ නොව, සමිපුර්ණ ප්‍රාට්මික යතුර
+මත රඳා පැවතිය යුතුය.
+
+Therefore, the table exists in INF but not in 2NF.
+
+එමනිසා, වගුව INF හි පවතින නමුත්‌ 2NF හි නොමැත.
+
+(11) Describe how you would convert the Result table to its next normal form.
+Result වගුව එහි ඊළඟ ප්‍රමත අවස්ටාවට හරවන අයුරැ විස්තර කරන්න.
+
+To convert the table to 2NF, we need to remove the partial dependencies by creating separate tables.
+වගුව 2NF බවට පරිවර්තනය කිරීම aes, අපි වෙනම වගු සැදීමෙන්‌ ආංගික පරායක්තතා ඉවත්‌ කළ යුතුය.
+
+Decompose the table into three smaller tables / වගුව කුඩා වගු තුනකට වෙන්‌ කිරිම:
+
+e Student Subject Table (for relationships between students and subjects):
+
+Student Subject වගුව (සිසුන්‌ සහ විෂයයන්‌ අතර සමිඛන්ධතා සඳහා ):
+
+Student ID | Subject ID | Exam Date | Mark
+101 SU101 2024-09-20 85
+102 SU102 2024-09-21 78
+103 SU101 2024-09-20 90
+104 SU103 2024-09-19 88
+105 SU101 2024-09-20 65
+101 SU102 2024-09-21 68
+103 SU103 2024-09-19 76
+
+(Cc)
+
+e Subject Table (contains information about subjects and teachers):
+Subject වගුව (විෂයයන්‌ සහ SO ed ගුරැවරැන්‌ පිළිබඳ තොරතුරැ අඩංගු වේ):
+
+Subject ID | Subject Name | Teacher ID
+SU101 ICT 2001
+SU102 Physics 2002
+SU103 Maths 2003
+
+e Teacher Table (contains teacher details) / Teacher වගුව (ගුරැවරැන්‌ BEE, විස්තර අඩංගු):
+
+Teacher ID | Teacher Name
+2001 Smith
+2002 Johnson
+2003 Williams
+
+The new structure eliminates partial dependencies. Each table now satisfies 2NF because all non-prime
+attributes depend on the full primary key.
+
+නව ව්‍යුහය ආංශික පරායක්තතා ඉවත්‌ කරයි. සියලුම ප්‍රාටමික නොවන උපලක්ෂණ සමිපුර්ණ ප්‍රාටමික යතුර
+මත රඳා පවතින බැවින්‌, සැම වගුවක්ම දැන්‌ 2ZNF නෘප්තිමත්‌ කරයි.
+
+Consider the following Product table.
+පහත Product වගුව සලකන්න.
+
+Product No | Product Type | Product Name | Retail Price | Wholesale Price
+Pl Food Milk 850.00 800.00
+172 Food Tea 825.00 815.00
+P3 Food Sugar 900.00 800.00
+174 Stationery Book 700.00 650.00
+PS Stationery Paper 725.00 700.00
+
+Here is the SQL code to create the given Product table and insert the provided data
+ලබා දි ඇති Product වගුව සැදිමට සහ සපයා ඇති දත්ත ඇතුළත්‌ කිරීමට SQL esos පහත
+සදහන්‌ වේ.
+
+CREATE TABLE Product (
+Product_No VARCHAR(5) PRIMARY KEY,
+Product_Type VARCHAR(5@),
+Product_Name VARCHAR(5@),
+Retail Price DECIMAL(10, 2),
+Wholesale Price DECIMAL(1®, 2)
+
+)3
+
+INSERT INTO Product (Product_No, Product_Type, Product_Name,
+Retail Price, Wholesale Price) VALUES
+
+('P1', ‘Food’, ‘Milk’, 850.00, 800.00),
+
+('P2', 'Food', 'Tea', 825.00, 815.0@),
+
+('P3', 'Food', ‘Sugar’, 900.00, 800. 60),
+
+('P4', ‘Stationery’, ‘Book’, 70969. 96, 650.00),
+
+('PS', ‘Stationery’, ‘Paper’, 725.00, 700.00);
+
+(1) Write down the output of the following SQL statement:
+පහත SQL ප්‍රකාශයේ ප්‍රතිදානය ලියා දුක්වන්න.
+
+SELECT Product_Name, Wholesale Price
+FROM Product
+WHERE Retail Price - Wholesale Price > 50;
+
+The given SQL query retrieves the names of products and their wholesale prices from the Product table,
+where the difference between the retail price and wholesale price is greater than 50.
+
+ලබා දි ඇති SQL විමසුම Product වගුවෙන්‌ නිෂ්පාදනවල නමි සහ ඒවායේ තොග මිල ලබා ගනී, එහිදි සිල්ලර
+මිල(1:2141] price) සහ තොග මිල (wholesale price) අතර වෙනස 50 ට වඩා වැඩි වේ.
+
+The condition in the WHERE clause is Retail Price - Wholesale Price > 50.
+WHERE වගන්තියේ කොන්දේසිය Retail Price - Wholesale Price > 56 වේ.
+
+Milk: 850—800=50 — Not included / ඇතුළත්‌ නොවේ.
+Tea: 825—-815=10 — Not included / ඇතුළත්‌ නොවේ.
+Sugar: 900—-800=100 — Included / ඇතුළත්‌ වේ.
+
+Tea: 825—-815=10 — Not included / ඇතුළත්‌ නොවේ.
+Paper: 725—700=25 — Not included / ඇතුළත්‌ නොවේ.
+
+න 4 wN >
+
+Output / ප්‍රතිදානය:
+
+Product Name | Wholesale Price
+Sugar 800.00
+
+Final Query Result / අවසාන විමසුමි ප්‍රතිවලය;
+The query will return Sugar as the only product satisfying the condition.
+මෙම විමසුම කොන්දේසිය තෘප්තිමත්‌ කරන එකම නිෂ්පාදනය ලෙස සීනි ලබා දෙනු ඇත.
+
+(11) Write the required SQL statement to insert the following record to the Product table:
+පහත රෙකෝඩය Product OQOO ඇතුළත්‌ කිරීමට අවශ්‍ය SQL ප්‍රකාශය ලියන්න
+
+Product No | Product Type | Product Name | Retail Price | Wholesale Price
+P6 Stationery Bag 755.00 750.00
+
+SQL statement to insert the given record into the Product table:
+& ඇති bm Product වගුවට ඇතුඑ කිරීමට අවග්‍ය SOL ප්‍රකාගය:
+
+INSERT INTO Product (Product_No, Product_Type, Product_Name, Retail Price,
+Wholesale Price)
+VALUES ('P6', ‘Stationery’, ‘Bag’, 755.00, 750.00);
+
+Explanation / ප කිරීම
+
+e INSERT INTO Product
+
+Specifies the table where the new record will be added.
+HO HSMO එකතු කරන වගුව පිළිබදව සඳහන්‌ කරයි.
+
+e Column List / තීරැ ලැයිස්තුව
+The columns Product_No, Product_Type, Product_Name, Retail_ Price and Wholesale_Price are
+listed explicitly.
+Product_No, Product_Type, Product_Name, Retail Price සහ Wholesale Price පැහැදිලිව
+ලැයිස්තුගත MO ඇත
+
+e VALUES Clause / අගයන්‌ වගන්තිය
+Specifies the values corresponding to the columns / තීරු වලට අනුරැප අගයන්‌ නියම කරයි:
+
+= Product No: 'P6'
+
+= Product Type: 'Stationery'
+= Product Name: 'Bag'
+
+= Retail Price: 755.00
+
+= Wholesale Price: 750.00
+
+(111) Write down the SQL statement to display Product_Type, Product Name and Wholesale_ Price of the
+products whose Product_Name is not Bag.
+Bag නොවන Product Name සහිත රෙකෝඩවල Product_Type, Product Name සහ Wholesale Price
+ප්‍රදුර්ශනය කිරීමට අදාළ SQL ළ්‍රකාශය ලියා දුක්වන්න.
+
+SQL statement to display the required details for products where the Product_Name is not "Bag":
+Bag නොවන Product_Name සහිත නිෂ්පාදන වල අවග්‍ය විස්තර පෙන්විමට අවශ්‍ය SOL ප්‍රකාශය:
+
+SELECT Product_Type, Product_Name, Wholesale Price
+FROM Product
+WHERE Product_Name <> ' 636 ' ;
+
+Explanation / ප කිටීම
+
+SELECT Clause / SELECT වගන්තිය
+
+Specifies the columns to be retrieved / ලබා ගත යුතු තීරැ නියම කරයි:
+e Product Type
+
+e Product Name
+
+e Wholesale Price
+
+FROM Clause / FROM වගන්තිය
+Indicates the table to query, which 15 Product.
+විමසීමට වගුව දක්වයි, එය නිෂ්පාදූනයයි.
+
+WHERE Clause / WHERE වගන්තිය
+
+Filters rows where Product Name is not "Bag". The <> operator means "not equal to".
+
+Bag නොවන Product_Name සහිත පේළි තෝරා ගනියි. <> මෙහෙයවනය og "not equal to (සමාන
+නොවේ)" යන්නයි.
+
+Expected Output / අපේක්‍ෂිත ප්‍රතිදානය
+Product Type Product Name Wholesale Price
+Food Milk 800.00
+Food Tea 815.00
+Food Sugar 800.00
+Stationery Book 650.00
+Stationery Paper 700.00
+
+( 2024 ESSAY - 09 )

@@ -1,0 +1,755 @@
+Instructions:
+% Answer all the questions.
+
+*% In each of the questions 1 to 40, pick one of the alternatives (1), (2), (3), (4) which is
+correct or most appropriate.
+
+% Mark a cross (Xx) on the number corresponding to your choice in the answer sheet provided.
+%* Further instructions are given on the back of the answer sheet. Follow them carefully.
+
+1. Which of the following is generally an advantage of a desktop computer over a laptop?
+(1) Built-in battery (2) Easy portability
+(3) Larger display screen (4) Lightweight design
+
+2. In which of the following are the instructions of the operating system of a computer executed?
+(1) caches (2) main memory (3) processor (4) registers
+
+3. What is the most suitable replacement for the blank in the following statement?
+“Even when my computer is off, its operating system, application software and all my data exist
+
+in its ”
+
+(1) caches (2) hard disk (3) main memory (4) processor
+4. Which of the following uses ‘half duplex’ mode data transmission?
+
+(1) radio broadcasts (2) telephone communications
+
+(3) television broadcasts (4) walkie-talkie communications
+
+5. In which of the following network topologies does every computer connect to a central device such
+as a Switch?
+(1) Bus (2) Ring (3) Star (4) Mesh
+
+6. Which of the following is the hexadecimal equivalent of binary 1110 11102?
+(1) 11216 (2) EE16 (3) 1016 (4) FFi6
+
+7. A USB flash drive has 256 MB of free space. A video file of 0.3 GB, an image file of 300 KB,
+and a document file of 400 bytes need to be copied to this drive. Which of the following
+statements is correct?
+
+(1) Only the document file can be copied.
+
+(2) Only the image file and the document file can be copied.
+(3) Only the video file can be copied.
+
+(4) All the indicated files can be copied.
+
+ද _2
+
+ණී >»
+8. In the ASCII code, the character A is represented by 0510. In that code, which character is
+represented by 0100 00112?
+(1) A (2) B (3) C (4) 1)
+9. Which of the following is not a task of an operating system?
+(1) Giving each user process the chance to run on the processor
+(2) Managing the memory of the computer
+(3) Managing the user files in a computer
+(4) Right-justifying the text of a word processor's document
+10. Which of the following statements are true regarding word processor software?
+A — They allow users to save the opened documents with passwords.
+13 ~- They allow users to save the opened documents in pdf format.
+C— One can use the ‘Save As...’ option in the ‘File’? menu to save a document with a
+different name.
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+11. Which of the following word processor software icons can be used to center align a piece of text?
+(1) ~~ (2) | ස (3) | -~_ (4)| =
+12. Which of the following word processor software icons can be used to help obtain X7?
+(1) | A, (2) | A (3)|& (4)| &
+13. Which of the following word processor software icons can be used to strike-through a piece of
+text?
+(1) 2 (2)|A (3)| 5 (4)| 9
+14. Which of the following statements are true regarding word processor software?
+P— One can easily send the same letter to multiple recipients using their ‘mail merge’ features.
+Q — A document in the .docx format cannot be edited using LibreOffice Writer.
+R— When a wide table does not fit in the ‘portrait’ orientation, one should test the ‘landscape’
+orientation available in the software.
+(1) P and Q only (2) P and R only (3) Q and R only (4) All P, QandR
+15. Which of the following only contains examples of spreadsheet software?
+(1) Google Docs, LibreOffice Writer, Microsoft Excel
+(2) Google Sheets, Microsoft Excel, OpenOffice Calc
+(3) LibreOffice Calc, Microsoft Excel, OpenOffice Writer
+(4) Microsoft PowerPoint, Google Sheets, LibreOffice Calc
+16. On a worksheet, how many cells are included in the range B2:D4?
+(1) 6 (2)8 (3)9 (4) 12
+17. Which of the following spreadsheet software formulae correctly calculates the average of B1:B4
+
+and D1:D4?
+
+(1) =AVERAGE(B1:D4)
+
+(2) =AVERAGE(B1:B4, D1:D4)
+(3) =AVERAGE(B1:B4:D1:D4)
+(4) =AVERAGE(B1:B4 + D1:D4)
+
+,
+
+r
+
+18. Which of the following only contains examples of presentation software?
+
+19.
+
+20.
+
+21.
+
+22.
+
+෴
+
+(1) Apple Keynote, LibreOffice Impress, Microsoft PowerPoint
+(2) Audacity, Google Slides, Microsoft PowerPoint
+
+(3) Audacity, LibreOffice Calc, LibreOffice Impress
+
+(4) Google Sheets, LibreOffice Calc, Ubuntu
+
+Questions 19 to 21 are based on the following partly shown database tables that are used to store
+data about school subjects, teachers and their subject allocations.
+
+Note: A subject can be taught by many teachers and a teacher can teach many subjects. The
+Hours _per_ week field stores the weekly teaching hours allocated to a particular teacher to
+teach the relevant subject.
+
+SUBJECT
+Subject ID Subject name
+SU01 Mathematics
+SU02 Science
+SU03 English
+SU04 ICT
+TEACHER
+Teacher ID Teacher name
+1001 Ms. Perera
+1002 Mr. Silva
+1003 Ms. Fernando
+T004 Mr. Khan
+SUBJECT_TEACHER
+Subject ID Teacher ID Hours _per_week
+SU01 1002 5
+SU02 TOO1 4
+SU04 1003 3
+SU02 1004 4
+What is most suitable for the primary key for the SUBJECT_TEACHER table?
+(1) Subject_ID (2) Teacher_ID
+(3) Subject_ID + Hours_per_week (4) Subject_ID + Teacher_ID
+
+What 16 a foreign key in this database?
+
+(1) Hours_per_week in the SUBJECT_TEACHER table
+(2) Teacher_ID in the SUBJECT_TEACHER table
+
+(3) Teacher_name in the TEACHER table
+
+(4) Subject_name in the SUBJECT table
+
+A new teacher (Mr. Sivarajah, T005) joins the school and starts teaching Science (SU02). Which
+tables are to be updated for this purpose?
+
+(1) TEACHER only
+
+(2) SUBJECT_TEACHER only
+
+(3) SUBJECT and SUBJECT_TEACHER only
+(4) TEACHER and SUBJECT_TEACHER only
+
+Which of the following statements are correct regarding databases?
+A— Compared to manual databases, electronic databases are more efficient in retrieving
+information.
+B — Updating data is easier in a manual database than in an electronic database.
+C — Electronic databases can be protected through passwords and data encryption.
+
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+
+y,
+
+ඒ
+
+23.
+
+24.
+
+25.
+
+26.
+
+27.
+
+28.
+
+29.
+
+Which of the following statements is correct regarding databases?
+
+(1) A record in a table that has a composite primary key can be uniquely identified by just one field
+of its composite primary key.
+
+(2) There could be a maximum of only one foreign key in a table.
+
+(3) The primary key field of a record can be kept blank.
+
+(4) When a table in a database is being created using a software, one should indicate the data type
+of each of its fields.
+
+A program is required to compute the shortest route between cities P and Q. A route is made
+
+up of small road segments that could be collectively used to go from P to Q.
+
+The program will require a collection of road segments to be given as its input. Which of the
+
+following contains the data that has to be input for each road segment?
+
+Note: traffic indicator is a number indicating the traffic congestion on a particular segment and
+length contains the length of that road segment.
+
+(1) Ending city, length, traffic indicator
+
+(2) Starting city, length, traffic indicator
+
+(3) Starting city, ending city, length
+
+(4) Starting city, ending city, traffic indicator
+
+Questions 25, 26, 27 and 28 are based on the following flow-chart:
+What will be the output if the input N is 4?
+
+(1) 0 (2) 15 [Input N_/
+
+(3) 64 (4) 325
+
+S=0
+What will be the output if the input N is 1? Sell
+(1) 0 (2) 1 <
+(3) 2 (4) 3
+
+=I+I
+
+When the condition | <= N?’ is changed to ‘I < N?’ and the input
+N is given as 5, what will be the output? S=I1+I*S
+(1) 0 (2) 15 vise 4.
+(3) 64 (4) 325
+
+Which of the following Pascal constructs is most suited to
+implement the control structure shown in the flow-chart?
+
+(1) case (2) if-then-endif
+
+(3) if-then-else-endif (4) while-do
+
+PRINT S
+
+Questions 29, 30, 31, 32 and 33 are based on the following labelled fragment taken from a
+Pascal code to print the average of the values in the ‘numbers’ array.
+
+sum := A:
+
+B i := 1 to SIZE do
+begin
+
+sum := sum + (10106 15 [ (ට ] ;
+end;
+
+D := E / F ;
+
+writeln('The average is: ', average:5:2);
+
+What is SIZE in the above code?
+(1) A constant (2) A Pascal reserved word
+(3) A variable name initialized to 0 (4) An array
+
+෴
+
+y,
+
+4 ~~
+30. What should be the replacement for A?
+(1) 0 (2) 1 (3) SIZE (4) numbers
+31. What should be the replacement for B?
+(1) case (2) for (3) repeat (4) while
+32. What should be the replacement for C?
+(1) 0 (2) 1 (3) sum (4) SIZE
+33. What should be the replacements for D, E and F respectively?
+(1) average, sum, SIZE (2) SIZE, average, sum
+(3) sum, average, SIZE (4) sum, SIZE, average
+
+34. When developing an information system, what is the main advantage of using the iterative
+incremental model instead of the waterfall model?
+
+(1) skipping of some stages to save time
+
+(2) allowing improvements after each small cycle
+(3) completing all work in only one stage
+
+(4) not requiring any testing
+
+35. Which of the following best describes acceptance testing?
+(1) It is done by programmers to check whether the requirements of the users are acceptable.
+(2) It is done by programmers to check for coding errors.
+(3) It is done by users to check if the system meets their requirements.
+(4) It is done by users after deployment to add new features.
+
+36. Which of the following is a correct example for an Internet Protocol (IP) address?
+(1) 172.215.8.4.2 (2) 172.256.128.11 (3) 192.247.8 (4) 192.246.11.254
+
+e To answer questions 37 and 38, consider a raster image of resolution 1920 x 1080 using 8 bits
+for a pixel.
+
+37. If this image is not compressed, then its approximate size in bytes is
+(1) 1920 x 1080. (2) 1920 x 1080 x 8.
+(3) (1920 x 1080 x 2)/8. (4) (1920 x 1080 x 3)/8.
+
+38. What is the maximum number of colours that the above image can contain?
+(1)3 (2) 8 (3) 28 (4) 28 x 1920 x 1080
+
+39. Which of the following only contains examples of graphics file formats?
+(1) avi, docx, pdf (2) bmp, jpg, png (3) docx, mp3, pdf (4) mp4, png, ppt
+
+40. Which of the following statements are correct?
+
+A — The <img> tag is used to insert an image to a web page.
+13 — The src attribute of <img> indicates the image file.
+C— An <img> tag must have a closing </img> tag.
+
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+
+ඇද
+
+෴
+
+
+Se (5) ede Dewevre ව
+2 PL oes 1600600189 & 01110 80 | EF 1,11
+
+
+SOON QUT SITS USAT (2:11511116001 HO ufLens, 2025(2026)
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 1,11
+HEU, THM TUT 0151110)60)]1_! ]ධ]]!! |) LI
+
+
+4 Answer five (05) questions only, including first question and four others.
+x First question carries 20 marks and each of the other questions carries 10 marks.
+
+1. (1) An airline passenger is allowed to carry only one bag whose weight should not exceed 20 kg.
+Assume that Rajah who is a passenger travelling in that airline has lots of items with different
+weights that he would like to take in his bag. The items vary in their importance for Rajah for
+the trip. Rajah wants to write a program to decide the items to carry in his bag.
+
+Write down two inputs for this program.
+
+(11) The side of a laptop that a student 15 to use for a presentation is shown in Figure 1.
+
+Figure 1
+
+(a) Write down the label of the port to which the HDMI cable of the projector should be
+connected.
+
+(b) Write down the label of the port to which the USB flash drive that contains the student’s
+presentation should be connected.
+
+(c) According to the figure, which cable is already connected to the laptop?
+(d) Write down the label of the port to which the RJ45 cable should be connected.
+
+(111) (a) Write down the binary equivalent of 07 10.
+(0) Write down the octal equivalent of 110 010 111 1015.
+
+(iv) (a) Draw the logic circuit relating to the boolean expression P = A.B + C.D using only AND
+and OR gates.
+
+(b) According to the logic circuit shown in Figure 2, what will be the respective outputs at
+P and Q when A, B and C inputs are respectively 1,0 and 0?
+A— p
+B—
+
+7
+ල ච
+
+Figure 2
+(v) (a) A person has many files related to various subjects and he stores all of them in the
+‘Documents’ folder of his computer. Isn’t there a better method? Explain.
+(0) What is meant by ‘Disk de-fragmentation’?
+
+තූ 7
+
+(ණ්‌
+
+(vi) (a) Name the formatting used in each of the parts labelled from A to D in the following
+word-processed document extract. (Note: Use only the label — formatting name format
+for your answer.)
+
+[A] Sri Lanka | B |
+
+officially known as the Democratic Socialist Republic of Sri Lanka, is an island nation
+
+located in the Indian Ocean.
+
+It is known for its rich history, diverse culture and natural
+[8 beauty. The country is famous for its ancient cities, tea
+plantations, beaches and wildlife sanctuaries.
+
+Some facts:
+
+Category Details
+Capital city | Sri Jayewardenepura Kotte
+Official languages | Sinhala and Tamil
+
+Popular landmarks e Sigiriya Rock Fortress —>(D|
+¢ Temple of the Tooth Relic
+
+e Adam’s Peak
+
+(b) For what can the icon available in a word processing application tool bar be used
+for?
+
+(vii) (a) Presentation software provide several slide layout options. Suppose you are preparing a
+presentation and need to create a slide that includes a table of statistical data. From the
+following slide layouts —‘“Title only’, “Title and content’ and ‘Title and two content’ ,— which
+layout would you select for this slide?
+
+(b) There are many guidelines to make good slides. Write down one such guideline regarding
+the maximum number of text lines recommended for a slide.
+
+(vill) Draw a flow-chart to get a number N from user and then print all numbers from 1 to N that
+are divisible by 3.
+
+(ix) (a) The second and third steps of the System Development Life-cycle are respectively ‘Design’
+and ‘Coding’. List one task that has to be done during the above Design step.
+
+(b) Will it be beneficial to communicate with the users during the Design step? Explain.
+
+(x) (a) Write down the domain name of the following URL:
+http://www.ugce.lk/admissions/2026/handbook. html
+
+(b) Write down the file name of the URL given in (a) above.
+
+(c) What is the use of the 0) icon that is available in an email software?
+
+(d) What is the difference between ‘Reply’ and ‘Reply all’ options that is available in an email
+software?
+
+™~
+
+y,
+
+OL/2025(2026)/80/E-L1
+
+
+la
+
+2. The following spreadsheet is used to calculate the monthly electricity bill for different households
+
+in a particular area.
+
+෴
+
+A B C D E F
+
+1 MONTHLY ELECTRICITY BILL CALCULATOR
+2
+; Cost per Unit (Rs.): 20
+
+S.N. HouseHold | Units Used | Percentage | Total Bill
+4 No (kWh) of Units (Rs.)
+5 1 0003990 80 16%| 1,600.00
+6 2 0003991 120 24%| 2,400.00
+7 3 0003992 30 6% 600.00
+8 4 0003993 200 41%| 4,000.00
+9 5 0003994 0 0% 0.00
+10 6 0003995 60 12% 1,200.00
+11
+12 Total Consumption (Units) 490
+13 Average Electricity Consumption 81.67
+14
+15 =C5*2+DS5+SF5
+16
+17
+
+(1) Given that the 7otal Bill (Rs.) = Units Used (kWh) X Cost per Unit (Rs.), write the formula that
+should be entered in cell E5 to calculate the total bill for Household No. 0003990, ensuring that
+it can be copied to the remaining cells E6—E10 to calculate the bills for those households too.
+
+(11) Write down the formula that should be written for each of the following:
+
+(a) for cell E12 to display the total electricity consumption (in Units) using a function
+(b) for cell E13 to display the average electricity consumption (in Units) using a function
+
+(111) Labels 1-11 in the figure below are some formatting options available in a spreadsheet software:
+
+ne
+
+|
+3 |
+
+॥
+
+General =
+= Merge & Center ~ ॥ 96 3 | ණී
+කක්‌ [7 os [3]9][:[:1
+
+Write down the labels of the formatting options that would have been used to format the following
+cells in the above spreadsheet.
+
+(a) Al (b) C4
+
+න ජී ab Wrap Text GG
+
+॥
+II]
+ill
+Mtl
+it
+
+Alignment
+
+(c) DS (d) ES
+
+(iv) It is required to display the electricity units used by each household (Units Used) in a bar chart.
+Write down the data range that has to be used for this chart.
+
+(v) Assume the formula =C5*2+D$5+$F5 is mistakenly entered in cell B15. How will that formula
+change when it is copied to cell C15 and to cell B16?
+
+(vi) What values will be displayed in cells C15 and C16 when the formula =C6 7 (C7+C9) 7
+C5 * C8 — C10“°C49 is entered in cell C15 and the formula =COUNT(C5:C10, E5:E1@) is entered
+in cell C16 respectively?
+
+2
+
+OL/2025(2026)/80/E-L1
+-
+
+
+3. Following are the partially shown database tables of a school used to store data about students,
+
+sports events and event registrations.
+
+෴
+
+STUDNET EVENT REGISTRATION
+Sid | S name | Class E_id E_name_ | Category S_id E_id Reg_date
+5001 | Amal 11% 1001 | 100m Track 5001 E01 05/02/2026
+S002 | Fathima 11B E02 | Long jump | Field S003 E02 05/02/2026
+5003 | Nipun 11% 1003 | 200M Track S004 E01 06/02/2026
+5004 | Senuri 11C E04 । Shot put Field 5001 E03 07/02/2026
+
+(i) A new student Kavindu (S_id: S006, Class: 11A) registers for Long jump (E_id: E02) on
+10/02/2026. Write down the new records to be added to the relevant tables for that purpose.
+Note: Use only the table name (field! content, field2 content, ...) format for each new record.
+
+e.g., STUDENT(S001, Amal, 11A)
+
+(11) It is required to show the names of students (S_name) who registered for the ‘100m’ event.
+Which tables need to be joined for this purpose?
+
+(111) Each event has a specific event type U/ndividual or Team). 11 that type field is needed to be
+added, to which one of the above tables should it be added?
+
+(iv) It is decided to appoint one coach for each event, and the name (C_name) and phone number
+(C_phone) of each coach must be stored avoiding data duplication. (Note that the same coach
+can coach for multiple events.)
+
+For this purpose:
+(a) Write down the table name and the field names of the new table that has to be added.
+(b) Write down any changes that have to be done to the existing tables.
+
+(v) Can the (S004, E01, 08/02/2026) record be added to the REGISTRATION table?
+Justify your answer.
+
+4. (1) Consider the following pseudo-code to answer (a) and (b).
+
+BEGIN
+Counter = 1
+Total = 0
+REPEAT
+Total = Total + Counter
+DISPLAY Total
+
+Counter = Counter + 1
+UNTIL Total >= 6
+END.
+
+(a) Write the expected output of the pseudo-code.
+
+(b) Which code line within the REPEAT-UNTIL loop is essential to ensure that the code
+terminates?
+(c) What would be the output if the statement
+
+‘UNTIL Total >= 6’ is replaced with “UNTIL Total >= 10°
+and the statement
+‘Counter = Counter + 1’ is replaced with “Counter = Counter + 2’ ?
+
+තූ y
+
+ණී න
+(ii) Nirman wants to write a program that outputs the least number of Rs 500 and Rs 100 currency
+
+notes that will be required to make a given amount of money. The program should work as
+follows:
+
+When the user inputs the amount of money that he/she needs, the program should check whether
+that amount is a multiple of 100. If yes, the program should output how that amount of money
+could be made using the least number of Rs 500 and Rs 100 notes and stop. Else, the program
+should print “Enter a multiple of 100’ and stop.
+
+Three sample inputs and their expected outputs are given in the table.
+
+Input number Expected output
+650 Enter a multiple of 100.
+800 500: 1 100: 3
+400 500: 0 100: 4
+
+(a) Draw the flow-chart for this program without using the ‘repetition’ control structure.
+(b) Write down the pseudo-code for this program without using the ‘repetition’ control structure.
+
+5. (1) The homepage of a website should provide a concise overview of the entire site’s content.
+Describe a technique that could be used for it.
+
+(11) Define the ‘resolution’ of an image in terms of pixels.
+(111) What is the connection between the resolution of a raster image and its clarity?
+
+(iv) Compared to raster images, why are vector images recommended for pictures which may have
+to be enlarged?
+
+(v) Who makes the ‘keyframes’ while using an animation software? What is the name given to
+frames between two keyframes?
+
+(vi) Sometimes for a particular song, another person would create a reply song. When such a song
+and a reply song are imported to Audacity, they will appear on two separate tracks. Describe
+one new creation that one could make through Audacity using these two songs.
+
+(vii) Rani wants to make a video using the photos of a family trip. Choosing from GIMP, Vectorian
+Giotto, Audacity and Windows Movie Maker, write down the name of the software that she
+should use for it.
+
+6. (1) Match each description labelled A to F to a correct item from the numbered list and write
+down the number of the matching i1tem for each label using only the label — number format.
+
+Label Description
+A A service that converts a domain name into a numerical address
+B A tool used to find websites by entering keywords
+C Clickable text that opens another page
+D The computer that stores and provides web pages
+E The numerical address assigned to a website
+F The protocol used to transfer web pages
+
+List: {1 — DNS, 2 — HTTP, 3 — hyperlink, 4 —IP address, 5 — Lasso tool, 0 -_ Memory address,
+7 — SaaS, 8 — Search engine, 9 — SMTP, 10 — web server}
+
+ද y,
+
+ණ්‌ >
+
+(11) The HTML source of the web page given in Figure | is given in Figure 2 with certain missing
+tags labelled @ to @.
+
+Artificial Intelligence
+
+Artificial Intelligence (AI) is used in communication, banking, shopping, travel and
+learning. It can save time, improve accuracy and support daily tasks. However, it may
+also raise concerns such as privacy risks, incorrect information and unfair decisions.
+
+Activity How AI can help
+Communication |Grammar checks, translations, suggested replies
+Learning Simple explanations, practice questions, study support
+Work tasks Drafting emails, summarizing notes, organizing key points
+Travel Route planning, traffic updates, time estimates
+Health Medicine reminders, appointment alerts, basic well-being guidance
+Concerns
+
+¢ Incorrect information: AI may provide wrong or incomplete answers.
+
+¢ Unfair results: Al can reflect bias and treat people unequally.
+
+* Scams and misinformation: Al-generated messages can appear believable.
+* Over-dependence: Heavy use can reduce independent thinking and learning.
+
+AI is helpful when used carefully. Keep in control by checking facts, protecting
+personal data, and using AI as a support rather than a final decision-maker.
+
+For more information: UNESCO AI guidelines
+
+Figure 1: Web page
+
+<html>
+
+<head> <@>How AI can help in daily life</@> </head>
+<body>
+
+<@><h1> Artificial Intelligence</h1></@>
+
+<®> Artificial Intelligence (AD is used in communication, banking, shopping, travel and learning. It can save time,
+improve accuracy and support daily tasks. However, it may also raise concerns such as privacy risks, incorrect
+information and unfair decisions. </@>
+
+<table border="2" align="center">
+
+<®> <th> Activity</th> <th>How AI can help</th></@>
+
+ක්‍රී” <@>Commnnication</@> <@>Grammar checks, translations, suggested replies</@></@>
+
+<@> <@>Leaming</@> <@>Simple explanations, practice questions, study support</@> </@>
+<@> <@> Work tasks</@> <@> Drafting emails, summarizing notes, organizing key points</@></@>
+<@> <@>Travel<x/@> <@> Route planning, traffic updates, time estimates</@> </@>
+
+<@> <@>Health</@> <@>Medicine reminders, appointment alerts, basic well-being guidance</@> </@>
+</table>
+
+<@>Concerns</@>
+
+<®>
+<@><@> Incorrect information:</b> AI may provide wrong or incomplete answers.</@>
+<@><@> Unfair results:</b> AI can reflect bias and treat people unequally.</@>
+<@><@> Scams and misinformation:</b> Al-generated messages can appear believable.</@>
+<@><@> Over-dependence:</b> Heavy use can reduce independent thinking and learning.</@>
+
+</@>
+
+<p> AT is helpful when used carefully. Keep in control by checking facts, protecting personal data, and
+using AI as a support rather than a final decision-maker.</p>
+
+<center>For more information: <a Q="https://www.unesco.org">UNESCO AI guidelines</a> </center>
+
+</body>
+</html>
+
+Figure 2: HTML Source
+
+නූ .
+
+෴
+
+ඒ
+
+Select the correct tags for the labels @ to 61) of Figure 2 from the list given below and write
+down each label number and the corresponding HTML tag.
+
+List: {b, bold, center, hl, h3, href, img, li, nr, ol, p, td, title, topic, tr, ul}
+(111) What is meant by a dynamic web page?
+(iv) What is meant by a ‘shared host’?
+
+7. (1) A person goes to the closest town every month to pay the electricity and telephone bills of his
+house. The town is 10 km away. The person has a bank account and a smart phone too. Isn’t there
+a more efficient way for him to pay his bills? Explain.
+
+(11) What is meant by ‘plagiarism’? Give one method that one could use to avoid it when reproducing
+content taken from another source.
+
+(111) What is meant by ‘taking backups’? What should be backed up?
+
+(iv) ‘Reduce, Reuse and Recycle’ is a good environmental conservation technique. Write down two
+ways to ‘Reduce’ the use of ICT equipment.
+
+(v) Give two reasons as to why one should not install an illegal copy of a proprietary software on a
+computer.
+
+(vi) ‘Internet can both be a boon or a bane.’ Write down two pieces of advice that you can give a
+friend so that the Internet ICT can be a boon and not a bane for your friend.

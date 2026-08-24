@@ -1,0 +1,3170 @@
+         1. Which of the following database types is widely used in computer applications?
+            mß.Kl fhÿï i|yd nyq,j Ndú; jk o;a; iuqod (Database) j¾.h jkqfha
+
+             1) me;,sf.dkq (Flat file)        2) OQrdj,s (Hierarchical)            3) cd, (Network)
+             4) iïnkaOl (Relational)          5) jia;= keUqre (Object oriented)
+
+                                                                                         ( 2011 – 07 )
+
+         2. Consider the following statements about computerized databases:
+            mß.Kl o;a; iuqod (Computerized databases) ms<sn|j my; oelafjk m%ldY i,ld n,kak'
+
+             A. Need more human resources to manage the computerized database than a manual
+                system.
+                mß.Kl .; o;a; iuqodh l<ukdlrKh i|yd yia;Sh moaO;shlg (Manual system) jvd
+                jeäfhka udkj iïm;a wjYH fõ'
+             B. Retrieval of data is efficient than a manual system.
+                o;a; wdmiq ,nd.ekSu (Retrieval), yia;Sh moaO;shlg jvd ld¾hlaIu fõ'
+             C. No data duplications.
+                o;a; oaú;ajlrK (Duplications) fkdue;'
+             D. Need more space to store data than a manual system.
+                o;a; .nvdlsÍu i|yd yia;Sh moaO;shlg jvd bvlv wjYH fõ'
+
+             Which of the above statements are correct with respect to a properly designed database?
+             ukd f,i ie,iqïlrk ,o o;a; iuqodhla iïnkaOfhka i;H jkafka by; i|yka ljr m%ldYo?
+
+             1) A and B only.   2) A and D only. 3) B and C only.   4) B and D only.   5) C and D only.
+                A yd B muKs.       A yd D muKs.     B yd C muKs.       B yd D muKs.       C yd D muKs.
+
+                                                                                         ( 2011 – 23 )
+
+         •   Consider the following system description and the relations A, B, C and D given below to
+             answer the questions 3 and 4.
+             wxl 3 iy 4 m%Yk   a j,g ms<s;=re iemhSu i|yd my; i|yka moaO;s úia;rh yd A, B, C, D
+             iïnkaO (Relation) i,lkak'
+             A principal of a National school wants to develop a database to maintain Admission
+             Number, Student Name, Address, National Identity Card number (NIC) and the Date of
+             Birth (DOB) of Advanced Level students. The principal also wants to know the marks
+             obtained for each subject by the students. In addition to the above requirements, the
+             principal needs to know the subjects assigned to the teachers.
+             cd;sl mdi,l úÿy,am;sjrfhl=g, Wiia fm< isiqkaf.a we;=<;aùfï wxlh, YsIH kduh, ,smskh,
+             cd;sl yeÿkqïm;a wxlh (NIC) iy Wmka Èkh (DOB) mj;ajd .ekSu i|yd o;a; iuqodhla
+             ilia lr .ekSug wjYH fõ' tla tla úIhh i|yd YsIHhd ,nd .;a ,l=Kq o oek.ekSug
+             úÿy,am;sjrhdg wjYH fjhs' by; wjYH;dj,g wu;rj .=rejrekag mjrd we;s úIhhka
+             oek.ekSug o úÿy,am;sjrhdg wjYH fjhs'
+             Relation /iïnkaO;d
+             A - Student(admissionNo, studentName, address, DOB, NIC)
+             B - Subject(subjectCode, subjectName)
+             C - Mark(admissionNo, subjectCode, marksObtained)
+             D - Teacher(teacherNo, subjectCode, teacherName, subjectName, class)
+
+
+
+
+ictfromabc.com
+         3. Which of the above relations are in the third normal form?
+            by; oelafjk iïnkaO w;=frka 3 jk m%u; wdlD;sfhys we;af;a ljrla o?
+
+            1) A and C only. 2) A and D only. 3) A,B and C only. 4) A,C and D only. 5) B,C and D only.
+               A yd C muKs.     A yd D muKs.     A,B yd C muKs.     A,C yd D muKs.     B,C yd D muKs.
+
+                                                                                        ( 2011 – 24 )
+
+         4. Which of the following combinations of attributes provides the minimal set of primary keys
+            for the relations Student, Subject and Mark respectively?
+            my; i|yka Wm,laIK ixfhdack w;=frka ms<sfj<ska YsIHhd (Student), úIhh (Subject), yd
+            ,l=Kq (Mark) iïnkaO ms<sn|j wju m%d:ñl h;=re (Primary key) l=,lh fokq ,nkafka
+            l=ulska o?
+
+            1)   admissionNo and NIC, subjectCode, admissionNo.
+            2)   NIC, subjectCode, subjectCode.
+            3)   admissionNo, subjectCode, subjectCode.
+            4)   admissionNo, subjectCode, admissionNo and subjectCode.
+            5)   admissionNo, subjectName, admissionNo and subjectCode.
+                                                                                        ( 2011 – 25 )
+
+         5. Consider the following statements with respect to ER diagrams:
+            ER igyka ms<sn|j my; oelafjk m%ldY i,lkak'
+            A. An ER diagram has entities and relationships.
+               ER igykl N+;d¾: (Entities) iy iïnkaO;d (Relationships) we;'
+            B. Cardinality of all relationships should always be one-to-one.
+               ish¨ iïnkaO;dj, .KkSh;dj (Cardinality) ieuúgu tlg tl (One-to-One) úh
+               hq;=h'
+            C. Entities may have attributes.
+               N+;d¾:j,g wkq,laIK (Attributes) ;sìh yelsh'
+            D. There could be binary and tertiary relationships.
+               tajdfha oaúuh (Binary) iy ;D;Sh (Teritary) iïnkaO;d ;sìh yelsh'
+            Which of the above statements are correct?
+            by; m%ldY w;=frka ksjeros jkafka ljr tajd o?
+
+            1) A and D only. 2) B and C only. 3) B and D only. 4) A, C and D only. 5) B, C and D only.
+               A yd D muKs.     B yd C muKs.     B yd D muKs.     A, C yd D muKs.     B, C yd D muKs.
+
+                                                                                        ( 2011 – 43 )
+
+
+
+
+ictfromabc.com
+         6. Which of the following statements is correct about relational databases?
+            iïnkaOl o;a; iuqod (relational databases) ms<sn|j my; olafjk ljr m%ldYh ksjerÈ fõo?
+            1) The primary key of a table is selected from alternate keys.
+               j.=jl m%d:ñl h;=r (primary key) úl,am h;=re (alternate keys) w;=frka f;dard .efka'
+            2) Duplicate values are not allowed in a foreign key field of a table.
+               j.=jl wkH h;=rla (foreign key) i|yd w.hka wkqmsgm;a lsÍu (duplicate) l< fkdyels h'
+            3) A table cannot be created without a primary key.
+               m%d:ñl h;=rla fkdue;sj j.=jla ks¾udKh l< fkdyels h'
+            4) A foreign key of a table should be the primary key of another table.
+               j.=jl wkH h;=rla fjk;a j.=jl m%d:ñl h;=rla úh hq;= h'
+            5) A table should have alternate keys.
+               j.=jl úl,am h;=re ;sìh hq;=u h'
+                                                                                          ( 2012 – 07 )
+
+         7. Consider the following statements about Relational Databases:
+            iïnkaOl o;a; iuqod (Relational Databases) ms<sn|j my; olafjk m%ldY i,ld n,kak(
+            A. A table is considered as an object.
+               j.=jla (table), jia;=jla (object) f,i ie,fla'
+            B. A column of data in a table is called a field/an attribute of that table.
+               j.=jl o;a; ;Srejlg tu j.=fjys lafIa;%hla (field)$Wm,laIKhla hehs lshkq ,efí'
+            C. A row of data in a table is called a record.
+               j.=jl o;a; fma<shlg (row) frfldavhla (record) hehs lshkq ,efí'
+            Which of the above statements is/are correct?
+            by; m%ldY w;=frka l=uk m%ldYh$m%ldY i;H fõ o?
+
+            1) A only.       2) B only.        3) A and B only. 4) A and C only.      5) B and C only.
+               A muKs.          B muKs.           A yd B muKs.     A yd C muKs.          B yd C muKs.
+
+         8. Consider the following statements with respect to ER diagrams:
+            ER rEmigyka ms<sn|j my; olafjk m%ldY i,ld n,kak(
+
+            A. A relationship in an ER diagram can be implemented as a table in a relational database.
+               ER rEmigykl iïnkaO;djla, iïnkaOl iuqodhl j.=jla f,i ia:dms; l< yelsh'
+
+            B. A relationship may have attributes attached to it.
+               iïnkaO;djlg, thg iïnkaO jQ Wm,laIK (attributes) ;sìh yelsh'
+
+            C. Only two entities can be attached to a relationship.
+               iïnkaO;djlg, N+;d¾: (entities) folla muKla iïnkaO l< yels h'
+
+            Which of the above statements is/are correct?
+            by; m%ldY w;=frka l=uk m%ldYh$m%ldY i;H fõ o?
+
+            1) A only.     2) B only.     3) A and B only.   4) A and C only.   5) B and C only.
+               A muKs.        B muKs.        A yd B muKs.       A yd C muKs.       B yd C muKs.
+
+                                                                                   ( 2012 – 22 & 23 )
+
+
+
+
+ictfromabc.com
+         9. Which of the following statements about relational databases is correct?
+            iïnkaOl o;a;iuqod ms<sn|j my; oelafjk ljr m%ldYh i;H fõ o?
+
+            1) A value of a composite key of a table can be null.
+               j.=jl ixhqla; h;=rl (composite key) w.h wNsYk      = H (null) úh yels h'
+
+            2) Null values are allowed in any column of a table.
+               j.=jl ´kEu ;Srejl wNsYk    = H (null) w.hhka ;sìh yels h'
+
+            3) Two or more columns of a table can be combined to create the primary key.
+               m%d:ñl h;=rla ks¾udKh lsÍu i|yd j.=jl ;Sre folla fyda lsym s hla ixfhdackh l< yelsh'
+
+            4) Values of a foreign key of a table cannot be updated.
+               j.=jl wkH h;=rl (foreign key) w.hhka hdj;ald,Sk l< fkdyels h'
+
+            5) Once created, the structure of a table cannot be altered.
+               ks¾udKh l< miqj" j.=jl jHqyh fjkia l< fkdyels h'
+
+                                                                                          ( 2012 – 42 )
+
+         10. Which of the following is the most appropriate Entity Relationship (ER) diagram to
+             represent students participation in different sports in school?
+             mdi,l úúO l%Svd i|yd YsIH iyNd.s;ajh ksrEmKh lsÍug jvd;a u fhda.H N+;d¾: iïnkaO;d
+             rEm igyk (ER diagram) jkafka my; i|yka oE w;=ßka ljrla o?
+
+                                                             Year of
+                                                           participate
+
+                                 1                          m
+            1)      Student              participate                 sport
+
+
+                                 Year of
+                               participate
+
+                                 m                           1
+            2)      student                  participate                 sport
+
+
+                                                              Year of
+                                                            participate
+
+                                 m                           n
+            3)      student                  participate                 sport
+
+
+
+                                 Year of
+                               participate
+
+                                  m                          n
+            4)       student                 participate                 sport
+
+                                                               Year of
+                                                              participate
+
+
+                                  m                          n
+            5)       student                 participate                 sport
+                                                                                          ( 2013 – 23 )
+
+
+
+
+ictfromabc.com
+         11. Which of the following is correct with respect to a relational database?
+             iïnkaOl o;a; iuqodhla (Relational Database) ms<sn|j i;H jdlH my; i|yka ljrla o?
+
+            1) Any subset of Alternate Keys is called Candidate Key.
+               úl,am h;=rej, ´kEu Wml=,lhla wfmalaIl h;=r f,i ye¢kafõ'
+
+            2) A Primary Key is selected from Alternate Keys.
+               m%d:ñl h;=r f;dard .kq ,nkafka úl,am h;=re w;ßka h'
+
+            3) A Foreign Key is an Alternate Key.
+               wd.ka;=l h;=r hkq úl,am h;=rls'
+
+            4) Always Primary Key and Foreign Key are combined to create a Compound Key.
+               ieuúg u ixfhdack h;=rla idod .ekSug m%d:ñl yd wd.ka;=l h;=re ixhqla; flf¾'
+
+            5) Primary Key and Foreign Key establish the relationship between two tables.
+               j.= folla w;r iïnkaO;dj m%d:ñl yd wd.ka;=l h;=re u.ska isÿ lrhs'
+
+                                                                                       ( 2013 – 27 )
+
+         12. Consider the following statements regarding relational databases:
+             iïnkaOl o;a; iuqod (relational databases) iïnkaOfhka my; § we;s j.ka;s i,lkak(
+
+            A. Changing the column order of relations in a database structure does not necessarily
+               require changes in application programs.
+               o;a; iuqodhl wdlD;shl iïnkaO;dj, ;Sre mámdáh fjkia lsÍu" fhÿï l%uf,aL ;=<
+               fjkialï we;s lsÍug uQ,sl wjYH;djla fkdfõ'
+            B. Main objective of normalization of databases is to reduce data redundancy.
+               o;a; iuqodj, m%u;lrKfha m%Odk wruqKq jkafka o;a; w;sßla;;dj wvq lsÍu hs'
+            C. Adding new data to the database always requires changes to the existing programs.
+               o;a; iuqodhg kj o;a; tl;= lrk iEu wjia:djl§u mj;sk l%uf,aL fjkia lsÍug isÿ fjhs'
+            Which of the above statements is/are correct?
+            my; i|yka oE w;=ßka ksjerÈ l=ula o?
+
+            1) A only.     2) B only.    3) A and B only.   4) A and C only.   5) All of the above.
+               A muKs.        B muKs.       A yd B muKs.       A yd C muKs.       by; ish,a,u.
+
+                                                                                       ( 2013 – 47 )
+
+         13. Which of the following relations is in the 3rd normal form?
+             my; i|yka l=uk iïnkaO;dj (Relation) 3 jk m%u; wdldrfha (3rd normal form) mj;S o?
+
+            1)   student(studentIndexNo, name, parentName)
+            2)   sport(sportId, sportName, teacherName, teacherId)
+            3)   teacher(teacherId, teacherName, telephoneNumber, subjectName, subjectId)
+            4)   book(ISBN, title)
+            5)   patient(patientId, patientName, ward, wardId)
+                                                                                    ( 2014 – 30 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following three tables in a relational database to answer questions 14 to 15.
+             Assume that a subject has only one paper for an examination.
+                a wxl 14 isg 15 olajd ms<s;=re iemhSug iïnkaO;d o;a; iuqodhl mj;sk my; fmkajd
+             m%Yk
+             we;s j.= ;=k i,ld n,kak' tla úNd.hl § tla úIhhla i|yd tla m%Yk       a m;%hla muKla we;s
+             nj Wml,amkh lrkak'
+
+             subject                          examSubject                            exam
+              subjectId title                  examId     subjectId    examDate       examId  name
+                        Information and        EXAM001 SUB001          2014.12.12     EXAM001 GCE OL
+              SUB001
+                        Technology             EXAM002 SUB001          2014.8.21      EXAM002 GCE AL
+              SUB002    Chemistry              EXAM002 SUB002          2014.8.21
+              SUB003    Physics                EXAM002 SUB003          2014.8.21
+
+
+         14. Which of the following is the most suitable Entity Relationship (ER) diagram to represent
+             the above relational database tables?
+             by; olajd we;s iïnkaO;d o;a; iuqodfha j.= ksrEmKh lsÍu i|yd jvd;a u fhda.H N+;d¾:
+             iïnkaO;d rEmh jkafka my; rEmigykaj,ska l=ula o?
+
+
+             (1)                                            (2)
+
+
+
+
+             (3)                                            (4)
+
+
+
+
+             (5)
+
+
+
+
+                                                                                         ( 2014 – 31 )
+
+         15. Which of the following is the correct primary key for examSubject table?
+             my; i|yka oE w;=frka examSubject j.=j i|yd ksjerÈ m%d:ñl h;=r jkafka l=ula o?
+
+             1) examId                   2) examId, subjectId               3) examId, examDate
+             4) subjectId, examDate      5) examId, subjectId, name
+
+                                                                                         ( 2014 – 32 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following relations to answer questions from 16 to 18.
+             wxl 16 isg 18 f;la m%Yk  a j,g ms<s;=re §u i|yd my; olajd we;s iïnkaO;d i,ld n,kak'
+
+             programmer (programmerId, programmerName, gender, NIC, mobilePhoneNumber,
+             degree, universityName)
+             client(clientId, clientName, address, telephoneNumber)
+             project(projectId, projectName, clientId, startDate, endDate, cost)
+             workFor(programmerId, projectId, startDate, endDate)
+
+         16. Consider the following statements:
+             my; i|yka j.ka;s i,ld n,kak(
+             A. A programmer works for at most one project at any given time.
+                fok ,o ´kEu wjia:djl§ tla l%uf,aLlhl= jeäukla f,i tla jHdmD;shl jev lrhs'
+             B. A programmer is assigned to a single client at any given time.
+                tla l%uf,aLlhl= fok ,o ´kEu wjia:djl§ tla fiajd,dNshl= fj; muKla wkqhqla; lrhs'
+             C. One client can have more than one project.
+                tla fiajd,dNshl= yg tla jHdmD;shlg jvd meje;sh yels h'
+             Which of the above statement(s) is/are always correct?
+             ieuúg u ksjerÈ jkafka by; i|yka ljr j.ka;sh$j.ka;s o?
+
+             1) A only.     2) B only.      3) C only.     4) A and B only.   5) B and C only.
+                A muKs.        B muKs.         C muKs.        A yd B muKs.       B yd C muKs.
+
+                                                                                      ( 2015 – 36 )
+
+         17. Which of the following is correct with respect to attributes of the relations?
+             iïnkaO;dj, Wm,els (attributes) iïnkaOfhka ksjerÈ jkafka my; i|yka ljrla o?
+
+             1) Attributes gender, NIC and mobilePhoneNumber are candidate keys of programmer
+                relation.
+                gender, NIC iy mobilePhoneNumber hk Wm,els programmer iïnkaO;dfjys
+                wfmalaIl h;=re (candidate keys) fõ'
+
+             2) Attribute startDate is a derived attribute.
+                startDate hk Wm,elsh jHq;amkak (derived) Wm,elshls'
+
+             3) Attribute NIC can be considered as an alternate key for the programmer relation.
+                NIC Wm,elsh, programmer iïnkaO;dfõ úl,am h;=rla (Alternate keys) fia ie,lsh
+                yels h'
+             4) Attribute startDate is a foreign key for the workFor relation.
+                startDate Wm,elsh workFor iïnkaO;dj i|yd wd.ka;=l (foreign key) h;=rls'
+
+             5) Each record in the workFor relation can be uniquely identified by using projectId.
+                workFor iïnkaO;dfõ we;s iEu Wm,elshdkhl u (record) projectId Ndú;fhka wkkHj
+                y÷kd.; yels fõ'
+                                                                                      ( 2015 – 37 )
+
+
+
+
+ictfromabc.com
+         18. Which of the following is correct?
+             my; i|yka j.ka;s w;=frka ljrla ksjerÈ jkafka o?
+
+             1) All relations are in 3rd normal form.
+                ish¨ iïnkaO;d f;jeks m%u; wjia:dfõ mj;S'
+             2) All relations except the programmer are in the 3rd normal form.
+                programmer yereKq úg wfkl=;a ish¨ iïnkaO;d f;jeks m%u; wjia:dfõ mj;S'
+
+             3) All relations except the client are in the 3rd normal form.
+                client yereKq úg wfkl=;a ish¨ iïnkaO;d f;jeks m%u; wjia:dfõ mj;S'
+
+             4) All relations except the project are in the 3rd normal form.
+                project yereKq úg wfkl=;a ish¨ iïnkaO;d f;jeks m%u; wjia:dfõ mj;S'
+
+             5) All relations except the workFor are in the 3rd normal form.
+                workFor yereKq úg wfkl=;a ish¨ iïnkaO;d f;jeks m%u; wjia:dfõ mj;S'
+
+                                                                                       ( 2015 – 38 )
+
+         19. Consider the following database constraints:
+             my; olajd we;s o;a; iuQod ixfrdaOl (constraints) i,ld n,kak(
+
+             A - Primary key / m%d:ñl h;=r
+             B - Data type / o;a; m%rEmh
+             C - Foreign key / wd.ka;=l h;=r
+
+             Which of the above constraint/s does/do not allow users to duplicate data in a database
+             table?
+             o;a; iuqod j.=jl" o;a; wkqmsgm;a (duplicate) lsÍug mßYS,lhkag bv fkdfokq ,nkafka
+             by; fmkajd we;s ljr ixfrdaOlh$ixfrdaOl o?
+
+             1) A only.     2) B only.   3) A and B only.   4) A and C only.   5) B and C only.
+                A muKs.        B muKs.      A yd B muKs.       A yd C muKs.       B yd C muKs.
+
+                                                                                       ( 2015 – 39 )
+
+         •   Consider the following four relational database tables to answer questions.
+                a i|yd ms<s;=re iemhSug my; fmkajd we;s iïnkaO;d o;a; iuqod j.= y;r i,ld n,kak.
+             m%Yk
+
+             item j.=j                   supplier j.=j
+               item product               supplier name
+               T001 Laptop                S001      BeLap Company Ltd.
+               T002 TV                    S002      DigiTV trading company
+               T003 Camera
+
+             itemSupplier j.=j           delivery j.=j
+               item  supplier             item supplier     batch   quantity     date
+                 T001     S001            T001 S001         B01     450        1.5.2015
+                 T002     S001            T002 S001         AB1     45         1.5.2015
+                 T002     S002            T001 S001         B02     500        2.5.2015
+                                          T001 S002         C01     75         5.5.2015
+
+
+
+
+ictfromabc.com
+         20. Which of the following is correct with respect to the above tables?
+             by; j.= iïnkaOfhka my; i|yka l=ula ksjerÈ jkafka o?
+             1) All the tables are in third normal form.
+                ish¨ j.= f;jeks m%u; wjia:dfõ mj;S'
+             2) Normalization has been applied to these tables.
+                fuu j.= m%u;lrKh lr we;'
+             3) Integrity constraints are correctly applied to these tables.
+                fuu j.= i|yd taldnoaO ixfrdaOl (integrity constraints) ksjerÈ j fhdod we;'
+             4) There is no evidence to say that integrity constraints are properly applied.
+                taldnoaO ixfrdaOl kshudkql+,j fhdodf.k we;s nj mejiSug lsisÿ idOlhla fuys fkdue;'
+             5) Normalization and integrity constraints are properly applied.
+                m%u;lrKh yd taldnoaO ixfrdaOl kshudkql+,j wdfoaY lr we;'
+
+                                                                                         ( 2015 – 41 )
+
+         •   Consider the following relation to answer questions 21 and 22:
+             wxl 21 iy 22 m%Yk   a j,g ms<s;=re §u i|yd my; olajd we;s iïnkaO;dj i,lkak(
+             book (BN, title, publisher, version, author1, author2, author3)
+             where BN is a unique code.
+             fuys BN hkq wkkH fla;hls'
+
+         21. Which of the following statements is correct with respect to the above relation?
+             by; iïnkaO;djfha m%u; wjia:dj iïnkaOfhka ksjerÈ m%ldYh l=ula o?
+
+             1)   It is in zero normal form. th Y=kH m%u; wjia:dfjys mj;S'
+             2)   It is in the 1st normal form. th m<uq m%u; wjia:dfjys mj;S'
+             3)   It is in the 2nd normal form. th fojk m%u; wjia:dfjys mj;S'
+             4)   It is in the 3rd normal form. th f;jk m%u; wjia:dfjys mj;S'
+             5)   Its normal form cannot be decided. tys m%u; wjia:dj ;SrKh l< fkdyels h'
+
+                                                                                         ( 2016 – 36 )
+
+         22. Which of the followings can be a candidate key of the above relation?
+             my; ljrla by; iïnkaO;djfha wfmalaIl h;=rla (candidate key) úh yels o?
+
+             1) BN             2) publisher      3) version         4) author1      5) author2
+
+                                                                                         ( 2016 – 37 )
+
+
+
+
+ictfromabc.com
+         23. Which of the followings is correct with respect to the term “domain” in relational database?
+             iïnkaê; o;a; iuqodhlg (relational database) wkqnoaO j “jiu” (domain) hk jok i|yd
+             ksjerÈ jkafka my; i|yka l=ula o?
+
+             1) It is a set of possible names for a table.
+                th j.=jla i|yd .; yels kduj, l=,lhls'
+
+             2) It is a set of possible names for an attribute.
+                th Wm,elshla (attribute) i|yd .; yels kduj, l=,lhhs'
+
+             3) It is the collection of all possible primary keys.
+                th mej;sh yels m%d:ñl h;=re ish,af,a tl;=jhs'
+
+             4) It is the set of all possible values of an attribute.
+                th Wm,elshlg mej;sh yels ish¨ w.hkaf.a l=,lhhs'
+
+             5) It is the collection of foreign keys.
+                th wd.ka;=l h;=rej, tl;=jhs'
+                                                                                           ( 2016 – 38 )
+
+         •   Consider the following relation to answer questions 24 and 25:
+             wxl 24 iy 25 m%Yk   a j,g ms<s;=re §u i|yd my; olajd we;s iïnkaO;dj i,lkak(
+             Student (index_no, national_id_no, name, date_of_birth, gender, blood_group)
+
+             where index_no is a unique attribute and the name attribute fully depends on the index_no
+             attribute.
+             fuys index_no hkq wkkH Wm,laIKhla jk w;r name Wm,laIKh index_no Wm,laIKh
+             u; uq¿ukska u wdh;a; (depend) fõ'
+
+         24. Which of the following statements is correct with respect to normal form of above relation?
+             by; iïnkaO;djfha m%u; wjia:dj iïnkaOfhka my; oelafjk j.ka;s w;=frka l=ula ksjerÈ
+             fõo?
+             1)   It is in the zero normal form. th Y=kH m%u; wjia:dfõ mj;shs'
+             2)   It is in the first normal form. th m<uq m%u; wjia:dfõ mj;shs'
+             3)   It is in the second normal form. th fojk m%u; wjia:dfõ mj;shs'
+             4)   It is in the third normal form. th f;jk m%u; wjia:dfõ mj;sh's
+             5)   Its normal form cannot be decided. tys m%u; wjia:dj ;SrKh l< fkdyels h'
+
+                                                                                           ( 2017 – 31 )
+
+         25. Which of the followings can be a candidate key of the above relation?
+             my; ljrla by; iïnkaO;djfha wfmalaIl h;=rla (candidate key) úh yels o?
+
+             1) national_id_no    2) name         3) date_of_birth    4) gender      5) blood_group
+
+                                                                                           ( 2017 – 32 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following relation to answer questions 26 and 27:
+             wxl 26 isg 27 m%Yk  a j,g ms<s;=re §u i|yd my; olajd we;s iïnkaO;d i,lkak(
+
+             book (book_no, title, publisher, edition)
+             author (author_id, name, email_address)
+             bookAuthor (book_no, author_id)
+
+             where book_no and author_id are unique attributes in the relations book and author
+             respectively.
+             fuys book_no iy author_id ms<sfj<ska book iy author iïnkaOj, wkkH Wm,laIK fõ'
+
+         26. Which of the following statements is correct with respect to the relation bookAuthor?
+             by; bookAuthor iïnkaO;dj ms<sn| ksjerÈ m%ldYh my; oelafjk tajd w;=frka l=ula o?
+
+             1) book_no is the primary key.
+                book_no m%d:ñl h;=r fõ'
+             2) author_id is the primary key.
+                author_id m%d:ñl h;=r fõ'
+             3) Any single attribute can be a candidate key.
+                ´kEu ;ks Wm,laIKhla wfmalaIl h;=rla úh yels h'
+             4) author_id is a candidate key.
+                author_id wfmalaIl h;=rla fõ'
+             5) book_no is a part of the primary key.
+                book_no hkq m%d:ñl h;=frys fldgila fõ'
+
+                                                                                      ( 2017 – 33 )
+
+         27. Which of the following Entity Relationship (ER) diagrams correctly represents the
+             relationship between the entities represented by the above relations?
+             by; iïnkaO;d u.ska ksrEmKh flfrk N+;d¾: w;r iïnkaOh ksjerÈ j ksrEmKh
+             flfrkafka my; l=uk N+;d¾: iïnkaO;d (ER) rEm igykska o?
+
+                                  1                      m
+             1)      book                  write             author
+
+
+                                  1                      1
+             2)      book                  write             author
+
+
+                                  m                      1
+             3)      book                  write             author
+
+
+                                  m                      n
+             4)      book                  write             author
+
+
+                                  m                      m
+             5)      book                  write             author
+
+                                                                                      ( 2017 – 34 )
+
+
+
+
+ictfromabc.com
+         28. Consider the following statements regarding databases.
+             o;a; iuqod iïnkaOfhka my; oelafjk j.ka;s i,ld n,kak'
+
+            A. Candidate key is column, or a set of columns that can uniquely identify a row in a table.
+               ksrEmH h;=r (candidate key) hkq" j.=jl we;s fma<shla wkkHj y÷kd .ekSug WmldÍ
+               jk ;Srejla fyda ;Sre lsysmhls'
+
+            B. Alternate key is any candidate key that has not been selected as the primary key.
+               úl,am h;=r (alternate key) hkq m%d:ñl h;=r (primary key) f,i f;dard fkd.;a ksrEmH
+               h;=rls'
+
+            C. Primary key can have a NULL value.
+               m%d:ñl h;=r i|yd wNsYk = H (NULL) w.hla ;sìh yels h'
+
+            Which of the above statements is/are correct?
+            by; ljr j.ka;shla$j.ka;s ksjerÈ fõ o?
+
+            1) A only.        2) B only.         3) A and B only.       4) A and C only.        5) All of the above.
+               A muKs.           B muKs.            A yd B muKs.           A yd C muKs.            by; ish,a,u.
+
+                                                                                                           ( 2018 – 26 )
+
+         29. Consider the following relational schema in a database.
+             o;a; iuqodh moaO;shl my; oelafjk iïnkaO;d mßl%udj (relational schema) i,lkak'
+
+            Subject (SubjectID, TermID, SubjectDescription)
+
+            Here the SubjectID, TermID, and SubjectDescription are .................... and Subject is .....................
+            tys SubjectID, TermID yd SubjectDescription hk oE .......... jk w;r Subject hkak ........ fõ'
+
+            Which of the following are most suitable to fill the blanks, respectively?
+            by; ysia;eka msrùu i|yd jvd;a u iqÿiq jkafka ms<sfj<ska my; ljrla o?
+            1)   Wm,laIK (attributes), iïnkaOhla (relation)
+            2)   iïnkaO (relation), Wm,laIKhla (attributes)
+            3)   Wm,elshdk (tuples), iïnkaOhla (relation)
+            4)   Wm,elshdk (tuples), Wm,laIKhla (attributes)
+            5)   iïnkaO (relation), Wm,elshdkhla (tuples)
+                                                                                                           ( 2018 – 28 )
+
+
+
+
+ictfromabc.com
+         30. Consider the following statements regarding databases.
+             o;a; iuqodhla ms<sn| my; m%ldY i,lkak'
+
+             A. For each attribute of a relation. there is a set of permitted values, called the domain of
+                that attribute
+                iïnkaOhl (relation) we;s iEu Wm,laIKhla (attribute) i|ydu tu Wm,laIKfhys
+                jiu (domain) f,i ye¢kafjk wkqu; w.hka l=,lhla mj;S'
+
+             B. The tuples (records) of the relations are always in sorted order.
+                iïnkaOhl we;s Wm,elshdk (tuples) iEu úgu wkqms<sfj<lg mj;S (sorted).
+
+             C. Database schema shows the organization of data as a blueprint of how the database
+                is constructed.
+                o;a; iuqod mßl%udj (database schema), o;a; iuqodhla f.dvke.Sug wod< o;a; ksYaÑ;
+                ie,eiaulg (blueprint) wkqj ixúOdkh ù we;s whqre fmkajhs'
+
+             Which of the above statements is/are correct?
+             by; m%ldYj,ska ljrla ksjerÈ fõ o?
+
+             1) A only.   2) A and B only.     3) A and C only.     4) B and C only.     5) All of the above.
+                A muKs.      A yd B muKs.         A yd C muKs.         B yd C muKs.         by; ish,a,u.
+
+                                                                                               ( 2018 – 39 )
+
+         •   Consider the following relational schema consisting of text fields in answering questions
+             31 and 32.
+             wxl 31 iy 32 hk m%Yk      a i|yd" mdG lafIa;%j,ska (text fields) iukaÑ; my; oelafjk
+             iïnkaOl mßl%udj (relational schema) i,lkak'
+
+             Students (admission_number, surname_with_initials, house_number, street_name, village,
+             postal_town, postal_code)
+             Assume that for a given postal_town only one postal_code exists.
+             fok ,o ;eme,a k.rhlg tla ;eme,a fla;hla muKla mj;sk nj i,lkak'
+
+         31. Consider the following statements. / my; m%ldY i,lkak'
+             A. Students relation is not normalised.
+                Students iïnkaOh m%u;lrKh (normalized) lr ke;'
+             B. Students is a relation in First Normal Form (1NF) only.
+                Students hkq m<uq m%u;lrKfhys (First Normal Form - 1NF) muKla we;s iïnkaOhls'
+             C. In normalization terms, Students is a relation in Second Normal Form (2NF) and hence
+                also in 1NF.
+                m%u;lrK w¾:j,g wkqj Students hkq fojk m%u;lrKfhys (Second Normal Form -
+                2NF) ysewe;s tkhska 1NF ys o we;s iïnkaOhls'
+             Which of the above statements is/are correct?
+             by; m%ldYj,ska ljrla ksjerÈ fõ o?
+
+             1) A only.     2) B only.       3) A and C only.     4) B and C only.     5) All of the above.
+                A muKs.        B muKs.          A yd C muKs.         B yd C muKs.         by; ish,a,u.
+
+                                                                                               ( 2018 – 40 )
+
+
+
+
+ictfromabc.com
+         32. Consider the following statements relating to Entity Relationship (ER) modelling.
+             N=;d¾: iïnkaO;d (ER) wdlD;slrKh ms<sn| my; oelafjk m%ldY i,lkak'
+
+             A. Cardinality specifies how many instances of an entity relates to one instance of another
+                entity.
+                .KkSh;dj (cardinality) u.ska tla N+;d¾:hl oDIagdka; (instances) fldmuK ixLHdjla
+                fjk;a N+;d¾:hl tla oDIagdka;hlg iïnkaO fõ oehs úfYaIfhka i|yka lrkq ,efí'
+
+             B. An entity is a ‘thing’ or ‘object’ in the real world that can be identified separately
+                (distinguishable) from all other objects.
+                N+;d¾:hla hkq ;:H f,dalfhys (real world) we;s wfkla ish¨ jia;+kf   a .ka fjkalr y÷kd
+                .; yels hï ‘fohla’ fyda ‘jia;=jla’ fyda fõ'
+
+             C. Cardinality specifies primary key attributes of an entity.
+                .KkSh;dj u.ska N+;d¾:hl m%d:ñl h;=f¾ Wm,laIK úfYaIs;j oelafõ'
+
+             Which of the above is/are correct?
+             by; ljrla ksjerÈ fõ o?
+
+             1) A only.   2) A and B only.     3) A and C only.     4) B and C only.     5) All of the above.
+                A muKs.      A yd B muKs.         A yd C muKs.         B yd C muKs.         by; ish,a,u.
+
+                                                                                               ( 2018 – 42 )
+
+         •   Consider the following database table to answer the questions 33 to 34.
+             wxl 33 isg 34 m%Yk  a i|yd ms<s;=re iemhSug my; oelafjk o;a; iuqod j.=j i,lkak'
+
+             Student_Sport
+               Student_Id  Event_Id        Event_Name
+                 10012       S-02         Carrom
+                 10022       S-01         Basketball
+                 10018       S-02         Carrom
+                 10012       S-03         Volleyball
+                 10025       S-04         Chess
+                 10018       S-01         Basketball
+
+         33. Consider the following statements regarding the above table:
+             by; j.=j ms<sn| my; oelafjk m%ldY i,lkak'
+             A. It has a composite primary key.
+                thg ixhqla; m%d:ñl h;=rla mj;S'
+             B. Event_Name attribute is fully dependent on the primary key of Student_Sport table.
+                Event_Name Wm,elsh Student_Sport j.=fjys m%d:ñl h;=r u; mQ¾K mrdh;a; fõ'
+             C. Event_Id is a candidate key.
+                Event_Id hkq ksrEmH (candidate) h;=rls'
+             Which of the above statements is/are correct?
+             by; l=uk j.ka;shla$j.ka;s i;H fõ o?
+
+             1) A only.     2) B only.       3) A and B only.     4) A and C only.     5) All of the above.
+                A muKs.        B muKs.          A yd B muKs.         A yd C muKs.         by; ish,a,u.
+
+                                                                                               ( 2019 – 16 )
+
+
+
+
+ictfromabc.com
+         34. In which normal form does the above table exist?
+             by; j.=j mj;skf  a ka l=uk m%u; wdldrhg o?
+            1) BCNF                             2) First normal form            3) Second normal form
+            4) Third normal form                5) Zero normal form
+
+                                                                                               ( 2019 – 15 )
+
+         35. Consider the following statements regarding the Extended Entity Relationship (EER) model.
+             úia;D; N+;d¾: iïnkaO;d (EER) wdlD;sh ms<sn| my; oelafjk j.ka;s i,lkak'
+            A. EER model includes all the concepts of the original ER model.
+               EER wdlD;shg uq,a ER wdlD;sfhys we;s ish¨ u ixl,am we;=<;a fõ'
+            B. EER model has additional concepts of specialization/generalization.
+               úfYaIlrKh$idudkHlrKh ms<sn| wu;r ixl,am EER ys mj;S'
+            C. EER model includes a new concept to model the weak entities.
+               ÿ¾j, N+;d¾: wdlD;slrKh i|yd kj ixl,amhla EER ys we;=<;a fõ'
+            Which of the above statements is/are correct?
+            by; l=uk j.ka;shla$j.ka;s ksjerÈ fõ o?
+
+            1) A only.     2) B only.        3) A and B only.     4) A and C only.     5) All of the above.
+               A muKs.        B muKs.           A yd B muKs.         A yd C muKs.         by; ish,a,u.
+
+                                                                                               ( 2019 – 24 )
+
+         36. Which of the following statement/s about a relation in the Second Normal Form are true?
+             fojk m%u;lrKfhys (2NF) we;s iïnkaO;djhla ms<sn|j my; ljr j.ka;s$h i;H fõ o?
+            A. It can have a composite key. / thg ixhqla; h;=rla ;sìh yel'
+            B. It should be in the First Normal Form (1NF) as well.
+               th m<uq m%u;lrKfhys (1NF) o mej;sh hq;= h'
+            C. All non-key attributes are fully functionally dependent on the primary key.
+               h;=re fkdjk ish¨ Wm,els m%d:ñl h;=r u; uq¿uksku       a ld¾hnoaOjemrdh;a; fõ'
+
+            1) B only.     2) C only.        3) A and B only.     4) B and C only.     5) All of the above.
+               B muKs.        C muKs.           A yd B muKs.         B yd C muKs.         by; ish,a,u.
+
+         37. Which of the following statement/s regarding the logical database schema are true?
+             ;d¾lsl o;a; iuqodh l%udkqrEm(logical database shema) ms<sn|j my; ljr j.ka;s i;H fõo?
+            A. It is a blueprint for a database.
+               th o;a; iuqodhla i|yd jk ie,iqul msgm;ls (blueprint).
+            B. It contains data and information.
+               tys o;a; iy f;dr;=re wka;¾.; fõ'
+            C. It formulates all the constraints that are to be applied on the data.
+               th o;a; flfrys fhfokakd jQ ish¨ ixfrdaOl (constraints) úêu;aj olajhs'
+
+            1) A only.    2) A and B only.     3) A and C only.     4) B and C only.     5) All of the above.
+               A muKs.       A yd B muKs.         A yd C muKs.         B yd C muKs.         by; ish,a,u.
+
+                                                                                         ( 2020 – 27 & 28 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following scenario about “authors” and “books” to answer the questions 38
+             and 39.
+             38 iy 39 m%Yk
+                         a i|yd ms<s;=re iemhSug “l¾;Djreka” iy “.%k:a ” ms<sn| my; ixisoaêh i,lkak'
+
+             “An author can write books. A book has a title and a code called ISBN which is unique. A
+             book can be written by either one or several authors. An author has a name and a unique
+             ID. An author can have a type as either chief author or a co-author for a particular book.”
+             “l¾;Djrhl=g (author) .%k:  a (book) ,súh (writes) yels h' .%k: a hla i|yd kula (title) iy
+             ISBN kñka wkkH jQ fla;hla ;sfí' .%k:  a hla tla l¾;Djrhl= fyda l¾;Djre lsym    s fokl= úiska
+             fyda ,súh yels h' l¾;Djrhl=g kula (name) iy wkkH jQ wxlhla (ID) ;sfí' l¾;Djrhl=g
+             lsishï .%k:a hla i|yd m%Odk l¾;D fyda iul¾;D f,i fNda m%j¾.hla (type) ;sìh yels h'”
+
+         38. Which of the following is the most suitable Entity Relationship (ER) representation for the
+             above scenario?
+             by; ixisoaêh i|yd jk jvd;a u iqÿiq N+;d¾: iïnkaO;d (ER) ksrEmKh my; tajdhska ljrla
+             o?
+
+                             ISBN             Type                 Name
+             1)     Title                                                    ID
+                                     1                      M
+                             Book             Writes               Author
+
+
+
+                             ISBN             Type                 Name
+             2)     Title                                                    ID
+                                     N                      M
+                             Book             Writes               Author
+
+
+
+                             ISBN                   Type           Name
+             3)     Title                                                    ID
+                                     N                      M
+                             Book             Writes               Author
+
+
+
+                              ISBN                   Type           Name
+             4)      Title                                                    ID
+                                         1                     M
+                              Book             Writes               Author
+
+
+
+                              ISBN           Type                   Name
+             5)      Title                                                    ID
+                                      N                     M
+                              Book             Writes               Author
+                                                            M
+
+
+
+         39. How many tables can be derived initially, when mapping the entity relationships in the
+             above scenario to a relational schema?
+             by; N=;d¾: iïnkaO;d (entity relationships), iïnkaO;d l%udkqrEmhlg (relational
+             schema) wkqrEmKh lsÍfï § (mapping), wdrïNl (initial) jYfhka j.= fldmuK ixLHdjla
+             jHq;amkak l< yels o?
+
+             1) 1             2) 2                      3) 3                 4) 4     5) 5
+
+                                                                                     ( 2020 – 30 & 31 )
+
+
+
+
+ictfromabc.com
+         40. Which of the following is a (are) good practice(s) to follow in database development?
+             o;a; iuqodhla iE§fu§ ms<smeÈh hq;= fyd| mqreoaola$mqreÿ jkafka my; ljrla o?
+             A. the use of meaningful names for tables and fields
+                j.= iy Wm,els i|yd w¾:dkaú; kï Ndú;h
+             B. letting different tables repeat the same information (other than the primary keys)
+                tlu f;dr;=r ^m%d:ñl h;=re fkdjk& úúO j.=j, kej; kej; wvx.= lsÍu (repetition)
+             C. avoiding a field and its table having the same name (in order to avoid confusion while
+                writing queries)
+                Wm,elshlg iy th wh;a j.=jg tlu ku §fuka je<lSu (úuiqï [queries] ,sùfï§
+                we;sjk ixl+,;d uÕyeÍu i|yd)
+
+             1) A only.       2) B only.       3) C only.          4) A and B only.    5) A and C only.
+                A muKs.          B muKs.          C muKs.             A yd B muKs.        A yd C muKs.
+
+                                                                                             ( 2021 – 31 )
+
+         •   Consider the following Results and Subjects tables to answer questions from 41 to 42:
+                a wxl 41 isg 42 f;la ms<s;=re §ug my; Results iy Subjects j.= i,lkak'
+             m%Yk
+
+             Results                                                        Subjects
+                 StudentNo      NIC        FirstName   SubjectID    Grade    SubjectID    SubjectName
+                   S1234     986888457V       Nilam      ENG          B        ENG            English
+                   S1447     992562321V     Praveena     PHY          C        PHY            Physics
+                   S1234     986888457V       Nilam      ACC          A        ECO          Economics
+                   S1323     900251452V       Thilan     ENG          S        ACC         Accountancy
+                   S1323     900251452V       Thilan     ACC          B
+
+         41. Which of the following is most suited to be selected as the primary key of the Results table
+             with respect to the given details?
+             § we;s úia;r wkqj" Results j.=fõ m%d:ñl h;=r f,i f;dard .ekSug my; ljrla jvd;au
+             iqÿiq fõ o?
+             1)   NIC
+             2)   SubjectID
+             3)   StudentNo
+             4)   StudentNo and NIC
+             5)   StudentNo and SubjectID
+                                                                                             ( 2021 – 32 )
+
+         42. Which of the following is the correct statement about the Results table?
+             Results j.=j iïnkaOfhka my; ljr j.ka;shla ksjerÈ fõ o?
+
+             1) All the non-key attributes are fully functionally dependent on the primary key.
+                h;=re fkdjk ish¨ Wm,els m%d:ñl h;=r u; uq¿uksku        a ld¾hnoaOjemrdh;a; fõ'
+             2)   It has one candidate key. thg tla ksrEmH (candidate key) h;=rla we;'
+             3)   It is in the First Normal Form (1NF). th m<uq m%u;lrKfhys (1NF) mj;S'
+             4)   It is in the Second Normal Form (2NF). th fojk m%u;lrKfhys (2NF) mj;S'
+             5)   The cardinality of the table is four. j.=fõ .KkSh;dj (cardinality) 4 fõ'
+
+                                                                                             ( 2021 – 34 )
+
+
+
+
+ictfromabc.com
+         43. Which dependency is removed when converting the Results table to next normal form?
+             Results j.=j B,Õ m%u;lrKhg m;alrk úg my; l=uk mrdh;a;;dj bj;a fõ o?
+
+            1) foreign key dependency
+               wd.ka;=l h;=re (foreign key) mrdh;a;;dj
+
+            2) fully functional dependency of non-key attributes on the primary key
+               h;=re fkdjk (non-key) Wm,els" m%d:ñl h;=r (primary key) u; mQ¾K ld¾hnoaO (full
+               functional) mrdh;a;;dj
+
+            3) multivalued dependency
+               nyq w.h (multivalued) mrdh;a;;dj
+
+            4) partial dependencies of non-key attributes on the primary key
+               h;=re fkdjk Wm,els" m%d:ñl h;=r u; w¾O (partial) mrdh;a;;dj
+
+            5) transitive dependency of non-key attributes
+               h;=re fkdjk Wm,elsj, ixl%dka;s (transitive) mrdh;a;;dj
+                                                                                           ( 2021 – 35 )
+
+         44. Following are the steps involved in creating an Entity Relationship (ER) Diagram:
+             N+;d¾: iïnkaO;d (ER) rEm igykla ks¾udKh lsÍug wod< mshjr my; oelafõ'
+
+                 I. Determine the .....A..... in your diagram.
+                    Tnf.a rEm igykg wjYH ....A.... ;SrKh lrkak'
+
+                 II. Add ....B.... to each ....C....
+                     ....B.... tla tla ....C.... g tl;= lrkak'
+             III. Include the ....D.... between the ....A....
+                  ....A.... w;r ....D.... tl;= lrkak'
+             IV. Add ....E.... to every relationship.
+                 iEu iïnkaO;djhlgu .....E.... o tla lrkak'
+
+            Which of the following gives suitable choices for the A, B, C, D and E blanks in above steps?
+            by; A, B, C, D iy E ysia;eka i|yd ksjerÈ f;dard.ekSï olajkafka my; ljrla o?
+
+            1) A – attributes (Wm,els), B – entities (N+;d¾:), C - attribute (Wm,elsh), D – cardinality
+               (.KkSh;dj),eE – entities (N+;d¾:)
+
+            2) A - attributes (Wm,els), B - cardinality (.KkSh;dj), C - attribute (Wm,elsh), D - entities
+               (N+;d¾:), E - entity (N+;d¾:)
+
+            3) A - entities (N+;d¾:), B - attributes (Wm,els), C – entity (N+;d¾:h), D - iïnkaO;d
+               (relationships), E - cardinality (.KkSh;dj)
+
+            4) A - entities (N+;d¾:), B - iïnkaO;d (relationships), C - entity (N+;d¾:h), D – attributes
+               (Wm,els), cardinality (.KkSh;dj)
+
+            5) A - iïnkaO;d (relationships), B - cardinality (.KkSh;dj), C - relationships (iïnkaO;d),
+               D - attributes (Wm,els), E - entities (N+;d¾:)
+
+                                                                                           ( 2021 – 36 )
+
+
+
+
+ictfromabc.com
+         45. Which of the following can be modelled with an Extended Entity Relationship diagram?
+             úia;D; N+;d¾: iïnkaO;d (Extended Entity Relationship) rEm igyklska my; ljrla
+             ksrEmKh l< yels o?
+
+            A - subclasses of an entity / N+;d¾:hl Wmmka;s
+            B - inheritance of attributes / Wm,els Wreuùu
+            C - specialization of entities / N+;d¾:j, úfYaIdhkh
+
+            1) A only.      2) B only.      3) C only.      4) A and C only.    5) All of the above.
+               A muKs.         B muKs.         C muKs.         A yd C muKs.        by; ish,a,u.
+
+                                                                                        ( 2021 – 37 )
+
+         46. Consider the following relational schema:
+              my; olajd we;s iïnkaO;d mßmdál igyk (relational schema) i,ld n,kak:
+
+             Student (StudentId, StudentName, Address, Gender, DateOfBirth)
+
+             Study (StudentId, SubjectId, Grade)
+
+             Subject (SubjectId, SubjectName)
+
+             Which of the following is the most suitable Entity Relationship (ER) diagram to correctly
+             represent the relationship between Student and Subject entities?
+             YsIH (Student) iy úIh (Subject) N+;d¾: w;r iïnkaO;dj ksjerÈj ksrEmKh lsÍu i|yd
+             my; i|yka l=uk N+;d¾: iïnkaO;d rEmigyk (ER diagram) jvd;a iqÿiq fõ o?
+
+             Note: In the ER diagrams, the entities are drawn without attributes.
+             igyk( I. ER rEmigykaj, N+;d¾: we| we;af;a Wm,laIK (attributes) rys;j h'
+                   II. study – bf.k.ekSu
+
+
+             1)
+
+
+             2)
+
+
+             3)
+
+
+             4)
+
+
+             5)
+
+
+                                                                                        ( 2021 – 29 )
+
+
+
+
+ictfromabc.com
+         •   The tables which are partially extracted from a database used in an information system
+             developed for a shop are shown below. Answer questions from 47 to 48 using those tables
+             fjf<|ie,la i|yd ilia lrk ,o f;dr;=re moaO;shl Ndú; lrk o;a; iuqodhlska w¾O
+             jYfhka Wmqgd .;a j.= lsym  s hla my; oelafõ' tu j.= Ndú; lr wxl 47 isg 48 olajd
+             m%Yk
+                a j,g ms<s;=re imhkak'
+
+             Customer (mdßfNda.slhd)                                Product (NdKavh)
+               CusId     Fname               Lname     Location         ProId         Name
+               C001      Saman                Perera   Dehiwala        PR001        Refrigerator
+               C002       Kalum              Gamage      Galle         PB401          Blender
+               C003      Shiromi               Silva     Galle         PM025       Mobile Phone
+               C004       Kalum               Perera    Kandy          PP009       Inkjet Printer
+
+             Order (weKjqu)                                         Order_Product (weKjqïNdKavh)
+              OrderId     CusId        OrderDate       SellerId        OrderId        ProId
+                  A001       C001      2022-07-14        S001           A003          PR001
+                                                                        A001          PR001
+                  A002       C002      2022-07-14        S001
+                                                                        A002          PB401
+                  A003       C003      2022-07-18        S002           A003          PM025
+                  A004       C004      2022-07-20        S002           A004          PP009
+
+         47. Which of the following shows the most suitable primary keys for Order and Order_Product
+             relations?
+             Order iy Order_Product j.= i|yd jvd;a iqÿiq m%d:ñl h;=re ms<sfj<ska oelafjkafka my;
+             ljrl o?
+             1)   Order: CusId,                  Order_ Product: OrderId
+             2)   Order: OrderId,                Order_Product: OrderId
+             3)   Order: OrderId,                Order_Product: OrderId + ProdId
+             4)   Order: CusId + SellerId,       Order Product: ProdId
+             5)   Order: OrderId + CusId,        Order_Product: OrderId
+
+         48. Which of the following is correct regarding the Order relation?
+             Order j.=j ie,lSfï§ my; i|yka l=ula ksjerÈ o?
+
+             1) CusId attribute uniquely identifies each tuple in the relation.
+                CusId Wm,laIKh (attribute) u.ska j.=fõ tla tla Wm,elshdk (tuple) wkkHj y÷kd.kS'
+
+             2) The relation is in First Normal Form (1NF).
+                j.=j tys m%:u m%u; wjia:dfõ (First Normal Form-1NF) mj;S'
+
+             3) The relation is in Second Normal Form (2NF).
+                j.=j tys fojk m%u; wjia:dfõ (Second Normal Form-2NF) mj;S'
+
+             4) Orders of each customer are handled by a unique salesperson.
+                tla tla mdßfNda.l
+                                s hdf.a weKjqï yiqrejkq ,nkafka wkkH úl=Kqïlrefjl= úisks'
+
+             5) The relation consists of a composite primary key.
+                j.=j ixhqla; m%d:ñl h;=rlska (composite primary key) iukaú; fõ'
+
+                                                                                   ( 2022 – 30 & 32 )
+
+
+
+
+ictfromabc.com
+         49. Which of the following statements is/are correct regarding the normalization concept?
+             m%u;lrKh (normalization) ixl,amh iïnkaOfhka my; i|yka l=uk m%ldY$h ksjerÈ o?
+
+            A. In first normal form, atomic attributes are removed from a relation.
+               m<uq m%u; wjia:dfõ§ (1NF), j.=j ;=< we;s mrudKql Wm,laIK (atomic attribute) bj;a
+               lrkqe,efí'
+
+            B. In second normal form, partial dependency of attributes on the primary key are
+               removed.
+               fojk m%u; wjia:dfõ§ (2NF), m%d:ñl h;=r (primary key) u; Wm,laIKj, wdxYsl
+               mrdh;a;;dj (partial dependency) bj;a lrkq ,efí'
+
+            C. In third normal form, transitive dependency of attributes are removed.
+               f;jk m%u; wjia:dfõ§ (3NF), Wm,laIKj, ixl%dka;s mrdh;a;;dj (transitive
+               dependency) bj;a lrkq ,efí'
+
+            1) B only.   2) A and B only.   3) A and C only.   4) B and C only.   5) All of the above.
+               B muKs.      A yd B muKs.       A yd C muKs.       B yd C muKs.       by; ish,a,u.
+
+                                                                                         ( 2022 – 33 )
+
+         50. Which of the following statements is/are correct regarding Entity Relationship (ER)
+             modelling?
+             N=;d¾: iïnkaO;d wdlD;slrKh (ER Modelling) iïnkaOfhka my; i|yka l=uk m%ldY$h
+             ksjerÈ o?
+
+            A. A weak entity is dependent on another entity.
+               ÿ¾j, N+;d¾:hla (weak entity) ;j;a N+;d¾:hla u; r|d mj;S'
+
+            B. A derived attribute is represented as an attribute in a relation.
+               jHq;amkak lrk ,o Wm,laIKhla (derived attribute) j.=jla ;=<§" Wm,laIKhla f,i
+               ksrEmKh fõ'
+
+            C. An entity can contain a multi-value attribute and a composite attribute at the same
+               time.
+               N+;d¾:hlg" tlu fõ,dfõ§ nyq-w.h (multi value) Wm,laIKhla iy ixhqla;
+               (composite) Wm,laIKhla wvx.= úh yelsh'
+
+            1) A only.     2) B only.       3) A and C only.   4) B and C only.   5) All of the above.
+               A muKs.        B muKs.          A yd C muKs.       B yd C muKs.       by; ish,a,u.
+
+                                                                                         ( 2022 – 34 )
+
+
+
+
+ictfromabc.com
+         51. The following ER diagram represents a scenario of students borrowing books from a
+             library. Which of the following gives the most suitable relation list for the given ER
+             diagram?
+             my; N+;d¾: iïnkaO;d rEmigyk (ER diagram) u.ska isiqka mqia;ld,hlska fmd;a ,nd.kakd
+             ixisoêa hla ksrEmKh lrhs' § we;s N+;d¾: iïnkaO;d rEmigyk i|yd jvd;a iqÿiq j.=
+             ,ehsia;=j my; ljrla o?
+
+            igyk : author - f,aLlhd, book - fmd;, student - YsIHhd, write - ,sùu, borrow -
+            ;djld,slj .ekSu
+
+
+
+
+            1) BOOK (Book_Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+               STUDENT (Stu_Id, Stu_FName, Stu_LName, DOB)
+               AUTHOR (Aut_Id, Aut_Name)
+               AUTHOR_QUALIFICATION (Aut_Id, Qualifications)
+
+            2) BOOK (Book Id, Book_Name, ISBN)
+               STUDENT (Stu_Id, Stu_FName, Stu_LName, DOB)
+               AUTHOR (Aut_Id, Aut_Name)
+               AUTHOR_QUALIFICATION (Aut_Id, Qualifications)
+
+            3) BOOK (Book_Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+               STUDENT (Stu_Id, Stu_FName, Stu_LName, DOB)
+               AUTHOR (Aut_Id, Aut_Name, Qualifications)
+
+            4) BOOK (Book_Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+               STUDENT (Stu_Id, Stu_Name, DOB)
+               AUTHOR (Aut_Id, Aut_Name)
+               AUTHOR_QUALIFICATION (Aut_Id, Qualifications)
+
+            5) BOOK (Book_Id, Book_Name, ISBN, Stu_Id, Aut_Id)
+               STUDENT (Stu_Id, Stu_Name, DOB)
+               AUTHOR (Aut_Id, Aut_Name)
+               AUTHOR_QUALIFICATION (Aut_Id, Qualifications)
+               BORROW (Aut_Id, Book_Id)
+               WRITE (Aut_Id, Book_Id)
+                                                                                      ( 2022 – 35 )
+
+
+
+
+ictfromabc.com
+         54. Match the given entity attributes labelled from A to D to the corresponding descriptions
+             labelled from 1 to 4.
+             my; A isg D f;la kï lr we;s N+;d¾: Wm,laIK (attributes) 1 isg 4 f;la kï lr we;s
+             úia;r iu. .<mkak'
+
+                     Entity attribute                                  Description
+                   N+;d¾: Wm,laIKh                                       úia;rh
+                   Composite attribute         an attribute that cannot be broken down into smaller components
+                 A                         1
+                   ixhqla; Wm,laIKh            l=vd ixrplj,g fnÈh fkdyels Wm,laIKhls
+                   Simple attribute            an attribute that can be broken down into component parts
+                 B                         2
+                   ir, Wm,laIKh              ixrpl fldgiaj,g fnÈh yels Wm,laIKhls
+                   Multivalued attribute     an attribute whose values can be calculated from related
+                 C
+                                           3 attribute values
+                   nyqw.h Wm,laIKh
+                   Derived attribute         wod< Wm,laIKj, w.hkaf.ka ;u w.h .Kkh l< yels
+                 D
+                   jHq;amkak Wm,laIKh        Wm,laIKhls
+                                               an attribute that may take more than one value
+                                           4
+                                               w.hka lsym
+                                                        s hla ;sìh yels Wm,laIKhls
+
+
+            1) A-2, B-1, C-3, D-4              2) A-2, B-1, C-4, D-3          3) A-3, B-4, C-2, D-1
+            4) A-4, B-2, C-3, D-1              5) A-4, B-3, C-1, D-2
+
+                                                                                            ( 2023 – 31 )
+
+
+
+
+         55. When the Employee entity of the
+             following diagram is represented
+             in a database which of the
+             following should not be included?
+             rEmfha Employee N+;d¾:h o;a;
+             iuqodhl ksrEmKh lsÍfï§ my;
+             ljrla we;=<;a fkdl< hq;= o?
+            1)    Date_of_Birth
+            2)    Designation
+            3)    Employee_Name
+            4)    Employee_Number
+            5)    Qualifications
+                                                                                            ( 2023 – 34 )
+
+
+
+
+ictfromabc.com
+         56. Which of the listed relations will be obtained if the following ER diagram is correctly
+             mapped into the relational model?
+             my; ER rEmigyk" iïnkaOl wdlD;shg (relational model) ksjerÈj wkqrEmKh (map) l<
+             úg § ,ehsia;=.; lr we;s ljr iïnkaO;d ,efí o?
+
+
+
+
+                 A - Lecturer(NIC, LecturerName, DOB, Address)
+                 B - Lecturer(NIC, LecturerName, DOB, Address, CourseId)
+                 C - Teaches(NIC, CourseId, Hours)
+                 D - Course(CourseId, CourseName, Hours, NIC)
+
+            1) A and B only. 2) A and C only. 3) A and D only. 4) B and C only. 5) A, C and D only.
+               A yd B muKs.     A yd C muKs.     A yd D muKs.     B yd C muKs.     A, C yd D muKs.
+
+                                                                                         ( 2023 – 35 )
+
+         57. Which of the following gives a correct matching between ER diagram components and the
+             relational model?
+             my; ER rEmigyka ixrpl iy iïnkaOl (relational) wdlD;sh w;r ksjerÈ .e<mSu l=ula o?
+
+            1) Entity → Field, Attribute → Table, Unique attribute → Primary key, Multivalued attribute
+               → Table
+               N+;d¾:h → lafIa;%h, Wm,laIKh → j.=j, wkkH Wm,laIKh → m%d:ñl h;=r, nyqw.h
+               Wm,laIKh → j.=j
+            2) Entity → Table, Attribute → Field, Unique attribute → Primary key, Multivalued attribute
+               → Table
+               N+;d¾:h → j.=j, Wm,laIKh → lafIa;%h, wkkH Wm,laIKh → m%d:ñl h;=r,
+               nyqw.heWm,laIKh → j.=j
+            3) Entity → Table, Attribute → Field, Unique attribute → Table, Multivalued attribute →
+               Primary key
+               N+;d¾:h → j.=j, Wm,laIKh → lafIa;%h, wkkH Wm,laIKh → j.=j, nyqw.h
+               Wm,laIKh → m%d:ñl h;=r
+            4) Entity → Table, Attribute → Primary key, Unique attribute → Primary key, Multivalued
+               attribute → Table
+               N+;d¾:h → j.=j, Wm,laIKh → m%d:ñl h;=r, wkkH Wm,laIKh → m%d:ñl h;=r,
+               nyqw.heWm,laIKh → j.=j
+            5) Entity → Table, Attribute → Table, Unique attribute → Primary key, Multivalued attribute
+               → Primary key
+               N+;d¾:h → j.=j, Wm,laIKh → j.=j, wkkH Wm,laIKh → m%d:ñl h;=r, nyqw.h
+               Wm,laIKh → m%d:ñl h;=r
+                                                                                          ( 2023 – 36 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following relations to answer questions 58 and 59.
+                a wxl 58 iy 59 i|yd ms<s;=re ,nd§u i|yd my; iïnkaO;d i,lkak'
+             m%Yk
+
+             adviser (adId, adName, adGender, adNIC, adPhone)
+             farmer (farmerId, farmerName, farmerAddress, farmerPhone)
+
+             task (taskId, taskName, farmerld, startDate, endDate)
+             advises (adId, taskId, startDate, endDate)
+
+             Note: adNIC – The National Identity Card number of an adviser
+             igyk: adviser – WmfoaYlhd, farmer – f.dúhd, task – ld¾h, advises – Wmfoia fohs, adNIC –
+             WmfoaYlhdf.a cd;sl ye÷kqïm;a wxlh
+
+         58. Which of the following statements are correct?
+             my; ljr m%ldY ksjerÈ fõ o?
+
+             A - One farmer can have many tasks.
+                 tla f.dúfhl=g ld¾h lsyms hla ;sìh yels h'
+             B - One adviser can advise many tasks.
+                 tla WmfoaYlfhl=g ld¾h lsym s hlg Wmfoia Èh yels h'
+             C - For one task, a farmer can have many advisers.
+                 tla ld¾hla i|yd f.dúfhl=g WmfoaYlhka lsym    s fofkl= isáh yels h'
+
+             1) A only.    2) A and B only.   3) A and C only.   4) B and C only.   5) All of the above.
+                A muKs.       A yd B muKs.       A yd C muKs.       B yd C muKs.       by; ish,a,u.
+
+                                                                                          ( 2023 – 37 )
+
+         59. Which of the following statements are correct with respect to the given relations?
+             § we;s iïnkaO;d ms<sn|j my; ljr m%ldY ksjerÈ o?
+             A - All relations are in 3rd normal form.
+                 ish¨ iïnkaO;d f;jeks m%u; wjia:dfõ (normal form) mj;S'
+             B - The startDate attribute in the task relation is a derived attribute.
+                 task iïnkaO;djfhys we;s startDate Wm,laIKh jHq;amkak l< (derived) Wm,laIKhls'
+             C - adNIC is a candidate key in the adviser relation.
+                 adviser iïnkaO;djfhys we;s adNIC hkak wfmalaIl (candidate) h;=rls'
+
+             1) A only.    2) A and B only.   3) A and C only.   4) B and C only.   5) All of the above.
+                A muKs.       A yd B muKs.       A yd C muKs.       B yd C muKs.       by; ish,a,u.
+
+                                                                                          ( 2023 – 38 )
+
+
+
+
+ictfromabc.com
+         1. Consider the following scenario.
+            my; olajd we;s ixisoaêh i,lkak.
+
+            Students in a school participate in different sports such as volleyball, track and field
+            athletics, table tennis, etc. The principal wants to maintain a registry with admission
+            number, student name, home address, class, and sports he/she participates. A student
+            can participate in more than one sport. For a particular sport, there can be more than
+            one student. Each student can participate pre-defined number of hours in a sport.
+            mdi,l isiqyq fjd,sfnda,a" cjk yd msáh u,, l%Svd" fïi mkaÿ wd§ úúO l%Svd i|yd iyNd.s
+            fj;s' l%Svd i|yd iyNd.s jk isiq isiqúhkaf.a we;=<;aùfï wxlh" YsIH kduh" ksjfia ,smskh"
+            mka;sh yd iyNd.s jk l%Svd we;=<;a kdu f,aLkhla mj;ajdf.k hdug úÿy,am;sjrhdg wjYHj
+            we;' tla isiqjl=g tla tla l%Svdjlg jvd iyNd.s úh yelsh' tla ksYÑ   a ; l%Svdjla i|yd tla
+            isiqjl=g jvd jeä ixLHdjla isáh yelsh' tla tla YsIHhdg l,ska kshu lrk ,o meh .Kkla
+            l%Svdjla i|yd iyNd.S úh yelsh.
+
+             (a) Draw an ER diagram for the above scenario.
+                 by; ixisoaêh i|yd ER igykla w¢kak.
+
+             (b) Classify with reasons whether the cardinality of relationship(s) identified in section (a)
+                 is one-to-one, one-to-many, or many-to-many.
+                 by; (a) fldgfia§ y÷kd.;a iïnkaO;dfjys$iïnkaO;d j, .KkSh;dj tlg-tlla
+                 (one-to-one) tlg-fndfydauhla (one-to-many) fyda fndfydauhlg-fndfydauhla
+                 (many-to-many) jkafka oehs fya;= olajñka j¾.SlrKh lrkak.
+
+                  Relationship/iïnkaO;dj        Cardinality/.KkSh;dj               Reason/fya;=j
+
+
+
+
+             (c) “ER diagrams do not allow attributes to be assigned on relationships”. State whether
+                 this statement is true or false. Explain your answer by using the given scenario.
+                 “ER igyka ;=<" iïnkaO;d (Relationships) u; Wm,laIK (Attributes) mejÍug bv
+                 fkdfoa'” fuu lshuk i;H fyda wi;H oehs m%ldY lrkak. § we;s ixisoaêh Ndú; lrñka
+                 Tfí ms<s;=r meyeÈ,s lrkak.
+
+             (d) A database designer suggested the following relation for the above system. State two
+                 weaknesses of this relation and suggest necessary modifications.
+                 o;a; iuqodh ie,iqïlrefjla by; moaO;sh i|yd my; oelafjk iïnkaOh (Relation)
+                 fhdackd lf<ah' fuu iïnkaOfha we;s ÿ¾j,;d folla olajd" ta i|yd wjYH fjkia lsÍï
+                 fhdackd lrkak.
+
+                      AdmissionNo          StudentName      HomeAddress        Class       SportName
+                   /we;=<;a ùfï wxlh       /isiqjdf.a ku    /ksjfia ,smskh    /mka;sh      /l%Svdfõ ku
+
+
+
+
+                                                                                          ( 2011 ESSAY )
+
+
+
+
+ictfromabc.com
+         2. Consider the following ER diagram.
+            my; oelafjk ER igyk i,ld n,kak.
+
+
+
+
+             (a) State the most relevant entity or relationship in the above ER diagram to add an
+                 attribute to represent marks obtained by a student for a subject.
+                 YsIHhl= úiska úIhhlg ,nd.;a ,l=Kq ksrEmKh lsÍug Wm,laIKhla (attribute)
+                 tl;=lsÍu i|yd by; ER igyfkys jvd;a wod< N+;d¾:h (entity) fyda iïnkaO;dj
+                 (relationship) olajkak.
+
+             (b) Classify all the relationships in the above ER diagram as one-to-one, one-to-many or
+                 many-to-many. Justify your answer.
+                 by; ER igyfkys we;s iïnkaO;d tal-tal" tal-nyq" nyq-nyq f,i j¾.SlrKh lrkak'
+                 Tfí ms<s;=r idOdrKSlrKh lrkak.
+
+             (c) Write the structure of the tables including their attributes when the above ER diagram
+                 is converted to a relational database.
+                 by; ER igyk iïnkaO;d (relational) o;a; iuqodhlg yer jQ úg ,efnk j.= iN
+                 tajdfha Wm,laIK ,shd olajkak.
+
+             (d) State the primary key for any table suggested in (c) above.
+                 by; (c) ys fhdackd lrk ,o ´kEu j.=jla i|yd m%d:ñl h;=r (primary key) ,shd
+                 olajkak.
+
+                                                                                       ( 2012 ESSAY )
+
+           3.(a) Describe the relationship between primary key and foreign key in relational databases.
+                 iïnkaOl o;a; iuqodhhkaf.a m%d:ñl h;=r yd wd.ka;=l h;=r w;r iïnkaOh úia;r
+                 lrkak'
+
+
+
+
+ictfromabc.com
+         (b) Convert the following ER diagram to table structures in a relational database. The attribute
+            capacity may have values such as captain, vice captain, member etc.
+            my; fmkajd we;s ER igyk iïnkaOl o;a; iuqodh j.= wdlD;sj,g mßj¾;kh lrkak' capacity
+            Wm,laIKh i|yd captain, vice captain, member wd§ jYfhka jQ w.hhka mej;sh yels h'
+
+         _______
+
+
+
+
+                                                                                       ( 2013 S.ESSAY )
+
+         4. Draw an Entity Relationship (ER) diagram to represent the scenario given below. The
+            attributes and the primary keys of entities should be clearly indicated. State if any
+            assumptions that you make clearly.
+            my; ixisoaêh ksrEmKh lsÍug N+;d¾: iïnkaêl ER igykla w¢kak' N+;d¾: j, Wm ,laIK
+            iy m%d:ñl h;=re meyeÈ,sj olajkak' Tnf.a Wml,amk we;akï" meyeÈ,sj ,shd olajkak.
+
+            ABC cab Service Company does not own any car. Private car owners can register with the
+            company and also rent their cars. Some car owners provide more than one car to the
+            company. The company hires drivers for these cars. Any car available for rent can be driven
+            by different drivers on different days. Car owners are responsible for maintenance of their
+            cars in order to provide a reliable service to the customers; after completing each hire, the
+            driver informs his current location to the company. When a customer requests a car, the
+            company looks for the availability of a car in the vicinity of the calling area. If a car is
+            available, company assigns that to the customer and informs both customer and the driver.
+            The company tries its best to assign the nearest available car to the customer to make its
+            services more efficient. The company keeps customer information such as name, address
+            and the contact telephone number to provide a better service to their regular customers.
+            The customers can also inform to the company whether they are happy with the services
+            provided by the driver. This information is used when assigning drivers to the customers.
+            Each car owner, car, driver and the customer are given "ownerId", "carId", "driverId", and
+            the "custId" respectively to identify them uniquely.
+            ABC leí fiajd iud.u i;=j tlÿ ld¾ r:hlaj;a fkdue;' fm!oa.,sl ld¾ r: ysñhkag fuu
+            iud.u yd ,shdmÈxÑ úh yels w;r Tjqkf       a .a ld¾ r: l=,shg §ug o yelsh' iuyr r: ysñhka
+            tl r:hlg jvd iud.ug ,nd foa' iud.u úiska fuu ld¾ r: i|yd ßhÿrka l=,S moku u;
+            n|jd .kq ,nk w;r fuu ld¾ r: úúO Èkj, § úúO ßhÿrka úiska meoúh yelsh'
+            mdßfNda.l  s hkag úYajdijka; fiajdjla ,nd §u i|yd jdyk kv;a;= lsÍu r: ysñhkaf.a
+            j.lSuls' iEu l=,S .ukl u wjidkfha § ßhÿrd úiska ;ud bkakd ia:dkh fuu iud.ug
+            okajhs' mdßfNda.l s hl= ld¾ r:hla b,a,d isá úgl § iud.u úiska mdßfNda.l         s hd l:d l<
+            ia:dkh iómfha we;s ld¾ r: ms<sn|j fidhd n,hs' ld¾ r:hla mj;skf                   a ka kï" th
+            mdßfyda.l s hdg wkqhqla; lr" ta nj mdßfNda.l  s hdg yd ld¾ r:fha ßhÿre hk fom<g u okajkq
+            ,nhs' ;u fiajdj jvd ld¾hlaIuj ,nd §u i|yd mdßfNda.l         s hdg ióm;u ia:dkfha we;s ld¾
+            r:hg Tyqj wkqhqla; lsÍu i|yd iud.ug yels Wmßu W;aidyh .kq ,nhs' fuu iud.u
+            Tjqkfa .a fiajh ksrka;rfhka ,nd .kakd u.Skg jvd fyd| fiajhla ,nd §u i|yd ku" ,smskh
+            yd ÿrl:k wxlh jeks mdßfNda.l     s f;dr;=re wdh;kh i;=j ;nd .kS' mdßfNda.l    s hdg o ßhÿre
+            úiska ,nd ÿka fiajh iïnkaOj ;uka i;=gq jkafka o hk j. wdh;khg oekaúh yelsh'
+            mdßfNda.l  s hskg
+                            a ßhÿrka wkqhqla; lsÍfï § fuu f;dr;=re Ndú; lrkq ,efí' iEu ld¾ r:
+            ysñlrefjla u" ld¾ r:hla u" ßhÿfrla u yd mdßfNda.l         s hl= u wkkHj y÷kajd §u i|yd
+            ms<sfj<ska ”ownerId", ”carId"" ”driverId” yd ”custId” Ndú; lrkq ,efí.
+                                                                                         ( 2013 ESSAY )
+
+
+
+
+ictfromabc.com
+         5. You are given the following two tables in a relational database.
+            iïnkaOl o;a; iuqodhlg wh;a my; oelafjk j.= fol Tng § we;ehs i,lkak'
+
+            house                                             student
+              houseID  name                                     studentID name grade houseID
+                HS1   Gamunu                                      STU001  Ranjith 13   HS1
+                HS2     Tissa                                     STU002   Gopy   12   HS1
+                HS3    Wijaya                                     STU003   Vipula 12   HS2
+                HS4   Parakum                                     STU004  Hakeem  11   HS3
+
+         (a) The above tables were created by converting the ER diagram given below.
+             iïnkaOl o;a; iuqodhlg wh;a my; oelafjk j.= fol Tng § we;ehs i,lkak'
+
+
+
+
+             Fill in the following blanks with the suitable labels or necessary information for the A, B, C,
+             D and E shown in the ER diagram.
+             N+;d¾: iïnkaOl rEmfha A, B, C, D yd E i|yd iqÿiq f,an, fyda wjYH f;dr;=re fhdod my;
+             oelafjk ysia;eka mqrjkak'
+
+             A - ............................................................................................
+             B - ............................................................................................
+             C - ............................................................................................
+             D - ............................................................................................
+             E - ............................................................................................
+
+
+         (b) State whether the relationship between the tables student and house, is one-to-one, one-
+             to-many, or many-to-many. Justify your answer using suitable data from the above tables.
+             student yd house hk j.= fol w;r iïnkaO;djh tl-tl" tl-nyq fyda nyq-nyq oehs m%ldY
+             lrkak' by; j.=j, we;s iqÿiq o;a; Ndú; lr Tfí ms<s;=r ;yjqre lrkak'
+
+                                                                                                                ( 2014 S.ESSAY )
+
+
+
+
+ictfromabc.com
+         5. Draw an Entity Relationship (ER) diagram to represent the scenario given below. In your
+            diagram the attributes and the primary keys should be clearly indicated. Clearly state your
+            assumptions, if any.
+            my; fmkajd we;s ixisoaêh ksrEmKh lsÍug N+;d¾: iïnkaO;d (ER) rEmigykla w¢kak'
+            Tnf.a rEmigyfka Wm,laIK (attributes) yd m%d:ñl h;=re (primary keys) meyeÈ,s j oelaúh
+            hq;= h' Tnf.a Wml,amk fjf;d;a meyeÈ,s j m%ldY lrkak'
+
+             The EST University has three faculties: Education, Science, and Information Technology.
+             Each faculty can offer one or more-degree programs. The Faculty of Education and the
+             Faculty of Science offer Bachelor of Education and Bachelor of Science degree programs
+             respectively. However, the Faculty of Information Technology offers two-degree programs:
+             Bachelor of Science in Information Technology and Bachelor of Science in Software.
+             Engineering. At the time of the registration, students should pay the full degree program
+             fee which may differ from one degree program to another. A student can enroll in only
+             one degree program at a time. A degree program has two types of course units:
+             compulsory and optional. A course unit can be available in more than one degree program.
+             EST university has many lecturers. A lecturer can be assigned to one or more course units.
+             A course unit can be assigned to one or more lecturers. Number of hours allocated for a
+             course unit is distributed among the assigned lecturers when more than one lecturer is
+             assigned to a course unit. Each faculty, degree program, course unit, lecturer, and student
+             are uniquely identified by ‘facultyID’, ‘degreeID’, ‘courseID’, ‘lecturerID’ and ‘studentID’
+             respectively.
+             EST kï jQ úYaj úoHd,hg mSG ;=kla mj;S' tajd wOHdmk" úoHdj yd f;dr;=re ;dlaIK kï fõ'
+             tla tla mSGhg Wmdê mdGud,d tlla fyda jeä .Kkla ,ndÈh yels fõ' wOHdmk mSGh yd úoHd
+             mSGh u.ska wOHdmkfõ§ yd úoHdfõ§ Wmdê mdGud,d ms<sfj<ska mj;ajkq ,efí' flfia fj;;a
+             f;dr;=re ;dlaIK mSGh f;dr;=re ;dlaIKfõoh ms<sn| úoHdfõ§ Wmdêh yd uDÿldx.
+             bxðfkare úoHdj ms<sn| úoHdfõ§ Wmdêh hk Wmdê mdGud,d folla mj;ajkq ,nhs' iïmQ¾K
+             Wmdê mdGud,d .dia;=j isiqka úiska ,shdmÈxÑh ,nd .kakd wjia:dfõ § f.úh hq;= jk w;r
+             tu .dia;= Wmdê mdGud,dfjka mdGud,djg fjkia úh yel' tla isiqjl=g tla wjia:djl §
+             we;=<;a úh yelafla tla Wmdê mdGud,djlg muKls' Wmdê mdGud,djlg wdldr foll
+             mdGud,d tall (course units) mj;sk w;r tajd wksjd¾h yd úl,am mdGud,d tall fõ' tla
+             mdGud,d tallhla Wmdê mdGud,d .Kkla ;=< mej;sh yels h' EST úYajúoHd,fha
+             lÓldpd¾hjre fndfyda fofkla isá;s' lÓldpd¾hjrhl=g tla mdGud,d tallhla fyda jeä
+             .Kkla mejßh yels h' ;j o tla mdGud,d tallhla tla lÓldpd¾hjrfhl=g fyda jeä
+             fofkl=g mejßh yels h' tla mdGud,d tallhla lÓldpd¾hjre lsym          s fofkl= w;r mjrd we;s
+             úg mdGud,d tallhlg wod< meh .Kk mjrd we;s lÓldpd¾hjre w;r fnokq
+             ,efí'‘facultyID’, ‘degreeID’, ‘courseID’, ‘lecturerID’ iy ‘studentID’ u.ska ms<sfj<ska tla tla
+             mSGh" Wmdê mdGud,dj" mdGud,d tallh" lÓldpd¾hjrhd iy isiqjd wkkHj y÷kajkq ,efí'
+
+                                                                                          ( 2014 ESSAY )
+         6. Consider the following table. / my; j.=j i,ld n,kak'
+
+             index    name                 address                                    class
+             1022     S.M.G.D. Dayasiri    No. 15, Peradeniya Road, Kandy             8B
+             566      G.M.D. Priyangani    No. 147/7, Katugasthota Road, Kandy        11 C
+             923      F.D.C. Jayasingha    “Sadasiri”, Colombo Road, Mawanella        10 B
+
+           (i) What is the cardinality of the above table? / by; j.=fõ .KkSh;dj l=ula o?
+          (ii) What is the degree of the above table? / by; j.=fõ ;;a;ajh (degree) l=ula o?
+
+                                                                                        ( 2015 S.ESSAY )
+
+
+
+
+ictfromabc.com
+         7. A pharmacy named “DR Chemists” sells drugs to patients. A patient should produce a
+            prescription to a pharmacist at the pharmacy to buy drugs. A prescription has one or more
+            drugs prescribed by a doctor. A doctor can issue more than one prescription for a patient.
+            However, a prescription is issued by one doctor. Pharmacist prepares a bill for each
+            prescription and gives it to the patient. Five (05) pharmacists at the pharmacy handle all
+            prescriptions.
+            “DR Chemists” kï Tiqi, frda.k        S a i|yd fnfy;a úl=Kkq ,efí' fnfy;a ñ, § .ekSu i|yd
+            frda.h
+                 s l= úiska fnfy;a ;=kv     a qjla Tiqif,a isák T!IOfõÈfhl=g bÈßm;a l< hq;= fõ'
+            ffjoHjrhl= úiska ks¾foaY lrk ,o fnfy;a tlla fyda jeä .Kkla ;+kv                  a qjl mj;S'
+            ffjoHjrhl=g tla frda.h    s l= i|yd tla fnfy;a ;=kavqjlg jvd jeä ;=kv  a q ixLHdjla ,nd Èh
+            yels jk kuq;a tla fnfy;a ;=kv       a qjla tla ffjoHjrhl= Ñiska muKla ksl=;a l< hq;=' h' tla
+            fnfy;a ;=kv a qjla i|yd ì, T!IOfõÈhd úiska ilia lrk w;r th frda.h           s d fj; ,nd foa'
+            ish¨ fnfy;a ;=kv  a q Tiq if,a isák U!IOfõ§ka miafokl= (05) u.ska yiqrejkq ,nhs'
+
+            A pharmacist handles more than one prescription while one prescription is handled only
+            by one pharmacist. The upper part of the prescription contains the patient information
+            such as name, age, address and telephone number. The middle part of the prescription
+            consists of one or more drug names, quantities to be issued and the dosages. At the
+            bottom part name, address and telephone number of the hospital and the name of the
+            doctor are available.
+            ´kEu T!IOfõÈhl= tla fnfy;a ;=kavqjlg jvd yiqrejk ,nk w;r tla fnfy;a ;=kv           a qjla
+            yeisr úh hq;af;a tla T!IOfÉÈhl= u.ska muKls' fnfy;a ;=kv a qjl uq,a fldgfiys frda.h
+                                                                                              s dfha
+            úia;r f,i ku" jhi" ,smskh iy ÿrl:k wxlh i|yka fõ' fnfy;a ;=kv          a qfõ ueo fldgi
+            iukú; jkafka fnfy;a j¾. tlla fyda jeä ixLHdjl kï" ,nd Èh hq;= fnfy;a m%udK iy
+            ud;%djhs' wjika fldgfia i|yka jkafka wdfrda.H Yd,dfjys ku" ,smskh" ÿrl:k wxlh iy
+            ffjoHjrhdf.a kuhs'
+            The owner of the pharmacy wants to keep the necessary information to prepare the
+            following list of reports.
+            Tiqif,iys whs;slreg my; ,ehsia;=fõ i|yka jd¾;d ms<sfh, lsÍu i|yd wjYH f;dr;=re
+            ;nd .ekSug wjYH j we;'
+
+             1. Number of prescriptions handled by each pharmacist.
+                tla tla T!IOfõÈhd úiska yiqrejkq ,nk fnfy;a ;=kv a q ixLHdj'
+
+             2. Number of prescriptions issued by each doctor.
+                tla tla ffjoHjrhd Ñiska ksl=;a lrk ,o fnfy;a ;=kv
+                                                                a q ixLHdj
+
+             3. List of information about doctors, their hospitals and drugs prescribed by them.
+                ffjoHjreka" Tjqkf a .a wdfrda.H Yd,d yd Tjqka ks¾foaY lrk ,o fnfy;aj, f;dr;=re'
+
+             4. List of daily cash collection of the pharmacy.
+                Tiqif,ys ffoksl uqo,a tl;=j'
+
+            Prepare an ER diagram to model the data required to produce the above reports. State
+            clearly all your assumptions, if any.
+            by; jd¾;d ms<sfh, lsÍu i|yd wjYH jk o;a; wdlD;slrKh lsÍu i|yd ER rEm igykla
+            w¢kak' Tnf.a Wml,amk we;akï meyeÈ,s j i|yka lrkak'
+
+
+                                                                                        ( 2015 ESSAY )
+
+
+
+
+ictfromabc.com
+         8. An education institute maintains a timetable to manage its lectures, practical classes and
+            seminars. The timetable consists of two-hour time periods: 8.00 a.m. - 10.00 a.m., 10.00
+            a.m. - 12.00 noon, 1.00 p.m. - 3.00 p.m. and 3.00 p.m. - 5.00 p.m. Lectures, practical classes
+            and seminars are assigned to one or more time periods. A lecture is assigned to a lecturer
+            and a practical class is conducted by a group of demonstrators. At least two lecturers are
+            responsible for a seminar.
+            wOHdmksl wdh;khla tys foaYk" m%dfhda.sl mx;s yd iïuka;%K yeisr ùu i|yd ld,igykla
+            mj;ajd f.k hhs' ld, igyk fm'j' 8.00 isg fm'j' 10.00, fm'j' 10.00 isg uOHyak 12.00"
+            m'j' 1.00 isg m'j' 3.00" iy m'j' 3.00 isg m'j' 5.00 f,i meh foflys ld, mßÉfþoj,ska
+            hqla; fõ' foaYk" m%dfhda.sl mx;s iy iïuka;%K ld,mßÉfþo tlla fyda jeä .Kklg
+            wkqhqla; fldg we;' foaYkhla foaYljrhl=g mjrd we;s w;r m%dfhda.sl mx;s m%o¾Yljreka
+            iuQyhla úiska mj;ajkq ,nhs' iïuka;%Khl j.lSu wju jYfhka foaYljreka fofokl=g
+            mejf¾.
+            Draw an Entity Relationship (ER) diagram for the above system. State all your assumptions
+            clearly.
+            by; moaO;sh i|yd N+;d¾: iïnkaO;d (ER-Entity Relationship) rEm igykla w¢kak' Tnf.a
+            Wml,amk meyeÈ,s j ,shd olajkak.
+
+                                                                                          ( 2016 ESSAY )
+
+         9. A person can own one or more mobile phones. One mobile phone belongs to a single
+            person only. Assume that a mobile phone can be uniquely identified by its telephone
+            number. National Identity Card number (NIC No) is used to identify a person uniquely.
+            Above statements are represented by the ER diagram in Figure 4.2.
+            tla mqoa.,hl=g cx.u ÿrl:k tlla fyda lsyms hla fyda whs;s úh yels h' tla cx.u ÿrl:khla
+            wh;a jkafka tla mqoa.,hl=g muKs' ÿrl:k wxlfhka cx.u ÿrl:khla wkkHj y÷kd.;
+            yels nj Wml,amkh lrkak' cd;sl ye÷kqïm;a wxlh (cd'ye' wxlh) mqoa.,hl= wkkHj
+            y÷kd.ekSug fhdod .kS' rEmh 4.2 ys oelafjk ER igyk u.ska by; m%ldY ksrEmKh lrhs'
+
+
+                 Telephone No                                                      NIC No
+
+
+                                   m                                   1
+                   Mobile Phone                 belongs to                   Person
+
+
+                                           Figure 4.2 : ER diagram
+
+            Convert the above ER diagram into 3rd Normal Form relations to be implemented in
+            relational database.
+            fuu ER igyk iïnkaOl o;a; iuqodhla ;=< ia:dms; l< yels 3 jk m%u; wdldrfha
+            iïnkaOlj,g m;a lrkak'
+
+                                                                                        ( 2017 S.ESSAY )
+
+
+
+
+ictfromabc.com
+         10. The candidates who have been selected for university entrance should register for the
+             given academic year with the university given to them. Candidates who do not register
+             before the ‘Last date’ announced by each university will lose their university entrance. Once
+             a candidate registers with the given university, the candidate becomes a registered student
+             of that university. Registered students can apply for financial support, such as Mahapola
+             scholarships and Bursary, separately. These financial supports could be either full or partial.
+             All registered students will receive a laptop. However, its ownership cannot be transferred
+             to another student.
+             úYajúoHd, m%fõYhg f;dard.kakd ,o wfmalaIlhka tu wOHhk j¾Ih i|yd Tjqkg               a ,nd ÿka
+             úYajúoHd,fhys ,shdmÈxÑ úh hq;= h' tla tla úYajúoHd,h úiska m%ldYhg m;a lrk 'wjika
+             Èkhg' fmr ,shdmÈxÑ fkdjk wfmalaIlhkag úYajúoHd, m%fõYh wysñ jkq we;' hï
+             wfmalaIlhl= ,nd ÿka úYajúoHd,fha ,shdmÈxÑ jQ úg tu wfmalaIlhd tu úYajúoHd,fha
+             ,shdmÈxÑ YsIHhl= njg m;a fõ' ,shdmÈxÑ jQ YsIHhkag uyfmd< YsIH;aj yd YsIHdOdr jeks
+             uQ,Huh wdOdr i|yd fjk fjk u whÿï l< yels h' fuu uQ,Huh wdOdr mQ¾K fyda w¾O fyda
+             úh yels h' ,shdmÈxÑ jQ iEu YsIHfhl=g u ,emafgdma mß.Klhla ,efnhs' tfy;a tys whs;sh
+             fjk;a YsIHhl=g mejßh fkdyels h'
+
+            The user requirements of the above system are listed below. A user shall be able to obtain:
+            by; moaO;sfhys mßYS,l wjYH;d my; oelafõ' mßYS,lhl=g"
+
+            (a) a list of students registered for a given academic year with a given university.
+                fok ,o úYajúoHd,hl fok ,o wOHhk j¾Ihla i|yd ,shdmÈxÑ jQ YsIHhkaf.a
+                ,ehsia;=jla ,nd .ekSug yels úh hq;= u h'
+
+            (b) information (such as model, serial number and warranty period) about the laptops
+                given to each student.
+                tla tla YsIHhdg ,nd ÿka ,emafgdma mß.Klfha úia;r (udÈ,sh, wkql%ñl wxlh iy j.lSï
+                ld,h jeks) ,nd .; yels úh hq;= u h'
+
+            (c) list of students who applied for financial support.
+                uQ,Huh wdOdr i|yd whÿï l< YsIHhkaf.a ,ehsia;=jla ,nd .; yels úh hq;= u h'
+
+            Draw an Entity Relationship (ER) diagram required to design a database to represent the
+            above system description and to satisfy the user requirements. State all your assumptions
+            clearly.
+            by; moaO;s úia;rh ksrEmKh jk yd mßYS,l wjYH;d bgq lr.; yels o;a; iuqodhla
+            ks¾udKh lsÍug wjYH N+;d¾: iïnkaO;d (ER) igykla w¢kak' Tnf.a Wml,amk meyeÈ,sj
+            i|yka lrkak'
+
+                                                                                           ( 2017 ESSAY )
+
+
+
+
+ictfromabc.com
+         11. Consider the following Entity Relationship (ER) diagram.
+             my; olajd we;s N+;d¾: iïnkaO;d (ER) igyk i,lkak'
+
+
+
+
+                                                                        ------
+
+           (i) Briefly explain why the ‘Phone’ attribute is shown using a different symbol compared to
+               other attributes.
+               wfkl=;a Wm,laIK (attributes) iu. iei£fï § ‘Phone’ Wm,laIKh" fjkia ixfla;hlska
+               olajd we;af;a wehs oehs fláfhka meyeÈ,s lrkak'
+
+           (ii) Briefly explain why DEPENDANT entity is shown using a different symbol compared to
+                COMPANY.
+                COMPANY iu. iei£fï § DEPENDANT N+;d¾:h (entity) fjkia ixfla;hlska olajd
+                we;af;a wehs oehs fláfhka meyeÈ,s lrkak'
+
+           (iii) The following relational tables are constructed using the ER diagram shown above. In
+                 each of the tables, the field names are missing.
+                 by; oelafjk N+;d¾: iïnkaO;d igyk Ndú; lr my; iïnkaO;d j.= f.dvk.kq ,efí'
+                 tla tla j.=fjys lafIa;% kdu olajd fkdue;'
+
+                 COMPANY (..............................)
+                 STAFF (..............................)
+                 STAFF_PHONE (..............................)
+                 DEPENDANT (..............................)
+
+                 Identify the missing field names in each table and write them down against (P) – (S)
+                 tla tla j.=fjys olajd fkdue;s lafIa;% kdu y÷kdf.k (P) isg (S) bÈßfhys ,shd olajkak'
+
+                 (P) - ..............................................................................................................
+                 (Q) - ..............................................................................................................
+                 (R) - ..............................................................................................................
+                 (S) - ..............................................................................................................
+
+                                                                                                                                        ( 2018 S.ESSAY )
+
+
+
+
+ictfromabc.com
+         12. The following two tables CLASS and STUDENT are constructed by using the Entity
+             Relationship (ER) diagram shown in Figure.
+             my; oelafjk CLASS iy STUDENT j.= fol" rEmfhys § we;s ER igyk Ndú; lr ks¾udKh
+             lr we;'
+
+              CLASS Table
+               ClassID        ClassName         ClassTeacher     Stream             Year
+               1111           12 – A            A. B. Perera     Physical Science   2017
+               1112           12 – B            N. Mohamed       Bio Science        2017
+               1113           13 – A            E. Selvadurai    Arts               2017
+               1114           13 - B            L. De Silva      Commerce           2018
+
+              STUDENT Table
+               Index Number       ClassID        Initials   Surname      DateOfBirth
+               8991               1112           E.         Nazeer       1999.12.06
+               8993               1111           S.         Sivalingam   1999.02.06
+               8995               1112           W.         Fernando     1999.11.11
+               8997               1113           U. H.      De Silva     1999.08.06
+
+
+
+
+                                            A                       B
+                                            A
+
+
+
+
+         (a) What is the cardinality of the relationship between the entities STUDENT and CLASS,
+             denoted by and above? Note: Write down suitable labels for (A) and (B), respectively.
+             (A) iy (B) f,i olajd we;s CLASS iy STUDENT hk N=;d¾: w;r iïnkaO;dfjys
+             .KkSh;djh l=ula o? igyk: (A) iy (B) i|yd iqÿiq f,an, ms<sfj<ska ,shd olajkak'
+
+         (b) Explain how a relationship is established between the two tables using primary key(s) and
+             foreign key(s) in the above example.
+             by; WodyrKfhys m%d:ñl h;=r$h;=re iy wd.ka;=l h;=r$h;=re Ndú;fhka j.= fol w;r
+             iïnkaO;djhla (relationship) f.dvkef.k wdldrh meyeos,s lrkak'
+
+         (c) (i)   Are the two tables STUDENT and CLASS, in second normal form (2NF)? Explain a
+                   reason for your answer referring to tables.
+                   STUDENT iy CLASS j.= fojk m%u; (2NF) wdldrfhka mj;S o? Tfí ms<s;=rg fya;=jla
+                   j.= wdY%fhka meyeÈ,s lrkak'
+
+            (ii)   Briefly explain one key advantage of normalisation.
+                   m%u;lrKfhys m%Odk jdishla fláfhka meyeÈ,s lrkak'
+                                                                                       ( 2018 ESSAY )
+
+
+
+
+ictfromabc.com
+         13. Consider the following Entity Relationship (ER) diagram which represents the information
+             about projects conducted by staff attached to a software development company.
+             uDÿldx. ixj¾Ok iud.ul ld¾h uKav,h (Staff) úiska lrkq ,nk jHdmD;sj,g (Project)
+             wod< f;dr;=re oelafjk my; N+;d¾: iïnkaO;d igyk (ER Diagram) i,lkak'
+
+
+
+
+                                                                                                 X
+
+
+
+
+          (i) The number of hours (NoOfHours) that each staff member works on each project is
+              recorded. Draw the attribute NoOfHours in the relevant position of the ER diagram with
+              the correct symbol and the label.
+              tla tla ld¾h uKav, idudðlhd (staff member) tla tla jHdmD;sfhys (Project) fiajfhys
+              fhfok (work) meh .Kk (NoOfHours) igyka lrkq ,efí' ksjerÈ ixfla;h iy f,an,h
+              iu. NoOfHours Wm,elsh ER igyfkys wod< ia:dkfhys w¢kak'
+
+          (ii) For each accepted project a temporary location is rented for the staff, for the duration of
+               the project. For each Location, the OwnerName, PhoneNo, Address, Rent, RentedDate and
+               RentedPeriod arc recorded. One project has only one location. A rented location is used
+               for only one project. When a certain project is completed, the location rented for the
+               project will be released and handed over to the owner.
+               Ndr.kakd jQ iEu jHdmD;shla i|ydu jHdmD;sfhys ld, jljdkqjg ld¾h uKav,h fjkqfjka
+               ;djld,sl ia:dkhla (Location) l=,shg .kq ,efí' iEu ia:dkhla i|ydu whs;slref.a ku
+               (Owner Name), ÿrl:k wxlh (PhoneNo), ,smskh (Address), l=,sh (Rent), l=,shg .;a Èkh
+               (RentedDate) iy l=,shg .;a ld, mßÉfþoh (RentedPeriod) igyka lrkq ,efí' tla
+               jHdmD;shla i|yd tla ia:dkhla mj;S' l=,shg .;a tla ia:dkhla tla jHdmD;shla i|yd muKla
+               Ndú; flf¾' lsishï jHdmD;shla ksu jQ úg" tu jHdmD;sh i|yd l=,shg .;a ia:dkh ksoyia
+               lr" whs;slre fjk Ndrfokq ,efí'
+
+             Draw the Entity ‘Location’ with relevant attributes inside the area X in the diagram and link
+             it to the existing ER diagram by indicating the cardinality.
+             Location kï N+;d¾:h wod< Wm,els iys;j rEmigyfkys X kï m%foaYh ;=< we|" mj;sk ER
+             igyk iu. .KkSh;dj olajñka iïnkaO lrkak'
+
+                                                                                        ( 2019 S.ESSAY )
+
+
+
+
+ictfromabc.com
+         14. A vehicle rental company has registered vehicle owners. Vehicles are obtained from the
+             owners and rented to the customers. Consider the following relations regarding the vehicle
+             rental company.
+             tla;rd jdyk l=,shg iemhSfï iud.ulg ,shdmÈxÑ jdyk ysñlrejka we;' ysñlrejkaf.ka
+             jdyk ,ndf.k mdßfNda.l   s hka fj; l=,shg ,nd foa' jdyk l=,shg iemhSfï iud.ug wod<
+             my; oelafjk iïnkaO;d (relations) i,lkak'
+
+                   I.     Customer (Customer_NIC, Customer_Name, City, Postal_Code)
+                  II.     Vehicle_Owner (Owner_Id, Owner_Name, Contact_No)
+                 III.     Vehicle(Vehicle_Reg_No, Description, Owner_Id)
+
+         •   The Customer relation contains customer’s national identity card number (NIC) which is
+             unique, name, city where he/she is living and the postal code of the city. A customer lives
+             in a single city and there are many customers in one city. The postal code depends on city.
+             Customer (mdßfNda.l   s hd) iïnkaO;djfhys wkkHjk Customer_NIC (mdßfNda.l      s hdf.a cd;sl
+             ye÷kqïm;a wxlh&" Customer_Name (ku)" Tyq$weh Ôj;ajk City (k.rh) iy tu k.rfhys
+             Postal_Code (;eme,a fla;h) wvx.= fõ' tla mdßfNda.l    s hl= tla k.rhl Ôj;ajk w;r tla
+             k.rhla ;=< mdßfNda.l    s hka rdYshla Ôj;a úh yel' ;eme,a fla;h" k.rh u; r|d mj;S
+             (depends)'
+
+         •   The Vehicle_Owner relation contains the Owner_Id which is unique, owner’s name and the
+             contact number.
+             Vehicle_Owner (jdykh - ysñlre) iïnkaO;djfhys wkkH jQ Owner_Id (ysñlre ye÷kqï
+             wxlh)" Owner_Name (ysïlref.a ku) iy Contact_No (weu;=ï wxlh) wvx.= fõ'
+
+         •   The Vehicle relation contains the vehicle registration number which is unique, a description
+             about the vehicle and the Owner_Id.
+             Vehicle (jdykh) iïnkaO;djfhys wkkH jQ jdykfha Vehicle_Reg_No (,shdmÈxÑ wxlh)"
+             Description (jdykh ms<sn| úia;rh) iy Owner_Id (ysñlre ye÷kqï wxlh) wvx.= fõ'
+
+             A customer can rent more than one vehicle. Also, it is possible to rent one vehicle to many
+             customers at different instances. Each vehicle is owned by one owner and one owner can
+             have more than one vehicle.
+             mdßfNda.l
+                     s hl=g jdyk tllg jvd l=,shg .; yels h' ;jo lsishï jdykhla mdßfNda.l            s hka
+             lsym
+                s fokl=g fjkia wjia:dj, § l=,shg Èh yels h' iEu jdykhlgu ;ks ysñlrejl= isák
+             w;r" tla ysñlrejl=g jdyk tllg jvd ;sìh yels h'
+
+             (a) In which normal form do the above relations given in I, II, III above exist? Justify your
+                 answer.
+                 by; I, II yd III ys we;s iïnkaO;d mj;skf  a ka l=uk m%u;lrKfhys o? Tfí ms<s;=r
+                 idOdrKSlrKh lrkak'
+
+             (b) Convert the above relations to the next Normal Form from the current Normal Form
+                 which you have stated in 5(a). (Present the contents relevant to the labels to indicated
+                 in the following table as your answer.)
+                 by; iïnkaO;d" Tn úiska 5 (a) fldgfiys i|yka lrk ,o oekg mj;sk m%u;lrKfhka"
+                 ó<Õ m%u;lrKhg yrjkak' (my; j.=fjys (P) isg (Q) olajd jk f,an,j,g wod< oE
+                 Tfí ms<s;=r f,i bÈßm;a lrkak')
+
+                        Relation No.    Next Normal Form      Relation/s in Next Normal Form
+                              I                 P                              S
+
+                             II                 Q                              T
+
+                             III                R                              U
+
+
+
+ictfromabc.com
+             (c) Draw an Entity Relationship (ER) diagram to depict, the above relations by identifying
+                 the relationships, key attributes, other attributes and the cardinality.
+                 iïnkaO;djhka (relationships), h;=re Wm,els (key attributes), fjk;a Wm,els iy
+                 .KkSh;d (cardinality) y÷kd.ksñka by; iïnkaOkd ksrEmKh lsÍu i|yd N+;d¾:-
+                 iïnkaO;d (ER) igykla w¢kak'
+
+                                                                                            ( 2019 ESSAY )
+
+         15. Consider the following description relating to details of players attached to different sports
+             clubs.
+             úúO l%Svd iudcj,g wh;a jk l%Svlhkaf.a f;dr;=rej,g iïnkaO my; oelafjk úia;rh
+             i,lkak'
+
+             A player always belongs to a sports club and he/she can be identified uniquely by the NIC
+             (National Identity Card) number. Further a player has a name which consists of a surname
+             and initials.
+             l%Svlhl= ieuúgu l%Svd iudchlg (sports club) wh;a jk w;r Tyq fyda weh cd;sl ye÷kqïm;a
+             wxlh (NIC) u.ska wkkHj y÷kd.kq ,efí' ;jo l%Svlhl=g jdi.u (surname) iy uq, wl=re
+             (initials) j,ska iukaú; kula (name) mj;S'
+
+             A club which is uniquely identified by its name can have many players. A player can play
+             games. Each game in this context is given a unique code and a description. A player can
+             play more than one game and each game is played by at least one player.
+             l%Svd iudchla wkkHj N÷kd.kq ,nkafka tys kñka (name) jk w;r" thg fndfyda l%Svlhka
+             isáh yels h' l%Svlhl=g (player) l%Svdj,g (games) l%Svd l< (play) yels fõ' fuys tla tla
+             l%Svdjg wkkH jQ fla;hla (code) iy úia;rhla (description) we;' l%Svlhl=g l%Svd tllg
+             jeä ixLHdjlg l%Svd l< yels jk w;r tla l%Svdjl wvq ;rñka tla l%Svlhl=j;a l%Svd lrkq
+             ,nhs'
+
+             Note: Use only the relevant words in the above description when drawing the Entity-
+             Relationship (E-R) diagrams for the following questions.
+             igyk: my; m%Yk   a i|yd N+;d¾:-iïnkaO;d (ER) igyka we¢fï oS by; úia;rfha imhd we;s
+             wod< jpk muKla fhdod .kak'
+
+          (i) Draw an ER diagram for the above description.
+              by; úia;rh i|yd ER igykla w¢kak'
+
+          (ii) Extend the ER diagram in above (i) to include the number of hours played by each player
+               for each game.
+               tla tla l%Svlhd úiska tla tla l%Svdj lrk ,o meh .Kk we;=<;a lsÍu i|yd by; (i) ys w¢k
+               ,o ER igyk §¾> lrkak'
+
+         (iii) Player may have a sponsor who has a unique title. A sponsor can give sponsorship only for
+               one player. Extend further the ER diagram in part (ii) above to include the sponsor’s details.
+               wkkH kula (unique title) iys; wkq.d% ylhl= (sponsor) l%Svlhl=g isáh yel' wkq.d% ylhl=g
+               tla l%Svlhl=g muKla wkq.d% yl;ajh oelaúh yels h' by; (ii) ys ER igyk" wkq.d% yl úia;r
+               we;=<;a lsÍu i|yd ;jÿrg;a §¾> lrkak'
+
+
+
+
+ictfromabc.com
+         16. The ‘Winner’ table given below contains the details of the players who won different
+             matches and medals. There is a fixed amount of prize money given to each medal type. A
+             Gold medal has Rs. 20,000/=, a Silver medal has Rs. 10,000/= and a Bronze medal has Rs.
+             5,000/=. Consider the primary key of the Winner table as NIC and MatchID.
+             l%Svlhka ch.%yKh lrk ,o l%Svd (games) iy molalï (medals) ms<sn| úia;r my; ‘Winner’
+             j.=fjys we;=<;a fõ' tla tla molalï (medals) j¾.h i|yd ksYÑ     a ; ;Hd. uqo,la we;' rka
+             (gold) molalula i|yd re.20,000/- la o ß§ (silver) molalula i|yd re.10,000/- la o f,dalv
+             (bronze) molalula i|yd re.5,000/- la o ,efí' Winner j.=fjys m%d:ñl h;=r NIC iy
+             MatchID f,i i,lkak'
+
+             Winner Table
+                   NIC               MatchID          MedalType             Prize
+               951477751V             BD-2              Silver              10000
+               985467923V             BD-2              Gold                20000
+               995874159V             BD-1              Gold                20000
+               997656614V             BD-3              Silver              10000
+               951477751V             BD-1             Bronze                5000
+
+          (i) In which normal form does the above table exist? Justify your answer.
+              by; j.=j mj;skf  a ka l=uk m%u;lrKfhys (normal form) o? Tfí ms<s;=r idOdrKSh lrkak'
+
+          (ii) Convert the above table to the next normal form. (It is not required to write the data in
+               the tables derived in next normal form.)
+               by; j.=j B<Õ m%u;lrKhg yrjkak' (B<Õ m%u;lrKfha § jHq;amkak jk j.=j, o;a;
+               ,sùu wkjYH fõ')
+
+                                                                                          ( 2020 ESSAY )
+
+         17. A virtual supermarket has registered suppliers to supply the customer orders placed
+             online. The supermarket always fulfils its customer orders through these suppliers. One
+             supplier is responsible only for the customers who live in the supplier’s area. A customer
+             has only one supplier. Each supplier is characterized by a code (unique), address and
+             contact numbers. A supplier can have several contact numbers.
+             ud¾..;j bosßm;a jQ mdßfNda.l     s wekjqï iemhSug w;;H iqmsß fjf<|ie,lg ,shdmÈxÑ
+             iemhqïlrejka we;' iqmsß fjf<|ie, ieuúgu ;u mdßfNda.l          s wekjqï imqrd,kafka fuu
+             iemhqïlrejka yryd h' tla iemhqïlrejl= j.lsj hq;= jkafka ;u m%foaYfha isák
+             mdßfNda.ls hska .ek muKs' tla mdßfNda.l   s hl=g isákafka tla iemhqïlrejl= muKs' iEu
+             iemhqïlrejl=gu fla;hla ^wkkH&" ,smskhla iy ÿrl:k wxl we;' tla iemhqïlrejl=g
+             ÿrl:k wxl lsym   s hla ;sìh yel'
+
+             Each customer is characterized by an email address (unique), name and location.
+             iEu mdßfNda.l
+                         s hl=gu" b-,smskhla ^wkkH&" kula iy mÈxÑ ia:dkhla we;'
+
+             A customer can confirm orders. Each order has only one supplier and one customer.
+             mdßfNda.l
+                     s hl=g" wekjqï ;yjqre l< yel' iEu wekjqulgu tla iemhqïlrejl= muKla iy
+             tla mdßfNda.l
+                         s hl= muKla we;'
+
+             An order is characterized by an order number (unique), description and a value. A supplier
+             can supply more than one order.
+             wekjqula" wekjqï wxlhlska ^wkkH&" úia;rhlska yd jákdlulska iukaú;h' tla
+             iemhqïlrejl=g tllg jvd jeä wekjqï .Kkla iemhsh yel'
+
+
+
+
+ictfromabc.com
+             Note: Use only the terms from the list given below for your ER diagrams of parts (i)
+             and (ii).
+             ie'hq: my; (i) iy (ii) fldgia i|yd N+;d¾: iïnkaO;d (ER) igyka we|SfïÈ ,ehsia;=fõ È
+             we;s mo muKla Ndú; lrkak' (tu mo NdId folskau ,shd oelaùu wkjYH h')
+             List / ,ehsia;=j: {address, agent, code, confirms, contactNo, customer, description, email,
+             hires, location, name, order, orderNo, supplier, supplies, value}
+
+          (i) Draw the Entity Relationship (ER) diagram for the above description.
+              by; úia;rh i|yd N+;d¾: iïnkaO;d (ER) igykla w¢kak'
+
+          (ii) Sometimes suppliers hire agents to support the order supplies. However, the supermarket
+               identifies the agents only through registered supplier codes. An agent is characterized by
+               a name and a contact number. Each agent is working only for one supplier and a supplier
+               is also getting only one agent’s service.
+               wekjqu iemhSu i|yd iemhqïlrefjda we;eïúg tacka;jre l=,shg .ks;s' tfia jqj;a iqmsß
+               fjf<|ie, tacka;jre y÷kd.kafka ,shdmÈxÑ iemhqïlrejkaf.a fla; yryd h' tacka;jrhl=g
+               kula iy ÿrl:k wxlhla we;' tla tacka;jrfhla tla iemhqïlrejl=g muKla fiajh lrk
+               w;r" tla iemhqïlrejl= tla tacka;jrhl=f.a fiajh muKla ,nd.kshs'
+
+             Add these details: to the ER diagram you drew for part (i).
+             fuu úia;r by; (i) ys w¢k ,o ER igykg tl;= lrkak'
+
+         18. A building construction company signs contracts with its clients. Each contract is handled
+             by an agent of the company.
+             f.dvke.s,s bÈlsßu iud.ula ;u fiajdfmalaIlhka (clients) iu. fldka;%d;a;= ^.súiqï& w;aika
+             lrhs' tla tla fldka;d;a;=j iud.fï tacka;jrhl= úiska yiqrejkq ,efí'
+             The Contracts table contains the details of the contracts. It has contract number, agent’s
+             code, name and mobile phone number represented with CNo, ACode, AName and
+             AMobile attributes respectively. The client’s name is represented with Client. Primary key
+             of the Contracts table is CNo.
+             Contracts j.=fjys fldka;%d;a;= ms<sn| úia;r wvx.= fõ' fldka;%d;a;= wxlh" tacka;jrhdf.a
+             fla;h" ku iy cx.u ÿrl:k wxlh ms<sfj<ska CNo, ACode, AName iy AMobile Wm,elsj,
+             oelafõ' fiajdfmalaIlhdf.a ku Clients u.ska oelafõ' Contracts j.=fõ m%d:ñl h;=r CNo fõ'
+
+             Contracts
+              CNo            ACode          AName          AMobile          Client
+              C-112          EP003          Anura          0714545866       Sirimal
+              C-103          EP006          Navod          0774511320       Abish
+              C-116          EP003          Anura          0714545866       Nehara
+              C-224          EP015          Virah          0763538147       Sirimal
+
+          (i) In which normal form does the Contracts table exist?
+              by; Contracts j.=j l=uk m%u;lrKfhys mj;S o=?
+
+          (ii) Convert the Contracts table into next normal form. (It is not necessary to write the data
+               in derived relations in the next normal form.)
+               Contracts j.=j B<Õ m%u;lrKhg yrjkak' ^B<Õ m%u;lrKfha§ jHq;amkak jk j.=j,
+               o;a; ,sùu wkjYH fõ'&
+
+                                                                                         ( 2021 ESSAY )
+
+
+
+
+ictfromabc.com
+         19. Draw the Entity Relationship (ER) diagram for the following scenario.
+             my; ikao¾Nh i|yd N+;d¾: iïnkaO;d igyk w¢kak'
+
+            A student uses the following data to register for subjects. Each subject is represented by
+            its subject number (subjectNumber), subject name (subjectName) and prerequisite subject.
+            A student can register for more than one subject during a semester. Each student has a
+            first name (studentFname), a last name (studentLname) and a unique student number
+            (studentid). Student, age (age) is required to register for subjects. Subjects are offered
+            based on the availability of the resources. Hence some subjects will not be offered during
+            a semester. A subject offered in a semester (subject_offering) includes subjectNumber,
+            year, semester, teacher identifier (teacherld), and classroom. One subject_offering is
+            assigned to a single teacher who is represented by a teacherld, name of the teacher
+            (teacherName), and qualifications. Teacher can have several qualifications. Marks are
+            awarded to students for each subject that they register.
+            YsIHfhla úIhka i|yd ,shdmÈxÑ ùug my; i|yka o;a; Ndú; lrhs' iEu úIhla i|ydu
+            thg wdfõKsl úIh wxlhla (subjectNumber), úIh kula (subjectName) iy mQ¾j wjYH;d
+            úIhla (prerequisite subject) we;' tla wOHhk jdrhla ;=<" tla YsIHfhl=g úIhka tllg
+            jeä .Kkla i|yd ,shdmÈxÑ úh yelsh' iEu YsIHfhla i|ydu uq,a kula (studentFname),
+            jdi.ula (studentLname) iy wkkH jQ YsIH wxlhla (studentId) we;' úIhka i|yd ,shdmÈxÑ
+            ùug" YsIHdf.a jhi (age) wjYH fõ' iïm;a ,nd .ekSfï yelshdj u; mokïj úIhka
+            msßkefuhs' tneúka iuyr wOHhk jdr ;=< iuyr úIhka msßkefukafka ke;' úIh msßkeóula
+            (subject_offering) ;=<" úIh wxlh (subjectNumber), j¾Ih (year), wOHhk jdrh (semester),
+            .=rejrhdf.a y÷kajkh (teacherId) iy mkaks ldurh (classroom) wvx.= fõ' tla úIh
+            msßkeóula (subject_offering) tla .=rejrhl= u.ska b.ekafjk w;r" iEu .=rejrhl=gu
+            y÷kajkhla (teacherId), kula (teacherName) iy iqÿiqlï (qualifications) we;' .=rejrhdg
+            iqÿiqlï lsym s hla ;sìh yelsh' ,shdmÈxÑ jQ iEu úIhla i|ydu isiqkag ,l=Kq m%odkh flf¾'
+
+            Use only the terms from the list given below for the entities and attributes in your
+            ER diagram. You have the freedom to choose relationship names.
+            Tfí ER igyfka N+;d¾: (entities) iy ,dlaIKsl (attributes) i|yd my; ,ehsia;=fõ § we;s
+            mo muKla Ndú; lrkak' iïnkaO;d (relationships) i|yd kï f;dard.ekSug Tng ksoyi
+            we;'
+
+            List / ,ehsia;=j : {age, classroom, DOB, marks, qualification, semester, student, student
+            Fname, studentld, studentLname, subject, subject_offering, subjectName, subjectNumber,
+            teacher, teacherld, teacherName, year}
+
+            Note: DOB – Date of Birth
+            igyk: DOB - Wmka Èkh
+
+
+
+
+ictfromabc.com
+         20. Use the following Employee, and Assign Project denormalized tables to answer parts (i),
+             (ii), (iii), (iv) and (v). Please note that primary key(s) of each table is(are) underlined.
+             (i), (ii), (iii), (iv) iy (v) hk fldgiaj,g ms<s;=re ,nd§ug my; i|yka Employee (fiajl) iy
+             Assign_Project (jHdmD;s wkshqla;hka) hk m%u;lrKh fkdjQ j.= Ndú; lrkak' tla tla j.=fõ
+             m%d:ñl h;=r^re& háka bß we| we;s nj i,lkak'
+
+             Employee
+               EmployeeId             FullName             DOB             Salary
+                   E001           Saman Perera         12/02/1978          140000
+                   E002           Upul Fernando        23/05/1982          44000
+                   E005             Chris Peris        11/08/1980          44000
+                   E007          Kamala Gamage         08/08/1973          52000
+                   E008            Sunil Perera        25/04/1969          115000
+                   E011            Vipul Namal         09/02/1977          38000
+
+             Assign_Project
+              ProjectId EmployeeId          PName       Description
+                 P04           E002           Sales     Implement sales management system
+                 P04           E008           Sales     Implement sales management system
+                 P06           E007           HRM       Implement sales HRM system
+                 P07           E002          Library    Implement library management system
+                 P09           E001        Inventory    Implement Inventory management system
+                 P09           E007        Inventory    Implement Inventory management system
+
+          (i) In which normal form does the Assign_Project table exist?
+              Assign_Project j.=j l=uk m%u; wjia:dfjys mj;S o?
+
+          (ii) What needs to be done to convert the Assign_Project table into its next normal form?
+               Justify ayour answer.
+               Assign_Project j.=j B<Õ m%u; wjia:djg yerùug l=ula l< hq;= o@ Tfí ms<s;=r
+               idOdrKSlrKh lrkak'
+
+                                                                                          ( 2022 ESSAY )
+
+         21. Consider the following requirements relevant to a database that is expected to manage
+             divisions, officers and tasks in an office.
+             ld¾hd,hl wxY (divisions), ks,OdÍka (officers) iy ld¾hhka (tasks) l<ukdlrKhg Ndú;
+             lsÍug n,dfmdfrd;a;= jk o;a; iuqodhlg wod< my; wjYH;d i,lkak'
+
+             The office consists of a number of divisions. Each division has a unique name. The division
+             may have several locations. A division handles a number of tasks each of which has a
+             unique number, a name and a date in which the task was assigned to the division. Each
+             officer's name (consisting of a first name and a surname), NIC (National Identity Card)
+             number, address and phone number is to be stored. An officer is assigned to one division
+             but may work on several tasks which may not be controlled by the same division. Each
+             division is managed by one of its officers and the starting date in which the officer started
+             managing the division is stored.
+
+
+
+
+ictfromabc.com
+             ld¾hd,h wxY lsym  s hlska iukaú; fõ' iEu wxYhlgu wkkH kula we;' wxYh ia:dk
+             lsym
+                s hl ;sìh yels h' wxYhla ld¾hka lsym
+                                                   s hla yiqrejhs' ta iEu ld¾hlgu wkkH wxlhla"
+             kula iy tu ld¾hh tu wxYhg mejreKq Èkh we;' iEu ks,Odßhl=f.au ku (uq,a ku iy
+             jdi.ñka iEÿk), NIC (cd;sl ye÷kqïm;a) wxlh" ,smskh iy ÿrl:k wxlh wdph flf¾'
+             ks,Odßfhl= tla wxYhlg wh;ajqj;a" tu wxYhu u.ska md,kh fkdjk ld¾hka lsym     s hlo
+             ksr; úh yels h' iEu wxYhlau tu wxYfha ks,Odßhl= úiska l<ukdlrKh flfrk w;r" tu
+             ks,Odßhd tu wxYh l<ukdlrKh lsÍu werUQ Èkh o wdph flf¾'
+
+             Draw an ER diagram for this application showing the entities, attributes and relationships.
+             Underline primary keys.
+             fuu fhÿu i|yd N+;d¾: (entities), Wm,laIK (attributes) iy iïnkaO;d oelafjk ER
+             igykla w¢kak' m%d:ñl h;=re háka bß w¢kak'
+
+         (b) Write two advantages of converting a database table into a normal form.
+             o;a; iuqod j.=jla m%u; wjia:djlg (normal form) yerùfï jdis folla ,shd olajkak'
+
+         (c) Consider the following Show table related to theatres and the movies that they screen.
+             rÕy,a(theatre) iy tajdfha ;sr.;lrk Ñ;%mg(movies) iïnkaO my; Show j.=j i,lkak.
+
+
+                 Theatre          Movie            Day             Time        Screen        Year
+                  Sarasi          MI -4         Wednesday          10:00         S1          2022
+                  Sarasi          MI -4         Wednesday          15:00         S1          2022
+                  Palazzo      Spider man         Friday           10:00         S2          2019
+                  Palazzo       Avengers          Friday           10:00         S1          2019
+                  Vega          Iron man         Thursday          10:00         S1          2020
+
+             Note:
+
+             •   A theatre can screen more than one movie at the same time on different screens.
+                 rÕ.y,lg tlu fõ,dfõ§" ;sr (screen) lsym    s hl" fjkia Ñ;%mg m%o¾Ykh l< yels h.
+
+             •   Year field gives the year in which the relevant film was released.
+                 Year lafIa;%fhka oelafjkafka wod< Ñ;%mgh t<soelajQ jirhs.
+
+          (i) In which normal form does the Show table exist? Justify your answer.
+              Show j.=j l=uk m%u; wjia:dfjys mj;S o? Tfí ms<s;=r idOdrKSlrKh lrkak.
+
+          (ii) Convert the Show table to its next normal form.
+               Show j.=j tys B<Õ m%u; wjia:djg yrjkak.
+                                                                                        ( 2023 ESSAY )
+
+
+
+
+ictfromabc.com
+         1. A principal of a National school wants to develop a database to maintain Admission
+            Number, Student Name, Address, National Identity Card number (NIC) and the Date of
+            Birth (DOB) of Advanced Level students. The principal also wants to know the marks
+            obtained for each subject by the students. In addition to the above requirements, the
+            principal needs to know the subjects assigned to the teachers.
+            cd;sl mdi,l úÿy,am;sjrfhl=g, Wiia fm< isiqkaf.a we;=<;aùfï wxlh, YsIH kduh, ,smskh,
+            cd;sl yeÿkqïm;a wxlh (NIC) iy Wmka Èkh (DOB) mj;ajd .ekSu i|yd o;a; iuqodhla
+            ilia lr .ekSug wjYH fõ' tla tla úIhh i|yd YsIHhd ,nd .;a ,l=Kq o oek.ekSug
+            úÿy,am;sjrhdg wjYH fjhs' by; wjYH;dj,g wu;rj .=rejrekag mjrd we;s úIhhka
+            oek.ekSug o úÿy,am;sjrhdg wjYH fjhs'
+
+            Relations / iïnkaO :
+
+            A - Student(admissionNo, studentName, address, DOB, NIC)
+            B - Subject(subjectCode, subjectName)
+            C - Mark(admissionNo, subjectCode, marksObtained)
+            D - Teacher(teacherNo, subjectCode, teacherName, subjectName, class)
+
+            Which of the following SQL statements would produce an output with admission number,
+            name of the student, subject code and marks obtained?
+            we;=<;a ùfï wxlh" YsIHhdf.a ku" úIh fla;h yd ,nd.;a ,l=Kq wh;a m%;sodkh bosßm;a
+            lrkq ,nkafka my; oelafjk ljr SQL m%ldYh u.ska o?
+
+            1) SELECT studentName, subjectCode, marksObtained
+               FROM Student, Mark
+               WHERE Student.admissionNo = Mark.admissionNo
+
+            2) SELECT Student.admissionNo, studentName, subjectCode,
+               Student.marksObtained
+               FROM Student, Mark
+               WHERE Student.admissionNo = Mark.admissionNo
+
+            3) SELECT Student.admissionNo, studentName, subjectCode, marksObtained
+               FROM Student, Mark
+               WHERE Student.admissionNo = Mark.admissionNo
+
+            4) SELECT Student.admissionNo, studentName, subjectCode, marksObtained
+               FROM Student, Mark
+               WHERE Student.admissionNo = admissionNo
+
+            5) SELECT Student.admissionNo, studentName, subjectCode, marksObtained
+               FROM Student, Mark
+               WHERE admissionNo = Mark.admissionNo
+
+                                                                                    ( 2011 – 26 )
+
+
+
+
+ictfromabc.com
+         2. Consider the following relation:
+            my; oelafjk iïnkaOh (relation) i,lkak(
+
+            student(stdNo, name, address, nicNo, date_of_birth)
+
+            Which of the following SQL (Structured Query Language) statements on the student
+            relation is syntactically correct?
+            by; student iïnkaOh u; mokï jQ my; oelafjk ljr SQL (Structured Query Language)
+            m%ldYh jd.a Í;suh jYfhka (syntactically) ksjerÈ fõ o?
+
+            1) select *.* from student                               2) select all from student
+            3) select * from student                                 4) select stdNo.name from student
+            5) select stdNo; name from student
+                                                                                                      ( 2012 – 24 )
+
+         3. Consider the following database operations:
+            my; oelafjk o;a; iuqod fufyhqï i,lkak(
+
+            A - Remove records from a table / j.=jlska frfldaâ bj;a lsÍu
+            B - Add new data to a table / j.=jlg kj o;a; tl;= lsÍu
+            C - Modify the existing data in a table / j.=jl we;s o;a; úlrKh lsÍu
+            D - Retrieve data from a table / j.=jlska o;a; iuqoaOrK lsÍu
+
+            “The SQL statements ..................................... should be used to perform the database
+            operations A, B, C and D respectively.”
+            “A, B, C iy D hk o;a;iuqod fufyhqï l%shd;aul lsÍug ms<sfj<ska ..................................... hk SQL
+            m%ldY Ndú; l< hq;= fõ'”
+
+            Which of the following is most appropriate to fill the blank in the above statement?
+            by; m%ldYfha ysia;ek msrùu i|yd my; olafjk ljr m%ldY wkqms<sfj< jvd;a iqÿiq fõ o?
+
+            1) delete, select, update and insert                     2) delete, insert, select and update
+            3) select, delete, insert and update                     4) insert, select, delete and update
+            5) delete, insert, update and select
+                                                                                                      ( 2012 – 25 )
+
+         4. Consider the following two relations:
+            my; olajd we;s iïnkaO;d fol i,lkak(
+
+            Student(stdNo, name)
+            courseMarks(courseld, stdNo, marks)
+
+            Which of the following SQL (Structured Query Language) statements on the above
+            relations is syntactically correct?
+            by; iïnkaO;d iïnkaOfhka my; olajd we;s SQL j.ka;sj,ska jd.a Í;sj,g wkql+, j ksjerÈ
+            l=ula o?
+            1) select stdNo, marks from student, courseMarks
+            2) select * from student and courseMarks
+            3) select s.stdNo and c.marks from student s, courseMarks c
+            4) select student.stdNo, courseMarks.marks from student, courseMarks
+               where student.stdNo = courseMarks.stdNo
+            5) select student.stdNo and courseMarks.marks from student and courseMarks
+               where student.stdNo = courseMarks.stdNo
+                                                                           ( 2013 – 50 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following three tables in a relational database to answer questions 5 to 6.
+             Assume that a subject has only one paper for an examination.
+                a wxl 5 isg 6 olajd ms<s;=re iemhSug iïnkaO;d o;a; iuqodhl mj;sk my; fmkajd
+             m%Yk
+             we;s j.= ;=k i,ld n,kak' tla úNd.hl § tla úIhhla i|yd tla m%Yk     a m;%hla muKla we;s
+             nj Wml,amkh lrkak'
+
+             subject                         examSubject                           exam
+              subjectId title                 examId     subjectId    examDate      examId  name
+                        Information and       EXAM001 SUB001          2014.12.12    EXAM001 GCE OL
+              SUB001
+                        Technology            EXAM002 SUB001          2014.8.21     EXAM002 GCE AL
+              SUB002    Chemistry             EXAM002 SUB002          2014.8.21
+              SUB003    Physics               EXAM002 SUB003          2014.8.21
+
+
+         5. Which of the following is the correct SQL statement to retrieve examId, name, and
+            examDate of all examinations?
+            ish¨ u úNd.j, examId, name iy examDate iuqoaOrKh lsÍu i|yd ksjerÈ SQL j.ka;sh
+            my; i|yka oE w;=frka l=ula o?
+             1) select examSubject.examId, name, examDate from exam, examSubject
+                where exam examId=examSubject.examId
+             2) select examId, name, examDate from exam and examSubject
+                where exam.examId=examSubject.examId
+             3) select examId and name and examDate from exam and examSubject
+                where exam.examId=examSubject.examId
+             4) select * from exam and examSubject:
+                where exam.examId=examSubject.examId
+             5) select * from exam, examSubject
+                where exam.examId=examSubject.examId
+                                                                                        ( 2014 – 33 )
+
+         6. Which of the following SQL statements changes only the date of examination of Physics
+            paper of GCE AL examination to 2014.08.25?
+            w'fmd'i' W'fm< (GCE AL) fN!;sl úoHdj (Physics) m%Yka m;%fha muKla úNd. Èkh
+            2014.08.25 f,i fjkia l< yelafla my; oelafjk l=uk SQL j.ka;sh u.ska o?
+
+             1) update examSubject set examDate='2014.08.25'
+                where subjectId='SUB003' or ‘sub003'
+             2) update examSubject set examDate='2014.08.25'
+                where examId='EXAM002' or subjectId='SUB003'
+             3) update examSubject set examDate='2014.08.25'
+                where examId='EXAM002' and subjectId='SUB003'
+             4) update examSubject set examDate='2014.08.25'
+                where examDate='2014.08 21'
+             5) update examSubject set examDate='2014.08.25'
+                where examId='EXAM002' or subjectId='SUB003' or examDate='2014.08.23'
+
+                                                                                        ( 2014 – 34 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following four relational database tables to answer questions.
+                a i|yd ms<s;=re iemhSug my; fmkajd we;s iïnkaO;d o;a; iuqod j.= y;r i,ld n,kak.
+             m%Yk
+
+             item j.=j                     supplier j.=j
+               item product                 supplier name
+              T001 Laptop                   S001      BeLap Company Ltd.
+              T002 TV                       S002      DigiTV trading company
+              T003 Camera
+
+             itemSupplier j.=j             delivery j.=j
+               item  supplier               item supplier      batch    quantity      date
+               T001    S001                 T001 S001          B01      450         1.5.2015
+               T002    S001                 T002 S001          AB1      45          1.5.2015
+               T002    S002                 T001 S001          B02      500         2.5.2015
+                                            T001 S002          C01      75          5.5.2015
+
+         7. Which of the following actions is taken by a database management system when the SQL
+            statement “delete from item” is executed?
+            “delete from item” hk SQL j.ka;sh l%shd;aul l< úg o;a; iuqodh l<ukdlrK moaOksh
+            u.ska my; l=uk l%shdj isÿ lrhs o?
+             1) It will ask the user to select records for deletion.
+                mßYS,lg f,dma (delete) lsÍug wjYH lrk Wm,elshdk f;dard .kakd f,i okajd isà'
+             2) It may delete all the records from the 'item' table.
+                'item' j.=fõ we;s ish¨ Wm,elshdk f,dÊ lsÍu isÿ úh yels h'
+             3) It will drop the 'item' table. / 'item' j.=j fy<d oukq (drop) ,efí'
+             4) It will not delete any record from the 'item' table.
+                'item' j.=fõ lsisÿ Wm,elshdkhla f,dma lrkq fkd,efí'
+             5) The SQL statement will not be executed since it has errors.
+                jerÈ mj;sk ksid SQL j.ka;sh l%shd;aul fkdfõ'
+                                                                                            ( 2015 – 40 )
+
+         8. Which of the followings is correct with respect to the output of an SQL statement?
+            SQL j.ka;shl m%;sodkh iïnkaOfhka my; i|yka l=ula ksjerÈ jkafka o?
+
+             1) It generates an error if no data is available in the tables referred in the SQL statement.
+                SQL j.ka;shlska fhduq jk j.= ;=< o;a; fkdmj;S kï túg fodaIhla W;amdokh fõ'
+             2) It is always a table. / th iEu úgu j.=jls'
+             3) The order of the attributes in the output should be the same as the order of attributes
+                in the table definition.
+                m%;sodkfha Wm,elsj, ms<sfj< (mámdá) j.= ks¾jpkfha we;s Wm,elsj, ms<sfj<u úh hq;=h'
+             4) Outputs cannot be produced if the primary keys are not defined.
+                m%d:ñl h;=re w¾: olajd fkdue;s kï m%;sodk ,nd .; fkdyels h'
+             5) Names of attributes in the output should be the same as names in the table definition.
+                m%;sodkfha Wm,elsj, kdu j.= ks¾jpkfha we;s Wm,elsj, kdu u úh hq;= h'
+
+                                                                                            ( 2016 – 46 )
+
+
+
+
+ictfromabc.com
+         9. The length of an attribute defined using a Data Definition Language (DDL) statement is
+            a/an .......................... constraint.
+            o;a; ks¾jpk NdId (DDL) j.ka;shla Ndú;fhka w¾: olajd we;s Wm,elshl È. (length)
+            .......................... ixfrdaOlhla fõ'
+
+             Which of the followings is the most appropriate to fill the blank in the above statement?
+             my; i|yka l=ula by; j.ka;sfhys we;s ysia;ek msrùu i|yd jvd;a iqÿiq jkafka o?
+
+             1) primary key     2) foreign key    3) null value    4) domain        5) application
+                 m%d:ñl h;=re      wd.ka;=l h;=re    wNsY=kH w.h      jiï              fhÿï
+
+                                                                                           ( 2016 – 47 )
+
+         10. Consider the following table in a relational database:
+             iïnkaO;d o;a; iuqodhl we;s my; i|yka j.=j i,lkak(
+
+              student       name        telephone zscore
+              S0001       Dananjaya    0711118337   1.8
+              S0002       Saluka       0712227447   1.9
+              S0003       Upul         0713333882   2.0
+              S0004       Priyankara   0714445225   1.9
+              S0005       Supun        0715556446   2.1
+
+             What is the minimum number of SQL statements required to update all the values of the
+             attribute zscore in the above table to 2.1?
+             by; j.=fjys zscore Wm,elsfha ish¨ w.hhka 2.1 f,i hdj;ald,Sk lsÍug wjYH wju SQL
+             j.ka;s ixLHdj fldmuK o?
+
+             1) 1               2) 2             3) 3              4) 4             5) 5
+
+                                                                                           ( 2016 – 48 )
+
+         •   Consider the following relation to answer questions:
+             m%Yk
+                a j,g ms<s;=re §u i|yd my; olajd we;s iïnkaO;d i,lkak(
+             book (book_no, title, publisher, edition)
+             author (author_id, name, email_address)
+             bookAuthor (book_no, author_id)
+
+             where book_no and author_id are unique attributes in the relations book and author
+             respectively.
+             fuys book_no iy author_id ms<sfj<ska book iy author iïnkaOj, wkkH Wm,laIK fõ'
+
+             Assume that above relations are converted into tables in a relational database. The
+             following SQL query is executed on the database:
+             by; iïnkaO" iïnkaOl o;a; iuqodhl j.= njg m;a lf<a hehs Wml,amkh lrkak' my;
+             SQL úuiqu (query) tu o;a; iuqodh ;=< l%shd;aul lrk ,§(
+
+             SELECT * FROM bookAuthor
+
+
+
+
+ictfromabc.com
+            Which of the following statements is correct regarding the output of the above SQL query?
+            by; SQL úuiqfuys m%;sodkh iïnkaOfhka my; j.ka;s w;=frka lprla ksjerÈ fõ o?
+
+            1) It cannot be an empty table.
+               th Y=kH j.=jla (empty table) úh fkdyels h'
+            2) title column is in it.
+               tys title ;Srh (column) we;=<;a fõ'
+            3) name column is in it.
+               tys name ;Srh we;=<;a fõ'
+            4) All the tables book, author and bookAuthor are used to produce the output.
+               m%;sodkh ,nd §u i|yd book, author iy bookAuthor hk j.= ish,a, Ndú; lrhs'
+            5) All records in the bookAuthor table are in the output.
+               bookAuthor j.=fjys we;s ish¨ u Wm,els (records) m%;sodkfhys we;=<;a fõ'
+
+                                                                                         ( 2017 – 35 )
+
+         11. Consider the following relational schema consisting of text fields in answering questions.
+             m%Yka h i|yd" mdG lafIa;%j,ska (text fields) iukaÑ; my; oelafjk iïnkaOl mßl%udj
+             (relational schema) i,lkak'
+
+            Students (admission_number, surname_with_initials, house_number, street_name, village,
+            postal_town, postal_code)
+
+            Assume that for a given postal_town only one postal_code exists.
+            fok ,o ;eme,a k.rhlg tla ;eme,a fla;hla (postal_code) muKla mj;sk nj i,lkak'
+
+            Which of the following is displayed as output if the query is executed?
+            my; i|yka úuiqu l%shd;aul l< úg tys m%;sodkh f,i l=ula o¾Ykh fõ o?
+            Select * from Students
+            where postal_code ='10120' and house_number ='30A';
+
+            1) postal_code of all records
+               ish¨ u Wm,elshdkj, (records) postal_code
+
+            2) postal_code and house_number of records having postal_code '10120' and house_number
+               as '30A'
+               postal_code '10120' iy house_number '30A' f,i we;s Wm,elshdkj, postal_code yd
+               house_number
+
+            3) postal_code and house_number of all records
+               ish¨ u Wm,elshdkj, postal_code iy house_number
+
+            4) all fields of records having postal_code as '10120' and house_number as '30A'
+               postal_code '10120' iy house_number '30A' f,i we;s Wm,elshdkj, ish¨ u lafIa;%
+
+            5) all fields of all records
+               ish¨ u Wm,elshdkj, ish¨ u lafIa;%
+
+                                                                                         ( 2018 – 41 )
+
+
+
+
+ictfromabc.com
+         •   Consider the following database table to answer the questions.
+             m%Yk
+                a i|yd ms<s;=re iemhSug my; oelafjk o;a; iuqod j.=j i,lkak'
+
+             Student_Sport
+                  Student_Id   Event_Id     Event_Name
+                    10012        S-02      Carrom
+                    10022        S-01      Basketball
+                    10018        S-02      Carrom
+                    10012        S-03      Volleyball
+                    10025        S-04      Chess
+                    10018        S-01      Basketball
+
+         12. It is required to add a new field called Age to the Student_Sport table and the values of
+             the new field must be greater than 10.
+             Student_Sport j.=jg Age hkqfjka kj lafIa;%hla tl;= l< hq;= jk w;r kj lafIa;%fhys
+             w.hhka 10 g jvd jeä úh hq;= h'
+
+             Which one is the correct SQL statement to implement the above requirement?
+             by; wjYH;djh l%shd;aul lsÍu i|yd ksjerÈ SQL m%ldYh l=ula o?
+
+             1)    Alter table Student_Sport add check (Age> 10);
+             2)    Alter table Sudent_Sport add where (Age> 10);
+             3)    Alter table Student_Sport set check (Age> 10);
+             4)    Update table Student_Sport add check (Age> 10);
+             5)    Update table Student_Sport add where (Age> 10);
+
+                                                                                        ( 2019 – 17 )
+
+         13. Which of the following SQL commands isn’t available in the Data Manipulation Language?
+             o;a; yeiqreï NdIdfjys (DML) fkdue;s SQL úOdkhla jkafka my; l=ula o?
+
+             1) CREATE         2) DELETE       3) INSERT         4) SELECT         5) UPDATE
+
+                                                                                        ( 2019 – 18 )
+
+
+
+
+ictfromabc.com
+         14. Consider the following SQL statement:
+             my; oelafjk SQL m%ldYh i,lkak.
+            Update school set contact_person= 'Sripal W.’ where school_id= '04';
+
+            Which of the following is true when the above SQI. statement is executed?
+            by; SQL m%ldYh l%shd;aul lsÍfï§ my; ljrla i;H fõ o?
+            1) It adds an additional field with the name contact_person and adds value into that new
+               field as 'Sripal W.' only in the records having school_id = 04
+               th school_id = 04 jk Wm,elshdkj,g muKla contact_person kñka wu;r lafIa;%hla
+               tl;= lr tu kj lafIa;%hg 'Spiral W. ' w.h tl;= lrhs'
+
+            2) It adds an additional value to the contact_person as 'Sripal W.' only in the records
+               having school_id = 04
+               th school_id = 04 jk Wm,elshdkj,g muKla contact_person hk lafIa;%fha w.hg
+               'Spiral W.' hk wu;r w.hla tl;= lrhs'
+
+            3) It changes the field name of contact_person as 'Sripal W.' when selecting the records
+               with school_id = 04
+               th school_id = 04 jk Wm,elshdk f;aÍfï§ contact_person lafIa;% kduh 'Spiral W.'
+               f,i fjkia lrhs'
+
+            4) It changes value of contact_person as 'Sripal W.' only in records having school_id = 04
+               th school_id = 04 jk Wm,elshdkj, (records) muKla contact_person hk lafIa;%fha
+               w.h 'Spiral W.' f,i fjkia lrhs'
+
+            5) It selects all the records having school_id = 04 and contact_person as 'Sripal W.'
+               th school_id = 04 iy contact_person = Spiral W. f,i we;s ish¨u Wm,elshdk f;darhs'
+
+                                                                                        ( 2019 – 50 )
+
+         15. Consider the following SQL statement:
+             my; oelafjk SQL m%ldYh i,lkak'
+
+            Alter table subject add primary key (Subject_Id);
+
+            Which of the following is incorrect about the above SQL statement?
+            fuu SQL m%ldYh iïnkaOj my; i|yka l=ula idjoH fõ o?
+
+            1) It adds a primary key constraint to the table named subject.
+               th subject kï jk j.=jg m%d:ñl h;=re ixfrdaOlhla tl;= lrhs'
+
+            2) The table named subject should already exist.
+               subject kñka jk j.=j fï jk úg mej;sh hq;= h'
+
+            3) The field Subject_Id should not be null. / Subject_Id kï lafIa;%h wNsYk
+                                                                                     = H fkdúh
+               hq;=h'
+            4) A table named subject is created with a primary key named Subject_ld.
+               th Subject_Id kï jQ m%d:ñl h;=rla iys; subject kï jQ j.=jla ks¾udKh lrhs'
+
+            5) The values of the field Subject_Id should not be repeated in subject table.
+               subject j.=fjys Subject_Id kï lafIa;%fhys we;s w.hka mqK¾lrKh (repeat) úh fkdyel'
+
+                                                                                        ( 2020 – 29 )
+
+
+
+
+ictfromabc.com
+         16. What is the correct SQL statement to delete a database called 'ALdb'?
+             'ALdb' f,i ye¢kafjk o;a; iuqodh (database) uldoeóu (delete) i|yd ksjerÈ SQL
+             m%ldYh l=ula o?
+
+             1) delete ALdb;                          2) delete database ALdb;
+             3) drop ALdb;                            4) drop database ALdb;
+             5) remove database ALdb;
+
+                                                                                          ( 2020 – 26 )
+
+         •   Consider the following Results and Subjects tables to answer question:
+                a hg ms<s;=re §ug my; Results iy Subjects j.= i,lkak'
+             m%Yk
+
+             Results                                                      Subjects
+                 StudentNo      NIC       FirstName   SubjectID   Grade    SubjectID   SubjectName
+                   S1234     986888457V      Nilam      ENG         B        ENG           English
+                   S1447     992562321V    Praveena     PHY         C        PHY           Physics
+                   S1234     986888457V      Nilam      ACC         A        ECO         Economics
+                   S1323     900251452V      Thilan     ENG         S        ACC        Accountancy
+                   S1323     900251452V      Thilan     ACC         B
+
+         17. What is the correct SQL statement to retrieve the values of attributes StudentNo,
+             SubjectName and Grade?
+             StudentNo, SubjectName iy Grade hk Wm,elsj, w.hhka ,nd.ekSug wod< SQL
+             j.ka;sh my; ljrla o?
+
+             1) SELECT Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+                Results INNER JOIN ON Results.SubjectID = Subjects.SubjectID;
+
+             2) SELECT Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+                Results INNER JOIN Results.SubjectID = Subjects.SubjectID;
+
+             3) SELECT Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+                Results INNER JOIN Subjects IN Results.SubjectID = Subjects.SubjectID;
+
+             4) SELECT Results.StudentNo, Subjects.SubjectName, Results.Grade FROM
+                Results INNER JOIN Subjects ON Results.SubjectlD = Subjects.SubjectID;
+
+             5) SELECT Results.StudentNo, Subjects.SubjectName, Results.Grade INNER
+                JOIN Results AND Subjects Results.SubjectID = Subjects.SubjectID;
+
+                                                                                          ( 2021 – 33 )
+
+
+
+
+ictfromabc.com
+         •   The tables which are partially extracted from a database used in an information system
+             developed for a shop are shown below. Answer questions using those tables.
+             fjf<|ie,la i|yd ilia lrk ,o f;dr;=re moaO;shl Ndú; lrk o;a; iuqodhlska w¾O
+             jYfhka Wmqgd .;a j.= lsyms hla my; oelafõ' tu j.= Ndú; lr m%Yk  a j,g ms<s;=re imhkak'
+
+             Customer (mdßfNda.slhd)                                  Product (NdKavh)
+                  CusId    Fname       Lname       Location               ProId         Name
+                  C001     Saman        Perera     Dehiwala               PR001       Refrigerator
+                  C002      Kalum      Gamage        Galle                PB401         Blender
+                  C003     Shiromi       Silva       Galle                PM025      Mobile Phone
+                  C004      Kalum       Perera      Kandy                 PP009      Inkjet Printer
+
+             Order (weKjqu)                                            Order_Product (weKjqï NdKavh)
+                 OrderId      CusId   OrderDate     SellerId              OrderId         ProId
+                  A001        C001    2022-07-14       S001                A003           PR001
+                                                                           A001           PR001
+                  A002        C002    2022-07-14       S001
+                                                                           A002           PB401
+                  A003        C003    2022-07-18       S002                A003           PM025
+                  A004        C004    2022-07-20       S002                A004           PP009
+
+         18. What will be the output after executing the following SQL statement?
+             my; SQL m%ldYh l%shd;aul lsÍfuka miq m%;sodkh l=ula fõ o?
+
+             SELECT Customer.Fname, Customer.Lname, Order.Orderld
+             FROM Customer INNER JOIN Order ON Customer.CusId = Order.CusId
+             WHERE Customer.Location="Galle";
+
+             1)     Fname         Lname      OrderId           2)   Fname      Lname        OrderId
+                     Kalum        Gamage      A001                   Kalum     Gamage        A004
+                     Kalum        Gamage      A003                   Kalum      Perea        A001
+                    Shiromi        Silva      A002                   Kalum     Gamage        A003
+                                                                    Shiromi     Silva        A002
+
+             3)     Fname         Lname      OrderId           4)   Lname      Fname        OrderId
+                     Kalum        Gamage      A001                  Gamage      Kalum        A001
+                     Kalum         Perera     A003                  Gamage      Kalum        A003
+                    Shiromi         Silva     A002                   Silva     Shiromi       A002
+
+             5)     Fname         Lname      OrderId
+                     Kalum        Gamage      A001
+                    Shiromi        Silva      A002
+
+                                                                                         ( 2022 – 31 )
+
+
+
+
+ictfromabc.com
+         19. Consider the following Employee Relation:
+                                                                 Employee_ID Employee_Name           Salary
+             my; Employee j.=j i,lkak'
+                                                                    1001              John           60000
+            What would be the output of the following               1002              Hari           55000
+            SQL query when it is applied on the Employee
+                                                                    1003              Mahas          70000
+            relation?
+                                                                    1004              Sarath         65000
+            by; Employee j.=j u; my; SQL úuiqu
+            l%shd;aul l< úg m%;sodkh l=ula fõ o?                    1005              Rajah          75000
+
+            SELECT COUNT(*) FROM Employee
+            WHERE Salary > ANY (SELECT Salary FROM Emplyoee);
+
+            1) 3             2) 4               3) 5               4) 6               5) 10
+
+                                                                                             ( 2023 – 32 )
+
+         20. Consider the given SQL statements to create two database tables named LENDING and
+             STUDENT:
+             LENDING iy STUDENT kï jQ o;a; iuqod j.= folla iE§ug wod<j § we;s SQL j.ka;s
+             i,lkak'
+
+            CREATE TABLE LENDING(
+                BOOK_NUMBER VARCHAR(10) NOTNULL,
+                BOOK_NAME VARCHAR(20) NOTNULL,
+                AUTHOR VARCHAR(25) NOTNULL,
+                DESCRIPTION VARCHAR(75) NOTNULL,
+                ISSUED_DATE DATE,
+                STUDENT_ID CHAR(5) NOTNULL,
+                PRIMARY KEY(BOOK_NUMBER));
+
+            CREATE TABLE STUDENT(
+                STUDENT_ID CHAR(5) NOTNULL,
+                NAME VARCHAR(25) NOTNULL,
+                BIRTHDAY DATE NOTNULL,
+                ADDRESS VARCHAR(25) NOTNULL,
+                PROVINCE CHAR(10),
+                PRIMARY KEY(STUDENT_ID));
+
+             Which of the following statements are correct?
+             my; ljr j.ka;s ksjerÈ fõ o?
+
+            A. STUDENT_ID is a foreign key in the LENDING table.
+               STUDENT_ID hkak LENDING j.=fõ wd.ka;=l (foreign) h;=rls'
+
+            B. It is compulsory to input data to the DATE data type fields in both tables.
+               j.= foflysu DATE o;a; j¾.fha lafIa;%j,g o;a; wdodkh lsÍu wksjd¾h fõ'
+
+            C. STUDENT_ID can contain only five English letters.
+               STUDENT_ID ys bx.%Sis wlaIr myla muKla mej;sh yels h'
+
+            1) A only.     2) A and B only.   3) A and C only.    4) B and C only.   5) All of the above.
+               A muKs.        A yd B muKs.       A yd C muKs.        B yd C muKs.       by; ish,a,u.
+
+                                                                                             ( 2023 – 33 )
+
+
+
+
+ictfromabc.com
+         1. Consider the following ER diagram.
+            my; oelafjk ER igyk i,ld n,kak'
+
+
+
+
+          (i) Write the structure of the tables including their attributes when the above ER
+              diagram is converted to a relational database.
+              by; ER igyk iïnkaO;d (relational) o;a; iuqodhlg yer jQ úg ,efnk j.= iN tajdfha
+              Wm,laIK ,shd olajkak'
+
+          (ii) Using the tables you have suggested in (i) above, write an SQL statement to get
+             marks obtained for the subject with the value of Subject ID AL001 by the student with the
+             value of Student ID ST001.
+             by; (i) ys fhdackd lrk ,o j.= Ndú;lrñka Subject ID ys w.h AL001 jk úIhh i|yd
+             Student ID ys w.h ST001 jk YsIHhd ,enQ ,l=Kq ,nd.ekSu i|yd SQL m%ldYhla ,shkak'
+
+                                                                                        ( 2012 ESSAY )
+
+         2. Convert the following ER diagram to table structures in a relational database. The attribute
+            capacity may have values such as captain, vice-captain, member etc.
+            my; fmkajd we;s ER igyk iïnkaOl o;a; iuqodh j.= wdlD;sj,g mßj¾;kh lrkak'
+            capacity Wm,laIKh i|yd captain, vice-captain, member wd§ jYfhka jQ w.hhka mej;sh
+            yels h'
+
+
+
+
+             Based on the table structures obtained in section above answer the following questions.
+             by; fldgfiys § ,nd .;a j.= wdlD;Ska mokï lr f.k my; i|yka m%Yak i|yd ms<s;=re
+             fokak'
+
+
+
+
+ictfromabc.com
+         (i) Write an SQL statement to get a list of sports that do not have captains.
+            kdhlhska fkdue;s l%Svdjkaf.a ,ehsia;=jla ,nd .ekSug SQL j.ka;shla ,shkak'
+
+         (ii) Write an SQL statement to obtain a list of students (studentId and name) who participate
+            in any sport as a captain.
+            kdhlhl= f,i ´kEu l%Svdjlg iyNd.S jk YsIHhkaf.a ,ehsia;=jla (studentId and name)
+            ,nd .ekSug SQL j.ka;shla ,shkak'
+
+                                                                                          ( 2013 ESSAY )
+
+         3. You are given the following two tables in a relational database.
+            iïnkaOl o;a; iuqodhlg wh;a my; oelafjk j.= fol Tng § we;ehs i,lkak'
+
+            house                     student
+             houseID    name           studentID    name       grade   houseID
+             HS1        Gamunu         STU001       Ranjith    13      HS1
+             HS2        Tissa          STU002       Gopy       12      HS1
+             HS3        Wijaya         STU003       Vipula     12      HS2
+             HS4        Parakum        STU004       Hakeem     11      HS3
+
+            Write the output of the following SQL statements based on the above tables, if any,
+            otherwise state the error.
+            by; j.= u; mokï j my; olajd we;s jHqy.; úuiqï NdId (SQL) j.ka;sj, m%;sodkhka
+            mj;skfa ka kï ,shd olajkak' fkdtfia kï fodaIh m%ldY lrkak'
+
+            (i) select * from student where houseID = 'HS3';
+            (ii) select studentID, houseID, name from student, house;
+
+                                                                                          ( 2014 ESSAY )
+
+         4. Consider the following Data Definition Language (DDL) statement to answer the questions.
+               a j,g ms<s;=re iemhSu i|yd my; olajd we;s o;a; w¾: oelaùfï NdId (DDL) j.ka;sh
+            m%Yk
+            i,ld n,kak
+
+            CREATE TABLE unit (
+                   instituteCode varchar(10) NOT NULL,
+                   unitCode varchar(10) NOT NULL,
+                   unitTitle varchar(50) DEFAULT NULL,
+                   PRIMARY KEY (instituteCode,unitCode),
+                   FOREIGN KEY (instituteCode) REFERENCES institute(instituteCode));
+
+         (i) What is the primary key of the above table?
+             fuys i|yka j.=fõ m%d:ñl h;=r l=ula o?
+
+         (ii) What are the integrity constraints used in the above DDL?
+              by; DDL ys Ndú; lr we;s taldnoaO ixfrdaOl (integrity constraints) fudkjd o?
+
+                                                                                         ( 2015 S.ESSAY )
+
+
+
+
+ictfromabc.com
+         5. The following SQL statement has been used to create a table in a database.
+            o;a; iuqodhla ;=< my; § we;s SQL j.ka;sh Ndú; lr j.=jla ks¾udKh lr we;'
+             create table student(
+             student_no char(5),
+             name char(30),
+             address char(100),
+             primary key (student_no));
+
+          (i) Write a query in SQL to add the following data to the student table.
+              my; o;a;h student j.=jg we;=<;a lsÍug SQL úuiqula (query) ,shkak'
+
+             Student number    – 10001
+             Name              – Saman Kumara
+             Address           – 78, Mahara road, Maharagama
+
+          (ii) If the address of the student entered in the (i) above should be changed to 13, School
+               Lane, Jaffna, write a query in SQL to update the relevant record in the student table.
+               by; (i) ys we;=<;a l< YsIHhdf.a ,smskh 13, School Lane, Jaffna f,i fjkia úh hq;= kï"
+               student j.=fjys we;s wod< Wm,elsh (record) hdj;ald, lsÍug SQL úuiqula ,shkak'
+
+                                                                                      ( 2017 ESSAY )
+
+         6. Consider the following Entity Relationship (ER) diagram.
+            my; olajd we;s N+;d¾: iïnkaO;d (ER) igyk i,lkak'
+
+
+
+
+                                          ------
+
+
+         (i) Write an SQL statement to display Names and Addresses of all the STAFF.
+             ld¾h uKav,fhys ish,a,kaf.au kï iy ,smsk m%o¾Ykh lsÍu i|yd SQL m%ldYhla ,shkak'
+
+         (ii) Write an SQL statement to display the names of the dependants of staff member with
+              StaffID = 'E001124'.
+              StaffID = 'E001124' jk ld¾huKav, idudðlhdf.a hefmkakkaf.a (DEPENDANT) kï
+              m%o¾Ykh lsÍu i|yd SQL m%ldYhla ,shkak'
+
+                                                                                     ( 2018 S.ESSAY )
+
+
+
+
+ictfromabc.com
+         7. The following two tables CLASS and STUDENT are constructed by using the Entity
+            Relationship (ER) diagram shown in Figure.
+            my; oelafjk CLASS iy STUDENT j.= fol" rEmfhys § we;s ER igyk Ndú; lr ks¾udKh
+            lr we;'
+
+            CLASS Table
+             ClassID      ClassName       ClassTeacher       Stream               Year
+             1111         12 – A          A. B. Perera       Physical Science     2017
+             1112         12 – B          N. Mohamed         Bio Science          2017
+             1113         13 – A          E. Selvadurai      Arts                 2017
+             1114         13 - B          L. De Silva        Commerce             2018
+
+            STUDENT Table
+             Index Number     ClassID      Initials     Surname          DateOfBirth
+             8991             1112         E.           Nazeer           1999.12.06
+             8993             1111         S.           Sivalingam       1999.02.06
+             8995             1112         W.           Fernando         1999.11.11
+             8997             1113         U. H.        De Silva         1999.08.06
+
+
+
+
+                                            A                        B
+
+
+
+
+            Write an SQL statement to insert the following record to the CLASS table.
+            CLASS j.=jg my; oelafjk Wm,elshdkh we;=<;a lsÍu i|yd SQL m%ldYhla ,shkak'
+
+
+                 1115       13 - C      A.B. Jinasena     Technology            2018
+
+                                                                                       ( 2018 ESSAY )
+
+
+
+
+ictfromabc.com
+         8. A vehicle rental company has registered vehicle owners. Vehicles are obtained from the
+            owners and rented to the customers. Consider the following relations regarding the vehicle
+            rental company.
+            tla;rd jdyk l=,shg iemhSfï iud.ulg ,shdmÈxÑ jdyk ysñlrejka we;' ysñlrejkaf.ka
+            jdyk ,ndf.k mdßfNda.l   s hka fj; l=,shg ,nd foa' jdyk l=,shg iemhSfï iud.ug wod<
+            my; oelafjk iïnkaO;d (relations) i,lkak'
+
+                   I.      Customer (Customer_NIC, Customer_Name, City, Postal_Code)
+                  II.      Vehicle_Owner (Owner_Id, Owner_Name, Contact_No)
+                 III.      Vehicle(Vehicle_Reg_No, Description, Owner_Id)
+
+
+            •           The Customer relation contains customer’s national identity card number (NIC) which
+                        is unique, name, city where he/she is living and the postal code of the city. A customer
+                        lives in a single city and there are many customers in one city. The postal code depends
+                        on city.
+                        Customer (mdßfNda.l     s hd) iïnkaO;djfhys wkkHjk Customer_NIC (mdßfNda.l        s hdf.a
+                        cd;sl ye÷kqïm;a wxlh&" Customer_Name (ku)" Tyq$weh Ôj;ajk City (k.rh) iy tu
+                        k.rfhys Postal_Code (;eme,a fla;h) wvx.= fõ' tla mdßfNda.l            s hl= tla k.rhl
+                        Ôj;ajk w;r tla k.rhla ;=< mdßfNda.l         s hka rdYshla Ôj;a úh yel' ;eme,a fla;h"
+                        k.rh u; r|d mj;S (depends)'
+
+            •           The Vehicle_Owner relation contains the Owner_Id which is unique, owner’s name and
+                        the contact number.
+                        Vehicle_Owner (jdykh - ysñlre) iïnkaO;djfhys wkkH jQ Owner_Id (ysñlre ye÷kqï
+                        wxlh)" Owner_Name (ysïlref.a ku) iy Contact_No (weu;=ï wxlh) wvx.= fõ'
+
+            •           The Vehicle relation contains the vehicle registration number which is unique, a
+                        description about the vehicle and the Owner_Id.
+                        Vehicle (jdykh) iïnkaO;djfhys wkkH jQ jdykfha Vehicle_Reg_No (,shdmÈxÑ wxlh)"
+                        Description (jdykh ms<sn| úia;rh) iy Owner_Id (ysñlre ye÷kqï wxlh) wvx.= fõ'
+
+                        A customer can rent more than one vehicle. Also, it is possible to rent one vehicle to
+                        many customers at different instances. Each vehicle is owned by one owner and one
+                        owner can have more than one vehicle.
+                        mdßfNda.l
+                                s hl=g jdyk tllg jvd l=,shg .; yels h' ;jo lsishï jdykhla
+                        mdßfNda.l
+                                s hka lsym
+                                         s fokl=g fjkia wjia:dj, § l=,shg Èh yels h' iEu jdykhlgu ;ks
+                        ysñlrejl= isák w;r" tla ysñlrejl=g jdyk tllg jvd ;sìh yels h'
+
+            Write an SQL statement to select Owner_Id and Vehicle_Reg_No of all the vehicles owned
+            by each vehicle owner.
+            tla tla jdyk ysñlreg whs;s ish¨ u jdykj, Owner_Id (ysñlre ye÷kqï wxlh) iy
+            Vehicle_Reg_No (jdykfha ,shdmÈxÑ wxlh) Select (f;dard .ekSu) i|yd SQL j.ka;shla ,shd
+            olajkak'
+
+                                                                                                 ( 2019 ESSAY )
+
+
+
+
+ictfromabc.com
+         9. The ‘Winner’ table given below contains the details of the players who won different
+            matches and medals. There is a fixed amount of prize money given to each medal type. A
+            Gold medal has Rs. 20,000/=, a Silver medal has Rs. 10,000/= and a Bronze medal has Rs.
+            5,000/=. Consider the primary key of the Winner table as NIC and MatchID.
+            l%Svlhka ch.%yKh lrk ,o l%Svd (games) iy molalï (medals) ms<sn| úia;r my; ‘Winner’
+            j.=fjys we;=<;a fõ' tla tla molalï (medals) j¾.h i|yd ksYÑ     a ; ;Hd. uqo,la we;' rka
+            (gold) molalula i|yd re.20,000/- la o ß§ (silver) molalula i|yd re.10,000/- la o f,dalv
+            (bronze) molalula i|yd re.5,000/- la o ,efí' Winner j.=fjys m%d:ñl h;=r NIC iy
+            MatchID f,i i,lkak'
+
+            Winner Table
+                 NIC                MatchID         MedalType           Prize
+              951477751V             BD-2             Silver            10000
+              985467923V             BD-2             Gold              20000
+              995874159V             BD-1             Gold              20000
+              997656614V             BD-3             Silver            10000
+              951477751V             BD-1            Bronze              5000
+
+         (i) Write an SQL statement to display the number of players who won “Gold” medals.
+             rka molalï Èkk ,o l%Svlhka ixLHdj m%o¾Ykh lsÍu i|yd SQL m%ldYhla ,shd olajkak'
+
+                                                                                       ( 2020 ESSAY )
+
+         10. A building construction company signs contracts with its clients. Each contract is handled
+             by an agent of the company.
+             f.dvke.s,s bÈlsßu iud.ula ;u fiajdfmalaIlhka (clients) iu. fldka;%d;a;= ^.súiqï& w;aika
+             lrhs' tla tla fldka;d;a;=j iud.fï tacka;jrhl= úiska yiqrejkq ,efí'
+
+            The Contracts table contains the details of the contracts. It has contract number, agent’s
+            code, name and mobile phone number represented with CNo, ACode, AName and
+            AMobile attributes respectively. The client’s name is represented with Client. Primary key
+            of the Contracts table is CNo.
+            Contracts j.=fjys fldka;%d;a;= ms<sn| úia;r wvx.= fõ' fldka;%d;a;= wxlh" tacka;jrhdf.a
+            fla;h" ku iy cx.u ÿrl:k wxlh ms<sfj<ska CNo, ACode, AName iy AMobile Wm,elsj,
+            oelafõ' fiajdfmalaIlhdf.a ku Clients u.ska oelafõ' Contracts j.=fõ m%d:ñl h;=r CNo fõ'
+
+            Contracts
+             CNo            ACode          AName          AMobile         Client
+             C-112          EP003          Anura          0714545866      Sirimal
+             C-103          EP006          Navod          0774511320      Abish
+             C-116          EP003          Anura          0714545866      Nehara
+             C-224          EP015          Virah          0763538147      Sirimal
+
+         (i) Write an SQL statement to change in the Contracts table, the mobile number of the
+             agent whose agent code is EP003 to 0772222222.
+             Contracts j.=fõ EP003 tacka; fla;h iys; tacka;jrhdf.a ÿrl:k wxlh 0772222222
+             f,i fjkia lsÍug SQL m%ldYhla ,shkak'
+
+                                                                                       ( 2021 ESSAY )
+
+
+
+
+ictfromabc.com
+         11. Use the following Employee, and Assign Project denormalized tables to answer parts (i),
+             (ii), (iii), (iv) and (v). Please note that primary key(s) of each table is(are) underlined.
+             (i), (ii), (iii), (iv) iy (v) hk fldgiaj,g ms<s;=re ,nd§ug my; i|yka Employee (fiajl) iy
+             Assign_Project (jHdmD;s wkshqla;hka) hk m%u;lrKh fkdjQ j.= Ndú; lrkak' tla tla j.=fõ
+             m%d:ñl h;=r^re& háka bß we| we;s nj i,lkak'
+
+            Employee
+              EmployeeId            FullName                  DOB            Salary
+                   E001           Saman Perera          12/02/1978           140000
+                   E002           Upul Fernando         23/05/1982           44000
+                   E005             Chris Peris         11/08/1980           44000
+                   E007          Kamala Gamage          08/08/1973           52000
+                   E008            Sunil Perera         25/04/1969           115000
+                   E011            Vipul Namal          09/02/1977           38000
+
+            Assign_Project
+               ProjectId       EmployeeId         PName        Description
+                   P04             E002             Sales      Implement sales management system
+                   P04             E008             Sales      Implement sales management system
+                   P06             E007             HRM        Implement sales HRM system
+                   P07             E002            Library     Implement library management system
+                   P09             E001           Inventory    Implement Inventory management system
+                   P09             E007           Inventory    Implement Inventory management system
+
+         (i) Write down the output of the following SQL statement:
+             my; SQL m%ldYfha m%;sodkh ,shd olajkak'
+            SELECT Employee.FullName, Employee.Salary
+            FROM Employee, Assign_Project
+            WHERE Assign Project Employeeld = Employee Employeeld;
+
+         (ii) Write an SQL statement to display the names of the employees who are assigned to
+              project P04.
+              P04 jHdmD;shg (project) wkshqla; lr we;s fiajlhkaf.a kï m%o¾Ykh lsÍug SQL m%ldYhla
+              ,shkak'
+
+         (iii) Give an example SQL query where the update anomaly can occur in Assign_Project table.
+               Assign_Project j.=fõ hdj;ald,sk lsÍfï úIu;djla (update anomaly) we;s úh yels SQL
+               úuiqulg (query) WodyrKhla fokak'
+
+                                                                                         ( 2022 ESSAY )
+
+
+
+
+ictfromabc.com
+         12. Consider the following Employee table:
+             my; Employee (fiajlhd) j.=j i,lkak.
+
+             Emp_ID Emp_Name DoB                Department Designation DoJ        Salary
+                                                Bio
+             E110      Saman         15/10/1970             Professor  12/04/2001 145000
+                                                Technology
+                                                            Assistant
+             E111      Kumar         25/05/1980 Mechanical             02/05/2006 100000
+                                                            Professor
+                                                            Assistant
+             E115      Raja          10/08/1982 Engineering            05/05/2001 98000
+                                                            Professor
+                                                            Assistant
+             E114      Jennifer      11/09/1975 Engineering            03/06/2001 197000
+                                                            Professor
+                                                            Assistant
+             E117      Ismail        15/05/1979 Civil                  10/05/2005 103000
+                                                            Professor
+
+         (i) Write the most suitable SQL statement to create Employee table with suitable primary key.
+             iqÿiq m%d:ñl h;=rla (primary key) iu. Employee j.=j iE§ug jvd;au iqÿiq SQL m%ldYh
+             ,shkak'
+
+         (ii) Write the required SQL statement to insert the record for the following employee:
+              my; fiajlhdg wod< frfldavh we;=<;a lsÍu i|yd wjYH SQL m%ldYh ,shkak.
+            Emp_ID = E119, Emp_Name = “John”, DoB = “15/06/1971”, Department =
+            “IT”, Designation = “Professor”, DoJ = “15/07/2001”, Salary, = 107000
+
+         (iii) Write the output obtained by applying the following SQL query:
+               my; SQL úuiqu i|yd ,efnk m%;sodkh ,shkak.
+            SELECT Emp_ID, Emp_Name
+            FROM Employee
+            WHERE Salary>103000;
+
+         (iv) Write the appropriate SQL query to find the names of all employees who work in the “Civil”
+              department.
+              Civil fomd¾;fïka;=fõ jev lrk ish¨ fiajlhkaf.a kï fidhd.ekSug iqÿiq SQL m%ldYhla
+              ,shkak.
+
+                                                                                        ( 2023 ESSAY )
+
+
+
+
+ictfromabc.com
+

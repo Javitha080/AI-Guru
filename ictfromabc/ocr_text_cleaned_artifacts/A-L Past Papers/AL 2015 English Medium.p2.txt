@@ -1,0 +1,310 @@
+Part A — Structured Essay Do not
+. . . t
+Answer all four questions on this paper itself this
+column
+1. (a) Consider the web form given in the figure which has been developed for sending text messages
+from a web application.
+a
+Send Text Message
+Fill in all the fields and click Send Message
+Phone No.:
+Message:
+Send your message
+Figure: Form used to send text messages
+The partial HTML code segment given below is prepared to generate the above form. Complete
+the code segment to render the above form.
+<h2>Send Text Message</h2>
+<p>Fill in all the fields and click Send Message</p>
+<form action="" method="POST">
+<div class= "a">
+<div class = “1"> Phone No. :</div>
+<div class = "r"><input 1%[06-…… name="phone" size="20"></div>
+</div>
+<div class = "a">
+<div class = "1">Message:</div>
+KALV CLASS = "දෲ…… name="message" rows="7" cols="30">
+ඳා …… ></div>
+</div>
+<div class = "a">
+<div class = "r"><input type="SUbMIt" 751 16 :-……-…… eeeeeeens ></div>
+</div>
+</form>
+ද y,
+
+AL/2015/20/E-II -3- Index Noe? ……
+
+” ෴
+. . D
+(b) A well formed syntactically correct HTML code has been developed to render a web page which ක්‍ෂ
+includes an image of a school. However, the browser does not display the image. Instead, it | ;. this
+
+only displays the text "School" which is given as the ‘text’ attribute of alt. Give two possible | column
+reasons for this behaviour.
+
+(c) Indicate whether the following CSS rules are syntactically correct or incorrect. If a rule is incorrect
+write the correct version.
+
+(1) p {color: reds} ……
+0 {font-type: Arial; } ……
+(11) body{color: reds} ……
+{background-color: yellOW; } ……
+
+(111) 11, H3{color: 51016 ……
+
+2. (a) Assume that in a particular digital device integers are represented in 8-bits two’s complement form.
+However, the results of computations are printed in decimal.
+
+(i) Give the representation of 1010 in the above device.
+
+(ii) Give the representation of -2510 in the above device.
+
+(111) Explain how the computation of 1010 - 2510 done by the device by using your representations
+given in sections (i) and (11) above.
+
+"ව 7
+
+la
+
+Do not
+write
+in this
+column
+
+(iv) List the steps necessary to transform the result obtained in section (iii) above into decimal
+form in order to print the answer.
+
+(b) A bank offers services, such as maintaining savings and current accounts, Automatic Teller
+Machine (ATM) services, processing loans, leasing properties and exchanging foreign currencies
+to its customers. The bank has decided to introduce Internet banking facility to its customers
+to grant them with more control on their accounts. This will facilitate its customers to check
+account balance, pay bills, transfer funds to other accounts and communicate with the bank
+online.
+
+(i) State two reasons that can discourage bank customers from using Internet banking services.
+
+(ii) Do you agree that providing the proposed Internet banking services is a B2C business
+type? Justify your answer.
+
+(111) The bank has realized that a significant number of loan applications they receive from their
+customers are getting rejected at the initial screening. Therefore, the management thinks
+that their customers could be provided with an expert system based loan pre-processing
+tool so that the customer disappointments could be reduced while saving bank staffs time.
+Do you agree with this idea? Justify your answer.
+
+ෂී
+
+_2
+
+( ෴
+
+Do not
+write
+in this
+(i) State whether the process of changing energy from one form to another is a close system. column
+
+3. (a) Albert Einstein quoted “Energy cannot be created or destroyed; it can only be changed from one
+form to another.”
+
+(ii) State a reason to justify your answer given for (a) (i), above.
+
+(b) Consider the following Data Definition Language (DDL) statement to answer the questions 0 (1)
+and b (ii).
+CREATE TABLE unit (
+instituteCode varchar(10) NOT NULL,
+unitCode varchar(10) NOT NULL,
+unitTitle varchar(50) DEFAULT NULL,
+PRIMARY KEY (instituteCode,unitCode),
+FOREIGN KEY (instituteCode) REFERENCES institute(instituteCode))
+
+(i) What is the primary key of the above table?
+
+(ii) What are the integrity constraints used in the above DDL?
+
+[ම
+
+(i) What is the cardinality of the above table?
+
+(ii) What is the degree of the above table?
+
+4, (a) A 32-bit computer has a byte addressable main memory. The computer uses 32-bit addresses to
+access any byte in its memory. It is observed that a maximum of 4 GB memory is available
+for a process even after the main memory is replaced by an 8 GB memory. Explain, with all
+
+the calculations, why this happens.
+
+(b) An operating system uses seven state process transition model for process scheduling. A given
+process is currently in the running state of the above model. Fill the following table with the
+
+correct next possible state and condition for transitions.
+
+(c) Consider the following table: en
+index | name address class in this
+column
+1022 | S.M.G.D. Dayasiri | No. 15, Peradeniya Road, Kandy 8B
+566 G.M.D. Priyangani | No. 147/7, Katugasthota Road, Kandy 11C
+923 F.D.C. Jayasingha “Sadasiri”, Colombo Road, Mawanella 10B
+
+Current state
+
+Next possible state
+
+Condition for transition
+
+Running
+
+L
+
+y,
+
+QNOOMICN HL LIF 1.-60)5:5)- Gl 60 60 SG TLD
+
+seen 01119]9 7අ1/1151)1] ugAy Quy spl ufLens, 2015 $%6900
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
+
+FSU, QHTLGUTLS 0181101011! 11!) 11 [20 EB | 11 |
+
+% Answer any four questions only.
+
+Part B
+
+1. (a) Explain how to derive a Boolean expression from a given truth table.
+
+(b) In residential electrical wiring, the following circuit has been used to operate a light in a staircase.
+
+O
+Y
+
+Switch 51 Switch s2
+
+Power
+Source P
+
+Lamp L
+
+WJ
+
+As in the above circuit, two switches S1 and 52 are installed at the bottom and the top of the staircase
+to operate the lamp L. The lamp turned on by using the switch 5 1 at the bottom of the staircase can
+be turned off by using the switch S2 at the top of the staircase. Further, the lamp turned on by using
+switch 52 at the top of the staircase can also be turned off by using the switch 51 at the bottom of
+the staircase. Moreover, the lamp L turned on by a switch can be turned off by the same switch.
+
+Assume that the connections to positions X and Y of a switch in the above circuit are represented by the
+truth values 1 and 0 respectively and the turned on and turned off states of the lamp L are represented
+by the truth values 1 and 0 respectively.
+
+(i) Construct a truth table to represent the functionality of the above circuit.
+(ii) Derive a Boolean expression to represent the truth table obtained in section (i) above.
+
+(iii) What is the logic gate which is equivalent to the functionality of the Boolean expression obtained
+in section (11) above?
+
+(iv) Construct a logic circuit for the Boolean expression obtained in section (11) above with NOT, AND
+and OR gates only.
+
+2
+
+ඒ ~~
+
+2. (a) The IP address 125.214.169.218 is assigned to the server www.doenets.Ik. The ping 125.214.169.218
+command issued from the machine A reported a round trip time (RTT) of 20 ms.
+
+However, the ping www.doenets.Ik command, issued some time later from the machine A, reported an
+error.
+
+(i) Draw a network diagram to depict the server, machine A and any other required components to
+describe the above scenario.
+
+(ii) Identify two possible causes for the above behaviour and explain them using the diagram developed
+in section (a) (i) above.
+
+(b) An organization has only one public IP address, 192.248.17.1, allocated to it. The organization has decided
+to allow web browsing on the computers on its LAN with 100 computers. It also wants to optimize the
+usage of its Internet connection by reducing the traffic on the link as much as possible.
+
+Draw a network diagram to satisfy the above requirements. Explain the major decisions you made.
+
+3. The National University of Information Technology is a well-recognized university. They offer both bachelors
+and post-graduate degree programmes, diplomas as well as short courses in information technology and
+business management. All teaching of the above courses is being conducted at their sophisticated classrooms
+and state-of-the-art computer laboratories specifically designed to provide a student-centred interactive learning
+experience. The management of the university has realized that their brand name has become well known
+in the country as the number of inquiries they receive from far away provinces has increased. Furthermore,
+a recent study has revealed that their short courses and diplomas are also very popular among working
+professionals despite the burdens of their busy work schedules as well as the limited time available to
+devote for education. Hence, the management has proposed to start a distance education programme with the
+objectives of providing new value added services and capturing new markets.
+
+(a) Propose an ICT based system to implement the above distance education programme. Describe its main
+components by using a simple diagram.
+
+(b) Explain three advantages of the proposed system.
+(c) Discuss three challenges of the proposed system.
+
+(d) The management thinks that agent technology based techniques could be used to overcome some of the
+above challenges. Do you agree with this statement? Justify your answer.
+
+4, (a) Explain why compilers or interpreters are needed when using high level programming languages.
+
+(b) Your teacher has requested you to write a Python program to record the marks obtained by students at
+the term test. Each student has sat for the same three papers and each mark was given as an integer
+value out of 100 marks. Each student is identified by a unique index member which is also an integer.
+You should record the marks of student in a text file named ‘marks.txt’ in the following format.
+
+Index_no_1,mark_11,mark_12,mark_13
+Index_no_2,mark_21,mark_22,mark_23
+
+Where
+Index_no_X : Index number of the X"™ student; X = 1, …… Jn
+mark _XY : Marks obtained by the X“ student for the Y" paper: Y = 1, 2, 3
+
+Index numbers and marks of the students should be entered through the keyboard, one item at a time
+and the program should be terminated when —1 is entered as the index number.
+
+(i) Propose an algorithm by using a flowchart for the program.
+
+(ii) Write a Python program to implement your flowchart.
+
+S y
+
+ණ්‌ ॥
+
+5. A pharmacy named “DR Chemists” sells drugs to patients. A patient should produce a prescription to a
+pharmacist at the pharmacy to buy drugs. A prescription has one or more drugs prescribed by a doctor. A
+doctor can issue more than one prescription for a patient. However, a prescription is issued by one doctor.
+Pharmacist prepares a bill for each prescription and gives it to the patient. Five (05) pharmacists at the
+pharmacy handle all prescriptions.
+
+A pharmacist handles more than one prescription while one prescription is handled only by one pharmacist.
+The upper part of the prescription contains the patient information such as name, age, address and telephone
+number. The middle part of the prescription consists of one or more drug names, quantities to be issued and
+the dosages. At the bottom part name, address and telephone number of the hospital and the name of the
+doctor are available.
+
+The owner of the pharmacy wants to keep the necessary information to prepare the following list of reports.
+
+Number of prescriptions handled by each pharmacist.
+
+Number of prescriptions issued by each doctor.
+
+wn
+
+List of information about doctors, their hospitals and drugs prescribed by them.
+4. List of daily cash collection of the pharmacy.
+
+Prepare an ER diagram to model the data required to produce the above reports. State clearly all your
+assumptions, if any.
+
+6. Draw a context diagram to show the overview of the library system described below. Clearly indicate external
+entities and data flows of your diagram and state any acceptable assumptions that you have made.
+
+The National Information Technology Library (NITL) provides e-books to its users through an online system
+named “Library Information Processing System (LIPS)”.
+
+A person should submit an application to NITL to become a member of the LIPS. The NITL evaluates the
+application and enters it to the LIPS, if it is approved. After entering the application data, LIPS issues an
+activation code to NITL which in turn passes it to the relevant person. Once the activation code is received
+the person becomes a member of LIPS. A member can obtain his/her username and password by providing
+the activation code to the LIPS. A member can subsequently access e-books by entering his/her username
+and the password to the LIPS.

@@ -1,0 +1,5632 @@
+CONTENT
+
+Introduction to Logic Gates
+
+Basic Logic Gates
+
+Implementing XOR gate using Basic Logic gates
+Universal Gates
+
+Electrical Circuits to model the functionality of Logic gates
+Boolean Algebra & Laws
+
+Karnaugh-Maps
+
+Designs simple logic circuits using Logic gates
+Minterms and Maxterms
+
+SOP to POS and POS to SOP conversions
+Standard and Non-standard expressions
+Designs logic circuits for a given scenario
+
+Full adders and Half adders
+
+Flip-Flops
+
+Integrated Circuits
+
+
+10
+14
+19
+22
+31
+36
+40
+43
+48
+51
+58
+65
+74
+
+Introduction
+හැඳින්වීම
+
+George Boole (1815-1864)
+
+George Boole, an English mathematician
+and logician, is known as the father of
+Boolean algebra, which is the mathematical
+framework used to describe the operation
+
+of logic gates.
+
+O08 ගණිතඥුයෙකු සහ තාරකිකයෙකු වන
+ජෝර්ජ්‌ බූල්‌, තාර්කික ද්චාර ක්‍රියාකාරිත්වය
+විස්තර කිරීමට MAM කරන ගණිතමය රාමුව
+වන බූලීය වීජ ගණිතයේ පියා ලෙසින්‌ හැදින්වේ.
+
+Claude Shannon (1916-2001)
+
+Claude Shannon used Boolean algebra to
+design digital circuits, laying the
+
+foundation for modern computing.
+
+ක්ලෝඩි ෂැනන්‌ විසින්‌ සංඛ්‍යංක පථරිපථ
+නිර්මාණය කිරීම සඳහා බූලියන්‌ වීජ ගණිතය
+භාවිතා කළ අතර, එය නවීන පරිගණකකරණය
+සඳහා අඩිතාලම දැමීය.
+
+
+What is a Boolean event?
+
+බූලීය සිද්ධියක්‌ යනු කුමක්දෟ
+
+An event that has only two possible
+outcomes, where one outcome is the
+opposite of the other is known as a Boolean
+
+event.
+
+එක්‌ ප්‍රනිඵලයක්‌ අනෙක්‌ ප්‍රතිඵලයට ප්‍රත්විරැද්ධ
+වන ප්‍රතිඵල දෙකක්‌ පමණක්‌ ඇති සිදුවීමක්‌ බූලීය
+සිද්ධියක්‌ ලෙස හැදින්වේ.
+
+Only one of the following can result here.
+ලමහි ප්‍රථිඵල ලෙස පැමිණිය හැක්කෙ පහත
+චිවායින්‌ එකක්‌ පමණි.
+
+e Positive / True /Yes—1
+ධන/ සත්‍ය / ඔව්‌
+
+e Negative / False / []9 -- 0
+සැණ/ අසත්‍ය / නැත
+
+What is a logic gate?
+තාර්කික ද්චාරයක්‌ යනු කුමක්‌ e?
+
+An electronic component which takes one
+or several inputs, processes them
+according to the relevant logic and gives a
+
+single output is known as a logic gate.
+ආදාන daa හෝ කිහිපයක්‌ ලබාගනිමින්‌ තමාට
+ආවේනික තර්කය අනුව SO සකස්‌ කර චඑක්‌
+ප්‍රතිදානයක්‌ ලබා දෙන ඉලෙක්ට්‍රොනික
+සංරචකයක්‌ තාර්තික ද්වාරයක්‌ ලෙස හඳුන්වයි.
+
+BE 1 PROCESSING
+
+~~ සැකසීම
+BE2 _ () ~~
+
+OUTPUT
+_ ප්‍රතිදානය
+BE 3
+INPUTS
+ආදාන
+
+NOTES
+
+e A logic gate can have any number of
+
+inputs.
+තාර්කික ද්වාරයකට ඕනෑ තරම්‌ ආදාන
+සංඛ්‍යාවක්‌ තිබිය හැකිය.
+
+e Every input depends on a Boolean
+
+event.
+සෑම ආදානයක්ම බුලීයානු සිද්ධියක්‌ මත රඳා
+පවතී.
+
+e A logic gate can have only one output.
+තාර්කික ද්වාරයකට තිබිය හැක්කේ de)
+ප්‍රතිදානයක්‌ පමණි.
+
+e There are several types of logic gates
+according to the performing logic.
+
+I%shdldl :34Ikh wkqj ;d*4lsl oajdr O6@
+කිහිපයක්‌ තිබේ.
+
+e They also have different shapes
+according to the logic.
+
+JO තර්කනය අනුව SSO හැඩ තලද
+පවතී.
+
+Logic gates can be mainly divided into
+two types.
+
+තාර්කික ද්වාර ප්‍රධාන වශයෙන්‌ වරග දෙකකට
+බෙදා දැක්විය හැක.
+
+1. Basic Logic Gates
+මූලික තාර්කික ද්චාර
+
+2. Combinational Logic Gates
+සංයුක්ත තාරිකික ද්වාර
+
+
+Input Combinations
+ආදාන සංයෝජන
+
+All possible combinations of unique binary
+values (Os and 1s) that can be applied to the
+inputs of a logic gate is known as input
+combinations.
+
+තාර්කික ද්වාරයක ආදාන වලට ලබා දිය හැකි
+ද්ව්මය අගයන්‌ ((0) සහ (1)) වල සියලුම
+චකිනෙකට චෙනස්‌ සංයෝජන ආදාන සංයෝජන
+ලෙස හැඳින්වේ.
+
+The number of possible input combinations
+depends on the number of inputs,
+following the formula:
+
+පැවතිය හැකි ආදාන සංයෝජන ගණන පහත
+
+සූත්‍රය අනුගමනය කරන අතර එය ආදාන ගණන
+මත රඳා පවතී:
+
+Number of Input Combinations = 2"
+
+ආදාන සංයෝජන ගණන
+
+n is the number of input variables.
+N යනු ආදාන විචල්‍ය සංඛ්‍යාව Gs.
+
+For 1 input variable (A):
+චක්‌ ආදාන විචල්‍යයක්‌ සඳහා:
+
+Number of Input Combinations = 2' = 2
+ආදාන සංයෝජන ගණන
+
+0
+A
+Ps
+
+For 2 input variables (AB):
+ආදාන විචල්‍යය 2ක්‌ සඳහා:
+
+Number of Input Combinations = 2° = 4
+ආදාන සංයෝජන ගණන
+
+—> 00
+
+AB |~>01
+
+—> 10
+— > 11
+
+Basic Logic Gates
+මූලික mbSe ද්වාර
+
+Basic logic gates are the fundamental
+building blocks of digital circuits. They
+perform basic logical functions that are
+
+essential for digital computations.
+
+මූලික තාර්කික ද්වාර යනු අංකිත පරිපථවල
+මූලික තැනුම්‌ වකක වේ. TB) මගින්‌ අංකිත
+ගණනය කිරීම්‌ සඳහා අත්‍යවශ්‍ය වචන මූලික
+තාර්කික කාරියයන්‌ ඉටු කරයි,
+
+There are 3 basic logic gates.
+මූලික තාරිකික ද්චාර 3 ක්‌ පචතී.
+
+NOT Gate
+
+~~~ AND Gate
+
+OR Gate
+
+NOTE:
+NOT gate is the only logic gate that has
+only one input.
+
+NOT ද්වාරය යනු චක්‌ ආදානයක්‌ පමණක්‌
+පචතින එකම තාර්කික ද්චාරය oS.
+
+All the other logic gates at least have two
+
+inputs.
+අනෙකුත්‌ සියලුම තාරකික ද්වාරචල අවම
+වශයෙන්‌ ආදාන දෙකක්වත්‌ ඇත.
+
+
+Combinational logic gates
+සංයුක්ත තාර්කික ද්වාර
+
+Gates which are made up of two or more
+basic gates are known as Combinational
+
+logic gates.
+
+මූලික තාර්කික ද්වාර දෙකක්‌ හෝ කිහිපයක්‌
+සංයෝජනය වීමෙන්‌ සෑදී ඇති ද්වාර සංයුක්ත
+තාර්කික ද්වාර ලෙස හඳුන්වයි.
+
+NOR Gate
+
+NAND Gate
+
+XOR Gate
+
+XNOR Gate
+
+Vivivlc
+
+What is a truth table?
+සත්‍යතා වගුවක්‌ යනු කුමක්ද?
+
+A truth table is a table that displays all
+possible input values and __ their
+corresponding output values for a logical
+expression or Boolean function.
+
+සත්‍යතා OMA යනු තාර්කික ප්‍රකාශනයක්‌ හෝ
+ලබූලියන්‌ ශ්‍රිතයක්‌ සඳහා පැවතිය හැකි සියලුම
+ආදාන අගයන්‌ සහ චිවායේ අනුරෑප ප්‍රතිදාන
+අගයන්‌ පෙන්වන වගුවකි.
+
+It helps visualize how a logic circuit or
+Boolean operation behaves under different
+conditions.
+
+AGS තාර්කික පරිපථයක්‌ හෝ බූලියන්‌ මෙහෙයුමක්‌
+
+විවිධ තත්වයන්‌ යටතේ ක්‍රියා කරන ආකාරය දැක
+ගැනීමට උපකාරී චේ.
+
+NOT Gate (Negation)
+NOT ද්වාරය (නාස්ත්‍යර්ථය)
+
+A
+
+Gives the output as the inverse of the input.
+ආදානයේ GHEQIOS ලෙස ප්‍රනිදානය ලබාදේ.
+
+F is the inverse of A.
+F යනු A හි ප්‍රතිලෝමයයි.
+
+ICN Input (A) Output (F)
+1 False (0) True (1)
+2 True (1) False (0)
+
+AND Gate (Conjuction)
+AND ද්වාරය (සංයුඤ්ජනය)
+
+Output becomes positive only if all the
+inputs are positive.
+
+ආදාන සියල්ල සත්‍ය වන SO පමණක්‌ ප්‍රනිදානය
+සත්‍ය වේ.
+
+Output becomes negative when at least
+one input is negative.
+
+එක්‌ ආදානයක්‌ හෝ අසත්‍ය Om SO ප්‍රතිදානය
+අසත්‍ය චේ.
+
+Should have two or more inputs.
+
+ආදාන දෙකක්‌ හෝ කිහිපයක්‌ පැවතිය යුතුය,
+Output Is always the product of the inputs.
+ප්‍රතිදානය යනු ආදානයන්ගේ ගුණිතයයි,
+
+2 input AND gate
+
+ආදාන දෙකේ AND ද්වාරය
+A —
+F
+>
+ICN A B F
+1 0 0 0
+2 0 1 0
+3 1 0 0
+4 1 1 1
+
+Expression for F = A.B (A AND B)
+
+F becomes true when A and B is true.
+A සහ B සත්‍ය වන SO F සත්‍ය GS.
+
+
+3 input AND gate
+
+ආදාන තුනේ AND ද්වාරය
+A—
+B— F
+C4
+
+F becomes true when A AND B AND C Is
+true.
+A සහ B සහ C සත්‍ය වන SO F සත්‍ය 6.
+
+ICN A B C F
+1 0 0 0 0
+2 0 0 1 0
+3 0 1 0 0
+4 0 1 1 0
+5 1 0 0 0
+6 ] 0 ] 0
+7 ] ] 0 0
+8 1 1 1 1
+
+F = A.B.C (A AND B AND C)
+
+OR Gate (Disjuction)
+OR ද්වාරය (වියුංජනය)
+
+Output becomes positive if at least one
+input is positive.
+
+චික්‌ ආදානයක්‌ හෝ සත්‍ය වන SO ප්‍රතිදානය
+සත්‍ය වේ.
+
+Output becomes negative when all the
+inputs are negative.
+
+සියලු ආදාන අසත්‍ය වන SO ප්‍රතිදානය අසතෲ
+68.
+
+Should have two or more inputs.
+ආදාන දෙකක්‌ හෝ කිහිපයක්‌ පැවතිය යුතුය,
+
+2 input OR gate
+
+ආදාන දෙකේ OR ද්වාරය
+A
+F
+
+ICN A B F
+1 0 0 0
+ද්‌ 0 1 1
+3 1 0 1
+4 1 1 1
+
+Expression for F = A+ B (A ORB)
+
+F becomes true when A OR B Is true.
+A 6m B සත්‍ය වන SO |[- සත්‍ය GH.
+
+3 input OR gate
+ආදාන තුනේ OR ද්වාරය
+
+F becomes true when A OR 8 OR C is true.
+
+A හෝ B හෝ C සත්‍යෲ වචන විට F සත්‍ය GS.
+
+Truth table
+ICN A B C F
+1 0 0 0 0
+2. 0 0 1 1
+3 0 1 0 1
+4 0 1 1 1
+5 1 0 0 1
+6 1 0 1 1
+7 1 1 0 1
+8 1 1 1 1
+
+F=A+B+C(AORBORC)
+
+
+NAND gate
+NAND ද්වාරය
+
+This gate is made by providing the output
+of an AND gate as the input to a NOT gate.
+
+AND ද්වාරයක ප්‍රතිදානය NOT ද්චාරයකට
+සම්බන්ධ කිරීම මගින්‌ මෙම ද්චාරය සෑදේ.
+
+Output becomes the inverse of AND gate.
+
+ප්‍රතිදානය වන්නේ AND ද්චාරයෙහි ප්‍රතිදානයේ
+ප්‍රතිලෝමයයි.
+
+Here, output becomes negative only when
+all the inputs are positive. Output becomes
+positive when at least one input is negative.
+මෙහිදී ආදාන සියල්ල සත්‍ය OD විට ප්‍රනිදානය
+අසත්‍ය වන අතර ආදාන එකක්‌ හෝ අසත්‍ය වන
+විට ප්‍රතිදානය සත්‍ය 6h.
+
+2 input NAND gate
+ආදාන ceeed NAND ද්වාරය
+
+As K F
+B —
+ICN| A B K K F
+1 0 0 0 0 1
+2 0 1 0 0 1
+3 1 0 0 0 1
+4 1 1 1 1 0
+A —
+F
+
+B —
+
+ICN A B F
+
+1 0 0 1
+
+2 0 1 1
+
+3 1 0 1
+
+4 1 1 0
+
+F = A.B (ANAND B)
+
+3 input NAND gate
+ආදාන තුනේ NAND ද්වාරය
+
+A—
+
+B— F
+
+cH
+ICN A B C F
+1 0 0 0 1
+2 0 0 1 1
+3 0 1 0 1
+4 0 1 1 1
+5 1 0 0 1
+6 1 0 1 1
+7 1 1 0 1
+8 1 1 1 0
+
+F = A.B.C
+
+NOR gate
+
+NOR ද්වාරය
+
+This gate is made by providing the output
+of an OR gate as the input to a NOT gate.
+
+OR ද්වාරයක ප්‍රතිදානය NOT ද්වාරයකට
+සම්බන්ධ කිරීම මගින්‌ මෙම ද්චාරය සෑදේ.
+
+Output becomes the inverse of OR gate.
+
+ප්‍රතිදානය OR ද්වාරයෙහි ප්‍රනිදානයේ
+ප්‍රතිලෝමයයි.
+
+Here, output becomes positive only when
+all the inputs are negative. Output becomes
+negative when at least one input becomes
+positive.
+
+මෙහිදී ආදාන සියල්ල අසත්‍ය වන විට ප්‍රනිදානය
+සත්‍ය වන අතර ආදාන එකක්‌ හෝ සත්‍ය වන විට
+ප්‍රතිදානය අසත්‍ය GO.
+
+
+2 input NOR gate
+
+ආදාන දෙකේ NOR ද්වාරය
+
+ICN | A B K K F
+1 0 0 0 0 1
+2. 0 1 1 1 0
+3 1 0 1 1 0
+4 1 1 1 1 0
+A
+F
+B
+ICN A B F
+1 0 0 1
+2. 0 1 0
+3 1 0 0
+4 1 1 0
+F=A+B
+3 input NOR gate
+ආදාන තුනේ NOR ද්වාරය
+A
+B F
+C
+ICN A B C F
+1 0 0 0 1
+2. 0 0 1 0
+3 0 1 0 0
+4 0 1 1 0
+5 1 0 0 0
+6 1 0 1 0
+7 1 1 0 0
+8 1 1 1 0
+F=>A+B+C
+
+XOR Gate 3 input XOR gate
+
+XOR ද්වාරය ආදාන තුනේ XOR ද්වාරය
+2 input XOR gate
+ආදාන දෙකේ XOR ද්වාරය i" F
+C
+A
+F Output becomes positive when the positive
+B number of inputs is an odd number.
+සත්‍ය ආදාන ගණන ඔත්තේ සංඛ්‍යාවක්‌ Om HO
+ප්‍රතිදානය සත්‍ය වේ.
+රනය ම 2 ICN | A B C F
+! 0 0 1 0 0 0 0
+2 0 ! 2 0 0 1 1
+3 ! 0 ! 3 0 1 0 1
+4 |! ! 0 4 0 1 1 0
+5 1 0 0 1
+F=A@B 6 1 0 1 0
+Output becomes positive when and only යි ! ! 0 0
+when one input is positive. 8 ! ! ! !
+එක්‌ ආදානයක්‌ සත්‍ය නම්‌ හා එක්‌ ආදානයක්‌
+පමණක්ම සත්‍ය නම්‌ ප්‍රතිදානය සත්‍ය වේ. F=A@®BOQ@C
+F becomes true when ONLY A OR ONLY B NOTE: (Basic Knowledge)
+is true.
+F සත්‍ය වන්නේ A පමණක්‌ හෝ B පමණක්‌ සත්‍ය Even numbers ඉරටිරටේ eon:
+වන SOE. Divisible by 2 (Ex. 0, 2, 4, 6).
+25) ඉතිරි නැතිව බෙදිය හැක.
+Odd numbers ඔත්තේ සංඛ්‍යා:
+Not divisible by 2 (Ex. 1, 3, 5, 7).
+25) ඉතිරි නැතිව බෙදිය නොහැක.
+NOTE:
+The definition of a 3-input XOR gate is also
+valid for a 2-input XOR gate. But the | |
+definition of a 2-input XOR gate is not valid
+for a 3-input XOR gate. 2-Input 3-Input
+ආදාන තුනෙහි XOR ද්චාරයක අරිථ දැක්වීම XOR XOR
+ආදාන දෙකෙහි XOR ද්වාරයක්‌ සඳහා ද චලංගු Definition Definition
+චේ. නමුත්‌ ආදාන දෙකෙහි XOR ද්වාරයක අරිථ |
+දැක්වීම ආදාන තුනෙහි XOR ද්වාරයක්‌ සඳහා
+වලංගු නොඑී.
+
+XNOR gate
+XNOR ද්වාරය
+
+This gate is made by connecting the output
+of an XOR gate to the input of a NOT gate.
+
+XOR ද්වාරයක ප්‍රතිදානය NOT ද්චාරයකට
+සම්බන්ධ කිරීම මගින්‌ මෙම ද්චාරය සෑදේ.
+
+Output becomes the inverse of XOR gate.
+ප්‍රතිදානය XOR ද්චාරයහි ප්‍රතිදානයහි
+ප්‍රතිලෝමයයි.
+
+2 input XNOR gate
+ආදාන දෙකේ XNOR ද්වාරය
+
+Output becomes negative when and only
+one input is positive.
+
+එක්‌ ආදානයක්‌ සත්‍ය නම්‌ හා එක්‌ ආදානයක්‌
+පමණක්‌ සත්‍ය නම්‌ ප්‍රතිදානය අසත්‍ය වේ.
+
+F becomes false when ONLY A OR ONLY 6
+
+is true.
+අසත්‍ය වන්නේ පමණක්‌ හෝ පමණක්‌ සත්‍ය වන
+විටදීය.
+
+A K
+
+F
+B
+ICN | A B K K F
+1 0 0 0 0 ]
+2 0 ] ] ] 0
+3 1 0 ] ] 0
+4 ] ] 0 0 ]
+A
+F
+B
+ICN A B F
+1 0 0 ]
+2 0 ] 0
+3 1 0 0
+4 ] ] ]
+F=AQ®@ B
+
+
+3 input XNOR gate
+
+ආදාන තුනේ XNOR ද්වාරය
+A
+
+B F
+
+C
+
+Output becomes negative when the
+positive number of inputs of an input
+
+combination is an odd number.
+සත්‍ය ආදාන ගණන ඔත්තේ සංඛ්‍යාවල්‌ වන HO
+ප්‍රතිදානය අසත්‍ය GE.
+
+ICN A B C F
+1 0 0 0 1
+2 0 0 1 0
+3 0 ] 0 0
+4 0 ] ] ]
+5 1 0 0 0
+6 ] 0 ] ]
+7 ] ] 0 ]
+8 ] ] ] 0
+!-&4ආ 0ඉ(0
+
+Implementing XOR gate from basic logic 2. POS
+gate
+
+මුලික තාර්කික ද්වාර භාවිතයෙන්‌ XOR ද්වාරය
+ස්ථාපනය කිරිම AB (A+B)
+
+e Two input XOR gate (A+B) + (A+B)
+
+"මාරි (A+B)
+
+(A +B) | (A+B)
+
+0
+
+ක |ක | -_-|පස|
+oO; | | Oo | Mm
+
+ක|යක |. |||
+
+~~ | ෴~(ඌ|ඟක |ක්‍-
+-෴!|1ඌ|[ !1ඌ!|ථටටා
+
+]
+]
+]
+
+~~ | ~1ඌ| කක |
+ය |ඌ [ය |ඌ|[රාෟ
+oO; |. LOLA
+
+_ _ Note: A@B = (A+B).(A+B
+Ksop = A.B+A.B © ( ).( )
+Kpos = (A + B). (A + B)
+e Three input XOR gate
+
+By using basic logic gates
+මුලික තාර්කික ද්වාර භාවිතයෙන්‌ ගොඩනැගීම.
+
+A
+1. SOP ප -aepec
+C
+
+A—+>— AB
+AB + AB A B ල K
+
+0 0 0 0
+B— AB 0 0 1 1
+
+0 1 0 1
+A\B/|Al|B/AB | AB IE 0 1 1 0
+olol1/1lo (0 (0 1 0 0 1
+0।1|110|1 0 1 1 0 1 0
+1/o0lo0]110 1 1 1 1 0 0
+1/1lololo ।0 (0 1 1 1 1
+As we can see K = E Ksop = A.B.C+A.B.C+A.B.C+A.B.C
+පට පෙනෙන පරිදි K = F වේ. ෙ_ _
+° © Kos = (A+B+C).(A+B+C).(A+B+C).
+Note: A® B = AB+ AB (A+ 0240)
+
+By using basic logic gates
+මුලික තාර්කික ද්වාර භාවිතයෙන්‌ ගොඩනැගීම.
+
+1. SOP
+
+ABC
+
+He le
+}
+
+(A.B.C) + (AB.C) + (AB.C) + (AB.C)
+
+>
+ටර
+O
+
+V
+
+॥ x
+
+A |B {|cC |A |B |C | ABC A.B.C A.B.C A.B.C F
+0 ।0 [0 |} 1 1 1 0 0 0 0 0
+0 ।0 |1 1 1 0 | 1 0 0 0 1
+0 | 1 0 | 1 0 | 1 0 1 0 0 1
+0 | 1 1 1 0 |0 | 0 0 0 0 0
+1 010 [0 | 1 1 0 0 1 0 1
+1 0 | 1 0 | 1 0 |0 0 0 0 0
+1 1 0 ।0 [0 | 1 0 0 0 0 0
+1 1 1 0 |0 |0 | 0 0 0 1 1
+
+Note: AQ B@C=A.B.C+A.B.C+A.B.C+A.B.C
+
+10
+
+2. POS
+
+ABC
+
+Ly (480)
+(_ උන්‌ 2 |
+
++>;
+c a — J}— (A+ B+C).(A+B4+C). (A+ B40). (A+B+0)
+
+PRN
+py
+
+උ (A+B+C)
+
+ක්‍ෂ ග්‌
+
+(& 4 8 4 ලට
+A B C A |B [Cc A+B+C] A+B+C|] A+B+C| A+B+C| F
+0 0 0 1 1 1 0 1 1 1 0
+0 0 1 1 1 0 1 1 1 1 1
+0 1 0 1 0 1 1 1 1 1 1
+0 1 1 1 0 0 1 0 1 1 0
+1 0 0 0 1 1 1 1 1 1 1
+1 0 1 0 1 0 1 1 0 1 0
+1 1 0 0 0 1 1 1 1 0 0
+1 1 1 0 0 0 1 1 1 1 1
+
+Note: A@B@C=(A+B+C).(A+B+C).(A+B+C).(A+B+C)
+
+11
+
+Logic gates and their relevant Ven diagram.
+
+තාර්කික ද්වාර සහ එවාට අදාළ චෙන්‌ රෑප සටහන.
+
+INPUT
+
+OUTPUT
+
+a ෴
+ණ්‌ J
+
+AANDB
+
+ANOTB
+
+A XORB
+
+ANAND පි
+
+12
+
+
+a ෴
+ව /
+a >
+
+AORB
+
+i ‘)
+N 2
+
+BNOTA
+
+639
+
+A XNORB
+
+ANORB
+
+Universal Gates
+සාර්වත්‍ර තාර්කික ද්වාර
+
+A universal gate is a logic gate that can be
+used to implement any Boolean function
+and construct all other basic logic gates
+(AND, OR, NOT) using only NAND gates or
+only NOR gates, without needing any other
+gate type.
+
+සාර්වත්‍ර ද්චාරයක්‌ යනු ඕනෑම බුලීයානු Goaw
+ක්‍රියාත්මක කිරීමට, චෙනත්‌ කිසිදු ද්චාර වර්ගයක
+
+අවශ්‍යතාවකින්‌ GDIOOD NAND ද්වාර හෝ NOR
+ද්වාර පමණක්‌ භාව්තා කරමින්‌ අනෙකුත්‌ සියලුම
+
+මූලික තාර්කික ද්වාර (AND, OR, NOT)
+ගොඩනැගීමට mdm කළ හැකි තනාථකික
+ද්වාරයකි.
+
+Reasons for using Universal gates
+සාර්වත්‍ර ද්වාර භාවිතා කිරීමට හේතු
+
+1. Lower Cost & Simpler Manufacturing
+අඩු පිරිචැය සහ සරල නිෂ්පාදනය
+
+Using only one type of gate (NAND or
+NOR) reduces manufacturing complexity
+and lowers cost in digital circuit design.
+
+එක්‌ වර්ගයක ද්චාරයක්‌ (NAND හෝ NOR)
+පමණක්‌ භාච්තා කිරීම නිෂ්පාදන සංකීර්ණතාව
+අඩු කරන අතර අංකිත පථපථ නිරමාණයේ
+පිරිවැය අඩු කරයි.
+
+2. Easier Standardization & Optimization
+පහසු ප්‍රම්තිකරණය සහ ප්‍රශස්තිකරණය
+
+Standardizing circuits with only NAND or
+NOR gates simplifies design and
+troubleshooting.
+
+NAND 6a@5 NOR ද්චාර පමණක්‌ සහිත පරිපථ
+මගින්‌ ප්‍රම්තිකරණය HOO, සැලසුමි කිරීම සහ
+දෝශ නිරාකරණය සරල කරයි.
+
+
+13
+
+3. Flexibility in Logic Design
+තාර්කික නිරීමාණයේ නම්‍යශීලීභාවය
+
+Any Boolean function can be implemented
+using just NAND or NOR gates, making
+them highly versatile in circuit design.
+
+ඕනෑම බූලියානු ශ්‍රිතයක්‌ NAND හෝ NOR ද්චාර
+පමණක්‌ භාව්තයෙන්‌ ක්‍රියාත්මක කළ හැකි අතර,
+චිවා පරිපථ නිරීමාණයේදී තො බහුකාරිය Gd.
+
+4.. Reliability & Fault Tolerance
+විශ්වසනීයත්වය සහ cede අඩු වීම
+
+NAND and NOR gates are less prone to
+electrical noise and delays, improving
+reliability in circuits.
+
+NAND සහ NOR ද්චාර ව්දුලි ඝෝෂාව සහ
+ප්‍රමාදයන්ට අඩු ප්‍රචණතාවක්‌ ඇති අතර, එමගින්‌
+පරිපථවල විශ්වසනීයත්වය වැඩි දියුණු කරයි.
+
+Efficiency Concern
+කාරයක්ෂමතාව පිළිබද අවධානය
+
+Implementing අ circuit’ with only
+NAND/NOR might require more logic
+levels, increasing propagation § delay
+compared to using dedicated AND, OR,
+and NOT gates.
+
+NAND/NOR- පමණක්‌ සහිත පරිපථයක්‌
+ක්‍රියාත්මක කිරීම සඳහා තාර්කික මට්ටම්‌ වැඩි
+ගණනක්‌ අවශ්‍ය චිය හැකි අතර, එයටම GAH
+AND, OR, සහ NOT ද්චාර භාවිතා කිරීමට
+සාපේක්ෂව මෙහි ප්‍රචාරණ ප්‍රමාදය වැඩි GS.
+
+More gates mean more power usage,
+which may not be ideal for low-power
+applications.
+
+වැඩි ද්වාර සංඛ්‍යාවක්‌ යනු වැඩි බල
+
+පරභෝජනයක්‌ වන අතර, අඩු බලශක්ති යෙදුමි
+සඳහා සුදුසු නොවිය හැකිය.
+
+1. NOR GATE
+
+A+B
+
+Implementing NOT gate from NOR gate
+(Inverter)
+
+NOR ද්වාරයකින්‌ NOT ද්වාරයක්‌ ස්ථාපනය
+කිරීම
+
+A A+A
+Proof
+=A+A
+= A.A De Morgan’s Law
+=A Idempotent Law
+
+Implementing AND gate from NOR gate
+NOR ද්වාරයකින්‌ AND ද්වාරයක්‌ ස්ථාපනය
+
+De morgan’s Law
+Double inverse Law
+
+
+14
+
+Implementing OR gate from NOR gate
+NOR ද්වාරයකින්‌ OR ද්වාරයක්‌ ස්ථාපනය
+
+(A + B) + (A + 6)
+
+Proof:
+
+- (A+B) +(A TB)
+= (A +B).(A+B)
+= (A+B).(A+B)
+= (A+B)
+
+= (A+B)
+
+De Morgan's Law
+Double inverse Law
+Idempotent Law
+
+Implementing Buffer from NOR gate
+NOR ද්වාරයකින්‌ Buffer එකක්‌ නිර්මාණය කිරීම
+
+DD:
+
+Implementing NAND gate from NOR
+gate
+
+NOR ද්වාරයකින්‌ NAND ද්වාරයක්‌ ස්ථාපනය
+කිරීම
+
+Implementing Exclusive-OR (XOR) gate
+from NOR gate
+NOR ද්වාරයකින්‌ XOR ද්වාරයක්‌ ස්ථාපනය
+
+Proof:
+
+= (A+ B) + (AB)
+
+= (A+ B).(AB)
+
+= (A + 0). (AB)
+
+= (A+ B).(A+B)
+
+= AA+AB+AB+ BB
+
+De Morgan's Law
+Double inverse Law
+De Morgan's Law
+Distributive Law
+
+=0+AB+AB+0 Inverse Law
+= AB + AB Identity Law
+Note
+
+AB+AB=AQ@B
+
+
+15
+
+Implementing
+
+Exclusive-NOR
+
+gate
+
+(XNOR) from NOR gate
+NOR ද්වාරයකින්‌ XNOR ද්වාරයක්‌ ස්ථාපනය
+
+Proof:
+
+(AB) + (AB)
+
+(AB). (AB)
+
+(A + 0). (2 +B)
+
+(A + B).(A+ B)
+AA+AB+AB+ BB
+0+AB+AB+0
+AB + AB
+
+Note
+AB+AB=AQ@B
+
+De Morgan's Law
+
+Double inverse Law
+Double inverse Law
+Distributive Law
+Inverse Law
+Identity Law
+
+2. NAND GATE
+
+A= —
+A.B
+B=
+
+Implementing NOT gate from NAND
+gate (Inverter)
+NAND ද්වාරයකින්‌ NOT ද්වාරයක්‌ ස්ථාපනය
+
+කිරීම
+DB:
+A=
+Proof
+=AA
+=A+A De Morgan's Law
+=A Idempotent Law
+
+Implementing AND gate from NAND
+gate
+NAND ද්වාරයකින්‌ AND ද්වාරයක්‌ ස්ථාපනය
+
+කිරීම
+A= AB
+A.B
+B | |
+Proof:
+= (A.B). (A.B)
+= (A.B) + (A.B) De Morgan's Law
+= (A.B) + (A.B) Double inverse Law
+= (A.B) Idempotent Law
+
+Implementing OR gate from NAND gate
+
+NAND ද්වාරයකින්‌ OR ද්වාරයක්‌ ස්ථාපනය
+කිරීම
+
+බේ
+«Dt
+
+
+16
+
+Proof:
+
+wl
+
+De Morgan's Law
+Double inverse Law
+
+> S| DI
++ +
+ww ol
+
+Implementing buffer from NAND gate
+NAND ද්වාරයකින්‌ Buffer එකක්‌ නිර්මාණය
+
+කිරීම
+
+A A
+tT] 5411] )+*
+Implementing Exclusive-OR gate (XOR)
+
+from NAND gate
+NAND ද්වාරයකින්‌ XOR ද්වාරයක්‌ ස්ථාපනය
+
+— A+B
+A A.B
+B
+
+Implementing Exclusive - NOR gate
+(XNOR) from NAND gate
+NAND ද්වාරයක්න්‌ XNOR ද්වාරයක්‌ ස්ථාපනය
+
+A®B
+
+A+B
+
+= (A.B). (A.B)
+
+~~ == De Morgan’s Law
+= (A.B) + (A.B) ෂූ
+= (A.B) + (A.B) Double inverse Law
+ඤු (4. B) + (A.B) Associate law
+
+Da'D,
+
+17
+
+Electric circuits to model the The convention used when drawing
+
+functionality of logic gates circuits.
+
+විද්‍යුත්‌ S550 භාවිතයෙන්‌ තාරකික ද්වාරවල පරිපථ ඇඳිමේදී භාවිතා කරන සමීමුතිය.
+ක්‍රියාකාරිත්වය ආදරිශනය කිරීම
+
+Circuits built using electronic components e INPUT & OUTPUT
+
+such as transistors, diodes, and resistors to ආදාන සහ ප්‍රතිදාන
+
+replicate the behavior of basic logic gates
+
+(AND, OR, NOT, etc.) in digital systems.
+
+ඩිපිටල්‌ පද්ධති තුළ මූලික තාරකික ද්වාරවල True - 1
+(AND, OR, NOT ආදිය) හැසිරීම අනුකරණය සත්‍ය
+කිරීම සඳහා ට්‍රාන්සිස්ටර, ඩයෝඩ සහ ප්‍රතිරෝධක
+
+වැනි ලෙලක්ට්‍රොනික සංරචක භාවිතයෙන්‌
+
+ගොඩනගා ඇති පටිපථ එේ.
+
+False - 0
+අසන්‍ය
+Components Used
+භාවිතා වන සංරචක
+e SWITCH
+e Inputs > Switch ස්විචය
+ආදාන > ස්විචය
+On - 1
+VA
+e Outputs > Bulbs Off - 0
+ප්‍රතිදාන > බල්බ
+e BULBS
+බල්බ
+On - 1
+
+e Connections > Wires
+සම්බන්ධක > O66
+
+e Power Supply > Batteries
+බල සැපයුම > බැටරි Off - 0
+
+11!)
+
+18
+
+Gate Implementations
+ද්වාර ක්‍රියාත්මක කිරීම
+
+1. AND Gate
+AND ද්වාරය
+
+34 “2 S2
+
+&s
+
+J
+
+51 S? B
+0 0 0
+0 1 0
+1 0 0
+1 1 1
+2. OR Gate
+OR ද්වාරය
+S;
+S2
+51 S? B
+0 0 0
+0 1 1
+1 0 1
+1 1 1
+
+
+3. NOT Gate (Inverter)
+NOT ද්වාරය
+
+Ss
+
+෴෴
+
+~~~
+
+4. NAND Gate
+NAND ද්වාරය
+
+Si බං B
+0 0 1
+0 1 1
+1 0 1
+1 1 0
+5. NOR Gate
+NOR ද්වාරය
+| 54 | | So 2
+Si S2 B
+0 0 1
+0 1 0
+1 0 0
+1 1 0
+19
+
+rut තං
+
+6. XOR Gate
+XOR ද්වාරය
+
+Si S2 B
+
+0 0 0
+
+0 1 1
+
+1 0 1
+
+1 1 0
+7. XNOR Gate
+XNOR ද්වාරය
+
+54 0 0 S2
+
+S1 S2 B
+0 0 1
+0 1 0
+1 0 0
+1 1 1
+
+Boolean algebra
+බූලියානු වීජ ගණිතය
+
+Boolean algebra is අ mathematical
+framework used to manipulate and simplify
+logical expressions, especially in the design
+
+of digital circuits and computer systems.
+බූලියානු Ss ගණිතය යනු තාරකික ප්‍රකාශන
+හැසිරවීමට සහ සරල කිරීමට, විලශ්ෂයෙන්‌
+ඩිපිටල්‌ පරටිපට සහ පරිගණක පද්ධති සැලසුමි
+කිරීමේදී භාවිතා කරන ගණිතමය රාමුවකි.
+
+It operates with binary variables (Os and 1s)
+and is governed by a set of basic principles
+
+known as postulates or axioms.
+එය ද්විමය විචල්‍යයන්‌ (0 සහ 1) සමඟ ක්‍රියා කරන
+
+අතර එය පාලනය වන්නේ postulates හෝ
+
+8019111393 ලෙස හඳුන්වන මූලික මූලධරිම
+සමූහයකිනි.
+
+Postulates (Axioms) in Boolean Algebra
+බූලියන්‌ වීජ ගණිතයේ Postulates (Axioms)
+
+Postulates are the fundamental
+assumptions in Boolean algebra that are
+accepted as true without proof.
+
+Postulates යනු බූලියන්‌ වීජ ගණිතයේ ඇති
+මූලික උපකල්පන OD අතර චිවා mwas
+නොමැතිව සත්‍ය ලෙස පිළිගනු ලැබේ.
+
+These postulates define the basic behavior
+of Boolean operations and form the
+starting point for all further reasoning
+within the algebraic system.
+
+ලමම postulates බූලියන්‌ මෙහෙයුම්වල මූලික
+හැසිරීමි නිර්වචනය කරන අතර වීජීය පද්ධතිය
+තුළ වැඩිදුර තර්ක සඳහා ආරම්භක ලක්ෂ්‍යය
+සාදයි.
+
+
+20
+
+Importance of simplifying logic circuits
+
+using Boolean Laws
+බූලියානූ නීති භාවිතයෙන්‌ තාරීකික පරිපථ සරල
+කිරීමේ වැදගත්කම
+
+e Reduces Complexity -- Fewer
+components make circuits easier to
+design and understand.
+සංකීරීණතාව අඩු කරයි -- අඩු සංරචක
+
+සංඛ්‍යාවක්‌ මගින්‌ පරිපථ සැලසුමි කිරීම සහ
+තේරැමි ගැනීම පහසු කරයි,
+
+e Lowers Cost — Simplified circuits use
+fewer gates, reducing material and
+manufacturing costs.
+පිරිවැය අඩු කරයි - සරල කළ පථටිපථ අඩු
+ද්වාර ගණනක්‌ භාව්තා කරයි, මූලද්‍රව්‍ය හා
+නිෂ්පාදන පිරිචැය අඩු කරයි.
+
+e Improves Speed —- Less processing
+
+delay leads to faster operations.
+වේගය වැඩි දියුණු කරයි - අඩු සැකසුමි
+ප්‍රමාදය වේගවත්‌ මෙහෙයුම්‌ වලට මග පාදයි.
+
+e Saves Power — Fewer components
+
+consume less energy.
+බල ශක්තිය @85 කරයි - අඩු සංරචක
+සංඛ්‍යාවක්‌ නිසා අඩු ශක්තියක්‌ වැය වේ.
+
+e Enhances Reliability — Simple circuits
+have fewer failure points, increasing
+durability.
+විශ්වසනීයත්වය වැඩි කරයි - සරල
+
+පරිපථවල ඇති බිදවැටුමි ලක්ෂ්‍ය අඩු වන
+අතර DOGS කල්පැවැත්ම වැඩි කරයි.
+
+e Optimizes Space -- Requires less
+physical space on circuit boards.
+අවකාශය ප්‍රශස්ත කරයි - පරිපථ පුචරැ මත
+
+අඩු භෞතික ඉඩක්‌ අවශ්‍ය එව්‌.
+
+Boolean Algebraic Laws
+
+1.
+
+
+Double complement law
+ENDO ප්‍රතිලෝම න්‍යාය
+
+A=A
+
+Idempotent law
+DECOM න්‍යාය
+A+A=A
+A.A=A
+
+Identity law
+සට්වසාම්‍ය න්‍යය
+A.0=0
+A.1=A
+A+0=A
+A+1=1
+
+Inverse law / complement law
+
+ප්‍රතිලෝම න්‍යාය
+A.A=0
+A+A=1
+
+Commutative law
+න්‍යාදේශ න්‍යාය
+A.B=B.A
+A+B=B+A
+
+Associative law
+සංඝටන 2028963
+
+A.(B.C) = (A.B).C
+
+A+(B+C)=(A+B)+C
+
+Distributive law
+විඝටන න්‍යාය
+
+A.(B+Q) =AB+AC
+
+A+(B.C) = (A+B).(A+C)
+
+De Morgan's Law
+ද QO6 ප්‍රමේය
+A.B=A+B
+
+At
+
+ර
+>|
+vel ස
+
+Redundancy law
+සමතිරික්ත න්‍යාය
+
+A+A.B=A
+A+AB=A+B
+
+21
+
+Double inverse law/Double
+
+complement law
+ද්විත්ව ප්‍රතිලෝම න්‍යාය
+
+Double inverse law states that inverting a
+variable twice will produce the same
+
+original variable again.
+
+ද්ව්ත්ව ප්‍රතිලෝම න්‍යාය පවසන්නේ විචල්‍යයක්‌
+දෙවරක්‌ ප්‍රතිලෝම කිරීමෙන්‌ මුල්‌ විචල්‍යය නැවත
+ලැබෙන බවයි.
+
+Let's take two NOT gates connected in
+series.
+
+චිකකට පසු චිකක්‌ සම්බනධ කල NOT ද්චාර
+දෙකක්‌ සලකමු
+
+A K K F
+0 1 1 0
+1 0 0 1
+
+From the above Boolean expressions
+හෙත බූලියන්‌ ප්‍රකාශන වලින්‌
+
+K = A (K is the inverse of A)
+F = K (Fis the inverse of K)
+F=A
+
+= A (F is the double inverse of A)
+Looking at the truth tables for all
+
+instances,
+සත්‍යතා වගු දෙස බලන SO සෑම
+අවස්ථාවකදීම,
+
+F = A (F looks the same as A)
+
+Because L.H.S of both above equations are
+the same it proves the double inverse law
+
+QOD සමීකරණ දෙකේම L.H.S සමාන Om බැවින්‌
+Ads ද්ව්ත්ච ප්‍රතිලෝම න්‍යාය තහවුරැ කරයි.
+
+idempotent law (type 1)
+තදේවභාවී න්‍යාය (SEQ ආකාරය)
+
+Adding the same value again by it does not
+
+make any difference in Boolean algebra.
+බූලීය වීජ ගණිතයේදී යම්‌ අගයකට OO අගයම
+නැවත චකතු කිරීම මගින්‌ වෙනසක්‌ සිදු නොවේ
+
+Boolean addition (OR _ operation) is
+represented by the OR gate.
+
+බූලියන්‌ එකතු කිරීම (OR මෙහෙයුම) OR ද්වාරය
+මගන්‌ නිරූපණය කරයි
+
+A
+F
+=_,
+
+ICN A B F
+1 0 0 0
+2 0 ] ]
+3 1 0 ]
+4 ] ] ]
+
+Input combination 1 and 4 represent the
+
+addition of the same value.
+1 සහ 4 ආදාන සංයෝජන මගින්‌ චවකම අගය
+එකතු කිරීම නිරූපණය කරයි.
+
+F=A+B
+F = A+A (When B = A at ICN 1 and 4)
+
+යැ
+~~ |ඌ |"
+දෟ
+
+But F = A from the truth table
+
+From the above simplified truth table, we
+can clearly see the output value is the same
+
+as the input. It proves the Idempotent law.
+GAD සුළු කරන ලද BOSD වගුවෙන්‌
+ප්‍රතිදානයේ අගය සෑමව්ටම ආදානයට සමාන බව
+අපට පැහැදිලිව දැකගත හැකිය. එමගින්‌
+තදේචභාවී න්‍යාය තහවුරැ GH.
+
+
+22
+
+idempotent law (type 2)
+තදේවභාවී න්‍යාය ( cee ආකාරය)
+
+Multiplying the same value again by it
+does not make any difference in Boolean
+
+algebra.
+බූලීය වීජ ගණිතයේදී යමි අගයකින්‌ DO අගයම
+ගුණ කිරීම කිරීම මගින්‌ වෙනසක්‌ සිදු නොවේ
+
+Boolean multiplication (AND operation) is
+represented by the AND gate.
+
+බූලියන්‌ ගුණ කිරීම (AND මෙහෙයුම) AND
+ද්වාරය මගින්‌ නිරූපණය කරයි
+
+&॥ -_--]
+F
+ST)
+
+ICN A B F
+1 0 0 0
+2 0 1 0
+3 1 0 0
+4 1 1 1
+
+Input combination 1 and 4 represent the
+
+multiplication of the same value.
+1 සහ 4 ආදාන සංයෝජන මගින්‌ ADO අගය
+ගුණ කිරීම නිරෑපණය කරයි.
+
+F=A.B
+F = A.A (When B = A at ICN 1 and 4)
+
+A=B 1 F
+
+ICN
+1
+4
+
+I
+es)
+nm
+
+~~ |ඌ |"
+දෟ
+
+But F = A from the truth table
+
+From the above simplified truth table, we
+can clearly see the output value is the same
+
+as the input. It proves the Idempotent law.
+QD සුළු කරන ලද සත්‍යෟ්‍යතා වගුවෙන්‌
+ප්‍රතිදානයේ අගය සෑමව්ටම ආදානයට සමාන බව
+අපට පැහැදිලිව දැකගත හැකිය. එමගින්‌
+DEEOME න්‍යාය තහවුරැ GH.
+
+Identity law (type 1)
+සරවසාම්‍ය න්‍යාය (පළමු ආකාරය)
+
+Multiplying something by 0 in Boolean
+
+algebra always produces 0.
+බූලියන්‌ වීජ ගණිතයේ යමක්‌ 0 න්‌ ගුණ කිරීමෙන්‌
+සෑම SOO 0 ලැබේ
+
+Boolean multiplication (AND operation) is
+represented by the AND gate.
+
+බූලියන්‌ ගුණ කිරීම (,&[1[0 මෙහෙයුම) AND
+ද්වාරය මගන්‌ නිරෑපණය කරයි
+
+. Bb;
+ස
+B
+
+ICN A B F
+1 0 0 0
+2 0 1 0
+3 1 0 0
+4 1 1 1
+
+Input combination 1 and 3 represent
+
+multiplication by zero.
+1 සහ 3 ආදාන සංයෝජන මගින්‌ 0 න්‌ ගුණ
+කිරීම නිරෑපණය කරයි.
+
+F=A.B
+F = A.0 (When B = 0 at ICN 1 and 3)
+
+A —
+F
+|)
+
+ICN A B=0 F
+1 0 0 0
+3 1 0 0
+
+But F = (0 from the truth table
+
+From the above simplified truth table, we
+can clearly see the output is 0. It proves the
+
+Identity law.
+
+GAD සුළු කරන ලද BOSD වගුවෙන්‌
+ප්‍රතිදානයේ අගය සෑමව්ටම ට බව පෙනේ එමගින්‌
+සර්වසාම්‍ය HIS තහවුරැ GS.
+
+
+23
+
+Identity law (type 2)
+සර්චසාම්‍ය න්‍යාය (දෙවන ආකාරයා
+
+Multiplying a value by 1 in Boolean algebra
+
+always produces the same value again
+බූලියන්‌ 55 ගණිතයේ යමක්‌ 1 න්‌ ගුණ කිරීමෙන්‌
+සෑම DOO නැවත එම අගයම ලැබේ
+
+ICN A B F
+1 0 0 0
+2 0 1 0
+3 1 0 0
+4 1 1 1
+
+Input combination 2 and 4
+multiplication by 1.
+
+2 සහ 4 ආදාන සංයෝජන මගන්‌ 1 න්‌ ගුණ
+කිරීම නිරූපණය කරයි.
+
+represent
+
+F=A.B
+F = &, 1 (When B = 1 at ICN 2 and 4)
+
+A I
+F
+ස සමු
+
+ICN A
+
+PO
+©
+—
+
+But F = A from the truth table
+
+From the above simplified truth table, we
+can clearly see the output Is A. It proves the
+
+Identity law.
+QD සුළු කරන ලද සත්‍යෟ්‍යතා වගුවෙන්‌
+
+ප්‍රතිදානයේ අගය සෑමව්ටම A බව Ges
+
+Identity law (type 3)
+සර්වසාම්‍ය න්‍යාය (තුන්වන ආකාරය)
+
+Adding 0 to something in Boolean algebra
+
+doesn't change it
+බූලියන්‌ වීජ ගණිතයේ දී යමකට 0 එකතු කල SO
+Aas වෙනස්‌ නාවේ
+
+Boolean addition (OR _ operation) is
+
+represented by the OR gate.
+
+බූලියන්‌ එකතු කිරීම (OR මෙහෙයුම) OR ද්වාරය
+මගන්‌ නිරඈඛපණය කරයි
+
+ක
+F
+B
+
+ICN
+
+-)/O;-—;O;o
+෴ |... | |= |O | 7m
+
+>= /-|/O/;O!l1>
+
+බු | ටට | අට |
+
+Input combination 1 and 3 represent
+
+adding zero.
+1 සහ 3 ආදාන සංයෝජන මගින්‌ 0 ක්‌ චකතු කිරීම
+නිරෑපණය කරයි
+
+F=A+B
+F = A+ 0 (When B = 0 at ICN 1 and 3)
+
+ICN A B=0 F
+1 0 0 0
+3 1 0 ]
+
+But F = A from the truth table
+
+From the above simplified truth table, we
+can clearly see the output is A.
+
+GAD සුළු කරන ලද BOSD වගුවෙන්‌
+ප්‍රතිදානයේ අගය සෑමව්ටම A බව oes}
+
+It proves the Identity law.
+DOOD s6OenOs න්‍යාය තහවුරැ GH.
+
+
+Identity law (type 4)
+සර්චසාම්‍ය න්‍යාය (හතරවන ආකාරය)
+
+This law states that adding 1 to something
+
+in Boolean algebra always gives 1
+බූලියන්‌ වීජ ගණිතයේ යමකට 1 එකතු කල විට
+සෑමව්ටම 1 ලැබේ
+
+“සු
+F
+B
+
+ICN
+
+~~ | ~~।1||।-
+
+2ය।|-~ ।ඌඑ|ර
+= | .... |= | ඌ | Tm
+
+බු | ටට | අට |=
+
+Input combination 2 and 4 represent
+
+addition of 1.
+2 සහ 4 ආදාන සංයෝජන මගන්‌ 1 ක්‌ එකතු
+කිරීම නිරූපණය කරයි.
+
+F=A+B
+F = A+ 1 (When B = 1 at ICN 2 and 4)
+
+||
+©
+0
+
+—
+ක
+—|-—|o
+—
+
+But F = A from the truth table
+
+From the above simplified truth table, we
+can clearly see the output is 1.
+
+QD සුළු කරන ලද සත්‍යෟ්‍යතා වගුවෙන්‌
+ප්‍රතිදානයේ අගය සෑමව්ටම 1 බව ඉපනේ
+
+It proves the Identity law.
+DOOD සර්වසාම්‍ය න්‍යාය තහවුරැ එව්‌.
+
+Inverse law (type 1)
+ප්‍රතිලෝම න්‍යාය (පළමු ආකාරය)
+
+Adding its own complement to a variable
+
+always sums to 1 in Boolean algebra.
+බූලියානු වීජ ගණිතයේදි SOESEDO තමනගේම
+අනුපූරකය එකතු කිරීම මගින්‌ සැමවිටම 1 ලබාදේ
+
+A
+F
+
+B
+
+ICN A B F
+1 0 0 0
+2 0 1 1
+3 1 0 1
+4 1 1 1
+
+Input combination 2 and 3 represent
+
+adding its complement.
+2 සහ 3 ආදාන සංයෝජන මගින්‌ අනුපූරකය
+එකතු කිරීම නිරෑපණය කරයි
+
+F=A+B
+F = A+A (When B = Aat ICN 2 and 3)
+
+ICN A B=A F
+2 0 1 1
+3 1 0 1
+
+But F = 1 from the truth table
+
+From the above simplified truth table, we
+
+can clearly see the output is 1
+GAD සුළු කරන ලද BOSD) OGD)
+ප්‍රතිදානයේ අගය සෑමව්ටම 1 බව පෙනේ
+
+It proves the Inverse law.
+චීමගන්‌ ප්‍රතිලෝම න්‍යාය තභවුරැ GH.
+
+
+Inverse law (type 2)
+ප්‍රතිලෝම න්‍යාය (දෙවන ආකාරය)
+
+Multiplying its own complement from a
+variable always produces 0 in Boolean
+
+algebra.
+බූලියානු වීජ ගණිතයේදි SOEs තමනගේම
+අනුපූරකය මගන්‌ ගුණ කිරීමේදී සැමවිටම 0
+
+ලබාදේ
+
+. BD;
+F
+B
+
+ICN A B F
+1 0 0 0
+2 0 1 0
+3 1 0 0
+4 ] ] ]
+
+Input combination 2 and 3 represent
+
+multiplication from its complement.
+2 සහ 3 ආදාන සංයෝජන මගින්‌ අනුපූරකයෙන්‌
+ගුණ කිරීම නිරෑපණය කරයි
+
+F=A.B
+F = A.A (When B = A at ICN 2 and 3)
+
+A —
+_ F
+
+ICN A B=A F
+2 0 1 0
+3 1 0 0
+
+But F = 0 from the truth table
+
+From the above simplified truth table, we
+can clearly see the output is always 0. It
+proves the Inverse law.
+
+QD සුළු කරන ලද සත්‍යෟ්‍යතා වගුවෙන්‌
+ප්‍රතිදානයේ අගය සෑමව්ටම 0 බව පෙනේ එමගින්‌
+ප්‍රතිලෝම න්‍යාය තහවුරැ චේ.
+
+Associative law (type 1)
+
+30808 න්‍යාය (පළමු ආකාරය)
+
+This law states that the order of multiplying
+Boolean variables does not affect the
+
+outcome.
+
+QOS විචල්‍ය ගුණ කරන අනුපිළිවෙළ අවසාන
+ප්‍රතිදානයට බලපාන්නේ නැති බව GOO නීතියෙන්‌
+කියැවේ
+
+Left Hand Side Expression
+
+‘ 44.9
+
+ටි
+
+cH (B.C)
+
+ICN | A B C B.C | P=A.(B.C)
+1 0 0 0 0 0
+2 0 0 1 0 0
+3 0 1 0 0 0
+4 0 1 1 1 0
+5 1 0 0 0 0
+6 1 0 1 0 0
+7 1 1 0 0 0
+8 1 1 1 1 1
+
+Right Hand Side Expression
+
+A— (A.B)
+B =
+
+ICN |A |B |C | AB | Q=(A.B).C
+1 O |0 (0 |0 0
+2 0 |0 | 1 0 0
+3 0 1 0 (0 0
+4 0 ] ] 0 0
+5 1 0 ।0 |0 0
+6 ] 0 |] 0 0
+7 1 1 0 1 0
+8 1 1 1 1 1
+
+
+26
+
+Associative law (type 2)
+
+සංඝටන න්‍යාය (දෙවන ආකාරය)
+
+This law states that the order of adding
+Boolean variables does not affect the
+
+outcome
+QOS SOEs එකතු කරන අනුපිළිවෙළ අවසාන
+ප්‍රතිදානයට බලපාන්නේ නැති බව GOO නීතියෙන්‌
+
+කියැවේ
+
+Left Hand Side Expression
+
+is _= A+(B+C)
+(B+C)
+
+ICN |A |B | C | B+C | P=A+(B+C)
+1 0 |0 |0 |0 0
+
+2 0 |0 |] 1 1
+
+3 O {1 |O |1 1
+
+4 0 | 1 1 1 1
+
+5 1 0 |0 |0 1
+
+6 1 0 |] 1 1
+
+7 1 1 |।0)।|] 1
+
+8 1 1 1 1 1
+Right Hand Side Expression
+
+£
+
+B (A+B)
+
+A+B)+C
+
+C (A+B)
+ICN |A |B [ලී | A+B | Q=(A+B)+C
+1 0 ।0 |0 |0 0
+
+2 O |O |1 {0 1
+
+3 O {1 01 1
+
+4 O ;1 /1 |] 1
+
+5 10 |0 |1 1
+
+6 1 {0 |1 | 1 1
+
+7 1 {1 |0 |1 1
+
+8 1 {1 41 =/1 1
+
+P=Q, so A+(B+C)=(A+B)+C
+
+A+(B.C) = (A+B).(A+C)
+Left Hand Side Expression
+
+Distributive law
+
+විඝටන න්‍යාය
+
+A+(B.C)
+
+A.(B+C)
+
+(B.C)
+
+Distributive law
+A.(B+C) = A.B + A.C
+Left Hand Side Expression
+
+විඝටන න්‍යාය
+
+(B+C)
+
+P=A+B.C
+
+B.C
+
+B
+
+ICN | A
+
+Right Hand Side Expression
+
+A.(B+C)
+
+p=
+
+(B+C)
+
+C
+
+B
+
+ICN | A
+
+(A+B)
+
+(A+B).(A+C)
+
+0
+
+C | A+B | A+C | Q
+
+B
+
+0;0,;0]0
+
+ICN | A
+
+(A+B)+C
+
+Q
+
+(B+C)
+
+C
+
+B
+
+Right Hand Side Expression
+
+ට
++
+Ss
+qt @ qt ටා
+මී
+ක
+x
+ෆු
+~~
+ෆු රූ
+ක ක
+| | |
+<I 0 qt U
+
+ICN | A
+
+2/
+
+De Morgan's Law
+දු මුවාරී ප්‍රමේය
+A+B=A.B
+
+De Morgan's Law
+ද G65 ප්‍රමේය
+A.B=A+B
+
+Left Hand Side Expression
+
+Left Hand Side Expression
+
+A A.B AB [21 (A+B) (A+B)
+Be B
+ICN |, B A.B A.B ICN | & B A+B | A+B
+1 0 0 0 1 1 0 0 0 1
+2 0 1 0 1 2 0 1 1 0
+3 1 0 0 1 3 1 0 1 0
+4 1 1 1 0 4 1 1 1 0
+Right Hand Side Expression Right Hand Side Expression
+ant
+D-™
+පි ~~ ~~
+att
+ICN |A |B A| ॥ | A+B ICN |A |B A| B A.B
+1 0 0 1 1 1 1 0 0 1 1 1
+2 0 1 1 0 1 2 0 1 1 0 0
+3 1 0 0 1 1 3 1 0 0 1 0
+4 1 1 0 0 0 4 1 1 0 0 0
+SUMMARY
+
+Postulates උපකල්පන
+Fundamental assumptions defining Boolean algebra operations.
+බූලියන්‌ වීජ ගණිත මෙහෙයුමි SBOODG කරන මූලික උපකල්පනයි.
+
+Axioms ප්‍රත්‍යක්ෂ / ස්වයං සිද්ධි
+Self-evident truths forming the basis of Boolean algebra.
+බූලියන්‌ වීජ ගණිතයේ පදනම සාදන ස්වයං-පැහැදිලි සත්‍යයන්ය.
+
+Laws/Theorems නීති/ ප්‍රමේය
+
+Derived rules used to simplify and manipulate Boolean expressions.
+බූලියන්‌ ප්‍රකාශන සරල කිරීමට සහ හැසිරවීමට භාවිතා කරන ව්‍යුත්පන්න නීති වේ.
+
+28
+
+Karnaugh Maps
+men සිතියමි
+
+Maurice Karnaugh developed Karnaugh
+Maps (K-maps) in 1953.
+
+ලමාරිස්‌ කානෝ විසින්‌ 1953 දී men) සිතියමි
+([ සිතියම්‌) නිර්මාණය කළේය.
+
+He worked at Bell Labs, a leading research
+center in telecommunications and digital
+
+systems.
+
+ඔහු SES sooda සහ ඩිපිටල්‌ පද්ධති පිළිබඳ
+ප්‍රමුඛ පරියේෂණ මධ්‍යස්ථානයක්‌ වන බෙල්‌
+ලැබිස්‌ හි සේවය කළේය.
+
+K-Maps vs. Boolean Laws
+
+K-maps were primarily designed to
+simplify the logic behind digital circuits
+used in circuit switching.
+
+Circuit switching වලදී භාවිතා කරන අංකිත
+පරිපථ පිටුපස ඇති තර්කනය සරල කිරීම සඳහා
+කානෝ සිතියමි මූලික වශයෙන්‌ නිර්මාණය කර
+ඇත.
+
+Circuit switching is a communication
+method where a dedicated path is
+established between two endpoints
+before data transmission and remains
+reserved for the entire session.
+
+Circuit switching යනු දත්ත සම්ප්‍රේෂණයට
+පෙර අන්ත ලක්ෂ්‍ය දෙකක්‌ අතර කැපවූ
+මාර්ගයක්‌ ස්ථාපිත කර මුළු සැසිය පුරාම එය
+චෙන්‌ කර පචතින සන්නිවේදන ක්‍රමයකි.
+
+K-maps simplified complex expressions by
+grouping terms efficiently, reducing the
+number of required logic gates.
+
+කානො සිතියම්‌ මඟින්‌ ප්‍රකාශන කාර්යක්ෂමව
+කාණ්ඩගත කිරීමෙන්‌ සංකීිරීණ ප්‍රකාශන සරල
+කරමින්‌ පරිපථ සෑදීමට අවශ්‍ය තාර්කික ද්වාර
+ගණන අඩු කළේය,
+
+Over time, K-maps became the standard
+for simplifying Boolean expressions in
+digital electronics.
+
+කාලයත්‌ සමඟ, අංකිත ඉලෙක්ට්‍රොනික
+තාක්ෂණයේදී බූලියන්‌ ප්‍රකාශන සරල කිරීම
+සඳහා 6D) BAGS ප්‍රමිතිය බවට පත්ව්ය.
+
+Aspect Karnaugh Map (K-Map) Boolean Algebra Laws
+Complexity Simple for up to 5 variables; harder Can be complex but scales better for
+සංකීරිණත්වය beyond that large expressions
+විචල්‍ය 5ක්‌ දක්වා සරල GO; නේ පසු සංකීරණ විය හැකි නමුත්‌ විශාල ප්‍රකාශන
+අපහසුය සඳහා වඩා හොඳ පරිමාණයකි
+Speed Faster for small expressions (2-5 Can be time-consuming without
+වේගය variables) practice
+කුඩා ප්‍රකාශන සඳහා වේගවත්‍ය පුහුණු වීමකින්‌ තොරව කාලය ගත විය හැකිය
+Ease of Use Intuitive and visual Requires understanding of Boolean
+භාවිත BOGS බුද්ධිමය සහ දෘශ්‍ය වේ theorems
+පහසුව බුලීයානු BS පිළිබඳ අවබෝධයක්‌ අවශ්‍ය චේ
+Best For Circuit optimization and logic design Theoretical proofs and mathematical
+වඩාත්ම පට්පථ ප්‍රශස්තිකරණය සහ තාර්කික simplifications
+ගැලපෙන්නේ නිර්මාණය න්‍යායාත්මක සාධනයන්‌ සහ ගණිතමය සරල
+කිරීමි
+
+
+29
+
+2 input variable k maps
+ආදාන දෙකේ කානෝ සිතියමි
+
+
+A A
+0 1
+A.B A.B
+A.B A.B
+A A
+0 1
+A+B | A+B
+A+B A+B
+
+30
+
+GREY CODE
+(REFLECTED BINARY CODE)
+
+Frank Gray, a researcher at Bell Labs,
+patented the concept of Grey code in 1953.
+1953 දී බෙල්‌ විද්‍යාගාර තුල පරියේෂකයෙකු වූ
+ෆ්‍රෑන්ක්‌ ග්‍රේ විසින්‌ Grey කේත සංකල්පයට
+පේටන්ට්‌ බලපතය ලබා ගත්තේය.
+
+Frank Gray
+
+This is a way of ordering binary numbers
+where only one-bit changes between any
+
+twoconsecutive values.
+
+මෙය ඕනෑම අඛණ්ඩ අගයන්‌ දෙකක්‌ අතර චඑක්‌-
+බිටි එකක්‌ පමණක්‌ චෙනස්‌ වචන පරිදි ද්ව්මය
+සංඛ්‍යා පෙලගැස්වීමේ ක්‍රමයකි.
+
+According to Grey code, only one
+variable is allowed to change when
+shifting between two nearby cells
+
+horizontally or vertically in a K-map.
+කානෝ සිතියමක අනුයාත කෝශ දෙකක්‌ අතර
+තිරස්ව හෝ සිරස්ව ගමන්‌ කිරීමේදී වෙනස්‌ වීමට
+අවකාශය ඇත්තේ Oe) විචලෑ්‍යයකට පමණක්‌ යැයි
+ග්‍රේ කේතයෙන්‌ කියැවේ.
+
+00 01 10 11
+
+00 01 11 10
+01 11 10 00
+11 10 00 01
+10 OO 01 1]
+
+෴ ඳදඳ ඳ ඳෑ ඉඳ
+
+3 input variable k maps
+ආදාන තුනේ කානෝ සිතියමි
+
+00 01 11 10
+
+00 01 11 10
+
+00 01 11 10
+
+දී 0 4 AC 0 1
+00 | 1 5 00 | 1 3
+01 | 2 6 01} 2 4
+11 | 4 | 8 11 | 6 8
+10 | 3 7 10 | 5 7
+
+
+31
+
+4 input variable k maps
+
+ආදාන හතරේ කානෝ සිතියමි
+AB
+
+cb\ 00 01 11 10
+00|1/5 }|13} 9
+01| 2 | 6 | 14} 10
+11} 4 | 8 | 16 | 12
+10} 3 | 7 | 15] 11
+C
+
+AB 0
+
+00} 1
+
+01} 3 | 4
+
+11. | 7
+
+10 | 5
+
+K-map grouping rules.
+meni 8508 වල mad සෑදීම සමීබන්ද නීති
+
+1. All outputs of a truth table, 1s and Os,
+
+should be represented in the k map.
+සත්‍යතා වගුවේ පවතින 1 සහ 0 BSEO සතෟතා
+වගුවේ පචතින 1 සහ 0 සියලුම ප්‍රතිදානකානෝ
+සිතියමක්‌ තුල ලකුණු කරගත යුතුය,
+
+2. Only one type of element can be
+used tomake groups. 1s or Os. groups
+cannot be made using different types of
+
+elements.
+කාණ්ඩ සෑදීම සඳහා MAM කල හැක්කේ චක්‌
+වර්ගයක අවයව පමණි. වෙනස්‌ වර්ග චල
+
+අවයව කාණ්ඩ කල නොහැක. 165 or Os
+
+3. The number of elements in a group
+
+shouldalways be a power of 2.
+කාණ්ඩයක SHAD අවයව ගණන සෑමව්ටම 2 හි
+බලයකට සමාන විය යුතුය,
+
+෴ ත්‌
+
+1 1 1 1 < 1) 0 | 0
+0
+
+——"
+
+෴ ෴ධූ aa
+(1 )0€1 )o 1} 1} ajo
+෴ ෴්‌ ඛඬ෴෴෴ _._..2
+0।0 Maso o|o}]odo
+
+
+4. All elements of the selected type
+
+should be contained in a group.
+
+කාණ්ඩ සෑදීම සඳහා තෝරාගන්නා වර්ගයේ
+අවයව සියල්ල කාණ්ඩ සෑදීම අවසානයේ GO
+කාණ්ඩයකට අයිති Ss යුතුය,
+
+aN
+(1) 0| 010 10,000
+෴ 2]
+0।0 010 0।0 1,010
+1।1।1|1 1/ 1/4/11
+0 | 0} 0} 0 0 | 0] oO} 0
+
+5. A group should be as large as_ possible,
+and the number of groups should be
+
+minimum.
+කාණ්ඩයක්‌ හැකිතාක්‌ විශාල විය යුතු අතර
+කාණ්ඩ ගණන හැකිතාක්‌ අචම ව්ය යුතුය.
+
+෴෴ ge,
+
+CLD ආල
+
+"~.-හඌඋ —
+
+ෆෆෆෆු AGO
+
+6. Elements which are already in one
+group can be shared with another group
+
+if needed.
+කාණ්ඩයක්‌ තුල දැනටමත්‌ පවතින අවයව
+වෙනත්‌ කාණ්ඩයක්‌ සමග බෙදාහදාගැනීම සිදු
+කල හැකිය.
+
+දහ Cag:
+
+~~෴෴෴හ෴උ෴%"්‌
+
+0 0 0 0 0 0 0 0
+
+7. Groups cannot be diagonal. | 1 111 | නක
+විකර්ණ දිගේ කාණ්ඩ පැවතිය නොහැක.
+
+Ae CNS හක
+
+A K-map is a torus 1
+කානෝ සිතියමක්‌ යනු ටෝරස්‌ ADS
+
+Bx.
+
+NOTE: Subgroups (groups where all their
+elements belong to one other group) may
+be created during grouping. They should
+be removed as it increases the number of
+groupsand makes the simplified Boolean
+
+expression bigger.
+
+කාණ්ඩ සෑදීමේදී තමාගේ අවයච සියල්ල චෙනත්‌
+කාණ්ඩ එකකට හෝ අයිති වන අනු කාණ්ඩ
+නිර්මාණය විය හැකිය. මෙමගින්‌ කාණ්ඩ ගණන
+වැඩිවී සුලු කරන ලද බූලීය ප්‍රකාශය සංකීරණ වන
+බැවින්‌ GO) සොයා මකා දැමිය යුතුය.
+
+ලර | 99 Gyo 9
+
+8. Groups can be wrapped around.
+කාණ්ඩයක්‌ කානෝ සිතියමක්‌ වටා As 0 <b 0 0 a] D 0
+පැවතිය හැක
+™— a
+
+Nolo fide (Yolo) NOT IN SYLLABUS
+
+J 0 x (1/ o 10 \a/ Don't care conditions (where we don't care
+b =) whether the output of that input
+
+combination is1 or 0) can be grouped or
+neglected considering either 1s or Os as
+
+9. A group should always be horizontal or necessary for the instance.
+vertical. Its shape should be square or යම්‌ ආදාන සංයෝජනයකට අදාල ප්‍රතිදානය
+rectangular. සත්‍යද අසත්‍යද නොසලකන අවස්තා හෙවත්‌
+කාණ්ඩයක්‌ සෑමව්ටම තිරස්ව හෝ සිරස්ව Don't care අවස්ථා පවතින විට කාණ්ඩ සෑදීමේදී
+පැචතිය යුතු අතර එහි හැඩය සමචතුරස්‍රාකාර ඒවා අවශ්‍ය පරිදි කාණ්ඩ සඳහා 1 හෝ 0 ලෙස
+හෝ සෘජුකෝණාසාකාර ව්ය යුතුය. සැලකිය හැකිය.
+
+෴ට
+
+0 /1\ 0 0 0}1]a]|o ලං x | 4 y /% 11 1
+ක්‍ෂ = hb To lh
+Gopi 1/11] wl o 0 o molto ශ්‌ 07% 0)
+
+SS
+
+33
+
+Designs simple digital circuits using
+logic gates
+
+තාර්කික ද්වාර භාවිතයෙන්‌ සරල අංකිත පරිපථ
+නිරිමාණය කරයි.
+
+According to the syllabus, the steps
+involved in designing a logic circuit for a
+given scenario Is usually as follows.
+
+විෂය නිරිදේශයට අනුව, දී ඇති අවස්ථාවක්‌
+සඳහා තාර්කික පරිපථයක්‌ නිරිීමාණය කිරීමේදී
+අනුගමනය කළ යුතු පියචර සාමාන්‍යයෙන්‌ පහත
+පරිදි වේ.
+
+ල Event
+සිද්ධිය
+
+@ Truth table <—~
+
+සන්‍යනා වගුව
+
+/
+
+~~~ (ලට Boolean Expression ——
+@a බූලීයානු ප්‍රකාශනය
+
+/
+
+© (ලා Simplification
+සුළු GOO
+
+\
+
+— > _ © Logic circuits —~
+
+තාර්කික පරිපථය
+
+However, you should be able to,
+කෙසේ චෙතත්‌ ඔබට,
+
+1. Obtain the truth table for a given logic
+
+circuit and a Boolean expression.
+
+දී ඇති තාර්කික පරිපථයක්‌ සහ බුූලීයානු
+ප්‍රකාශනයක්‌ සඳහා සත්‍යතා AQHA ලබා ගැනීමට
+හැකි විය යුතුය.
+
+2. Draw the logic circuit for a given Boolean
+
+expression.
+දී ඇති බූලියානු ප්‍රකාශනයක්‌ සඳහා තාර්කික
+පරිපථය ඇදීමට හැකි විය යුතුය.
+
+3. Derive the Boolean expression from a
+
+given Logic circuit.
+දී ඇති තාර්කික පරිපථයක්‌ භාවිතයෙන්‌ බූලීයානු
+ප්‍රකාශනය ව්‍යුත්පන්න කළ හැකි විය යුතුය,
+
+
+34
+
+Designing a Boolean expression for a
+
+given logic circuit.
+දී ඇති තාරිීකික පරිපථයක්‌ සඳහා AB
+
+ප්‍රකාශනයක්‌ නිර්මාණය කිරීම.
+A
+B F
+
+Let's derive a Boolean expression for the
+output F.
+
+[ ප්‍රතිදානය සඳහා බූලියානු ප්‍රකාශනයක්‌ ව්‍යුත්පන්න
+කරමු.
+
+F=C.(A+B)
+
+Designing a logic circuit for a given
+Boolean expression.
+
+දී ඇති බූලීයානු ප්‍රකාශනයක්‌ සඳහා තාර්කික
+පරිපථයක්‌ නිරීමාණය කිටීම.
+
+A logic circuit is derived from a Boolean
+expression by methodically “peeling away” its
+
+operators according to a fixed hierarchy.
+බුූලීයානු ප්‍රකාශනයකින්‌ තාර්කික  sdsdaea
+ව්‍යුත්පන්න කර ගනු ලබන්නෙ නියත ධූරාවලියකට
+අනුව OB ඇති මෙහෙයවන ක්‍රමානුකූලව "වෙත්‌
+කිරීම" මගිනි.
+
+In this approach, the operators are handled
+one level at a time, always treating the
+remaining expression as a fresh entity once
+
+an operator is removed.
+
+මෙම ප්‍රවේශයේදී, මෙහෙයවන චක්‌ මට්ටමකින්‌
+හසුරැවනු ලබන අතර, යම්‌ මෙහෙයවනයක්‌ වෙත්‌
+කළ පසු 985 වන ප්‍රකාශනය සෑමවිටම නව
+ප්‍රකාශයක්‌ ලෙස සලකනු ලබයි.
+
+The operator precedence is defined as
+
+follows:
+මෙහෙයවන ප්‍රමුඛතාවය පහත පරදි GO දැක්වේ:
+
+Bar (NOT):
+
+When a bar is seen over an entire expression
+or subexpression, a NOT gate is drawn to
+represent the inversion.
+සම්පූර්ණ ප්‍රකාශනයක්‌ හෝ උප ප්‍රකාශනයක්‌ මත
+bar චකක්‌ පෙනෙන විට, ප්‍රතිලෝමය නිරූපණය
+
+කිරීම සඳහා [10] ද්වාරයක්‌ අඳිනු ලැබේ.
+
+It is important that any variables or
+subexpressions under a bar are not modified
+until that bar is removed.
+
+Bar එකක්‌ යටනේ ඇති ඕනෑම විචල්‍යයක්‌ හෝ උප
+
+ප්‍රකාශනයක්‌ එම bar එක වෙත්‌ කරන Genes වෙනස්‌
+GMBOO තො වැදගත්‌ එව්‌.
+
+Plus (OR):
+After all full bars have been processed, the
+expression is scanned for plus signs.
+
+සියලුම full bars සැකසීමට ලක්‌ කළ පසු,
+ප්‍රකාශනයේ ඇති ධන ලකුණු සොයා ගනු ලැබේ.
+
+An OR gate is used for any plus operation
+that is not hidden inside brackets or under
+another bar.
+වරහන්‌ තුළ හෝ වෙනත්‌ bar එකක්‌ යටතේ සැඟවී
+
+නොමැති ඕනෑම ධන ලමභෙයුමක්‌ සඳහා OR
+ද්වාරයක්‌ භාවිතා කෙරේ.
+
+
+35
+
+Expressions within brackets are treated as
+atomic until they are isolated; nothing inside
+the bracket is “touched” until the rest of the
+
+expression has been derived.
+
+වරභන්‌ තුළ ඇති ප්‍රකාශන හුදකලා වන saw Jd
+තනි ප්‍රකාශයක්‌ ලෙස සලකනු ලැබේ; ප්‍රකාශනයේ
+ඉතිරී කොටස ව්‍යුන්පන්න වන තෙක්‌ වරහන තුළ
+ඇති කිසිවක්‌ "ස්පරිශ' නොවේ.
+
+Dot (AND):
+Finally, the dot (AND) operations are handled.
+
+අවසාන වශයෙන්‌, තිත්‌ (AND) මෙහෙයුම්‌
+හසුරැචවනු ලැබේ.
+
+Again, only operators that are at the outer
+level (i.e., not nested inside brackets or under
+
+a bar) are processed.
+නැවත වතනාචක්‌, බාහිර මට්ටමේ (එනම්‌, චරහන්‌ තුළ
+
+6m bar එකක්‌ යටතේ තබා නොමැති) මෙහෙයවන
+පමණක්‌ සකසනු ලැබේ.
+
+The process is iterative:
+මෙම ක්‍රියාවලිය පුනරාවරතනය වේ:
+
+The entire expression is examined for the
+highest-priority operator (NOT).
+
+Q@MCG® ප්‍රමුඛතා මෙහෙයවනය (NOT) සඳහා
+සම්පූර්ණ ප්‍රකාශනයම පරීක්ෂා කරනු ලැබේ.
+
+Once a NOT operation is extracted (by
+
+drawing a NOT gate), the modified
+expression is re-evaluated as a new
+expression.
+
+NOT මෙහෙයුමක්‌ උපුටා ගත්‌ පසු (NOT ද්වාරයක්‌
+ඇඳීමෙන්‌) , වෙනස්‌ කළ ප්‍රකාශනය නව ප්‍රකාශනයක්‌
+ලෙස නැවත ඇගයීමට ලක්‌ කෙරේ.
+
+This same procedure is applied next to OR
+operators, and then to AND operators, until
+the full expression is converted into a
+network of logic gates.
+
+සම්පූර්ණ ප්‍රකාශනය තාර්කික ද්වාර ජාලයක්‌ බවට
+පට්වර්තනය වන Gawd මීලගට OR ලමහෙයවන
+වෙතටත්‌ නේ පසුව AND මෙහෙයවනය වෙතටත්‌
+ලමම ක්‍රියා පිළිවෙලම සිදු කරනු ලැබේ.
+
+For instance, consider the expression:
+උදාහරණයක්‌ ලෙස, පහත ප්‍රකාශනය සලකා
+බලන්න:
+
+(ය +B).C)
+
+The derivation proceeds as follows:
+
+ව්‍යුත්පන්න ක්‍රියාචලිය පහත පරිදි චේ:
+
+The outermost operator is a bar over the
+
+entire expression
+BODO මෙහෙයවනය යනු සම්පූරිණ ප්‍රකාශනය
+
+මත ඇති bar එකයි.
+
+A NOT gate is drawn for the whole
+expression.
+
+චවබැවින්‌ සම්පූර්ණ ප්‍රකාශනය සඳහාම NOT
+ද්වාරයක්‌ අදිනු ලැබේ.
+
+((A + B).C) ((A + B).C)
+
+The expression ((A + B).C) is now treated
+as a new expression.
+
+(A+B).C) යන ප්‍රකාශනය
+ප්‍රකාශනයක්‌ ලෙස සලකනු ලැබේ.
+
+දැන්‌ නව
+
+The expression (A+B).C shows an AND (dot)
+operation connecting the entire bracketed
+(A+B) and C.
+(A+B).C ප්‍රකාශනය මඟින්‌ සම්පූර්ණ වරහන්‌ තුළ
+
+ඇති (A+B) සහ C සම්බන්ධ කරන AND (dot)
+මෙහෙයුමක්‌ පෙන්වනු ලබයි,
+
+An AND gate is drawn that takes the
+isolated expression (A+B) and C as its
+inputs.
+
+හුදකලා ප්‍රකාශනය වන (A+B) සහ C maw
+ලෙස ගනු ලබන AND ද්චාරයක්‌ අඳිනු ලැබේ.
+
+(A +B)
+
+((A + B) .C) ((A + B).C)
+
+
+36
+
+Notice that the bracketed (A+B) is treated
+as a single entity until it is isolated by the
+AND operation.
+
+වරහන්‌ තුළ අති (A+B) ප්‍රකාශය AND මෙහෙයුම
+මගින්‌ හුදකලා වන ඉතක්‌ තනි වස්තුවක්‌ ලෙස
+සලකා ඇති බව හොදින්‌ නිරීක්ෂණය කරන්න.
+
+Now that (A+B) has been isolated as one of
+the inputs for the AND gate, it is processed
+internally.
+
+දැන්‌ (A+B) යන ප්‍රකාශය AND ද්වාරය sem
+වන ආදාන වලින්‌ එකක්‌ ලෙස හුදකලා කර ඇති
+බැවින්‌, OS අභ්‍යන්තරච සකසනු ලැබේ.
+
+The plus sign inside (A+B) is then
+recognized as an OR operation, and an OR
+gate Is drawn to complete the internal logic
+of that expression.
+
+(A+B) ඇතුළත ඇති ධන ලකුණ මීලගට OR
+
+මෙහෙයුමක්‌ ලෙස හඳුනා ගන්නා අතර, එම
+ප්‍රකාශනයේ අභ්‍යන්තර තරකනය සම්පූරිණ කිරීම
+
+සඳහා OR ද්වාරයක්‌ අඳිනු ලැබේ.
+
+(A + B) ((A + 0) .C)
+A 5
+B )} >)
+¢ —Y (AFB).
+
+D>-D
+
+Creating a truth table for a given logic circuit
+
+දී ඇති තාර්කික පරිපථයක්‌ සඳහා සත්‍යතා වගුවක්‌ නිරිමාණය කිරීම
+
+Inputs
+ආදාන
+
++ B)
+
+C
+
+Intermediate outputs අතරමැදි ප්‍රතිදාන
+
+> YN
+7 Kin?
+ve
+
+ICN — Input Combination Number
+
+F=C.(A +B)
+
+Final output
+අවසාන ප්‍රතිදානය
+
+ICN A B C (A+B) | (A+B) F=C.(A+B)
+1 0 0 0 0 1 0
+2 0 0 1 0 1 1
+3 0 1 0 1 0 0
+4 0 1 1 1 0 0
+5 1 0 0 1 0 0
+6 1 0 1 1 0 0
+7 1 1 0 1 0 0
+8 1 1 1 1 0 0
+EX.
+X (X + Y)
+Y F=(X+Y).Z
+ICN X Y Z Z (X+ Y) F = (X+Y).Z
+1 0 0 0 1 0 0
+2 0 0 1 0 0 0
+3 0 1 0 1 1 1
+4 0 1 1 0 1 0
+5 1 0 0 1 1 1
+6 1 0 1 0 1 0
+7 1 1 0 1 1 1
+8 1 1 1 0 1 0
+
+37
+
+Minterms and Maxterms
+
+ගුණිත පද සහ එකතු SE
+
+Why do we need Minterms and
+
+Maxterms?
+
+අපට ගුණිත පද සහ එකතු පද අවශ්‍ය වන්නේ
+ඇයි?
+
+Minterms and maxterms ensure that any
+Boolean function can be expressed in a
+
+systematic and unambiguous way.
+
+ගුණිත පද සහ චිකතු පද මඟින්‌ ඕනෑම බූලියන්‌
+ශ්‍රිතයක්‌ ක්‍රමානුකුලව සහ පැහැදිලි ආකාරයකින්‌
+ප්‍රකාශ කළ හැකි බව සහතික කරයි.
+
+Helps in Simplification and Optimization
+සරල කිරීම සහ ප්‍රශස්තිකරණය සඳහා coms
+වේ
+
+Boolean expressions often need
+
+simplification to reduce the number of
+logic gates in a circuit.
+පරිපථයක තාර්කික ද්වාර ගණන අඩු කිරීම
+
+සඳහා බූලියන්‌ ප්‍රකාශන වලට බොහෝ විට සරල
+කිරීම අවශ්‍ය Gd.
+
+Using minterms and maxterms, techniques
+like Karnaugh Maps (K-maps) can be
+applied for efficient simplification.
+
+ගුණිත පද සහ එකතු පද MOM කරමින්‌,
+කාර්යක්ෂමව සරල කිරීම්‌ Be කිරිම සඳහා කානෝ
+
+සිතියම්‌ ([|~සිතියම්‌) චැනි ශිල්පීය ක්‍රම යොදා ගත
+හැකිය.
+
+This results in faster, cheaper, and less
+
+power-consuming digital circuits.
+
+මෙය GOODS, ලාභදායී සහ අඩු බලයක්‌
+පරිභෝජනය කරන අංකිත පරිපථවල නිපදවීමට
+ඉහ්තු එව්‌.
+
+
+38
+
+Design of Combinational Circuits
+සංයුක්ත පරිපථ නිර්මාණය
+
+They help in designing combinational logic
+
+(e.g.,
+decoders) by providing a clear relationship
+
+circuits adders, multiplexers,
+
+between input combinations and output
+
+states.
+
+මේවා මගින්‌ ආදාන සංයෝජන සහ පත්දාන
+තත්වයන්‌ අතර පැහැදිලි සම්බන්ධතාවයක්‌ ලබා
+දීමෙන්‌ සංයුක්ත තාර්කික පරිපථ (උදා: ආකලක,
+
+multiplexers, විකේතක) නිර්මාණය කිරීමට
+උපකාරී චේ.
+
+Analysis and Verification
+විශ්ලේෂණය සහ සත්‍යාපනය
+
+They make it easier to analyze and verify
+
+the correctness of a Boolean function.
+ලම්වා බූලියානු Goaw නිරචද්‍ය බව විශ්ලේෂණය
+කර සත්‍යාපනය කිරීම පහසු කරයි.
+
+By examining the minterms or maxterms,
+you can determine whether the function
+covers all possible input combinations and
+
+whether it meets the design requirements.
+ගුණිත පද හෝ චකතු se පරීක්ෂා කිරීමෙන්‌,
+ශ්‍රිතය මගින්‌ පැවතිය හැකි සියලම ආදාන
+සංයෝජන ආවරණය කරන්නේද සහ Acs සැලසුමි
+අවශ්‍යතා සපුරාලන්‌්නේද යන්න තීරණය කිරීමට
+ඔබට හැකිය.
+
+Conversion Between SOP and POS
+SOP සහ POS ead පරවරිතනනය
+
+Allow easy conversion between SOP and
+POS forms, which is useful depending on
+the type of logic gates available or the
+design constraints.
+
+SOP සහ POS ආකෘති අතර පහසු
+පර්චරිතනයකට ඉඩ ලබා දෙන අතර එය භාවිතා
+කිරීමට ඇති තාර්කික ද්චාර වර්ගය හෝ සැලසුමි
+සීමාවන්‌ මත පදනම්ව ප්‍රයෝජනවත්‌ Gd.
+
+Minterms
+
+ගුණිත SE
+
+In a truth table, minterms represent how
+inputs must be multiplied to obtain the
+
+output 1 corresponding to a given input.
+සත්‍යතා වගුවක යම්‌ ආදානයකට අදාල ප්‍රතිදානය
+1 ලැබීම සදහා ආදාන ගුණ කල යුතු ආකාරය
+ගුණිතපද මගින්‌ නිරූපනය කරයි.
+
+Minterms are used to represent a Boolean
+function in its Sum of Products (SOP) form.
+බූලියානු Goaad එහි ගුණිතයන්ගේ චකතුව
+(SOP) ආකාරයෙන්‌ නිරූපණය කිරීමට Minterms
+භාවිතා චේ.
+
+Each minterm corresponds to a single row
+in the truth table where the function is true
+(1).
+
+සෑම minterm එචකක්ම සත්‍යතා වගුවේ ශ්‍රිතය
+true (1) වන තනි පේළියකට අනුරෑප වේ.
+
+Minterms of 2 inputs
+
+ආදාන 2 ගුණිතපද
+ICN A B F
+1 0 0 Mo = A.B
+2 0 1 [111 ස A.B
+3 1 0 [112 = A.B
+4 1 1 m3 = A.B
+Minterms of 3 inputs
+ආදාන 3 ගුණිතපද
+ICN | & B C F
+1 0 0 0 Mo = A.B.C
+2 0 0 1 [111 ස A.B.C
+3 0 1 0 [112 = A.B.C
+4 0 1 1 m3 = A.B.C
+5 1 0 0 m4 = A.B.C
+6 1 0 1 ms = A.B.C
+7 1 1 0 [116 = A.B.C
+8 1 1 1 m7 = A.B.C
+
+
+39
+
+Maxterms
+
+චකතු SE
+
+In a truth table, Maxterms represent how
+the inputs must be added to get the output
+
+0 for a given input.
+
+සත්‍යතා වගුවක යම්‌ ආදානයකට අදාල ප්‍රතිදානය
+0 ලැබීම සදහා ආදාන එකතු කල යුතු ආකාරය
+එකතු පද මගින්‌ නිරෑපනය කරයි.
+
+Maxterms are used to represent a Boolean
+function in its Product of Sums (POS) form.
+Maxterms භාවිතා කරනුයේ බූලියානූ ශ්‍රිතයක්‌
+
+චහි චකතුන්ගේ ගුණිත ප්‍රකාශනයක්‌ (POS)
+ආකාරයෙන්‌ නියෝජනය කිරීමටය.
+
+Each maxterm corresponds to a single row
+in the truth table where the function is false
+(0).
+
+සදම C3060 චාරයක්ම සත්‍යතා වගුවේ ශ්‍රිතය
+false (0) වන තනි පේළියකට අනුරෑප එේ.
+
+Maxterms of 2 inputs
+
+ආදාන 2 එකතුපද
+
+ICN A B F
+
+1 0 0 Mo=A+B
+
+2 0 1 M,=A+B
+
+3 1 0 M2=A+B
+
+4 1 1 M3=A+B
+Maxterms of 3 inputs
+
+ආදාන 3 එකතුපද
+
+ICN | & B C F
+
+1 0 0 0 Mo=A+B+C
+2 0 0 1 Mi=A+B+C
+3 0 1 0 M2=A+B+C
+4 0 1 1 M3=A+B+C
+5 1 0 0 M4=A+B+C
+6 1 0 1 Ms=A+B+C
+7 1 1 0 Me=A+B+C
+8 1 1 1 M7=A+B+C
+
+Minterms & Maxterms
+
+ICN A B C F Minterms Maxterms
+1 0 0 0 0 Mo=A+B+C
+2 0 0 1 0 M:=A+B+C
+3 0 1 0 0 M2=A+B+C
+4 0 1 1 1 m3 = A.B.C
+5 1 0 0 0 M4=A+B+C
+6 1 0 1 1 ms = A.B.C
+7 1 1 0 1 me = A.B.C
+8 1 1 1 1 m7= A.B.C
+For Minterms For Maxterms
+Fssop = M3 OR ms OR me OR m7 Fsp0s = Mo AND M1 AND M2 AND Mg
+=m3 + Ms + Me + M7 =Mo.M1.M2. 14
+
+=A.B.C+A.B.C+A.B.C+A.B.C
+
+Logic circuit based on SOP
+
+SOP මත පදනමී වූ mba පරිපථය
+
+ABC
+
+D>
+
+
+We (/ lly
+
+BD
+හූ
+
+40
+
+=(A+B+C).(A+B+C).
+(A+B+C).(A+B+C)
+
+Logic circuit based on POS
+POS මන send © mbSea 56506
+
+ABC
+
+a
+
+a
+
+si
+
+Converting SOP to POS
+SOP සිට POS බවට පටවර්ථනය කිරීම
+
+The logic behind converting SOP to POS is
+that minterms (SOP) and maxterms (POS)
+are complements of each other, so we use
+De Morgan's Theorem to switch between
+AND-OR (SOP) by taking the function's
+complement twice, ensuring the logic
+remains unchanged.
+
+SOP, POS බවට පරිවර්තනය කිරීම පිටුපස ඇති
+තර්කය වන්නේ ගුණිත පද (POS) සහ එකතු පද
+
+(SOP) චිකිනෙකට අනුපූරක වීමයි, එබැවින්‌ අප
+විසින්‌ Goes තර්කනය නොවෙනස්‌ වන බව
+සහතික කරමින්‌ AND-OR (SOP) අතර මාරු
+වීමට, ශ්‍රිතයේ අනුපූරකය දෙවරක්‌ ලබා
+ගැනීමෙන්‌, ද මෝගන්ගේ ප්‍රමේයය භාවිතා කරනු
+ලබයි.
+
+These conversions are important because
+they help design circuits in different forms,
+making them easier to simplify, optimize,
+and implement using different types of
+
+logic gates.
+
+මෙම SCOKHD වැදගත්‌ වන්නේ HO) මගින්‌
+පරිපථ සරල කිරීමට, ප්‍රශස්ත කිරීමට, සහ විවිද
+වර්ගයේ තාර්කික ද්වාර භාවිතයෙන්‌ එවා
+කියාත්මක කිරීමට ඉඩ සලසමින්‌ විවිධ
+ආකාරයන්ගෙන්‌ පරිපථ නිරිමාණයට ඉඩ සලසන
+බැවිනි.
+
+Steps to convert SOP into POS
+SOP, POS බවට පරිචරිතනය කිරීමේ පියවර
+
+e Find the complement (F) of the given
+function.
+දී ඇති ශ්‍රිතයේ අනුපූරකය (F) සොයාගන්න.
+Apply De Morgan's Theorem: Convert
+AND operations (*) to OR (+)
+ද ලමෝගන්ගේ ප්‍රමියය යොදන්න: AND
+
+මෙහෙයුම්‌ (7) OR (+) බවට පටර්වරිතනය
+කරන්න.
+
+e Simplify the obtained expression
+ලබා OD ප්‍රකාශනය සුළු කරන්න.
+
+e Take the complement of F again (F =F)
+to get the original function in POS form.
+POS ආකාරයෙන්‌ මුල්‌ ශ්‍රිතය ලබා ගැනීමට F
+හි අනුපූරකය (F =F) නැවත නැවත ලබා
+ගන්න.
+
+
+41
+
+Converting POS to SOP
+POS සිට SOP බවට පරවර්ථනය කිරීම
+
+To transform a POS expression into SOP, we
+apply the distributive law to expand the
+product of sums into a sum of products.
+
+POS ප්‍රකාශනයක්‌ SOP බවට පරිවර්තනය කිරීම
+සඳහා, එකතු වල ගුණිත පද ගුණිත වල එකතු
+පද බවට ප්‍රසාරණය කිරීමට විඝටන නණෲය
+යොදනු ලැබේ.
+
+If necessary, Boolean simplifications can be
+
+applied to simplify the resulting expression.
+අවශ්‍ය නම්‌, ප්‍රතිඵලයක්‌ ලෙස ලැබෙන ප්‍රකාශනය
+සරල කිරීම සඳහා බූලියානු සරල කිරීමි යෙදිය
+හැකිය.
+
+Steps to convert POS into SOP
+POS, SOP බවට පටරචරිතනය කිරීමේ පියවර
+
+e Apply the Distributive Law
+HBOD න්‍යාය යොදන්න
+
+Apply this expansion to all sum terms in
+the given POS expression.
+
+දී ඇති POS ප්‍රකාශනයේ සියලුම එකතු පද
+සඳහා මෙම ප්‍රසාරණය ලයාදන්න.
+
+e Expand Until No Parentheses Remain
+වරහන්‌ ඉතිරී නොවන තෙක්‌ ප්‍රසාරණය
+කරන්න
+
+e Simplify If Necessary
+අවශ්‍ය DS සරල කරන්න
+
+Apply Boolean simplifications such as
+Idempotent Law, Absorption Law, and
+Complement Law if needed.
+
+අවශ්‍ය නම්‌ තදේවභාවී HIG, සංඝටන
+
+න්‍යාය සහ ප්‍රතිලෝම ama වැනි බූලියානු
+සරල B58 යොදන්න.
+
+SOP to POS conversions
+Example 1.
+
+1. Find the complement (F) of the given function.
+දී ඇති ශ්‍රිතයේ අනුපූරකය (F) සොයාගන්න.
+
+Fsop = A.B + A.C + A.B.C
+F=A.B+A.C + ABC
+
+2. Simplify the obtained expression
+
+ලබා ගත්‌ ප්‍රකාශනය සුළු කරන්න.
+=A.B.A.C.A.B.C De Morgan’s law
+= (A+B). (A+C). (A+B+C) De Morgan's law
+(A+B.C). (A+B+4+C) Redundancy law
+=AA+A.B+A.C+B.C.A+B.B.C+C.B.C Distributive law
+=A+AB+A.C+B.C.A+B.C+B.C Idempotent law
+=A+B.C+B.C Redundancy law
+=A+B.C Idempotent law
+
+3. Take the complement of F again (F =F) to get the original function in POS form.
+POS ආකාරයෙන්‌ මුල්‌ Goa ලබා ගැනීමට F හි අනුපූරකය (F =F) නැවත නැවත ලබා ගන්න.
+
+F =A+B.C
+
+F=A+B.C Double complement
+F=AB.C De Morgan's
+
+F=A. (B + C) De Morgan's
+
+Fpos = A.(B + C) De Morgan's
+
+Therefore, [A.B + A.C + A.B.Clsop = [A.(B + C)]po
+
+42
+
+Example 2.
+
+1. Find the complement (F) of the given function.
+දී ඇති ශ්‍රිතයේ අනුපූරකය (F) සොයාගන්න.
+
+Fsop = X.Y.Z+X.Y+Y.Z4+X.Y.Z
+
+F=XY.Z+X.Y+ Y.Z4+X.Y.Z
+
+2. Simplify the obtained expression
+
+ලබා ගත්‌ ප්‍රකාශනය සුළු කරන්න
+
+=X. /, 7 , 00, ₹/, ₹, 7.00. ₹. 7 De Morgan’s law
+= X+¥+Z).(X+Y).(V+Z).&+Y+ De Morgan's law
+= (X+Y+Z).(X+Y).(¥+Z).(X+Y+Z) Double inverse law
+=(XX+X.Y+Y.X+Y.Y+ZX4+ZY).(¥+Z).(X+Y+Z) Distributive law
+= (X+Z.Y).(Y+Z).(X+Y+4+2Z) Redundancy law
+=(X+Z.Y).(Y.X+Y.Y+Y.Z4+ZX+4+ZY4+Z.Z) Redundancy law
+= (X+Z.Y).(Y.X+Z) Redundancy law
+= (X+Z.Y).(Z+/Y.X) Associative law
+= (X.Z+X.Y.X+Z.Y.Z+ZY.Y.X) Distributive law
+= (X.Z+0+0+0) Inverse law
+
+= (X.Z) Identity law
+
+F = (X.Z) Identity law
+
+3. Take the complement of F again (F =F) to get the original function in POS form.
+POS ආකාරයෙන්‌ මුල්‌ ශ්‍රිතය ලබා ගැනීමට F හි අනුපූරකය (F =F) නැවත නැවත ලබා ගන්න.
+
+F = (X.Z)
+Fpos = (X + Z)
+
+[X.Y.Z2+XY+Y.Z+ X.Y. Z]sop = [(X + Z) ]pos
+
+43
+
+Example 3.
+
+1.
+
+
+Find the complement (F) of the given function.
+දී ඇති ශ්‍රිතයේ අනුපූරකය (F) සොයාගන්න.
+
+Fsop =X.Y+X.Z+Y.Z
+
+F=X.Y+X.Z+Y.Z
+
+Simplify the obtained expression
+
+ලබා ගත්‌ ප්‍රකාශනය සුළු කරන්න.
+= (X.Y). (3.2 ). 2) De Morgan's law
+= (X+Y).(X+Z).(Y+Z) De Morgan's law
+= (X+ Y).(X+Z).(Y+Z) Double Inverse law
+= (X.X+X.Z+Y.X+Y.Z).(Y+2Z) Distributive law
+= (0+ X.Z+Y.X+Y.Z).(Y+Z) Inverse law
+=(XZ.Y+Y.XY+Y.ZY+ XZZ4+YXZ4+Y.Z2Z) Distributive law
+=(X.ZY+Y.X.Y+ X.ZZ4+Y.X.Z) Inverse law
+=X.ZY+Y.X+ XZ4+Y.X.Z Idempotent law
+
+. Take the complement of F again ඇ =F) to get the original function in POS form.
+
+POS ආකාරයෙන්‌ මුල්‌ ශ්‍රිතය ලබා ගැනීමට F හි අනුපූරකය (F =F) නැචත නැවත ලබා ගන්න.
+
+=(X.Z.Y+ Y.X+ 0( 7 -1- Y.X.Z)
+Fpos = (0(. 7. Y).(Y.X). (02). (27 De Morgan’s law
+= (X+Z+Y).(¥+X).(X+2Z).(¥+X+2Z) De Morgan's law
+= (X+Z+4+Y).(¥ + X).(X+Z).(Y+X+Z) Double Inverse law
+
+[X.Y +X.Z4+Y.Z] sop = [((X+Z+4+ Y).(Y +X). (KX 7). / + X + Z)]pos
+
+44
+
+POS to SOP conversions
+Example 1.
+
+1. Apply the Distributive Law
+විඝටන ama යොදන්න
+
+Fros = (X + Z)(¥ + 7)
+=(X.Y+X.Z4ZY+ 7.7)
+
+2. Apply Boolean simplifications.
+
+බූලියන්‌ සරල කිරීම්‌ යොදුන්න.
+=(XY+Z.Y +X.Z 4+ 7.7)
+= (X.Y+Z.Y +X.Z + Z) Idempotent Law
+=X.Y+Z Redundancy Law
+
+[(X + Z)(Y + Z) |pos = [Z + X. Y|sop
+Example 2.
+
+Feros = (X+Y+Z)(X4+Y)
+=(XX+YX4ZX + XY+Y.Y+ZY)
+
+=(XX+Y.X4+ZX 4+ X.Y+Y.Y+Z.Y)
+
+=(XX+Y.X +Z.X + XY+Y+ZY) Idempotent Law
+=(0 +Y.X+ZX4+ XY+Y+4+Z.Y) Inverse Law
+
+= (Y.X +Z.X + X.Y+Y) Redundancy Law
+= (Y.X +Z.X + Y) Redundancy Law
+= (Z.X + Y) Redundancy Law
+=Y+X.Z Commutative Law
+
+[((X + ₹ + Z)(X + Y)]pos = [Y + X. Z]sop
+Example 3.
+
+Feos = (X+ Y)(X4+ Z)(Y + 7)
+= (X.X + XY+Z.X+Y.Z)(¥ +Z)
+=(XXY+ XYY+ZXY+Y.Z.Y+X%X%Z 4+ XYZ4ZX%.Z24+Y.Z.Z)
+
+=(XXY+ KXYVY+ZXKY+Y.ZY+XX%Z + 90%. 7 4 7.07 4- ?. 7.7)
+
+=(XXY 09% 7.00 ₹ 1 ₹/. 7 4 10067 + KYVZ4ZX4Y.Z) Idempotent Law
+=(0.Y+ X.Y+ZX.Y+Y.Z+0.2Z + XY.Z4+ZX4+Y.Z) Inverse Law
+
+=(XY+ZX.Y+Y.Z4+ X.Y.Z+Z.X) Idempotent Law
+=X.Y+Y.Z+X.Z Redundancy Law
+
+[(X + Y).(X + Z). (Y + Z)]pos = [K.Y + Y.Z + X. Z]sop
+
+45
+
+Standard and non-standard expressions
+සම්මත සහ සම්මත නොවන ප්‍රකාශන
+
+Standard Expression
+සම්මත ප්‍රකාශන
+
+A Boolean expression where each term
+contains all variables of the function, either
+in complemented or uncomplemented
+
+form.
+
+සෑම පදයකම Goes ඇති සියලුම විචල්‍යයන්‌
+අනුපූරක හෝ අනුපූරක නොවන ආකාරයෙන්‌
+අඩංගු චන බූලීයානු ප්‍රකාශනයකි.
+
+Ex. F(A, 0, C) = (4. 0. ලා + (A.B.C) + (4. 0. ධ
+
+Non-Standard Expression
+සම්මත නොචන ප්‍රකාශනය
+
+A Boolean expression where not all terms
+
+contain all variables.
+සියලුම පදවල සියලුම විචල්‍යයන්‌ අඩංගු නොචන
+බූලීයානු ප්‍රකාශනයකි.
+
+Ex. F(A,B,C) =A+B.C
+
+How to convert a non-standard
+
+expression into a standard expression
+සම්මත නොචන ප්‍රකාශනයක්‌ සම්මත
+ප්‍රකාශනයක්‌ බවට පරවරතනය කරන ආකාරයෟ
+
+To convert a non-standard SOP or POS
+expression into a standard SOP or POS
+expression, you need to ensure that each
+product term (minterm) in SOP and each
+sum term (maxterm) in POS includes all the
+variables in the function.
+
+සම්මත නොවන SOP හෝ POS ප්‍රකාශනයක්‌
+සම්මත SOP හෝ POS ප්‍රකාශනයක්‌ බවට
+පර්චරිතනය කිරීම සඳුහා, SOP හි නම්‌ සෑම
+ගුණිත පදයකම (minterm) ද, POS හි නමි සෑම
+
+චිකතුව පදයකම (maxterm) ද ශ්‍රිතයේ සියලුම
+ච්චල්‍යයන්‌ ඇතුළත්‌ වන බවට සහත්ක කළ යුතුය,
+
+This often involves expanding the
+expression by using Boolean algebraic
+
+properties.
+මෙයට බොහෝ වි්ට බූලියානූ 58 ගණිත නීති
+භාවිතයෙන්‌ ප්‍රකාශනය පුළුල්‌ කිරීම ඇතුළත්‌ Gd.
+
+1. Conversion of a non-standard SOP expression into a standard SOP expression
+සම්මත නොචන SOP ප්‍රකාශනයක්‌ සම්මත SOP ප්‍රකාශනයක්‌ බවට පරචරිථනය
+
+EX. 1
+Fsop = A.B + A.B.C+A.B.C.D
+
+= A.B+A.B.C.1+A.B.C.D
+
+Identity law
+
+= A.B+A.B.C.(D+D)+A.B.C.D
+
+Inverse law
+
+= A.B+A.B.C.D +A.B.C.D + A.B.C.D
+
+Distributive law
+
+= A.B.1.14+A.B.C.D+A.B.C.D +A.B.C.D
+
+Identity law
+
+= A.B.(C+C).(D+D)+A.B.C.D+A.B.C.D + A.B.C.D
+
+Inverse law
+
+= A.B.[(C+ C).D+ (C+ (). 0] +A.B.C.D + A.B.C.D + 4. 0. (. 1)
+
+Distributive law
+
+= A.B.[C.D+C.D+C.D+C.D] +A.B.C.D+A.B.C.D + A.B.C.D
+
+Distributive law
+
+A.B.C.D
+
+= A.B.C.D+A.B.C.D+A.B.C.D + A.B.C.D+A.B.C.D + A.B.C.D +
+
+Distributive law
+
+Fssop = A. B.C.D + A.B.C.D+ A.B.C.D+ A.B.€.D + A.B.C.D + A.B.C.D + A.B.€.D
+
+EX. 2
+
+Fsop = A.B +A.C€4+ B.C
+
+=A.B.1+A.C+B.C
+
+Identity law
+
+= A.B.(C+C)+A.C+B.C
+
+Inverse law
+
+=A.B.C+A.B.C+A.C+B.C
+
+Distributive law
+
+= A.B.C+A.B.C+A.C.1+B.C
+
+Identity law
+
+= A.B.C+A.B.C + A.C.(B +B) +B.C
+
+Inverse law
+
+-- A.B.C+A.B.C+A.C.B+A.C.B4+B.C€
+
+Distributive law
+
+= A.B.C+A.B.C+A.C.B+A.C.B+B.C.1
+
+Identity law
+
+= A.B.C+A.B.C+A.C.B+A.C.B +B.C.(A+A)
+
+Inverse law
+
+= A.B.C+A.B.C+A.C.B +A.C.B +B.C.A+B.C.A
+
+Distributive law
+
+-- A.B.C+A.B.C+A.C.B+A.C.B+B.C.A
+
+Idempotent law
+
+= A.B.C+A.B.C+A.C.B+B.C.A
+
+Idempotent law
+
+= A.B.C+A.B.C +A.B.C + A.B.C
+
+Commutative law
+
+Fssop = A. B.C + A.B.C + A.B.C + A.B.C
+
+EX. 3
+
+Fsop = X+X.Z4+ Y.Z
+
+=X.114+X1.241.Y.Z
+
+Identity law
+
+=X.(Y+ Y).(Z+Z)+X.(Y+Y).Z+ (X4+X).Y.Z
+
+Inverse law
+
+=XY.Z+XKY.Z4+X.Y.Z+X.Y.Z4+XKY.Z4+X.Y.Z
+
+Distributive law
+
+=X.Y.Z+XY.Z+XY.Z4+X.Y.Z
+
+Idempotent law
+
+Fssop = X. Y.Z+X.Y.Z2+X.Y.Z+XY.Z
+
+4/7
+
+2. Conversion of a non-standard POS statement into a standard POS statement
+
+සම්මත නොචන POS ප්‍රකාශනයක්‌ සම්මත POS ප්‍රකාශනයක්‌ බවට පරචරිථනය
+
+EX. 1
+
+17009 = (A+ B).(A+B+C).(A+B+C€+D)
+
+= (A+B).(A+B+C+0).(A+B+C+D)
+
+Identity law
+
+= (A+B).(A+B+C+(D.D)).(A+B+C+D)
+
+Inverse law
+
+= (A+B).(A+B+C+D).(A+B+C+4+D).(A+B+C+D)
+
+Distributive law
+
+= (A+B+0+0).(A+B+C+D).(A+B+C+4+D).(A+B+C+D)
+
+Identity law
+
+= [A+ B(C.C) + (D.D)].(A+B+C+D).(A+B+C+D).(A+B+C+D)
+
+Inverse law
+
+= [A+ B((C.C) + D.(C.C) + D)].(A+B+C+D).(A+B+C+D).
+(A+B+C+D)
+
+Distributive law
+
+= [A+ B(C+D).(C+ D).(C + D).(C + D)].(A+B+C+D).
+(A+B+C+4+D).(A+B+C+D)
+
+Distributive law
+
+=(A+B+C+D).(A+B+C+D).(A+B+C+D).(A+B+C+D).
+(A+B+C+D).(A+B+C+D).(A+B+C+D)
+
+Distributive law
+
+Fspos = (A+ B+C+4+D).(A+B+C+D).(A+B+C+D).(A+B+C+4+D).(A+B+C+D).
+
+(A+B+C+D).(A+B+C+D)
+
+EX. 2
+
+Fpos = (X + Z).(Y+Z).(K+Y+Z)
+
+= (X+0+2Z).(0+Y+Z).(X+Y4+Z)
+
+Identity law
+
+= (K+ (/.%) +Z).((XX)+¥+Z).K+¥42)
+
+Inverse law
+
+=(X+Y4+Z).(X+Y4+Z).(X+Y+Z).(X+Y+Z).(K+Y4+Z)
+
+Distributive law
+
+= (X+Y+Z).(X+Y4+Z).(X+Y4+Z).(X+Y+4+Z)
+
+Idempotent law
+
+Fssop = (X+ Y + Z).(X+Y4+Z).(X+Y+Z).(X+Y+Z)
+
+48
+
+Designs simple digital circuits using logic gates for a given scenario
+තාර්කික ද්වාර භාවිතයෙන්‌ ලබා දී ඇති අවස්ථාවක්‌ සදහා සරල ඩිපිටල්‌ පරිපථ නිරිමාණය කරයි.
+
+A company has a high-security safe that requires keys K1, K2 and K3. To unlock the safe, at
+least two of these keys must be used together. The presence of each key Is represented as a
+binary variable, where 1 means the key is used and 0 means it is not used.
+
+සමාගමකට K1, K2 සහ K3 යතුරැ; අවශ්‍ය OD අධි ආරක්ෂිත සේප්පුවක්‌ තිබේ. සේප්පුව aqea ඇරිමට,
+අවම වශයෙන්‌ මෙම යතුරැ දෙකක්වත්‌ එකට භාවිතා කළ යුතුය. චක්‌ චක්‌ යතුරේ පැචැත්ම ද්ව්මය
+
+ච්චල්‍යයක්‌ ලෙස නිරෑපණය කෙරේ, එහිදී 1 යන්නෙන්‌ අදහස්‌ කරන්නේ යතුර භාවිතා කර ඇති බවත්‌ 0
+යන්නෙන්‌ අදහස්‌ කරන්නේ එය MAD) කර නොමැති බවත්ය.
+
+The safe opens (5 = 1) only when at least two keys are used. Otherwise, the safe remains locked
+(5 = 0).
+
+GHSQO ච්වෘෑෘත වන්නේ (5 = 1) අවම වශයෙන්‌ යතුරැ දෙකක්වත්‌ භාවිතා කළ විට පමණි. එසේ නොමැතිනමි,
+සේප්පුව අගුළු දමා පවතී (5 = 0)
+
+1. Construct the truth table representing this situation.
+මේ සඳහා සත්‍යතා වගුව සාදන්න.
+
+Defining the inputs and outputs
+ආදාන සහ ප්‍රතිදාන නිරිචචනය කිරීම
+
+A key (K1, K2 or K3) is used
+යතුරක්‌ (K1, K2 හෝ K3) භාවිතා කෙරේ
+
+A key (K1, K2 or K3) is not used
+
+යතුරක්‌ (K1, K2 හෝ or K3) භාවිතා නොකෙරේ 0
+The safe (S) is open 1
+සේප්පුව (5) විවෘතයි
+
+The safe (5) is closed 0
+
+සේප්පුව (5) වසා ඇත
+
+The safe will only open if at least two keys are used. This means that if one key is used, the
+safe remains locked. If two or three keys are used, the safe opens.
+
+සේප්පුව ච්චෘත වන්නේ අවම චශයෙන්‌ යතුරැ දෙකක්වත්‌ MAD) කළහොත්‌ පමණි. මෙයින්‌ අදහස්‌
+කරන්නේ එක්‌ යතුරක්‌ භාවිතා කළහොත්‌ ඉස්ප්පුව අගුළු වැටී පචතින බවයි. ඇති බවයි. යතුරැ දෙකක්‌
+හෝ තුනක්‌ භාවිතා කළහොත්‌ ඉස්ප්පුව විවෘත චේ,
+
+K1 K2 K3 S
+0 0 0 0
+0 0 1 0
+0 1 0 0
+0 1 1 1
+1 0 0 0
+] 0 ] ]
+] ] 0 ]
+] ] ] ]
+
+49
+
+2. Construct the SOP (Sum of Products) expression using minterms.
+Minterms භාවිතයෙන්‌ SOP වකතුන්ගේ ගුණිත ප්‍රකාශනය නිරීමාණය කරන්න.
+
+SOP is a simplified OR (sum) of multiple AND (product) terms. We take the rows where S=1
+(safe opens) and write each as an AND expression.
+
+SOP යනු OR (sum) පද කිහිපයක සරල කළ AND (චවකතුව) GH. S=1 (ආරක්ෂිතව ව්වෘත වන)
+පේළි ගෙන චඒ සෑම එකක්ම AND ප්‍රකාශනයක්‌ ලෙස ලිචිය යුතුය.
+
+K1 K2 K3 S Minterms
+0 0 0 0
+0 0 1 0
+0 1 0 0
+0 1 1 1 11. K2.K3
+1 0 0 0
+1 0 1 1 K1. K2.K3
+1 1 0 1 K1. K2.K3
+1 1 1 1 K1.K2.K3
+
+Ssop = K1.K2.K3 + K1.K2.K3 + K1.K2.K3 + K1.K2.K3
+
+3. Construct the POS (Product of Sums) expression using maxterms.
+Maxterms භාවිතයෙන්‌ POS ප්‍රකාශනය නිර්මාණය කරන්න.
+
+POS is a simplified AND (product) of multiple OR (sum) terms. We take the rows where
+S=0 (safe remains locked) and write each as an OR expression.
+
+POS යනු AND (@zz2p) පද කිහිපයක සරල කළ OR (sum) වේ. S=0( ඉස්ප්පුව ආරක්ෂිතව අගුළු
+දමා ඇති) පේළි ගෙන ඒ සෑම එකක්ම OR ප්‍රකාශනයක්‌ ලෙස ලිවිය යුතුය.
+
+K1 K2 K3 S Maxterms
+
+0 0 0 0 K1 + K2 + K3
+0 0 1 0 K1+ K2 + K3
+0 1 0 0 K1+ K2 + K3
+0 1 1 1
+
+1 0 0 0 K1+ K2 + K3
+1 0 1 1
+
+1 1 0 1
+
+1 1 1 1
+
+Spos = (K1 + K2 + K3).(K1 + K2 + K3).(K1 + K2 + K3).(K1+ K2 + K3)
+
+50
+
+Simplify the SOP and POS expressions using Boolean laws.
+බූලියානු නීති භාවිතයෙන්‌ SOP සහ POS ප්‍රකාශන සරල කරන්න.
+
+SOP
+
+= K1.K2.K3 + K1.K2.K3 + K1.K2.K3 + K1.K2.K3
+
+We can make the simplification easier and shorter by adding K1.K2.K3 for every term in
+
+the expression using the Idempotent law.
+DECOM නියමය භාවිතයෙන්‌ ප්‍රකාශනයේ සෑම පදයක්‌ සඳහාම K1.K2.K3 එකතු කිරීමෙන්‌ අපට
+සරල කිරීම පහසු සහ GDS කළ හැකිය.
+
+= K1.K2.K3 + K1.K2.K3 + K1.K2.K3 + K1.K2.K3 + K1.K2.K3 + K1.K2.K3
+K2.K3.(K1 + K1) + K1.K3.(K2 + K2) + K1.K2.(K3 + K3) Distributive Law
+
+= K2.K3.(1) + K1.K3.(1) + K1.K2.(1) Inverse Law
+
+= K2.K3 + K1.K3+4+ K1.K2 Identity Law
+
+Ssop = K1.K2 + K2.K3 + K1.K3 Commutative Law
+POS
+
+= (K1+ K2 + K3).(K1+ K2 + K3).(K1+ K2 + K3).(K1 + K2 + K3)
+= (K1 + K2 + K3).(K1 + K2 + K3).(K1+ K2 + K3)(K1+ K2 + K3).(K1 + K2 + K3).
+
+(K1 + K2 + K3) Idempotent law
+= (K1 + K2 + (K3. K3)).(K1 + K3 + (K2.K2)).(K2 + K3 + (K1.K1)) Distributive law
+= (K1 + K2 + (0)). (K1 + K3 + (0)). (K2 + K3 + (0)) Inverse law
+Spos= (K1 + K2). (K1 + K3). (K2 + K3) Identity law
+
+Simplify the SOP and POS expressions using Karnaugh-maps.
+meas 8408 භාවිතයෙන්‌ SOP සහ POS ප්‍රකාශන සරල කරන්න.
+
+SOP
+
+K1 K2 K1. K2. 13
+යැ 00 01 11 10 K1.K2. 13
+
+0010 /1% 0 = K1.K2
+
+1 0 1G [Opt
+
+1.K2.K3 K1. 102. K3
+1.K2.K3 K1. 112. K3
+= K2.K3 = K1.K3
+
+ssop = 1]. K2 + K2.K3 + K1.K3
+
+51
+
+POS
+
+(රු K2
+ලු෴ 00 01 11 10
+
+) - 1 +K2+K3
+0 | 60 Di @ |<— L+K24+K3
+
+—
+
+1 \\o /} 1 \1 1 = K2+K3
+K1+K2+ 161 + K2 + K3
+
+K1+K2+ 161 + K2 + K3
+
+= K1+ K2 = K1+ K3
+
+Spos = (K1 + K2). (K1 + K3).(K2 + K3)
+
+6. Design the circuit diagrams for the simplified SOP and POS expressions using basic
+logic gates.
+මූලික තාර්කික ද්වාර භාවිතයෙන්‌ සරල කළ SOP සහ POS ප්‍රකාශන සඳහා පරිපථ සටහන්‌ අදින්න.
+
+Ssop = K1.K2 + K2.K3 + K1.K3 Spos= (K1 + K2).(K1 + K3). (K2 + K3)
+
+K1 K2 K3 K1 K2 K3
+
+D> ) >
+ra TH DD
+>
+
+_-
+
+52
+
+7. Design the circuit diagrams for the simplified SOP and POS expressions using
+universal gates. (NAND and NOR)
+සාර්වත්‍ර ද්වාර භාවිතයෙන්‌ සරල කළ SOP සහ POS ප්‍රකාශන සඳහා පරිපථ සටහන්‌ අදින්න.
+
+SOP - NAND
+
+K1 K2 [ප
+
+This circuit can be further simplified by removing the repeating NOT gates as follows
+පුනරාවර්තනය චන NOT ද්වාර වෙත්‌ කිරීමෙන්‌ GOO පරිපථය පහත පරිදි තවදුරටත්‌ සරල WE හැක,
+
+[අ] K2 K3
+[අ] K2 K3
+
+| අර 2ර ම DB,
+
+Cy
+
+53
+
+SOP —- NOR
+
+[අ] (2 K3
+
+POS - NAND
+
+K1 K2 K3
+
+54
+
+POS - NAND
+
+K1 K2 K3
+
+This circuit can also be further simplified by removing the repeating NOT gates as follows
+
+පුනරාවර්තනය චන NOT ද්වාර චචත්‌ කිරීමෙන්‌ GOO පරිපථය ද පහත SSE තවදුරටත්‌ සරල කළ
+හැක.
+
+K1 [2 K3
+
+K1 K2 K3
+
+D>
+සමයම
+සැ කම්‌
+
+ට්ට්‌
+
+Building blocks of CPU
+CPU හි තැනුම්‌ විකක
+
+Adders
+ආකලක
+
+An adder is a digital logic circuit that
+
+performs binary addition.
+ආකලකයක්‌ යනු ද්විමය එකතු කිරීම සිදු කරන
+අංකිත තාර්කික පරිපථයකි.
+
+1. Half Adder
+අර්ධ ආකලකය
+
+Adds two single-bit binary numbers and
+produces two outputs called Sum (A ආ B)
+and Carry (A * B), without considering any
+
+carry input from a previous addition.
+පෙර Be කරන ලද චිකතු කිරීමකින්‌ කිසිදු රැගෙන
+යාමේ ආදානයක්‌ සැලකිල්ලට නොගෙන, තනි-බිටු
+
+සහිත ද්විමය සංඛ්‍යා දෙකක්‌ එකතු කර Sum එක
+(A ® B) සහ Carry එක (A ං 8) ලෙසින්‌
+හළඳුන්චන ප්‍රතිදාන දෙකක්‌ නිපදවයි,
+
+Inputs
+POD
+Two single-bit binary numbers, usually
+
+denoted as A and B.
+
+සාමාන්‍යයෙන්‌ A සහ B ලෙස දැක්චෙන තනි-බිටු
+EHO සංඛ්‍යා දෙකක්‌.
+
+Outputs
+ප්‍රතිදාන
+
+Sum (5) - This is the result of adding the
+
+two input bits.
+මෙය ආදාන BO දෙක එකතු කිරීමේ ප්‍රතිඵලයයි.
+
+Carry (C) - This indicates if there is a carry-
+out from the addition. A carry is produced
+when the sum of the two bits is greater
+than what can be represented by a single
+bit (ex:- greater than 1).
+
+රැගෙන යාම (C) - එකතු කිරීමෙන්‌ ගෙනයාමක්‌
+තිබේද යන්න මෙයින්‌ පෙන්නුමි කරයි. බිටු දෙකේ
+ADDO තනි බිටුවකින්‌ (චනම්‌, 1 ට වඩා වැඩි)
+නියෝජනය කළ හැකි ප්‍රමාණයට වඩා වැඩි වූ විට
+රැගෙන යාමක්‌ නිරිීමාණය එව්‌.
+
+
+56
+
+Functionality
+ක්‍රියාකාරීත්වය
+
+The Sum (5) output is generated using an
+XOR gate, which performs the binary
+addition of A and B.
+
+චිකතු (S) ප්‍රතිදානය උත්පාදනය කරනු ලබන්නේ
+XOR ද්වාරයක්‌ භාවිතයන්‌ වන අතර da A සහ
+5 හි ද්විමය එකතු කිරීම සිදු කරයි.
+
+The Carry (C) output is generated using an
+AND gate, which produces a 1 only when
+both A and B are 1, indicating a carry over.
+රැගෙන යාම (ට) ප්‍රතිදානය ජනනය කරනු
+
+ලබන්නේ AND ද්චාරයක්‌ භාවිතයෙන්‌ වන අතර,
+OG රැගෙන යාමක්‌ €පන්නුම්‌ කරමින්‌ 1ක්‌
+
+නිපදවන්නේ A සහ 6 යන දෙකම 1 වන විටදීය
+
+The truth table for a half adder is as follows
+
+අර්ධ ආකලකය සඳහා සත්‍යතා OMA පහත පරිදි
+චේ
+
+A B Sum(S) | Carry(c)
+0 0 0 0
+0 1 1 0
+1 0 1 0
+1 1 0 1
+
+Logic Equations
+mode සමිකරණ
+
+From the truth table, the logic equations for
+
+the sum and carry can be derived
+සත්‍යතා වගුවෙන්‌, එකතුව සහ රැගෙන යාම
+සඳහා තාර්කික සමීකරණ ව්‍යුත්පන්න කළ හැක
+
+Sum (5) = A ආ 6 (A XOR 8)
+Carry (s) = A.B (A AND B)
+
+Logic Circuit
+තාර්කික පරිපථය
+
+A half adder circuit can be implemented
+using basic logic gates:
+
+මූලික තාර්කික ද්වාර භාවිතයෙන්‌ අර්ධ ආකලක
+පරිපථයක්‌ ක්‍රියාත්මක කළ හැකිය:
+
+XOR Gate - Used to produce the Sum
+output.
+
+XOR_ ද්චාරය
+භාචිතා කරයි.
+
+- Sum ප්‍රතිදානය නිපදවීමට
+
+AND Gate - Used to produce the Carry
+output.
+
+AND ද්වාරය - Carry ප්‍රතිදානය නිපදවීමට
+භාවිතා කරයි.
+
+[මා
+Sum
+B
+
+Carry Out
+
+Block Diagram
+A Sum
+
+HA
+
+B Cout
+
+
+ට්‌ /
+
+Logic Circuit for Half Adder without XOR
+gate
+
+XOR ද්වාරය රහිත අර්ධ ආකලකය සදහා
+තාර්කික පරිපථය
+
+Dae
+
+Carry Out
+
+AB
+
+>
+
+~~~
+
+ෂූ
+
+Practical Applications
+ප්‍රායෝගික each
+
+Half adders are the building blocks for
+more complex adders used in computers,
+such as full adders and multi-bit adders.
+පූර්ණ ආකලක සහ multi-bit ආකලකය වැනි
+පර්ගණකවල භාවිතා කරන වඩාත්‌ සංකීරණ
+ආකලක BEM) වන තැනුම්‌ එකක අර්ධ ආකලක
+GOES සැලකිය හැකිය.
+
+Used in various digital systems where
+binary addition is required.
+
+ද්ව්මය එකතු කිරීමි අවශ්‍ය වන BSD අංකිත
+පද්ධතිවල භාවිතා එී.
+
+Understanding half adders is අ
+fundamental step in learning how
+computers perform arithmetic operations
+and is crucial for anyone studying digital
+electronics or computer engineering.
+
+අර්ධ ආකලකය තෙරැමි ගැනීම පරිගණක
+ගණිතමය ලමඟහෙයුමි සිදු කරන ආකාරය QEOH
+ගැනීමේ මූලික පියවරක්‌ වන අතර අංකිත
+ඉලෙක්ට්‍රොනික විද්‍යාච හෝ පර්ගණක මමරංජිනේරැ
+විද්‍යාව හදාරන ඕනෑම කෙනෙකුට චය මතා
+වැදගත්‌ වේ.
+
+Full Adder
+පූර්ණ ආකලකය
+
+Adds two single-bit binary numbers along
+with a carry input (Cin) from a previous
+stage, producing a Sum and a Carry-out,
+making it suitable for multi-bit addition.
+
+පෙර 2008s ගෙන යන ආදානයක්‌ (Cin)
+සමගින්‌ තනි-බිටු ද්විමය සංඛ්‍යා දෙකක්‌ එකතු
+
+කරන අතර, Sum එකක්‌ සහ Carry-out එකක්‌
+නිපදවනු ලබයි. මෙය බිටු කිහිපයක්‌ එකතු කිරීම
+සඳහා සුදුසු චේ.
+
+Carry out (Coyt)
+
+001 1 J .
+~~ Digit of Number’
+
+100 1/1
+1.0 0 1\1*~pigit of number 2
+
+101 1
+10 1
++ 100
+
+101000110 4
+Sum
+
+Digit 1 Digit 2 Sum Cout
+0 0 0 0
+0 1 1 0
+1 0 1 0
+1 1 0 1
+Inputs
+
+ආදාන
+
+A and B are the two binary digits (0 or 1)
+that are to be added.
+
+A සහ B යනු එකතු කළ AD ද්විමය ඉලෙක්කමි
+දෙක (0 හෝ 1) වේ.
+
+Cin is the carry bit from the previous stage
+of addition.
+
+Cin යනු එකතු කිරීමේ පෙර අදියරේ BO රැගෙන
+චනු ලබන බිටුචයි.
+
+Outputs
+ප්‍රතිදාන
+
+The Sum (5) -- The result of the addition
+එකතු කිරීමෙන්‌ ලැබෙන ප්‍රතිඵලය
+
+The Carry (Cout) ~- The carried-out bit after
+
+the addition.
+චිකතු කිරීමෙන්‌ පසු රැගෙන යන ලද BAO.
+
+
+58
+
+Functionality
+ක්‍රියාකාරීත්වය
+
+The Sum (S) output is generated using two
+XOR gates in series.
+
+චිකතු (S) ප්‍රතිදානය උත්පාදනය කරනු ලබන්නේ
+ආදාන තුනෙහි XOR ද්වාරයක්‌ භාවිතා කරමිනි.
+
+The Carry (Cout) output is generated using
+three AND gates and one OR gate.
+රැගෙන GO (Cour) ප්‍රතිදානය ජනනය කරනු
+
+ලබන්නේ AND ද්වාර දෙකක්‌ සහ එක්‌ OR
+ද්වාරයක්‌ MAM කරමිනි.
+
+The truth table for a full adder is as
+follows
+
+පූර්ණ ආකලකය සඳහා සත්‍ය වගුව පහත od
+6
+
+A B Cin Sum Cout
+0 0 0 0 0
+0 0 1 1 0
+0 1 0 1 0
+0 1 1 0 1
+1 0 0 1 0
+1 0 1 0 1
+1 1 0 0 1
+1 1 1 1 1
+
+Logic Equations
+mode සමිකරණ
+
+From the truth table, the logic equations
+
+for the sum and carry-out can be derived.
+සත්‍යතා වගුවෙන්‌, එකතුව සහ රැගෙනයාම
+සඳහා තාර්කික සමීකරණ ව්‍යුත්පන්න කළ හැක.
+
+Sum (9) - &ආ 6ඉ Ci
+Carry out (Cou) = (A.B) + (B.Cin) + (A.Cin)
+
+Block Diagram
+
+A Sum
+B—— FA
+“ ~~~
+
+Logic Circuit
+තාර්කික පරිපථය
+
+Logic Circuit for Full Adder without
+XOR gate
+
+XOR ද්වාරය රහිත පූර්ණ ආකලකය sea
+තාරකික පරිපථය
+
+D-
+D:
+
+
+59
+
+Obtaining another equation for Cou of a
+full adder.
+
+පූර්ණ අකලයක Cour සඳහා තවත්‌ සමිකරණයක්‌
+ලබා ගැනීම.
+
+First, let's get the truth table for Cout
+පලමුවෙන්‌ Cout සදහා DBD) OMA ලබා ගනිමු
+
+A B Cin Cout
+0 0 0 0
+0 0 1 0
+0 1 0 0
+0 1 1 1
+1 0 0 0
+1 0 1 1
+1 1 0 1
+1 1 1 1
+
+Let's put this output in a Kmap.
+GOO ප්‍රතිදානය කානො සිතියමක ඇතුළත්‌ කරමු,
+
+But here, it is done in a different way than
+
+the usual way.
+නමුත්‌ මෙහිදී AS සාමාන්‍ය ක්‍රමයට වඩා වෙනස්‌
+ආකාරයකට Be කෙරේ.
+
+BC,
+A 00 01 11 10
+
+When grouping this Kmap, it should be
+
+done as follows.
+මෙම කානො සිතියම කාණ්ඩ කිරීමේද චය පහත
+ආකාරයට සිදු කළ යුතුය.
+
+BCin
+
+A 00 01 11 10
+
+0} 0]o0 (a) o
+Pe OCD
+
+The next step is to obtain the simplified
+
+expression using the grouped Kmap.
+මීළඟ පියවර OG කාණ්ඩගත කානො සිතියම
+භාවිතයෙන්‌ සරල කළ ප්‍රකාශනය ලබා ගැනීමයි.
+
+A.B. Cin
+ලු /
+A 00 01 11 10
+0/01} 0 G) 0
+
+PCD
+
+Cour = A.B + A.B. Cin + A.B. Cin
+
+A.B. Cin B
+
+We can further simplify this as follows.
+මෙය පහත sE තවදුරටත්‌ සරල කළ හැකිය,
+
+(0 ඤෑ A.B + Cin.(A.B + A.B)
+Cour = A.B + Cin. (A ආ B)
+
+Block diagram
+
+ආ
+A ෴෴෴෴!
+HA AB Cin
+ව ~~... [
+Cin
+
+HA
+
+Implementing a full adder using half
+
+adders.
+
+අර්ධ ආකලක භාවිතයෙන්‌ පූර්ණ අකලයක්‌
+ක්‍රියාත්මක කිරීම,
+
+The two outputs of a half adder are,
+අර්ධ ආකලකයක sSaqu දෙක වන්නෙ,
+
+Sum ~ &ආ 6
+Cout = A.B
+
+The two outputs of a full adder are,
+පූර්ණ ආකලකය ප්‍රතිදාන දෙක වන්නෙ,
+
+Sum = A@BQ Cin
+Cout = A.B + Cin. (A @ B)
+
+So, we need to design a circuit that outputs
+
+these two expressions using half adders.
+එබැවින්‌, GOO ප්‍රකාශන දෙක ප්‍රනිදානය කරන
+පරිපථයක්‌ අර්ධ ආකලක භාවිතයෙන්‌ නිර්මාණය
+
+කළ යුතුයි.
+
+We need two half adders and an OR gate
+to implement a full adder.
+
+අපට අර්ධ ආකලක දෙකක්‌ සහ OR ද්වාරයක්‌
+පූර්ණ ආකලකයක්‌ ක්‍රියාත්මක කිරීමට අවශ්‍ය Gd.
+
+Circuit diagram
+
+A
+
+A®B
+
+A.B
+
+[ ෴
+
+ට
+
+|
+
+
+SUM=A@BQ@C,,
+
+Gr. (A ආ B)
+
+Cout = AB + ලූ... (A ආ B)
+
+SUM - & ඉ 6 ඉ Cp
+
+CG, . (A ® B)
+
+Cour = AB + Cin. (A ඉ 8)
+
+A.B
+
+60
+
+8-bit adder block diagram
+
+Each full adder takes two input bits (A and
+B) and a carry-in bit from the previous
+adder and produces a sum bit and a carry-
+out bit to the next adder.
+
+සෑම පූර්ණ ආකලකයකටම පෙර එකතු කරන්නා
+චෙතින්‌ ආදාන බිටු දෙකක්‌ (A සහ B) සහ රැගෙන
+යාමේ බිටු එකක්‌ ගෙන ඊළඟ ආකලකය GOD
+
+චිකතු කරන බිටු චිකක්‌ සහ රැගෙන යාමලමීි බිටු
+චිකක්‌ නිපදචයි.
+
+The first adder in the series is a half adder
+
+because it does not have a carry-in.
+ශ්‍රේණියේ පළමු ආකලකය එය රැගෙන යාමක්‌
+නොමැති නිසා අර්ධ ආකලකය වේ
+
+~~~
+
+1-bit
+Full
+adder
+1 |
+Sum0
+
+co
+
+AO BO Cin
+
+—,
+—
+
+Suml
+
+1-bit
+Full
+adder
+
+TT]
+
+Sum2
+
+1-bit
+Full
+adder
+
+C2
+
+1-bit
+Full
+adder
+1 |
+Sum3
+
+C3
+
+w |
+Sum4
+
+C4
+
+|
+1-bit
+Full
+adder
+
+1-bit
+Full
+adder
+Sum5
+
+8-bit adder block diagram
+
+Sum6
+
+6
+1-bit
+Full
+
+adder
+
+TI
+
+C6
+
+Sum7
+
+7
+
+1!
+1-bit
+Full
+adder
+L ,.
+
+Cout
+
+
+61
+
+8-bit adder circuit diagram
+
+CONTROL (Add=0 Sub=1)
+0
+
+76543210
+රරරර රථරඊර
+
+Input A
+
+॥
+
+76543210
+000
+
+Sat
+
+le
+
+~~
+
+1
+
+Jo __j
+
+i
+
+IN
+
+Joo
+
+තු
+
+IN
+
+o >
+M
+
+තු
+
+001]
+
+Jo
+
+ත්‌ ආ pr
+
+IN
+
+තු
+
+001]
+
+|
+
+|
+
+lv __} ly L_]
+
+V
+
+IN
+
+[5211
+
+[පිත
+
+6
+කු
+ක
+
+ෆ
+න
+
+OVERFLOW
+
+The circuit diagram of an 8-bit adder shows
+the detailed connections of the eight full
+adders.
+
+8-bit adder චවකක පරිපථ සටහන පූරණ
+ආකලක 8 ක සව්ස්තරාත්මක සමීබන්ධතා
+පෙන්වයි.
+
+Each full adder consists of logic gates
+(AND, OR, XOR) that perform the addition
+
+operation.
+චක්‌ එක්‌ පූර්ණ ආකලක එකතු BOGS මෙහෙයුම
+
+සිදු කරන තාර්කික ද්චාර (AND, OR, XOR)
+වලින්‌ සමන්විත GS.
+
+Some other 8-bit adder circuit diagrams
+
+The diagram below represents a typical
+layout for an 8-bit adder.
+
+පහත රෑප සටහන 8-bit adder සඳහා සාමාන්‍ය
+පිරිසැලසුමක්‌ නියෝජනය කරයි,
+
+These diagrams are_ essential for
+understanding how binary addition is
+performed in digital circuits and are
+fundamental in designing arithmetic units
+
+in computers.
+
+GOO රෑප සටහන්‌ සංඛ්‍යාංක පටිපථවල ද්ච්මය
+චිකතු කිරීම Be කරන ආකාරය අවබෝධ කර
+ගැනීම සඳහා අත්‍යවශ්‍ය OM අතර පරිගණකවල
+අංක ගණිත චිකක සැලසුම්‌ කිරීමේදී මූලික චේ.
+
+
+A7 B7 A6 66 A5 B5 A4 684 A3 B3 A2 B2 A1 61 AO BO 0
+| | | | | | | | | cue
+py FA Pe] FA fey FA [|] FA fey FA [5] FA fe FA fe) FA
+y S7 S6 $5 S4 $3 $2 $1 50
+|| C6BEA6 CSBSA5 ලඋ4 84 4 ||| im ||| | 181
+දුර FA FA FA FA FA FA Fa
+; , | |
+. [1
+අ මා FR guts FA
+oT
+a
+cot Ey = . _ \_ |}
+HA
+$3 52 54 SO
+:
+HA er bs
+57 56 4
+62
+
+Storing bits in digital circuits
+HOG පරිපථචල BQ ගබඩා කිරීම
+
+Combinational Circuits
+සංයුක්ත පරිපථ
+
+Combinational circuits are types of digital
+circuits where the output depends only on
+the current input values.
+
+සංයුක්ත පරිපථ යනු ප්‍රතිදානය වත්මන්‌ ආදාන
+අගයන්‌ මත පමණක්‌ රඳා පවතින සංඛ්‍යාංක
+පරිපථ වර්ග වේ.
+
+There is no concept of memory or past
+
+input states in these circuits.
+මෙම පරිපථවල මතකය 6H} ලපර ආදාන
+තත්වයන්‌ පිළිබඳ සංකල්පයක්‌ නොමැත.
+
+These circuits perform specific operations
+like arithmetic calculations, data routing,
+and logic operations based on the input
+Signals provided at that moment.
+
+මෙම පරිපථ DO ලමාහොඉ්‌ේ ලබා දී ඇති ආදාන
+සංඥා මත පදනම්ව ගණිතමය ගණනය කිරීම්‌,
+
+දත්ත මාර්ගගත කිරීම සහ තාරකික මෙහෙයුමි
+වැනි විශේෂිත මෙහෙයුමි සිදු කරයි.
+
+Sequential Circuits
+අනුක්‍රමික පරිපථ
+
+Sequential circuits, on the other hand, are
+digital circuits where the output depends
+on both the current input and the history of
+
+past inputs.
+
+අනුක්‍රම්ක පරිපථ යනු ප්‍රතිදානය වත්මන්‌ ආදානය
+සහ අතීත ආදාන වල තේහාසය යන දෙකම මත
+රඳා පචතින සංඛ්‍යාංක පරිපථ වේ.
+
+These circuits have memory elements,
+typically flip-flops or latches, that store
+information about previous states.
+
+මෙම පරිපථවල මතක මූලාවයව ඇත,
+
+සාමාන්‍යයෙන්‌ පිළි පොළ හෝ latches Gad
+තත්වයන්‌ පිළිබඳ තොරතුරැ ගබඩා කරයි.
+
+Sequential circuits are essential for tasks
+like counting, storing data, and executing
+instructions in a specific sequence.
+
+ගණනය කිරීම, දත්ත ගබඩා කිරීම සහ නිශ්චිත
+
+අනුපිළිවෙලකට උපදෙස්‌ ක්‍රියාත්මක කිරීම වැනි
+කාර්යයන්‌ සඳහා අනුක්‍රමික පරිපථ අත්‍යවශ්‍ය 6d.
+
+Feature Combinational Circuits Sequential Circuits
+සංයුක්ත පරිපථ අනුක්‍රමික පරිපථ
+
+Output Dependency | Only current inputs Current inputs + past states
+
+ප්‍රතිදාන යැපීම වත්මන්‌ ආදාන පමණි වත්මන්‌ ආදාන (+) පෙර තත්වයන්‌
+
+Memory No memory Has memory
+
+මතකය මතකයක්‌ නැත මතකයක්‌ ඇත
+
+Examples Logic gates, adders Counters, registers
+
+උදාහරණ තාර්කික ද්වාර, ආකලක ගණක, රෙපිස්තර
+
+Complexity Simpler, faster More complex
+
+සංකීරණතාව සරලයි, ලව්ගවත්‌ 6H වඩාත්‌ සංකීරණ චේ
+
+Application Arithmetic and logic operations Data storage, sequencing
+
+භාවිත අංක ගණිතමය සහ තාරකික මෙහෙයුමි | දත්ත ගබඩා කිරීම,
+
+Clock Signal Not required Required
+
+ඝට්කා සංඥාව අවශ්‍ය නොවේ අවශ්‍යයි
+
+Feedback loops
+ප්‍රතිපෝෂණ ලූප
+
+A feedback loop is a process where a logic
+gate's output is fed back into its input,
+affecting future behavior.
+
+ප්‍රතිපෝෂණ ලූපයක්‌ යනු තාරකික d&daa
+අනාගත හැසිරීම්‌ වලට බලපාන ආකාරයෙන්‌ ds
+ප්‍රතිදානය එහි ආදානයට නැවත ලබා දීමේ
+ක්‍රියාවලියකි.
+
+To better understand a feedback loops, let's
+use a real world scenario where a thief tries
+
+to break into a house.
+
+ප්‍රතිපෝෂණ ලූපයක්‌ වඩා ඉහාඳින්‌ තේරැමි
+ගැනීමට, සොරෙකු නිවසකට ඇතුළු වීමට
+උත්සාහ කරන සැබෑ අවස්ථාවක්‌ යොදා ගනිමු,
+
+1. When the thief tries to open the door, an
+alarm should be triggered. Let's assume we
+have an OR gate set up for triggering the
+
+alarm with two inputs; A and B.
+
+සොරා දොර ච්චෘත කිරීමට උත්සාහ කරන SO,
+අනතුරු ඇඟවීමේ නලාවක්‌ කියාත්මක කළ
+යුතුය. අනතුරැ ඇඟවීම ක්‍රියාත්මක කිරීම සඳහා
+A සහ 65 ලෙසින්‌ ආදාන දෙකක්‌ සහිත OR
+ද්වාරයක්‌ සකසා ඇතැයි සිතමු,
+
+When the thief triggers one of the inputs,
+
+the alarm turns on.
+සාරා ව්සින්‌ එක්‌ ආදානයක්‌ ක්‍රියාත්මක we SO,
+අනතුරැ ඇඟවීම කියාත්මක GS.
+
+The problem here is, when the thief turns
+off the trigger, the alarm also turns off.
+
+608 ඇති ගැටළුව වන්නේ සොරා විසින්‌ trigger
+එක ක්‍රියා විරහිත කළ BO, අනතුරු ඇඟවීම ද
+ක්‍රියා විරහිත වීමයි,
+
+
+64
+
+A
+F=7
+B
+
+ට්‌
+
+To make our circuit memorize that the thief
+triggered the alarm, we can use a feedback
+loop.
+
+සොරා අනතුරැ ඇඟවීම කියාත්මක කළ බව
+අපගේ පරිපථයට මතක තබා ගැනීම සදහා,
+ප්‍රතිපෝෂණ ලූපයක්‌ භාවිතා කළ හැකිය.
+
+ර්‌ >
+|| |]
+ප උප
+ධූ
+||
+2)
+
+Now, when the thief triggers the alarm, the
+
+circuit is going to remember that.
+දැන්‌, සොරා අනතුරැ ඇඟවීම ක්‍රියාත්මක කළ
+විට, පරිපථය එය මතක තබා ගනී.
+
+A=1
+~~~ = 1
+B=0 —
+A= 1
+ක්‍ෂ [දිස්‌ =
+807 ~~
+1
+0
+AnH F=1
+B= 9 — 7
+1
+
+But if we wanted to stop the alarm at one
+
+point, there’s no option for us to do that.
+නමුත්‌ අපට චක්‌ අවස්ථාවකදී අනතුරැ ඇඟවීම
+නැවැත්වීමට අවශ්‍ය වුවහොත්‌, OS Be කිරීමට
+කිසිදු විකල්පයක්‌ නොමැත.
+
+Flip Flops
+පිළි පොළ
+
+Flip-flops are sequential circuits built using
+
+logic gates that store one bit of data.
+පිළි-පොළ යනු දත්ත බිටු එකක්‌ ගබඩා කරන
+තාර්කික ද්වාර භාවිතයෙන්‌ ගොඩනගා ඇති
+අනුක්‍රමික පරිපථ os.
+
+They act as basic memory elements, storing
+State until an input signal changes it,
+fundamental in Random-Access Memory
+
+(RAM) and storage applications.
+
+JO) මූලික මතක මූලාංග ලෙස කියා කරන අතර
+ආදාන සංඥාවකින්‌ චහි තත්ත්වය වෙනස්‌ කරන
+තෙක්‌ එය ගබඩා කර තබා ගනී. සසම්භාවී-ප්‍රවේශ
+
+මතකය (RAM) සහ ගබඩා යෙදුම්වල මූලික චේ.
+
+This is an extended version of a feedback
+loop.
+මෙය ප්‍රතිපෝෂණ ලපයක දිගු කළ අවස්තාවකි
+
+To reset a triggered feedback loop, a Reset
+input is added to force the output back to
+
+zero.
+
+වී ඇති ප්‍රතිපෝෂණ ලූපයක්‌ නැවත සැකසීමට,
+ප්‍රතිදානය නැවත 00 සකස්‌ කිරීම සඳහා
+ආදානයක්‌ එකතු කරනු ලැබී.
+
+Creating a simple SR latch
+සරල SR පරිපථයක්‌ නිර්මාණය කිරීම
+
+Let's modify the feedback loop a step more
+to get an SR latch
+
+SR ලෑච්‌ චිකක්‌ ලබා ගැනීමට ප්‍රතිපෝෂණ පුඩුව
+තවත්‌ පියවරක්‌ චෙනස්‌ කරමු
+
+tf
+
+RESET = 0
+
+ie
+
+Initially, both inputs and the output are 0.
+මුලදී ආදාන දෙකම සහ ප්‍රතිදානය 0 චේ.
+
+
+65
+
+Instance 1 (Set)
+When you turn the Set input to 1 OR gate will
+output 1
+
+ඔබ Set ආදානය 1 ට භරචන HO OR ද්වාරය 1
+ප්‍රතිදානය කරයි
+
+As the RESET is still 0, the NOT gate will also
+output 1.
+
+RESET නවමත්‌ 0 බැවින්‌, NOT ද්වාරය දු 1
+ප්‍රතිදානය කරයි
+
+This will make the AND gate output 1. So the
+final Q output is now 1.
+
+මෙය AND ද්වාරයේ ප්‍රතිදානය 1 බවට පන්‌ කරයි
+එබැවින්‌ අවසාන ට ප්‍රතිදානය දැන්‌ 1 වේ
+
+Instance 2 (Viemory)
+
+When you turn the Set input back to 0 again,
+as we use a feedback loop here, the OR gate
+will still output 1.
+
+ඔබ Set ආදානය නැවත ට ලවන හරවන HO, මෙහි
+
+ප්‍රතිපෝෂණ ලූපයක්‌ භාවිතා කරන නිසා, OR
+ද්වාරය නවමත්‌ 1 ප්‍රතිදානය කරයි
+
+So, the final “ට” output will not get affected
+and remain 1
+
+එබැවින්‌, අවසාන “ට” ප්‍රනිදානයට බලපෑමක්‌ නැති
+අතර AG 1 ලලසම පචත්නු ඇත
+
+This is a memory state
+මෙය මනක තත්ත්වයකි
+
+Instance 3 (Reset)
+Now, when you turn the Reset to 1
+NOT gate will output 0
+
+දැන්‌, ඔබ Reset ආදානය 1 ට හරවන විට NOT
+ද්වාරය 0 ප්‍රතිදානය කරයි
+
+So, final output turns 0, as the AND gate
+outputs ට,
+
+එබැවින්‌, AND ද්වාරයේ ප්‍රතිදානය 0 නිසා අවසන්‌
+ප්‍රතිදානය 0 බවට පත්‌ වේ
+
+Instance 4 (Memory)
+
+When you turn the RESET input back to 0, the
+final output doesn’t get affected and remain
+0 since the OR gate still outputs 0.
+
+ඔබ RESET | ආදානය නැවන 0 වෙන හරවන විට OR
+ද්වාරය විසින්‌ තවමත්‌ 0 ප්‍රතිදානය කරන බැවින්‌
+
+අවසාන ප්‍රතිදානයට බලපෑමක්‌ නොවී එය ට ලලස
+ම පවතී
+
+This is also another memory state
+ලමයද තවත්‌ මතක නත්ත්වයකි
+
+Universal Flip Flops SR-Latch using NOR gates
+
+As manufacturers can’t make specific
+
+circuits for each and every situation they SET
+make use of the idea of universal circuits.
+
+නිෂ්පාදකයින්ට සෑම අවස්ථාවකම නිශ්චිත
+
+පරිපථ සෑදිය නොහැකි බැවින්‌ ඔවුන්‌ විසින්‌
+සාර්වත්‍ර ද්චාර සංකල්පය භාවිතා කරයි,
+
+Ol
+
+Here, the SR-Latch is made using universal
+gates so that it can be used anywhere.
+
+මෙහිදී SR-Latch චක ඕනෑම තැනක MAD කළ
+හැකි පරිදි සාරචත්තු්‍ර ද්වාර මගින්‌ සාදා ඇත.
+
+RESET
+
+Some circuits may need the opposite
+(inverse) of the output to for several use
+
+cases.
+සමහර BHSO සඳහා MAD අවස්ථා කිහිපයක්‌ SET Q
+
+චෙනුවෙන්‌ ප්‍රතිදානයේ ප්‍රතිවිරැද්ධය (ප්‍රතිලෝම) b
+
+අවශ්‍ය විය හැකිය,
+
+To achieve this, there's both an output
+
+terminal and an inverse of the output
+
+terminal in an SR latch. _
+මෙය සාක්ෂාත්‌ කර ගැනීම සඳහා, tesa) Dw | 0
+
+SR-Latch using NAND gates
+
+ප්‍රතිදාන ප්‍රනිදාන පර්යන්තයකුත්‌, ප්‍රතිදානයේ RESET
+ප්‍රතිලෝමය සහිත පර්යන්තයකුත්‌ යන දෙකම
+ඇත.
+
+If 0 is the output there’s also a Q output
+too.
+
+0 යනු ප්‍රතිදානය නම්‌ 0 යනුවෙන්‌ ප්‍රතිදානයක්ද
+පවතී.
+
+This can be easily achieved when using
+
+universal logic gates.
+සාරචත්ත්‍ර ද්වාර භාවිතා කරන SO මෙය
+පහසුවෙන්‌ සාක්ෂාත්‌ කරගත හැකිය,
+
+4 States of a NOR SR-Latch
+There are 4 main stages here, lets analyse
+them using the anti-theft alarm concept.
+
+6O8 ප්‍රධාන අදියර 4ක්‌ ඇත, anti-theft alarm
+සංකල්පය භාවිතයෙන්‌ HO) විශ්ලේෂණය කරමු,
+
+First let's revise the truth table of a 2 input
+NOR gate
+
+මුලින්ම ආදාන 260) NOR ද්වාරයක සත්‍යතා
+වගුව දෙස නැවත බලමු,
+
+ICN
+
+-—/- 1/0/0]/F}>
+-~2|।ඌ | | ඌ | Ww
+රවෛ| |උඌ | ධෟ | තු
+
+1
+2
+3
+4
+
+Here the output is 0 even if any input is 1.
+මෙහිදී ඕනෑම ආදානයක්‌ 1ක්‌ වුවද ප්‍රතිදානය 0
+6d.
+
+Instance 1 (We're sleeping)
+
+Initially the inputs (Set and Reset) of the
+circuit are both turned to 0 and the output
+(Q) is also 0, here we also have the inverse
+of the output terminal (Q) so it should be
+turned to .
+
+මුලදී පරිපථයේ ආදාන Os Set සහ Reset දෙකම
+0 ට හරවන අතර (ට) ප්‍රතිදානය ද 0 වේ, මෙහි
+අපට ප්‍රතිදාන අග්‍රයේ (0) ප්‍රතිලෝමය ද ඇති
+බැවින්‌ OS ]1ග GOD හැරවිය යුතුය.
+
+First we set the circuit as below.
+මුලින්ම අපි පරිපථය පහත පරිදි සකස්‌ කරමු
+
+SET 0 0
+0 1
+1
+Q 6
+RESET
+0
+
+
+6/
+
+Instance 2 (Thief Breaks-|n)
+
+Now the thief opens the car door. Assume
+that there is a door sensor as the SET input
+which will turn to 1 when the door is
+
+opened.
+දැන්‌ සොරා මෝටර්‌ රථයේ එකේ දොර ව්වෘත
+
+කරනු ලබයි. SET ආදානය ලෙස දොරෙහි සවි කර
+ඇති සංවේදකයක්‌ ඇති බව උපකල්පනය
+කරන්න, එය දොර විවෘත කළ විට 1 ට හැරෙනු
+ඇත.
+
+e When the thief opens the door, this will
+make the SET input to 1.
+
+සොරා දොර ව්චෘත කළ SO එමගින්‌ SET
+ආදානය 1 ට සකස්‌ කරනු ලබයි.
+
+e InaNOR gate, even if one input is 1, the
+output will be 0, so this will make Q turn
+to 0.
+NOR ද්වාරයක dd ආදානයක්‌ 1 වුවද
+
+ප්‍රතිදානය 0 Og ඇත, එබැවින්‌ මෙය 0
+ප්‍රතිදානය වෙත හරවනු ඇත.
+
+e This 0 will be fed to the other NOR gate.
+
+ලමෙම O අනෙක්‌ [1ට[* 260 ප්‍රතිපෝෂණය
+කරනු ලැබේ.
+
+e Now both the inputs of the 2"3 NOR
+gate is 0 it will make the Q output flip
+to 1
+දැන්‌ 2 වන NOR ද්වාරයෙහි ආදාන දෙකම
+0 චේ. චය ට ප්‍රතිදානය 1 ට හරවනු ලබයි.
+
+set _1 6 0
+“෴ 0
+1
+0 9 කු 1
+RESET —
+
+This will trigger the alarm as the Q output
+is now 1.
+
+Q ප්‍රතිදානය දැන්‌ 1 OD බැවින්‌ මෙය අනතුරැ
+ඇඟවීම ආරම්භ කරයි
+
+Instance 3 (Thief panics)
+
+Thief will now try to turn off the alarm by
+closing the door back but will not be
+successful as this circuit keeps memory.
+සොරා දැන්‌ දොර ආපසු වසා අනතුරැ ඇඟවීම
+නවතා දැමීමට උත්සාහ කරනු ඇත, නමුත්‌ මෙම
+පරිපථය මතකය බබා ගන්නා බැවින්‌ එය සාරිථක
+නොවනු ඇත.
+
+6 NP 0
+
+1
+
+RESET
+0
+
+Even though the door is closed, alarm will
+not turn off as the previous output is fed
+back to the input of the 1 NOR gate.
+
+දොර වසා ත්බුනත්‌, 63d ප්‍රතිදානය OD පළමු
+
+Awa NOR ද්වාරයට නැවත ලබා ඉදෙන බැවින්‌
+එලාමි එක කියා විරහිත නොවේ.
+
+
+68
+
+Instance 4 (Thief Busted)
+
+Now we come in, deal with the thief and
+turn off the alarm using the car key, here
+
+the car key is the RESET input
+දැන්‌ අප ඉසාරා අල්ලාගෙන යතුර භාවිතයෙන්‌
+අනතුරැ ඇඟවීම නවතා දමනු ලබයි, මෙහි යතුර
+
+RESET ආදානය වේ
+
+e We make the RESET input 1 using the
+car key
+
+අප යතුර භාවිතයෙන්‌ RESET ආදානය 1
+කරන්නෙමු
+
+e Even when a single input is 1, the
+output Q will turn to 0
+
+තනි ආදානයක්‌ 1 චන විට පචා ට ප්‍රතිදානය
+0 ලවත හැරේ
+
+e This 0 will be fed to the other input of
+the 1” NOR gate
+
+මෙම 0 SEQ OH NOR ද්වාරයෙහි අනෙක්‌
+ආදානයට ප්‍රති පෝෂණය කරයි.
+
+e Now as both the inputs are 0 the output
+Q will turn to 1
+දැන්‌ ආදාන දෙකම 0 වන බැවින්‌ 0 ප්‍රතිදානය
+1 GOD හැරෙනු ඇත
+
+Ol
+
+SET
+
+1 ඥ
+
+0 අර
+
+RESET
+
+The alarm will turn off as the Q output is
+now 0.
+
+Q ප්‍රනිදානය 0 වන බැවින්‌ අනතුරැ ඇඟවීම ක්‍රියා
+විරහිත වේ
+
+4 States of a NAND SR-Latch
+NAND SR පර්පථයක අවස්ථා (4)
+
+Here the functioning is completely the
+opposite to that of a NOR SR-Latch
+
+මෙහි ක්‍රියාකාරීත්වය NOR SR පරපථයකට
+සම්පූර්ණයෙන්ම ප්‍රතිවිරැද්ධ වේ
+
+First let's revise the truth table of a 2 input
+NAND gate
+
+මුලින්ම ආදාන 260 NAND ද්වාරයක සත්‍යතා
+වගුව දෙස නැවත බලමු,
+
+ICN A B F
+1 0 0 1
+2 0 1 1
+3 1 0 1
+4 1 1 0
+
+Here, the output is 1 even if any input Is 0.
+මෙහිදී ඕනෑම ආදානයක්‌ 0 වුවද ප්‍රතිදානය 1 GH.
+
+Instance 1
+
+In the initial state both the inputs are set
+
+to 1 and the Q output 16 turned to 0
+ආරම්භක තත්වයේදී ආදාන දෙකම 1 GEE
+
+සකසා ඇති අතර ට ප්‍රතිදානය 0 චෙත හැරේ
+
+* 0
+DB;
+
+1
+
+|) |
+
+SET
+
+ඬක|
+
+RESET
+
+
+69
+
+Instance 2
+
+Now the SET input is turned to 0.
+දැන්‌ SET ආදානය 0 වත හැරී ඇත.
+
+e Even a single input is 0 output Q will
+turn to 1
+
+චික්‌ ආදානයක්‌ eas 0 වුවද ට ප්‍රතිදානය 1
+GOD හැරේ
+
+e This will be fed as an input to the other
+NAND gate
+
+මෙය අනෙක්‌ NAND ද්වාරයට ආදානයක්‌
+ලෙස ප්‍රතිපෝෂණය කරනු ලැබේ.
+
+e When both inputs are 1 the output 0
+will turn to 0
+
+ආදාන දෙකම 1 වන විට Q ප්‍රතිදානය 0 වෙත
+හැරේ
+
+ON
+SET ) Q
+0
+
+1 “5.
+RESET
+
+Instance 3
+
+When the laser beam disconnects for a
+small amount of time and reconnects again
+
+the alarm should still sound.
+
+ලේසරී කදමිභය සුළු වේලාවක්‌ විසන්ධි 5 නැවත
+සම්බන්ධ වූ ව්ට අනතුරු ඇඟවීම තවමත්‌ නාද
+විය යුතුය.
+
+Now, even though the beam ।5
+reconnected, alarm will not turn off as the
+previous output is fed back to the input of
+
+the 1** NAND gate
+
+දැන්‌ කදමිභය නැවත සමිබන්ධ කළද, චලාමය
+ක්‍රියා විරහිත නොවේ, එයට ඉහ්තුව වන්නේ පෙර
+ප්‍රතිදානය පලමු වන NAND ද්චාරයේ ආදානය
+චෙත නැවත ලබා දෙන බැවිනි.
+
+ඉඳු 1
+SET ~~~ 0 1
+0
+1 ) Q
+0
+RESET ——————
+1
+Instance 4
+
+Now, the RESET input is turned to 0 to turn
+off the alarm
+
+දැන්‌ DEW එක ක්‍රියා විරහිත කිරීම සඳහා RESET
+ආදානය 0 GHD හරවනු ලබයි.
+
+1
+SET —-—
+b ය්‌ NO
+1
+0 අට BD; Qa,
+RESET ~~~
+0 ද
+
+
+70
+
+Truth Table for a NOR SR-Latch
+
+S R Q | Description
+
+0 0 0 1 Initial State
+
+1 0 1 0 Alarm trigger
+state
+
+0 0 1 0 | Memory state
+
+0 1 0 1 | Alarm off state
+
+0 0 0 1 Memory/initial
+
+state
+
+Not defined
+
+Truth Table for a NAND SR-Latch
+
+Description
+
+Initial State
+
+Alarm trigger
+state
+
+Memory state
+
+Alarm off state
+
+Memory/initial
+state
+
+Not defined
+
+Data Latch using basic logic gates
+
+DATA
+
+STORAGE
+
+Data Latch using NAND gates
+
+DATA *———f
+
+SET
+
+STORAGE *
+
+A Collection of
+
+[ SET
+2
+
+)
+
+~~
+
+Data Latches
+
+} RESET
+
+DATA 3
+
+DATA 3
+
+DATA 3
+
+DATA 3
+
+STORE
+
+
+D LATCH
+| ~~~ඉ
+D LATCH
+D LATCH
+=
+D LATCH
+J
+
+e
+
+What are Integrated Circuits (ICs)?
+සංගෘහිත පරිපථ (ICs) යනු කුමක්දෟ
+
+An Integrated Circuit (IC) is a compact
+semiconductor chip that contains multiple
+electronic components like transistors,
+resistors, and capacitors, designed to
+perform specific functions in electronic
+devices.
+
+සංයුක්ත පරිපථයක්‌ (IC) යනු ඉලෙක්ට්‍රොනික
+උපාංගවල නිශ්චිත කාර්යයන්‌ ඉටු කිරීම සඳහා
+නිර්මාණය කර ඇති ට්‍රාන්සිස්ටර, ප්‍රතිරෝධක සහ
+ධාරිත්‍රක වැනි බහු ලෛක්‌ට්‍රොනික සංරචක අඩංගු
+සංයුක්ත අර්ධ සන්නායක චිපයකි.
+
+These components are interconnected to
+execute specific tasks such as amplification,
+computation, signal processing, and
+memory storage.
+
+විස්තාරණය, ගණනය BOO, සංඥා සැකසීම සහ
+මතක ගබඩා කිරීම වැනි නිශ්චිත කාර්යයන්‌ ට්‍රෙ
+කිරීම සඳහා ලමම සංරචක අන්තර සමීබන්ධිත
+68.
+
+ICs have revolutionized the electronics
+industry by enabling the creation of small,
+efficient, and complex devices, ranging
+from simple logic gates to advanced
+
+microprocessors.
+
+සරල තාරකික ද්වචාරචල සට දියුණු
+මයික්‍රොප්‍රොසෙසර දක්වා කුඩා, කාර්යක්ෂම හා
+සංකීර්ණ උපාංග නිර්මාණය කිරීමට ICs
+ඉලෙක්ට්‍රොනික කර්මාන්තයේ විප්ලවීය වචෙනසක්‌
+සිදු කර ඇත.
+
+
+72
+
+4000 Series ICs (CMOS Logic Family)
+
+The 4000 series ICs are based on CMOS
+(Complementary Metal-Oxide-
+Semiconductor) technology, known for
+their low power consumption and high
+noise immunity.
+
+4000 series ICs , CMOS (Complementary
+
+Metal-Oxide-Semiconductor) තාක්ෂණය මත
+පදනම්‌ වී ඇති අතර, චිවායේ අඩු බල
+පරිභෝජනය සහ හෙළ ශබ්ද ප්‍රතිශක්තිය සඳහා
+ප්‍රසිද්ධය,
+
+These ICs typically operate within a wide
+voltage range of 3V to 15V, making them
+highly versatile for various applications.
+
+මෙම IC සාමාන්‍යයෙන්‌ 3V සිට 15% දක්චා පුළුල්‌
+චෝල්ටීයතා පරාසයක්‌ තුළ ක්‍රියාත්මක වන අතර,
+JO) විවිධ යෙදුම්‌ සඳහා තො බහුකාරය වේ.
+
+Although they are slower than their TTL
+counterparts, with propagation delays
+usually in the tens of nanoseconds, their
+energy efficiency makes them ideal for
+battery-powered and portable devices.
+
+JO) TTL ට වඩා මන්දගාමී වුවද, සාමාන්‍යයෙන්‌
+නැනෝ තත්පර දස ගණනක ප්‍රචාරණ ප්‍රමාදයන්‌
+සමඟ, චිවායේ බලශක්ති කාරයක්ෂමතාව බැටරි
+බලයෙන්‌ කියාත්මක වන සහ අතේ ගෙන යා
+හැකි උපාංග සඳහා වඩාත්‌ සුදුසු GH.
+
+Examples of 4000 series ICs include the
+CD4001, a quad 2-input NOR gate, and the
+CD4011, a quad 2-input NAND gate. These
+ICs are particularly favored in applications
+where conserving power is a priority.
+
+4000 series ICs සඳහා උදාහරණ ලෙස
+CD4001, a quad 2-input NOR gate, සහ
+
+CD4011, a quad 2-input NAND gate
+ඇතුළත්‌ චේ. බලය සංරක්ෂණය ප්‍රමුඛතාවයක්‌
+AD යෙදුම්වල මෙම ICs විලන්ෂයෙන්‌ ප්‍රිය කරයි.
+
+7400 Series ICs (TTL Logic Family)
+
+The 7400 series ICs utilize TTL (Transistor-
+Transistor Logic) technology and are
+recognized for __ their high-speed
+performance.
+
+7400 series ICs , TTL (Transistor-Transistor
+
+Logic) තාක්‍ෂණය mdm කරන අතර එවායේ
+අධිවේගී ක්‍රියාකාරිත්වය සඳහා පිළිගැනේ.
+
+Operating typically at a fixed 5V, these ICs
+feature low propagation delays, often just a
+few nanoseconds, making them suitable for
+high-speed digital circuits.
+
+සාමාන්‍යයෙන්‌ ස්ථාවර 5V දී ක්‍රියාත්මක OD GOO
+
+ICs බොහෝ SO නැනෝ තත්පර කිහිපයක්‌
+පමණක්‌ වන අඩු ප්‍රචාරණ ප්‍රමාදයන්‌ දක්වයි, චවා
+අධිවේගී ඩිපිටල්‌ පරිපථ සඳහා සුදුසු ව්‌.
+
+25 - April - 1961
+
+Robert Noyce is granted a patent for
+an integrated circuit.
+
+
+However, this speed comes at the cost of
+higher power consumption and lower noise
+immunity compared to CMOS ICs.
+
+කෙසේ වෙතත්‌, මෙම වේගය CMOS IC AED
+සාපේක්ෂච හෙළ බලශක්ති පරිභෝජනයක්‌ සහ
+අඩු ශබ්ද ප්‍රතිශක්තියක්‌ සමග පැමිනේ.
+
+The 7400 series is widely used in computers
+and other high-speed applications where
+performance Is critical.
+
+7400 ශ්‍රේණිය පරිගණකවල සහ mobos සාධනය
+QD වැදගත්‌ වන අනෙකුත්‌ අධිවේගී යෙදුමිවල
+බහුලව භාවිතා චේ.
+
+4000 Series ICs (CMOS Logic Family)
+
+4049
+
+4011 quad NOR gate
+
+/99
+
+VSS
+
+fel fs] fe] [!] fol 19] [:]
+
+A6
+
+[9] [4] oy ta
+
+A4
+
+Yee & [5] [2]
+
+NC
+
+Q6
+
+NC
+
+Qs
+
+AS
+
+a4
+
+GND
+
+කු
+z
+0
+
+SSA
+
+[:] [] Pl fe) fio
+
+| ී
+[ව [ a
+
+Le} [5] Woy Le) ee 1] !*]
+
+ddA
+Sc0vd)
+
+[>] &
+බ්ලු
+[-]
+
+meas
+
+11.
+ele
+
+-
+32]
+3]
+c
+°F
+
+[20%
+
+Lys । 616රු [19594 [:3]7992 LO 10
+
+[:] [1] [:] 1] 1] 1] |]
+
+ill
+
+1 doj4 91]
+
+දී doj4 9114
+
+—
+
+SSA
+
+[:] [.] [.] [:] [:] [:] [;
+
+|.
+
+] [5] [1 (41 [2] [-] [”]
+
+GGA
+
+€cOvdad
+SSA @ 28 2 10 1a LW
+| 5] [:] [:] fel fe
+
+ATT EM Ee ee
+ev €q 50 140) vd vv qaqa
+8180%
+GND
+
+DT ee [5] [:]
+22 A2 AE VE ge DE DDA
+
+SZ0vd0)
+
+[5] [5] [2] ET [:] [:] [2]
+
+ද190$ ද්‌ ණූ6රු 19598 0199092 2 5 NMA
+
+93166 YON [06110 610%
+
+91660 YON penb । 00%
+
+14
+
+7400 Series ICs (TTL Logic Family)
+
+7432 4x2inputXOR
+Vcc
+
+[4] fs) Fel fe} fol [el [:]
+
+Ea
+
+7408 4X2 input nor
+Vcc
+
+fel [:] fe] [ol fol 1] [:]
+
+DI
+1
+
+74024X2 input nor
+(න
+
+[14] fs) fel] [!] fol fo] [:]
+
+, ඩල
+
+[:] [2] iy [| [2]
+
+74[ 5266 PINOUT
+Vcc
+
+[14] fs) [::] Gel fol [9] Ps]
+
+>
+it
+
+
+7486 4x2inputXOR
+Vcc
+
+[141] [3] [12] [11] tol || | |
+
+, Lp! Up!
+
+7404 6xNOT
+VDD
+
+[14] fs) Fel [:]] fol [9] []
+
+bd bol bd
+
+7400 4X2 input nand
+Vcc
+
+[14] fs] fel []] fol [2] [:]
+
+Es
+
+Ye [:] [:] [| (~
+
+74LS11
+Vcc
+
+[9] [5
+[ D-
+©:
+[6]
+
+[1] [2] [|] [2] |!)
+
+2) [11] fio
+
+7
+GND
+
+15
+
+ATMega328P and Arduino Uno Pin Mapping
+
+Arduino function Arduino function
+reset (PCINT14/RESET) PC6L]: 281 ] PC5 (ADCS/SCL/PCINT 13) analog input 5
+digital pin 0 (RX) (PCINT16/RXD) £00( 12 271 |] PC4 (ADC4/SDA/PCINT 12) analog input 4
+digital pin 1 (TX) (PCINT17/TXD) £01( 13 201 _] PC3 (ADC3/PCINT 11) analog input 3
+digital pin 2 (PCINT18/INTO) PO2C]« 258 ] PC2 (ADC2/PCINT 10) analog input 2
+digital pin3 (PWM) (PCINT19/OC2B/INT1) PO3 (Js 241 ] PC1 (ADC 1/PCINTS) analog input 1
+digital pin 4 (PCINT20/XCK/TO) PD4 CJ6 231_) PCO (ADCO/PCINT8) analog input 0
+voc voct} 2741] GND GNO
+GND 3040 ( 1 211 | AREF analog reference
+crystal (PCINT6/XTAL1/TOSC1) 86 (19 901 ] AVCC VCC
+crystal (PCINT7/XTAL2/TOSC2) PB7 [ 119 191") PBS (SCK/PCINTS) digital pin 13
+digital pin 5 (PWM) = (PCINT21/OCOB/T1) £05 [111 181_] PB4 (MISO/PCINT4) digital pin 12
+
+digital pin 6 (PWM) (PCINT22/OCOA/AINO) PD6 [112
+
+177) PB3 (MOSI/OC2A/PCINT3) digital pin 11(PWM)
+
+digital pin 7 (PCINT23/AIN1) PO7 168 ] PB2 (SS/OC1B/PCINT2) digital pin 10 (PWM)
+digital pin 8 (PCINTO/CLKO/ICP 1) PBO [ 114 198 ] PB1 (OC1A/PCINT1) digital pin 9 (PWM)
+Digital Pins 11,12 & 13 are used by the ICSP header for MOS!
+MISO. SCK connections (Atmega168 pins 17,18 & 19) Avoid low-
+impadance loads on these pins when using the ICSP header
+LM321 LM358 LM324
+5-Pin SOT23 8-Pin SOIC/MSOP 14-Pin SOIC/TSSOP
+(-T Suffix) (-S and -V Suffixes) (-S and -T Suffixes)
++in 1 5 +Vs OutA | 1 8 +Vs OutA | 1 14 | OutD
+Vs | 2 -InA | 2 4 7 Out B -InA | 2 p<] 13 | -inD
+-In 3 4 | Out +InA | 3 6 -InB 311. | 3 12 +inD
+-Vs | 4 5 +inB +Vs | 4 11 | -Vs
+31158 | 5 10 | 311 ට
+-nB | 6 E 9 -Inc
+OutB | 7 8 | OutC
+J ඝූ
+RA2 ෴෴ #1 18| ~~ RAT
+RAZ «| 2 17 || = RAO
+RAA/TOCK! | | 3 uv 16 |) ~~ OSC1/CLKIN
+MCLR-——e [| 4 QO  18[)——» OSC2/CLKOUT
+Vss —e (5 න 14{) -—voo
+RBOINT=——[|6 66 131 අපි? p &
+RB1 ය |]? ම්‌ 12+ ඉඳ ॥ © < 5 5 53 @ 8
+RB2 ය [18 11 [] <= RBS pon
+RB3 =e [|] 9 10 |] +. RBS 12,1824 S24 MS SSNS
+@ මමම ,
+vopa | 1! ; |24| GPIOS
+(12) 1 23] SD_DATA1
+LM741 Pinout Diagram ~~ । --
+VDD3P3 3} ! ] 122 SD_DATA_O
+ae posesfai | tig SD_CL
+OFFSET NULL 1 81-10 meee et | ESP8266 | “1
+VDD_RTC 5 1 ‘20 SD_CMD
+INVERTING INPUT vt rour[ei | ॥ [1915007033
+cHIP_EN | 7 | ! 48] SD_DATA 2
+NON=INVERTING — OUTPUT P| i
+INPUT xpoococ}8) ාම෴෴෴෴෴෴෴෴෴෴෴෴෴෴ම 33 00) ॥17|/00557
+v= Pp OFFSET NULL rs} iS) [51 fay fey [| Tey Tey
+ශ්‍ර 6 6 8 8 8 8 8
+ද ඝ 8 FF 5 8 8
+
+70

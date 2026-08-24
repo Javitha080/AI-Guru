@@ -1,0 +1,902 @@
+Instructions:
+% Answer all the questions.
+*% In each of the questions 1 to 40, pick one of the alternatives (1), (2), (3), (4) which is
+correct or most appropriate.
+% Mark a cross (xX) on the number corresponding to your choice in the answer sheet provided.
+%* Further instructions are given on the back of the answer sheet. Follow them carefully.
+1. The hard drive in a computer is formatted during maintenance. Which of the following should
+now be first installed in it?
+(1) a software firewall (2) an anti-virus software
+(3) an application software (4) an operating system
+2. Which of the following is an output device?
+(1) a joystick (2) a microphone (3) a printer (4) a scanner
+3. Which of the following is a solid state storage device?
+(1) aCDROM (2) a floppy disk
+(3) a magnetic hard disk (4) a USB flash drive
+4. The figure shows a local area network connected to the Internet. Internet
+Which of the following correctly lists A, B and C in it? C
+. පරය
+(1) A - file server, 13 - switch, C - router කෑ _.
+. aw, 8
+(2) A - file server, B - router, C - switch wal ~~ කු
+(3) A - router, B - switch, C - file server = (|
+(4) A - switch, B - file server, C - router Je ~~~
+5. Which of the following could be used to connect two local area networks?
+(1) a file server (2) a firewall (3) amodem (4) a router
+6. Which of the following is the octal equivalent of binary 100 01102?
+(1) 46 (2) 708 (3) 1065 (4) 430s
+7. Which of the following is the decimal equivalent of binary 1000 10002?
+(1) 6410 (2) 13210 (3) 13610 (4) 26010
+8. Rani wants to store the following files in a USB Flash drive:
+trees.pdf (500 MB), config.txt (534 bytes), nickels.mp4 (2 GB), report.docx (900 KB)
+Which of the following is the lowest capacity USB drive that is sufficient to store them?
+L (1) 2 GB (2) 4 GB (3) 8 GB (4) 16GB J
+
+r
+
+9.
+
+10.
+
+11
+
+12.
+
+13.
+
+14.
+
+15.
+
+10.
+
+. While using a word processing software Kamal mistakenly deletes a paragraph of text. Which of
+
+~
+Consider the following statements P and Q:
+
+P - When one enters a character (say A) to a digital computer, it is converted to a specific
+pattern of Os and 15.
+Q - The ASCII code is used to assign standard numeric values to 128 characters used in computers.
+
+Which of the following is valid regarding the above statements?
+(1) Both statements P and Q are correct and the ASCII code described in Statement Q assists
+
+the task mentioned in Statement P.
+
+(2) Both statements P and Q are correct but the points presented in the two statements are not
+related.
+
+(3) Statement P is correct but statement Q is incorrect.
+
+(4) Both statements are incorrect.
+
+Which of the following only contains examples of operating systems?
+(1) Adobe Photoshop, LibreOffice, Movie Maker, Notepad
+
+(2) Android, LibreOffice, MacOS, McAfee AntiVirus
+
+(3) Movie Maker, Norton AntiVirus, Ubuntu, Windows
+
+(4) Android, MacOS, Ubuntu, Windows
+
+the following icons should Kamal next press to get that paragraph back?
+
+(1) © (2) ල්‌ (3) £ (4) ට
+
+When using a word processing software, which of the following shortcut key combinations can
+one use to copy a selected piece of text and paste it elsewhere?
+
+(1) Ctrl+A and Ctrl+S (2) Ctrl+C and Ctrl+V
+(3) Ctrl+X and Ctrl+H (4) Ctrl+X and Ctrl+V
+Which of the following are valid column names in a spreadsheet?
+1. BZ 11. A4 111. Al:B3 IV.B
+(1) I only (2) II only (3) I and IV only (4) II and III only
+Questions 14 and 15 are based on the following part of a spreadsheet.
+A B Cc D E F G
+1 Student |Practical| Theory; Final Practical 40
+2 Pasan 56 78 Theory 60
+3 Ravi 45 67
+4 Kimi 89 92
+5 Sithu 78 67
+Which of the following functions can be used to display the minimum mark of the practical and
+
+theory marks of all four students?
+I. = MIN (Bz2, 05, C2 , C5)
+11.
+
+= MIN (B2:B5,C2:C5)
+111. = MIN (B2:C5)
+(1) I and 11 only (2) 11 and 111 only (3) I and HI only (4) All I, 11 and 111
+
+If the formula = (B2 * G$1/100) + (C2 * G$2/100) is entered in cell D2 and then copied to
+D3, what will be the formula that will appear in D3?
+
+(1) = (B2 * G$1/100) + (C2 * G$2/100) (2) = (B3 * G$1/100) + (C3 * G$2/100)
+(3) = (B3 * G$2/100) + (C3 * G$3/100) (4) = (C2 * H$1/100) + (D2 * H$2/100)
+Which of the following is not a suitable advice to follow when making a slide presentation?
+
+(1) First plan your presentation and then make the slides
+
+(2) Have at least 15 text lines per slide
+
+(3) Have a maximum of two images / graphs per slide
+
+(4) Avoid using a dark red colour throughout the presentation
+
+y,
+
+OL /2024(2025)/80/E-LI
+-
+
+
+@ Questions 17 to 19 are based on the following partly shown database tables that are used to
+
+17.
+
+18.
+
+19.
+
+20.
+
+21.
+
+22.
+
+23.
+
+store data about books, purchases and suppliers of a book shop.
+
+Note: The book shop purchases books from suppliers and sells them to customers. A particular
+
+book can be purchased from many suppliers at different prices.
+
+෴
+
+BOOK PURCHASE
+Book_ID Book_name Selling price Book_ID | Supplier_ID | Purchasing price
+0001 Python for Beginners 800 0001 SUP001 700
+B002 Digital Fundamentals 700 0002 SUP002 600
+0003 Databases: Zero to Hero 900 0003 SUP003 800
+1004. Headfirst Java 750 003 5(10001 810
+SUPPLIER
+Supplier ID | Supplier_name Address
+SUPO01 Shane Colombo
+SUP002 Anil Kandy
+SUP003 Kavinkumar Colombo
+SUP004 Sharaf Galle
+
+What is most suitable for the primary key of the PURCHASE table?
+(1) Book ID (2) Supplier ID
+(3) Book ID + Supplier_ID (4) Book ID + Purchasing price
+
+What is a foreign key in this database?
+(1) Book ID in the BOOK table (2) Selling price in the BOOK table
+(3) Supplier ID in the PURCHASE table (4) Supplier ID in the SUPPLIER table
+
+The book shop purchases the book ‘Databases: Zero to Hero’ from a new supplier (SUP005)
+located in Colombo. The book is sold at its normal price. Which table(s) is/(are) to be updated
+for this purpose?
+
+(1) BOOK and PURCHASE
+
+(3) PURCHASE and SUPPLIER
+
+(2) PURCHASE only
+(4) SUPPLIER only
+
+Which of the following statements are correct about database keys?
+A - Aprimary key is used to uniquely identify a record in a table.
+B - A foreign key is a field in one table that uniquely identifies a record in another table.
+C - Acomposite key is made up of two or more fields to uniquely identify a record.
+
+(1) A and B only (2) A and C only (3) B and C only (4) All 4, B and C
+
+A long rectangular sheet roll is available in a shop. A number of small squares has to be cut
+from that sheet. A program is needed to find the minimum length of the sheet that is sufficient
+to cut the required number of squares.
+Which of the following are the required inputs for this program?
+
+A - Width of the sheet roll
+
+B - The required number of squares
+
+C - the length of a side in a square
+(1) A and B only (2) A and C only (3) B and C only (4) All 4, B and C
+
+Which of the following tasks requires both ‘iteration’ and ‘selection’ control structures?
+(1) calculating the average of two given numbers
+
+(2) checking if a number is a prime
+
+(3) displaying a welcome message to the user
+
+(4) printing the first twenty even numbers
+
+Consider the following P, Q and R logical expressions:
+
+P: (A>=-3) AND (B < 25) Q :(A<> 10) AND (B = 20) R: NOT (A> 0) OR (B < 15)
+If above A and B contain the values —3 and 18 respectively, which of the following represents
+correct outcomes of P, Q and R respectively?
+
+(1) false, true, false (2) false, true, true (3) true, false, false (4) true, false, true
+
+y,
+
+‘a ~
+
+24. What is the output of the following Pascal expression?
+(3+5)*2-10div2
+(1) 8 (2) 10 (3) 1] (4) 16
+
+® Questions 25, 26 and 27 are based on the codes shown in figures 1, 2 and 3 respectively.
+
+x:=1; var if (value >= 30) then
+while x < 10 do i: integer; writeln(‘Hot’)
+Xi=xX+2; x: integer = 5; else
+begin if (value >= 25) then
+writeln(x); for i:=1toxdo writeln(‘Warm’')
+if i mod 2 = 0 then else
+write(i); if (value >= 20) then
+end. writeln(‘Chilly')
+else
+writeln(‘Cold’');
+Figure 1 Figure 2 Figure 3
+25. What would be the output of the code shown in Figure 1?
+(1) 9 (2) 10 (3) 11 (4) 13
+26. What would be the output of the code shown in Figure 2?
+(1) 2 (2) 24 (3) 135 (4) 12345
+27. What would be the outputs of the code shown in Figure 3 when 'value' is 26 and 20 respectively?
+(1) Hot, Chilly (2) Hot, Cold (3) Warm, Chilly (4) Warm, Cold
+
+28. Which of the following refers to the first element of a Pascal array declared as arrA = array[0..4]
+of integer; ?
+(1) arrA[-1] (2) arrA[O| (3) arrA[1 ] (4) arrA[first]
+
+29. Which of the following statements are correct?
+A - Anassembler converts an assembly language code into a machine language code.
+13 - Pascal is considered a ‘low level’ programming language.
+ල්‌ - A compiler converts a high-level language program completely into a machine
+language program.
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+
+30. Which of the following contains an incorrect matching with respect to a website development
+project?
+(1) Requirements analysis —» interviews, prototypes
+(2) Solution design — > hardware identification, software identification
+(3) Coding —>» HTML, PHP, MySQL
+(4) Testing —> direct, parallel, phased
+
+31. Which of the following statements about a URL (Uniform Resource Locator) is correct?
+(1) A URL cannot contain folder names.
+(2) A URL is composed of only the protocol and domain name.
+(3) A URL its as same as an IP address.
+(4) A URL specifies the address of a resource on the world wide web.
+
+32. Which of the following statements is correct?
+(1) A DNS server maps domain names into IP addresses, while a web server delivers website
+content to its users.
+(2) A web server and a DNS server both store website content and serve it to users.
+(3) A web server and a DNS server both use the HTTP protocol.
+
+(4) A web server translates domain names into IP addresses, while a DNS server hosts website content.
+\ y
+
+r
+
+33.
+
+34.
+
+35.
+
+36.
+
+37.
+
+38.
+
+39.
+
+40.
+
+~
+Which of the following correctly matches the given file types with the example filename extensions?
+(1) spreadsheet: exe, xlsx audio: mp3, pptx video: docx, mp4
+
+(2) spreadsheet: ods, xlsx audio: mp3, wav video: avi, mp4
+
+(3) spreadsheet: mp3, ods audio: pdf, xlsx video: jpg, wav
+
+(4) spreadsheet: mp4, wav audio: ods, png video: exe, xlsx
+
+A raster image containing N pixels and having a dimension 2" X 2" is enlarged to be of dimension
+2" X 3". What will be the number of pixels in the enlarged image’?
+(1) N (2) 2N (3) 3N (4) 6N
+
+Which of the following statements is incorrect regarding raster and vector graphics?
+
+(1) The GIMP software can be used to create a raster image.
+
+(2) Vector images are constructed through lines, curves and fills.
+
+(3) When a vector image is enlarged, its quality degrades.
+
+(4) Raster images are not suitable for images like institution logos that frequently need resizing.
+
+An audio file of a song contains long silence portions before and after the song which have to
+be removed using Audacity. Some labelled icons from the Audacity interface are shown below.
+
+A: J 0: අද C:0H D: 44
+
+After the file is opened from Audacity, which of the following actions can be used to remove
+the silence portions?
+
+(1) Click A —> Click B
+
+(2) Click ~ෆෟං Click C — > Click D
+
+(3) Click A —> select the song portion —> Click C
+(4) Click A — > select the song portion —» Click D
+
+Which of the following gives the approximate size in bytes of a raster image having a 275 x 175
+resolution and a maximum of four colours? (Assume the image has not been compressed.)
+(1) 275x175 (2) 275x175x4 (3) (275x175x2)\/8 (4) (275«175x4)/8
+Consider the following list that was displayed on a web browser:
+
+1. Java
+
+2. Python
+
+3. Pascal
+Which of the following HTML tags would have been used to produce it?
+(1) <dl>,<dt> (2) <nl>, <li> (3) <ol>, <li> (4) <ul>,<li>
+
+Consider the following paragraph with blanks labelled P-S:
+A website is a collection of related web pages hosted on the Internet that users can access
+
+through a (P). The HTTP protocol is used to transfer data between a web (Q)
+and a (R), enabling users to request and view web content. To make a website accessible
+online, it must be hosted by a (S).
+
+Which of the following gives the suitable replacements for the blanks?
+(1) P - browser, ට - server, R- client, S - service provider
+(2) P - client, ට - service provider, R - server, S - browser
+(3) P -server, ට - client, R - service provider, S - browser
+(4) P - service provider, ට - browser, R - server, S' - client
+
+Which of the following will help to reduce the e-waste problem?
+A - people protecting and maintaining their electronic items
+B - finding new ways of recycling unusable electronic items
+C - avoiding buying unnecessary electronic items
+
+(1) A and B only (2) A and C only (3) B and C only (4) All A, B and C
+
+y,
+
+OL/2024(2025)/80/E-1,I
+
+
+QEOMICH SL. LF 6 FH G1 60) 600 & 61110)
+
+80
+
+E
+
+LI
+
+SVN QUIS 5111151711] ! 19,511) (2:115)111)6001 Hp ufLene, 2024(2025)
+
+තොරතුරැ හා සන්නිවේදන තාක්ෂණය
+HEU, 015111_1)11111_60 05)1110)60)]!_! ]1ධ]]!! 160
+
+LU
+LU
+LU
+
+Information & Communication Technology II
+
+Answer five (05) questions only, including first question and four others.
+First question carries 20 marks and each of the other questions carries 10 marks.
+
+1. (1)
+
+(11)
+
+The road connections between three
+cities A, B and C are shown in
+Figure 1. Table 1 shows the
+distances between the cities and the
+average speeds of the vehicles
+travelling along the different road
+segments.
+
+10
+
+40
+
+Cc
+Figure 1
+
+B City 1 | City 2 | Distance | Average
+(km) speed
+(km/h)
+30 A B 10 40
+A C 40 20
+13 C 80 80
+Table 1
+
+Write down two pieces of information that can be obtained through this data after processing.
+
+Five cable ends labelled A-E are shown in Figure 2. Write down the label for each of the
+
+following.
+
+(a) RJ45 cable end
+(b) HDMI cable end
+(c) USB cable end
+(අ) VGA cable end
+
+B
+
+a
+
+(111) (a) Write down the binary equivalent of 7410.
+
+(b) Write down the hexadecimal equivalent of 1046s.
+
+(iv) (a) Draw the logic circuit for the Boolean expression
+P=A (B+ ඒ using only AND and OR gates.
+
+(b) According to the logic circuit show in Figure 3, what
+will be the respective outputs at P and Q when A,B and
+C inputs are respectively 1,1 and C=0?
+
+(v) (a) Figure 4 shows some components and their interactions |
+When Amara is using Libre Office Writer. Write down the
+numbers of the suitable replacements for the components |
+
+labelled A, B, C and choosing from given numbered list.
+
+Note — write your answer only in the label > number format. |
+
+List: {1 - Anti-virus software, 2 - Hardware,
+3 - LibreOffice Writer, 4 - Ubuntu}
+
+Amara |
+
+෴ ඌ +> ටා
+
+D
+
+Figure 4
+
+y,
+
+r
+
+(b) Kamala switched on a computer and started using LibreOffice Writer. After a while she
+stared Audacity as well. The following gives a sequence of different process that ran on the
+processor of that computer.
+
+AD ॥ ~~ CIO DIED...
+
+Choosing from the given list, write down the sequence again with the label A, B, C, D and
+E above replacement by the numbers.(Note: A number may be used more than once if
+required. )
+
+List : {1-Audacity, 2-BIOS, 3-LibreOffice Writer, 4-Ubuntu}
+
+(vi) Suppose that you want to create a presentation about Sri Lanka consisting of the following four
+sliders.
+1. Title slide
+2. Slide with a map of South Asia
+3. Slide with a few text facts about Sri Lanka
+4. Slide with a list of nine provinces of Sri Lanka on the left and a map of the provinces of
+
+Sri Lanka on the right
+Given in figure 5 are some labelled slide layouts available in the presentation software that you
+plan to me.
+| A BOC D E
+[——— = | ෴ — 1]
+। 1 [කෂ ණක්‍ෂ
+
+Figure 5
+
+Write down the label of the most suitable slide layout for each of the above slides using only
+the slide number > label format ( Note : A slide layout may be used more than once if required)
+
+(vii) Write down the pseudo-code for the flow-chart given in Figure 6 below:
+
+a
+
+Read two integer
+numbers N1 and N2
+
+Yes ; —__
+| Print “First is greater” /
+
+No
+
+/ Print “Second is greater or equal” /
+
+J
+Stop
+
+(viii) (a) In the 'requirements identification’ phase of the System Development Life Cycle, the use of
+‘prototypes’ could be beneficial. What are meant by "prototypes"?
+
+Figure 6
+
+(b) The following gives the sequence of phases in the System Development Life Cycle:
+Requirements identification — Design of the solution — A — B — C — Maintenance.
+Write down the phases represented by the above labels A, B and C.
+
+(ix) (a) Give an example of an IP address in dotted decimal notation.
+
+(b) Indicate whether the following statements regarding an email labelled A to C are true or
+false by drawing V or x symbols respectively against each label.
+
+A - The email addresses of the 'BCC' recipients are hidden from other recipients.
+
+B - The email addresses of the 'CC' recipients are visible to everyone.
+
+ල්‌ - When one clicks the 'Reply to all’ option the original sender and all other recipients
+on the To and Cc receive the reply.
+
+෴
+
+_2
+
+( ~~
+
+(x) (a) Write down one very important guideline that each person using a computer must follow so
+that in the event of a hardware failure of the computer, his/her files will still be available.
+
+(b) Assume a computer and its peripherals are properly placed and its user is seated in a good
+Pp perip properly p ඵී
+posture. Write down one other good guideline that the user can follow to avoid health
+problems due to continuous computer use.
+
+2. The following spreadsheet shows the income and expenses of a school workshop.
+
+A B ලද D E
+
+1
+
+2 Workshop Budget - 2025
+
+3
+
+4 No of Participants 200 Data Monday, December 30, 2024
+5
+
+6 Category Description | Quantity | Unit Cost/Price (Rs) | Total Amount
+
+7 Income
+
+8 | Registration Fee Workshop registration 200 2,500.00 500,000.00
+9 Sponsorship Corporate sponsorship 2 100,000.00 200,000.00
+10 |Sales T-shirts and mugs 50 2,000.00 100,000.00
+11 Total Income 800,000.00
+12 Expenses
+
+13 | Lunch Lunch (Packs) 200 1,500.00 300,000.00
+14 Materials Workshop Kits 200 500.00 100,000.00
+15 |Refreshments Morning Tea 200 750.00 150,000.00
+16 Transportation Speaker travel costs 1 1,000.00 1,000.00
+17 | Decoration Event banners and flowers 10 8,000.00 80,000.00
+18 T-Shirt/Mugs Printing |Cost of T-shirt and Mugs printing 50 1,500.00 75,000.00
+19 Total Expenses 706,000.00
+20 Net Income 94,000.00
+21 Profit % 11.8%
+
+(i) What formula should be written in Cell E8 to calculate the Total Amount for the Registration Fee?
+
+(11) Write down the formula that should be written for each of the following:
+(a) for Cell E11 to display the total income
+(b) for Cell E19 to display the total expenses
+
+(111) Assuming the Net Income is defined as the Total Income minus the Total Expenses, write a
+formula for Cell E20 to display the Net Income.
+
+(iv) The number of participants (200) is repeated in cells C8, C13, C14 and C15. Write down the
+formula that is more suitable to be entered in each of them instead of 200.
+
+(v) Choosing from the given list, write down the numbers of the formatting categories and options
+(11 any) that have been applied to the following cells:
+
+(a) E4 (b) E20
+List: {1 - Date, 2 - Decimal Places, 3 - Number, 4 - Percentage, 5 - Thousands separator, 6 - Time}
+(vi) From column and pie charts, what is the most suitable chart type for each of the following?
+
+(a) to display the total amounts of the different 'Income' and 'Expenses' components
+(b) to display the total amounts of the different 'Income' components as percentages
+
+(vii) What will be displayed in the Cell C20 if the following formula is mistakenly entered to it?
+= C17 * C9/2 — (180 — C10*3)
+
+r
+
+3. Following are the partially shown relational database tables of a vehicle rental company used to
+store data about vehicles available for rent, customer details and rental records.
+
+VEHICLE CUSTOMER RENTAL
+V_id V_model V_type C_id C_name C_id V_id Rental date
+$/001 | Honda Civic Car 4001 | Saman 4001 V002 12/01/2025
+V002 | Toyota Corolla | Car 4002 | Almeida 4002 | %001 13/01/2025
+V003 | Nissan X- Trail | SUV 4003 | Shane 4003 V002 14/01/2025
+V004 | Ford Ranger Pickup Truck 4004 | Ahmed 4001 V003 15/01/2025
+
+(1) A new customer Tom (C_id: 4005) rents the Ford Ranger (V_id: V004) on 20/02/2025. Write
+down the new records to be added to the relevant tables for that purpose.
+Note: Use only the table name > (field/ content, field2 content, ...) format for each new record.
+E.g CUSTOMER ~ (4001, saman)
+
+(11) It is required to show the names of customers (C_name) who rented the Toyota Corolla. Which
+tables need to be joined for this purpose?
+
+(111) Each vehicle has a specific rental rate. If the new field 'Rental_rate' is needed to be added, to
+which one of the above tables should it be added?
+
+(iv) It is decided to add the return date on which a vehicle given on rent is returned. To which one of
+the above tables should that 'Return date’ field be added?
+
+(v) Itis decided to assign one technician to do the maintenance of each vehicle and the name and the
+phone number of each technician is to be stored avoiding data duplication.(Note that the same
+technician can maintain multiple vehicles.)
+
+For this purpose:
+
+(a) Write down the field names of the new table that has to be added.
+
+(b) Write down any changes that have to be done to the existing tables.
+
+4. (i) The labelled flow-chart in Figure 1 has been drawn to
+
+get the summation of even numbers from 1 to 20
+
+(including 20). Write down the most suitable | Sum=0 |
+replacements for its labels A, B, C and D. y
+7 ; ; ; | Number = 1 |
+(11) Consider the pseudo-code in Figure 2 to answer (a) F >
+and (b).
+BEGIN
+Counter = ]
+WHILE Counter <= 5 DO |
+DISPLAY Counter
+Counter = Counter + 1
+ENDWHILE
+END.
+Figure 2
+(a) Write the expected output of the pseudo-code
+(b) What would be the output, if the statement / Print Sum /
+"WHILE Counter <= 5 DO' is replaced with
+"WHILE Counter <= 20 DO' and the statement Y
+‘Counter = Counter + 1' is replaced with End
+‘Counter = Counter + 3"? Figure 1
+
+(c) What would happen if the 'Counter = Counter + 1' line is the Pseudo-code of Figure 215
+ෂූ removed?
+
+෴
+
+7,
+
+” ~~
+
+(iii) A chocolate vending machine receives coins from a । pron
+customer and if it receives enough coins for the price of a
+chocolate (Rs 50), it will then dispense a chocolate to the
+customer. Total = B
+
+WHILE (Total < Price)
+
+DISPLAY "Insert coin"
+
+READ Coin_value
+
+C =Total + D
+ENDWHILE
+
+Price=A
+
+The machine keeps on collecting coins from a customer
+until the total value of the inserted coins is greater than or
+equal to the price of a chocolate. If the total value of the
+inserted coins is greater than the price of a chocolate, then
+the balance coins should also be dispensed in addition to
+the chocolate. If the total value of the inserted coins is OUTPUT chocolate
+exactly equal to the price of the chocolate only the
+
+chocolate will be given. Note: Assume that the customer Eales 3
+inserts the coins to completion without cancelling the Balance = Total ~ F
+process midway. OUTPUT Balance
+A pseudo-code written for the operation of the above ENDIF
+machine is given in Figure 3. Write down the suitable | exp
+replacements for the blanks labelled from A to F in it
+
+Figure 3
+
+5. (1) Match descriptions labelled A to J to a correct item the numbered list and write down the
+number of the matching item for each label only the label > number format.
+
+Label Description
+
+A A search engine that helps to find information online
+
+A social media platform to content and share content with others
+
+A cloud computing service providing virtualizes computing resources
+
+A web browser for accessing website
+
+A platform to create and manage websites and blogs
+
+A protocol used to send and receive emails over the internet
+
+A protocol that maps domain to IP address
+
+A platform for hosting and sharing video content
+
+A video conferencing tool for virtual meetings
+
+හෲ (DQ pals Oo ays
+
+A language used to create dynamic web page
+
+List: {1- DNS, 2 - Facebook, 3 - Firefox, 4 - google, 5 - 1445, 6 - PHP, 7 - SMTP, 8 - WordPress,
+9 - YouTube, 10 - zoom}
+
+(11) Draw the table that will be displayed by | <table border="1">
+the HTML code segment shown. <tr> <th> Student Name </th> <th> Subjects </th> </tr>
+<tr> <td rowspan="2"> Alice </td><td>Math</Ad> </tr>
+<tr> <td>Science</td> </tr>
+<tr> <td> Bob </td> <td>English</td> </tr>
+</table>
+
+ඇද 7
+
+ඒ
+
+~
+(111) The HTML source of the web page given in Figure | is given in Figure 2 with certain missing
+tags labelled @ to ©
+
+Explore Sri Lanka: the tropical paradise
+
+Sri Lanka, a tropical paradise, offers golden beaches, beautiful hills, lush forests, warm
+hospitality, delicious cuisine and an exotic, vibrant culture with many attractions. Visit
+Sri Lanka for an unforgettable getaway!
+
+Top tourist destinations in Sri Lanka
+
+Sigiriya
+
+Iconic Lion Rock Fortress; stunning views
+Kandy
+
+Temple of the Tooth; the cultural hub
+Nuwara-eliya
+
+The Little England
+Galle
+
+Historic fort; vibrant coastal charm
+
+For travel plans: Lanka Budget Travels
+
+Figure 1: Web page
+
+<html>
+[1 <title>Explore Sri Lanka</title> ච්‍ර
+
+ඟි Explore Sri Lanka: the tropical paradise @
+
+@ Sri Lanka, a tropical paradise, offers golden beaches, beautiful hills, lush forests, warm hospitality,
+delicious cuisine and an exotic, vibrant culture with many attractions. Visit Sri Lanka for an unforgettable
+getaway! 5
+
+<h2>Top tourist destinations in Sri Lanka</h2>
+
+@sSigiriya @ ®lconic Lion Rock Fortress; stunning views@
+@MkKandy @ @Temple of the Tooth; the cultural hub@
+@Nuwara-eliyaQ@ @®@The Little England@®
+
+@MGalle@ ®distoric fort; vibrant coastal charm@
+
+<br>
+For travel plans: <® href=http://www.travelplan.|k> Lanka Budget Travels 16)
+
+</html>
+
+Figure 2: HTML Source
+
+Select the correct tags for the labels ® to @ of Figure 2 from the list given below and write
+
+down each label number and the corresponding HTML tag.
+
+List : {a, </a>, <body>, </body>, <dd>, </dd>, <dl>, </dl> <dt>, </dt>, 115, </h1>, <h3>,
+</h3>, <head>, </head>, <p>, </p>, <ul>,</ul>,<li></li>}
+
+6. (i) The out-patient clinic in a hospital does not have a proper patient appointment scheduling
+system. As a result, the patients have to waste a lot of time when visiting the clinic as they
+do not know the exact time that they would be treated. To solve this problem, the hospital
+management decides to introduce a computerized appointment scheduling system.
+
+(a) In the new system, the days are divided into different time slots that the patients can
+reserve. Propose one good way that the system can use to inform the available time slots
+for reservation, to a patient expecting to make an appointment.
+
+(b) List down four main inputs that a patient needs to give the new system in order to get
+an appointment.
+(Notes: 1. Doctor details are not required.
+2. Patients do not have to login to the system to get an appointment.)
+
+y,
+
+r
+
+෴
+
+(c) When a patient successfully makes an appointment, write down one suitable method that
+the system can use to send the confirmation of the appointment to the patient.
+
+(d) Assume the system is relatively small, its requirements are clear and the likelihood of its
+requirement changes are very low. Then, from the waterfall and iterative incremental
+models, what would be the most suitable system development life cycle model to develop
+
+the above system?
+
+(e) Assuming that the system is developed and tested well, from direct and parallel deployment,
+what deployment type do you suggest for this system? Justify, your answer.
+
+(11) The single computer in a house is shared by all occupants using a single user account. Each
+person does various occupations and have varied interests. The files of each person are saved
+in the same folder in the hard disk as well. Thus each person undergoes great difficulty in
+finding his/her files. And there is a danger of files of one person been accidentally changed/
+deleted by another person as well.
+
+Write down two changes that you suggest to improve this situation.
+
+(111) Write one reason as to why it is important to indicate the source when reproducing content
+taken from a published book.
+
+(iv) In ‘cloud computing’:
+(a) Write down one advantage of using SaaS (Software as a Service).
+(b) Write down one disadvantage of using SaaS.
+
+7. (1) The Figure shows the numbered interface of a word processing software:
+
+1 2 3 4
+Insert Format sivfs Table Form Tools vind Ki
+Bee & ලූ හු &॥ ෴~ QSB%B-BAB SB-Q- රන
+॥॥ ට ඤු ඥ්‌ Liberation Serif j 12 pt / hy § ~s 1 1 A A-®- "T° a f
+
+By using the relevant numbers in the above interface, write down how the tasks (b) to (j) could
+be done. The answer to (a) is given as an example.
+(a) Changing the font type of a piece of text to "Times"
+Select the piece of text > Click 5 > Choose 'Times'
+(b) Changing the font size of a piece of text to 18
+(c) Making a sentence bold
+(d) Underlining a word
+(e) Changing 02 to 0,
+(f) Inserting a table with three rows and two columns
+(g) Starting a bulleted list
+(h) Center justifying a piece of text
+(i) Inserting an image to the document
+(11) List one feature that is available in a word processing software that helps a user to correct
+any writing defects in a document.
+(111) For what purpose can ‘thesaurus’ feature in a word processing software be used?
+
+(iv) From ‘portrait’ and ‘landscape page orientations, which is suitable for each of the following?
+(a) for an official letter
+
+(b) for a page that is to contain a very wide table very wide table
+(v) What is the benefit of the 'mail merge facility available in a word processing software?
+(vi) What is the benefit of the Print preview feature in a word processing software?
+
+ද
+
+3£ 3% 1

@@ -1,0 +1,525 @@
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+       2011 NUMBER SYSTEM S.ESSAY MARKING
+
+   1. Show how the computation 5+(-3) is done in 8-bit two's complement arithmetic. Explain how you
+      deal with the carry generated from the most significant bit.
+      ìgq wfÜ (8-bit) foflys wkqmQrl (Two’s complement) wxl .Ks;h u.ska 5+(–3) wd.Kkh lrk
+      whqre fmkajkak' jeäu fjfiis ìgqj (Most significant bit) u.ska W;amdokh jQ wdkS;h (Carry) iu.
+      Tn lghq;= lrk wdldrh meyeÈ,s lrkak'
+                                                                                                                                    ( 2011 S.ESSAY – 1[c] )
+          Let’s convert -3 into 2’s complement.
+          -3, 2 ys wkqmQrl njg mßj¾;kh lruq'
+
+            +3 in Binary
+            +3 oaúuh f,i                                            11
+            8 bit representation
+            ìgq 8 l ksrEmKh                                   00000011
+            Invert bits
+            ìgq m%;sf,dauh                                    11111100
+            Add 1
+            1la tl;= lsÍu                                           +1
+            2’s complement
+                                                              11111101
+            2 ys wkqmQrlh
+
+          Since 5, is a positive number therefore we can get the 8 bit representation without inverting the bits.
+          5 hkq Ok ixLHdjla neúka" wmg ìgq m%;sf,dau fkdlr ìgq 8 l ksrEmKh ,nd .; yelsh'
+           +5 in Binary
+           +5 oaúuh f,i                      101
+           8 bit representation
+           ìgq 8 l ksrEmKh                00000101
+
+          Add the 2 binary numbers.
+          oaúuh ixLHd 2 tl;= lrkak'
+
+               5               0 0 0 0 0 1 0 1
+               -3            + 1 1 1 1 1 1 0 1
+                             1 0 0 0 0 0 0 1 0
+
+          During the addition, a carry is generated from the MSB. The carry is ignored because it represents the
+          sign. The result is taken from the remaining 8 bits.
+          tl;= lsÍfï§" MSB fj;ska carry bit tlla ckkh fõ' th ,l=K ksfhdackh lrk neúka th
+          fkdi,ld yßkq ,efí' m%;sM,h b;sß ìgq 8 ka ,nd .kS'
+
+          Therefore the decimal equivalent of 102 is , 210
+          tneúka 102 ys oYu iudk;djh" 210 fõ'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+      2012 NUMBER SYSTEM S.ESSAY MARKING
+
+   1. Show how the computation 15+(-5) is done in 8-bit two's complement arithmetic. Explain how you
+      deal with the carry generated in the most significant bit.
+      ìgq 8 ys (8 bit) fofla wkqmqrl (two’s complement) wxl .Ks;fhys 15+(-5) wd.Kkh (computa-
+      tion) lrkq ,nkafka flfiaoehs fmkajd fokak' jvd;au fjfiis ìgqfjys (most significant bit) W;amdokh
+      jk wdkS;h (carry) Tn yiqrejkafka flfiaoehs meyeÈ,s lrkak'
+
+                                                                                                                                    ( 2012 S.ESSAY – 3[b] )
+
+          Answer with explanation / meyeÈ,s lsÍu iuÕ ms<s;=r:
+          15 in 8 bits two’s complement / 15 ys ìgq 8 ys (8 bit) fofla wkqmqrlh (two’s complement),
+
+              15
+            2 7 -1
+            2 3 -1
+              1 -1
+                                   = 000011112
+
+          5 in 8 bit two’s complement / 5 ys ìgq 8 ys (8 bit) fofla wkqmqrlh (two’s complement),
+
+              5
+            2 2 -1
+            2 1 - 0
+                                   = 000001012
+
+          (-5) in 8 bit two’s complement / (-5) ys ìgq 8 ys (8 bit) fofla wkqmqrlh (two’s complement),,
+           1 1 1 1 1 0 1 02
+                                  + 1
+           1 1 1 1 1 0 1 1
+
+          15+(-5)
+              0 0 0 0 1 1 1 1
+           + 1 1 1 1 1 0 1 1
+           1 0 0 0 0 1 0 1 0
+
+
+
+          Ignore the carry bit / wdkS;h fkdi,ld yßkak.
+
+          Therefore the answer is 000010102 / tneúka ms<s;=r 000010102 fõ'
+
+          How to Deal with the Carry from the Most Significant Bit (MSB) in Two’s Complement:
+          fofla wkqmqrlfhys (two’s complement), jeäu fjfiis ìgqfjys (MSB) isg wdkS;h iuÕ lghq;=
+          lrkafka flfiao(
+
+          In two’s complement arithmetic, the carry out of the most significant bit is ignored.
+          fofla wkqmQrl wxl .Ks;fha§" jeäu fjfiis ìgq l%shd;aul lsÍu fkdi,ld yßkq ,efí'
+RAVINDU BANDARANAYAKE                              -3-                                         #ictfromabc
+
+
+    Why / wehs?
+    Because in two’s complement
+    ukao fofla wkqmQrlfha+:
+    Negative numbers are encoded using bit patterns
+    iDK ixLHd ìgq rgd Ndú;fhka fla;kh lr we;.
+    The MSB represents the sign (0 for positive, 1 for negative).
+    MSB ixfla;h ksfhdackh lrhs ^Ok i|yd 0, iDK i|yd 1&'
+
+    The system is designed so that overflow and negative values are handled within the fixed number of bits
+    (e.g., 8 bits).
+    moaO;sh ie,iqï lr we;af;a msgdr .e,Su iy iDK w.hka ia:djr ìgq .Kk ^Wod( ìgq 8& ;=<
+    yiqrejk mßÈh'
+
+    So what do you do with the carry
+    túg Tn /f.k hdfuka lrkafka l=ulao?
+    You simply discard it. It does not affect the result.
+    Tn th ir,j bj;,kak' th m%;sM,h n,mdkafka ke;.
+
+    Summary / idrdxYh:
+    In two's complement, you ignore the carry from the MSB. It does not impact the final result, because
+    two's complement arithmetic wraps naturally within the fixed bit width (like 8-bit).
+    fofla wkqmQrlfha§" Tn MSB fj;ska wdkS;h fkdi,ld yßhs' th wjika m%;sM,hg n,mdkafka ke;"
+    ukao fofla wkqmQrl wxl .Ks;h ia:djr ìgq m<, ^8-ìÜ jeks& ;=< iajNdúlj mej;Su ksidh'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+      2013 NUMBER SYSTEM S.ESSAY MARKING
+
+1.(a)(i)Convert 1310 and –1910 into two’s complement numbers. Use 8-bits to represent a number.
+        1310 iy – 1910 iy foflys wkqmQrl (two’s complement) ixLHdjkag mßj¾;kh lrkak' ixLHdjla
+        ksrEmKh lsÍu i|yd ìgq 8 la Ndú; lrkak'
+                                                                                                                                    ( 2013 S.ESSAY – 1[c] )
+
+          1. Convert 1310 binary (positive number) / 1310 ixLHdj ^Ok ixLHdj& oaúuh njg mßj¾;kh lrkak
+          1310=000011012
+          Simply convert to binary and pad to 8 bits.
+          myiqfjka oaúuh njg mßj¾;kh lr ìgq 8la njg mßj¾;kh lrkak
+
+          2. Convert −1910 to binary (two’s complement)
+          −1910 ixLHdj oaúuh njg mßj¾;kh lrkak ^foflys wkqmQrlh&(
+
+          First, convert 1910 to binary. / m<uqj" 1910 oaúuh njg mßj¾;kh lrkak(
+          1910 = 000100112
+          Then, invert the bits / bkamiq" ìgq m%;sf,dau lrkak'
+          00010011 → 11101100
+          Add 1 / 1la tl;= lrkak(
+          11101100 + 1 = 11101101
+
+          Final Answer (8-bit two’s complement) / wjidk ms<s;=r ^ìÜ 8ys foflys wkqmQrlh&(
+          1310 = 000011012
+          -1910 = 111011012
+
+   (ii) Compute 1310 – 1910 by using two’s complement. numbers obtained in section (i) above and give the
+        answer in two’s complement form.
+        by; (i) fldgfia § ,nd .;a foflys wkqmQrl ixLHd Ndú; lrñka 1310 – 1910 .Kkh lr ms<s;=r
+        foflys wkqmqrlhl wdldrfhka ,nd fokak'
+
+          You already have the 8-bit representations / Tng oekgu;a ìgq 8ys ksrEmKhka mj;s
+          1310 = 000011012
+          -1910 = 111011012
+
+          Now, add them oeka" tAjd tl;= lrkak
+
+            0 0 0 0 1 1 0 1 → (13)
+            1 1 1 0 1 1 0 1 → (-19)
+            1 1 1 1 1 0 1 0
+
+          No carry is discarded in 8-bit two's complement addition.
+          ìgq 8ys fofla wkqmQrl tl;= lsÍfï§ lsisÿ /f.k hdula bj; oukq fkd,efí'
+RAVINDU BANDARANAYAKE                              -5-                                    #ictfromabc
+
+
+
+    Interpretation
+    Since the most significant bit (MSB) is 1, it’s a negative number.
+    MSB, 1 jk neúka" th iDK ixLHdjls'
+
+    To get its decimal value / tys oYu w.h ,nd .ekSug(
+    Invert bits ìÜ m%;sf,dau lrkak(
+    11111010 → 00000101
+
+    Add 1 / 1la tl;= lrkak(
+    00000101 + 1 = 00000110 → 6 in decimal
+    So, the value is –6 / tneúka" w.h –6 fõ
+
+ (iii) Explain how the positive and negative numbers in two’s complement can be converted into decimal
+       numbers.
+       foflys wkqmQrl wdldrhg mj;sk Ok iy iDK ixLHd oYuh (decimal) ixLHd njg mßj¾;kh
+       lrk wdldrh meyeÈ,s lrkak'
+
+    1. Identify the sign of the final decimal number by most significant bit (MSB)
+       wjidk oYu ixLHdfõ ,l=K MSB u.ska y÷kd .kak
+
+    •   If most significant bit is 0 → the number is positive / MSB tl 0 kï → ixLHdj Ok fõ
+        ▪ Convert directly to decimal / fl,skau oYuhg mßj¾;kh lrkak
+    •   If most significant bit is 1 → the number is negative / MSB tl 1 kï → ixLHdj iDK fõ
+        ▪ Take the sign as negative / ,l=K iDK f,i .kak
+        ▪ Get the binary number / oaúuh wxlh ,nd .kak
+        ▪ Invert the bit values / ìÜ w.hka m%;sf,dau lrkak
+        ▪ Add 1 to the least significant bit / LSB ìÜ tlg 1 tl;= lrkak
+        ▪ Convert the result to decimal / m%;sM,h oYuhg mßj¾;kh lrkak
+        ▪ Final answer will be negative / wjidk ms<s;=r iDK jkq we;
+    OR fyda
+    2. Apply the reverse process of two’s complement
+       fofla wkqmQrlfha m%;sf,dau l%shdj,sh fhdokak
+    • Understand that the value is stored in two’s complement form
+        w.h fofla wkqmQrl wdldrfhka .nvd lr we;s nj f;areï .kak
+    •   Convert using the two’s complement rules to get the decimal value
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+      2014 NUMBER SYSTEM S.ESSAY MARKING
+
+   1. Show that the negative of 00012 is 11112. Note that both numbers are represented in two's
+      complement form. / 00012 ys iDK w.h 11112 nj fmkajkak' fuu ixLHd folu foflys wkqmQrl
+      wdldrfhka we;s nj i,lkak'
+
+                                                                                                                                    ( 2014 S.ESSAY – 2[a] )
+          Method 1: Normal Method / idudkH l%uh
+          We are asked to find the negative of 0001₂ (which is +1 in binary).
+          0001₂ ys iDK w.h fidhd .ekSug wfmka b,a,d isà ^th oaúuh wdldrfhka +1 fõ&'
+
+          To convert a positive number into a negatve using two’s complement, we do two steps:
+          fofla wkqmQrlh Ndú;fhka Ok ixLHdjla iDK w.hla njg mßj¾;kh lsÍu i|yd" wms mshjr
+          folla Ndú;d lruq(
+
+          Step 1: Find the one’s complement / tflys wkqmQrlh fidhd .kak
+          One’s complement means / tflys wkqmQrlh hkafkka woyia jkafka(
+          ▪ Change all 0s to 1s / ish¨u 0, 1 njg fjkia lrkak
+          ▪ Change all 1s to 0s / ish¨u 1, 0 njg fjkia lrkak
+
+          So, for / tu ksid:
+          0001 → 1110
+
+          Step 2: Add 1 to the result / m%;sM,hg 1 tl;= lrkak
+          Now, take 1110 and add 1 / oeka" 1110g 1 tl;= lrkak(
+          1110 + 1 = 1111
+
+          Final Result / wjidk m%;sM,h:
+          So, the negative of 0001₂ is 1111₂ (in 4-bit two’s complement).
+          tneúka" 0001₂ ys iDK w.h 1111₂ fõ ^ìÜ 4 fofla wkqmQrlh ;=<&'
+
+          Method 2: Reverse Method / m%;sf,dau l%uh
+          We now start from the answer / oeka wms ms<s;=frka mgka .ksuq : 1111
+
+          Let’s check if this represents −1 / fuh −1 ksfhdackh lrkafka oehs mÍlaId lruq
+          Step 1: Since the first bit is 1, we know this is a negative number. / m<uq ìÜ tl 1 jk neúka" fuh
+          iDK ixLHdjla nj wms oksuq'
+
+          Step 2: To find its positive value: / tys Ok w.h fidhd .ekSug(
+          We again do two steps but in reverse: / wms kej;;a mshjr folla lrkafkuq" kuq;a m%;sf,dauj(
+
+          A) From 1111, subtract 1 / 1111ka 1la wvq lrkak:
+          1111 → 1110
+
+          B) Take one’s complement of the result / m%;sM,fha tflys wkqmQrlh .kak
+          Change all 1s to 0s and 0s to 1s: / ish¨u 1, 0 f,i;a 0, 1 f,i;a fjkia lrkak(
+          1110 → 0001
+
+          So, 1111 in two’s complement form is −0001₂ or −1
+          tneúka" 1111 fofla wkqmQrl wdldrfhka −0001₂ fyda −1 fõ
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+      2015 NUMBER SYSTEM S.ESSAY MARKING
+
+1.(a) Assume that in a particular digital device integers are represented in 8-bits two’s complement form.
+      However, the results of computations are printed in decimal.
+      tla;rd ixLHdxl Wml%uhl (digital device) ksì, ksrEmKh lrkq ,nkafka ìgq 8 ys foflys wkqmQrl
+      wdldrhg hehs Wml,amkh lrkak' flfia fj;;a wd.Kkhkays m%;sM, oYuh wdldrfhka uqøKh lrkq
+      ,efí'
+
+                                                                                                                                    ( 2015 S.ESSAY – 2[a] )
+
+   (i) Give the representation of 1010 in the above device.
+       by; Wml%ufhys 1010 ksrEmKh (representation) lrk wdldrh olajkak'
+
+          Here the question asked to get the 2’s complement of 10. 10 is a positive number. So, it’s enough to get
+          the binary value of the decimal number 10. No need to inverse and add one to the binary value.
+          fuysoS" Ok 10 ys 2 ys wkqmQrlh ,nd .ekSug m%Yakh wihs' tneúka" oYu wxl 10 ys oaúuh w.h
+          ,nd .ekSu m%udKj;a fõ' oaúuh w.hg tlla tl;= lr m%;sf,dau lsÍu wjYH fkdfõ'
+
+
+                                          2 10
+                                          2 5                -     0
+                                          2 2                -     1                     = 1010
+                                          2 1                -     0
+                                          2 0                -     1
+
+          As we are representing the 2’s complement value in 8 bits we should add 0 in front of the whole value.
+          ìgq 8 lska 2 ys wkqmQrl w.h ksfhdackh lrk neúka iïmQ¾K w.h bÈßfhka 0 tl;= l< hq;=h'
+
+          10 = 000010102
+
+   (ii) Give the representation of -2510 in the above device.
+        by; Wml%ufhys -2510 ksrEmKh lrk wdldrh olajkak'
+
+          Here the question asked to get the 2’s complement of -25. Firstly, we want to get the binary value of 25.
+          fuysoS -25 ys 2 ys wkqmQrlh ,nd .ekSug m%Yakh wihs' m<uqj" wmg 25 ys oaúuh w.h ,nd .;
+          hq;=hs'
+
+                                          2 25
+                                          2 12               -     1
+                                          2 6                -     0
+                                                                                       = 11001
+                                          2 3                -     0
+                                          2 1                -     1
+                                               0             -     1
+RAVINDU BANDARANAYAKE                                  -8-                                    #ictfromabc
+
+
+
+    As we represent the 2’s complement value in 8 bits we should add 0s before the whole value.
+    wms ìgq 8 lska 2 ys wkqmQrl w.h ksfhdackh lrk neúka iïmQ¾K w.hg fmr 0 tl;= l< hq;=h'
+
+    00011001
+
+    After this, the binary value should be inverted.
+    fuhska miq" oaúuh w.h m%;sf,dau l< hq;=h'
+
+    00011001 → 11100110
+
+    Finally, add 1 to the inverted binary value.
+    wjidk jYfhka" m%;sf,dau oaúuh w.hg 1la tl;= lrkak'
+
+      1   1   1   0   0   1   1   0
+                              +   1
+      1   1   1   0   0   1   1   1
+
+    So, the answer is
+    tneúka" ms<s;=r jkafka
+
+    = 11100111
+
+ (iii) Explain how the computation of 1010 - 2510 done by the device by using your representations given in
+       sections (i) and (ii) above.
+       by; (i) yd (ii) ys Tn úiska ,nd fok ,o ksrEmK Ndú;fhka by; Wml%uh u.ska 1010 - 2510 .Kkh
+       lrk whqre myod fokak'
+
+    To compute 10 - 25 using 2's complement representation, a computer does the operation by adding 10 and
+    the 2's complement of 25.
+    2 ys wkqmQrl ksrEmKh Ndú;fhka 10 - 25 .Kkh lsÍu i|yd" mß.Klhla 10 iy 25 ys 2 ys
+    wkqmQrlh tl;= lsÍfuka fufyhqu isÿ lrhs'
+
+        0     0   0   0   1   0   1   0
+      + 1     1   1   0   0   1   1   1
+        1     1   1   1   0   0   0   1
+RAVINDU BANDARANAYAKE                               -9-                                          #ictfromabc
+
+
+ (iv) List the steps necessary to transform the result Obtained in section (iii) above into decimal form in
+      order to print the answer.
+      by; (iii) fldgiska ,nd.;a m%;sM,h uqøKh lr .ekSu i|yd oYuh wdldrhg mßj¾;kh lr
+      .ekSug wjYH mshjr ,shd olapkak'
+
+    This is a negative number since the most significant bit is 1. Therefore, this must be converted to binary
+    using two's complement.
+    fuys jeäu fjfiis ìgqj 1 neúka fuh RK ixLHdjls' tneúka fuh foflys wkqmQrlh Ndú;fhka
+    oaúuh w.h ,nd.; hq;=h'
+
+
+         1   1   1   1   0   0   0   1
+                                 -   1
+         1   1   1   1   0   0   0   0
+         0   0   0   0   1   1   1   1
+
+
+    After obtaining this answer as above, convert it to decimal.
+    by; mßÈ fuu ms<s;=r ,nd .ekSfuka miq" th oYuh njg mßj¾;kh lrkak'
+
+       0   0 0 0 1 1 1 1
+       27 26 25 24 23 22 21 20
+      128 64 32 16 8 4 2 1
+               8+4+2+1
+                  15
+
+    So, the answer is 15 in decimal.
+    tneúka" ms<s;=r oYufhka 15 ls'
+RAVINDU BANDARANAYAKE                                                                                                                                    #ictfromabc
+ishÆ u ysñlï weúßKs /All Rights Reserved ]
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                            Information and Communication Technology
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+                                                  f;dr;=re yd ikaksfõok ;dlaIKh
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu Bandaranayake - ictfromabc Ravindu
+eeeeee
+
+
+
+
+      2018 NUMBER SYSTEM S.ESSAY MARKING
+
+(1)(i) Write down the two’s complement representation of 1210 using 8 bits.
+       1210 ixLHdfjys foflys wkqmQrlh (two’s complement) ìgq 8la Ndú;fhka ksrEmKh jk wdldrh
+       ,shd olajkak'
+
+                                                                                                                                    ( 2018 S.ESSAY – 2[b] )
+
+          1210 is a positive number and will not pass through a NOT gate. Therefore, the two's complement of this
+          is its binary value.
+          1210 hkq Ok ixLHdjla ksid NOT oajdrhla yryd .uka lrkq fkd,efí' tu ksid fuys foflys
+          wkqmQrlh jkafka fuys oaùuh w.huhs'
+
+                   2     12
+                   2     6        -   0
+                   2     3        -   0
+                   2     1        -   1
+                         0        -   1
+
+          1210 in two’s complement (8 bits) = 00001100
+          1210 foflys wkqmQrlfhka ^ìgq 8) = 00001100
+
+   (ii) Write down the two’s complement representation of –6810 using 8 bits.
+        – 6810 ixLHdfjys foflys wkqmQrlh ìgq 8la Ndú;fhka ksrEmKh jk wdldrh ,shd olajkak'
+
+          First, convert the positive number of -68 into a binary number with 8 bits. (+68 in two’s complement)
+          m<uqj" -68 ys Ok ixLHdj ìgq 8la iys; oaúuh ixLHdjla njg mßj¾;kh lrkak' ^+68 foflys
+          wkqmQrlfhka&
+
+            2    68
+            2    34      -    0
+            2    17      -    0
+            2    8       -    1
+            2    4       -    0
+            2    2       -    0
+            2    1       -    0
+                 0       -    1
+
+          6810 in two’s complement (8 bits) = 01000100
+          6810 foflys wkqmQrlfhka ^ìgq 8) = 01000100
+
+          Now pass the two's complement through a NOT gate. (-68 in one’s complement)
+          oeka tu foflys wkqmQrlh NOT oajdrhla yryd .uka lrjkak' (-68 tflys wkqmQrlfhka)
+
+           0 1 0 0 0 1 0 0 → NOT → 1 0 1 1 1 0 1 1
+RAVINDU BANDARANAYAKE                              -2-                                         #ictfromabc
+
+
+
+    Now add a binary 1 to the end of this number.
+    oeka fuu ixLHdfõ w.g oaùuh 1la tl;= lrkak'
+
+      10111011
+            +1
+      10111100
+
+    Now, this is the two’s complement of -6810 . Therefore, -68 in two’s complement = 101111002.
+    oeka" fuh -68 ys foflys wkqmQrlh fõ' tuksid -68 ys foflys wkqmQrlh = 101111002.
+
+ (iii) Compute –6810 + 1210 using the above representations (i) and (ii).
+       by; (i) yd (ii) ys ksrEmKh Ndú;fhka – 6810 + 1210 .Kkh lrkak'
+
+       00001100
+      +10111100
+       11001000
+
+    Since both of these added numbers are in two's complement, the answer is also in two's complement.
+    fuu tl;= l< ixLHd folu foflys wkqmQrlfha we;s ksid ,efnk ms<s;=r o we;af;a foflys
+    wkqmQrlfhks'
+
+    Since we know very well that the answer obtained by subtracting -6810 +1210 is a negative number, we can
+    say that the two's complement number obtained is a negative number. This can be obtained by reversing
+    the process and converting it to a decimal number.
+    -6810 +1210 iq¿ lsÍfuka ,efnk ms<s;=r RK ixLHdjla nj wm fyd|gu okakd neúka u ,eî we;s
+    foflys wkqmQrl ixLHdj RK ixLHdjla nj lsj yelsh' fuh kej;" isÿl< l%shdj,sh wdmiaig lrñka
+    oYuh ixLHdjla njg m;al< úg fuys ienE w.h ,nd.; yelsh'
+

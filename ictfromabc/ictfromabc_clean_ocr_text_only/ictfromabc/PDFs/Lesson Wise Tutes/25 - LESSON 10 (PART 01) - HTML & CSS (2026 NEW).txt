@@ -1,0 +1,7428 @@
+Contents
+
+HTML introduction _ .... ................... ..................... ...... ...... ............... ...... .. tt ඈ .. ..
+World Wide !///60.................................................෴........෴.෴෴෴෴෴෴෴..෴...෴..෴
+Web 01'0//5615.............................................................................................
+
+WWW vs. Internet. ce ce ය
+Types 01 //6[051$6*......................................෴෴෴..෴෴.෴.෴ being tie iets iting ti vsbartivsta tintin
+User requirements and objectives for a website. 00 ......................... ..
+Writing basic HTML code. cei cette cette ee tnt canctntece
+Types OF HTML (305. .........................................................................෴...........
+Text Formatting 1 3095:.............. .................. et et ttt tte te nae cent e
+HTML Comments. ce ett ee nett cab ene iene nab
+Predefined & Customizable $309:5........................ ..............................෴ ස... ස සස.
+Paragraph £30.......................................෴. eee eee eee eget tes tetas tg ttas tiger ag cigetisttastieetees
+Heading tags. ie i ie eee icin ici etn
+Horizontal line £50.............. ........................ cee ee ස ය ණා
+HTML 130[6............. .. ...... ...... ......... ...... ... .. .... ස. ණු tt ඈ ය ය tne
+Media tags (<img>, <audio>, 1160 -)........................................෴..෴..෴෴.෴෴........-.
+HTML Hyperlinks. ec eee ee a ee te be ie ete a cece dito uns canas
+Anchor tag ................. ....................... ස donee te ය ය aes
+On) =) a |e ES
+CSS 101(1'-091116110ෲ.... ........................... ct td tt ccd te tne
+
+Ways of inserting CSS ................................................෴..෴.෴෴.෴.෴.෴෴.෴..෴...෴.
+CSS SY. cee eb eee te te cin es ie iene tt cab an cis ne cineca
+CSS 56[6(ල£01. .................................................. ස... යය trout nr es
+Appearance formatting with CSS. ce ttt tence
+CSS spacing essentials. ................................................................... ය.
+CSS backgrounds. .................................. ........ ........... ඩය... ස. cn cuthtose nen
+CSS 0911111611 5_.....................................෴෴. heehee bee big Cie ctey the cty tint ey tigitathttertististins tna
+CSS box model. tt cut dei tte dnc ton te ..
+CSS table [71“9[761-:165..........................................෴෴෴෴෴෴෴෴෴෴෴෴....෴෴..෴..
+
+CSS validation service. eee ස...
+
+CSS measuring (1111 5.....................................෴....෴෴...෴..෴....෴..෴..෴.෴.෴෴෴....෴.....
+Web authoring tools. te tet tnt
+Web hosting 0 ස cnt dedi ct wes
+Local [7:10115[11110...........................................෴...෴........ tgteptipttcnaytinttaytintns tytn
+Internet 00010115011110.. ............ ...... ...... ...... ee ............... ... .. .... te ee
+
+Factors affecting website performance... ce ett tee
+
+Instructions (HTML)
+User (පරිශීලකයා) A web response (608 ප්‍රතිචාරය)
+
+A person who interacts with a web application
+or website through a device like a computer or
+smartphone.
+
+සාමාන්‍යයෙන්‌ පර්ගණකයක්‌ 6M සුහුරු ජංගම
+දුරකතනයක්‌ වැනි උපාංගයක්‌ හරභා වෙබ්‌ යෙදුමක්‌
+සමඟ අන්තර්‌ ක්‍රියා කරන පුද්ගලයෙකි.
+
+Developer (08620)
+
+A person who writes programs to create and
+Structure websites, giving instructions for
+browsers on how to render content.
+
+වෙබ්‌ aanbans විදැහුම්‌ කරන ආකාරය පිළිබඳ
+අතිරිීක්සු වලට උපදෙස්‌ සපයමින්‌ වෙබ්‌ අඩවි
+නිර්මාණය කිරීමට සහ ව්‍යුහගත කිරීමට පටගණක
+කේත ලියන පුද්ගලයෙකි.
+
+Web server (G08 සේවාදායකය)
+
+A computer that stores and serves website
+content to users’ browsers via the internet.
+වෙබි අන්තර්ගතය ගබඩා කරන සහ අන්තර්ජාලය
+හරහා DO පරශීලකයින්ගේ අතිරිීක්සු වෙත සපයන
+පට්ගණකයකි.
+
+Web browser (683 අතිරික්සුව)
+
+Software used by users to request, view, and
+interact with web content.
+
+වෙබ්‌ අන්තර්ගතයන්‌ ඉලේලීමට, නැරඹීමට සහ එවා
+සමග අන්තරඛ්‍රියා කිරීමට පරිශීලකයන්‌ විසින්‌ භාවිතා
+කරන මෘදුකාංග එවි.
+
+A web request (683 ඉල්ලීම)
+
+A message sent by the browser to the web
+server asking for a specific resource or
+webpage.
+
+නිශ්චිත සමපනක්‌ හෝ වෙබ්‌ පිටුවක්‌ ලේලා වෙබ්‌
+
+සේවාදායකයට GOOD අතනිරික්සුව විසින්‌ යවන ලද
+පණිවිඩයකි.
+
+The server's reply to a web request, which
+includes the website's content and instructions
+(HTML) for the web browser on how to display
+
+that content.
+වෙබි අඩවියේ අන්තර්ගතය සහ එම අන්නරිගතය
+සංදර්ශන කරන ආකාරය පිළිබඳ වෙබි අතිරික්සුව
+
+සදහා වන උපදෙස්‌ ([1] [/]|) ඇතුළත්‌ වෙබ්‌ ලේලීමකට
+සේවාදායකයෙන්‌ ලැබෙන පිළිතුරයි.
+
+HTML
+
+A markup language used to write instructions
+for web browsers on how to display the
+website's content, including structure, text, and
+
+media.
+
+ව්‍යුහය, පෙළ සහ මාධ්‍ය ඇතුළුව වෙබ්‌ අඩවියේ
+අන්තර්ගතය ප්‍රදර්ශනය කරන්නේ comedic යන්න
+පිළිබඳ වෙබ්‌ අතිරක්සු සඳහා උපදෙස්‌ ලිවීමට භාවිතා
+කරන සලකුණු භාෂාවකි.
+
+How to write codes
+කේත ලියන ආකාරය
+
+Editing Viewing
+software software
+
+Save Open
+
+</>
+
+example.html
+
+Editing software / සංස්කරණ මෘදුකාංග:
+
+Text Editors
+
+පෙළ සංස්කාරක
+
+A text editor is a simple software program used
+to create and edit plain text files.
+
+පෙළ සංස්කාරකයක්‌ යනු සරල පෙළ ගොනු නිරීමාණය
+කිරීමට සහ සංස්කරණය කිටථීමට භාවිතා කරන සරල
+මෘදුකාංග වැඩසටහනකි.
+
+Ex. Notepad, TextEdit, Gedit, Nano
+
+Code Editors
+
+කේත සංස්කාරක
+
+A code editor is a specialized text editor
+designed for writing and editing programming
+code with helpful features like syntax
+highlighting and auto-completion.
+
+කේත සංස්කාරකයක්‌ යනු syntax highlighting සහ
+ස්වයංක්‍රීයව සම්පූරිණ කිරීම වැනි ප්‍රයෝජනවත්‌
+විශේෂාංග සහිත ක්‍රමලේඛන කේත ලිවීම සහ
+
+සංස්කරණය කිරීම සඳහා නිර්මාණය කර ඇකඟති
+විශේෂිත GSE සංස්කාරකයකි.
+
+Ex. Visual Studio Code, Sublime Text, Atom,
+Notepad++, Brackets, Vim
+
+Word processors
+
+වදන්‌ සකසන
+
+Word processors are primarily designed to
+create, format, and _ style documents,
+incorporating elements like text, images, tables,
+and charts, to produce a visually formatted,
+printable document.
+
+වදන්‌ සකසන මූලික වශයෙන්‌ නිරිමාණය කර ඇත්තේ
+දෘෂ්‍යව හැඩතල ගැන්වූ, මුද්‍රණය කළ හැකි ලේඛනයක්‌
+නිරිමාණය කිරීමේ අරමුණින්‌ පෙළ, රෑප, වගු, සහ
+ප්‍රස්ථාර වැනි මූලාංග ඇතුළත්‌ කරමින්‌ ලේඛන
+නිර්මාණය කිරීමට, හැඩනල ගැන්වීමට සහ මෝස්තර
+කිරීමට ය.
+
+Ex. MS word, Google docs, Libre office, WPS
+
+It doesn't offer the features needed for
+
+efficient coding.
+එමගින්‌ කාර්යක්ෂම කේතකරණය BEM) අවශ්‍ය
+විශේෂාංග ලබා Ged.
+
+Save
+
+After writing the HTML code, it's saved with a
+" html" extension (Ex. example.html).
+
+HTML කේතය ලිවීමෙන්‌ පසු එය ". html" දිගුව සමඟ
+සුරකිනු ලැබේ (උදා. example.html).
+
+Open in Web Browser
+
+වෙබ්‌ අතිරික්සුවන්‌ විචෘත BOO
+The saved HTML file is then opened in a web
+
+browser, which reads and renders the code to
+display the web page.
+සුරකින ලද HTML ගොනුව පසුව වෙබ්‌ අතිරික්සුවක්‌
+
+හරහා විවෘත කරනු ලැබේ. එය වෙබි පිටුව පෙන්වීමට
+කේතය කියවා විදැහුම්‌ කරනු ලබයි.
+
+What is a Web Browser?
+
+GOD අතිරික්සුවක්‌ යනු කුමක්දෟ
+
+A web browser is a software application used
+to access, view, and navigate websites on the
+internet. It retrieves and displays web pages
+
+from web servers.
+
+වෙබ්‌ අත්රටරික්සුවක්‌ යනු අන්තරජාලයේ වෙබ්‌ අඩවි
+GOD ප්‍රචේශ වීමට, බැලීමට සහ සැරිසැරීමට භාවිතා
+කරන මෘදුකාංග යෙදුමකි. චය වෙබ්‌
+සේවාදායකයන්ගෙන්‌ වෙබි පිටු ලබාගෙන ප්‍රදර්ශනය
+කරයි.
+
+Ex. Google Chrome, Mozilla Firefox, Microsoft
+Edge, Safari, Opera
+
+82e0Oco
+
+What is a search engine?
+
+සෙවුම්‌ යන්ත්‍රයක්‌ යනු කුමක්ද?
+
+A search engine helps users find websites and
+information by scanning and storing content
+from the web, then providing results based on
+
+keywords.
+
+සෙවුම්‌ යන්ත්‍රයක්‌ විසින්‌ වෙබයෙන්‌ අන්තර්ගතයන්‌
+පටිලෝකනය BHO සහ ගබඩා කිරීම හරහා වෙබ්‌ අඩවි
+සහ තොරතුරැ සොයා ගැනීමට පථිශීලකයින්‌ හට උදවු
+කරන අතර ගනේපසුව මූල පද මත පදනමිව ප්‍රතිඵල
+ලබා දෙයි.
+
+Ex. Google, Bing, Yahoo, DuckDuckGo, Ecosia
+
+G b Baia (Ask,
+
+Yandex YAHOO! © Aol.
+
+x
+<
+
+wOsy ය
+
+What is a network?
+
+ජාලයක්‌ යනු කුමක්ද?
+
+A network is a group of connected devices that
+
+share data and resources.
+ජාලයක්‌ යනු දත්ත සහ සමිපත්‌ බෙදා ගන්නා
+සම්බන්ධිත උපාංග සමූහයකි.
+
+Devices are connected using communication
+media (cables or Wi-Fi)
+
+උපාංග සම්බන්ධ වන්නේ සන්නිවේදන මාධ්‍ය (GAVE
+ලහෝ WI-Fi) හරහාය
+
+Networking devices like Hub, Switch and
+
+Router
+AD, SSH ac රවුටරය වැනි ජාලකරණ උපාංග
+
+What is Internet ?
+
+අන්තර්ජාලය යනු කුමක්ද?
+
+The worldwide network of connected
+computers and devices that allows people to
+share information and communicate with each
+
+other.
+තොරතුරු බෙදා ගැනීමට සහ චකිනෙකා සමඟ
+සන්නිවේදනය කිරීමට මිනිසුන්ට ඉඩ සලසන
+සම්බන්ධින පටගණක සහ උපාංගවල ලෝක ව්‍යාප්ත
+ජාලයකි.
+
+It is not owned by any single person or
+organization. Instead, it is made up of many
+small networks connected together around the
+
+world.
+
+චය කිසිදු තනි පුද්ගලයෙකුට හෝ සංවිධානයකට
+අයත්‌ නොවේ. ඒ වෙනුවට, චය ලොව පුරා එකට
+සම්බන්ධ වී ඇත්‌ කුඩා ජාල රාශියකින්‌ සමන්විත 6d.
+
+World Wide Web (WWW)
+ලෝක විසිරී වියමන
+
+A system of linked web pages and multimedia
+
+content accessed via the internet.
+ABDOCHIEGS OOM ප්‍රවේශ වන සබැඳි වෙබ්‌ BO සහ
+බහුමාධ්‍ය අන්තරිගත පද්ධතියකි.
+
+) Client Computer Web Server fez
+
+Firewall
+
+HTTP Response
+
+HTTP Request
+
+Created to simplify sharing and_ finding
+
+information through linked pages.
+සබැඳි පිටු හරහා නොරතුරැ බෙදාගැනීම සහ ඉසසෙවීම
+සරල කිරීම සඳහා නිරිමාණය කර ඇන.
+
+Users access information by following these
+
+interconnected links.
+පරිශීලකයන්‌ විසින්‌ මෙම අන්තර්‌ සම්බන්ධින සබැඳි
+අනුගමනය කිරීමෙන්‌ තොරතුරැ වෙත ප්‍රවේශ වේ.
+
+These links are known as _ hyperlinks or
+Hypertext.
+
+මෙම සබැඳි hyperlinks (අධිසබැදි හෝ
+Hypertext ලෙස හැඳින්වේ.
+
+Hyperlinks enable users to click on a word or
+phrase to access related information on other
+
+sites.
+
+වෙනත්‌ වෙබි අඩවි වල ඇති අදාළ තොරතුරු වෙන
+ප්‍රවේශ වීම සඳහා වචනයක්‌ oes වාක්‍ය ඛණ්ඩයක්‌ මත
+ක්ලික්‌ කිරීමට අධිසබැදි මඟින්‌ පථීශීලකයින්ට
+හැකියාව ලබා GE.
+
+History of the WWW
+WWW 6 @8m00
+
+WWW was a project created by Tim Berners-Lee
+in 1989 at CERN (European Council for Nuclear
+Research).
+
+WWW යනු 1989 දී CERN (න්‍යෂ්ටික පරියේෂණ
+
+සඳහා වූ යුරෝපීය කවුන්සිලය) හි Tim Berners-Lee
+විසින්‌ නිර්මාණය කරන ලද ව්‍යාපෘතියකි.
+
+The project aimed to help researchers
+
+collaborate effectively.
+පර්යේෂකයන්ට OEQS ලෙස HOGGIOGGS කටයුතු
+කිරීමට උපකාර කිරීම මෙම ව්‍යාපෘතියේ අරමුණ විය.
+
+The World Wide Web Consortium (W3C) was
+later established to advance web development.
+
+ලෝක ව්‍යාප්ත වෙබ්‌ සමුහය (W3C) පසුව වෙබ්‌
+සංවර්ධනය දියුණු කිරීම සඳහා පිහිටුවන ලදී.
+
+W5 ope WIDE. WEB
+ww
+
+It was dedicated to creating web standards and
+guidelines for the development and
+interoperability of the web.
+
+එමගින්‌ වෙබයේ සංවර්ධනය සහ asad
+ක්‍රියාකාරීත්වය සඳහා වෙබ්‌ GOS සහ මාර්ගෝපදේශ
+නිරිමාණය කිරීමට කැප විය.
+
+Contents of a webpage
+වෙබ්‌ පිටුවක aaobona
+
+A webpage contains different types of
+
+information and elements such as
+වෙබ්‌ පිටුවක විවිධ ආකාරයේ තොරතුරු සහ අංග
+
+අඩංගු එච්‌;
+
+e Text (headings and paragraphs)
+පෙළ (Gb6e සහ oe)
+
+e Images, graphics and animations
+රෑප ,animations සහ ග්‍රැෆික්ස්‌
+
+e Videos and audio
+වීඩියෝ සහ GOB
+
+e Hyperlinks (links to other pages)
+හයිපරිලින්ක්‌ (වෙනත්‌ පිටු වෙන සබැඳි)
+
+e Forms and buttons (for user input)
+ආකෘති සහ බොන්තමි (පරිශීලක ආදානය
+සඳහා)
+
+e Navigation menu and footer
+සංචාලන මෙනුව සහ පාදකය
+
+e Tables
+e—_ Lists
+e icons
+
+e Search Bars
+e Slideshows
+e Chat widgets
+
+URL (Uniform resource locator)
+
+ඒකාකාර සමීපන්‌ නියාමකය
+
+A URL is the address of a webpage on the
+Internet. It helps the browser find and open a
+website.
+
+URL යනු අන්තරිජාලයේ වෙබ්‌ පිටුවක ලිපිනයයි. එය
+
+බ්‍රවිසරයට වෙබ්‌ අඩවියක්‌ සොයා ගැනීමට සහ විවෘත
+OOO උපකාරී වේ.
+
+https:// whatis.techtarget.com/glossaries
+
+Protocol (https:)
+A set of rules and standards that devices follow
+to communicate with each other over a
+
+network.
+ජාලයක්‌ හරහා උපාංග එකිනෙකා සමඟ සන්නිවේදනය
+කිරීම සඳහා අනුගමනය කරන නීති සහ පමිතින්‌
+සමූහයකි.
+
+Domain Name (whatis.techtarget.com)
+
+Ha® නාමය
+
+unique name that identifies a website on the
+Internet. It is the human-readable address used
+
+instead of a numerical IP address.
+අන්තරිජාලයේ GOO අඩවියක්‌ හළුනා ගන්නා අද්විතීය
+
+නමකි. එය සංඛ්‍යාත්මක IP ලිපිනයක්‌ වෙනුවට භාවිතා
+කරන මිනිසුන්ට කියවිය හැකි ලිපිනයයි.
+
+Path (glossaries)
+
+මාර්ගය
+
+Shows the specific page or location in the
+website
+
+වෙබ්‌ අඩවියේ නිශ්චිත පිටුව හෝ ස්ථානය පෙන්වයි
+
+Features of WWW
+WWW හි විශේෂාංග
+
+e WWW is open source.
+WWW යනු විවෘත මූලාශුයකි.
+
+ ॥153 distributed system spread across
+
+various websites.
+එය විවිධ වෙබි අඩවි හරහා පැතිර්‌ ඇති
+විසිරැනු පද්ධතියකි.
+
+[115 a Hypertext Information System.
+එය Hypertext තොරතුරැ පද්ධතියකි.
+
+[115 Cross-Platform.
+එය Cross-Platform වේ.
+
+e Uses Web Browsers to provide a single
+
+interface for many services.
+බොහෝ සේවාවන්‌ සඳහා තනි අනතුරැ මුහුණතක්‌
+සැපයීමට වෙබ්‌ අතිරික්සු භාවිතා කරයි.
+
+e Dynamic, Interactive and Evolving.
+ගතිකය, අන්තරිීක්‍රියාකාරී සහ පරිණාමය වේ.
+
+Web browsers explained further
+වෙබ්‌ අතිරික්සු වැඩිදුර පැහැදිලි කිරීම
+
+Web pages are viewed using web browsers like
+Google Chrome, Mozilla Firefox, Internet
+Explorer, and Safari.
+
+Google Chrome, Mozilla Firefox, Internet
+
+Explorer ese) Safari වැනි වෙබි අතිරික්සු භාවිතයෙන්‌
+වෙබ්‌ පිටු දර්ශනය කරයි.
+
+මලලර
+
+Safari Firefox Chrome Edge
+
+Opera
+Opers Software
+
+Web pages are written in HTML.
+වෙබ්‌ පිටු HTML වලින්‌ ලියා ඇත.
+
+The markup facility of HTML allows web
+browsers to render plain text combined with
+tags into readable and visually attractive
+content.
+
+HTML හි සලකුණු කිරීමේ පහසුකම මඟින්‌ වෙබ්‌
+අතිරික්සු වලට සරල අකුරැ උසුලන සමඟ ඒකාබද්ධව
+කියවිය හැකි සහ දෘශ්‍යමය වශයෙන්‌ ආකර්ෂණීය
+අන්තර්ගතයන්‌ බවට පත්‌ කිරීමට ඉඩ සලසයි.
+
+HTML tags are symbols that define visual
+elements of a page, such as headings, and
+control their size, color, and properties.
+
+HTML උසුලන යනු ශීර්ෂයන්‌ වැනි පිටුවක ඇති දෘශ්‍ය
+මූලාංග නිර්චචනය කරන සහ චීවායේ ප්‍රමාණය,
+වර්ණය සහ ගුණාංග පාලනය කරන සංකේන වේ.
+
+Each web browser can render HTML code
+slightly differently.
+
+සෑම වෙබ්‌ අතිට්ක්සුවක්ම HTML කේන තරමක්‌ වෙනස්‌
+ආකාරයෙන්‌ විදැහූ කළ හැක.
+
+HTML code should be tested on each browser
+
+to ensure completeness and consistency.
+සම්පූර්ණත්වය සහ අනුකූලතාව සහතික BOO සඳහා
+
+HTML කේත සෑම අතිරික්සුවකම පරීක්ෂා කළ යුනුය.
+
+Difference Between WWW and Internet
+
+WWW oe අන්තර්ජාලය අතර වෙනස
+
+WWW
+
+Internet
+
+It is originated in
+1989.
+
+එය ආරමිභ 5 ඇන්නේ
+1989 දී ය.
+
+It is originated in
+1960.
+
+එය 1960 දී ආරම්භ
+විය.
+
+WWW Is an
+interconnected
+network of websites
+and documents that
+can be accessed via
+the Internet.
+
+WWW යනු
+අන්තර්ජාලය හරහා
+ප්‍රවේශ විය හැකි වෙබි
+අඩඬවි සහ ලේඛන වල
+අන්තර සම්බන්ධිත
+ජාලයකි.
+
+Internet is used to
+connect a
+computer with
+another computer.
+පට්ගණකයක්‌ චෙනත්‌
+පට්ගණකයක්‌ සමඟ
+සම්බන්ධ කිරීමට
+අන්තර්ජාලය භාවිතා
+කරයි.
+
+WWW used protocols
+such as HTTP
+
+Internet used
+protocols such
+
+WWW විසින්‌ HTTP as TCP/IP
+
+වැනි නියමාවලි භාවිතා අන්තර්ජාලය TCP/IP
+
+කළේය වැනි නියමාවලි
+භාවිතා කරයි
+
+It is based on It is based on
+
+software. hardware.
+
+එය මෘදුකාංග මත එය දෘඩාංග මත
+
+SEDO එවි. SEDO එවි.
+
+It is a service There is a entire
+
+contained inside an infrastructure in the
+
+infrastructure. internet.
+
+එය යටිතල පහසුකම අන්තර්ජාලය තුළ
+
+තුළ අන්තර්ගත සම්පූර්ණ යටිතල
+
+සේවාවකි. පහසුකම්‌ ඇන.
+
+Types of websites
+වෙබ්‌ අඩවි ප්‍රරෑප
+
+1. News and Information Websites
+ප්‍රවෘත්ති සහ තොරතුරැ වෙබ්‌ අඩවි
+
+Provide updates on current events, trends, and
+
+general knowledge for a wide audience.
+පුළුල්‌ ප්‍රේක්ෂක පිරිසක්‌ සඳහා වත්මන්‌ සිදුවීමි,
+ප්‍රවණතා සහ සාමාන්‍ය දැනුම පිළිබඳ යාවත්කාලීන
+
+HOO සපයයි.
+Examples: BBC, CNN, New York Times
+
+za nog vm
+
+NEWS
+
+Ukraine's ex-energy
+minister detained
+while attempting to
+leave country
+
+0s Geteehion comes as be laces by
+
+2. Personal Websites
+
+පුද්ගලික වෙබි අඩවි
+
+Created by individuals to share personal
+information, blogs, portfolios, or opinions.
+පුද්ගලික තොරතුරැ, බ්ලොග්‌, කළඹ හෝ අදහස්‌ බෙදා
+ගැනීමට පුද්ගලයින්‌ විසින්‌ නිරිමාණය කරනු ලබයි.
+
+Examples: WordPress blogs, Medium
+
+3. Educational Websites
+අධ්‍යාපනික වෙබ්‌ අඩවි
+
+Offer learning materials, courses, tutorials, and
+
+academic resources.
+ඉගෙනුම්‌ ට්‍රව්‍ය, පාඨමාලා, නිබන්ධන සහ අධ්‍යයන
+
+සම්පත්‌ පිරිනමයි.
+Examples: Khan Academy, Coursera, university
+websites
+
+Q Search © Khan Academy Donate Login
+
+Khan Academy boosts Start learning today by signing
+scores! up!
+
+ca) Math: Pre-K - 8th grade a ප Social studies “aA
+
+4. Business Websites
+ව්‍යාපාරික වෙබි අඩවි
+
+Promote products or services and provide
+company information.
+
+නිෂ්පාදන හෝ සේවා ප්‍රවර්ධනය කර සමාගම්‌
+තොරතුරැ සපයයි.
+
+Examples: Microsoft, Apple
+
+iPhone
+
+Say hello to the latest generation of iPhone.
+
+iPad air
+
+Now supercharged by the M3 chip.
+
+5. Research Websites
+Sbedeén GOD G&S
+
+Share academic studies, research papers, and
+scientific findings.
+
+ශාස්ත්‍රීය අධ්‍යයන, පර්යේෂණ පත්‍රිකා සභ විද්‍යාත්මක
+සොයාගැනීම්‌ බෙදා ගනු ලබයි.
+
+Examples: ResearchGate, PubMed
+
+Discover scientific
+knowledge and stay
+connected to the
+world of science
+
+6. Entertainment Websites
+
+විනෝදාස්වාද වෙබි අඩවි
+
+Provide movies, music, games, and other
+
+entertainment content.
+චිත්‍රපට, සංගීතය, ක්‍රීඩා සහ වෙනත්‌ විනෝදාස්වාද
+අන්තර්ගතයන්‌ සපයයි.
+
+Examples: YouTube, Netflix, Spotify
+
+7. Social Media Websites
+සමාජ මාධ්‍ය වෙබ්‌ GAH
+
+Allow users to interact, share content, and
+
+connect with others.
+
+පරිශීලකයින්ට අන්තර Gao කිරීමට, අන්නරිගතය
+බෙදා ගැනීමට සහ අන්‌ අය සමඟ සම්බන්ධ වීමට
+ඉඩ ලබා දෙයි.
+
+Examples: Facebook, Instagram, LinkedIn
+
+8. E-commerce Websites
+ඊ-චාණිජ්‍ය වෙබ්‌ අඩව්‌
+
+Allow users to buy and sell products or services
+online, often with online payment systems.
+බොහෝ විට මාර්ගගත ෆෆවීමි පද්ධති සමඟින්‌
+නිෂ්පාදන හෝ සේවා මාර්ගගතනව මිලදී ගැනීමට සහ
+විකිණීමට පථීශීලකයින්ට ඉඩ ලබා දලදලෙයි.
+Examples: Amazon, eBay, Shopify
+
+Get your game on
+
+ni n for less
+
+FE ur home essentials lea 6 arrivals under $50
+CA
+11
+
+4
+Om ns
+
+ජය Rs!
+
+9. Government Websites
+රජයේ වෙබ්‌ අඩවි
+
+Provide public services, official information, and
+
+announcements.
+පොදු සේවා, BE තොරතුරු සහ නිවේදන සපයයි.
+Examples: Government department websites
+
+සෞඛ්‍ය අමාත්‍යාංශය
+HEIST HOOF
+Ministry of Health
+
+ට
+
+, ve
+Digital 30:16:12 at hospit
+doorstep
+
+Welcome to
+න Ministry of Health Sri Lanka
+
+10. Web Portals
+වබ්‌ ද්වාර
+
+news,
+
+Provide multiple services like email,
+search engines, and user accounts in one place.
+ඊමේල්‌, ප්‍රවෘත්ති, සෙවුම්‌ යන්ත්‍ර සහ S8eom ගිණුමි
+වැනි බහුවිධ සේවාවන්‌ එක්‌ ස්ථානයක සපයයි.
+
+Ex. Yahoo, MSN
+
+yahoo!
+
+earch the web
+
+yahoo!
+
+finance
+
+Amazon's Presidents’ Day
+sale is packed with rare, all-
+time-low deals
+
+lightning rod. Do we have
+her all wrong?
+
+ඩී Stories for you
+
+Eileen Gu is the Olympics’ No. Cannabis linked to increased
+
+i US . CNN ෂී Weather Colombo @
+_ Fey Teen girl whose Chicago father was d din an immigration case Today ,
+dies from a rare cancer
+j ॥ i Ofelia Giselle Torres Hidalgo, a Chicago teen who spoke out for the release of her father. 7 La L
+
+2. ie,
+( Mail ) Sign in
+*෴ 4
+
+Real-time alerts to
+keep your edge
+
+ඩී Trending Now
+
+Savannah Guthrie
+releases new video
+addressing mom's
+abductor
+
+DNA that doesn't belong to the 84-year-old or
+anyone close to her was obtained from her
+property and is being tested, according to the
+sheriff.
+
+1. Nancy Guthrie
+2. Tyler Reddick Win.
+
+6. Presidents Day 2...
+. 7. Collin Morikawa
+3, Maya Hawke
+4. Mia Malinin
+
+8, Marco Rubio Spe...
+9, Federica Brignone
+
+5. Mikaela Shiffrin 10. Olympic Hockey
+
+@a
+yahoo/finance
+
+Stay ahead with
+breaking news & data
+
+The average income of
+Americans by age in 2026:
+See where you fall
+
+There are up to 10,000
+shipwrecks in the Great
+Lakes. A big one has been...
+
+brain volume in a new study
+
+User Requirements and Objectives for a
+Website
+
+වෙබ්‌ අඩවියක්‌ සඳහා වන පරිශීලක අවශ්‍යතා සහ
+අරමුණු
+
+1. Analyzing the user requirements
+
+පරිශීලක අවශ්‍යනා විශ්ලේෂණය කිරීම
+
+Clear objectives help designers understand and
+address user requirements, enhancing user
+experience and encouraging regular visits.
+පැහැදිලි අරමුණු පවත්වා ගැනීම HBO@ognewdzAsio
+පරිශීලක අවශ්‍යතා අවබෝධ කර ගැනීමට සහ
+ආමන්ත්‍රණය කිටීමට, පරිශීලක අත්දැකීම්‌ වැඩි දියුණු
+කිරීමට සහ නිරන්තර වෙබි අඩවී නැරඹීම්‌ දිරිමත්‌
+OOO උපකාරී වේ.
+
+2. Key Questions to Define Website
+Objectives
+
+වෙබ්‌ අඩවි අරමුණු නිර්වචනය කිරීම සඳහා ප්‍රධාන
+ගැටලු
+
+e Why do you need a new website?
+ඔබට නව වෙබ්‌ අඩවියක්‌ අවශ්‍ය වන්නේ ඇයි?
+The main reason for creating a new website
+can be understood better by doing this.
+මෙලෙස සිදු කිරීමෙන්‌ නව GOOD අඩවියක්‌
+
+නිර්මාණය කිරීමට ප්‍රධාන හේතුව වඩාත්‌ හොඳින්‌
+වටහා ගත හැකිය.
+
+e What outcomes do you want to
+achieve?
+ඔබට අත්කර ගැනීමට අවශ්‍ය ප්‍රතිඵල
+මොනවාද?
+Outcomes could range from increasing
+brand awareness, driving more 58165,
+generating leads, improving customer
+service, or any other specific business goal.
+සන්නාම පිළිබඳ දැනුවත්භාවය වැඩි BOO,
+විකුණුම්‌ වැඩි කිරීම, නායකත්වය උත්පාදනය
+කිරීම, පාරිභෝගික සේවා වැඩිදියුණු කිරීම හෝ
+වෙනත්‌ විශේෂිත ව්‍යාපාරික ලෙක්කයක්‌ වැනි
+ප්‍රතිඵල පරාසයක්‌ විය හැකිය.
+
+e How do you plan to improve the user
+experience?
+පරිශීලක අත්දැකීම වැඩදිුයුණු කිරීමට ඔබ
+
+සැලසුමී කරන්නේ කෙසේද?
+This could involve enhancing website
+Speed, improving content clarity,
+
+optimizing navigation, or implementing a
+mobile-friendly design.
+
+මෙයට වෙබ්‌ අඩවියේ වේගය වැඩි කිරීම,
+අන්තර්ගත පැහැදිලි බව වැඩිදියුණු කිරීම,
+සංචලනය ප්‍රශස්ත කිරීම හෝ ජංගම-හිතකාමී
+සැලසුමක්‌ ක්‍රියාත්මක කිරීම ඇතුළත්‌ විය හැකිය.
+
+What do you try to boost through the
+new website?
+
+නව 68D අඩවිය mda වැඩි කිරීමට උත්සාහ
+කරන්නේ කුමක්ද?
+
+Identify the specific areas of your business
+or organization that you wish to enhance,
+such as customer engagement, sales
+conversion rates, or informational outreach.
+පාරිභෝගික කටයුනු, විකුණුම්‌ sdsdObow
+අනුපාත, හෝ තොරතුරු ලබා ගැනීම වැනි
+වැඩිදියුණු කිරීමට බලාපොරොත්තු වන ඔබේ
+ව්‍යාපාරයේ හෝ සංවිධානයේ විශේෂිත ක්ෂෙත්‍ර
+හදුනා ගැනීම.
+
+Do you have an existing website? Are
+there any problems with it?
+
+ඔබට දැනට පවතින වෙබ්‌ අඩවියක්‌ තිබේද?
+
+එහි ගැටළු තිබේද?
+
+Identifies current challenges and areas for
+improvement to ensure the new website
+addresses existing issues.
+
+නව GOO අඩවිය පවතින ගැටළු වලට Sac
+ලබා දෙන බව සහතික කිරීම සඳහා වන්මන්‌
+අභියෝග සහ වැඩිදියුණු කළ යුතු ක්ෂේත්‍ර හඳුනා
+ගනි.
+
+Are you going to inform about new
+opportunities available in your
+organization?
+
+ඔබේ ආයතනය තුළ පවතින නව අවස්ථා
+පිළිබඳව නව වෙබි අඩවිය හරහා දැනුමි
+දෙන්නේද?
+
+Determines if the site needs to serve as a
+communication tool for updates and
+opportunities.
+
+වෙබි අඩවිය යාවත්කාලීන කිරීමි සහ අවස්ථා
+සඳහා සන්නිවේදන මෙවලමක්‌ ලෙස සේවය කළ
+යුතුද යන්න තීරණය කරයි.
+
+Are you planning to expand your
+business?
+
+ඔබේ ව්‍යාපාරය HOS කිරීමට ඔබ සැලසුමි
+කරනවාද?
+
+Helps align the website's design and
+functionality with future growth goals and
+scalability.
+
+අනාගත වර්ධන ලෙක්ක සහ පරිමාණය සමඟ
+වෙබ්‌ අඩවියේ සැලසුම සහ ක්‍රියාකාරීත්වය
+සමපාත BOO උදවු කරයි.
+
+3. Setting Goals to Achieve Objectives
+අරමුණු සාක්ෂාත්‌ කර ගැනීම සඳහා ලෙක්ක තැබීම
+
+Increasing Inquiries.
+
+විමසීමි වැඩි කිරීම.
+
+For a service-oriented website, one goal
+could be to increase the number of
+inquiries by 20% over the next six months.
+ඉස්වා-නැඹුරැ වෙබ්‌ අඩවියක්‌ සඳහා, ඉදිරි මාස
+හය තුළ විමසීම්‌ සංඛ්‍යාව 20% කින්‌ වැඩි කිරීම
+එක්‌ ඉලක්කයක්‌ විය හැකිය.
+
+This might be achieved by optimizing the
+contact forms, enhancing call-to-action
+buttons, or improving the visibility of
+contact information.
+
+සම්බන්ධතා පෝරම ප්‍රශස්ත 850, ක්‍රියාවට
+ඇමතුම්‌ බොත්තම්‌ වැඩි දියුණු කිරීම ows
+
+සම්බන්ධතා තොරතුරැවල දෘශ්‍යතාව වැඩිදියුණු
+කිරීම මගින්‌ මෙය සාක්ෂාත්‌ කරගත හැකිය.
+
+Boosting Online Sales.
+
+මාරගගත විකුණුම්‌ ඉහළ නැංවීම
+
+For an e-commerce site, a goal might be to
+increase online sales by 15% within the next
+quarter.
+
+ඊ-වාණිජ්‍යය වෙබ්‌ අඩවියක්‌ සඳහා, ලෙක්කයක්‌
+වනුයේ O26 කාරිතුව තුළ සබැඳි විකුණුමි 15%
+කින්‌ වැඩි කිරීමයි.
+
+Strategies to achieve this could include
+offering promotions, improving product
+descriptions, or streamlining the checkout
+process.
+
+මෙය සාක්ෂාත්‌ කර ගැනීමේ උපාය QOBOOEO
+උසස්වීම්‌ පිරිනැමීම, නිෂ්පාදන විස්තර වැඩිදියුණු
+කිරීම හෝ පිටවීමේ ක්‍රියාවලිය විධිමත්‌ කිරීම
+ඇතුළත්‌ විය හැකිය.
+
+10
+
+4. Identifying Key Audiences.
+ප්‍රධාන පරිශීලකයන්‌ හඳුනා ගැනීම
+
+Understanding who your website is for is
+
+critical.
+ඔබේ වෙබ්‌ අඩවිය කා සඳහාද යන්න තේරැම්‌ ගැනීම
+තො වැදගන්‌ GO.
+
+e Potential Customers
+විභව පාරිභෝගිකයින්‌
+These are the individuals or businesses who
+might purchase your products or services.
+Understanding their needs and preferences
+will guide the content and design of the
+website.
+මේවා ඔබේ නිෂ්පාදන හෝ GHA) SEZ ගත හැකි
+පුද්ගලයන්‌ හෝ ව්‍යාපාර චේ. ඔවුන්ගේ අවශ්‍යතා
+සහ මනාපයන්‌ අවබෝධ කර ගැනීම එවබී
+අඩවියේ අන්තර්ගතය සහ සැලසුම මෙහෙයවනු
+ඇත.
+
+e Current Customers
+චත්මන්‌ පාරිභෝගිකයින්‌
+Existing customers might visit the website
+for support, updates, or to make repeat
+purchases. Their experience should be
+satisfying to encourage continued
+engagement.
+දැනටමත්‌ මිලදී ගන්නා පාරිභෝගිකයින්ට සභාය,
+යාවන්කාලීන කිරීමි හෝ නැවත මිලදී ගැනීම්‌
+සඳහා වෙබ්‌ අඩවියට පිවිසිය හැක. අඛණ්ඩ
+නියැලීම දිරිමත්‌ කිරීම සඳහා ඔවුන්ගේ අන්දැකීම්‌ි
+තෘප්තිමත්‌ විය යුනුය.
+
+e Employees
+සේවකයින්‌
+In some cases, employees might use the
+website for accessing resources, internal
+communications, or other work-related
+tasks. Ensuring their needs are met is
+important for internal efficiency.
+සමහර අවස්ථා වලදී, සේවකයින්ට සමිපන්‌,
+අභ්‍යන්තර සන්නිවේදුනය හෝ ඉවනත්‌ වැඩ
+සම්බන්ධ කාරයයන්‌ sem) වෙබි අඩවිය භාවිතා
+කළ හැක. ඔවුන්ගේ අවශ්‍යනා සපුරාලීම සහතික
+කිරීම අභ්‍යන්තර කාර්යක්ෂමතාව සඳහා වැදගන්‌
+චේ.
+
+5. Prioritizing Audience Needs
+පරිශීලක අවශ්‍යතා සඳහා ප්‍රමුඛත්වය දීම
+
+This will influence the design layout, navigation
+Structure, and content strategy.
+
+මෙය සැලසුම පිරිසැලසුම, සංචාලන ව්‍යුහය සහ
+අන්තර්ගත උපාය මාරගයට බලපානු ඇත.
+
+For instance, if potential customers are the
+primary audience, the website should focus on
+clear product information, easy navigation and
+prominent contact options.
+
+නිදසුනක්‌ වශයෙන්‌, අනාගත පාරිභෝගිකයන්‌ මූලික
+ප්‍රේක්ෂක සමූහය GS නම්‌, වෙබි අඩවිය පැහැදිලි
+භාණ්ඩ තොරතුරැ, පහසු සංචාලනය සහ ප්‍රමුඛ
+සම්බන්ධතා විකල්ප කෙරෙහි අවධානය යොමු කළ
+
+යුනුය.
+
+6. Gathering User Requirements
+පරිශීලක අවශ්‍යතා එක්‍ර/ැස්‌ කිරීම
+
+User requirements define what the website
+needs to do to meet the expectations of its
+users.
+
+පරිශීලක අවශ්‍යතා නිර්වචනය කරන්නේ චඑහි
+පටරථිශීලකයින්ගේ අපේක්ෂාවන්‌ සපුරාලීම සඳහා Gs
+අඩවිය කළ යුනු දේ ය.
+
+These requirements may evolve over time, so
+
+it's essential to keep the website updated.
+
+මෙම අවශ්‍යතා කාලයන්‌ සමඟ පරිණාමය විය හැක,
+එබැවින්‌ වෙබි අඩවිය යාවන්කාලීනව තබා ගැනීම
+අත්‍යවශ්‍ය වේ.
+
+e Content
+අන්තර්ගතය
+Determine the type of content that will be
+featured on the website. This might include
+text, images, videos, blogs, product
+descriptions, etc.
+GOD අඩවියේ අන්තර්ගත වන අන්තර්ගත වර්ගය
+තීරණය කරන්න. මෙයට පාඨ, පින්තූර, වීඩියෝ,
+බිලොග්ස්‌, නිෂ්පාදන විස්තර ආදිය ඇතුළත්‌ විය
+හැකිය.
+
+e Layout and Navigation
+පිරිසැලසුම සහ සංචලනය
+Plans the overall design layout and how
+users will navigate through the site.
+සමස්ත සැලසුම්‌ පිරිසැලසුම සහ පරිශීලකයින්‌
+වෙබි අඩවිය හරහා සැරිසරන ආකාරය සැලසුමි
+කරයි.
+
+1]
+
+Usability
+
+භාවිතය
+
+Considers accessibility | requirements,
+ensuring that the website is usable by
+people of all abilities. This includes features
+like responsive design for mobile devices,
+alt text for images, and _ keyboard
+navigation options.
+
+වෙබ්‌ අඩවිය සියලු හැකියාවන්‌ ඇති පුද්ගලයින්ට
+භාවිතා කළ හැකි බව සහතික කරමින්‌,
+ප්‍රවේශ්‍යතා අවශ්‍යතා සලකා බලයි. GOGO ජංගම
+උපාංග සඳහා ප්‍රතිචාරාත්මක නිරිමාණය, පින්තූර
+සඳහා විකල්ප පාඨ, සහ යනුරැපුවරැ සංචාලන
+විකල්ප වැනි විශේෂාංග ඇනුළන්‌ GO.
+
+Security
+
+ආරක්ෂාව
+
+Identifies the security needs of the website.
+වෙබ්‌ අඩවියේ ආරක්ෂක අවශ්‍යතා OED) ගනී.
+
+Loading Times
+
+කියාත්මක වීමේ වේලාවන්‌
+
+Determines the acceptable loading times
+for the website. Fast loading times are
+crucial for user satisfaction and can impact
+search engine rankings.
+
+වෙබ්‌ අඩවිය සඳහා පිළිගත හැකි පූරණ කාලයන්‌
+තීරණය කරයි. පරිශීලක තැප්නිය සඳහා වේගවන්‌
+පූරණ කාලයන්‌ තො වැදගත්‌ වන අතර සෙවුමි
+යන්ත්‍ර ශ්‍රේණිගත කිරීමිවලට බලපෑමි කළ හැකිය.
+
+Legal Considerations
+
+නීතිමය සලකා බැලීමි
+
+Ensures that the website adheres to
+relevant legal requirements. This might
+include privacy policies, terms of service,
+copyright compliance, and _ accessibility
+standards.
+
+වෙබ්‌ අඩවිය අදාළ නීතිමය අවශ්‍යතාවලට
+අනුකූල වන බවට සහතික වෙයි. මෙයට රහස්‍යතා
+ප්‍රතිපත්ති, සේවා කොන්දේසි, ප්‍රකාශන හිමිකම්‌
+අනුකූලතාව සහ ප්‍රවේශ්‍යතා ප්‍රමිතීන්‌ ඇතුළත්‌ විය
+හැකිය.
+
+Writing Basic HTML Code
+මූලික HTML කේතය ලිවීම
+
+HTML tags
+HTML උසුලන
+
+Tags are the building blocks of an HTML
+document.
+
+උසුලන යනු HTML ලේඛනයක්‌ ගොඩනැගෙන මූලික
+කොටස්‌ වේ.
+
+They are enclosed in angle brackets (such as
+<tagname>) and are used to define the
+structure and content of a webpage.
+
+HO) කෝණික වරහන්‌ (<tagname> ලෙස) තුළ
+සංවෘත කර ඇති අතර GHA පිටුවක ව්‍යුහය සහ
+අන්තර්ගතය අරිථ දැක්වීමට භාවිනා කරයි.
+
+Elements
+මූලාංග
+
+The combination of the tags and the content
+
+they encapsulate.
+උසුලන සහ TBO) මගින්‌ සංවෘත කරන අන්තර්ගතයේ
+සංයෝජනයයි.
+
+For example, <p>Hello World</p> is a
+
+complete text-containing element.
+උදාහරණයක්‌ ලෙස, <p>Hello World</p> යනු
+සම්පූර්ණයෙන්‌ පෙළ අඩංගු මූලාංගයකි.
+
+Basic Structure of an HTML Document
+HTML ලේඛනයක මූලික ව්‍යුහය
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>My First HTML Page</title>
+
+</head>
+
+<body>
+
+Content
+
+Content
+
+Content
+
+</body>
+
+</html>
+
+<!DOCTYPE html> Declaration
+
+This declaration specifies the version of HTML
+being used.
+
+මෙම ප්‍රකාශනය මගින්‌ භාවිතා කරන HTML අනුවාදය
+සදහන්‌ කරයි.
+
+For modern webpages, it is always <!DOCTYPE
+html>, indicating HTML5.
+
+නවීන වෙබ්‌ පිටු සඳහා, එය සැමවිටම <!DOCTYPE
+html> වන අතර මෙමගින්‌ [111]| 5 දක්වයි.
+
+<html> Tag
+
+This is the root element of the HTML document.
+All other elements are nested inside the <html>
+tag.
+
+මෙය HTML ලේඛනයේ මූලිකම අංගයයි. අනෙකුත්‌
+
+සියලුම මූලාංග <html> උසුලනය තුළ එක්‌ රැස්‌ කරනු
+ලැබී.
+
+<head> Tag
+
+Contains metadata about the document.
+ලේඛනය පිළිබඳ පාරදුත්ත අඩංගු GS.
+
+<title> Tag
+Defines the title of the document, which
+
+appears on the browser tab.
+අතිරික්සු පටිනත්තෙහි දිස්වන ලේඛනයේ මාතෘකාව
+නිරිවචනය කරයි.
+
+<body> Tag
+
+Contains the main content of the HTML
+document that is displayed in the web browser,
+such as text, images, links, tables, and forms.
+
+වෙබ්‌ අතිරික්සුවේ දරශනය වන HTML ලේඛනයේ
+පෙළ, රෑප, සබැඳි, වගු සහ පෝරම වැනි ප්‍රධාන
+අන්තර්ගතය අඩංගු චේ.
+
+Basic Rules of HTML
+
+HTML is not case sensitive
+HTML අක්ෂර සංවේදී නොවේ
+
+HTML files must be saved with .html or .hAtm
+extension
+
+HTML ගොනු .html හෝ .htm දිගුව සමඟ සුරැකිය
+යුතුය
+
+Browser ignores errors in HTML
+අතිරික්සුව HTML හි දෝෂ නොසලකා හරියි
+
+Extra spaces and line breaks are ignored
+අමතර හිස්තැන්‌ සහ රේඛා බිඳීම්‌ නොසලකා හරිනු
+ලැබී.
+
+HTML follows රූ hierarchical structure
+HTML ධූරාවලි ව්‍යදුභයක්‌ අනුගමනය කරයි.
+
+Types of html tags
+html උසුලන වර්ග
+
+1. Container Tags
+බහාලුම්‌ උසුලන
+
+Elements that wrap content and_ typically
+
+require both an opening and a closing tag.
+අන්තර්ගතය වට කර ඇති මූලාංග වන අතර
+සාමාන්‍යයෙන්‌ විවෘත කිරීමේ සහ වසා දැමීමේ
+උසුලනයක්‌ අවශ්‍ය වේ.
+
+Used to group elements together and structure
+
+content on the web.
+වෙබි අඩවියේ මූලාංග එකට සමූහගත කිරීමට සහ
+අන්තරිගතය ව්‍යුහගත කිටීමට භාවිතා කරයි.
+
+Examples:
+
+<div>
+
+<p>
+
+Hello World
+
+</p>
+
+</div>
+
+2. Empty Tags (Self-Closing Tags)
+තනි උසුලන (BOcdo-Hen දැමීමේ උසුලන,
+
+Elements that do not require a closing tag.
+වසා දැමීමේ උසුලනයක්‌ අවශ්‍ය නොවන මූලාංග GH.
+
+These tags are self-closing and are often used
+
+for inserting media, line breaks.
+
+මෙම උසුලන ස්වයං අවසන්‌ කිරීමේ චීවා වන අතර
+බොහෝ විට මාධ්‍ය, පේළි බිඳුම්‌ ඇතුළන්‌ කිරීමට
+භාවිතා කරයි.
+
+Examples
+
+<img src="image.jpg" alt="A sample
+
+image" >
+
+<hr>
+
+<input type="text"
+
+placeholder="Enter your name">
+
+<link rel="stylesheet"
+
+href="styles.css">
+
+<meta charset="UTF-8">
+
+13
+
+3. Character Entity Tags
+
+Used to represent special characters that
+cannot be typed directly in the HTML code,
+such as symbols, punctuation marks, or
+characters reserved in HTML (e.g., <, >, &).
+
+HTML කේතයේ සෘජුවම ටයිප්‌ කළ නොහැකි විශේෂ
+අනුලක්ෂණ නිරූපණය කිට්ීමට භාවිතා කරයි, චවා නමි
+සංකේත, විරාම ලකුණු හෝ [111/]| හි වෙන්‌ කර ඇති
+
+අක්ෂර (උදා, <, >, &) වේ.
+
+Written as &name; or &#code;, where name is
+the entity name and code Is the numerical code
+for the character.
+
+&name; හෝ &#code; ලෙස ලියනු ලැබේ;, මෙහි
+
+name යනු entity එකෙහි නම වන අනර code යනු
+අනුලක්ෂණය සදහා වූ සංඛ්‍යාත්මක කේතයයි.
+
+&nbsp
+Used to prevent line breaks between words or
+elements and to create extra spaces where
+
+normal spaces would shrink.
+
+වචන හෝ මූලාංග අතර පේළි බිඳීමි වැළැක්වීමට සහ
+සාමාන්‍ය හිස්තැන්‌ ප්‍රමාණවත්‌ නොවන අවස්ථාවල
+අමතර හිස්තැන්‌ නිරීමාණය කිරීමට භාවිතා කරයි.
+
+&copy
+Represents the copyright symbol (©).
+ප්‍රකාශන හිමිකම්‌ සංකේතය (©) නියෝජනය කරයි.
+
+&#169
+Another way to represent the copyright symbol
+
+using its Unicode code point.
+ප්‍රකාශන හිමිකම්‌ සංකේතයෙහි යුනිකේත ලක්ෂ්‍යය
+භාවිතයෙන්‌ එය නිරෑෑපණය කිරීමට තවත්‌ ක්‍රමයකි.
+
+&apos
+
+Represents an apostrophe ('), though it's not
+always supported in older versions of HTML.
+HTML හි පැරණි අනුවාදවල සැමවිටම සහාය
+
+නොදක්වන නමුත්‌, මෙමගින්‌ (') අපෝස්ට්‍රොෆි
+නියෝජනය කරයි.
+
+&quot
+Represents a double quotation mark (').
+ZOO උද්ධෘත සලකුණක්‌ (") නියෝජනය කරයි.
+
+&amp
+Represents the ampersand symbol (&).
+ඇමිපරිසෑන්ඩි සංකේතය (Bl) නියෝජනය කරයි.
+
+&reg
+
+Represents the registered trademark symbol
+(ම).
+
+ලියාපදිංචි වෙළඳ ලකුණු සංකේතය (®) නියෝජනය
+කරය
+
+Text formatting tags
+පෙළ හැඩ ගැන්වීමේ උසුලන
+
+1. <b> (Bold):
+Makes the text bold, useful for highlighting
+
+keywords or important information.
+පෙළ තද අකුරැ බවට පත්‌ කරයි, මූල පද හෝ වැදගත්‌
+තොරතුරැ සේමතු කිරීමට ප්‍රයෝජනවත්‌ Gd.
+
+
+2. <strong> (Strong Emphasis):
+Similar to <b>, but adds semantic meaning
+that the text is important.
+
+<b> ට සමාන 6, නමුත්‌ පෙළ වැදගත්‌ බව ට
+අර්ථයක්‌ එක්‌ කරයි.
+
+<strong>
+
+
+</strong>
+
+
+3. <u> (Underline):
+Underlines the text to draw attention or
+
+emphasize it.
+අවධානය EQ) ගැනීමට හෝ වැදගත්‌ කර පෙන්වීමට
+පෙළ යටින්‌ රෙක්‌ අදිනු ලැබේ.
+
+
+4. <ins> (Inserted Text):
+
+Represents text that has been inserted; usually
+displayed as underlined.
+
+ඇතුළත්‌ කර ඇති පෙළ නියෝජනය කරයි;
+සාමාන්‍යයෙන්‌ යටින්‌ රෙක්‌ ඇඳ ඇනි ආකාරයෙන්‌
+පෙන්වනු ලැබේ.
+
+
+14
+
+5. <i> (Italic):
+
+Italicizes the text, often used for titles, quotes,
+or foreign words.
+
+මාතෘකා, උපුටා දැක්වීම්‌ හෝ විදේශීය වචන සඳහා
+
+බොහෝ විට භාවිතා කරන අකුරැ ඇල අකුරැ බවට
+පන්‌ කරයි.
+
+
+6. <em> (Emphasis):
+Adds emphasis to the text, rendering it in italics
+
+with semantic meaning.
+පෙළට අවධාරණය Aad කරයි, එය අරථකථන
+අදහසින්‌ ඇල අකුරැ වලින්‌ විද්‍රහා දුක්වයි.
+
+
+7. <s> (Strikethrough):
+
+Renders the text with a line through it, often
+used for marking deletions.
+
+බොහෝ විට මකාදැමීම්‌ සලකුණු කිරීම සඳහා භාවිතා
+කරන පෙළ හරහා මැදින්‌ ගමන්‌ කරන රේඛාවක්‌
+පෙන්නුම්‌ කරයි.
+
+
+8. <strike> (Deprecated)
+Similar to <s>, but considered outdated.
+<S> ට සමාන OD HOD GE පැන ගිය ලෙස සැලකේ.
+
+<strike>Ravindu
+
+
+9. <del>
+
+used to represent deleted content within a
+webpage
+
+වෙබ්‌ පිටුවක්‌ තුළ මකා දැමූ අන්තර්ගතය නිරූපණය
+කිරීමට භාවිතා කරයි
+
+
+Ravdnde Bandararayake
+
+10. <big> (Larger Text):
+Increases the font size of the text.
+පෙළෙහි අකුරැ OE ප්‍රමාණය වැඩි කරයි.
+
+
+11. <small> (Smaller Text):
+
+Decreases the font size of the text.
+පෙළෙහි අකුරැ OE ප්‍රමාණය අඩු කරයි.
+
+<small>Ravindu
+
+
+12. <sup> (Superscript):
+used for exponents or ordinal numbers.
+බලයන්‌ හෝ සාමාන්‍ය සංඛ්‍යා සඳහා භාවිනා කරයි.
+
+X<sup>2</sup> + X + 2
+
+02 +X+2
+
+13. <sub> (Subscript):
+used in chemical formulas or indices.
+රසායනික සූත්‍රවල හෝ දර්ශකවල භාවිතා කරයි.
+
+C<sub>2</sub>H<sub>5</sub>OH
+
+C2Hs50OH
+
+15. <mark> (Highlight Text):
+Used to highlight text, indicating its relevance
+
+or importance.
+පෙළ මස්මතනු කිරීමට mdm කරයි, 08 අදාළත්වය
+හෝ වැදගත්කම දක්වයි.
+
+The text inside the <mark> tag is typically
+displayed with a yellow background by default.
+
+<Mark> උසුලනය සාමාන්‍යයෙන්‌ පෙරනිමියෙන්‌ කහ
+පසුබිමකින්‌ පෙන්වනු ලැබේ.
+
+
+wearin is yellow
+
+පසුබිම කහ පැහැති Go.
+
+15
+
+Line Breaks (<br>):
+
+Adds a line break to start text on a new line.
+නව පේළියක්‌ ආරමිභ කිරීමට sae බිඳීමක්‌ එක්‌ කරයි.
+
+
+Ravindu
+
+HTML Comments
+HTML විචරණ
+
+HTML comments are used to write notes or
+explanations in the source code that are not
+displayed in the web browser.
+
+වෙබ්‌ අතිරක්සුවේ නොපෙන්වන මූලාශ්‍ර කේතයේ
+සටහන්‌ හෝ පැහැදිලි කිරීමි ලිවීමට HTML
+comments භාවිතා කරයි.
+
+<!-- Comment -->
+
+Uses :
+
+e To explain code / කේතය පැහැදිලි කිරීමට
+
+e To temporarily disable code / කේනය
+තාවකාලිකව අඛ්‍රිය කිරීමට
+
+e To improve code readability / කේන
+කියවීමේ හැකියාව වැඩි දියුණු කිරීමට
+
+<font> Tag:
+
+used to change the appearance of text.
+පෙළෙහි පෙනුම වෙනස්‌ කිරීමට භාවිතා කරයි.
+
+<font color="blue" face="Arial"
+
+size="4">This is an example of
+
+styled text.</font>
+
+Predefined & Customizable tags
+පූරිව නිශ්චිත සහ අභිරැචිකරණය කළ හැකි උසුලන
+
+1. Predefined Tags (Tags Without
+Attributes)
+පූර්ව නිශ්චිත උසුලන (ගුණාංග නොමැති උසුලන)
+
+These are basic HTML tags that can be used
+
+without requiring any attributes.
+GOO) කිසිදු ගුණාංගයක්‌ අවශ්‍ය නොවී භාවිතා WE
+හැකි මූලික HTML උසුලන වේ.
+
+They have a default functionality and behavior
+that doesn’t need further customization unless
+Styled externally (e.g., with CSS).
+
+බාහිරව විලාස නොකළහොත්‌ (උදා: CSS සමඟ)
+තවදුරටත්‌ අභිරුැචිකරණය අවශ්‍ය නොවන පෙරනිමි
+ක්‍රියාකාරීත්වයක්‌ සහ හැසිරීමක්‌ එවාට ඇන.
+
+Examples: <h1> to <h6>, <b>, <i>
+
+2. Customizable Tags (Tags with Attributes)
+අභිරැච්කරණය කළ හැකි උසුලන (උපලක්ෂණ සහිත
+උසුලනා
+
+These are HTML tags that support attributes,
+allowing developers to customize _ their
+
+behavior, appearance, or functionality.
+සංවර්ධකයින්ට හැසිරීම, පෙනුම හෝ ක්‍රියාකාරීත්වය
+අභිරුචිකරණය කිරීමට ඩෙ සලසන ගුණාංග සඳහා
+
+aed වන HTML උසුලන 6s.
+
+Attributes provide additional information about
+the tag and enable dynamic control over
+content.
+
+ගුණාංග මගින්‌ උසුලනය පිළිබඳ අමතර නොරතුරු
+
+සපයන අතර අන්තර්ගතය OD ගනික පාලනය සඛ්‍රීය
+කරයි.
+
+Attributes are key-value pairs added within the
+Opening tag.
+
+ගුණාංග යනු ආරම්භක උසුලනය ME එකතු කරන ලද
+යතුරැ-අගය යුගල එවි.
+
+class="example", id="section"
+
+Attributes are used to define additional
+
+properties of an element.
+මූලාංග වල අතිරේක ලක්ෂණ නිර්වචනය කිරීමට
+උපලක්ෂණ භාවිතා කරයි.
+
+Each attribute consists of two parts.
+සෑම උපලක්ෂණයක්ම කොටස්‌ දෙකකින්‌ සමන්විත
+
+68):
+
+16
+
+1. Attribute Name:
+The specific property to be set for the tag (e.g.,
+
+color, size).
+උසුලනය සදහා යෙදිය යුතු නිශ්චිත උපලක්ෂණය
+(උදා: color, size).
+
+2. Attribute Value:
+The value assigned to the property, enclosed in
+
+quotation marks (e.g., color="blue").
+උදෑත සලකුණු OBS) සංවෘත කර ඇති උපලක්ෂණයට
+පවරා ඇති අගය
+
+(උදා: color="blue").
+
+Attributes of the <font> tag
+<font> උසුලනයේ උපලක්ෂණ:
+
+1. color
+
+Defines the color of the text.
+ලපළෙහි වර්ණය නිරිවචචනය කරයි.
+
+e Named Colors
+Predefined names like red, blue, green.
+red, blue, green වැනි පූරිව නිශ්චිත නමි.
+
+There are 140 standard color names,
+
+supported by all browsers.
+සියලුම අතිරක්සු මගින්‌ සභාය දක්වන සම්මත
+වර්ණ නාම 140ක්‌ ඇත.
+
+<font color="red">
+Red Text
+</font>
+
+e Hexadecimal Values
+
+ෂඩ්‌ E@® අගයන්‌
+
+A 6-digit code that specifies how much red,
+
+green, and blue to mix to make a color.
+වර්ණයක්‌ සෑදීමට රනු, කොළ සහ නිල්‌ SQ කළ
+යුතු ප්‍රමාණය නිශ්ච්තව දක්වන ඉලක්කම්‌ 6 ක
+කේතයකි.
+
+#RRGGBB
+
+Each pair (RR, GG, BB) is a number from 00
+to FF
+
+සෑම යුගලයක්ම (RR, GG, BB) 00 සිට FF දක්වා
+සංඛ්‍යාවක්‌ ගනී.
+
+00 means none of that color.
+00 යන්නෙන්‌ අදහස්‌ කරන්නේ එම වර්ණය
+භාවිතා නොවන බවයි.
+
+FF means maximum of that color.
+
+FF යන්නෙන්‌ අදහස්‌ කරන්නේ එම වරිණයේ
+6350 තිව්‍රනාව mdm වන බවයි..
+
+[301 color have 256 different
+
+intensities.
+
+සෑම වර්ණයකටම චිකිනෙකට වෙනස්‌ HOW
+256 ක්‌ තිබිය හැකිය.
+
+can
+
+256 x 256 x 256 = 16,777,216 colors
+
+(16.7 million colors can be formed)
+(Obs) මිලියන 16.7 ක්‌ සෑදිය හැක)
+
+Increase RR — more red
+RR අගය වැඩි කිරීම -- රතු පැහැය වැඩිය
+
+Increase GG — greener
+GG අගය වැඩි කිරීම -- කොළ පැහැය වැඩිය
+
+Increase BB - bluer
+BB අගය වැඩි කිරීම -- නිල්‌ පැහැය වැඩිය
+
+Increase all three together — brighter
+
+තුනම චකට වැඩි BO — දීප්තිමත්‌ පැහැයක්‌
+ලැබේ
+
+Keep them equal — stays gray
+අගයන්‌ සමානව තබා ගැනීම - අළු පැහැය
+
+ලැබේ
+
+Example:
+
+<font color="#FFQQ00" >
+
+Red Text
+
+</font>
+
+RGB Values
+
+Hex and RGB represent the same
+colors, just written in different
+
+formats.
+
+Hex සහ RGB මගින්‌ චකම වරිණ නියෝජනය
+කරයි, GOMES ඇත්තේ එවා ලියන ආකෘනියේය.
+
+Values such as rgb(255,0,0) for red.
+රතු සඳහා rgb(255,0,0) වැනි අගයන්‌.
+
+Example:
+
+<font color="rgb(255,0,0)">
+
+Red Text
+
+</font>
+
+17
+
+NOTE:
+bgcolor attribute
+bgcolor ගුණාංගය
+
+Can be used inside the <body> tag to set the
+background color of a web page.
+
+වෙබ්‌ පිටුවක පසුබිම්‌ වර්ණය සැකසීම සඳහා bgcolor
+ගුණාංගය <body> උසුලනය නුළ භාවිතා කළ හැකිය.
+
+<body bgcolor="lightblue">
+
+2. face
+
+Specifies the font family.
+අකුරැ වර්ගය නියම කරයි.
+
+Example:
+
+<font face="Arial">
+
+Text in Arial</font>
+
+Multiple fonts can be listed in case the primary
+
+font is unavailable.
+ප්‍රාථමික අකුරු වර්ගය නොමැති අවස්ථාවක අකුරැ
+වර්ග කිහිපයක්‌ ලැයිස්තුගත කළ හැක.
+
+Example:
+
+<font face="Arial,
+serif”™>
+
+Helvetica, sans-
+
+Text with fallback fonts
+
+</font>
+
+3. size
+
+Indicates the size of the font.
+අකුරැ ප්‍රමාණය දක්වයි.
+
+Values range from 1 (smallest) to 7 (largest).
+අගයන්‌ 1 (කුඩාම) BO 7 (විශාලතම) දක්වා පරාසයක
+පවනී.
+
+Example:
+
+<font size="1">Small Text</font>
+
+<font size="4">Medium Text</font>
+
+<font size="7">Large Text</font>
+
+<p> Tag
+<P> උසුලනය
+
+The <p> tag defines a paragraph, used to
+Structure and display text as separate blocks
+with automatic new lines before and after.
+
+<P> උසුලනය මගින්‌ ජේදයක්‌ නිර්වචනය කරයි, පෙර
+සහ පසු ස්වයංක්‍රීය නව පේළි සහිතව වෙනම කොටස්‌
+ලෙස GSE ව්‍යුහගත කිරීමට සහ පෙන්වීමට භාවිතා
+කරයි.
+
+Attributes of <p> Tag
+<p> උසුලනයේ උපලක්ෂණ
+
+align
+Specifies text alignment. (Deprecated in
+
+HTML5)
+පෙළ පෙළගැස්ම නියම කරයි.
+
+(values: left, right, center, justify)
+
+<p align="center">This paragraph is
+
+centered.</p>
+
+<pre> Tag
+<pre> උසුලනය
+
+The <pre> tag in HTML is used to define
+preformatted text.
+
+HTML හි <pre> උසුලනය පෙර ආකෘතිගත කළ පෙළ
+අරිථ දැක්වීමට භාවිතා කරයි.
+
+Content inside the <pre> tag is displayed
+exactly as written in the HTML document,
+preserving spaces, line breaks, and indentation.
+
+<pre> උසුලනය තුළ ඇති අන්නරිගනය HTML
+ලේඛනයේ ලියා ඇති ආකාරයටම ප්‍රදර්ශනය ෆවීි,
+හිස්තැන්‌, රේඛා DESO HH ඉන්ඩඬෙන්ටේෂන්‌ එලෙසින්ම
+ආරක්ෂා කරයි.
+
+The content inside the <pre> tag is displayed in
+a monospaced font
+
+<pre> උසුලනය තුළ ඇති අන්තර්ගතය
+monospaced font එකකින්‌ ප්‍රදර්ශනය කෙරේ
+
+<pre>
+
+Line 1
+
+Line 2 (indented)
+
+Line 3
+
+</pre>
+
+18
+
+Note: Monospaced Font:
+
+In a monospaced font, each character (letter,
+number, punctuation, etc.) takes up the same
+width, making it ideal for displaying code, ASCII
+art, or any content where precise alignment of
+characters is important.
+
+Monospaced Font වල, සෑම අක්ෂරයක්ම (අකුරු,
+සංඛ්‍යා, විරාම ලකුණු ආදිය) එකම පළලක්‌ ගන්නා
+අතර, එය ඉක්ත, ASCII කලං හෝ අක්ෂර නිවැරදිව
+ලළපළගැස්වීම වැදගත්‌ වන ඕනෑම අන්තරගනයක්‌
+ප්‍රදර්ශනය කිරීම සඳහා සුදුසු චේ.
+
+Proportional
+Monospace
+
+Serif Font:
+
+A serif font has small decorative strokes (called
+“serifs”) at the ends of letters. These fonts are
+often used in books, newspapers, and formal
+documents because they give a traditional and
+professional look.
+
+Serif Font වල අකුරු කෙළවරේ කුඩා රේ පවතියි.
+මෙම අකුරැ බොහෝ විට පොත්‌, පුවත්පත්‌ සහ
+විධිමත්‌ ලේඛනවල භාවිතා කරනුයේ ච්වා සාම්ප්‍රදායික
+සහ වෘත්තීය පෙනුමක්‌ ලබා දෙන බැවිනි.
+
+This is a serif font.
+
+Sans Font:
+
+A sans font does not have decorative strokes
+at the ends of letters. It has a clean and
+modern appearance, making it ideal for
+websites, apps, and digital screens where
+readability is important.
+
+Sans Font වල අකුරු කෙළවරේ මරේ නොමැත. එය
+පිරිසිදු හා නවීන පෙනුමක්‌ ඇති කරන අතර,
+කියවීමේ අවශ්‍යතාව ඇති වෙබි අඩවි, යෙදුම්‌ සහ
+ඩිපිටල්‌ තිර සඳහා එය වඩාත්‌ සුදුසු වේ.
+
+This is a sans serif font.
+
+Heading <h> Tags
+
+HTML heading tags are used to define headings
+on a webpage.
+
+වෙබ්‌ පිටුවක ශීරීෂ අරිථ දැක්වීමට HTML ශීරීෂ
+උසුලන භාවිතා කරයි.
+
+These tags range from <h1> to <h6>, where
+<h1> represents the highest (or most
+important) level of heading and <h6>
+represents the lowest (or least important) level.
+මෙම උසුලන <h1l> සිට <h6> ema පරාසයක
+පවතී, චහිදී <h1> ඉහළම (හෝ වැදගත්ම) ශීරීෂ
+
+මට්ටම නියෝජනය කරන අතර <h6> පහළම (ලහෝ
+අවම වැදගත්‌) මට්ටම නියෝජනය කරයි.
+
+<hi>This is Heading 1</h1>
+
+<h2>This is Heading 2</h2>
+
+<h3>This is Heading 3</h3>
+
+<h4>This is Heading 4</h4>
+
+<h5>This is Heading 5</h5>
+
+<h6>This is Heading 6</h6>
+
+Heading 1
+
+Heading 2
+Heading 3
+Heading 4
+
+Heading 5
+
+Heading 6
+
+Note:
+
+The size attribute of the <font> tag allows
+manual control over text size in HTML, similar
+to how heading tags (<h1> to <h6>) define
+text size by default.
+
+ශීරීෂ උසුලන (<h1> සිට <h6> දක්වා) පෙරනිමියෙන්‌
+පෙළ ප්‍රමාණය නිර්වචනය කරන ආකාරයටම, <font>
+
+උසුලනයේ size උපලක්ෂණය [1] |/]| හි පෙළ ප්‍රමාණය
+හස්නීයව පාලනය කිරීමට ඉඩ සලසයි .
+
+SEO and Heading Tags
+
+SEO (Search Engine Optimization) is the
+practice of optimizing a website so search
+engines can understand, index, and rank it
+higher in search results.
+
+SEO (සෙවුම්‌ යන්ත්‍ර ප්‍රශස්තිකරණය) යනු වෛෙබ්‌ී
+අඩවියක්‌ ප්‍රශස්තනිකරණය කිරීමේ ක්‍රමය වන අතර
+එමඟින්‌ සෙවුම්‌ යන්ත්‍රවලට එය තනතේරැමි ගැනීමට,
+HOOD කිරීමට සහ සෙවුම්‌ ප්‍රතිඵලවල ඉහළ ශ්‍රේණිගත
+කිරීමට හැකිය.
+
+Heading tags (<h1>-<h6>) help search
+engines understand the structure and main
+
+topics of a web page.
+BOS උසුලන සෙවුම්‌ යන්ත්‍රවලට වෙබි පිටුවක ව්‍යුහය
+සහ ප්‍රධාන මාතෘකා තේරුමි ගැනීමට උපකාරී වේ.
+
+Web crawlers use headings to_ identify
+
+important content and keywords.
+වෙබ්‌ G@ied වැදගත්‌ asmtanae සහ මූල පද
+හඳුනා ගැනීමට ශීරීෂ mda කරයි.
+
+e <h1> shows the main topic of the page and
+has high SEO importance
+<h1> පිටුවේ ප්‍රධාන මාතෘකාව පෙන්වන අතර
+හළ SEO වැදගත්කමක්‌ ඇත
+
+e <h2>-<h6> represent subtopics and
+improve content understanding
+
+<h2>-<h6> උප මාතෘකා නියෝජනය කරන
+අතර අන්තර්ගත අවබෝධය වැඩි දියුණු කරයි
+
+e Keywords in headings help accurate
+
+indexing
+ශීරිෂවල මූල පද නිවැරදි සුචිගත කිරීමට උපකාරී
+චේ
+
+e Proper heading order improves crawl
+efficiency and ranking
+නිසි ශීර්ෂ අනුපිළිවෙල ඛක්‍රෝලර්‌ කාරයක්ෂමතාව
+සහ ශ්‍රේණිගත කිටීම වැඩි දියුණු කරයි
+
+<hr> tag
+<hr> උසුලනය
+
+The <hr> tag is used to create a horizontal rule
+(line) that signifies a thematic break or
+
+separation between sections of content.
+අන්තර්ගතයේ ලකාටස්‌ අතර ඉන්මාත්මක බිඳීමක්‌ හෝ
+චෙන්වීමක්‌ දක්වන නිරස්‌ රේඛාවක්‌ නිර්මාණය කිරීමට
+
+<hr> උසුලනය භාවිතා කරයි.
+
+It is self-closing and does not require an end
+tag.
+
+එය _ self-closing උසුලනයක්‌ වන අතර අවසන්‌
+උසුලනයක්‌ අවශ්‍ය නොවවි්‌.
+
+Attributes
+උපලක්ෂණ:
+
+align: Aligns the horizontal rule (e.g., left,
+right, center).
+
+80665 රේඛාච පෙළගස්චයි (උදා: left, right, center).
+
+color: Specifies the color of the line.
+රේඛාවේ වරිණය නියම කරයි.
+
+size: Defines the thickness of the line.
+GAAIGS ඝණකම නිර්වචනය කරයි.
+
+width: Sets the width of the line.
+රේඛාවේ පළල සකසයි.
+
+Example
+
+<hr id="line1" class="styled-line'
+
+style="height: 3px; background
+
+color: blue; width: 50%;">
+
+20
+
+Lists
+
+ලැයිස්තු
+
+HTML provides three types of lists:
+HTML මගින්‌ ලැයිස්තු වරිග තුනක්‌ සපයයි
+
+1. Unordered Lists (<ul>)
+
+Used when the order of the items doesn't
+matter. The items are typically displayed with
+
+bullet points.
+
+අයිතමවල අනුපිළිවෙල වැදගත්‌ නොවන විට භාවිතා
+වේ. අයිතම සාමාන්‍යයෙන්‌ බුලට්‌ පොයින්ට්‌ සමඟ
+ප්‍රදර්ශනය කෙරේ.
+
+<ul>
+Defines the start of the unordered list.
+unordered ලැයිස්තුවේ ආරම්භය නිර්වචනය කරයි.
+
+<li>
+Specifies individual list items.
+represents one item in the list.
+
+තනි ලැයිස්තු අයිතම නියම කරයි. සෑම <li> එකක්ම
+ලැයිස්තුවේ එක්‌ අයිතමයක්‌ නියෝජනය කරයි.
+
+[අබ <li>
+
+Attributes
+උපලක්ෂණ:
+
+type
+Defines the style of the bullet points.
+bullet points වල විලාසය නිරිවචනය කරයි.
+
+Values
+
+e = disc (default): A solid circle.
+e = circle: An empty circle.
+e square: A square bullet.
+
+Example 01:
+
+<ul type="disc">
+
+<li>Apple</li>
+
+<li>Banana</li>
+
+<li>Cherry</li>
+
+</ul>
+
+e Apple
+e Banana
+e Cherry
+
+Example 02:
+
+<ul type="circle">
+
+<li>Apple</li>
+
+<li>Banana</li>
+
+<li>Cherry</li>
+
+</ul>
+
+o Apple
+o Banana
+o Cherry
+
+Example 03:
+
+<ul type="Square">
+
+<li>Apple</li>
+
+<li>Banana</li>
+
+<li>Cherry</li>
+
+</ul>
+
+॥ Apple
+॥ Banana
+» Cherry
+
+21
+
+2. Ordered Lists (<ol>)
+
+Used when the sequence or order of the items
+is important. Items are displayed with numbers,
+letters, or Roman numerals by default.
+අයිතමවල අනුපිළිවෙල හෝ අනුපිළිවෙල වැදගත්‌ OD
+විට Ordered ලැයිස්තුවක්‌ භාවිතා Gd. අයිතම
+පෙරනිමියෙන්‌ අංක, අකුරු හෝ රෝම ලෙක්කම්‌ සමඟ
+ප්‍රදර්ශනය කෙරේ.
+
+<ol>
+Defines the start of the ordered list.
+ordered ලැයිස්තුවේ ආරම්භය නිරිවචනය කරයි.
+
+<li>
+Specifies individual list items, numbered
+sequentially.
+
+අනුපිළිවෙලින්‌ අංකනය කර ඇති තනි ලැයිස්තු අයිතම
+නියම කරයි.
+
+Attributes
+
+type
+Defines the numbering style.
+අංකනය කිටීමේ විලාසය නිරිචචනය කරයි.
+
+Values:
+
+1 (default) - Numbers (1, 2, 3...).
+
+A - Uppercase letters (A, B, C...).
+
+a - Lowercase letters (a, b, c...).
+
+| - Uppercase Roman numerals (1, Il, IIl...).
+i - Lowercase Roman numerals (i, Ii, ।!!...).
+
+start
+
+Specifies the starting value of the list.
+ලැයිස්තුවේ ආරම්භක අගය නියම කරයි.
+
+<ol start="5">
+
+starts numbering from 5.
+5 සිට අංකනය කිරීම ආරමිභ GS.
+
+Example 01:
+
+<ol type="1" start="10">
+
+<li>Item 1</1li>
+
+<li>Item 2</1li>
+
+<li>Item 3</li>
+
+</ol>
+
+10. Item 1
+11. Item 2
+12.Item 3
+
+Example 02:
+
+<ol type="A" start="2">
+
+<1li>Introduction</1li>
+
+<li>Body</1li>
+
+<1i>Conclusion</1li>
+
+</ol>
+
+B. Introduction
+C. Body
+D. Conclusion
+
+Example 03:
+
+<ol type="a" start="6">
+
+<1li>Introduction</1li>
+
+<li>Body</1li>
+
+<1i>Conclusion</1li>
+
+</ol>
+
+i. Introduction
+ii. Body
+iii. Conclusion
+
+Example 04:
+
+<ol type="I" >
+
+<li>Item 1</li>
+
+<li>Item 2</li>
+
+<li>Item 3</li>
+
+</ol>
+I. Item 1
+II. Item 2
+III. Item 3
+Example 05:
+
+<ol type="i" start="4">
+
+<1li>Introduction</1li>
+
+<li>Body</1li>
+
+<1i>Conclusion</1li>
+
+</ol>
+
+iv. Introduction
+v. Body
+vi. Conclusion
+
+22
+
+3. Definition Lists
+GBO දැක්වීමි ලැයිස්තු (<dl>)
+
+Used to define terms and their corresponding
+descriptions. It is useful for displaying
+definitions or key-value pairs.
+
+මාතෘකා සහ TOO අනුරෑප විස්තර අරිථ දැක්වීමට
+description list එකක්‌ භාවිතා කරයි. එය අරිථ
+දැක්වීම්‌ හෝ යතුරැ-අගය යුගල පෙන්වීම සඳහා
+ප්‍රයෝජනවත්‌ වේ.
+
+<dl>
+Defines the start of the description list.
+description list O64 ආරම්භය නිරිවචනය කරයි.
+
+<dt>
+
+Defines a heading or topic.
+Gece භෝ මාතෘකාවක්‌ නිරිචචනය කරයි.
+
+<dd>
+Defines the description or value for the topic.
+මාතෘකාව සඳහා විස්තරය හෝ අගය අර්ථ දක්වයි.
+
+Example:
+
+<dl>
+
+<dt>Python</dt>
+
+<dd>Uses Interpreters</dd>
+
+<dt>Java</dt>
+
+<dd>Uses Compilers</dd>
+
+<dt>SQL</dt>
+
+<dd>A query based language</dd>
+
+</dl1l>
+
+Python
+Uses Interpreters
+Java
+Uses Compilers
+SQL
+A query based language
+
+<div> Tag
+
+A block-level container element in HTML that 15
+used to group and organize other HTML
+elements.
+
+HTML හි කාණ්ඩ මට්ටමේ @MET මූලාංගයක්‌ වන
+
+අතර චය අනෙකුත්‌ HTML මූලාංග කාණ්ඩගත කිරීමට
+සහ සංව්ධානය කිරීමට භාවිතා කරයි.
+
+Header
+
+Nav Main
+
+Footer
+
+It does not have any inherent styling or
+functionality but is commonly used with CSS
+and JavaScript to structure, style, and
+manipulate sections of a webpage.
+
+එයට කිසිදු ආවේණික විලාසයක්‌ හෝ ක්‍රියාකාරීත්වයක්‌
+නොමැත, නමුන්‌ වෙබ්‌ පිටුවධ කොටස්‌ ව්‍යුහගත
+කිරීමට, විලාස කිරීමට සහ හැසිරවීමට CSS සහ
+
+JavaScript සමඟ බහුලව භාවිතා වේ.
+
+<div>
+
+<!-- Content goes here -->
+
+</div>
+
+Title attributes
+
+Provides additional information when hovered
+
+over.
+අන්තර්ගත මතින්‌ කරසරය රැගෙන යන විට & පිලිබද
+අමතර තොරතුරැ සපයයි.
+
+<div title="This is a tooltip.">
+
+<span> tag
+
+Used to wrap text so you can style it without
+changing how the content is displayed.
+අන්තර්ගතය පෙන්වන ආකාරය GONE නොකර GE
+කොටසක්‌ මෝස්තර කළ හැකි වන පරිදි එය තෝරා
+ගැනීමට භාවිතා කරයි.
+
+<p>This is
+
+<span style="color:red;">important
+
+</span> text.
+
+</p>
+
+23
+
+<table> Tag
+
+Used to create and display data in a tabular
+
+format.
+වගු ආකෘතියකින්‌ දුන්න නිරිමාණය කිරීමට සහ
+ප්‍රදර්ශනය කිරීමට භාවිතා කරයි.
+
+Syntax:
+
+<table border="1">
+
+<caption>Table Title</caption>
+
+<tr>
+
+<th>Header 1</th>
+
+<th>Header 2</th>
+
+<th>Header 3</th>
+
+</tr>
+
+<tr>
+
+<td>Row 1, Column 1</td>
+
+<td>Row 1, Column 2</td>
+
+<td>Row 1, Column 3</td>
+
+</tr>
+
+<tr>
+
+<td>Row 2, Column 1</td>
+
+<td>Row 2, Column 2</td>
+
+<td>Row 2, Column 3</td>
+
+</tr>
+
+</table>
+
+Table Title
+| Header 1 | Header 2 Header 3
+
+IRow 1, Column 1 Row 1, Column 2)|Row 1, Column 3
+
+Row 2, Column 1 Row 2, Column 2)|Row 2, Column 3
+
+<table>
+
+This is the main container for the table.
+මෙය වගුව සඳහා ප්‍රධාන DMEOS.
+
+<caption>
+
+Provides a title or description for the table.
+වගුව සඳහා මාතෘකාවක්‌ භෝ විස්තරයක්‌ සපයයි.
+
+align attribute
+
+Specifies the placement of the table caption.
+AQ ශීර්ෂයේ ස්ථානගත කිරීම නියම කරයි.
+
+values:
+
+top (default)
+bottom
+
+<tr> (Table Row):
+
+Defines a single row in the table.
+වගුවේ තනි පේළියක්‌ අරිථ දුක්වයි.
+
+Contains <td> or <th> elements.
+<td> හෝ <th> මූලාංග අඩංගු වේ.
+
+<td> (Table Data):
+
+Represents a standard data cell within a table
+
+row.
+වගු පේළියක්‌ තුළ සම්මත දත්ත කොටුවක්‌ නියෝජනය
+කරයි
+
+Contains the content of each cell.
+චක්‌ DD කොටුවේ වගු අන්තර්ගතය අඩංගු වේ
+
+<th> (Table Header):
+
+Represents a header cell in the table.
+වගුවේ Gs කොටුවක්‌ නියෝජනය කරයි.
+
+Content inside <th> is bold and centered by
+default.
+
+<th> ඇනුළත අන්තර්ගතය ඉපෙරනිමියෙන්‌ තද
+අකුරින්‌ සහ මධ්‍යගතව සකස්‌ වී ඇත.
+
+<th> is bold by default, centers content, and
+functions like <td>.
+<th> ලපරනිමියෙන්‌ තද පැහැයෙන්‌ යුක්ත වන අතර,
+
+අන්තර්ගතය මධ්‍යගත කර ඇති අතර, <td> මෙන්‌
+ක්‍රියා කරයි.
+
+<th> = <b> + <td> + <center>
+
+Icon Spacing
+
+Cell 1 ෴෴෴෴ Cell 2
+
+Cell Padding
+
+Cell 4 Cell 5
+
+24
+
+Attributes of the <table> Tag
+
+1. Table-Specific Attributes
+වගු-නිශ්ච්න උපලක්ෂණ:
+
+border
+Specifies the border size around the table and
+
+its cells.
+වගුව සහ OH කොටු වටා මායිමේ ප්‍රමාණය නියම
+කරයි.
+
+<table border="1">
+
+Bgcolor
+
+Sets the background color of the table.
+වගුවේ පසුබිම්‌ වරණය සකසයි.
+
+<table bgcolor="lightblue">
+
+align
+
+Aligns the table horizontally (left, center, or
+right).
+
+වගුව තිරස්‌ අතට පෙළගස්වයි ( left, center, හෝ
+right).
+
+<table align="center">
+
+cellpadding
+Adds space between the content and the cell
+
+border.
+අන්තරිගතය සභ කොටු මායිම අතර ඩෙක්‌ එක්‌ කරයි.
+
+<table cellpadding="10">
+
+Cellspacing
+
+controls the gap between the borders of cells.
+කොටුවල මායිම්‌ අතර පරනරය පාලනය කරයි.
+
+<table cellspacing="5">
+
+width
+
+Specifies the width of the table.
+වගුවේ SCE නියම කරයි.
+
+<table width="100%">
+
+height
+Specifies the height of the table.
+වගුවේ උස නියම කරයි.
+
+<table height="200px">
+
+2. Attributes for <th> and <td>:
+<th>am<td> වල උපලක්ෂණ
+
+1. align:
+
+Aligns the content horizontally (values: left,
+center, right).
+
+අන්තර්ගතය තිරස්‌ අතට පෙළගස්වයි.
+
+2. valign:
+Aligns the content vertically (values: top,
+
+middle, bottom).
+අන්තර්ගතය සිරස්‌ අතට පෙළගස්වයි.
+
+Experiment Table for spans
+
+<table border="1" width="100">
+
+<caption> Table </caption>
+
+<tr>
+
+<th> A</th>
+
+<thoB</th>
+
+<thoc</th>
+
+</tr>
+
+<tr>
+
+<td>D</td>
+
+<td>E</td>
+
+<td>F</td>
+
+</tr>
+
+<tr>
+
+<td>G</td>
+
+<td>H</td>
+
+<td>I</td>
+
+</tr>
+
+</table>
+
+Table
+
+B | C
+E |F
+H ॥
+
+ධු
+
+25
+
+3. colspan:
+
+Merges multiple columns into one cell.
+තීරැ කිහිපයක්‌ එක්‌ කොටුවකට ඒකාබද්ධ කරයි.
+
+Table
+
+A
+D |E |F
+G |H ॥
+
+<th colspan="3">A</th>
+
+Delete B & C.
+B සහ C මකා දමන්න.
+
+4. rowspan
+
+Merges multiple rows into one cell.
+පේළි කිහිපයක්‌ එක්‌ කොටුවකට ඒකාබද්ධ කරයි.
+
+Table
+
+9 C
+A 18 |IF
+H |
+
+<th rowspan="3">A</th>
+
+Delete D & G.
+D සහ G මකා දමන්න.
+
+colspan & rowspan
+
+Table
+A! BIC
+D
+E
+G
+
+<td colspan="2" rowspan="2">E</td>
+
+Delete F, H, and I.
+F, H සහ | මකා දමන්න.
+
+Summary
+
+Attribute <table> | <tr> <td>/<th>
+
+border
+
+bgcolor
+
+align
+
+width
+
+height
+
+colspan
+
+rowspan
+
+cellspacing
+
+ඳද| [x fx PSPS pcs
+තල | මඳ | ඉඳ | ඉඳ | ඳ [| තද | ඳ | ඳ | ඉඳ
+x |ඥ| ඳ| ඳ|෴| ඳ|ඳ| ද
+
+cellpadding
+
+<img> Tag
+
+used to embed images in an HTML document.
+HTML ලේඛනයක රෑප ඇතුළත්‌ කිරීමට mdm කරයි.
+
+It is a self-closing tag.
+එය self-closing උසුලනයකි.
+
+Syntax:
+
+<img src="image. jpg"
+
+alt="Description of the image”
+
+width="500" height="300">
+
+src (Required Attribute):
+
+Specifies the path to the image file.
+O28 ගොනුවට යන මාර්ගය නියම කරයි.
+
+The value can be:
+අගයන්‌ පහන පරිදි විය හැකිය:
+
+e Arelative URL.
+සාපේක්ෂ URL එකක්‌
+(e.g., images/photo.jpg)
+
+e Anabsolute URL.
+නිරපේක්ෂ URL එකක්‌
+(e.g., https://example.com/photo.jpg)
+
+alt (Required Attribute):
+
+Provides alternative text for the image, which is
+
+displayed if the image cannot load.
+රෑපය පූරණය කළ නොහැකි DO OG සඳහා විකල්ප
+පෙළක්‌ පෙන්වනු ලබයි.
+
+26
+
+Attributes:
+
+e width:
+
+Sets the width of the image.
+625668 පළල සකසයි.
+
+e height:
+Sets the height of the image.
+625665 උස සකසයි.
+
+Note:
+Changing both width and height in an <img>
+tag can distort the image. Maintain the aspect
+
+ratio or set only one dimension.
+
+උසුලනයක පළල සහ උස යන දෙකම චෙනස්‌ කිරීමෙන්‌
+රෑපය විකෘති විය හැක. දර්ශන අනුපාතය පචන්වා
+ගන්න හෝ චක්‌ මානයක්‌ පමණක්‌ සකසන්න.
+
+e—_ title:
+
+Provides a tooltip when hovered over.
+මූසිකය හෙළින්‌ රැගෙන යන විට GOOES ලේයක්‌
+සපයයි.
+
+e border:
+Adds a border around an image by
+
+specifying the border thickness.
+මායිම්‌ ඝණකම නියම කිරීමෙන්‌ රෑපයක්‌ වටා
+මායිමක්‌ එක්‌ කරයි.
+
+e loading (Not in syllabus):
+Controls slower or faster loading of the
+image.
+රෑපය සෙමින්‌ හෝ වේගයෙන්‌ පූරණය වීම
+පාලනය කරයි.
+
+<audio> Tag
+
+Used to embed sound content (such as music
+or audio files) into a web page.
+
+<audio> උසුලනය භාවිතා කරනුයේ wee
+අන්නරිගතයන්‌ (සංගීතය හෝ GOB ගොනු වැනි) වෙබ්‌
+පිටුවකට ඇතුළත්‌ කිරීමටයි.
+
+1. Using the src attribute in the <audio>
+tag
+
+<audio> උසුලනයේ src උපලක්ෂණය භාවිතා
+කිටීම::
+
+<audio src="audio.mp3" controls>
+
+</audio>
+
+2. Using nested <source> tags for multiple
+formats
+
+ආකෘති කිහිපයක්‌ සඳහා nested <source> උසුලන
+භාවිතා 60:
+
+<audio controls>
+
+<source src="audio.mp3"
+
+type="audio/mp3">
+
+<source src="audio.ogg"
+
+type="audio/ogg">
+
+</audio>
+
+Ensures compatibility across different browsers
+
+by providing multiple formats.
+බහු ආකෘති ලබා දීමෙන්‌ විවිධ අතිරික්සු හරහා
+ගැළපුම සහතික කරයි.
+
+The browser will select the first compatible
+
+format.
+අතිරික්සුව පළමු අනුකූල ආකෘතිය තෝරා ගනු ඇත.
+
+Attributes for <audio> tag
+<audio> උසුලනය sem වූ උපලකක්‍ක්ෂණ
+
+1. Core Attributes
+මූලික උපලක්ෂණ
+
+src
+
+Specifies the audio file location
+ශ්‍රව්‍ය ගොනු ස්ථානය නියම කරයි
+
+controls
+
+Adds playback controls for user interaction.
+පරිශීලක අන්තරකියාව සඳහා ධාවනය කිරීමේ පාලන
+එක්‌ කරයි.
+
+2/
+
+autoplay
+Automatically starts playing the audio when
+
+the page loads.
+පිටුව පූරණය වන විට ස්වයංක්‍රීයව ශ්‍රව්‍ය වාදනය
+ආරම්භ එවේ.
+
+loop
+Repeats the audio indefinitely.
+audio අවසන්‌ නොවී පුනරාවරිතනය වේ.
+
+muted
+Mutes the audio by default.
+සම්මනයෙන්‌ audio නිශ්ශබ්ද කරයි.
+
+preload
+Specifies how the browser should preload the
+
+audio file.
+බ්‍රවිසංරයය ශ්‍රව්‍ය ගොනුව gbO පූරණය කළ යුතු
+ආකාරය නියම කරයි.
+
+e auto: Preloads the entire file.
+සම්පූරිණ ගොනුව පූර්ව පූරණය කරයි.
+
+e metadata: Preloads only the metadata
+(e.g., duration).
+පාර-දත්ත පමණක්‌ පූර්ව පූරණය කරයි (උදා:
+කාලසීමාව).
+
+e none: No preloading occurs.
+පූර්ව පූරණයක්‌ Be නොවේ.
+
+2. Attributes for <source> Tags
+<source> උසුලන සඳහා වූ උපලක්ෂණ
+
+src
+Specifies the location of the audio file
+
+(mandatory for each <source> tag).
+ශ්‍රව්‍ය ගොනුවේ පිහිටීම නියම කරයි
+
+<SOUrCe> උසුලනය සඳහා අනිවාර්ය චේ).
+
+(එක්‌ එක්‌
+
+type
+
+Specifies the file format using a MIME type (e.g.,
+audio/mp3, audio/ogg).
+
+MIME වර්ගයක්‌ භාවිතා කරමින්‌ ගොනු ආකෘතිය
+නියම කරයි (උදා: audio/mp3, audio/ogg ).
+
+<video> Tag
+
+used to embed video content into a web page.
+වෙබ්‌ පිටුවකට වීඩියෝ අන්තර්ගතය ඇතුළත්‌ කිරීමට
+MSM කරයි.
+
+Using the src attribute in the <video> tag
+<video> උසුලනයේ src උපලක්ෂණය භාවිතා
+කිටීම:
+
+<video src="video.mp4" controls>
+
+</video>
+
+Using nested <source> tags for multiple
+formats
+
+ආකෘති කිහිපයක්‌ සඳහා nested <source> උසුලන
+භාවිතා 60:
+
+<video controls>
+
+<source src="video.mp4"
+
+type="video/mp4" >
+
+<source src="video.webm"
+
+type="video/webm" >
+
+</video>
+
+Attributes for <video> tag
+<video> උසුලනය සදහා වූ උපලක්ෂණ
+
+src
+
+controls
+
+width
+
+height
+
+autoplay
+
+loop
+
+muted
+
+preload
+auto
+metadata
+none
+
+28
+
+<embed> Tag
+
+Used to embed external content, such as
+multimedia (audio, video, Flash files), interactive
+
+applications, or other resources, into a
+webpage.
+බහුමාධ්‍ය (ශ්‍රව්‍ය, දෘශ්‍ය, ෆ්ලෑෂ්‌ ගොනු),
+
+අන්නතරිීඛක්‍රියාකාරී යෙදුම්‌ හෝ වෙනත්‌ සම්පත්‌ වැනි
+බාහිර අන්තර්ගතයන්‌ වෙබ්‌ පිටුවකට ඇතුළත්‌ කිරීමට
+භාවිතා කරයි.
+
+<embed src="mediafile.mp3"
+
+width="300" height="200" >
+
+Attributes
+
+e src (Mandatory):
+Specifies the path to the resource or media file
+to be embedded (e.g., an audio file, a video
+
+etc.). Can be a local or absolute URL.
+කාවැද්දීමට ඇති සම්පත්‌ හෝ මාධ්‍ය ගොනුවට ඇති
+මාරිගය නියම කරයි (උදා: ශ්‍රව්‍ය ගොනුවක්‌,
+වීඩියෝවක්‌ ආදිය). ස්ථානීය හෝ නිරපේක්ෂ URL
+එකක්‌ විය හැකිය.
+
+e width
+e height
+Example
+
+1. Embedding Audio
+ශ්‍රව්‍ය ගොනු කාවැද්දීම
+
+<embed src="audiofile.mp3"
+
+width="300" height="50">
+
+2. Embedding Video
+වීඩියෝ කාවැද්දීම
+
+<embed src="video.mp4" width="500"
+
+height="300">
+
+3. Embedding PDF
+වීඩියෝ කාවැද්දීම
+
+<embed src="file.pdf" width="500"
+
+height="400" >
+
+4. Embedding Image
+රෑප කාවැද්දීම
+
+<embed src="image.jpg" width="300
+
+height="200">
+
+HTML hyperlinks
+
+Hyperlinks connect one resource to another.
+අධිසබැදි මගින්‌ එක්‌ සම්පතක්‌ තවත්‌ සම්පතකට
+සම්බන්ධ කරයි.
+
+They allow users to navigate easily from one
+web page to another, or even within the same
+page.
+
+JO) මගින්‌ පරිශීලකයින්ට එක්‌ GOD පිටුවකින්‌ නවත්‌
+
+වෙබ්‌ පිටුවකට හෝ එම පිටුව තුළම පහසුවෙන්‌
+සැටිසැටීමට Of) සලසයි.
+
+This is a HYPERLINK
+
+Anchor tag (<a>)
+
+The <a> tag defines a hyperlink.
+<a> උසුලනය මගින්‌ අධි සබැඳියක්‌ අරිථ දක්වයි
+
+Takes us here
+when clicked
+
+y
+
+<a href = " "
+
+f
+
+Hyperlink
+Reference
+
+Where to go
+
+Attributes of the <a> tag.
+<a> උසුලනයේ ගුණාංග.
+
+e href
+
+It indicates the link’s destination .
+චමගින්‌ සබැඳියේ ගමනාන්තය පෙන්නුම්‌ කරයි.
+
+e target
+
+Determines where to open the linked document
+සම්බන්ධිත ලේඛනය ව්වෘත කළ යුත්තේ කොතැනද යන්න
+තීරණය කරයි
+
+29
+
+When you hover over a hyperlink, the cursor
+changes to a hand icon (pointer), indicating that
+
+the text or element is clickable.
+
+අධි සබැඳියක්‌ Os) කරසරය ඉගෙන යන විට, කරසරය
+අතක්‌ සහින අයිකනයකට (පොයින්ටරය) වෙනස්‌ 6H,
+චය පෙළ හෝ මූලාංග මත ක්ලික්‌ කළ හැකි බව
+පෙන්නුම්‌ කරයි.
+
+Take i look.
+
+This visual cue enhances user experience by
+signaling interactivity.
+
+මෙම දෘශ්‍ය O66 අන්තරඛ්‍රියාකාරීත්වය සංඥා
+කිරීමෙන්‌ පරිශීලක අත්දැකීම වැඩි දියුණු කරය
+
+> display content </a>
+
+target Attribute Values
+
+_self
+
+This is the default value. Opens the linked
+document in the same window or tab where the
+link was clicked.
+
+මෙය 656085 අගයයි. සබැඳිය ක්ලික්‌ කළ කවුඑවෙහිම
+හෝ පටිත්තෙහිම සබැඳි ලේඛනය විවෘත කරයි.
+
+<a href= target="_self"> </a>
+
+_blank
+
+Opens the linked document in a new window or
+tab. Useful for external links, allowing users to
+keep the original page open.
+
+සම්බන්ධිත ලේඛනය නව කවුළඑවක හෝ ටැබයක විවෘත
+කරයි. බාහිර සබැඳි සඳහා ප්‍රයෝජනවත්‌ වන අතර මුල්‌
+පිටුව විවෘතව තබා ගැනීමට SOGEMBHO ඩෙ සලසයි.
+
+<a href= target="_blank"> </a>
+
+e title
+
+Provides additional information about the link,
+and displayed as a tooltip on hover.
+
+සබැඳිය පිළිබඳ අමතර තොරතුරැ සපයයි, hover
+කිරීමේදී මෙවලම්‌ ඟියක්‌ ලෙස ඉපන්වයි.
+
+Ex.
+
+<a
+
+href = "https://www.w3schools.com"
+
+title="A link to the w3schools
+website!"
+
+>
+Visit w3schools
+</a>
+Output
+v Page title x +
+
+> CA Q Search Secure Search or type a URL
+
+Visit w3schools
+
+A link to the w3schools website!
+
+30
+
+Usages of <a> tag
+
+<a> උසුලනයේ භාවිත
+
+1. To visit an external location
+බාහිර ස්ථානයකට ගමන්‌ කිරීම සදහා
+
+External links point to resources located outside
+of your local machine, such as websites or
+specific URLs on the internet.
+
+බාහිර සබැඳි මගින්‌ ඔබේ ස්ථානීය යන්තුයෙන්‌ පිටන
+වෙබි අඩවි හෝ අන්තර්ජාලයේ ඇති විශේෂිත URL
+චකක්‌ වැනි සම්පත්‌ වෙත යොමු කරයි.
+
+These links direct users to web pages, external
+
+multimedia content, or any online resource.
+මෙම සබැඳි GOB BO, බාහිර බහුමාධ්‍ය අන්තර්ගතයන්‌
+හෝ ඕනෑම මාර්ගගත සම්පනක්‌ වෙන පථීශීලකයන්‌
+යොමු කරයි.
+
+Link to a domain (Website)
+
+<a href="https://www.abc.com">
+
+Visit External Site
+
+</a>
+
+Link to a specific URL
+
+<a
+
+href="https://www.abc.com/video.mp4"
+
+>
+
+Watch External Video
+
+</a>
+
+Path Name
+ගොනු මාර්ග නාමය
+
+A file pathname is the complete address or path
+that specifies the location of a file or directory
+in a file system.
+
+ගොනු මාරග නාමයක්‌ යනු ගොනු පද්ධතියක
+ගොනුවක භෝ නාමාවලියක පිහිටීම නිශ්චිතව දක්වන
+සම්පූරිණ ලිපිනය භහෝ මාර්ගයයි.
+
+It includes all directories (folders) leading to the
+
+file, starting from the root directory.
+AGO මූල නාමාවලියෙන්‌ ආරම්භ වී ගොනුවට මඟ
+පෙන්වන සියලුම නාමාවලි (ෆෝල්ඩර) ඇතුළත්‌ GS.
+
+1. Absolute Path name
+නිරපේක්ෂ මාර්ග නාමය
+
+Shows the complete directory path starting
+
+from the root directory.
+මූල නාමාවලියෙන්‌ ආරම්භ 5 සම්පූර්ණ නාමාවලි
+මාර්ගය පෙන්වයි.
+
+It begins with the root (such as/in Unix-like
+systems or C: in Windows) and includes all
+folders up to the required file or directory.
+
+චය මූල නාමාවලියෙන්‌ ආරම්භ GS (Unix වැනි
+පද්ධතිවල / හෝ වින්ඩෝස්‌ හි C: O23) සහ අවශ්‍ය
+
+ගොනුව හෝ නාමාවලිය දක්වා සියලුම ෆෝල්ඩර
+ඇතුළත්‌ එේ.
+
+Examples
+/home/user/Documents/report.txt
+(Unix-like)
+
+C:\Users\user\Documents\report.txt
+(Windows)
+
+2. Relative Path name
+සාපේක්ෂ QUO නාමය
+
+Shows the location of a file or directory with
+
+respect to the current working directory.
+වන්මන්‌ ක්‍රියාකාරී නාමාවලියට සාපේක්ෂව ගොනුවක
+හෝ නාමාවලියක පිහිටීම පෙන්වයි.
+
+It does not start from the root directory and is
+
+usually shorter than an absolute path.
+චය මූල නාමාවලියෙන්‌ ආරම්භ නොවන අතර
+සාමාන්‍යයෙන්‌ නිරපේක්ෂ මාර්ගයකට වඩා කෙටි වේ.
+
+Example
+/Documents/report.txt
+
+Pathname
+
+4 ෴
+
+C:\Program Files\Windows Media Player\wmplayer.exe
+
+To TT
+
+Drive Filename Extension
+
+Path
+
+31
+
+C:
+nf 1 nf 2 nf 3
+abc.html pqr.html
+xyZ.jpg - ය්‌
+images videos audio
+cheems.jpg
+Ex.01
+
+In HTML, as xyz.jpg is in the same folder as
+abc.html, it can be referred to simply as
+xyz. jpg. This is a relative path name.
+
+HTML හි, xyzjpg abc.html ෆෝල්ඩරයේම නිබේ
+
+නිසා, එය සරලව xyzZ. jpg ලෙස හැඳින්විය හැක.
+මෙය සාපේක්ෂ මාර්ග නාමයකි.
+
+Ex.02
+
+As cheems.jpg is stored inside the images folder
+and used in pqr.html, it can be referred to as
+\images\cheems. jpg. This is also a relative
+path name.
+
+cheems.jpg images ෆෝල්ඩරය QE ගබඩා කර ඇනි
+නිසා pqr.html හි ජයැ;ැපි.වචට භාවිතා කරන්නේ නමි,
+
+චය \images\cheems.jpg ලෙස හැඳින්විය හැක.
+මෙයද සාපේක්ෂ මාර්ග නාමයකි.
+
+Ex.03
+
+Also the full location of cheems.jpg is given,
+such as C:\\nf 3\images\cheems. jpg, it Is
+called an absolute path name.
+
+C:\\nf 3\images\cheems.jpg G@6
+cheems.jpg හි සම්පූර්ණ ස්ථානය ද ලබා දීමට
+හැක. එය නිරපේක්ෂ QHD නාමයක්‌ ලෙස හැඳින්වේ.
+
+2. To access local multimedia files
+අභ්‍යන්නර බහුමාධ්‍ය වෙත ප්‍රවේශ වීමට
+
+Internal links refer to hyperlinks that point to
+files or resources located on the same device as
+the HTML file.
+
+අභ්‍යන්තර සබැඳි යනු HTML ගොනුව සමග එකම
+උපාංගයේ පිහිටා ඇති ගොනු හෝ සම්පත්‌ වෙන යොමු
+වන අධිසබැඳි චේ.
+
+This could include images, audio files, videos, or
+other documents stored locally on your
+
+computer.
+
+මෙයට ඔබේ පට්ගණකයේ ස්ථානීයව ගබඩා කර ඇඟති
+පින්තූර, ශ්‍රව්‍ය ගොනු, වීඩියෝ හෝ වෙනත්‌ ලේඛන
+ඇතුළත්‌ විය හැකිය.
+
+Ex (Video files).
+
+<a href="E:\films\The
+Matrix(20@3).mp4">
+
+Click here to Watch The Matrix
+
+</a>
+
+Before clicking the link
+සබැඳිය ක්ලික්‌ කිරීමට Gad
+
+v Page title x ස ම
+
+> CA
+
+ටූ Search Secure Search or type a URL
+
+Click here to Watch The Matrix
+
+After clicking the link
+සබැඳිය ක්ලික්‌ කිරීමෙන්‌ පසු
+
+THE
+
+MATRIX
+
+32
+
+Ex (Image files).
+
+<a href = "D:\Downloads\bird.jpg">
+
+Picture of a Bird
+
+</a>
+
+v Page title x +
+
+> CA රූ Search Secure Search or type a URL
+
+Picture of a Bird
+
+Ex (Audio files).
+
+<a href = "E:\music\Song.mp3">
+
+Click here to listen to a song
+
+</a>
+
+v Page title x +
+
+> ca
+
+Q Search Secure Search or type a URL
+
+Click here to listen to a song
+
+Ex (PDF files) 1 | ෂු
+
+<a href = "D:\Downloads\AL ICT 2018
+Paper II.pdf">
+AL ICT 2018 Paper II
+
+</a>
+v Page title x oP
+> Ca Q Search Secure Search or type a URL
+2. Vv Page title x +
+AL ICT 2018 Paper 11 > Ca Q Search Secure Search or type a URL
+
+Takes to google.com After clicking
+ක්ලික්‌ කිරීමෙන්‌ පසු google.com එකට රැගෙන යයි.
+
+1. Image as a link
+
+Google
+
+You can use an image as a clickable link.
+ඔබට ක්ලික්‌ කළ හැකි සබැඳියක්‌ ලෙස පින්තූරයක්‌
+භාවිනා කළ හැකිය.
+
+Ex.
+
+<a href="https://www.google.com">
+
+<img src="bird.jpg">
+
+</a>
+
+2. Button as a link
+
+This makes the entire button clickable and acts
+
+as a hyperlink.
+මෙමගින්‌ සම්පූරිණ බොත්තම ක්ලික්‌ කළ හැකි අධි
+සබැඳියක්‌ ලෙස ක්‍රියා කරයි.
+
+Ex.
+
+<a href="https://www. google.com" >
+
+<button>Click Me</button>
+
+</a>
+
+33
+
+3. <a> tag can be used to link multiple
+
+webpages of the same website
+<a> උසුලනය එකම වෙබ්‌ අඩවියේ වචෙබී පිටු
+කිහිපයක්‌ සම්බන්ධ කිරීමට භාවිතා කළ හැක
+
+A website consists of interconnected web pages
+
+containing hyperlinks.
+GOD අඩවියක්‌ අධිසබැදි අඩංගු අන්තර්‌ සම්බන්ධින
+වෙබ්‌ පිටු වලින්‌ සමන්විත වේ.
+
+The main page, called the home page, serves as
+the starting point and provides links to other
+pages within the site.
+
+මුල්‌ BQO ලෙස හැඳින්වෙන ප්‍රධාන පිටුව ආරම්භක
+ලක්ෂ්‍යය ලෙස ක්‍රියා කරන අතර වෙබ්‌ අඩවිය තුළ ඇති
+අනෙකුත්‌ පිටු වෙත ගමන්‌ කිරීමට අවශ්‍ය සබැඳි
+සපයයි.
+
+Basic structure of a website
+GOD අඩවියක මූලික Ogeos
+
+Services
+Area 2
+
+| ~~ on :
+
+Service
+Area 1
+
+॥
+
+Product:
+Area 2
+
+|
+
+2
+oT
+> 0
+32
+o
+as
+
+Home Page
+= කු
+
+|
+ක සු
+
+34
+
+Example.
+
+Home page contains a hyperlink to the contact
+us page.
+
+මුල්‌ පිටුවේ contact us පිටුවට අධි සබැඳියක්‌ අඩංගු
+ව්‌.
+
+home. html
+
+<h3>This is the home page</h3>
+
+<a href = "contact.html">
+
+Go to Contact Us
+
+</a>
+
+When Go to Contact Us is clicked, that page
+
+will be opened.
+Go to Contact Us ක්ලික්‌ කළ විට, එම පිටුව විවෘත
+වේ.
+
+Contact page contains another hyperlink to
+navigate back to the home page.
+
+මුල්‌ පිටුවට ආපසු පැමිණීමට contact පිටුවෙහි නවත්‌
+අධි සබැඳියක්‌ අඩංගු වේ.
+
+contact.html
+
+<h3>
+
+This is the contact us page
+
+</h3>
+
+<a href = “home. html">
+
+Go to Home
+
+</a>
+
+When Go to Home is clicked, user will be
+
+redirected to the home page.
+Go to Home ක්ලික්‌ කළ විට, පරිශීලකයා මුල්‌ පිටුවට
+හරවා යවනු ලැබී.
+
+Before clicking Go to Contact Us
+Go to Contact Us ක්ලික්‌ කිරිමට oad
+
+v Home page x +
+
+> Ca €ඬ D:/home.html
+
+This is the home page
+
+Go to Contact Us
+
+After clicking Go to Contact Us
+Go to Contact Us ක්ලික්‌ කිරීමෙන්‌ පසු
+
+v Contact Us page x +
+
+€ ල්‌ MA € D*/contacthtml
+
+This is the contact us page
+
+Go to Home
+
+After clicking Go to Home
+Go to Home ක්ලික්‌ කිරීමෙන්‌ පසු
+
+Vv Home page x +
+
+€ C A ® D:/home.himl
+
+This is the home page
+
+Go to Contact Us
+
+35
+
+4. Bookmarks
+
+In HTML, bookmarks let users jump to specific
+sections on the same webpage using anchor
+links.
+
+HTML හි, පිටු සලකුණු පරිශීලකයින්ට anchor සබැඳි
+භාවිතයෙන්‌ එකම වෙබ්‌ පිටුවේ නිශ්ච්ත කොටස්‌ චෙත
+පැනීමට ඉඩ සලසයි.
+
+This is done using the id attribute on an HTML
+element and linking to it with the anchor (<a>)
+tag.
+
+මෙය Be කරනු ලබන්නේ [1117]! මූලාංග මත ඇති id
+
+ගුණාංගය භාවිතා කර එය anchor (<a>) උසුලනය
+සමඟ සම්බන්ධ කිරීමෙනි.
+
+Creating an Anchor (Bookmark) on the Page.
+පිටුවේ Anchor daa නිර්මාණය කිරීම.
+Assign an id to the element you want to link to
+
+(Ex. a heading or section).
+ඔබට සම්බන්ධ කිරීමට අවශ්‍ය මූලාංගයට හැදුනුමක්‌
+පවරන්න (උදා. ශීර්ෂයක්‌ හෝ කොටසක්‌).
+
+<h2 id="section1i">Section 1</h2>
+
+Linking to the Bookmark
+පිටු සලකුණට සම්බන්ධ කිරීම
+Use the anchor tag to create a link that jumps
+
+to the id on the same page.
+එකම පිටුවේ ඇති හැදුනුමට පනින සබැඳියක්‌ සෑදීමට
+anchor උසුලනය mdm කරන්න.
+
+The URL fragment identifier (starting with 4)
+points to the element with that id.
+
+URL ඛණ්ඩ හැළඳුනුම්කාරකය මගින්‌ (# වලින්‌ ආරම්භ
+වන) BO id එක සහිත මූලාංගය වෙත යොමු කරයි.
+
+<a href = "#section1"> Go to Section
+1
+
+</a>
+
+When users click on the "Go to Section 1"
+link, they will jump directly to the heading with
+the id="section1".
+
+පරිශීලකයන්‌ "Go to Section 1" සබැඳිය මත
+ක්ලික්‌ කළ විට, ඔවුන්‌ id="section1" සහිත
+ශිරිෂයට සෘජුවම පනිනු ඇත.
+
+Full Example of Bookmark Usage in HTML
+
+<!DOCTYPE html>
+
+<head>
+
+<title>Bookmarks Example</title>
+
+</head>
+
+<body>
+
+<h1i>Page Navigation</h1>
+
+<p><a href="#section1">Go to Section 1</a></p>
+
+<p><a href="#section2">Go to Section 2</a></p>
+
+<p><a href="#section3">Go to Section 3</a></p>
+
+<p><a href="#section4">Go to Section 4</a></p>
+
+<p><a href="#section5">Go to Section 5</a></p>
+
+<h2 id="section1">Section 1</h2>
+
+<p>This is the content for Section 1. <br>
+
+Lorem1@0 <!-- This will provide a paragraph with 100 words-->
+
+</p>
+
+<h2 id="section2">Section 2</h2>
+
+<p>This is the content for Section 2. <br>
+
+Lorem1e0
+
+</p>
+
+<h2 id="section3">Section 3</h2>
+
+<p>This is the content for Section 3. <br>
+
+Lorem1e0
+
+</p>
+
+<h2 id="section4">Section 4</h2>
+
+<p>This is the content for Section 4. <br>
+
+Lorem1e0
+
+</p>
+
+<h2 id="section5">Section 5</h2>
+
+<p>This is the content for Section 5. <br>
+
+Lorem1e0
+
+</p>
+
+</body>
+
+</html>
+
+36
+
+vy මඟී Bookmarks Example x +
+
+ඳ ලර්‌ A රූ Search Secure Search or type a URL % © ඬ්‌
+
+Page Navigation
+
+Go to Section |
+
+Go to Section 2
+
+Go to Section 3
+Go to Section 4
+
+Go to Section 5
+
+Section 1
+
+This is the content for Section 1.
+
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. lusto minima quod delectus dolorum odio, deserunt recusandae fuga? Aut, in officia laborum
+illum quisquam repudiandae vero ratione natus quaerat accusamus ducimus magnam ex, odit adipisci atque quibusdam a, ipsum quo. Accusamus commodi
+mollitia dolores numquam. Voluptates aliquam molestias voluptatibus quibusdam adipisci perspiciatis soluta ipsam placeat magnam. Veritatis laborum vero
+quos aut doloremque repellat amet ipsa perspiciatis nisi autem ducimus at atque voluptatem unde ipsam nulla reprehenderit debitis officia, officiis
+aspernatur nihil voluptate culpa impedit ratione. Vitae laudantium non magni officia molestias! Qui soluta debitis repudiandae nobis omnis, sapiente
+voluptates laborum cum.
+
+[1 you want to jump to the section 5, you can click Go to Section 5 and you will directly jump to
+
+the section 5.
+ඔබට section 5 වෙන යාමට අවශ්‍ය HG, Go to Section 5 ක්ලික්‌ කළ හැකි අතර ඔබ සෘජුවම section 5
+වෙත පනිනු ඇත.
+
+ය = o x
+
+ථ්‌ ©) Bookmarks Example x
+
+ඳ ල්‌ A රූ Search Secure Search or type a URL % © 098]
+
+perferendis, soluta accusantium omnis recusandae eaque temporibus neque. Asperiores, quis modi! Laboriosam blanditiis doloribus nesciunt repellat
+mollitia assumenda modi obcaecati vitae labore odit aperiam quo tempora ducimus, magni explicabo fuga. Numquam provident optio architecto expedita
+omnis.
+
+Section 4
+
+This is the content for Section 4.
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque accusantium saepe debitis, cupiditate vitae mollitia iste! Ipsa cupiditate iure sunt enim
+laboriosam repellat nobis quisquam blanditiis in amet minus voluptate deserunt quibusdam, facere culpa delectus magnam similique omnis vero soluta?
+Esse ut eos quia vitae, impedit incidunt deleniti quasi exercitationem nam quis quod itaque eligendi culpa ullam at voluptas amet odit rem! Maiores ipsum
+perferendis, soluta accusantium omnis recusandae eaque temporibus neque. Asperiores, quis modi! Laboriosam blanditiis doloribus nesciunt repellat
+mollitia assumenda modi obcaecati vitae labore odit aperiam quo tempora ducimus, magni explicabo fuga. Numquam provident optio architecto expedita
+omnis.
+
+Section 5
+
+This is the content for Section 5.
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque accusantium saepe debitis, cupiditate vitae mollitia iste! Ipsa cupiditate ture sunt enim
+laboriosam repellat nobis quisquam blanditiis in amet minus voluptate deserunt quibusdam, facere culpa delectus magnam similique omnis vero soluta?
+Esse ut eos quia vitae, impedit incidunt deleniti quasi exercitationem nam quis quod itaque eligendi culpa ullam at voluptas amet odit rem! Maiores ipsum
+perferendis, soluta accusantium omnis recusandae eaque temporibus neque. Asperiores, quis modi! Laboriosam blanditiis doloribus nesciunt repellat
+mollitia assumenda modi obcaecati vitae labore odit aperiam quo tempora ducimus, magni explicabo fuga. Numquam provident optio architecto expedita
+omnis.
+
+"> display content </
+
+Takes us here
+
+"> Content </p>
+
+3/
+
+ictfrromabc.com
+
+<center> tag
+
+Used to center any type of content horizontally
+
+on a web page.
+වෙබ්‌ පිටුවක ඕනෑම ආකාරයක අන්තර්ගතයක්‌ තිරස්‌
+අතට මධ්‍යගත BOOO භාවිතා කරයි.
+
+It works on all content inside it.
+මෙම උසුලනය තුළ ඇති සියලුම අන්තරිගතයන්‌ මන
+ක්‍රියා කරයි.
+
+It is deprecated in HTML5 and replaced by CSS.
+
+එය HTML5 හි අත්හැර දමා ඇති අතර CSS මගින්‌
+ප්‍රතිස්ථාපනය 6.
+
+EX.
+
+<center>
+
+<h2>Title</h2>
+
+<img src="image. jpg">
+
+<p>This content is centered.</p>
+
+</center>
+
+<marquee> Tag
+
+Used to create automatic scrolling animations
+
+on a webpage.
+ස්ව්‍යංක්‍රීය අනුචලන නිරිමාණය කිරීමට භාවිතා කරයි.
+
+It can scroll:
+එයට පහත දෑ අනුචලන කළ හැකිය.
+
+ේ [90
+e Images
+e = Links
+
+e =Any inline content
+
+Ex.
+
+<marquee>Scrolling text</marquee>
+
+Attributes of <marquee> tag
+<marquee> ගුණාංග
+
+1. direction
+
+Controls the movement direction.
+චලන දිශාව පාලනය කරයි.
+
+2. behavior
+
+Controls the scrolling style.
+අනුචලන විලාසය පාලනය කරයි.
+
+Values
+
+e scroll
+continuous movement
+අඛණ්ඩ චලනය
+
+e Slide
+
+moves once and stops
+එක්‌ වරක්‌ චලනය වී නතර 6H
+
+e alternate
+
+bounces back and forth
+ද්‍රෙටියට සහ පසුපසට පනී
+
+3. scrollamount
+
+Controls speed (higher = faster).
+GOOG පාලනය කරයි (හෙළ අගයන්‌ - වේගවන්‌).
+
+<marquee scrollamount="10" >
+
+4. scrolldelay
+
+Controls delay between movements (in
+milliseconds).
+
+චලන අතර ප්‍රමාදය පාලනය කරයි (GB තන්පර
+වලින්‌).
+
+<marquee scrollamount="100">
+
+5. loop
+
+Controls number of repetitions.
+පුනරාවරටිතන ගණන පාලනය කරයි.
+
+<marquee loop="3">
+
+6. width and height
+Sets the marquee area size.
+marquee area O62 ප්‍රමාණය සකසයි.
+
+<marquee width="300" height="50">
+
+CSS (Cascading Style Sheets)
+විලාස රටා පත්‍ර
+
+A stylesheet language used to control the visual
+
+presentation of web pages.
+වෙබ්‌ BO වල දැෑශ්‍ය Q2650) කිරීම පාලනය කිරීමට
+භාවිතා කරන විලාස පත්‍ර භාෂාවකි.
+
+It defines how HTML elements are displayed
+across different devices and media.
+
+චිය විවිධ උපාංග සහ මාධ්‍ය හරහා HTML උසුලන
+ප්‍රදර්ශනය වන ආකාරය නිර්වචනය කරයි.
+
+CSS focuses on presentation, while HTML is
+responsible for structure and content.
+CSS 926300) කිරීම කෙරෙහි අවධානය යොමු කරන
+
+අතර HTML ව්‍යුහය සම්බන්ධව අවධානය යොමු
+කරයි.
+
+Using HTML alone results in webpages that are
+visually plain, repetitive, and difficult to manage
+
+HTML පමණක්‌ භාවිතා කිරීමෙන්‌ නිර්මාණය කරන
+වෙබ්‌ පිටු දෘහෂ්‍යසමය වශයෙන්‌ සාමාන්‍ය, පුනරාවරිතන,
+සහ කළමනාකරණය කිරීමට අපහසු වේ.
+
+In early web development, HTML was used for
+both structure and _— styling through
+presentational attributes, _ which made
+webpages harder to manage as they grew.
+
+මුල්‌ කාලීන වෙබි සංවර්ධනයේදී, HTML ව්‍යුහය සහ
+දිට්පත්‌ කිරීමේ ගුණාංග හරහා මෝස්තර කිරීම යන
+දෙකටම භාවිතා කරන ලද අතර, එමඟින්‌ වෙබ්‌ පිටු
+වර්ධනය වන විට කළමනාකරණය කිරීම දුෂ්කර විය.
+
+CSS Timeline
+
+1994-1996
+- Origins of CSS
+
+9 Proposed by Hakon Wium Lie (1994)
+* CSS1 released by W3C (1996)
+9 Basic styling: colors, fonts, spacing
+
+1998
+- css2
+
+* Media types (screen, print)
+* Positioning (relative, absolute, fixed)
+9 Introduction of the Box Model
+
+2004
+| css2.1
+
+* Clarified and fixed CSS2 issues
+¢ Improved consistency across browsers
+* Became the widely adopted web standard
+
+2011
+/ (953
+
+* Modular approach
+* Animations, transitions, gradients
+* Advanced layout and interactivity
+
+Post-2011
+L_ Modern CSS
+
+¢ Flexbox and CSS Grid
+¢ Responsive and complex layouts
+* CSS Variables (Custom Properties)
+
+Purpose of CSS
+CSS හි අරමුණු
+
+It manages the design, layout, and appearance
+of web pages and separates visual styling from
+content structure. Also, maintains consistent
+styling across multiple pages of a website.
+
+වෙබි පිටු වල සැලසුම, පිටිසැලසුම සහ පෙනුම
+කළමනාකරණය කරයි සහ අන්තර්ගත ව්‍යහයෙන්‌
+දෘශ්‍ය මෝස්තරය වෙන්‌ කිරීම සිදු කරයි.වෙබි අඩවියක
+බහු පිටු හරහා ස්ථාවර මෝස්තරය පචත්වා ගනියි.
+
+CSS manages the visual aspects of a webpage,
+
+including
+වෙබ්‌ පිටුවක දෘශ්‍ය අංශ කළමනාකරණය කරයි, Hd
+අතර
+
+39
+
+Text and background colors
+පෙළ සහ පසුබිම්‌ වරණ
+
+Fonts and typography
+අකුරැ සභ යතුරැ ලියනය
+
+Spacing, alignment, and layout
+පරතරය, පෙළගැස්ම සහ පිරිසැලසුම
+
+Element sizing and positioning
+මූලද්‍රව්‍ය ප්‍රමාණය BOO සහ ස්ථානගත BOO
+
+Visual effects such as borders, shadows,
+
+and animations
+
+මායිම්‌, සෙවනැලි සහ සජීවිකරණ වැනි දෘශ්‍ය
+
+ප්‍රයෝග
+
+Responsive behavior for different devices
+
+විවිධ උපාංග සඳහා ප්‍රතිචාරාත්මක හැසිරීම
+
+Ways of Inserting CSS 2. Internal CSS / Embedded CSS:
+
+CSS යොදන කම අභ්‍යන්තර CSS:
+
+1. Inline CSS Styles are included within the HTML document
+පේළිගත CSS inside a <style> tag, located in the <head>
+
+section.
+
+2. Internal CSS HTML ලේඛනය තුළ <head> කොටසේ පිහිටා ඇති
+අභ්‍යන්තර (55 <style> උසුලනය ඇතුළත විලාස යොදනු ලැබේ.
+
+3 External CSS Useful for single-page applications or when
+බාහිර CSS styles are specific to a particular page.
+
+තනි වෙබ්‌ BO සහිත යෙදුම්‌ සඳහා හෝ එක්‌ පිටුවකට
+විශේෂිත වූ විලාස ඇති විට ප්‍රයෝජනවත්‌ වේ.
+
+1. Inline CSS:
+පේළිගත CSS: <head>
+<style type="text/css">
+Styles are applied directly to individual
+
+elements using the style attribute.
+style උපලක්ෂණය භාවිතයෙන්‌ තනි තනි මූලාංග
+
+body {
+background-color: red;
+
+වලට සෘජුවම විලාස යොදනු ලැබේ. ද්‍ර }
+°
+. . . U {
+Inline styles override external and internal CSS ගූ P .
+. oe vy Vv) font-size: 10px;
+but are discouraged for maintainability and ටූ
+.,. color: navy;
+scalability reasons. }
+පේළිගත CSS මගින්‌ බාහිර සහ අභ්‍යන්තර CSS
+අභිබවා යන නමුත්‌ නඩත්තු කිරීමේ හැකියාව සහ </style>
+පරීමාණය කිරීමේ හේතූන්‌ මත බහුලව භාවිතා නොවේ.
+</head>
+<body>
+HTML CSS Values y
+Element
+</body>
+<p style = “font-size: 1@px; color: red; {>
+] | Nf ! 3. External CSS:
+HTML: . .
+Attribute | CSS Properties ! බාහිර CSS:
+HTML value = CSS Code | a
+HT
+HTML Code web page 1
+X.CSS
+| @
+= . ~~
+a | dh
+NU,
+web page 2 stylesheet
+| @
+= +4b~
+a 4up>
+| ඈ
+web page 2
+
+40
+
+Styles are defined in a separate .css file.
+HOGS වෙනම .css GOMOD අරිථ දක්වා ඇන.
+
+The file is linked to the HTML document using
+a <link> element in the <head> section.
+QO ගොනුව <link> මූලාංගයක්‌ භාවිතයෙන්‌ <head>
+
+කොටස තුළදී HTML ලේඛනයට සම්බන්ධ කරනු
+ලැබී.
+
+<link rel="stylesheet"
+
+type="text/css”
+
+href="location\filename.extension”>
+
+e <link>: Specifies a link to an external
+
+resource.
+බාහිර සම්පතකට සබැඳියක්‌ නියම කරයි.
+
+e rel="stylesheet": Indicates the
+relationship between the HTML document
+and the linked file. Here, it specifies that the
+linked file is a stylesheet.
+
+HTML ලේඛනය සහ සබැදි ගොනුව aad
+සම්බන්ධතාවය දක්වයි. මෙහිදී, සම්බන්ධින
+ගොනුව විලාස පතිකාවක්‌ බව එමගින්‌ සඳහන්‌
+කරයි.
+
+e type="text/css":
+Specifies the type of the linked resource.
+For CSS files, itis set to text/css. While it
+is optional in modern HTML, it was
+common in older versions.
+සබැදි සම්පත කුමන වරිගයේද යන්න නියම
+කරයි. CSS ගොනු සඳහා, එය text/css ලලස
+
+සකසනු ලැබේ. වරතමාන HTML අනුවාදයන්‌ හි
+එය විකල්පයක්‌ වුවත්‌, පැරණි අනුවාද වල එය
+පොදු විය.
+
+e = href="location\filename.extension”:
+Specifies the location of the CSS file.
+CSS ගොනුවේ ස්ථානය නියම කරයි.
+
+@import
+
+<style>
+
+@import
+
+url("styles/main.css");
+
+</style>
+
+41
+
+<style>
+Defines an internal CSS section within the
+HTML document.
+
+HTML ලේඛනය තුළ අභ්‍යන්තර CSS කොටසක්‌
+නිරිවචනය කරයි.
+
+@import
+
+A CSS rule used to include an external CSS
+file inside another stylesheet or a <style>
+block.
+
+ලවනන්‌ stylesheet එකක්‌ හෝ <style> බිලොක්‌
+එකක්‌ තුළ බාහිර CSS ගොනුවක්‌ ඇතුළත්‌ කිරීමට
+භාවිතා කරන CSS ඊතියකි.
+
+url("styles/main.css")
+
+specifies the folder (styles) and the CSS file
+(main.css) to be imported.
+
+ආයාත කළ යුතු ෆෝල්ඩරය (styles) සහ CSS
+ගොනුව (Main.css) නියම කරයි.
+
+Note:
+CSS follows a priority system to determine
+which style is applied when multiple styles
+
+target the same element.
+බහු මෝස්තර එකම මූලද්‍රව්‍යය ලෙක්ක කරගත්‌ විට
+කුමන ලෙශලිය යොදන්නේද යන්න තීරණය කිරීම
+
+සඳහා (55 ප්‍රමුඛතා පද්ධතියක්‌ අනුගමනය කරයි.
+
+Inline CSS
+
+පේළිගත CSS
+
+Inline CSS has the highest priority because
+Styles are written directly inside the HTML
+element.
+
+HTML මූලාංගය තුළ සෘජුවම ooads ලියා ඇති
+බැවින්‌ පේළිගත CSS සඳහා ඉහළම GAMO ඇන.
+
+Internal CSS and External CSS
+
+අභ්‍යන්තර CSS සහ බාහිර CSS
+
+Internal and external CSS have the same level
+of priority. When both are used, the style that
+is declared last in the HTML document takes
+precedence.
+
+අභ්‍යන්තර සහ බාහිර CSS වලට එකම ප්‍රමුඛතා
+
+මට්ටමක්‌ ඇත. දෙකම mdm කරන විට, HTML
+ලේඛනයේ අවසන්‌ වරට ප්‍රකාශ කරන ලද විලාසය
+ප්‍රමුඛතාවය ගනී.
+
+Browser Default Styles
+අතිරික්සු 6568S විලාස
+
+Browser default styles have the lowest priority
+and are applied only when no other CSS rules
+
+are defined.
+අතිරික්සු පෙරනිමි විලාසයන්ට අවම ප්‍රමුඛනාවයක්‌
+
+ඇති අතර වෙනන්‌ CSS නීති අර්ථ දක්වා නොමැති
+විට පමණක්‌ යොදනු ලැබේ.
+
+Even though inline styles have the highest
+priority, they can be overridden by more
+specific selectors (Ex. ID selectors).
+
+පේළිගත වලට QME® ප්‍රමුඛතාවය තිබුණද, Od
+වඩාත්‌ නිශ්චිත වරක (උදා: ID වරකය) මගින්‌ අභිබවා
+යා හැක.
+
+The !important rule can override all CSS rules,
+regardless of their origin or specificity.
+limportant ටතියට අනෙක්‌ සියලුම රතී වල
+මූලාරම්භය හෝ විශේෂත්වය නොසලකා, TO. අභිබවා
+යා හැක.
+
+42
+
+Note: ! important
+
+The !important rule in CSS is used to give a
+style declaration higher priority, making it
+override other styles even if those styles have
+higher specificity or come from a_higher-
+priority source (like inline CSS).
+
+CSS හි !important 586 භාවිතා කරනුයේ විලාස
+ප්‍රකාශනයකට හෙළ ප්‍රමුඛනාවයක්‌ ලබා දීම සඳහා වන
+අතර, චමගින්‌ අනෙකුාන්‌ විලාසයන්ට ඉහළ
+නිශ්චිතතාවයක්‌ තිබුණත්‌, හෙළ ප්‍රමුඛතා මූලාශ්‍රයකින්‌
+(පේළිගත (55 වැනි) පැමිණියත්‌, එම විලාසයන්‌
+අභිබවා යයි.
+
+selector {
+
+property: value !important;
+
+}
+
+Ex
+
+p {
+
+color: red !important;
+
+}
+
+Even if other rules try to change the color of the
+paragraph, the! important declaration
+ensures that the color remains red as long as
+another rule with !important and higher
+specificity overrides it.
+
+වෙනත්‌ 58 මගින්‌ ජේදයේ වර්ණය වෙනස්‌ කිරීමට
+උත්සාහ කළත්‌, !important ප්‍රකාශය සහිත හෙළ
+නිශ්ච්තතාවයක්‌ ඇති වෙනත්‌ රනියක්‌ මගින්‌ එය
+අභිබවා නොයන නාක්‌ මෙම !important ප්‍රකාශනය
+මඟින්‌ ජේදයෙහි වර්ණය රනු පැහැයෙන්‌ පවතින බව
+සහතික කරනු ලබයි.
+
+CSS Syntax
+
+selector {
+property: value;
+
+}
+
+This syntax is used only for internal and
+external CSS, not for inline CSS.
+ලමම syntax චක භාවිතා කරනුයේ අභ්‍යන්තර සහ
+
+බාහිර CSS සඳහා පමණි, පේළිගතන CSS සඳහා
+භාවිතා නොවේ.
+
+e Selector
+වරකය::
+Specifies the HTML element(s) to which the
+rule applies.
+58a අදාළ වන HTML මූලාංග(ය) සදහන්‌ කරයි.
+
+e Declaration Block:
+Enclosed in curly braces {}, contains one or
+more declarations.
+
+සගල වරහන්‌ {} DE සංවෘත කර ඇති අතර,
+ප්‍රකාශන එකක්‌ හෝ කිහිපයක්‌ ඒ pe අඩංගු 6H.
+
+e Declaration:
+Each declaration consists of a property and
+its associated value, separated by a colon (:)
+and ending with a semicolon ().
+සෑම ප්‍රකාශනයක්ම colon (:) චකකින්‌ වෙන්‌ වන
+
+property වකක්‌ සහ එයට අදාල අගයකින්‌
+සමන්විත වන අතර, මෙම එක්‌ ප්‍රකාශනයක්‌ අර්ධ
+කොලනයකබකින්‌ (;) අවසන්‌ කරනු ලැබේ.
+
+Example.
+
+p {
+
+color: blue;
+
+font-size: 16px;
+
+}
+
+This example applies a blue color and 16px font
+size to all <p> elements.
+
+GOO උදාහරණයේදී සියලුම <p> මූලාංග සඳහා නිල්‌
+වර්ණයක්‌ සහ පික්සල්‌ 16 ක ප්‍රමාණයේ අකුරැ යොදනු
+ලබයි.
+
+43
+
+CSS Selectors
+CSS චරක
+
+Selectors in CSS are used to specify which HTML
+elements you want to style. They define the
+elements that the styles will apply to.
+
+CSS වරක භාවිතා කරනුයේ විලාස කිරීමට අවශ්‍ය
+
+HTML මූලාංග මොනවාද යන්න සදහන්‌ කිරීමටයි.
+6OO) මගින්‌ විලාස වලට අදාළ වන මූලාංග නිර්වචනය
+කරයි.
+
+1. Element Selector
+මූලාංග Ode
+
+Targets all HTML elements of a specific type.
+නිශ්චිත වර්ගයක සියලුම HTML මූලාංග ලෙක්ක
+කරයි.
+
+CSS code:
+
+p {
+
+font-size: 20px;
+
+color: red;
+
+HTML code:
+
+<p>This is a paragraph styled using
+
+the element selector.</p>
+
+<p>Another paragraph styled
+
+Similarly.</p>
+
+Both <p> elements will have a font size of
+20px and red text color.
+
+<P> මූලාංග දෙකෙහිම අකුරැ ප්‍රමාණය (2Opx) සහ
+රතු පැහැති පෙළ වර්ණයක්‌ වනු ඇන.
+
+2. ID Selector
+ID චරකය
+
+ID Concept is used to separate elements from
+
+each other even If they are of the same type
+එකම වර්ගයේ මූලාංග වුවද, එකිනෙකින්‌ වෙන්‌ කිරීමට
+
+Id සංකල්පය භාවිතා කරයි..
+
+CSS Code:
+
+#header {
+
+font-size: 24px;
+
+color: crimson;
+
+HTML Code:
+
+<h1 id="header">This is a unique
+
+heading styled with the ID
+
+selector.</h1>
+
+<hi>This is another heading that is
+
+not affected by the ID
+
+selector.</h1>
+
+The ID selector (#header) affects only the <h1>
+with id="header", leaving other <h1>
+elements unaffected.
+
+ID වරකය, (#header) id="header" සහිත <hi>
+
+උසුලනයට පමණක්‌ බලපාන අතර අනෙකුත්‌ <hi>
+මූලාංග වලට බලපෑමක්‌ සිදු නොවේ.
+
+3. Class Selector
+පන්ති වරකය
+
+The class concept is used to inform the
+computer that several tags belong to the same
+
+class, even if they are not the same.
+
+උසුලන කිහිපයක්‌ සමාන නොවුනත්‌ ඒවා එකම
+පන්තියකට අයත්‌ බව පරිගණකයට දැනුමි දීමට පන්ති
+සංකල්පය භාවිනා කරයි,
+
+CSS Code:
+
+whighlight {
+
+background-color: yellow;
+
+font-weight: bold;
+
+}
+
+44
+
+HTML Code:
+
+<h1 class="highlight">
+
+This heading is highlighted using the
+class selector.</h1>
+
+<p class="highlight”>
+
+This paragraph is also highlighted
+
+using the same class.</p>
+
+The class selector .highlight applies the
+defined styles only to elements with the
+class="highlight" attribute, leaving all other
+elements untouched.
+
+-highlight පන්ති වරකය මඟින්‌ යොදා ඇති
+විලාසයන්‌ class="highlight" උපලක්ෂණය
+සහිත මූලාංග සඳහා පමණක්‌ යොදනු ලබන අතර,
+අනෙකුත්‌ සියලුම මූලාංග වලට බලපෑමක්‌ සිටු
+නොකරයි.
+
+4. Universal Selector
+
+Targets all elements in the document.
+ලේඛනයේ සියලුම QQ” ලෙක්ක කරයි.
+
+Used to apply general styles.
+පොදු විලාස යෙදීමට භාවිතා කරයි.
+
+CSS Code:
+*{
+
+margin: 6;
+
+padding: 0;
+
+box-sizing: border-box;
+}
+HTML Code:
+<h1>Heading</h1>
+
+<p>This paragraph and all other
+
+elements have no margin or
+
+padding.</p>
+
+5. Group Selectors
+කාණ්ඩ Ode
+
+Allows you to apply the same style to multiple
+elements by combining their selectors,
+separated by commas.
+
+එක්‌ එක්‌ වරකය කොමා මඟින්‌ චෙන්‌ කර එකාබද්ධ
+
+කිරීමෙන්‌ මූලාංග කිහිපයකට එකම විලාසය යෙදීමට
+ඉඩ සලසයි.
+
+Syntax:
+
+selector1, selector2, selector3 {
+/* Common styles */
+
+}
+
+e ach selector (e.g., element, class, or ID) is
+separated by a comma.
+
+චක්‌ එක්‌ වරකය (උදා: මූලාංගය, පන්තිය හෝ ID
+එක) කොමාවකින්‌ වෙන්‌ කරනු ලැබේ.
+
+Example:
+
+CSS Code:
+
+h1, p, -highlight, #unique {
+
+color: blue;
+
+font-family: Arial, sans-serif;
+
+Compound Selectors
+සංයුක්ත GOO කාරක
+
+Combines two or more simple selectors to
+
+target a single element
+සරල ඉතේරථීමි කාරක දෙකක්‌ හෝ වැඩි ගණනක්‌
+චිකාබද්ධ කර තනි මූලාංගයක්‌ ලෙක්ක කරයි
+
+Different from group selectors, which use
+
+commas (,) to select multiple elements.
+බහු මූලාංග තෝරා ගැනීමට කොමා (,) භාවිතා කරන
+කණ්ඩායම්‌ තේරීම්‌ කාරකචලට වඩා වෙනස්‌ GS.
+
+No spaces are used between selectors
+තේර්ම්‌ කාරක අතර හිස්තැන්‌ භාවිතා නොකෙරේ
+
+Compound Selector Forms
+සංයුක්ත SOO කාරක ආකාර
+
+e Element + Class Selector
+
+Selects a given element that has a certain class.
+දී ඇති මූලාංගයක්‌ නිශ්චිත පන්තියක්‌ මත පදනම්ව
+තෝරා ගනී.
+
+}
+
+p.highlight { color: red; }
+
+HTML Code:
+
+W Selects:
+
+<hi>This is a heading.</h1>
+
+<p class="highlight">...</p>
+
+<p>This is a paragraph.</p>
+
+X Does NOT select:
+
+<p class="highlight">
+
+<div class="highlight">...</div>
+
+This is a highlighted paragraph.
+
+</p>
+
+<div class="highlight">
+
+This is a div with highlight class.
+
+</div>
+
+e Element + ID Selector
+
+Selects a given element with a specific ID.
+දී ඇති මූලාංගයක්‌ නිශ්චිත එකක්‌ මත පදනම්ව
+තෝරා ගනී.
+
+<div id="unique">
+
+hi#title {
+
+This div has a unique ID.
+
+font-size: 32px;
+
+</div>
+
+The group selector applies the same styles to:
+කාණ්ඩ වරකය මගින්‌ එකම විලාසයන්‌ පහත සඳහන්‌
+FO) සඳහා යොදනු ලබයි:
+
+e <h1>
+
+e <p>
+
+e Any element with the class .highlight
+-highlight පන්තිය සහිත ඕනෑම මූලාංගයක්‌
+
+e The element with the ID #unique
+#unique යන ID චක සහිත මුලාංගය
+
+Targets the <h1> element whose ID is title
+ID වක title වන <h1> මූලාංගය ලෙක්ක කරයි
+
+Multiple Class Selector
+
+Selects elements that have all listed classes.
+සදහන්‌ කර ඇති සියලුම පන්ති ඇති මූලාංගය
+තෝරා ගනී.
+
+.btn.primary { padding: 1@px; }
+
+Targets elements with both classes
+පන්ති දෙකම සහිත GEO ලෙක්ක කරයි
+
+@# Matches:
+
+<button class="button
+primary"></button>
+
+Note: (Not in the syllabus)
+
+Attribute Selector
+උපලක්ෂණ Oda
+
+Attribute selectors target elements based on
+
+their attributes or values.
+උපලක්ෂණ වරකය මගින්‌ මූලාංග OE උපලක්ෂණ
+හෝ අගයන්‌ මත පදනමීව HO) ලෙක්ක කරයි.
+
+1.
+
+[attr]:
+Selects elements with a specific attribute.
+
+නිශ්ච්න උපලක්ෂණයක්‌ සහිත මුූලාංගයක්‌
+තෝරයි.
+
+[attr="value”]:
+Selects elements with an exact attribute
+
+value.
+නිශ්චිත උපලක්ෂණයක්‌ අගයක්‌ සහිත
+මූලාංගයක්‌ තෝරයි.
+
+[attr’*="value"]:
+Selects elements where the attribute starts
+
+with a value.
+උපලක්ෂණය අගයකින්‌ ආරම්භ වන මූලාංගයක්‌
+තෝරයි.
+
+[attr$="value"]:
+Selects elements where the attribute ends
+
+with a value.
+උපලක්ෂණය අගයකින්‌ අවසන්‌ OD මූලාංග
+තෝරයි.
+
+[attr*="value"]:
+Selects elements where the attribute
+
+contains a value.
+උපලක්ෂණයට අගයක්‌ අඩංගු QQ” තෝරයි.
+
+46
+
+CSS Code:
+
+[href4="https"] {
+
+color: green; }
+
+[src$=".png"] f{
+
+border: 2px solid red; }
+
+[title] {
+
+font-weight: bold; }
+
+e [href*="https"]: This selector targets
+links (<a>) whose href attribute starts with
+https.
+ලමම වරකය මගින්‌ https වලින්‌ ආරම්භ වන href
+උපලකක්‍්ෂණය ඇති සබැඳි (<a>) ලෙක්ක කරයි.
+
+e [src$=".png"]: This selector targets
+images (<img>) whose src attribute ends
+with .png.
+
+ලමම වරකය මගින්‌ src උපලක්ෂණය .. 00016 වලින්‌
+අවසන්‌ වන රෑප (<img>) ලෙක්ක කරයි.
+
+e [title]: This selector targets elements with
+
+a title attribute.
+මෙම වරකය මගින්‌ මාතෘකා ගුණාංගයක්‌ සහිත
+මූලාංග ලෙක්ක කරයි.
+
+HTML Code:
+
+<a href="https://example.com"
+
+title="Example Link">
+
+Visit Example</a>
+
+<a href="http://example.org">
+
+Visit Example 2 </a>
+
+<img src="image.png" alt="Image
+Example" >
+
+<img src="image.jpg" alt="Another
+
+Image" >
+
+Appearance Formatting with CSS
+CSS සමග පෙනුම විලාස ගැන්වීම
+
+(A) Font Properties:
+
+1.
+
+Font Style:
+
+Defines italic or oblique text (normal, italic,
+
+oblique).
+
+italic හෝ oblique අකුරැ (සාමාන්‍ය, ඇල අකූරැ,
+
+ආනත) නිරිවචනය කරයි.
+
+em {
+
+font-style: italic;
+
+}
+
+Font Variant:
+Defines the use of small-caps text.
+
+කුඩා අකුරැ පෙළ භාවිතය නිර්වචනය දක්වයි.
+
+p {
+
+font-variant: small-caps;
+
+[1
+
+Font Weight:
+
+Adjusts thickness.
+
+ඝණකම සකසයි (normal, bold, lighter,
+100-900).
+
+h1 {
+
+font-weight: bold;
+
+}
+
+Font Size:
+
+Sets the size of the font.
+අකුරැ ප්‍රමාණය සකසයි
+
+(e.g., 16px, 1.5rem, %, em)
+
+p {
+
+font-size: 18px;
+
+}
+
+Line Height:
+Adjusts spacing between lines.
+පේළි අතර පරතරය සකස්‌ කරයි.
+
+01
+line-height: 1.5;
+[1
+Font Family
+Defines the font type.
+
+අකුරැ වර්ගය නිරිවචනය කරයි.
+
+p {
+
+font-family: ‘Arial’,
+
+‘Helvetica’, sans-serif;
+
+}
+
+4/7
+
+CSS Shorthand Properties
+CSS කෙටි යෙදුම්‌ ගුණාංග
+
+family
+v
+
+/
+|
+line-height
+
+ආ
+ස [ව
+D
+දී
+i=
+ඤු කි
+=
+_~
+ෆු
+oP
+©
+>
+a
+<_— >
+D
+ද:
+c
+රෙ
+—
+
+Can skip. But can't change the order.
+
+මඟ හැර යා හැක. නමුත්‌ පිළිවෙල වෙනස්‌ කල
+
+නොහැක
+
+Allow you to write multiple related CSS
+properties in a single line.
+
+එක්‌ පේළියකින්‌ අදාළ CSS ගුණාංග කිහිපයක්‌ ලිවීමට ඩෙ
+
+සලසයි.
+
+text-decoration:
+
+e text-decoration-line
+
+e text-decoration-style
+
+e text-decoration-color
+
+e text-decoration-thickness
+
+Ex.
+
+p {
+
+text-decoration: underline dotted red
+
+2px;
+
+[1
+
+Equivalent Longhand
+
+p {
+
+text-decoration-line: underline;
+
+text-decoration-style: dotted;
+
+text-decoration-color: red;
+
+text-decoration-thickness: 2px;
+
+Text Properties:
+
+Color.
+
+p {
+
+color: #333333;
+
+/* Dark gray */
+
+}
+
+Text Align
+
+Aligns text.
+
+අකුරැ පෙළගස්වයි.
+
+(left, right, center, justify)
+
+h2 {
+
+text-align: center;
+
+}
+
+Text Transform
+
+Changes the capitalization of text.
+පෙළෙහි කැපිටල්කරණය වෙනස්‌ කරයි.
+
+Values:
+
+none - No transformation (default)
+
+කිසිදු පර්වරිතනයක්‌ යොදනු GME
+(683658).
+
+capitalize - Capitalizes the first letter of
+
+each word.
+සෑම වචනයකම පළමු අකුර කැපිටල්‌ කරයි.
+
+uppercase - Converts all text to uppercase.
+සියලුම පෙළ කැපිටල්‌ අකුරට SHOKMHG කරයි.
+
+lowercase - Converts all text to lowercase.
+සියලුම GSE කුඩා අකුරට BHOKMHG කරයි.
+
+full-width
+
+Changes text to a full-width
+පෙළ සම්පූර්ණ SEE ආකාරයකට වෙනස්‌ කරයි
+
+Text Indent
+Specifies the indentation of the first line of
+text in a block. It can take length values or
+percentages.
+
+බිලොක්‌ එකක පෙළෙහි පළමු පේළියේ indent
+එක නියම කරයි. එයට දිග අගයන්‌ හෝ ප්‍රනිශතන
+QD හැකිය.
+
+Example:
+
+p {
+
+text-indent: 2em;
+
+}
+
+48
+
+5. Text Shadow
+
+Adds shadow effects to text.
+පෙළට ඉසවනැල්ලක්‌ Ha) කරයි.
+
+Syntax:
+text-shadow: h-offset v-offset
+blur-radius color;
+
+h-offset
+Positive values / ධන අගයන්‌
+
+Shadow moves to the right
+සෙවනැල්ල දකුණට ගමන්‌ කරයි
+
+e Negative values / සෘණ අගයන්‌
+
+Shadow moves to the left
+සෙවනැල්ල වමට ගමන්‌ කරයි
+
+v-offset
+e = Positive values / ධන අගයන්‌
+
+Shadow moves downward
+සෙවනැල්ල පහළට ගමන්‌ කරයි
+
+e Negative values / සෘණ අගයන්‌
+
+Shadow moves upward
+සෙවනැල්ල හෙළට ගමන්‌ කරයි
+
+-V
+-h<| TEXT | -- +h
++V
+blur-radius
+
+Optional. Controls the blurriness of the
+
+shadow (default is 0).
+විකල්පයකි. සෙවනැල්ලේ බොඳ බව පාලනය
+කරයි (පෙරනිමිය 0).
+
+color
+
+Specifies the shadow color.
+සෙවනැලි වරණය නියම කරයි.
+
+Example:
+
+h2 {
+
+text-shadow: 2px 2px 5px rgba(e,
+
+6, @, 6.5);
+
+}
+
+6. Text decoration
+
+i) text-decoration-line
+
+This property allows you to specify exactly
+
+which decoration line(s) to apply to the text.
+මෙම ගුණාංගය මගින්‌ පෙළට යෙදිය යුතු අලංකරණ
+රේඛා නියම කිරීමට ඉඩ සලසයි.
+
+Values:
+
+none
+
+No decoration.
+සැරසිලි නැත.
+
+underline
+
+Adds a line below the text.
+පෙළට පහළින්‌ රේඛාවක්‌ චක්‌ කරයි.
+
+overline
+
+Adds a line above the text.
+පෙළට MGs රේඛාවක්‌ Hed කරයි.
+
+line-through
+Adds a strike-through line in the middle of the
+
+text.
+පෙළ මැදට රේඛාවක්‌ එක්‌ කරයි.
+
+Example:
+
+p {
+
+text-decoration-line: underline
+
+overline;
+
+}
+
+Note:
+Multiple values
+
+underline overline).
+බහු අගයන්‌ ඒකාබද්ධ කළ හැකිය
+
+can be combined
+
+(e.g.,
+
+ii) text-decoration-color
+
+This property sets the color of the text
+decoration (e.g., underline, overline, or line-
+through).
+
+මෙම ගුණාංගය පෙළ අලංකරණයේ වරණය සකසයි
+
+Example:
+
+p {
+
+text-decoration-color: red;
+
+49
+
+iii) text-decoration-style
+This property defines the style of the text
+decoration, such as solid, dotted, or wavy.
+
+මෙම ගුණාංගය ඝන, නින්‌ සහින හෝ AB සහිත වැනි
+පෙළ සැරසිලි විලාස සකසයි.
+
+Values:
+
+solid: A plain solid line (default).
+සරල ඝන රේඛාවක්‌ (පෙරනිමි).
+
+double: Two solid lines.
+ඝන රේඛා දෙකක්‌.
+
+dotted: A dotted line.
+තිත්‌ සහිත රේඛාවක්‌.
+
+dashed: A dashed line.
+කඩ OO සහිත රේඛාවක්‌.
+
+wavy: A wavy line.
+රැලි සහිත රේඛාවක්‌.
+
+Example:
+
+p {
+
+text-decoration-style: wavy;
+
+iv) text-decoration-thickness
+
+This property allows you to control the thickness
+
+of the text decoration line.
+GOO ගුණාංගය මගින්‌ පෙළ අලංකරණ රේඛාවේ ඝණකම
+පාලනය කිරීමට ඔබට ඩෙ සලසයි.
+
+Values:
+
+length
+
+A specific length (e.g., 2px, 0.2em).
+නිශ්චිත දිගක්‌ යෙදීම.
+
+auto
+
+Automatically adjusts based on the font size.
+අකුරැ ප්‍රමාණය මත පදනම්ව ස්වයංඛ්‍රීයව සකස්‌ වේ.
+
+from-font
+
+Uses the font's recommended thickness.
+අකුරැ OE නිරිදේශිත ඝණකම භාවිතා කරයි.
+
+Example:
+
+p {
+
+text-decoration-thickness: 3px;
+
+[1
+
+1. LINKS
+Link states
+
+a:link
+Styles the default appearance of unvisited links.
+
+චක්‌ වරක්වත්‌ නොපිවිසිනු සබැඳිවල පෙරනිමි ඉපනුම
+මෝස්තර කරයි.
+
+a:link {
+
+color: blue;
+
+Unvisited links will appear in blue.
+නොපිවිසිනු සබැඳි BS පැහැයෙන්‌ දිස්‌ වනු ඇත.
+
+a:visited
+Styles links after they have been clicked or visited
+
+by the user.
+පරිශීලකයා විසින්‌ ක්ලික්‌ කිරීමෙන්‌ හෝ පිවිසීමෙන්‌ පසු
+සබැඳි විලාස ගන්වයි.
+
+a:visited {
+
+color: purple;
+
+Visited links will turn purple.
+පිවිසි සබැඳි EO පැහැයට හැරේ.
+
+a:hover
+Styles the link when the user hovers the mouse
+pointer over it.
+
+පරිශීලකයා මූසික දරිශකය සබැදිය මතින්‌ රැගෙන යන
+ව්ට එය මෝස්තර කරයි.
+
+a:hover {
+
+color: red;
+
+text-decoration: underline;
+
+Links will turn red and get underlined when
+
+hovered over.
+මූසික CHQDG සබැඳිය උඩින්‌ ඇති 5O එය රතු පැහැයට
+හැරෙන අතර යටින්‌ රෙක්‌ ඇඳනු ඇත.
+
+a:active
+Styles the link when it is being clicked (i.e., when
+the mouse button is pressed).
+
+සබැඳිය ක්ලික්‌ කරන විට එය හැඩගන්වයි (එනමි, මූසික
+බොත්තම එබූ විට),
+
+a:active {
+
+color: green;
+
+}
+
+Links will turn green while being clicked.
+ක්ලික්‌ කිරීමේදී සබැඳි කොළ පැහැයට හැරේ.
+
+50
+
+a: focus
+
+Styles the link when it gains focus, often due to
+keyboard navigation (e.g., using the Tab key).
+බොහෝ විට යතනුරැපුවරැ සංචාලනය හේතුවෙන්‌ (උදා:
+OTD BDO භාවිතයෙන්‌) සබැඳිය නාභිගත කරන විට
+එය මෝස්තර කරයි.
+
+a:focus 4
+
+outline: 2px solid orange;
+
+Links will have an orange outline when focused
+
+via keyboard navigation.
+යතුරැපුවරු සංචාලනය හරභා නාභිගත කළ HO
+සබැඳි වටා තැඹිලි පැහැති කොටුවක්‌ ලබා දෙයි.
+
+Removing Default Styles:
+Links have default styles (e.g., underline). text -
+decoration and color can be used to
+
+customize them:
+
+සබැඳිවල පෙරනිමි විලාස ඇත (උදා: GO රේ). Hd
+අභිරැචිකරණය කිරීමට text-decoration සහ
+color භාවිනා කළ හැක:
+
+a {
+
+text-decoration: none;
+
+color: #0077cCc;
+
+*These states should be written in the
+
+following order.
+GOO උපලක්ෂණ පහත අනුපිළිවෙලට ලිවිය De.
+
+LVHA Order
+L —:link
+V —:visited
+H — ‘hover
+A —:active
+
+CSS applies styles based on specificity and
+order. If the link states are not written in the
+correct order, some styles may not work
+properly.
+
+CSS නිශ්ච්තභාවය සහ අනුපිළිවෙල මත පදනම්ව
+විලාස යොදයි. සබැඳි විලාස නිවැරදි අනුපිළිවෙලට
+ලියා නොමැති නමි, සමහර විලාස නිසි ලෙස Ga
+නොකරනු ඇත.
+
+2. LISTS
+
+8) list-style-type
+
+This property specifies the type of marker (e.g.,
+
+bullet, number, or character) for list items.
+මෙම උපලක්ෂණය මගින්‌ ලැයිස්තු අයිතම සඳහා වන
+සලකුණු වර්ගය (6e):bullet, number, or character)
+
+නියම කරයි.
+
+Values:
+
+For unordered lists (<ul>):
+
+e = disc (default).
+
+e circle
+e square
+e none
+
+For ordered lists (<ol>):
+
+1. Number Styles
+
+decimal
+1. Item
+2. Item
+3. Item
+
+decimal-leading-zero
+61. Item
+602. Item
+03. Item
+
+2. Roman Numerals
+
+lower-roman
+
+i. Item
+ii. Item
+iii. Item
+
+upper-roman
+
+I. Item
+II. Item
+III. Item
+
+3. Alphabet Styles
+
+lower-alpha
+
+a. Item
+b. Item
+c. Item
+
+upper-alpha
+
+A. Item
+B. Item
+C. Item
+
+51
+
+4. Greek Letters
+
+lower - greek
+a. Item
+B. Item
+y. Item
+
+Example:
+
+ol {
+
+list-style-type: upper-roman;
+
+b) list-style-position
+Defines whether the marker (bullet or number)
+appears inside or outside the content box of the
+
+list item.
+
+සලකුණු (bullet Am හෝ සංඛ්‍යාව) දිස්වන්නේ
+ලැයිස්තු අයිතමයේ අන්තරගත කොටුව තුළද හෝ
+පිටතද යන්න නිරිවචනය කරයි.
+
+Values:
+
+e outside (default):
+
+Marker appears outside the list item's text.
+ලැයිස්තු අයිතමයේ
+සලකුණුකාරකය දිස්වේ.
+
+10.
+11.
+12.
+
+e inside
+
+item
+item
+item
+item
+
+පිටතින්‌
+
+Marker appears inside the list item's text.
+ලැයිස්තු අයිතමයේ
+සලකුණුකාරකය දිස්වේ.
+
+ඇනුළතින්‌
+
+1
+| 9. item
+1 10.item
+11.item
+! 12.item
+1
+
+Example:
+
+ul {
+
+list-style-position: inside;
+
+}
+
+c) list-style-image
+Allows you to specify a custom image as the
+
+marker for list items.
+ලැයිස්තු අයිතම සඳහා සලකුණු කාරකය ලෙස ඔබට
+කැමති රෑපයක්‌ නියම කිරීමට ඉඩ සලසයි.
+
+Values:
+
+e url (‘<image-path>')
+e none (default)
+
+Example:
+
+CSS Spacing Essentials
+
+1. Letter Spacing
+Changes the space between _ individual
+
+characters in text.
+පෙළෙහි තනි අක්ෂර අතර අවකාශය වෙනස්‌ කරයි.
+
+letter-spacing: 2px;
+
+2. Word spacing
+
+Controls the space between words.
+HOD අතර අවකාශය පාලනය කරයි.
+
+ul {
+
+word-spacing: 160 ;
+
+list-style-image: url('custom
+
+bullet.png');
+
+}
+
+Resetting List Styles
+If you want to remove all default list styling, you
+
+can reset the list-style:
+ඔබට සියලුට පෙරනිමි ලැයිස්තු විලාස වෙත්‌ කිරීමට
+
+අවශ්‍ය නම්‌, list-style නැවන සැකසිය හැක:
+
+ul, ol {
+
+list-style: none;
+
+padding: 0;
+
+margin: 0;
+
+}
+
+list-style (Shorthand)
+
+The list-style property 15 a shorthand to set
+all list-related styles in a single declaration.
+list-style උපලක්ෂණය යනු ලැයිස්තු ආශ්‍රිත
+සියලුම විලාස තනි ප්‍රකාශනයකින්‌ සැකසීම සදහා වන
+කෙටි යෙදුමකි.
+
+e list-style-type
+e list-style-position
+e list-style-image
+
+Syntax:
+
+list-style: list-style-type list-
+style-position list-style-image;
+
+Example:
+
+3. Line spacing
+Discussed earlier.
+පෙරදී සාකච්ඡා කර ඇත.
+
+4. Text Indentation
+
+Discussed earlier.
+පෙරදී සාකච්ඡා කර ඇත.
+
+5. Border Spacing
+
+Will discuss in TABLES.
+වගු වලදී සාකච්ඡා කරනු ඇන.
+
+6. White Space
+Controls how spaces, tabs, and line breaks
+appear in text.
+
+පෙළෙහි හිස්තැන්‌, ටැබි සහ line breaks දිස්වන
+ආකාරය පාලනය කරයි.
+
+white-space: nowrap;
+
+ul {
+
+list-style: square inside
+
+url('bullet.png');
+
+}
+
+(prevents text from wrapping).
+
+NOTE:
+Importance of Using “None” as a Value
+None" යන්න අගයක්‌ ලෙස භාවිතා කිරීමේ වැදගත්කම
+
+* Can be used to remove a default style in
+
+elements.
+මූලාංගවල පෙරනිමි විලාසයක්‌ @Oe කිරීමට
+භාවිතා කළ හැක.
+
+Ex: Removing underline from links
+සබැඳිවලින්‌ GO රේ e835 කිරීම (text-
+decoration: none;)
+
+* Can remove styles in specific elements which
+
+were added internally or externally.
+අභ්‍යන්තරව හෝ බාහිරව එකතු කරන ලද විලාස
+නිශ්ච්ත මූලාංගවල වෙත්‌ කළ හැක.
+
+* Improves code clarity by clearly indicating
+that a style has been intentionally removed
+
+rather than forgotten.
+
+විලාසයක්‌ අමතක වීමට වඩා හිතාමතාම වෙත්‌ කර
+ඇති බව පැහැදිලිව දැක්වීමෙන්‌ කේත පැහැදිලි
+බව වැඩි දියුණු කිරීමට.
+
+CSS Backgrounds
+CSS පසුබිම්‌
+
+background:
+A shorthand property for setting multiple
+background-related properties in a_ single
+
+declaration.
+තනි ප්‍රකාශනයක පසුබිම්‌ ආශිත උපලක්ෂණ කිහිපයක්‌
+සැකසීම සඳහා වූ කෙටි යෙදුම්‌ උපල්ක්ෂණයකි.
+
+The properties it can include (in order):
+එයට ඇතුළත්‌ කළ හැකි උපලක්ෂණ (පිළිවෙලට):
+
+e background-color:
+
+Sets the background color.
+පසුබිම්‌ වරණය සකසයි.
+
+ 6301[(21”0(1(1(1- 11366 :
+Specifies the background image.
+පසුබිම්‌ රෑපය සදහන්‌ කරයි.
+
+e background-position:
+Sets the starting position’ of
+
+background image.
+පසුබිම්‌ රෑපයේ ආරම්භක ස්ථානය සකසයි.
+
+the
+
+e background-size:
+
+Defines the size of the background image.
+පසුබිම්‌ රෑපයේ ප්‍රමාණය නිර්චචනය කරයි.
+
+e background-repeat:
+Determines how/if the background image
+
+repeats.
+පසුබිම්‌ රෑපය පුනරාවරිතනය වන්නේ ද / කෙසේද
+යන්න තීරණය කරයි.
+
+e background-attachment:
+Specifies if the background is fixed or
+
+scrolls.
+පසුබිම්‌ රෑපය ස්ථාවරද නැතහොත්‌ අනුචලනය
+වන්නේද යන්න නියම කරයි.
+
+e background-origin:
+Defines the positioning area for the
+
+background image.
+පසුබිමි රෑපය සඳහා වන ස්ථානගන කිරීමේ
+ප්‍රදේශය නිරිවචනය කරයි.
+
+53
+
+Syntax Example:
+
+background:
+
+[background-color]
+
+[background- image ]
+[background-position |]
+[background-size |
+[background-repeat ]
+[background-attachment] [background-
+origin];
+
+Examples
+
+background-color: #fOfOf®@;
+
+background-image:
+
+url( ‘background. jpg’);
+
+background-position: center
+
+center;
+
+background-size: cover;
+
+background-repeat: no-repeat;
+
+background-attachment: fixed;
+
+background-origin: padding-box;
+
+CSS Comments
+CSS විචරණ
+
+CSS comments begin with /* and end with */.
+
+CSS විවරණ /* මගින්‌ ආරම්භ 5 */ මගින්‌ අවසන්‌
+චේ.
+
+Comments are ignored by browsers and are
+used to annotate the code or temporarily
+disable specific styles during development.
+විවරණ GOB අතරක්සු විසින්‌ නොසලකා හරින අතර
+සංවර්ධනය අතරතුර GWDGS පැහැදිලි කරගැනීමට
+හෝ නිශ්චිත විලාසිතා තාවකාලිකව aa කිරීමට
+භාවිතා කරයි.
+
+/* This is a single-line comment */
+
+/*
+
+This is a multi-line comment.
+
+It can span multiple lines.
+
+*/
+
+CSS Box Model 3. Border:
+A border that wraps around the padding (or
+
+The CSS Box Model describes the rectangular content if padding is not specified).
+boxes that are generated for elements in a web padding එවක වටා ඇති ©2803 (හෝ padding
+page. It includes the following areas: චක නිශ්චිතව දක්වා නොමැති නමි එහි ඇති
+CSS මගින්‌ වෙබ්‌ පිටුවක මූලාංග සඳහා ජනනය කරන අන්තරගතයයි).
+ලද සෘජුකෝණාස්‍රාකාර කොටු විස්තර කරයි. එයට
+පහත ක්ෂේත ඇතුළත්‌ චේ: Its width, style, and color can be controlled
+using the border property (e.g., border:
+Margin 1px solid black;).
+Border එහි පළල, විලාසය සහ වරණය border
+්‌ Padding ae | property එක භාවිතයෙන්‌ පාලනය කළ හැක
+! භක | | (උදා: border: 1px solid black;).
+| | Content | |
+Pot 1 4. Margin:
+| ] The space outside the border that
+separates the element from other elements.
+මූලාංගය අනෙකුත්‌ මූලාංග වලින්‌ වෙන්‌ කරන
+මායිමෙන්‌ පිටත අවකාශයයි.
+1. Content: Can be set using the margin property (e.g
+The actual content of the element (e.g., text, . aa
+. margin: 20@px;).
+images). .
+මූලාංගයේ සත්‍ය අන්තර්ගතය යි. (උදා: පෙළ, margin property එක භාවිතයෙන්‌ සැකසිය
+රෑප) හැක (උදා: margin: 20px;).
+
+5. Radius:
+
+It curves the four corners of the border.
+එය මායිමේ කොන්‌ හතර වක්‍ර කරයි.
+
+It is the innermost part of the box. width
+
+and height define the size of this are.
+එය කොටුවේ අභ්‍යන්තරම කොටසයි. පළල සහ
+උස මෙහි ප්‍රමාණය අර්ථ දක්වයි.
+6. Box-shadow:
+2. Padding: Used to apply a shadow.
+
+සෙවනැල්ලක්‌ යෙදීමට භාවිතා කරයි.
+The space between the content and the ල්ල ©
+
+border. Same as applying the text shadow.
+අන්තර්ගතය සහ මායිම අතර අවකාශය යි. පෙළට සෙවනැල්ල යෙදීම හා සමානයි.
+It clears the area around the content. Example Usage:
+
+එය අන්තර්ගනය වටා ඇති ප්‍රදේශය හිස්‌ කරයි.
+
+div {
+width: 2@0px;
+height: 10@px;
+padding: 10px;
+
+Can be set using the padding property (e.g.,
+padding: 1@px;).
+
+padding property එක භාවිනයෙන්‌ සැකසිය
+හැකිය (උදා: padding: 10px;).
+
+border: 2px solid black;
+
+margin: 20px;
+ft border-radius: 25px;
+y box-shadow: 2px 2px 5px rgba(@,
+> n €- | ~~ ~~ 09, 06, 6.5);
+{ }
+padding margin
+
+54
+
+CSS Borders
+
+Used to define the boundary or outline around
+
+an element.
+මූලාංගයක්‌ වටා OBO හෝ දළ සටහන අර්ථ
+දැක්වීමට භාවිතා කරයි.
+
+Borders can have different widths, styles, and
+
+colors.
+මායිම්වලට විවිධ පළල, විලාස සහ වරිණ HBS
+හැකිය.
+
+Border Properties:
+
+1. border-width:
+Defines the thickness of the border. Can be
+Set using keywords (thin, medium, thick) or
+specific values (e.g., px, em).
+මායිමේ ඝණකම අර්ථ දක්වයි. මූල පද thin,
+medium, thick) හෝ නිශ්චිත අගයන්‌ (6e):px,
+EM) භාවිතයෙන්‌ සැකසිය හැක.
+
+border-width: 5px;
+
+2. border-style:
+Specifies the style of the border. Common
+
+values include:
+මායිමේ විලාසය නියම කරයි. පොදු අගයන්ට
+ඇතුළත්‌ වන්නේ:
+
+e none: No border (default).
+
+e solid: A single solid line.
+
+e dashed: A dashed line.
+
+e dotted: A dotted line.
+
+e double: Two solid lines.
+
+e groove, ridge, inset, outset:
+3D styles.
+
+border-style: dashed;
+
+3. border-color:
+Specifies the color of the border. Can be a
+named color, hex, RGB, or HSL value.
+මායිමේ වරිණය නියම කරයි. HO කරන ලද
+වර්ණයක්‌, hex, RGB හෝ HSL අගයක්‌ විය
+හැකිය.
+
+border-color: red;
+
+4. border-radius:
+
+Defines rounded corners for the border.
+මායිම සඳහා වටකුරැ කොන්‌ නිරිවචනය කරයි.
+
+border-radius: 10px;
+
+55
+
+5. border:
+A shorthand property to set the width, style,
+and color of the border in one declaration.
+එක්‌ ප්‍රකාශනයකින්‌ මායිමේ පළල, විලාසය සහ
+
+වරණය සැකසීම සඳහා වූ කෙටි ලයදුමි
+ගුණාංගයකි.
+
+border: 2px solid black
+
+6. border-image:
+
+Allows you to use an image as the border.
+මායිම ලෙස රෑපයක්‌ MAD) කිරීමට ඉඩ සලසයි.
+
+Syntax:
+
+border-image: source slice width
+outset repeat;
+
+e source:
+The image URL.
+රෑපයේ URL එක වේ.
+
+ේ Slice:
+Defines how the image is divided (top,
+right, bottom, left).
+රෑපය බෙදී ඇති ආකාරය නිර්චචනය කරයි
+(ඉහළ, දකුණ, පහළ, වමා.
+
+e width (optional):
+Specifies border width.
+මායිම්‌ පළල සදහන්‌ කරයි.
+
+e repeat:
+Determines how the image is stretched,
+repeated, or rounded (stretch, repeat,
+round).
+
+රෑපය දිගු කරන, පුනරාවරතනය කරන හෝ
+වටකුරු කරන ආකාරය තීරණය කරයි.
+
+e outset:
+Specifies how far the border image extends
+
+beyond the element's edges.
+මායිම්‌ රෑපය මූලාංගයේ දාරවලින්‌ ඔබබට
+කොපමණ දුරකට විහිදේ දැයි සඳහන්‌ කරයි.
+
+Border Sides:
+Borders can be applied individually to each side
+
+using these properties:
+මෙම උපලකඛ්ෂණ භාවිතා කරමින්‌ එක්‌ එක්‌ පසට මායිම්‌
+වෙන වෙනම යෙදිය හැකිය:
+
+border-top: 4px solid green;
+
+border-right: 2px dotted red;
+
+border-bottom: 5px dashed blue;
+
+border-left: 1px double black;
+
+CSS Table Properties
+CSS චගු උපලක්ෂණ
+
+1. width and height
+
+Sets the overall dimensions of the table or its
+
+elements.
+වගුවේ හෝ OB මූලාංග OE සමස්ත මානයන්‌
+සකසයි.
+
+Example:
+
+table {
+
+width: 100%;
+
+/* Table spans full width of its
+
+container */
+
+}
+
+th, td {
+
+height: 5@px;
+
+/* Rows have a height of 56000 */
+
+}
+
+2. border
+
+Adds borders to the table or individual cells.
+වගුවට හෝ තනි කොටු වලට මායිම්‌ එක්‌ කරයි.
+
+collapse
+
+Combines adjacent borders into a single border
+
+(default).
+යාබද මායිම්‌ තනි මායිමකට සංයුක්ත කරයි.
+
+separate
+
+Keeps borders distinct with space between
+
+them.
+
+මායිම්‌ අතර අවකාශය සමඟ එවා එකිනෙකට වෙන්ව
+
+තබා ගනී.
+
+Example:
+
+table {
+
+border-collapse: collapse;
+
+/* Collapsed borders */
+
+56
+
+Example:
+
+table, th, td {
+
+border: 1px solid black; /* Adds
+
+solid borders to table, headers,
+
+and cells */
+
+}
+
+3. border-collapse
+
+border-collapse: collapse;
+
+Country: Capital:
+Japan Tokyo
+China Beijing
+
+border-collapse: separate;
+
+| Country: | Capital: |
+| Japan | Tokyo |
+| China | Beijing |
+
+Controls how table borders are rendered.
+වගුවල OBS විදැහුමි කරන ආකාරය පාලනය කරයි.
+
+4. border-spacing
+
+Defines the space between cells when
+border-collapse: separate.
+border-collapse: separate වන විට OBO
+අතර පරතරය නිර්වචනය කරයි.
+
+Example:
+
+table {
+
+border-spacing: 10px;
+
+/* Adds 1@px space between table
+
+cells */
+
+}
+
+no border-spacing
+
+foojone
+bar|two
+baz|three
+
+border-spacing: 9px
+
+border-spacing: 1px
+
+foollone
+
+bar |Itwo
+bazithree
+
+border-spacing: lem
+
+foo] Jone
+bar] favo
+baz| three
+
+border-spacing: lem Gem
+
+border-spacing: @em lem
+
+5. text-align
+Aligns text horizontally in table cells (justify, left,
+
+center, or right).
+වගු කොටු NE පෙළ තිරස්‌ අතට පෙළගස්වයි.
+
+Center
+
+Justify Right Left
+
+6. vertical-align
+Aligns content vertically (top, middle, or
+
+bottom).
+අන්තර්ගතය සිරස්‌ අතට පෙළගස්වයි.
+
+Example:
+
+th {
+
+text-align: center;
+
+/* Center text horizontally */
+
+vertical-align: middle;
+
+/* Align text vertically */
+
+}
+
+ට්‌ /
+
+7. padding
+Adds spacing inside table cells, creating space
+
+between cell content and borders. වගු කොටු තුළ
+පරතරයක්‌ එක්‌ කරමින්‌, කොටුවේ අන්තරිගතය සහ
+මායිම්‌ අතර ඩෙක්‌ නිර්මාණය කරයි.
+
+Example:
+
+td {
+
+padding: 10px;
+
+/* Adds 1@px padding inside each
+
+cell */
+
+}
+
+6. caption-side
+
+Positions the <caption> element in the table.
+table Dea <caption> මූලාංගයේ ස්ථානය සකසනු
+ලබයි.
+
+City Population Berlin 1
+New York City 2 Populations of cities
+
+Values: top (default) or bottom.
+
+Example:
+
+caption {
+
+caption-side: bottom; /* Places
+
+caption below the table */
+
+}
+
+CSS Validation Service
+CSS චලංගුකරණ සේවා
+
+It is essential to ensure that the page that has
+been designed is error-free and the CSS syntax
+error-free.
+
+නිර්මාණය කර ඇති පිටුව දෝෂ රහිත බවන්‌ CSS
+වාක්‍ය ඛණ්ඩය දෝෂ රහිත බවත්‌ සහතික කිරීම
+අත්‍යවශ්‍ය වේ.
+
+CSS validators can be used for this purpose,
+which ensures that the CSS is accurate and does
+not have any unsupported selectors, properties,
+or values.
+
+මෙම කාර්යය sem CSS වලංගුකාරක mdm කළ
+
+හැකි අතර, එමඟින්‌ CSS නිවැරදි බවත්‌ සහය
+නොදක්වන ඉතේරථට්ම්‌, ගුණාංග හෝ අගයන්‌ නොමැනි
+බවත්‌ සහතික කෙරේ.
+
+The W3C hosts a CSS validation service and it is
+hosted at http://jigsaw.w3.org/css-validator
+W3C CSS වලංගුකරණ ඉස්වාවක්‌ සත්කාරකත්වය
+දරන අතර එය http://jigsaw.w3.org/css-
+validator හි සත්කාරකත්වය උරයි.
+
+W3C CSS Validation Service
+
+'” Check your CSS stylesheets
+
+CSS Validator
+
+Check the validity of your Cascading Style Sheets (CSS).
+
+Validate by URI Validate by File Validate by Direct Input
+Enter the address:
+
+Profile: | CSS Level 3 ~ ලු ට Show Warnings
+Advanced Settings »
+
+Validation Results
+
+ළු No Errors Found!
+
+About CSS Validation
+
+http://www.example.com
+
+More Options:
+
+Validation Results
+
+ළු No Errors Found!
+
+The CSS Validation Service provided by the W3C checks Cascading
+Style Sheets (CSS) to ensure they meet W3C CSS specifications.
+
+Privacy Policy - Copyright © 2022 W3C - Terms of Use Donate
+
+CSS measuring units
+CSS මිනුම්‌ වකක
+
+CSS provides a variety of measuring units to
+define sizes, distances, and positions.
+
+CSS මඟින්‌ ප්‍රමාණ, දුර සහ ස්ථාන නිරිවචනය B50
+සඳහා විවිධ මිනුම්‌ වකක සපයයි.
+
+1. Relative Units
+සාපේක්ෂ ඒකක
+
+Relative units are flexible and depend on the
+context of their parent element, viewport, or
+font size.
+
+සාපේක්ෂ චිකක නම්‍යශීලී වන අතර චිවායේ ප්‍රධාන
+
+මූලාංගයේ, viewport හි හෝ අකුරැ ප්‍රමාණයේ
+සන්දර්භය මන රඳා පවතී.
+
+They are ideal for responsive designs.
+BO) උපාංගයෙන්‌ උපාංගයට වෙනස්‌ OM HOE
+සඳහා වඩාන්‌ සුදුසු චේ.
+
+Use for web designs to make layouts more
+flexible and responsive.
+
+වෙබ්‌ නිරිමාණ සඳහා පිරිසැලසුම්‌ වඩාත්‌ නම්‍යශීලී සහ
+උපාංගයෙන්‌ උපාංගයට වෙනස්‌ වන නිරීමාණ සඳහා
+භාවිතා කරයි.
+
+Unit | Description
+
+% Percentage of parent value
+
+em Relative to element's font size
+
+rem_ | Relative to root (<html>) font size
+
+vw 1% of viewport width
+vh 1% of viewport height
+vmin_ | Smaller of vw or vh
+vmax | Larger of vw or vh
+
+ch Width of “0” character
+eX Height of lowercase “x”
+
+cap Height of capital letters
+
+lh Current line-height
+
+ic Size of “7K” character (East Asian
+text)
+
+2. Absolute Units
+නිරපේක්ෂ වකක
+
+Absolute units are fixed and not affected by
+
+other elements or screen sizes.
+නිරපේක්ෂ චකක ස්ථාවර වන අතර අනෙකුත්‌ මූලාංග
+හෝ BO ප්‍රමාණයන්ගෙන්‌ බලපෑමට ලක්‌ නොවේ.
+
+Use for print or fixed layouts where precision is
+
+essential.
+නිරවද්‍යතාවය අත්‍යවශ්‍ය වන විට QED හෝ ස්ථාවර
+පිටිසැලසුමි සඳහා භාවිතා කරයි.
+
+Unit | Description
+
+x Pixels: A single dot on the screen.
+P පික්සලය: තිරයේ ඇනි තනි තිතක්‌.
+
+Centimeters: Used for print
+
+cm measurements.
+සෙන්ටිමීටරය: මුද්‍රණ මිනුම්‌ සඳහා
+භාවිතා වේ.
+Millimeters: Smaller than
+
+mm centimeters.
+මිලිමිටරය: සෙන්ටිමීටර වලට වඩා
+කුඩායි.
+
+in Inches / අඟල්‌: 1 inch = 2.54 cm.
+
+pt Points: 1 point = 1/72 inch.
+
+pc Picas: 1 pica = 12 points.
+
+59
+
+Web authoring tools
+වෙබ්‌ පිටු සමීපාදන මෙවලමී
+
+A web authoring tool is software that helps to
+create, design, and publish web content without
+
+needing to write all the code manually.
+
+වෙබ්‌ BO සම්පාදන මෙවලමක්‌ යනු සියලුම කේත
+අතින්‌ නොලියා වෙබ්‌ අන්නර්ගතයන්‌ නිරිීමාණය
+කිරීමට, සැලසුමි කිරීමට සහ ප්‍රකාශයට පත්‌ කිරීමට
+උපකාර්‌ වන මෘදුකාංගයකි.
+
+Instead of typing HTML, CSS, and JavaScript by
+hand, these tools provide visual interfaces (like
+drag-and-drop editors) that automatically
+generate the underlying code.
+
+HTML, CSS සහ JavaScript අතින්‌ ටයිප්‌ කිරීම
+වෙනුවට, මෙම මෙවලම්‌ කේතය ස්වයංක්‍රීයව ජනනය
+
+කර ඇති දෘශ්‍ය අතුරැමුහුණන්‌ (drag-and-drop
+සංස්කාරක වැනි) සපයයි.
+
+Purpose of Web Authoring Tools
+
+වෙබ්‌ පිටු සමිපාදන මෙවලම්වල අරමුණ
+e Simplify Website Creation
+වෙබ්‌ GOH නිර්මාණය සරල කිරීම
+They eliminate the need to know
+
+programming languages like HTML and
+CSS, making website creation accessible to
+beginners and non-technical users.
+
+HO) HTML සහ CSS වැනි ක්‍රමලේඛන භාෂා දැන
+ගැනීමේ අවශ්‍යතාවය වෙත්‌ කරයි, වෙබි අඩවි
+
+නිර්මාණයට ආරම්භකයින්ට සහ නාක්ෂණික
+නොවන පථීශීලකයින්ට ප්‍රවේශ විය හැකිය.
+
+e Speed Up Development
+සංවර්ධනය වේගවත්‌ කිරීම
+Visual editors and templates let build pages
+and entire sites much faster than hand-
+coding from scratch.
+දෘශ්‍ය සංස්කාරක සහ සැකිලි මඟින්‌ BO සහ
+සම්පූරිණ අඩවි මුල සිටම අතින්‌ කේතනය කිරීමට
+වඩා බොහෝ වේගයෙන්‌ ගොඩනැගීමට ඉඩ
+සලසයි.
+
+e Reduce Errors
+දෝෂ අඩු කිරීම
+Because the software generates code
+automatically, common _— syntax and
+formatting mistakes are minimized.
+මෘදුකාංගය GOGDSA කේතනය කරන නිසා,
+
+පොදු වාක්‍ය ඛණ්ඩ සහ ආකෘතිකරණ වැරදි අවම
+චේ.
+
+e Provide Professional Results
+වෘත්තීමය මට්ටමේ ප්‍රතිඵල ලබා දෙයි
+Modern tools offer responsive layouts, SEO
+tools, e-commerce options, and integrated
+analytics features once only possible with
+custom coding.
+
+නවීන මෙවලම්‌ ප්‍රතිචාරාත්මක පිරිසැලසුමි, SEO
+මෙවලම්‌, ඊ-වාණිපජ්‍ය විකල්ප සහ අභිරැචි
+කේතනය සමඟ එක්‌ වරක්‌ පමණක්‌ කළ හැඟි
+එකාබද්ධ විශ්ලේෂණ විශේෂාංග ලබා දෙයි.
+
+e Support Collaboration
+සහයෝගීතාවයට sare වීම
+Many tools now include team editing,
+version control, and workflow features for
+
+businesses and agencies.
+
+බොහෝ මෙවලම්වලට දැන්‌ කණ්ඩායම
+සංස්කරණය, අනුවාද පාලනය සහ ව්‍යාපාර සහ
+ආයතන සඳහා වැඩ ප්‍රවාහ විශේෂාංග ඇතුළන්‌
+චේ.
+
+Popular Web Authoring Tools in 2026
+2026 දී ජනප්‍රිය වෙබි පිටු සමීපාදුන මෙවලමී
+
+e Wix Studio
+
+e Squarespace
+
+e Wix Harmony
+
+e WordPress (with visual builders)
+
+e Google Web Designer
+
+e Traditional Code Editors (e.g., VS Code,
+Sublime Text)
+
+e Emerging Al Platforms (e.g., Div-idy)
+
+60
+
+Types of Web Authoring Tools
+වෙබ්‌ පිටු සමීපාදුන මෙවලමී වර්ග
+
+WYSIWYG HTML Editors:
+
+(What You See Is What You Get)
+
+Visual tools to design web pages without
+coding.
+
+කේතීිකරණයකින්‌ තොරව GOH BO සැලසුම්‌ කිරීම
+
+සදහා වූ දෘශ්‍ය මෙවලම්‌ GS.
+ම්‌
+.4 9
+
+BlueGriffon
+
+e Adobe Dreamweaver
+e =BlueGriffon
+
+e Webflow
+
+e Google Web Designer
+
+ZY Webflow
+
+Source Code Editors:
+
+මූලාශ කේත සංස්කාරක:
+
+Software for directly editing HTML or markup.
+HTML හෝ markup සෘජුවම සංස්කරණය කිරීම
+
+සඳහා වූ මෘදුකාංග.
+mx
+pat
+
+e Visual Studio Code (VS Code)
+e Sublime Text
+
+e Atom Ss
+e Notepad++
+
+lote
+
+Conversion Tools:
+
+පරවචරනතන මෙවලම්‌:
+
+Features like "Save as HTML" in office suites for
+easy content transformation.
+
+පහසු අන්තර්ගත පරවරිතනය සඳහා office suites
+වල az “Save as HTML" වැනි විශේෂාංග.
+
+e Markdown to HTML Tools
+e Grammarly HTML Formatter |
+e HTTrack Website Copier ෴ ශී
+
+Debugging Tools:
+
+නිදොස්‌ කිරීමේ මෙචලමි:
+
+Applications for testing and fixing web content.
+වෙබ්‌ අන්තර්ගතයන්‌ පරීක්ෂා කිරීම සහ සව්‌ කිරීමි
+සඳහා වූ යෙදුමි.
+
+e Visual Studio Debugger
+e Lighthouse (by Google)
+e Charles Proxy
+
+ද)
+
+Google
+
+“ 4 Charles Proxy
+Lighthouse
+
+|. Developer's Guide @
+
+Integrated Development — Environments
+ඒකාබද්ධ සංවර්ධන පරිසරයන්‌ (IDEs):
+Comprehensive platforms for web application
+
+development.
+වෙබ්‌ යෙදුමි සංවර්ධනය සඳහා වූ විස්තීරඊණ වේදිකා.
+
+e Eclipse for Web Developers
+e JetBrains PhpStorm
+e NetBeans
+
+™. nclipse NetB
+තල 2 p NetBeans ||)
+
+Template-Based Generators:
+
+සැකිලි මන send වූ උත්පාදක:
+
+Tools using templates or scripts to produce web
+content.
+
+වෙබ්‌ අන්තර්ගතයන්‌ නිෂ්පාදනය කිරීමට සැකිලි භහෝ
+ස්ක්‍රිප්ට්‌ භාවිතා කරන මෙවලමි.
+
+e Tilda
+e Carrd
+e Webflow Templates
+
+Content Management Systems (CMS):
+අන්තර්ගත කළමනාකරණ පද්ධති
+
+Platforms for creating and managing entire
+websites.
+
+සම්පූර්ණ වෙබ්‌ අඩවි නිර්මාණය සහ කළමනාකරණය
+සඳහා වූ වේදිකා.
+
+e Wix 1
+e Weebly න්‌ shop ify
+e Shopify
+
+weebly,
+
+An example interface of a web authoring tool
+GOD පිටු සම්පාදන මෙවලමකට උදාහරණ අතුරැ මුහුණතක්‌
+
+°
+ණී
+කු ක පි So
+a = Speen
+ම x
+= |
+|
+॥
+ලක
+*
+%
+2 ප්‍ර
+& = කෘ
+[2]
+_ 110, os
+
+Email Clients:
+ඊමේල්‌ ගනුදෙනුකරැචන්‌:
+Applications that format messages in web-
+
+compatible technologies.
+වෙබ්‌-අනුකූල තාක්ෂණයන්‌ තුළ sew ආකෘතිගත කරන
+යෙදුමි චේ.
+
+e = Mailchimp Email Designer
+e Postbox
+e Campaign Monitor
+
+Multimedia Authoring Tools:
+
+බහුමාධ්‍ය සම්පාදන මෙවලම්‌:
+
+Software for integrating audiovisual elements into
+web pages.
+
+ශ්‍රව්‍යදෘෂ්‍ය මූලාංග GHD පිටුවලට එකාබද්ධ කිරීම සඳහා
+වූ මෘදුකාංග.
+
+e Adobe Animate An
+
+e Unity WebGL Export
+e Kapwing P= KAPWING
+
+Mobile Web App Creators:
+ජංගම වෙබ්‌ යෙදුම්‌ නිරිමාපකයින්‌:
+Tools designed for developing mobile-optimized
+
+applications.
+ජංගම-ප්‍රශස්ත 6ac® සංවර්ධනය කිරීම සඳහා
+නිර්මාණය කර ඇති මෙවලමි.
+
+¢ — Thunkable @ thunkable
+
+e AppGyver
+e —_lonic Framework
+
+Scripting Libraries and Frameworks:
+Resources for building web functionality and
+
+applications.
+වෙබ්‌ ක්‍රියාකාරිත්වය සහ යෙදුම්‌ ගොඩනැගීම sem වූ
+සම්පත්‌.
+
+e jQuery UI
+e Vues
+e Meteo
+
+Web Hosting
+චෙබ්‌ සත්කාරක සේවා
+
+A service that provides the infrastructure,
+technologies, and resources required to store,
+manage, and deliver a website’s data over the
+internet, making the website accessible to users
+via a web browser.
+
+වෙබි අඩවියක දුන්ත අන්තරිපාලය හරහා ගබඩා
+කිරීමට, කළමනාකරණය කිරීමට සහ බෙදා හැරීමට
+අවශ්‍ය යටිතල පහසුකම්‌, තාක්ෂණයන්‌ සහ සම්පන්‌
+සපයන සේවාවක්‌ වන අනර එමඟින්‌ වෙබ්‌
+අතිරික්සුවක්‌ හරහා පරිශීලකයින්ට වෙබි අඩවියට
+ප්‍රවේශ විය හැකිය.
+
+Core components of Web Hosting
+GOD සත්කාරක සේවාවන්හි මූලික අංග
+
+1. Website
+
+වෙබ්‌ අඩවිය
+
+A collection of web pages and resources that
+users see in their browser.
+
+පටථිශීලකයින්‌ තම අතිරික්සුවේ දකින වෙබ්‌ පිටු සහ
+සම්පත්‌ එකනුවකි.
+
+2. Web server
+
+වෙබ්‌ සේවාදායකය
+
+A computer (and software) that stores the
+website and delivers it to users.
+
+වෙබි අඩවිය ගබඩා කර එය පරිශීලකයින්ට ලබා දෙන
+පටගණකයක්‌ (සහ මෘදුකාංගයක්‌) චේ.
+
+3. Hosting provider
+
+සන්කාරක සැපයුමිකරැු
+
+An organisation that owns, manages and
+maintains web servers and rents space on them.
+GOD සේවාදායකය HO, MEOMDOENIG කර නඩත්තු
+කරන සහ චිවායේ Ga කිරීමට නිදහස ලබා දෙන
+සංවිධානයකි.
+
+4. Domain name
+
+වසමි නාමය
+
+A human-readable address that maps to a
+server's IP address.
+
+සේවාදායකයක IP ලිපිනයට සිතියම්ගත කරන කියවිය
+හැකි ලිපිනයකි.
+
+5. 24/7 power and uninterrupted internet
+connectivity
+
+24/7 බලය සහ අඛණ්ඩ gand6ehe සම්බන්ධතාවය
+Ensures that websites remain accessible, stable,
+and consistently available to users at all times.
+GOO අඩවි සෑම විටම stGeEnEsO ප්‍රවේශ විය
+
+හැකි, ස්ථාවර සහ අඛණ්ඩව ලබා ගත හැකි බව
+සහතික කරයි.
+
+62
+
+Logical Flow of Web Hosting Operations
+වෙබ්‌ සත්කාරක මෙහෙයුම්වල mb6Sa ප්‍රවාහය
+
+HTTP Request
+
+Webpage Visit
+
+HTTP Response Web Page
+
+1. User Enters a Domain Name
+පරිශිලකයෙකු Oo8 නාමයක්‌ ඇතුළන්‌ කරයි
+
+The process starts when a user enters a domain
+
+name into a web browser.
+SOBEOEMGa වෙබි අතිරක්සුවකට OBO නාමයක්‌
+ඇතුළත්‌ කළ විට ක්‍රියාවලිය ආරමිභ GS.
+
+This domain name is the unique address used
+
+to locate a website on the internet.
+මෙම වසම්‌ නාමය අන්තර්ජාලයේ GOB අඩවියක්‌
+සොයා ගැනීමට MDM) කරන අද්විතීය ලිපිනයයි.
+
+2. DNS Resolves the Domain Name
+DNS වසමි නාමය විසඳුයි
+
+The browser contacts the DNS, which translates
+the domain name into the corresponding IP
+address of the web server where the website is
+hosted.
+
+අතිරික්සුව වසම්‌ නාම පද්ධතිය DNS හා සම්බන්ධ වන
+අතර එමඟින්‌ වසම්‌ නාමය G8 අඩවිය
+සත්කාරකත්වය දරන වෙබ්‌ සේවාදායකයේ අනුරෑප IP
+ලිපිනයට පර්වරිතනය කරයි.
+
+3. Browser Sends an HTTP/HTTPS Request
+අතිරික්සුව HTTP/HTTPS ඉල්ලීමක්‌ යවයි
+
+After obtaining the IP address, the browser
+sends a request to the web server using HTTP
+or HTTPS. HTTPS ensures secure
+communication between the browser and the
+server.
+
+IP ලිපිනය ලබා ගැනීමෙන්‌ පසු, අතිරික්සුව HTTP හෝ
+HTTPS භාවිතයෙන්‌ වවබ්‌ සේවාදායකයට ඉධෛලීමක්‌
+
+යවයි. HTTPS අතිරක්සුව සහ සේවාදායකය eed
+ආරක්ෂිත සන්නිවේදනය සහතික කරයි.
+
+4. Web Server Processes the Request
+GOD සේවාදායකය ඉල්ලීම සකසයි
+
+The web server receives the request and
+processes it by retrieving the required website
+files or generating dynamic content using
+server-side applications and databases.
+
+GOD සේවාදායකය ඉලේලීම ලබා ගන්නා අතර අවශ්‍ය
+වෙබ්‌ අඩවි ගොනු ලබා ගැනීමෙන්‌ හෝ සේවාදායක
+පාරශ්ව යෙදුම්‌ සහ දත්ත සමුදායන්‌ භාවිතයෙන්‌ ගතික
+අන්තර්ගතයන්‌ ජනනය කිටීමෙන්‌ එය සකසයි.
+
+5. Website Content Is Sent Back to the
+
+Browser
+
+GOD අඩවි අන්තරගතය අතිරක්සුවට ආපසු aba
+ලැබේ
+
+Once processing is complete, the web server
+sends the requested content back to the
+
+browser as a response.
+
+සැකසීම අවසන්‌ වූ පසු, වෙබ්‌ සේවාදායකය ලේලා සිටි
+අන්තර්ගතය ප්‍රතිචාරයක්‌ ලෙස අතනිරික්සුවට ආපසු
+යවයි.
+
+6. Browser Renders the Website
+අතිරික්සුච වෙබ්‌ අඩවිය විදැහුමී කරයි
+
+The browser interprets the received data and
+displays the website to the user in a readable
+and interactive format.
+
+අතිරික්සුව ලැබුණු දත්ත අර්ථකථනය කර කියවිය
+හැකි සහ අන්තරක්‍රියාකාර්‌ී ආකෘතියකින්‌ වෙබ්‌ අඩවිය
+පරිශීලකයාට පෙන්වයි.
+
+63
+
+Hosting Resources
+සත්කාරක සමිපත්‌
+
+System resources provided by a_ hosting
+provider to store, manage, and deliver a website
+efficiently.
+
+වෙබ්‌ අඩවියක්‌ කාරයක්ෂමව ගබඩා A850,
+කළමනාකරණය කිරීම සහ ලබා දීම සඳහා සත්කාරක
+සැපයුම්කරැචෙකු විසින්‌ සපයනු ලබන පද්ධති සමිපත්‌
+ව්‌.
+
+1. Disk Space
+
+තැටි අවකාශය
+
+Disk space is used to store website files such as
+web pages, images, videos, and databases. The
+amount required depends on the size of the
+website.
+
+වෙබ්‌ පිටු, රෑප, වීඩියෝ සහ දත්ත සමුදායන්‌ වැනි
+වෙබි අඩවි ගොනු ගබඩා කිරීම සඳහා තැටි අවකාශය
+භාවිතා කරයි. අවශ්‍ය ප්‍රමාණය වෙබ්‌ අඩවියේ ප්‍රමාණය
+මත රඳා පවතී.
+
+2. Bandwidth
+
+කලාප පළල
+
+The amount of data transferred between the
+server and users.
+
+හෙළ කලාප පළලක්‌ මඟින්‌ කාරය සාධන ගැටළු
+නොමැතිව වැඩි අමුත්තන්ට වෙබ්‌ අඩවියට ප්‍රවේශ
+වීමට ඉඩ සලසයි.
+
+Higher bandwidth allows more visitors to access
+
+the website without performance Issues.
+කලාප පළල යනු සේවාදායකයා සහ පරථලදීශීලකයින්‌
+අතර මාරැ කරන ලද දන්න ප්‍රමාණයයි.
+
+3. CPU (Central Processing Unit
+
+මධ්‍යම සැකසුම්‌ ඒකකය)
+
+The CPU provides processing power to handle
+website requests and execute server-side tasks.
+Adequate CPU resources improve website
+speed and performance.
+
+වෙබි අඩවි ඉලේලීම්‌ හැසිරවීමට සහ සේවාදායක
+පාරිශ්ව කාර්යයන්‌ ක්‍රියාත්මක කිරීමට CPU මඟින්‌
+සැකසුම්‌ බලය සපයයි. ප්‍රමාණවත්‌ CPU සම්පත්‌ වෙබ්‌
+අඩවි වේගය සභ කාරිය සාධනය වැඩි දියුණු කරයි.
+
+4. RAM (Random Access Memory
+
+අහඹු ප්‍රවේශ මතකය)
+
+RAM helps the server manage active processes
+and multiple users at the same time. More RAM
+Supports smoother performance during high
+traffic.
+
+[65,[/්‌] මඟින්‌ සේවාදායකයාට ක්‍රියාකාර්‌ ක්‍රියාවලීන්‌ සහ
+බහු පරිශීලකයින්‌ චකවර කළමනාකරණය කිරීමට
+
+උපකාරී චේ. අධික තදබදයක්‌ ඇති විට වැඩි RAM
+සුමට ක්‍රියාකාරීත්වයට සභාය 6.
+
+Types of Web Hosting
+වෙබ්‌ සත්කාරක OS@
+
+1. Shared Hosting
+බෙදාගත්‌ සත්කාරක
+
+Multiple websites share a single server and its
+resources. It is low in cost but offers limited
+performance and resources.
+
+බහු වෙබි අඩවි තනි සේවාදායකයක්‌ a චඑහි සම්පන්‌
+
+බෙදා ගනී. OG පිටවැය අඩු නමුත්‌ සීමිත mba
+සාධනයක්‌ සහ සම්පත්‌ ලබා දෙයි.
+
+2. VPS (Virtual Private Server) Hosting
+VPS (අතථ්‍ය පුද්ගලික සේවාදායක) සත්කාරක
+
+A server is divided into virtual servers with
+allocated resources. It provides better
+performance and control than shared hosting.
+සේවාදායකයක්‌ වෙන්‌ කරන ලද BOGE සහිත GODS
+සේවාදායක GOH ඉලබදා ඇත. එය ඉබබදාගතභත්‌
+සන්කාරකත්වයට වඩා හොඳ කාරය සාධනයක්‌ සහ
+පාලනයක්‌ සපයයි.
+
+3. Dedicated Hosting
+චෙන්‌ වූ සන්කාරක
+
+A single website uses an entire physical server.
+It offers high performance, maximum control,
+and improved security.
+
+තනි වෙබි අඩවියක්‌ සම්පූරිණ භෞතික සේවාදායකයක්‌
+mdm කරයි. එය ඉහළ mba සාධනයක්‌, Eade
+පාලනයක්‌ සහ වැඩිදියුණු කළ ආරක්ෂාවක්‌ ලබා දෙයි.
+
+4. Cloud Hosting
+වලාකුඑ සත්කාරක
+
+Websites are hosted across multiple
+interconnected servers. This allows scalability,
+reliability, and high availability.
+
+වෙබ්‌ අඩවි බහු අන්තර සම්බන්ධිත සේවාදායකයන්‌
+හරභා සන්කාරකත්වය සපයයි. මෙය පටථමාණය,
+විශ්වසනීයත්වය සහ හළ ලබා ගැනීමේ හැකියාව
+ලබා දෙයි.
+
+5. Managed Hosting
+
+කළමනාකරණය කළ සත්කාරක
+The hosting provider handles — server
+maintenance, updates, and_ security. This
+
+reduces the technical workload for the user.
+සත්කාරක සපයන්නා ඉස්වාදායක නඩත්තුව,
+යාවත්කාලීන කිරීමි සහ ආරක්ෂාව හසුරැවයි. මෙය
+පටථශීලකයා සඳහා නාක්ෂණික වැඩ බර අඩු කරයි.
+
+64
+
+Advantages of Web Hosting
+වෙබ්‌ සත්කාරක සේවාවන්හි වාසි
+
+Web hosting makes a website accessible on the
+internet 24/7 from anywhere in the world.
+
+GOD සන්කාරකන්වය මඟින්‌ ලොව ඕනෑම තැනක සිට
+වෙබ්‌ අඩවියකට 24/7 අන්තර්ජාලයෙන්‌ ප්‍රවේශ විය
+හැකිය.
+
+Hosting providers ensure stable servers and
+high uptime, reducing website downtime.
+සත්කාරක සපයන්නන්‌ ස්ථාවර සේවාදායකයන්‌ සහ
+හෙළ අතිකාලය සහතික කරයි, වෙබ්‌ අඩවි අඛකිය
+කාලය අඩු කරයි.
+
+Hosting provides disk space, bandwidth, CPU,
+and RAM required to store and run websites
+efficiently.
+
+GOD අඩවි කාර්යක්ෂමව ගබඩා කර ක්‍රියාත්මක කිරීමට
+අවශ්‍ය නැටි ඩෙ, කලාප පළල, CPU සහ RAM
+සන්කාරකත්වය සපයයි.
+
+Web hosting includes security measures such as
+SSL certificates, firewalls, and malware
+protection.
+
+වෙබ්‌ සත්කාරකත්වයට SSL සහතික, ගිනිපවුර සහ
+
+අනිෂ්ට මෘදුකාංග ආරක්ෂාව වැනි ආරක්ෂක පියවර
+ඇතුළත්‌ GO.
+
+Hosting providers offer technical support to
+
+resolve server and website-related issues.
+සේවාදායක සහ වෙබ්‌ අඩවි ආශ්‍රිත ගැටළු විසඳීම
+සඳහා සන්කාරක සපයන්නන්‌ තාක්ෂණික සහභාය ලබා
+දෙයි.
+
+Hosting services allow websites to scale
+
+resources easily as traffic increases
+
+සත්කාරක Gd මඟින්‌ ඉවබී අඩවි වලට
+ගමනාගමනය වැඩි වන විට සම්පත්‌ පහසුවෙන්‌
+පරිමාණය කිරීමට ඩෙ සලසයි.
+
+Regular backups help protect website data and
+enable easy recovery in case of failures.
+
+නිත්‍ය උපස්ථ මඟින්‌ වෙබ්‌ GOS දත්ත ආරක්ෂා කිරීමට
+සහ අසාර්ථක වූ විට පහසුවෙන්‌ ප්‍රතිසාධනය කිරීමට
+ඉඩ සලසයි.
+
+Static vs Dynamic hosting
+ස්ථිතික vs ගතික සත්කාරකත්වය
+
+Feature
+
+Static Hosting
+
+Dynamic Hosting
+
+අන්තර්ගතය
+
+විශේෂාංගය ස්ථිනික සත්කාරකත්වය ගතික සත්කාරකත්වය
+
+Website Content Fixed content that does not Content changes based on user input or
+වෙබ්‌ අඩවි change automatically database data
+
+අන්තර්ගතය ස්වයංක්‍රීයව වෙනස්‌ නොවන ස්ථාවර | පරිශීලක ආදානය හෝ දත්ත සමුදා දත්ත මත
+
+පදනම්ව අන්තර්ගත වෙනස්කම
+
+Technologies
+
+Used
+භාවිනා කරන
+තාක්ෂණයන්‌
+
+HTML, CSS, basic JavaScript
+
+PHP, Python, Node,js, ASP.NET with
+databases
+
+PHP, Python, Node js,eaie සමුදායන්‌ සහිත
+ASP.NET
+
+Server Processing
+සේවාදායක සැකසුම්‌
+
+Minimal server-side processing
+අවම සේවාදායක-පාරිශ්ව සැකසුම්‌
+
+Requires server-side processing
+සේවාදායක පාරිශ්ව සැකසුම්‌ අවශ්‍ය වේ
+
+Database Usage
+දන්ත සමුදා භාවිතය
+
+Does not use databases
+දත්ත සමුදායන්‌ භාවිතා නොකරයි
+
+Uses databases such as MySQL
+MySQL වැනි දත්ත සමුදායන්‌ භාවිතා කරයි
+
+Performance
+කාරිය සාධනය
+
+Very fast due to simple file
+
+delivery
+සරල ගොනු බෙදා හැරීම නිසා තො
+වේගවත්‌
+
+Slightly slower due to processing and
+database queries
+
+සැකසීම සහ දත්ත OC) විමසුම්‌ හේතුවෙන්‌
+තරමක්‌ මන්දගාමී වේ
+
+Security More secure due to fewer Requires stronger security due to dynamic
+ආරක්ෂාව vulnerabilities interactions
+අඩු අවදානම්‌ නිසා වඩාන්‌ ගතික අන්නරඛක්‍රියා හේතුවෙන්‌ ශක්තිමන්‌
+ආරක්ෂිතයි ආරක්ෂාවක්‌ අවශ්‍ය වේ
+Cost Low cost Higher cost due to resource usage
+පිරිවැය අඩු පිරිවැය සම්පත්‌ භාවිතය හේතුවෙන්‌ හළ BSOzae)
+
+අවශ්‍ය GO
+
+Maintenance
+
+Easy to maintain
+
+Requires regular updates and maintenance
+
+නඩත්තු කිරීම නඩත්තු කිරීමට පහසුය නිතිපනා යාවන්කාලීන කිරීමි සහ නඩත්තුව
+අවශ්‍ය GO
+
+Scalability Limited functionality Highly scalable and flexible
+
+පරිමාණය සීමිත ක්‍රියාකාරිත්වය වහළ පරිමාණය BOGS හැකියාව සහ නම්‍යශීලී
+බව
+
+Examples Portfolio websites, landing pages | E-commerce sites, social media platforms
+
+උදාහරණ ඊ-වාණිජ්‍ය අඩවි, සමාජ මාධ්‍ය වේදිකා
+
+65
+
+Local Publishing Steps for Local Publishing
+ස්ථානීය ප්‍රකාශනය ස්ථානීය ප්‍රසිද්ධ 850 සඳහා පියවර
+
+The process of creating and viewing a website 1.
+
+on your own computer before making them
+
+available on the internet.
+GOD අඩවියක්‌ නිර්මාණය BO එය අන්තරපාලයේ පළ
+කිරිමට ලපර ඔබේම පථ්ගණකලයේ නැරඹීලමි
+
+ක්‍රියාවලියයි. 2
+
+Web developers first build and test websites
+
+locally before uploading them to the internet. 3.
+
+GOD සංවර්ධකයින්‌ GOD අඩවිය සංවර්ධනය කර එය
+අන්තරජාලයට උඩුගත කිරීමට 65d සථානීයව
+පරීක්ෂා කරයි.
+
+Uses a Local Server
+ස්ථානීය සේවාදායකයක්‌ භාවිතා කරයි
+
+It usually requires software like:
+ඒ සදහා පහත මෘදුකාංග අවශ්‍ය චේ:
+
+e XAMPP
+e WAMP
+e MAMP
+
+e Localhost servers
+
+They simulate a real web server on your
+
+computer.
+ඒවා මගින්‌ ඔබේ පර්ගණකය තුළ සැබෑ වෙබ්‌
+සේවාදායකයක්‌ අනුකරණය කළ MBB.
+
+These websites can only be viewed on that
+computer and are not accessible to other users
+
+online.
+
+මෙම GOD අඩවි නැරඹිය හැක්කේ එම පරිගණකයේ
+පමණක්‌ වන අතර අනෙකුත්‌ පරිශීලකයින්ට සබැඳිව
+ප්‍රවේශ විය නොහැක.
+
+Local Publishing helps:
+ස්ථානීය ප්‍රසිද්ධ කිරීම පහත දෑ සදහා උපකාරී චේ:
+
+e Check design
+සැලසුම පරීක්ෂා කිරීමට
+
+ :1)( errors
+දෝෂ නිවැරදි කිරීමට
+
+e Test forms and databases
+පෝරම සහ දන්ත සමුදායන්‌ sae කිරීමට
+
+e Improve performance
+mba සාධනය වැඩි දියුණු කිරීමට
+
+66
+
+Download and install a local server
+
+software. (ex. XAMPP)
+ස්ථානීය සේවාදායක මෘදුකාංගයක්‌ බාගත කර
+
+ස්ථාපනය කරන්න. (6e2. XAMPP)
+
+Start the Server
+සේවාදායකය ආරම්භ කරන්න
+
+Create a Project Folder
+ව්‍යාපෘති ෆෝල්ඩරයක්‌ සාදන්න
+
+Go to the XAMPP installation folder.
+XAMPP ස්ථාපන ෆෝල්ඩරය GAD යන්න.
+
+Open the htdocs folder.
+htdocs ෆෝල්ඩරය විවෘත කරන්න.
+
+Create a new folder for your website.
+ඔබේ වෙබ්‌ අඩවිය සඳහා HO ෆෝල්ඩරයක්‌
+සාදන්න.
+
+EX.
+htdocs/mywebsite
+
+Add Your Website Files to that folder.
+ඔබේ GHA අඩව්‌ ගොනු එම ෆෝල්ඩරයට එක්‌
+කරන්න.
+
+Open your web browser and type:
+ඔබේ වෙබ්‌ අතිරික්සුව විවෘත කර පහත ලිපිනය
+ටයිප්‌ කරන්න.
+
+http://localhost/mywebsite
+
+Your website should now appear.
+වෙබ්‌ අඩවිය දැන්‌ දිස්විය යුතුය.
+
+Test Your Website
+වෙබ්‌ අඩවිය පරීක්ෂා කරන්න
+
+Internet Publishing
+අන්තර්ජාල ප්‍රකාශනය
+
+The process of uploading website files to a web
+hosting server so that it becomes accessible to
+users worldwide through the internet.
+
+වෙබ්‌ අඩවියක්‌ ලොව පුරා සිටින පථීශීලකයින්ට
+අන්නරිජාලය හරහා ප්‍රවේශ විය හැකි ආකාරයට වෙබි
+සත්කාරක ඉස්වාදායකයකට උඩුගත කිරීමේ
+ක්‍රියාවලියයි.
+
+How to publish a website to the Internet
+වෙබ්‌ අඩවියක්‌ අන්තරජාලයට ප්‍රකාශයට පත්‌ කරන
+ආකාරය
+
+1. Create and fully test your website on your
+computer to make sure all pages, links,
+
+images, and forms are working properly.
+සියලුම පිටු, සබැඳි, රෑප සහ පෝරම නිසි ලෙස
+ක්‍රියාත්මක වන බව සහතික කර ගැනීම සඳහා
+ඔබේ පට්ගණකයේ වෙබ්‌ අඩවිය නිර්මාණය කර
+සම්පූර්ණයෙන්ම පරීක්‍ෂා කරන්න.
+
+2. Register (buy) a domain name that people
+will use to access your website.
+ඔබේ වෙබ්‌ අඩවියට ප්‍රවේශ වීමට භාවිතා කළ
+හැකි වසම්‌ නාමයක්‌ ලියාපදිංචි කරන්න (හා්‌
+මිලදී ගන්නා.
+www.mywebsite.com.
+
+3. Purchase a web hosting plan from a reliable
+hosting provider to store your website files
+
+online.
+
+ඔබේ වෙබ්‌ GAS ගොනු මාරිගගතව ගබඩා BSO
+සඳහා විශ්වාසදායක සත්කාරක
+සැපයුම්කරුවෙකුගෙන්‌ වෙබි සත්කාරක
+සැලැස්මක්‌ මිලදී ගන්න.
+
+4, Log in to your hosting account and access
+the control panel (usually cPanel or a similar
+dashboard).
+ඔබේ සත්කාරක ගිණුමට පූරණය 5 පාලක
+පැනලයට පිවිසෙන්න (සාමාන්‍යයෙන්‌ එය cPanel
+හෝ & හා සමාන පුවරැචකි).
+
+5. Open the Control Panel and click on
+File Manager to manage your
+
+website files.
+පාලක පැනලය විවෘත කර ඔබේ GHB අඩවි
+ගොනු කළමනාකරණය කිරීමට ගොනු
+
+කළමනාකරැ මත ක්ලික්‌ කරන්න.
+
+6/
+
+10.
+
+Locate and open the public_html folder,
+which is the main folder where your website
+
+files must be stored.
+ඔබේ වෙබ්‌ අඩවි ගොනු ගබඩා කළ යුතු ප්‍රධාන
+
+ලෆෝල්ඩරය වන public_html ෆෝල්ඩරය
+සොයාගෙන විවෘත කරන්න.
+
+Upload all your website files (HTML, CSS,
+JavaScript, images, etc.) into the
+public_html folder.
+
+ඔබේ සියලුම වෙබි අඩවි ගොනු (HTML, CSS,
+JavaScript, images, @@c) public_html
+ලෆෝල්ඩරයට උඩුගත කරන්න.
+
+Ensure your homepage file is named
+index.html or index.php, so it loads
+automatically when someone visits your
+domain.
+
+ඔබගේ මුල්‌ පිටු ගොනුව ndex.html හෝ
+index.php ලෙස නම්‌ කර ඇති බවට වග
+
+සහතික කරගන්න, එවිට යමෙකු ඔබගේ වසමට
+පිවිසෙන විට එය ස්වයංඛ්‍රීයව පූරණය එේ.
+
+If your website requires a database, create
+a database in the control panel, import your
+database file, and update your website
+configuration file with the correct database
+details.
+
+ඔබගේ වෙබ්‌ අඩවියට දන්ත සමුදායක්‌ අවශ්‍ය
+නම්‌, පාලක පැනලයේ දත්ත සමුදායක්‌ සාදන්න,
+ඔබගේ දත්ත සමුදා ගොනුව ආයාත කරන්න, සහ
+
+නිවැරදි දත්ත සමුදා විස්තර සමඟ ඔබගේ වෙබ්‌
+අඩවි වින්‍යාස ගොනුව යාවත්කාලීන කරන්න.
+
+Type your domain name into a web
+browser to check that your website is live
+
+and working correctly on the internet.
+ඔබගේ වෙබ්‌ අඩවිය සජීවීද සහ අන්තරජාලයේ
+නිවැරදිව ක්‍රියාත්මක වේද යන්න පර්කක්‍්ෂා කිරීමට
+ඔබගේ වසම්‌ නාමය වෙබ්‌ අත්රටික්සුවකට ටයිප්‌
+කරන්න.
+
+Factors affecting website performance
+GOD අඩවි ක්‍රියාකාරිත්වයට බලපාන සාධක
+
+Bandwidth
+
+කලාප පළල
+
+The amount of data that can be transferred at
+one time. Low bandwidth slows downloading,
+especially with many users.
+
+එකවර සම්ප්‍රේෂණය කළ හැකි දත්ත ප්‍රමාණය. අඩු
+
+කලාප පළලක්‌ මගින්‌ පූරණය මන්දගාමී කරයි,
+විශේෂයෙන්‌ බොහෝ පරිශීලකයින්‌ සමඟ.
+
+Web Hosting Quality
+
+GOD සත්කාරක ගුණාත්මකභාවය
+
+Poor or shared hosting servers can reduce
+speed and reliability.
+
+දුර්වල හෝ හවුලේ G®%aa0) සත්කාරක
+සේවාදායකයන්‌ වේගය සහ විශ්වසනීයත්වය අඩු කළ
+හැකිය.
+
+Server Speed (CPU & RAM)
+සේවාදායක වේගය (CPU & RAM)
+Low processing power makes the server
+
+respond slowly.
+අඩු සැකසුම්‌ බලය නිසා සේවාදායකය සෙමින්‌
+ප්‍රතිචාර දුක්වයි.
+
+Server Response Time
+සේවාදායක ප්‍රතිචාර කාලය
+The time taken for the server to respond to a
+
+request from a browser.
+අතිරික්සුවකින්‌ සිදු කරන ඉල්ලීමකට ප්‍රතිචාර
+දැක්වීමට ස්ේවාදායකයට ගතවන කාලය.
+
+Network Latency
+
+ජාල ප්‍රමාදය
+Delay caused by long physical distance
+
+between the server and the user.
+සේවාදායකයා සහ පරිශීලකයා අතර දිගු භෞතික
+දුරක්‌ නිසා ඇතිවන ප්‍රමාදය.
+
+Website File Size
+
+වෙබ්‌ අඩවි ගොනු ප්‍රමාණය
+
+Large images, videos, and heavy graphics
+increase load time.
+
+විශාල රෑප, වීඩියෝ සහ heavy graphics පැටවීමේ
+කාලය වැඩි කරයි.
+
+Number of HTTP Requests
+HTTP ඉල්ලීම්‌ ගණන
+More scripts, images, and stylesheets mean
+
+more requests, which slows loading.
+
+විශාළ ප්‍රමාණයේ කේත, රෑප සභ විලාස පත්‍ර යනු
+වැඩි ලේලීම්‌ ප්‍රමාණයක්‌ වන අතර එය පූරණය වීම
+මන්දගාමී කරයි.
+
+Unoptimized Images and Media
+ප්‍රශස්තිකරණය නොකළ රෑප සහ මාධ්‍ය
+Images that are not compressed properly
+
+reduce performance.
+නිසි ලෙස සම්පීඩනය නොකළ රෑප කාරය සාධනය
+අඩු කරයි.
+
+Poor Coding
+
+දුර්වල කේතනය
+
+Inefficient HTML, CSS, or JavaScript can slow
+down the website.
+
+අකාරියක්ෂම HTML, CSS හෝ JavaScript කේත
+GOD අඩවිය මන්දගාමී කළ හැකිය.
+
+Too Many Plugins or External Scripts
+Excessive plugins (especially in CMS platforms)
+can affect speed.
+
+අධික ප්‍රමාණයෙ (විශේෂයෙන්‌ CMS වේදිකා වල)
+වේගයට බලපෑ හැකිය.
+
+Database Performance
+
+දුත්ත සමුදා කාරය සාධනය
+
+Slow or poorly structured database queries
+delay dynamic pages.
+
+මන්දගාමී හෝ දුර්වල ලෙස ව්‍යුහගත දන්ත සමුදා
+විමසුම්‌ ගතික පිටු ප්‍රමාද කරයි.
+
+Traffic Volume
+High number of visitors at the same time can
+
+overload the server.
+එකම අවස්ථාවේදීම ඉහළ
+සේවාදායකය විය හැක.
+
+සංඛ්‍යාවක්‌ නිසා
+
+Lack of Caching
+
+නිහිත BOO දුර්වල වීම
+
+Without caching, data reloads completely every
+time a user visits.
+
+SOBOQMGE පැමිණෙන සෑම අවස්ථාවකම දන්න
+සම්පූර්ණයෙන්ම නැවත පූරණය වේ.
+
+Server Location
+
+සේවාදායක ස්ථානය
+
+Servers located far away from users increase
+loading time.
+
+පරශීලකයන්ගෙන්‌ බොහෝ ඈන්ව පිහිටා a7s
+සේවාදායකයන්‌ පූරණ කාලය වැඩි කරයි.
+
+User's Internet Speed
+
+පරිශීලකයාගේ අන්තර්ජාල වේගය
+
+Slow internet connection affects how quickly
+content loads.
+
+මන්දගාමී අන්තර්ජාල සම්බන්ධතාවය eamBbane
+කෙතරමි කේමනින්‌ පූරණය Ge යන්නට බලපායි.
