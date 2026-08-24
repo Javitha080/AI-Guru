@@ -14,12 +14,15 @@ Guarantees 100% local execution.
 from __future__ import annotations
 
 import collections
-import logging
-import uuid
 from dataclasses import dataclass, field
+import logging
 from typing import Deque, Dict, List, Optional
+import uuid
 
-from deeptutor.services.monitoring.distraction_analyzer import DistractionAnalysisResult, DistractionType
+from deeptutor.services.monitoring.distraction_analyzer import (
+    DistractionAnalysisResult,
+    DistractionType,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -77,12 +80,37 @@ class WarningManager:
         # Sliding history of timestamps for window rate limiting
         self._alert_history: Deque[float] = collections.deque()
         self._emitted_warnings: List[WarningEvent] = []
+        # Edge-triggering: categories already notified during the CURRENT
+        # continuous distraction episode. Without this, a state that stays
+        # true every frame (STUDENT_AWAY) re-fires on every cooldown expiry —
+        # one identical Telegram ping per minute for the whole absence.
+        self._episode_notified: Dict[str, bool] = {}
+        # Episode gating arms only when a caller feeds frame states via
+        # observe_distraction_state(); bare evaluate_and_dispatch() callers
+        # keep the classic cooldown-only semantics.
+        self._episode_tracking_armed = False
 
     def reset(self) -> None:
         """Reset all cooldowns and warning histories."""
         self._last_alert_timestamps.clear()
         self._alert_history.clear()
         self._emitted_warnings.clear()
+        self._episode_notified.clear()
+        self._episode_tracking_armed = False
+
+    def observe_distraction_state(self, is_distracted: bool, category: object = None) -> None:
+        """Feed the current frame's distraction state so episodes can be tracked.
+
+        Must be called every analysis tick (before evaluate_and_dispatch).
+        A non-distracted frame ends every open episode, re-arming its notify.
+        """
+        self._episode_tracking_armed = True
+        if not is_distracted or category is None:
+            self._episode_notified.clear()
+            return
+        cat = getattr(category, "value", str(category))
+        if cat in ("NONE", "", None):
+            self._episode_notified.clear()
 
     def get_cooldown_remaining(self, category: str, current_time: float) -> float:
         """Return remaining cooldown seconds for a given category (0.0 if ready)."""
@@ -127,6 +155,13 @@ class WarningManager:
             )
             return None
 
+        # 2b. Episode Gate — one notification per continuous distraction
+        # episode, regardless of how long it lasts (only for callers that
+        # feed frame states via observe_distraction_state).
+        if self._episode_tracking_armed and self._episode_notified.get(category):
+            logger.debug("Warning '%s' suppressed: already notified this episode", category)
+            return None
+
         # 3. Window Rate Limit Gate
         # Prune older alerts outside window
         while self._alert_history and (timestamp - self._alert_history[0] > self.WINDOW_SECONDS):
@@ -160,6 +195,7 @@ class WarningManager:
         self._last_alert_timestamps[category] = timestamp
         self._alert_history.append(timestamp)
         self._emitted_warnings.append(event)
+        self._episode_notified[category] = True
 
         logger.info("Dispatched study warning [%s]: %s (severity=%s)", category, message, severity)
         return event

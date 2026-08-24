@@ -249,7 +249,11 @@ class ListDirTool(_WorkspaceTool):
                 total += 1
                 if len(items) < cap:
                     rel = item.relative_to(dp)
-                    items.append(f"{rel}/" if item.is_dir() else str(rel))
+                    # POSIX-style separators so listings are identical on
+                    # Windows and Unix (the model reasons about these paths
+                    # and later passes them back to read/edit).
+                    rel_text = "/".join(rel.parts) if rel.parts else "."
+                    items.append(f"{rel_text}/" if item.is_dir() else rel_text)
             if not items and total == 0:
                 return ToolResult(content=f"Directory {path} is empty")
             text = "\n".join(items)

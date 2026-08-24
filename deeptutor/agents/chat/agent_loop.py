@@ -35,7 +35,11 @@ from typing import TYPE_CHECKING, Any
 from deeptutor.agents._shared.capability_result import emit_capability_result
 from deeptutor.agents.chat.context_budget import LLMRequestSnapshot
 from deeptutor.agents.chat.dsml_tool_calls import DSMLStreamFilter, extract_dsml_tool_calls
-from deeptutor.core.agentic.messages import assistant_message_with_tool_calls
+from deeptutor.core.agentic.messages import (
+    accumulate_streamed_tool_call,
+    assistant_message_with_tool_calls,
+    finalize_streamed_tool_calls,
+)
 from deeptutor.core.agentic.tool_dispatch import DispatchOutcome
 from deeptutor.core.agentic.usage import message_content_chars, record_streamed_usage
 from deeptutor.core.context import UnifiedContext
@@ -711,19 +715,13 @@ class AgentLoop:
                 for tc_delta in getattr(delta, "tool_calls", None) or []:
                     index = int(getattr(tc_delta, "index", 0) or 0)
                     acc = tool_acc.setdefault(index, {"id": "", "name": "", "arguments": ""})
-                    tcid = getattr(tc_delta, "id", None)
-                    if tcid:
-                        acc["id"] += str(tcid)
+                    accumulate_streamed_tool_call(acc, tc_delta)
                     fn = getattr(tc_delta, "function", None)
-                    if fn is None:
-                        continue
-                    name = getattr(fn, "name", None)
-                    arguments = getattr(fn, "arguments", None)
+                    name = getattr(fn, "name", None) if fn is not None else None
+                    arguments = getattr(fn, "arguments", None) if fn is not None else None
                     if name:
-                        acc["name"] += str(name)
                         output_chars += len(str(name))
                     if arguments:
-                        acc["arguments"] += str(arguments)
                         output_chars += len(str(arguments))
         finally:
             close = getattr(response_stream, "close", None)
@@ -743,15 +741,9 @@ class AgentLoop:
             output_chars=output_chars,
         )
 
-        tool_calls = [
-            {
-                "id": data.get("id") or f"call_{idx}",
-                "name": data.get("name", ""),
-                "arguments": data.get("arguments") or "{}",
-            }
-            for idx, data in sorted(tool_acc.items())
-            if data.get("name")
-        ]
+        # Flat dicts carry any captured provider-specific extras (Gemini
+        # thought_signature) so history replay survives round 2.
+        tool_calls = finalize_streamed_tool_calls(tool_acc)
 
         # Fallback: a DeepSeek deployment without native function calling emits
         # its tool calls as DSML markup in the content channel instead of as

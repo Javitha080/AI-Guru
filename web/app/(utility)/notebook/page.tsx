@@ -617,8 +617,8 @@ export default function NotebookPage() {
 
                   {/* Explanation */}
                   {item.explanation && (
-                    <div className="mb-3 rounded-lg border border-blue-200/60 bg-blue-50/30 px-3 py-2.5 dark:border-blue-900/40 dark:bg-blue-950/15">
-                      <div className="mb-1 text-[11px] font-medium uppercase tracking-wide text-blue-600 dark:text-blue-400">
+                    <div className="mb-3 rounded-lg border border-[var(--glass-border)] bg-[var(--accent)] px-3 py-2.5">
+                      <div className="mb-1 text-[11px] font-medium uppercase tracking-wide text-[var(--primary)]">
                         {t("Explanation")}
                       </div>
                       <div className="text-[13px] leading-relaxed text-[var(--foreground)]">

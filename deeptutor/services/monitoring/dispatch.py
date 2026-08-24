@@ -142,8 +142,7 @@ async def handle_session_completed(
         from deeptutor.services.study.report_generator import ReportGenerator
 
         report = await ReportGenerator().generate_report(session_id, student_id)
-        data = report.get("report_data") or {}
-        summary_text = str(data.get("summary", ""))
+        summary_text = str(report.get("ai_tutor_feedback", "") or "")
     except Exception as exc:  # noqa: BLE001
         logger.info("Report generation skipped for %s: %s", session_id, exc)
 
@@ -159,7 +158,12 @@ async def handle_session_completed(
             warning_count = int(session.get("warning_count") or 0)
             duration_minutes = float(session.get("actual_duration_seconds") or 0) / 60.0
         tel_summary = await TelemetryLogger().get_session_summary(session_id)
-        warning_count = max(warning_count, int(tel_summary.get("by_type", {}).get("WARNING_ISSUED", 0)))
+        # Count only actionable warnings; info-level presence pings
+        # (STUDENT_AWAY) must not inflate the parent-facing report.
+        warning_count = max(
+            warning_count,
+            int(tel_summary.get("actionable_warnings", 0)),
+        )
     except Exception as exc:  # noqa: BLE001
         logger.debug("Session metrics aggregation failed: %s", exc)
 
@@ -167,9 +171,8 @@ async def handle_session_completed(
     try:
         from deeptutor.services.gamification.gamification_service import GamificationService
 
-        minutes = max(0.0, float(session.get("actual_duration_seconds") or 0)) / 60.0 if False else duration_minutes
         focus = focus_score or 0
-        xp_earned = int(max(5, min(200, minutes * 2 + focus * 0.8)))
+        xp_earned = int(max(5, min(200, duration_minutes * 2 + focus * 0.8)))
         await GamificationService.award_xp(
             student_id,
             xp_earned,
@@ -179,15 +182,16 @@ async def handle_session_completed(
         await GamificationService.check_and_award(student_id, session_id=session_id)
     except Exception as exc:  # noqa: BLE001
         logger.debug("Session XP award skipped: %s", exc)
+        xp_earned = 0
 
+    # Report the XP that is ACTUALLY persisted in rewards (0 when the award
+    # failed) — never the formula's intention.
     try:
         from deeptutor.services.study.session_manager import StudySessionManager
 
-        session = await StudySessionManager().get_session(session_id)
-        if session:
-            xp_earned = int(session.get("xp_earned") or 0)
-    except Exception:  # noqa: BLE001
-        pass
+        xp_earned = await StudySessionManager()._session_xp(session_id)
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("XP read-back failed for %s: %s", session_id, exc)
 
     # 3. Queue the parent-facing summary.
     try:

@@ -86,6 +86,21 @@ class LLMProvider(ABC):
         "server error",
         "temporarily unavailable",
     )
+    # Hard-quota exhaustion (plan/billing limit reached) arrives as an HTTP 429
+    # but is NOT transient: no amount of same-session retrying fixes billing.
+    # Retrying turned one failed call into ~22 minutes of blocked backoff
+    # (8 retries × 5s doubling) and made every LLM-backed surface — chat,
+    # /memory runs, report generation — hang instead of failing honestly.
+    # Only UNAMBIGUOUS billing wording counts here: generic "429"/
+    # "resource_exhausted" also covers per-minute rate limits, which backoff
+    # genuinely fixes, so those stay transient.
+    _QUOTA_ERROR_MARKERS = (
+        "exceeded your current quota",
+        "check your plan and billing",
+        "billing_details",
+        "insufficient_quota",
+        "quota exceeded",
+    )
     _SENTINEL = object()
 
     @staticmethod
@@ -266,8 +281,16 @@ class LLMProvider(ABC):
         return response
 
     @classmethod
+    def _is_quota_error(cls, content: str | None) -> bool:
+        err = (content or "").lower()
+        return any(marker in err for marker in cls._QUOTA_ERROR_MARKERS)
+
+    @classmethod
     def _is_transient_error(cls, content: str | None) -> bool:
         err = (content or "").lower()
+        if cls._is_quota_error(err):
+            # A 429 carrying quota/billing wording is a dead end — never retry.
+            return False
         return any(marker in err for marker in cls._TRANSIENT_ERROR_MARKERS)
 
     async def _call_with_retry(

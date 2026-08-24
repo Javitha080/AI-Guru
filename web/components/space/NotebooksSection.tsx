@@ -177,7 +177,7 @@ export default function NotebooksSection() {
       case "chat":
         return {
           label: t("Chat"),
-          color: "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300",
+          color: "bg-[var(--accent)] text-[var(--primary)]",
           icon: MessageSquare,
         };
       case "tutorbot": {
@@ -190,7 +190,7 @@ export default function NotebooksSection() {
         return {
           label: partnerName || t("Partner"),
           color:
-            "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
+            "bg-[var(--accent)] text-[var(--primary)]",
           icon: Bot,
         };
       }
@@ -212,7 +212,7 @@ export default function NotebooksSection() {
         return {
           label: record.type,
           color:
-            "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+            "bg-slate-100 text-slate-600 dark:bg-[var(--secondary)] dark:text-[var(--muted-foreground)]",
           icon: NotebookPen,
         };
     }

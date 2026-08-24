@@ -19,14 +19,22 @@ Endpoints:
 
 from __future__ import annotations
 
-import asyncio
 import json
 import logging
 import time
 from typing import Any, Dict, List, Optional
 
 import aiosqlite
-from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
+from fastapi import (
+    APIRouter,
+    Cookie,
+    Depends,
+    Header,
+    HTTPException,
+    Query,
+    Request,
+    status,
+)
 from pydantic import BaseModel, Field
 
 from deeptutor.services.remote.audit_logger import AuditLogger
@@ -82,6 +90,42 @@ async def require_parent(request: Request) -> Dict[str, Any]:
     return payload
 
 
+async def parent_context(
+    authorization: str | None = Header(default=None, alias="Authorization"),
+    dt_token: str | None = Cookie(default=None, alias="dt_token"),
+) -> None:
+    """Install the per-user workspace context for parent-portal routes.
+
+    Replaces the old router-level ``require_auth`` mount gate. That gate broke
+    the documented remote flow: whenever AUTH_ENABLED=true it 401'd the
+    bootstrap trio (has-pin / set-pin / verify-pin / refresh) before a remote
+    parent — who by definition holds no student JWT — could even check whether
+    a PIN exists.
+
+    Behaviour:
+    - valid student/user JWT (cookie or bearer) -> that user's workspace;
+    - no token, or AUTH_ENABLED=false           -> local admin workspace.
+
+    The parent portal is anchored to the admin workspace by design (pairing,
+    PIN and audit data live there), so the fallback is the intended location,
+    and every sensitive route *additionally* demands the parent PIN-JWT via
+    ``require_parent``.
+    """
+    from deeptutor.api.routers.auth import (
+        _extract_token,
+        _install_current_user,
+        decode_token,
+    )
+    from deeptutor.services.auth import AUTH_ENABLED
+
+    payload = None
+    if AUTH_ENABLED:
+        token = _extract_token(authorization, dt_token)
+        if token:
+            payload = decode_token(token) or None
+    _install_current_user(payload)
+
+
 def _audit(action: str, actor: str = "local", details: Optional[Dict[str, Any]] = None,
            resource_id: str = "", resource_type: str = "parent_portal", ip: str = "") -> None:
     """Fire-and-forget audit logging; never raises into the request path."""
@@ -93,10 +137,9 @@ def _audit(action: str, actor: str = "local", details: Optional[Dict[str, Any]] 
         except Exception as exc:  # noqa: BLE001
             logger.debug("audit log skipped for %s: %s", action, exc)
 
-    try:
-        asyncio.get_running_loop().create_task(_run())
-    except RuntimeError:
-        pass
+    from deeptutor.services.background import spawn_bg
+
+    spawn_bg(_run(), name=f"parent-audit-{action}")
 
 
 # ------------------------------------------------------------------- models
@@ -134,7 +177,11 @@ class TelegramConfigRequest(BaseModel):
 class StartTunnelRequest(BaseModel):
     provider: str = Field(default="cloudflare", description="'cloudflare' or 'ngrok'")
     ngrok_token: Optional[str] = None
-    port: int = 8001
+    port: Optional[int] = Field(
+        default=None,
+        description="Local target port. Defaults to the FRONTEND port so the "
+        "public URL serves the portal UI (which proxies /api to the backend).",
+    )
 
 
 class GeneratePairingRequest(BaseModel):
@@ -232,23 +279,30 @@ async def verify_parent_pin(req: VerifyPinRequest, request: Request):
 
 @router.post("/auth/refresh")
 async def refresh_parent_token(req: RefreshTokenRequest):
-    """Exchange a refresh token for a fresh 15-min access token."""
+    """Rotate a refresh token: returns a NEW access+refresh pair (old is revoked)."""
     try:
-        access_token = await JWTAuthService.refresh_access_token(req.refresh_token)
-    except ValueError as e:
+        result = await JWTAuthService.rotate_refresh_token(req.refresh_token)
+    except ValueError:
         raise HTTPException(status_code=401, detail="invalid_refresh_token")
-    return {"access_token": access_token, "token_type": "bearer", "expires_in": 900}
+    return result
+
+
+class LogoutRequest(BaseModel):
+    refresh_token: Optional[str] = None
 
 
 @router.post("/auth/logout")
 async def logout_parent(request: Request,
+                        req: Optional[LogoutRequest] = None,
                         _parent: Dict[str, Any] = Depends(require_parent)):
-    """Revoke the presented parent access token."""
+    """Revoke the presented parent access token and (when supplied) refresh token."""
     token = getattr(request.state, "parent_token", None)
     payload = getattr(request.state, "parent_payload", {}) or {}
     if token and payload.get("jti"):
         await JWTAuthService.revoke_token(payload["jti"])
-        _audit("auth.logout", actor=payload.get("sub", "default"))
+    if req and req.refresh_token:
+        await JWTAuthService.revoke_refresh_token(req.refresh_token)
+    _audit("auth.logout", actor=payload.get("sub", "default"))
     return {"success": True}
 
 
@@ -274,19 +328,43 @@ async def get_telegram_config(parent_id: str = "default"):
                     "chat_id": data.get("chat_id", ""),
                     "enabled": data.get("enabled", True),
                 }
-    except Exception:
-        pass
+    except Exception as exc:  # noqa: BLE001 - unconfigured is a normal state
+        # Never silent: a corrupted settings row should be diagnosable.
+        logger.debug("Telegram config load failed for %s: %s", parent_id, exc)
     return {"configured": False, "bot_token_masked": "", "chat_id": "", "enabled": False}
 
 
 @router.post("/telegram/config", dependencies=[Depends(require_parent)])
 async def save_telegram_config(req: TelegramConfigRequest):
-    """Save Telegram bot credentials."""
+    """Save Telegram bot credentials.
+
+    A blank ``bot_token`` means "keep the saved one" — the settings UI sends
+    an empty field when the parent only wants to update the Chat ID, and
+    blindly overwriting would silently disable alert delivery.
+    """
     db_path = _get_db_path()
+    bot_token = (req.bot_token or "").strip()
     async with aiosqlite.connect(db_path) as db:
         await ensure_kv_settings(db)
+        if not bot_token:
+            cursor = await db.execute(
+                "SELECT value FROM settings WHERE key = ?", (f"telegram_{req.parent_id or 'default'}",)
+            )
+            row = await cursor.fetchone()
+            existing: Dict[str, Any] = {}
+            if row and row[0]:
+                try:
+                    existing = json.loads(row[0])
+                except Exception:  # noqa: BLE001 - corrupted row behaves like absent
+                    existing = {}
+            bot_token = str(existing.get("bot_token") or "")
+            if not bot_token:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Bot Token is required for first-time setup.",
+                )
         payload = json.dumps({
-            "bot_token": req.bot_token,
+            "bot_token": bot_token,
             "chat_id": req.chat_id,
             "enabled": req.enabled,
             "updated_at": time.time(),
@@ -306,6 +384,7 @@ async def test_telegram_notification(parent_id: str = "default"):
     """Send a test notification to verify Telegram setup."""
     db_path = _get_db_path()
     async with aiosqlite.connect(db_path) as db:
+        await ensure_kv_settings(db)
         cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
         row = await cursor.fetchone()
 
@@ -317,7 +396,7 @@ async def test_telegram_notification(parent_id: str = "default"):
         bot_token=data.get("bot_token"),
         chat_id=data.get("chat_id"),
         text=(
-            "ðŸŽ‰ <b>AI Guru â€” Telegram Notifications Connected!</b>\n\n"
+            "🎉 <b>AI Guru — Telegram Notifications Connected!</b>\n\n"
             "You will now receive study session start links, real-time distraction alerts, "
             "and end-of-session report cards directly in this chat."
         ),
@@ -328,13 +407,47 @@ async def test_telegram_notification(parent_id: str = "default"):
     return {"success": True, "message": "Test notification sent successfully."}
 
 
+def _lan_ip() -> str:
+    """Best-effort primary LAN IPv4 (never blocks; loopback fallback)."""
+    import socket
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(("8.8.8.8", 80))
+        return str(s.getsockname()[0])
+    except Exception:  # noqa: BLE001
+        return "127.0.0.1"
+    finally:
+        s.close()
+
+
+def _portal_base_url() -> tuple[str, str]:
+    """(base_url, mode) for the parent portal link.
+
+    Public tunnel URL when active; otherwise the honest LAN address of the
+    FRONTEND server (which proxies /api to the backend). Never a fabricated
+    localhost:3000-style guess.
+    """
+    tunnel_url = TunnelGateway.get_tunnel_url()
+    if tunnel_url and TunnelGateway.is_url_public():
+        return tunnel_url, "tunnel"
+    try:
+        from deeptutor.services.setup import get_frontend_port
+
+        port = get_frontend_port()
+    except Exception:  # noqa: BLE001
+        port = 3782
+    return f"http://{_lan_ip()}:{port}", "lan"
+
+
 @router.post("/telegram/send-link", dependencies=[Depends(require_parent)])
 async def send_tunnel_link_to_telegram(parent_id: str = "default", student_name: str = "Student"):
     """Manually dispatch current parent portal link to Telegram."""
-    tunnel_url = TunnelGateway.get_tunnel_url() or "http://localhost:3000"
+    portal_url, mode = _portal_base_url()
 
     db_path = _get_db_path()
     async with aiosqlite.connect(db_path) as db:
+        await ensure_kv_settings(db)
         cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
         row = await cursor.fetchone()
 
@@ -342,18 +455,23 @@ async def send_tunnel_link_to_telegram(parent_id: str = "default", student_name:
         raise HTTPException(status_code=400, detail="Telegram not configured.")
 
     data = json.loads(row[0])
+    access_line = (
+        "Reachable via your encrypted outbound tunnel."
+        if mode == "tunnel"
+        else "Reachable on your home Wi-Fi network only (tunnel not active)."
+    )
     success = await TelegramNotifier.send_message(
         bot_token=data.get("bot_token"),
         chat_id=data.get("chat_id"),
         text=(
-            f"ðŸ”— <b>AI Guru â€” Parent Live Portal Link</b>\n\n"
-            f"ðŸ‘¤ <b>Student:</b> {student_name}\n"
-            f"ðŸŒ <b>Portal URL:</b> <a href=\"{tunnel_url}/parent\">{tunnel_url}/parent</a>\n\n"
-            f"<i>Access is protected by your Parent Passcode PIN.</i>"
+            f"\U0001F517 <b>AI Guru \u2014 Parent Live Portal Link</b>\n\n"
+            f"\U0001F464 <b>Student:</b> {student_name}\n"
+            f"\U0001F310 <b>Portal URL:</b> <a href=\"{portal_url}/parent\">{portal_url}/parent</a>\n\n"
+            f"<i>{access_line} Access is protected by your Parent Passcode PIN.</i>"
         ),
     )
-    _audit("telegram.link_sent", actor=parent_id, details={"success": success})
-    return {"success": success, "url": f"{tunnel_url}/parent"}
+    _audit("telegram.link_sent", actor=parent_id, details={"success": success, "mode": mode})
+    return {"success": success, "url": f"{portal_url}/parent", "mode": mode}
 
 
 # ------------------------------- 3. Outbound Encrypted Tunnel Endpoints
@@ -592,6 +710,60 @@ async def revoke_link(link_id: str):
     return {"status": "success"}
 
 
+def _local_midnight() -> float:
+    lt = time.localtime()
+    return time.mktime((lt.tm_year, lt.tm_mon, lt.tm_mday, 0, 0, 0, 0, 0, -1))
+
+
+def _coerce_session_rows(result: Any) -> List[Dict[str, Any]]:
+    """Normalize StudySessionManager.list_sessions output.
+
+    The manager historically returned ``List[dict]``; concurrent work may
+    switch it to a paginated payload ``{"items": [...], "total": n, ...}``.
+    Accept both so the portal never renders fabricated zeros from a shape
+    mismatch.
+    """
+    if isinstance(result, dict):
+        items = result.get("items")
+        if isinstance(items, list):
+            return [row for row in items if isinstance(row, dict)]
+        return []
+    if isinstance(result, list):
+        return [row for row in result if isinstance(row, dict)]
+    return []
+
+
+def _today_seconds(rows: List[Dict[str, Any]]) -> float:
+    """Sum of study seconds for sessions started today (live in-progress counts up)."""
+    midnight = _local_midnight()
+    now = time.time()
+    total = 0.0
+    for s in rows or []:
+        started = float(s.get("start_time") or s.get("created_at") or 0)
+        if started < midnight:
+            continue
+        duration = float(s.get("actual_duration_seconds") or 0)
+        if s.get("status") == "in_progress":
+            duration = max(duration, now - started)
+        total += max(0.0, duration)
+    return total
+
+
+def _latest_focus_score(rows: List[Dict[str, Any]]) -> Optional[float]:
+    """Most recent COMPLETED session's stored focus score; None when never measured."""
+    for s in rows or []:
+        if s.get("status") != "completed":
+            continue
+        raw = s.get("focus_score")
+        try:
+            value = float(raw) if raw is not None else None
+        except (TypeError, ValueError):
+            value = None
+        if value is not None and value > 0:
+            return round(value, 1)
+    return None
+
+
 @router.get("/dashboard/{parent_id}", dependencies=[Depends(require_parent)])
 async def get_parent_dashboard(parent_id: str):
     students = await PairingService.get_linked_students(parent_id)
@@ -604,57 +776,74 @@ async def get_parent_dashboard(parent_id: str):
     except Exception:  # noqa: BLE001
         live_sessions = set()
 
-    async def _current_activity(student_id: str) -> Dict[str, Any]:
-        try:
-            from deeptutor.services.study.session_manager import StudySessionManager
+    # Fallback display name comes from the persisted supervision rules.
+    fallback_name = "Student"
+    db_path = _get_db_path()
+    try:
+        async with aiosqlite.connect(db_path) as db:
+            await ensure_kv_settings(db)
+            cursor = await db.execute(
+                "SELECT value FROM settings WHERE key = ?", (f"supervision_rules_{parent_id}",)
+            )
+            row = await cursor.fetchone()
+        if row and row[0]:
+            rules = json.loads(row[0])
+            if str(rules.get("student_name") or "").strip():
+                fallback_name = str(rules["student_name"]).strip()
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Supervision rules unavailable for dashboard name: %s", exc)
 
-            rows = await StudySessionManager().list_sessions(student_id, limit=5)
-            for s in rows or []:
-                if s.get("status") == "in_progress":
-                    return {
-                        "status": "studying" if str(s["id"]) in live_sessions else "offline",
-                        "current_subject": s.get("subject") or "",
-                        "today_study_time": round((s.get("actual_duration_seconds") or 0) / 60.0, 1),
-                    }
+    from deeptutor.services.study.session_manager import StudySessionManager
+
+    manager = StudySessionManager()
+
+    async def _build_row(student_id: str, name: str,
+                         permissions: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        rows: List[Dict[str, Any]] = []
+        try:
+            rows = _coerce_session_rows(await manager.list_sessions(student_id, limit=30))
         except Exception as exc:  # noqa: BLE001
             logger.debug("activity lookup failed for %s: %s", student_id, exc)
-        return {"status": "offline", "current_subject": "", "today_study_time": 0}
 
-    # XP / streak / level come from the real gamification facade.
-    async def _gamification(student_id: str) -> Dict[str, Any]:
+        in_progress = next((s for s in rows if s.get("status") == "in_progress"), None)
+        studying = bool(in_progress) and str(in_progress.get("id")) in live_sessions
+
+        gam = {"streak": 0, "xp": 0, "level": 1}
         try:
             from deeptutor.services.gamification.gamification_service import GamificationService
 
             prof = await GamificationService.get_profile(student_id)
-            return {"streak": prof.get("streak", 0), "xp": prof.get("xp", 0), "level": prof.get("level", 1)}
+            gam = {
+                "streak": prof.get("streak", 0),
+                "xp": prof.get("xp", 0),
+                "level": prof.get("level", 1),
+            }
         except Exception:  # noqa: BLE001
-            return {"streak": 0, "xp": 0, "level": 1}
+            pass
 
-    dashboard_data = []
-    if not students:
-        student_id = "student-primary"
-        activity = await _current_activity(student_id)
-        gam = await _gamification(student_id)
-        dashboard_data.append({
+        row: Dict[str, Any] = {
             "student_id": student_id,
-            "name": "Student",
-            **activity,
-            "focus_score": 0,
+            "name": name,
+            "status": "studying" if studying else "offline",
+            "current_subject": (in_progress or {}).get("subject") or "",
+            "today_study_time": round(_today_seconds(rows) / 60.0, 1),
+            "focus_score": _latest_focus_score(rows),
             **gam,
-        })
+        }
+        if permissions is not None:
+            row["permissions"] = permissions
+        return row
+
+    dashboard_data: List[Dict[str, Any]] = []
+    if not students:
+        dashboard_data.append(await _build_row("student-primary", fallback_name))
     else:
         for link in students:
             student_id = link.get("student_id", "student")
-            activity = await _current_activity(student_id)
-            gam = await _gamification(student_id)
-            dashboard_data.append({
-                "student_id": student_id,
-                "name": link.get("student_name") or f"Student {str(student_id)[:4]}",
-                "permissions": link.get("permissions", {}),
-                **activity,
-                "focus_score": 0,
-                **gam,
-            })
+            name = link.get("student_name") or fallback_name
+            dashboard_data.append(
+                await _build_row(student_id, name, link.get("permissions", {}))
+            )
 
     return dashboard_data
 
@@ -666,26 +855,42 @@ async def get_student_sessions(student_id: str):
 
     manager = StudySessionManager()
     try:
-        history = await manager.list_sessions(student_id=student_id, limit=50)
+        history = await manager.list_sessions(student_id=student_id, limit=100)
     except TypeError:
-        history = await manager.list_sessions(student_id)
+        history = await manager.list_sessions(student_id, 100)
     except Exception:
         history = []
+    history = _coerce_session_rows(history)
 
     weekly = [0.0] * 7
     focus_trend: List[float] = []
     session_count_week = 0
     incidents: List[Dict[str, Any]] = []
-    week_ago = time.time() - 7 * 86400
+    now = time.time()
+    week_ago = now - 7 * 86400
+    month_ago = now - 30 * 86400
 
     for s in history or []:
-        started = float(s.get("started_at") or s.get("created_at") or 0)
-        focus = s.get("focus_score") or 0
+        started = float(s.get("start_time") or s.get("created_at") or 0)
+        if not started:
+            continue
         if started >= week_ago:
-            day_idx = int((6 - (time.time() - started) // 86400) % 7)
-            weekly[day_idx] += round((s.get("duration_seconds") or 0) / 60.0, 1)
+            # tm_wday: Monday=0 .. Sunday=6 — matches the Mon..Sun labels.
+            day_idx = time.localtime(started).tm_wday
+            minutes = round(float(s.get("actual_duration_seconds") or 0) / 60.0, 1)
+            weekly[day_idx] += minutes
             session_count_week += 1
-            focus_trend.append(focus)
+            raw_focus = s.get("focus_score")
+            try:
+                if raw_focus is not None:
+                    focus_trend.append(float(raw_focus))
+            except (TypeError, ValueError):
+                pass
+
+    session_count_month = sum(
+        1 for s in (history or [])
+        if float(s.get("start_time") or s.get("created_at") or 0) >= month_ago
+    )
 
     # Live incident feed: latest WARNING_ISSUED telemetry across this
     # student's sessions (real data; empty state when none).
@@ -728,7 +933,7 @@ async def get_student_sessions(student_id: str):
         "weekly_study_time": weekly,
         "focus_trend": focus_trend[-14:],
         "session_count_week": session_count_week,
-        "session_count_month": len(history or []),
+        "session_count_month": session_count_month,
         "recent_incidents": incidents,
         "sessions": history[:10],
     }

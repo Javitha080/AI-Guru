@@ -7,6 +7,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { useAppShell } from "@/context/AppShellContext";
 import {
   BookOpen,
+  BookOpenCheck,
   BookText,
   Bot,
   Brain,
@@ -102,6 +103,12 @@ const PRIMARY_NAV: NavEntry[] = [
     label: "Exam Room",
     icon: FileText,
     tooltipKey: "Exam Room tooltip",
+  },
+  {
+    href: "/papers",
+    label: "Paper Bank",
+    icon: BookOpenCheck,
+    tooltipKey: "Paper Bank tooltip",
   },
   {
     href: "/achievements",

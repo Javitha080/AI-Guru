@@ -80,20 +80,26 @@ export function getSystemTheme(): Theme {
 
 /**
  * Apply theme to document
+ *
+ * Class contract (must stay in sync with app/globals.css):
+ *   dark/glass → `.dark`            (OLED LiquidGlass palette, :root default)
+ *   light/snow → `.theme-light`     (frosted-white palette)
+ * "snow" and "glass" are legacy aliases kept so old localStorage values and
+ * the settings UI keep working; both resolve onto the two real palettes.
  */
 export function applyThemeToDocument(theme: Theme): void {
   if (typeof document === "undefined") return;
 
   const html = document.documentElement;
 
-  html.classList.remove("dark", "theme-glass", "theme-snow");
+  html.classList.remove("dark", "theme-glass", "theme-snow", "theme-light");
 
-  if (theme === "dark") {
+  if (theme === "light" || theme === "snow") {
+    html.classList.add("theme-light");
+  } else {
+    // dark or legacy glass — the dark palette is also the :root default.
     html.classList.add("dark");
-  } else if (theme === "glass") {
-    html.classList.add("dark", "theme-glass");
-  } else if (theme === "snow") {
-    html.classList.add("theme-snow");
+    if (theme === "glass") html.classList.add("theme-glass");
   }
 }
 

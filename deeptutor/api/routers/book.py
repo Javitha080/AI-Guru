@@ -27,6 +27,12 @@ from deeptutor.core.stream import StreamEventType
 from deeptutor.core.stream_bus import StreamBus
 
 router = APIRouter()
+# WebSocket routes live on their own router: the HTTP ``router`` is mounted
+# behind the global require_auth dependency, and FastAPI resolves HTTP-style
+# dependencies during the WS handshake too — raising HTTPException there
+# produces an unclean upgrade failure instead of the tidy close(4001) that
+# ws_require_auth performs inside the handler (same pattern as unified_ws).
+ws_router = APIRouter()
 logger = logging.getLogger(__name__)
 
 
@@ -487,7 +493,7 @@ def _serialize_event(event) -> dict[str, Any]:
     }
 
 
-@router.websocket("/ws")
+@ws_router.websocket("/ws")
 async def book_websocket(ws: WebSocket) -> None:
     """Streaming endpoint.
 

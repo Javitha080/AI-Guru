@@ -23,16 +23,16 @@ const MODES: Array<{
     id: "auto",
     label: "Auto Mode",
     icon: Sparkles,
-    color: "text-violet-500",
-    badgeBg: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
+    color: "text-[var(--primary)]",
+    badgeBg: "bg-[var(--accent)] text-[var(--primary)] border-[var(--glass-border-highlight)]",
     desc: "Cloud API → Local Ollama → Offline Fallback",
   },
   {
     id: "cloud",
     label: "Cloud API",
     icon: Cloud,
-    color: "text-blue-500",
-    badgeBg: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
+    color: "text-[var(--primary)]",
+    badgeBg: "bg-[var(--primary)]/10 text-[var(--primary)] border-[var(--primary)]/20",
     desc: "OpenAI, Claude, DeepSeek via cloud APIs",
   },
   {
@@ -139,7 +139,7 @@ export function AIModeSwitcher({ compact = false, className = "", onModeChange }
                       <ItemIcon className={`w-4 h-4 ${m.color}`} />
                       <span>{m.label}</span>
                     </div>
-                    {isSelected && <Check className="w-3.5 h-3.5 text-violet-500" />}
+                    {isSelected && <Check className="w-3.5 h-3.5 text-[var(--primary)]" />}
                   </button>
                 );
               })}
@@ -162,7 +162,7 @@ export function AIModeSwitcher({ compact = false, className = "", onModeChange }
             disabled={loading}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium border transition-all ${
               isSelected
-                ? `${m.badgeBg} ring-2 ring-violet-500/20 shadow-sm font-semibold`
+                ? `${m.badgeBg} ring-2 ring-[var(--glow-primary)] shadow-sm font-semibold`
                 : "border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:border-[var(--foreground)]/20 hover:text-[var(--foreground)]"
             }`}
           >

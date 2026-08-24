@@ -20,21 +20,17 @@ from abc import ABC, abstractmethod
 import asyncio
 from collections.abc import AsyncIterator
 from dataclasses import asdict, dataclass, field
-from datetime import datetime, timezone
 from enum import Enum
 import json
 import logging
 import re
 import time
-from typing import Any, Dict, List, Optional
-from urllib import error as urlerror
-from urllib import request as urlrequest
+from typing import Any, Optional
 
 import aiohttp
 
 from deeptutor.services.llm.hardware_profiler import (
     HardwareProfile,
-    HardwareTier,
     get_hardware_profile,
 )
 
@@ -998,8 +994,31 @@ class TutorProviderManager:
             except Exception:
                 pass
 
+        # Ground-truth "is a cloud provider actually usable?" check: ask the
+        # exact resolver the tutor pipeline uses (resolve_llm_runtime_config),
+        # not a parallel heuristic. Local/OAuth setups intentionally report
+        # False here — availability is covered by the health blocks below.
+        catalog_cloud_ready = False
+        try:
+            from deeptutor.services.config.provider_runtime import resolve_llm_runtime_config
+
+            resolved = resolve_llm_runtime_config()
+            catalog_cloud_ready = bool(
+                resolved.api_key and resolved.api_key != "sk-no-key-required"
+            )
+        except Exception:
+            catalog_cloud_ready = False
+
+        persisted_mode = None
+        try:
+            persisted_mode, _ = _load_persisted_tutoring_mode()
+        except Exception:
+            persisted_mode = None
+
         return {
             "mode": self.mode.value,
+            "persisted_tutoring_mode": persisted_mode.value if persisted_mode else None,
+            "configured": bool(catalog_cloud_ready or masked_vault_keys),
             "active_provider": active_provider.provider_name,
             "hardware_profile": hardware.to_dict(),
             "cloud": {
@@ -1026,11 +1045,40 @@ class TutorProviderManager:
 _tutor_manager_instance: Optional[TutorProviderManager] = None
 
 
+def _load_persisted_tutoring_mode() -> tuple[Optional["TutoringMode"], Optional[str]]:
+    """
+    Read the tutoring mode (+ optional custom Ollama endpoint) persisted in
+    system settings by the onboarding wizard / settings router.
+
+    Returns ``(None, None)`` when settings are unavailable (CLI-only imports,
+    tests with no settings dir) so callers keep their defaults.
+    """
+    try:
+        from deeptutor.services.config.runtime_settings import load_system_settings
+
+        system = load_system_settings()
+        raw_mode = str(system.get("tutoring_mode") or "").strip().lower()
+        try:
+            mode: Optional[TutoringMode] = TutoringMode(raw_mode)
+        except ValueError:
+            mode = None
+        base_url = str(system.get("ollama_base_url") or "").strip() or None
+        return mode, base_url
+    except Exception:
+        return None, None
+
+
 def get_tutor_provider_manager() -> TutorProviderManager:
     """Return singleton instance of TutorProviderManager."""
     global _tutor_manager_instance
     if _tutor_manager_instance is None:
-        _tutor_manager_instance = TutorProviderManager()
+        persisted_mode, persisted_ollama_url = _load_persisted_tutoring_mode()
+        manager = TutorProviderManager()
+        if persisted_mode is not None:
+            manager.mode = persisted_mode
+        if persisted_ollama_url:
+            manager.ollama_adapter = OllamaTutorProvider(base_url=persisted_ollama_url)
+        _tutor_manager_instance = manager
     return _tutor_manager_instance
 
 

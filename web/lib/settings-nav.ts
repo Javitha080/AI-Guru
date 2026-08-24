@@ -84,7 +84,7 @@ const MODEL_CHILDREN: SettingsLeaf[] = [
       en: "Language model providers and active profile.",
     },
     icon: Brain,
-    tile: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+    tile: "bg-[var(--accent)] text-[var(--primary)]",
     service: "llm",
   },
   {
@@ -153,7 +153,7 @@ const MODEL_CHILDREN: SettingsLeaf[] = [
       en: "Text-to-video model for the chat videogen tool.",
     },
     icon: Clapperboard,
-    tile: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
+    tile: "bg-[var(--accent)] text-[var(--primary)]",
     service: "videogen",
   },
 ];
@@ -218,7 +218,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
       en: "Model, reasoning effort, and run params for the local Codex.",
     },
     icon: CodexGlyph as unknown as LucideIcon,
-    tile: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+    tile: "bg-[var(--primary)]/10 text-[var(--primary)]",
     adminOnly: true,
   },
   {
@@ -230,7 +230,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
       en: "Model and run params for the local Gemini CLI.",
     },
     icon: GeminiGlyph as unknown as LucideIcon,
-    tile: "bg-sky-500/10 text-sky-600 dark:text-sky-400",
+    tile: "bg-[var(--accent)] text-[var(--primary)]",
     adminOnly: true,
   },
   {

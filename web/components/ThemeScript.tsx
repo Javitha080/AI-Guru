@@ -13,20 +13,17 @@ export default function ThemeScript() {
       try {
         const stored = localStorage.getItem('aiguru-theme') || localStorage.getItem('deeptutor-theme');
 
-        document.documentElement.classList.remove('dark', 'theme-glass', 'theme-snow');
+        document.documentElement.classList.remove('dark', 'theme-glass', 'theme-snow', 'theme-light');
 
         let theme = stored;
         if (theme === 'snow' || theme === 'cream') theme = 'light';
         if (theme === 'glass') theme = 'dark';
 
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('aiguru-theme', 'dark');
-        } else if (theme === 'light') {
-          // already clean
+        if (theme === 'light') {
+          document.documentElement.classList.add('theme-light');
           localStorage.setItem('aiguru-theme', 'light');
         } else {
-          // Default to OLED Dark theme
+          // dark or unset — default to OLED Dark theme
           document.documentElement.classList.add('dark');
           localStorage.setItem('aiguru-theme', 'dark');
         }

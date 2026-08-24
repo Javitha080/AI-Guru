@@ -20,6 +20,7 @@ import {
 
 import { SPACE_MCP_SURFACE, loadMcpSurface } from "@/components/mcp/surface";
 import { getCliApps } from "@/lib/cli-apps-api";
+import { apiUrl } from "@/lib/api";
 import { listSessions } from "@/lib/session-api";
 import { listNotebooks, listNotebookEntries } from "@/lib/notebook-api";
 import { listPersonas } from "@/lib/personas-api";
@@ -27,6 +28,9 @@ import { listSkills } from "@/lib/skills-api";
 import { fetchAllProgress } from "@/lib/learning-api";
 import { BentoGrid, BentoCard } from "@/components/ui/BentoGrid";
 import ProgressRing from "@/components/ui/ProgressRing";
+
+/** Same single-student identity the study room tracks sessions under. */
+const STUDENT_ID = "student-primary";
 
 type Lang = { zh: string; en: string };
 
@@ -80,7 +84,7 @@ const DASHBOARD_ITEMS: DashboardItem[] = [
       en: "Review and reopen previous conversations.",
     },
     unit: { zh: "段对话", en: "conversations" },
-    tile: "bg-sky-500/10 text-sky-500",
+    tile: "bg-[var(--accent)] text-[var(--primary)]",
     spanClass: "col-span-1 md:col-span-3 lg:col-span-4",
     tier: 1,
     load: async () => (await listSessions(200, 0, { force: true })).length,
@@ -140,7 +144,7 @@ const DASHBOARD_ITEMS: DashboardItem[] = [
       en: "Capability playbooks.",
     },
     unit: { zh: "个技能", en: "skills" },
-    tile: "bg-indigo-500/10 text-indigo-500",
+    tile: "bg-[var(--accent)] text-[var(--primary)]",
     spanClass: "col-span-1 md:col-span-2 lg:col-span-4",
     tier: 1,
     load: async () => (await listSkills()).length,
@@ -155,7 +159,7 @@ const DASHBOARD_ITEMS: DashboardItem[] = [
       en: "Connect hosted MCP services.",
     },
     unit: { zh: "个服务", en: "services" },
-    tile: "bg-blue-500/10 text-blue-500",
+    tile: "bg-[var(--primary)]/10 text-[var(--primary)]",
     spanClass: "col-span-1 md:col-span-2 lg:col-span-4",
     tier: 1,
     load: async () =>
@@ -171,7 +175,7 @@ const DASHBOARD_ITEMS: DashboardItem[] = [
       en: "CLI tools callable from chat.",
     },
     unit: { zh: "个应用", en: "apps" },
-    tile: "bg-violet-500/10 text-violet-500",
+    tile: "bg-[var(--accent)] text-[var(--primary)]",
     spanClass: "col-span-1 md:col-span-2 lg:col-span-4",
     tier: 1,
     load: async () =>
@@ -185,7 +189,14 @@ export default function SpaceDashboard() {
   const tr = useCallback((l: Lang) => (zh ? l.zh : l.en), [zh]);
 
   const [counts, setCounts] = useState<Partial<Record<DashKey, number>>>({});
+  const [failedKeys, setFailedKeys] = useState<Partial<Record<DashKey, boolean>>>({});
   const [masteryProgress, setMasteryProgress] = useState<number | null>(null);
+  const [masteryFailed, setMasteryFailed] = useState(false);
+  // Real study stats (streak from the gamification profile, hours from the
+  // session history). null = still loading; undefined sentinel via `statsFailed`.
+  const [studyStreak, setStudyStreak] = useState<number | null>(null);
+  const [studyHours, setStudyHours] = useState<number | null>(null);
+  const [statsFailed, setStatsFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -195,7 +206,12 @@ export default function SpaceDashboard() {
         .then((n) => {
           if (!cancelled) setCounts((prev) => ({ ...prev, [item.key]: n }));
         })
-        .catch(() => {});
+        .catch(() => {
+          if (!cancelled) {
+            // Honest failure: render "—" instead of an eternal skeleton.
+            setFailedKeys((prev) => ({ ...prev, [item.key]: true }));
+          }
+        });
     }
 
     // Fetch mastery progress score specifically for the mastery_path tile
@@ -207,7 +223,39 @@ export default function SpaceDashboard() {
           ? valid.reduce((acc, s) => acc + s.avg_mastery_pct, 0) / valid.length
           : 0;
       setMasteryProgress(avg);
-    }).catch(() => {});
+    }).catch(() => {
+      if (!cancelled) setMasteryFailed(true);
+    });
+
+    // Real streak + total study time (was previously hardcoded demo numbers).
+    (async () => {
+      try {
+        const profileRes = await fetch(
+          apiUrl(`/api/v1/study-session/gamification/${STUDENT_ID}/profile`)
+        );
+        if (!profileRes.ok) throw new Error(String(profileRes.status));
+        const profile = await profileRes.json();
+        if (cancelled) return;
+        setStudyStreak(typeof profile.streak === "number" ? profile.streak : 0);
+
+        const historyRes = await fetch(
+          apiUrl(`/api/v1/study-session/history/${STUDENT_ID}?limit=200&offset=0`)
+        );
+        if (!historyRes.ok) throw new Error(String(historyRes.status));
+        const history = await historyRes.json();
+        if (cancelled) return;
+        const items: Array<{ actual_duration_seconds?: number }> = Array.isArray(history?.items)
+          ? history.items
+          : [];
+        const totalSeconds = items.reduce(
+          (acc, row) => acc + (typeof row.actual_duration_seconds === "number" ? row.actual_duration_seconds : 0),
+          0
+        );
+        setStudyHours(Math.round((totalSeconds / 3600) * 10) / 10);
+      } catch {
+        if (!cancelled) setStatsFailed(true);
+      }
+    })();
 
     return () => {
       cancelled = true;
@@ -259,6 +307,13 @@ export default function SpaceDashboard() {
                             {tr(item.unit)}
                           </span>
                         </>
+                      ) : failedKeys[item.key] ? (
+                        <span
+                          className="text-xl font-semibold leading-none text-[var(--muted-foreground)]"
+                          title={tr({ zh: "加载失败", en: "Couldn't load" })}
+                        >
+                          —
+                        </span>
                       ) : (
                         <span className="my-[3px] h-4 w-12 animate-pulse rounded bg-[var(--glass-border)]" />
                       )}
@@ -278,7 +333,14 @@ export default function SpaceDashboard() {
               {item.key === "mastery_path" && (
                 <div className="mt-6 flex flex-col sm:flex-row items-center gap-6 p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-[var(--glass-border)]">
                   <div className="shrink-0">
-                    {masteryProgress !== null ? (
+                    {masteryFailed ? (
+                      <div
+                        className="w-[100px] h-[100px] rounded-full border-8 border-[var(--glass-border)] flex items-center justify-center text-xl text-[var(--muted-foreground)]"
+                        title={tr({ zh: "加载失败", en: "Couldn't load" })}
+                      >
+                        —
+                      </div>
+                    ) : masteryProgress !== null ? (
                       <ProgressRing
                         value={masteryProgress}
                         size={100}
@@ -289,21 +351,31 @@ export default function SpaceDashboard() {
                       <div className="w-[100px] h-[100px] rounded-full border-8 border-[var(--glass-border)] animate-pulse" />
                     )}
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4 w-full">
                     <div className="flex flex-col gap-1 p-3 rounded-lg bg-[var(--canvas)]/50 backdrop-blur-sm">
                       <div className="flex items-center gap-1.5 text-orange-500">
                         <Flame size={16} />
                         <span className="text-xs font-semibold uppercase tracking-wider">{tr({ zh: "连续学习", en: "Streak" })}</span>
                       </div>
-                      <span className="text-2xl font-bold font-display text-[var(--foreground)]">14 <span className="text-sm font-body text-[var(--muted-foreground)] font-normal">{tr({ zh: "天", en: "days" })}</span></span>
+                      <span className="text-2xl font-bold font-display text-[var(--foreground)]">
+                        {statsFailed || studyStreak === null ? "—" : studyStreak}
+                        {!statsFailed && studyStreak !== null && (
+                          <span className="text-sm font-body text-[var(--muted-foreground)] font-normal"> {tr({ zh: "天", en: "days" })}</span>
+                        )}
+                      </span>
                     </div>
                     <div className="flex flex-col gap-1 p-3 rounded-lg bg-[var(--canvas)]/50 backdrop-blur-sm">
-                      <div className="flex items-center gap-1.5 text-blue-500">
+                      <div className="flex items-center gap-1.5 text-[var(--primary)]">
                         <Clock size={16} />
                         <span className="text-xs font-semibold uppercase tracking-wider">{tr({ zh: "学习时长", en: "Time" })}</span>
                       </div>
-                      <span className="text-2xl font-bold font-display text-[var(--foreground)]">32 <span className="text-sm font-body text-[var(--muted-foreground)] font-normal">{tr({ zh: "小时", en: "hrs" })}</span></span>
+                      <span className="text-2xl font-bold font-display text-[var(--foreground)]">
+                        {statsFailed || studyHours === null ? "—" : studyHours}
+                        {!statsFailed && studyHours !== null && (
+                          <span className="text-sm font-body text-[var(--muted-foreground)] font-normal"> {tr({ zh: "小时", en: "hrs" })}</span>
+                        )}
+                      </span>
                     </div>
                   </div>
                 </div>

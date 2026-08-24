@@ -674,6 +674,56 @@ class GeoGebraAnalysisTool(_PromptHintsMixin, BaseTool):
         )
 
 
+class AIGuruInfoTool(_PromptHintsMixin, BaseTool):
+    """Answer questions about the AI Guru app itself from local product data.
+
+    Web search cannot know this fork's features; without this tool the model
+    either web-searches uselessly for "AI Guru" or invents capabilities. The
+    guide is bundled with the app and grounded in real code surfaces.
+    """
+
+    def get_definition(self) -> ToolDefinition:
+        return ToolDefinition(
+            name="aiguru_info",
+            description=(
+                "Answer questions about the AI Guru application ITSELF — its "
+                "features, pages and tools: chat tutor & floating assistant, "
+                "study-room monitoring (presence/distraction/phone/focus), "
+                "parent portal & PIN, remote tunnel, Telegram alerts, "
+                "encrypted video vault, exam room, XP/badges, memory "
+                "workbench, knowledge bases/RAG pipelines, Space sources, "
+                "settings/MCP/providers, troubleshooting. ALWAYS call this — "
+                "never web_search — when the user asks what AI Guru can do, "
+                "where a feature lives, how something works here, or why an "
+                "app feature misbehaves."
+            ),
+            parameters=[
+                ToolParameter(
+                    name="topic",
+                    type="string",
+                    description=(
+                        "What to look up, e.g. 'video vault', 'telegram "
+                        "alerts', 'study monitoring warnings', 'tunnel', "
+                        "'exam grading', 'memory workbench'. Omit for the "
+                        "full product overview."
+                    ),
+                    required=False,
+                ),
+            ],
+        )
+
+    async def execute(self, **kwargs: Any) -> ToolResult:
+        from deeptutor.tools.product_info_data import PRODUCT_NAME, search_product_info
+
+        topic = str(kwargs.get("topic") or "").strip()
+        content = search_product_info(topic)
+        return ToolResult(
+            content=content,
+            sources=[{"type": "product_guide", "title": f"{PRODUCT_NAME} local product guide"}],
+            metadata={"topic": topic, "char_count": len(content)},
+        )
+
+
 class ReadSourceTool(_PromptHintsMixin, BaseTool):
     """Load the full text of an attached Space source by its manifest id.
 
@@ -1568,6 +1618,7 @@ BUILTIN_TOOL_TYPES: tuple[type[BaseTool], ...] = (
     ReasonTool,
     PaperSearchToolWrapper,
     ReadSourceTool,
+    AIGuruInfoTool,
     ReadMemoryTool,
     WriteMemoryTool,
     ReadSkillTool,
@@ -1649,6 +1700,7 @@ CONFIGURABLE_BUILTIN_TOOL_NAMES: tuple[str, ...] = (
     "kb_files",
     "code_execution",
     "read_source",
+    "aiguru_info",
     "read_memory",
     "write_memory",
     "read_skill",
@@ -1679,6 +1731,7 @@ __all__ = [
     "PARTNER_BUILTIN_TOOL_NAMES",
     "TOOL_ALIASES",
     "USER_TOGGLEABLE_TOOL_NAMES",
+    "AIGuruInfoTool",
     "AskUserTool",
     "BrainstormTool",
     "CodeExecutionTool",

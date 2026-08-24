@@ -12,7 +12,6 @@ Provides endpoints for:
 
 from __future__ import annotations
 
-import asyncio
 import collections
 import json
 import logging
@@ -41,6 +40,11 @@ _active_monitoring_sessions: Dict[str, WebSocket] = {}
 # Per-session rolling window of recent JPEG frames (base64) for vault evidence.
 _frame_rings: Dict[str, Deque[str]] = {}
 _RING_SIZE = 30
+# Client-frame timestamp acceptance window (seconds). Within it, the client's
+# own observation clock drives the presence/distraction hysteresis; outside
+# it the frame falls back to server receive time.
+_FRAME_TIMESTAMP_MAX_LAG = 300.0
+_FRAME_TIMESTAMP_MAX_AHEAD = 5.0
 
 # --- Live supervision (parent-controlled snapshot polling) -------------------
 # The STUDENT opts in per session via /live/consent; the PARENT polls
@@ -93,10 +97,9 @@ _STRICTNESS_PROFILES = {
 
 def _apply_supervision_strictness(pipeline: Any) -> None:
     """Map persisted wizard strictness onto the warning gates for this session."""
-    try:
-        asyncio.get_running_loop().create_task(_apply_async(pipeline))
-    except RuntimeError:
-        pass
+    from deeptutor.services.background import spawn_bg
+
+    spawn_bg(_apply_async(pipeline), name="monitoring-strictness")
 
 
 async def _apply_async(pipeline: Any) -> None:
@@ -195,7 +198,7 @@ class MonitoringStatusResponse(BaseModel):
 # --- Endpoints ---
 
 @router.post("/enroll-face", response_model=EnrollFaceResponse)
-async def enroll_face(req: EnrollFaceRequest) -> EnrollFaceResponse:
+async def enroll_face(req: EnrollFaceRequest, _user: Any = Depends(require_auth)) -> EnrollFaceResponse:
     """
     Enroll student baseline for local identity verification.
 
@@ -230,7 +233,7 @@ async def enroll_face(req: EnrollFaceRequest) -> EnrollFaceResponse:
 
 
 @router.post("/verify-liveness", response_model=VerifyLivenessResponse)
-async def verify_liveness(req: VerifyLivenessRequest) -> VerifyLivenessResponse:
+async def verify_liveness(req: VerifyLivenessRequest, _user: Any = Depends(require_auth)) -> VerifyLivenessResponse:
     """
     Evaluate multi-frame landmark sequence for pre-flight anti-spoof liveness check.
     """
@@ -262,7 +265,7 @@ async def verify_liveness(req: VerifyLivenessRequest) -> VerifyLivenessResponse:
 
 
 @router.post("/analyze-frame")
-async def analyze_frame(req: AnalyzeFrameRequest) -> Dict[str, Any]:
+async def analyze_frame(req: AnalyzeFrameRequest, _user: Any = Depends(require_auth)) -> Dict[str, Any]:
     """
     Analyze a single frame / telemetry payload and return comprehensive study monitoring metrics.
     """
@@ -333,7 +336,7 @@ async def analyze_frame(req: AnalyzeFrameRequest) -> Dict[str, Any]:
 
 
 @router.get("/status", response_model=MonitoringStatusResponse)
-async def get_monitoring_status() -> MonitoringStatusResponse:
+async def get_monitoring_status(_user: Any = Depends(require_auth)) -> MonitoringStatusResponse:
     """
     Return local monitoring engine diagnostics and real-time FPS metrics.
     """
@@ -372,6 +375,55 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
 
     logger.info("Monitoring WebSocket connected for session: %s", session_id)
 
+    # --- session-persistence bookkeeping ---------------------------------------
+    # Live scores are periodically flushed into study_sessions and real
+    # distraction/presence episodes land in monitoring_events so the report,
+    # parent dashboard, and XP flow read actual data instead of zeros.
+    score_persist_interval = 10.0
+    last_persist = time.time()
+    warning_count = 0
+    distraction_count = 0
+    active_distractions: set = set()
+    last_presence_state: Optional[str] = None
+    # Running means over every analyzed frame. Persisting the LAST frame's
+    # instantaneous score instead meant a student who was AWAY when the
+    # socket closed got their whole session reported as 0/100 focus.
+    focus_sum = 0.0
+    engagement_sum = 0.0
+    score_ticks = 0
+
+    async def _persist_scores() -> None:
+        try:
+            from deeptutor.services.study.session_manager import StudySessionManager
+
+            if score_ticks > 0:
+                focus = focus_sum / score_ticks
+                engagement = engagement_sum / score_ticks
+            else:
+                focus = float(analysis.distraction.focus_score or 0)
+                engagement = float(analysis.engagement.score or 0)
+            await StudySessionManager().update_scores(
+                session_id, focus, engagement, distraction_count, warning_count
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("Score persistence skipped for %s: %s", session_id, exc)
+
+    async def _log_episode(event_type: str, severity: str, confidence: float,
+                           duration_seconds: float, message: str) -> None:
+        try:
+            from deeptutor.services.study.telemetry_logger import TelemetryLogger
+
+            await TelemetryLogger().log_event(
+                session_id=session_id,
+                event_type=event_type,
+                severity=severity,
+                confidence=confidence,
+                duration_seconds=duration_seconds,
+                metadata={"message": message},
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("Episode logging skipped for %s/%s: %s", session_id, event_type, exc)
+
     try:
         # Initial greeting with target FPS
         await websocket.send_json({
@@ -389,19 +441,85 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
                 msg = json.loads(raw_text)
             except Exception:
                 continue
+            if not isinstance(msg, dict):
+                continue
 
             msg_type = msg.get("type", "telemetry")
             if msg_type == "ping":
                 await websocket.send_json({"type": "pong", "timestamp": time.time()})
                 continue
 
-            payload = msg.get("data", msg)
+            # A literal ``{"data": null}`` must not poison the pipeline: fall
+            # back to the envelope itself so the frame is analyzed, and never
+            # hand process_telemetry_payload a None payload.
+            data = msg.get("data")
+            payload = data if isinstance(data, dict) else msg
             frame_b64 = _extract_frame(payload)
             if frame_b64 is not None:
                 ring = _frame_rings.setdefault(session_id, collections.deque(maxlen=_RING_SIZE))
                 ring.append(frame_b64)
 
-            analysis = pipeline.process_telemetry_payload(payload)
+            # Honor the CLIENT observation clock (the frontend stamps every
+            # frame). Server receive-time compresses bursted deliveries — GC
+            # pauses, network jitter, tab throttling — below the distraction/
+            # absence hysteresis thresholds, silently blinding the detector.
+            # Bounded acceptance rejects grossly skewed clocks.
+            wall_now = time.time()
+            frame_ts = payload.get("timestamp")
+            if (
+                isinstance(frame_ts, (int, float))
+                and (wall_now - _FRAME_TIMESTAMP_MAX_LAG) <= float(frame_ts) <= (wall_now + _FRAME_TIMESTAMP_MAX_AHEAD)
+            ):
+                analysis_ts = float(frame_ts)
+            else:
+                analysis_ts = wall_now
+
+            analysis = pipeline.process_telemetry_payload(payload, current_time=analysis_ts)
+
+            # Accumulate for the session-mean scores persisted periodically
+            # (and once more on disconnect in the finally block).
+            focus_sum += float(analysis.distraction.focus_score or 0)
+            engagement_sum += float(analysis.engagement.score or 0)
+            score_ticks += 1
+
+            # --- edge-triggered telemetry persistence (real episodes) -------
+            if analysis.presence.state_changed or analysis.presence.state != last_presence_state:
+                if last_presence_state is not None and analysis.presence.state != last_presence_state:
+                    await _log_episode(
+                        "PRESENCE_CHANGE",
+                        "info",
+                        float(analysis.gaze.confidence or 0),
+                        float(analysis.presence.state_duration_seconds or 0),
+                        f"presence -> {analysis.presence.state}",
+                    )
+                last_presence_state = analysis.presence.state
+
+            if analysis.distraction.is_distracted:
+                dtype = analysis.distraction.distraction_type.value
+                if dtype not in active_distractions:
+                    active_distractions.add(dtype)
+                    distraction_count += 1
+                    event_type = "PHONE_DETECTED" if "PHONE" in dtype.upper() else "LOOKING_AWAY"
+                    await _log_episode(
+                        event_type,
+                        "warning",
+                        float(analysis.distraction.confidence or 0),
+                        float(analysis.distraction.duration_seconds or 0),
+                        str(analysis.distraction.reason or dtype),
+                    )
+            else:
+                active_distractions.clear()
+
+            if analysis.dispatched_warning:
+                # Info-level presence pings (STUDENT_AWAY) are not warnings;
+                # counting them inflated the parent-facing report.
+                if analysis.dispatched_warning.severity != "info":
+                    warning_count += 1
+
+            now_s = time.time()
+            if now_s - last_persist >= score_persist_interval:
+                last_persist = now_s
+                await _persist_scores()
 
             # Send back real-time metrics
             response_data = {
@@ -429,13 +547,16 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
                     "confidence": analysis.distraction.confidence,
                     "duration_seconds": analysis.distraction.duration_seconds,
                 }
-                asyncio.get_running_loop().create_task(
+                from deeptutor.services.background import spawn_bg
+
+                spawn_bg(
                     handle_warning(
                         session_id=session_id,
                         warning=warning_dict,
                         current_frame_b64=frame_b64,
                         ring_frames_b64=list(_frame_rings.get(session_id, ())),
-                    )
+                    ),
+                    name=f"warning-dispatch-{session_id}",
                 )
 
             await websocket.send_json(response_data)
@@ -445,6 +566,10 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     except Exception as e:
         logger.warning("Monitoring WebSocket error for session %s: %s", session_id, e)
     finally:
+        try:
+            await _persist_scores()
+        except Exception:  # noqa: BLE001
+            pass
         _active_monitoring_sessions.pop(session_id, None)
         _frame_rings.pop(session_id, None)
         _purge_session_state(session_id)
@@ -505,16 +630,26 @@ async def get_session_monitoring_events(
         logger.warning("Event fetch failed for %s: %s", session_id, exc)
         events = []
 
-    sanitized = [
-        {
-            "id": e.get("id"),
-            "event_type": e.get("event_type"),
-            "severity": e.get("severity"),
-            "confidence": e.get("confidence"),
-            "duration_seconds": e.get("duration_seconds"),
-            "timestamp": e.get("timestamp"),
-            "message": ((e.get("metadata") or {}).get("message") if isinstance(e.get("metadata"), dict) else None),
-        }
-        for e in (events or [])
-    ]
+    sanitized = []
+    for e in (events or []):
+        message = None
+        raw_meta = e.get("metadata_json")
+        if isinstance(raw_meta, str) and raw_meta:
+            try:
+                parsed = json.loads(raw_meta)
+                if isinstance(parsed, dict):
+                    message = parsed.get("message")
+            except Exception:  # noqa: BLE001
+                pass
+        sanitized.append(
+            {
+                "id": e.get("id"),
+                "event_type": e.get("event_type"),
+                "severity": e.get("severity"),
+                "confidence": e.get("confidence"),
+                "duration_seconds": e.get("duration_seconds"),
+                "timestamp": e.get("timestamp"),
+                "message": message,
+            }
+        )
     return {"session_id": session_id, "items": sanitized[: max(0, min(limit, 500))], "total": len(sanitized)}

@@ -329,7 +329,7 @@ export default function FloatingGuru() {
       <button
         aria-label="Open AI Guru chat"
         onClick={() => toggleHidden(false)}
-        className="fixed bottom-5 right-5 z-[9999] flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-xl transition hover:scale-105"
+        className="fixed bottom-5 right-5 z-[9999] flex h-12 w-12 items-center justify-center rounded-full border border-[var(--glass-border)] bg-gradient-to-br from-[#E06D44] to-[#B85A38] text-white shadow-xl transition hover:scale-105"
       >
         <Sparkles size={20} />
       </button>
@@ -343,9 +343,9 @@ export default function FloatingGuru() {
         <div className="fixed bottom-24 left-1/2 z-[9999] -translate-x-1/2">
           <button
             onClick={askAboutSelection}
-            className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/95 px-4 py-2 text-xs font-medium text-slate-100 shadow-2xl backdrop-blur hover:bg-slate-800"
+            className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/95 px-4 py-2 text-xs font-medium text-slate-100 shadow-2xl backdrop-blur hover:bg-[var(--muted)]"
           >
-            <Sparkles size={14} className="text-indigo-400" />
+            <Sparkles size={14} className="text-[var(--primary)]" />
             Ask Guru about “{selText.slice(0, 40)}
             {selText.length > 40 ? "…" : ""}”
             <X
@@ -370,8 +370,8 @@ export default function FloatingGuru() {
           <button
             aria-label="AI Guru floating chat"
             onDoubleClick={() => setOpen(true)}
-            className={`relative flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-2xl transition hover:scale-105 ${
-              hasUnread ? "ring-4 ring-indigo-400/30" : ""
+            className={`relative flex h-14 w-14 items-center justify-center rounded-full border border-[var(--glass-border)] bg-gradient-to-br from-[#E06D44] to-[#B85A38] text-white shadow-2xl transition hover:scale-105 ${
+              hasUnread ? "ring-4 ring-[var(--glow-primary)]" : ""
             }`}
             onClick={() => setOpen(true)}
           >

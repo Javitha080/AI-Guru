@@ -25,38 +25,38 @@ type Palette = {
 const PALETTES: Record<Theme, Palette> = {
   light: {
     bg: "#F6F7F9",
-    fg: "#111111",
-    card: "rgba(255,255,255,0.7)",
+    fg: "#1C1F26",
+    card: "rgba(255,255,255,0.80)",
     primary: "#C8613C",
-    muted: "rgba(255,255,255,0.5)",
-    border: "rgba(255,255,255,0.8)",
+    muted: "rgba(255,255,255,0.55)",
+    border: "rgba(28,31,38,0.10)",
     glass: true,
   },
   snow: {
     bg: "#F6F7F9",
-    fg: "#111111",
-    card: "rgba(255,255,255,0.7)",
+    fg: "#1C1F26",
+    card: "rgba(255,255,255,0.80)",
     primary: "#C8613C",
-    muted: "rgba(255,255,255,0.5)",
-    border: "rgba(255,255,255,0.8)",
+    muted: "rgba(255,255,255,0.55)",
+    border: "rgba(28,31,38,0.10)",
     glass: true,
   },
   dark: {
-    bg: "#0C0E12",
-    fg: "#ffffff",
-    card: "rgba(255,255,255,0.05)",
-    primary: "#D97757",
-    muted: "rgba(255,255,255,0.03)",
-    border: "rgba(255,255,255,0.1)",
+    bg: "#06080C",
+    fg: "#F1F3F7",
+    card: "rgba(14,18,25,0.70)",
+    primary: "#E06D44",
+    muted: "rgba(22,28,38,0.60)",
+    border: "rgba(255,255,255,0.08)",
     glass: true,
   },
   glass: {
-    bg: "#0C0E12",
-    fg: "#ffffff",
-    card: "rgba(255,255,255,0.05)",
-    primary: "#D97757",
-    muted: "rgba(255,255,255,0.03)",
-    border: "rgba(255,255,255,0.1)",
+    bg: "#06080C",
+    fg: "#F1F3F7",
+    card: "rgba(14,18,25,0.70)",
+    primary: "#E06D44",
+    muted: "rgba(22,28,38,0.60)",
+    border: "rgba(255,255,255,0.08)",
     glass: true,
   },
 };
@@ -75,8 +75,8 @@ function MiniPreview({ palette }: { palette: Palette }) {
         <>
           <defs>
             <radialGradient id="glass-shine" cx="20%" cy="0%" r="80%">
-              <stop offset="0%" stopColor="rgba(168,85,247,0.38)" />
-              <stop offset="100%" stopColor="rgba(168,85,247,0)" />
+              <stop offset="0%" stopColor="rgba(224,109,68,0.30)" />
+              <stop offset="100%" stopColor="rgba(224,109,68,0)" />
             </radialGradient>
           </defs>
           <rect

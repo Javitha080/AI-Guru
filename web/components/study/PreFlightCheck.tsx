@@ -1,9 +1,15 @@
 "use client";
 
+/**
+ * Pre-flight hardware check - Ember Glass card.
+ * Camera -> face/lighting -> liveness sequence, all real on-device checks.
+ * Liveness soft-pass stays honest: amber "unverified", never a fake green.
+ */
+
 import React, { useState, useEffect, useRef } from "react";
-import { 
-  Camera, Shield, UserCheck, CheckCircle2, XCircle, 
-  Loader2, RefreshCw, AlertTriangle, Video, VideoOff, Sparkles, BookOpen 
+import {
+  Camera, Shield, UserCheck, CheckCircle2, XCircle,
+  Loader2, RefreshCw, AlertTriangle, VideoOff, Sparkles, BookOpen
 } from "lucide-react";
 
 interface PreFlightCheckProps {
@@ -17,12 +23,16 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
   const [cameraStatus, setCameraStatus] = useState<CheckStatus>("checking");
   const [faceStatus, setFaceStatus] = useState<CheckStatus>("idle");
   const [livenessStatus, setLivenessStatus] = useState<CheckStatus>("idle");
+  // Tri-state: null = backend unreachable, so liveness could NOT be verified.
+  const [livenessVerified, setLivenessVerified] = useState<boolean | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [offlineModeAllowed, setOfflineModeAllowed] = useState(false);
+  // Bumping this re-runs the whole check sequence WITHOUT a page reload
+  // (a reload would drop the user's session context and modal state).
+  const [attempt, setAttempt] = useState(0);
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -31,6 +41,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
       setCameraStatus("checking");
       setFaceStatus("idle");
       setLivenessStatus("idle");
+      setLivenessVerified(null);
       setErrorMessage(null);
       setOfflineModeAllowed(false);
 
@@ -116,7 +127,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         setFaceStatus("passed");
         setLivenessStatus("checking");
 
-        // Collect ≥5 landmark frames for the anti-spoof liveness sequence.
+        // Collect >=5 landmark frames for the anti-spoof liveness sequence.
         for (let i = 0; i < 14 && active && pipeline.takeRecentLandmarkFrames(6).length < 6; i++) {
           await new Promise((r) => setTimeout(r, 150));
         }
@@ -124,7 +135,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         pipeline.stop();
 
         let livenessPassed = false;
-        let livenessDetail = "";
+        let livenessReachable = false;
         try {
           const res = await fetch("/api/v1/monitoring/verify-liveness", {
             method: "POST",
@@ -134,10 +145,10 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
           if (res.ok) {
             const data = await res.json();
             livenessPassed = Boolean(data.is_live);
-            livenessDetail = String(data.details ?? "");
+            livenessReachable = true;
           }
         } catch {
-          /* backend unreachable → fall through to soft-pass with note */
+          /* backend unreachable -> soft-pass with an honest "unverified" badge */
         }
 
         if (!active) return;
@@ -157,11 +168,15 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         }
 
         if (livenessPassed) {
+          setLivenessVerified(true);
           setLivenessStatus("passed");
         } else {
           // Never block harder than before: continue but surface honest status.
+          setLivenessVerified(livenessReachable ? false : null);
           setLivenessStatus("passed");
-          console.warn("[preflight] liveness unverified:", livenessDetail || "endpoint unavailable");
+          if (!livenessReachable) {
+            console.warn("[preflight] liveness unverified: endpoint unavailable");
+          }
         }
 
       } catch (err: any) {
@@ -187,16 +202,11 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         streamRef.current = null;
       }
     };
-  }, []);
+  }, [attempt]);
 
   const handleRetry = () => {
-    setCameraStatus("checking");
-    setFaceStatus("idle");
-    setLivenessStatus("idle");
-    setErrorMessage(null);
-    setOfflineModeAllowed(false);
-    // Triggers effect re-run by unmounting/remounting or reloading
-    window.location.reload();
+    // Re-runs the effect (fresh camera + checks) without nuking page state.
+    setAttempt((n) => n + 1);
   };
 
   const allPassed = cameraStatus === "passed" && faceStatus === "passed" && livenessStatus === "passed";
@@ -204,27 +214,48 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
   const renderIcon = (status: CheckStatus) => {
     switch (status) {
       case "checking":
-        return <Loader2 size={18} className="text-blue-500 animate-spin" />;
+        return <Loader2 size={17} className="text-[var(--primary)] animate-spin" />;
       case "passed":
-        return <CheckCircle2 size={18} className="text-green-500" />;
+        return <CheckCircle2 size={17} className="text-[var(--primary)] animate-pop-in" />;
       case "failed":
-        return <XCircle size={18} className="text-red-500" />;
+        return <XCircle size={17} className="text-red-400 animate-pop-in" />;
       default:
-        return <div className="w-4 h-4 rounded-full border-2 border-gray-300 dark:border-gray-600 opacity-40" />;
+        return <div className="w-4 h-4 rounded-full border-2 border-[var(--glass-border-highlight)] opacity-40" />;
     }
   };
 
+  const renderLivenessCell = () => {
+    if (livenessStatus === "checking") return renderIcon("checking");
+    if (livenessStatus !== "passed") return renderIcon(livenessStatus);
+    if (livenessVerified === true) return renderIcon("passed");
+    // Soft-pass: checks ran but the verdict is unverified (backend unreachable
+    // or anti-spoof inconclusive) -- amber, never a fake pass check.
+    return (
+      <span title="Anti-spoof could not be verified - continuing anyway">
+        <AlertTriangle size={17} className="text-[var(--amber)] animate-pop-in" />
+      </span>
+    );
+  };
+
+  const checkRowTone = (status: CheckStatus) =>
+    status === "passed"
+      ? "border-[var(--ember-line)]/30 bg-[var(--ember-0)]"
+      : status === "failed"
+        ? "border-red-500/25 bg-red-500/[0.06]"
+        : "";
+
   return (
-    <div className="w-full max-w-md mx-auto p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-xl space-y-5">
-      <div className="text-center space-y-1">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white">Pre-Flight Hardware Check</h2>
-        <p className="text-xs text-gray-500 dark:text-gray-400">
+    <div className="bento-cell liquid-sheen w-full max-w-md mx-auto p-6 space-y-5">
+      <div className="text-center space-y-1.5">
+        <h2 className="font-display text-xl font-bold">Pre-Flight Hardware Check</h2>
+        <p className="text-xs text-[var(--muted-foreground)]">
           Testing local camera access and student presence before starting session.
         </p>
       </div>
 
       {/* Real Live Video Stream Preview */}
-      <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-inner flex items-center justify-center">
+      <div className="bento-cell scanline relative aspect-video !bg-black/85 overflow-hidden flex items-center justify-center">
+        {cameraStatus === "passed" && <div className="scanline-bar" />}
         <video
           ref={videoRef}
           autoPlay
@@ -234,74 +265,61 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         />
 
         {cameraStatus === "checking" && (
-          <div className="text-center space-y-2">
-            <Loader2 size={28} className="mx-auto text-blue-500 animate-spin" />
-            <p className="text-xs text-gray-400">Requesting webcam feed...</p>
+          <div className="relative z-10 text-center space-y-2.5">
+            <Loader2 size={28} className="mx-auto text-[var(--primary)] animate-spin" />
+            <p className="text-xs text-white/60">Requesting webcam feed...</p>
           </div>
         )}
 
         {cameraStatus === "failed" && (
-          <div className="text-center space-y-2 p-4">
+          <div className="relative z-10 text-center space-y-2 p-4">
             <VideoOff size={32} className="mx-auto text-red-400 opacity-80" />
             <p className="text-xs text-red-300 font-medium">{errorMessage || "Webcam not available"}</p>
           </div>
         )}
 
         {cameraStatus === "passed" && (
-          <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] text-green-400 font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+          <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-[var(--amber)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] ember-dot" />
             <span>Live Feed</span>
           </div>
         )}
       </div>
 
       {/* Step Checklist */}
-      <div className="space-y-2.5">
-        <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/40 rounded-xl border border-gray-100 dark:border-gray-700">
-          <div className="flex items-center gap-2.5">
-            <Camera size={18} className="text-gray-400" />
-            <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Camera Device Access</span>
-          </div>
+      <div className="space-y-2">
+        <CheckRow icon={<Camera size={16} />} label="Camera Device Access" tone={checkRowTone(cameraStatus)}>
           {renderIcon(cameraStatus)}
-        </div>
-
-        <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/40 rounded-xl border border-gray-100 dark:border-gray-700">
-          <div className="flex items-center gap-2.5">
-            <UserCheck size={18} className="text-gray-400" />
-            <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Face & Lighting Check</span>
-          </div>
+        </CheckRow>
+        <CheckRow icon={<UserCheck size={16} />} label="Face & Lighting Check" tone={checkRowTone(faceStatus)}>
           {renderIcon(faceStatus)}
-        </div>
-
-        <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/40 rounded-xl border border-gray-100 dark:border-gray-700">
-          <div className="flex items-center gap-2.5">
-            <Shield size={18} className="text-gray-400" />
-            <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">Zero-Cloud Egress Guard</span>
-          </div>
-          {renderIcon(livenessStatus)}
-        </div>
+        </CheckRow>
+        <CheckRow icon={<Shield size={16} />} label="Liveness & Anti-Spoof" tone={checkRowTone(livenessStatus)}>
+          {renderLivenessCell()}
+        </CheckRow>
       </div>
 
       {errorMessage && (
-        <div className="p-3 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
-          <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
+        <div className="p-3 rounded-xl bg-[var(--amber-glow)]/50 border border-[var(--amber)]/35 text-xs text-[var(--amber)] flex items-start gap-2">
+          <AlertTriangle size={15} className="mt-0.5 shrink-0" />
           <span>{errorMessage}</span>
         </div>
       )}
 
       {/* Action Buttons */}
-      <div className="flex gap-2 pt-2">
+      <div className="flex gap-2 pt-1">
         <button
           onClick={onCancel}
-          className="flex-1 py-2.5 rounded-xl text-xs font-semibold text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          className="glass-btn-secondary !rounded-xl flex-1 inline-flex items-center justify-center gap-1.5 text-xs"
         >
-          Cancel
+          <RefreshCw size={13} />
+          <span>Cancel</span>
         </button>
 
         {offlineModeAllowed ? (
           <button
             onClick={onReady}
-            className="flex-1 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+            className="flex-1 py-2.5 rounded-xl bg-[var(--amber)] hover:brightness-110 text-black text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-[0_6px_20px_var(--amber-glow)]"
           >
             <BookOpen size={14} />
             <span>Offline Study Mode</span>
@@ -310,13 +328,35 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
           <button
             onClick={onReady}
             disabled={!allPassed}
-            className="flex-1 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-40 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-blue-500/20"
+            className="group flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] disabled:from-[var(--muted)] disabled:to-[var(--muted)] disabled:text-[var(--muted-foreground)] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-[0_6px_24px_var(--glow-primary)] enabled:hover:-translate-y-0.5 disabled:shadow-none"
           >
-            <Sparkles size={14} />
+            <Sparkles size={14} className="transition-transform duration-500 group-hover:rotate-12" />
             <span>Begin Monitored Study</span>
           </button>
         )}
       </div>
+    </div>
+  );
+}
+
+function CheckRow({
+  icon,
+  label,
+  tone,
+  children,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  tone: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={`flex items-center justify-between p-3 rounded-xl surface-glass-base transition-colors duration-300 ${tone}`}>
+      <div className="flex items-center gap-2.5 text-[var(--muted-foreground)]">
+        {icon}
+        <span className="text-xs font-semibold">{label}</span>
+      </div>
+      {children}
     </div>
   );
 }

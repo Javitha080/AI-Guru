@@ -8,20 +8,21 @@ so no fixture from conftest is required and real user data can never be hit.
 
 from __future__ import annotations
 
+import hashlib
 import os
-import uuid
-import time
 from pathlib import Path
+import time
+import uuid
 
 import pytest
 
 pytest.importorskip("cryptography")
 
 from deeptutor.services.remote import video_vault as vv_mod
-from deeptutor.services.remote.video_vault import VideoVaultManager
+from deeptutor.services.remote.audit_logger import AuditLogger
 from deeptutor.services.remote.auth_jwt import JWTAuthService
 from deeptutor.services.remote.pairing import PairingService
-from deeptutor.services.remote.audit_logger import AuditLogger
+from deeptutor.services.remote.video_vault import VideoVaultManager
 
 
 @pytest.fixture()
@@ -111,14 +112,14 @@ async def test_vault_refuses_without_cryptography(isolated_env, monkeypatch):
 @pytest.mark.asyncio
 async def test_pin_lifecycle_and_lockout(isolated_env):
     assert await JWTAuthService.has_parent_pin("default") is False
-    await JWTAuthService.set_parent_pin("1234", "default")
+    await JWTAuthService.set_parent_pin("1357", "default")
     assert await JWTAuthService.has_parent_pin("default") is True
 
     # Wrong PIN increments attempts; message shows remaining tries.
     with pytest.raises(ValueError, match="attempts remaining"):
         await JWTAuthService.verify_parent_pin("9999", "default")
     # Correct PIN issues a token pair.
-    result = await JWTAuthService.verify_parent_pin("1234", "default")
+    result = await JWTAuthService.verify_parent_pin("1357", "default")
     assert result["access_token"] and result["refresh_token"]
 
     # Lockout after MAX_FAILED_ATTEMPTS consecutive failures.
@@ -126,16 +127,62 @@ async def test_pin_lifecycle_and_lockout(isolated_env):
         with pytest.raises(ValueError):
             await JWTAuthService.verify_parent_pin("0000", "default")
     with pytest.raises(ValueError, match="Too many failed attempts"):
-        await JWTAuthService.verify_parent_pin("1234", "default")
+        await JWTAuthService.verify_parent_pin("1357", "default")
+
+
+@pytest.mark.asyncio
+async def test_pin_format_and_weak_code_rejection(isolated_env):
+    # Non-digit / wrong-length codes are rejected before anything is stored.
+    for bad in ("abcd", "12 4", "12", "123456789", ""):
+        with pytest.raises(ValueError, match="digits"):
+            await JWTAuthService.set_parent_pin(bad, "fmt")
+
+    # Trivially guessable codes are rejected.
+    for weak in ("1234", "4321", "1111", "0000", "2580", "123456"):
+        with pytest.raises(ValueError, match="predictable|common"):
+            await JWTAuthService.set_parent_pin(weak, "weak")
+
+    assert await JWTAuthService.has_parent_pin("fmt") is False
+    assert await JWTAuthService.has_parent_pin("weak") is False
+
+
+@pytest.mark.asyncio
+async def test_refresh_rotation_invalidates_old_token(isolated_env):
+    await JWTAuthService.set_parent_pin("2468", "rot")
+    auth = await JWTAuthService.verify_parent_pin("2468", "rot")
+    old_refresh = auth["refresh_token"]
+
+    rotated = await JWTAuthService.rotate_refresh_token(old_refresh)
+    assert rotated["access_token"] and rotated["refresh_token"]
+    assert await JWTAuthService.verify_token(rotated["access_token"])
+
+    # Replay of the rotated-away refresh token must fail (revoked).
+    with pytest.raises(ValueError):
+        await JWTAuthService.rotate_refresh_token(old_refresh)
+
+    # Access tokens are NOT valid refresh tokens.
+    with pytest.raises(ValueError, match="Not a refresh token"):
+        await JWTAuthService.rotate_refresh_token(auth["access_token"])
+
+
+@pytest.mark.asyncio
+async def test_revoke_refresh_token_for_logout(isolated_env):
+    refresh = await JWTAuthService.create_refresh_token("default")
+    assert await JWTAuthService.revoke_refresh_token(refresh) is True
+    with pytest.raises(ValueError, match="[Rr]evoked"):
+        await JWTAuthService.refresh_access_token(refresh)
+    # Idempotent / garbage input is safe.
+    assert await JWTAuthService.revoke_refresh_token(refresh) is False
+    assert await JWTAuthService.revoke_refresh_token("not-a-token") is False
 
 
 @pytest.mark.asyncio
 async def test_change_pin_requires_current(isolated_env):
-    await JWTAuthService.set_parent_pin("1111", "p1")
+    await JWTAuthService.set_parent_pin("1717", "p1")
     with pytest.raises(ValueError, match="Current PIN is incorrect"):
-        await JWTAuthService.change_parent_pin("2222", "wrong", "p1")
-    assert await JWTAuthService.change_parent_pin("2222", "1111", "p1") is True
-    res = await JWTAuthService.verify_parent_pin("2222", "p1")
+        await JWTAuthService.change_parent_pin("2468", "wrong", "p1")
+    assert await JWTAuthService.change_parent_pin("2468", "1717", "p1") is True
+    res = await JWTAuthService.verify_parent_pin("2468", "p1")
     assert res["success"] is True
 
 
@@ -174,6 +221,81 @@ async def test_pairing_generate_verify_revoke(isolated_env):
     assert await PairingService.get_linked_students("default") == []
 
 
+@pytest.mark.asyncio
+async def test_pin_change_invalidates_outstanding_tokens(isolated_env):
+    """PIN set/change bumps the epoch: every earlier JWT dies immediately."""
+    await JWTAuthService.set_parent_pin("3141", "ep")
+    auth = await JWTAuthService.verify_parent_pin("3141", "ep")
+    old_access, old_refresh = auth["access_token"], auth["refresh_token"]
+    assert await JWTAuthService.verify_token(old_access)
+
+    await JWTAuthService.change_parent_pin("5926", "3141", "ep")
+
+    for stale in (old_access, old_refresh):
+        with pytest.raises(ValueError, match="superseded"):
+            await JWTAuthService.verify_token(stale)
+
+    # Fresh login under the new PIN works.
+    fresh = await JWTAuthService.verify_parent_pin("5926", "ep")
+    assert await JWTAuthService.verify_token(fresh["access_token"])
+
+
+@pytest.mark.asyncio
+async def test_revoked_rows_are_purged(isolated_env):
+    import aiosqlite
+
+    token = await JWTAuthService.create_access_token("default")
+    payload = await JWTAuthService.verify_token(token)
+    await JWTAuthService.revoke_token(payload["jti"])
+
+    # Backdate the row beyond any possible refresh-token lifetime.
+    db_path = isolated_env
+    async with aiosqlite.connect(db_path) as db:
+        await ensure_kv(db)
+        await db.execute(
+            "UPDATE settings SET value = ? WHERE key = ?",
+            (str(int(time.time()) - 30 * 86400), f"revoked_{payload['jti']}"),
+        )
+        await db.commit()
+
+    # A new revocation triggers the lazy purge of expired rows.
+    other = await JWTAuthService.create_refresh_token("default")
+    other_payload = await JWTAuthService.verify_token(other)
+    await JWTAuthService.revoke_token(other_payload["jti"])
+
+    async with aiosqlite.connect(db_path) as db:
+        cur = await db.execute(
+            "SELECT COUNT(*) FROM settings WHERE key = ?", (f"revoked_{payload['jti']}",)
+        )
+        assert (await cur.fetchone())[0] == 0
+        # The fresh revocation is still present.
+        cur = await db.execute(
+            "SELECT COUNT(*) FROM settings WHERE key = ?", (f"revoked_{other_payload['jti']}",)
+        )
+        assert (await cur.fetchone())[0] == 1
+
+
+def test_legacy_pin_hash_still_verifies():
+    salt = bytes.fromhex("ab" * 16)
+    h = hashlib.pbkdf2_hmac("sha256", b"1357", salt, 100_000, 32)
+    legacy_hash = f"{salt.hex()}${h.hex()}"
+    assert JWTAuthService._verify_pin_hash("1357", legacy_hash) is True
+    assert JWTAuthService._verify_pin_hash("0000", legacy_hash) is False
+
+
+def test_v2_pin_hash_embeds_iterations():
+    stored = JWTAuthService._hash_pin("2468", b"\xcd" * 16)
+    assert stored.startswith("v2$600000$")
+    assert JWTAuthService._verify_pin_hash("2468", stored) is True
+    assert JWTAuthService._verify_pin_hash("1357", stored) is False
+
+
+async def ensure_kv(db):
+    from deeptutor.services.remote.kv_settings import ensure_kv_settings
+
+    await ensure_kv_settings(db)
+
+
 # --------------------------------------------------- router-level HTTP gate
 
 
@@ -182,6 +304,7 @@ def test_require_parent_http_gate(isolated_env, monkeypatch):
 
     from fastapi import Depends, FastAPI
     from fastapi.testclient import TestClient
+
     from deeptutor.api.routers.parent import require_parent
 
     app = FastAPI()

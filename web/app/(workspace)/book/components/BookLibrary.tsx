@@ -37,8 +37,8 @@ const STATUS_STYLES: Record<
   compiling: {
     label: "Compiling",
     className:
-      "bg-violet-50 text-violet-700 dark:bg-violet-500/10 dark:text-violet-300",
-    dot: "bg-violet-500 animate-pulse",
+      "bg-[var(--accent)] text-[var(--primary)]",
+    dot: "bg-[var(--primary)] animate-pulse",
   },
   ready: {
     label: "Ready",
@@ -233,7 +233,7 @@ export default function BookLibrary({
             icon={<Loader2 size={14} />}
             label={t("In progress")}
             value={stats.inProgress}
-            accent="text-violet-600 dark:text-violet-400"
+            accent="text-[var(--primary)]"
           />
           <StatCard
             icon={<Layers size={14} />}
@@ -253,7 +253,7 @@ export default function BookLibrary({
                 shown: filtered.length,
                 total: books.length,
               })}
-              {query ? ` · ${t("matching “{{query}}”", { query })}` : ""}
+              {query ? ` Â· ${t("matching â€œ{{query}}â€", { query })}` : ""}
             </div>
           </div>
         </div>
@@ -261,13 +261,13 @@ export default function BookLibrary({
         {loading ? (
           <div className="flex items-center justify-center gap-2 py-20 text-sm text-[var(--muted-foreground)]">
             <Loader2 size={16} className="animate-spin" />
-            {t("Loading books…")}
+            {t("Loading booksâ€¦")}
           </div>
         ) : books.length === 0 ? (
           <EmptyState onNewBook={onNewBook} />
         ) : filtered.length === 0 ? (
           <div className="rounded-xl border border-dashed border-[var(--border)] bg-[var(--secondary)]/30 px-6 py-12 text-center text-sm text-[var(--muted-foreground)]">
-            {t("No books match “{{query}}”.", { query })}
+            {t("No books match â€œ{{query}}â€.", { query })}
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -416,7 +416,7 @@ export default function BookLibrary({
                       </div>
                       <span className="inline-flex items-center gap-1">
                         <Clock3 size={11} />
-                        {relativeTime(book.updated_at, t) || "—"}
+                        {relativeTime(book.updated_at, t) || "â€”"}
                       </span>
                     </div>
                     {onLearn && book.status === "ready" && (

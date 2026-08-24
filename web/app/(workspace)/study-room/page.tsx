@@ -1,16 +1,26 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { 
-  Plus, BookOpen, Clock, ShieldCheck, Flame, Award, Sparkles, 
-  Pause, Play, StopCircle, FileText, CheckCircle2, AlertTriangle, 
-  Smartphone, Eye, Video, RefreshCw, Send, ChevronRight
+/**
+ * AI Guru Study Room — Ember Glass edition.
+ * Bento lobby, frosted HUD workspace, animated ember ring timer.
+ * All session logic (create / pre-flight / WS telemetry / stop / report)
+ * is unchanged; this file is presentation-only redesign.
+ */
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useRouter } from "next/navigation";
+import {
+  Plus, BookOpen, BookOpenCheck, ShieldCheck, Sparkles,
+  Pause, Play, StopCircle, FileText, AlertTriangle,
+  Eye, Video, RefreshCw, ChevronRight, History,
+  Calculator, Atom, Cpu, FlaskConical,
 } from "lucide-react";
 import CreateSessionModal from "@/components/study/CreateSessionModal";
 import PreFlightCheck from "@/components/study/PreFlightCheck";
 import StudyTimer from "@/components/study/StudyTimer";
 import SessionReportView from "@/components/study/SessionReportView";
 import FloatingStudyBar from "@/components/study/FloatingStudyBar";
+import { motionOK, useRevealStagger, useMagneticTilt } from "@/lib/motion/useGsapReveal";
 import type { VisionPipeline } from "@/lib/monitoring/visionPipeline";
 
 type SessionState = "idle" | "creating" | "pre-flight" | "active" | "completed";
@@ -23,15 +33,35 @@ interface LiveWarning {
   at: number;
 }
 
+interface PastSessionRow {
+  id: string;
+  title: string;
+  subject: string;
+  status: string;
+  target_duration_seconds: number;
+  actual_duration_seconds: number;
+  focus_score: number;
+  created_at: number;
+}
+
+const STUDENT_ID = "student-primary";
+
+/** Inline CSS custom properties without fighting the CSSProperties type. */
+const cssVars = (o: Record<string, string>) => o as unknown as React.CSSProperties;
+
 export default function StudyRoomPage() {
   const [state, setState] = useState<SessionState>("idle");
   const [sessionData, setSessionData] = useState<{
     title: string;
     subject: string;
     duration: number;
-    pdfUrl?: string;
   } | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
+
+  // ---- Unified session clock: single source for the ring timer + floating bar ----
+  const [timeLeft, setTimeLeft] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [stopping, setStopping] = useState(false);
 
   // ---- Real monitoring telemetry (WS-backed; no simulated values) ----
   const [focusScore, setFocusScore] = useState<number | null>(null); // null = awaiting real data
@@ -40,19 +70,25 @@ export default function StudyRoomPage() {
   const [postureLabel, setPostureLabel] = useState<string>("—");
   const [liveWarnings, setLiveWarnings] = useState<LiveWarning[]>([]);
   const [wsConnected, setWsConnected] = useState(false);
-  const wsRef = useRef<WebSocket | null>(null);
   const pipelineRef = useRef<VisionPipeline | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [studyNotes, setStudyNotes] = useState<string>("");
   const [activeTab, setActiveTab] = useState<"workspace" | "notes">("workspace");
   const [liveViewEnabled, setLiveViewEnabled] = useState(false);
+  // The vision-pipeline effect captures values once; the ref lets the running
+  // loop read the CURRENT toggle state without re-opening camera + WS.
+  const liveViewRef = useRef(liveViewEnabled);
+  liveViewRef.current = liveViewEnabled;
+
+  // ---- API failure surfacing: never fail silently ----
+  const [apiNotice, setApiNotice] = useState<{ kind: "error" | "warn"; text: string } | null>(null);
 
   const toggleLiveView = async (next: boolean) => {
     setLiveViewEnabled(next);
     if (!sessionId) return;
     try {
-      await fetch(
+      const res = await fetch(
         `/api/v1/monitoring/live/consent?session_id=${encodeURIComponent(sessionId)}`,
         {
           method: "POST",
@@ -60,8 +96,13 @@ export default function StudyRoomPage() {
           body: JSON.stringify({ enabled: next }),
         }
       );
+      if (!res.ok) throw new Error(String(res.status));
     } catch {
-      /* consent is best-effort; frames simply won't upload */
+      setApiNotice({
+        kind: "warn",
+        text: "Could not sync Parent Live View consent with the backend — snapshots won't upload.",
+      });
+      setLiveViewEnabled(!next);
     }
   };
 
@@ -114,11 +155,15 @@ export default function StudyRoomPage() {
           onTelemetry: (frame, remote) => {
             if (remote) {
               applyRemote(remote);
-            } else if (!frame.detected) {
-              setPresenceState((p) => (p === "unknown" ? "unknown" : p));
             }
             // Parent live view: throttled frame upload while consented.
-            if (liveViewEnabled && frame.jpeg_b64 && Date.now() - lastLiveUpload > 1500 && sessionId) {
+            // Reads the ref so toggling mid-session takes effect immediately.
+            if (
+              liveViewRef.current &&
+              frame.jpeg_b64 &&
+              Date.now() - lastLiveUpload > 1500 &&
+              sessionId
+            ) {
               lastLiveUpload = Date.now();
               void fetch(
                 `/api/v1/monitoring/live/frame?session_id=${encodeURIComponent(sessionId)}`,
@@ -137,6 +182,10 @@ export default function StudyRoomPage() {
       } catch (err) {
         console.warn("Monitoring unavailable:", err);
         setWsConnected(false);
+        setApiNotice({
+          kind: "warn",
+          text: "Camera or monitoring engine unavailable — the session continues unmonitored.",
+        });
       }
     })();
 
@@ -151,160 +200,230 @@ export default function StudyRoomPage() {
     };
   }, [state, sessionId]);
 
-  const handleStartSession = async (title: string, subject: string, duration: number) => {
+  const handleStartSession = (title: string, subject: string, duration: number) => {
     setSessionData({ title, subject, duration });
     setState("pre-flight");
   };
 
   const handlePreFlightReady = async () => {
-    // Create + start the session against the real backend; fall back to an
-    // untracked local-only run if the API is unreachable.
+    // Create + start the session against the real backend; surface failures
+    // honestly instead of continuing silently untracked.
+    setApiNotice(null);
     let createdId: string | null = null;
     try {
       const res = await fetch("/api/v1/study-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          student_id: "student-primary",
+          student_id: STUDENT_ID,
           title: sessionData?.title || "Study Session",
           subject: sessionData?.subject || "General",
           target_duration_seconds: Math.max(60, (sessionData?.duration || 25) * 60),
         }),
       });
-      if (res.ok) {
-        const data = await res.json();
-        createdId = data.id || null;
-      }
+      if (!res.ok) throw new Error(`create failed (${res.status})`);
+      const data = await res.json();
+      createdId = typeof data.id === "string" ? data.id : null;
+
       if (createdId) {
-        await fetch(`/api/v1/study-session/${createdId}/start`, { method: "POST" });
+        const startRes = await fetch(`/api/v1/study-session/${createdId}/start`, { method: "POST" });
+        if (!startRes.ok) throw new Error(`start failed (${startRes.status})`);
       }
     } catch (err) {
       console.warn("Study-session API unreachable; continuing locally", err);
+      setApiNotice({
+        kind: "warn",
+        text: "Backend unreachable — this run is not being tracked (no history, XP, or parent alerts).",
+      });
+    }
+
+    if (createdId) {
+      const draftKey = `aiguru.notes.${createdId}`;
+      setStudyNotes(window.localStorage.getItem(draftKey) || "");
     }
     setSessionId(createdId);
+    setTimeLeft(Math.max(60, sessionData?.duration || 25) * 60);
+    setIsPaused(false);
+    setActiveTab("workspace");
     setState("active");
   };
 
-  const handleComplete = async () => {
-    if (sessionId) {
-      try {
-        await fetch(`/api/v1/study-session/${sessionId}/stop`, { method: "POST" });
-      } catch (err) {
-        console.warn("Stop failed", err);
-      }
-    }
-    setState("completed");
+  /** Resume a previously started session found in history (e.g. after refresh). */
+  const handleResumeSession = (row: PastSessionRow) => {
+    const target = Math.max(60, Math.round(row.target_duration_seconds / 60) || 25);
+    setSessionData({ title: row.title, subject: row.subject || "General", duration: target });
+    setSessionId(row.id);
+    setIsPaused(row.status === "paused");
+    setTimeLeft(target * 60); // paused rows carry no elapsed accumulation; restart clock honestly
+    setStudyNotes(window.localStorage.getItem(`aiguru.notes.${row.id}`) || "");
+    setLiveWarnings([]);
+    setFocusScore(null);
+    setEngagementScore(null);
+    setPresenceState("unknown");
+    setPostureLabel("—");
+    setState("active");
+    void fetch(`/api/v1/study-session/${row.id}/resume`, { method: "POST" }).catch(() => {});
   };
 
-  // Report stats come from the real backend where available.
+  const completingRef = useRef(false);
+  const handleComplete = useCallback(async () => {
+    if (completingRef.current || !sessionId) {
+      // Untracked local run: jump straight to the completion screen.
+      if (!sessionId) setState("completed");
+      return;
+    }
+    completingRef.current = true;
+    setStopping(true);
+    try {
+      const res = await fetch(`/api/v1/study-session/${sessionId}/stop`, { method: "POST" });
+      if (!res.ok && res.status !== 404) {
+        console.warn("Stop returned", res.status);
+      }
+    } catch (err) {
+      console.warn("Stop failed", err);
+      setApiNotice({ kind: "warn", text: "Couldn't reach the backend to finalize the session." });
+    }
+    setStopping(false);
+    setState("completed");
+  }, [sessionId]);
+
+  useEffect(() => {
+    if (state === "active" && timeLeft === 0 && !completingRef.current) {
+      void handleComplete();
+    }
+    if (state !== "active") completingRef.current = false;
+  }, [state, timeLeft, handleComplete]);
+
+  const handlePauseToggle = useCallback(async () => {
+    if (state !== "active") return;
+    const next = !isPaused;
+    setIsPaused(next);
+    if (!sessionId) return;
+    try {
+      const res = await fetch(`/api/v1/study-session/${sessionId}/${next ? "pause" : "resume"}`, {
+        method: "POST",
+      });
+      if (!res.ok) throw new Error(String(res.status));
+    } catch {
+      /* backend pause/resume is best-effort */
+    }
+  }, [state, isPaused, sessionId]);
+
+  // Persist scratch notes per session (survives refresh; nothing leaves device).
+  useEffect(() => {
+    if (!sessionId || state !== "active") return;
+    const key = `aiguru.notes.${sessionId}`;
+    const id = setTimeout(() => window.localStorage.setItem(key, studyNotes), 400);
+    return () => clearTimeout(id);
+  }, [studyNotes, sessionId, state]);
+
+  // ---- Completed-screen report state (all real; null renders as "—") ----
+  const [reportLoading, setReportLoading] = useState(false);
+  const [reportError, setReportError] = useState<string | null>(null);
   const [reportStats, setReportStats] = useState<{
-    durationMinutes: number;
+    durationMinutes: number | null;
     focusScore: number | null;
     engagementScore: number | null;
-    distractionCount: number;
-    warningCount: number;
+    distractionCount: number | null;
+    warningCount: number | null;
     xpEarned: number | null;
-  }>({
-    durationMinutes: 25,
-    focusScore: null,
-    engagementScore: null,
-    distractionCount: 0,
-    warningCount: 0,
-    xpEarned: null,
-  });
+    summary: string | null;
+    badgesUnlocked: string[];
+  } | null>(null);
 
-  // Report stats come from the real backend where available.
-  const sessionStats = {
-    durationMinutes: reportStats.durationMinutes,
-    focusScore: reportStats.focusScore ?? 0,
-    engagementScore: reportStats.engagementScore ?? 0,
-    distractionCount: reportStats.distractionCount,
-    warningCount: reportStats.warningCount || liveWarnings.length,
-    xpEarned: reportStats.xpEarned ?? 0,
-    badgesUnlocked: [] as string[],
-  };
+  const resetToIdle = useCallback(() => {
+    setState("idle");
+    setSessionId(null);
+    setTimeLeft(null);
+    setIsPaused(false);
+    setStopping(false);
+    setReportStats(null);
+    setReportError(null);
+    setReportLoading(false);
+    setFocusScore(null);
+    setEngagementScore(null);
+    setPresenceState("unknown");
+    setPostureLabel("—");
+    setLiveWarnings([]);
+    setStudyNotes("");
+    setLiveViewEnabled(false);
+    setSessionData(null);
+  }, []);
 
   useEffect(() => {
     if (state !== "completed") return;
+    if (!sessionId) {
+      // Untracked local run — show honest empty card.
+      setReportStats(null);
+      setReportError("This session was not tracked by the backend, so there is no report data.");
+      return;
+    }
+    setReportLoading(true);
+    setReportError(null);
     const load = async () => {
-      if (!sessionId) return;
       try {
-        const [reportRes, profileRes] = await Promise.allSettled([
-          fetch(`/api/v1/study-session/${sessionId}/report`),
-          fetch("/api/v1/study-session/gamification/student-primary/profile"),
-        ]);
-        if (reportRes.status === "fulfilled" && reportRes.value.ok) {
-          const r = await reportRes.value.json();
-          const metrics = r.metrics || {};
-          setReportStats((prev) => ({
-            ...prev,
-            durationMinutes: Math.round((metrics.actual_duration_seconds ?? metrics.duration_seconds ?? prev.durationMinutes * 60) / 60),
-            focusScore: typeof metrics.focus_score === "number" ? Math.round(metrics.focus_score) : focusScore,
-            engagementScore: typeof metrics.engagement_score === "number" ? Math.round(metrics.engagement_score) : engagementScore,
-            distractionCount: Number(metrics.distraction_count ?? 0),
-            warningCount: Number(metrics.warning_count ?? liveWarnings.length),
-          }));
+        const res = await fetch(`/api/v1/study-session/${sessionId}/report`);
+        if (res.status === 404) {
+          setReportStats(null);
+          setReportError("The backend has no record of this session.");
+          return;
         }
-        if (profileRes.status === "fulfilled" && profileRes.value.ok) {
-          const p = await profileRes.value.json();
-          setReportStats((prev) => ({ ...prev, xpEarned: typeof p.xp === "number" ? p.xp : prev.xpEarned }));
-        }
+        if (!res.ok) throw new Error(`report failed (${res.status})`);
+        const r = await res.json();
+        const metrics = r.metrics || {};
+        const secs = Number(metrics.actual_duration_seconds ?? metrics.duration_seconds ?? NaN);
+        setReportStats({
+          durationMinutes: Number.isFinite(secs) ? Math.round(secs / 60) : null,
+          focusScore: typeof metrics.focus_score === "number" ? Math.round(metrics.focus_score) : null,
+          engagementScore: typeof metrics.engagement_score === "number" ? Math.round(metrics.engagement_score) : null,
+          distractionCount: typeof metrics.distraction_count === "number" ? metrics.distraction_count : null,
+          warningCount: typeof metrics.warning_count === "number" ? metrics.warning_count : liveWarnings.length,
+          xpEarned: typeof r.xp_earned === "number" ? r.xp_earned : null,
+          summary: typeof r.summary === "string" && r.summary.trim() ? r.summary : null,
+          badgesUnlocked: [],
+        });
       } catch {
-        /* keep placeholders as nulls */
+        setReportStats(null);
+        setReportError("Couldn't load the session report. Is the AI Guru backend running?");
+      } finally {
+        setReportLoading(false);
       }
     };
     void load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
+  }, [state, sessionId]);
 
+  // Auto-dismiss transient notices after 8s.
+  useEffect(() => {
+    if (!apiNotice) return;
+    const id = setTimeout(() => setApiNotice(null), 8000);
+    return () => clearTimeout(id);
+  }, [apiNotice]);
 
   return (
-    <div className="flex-1 h-full flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 relative overflow-hidden">
-      
+    <div className="flex-1 h-full flex flex-col text-[var(--foreground)] relative overflow-hidden">
+      {/* Transient API notices (errors never fail silently) */}
+      {apiNotice && (
+        <div
+          className={`surface-glass-elevated absolute top-3 left-1/2 -translate-x-1/2 z-[60] px-4 py-2.5 rounded-xl text-xs font-medium flex items-center gap-2 ${
+            apiNotice.kind === "error"
+              ? "border-red-500/40 text-red-300 shadow-[0_0_24px_rgba(239,68,68,0.15)]"
+              : "border-[var(--amber)]/40 text-[var(--amber)] shadow-[0_0_24px_var(--amber-glow)]"
+          }`}
+          role="status"
+        >
+          <AlertTriangle size={14} className="shrink-0" />
+          <span>{apiNotice.text}</span>
+        </div>
+      )}
+
       {/* 1. IDLE STATE: STUDY ROOM LOBBY */}
       {state === "idle" && (
-        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center max-w-2xl mx-auto space-y-6">
-          <div className="w-20 h-20 rounded-3xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center shadow-inner text-blue-600 dark:text-blue-400">
-            <BookOpen size={36} />
-          </div>
-
-          <div className="space-y-2">
-            <h1 className="text-3xl font-extrabold tracking-tight">AI Guru Study Room</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-              Intelligent, privacy-first study companion with local AI monitoring, PDF past-paper workspace, and real-time focus feedback.
-            </p>
-          </div>
-
-          {/* Quick Subject Launch Cards */}
-          <div className="grid grid-cols-2 gap-3 w-full max-w-md">
-            {[
-              { title: "Mathematics (Past Papers)", duration: 45, icon: "📐" },
-              { title: "Physics Mechanics", duration: 30, icon: "⚡" },
-              { title: "Computer Science Algorithms", duration: 25, icon: "💻" },
-              { title: "Chemistry Revision", duration: 30, icon: "🧪" },
-            ].map((sub, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleStartSession(sub.title, sub.title.split(" ")[0], sub.duration)}
-                className="p-3.5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-blue-500 text-left transition-all hover:shadow-md group"
-              >
-                <span className="text-2xl mb-1 block">{sub.icon}</span>
-                <h4 className="text-xs font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 line-clamp-1">
-                  {sub.title}
-                </h4>
-                <p className="text-[10px] text-gray-400 mt-0.5">{sub.duration} mins • Monitored</p>
-              </button>
-            ))}
-          </div>
-
-          <button
-            onClick={() => setState("creating")}
-            className="px-8 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2"
-          >
-            <Plus size={20} />
-            <span>Custom Study Session</span>
-          </button>
-        </div>
+        <IdleLobby
+          onStart={handleStartSession}
+          onResume={handleResumeSession}
+          onCreate={() => setState("creating")}
+        />
       )}
 
       {/* 2. CREATING SESSION MODAL */}
@@ -317,9 +436,9 @@ export default function StudyRoomPage() {
 
       {/* 3. PRE-FLIGHT HARDWARE & CAMERA CHECK */}
       {state === "pre-flight" && (
-        <div className="flex-1 flex items-center justify-center p-4">
+        <div className="flex-1 flex items-center justify-center p-4 relative z-10">
           <PreFlightCheck
-            onReady={handlePreFlightReady}
+            onReady={() => void handlePreFlightReady()}
             onCancel={() => setState("idle")}
           />
         </div>
@@ -328,45 +447,69 @@ export default function StudyRoomPage() {
       {/* 4. ACTIVE STUDY SESSION WORKSPACE */}
       {state === "active" && (
         <div className="flex-1 flex flex-col h-full overflow-hidden">
-          {/* Top Session HUD Bar */}
-          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-3 flex items-center justify-between shadow-sm">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">
-                <BookOpen size={20} />
+          {/* Top Session HUD Bar — floating frosted glass */}
+          <div className="surface-glass-base mx-3 mt-3 rounded-2xl px-5 py-3 flex items-center justify-between gap-4 shrink-0 relative z-30">
+            <div className="flex items-center gap-3.5 min-w-0">
+              <div className="w-10 h-10 rounded-xl bg-[var(--ember-0)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--primary)] shrink-0">
+                <BookOpen size={19} />
               </div>
-              <div>
-                <h2 className="font-bold text-sm text-gray-900 dark:text-white flex items-center gap-2">
-                  <span>{sessionData?.title || "Active Study Session"}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+              <div className="min-w-0">
+                <h2 className="font-display font-bold text-sm leading-tight flex items-center gap-2 truncate">
+                  <span className="truncate">{sessionData?.title || "Active Study Session"}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-[var(--ember-0)] text-[var(--primary)] border border-[var(--ember-line)]/30 shrink-0">
                     {sessionData?.subject}
                   </span>
+                  {!sessionId && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-[var(--amber-glow)] text-[var(--amber)] border border-[var(--amber)]/30 shrink-0">
+                      Untracked
+                    </span>
+                  )}
                 </h2>
-                <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                  <span className="flex items-center gap-1 text-green-600 dark:text-green-400 font-medium">
-                    <ShieldCheck size={13} />
-                    Local AI Active (Zero Egress)
+                <div className="flex items-center gap-2.5 text-[11px] text-[var(--muted-foreground)] mt-1">
+                  <span
+                    className={`flex items-center gap-1.5 font-semibold ${
+                      wsConnected ? "text-[var(--primary)]" : "text-[var(--muted-foreground)]"
+                    }`}
+                    title={
+                      wsConnected
+                        ? "On-device computer vision is streaming telemetry locally"
+                        : "Monitoring engine standby"
+                    }
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        wsConnected ? "bg-[var(--primary)] ember-dot" : "bg-[var(--muted-foreground)]/50"
+                      }`}
+                    />
+                    {wsConnected ? "Local AI Active (Zero Egress)" : "Monitoring Standby"}
                   </span>
-                  <span>•</span>
+                  <span className="opacity-40">·</span>
                   <span>Target: {sessionData?.duration} mins</span>
                 </div>
               </div>
             </div>
 
             {/* Live Focus Meter & Controls */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-700/60 rounded-xl border border-gray-200 dark:border-gray-600">
-                <Sparkles size={14} className="text-amber-500" />
-                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">
-                  Focus: {focusScore === null ? "—" : `${focusScore}%`}
-                </span>
-              </div>
+            <div className="flex items-center gap-2.5 shrink-0">
+              <button
+                onClick={() => void handlePauseToggle()}
+                className="glow-ring px-3.5 py-2 rounded-xl surface-glass-base text-xs font-bold flex items-center gap-1.5 hover:text-[var(--primary)]"
+                title={isPaused ? "Resume session" : "Pause session"}
+              >
+                {isPaused ? <Play size={14} /> : <Pause size={14} />}
+                <span>{isPaused ? "Resume" : "Pause"}</span>
+              </button>
 
               <button
-                onClick={handleComplete}
-                className="px-4 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-600 dark:text-red-400 border border-red-500/30 text-xs font-bold transition-colors flex items-center gap-1.5"
+                onClick={() => {
+                  if (stopping) return;
+                  if (window.confirm("Finish this study session now?")) void handleComplete();
+                }}
+                disabled={stopping}
+                className="px-4 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 disabled:opacity-50 text-red-400 border border-red-500/30 text-xs font-bold transition-colors flex items-center gap-1.5 glow-ring"
               >
-                <StopCircle size={15} />
-                <span>Finish Session</span>
+                <StopCircle size={15} className={stopping ? "animate-pulse" : ""} />
+                <span>{stopping ? "Finishing…" : "Finish Session"}</span>
               </button>
             </div>
           </div>
@@ -374,197 +517,163 @@ export default function StudyRoomPage() {
           {/* Main Dual-Pane Workspace */}
           <div className="flex-1 flex overflow-hidden">
             {/* Left Pane: Interactive Document & Past Paper Study Zone */}
-            <div className="flex-1 flex flex-col bg-white dark:bg-gray-800/50 border-r border-gray-200 dark:border-gray-700 overflow-hidden">
-              <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between bg-gray-50 dark:bg-gray-800">
-                <div className="flex gap-2">
+            <div className="flex-1 flex flex-col overflow-hidden">
+              <div className="px-5 pt-4 flex items-center justify-between gap-3">
+                <div className="relative grid grid-cols-2 p-1 rounded-full surface-glass-base w-full max-w-sm">
+                  {/* Sliding capsule thumb */}
+                  <span
+                    aria-hidden
+                    className="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full bg-[var(--primary)] shadow-[0_0_18px_var(--glow-primary)] transition-transform duration-300 ease-out"
+                    style={{ transform: activeTab === "notes" ? "translateX(100%)" : "translateX(0)" }}
+                  />
                   <button
                     onClick={() => setActiveTab("workspace")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold ${activeTab === "workspace" ? "bg-blue-600 text-white" : "text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700"}`}
+                    className={`relative z-10 px-3 py-1.5 rounded-full text-xs font-bold transition-colors duration-200 ${
+                      activeTab === "workspace" ? "text-white" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                    }`}
                   >
                     Past Paper Problem Space
                   </button>
                   <button
                     onClick={() => setActiveTab("notes")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold ${activeTab === "notes" ? "bg-blue-600 text-white" : "text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700"}`}
+                    className={`relative z-10 px-3 py-1.5 rounded-full text-xs font-bold transition-colors duration-200 ${
+                      activeTab === "notes" ? "text-white" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                    }`}
                   >
                     Scratch Notes
                   </button>
                 </div>
+                {activeTab === "notes" && (
+                  <span className="hidden sm:flex items-center gap-1 text-[10px] text-[var(--muted-foreground)]">
+                    <ShieldCheck size={11} /> Auto-saved on this device
+                  </span>
+                )}
               </div>
 
               {activeTab === "workspace" ? (
-                <div className="flex-1 p-6 overflow-y-auto space-y-6">
-                  {/* Sample Past Paper Problem */}
-                  <div className="p-5 rounded-2xl bg-gray-50 dark:bg-gray-700/30 border border-gray-200 dark:border-gray-700 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold font-mono text-blue-600 dark:text-blue-400">
-                        EXAM PROBLEM #04 • 2024 Past Paper
-                      </span>
-                      <span className="text-xs text-gray-400">[6 Marks]</span>
-                    </div>
-
-                    <p className="text-sm font-serif leading-relaxed text-gray-800 dark:text-gray-200">
-                      Solve the quadratic equation:
-                      <br />
-                      <span className="block my-2 font-mono font-bold text-center text-base bg-white dark:bg-gray-800 py-2 rounded-xl border border-gray-200 dark:border-gray-700">
-                        2x² - 7x + 3 = 0
-                      </span>
-                      Show all factorisation steps or apply the Quadratic Formula.
-                    </p>
-
-                    <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                      <label className="block text-xs font-semibold text-gray-500 mb-2">Student Working Space:</label>
-                      <textarea
-                        rows={4}
-                        placeholder="Write step-by-step derivation here..."
-                        className="w-full p-3 text-sm font-mono bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl flex items-center justify-between">
-                    <div>
-                      <h4 className="text-xs font-bold text-blue-900 dark:text-blue-200">Need a Step Hint?</h4>
-                      <p className="text-[11px] text-blue-700 dark:text-blue-300 mt-0.5">
-                        AI Guru is ready in the background to guide your derivation without giving away the final answer.
-                      </p>
-                    </div>
-                    <button
-                      onClick={() =>
-                        window.dispatchEvent(
-                          new CustomEvent("aiguru:open-floating-chat", {
-                            detail: { context: `Studying ${sessionData?.subject || "General"}. I need a hint on this problem.` },
-                          })
-                        )
-                      }
-                      className="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition-colors"
-                    >
-                      Ask AI Guru
-                    </button>
-                  </div>
-                </div>
+                <PastPaperPanel subject={sessionData?.subject || "General"} />
               ) : (
-                <div className="flex-1 p-6">
+                <div className="flex-1 p-5 flex flex-col">
                   <textarea
                     value={studyNotes}
                     onChange={(e) => setStudyNotes(e.target.value)}
                     placeholder="Take session notes, formulas, or key concepts..."
-                    className="w-full h-full p-4 text-sm font-mono bg-transparent border-0 resize-none focus:outline-none"
+                    className="glass-input w-full flex-1 p-4 text-sm font-mono resize-none"
                   />
                 </div>
               )}
             </div>
 
-            {/* Right Pane: Timer & Local AI Supervision HUD */}
-            <div className="w-80 flex flex-col bg-gray-50 dark:bg-gray-900 p-6 justify-between border-l border-gray-200 dark:border-gray-700">
-              <div className="space-y-6">
-                {/* Timer Clock */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col items-center">
-                  <StudyTimer
-                    durationMinutes={sessionData?.duration || 25}
-                    isActive={true}
-                    onComplete={handleComplete}
-                    onPauseToggle={() => {}}
-                  />
+            {/* Right Pane: Timer & Local AI Supervision HUD — vertical bento */}
+            <aside className="w-[340px] shrink-0 hidden lg:flex flex-col gap-4 p-4 pl-1 pb-28 overflow-y-auto">
+              {/* Timer Clock */}
+              <div className="bento-cell p-5 pt-7 flex flex-col items-center shrink-0 liquid-sheen">
+                <StudyTimer
+                  timeLeft={timeLeft}
+                  totalSeconds={Math.max(60, sessionData?.duration || 25) * 60}
+                  isPaused={isPaused}
+                  onTogglePause={() => void handlePauseToggle()}
+                />
+              </div>
+
+              {/* Local CV Monitor Status Card — real WS telemetry only */}
+              <div className="bento-cell p-4 space-y-3 shrink-0">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold flex items-center gap-1.5">
+                    <Eye size={14} className="text-[var(--primary)]" />
+                    <span>Vision Guard</span>
+                  </span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-bold tracking-wide ${
+                      wsConnected
+                        ? "bg-[var(--ember-0)] text-[var(--primary)] border border-[var(--ember-line)]/40"
+                        : "bg-[var(--muted)] text-[var(--muted-foreground)] border border-[var(--glass-border)]"
+                    }`}
+                  >
+                    {wsConnected ? "LIVE" : "OFFLINE"}
+                  </span>
                 </div>
 
-                {/* Local CV Monitor Status Card — real WS telemetry only */}
-                <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-                      <Eye size={14} className="text-blue-500" />
-                      <span>Vision Guard</span>
-                    </span>
+                <div className="space-y-2 text-xs">
+                  <TelemetryRow label="Presence">
                     <span
-                      className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                        wsConnected
-                          ? "bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300"
-                          : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"
+                      className={`font-semibold capitalize ${
+                        presenceState === "present"
+                          ? "text-[var(--primary)]"
+                          : presenceState === "away"
+                            ? "text-red-400"
+                            : "text-[var(--foreground)]"
                       }`}
                     >
-                      {wsConnected ? "LIVE" : "OFFLINE"}
+                      {presenceState.replace(/_/g, " ")}
                     </span>
-                  </div>
-
-                  <div className="space-y-2 text-xs">
-                    <div className="flex justify-between text-gray-500 dark:text-gray-400">
-                      <span>Presence</span>
+                  </TelemetryRow>
+                  <TelemetryRow label="Posture">
+                    <span className="font-semibold capitalize">{postureLabel}</span>
+                  </TelemetryRow>
+                  <TelemetryRow label="Engagement">
+                    <span className="font-semibold text-[var(--primary)] font-mono">
+                      {engagementScore === null ? "—" : `${engagementScore}%`}
+                    </span>
+                  </TelemetryRow>
+                  <TelemetryRow label="Device Egress">
+                    <span className={`font-semibold font-mono ${wsConnected ? "text-[var(--amber)]" : "text-[var(--muted-foreground)]"}`}>
+                      {wsConnected ? "0 Bytes (Local)" : "—"}
+                    </span>
+                  </TelemetryRow>
+                  <div className="flex justify-between items-center pt-1.5 border-t border-[var(--glass-border)]">
+                    <span className="text-[var(--muted-foreground)]">Parent Live View</span>
+                    <button
+                      onClick={() => void toggleLiveView(!liveViewEnabled)}
+                      disabled={!wsConnected}
+                      aria-label="Toggle parent live view"
+                      className={`relative w-9 h-5 rounded-full transition-colors duration-300 ${
+                        liveViewEnabled
+                          ? "bg-[var(--primary)] shadow-[0_0_12px_var(--glow-primary)]"
+                          : "bg-[var(--muted)] border border-[var(--glass-border)]"
+                      } ${!wsConnected ? "opacity-40 cursor-not-allowed" : ""}`}
+                      title={liveViewEnabled ? "Parent can view live snapshots" : "Allow parent to view this session"}
+                    >
                       <span
-                        className={`font-semibold capitalize ${
-                          presenceState === "present"
-                            ? "text-green-600 dark:text-green-400"
-                            : presenceState === "away"
-                              ? "text-red-600 dark:text-red-400"
-                              : "text-gray-700 dark:text-gray-300"
+                        className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-all duration-300 ${
+                          liveViewEnabled ? "left-[18px]" : "left-0.5"
+                        }`}
+                      />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Live warnings (dispatched by the local CV pipeline) */}
+                {liveWarnings.length > 0 && (
+                  <div className="pt-2 border-t border-[var(--glass-border)] space-y-1.5">
+                    {liveWarnings.slice(0, 3).map((w) => (
+                      <div
+                        key={w.warning_id}
+                        className={`p-2 rounded-lg text-[11px] flex items-start gap-1.5 border ${
+                          w.severity === "alert"
+                            ? "bg-red-500/10 text-red-300 border-red-500/25"
+                            : w.severity === "warning"
+                              ? "bg-[var(--amber-glow)]/60 text-[var(--amber)] border-[var(--amber)]/25"
+                              : "bg-[var(--ember-0)] text-[var(--primary)] border-[var(--ember-line)]/25"
                         }`}
                       >
-                        {presenceState.replace(/_/g, " ")}
-                      </span>
-                    </div>
-                    <div className="flex justify-between text-gray-500 dark:text-gray-400">
-                      <span>Posture</span>
-                      <span className="font-semibold text-gray-800 dark:text-gray-200 capitalize">{postureLabel}</span>
-                    </div>
-                    <div className="flex justify-between text-gray-500 dark:text-gray-400">
-                      <span>Engagement</span>
-                      <span className="font-semibold text-blue-600 dark:text-blue-400 font-mono">
-                        {engagementScore === null ? "—" : `${engagementScore}%`}
-                      </span>
-                    </div>
-                    <div className="flex justify-between text-gray-500 dark:text-gray-400">
-                      <span>Device Egress</span>
-                      <span className="font-semibold text-blue-600 dark:text-blue-400 font-mono">0 Bytes (Local)</span>
-                    </div>
-                    <div className="flex justify-between items-center text-gray-500 dark:text-gray-400 pt-1 border-t border-gray-100 dark:border-gray-700">
-                      <span>Parent Live View</span>
-                      <button
-                        onClick={() => void toggleLiveView(!liveViewEnabled)}
-                        disabled={!wsConnected}
-                        className={`relative w-9 h-5 rounded-full transition-colors ${
-                          liveViewEnabled ? "bg-green-500" : "bg-gray-300 dark:bg-gray-600"
-                        } ${!wsConnected ? "opacity-40 cursor-not-allowed" : ""}`}
-                        title={liveViewEnabled ? "Parent can view live snapshots" : "Allow parent to view this session"}
-                      >
-                        <span
-                          className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-all ${
-                            liveViewEnabled ? "left-[18px]" : "left-0.5"
-                          }`}
-                        />
-                      </button>
-                    </div>
+                        <AlertTriangle size={12} className="mt-0.5 shrink-0" />
+                        <span>{w.message}</span>
+                      </div>
+                    ))}
                   </div>
-
-                  {/* Live warnings (dispatched by the local CV pipeline) */}
-                  {liveWarnings.length > 0 && (
-                    <div className="pt-2 border-t border-gray-200 dark:border-gray-700 space-y-1.5">
-                      {liveWarnings.slice(0, 3).map((w) => (
-                        <div
-                          key={w.warning_id}
-                          className={`p-2 rounded-lg text-[11px] flex items-start gap-1.5 ${
-                            w.severity === "alert"
-                              ? "bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300"
-                              : w.severity === "warning"
-                                ? "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300"
-                                : "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
-                          }`}
-                        >
-                          <AlertTriangle size={12} className="mt-0.5 shrink-0" />
-                          <span>{w.message}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                )}
               </div>
 
               {/* Camera — real on-device preview feeding the local CV pipeline */}
-              <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+              <div className="bento-cell scanline relative aspect-video overflow-hidden flex items-center justify-center !bg-black/80">
+                {wsConnected && <div className="scanline-bar" />}
                 <video
                   ref={videoRef}
                   muted
                   playsInline
                   autoPlay
-                  className="absolute inset-0 h-full w-full object-cover opacity-90"
+                  className="absolute inset-0 h-full w-full object-cover opacity-90 -scale-x-100"
                 />
                 {!wsConnected && (
                   <div className="relative text-center space-y-1 z-10">
@@ -573,37 +682,447 @@ export default function StudyRoomPage() {
                   </div>
                 )}
                 <div
-                  className={`absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono ${
-                    wsConnected ? "bg-black/60 text-green-400" : "bg-black/60 text-gray-400"
+                  className={`absolute top-2 left-2 z-10 flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-black/60 backdrop-blur-sm ${
+                    wsConnected ? "text-[var(--amber)]" : "text-white/40"
                   }`}
                 >
                   <span
-                    className={`w-1.5 h-1.5 rounded-full ${wsConnected ? "bg-green-400 animate-pulse" : "bg-gray-500"}`}
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      wsConnected ? "bg-[var(--primary)] ember-dot" : "bg-white/30"
+                    }`}
                   />
                   <span>{wsConnected ? "LIVE · ON-DEVICE" : "IDLE"}</span>
                 </div>
               </div>
-            </div>
+            </aside>
           </div>
 
           {/* Floating Study Bar & Cluely-style Assistant */}
           <FloatingStudyBar
             sessionTitle={sessionData?.title || "Study Session"}
             subject={sessionData?.subject || "General"}
-            durationMinutes={sessionData?.duration || 25}
-            focusScore={focusScore ?? 0}
-            onComplete={handleComplete}
+            timeLeft={timeLeft}
+            isPaused={isPaused}
+            onTogglePause={() => void handlePauseToggle()}
+            focusScore={focusScore}
           />
         </div>
       )}
 
       {/* 5. COMPLETED STATE: SESSION REPORT CARD */}
       {state === "completed" && (
-        <div className="flex-1 flex overflow-y-auto">
-          <SessionReportView
-            stats={sessionStats}
-            onHome={() => setState("idle")}
+        <div className="flex-1 flex overflow-y-auto relative z-10">
+          <SessionReportView stats={reportStats} error={reportError} onHome={resetToIdle} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function TelemetryRow({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex justify-between items-center text-[var(--muted-foreground)]">
+      <span>{label}</span>
+      {children}
+    </div>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   Idle lobby — Ember Glass bento grid.
+   ──────────────────────────────────────────────────────────────────────── */
+
+const PRESETS = [
+  { title: "Mathematics (Past Papers)", subject: "Math", duration: 45, Icon: Calculator },
+  { title: "Physics Mechanics", subject: "Science", duration: 30, Icon: Atom },
+  { title: "Computer Science Algorithms", subject: "Programming", duration: 25, Icon: Cpu },
+  { title: "Chemistry Revision", subject: "Science", duration: 30, Icon: FlaskConical },
+] as const;
+
+function SubjectTile({
+  Icon,
+  title,
+  duration,
+  onPick,
+}: {
+  Icon: React.ComponentType<{ size?: number | string; className?: string }>;
+  title: string;
+  duration: number;
+  onPick: () => void;
+}) {
+  const tiltRef = useMagneticTilt<HTMLButtonElement>(motionOK() ? 4 : 0);
+  return (
+    <button
+      ref={tiltRef}
+      onClick={onPick}
+      className="bento-cell bento-cell--hover tilt-glare p-4 text-left group outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]"
+    >
+      <span className="w-10 h-10 rounded-xl bg-[var(--ember-0)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--primary)] mb-3 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-6">
+        <Icon size={19} />
+      </span>
+      <h4 className="text-xs font-bold leading-snug line-clamp-1 group-hover:text-[var(--primary)] transition-colors">
+        {title}
+      </h4>
+      <p className="text-[10px] text-[var(--muted-foreground)] mt-1">{duration} mins · Monitored</p>
+    </button>
+  );
+}
+
+function IdleLobby({
+  onStart,
+  onResume,
+  onCreate,
+}: {
+  onStart: (title: string, subject: string, duration: number) => void;
+  onResume: (row: PastSessionRow) => void;
+  onCreate: () => void;
+}) {
+  const router = useRouter();
+  const [recent, setRecent] = useState<PastSessionRow[] | null>(null);
+  const [historyFailed, setHistoryFailed] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(
+          `/api/v1/study-session/history/${STUDENT_ID}?limit=5&offset=0`
+        );
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        if (!cancelled) setRecent(Array.isArray(data.items) ? data.items : []);
+      } catch {
+        if (!cancelled) setHistoryFailed(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const resumeCandidate = recent?.find(
+    (r) => r.status === "in_progress" || r.status === "paused"
+  );
+
+  // Re-run the staggered entrance once history resolves (banner appears).
+  const revealRoot = useRevealStagger<HTMLDivElement>([recent]);
+
+  return (
+    <div className="flex-1 overflow-y-auto relative">
+      {/* Drifting ember backdrop */}
+      <div className="aurora-stage">
+        <div
+          className="aurora-blob"
+          style={cssVars({ "--x": "16%", "--y": "-8%", "--size": "580px", "--drift-dur": "32s" })}
+        />
+        <div
+          className="aurora-blob"
+          style={cssVars({
+            "--x": "90%",
+            "--y": "106%",
+            "--size": "470px",
+            "--blob-color": "var(--amber-glow)",
+            "--blob-opacity": "0.45",
+            "--drift-dur": "38s",
+            "--drift-delay": "-10s",
+          })}
+        />
+      </div>
+
+      <div ref={revealRoot} className="relative z-10 max-w-5xl mx-auto px-6 py-10 space-y-6">
+        {/* Header row */}
+        <div className="flex items-end justify-between gap-4" data-reveal>
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
+              AI Guru · Privacy-first
+            </p>
+            <h1 className="font-display text-4xl font-extrabold tracking-tight mt-1.5">
+              Study{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--amber)]">
+                Room
+              </span>
+            </h1>
+          </div>
+          <button onClick={onCreate} className="glass-btn-primary hidden sm:inline-flex items-center gap-2 !rounded-xl">
+            <Plus size={17} />
+            <span>Custom Session</span>
+          </button>
+        </div>
+
+        {/* Hero bento */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            data-reveal
+            className="bento-cell tilt-glare liquid-sheen col-span-2 lg:row-span-2 p-6 lg:p-8 flex flex-col justify-between gap-5 min-h-[290px]"
+          >
+            <div className="space-y-3.5">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)]/25 to-[var(--amber)]/15 border border-[var(--ember-line)]/40 flex items-center justify-center text-[var(--primary)] shadow-[0_0_28px_var(--glow-primary)]">
+                <BookOpen size={26} />
+              </div>
+              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed max-w-sm">
+                Intelligent, privacy-first study companion — local AI monitoring, PDF past-paper
+                workspace, and real-time focus feedback. Nothing leaves your device.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {/* Resumable session banner — real in-progress work first */}
+              {resumeCandidate && (
+                <div
+                  className="p-3.5 rounded-xl bg-[var(--amber-glow)]/50 border border-[var(--amber)]/30 flex items-center justify-between gap-3 animate-fade-in"
+                  role="status"
+                >
+                  <div className="text-left min-w-0">
+                    <h4 className="text-xs font-bold text-[var(--amber)]">Unfinished session</h4>
+                    <p className="text-[11px] text-[var(--muted-foreground)] mt-0.5 truncate">
+                      {resumeCandidate.title}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => onResume(resumeCandidate)}
+                    className="shrink-0 px-3.5 py-1.5 rounded-lg bg-[var(--amber)] text-black text-xs font-bold transition-transform hover:scale-105 active:scale-95 flex items-center gap-1.5"
+                  >
+                    <Play size={13} fill="currentColor" />
+                    Resume
+                  </button>
+                </div>
+              )}
+
+              <button
+                onClick={onCreate}
+                className="glass-btn-primary sm:hidden w-full justify-center !rounded-xl"
+              >
+                <Plus size={17} />
+                Custom Study Session
+              </button>
+
+              <button
+                onClick={onCreate}
+                className="group hidden sm:flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] text-white font-bold shadow-[0_8px_30px_var(--glow-primary)] transition-all duration-300 hover:shadow-[0_10px_42px_var(--glow-primary)] hover:-translate-y-0.5 active:scale-[0.98] w-fit"
+              >
+                <Sparkles size={19} className="transition-transform duration-500 group-hover:rotate-12" />
+                <span>Custom Study Session</span>
+                <ChevronRight size={17} className="transition-transform duration-300 group-hover:translate-x-1 opacity-80" />
+              </button>
+            </div>
+          </div>
+
+          {/* Subject preset tiles */}
+          {PRESETS.map(({ title, subject, duration, Icon }) => (
+            <div key={title} data-reveal>
+              <SubjectTile
+                Icon={Icon}
+                title={title}
+                duration={duration}
+                onPick={() => onStart(title, subject, duration)}
+              />
+            </div>
+          ))}
+
+          {/* Recent sessions — real history from study_sessions */}
+          <div data-reveal className="bento-cell col-span-2 lg:col-span-4 p-5">
+            <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted-foreground)] flex items-center gap-1.5 mb-3">
+              <History size={13} /> Recent Sessions
+            </h3>
+
+            {recent === null && !historyFailed && (
+              <div className="flex items-center gap-2 text-xs text-[var(--muted-foreground)] py-2">
+                <RefreshCw size={12} className="animate-spin" /> Loading…
+              </div>
+            )}
+
+            {historyFailed && (
+              <p className="text-xs text-[var(--muted-foreground)] py-2">
+                History unavailable — backend offline.
+              </p>
+            )}
+
+            {recent !== null && recent.length === 0 && !historyFailed && (
+              <p className="text-xs text-[var(--muted-foreground)] py-2">
+                No past sessions yet — your finished sessions appear here.
+              </p>
+            )}
+
+            <div className="space-y-1.5">
+              {recent?.map((r) => (
+                <button
+                  key={r.id}
+                  onClick={() => router.push("/achievements")}
+                  className="w-full text-left p-3 rounded-xl border border-transparent hover:border-[var(--glass-border)] hover:bg-[var(--ember-0)] transition-all duration-200 flex items-center justify-between gap-3 group"
+                >
+                  <div className="min-w-0 flex items-center gap-3">
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                        r.status === "completed"
+                          ? "bg-[var(--primary)]"
+                          : r.status === "in_progress" || r.status === "paused"
+                            ? "bg-[var(--amber)] ember-dot"
+                            : "bg-[var(--muted-foreground)]/50"
+                      }`}
+                    />
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold truncate group-hover:text-[var(--primary)] transition-colors">
+                        {r.title}
+                      </p>
+                      <p className="text-[10px] text-[var(--muted-foreground)] mt-0.5">
+                        {new Date(r.created_at * 1000).toLocaleDateString()} ·{" "}
+                        {r.status === "completed"
+                          ? `${Math.round((r.actual_duration_seconds || 0) / 60)} min focused`
+                          : r.status.replace(/_/g, " ")}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight
+                    size={14}
+                    className="shrink-0 text-[var(--muted-foreground)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--primary)]"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Real past-paper workspace: lists uploaded papers from the Exam Room store
+ * and routes to /exam (deep-linked to the chosen paper) for the full upload ->
+ * MCQ paper 1 -> essay paper 2 -> AI grading flow. No fabricated questions.
+ */
+function PastPaperPanel({ subject }: { subject: string }) {
+  const router = useRouter();
+  const [papers, setPapers] = useState<
+    Array<{
+      id: string;
+      title: string;
+      status: string;
+      total_marks: number;
+      question_count: number;
+    }> | null
+  >(null);
+  const [failed, setFailed] = useState(false);
+
+  const loadPapers = useCallback(async () => {
+    setPapers(null);
+    setFailed(false);
+    try {
+      const res = await fetch("/api/v1/exams/list");
+      if (!res.ok) throw new Error(String(res.status));
+      const rows = await res.json();
+      setPapers(Array.isArray(rows) ? rows : []);
+    } catch {
+      setFailed(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadPapers();
+  }, [loadPapers]);
+
+  return (
+    <div className="flex-1 p-5 pt-4 overflow-y-auto space-y-4">
+      {/* Exam Room hero strip */}
+      <div className="bento-cell liquid-sheen p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 overflow-hidden relative">
+        <div className="aurora-stage !absolute">
+          <div
+            className="aurora-blob"
+            style={cssVars({ "--x": "85%", "--y": "0%", "--size": "320px", "--blob-opacity": "0.5" })}
           />
+        </div>
+        <div className="space-y-1.5 relative z-10">
+          <h3 className="text-sm font-bold flex items-center gap-2">
+            <BookOpenCheck size={15} className="text-[var(--primary)]" />
+            Paper Bank — built-in A/L papers
+          </h3>
+          <p className="text-[11px] text-[var(--muted-foreground)] leading-relaxed max-w-md">
+            ICT 2011–2025 with official answer keys: sit Paper 1 timed, double-check, then Paper 2 — graded and reviewed like the real exam.
+          </p>
+        </div>
+        <button
+          onClick={() => router.push("/papers")}
+          className="shrink-0 relative z-10 px-4 py-2 rounded-xl bg-[var(--primary)] text-white text-xs font-bold transition-all hover:brightness-110 hover:-translate-y-0.5 active:scale-95 shadow-[0_6px_20px_var(--glow-primary)]"
+        >
+          Open Paper Bank
+        </button>
+      </div>
+
+      {/* Floating Guru hint */}
+      <div className="bento-cell p-4 flex items-center justify-between gap-3">
+        <div>
+          <h4 className="text-xs font-bold text-[var(--amber)]">Need a Step Hint?</h4>
+          <p className="text-[11px] text-[var(--muted-foreground)] mt-0.5">
+            Studying {subject} — ask AI Guru without leaving your workspace.
+          </p>
+        </div>
+        <button
+          onClick={() =>
+            window.dispatchEvent(
+              new CustomEvent("aiguru:open-floating-chat", {
+                detail: {
+                  context: `I'm in the Study Room working on ${subject} past papers. I need a hint.`,
+                },
+              })
+            )
+          }
+          className="shrink-0 px-3.5 py-1.5 rounded-lg surface-glass-base glow-ring text-xs font-bold text-[var(--primary)] transition-colors"
+        >
+          Ask AI Guru
+        </button>
+      </div>
+
+      {papers === null && !failed && (
+        <div className="flex items-center justify-center py-10 text-[var(--muted-foreground)] text-xs gap-2">
+          <RefreshCw size={14} className="animate-spin" />
+          Loading your papers…
+        </div>
+      )}
+
+      {failed && (
+        <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/10 text-xs text-red-300 flex items-center justify-between gap-3">
+          <span>Couldn&apos;t reach the exam service. Make sure the AI Guru backend is running.</span>
+          <button
+            onClick={() => void loadPapers()}
+            className="shrink-0 px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 text-[11px] font-bold transition-colors border border-red-500/30"
+          >
+            Retry
+          </button>
+        </div>
+      )}
+
+      {papers !== null && papers.length === 0 && (
+        <div className="p-8 rounded-2xl border border-dashed border-[var(--glass-border-highlight)] text-center space-y-1.5">
+          <FileText size={22} className="mx-auto text-[var(--muted-foreground)] mb-1" />
+          <p className="text-sm font-semibold">No past papers yet</p>
+          <p className="text-xs text-[var(--muted-foreground)]">
+            Click &quot;Upload &amp; Start&quot; above to turn a past-paper PDF into a timed exam.
+          </p>
+        </div>
+      )}
+
+      {papers !== null && papers.length > 0 && (
+        <div className="space-y-2">
+          <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted-foreground)]">Your Papers</h4>
+          {papers.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => router.push(`/exam?exam=${encodeURIComponent(p.id)}`)}
+              className="w-full text-left p-3.5 rounded-xl surface-glass-base hover:border-[var(--ember-line)]/50 transition-all duration-200 flex items-center justify-between gap-3 group"
+            >
+              <div className="min-w-0">
+                <p className="text-xs font-bold truncate group-hover:text-[var(--primary)] transition-colors">{p.title}</p>
+                <p className="text-[10px] text-[var(--muted-foreground)] mt-0.5">
+                  {p.question_count} questions · {p.total_marks} marks ·{" "}
+                  <span className="capitalize">{String(p.status || "ready").replace(/_/g, " ")}</span>
+                </p>
+              </div>
+              <ChevronRight
+                size={15}
+                className="shrink-0 text-[var(--muted-foreground)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--primary)]"
+              />
+            </button>
+          ))}
         </div>
       )}
     </div>

@@ -36,7 +36,11 @@ from deeptutor.core.agentic import (
     can_use_native_tool_calling,
     dispatch_tool_calls,
 )
-from deeptutor.core.agentic.messages import assistant_message_with_tool_calls
+from deeptutor.core.agentic.messages import (
+    accumulate_streamed_tool_call,
+    assistant_message_with_tool_calls,
+    finalize_streamed_tool_calls,
+)
 from deeptutor.core.context import UnifiedContext
 from deeptutor.core.stream_bus import StreamBus
 from deeptutor.core.trace import build_trace_metadata, merge_trace_metadata, new_call_id
@@ -297,19 +301,13 @@ class ContextExplorer:
                 for tc in getattr(delta, "tool_calls", None) or []:
                     index = int(getattr(tc, "index", 0) or 0)
                     acc = tool_acc.setdefault(index, {"id": "", "name": "", "arguments": ""})
-                    tcid = getattr(tc, "id", None)
-                    if tcid:
-                        acc["id"] += str(tcid)
+                    accumulate_streamed_tool_call(acc, tc)
                     fn = getattr(tc, "function", None)
-                    if fn is None:
-                        continue
-                    name = getattr(fn, "name", None)
-                    arguments = getattr(fn, "arguments", None)
+                    name = getattr(fn, "name", None) if fn is not None else None
+                    arguments = getattr(fn, "arguments", None) if fn is not None else None
                     if name:
-                        acc["name"] += str(name)
                         output_chars += len(str(name))
                     if arguments:
-                        acc["arguments"] += str(arguments)
                         output_chars += len(str(arguments))
         finally:
             close = getattr(response_stream, "close", None)
@@ -317,15 +315,7 @@ class ContextExplorer:
                 with suppress(Exception):
                     await close()
 
-        tool_calls = [
-            {
-                "id": data.get("id") or f"call_{idx}",
-                "name": data.get("name", ""),
-                "arguments": data.get("arguments") or "{}",
-            }
-            for idx, data in sorted(tool_acc.items())
-            if data.get("name")
-        ]
+        tool_calls = finalize_streamed_tool_calls(tool_acc)
         return _CallResult(
             text="".join(text_parts), tool_calls=tool_calls, output_chars=output_chars
         )

@@ -87,6 +87,8 @@ CREATE TABLE IF NOT EXISTS study_sessions (
     distraction_count INTEGER DEFAULT 0,
     warning_count INTEGER DEFAULT 0,
     ai_summary TEXT DEFAULT '',
+    worked_seconds REAL NOT NULL DEFAULT 0,
+    last_resume_time REAL,
     created_at REAL NOT NULL
 );
 

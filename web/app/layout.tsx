@@ -4,6 +4,7 @@ import "./globals.css";
 import "./glass-surfaces.css";
 import ThemeScript from "@/components/ThemeScript";
 import ToastViewport from "@/components/common/ToastViewport";
+import CommandPalette from "@/components/common/CommandPalette";
 import { AppShellProvider } from "@/context/AppShellContext";
 import { I18nClientBridge } from "@/i18n/I18nClientBridge";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
         <AppShellProvider>
           <I18nClientBridge>{children}</I18nClientBridge>
           <ToastViewport />
+          <CommandPalette />
         </AppShellProvider>
       </body>
     </html>

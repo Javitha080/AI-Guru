@@ -25,6 +25,21 @@
   box-shadow: var(--glass-shadow-elevated);
 }
 
+/* ─── Dock Shell ───
+   Floating bottom navigation pill. Token-driven so one markup serves both the
+   OLED-dark and frosted-light palettes. */
+.surface-glass-dock {
+  background: var(--glass-1);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--glass-border);
+  border-top-color: var(--glass-border-highlight);
+  box-shadow:
+    var(--glass-shadow-elevated),
+    0 0 24px var(--glow-primary),
+    inset 0 1px 0 var(--glass-border-highlight);
+}
+
 /* ─── Liquid Sheen Overlay ─── */
 .liquid-sheen::before {
   content: '';
@@ -178,6 +193,7 @@
 @media (prefers-reduced-transparency: reduce) {
   .surface-glass-base,
   .surface-glass-elevated,
+  .surface-glass-dock,
   .glass-capsule,
   .glass-btn-primary,
   .glass-btn-secondary,
@@ -208,5 +224,221 @@
 
   .dark .surface-glass-elevated {
     background: #212733;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   Ember Bento System — deep-orange liquid glass over OLED black / porcelain
+   white. Bento cells, aurora embers, glare tilt, scanline sweeps, grain.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ─── Bento cell ─── */
+.bento-cell {
+  position: relative;
+  background: var(--glass-1);
+  backdrop-filter: blur(var(--glass-blur-elevated));
+  -webkit-backdrop-filter: blur(var(--glass-blur-elevated));
+  border: 1px solid var(--glass-border);
+  border-top-color: var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1.25rem;
+}
+
+/* Ember hairline along the top edge — the signature rim light */
+.bento-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ember-line), transparent);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bento-cell--hover {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-cell--hover:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--primary) 42%, var(--glass-border));
+  box-shadow:
+    var(--glass-shadow-elevated),
+    0 0 26px var(--glow-primary),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.bento-cell--hover:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+/* Selected bento cell (student cards, tabs) — ember outline bloom */
+.bento-cell--selected {
+  border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 1px color-mix(in srgb, var(--primary) 45%, transparent),
+    0 0 30px var(--glow-primary);
+}
+
+/* ─── Pointer-follow glare (pairs with useMagneticTilt) ─── */
+.tilt-glare::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    440px circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.10),
+    transparent 58%
+  );
+}
+
+.tilt-glare:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-glare::after {
+    display: none;
+  }
+}
+
+/* ─── Aurora ember stage ──
+   Fixed/absolute backdrop of slow-drifting blurred orbs. Per-blob position,
+   size and tint come from inline CSS custom properties. */
+.aurora-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aurora-blob {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  width: var(--size, 480px);
+  height: var(--size, 480px);
+  margin-left: calc(var(--size, 480px) / -2);
+  margin-top: calc(var(--size, 480px) / -2);
+  border-radius: 9999px;
+  filter: blur(72px);
+  background: radial-gradient(circle at center, var(--blob-color, var(--glow-primary)) 0%, transparent 68%);
+  opacity: var(--blob-opacity, 0.55);
+  animation: aurora-drift var(--drift-dur, 26s) ease-in-out infinite alternate;
+  animation-delay: var(--drift-delay, 0s);
+  will-change: transform;
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, -8%, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-7%, 6%, 0) scale(0.94);
+  }
+}
+
+/* ─── Camera scanline sweep ─── */
+.scanline {
+  position: relative;
+}
+
+.scanline > .scanline-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -30%;
+  height: 26%;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in srgb, var(--primary) 20%, transparent),
+    transparent
+  );
+  animation: scan-sweep 3.4s linear infinite;
+}
+
+@keyframes scan-sweep {
+  from {
+    top: -30%;
+  }
+  to {
+    top: 112%;
+  }
+}
+
+/* ─── Film grain overlay ─── */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--grain-opacity, 0.05);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* ─── Glow ring hover for icon buttons / chips ─── */
+.glow-ring {
+  transition:
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-ring:hover {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 40%, transparent), 0 0 18px var(--glow-primary);
+}
+
+.glow-ring:active {
+  transform: scale(0.96);
+}
+
+/* ─── Live status dot (ember pulse replaces generic green pulse) ─── */
+@keyframes ember-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--ember-1);
+  }
+  50% {
+    box-shadow: 0 0 0 4px transparent;
+  }
+}
+
+.ember-dot {
+  animation: ember-pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ─── Reduced motion: freeze ambient layers ─── */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob,
+  .scanline > .scanline-bar,
+  .ember-dot {
+    animation: none !important;
+  }
+
+  .bento-cell--hover,
+  .bento-cell--hover:hover {
+    transition: none;
+    transform: none;
   }
 }

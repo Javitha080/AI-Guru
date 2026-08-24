@@ -7,10 +7,20 @@
  * route (except the bootstrap auth trio) requires a Bearer access token
  * issued by verify-pin. Tokens live in sessionStorage so closing the tab
  * locks the portal again.
+ *
+ * Refresh handling:
+ * - Access tokens last 15 min; refresh tokens rotate server-side (the old
+ *   refresh token is revoked on each exchange).
+ * - Concurrent callers share ONE in-flight refresh (single-flight) so a burst
+ *   of 401s can never thrash the rotation or log a valid session out.
+ * - When recovery is impossible we clear tokens, broadcast
+ *   `aiguru:parent-auth-lost`, and throw ParentAuthError so pages re-lock.
  */
 
 const ACCESS_KEY = "aiguru.parent.access";
 const REFRESH_KEY = "aiguru.parent.refresh";
+
+export const PARENT_AUTH_LOST_EVENT = "aiguru:parent-auth-lost";
 
 export class ParentAuthError extends Error {
   constructor() {
@@ -39,9 +49,15 @@ export function clearParentTokens(): void {
   window.sessionStorage.removeItem(REFRESH_KEY);
 }
 
-async function tryRefresh(): Promise<boolean> {
-  const refresh = getParentRefreshToken();
-  if (!refresh) return false;
+function notifyAuthLost(): void {
+  try {
+    window.dispatchEvent(new Event(PARENT_AUTH_LOST_EVENT));
+  } catch {
+    /* non-browser or listener-less environments */
+  }
+}
+
+async function doRefresh(refresh: string): Promise<boolean> {
   try {
     const res = await fetch("/api/v1/parent/auth/refresh", {
       method: "POST",
@@ -51,13 +67,28 @@ async function tryRefresh(): Promise<boolean> {
     if (!res.ok) return false;
     const data = await res.json();
     if (data?.access_token) {
-      storeParentTokens(data.access_token);
+      // Server rotates refresh tokens; persist the new pair atomically-ish.
+      storeParentTokens(data.access_token, data.refresh_token ?? undefined);
       return true;
     }
     return false;
   } catch {
     return false;
   }
+}
+
+let refreshInFlight: Promise<boolean> | null = null;
+
+/** Single-flight: concurrent 401s share one refresh request. */
+function tryRefresh(): Promise<boolean> {
+  const refresh = getParentRefreshToken();
+  if (!refresh) return Promise.resolve(false);
+  if (!refreshInFlight) {
+    refreshInFlight = doRefresh(refresh).finally(() => {
+      refreshInFlight = null;
+    });
+  }
+  return refreshInFlight;
 }
 
 /** fetch wrapper: attaches Bearer, auto-refreshes once on parent-auth 401s. */
@@ -70,19 +101,44 @@ export async function pFetch(
   const headers = new Headers(init?.headers || {});
   if (token) headers.set("Authorization", `Bearer ${token}`);
   const res = await fetch(input, { ...init, headers });
-  if (res.status === 401 && !_retried) {
+  const isParentRoute = input.includes("/api/v1/parent/");
+  if (res.status === 401 && !_retried && isParentRoute) {
+    // Refresh on ANY 401 from a parent route: the backend phrases expiry
+    // differently across endpoints ("parent_auth_required", "Token
+    // superseded by a PIN change", raw JWT errors) — all mean "try the
+    // refresh token once, then fall back to the PIN gate".
     let detail = "";
     try {
       detail = (await res.clone().json())?.detail ?? "";
     } catch {
       /* ignore body parse issues */
     }
-    if (detail === "parent_auth_required" || detail === "invalid_refresh_token" || !detail) {
+    if (detail !== "invalid_refresh_token") {
       const ok = await tryRefresh();
       if (ok) return pFetch(input, init, true);
       clearParentTokens();
+      notifyAuthLost();
       throw new ParentAuthError();
     }
   }
   return res;
+}
+
+/** POST JSON helper returning parsed body + ok flag (throws ParentAuthError upstream). */
+export async function pJson<T = unknown>(
+  input: string,
+  init?: RequestInit
+): Promise<{ ok: boolean; status: number; data: T | null }> {
+  const headers = new Headers(init?.headers || {});
+  if (!headers.has("Content-Type") && init?.body) {
+    headers.set("Content-Type", "application/json");
+  }
+  const res = await pFetch(input, { ...init, headers });
+  let data: T | null = null;
+  try {
+    data = (await res.json()) as T;
+  } catch {
+    /* empty body */
+  }
+  return { ok: res.ok, status: res.status, data };
 }

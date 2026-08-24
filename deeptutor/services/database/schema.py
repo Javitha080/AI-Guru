@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS exams (
     title TEXT NOT NULL,
     source_filename TEXT DEFAULT '',
     paper_json TEXT NOT NULL,
-    status TEXT NOT NULL CHECK (status IN ('created', 'active', 'submitted', 'graded')) DEFAULT 'created',
+    status TEXT NOT NULL CHECK (status IN ('created', 'active', 'review', 'submitted', 'graded')) DEFAULT 'created',
     mcq_duration_seconds INTEGER NOT NULL DEFAULT 7200,
     essay_duration_seconds INTEGER,
     total_marks INTEGER NOT NULL DEFAULT 0,
@@ -252,3 +252,236 @@ CREATE TABLE IF NOT EXISTS exam_answers (
 );
 CREATE INDEX IF NOT EXISTS idx_exam_answers_exam ON exam_answers(exam_id);
 """
+
+# Version 3 Migration DDL: pause-aware study durations (additive).
+#
+# worked_seconds    — validated study time excluding paused intervals
+# last_resume_time  — when the current active stretch began (NULL until
+#                     start/resume touches it); lets stop() close the final
+#                     stretch instead of counting wall-clock from start_time.
+#
+# Applied via a callable (see migrations.V3_PAUSE_MIGRATION) so each column is
+# added only when missing — a DB that already carries one column (partial
+# apply, or created by code that shipped the columns early) must not wedge
+# startup with "duplicate column name" on every boot.
+
+
+def _add_column_if_missing(conn, table: str, column: str, ddl_type: str) -> None:
+    existing = {row[1] for row in conn.execute(f"PRAGMA table_info({table})").fetchall()}
+    if column not in existing:
+        conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {ddl_type}")
+
+
+def v3_pause_aware_durations(conn) -> None:
+    _add_column_if_missing(conn, "study_sessions", "worked_seconds", "REAL NOT NULL DEFAULT 0")
+    _add_column_if_missing(conn, "study_sessions", "last_resume_time", "REAL")
+
+
+# Version 4 Migration DDL: Paper Bank — prebuilt local catalog of verbatim
+# past papers (Grade 12/13 A/L first). Papers are pristine templates; starting
+# one copies its JSON into an ``exams`` row so attempts never mutate the bank
+# and any paper can be retaken unlimited times.
+#
+# group_key   — links Paper 1 + Paper 2 of one exam sitting (e.g. 'ict-2021-g12')
+# paper_no    — 1 = MCQ paper, 2 = structured/essay paper
+# file_hash   — import dedupe: the same PDF can never enter the bank twice
+# default_duration_seconds — auto-set per paper_type (P1 MCQ=2h, P2 essay=3h);
+#             users are never asked for a duration.
+V4_PAPER_BANK_SCHEMA_DDL = """
+-- 14. Paper Bank (pristine past-paper catalog)
+CREATE TABLE IF NOT EXISTS paper_bank (
+    id TEXT PRIMARY KEY,
+    group_key TEXT NOT NULL,
+    paper_no INTEGER NOT NULL DEFAULT 1 CHECK (paper_no IN (1, 2)),
+    grade INTEGER NOT NULL CHECK (grade IN (11, 12, 13)),
+    subject TEXT NOT NULL,
+    year INTEGER NOT NULL,
+    medium TEXT NOT NULL DEFAULT 'english'
+        CHECK (medium IN ('english', 'sinhala', 'tamil')),
+    paper_type TEXT NOT NULL DEFAULT 'mcq'
+        CHECK (paper_type IN ('mcq', 'structured', 'essay', 'mixed')),
+    title TEXT NOT NULL,
+    source_filename TEXT DEFAULT '',
+    file_hash TEXT UNIQUE,
+    question_count INTEGER NOT NULL DEFAULT 0,
+    mcq_count INTEGER NOT NULL DEFAULT 0,
+    essay_count INTEGER NOT NULL DEFAULT 0,
+    total_marks REAL NOT NULL DEFAULT 0,
+    default_duration_seconds INTEGER NOT NULL DEFAULT 7200,
+    paper_json TEXT NOT NULL,
+    scheme_answers_json TEXT DEFAULT '{}',
+    topic_tags_json TEXT DEFAULT '[]',
+    created_at REAL NOT NULL,
+    updated_at REAL,
+    UNIQUE (group_key, paper_no)
+);
+CREATE INDEX IF NOT EXISTS idx_paper_bank_catalog
+    ON paper_bank(subject, grade, year, paper_no);
+CREATE INDEX IF NOT EXISTS idx_paper_bank_group ON paper_bank(group_key);
+
+-- 15. Per-question practice log across all attempts. Feeds topic stats,
+-- weak-area detection and the recommendation engine.
+CREATE TABLE IF NOT EXISTS question_practice_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id TEXT NOT NULL,
+    bank_paper_id TEXT REFERENCES paper_bank(id) ON DELETE CASCADE,
+    exam_id TEXT NOT NULL,
+    question_id TEXT NOT NULL,
+    topic TEXT DEFAULT '',
+    question_type TEXT DEFAULT '',
+    verdict TEXT DEFAULT '',
+    awarded REAL NOT NULL DEFAULT 0,
+    max_marks REAL NOT NULL DEFAULT 1,
+    practiced_at REAL NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_qpl_student_topic
+    ON question_practice_log(student_id, topic);
+CREATE INDEX IF NOT EXISTS idx_qpl_exam ON question_practice_log(exam_id);
+"""
+
+
+# Version 5 Migration: sitting-aware exam columns (idempotent, callable —
+# same rationale as v3: a DB that already carries some columns must not wedge
+# startup with "duplicate column name").
+#
+# sitting_id          — groups the Paper 1 + Paper 2 attempts of one sitting
+# paper_no            — which half of the sitting this attempt is (NULL for
+#                       legacy upload-flow exams)
+# bank_paper_id       — the pristine catalog paper this attempt was copied from
+# addon_seconds_used  — total extra time bought through the gamified shop
+# xp_multiplier       — final XP scale factor (each add-on purchase lowers it)
+def v5_exam_sitting_columns(conn) -> None:
+    _add_column_if_missing(
+        conn, "exams", "sitting_id", "TEXT NOT NULL DEFAULT ''"
+    )
+    _add_column_if_missing(conn, "exams", "paper_no", "INTEGER")
+    _add_column_if_missing(
+        conn,
+        "exams",
+        "bank_paper_id",
+        "TEXT REFERENCES paper_bank(id) ON DELETE SET NULL",
+    )
+    _add_column_if_missing(
+        conn, "exams", "addon_seconds_used", "INTEGER NOT NULL DEFAULT 0"
+    )
+    _add_column_if_missing(
+        conn, "exams", "xp_multiplier", "REAL NOT NULL DEFAULT 1.0"
+    )
+    # Speeds up My-Sessions listing grouped by sitting.
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_exams_sitting ON exams(sitting_id)"
+    )
+
+
+# Version 6 Migration: widen paper_bank.grade to admit O/L papers (grade 11).
+# SQLite cannot ALTER a CHECK constraint, so the table is rebuilt in place —
+# all catalog rows, indexes and uniqueness carry over untouched.
+def v6_paper_bank_grade11(conn) -> None:
+    cols = [r[1] for r in conn.execute("PRAGMA table_info(paper_bank)").fetchall()]
+    if not cols:
+        return  # v4 has not run yet; fresh installs create the wide CHECK above
+    conn.execute(
+        """
+        CREATE TABLE paper_bank_v6 (
+            id TEXT PRIMARY KEY,
+            group_key TEXT NOT NULL,
+            paper_no INTEGER NOT NULL DEFAULT 1 CHECK (paper_no IN (1, 2)),
+            grade INTEGER NOT NULL CHECK (grade IN (11, 12, 13)),
+            subject TEXT NOT NULL,
+            year INTEGER NOT NULL,
+            medium TEXT NOT NULL DEFAULT 'english'
+                CHECK (medium IN ('english', 'sinhala', 'tamil')),
+            paper_type TEXT NOT NULL DEFAULT 'mcq'
+                CHECK (paper_type IN ('mcq', 'structured', 'essay', 'mixed')),
+            title TEXT NOT NULL,
+            source_filename TEXT DEFAULT '',
+            file_hash TEXT UNIQUE,
+            question_count INTEGER NOT NULL DEFAULT 0,
+            mcq_count INTEGER NOT NULL DEFAULT 0,
+            essay_count INTEGER NOT NULL DEFAULT 0,
+            total_marks REAL NOT NULL DEFAULT 0,
+            default_duration_seconds INTEGER NOT NULL DEFAULT 7200,
+            paper_json TEXT NOT NULL,
+            scheme_answers_json TEXT DEFAULT '{}',
+            topic_tags_json TEXT DEFAULT '[]',
+            created_at REAL NOT NULL,
+            updated_at REAL,
+            UNIQUE (group_key, paper_no)
+        )
+        """
+    )
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO paper_bank_v6 (
+            id, group_key, paper_no, grade, subject, year, medium, paper_type,
+            title, source_filename, file_hash, question_count, mcq_count,
+            essay_count, total_marks, default_duration_seconds, paper_json,
+            scheme_answers_json, topic_tags_json, created_at, updated_at
+        )
+        SELECT id, group_key, paper_no, grade, subject, year, medium, paper_type,
+               title, source_filename, file_hash, question_count, mcq_count,
+               essay_count, total_marks, default_duration_seconds, paper_json,
+               scheme_answers_json, topic_tags_json, created_at, updated_at
+        FROM paper_bank
+        """
+    )
+    conn.execute("DROP TABLE paper_bank")
+    conn.execute("ALTER TABLE paper_bank_v6 RENAME TO paper_bank")
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_paper_bank_catalog"
+        " ON paper_bank(subject, grade, year, paper_no)"
+    )
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_paper_bank_group ON paper_bank(group_key)"
+    )
+
+
+# Version 7 Migration: admit the 'review' status on exams (double-check
+# window between time-up and grading). SQLite cannot ALTER a CHECK, so the
+# table is rebuilt with every column carried over verbatim.
+def v7_exams_review_status(conn) -> None:
+    row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='exams'"
+    ).fetchone()
+    create_sql = row[0] if row else ""
+    if not create_sql or "'review'" in create_sql:
+        return
+    conn.execute("ALTER TABLE exams RENAME TO exams_v7_old")
+    new_sql = create_sql.replace("exams_v7_old", "exams")
+    if "CHECK" in new_sql and "status IN (" in new_sql:
+        new_sql = new_sql.replace(
+            "status IN ('created', 'active', 'submitted', 'graded')",
+            "status IN ('created', 'active', 'review', 'submitted', 'graded')",
+        ).replace(
+            "status IN ('created','active','submitted','graded')",
+            "status IN ('created', 'active', 'review', 'submitted', 'graded')",
+        )
+    else:
+        # Legacy tables without a CHECK: recreate with the full contract.
+        new_sql = new_sql.replace(
+            "status TEXT NOT NULL DEFAULT 'created'",
+            "status TEXT NOT NULL CHECK (status IN ('created', 'active', 'review',"
+            " 'submitted', 'graded')) DEFAULT 'created'",
+        )
+    conn.execute(new_sql)
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO exams (
+            id, title, source_filename, paper_json, status,
+            mcq_duration_seconds, essay_duration_seconds, total_marks,
+            student_id, created_at, started_at, ends_at, submitted_at,
+            sitting_id, paper_no, bank_paper_id, addon_seconds_used, xp_multiplier
+        )
+        SELECT id, title, source_filename, paper_json, status,
+               mcq_duration_seconds, essay_duration_seconds, total_marks,
+               student_id, created_at, started_at, ends_at, submitted_at,
+               sitting_id, paper_no, bank_paper_id, addon_seconds_used, xp_multiplier
+        FROM exams_v7_old
+        """
+    )
+    conn.execute("DROP TABLE exams_v7_old")
+    conn.execute("DROP INDEX IF EXISTS idx_exams_student")
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_exams_student ON exams(student_id, created_at DESC)"
+    )
+

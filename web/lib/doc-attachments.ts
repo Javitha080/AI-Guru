@@ -385,7 +385,7 @@ export function docIconFor(filename: string): DocIconSpec {
     case ".pdf":
       return { Icon: FileType2, tint: "text-red-500/80", label: "PDF" };
     case ".docx":
-      return { Icon: FileText, tint: "text-blue-500/80", label: "DOCX" };
+      return { Icon: FileText, tint: "text-[var(--primary)]/80", label: "DOCX" };
     case ".xlsx":
       return {
         Icon: FileSpreadsheet,

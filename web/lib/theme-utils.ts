@@ -31,13 +31,13 @@ export function setDarkTheme(): void {
 }
 
 /**
- * Get CSS class for theme-aware styling
+ * Get CSS class for theme-aware styling.
+ * Mirrors applyThemeToDocument: light/snow → .theme-light, dark/glass → .dark.
  */
 export function getThemeClass(theme: Theme): string {
-  if (theme === "dark") return "dark";
+  if (theme === "light" || theme === "snow") return "theme-light";
   if (theme === "glass") return "dark theme-glass";
-  if (theme === "snow") return "theme-snow";
-  return "";
+  return "dark";
 }
 
 /**

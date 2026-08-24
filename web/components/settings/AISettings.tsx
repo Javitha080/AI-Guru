@@ -221,7 +221,7 @@ export function AISettings() {
         );
       case "MEDIUM":
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20">
             <Zap className="w-3.5 h-3.5" /> Balanced Tier
           </span>
         );
@@ -240,7 +240,7 @@ export function AISettings() {
       <div className="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--card)] to-[var(--card)]/50 p-6 shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[var(--border)]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400">
+            <div className="p-2.5 rounded-xl bg-[var(--accent)] text-[var(--primary)]">
               <Cpu className="w-6 h-6" />
             </div>
             <div>
@@ -307,7 +307,7 @@ export function AISettings() {
               <p className="mt-1 text-sm font-semibold text-[var(--foreground)] truncate">
                 {hardware.recommended_models.slice(0, 2).join(", ")}
               </p>
-              <span className="text-xs text-violet-600 dark:text-violet-400 font-medium">
+              <span className="text-xs text-[var(--primary)] font-medium">
                 Quant: {hardware.recommended_quantization} · Max {hardware.max_context_window / 1024}k Ctx
               </span>
             </div>
@@ -330,16 +330,16 @@ export function AISettings() {
             onClick={() => handleModeChange("auto")}
             className={`cursor-pointer relative p-4 rounded-2xl border transition-all duration-150 ${
               selectedMode === "auto"
-                ? "border-violet-500 bg-violet-500/5 shadow-md shadow-violet-500/5 ring-2 ring-violet-500/20"
+                ? "border-[var(--primary)] bg-[var(--accent)] shadow-md shadow-[var(--glow-primary)] ring-2 ring-[var(--glow-primary)]"
                 : "border-[var(--border)] bg-[var(--card)] hover:border-[var(--foreground)]/20"
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="p-2 rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400">
+              <span className="p-2 rounded-xl bg-[var(--accent)] text-[var(--primary)]">
                 <Sparkles className="w-5 h-5" />
               </span>
               {selectedMode === "auto" && (
-                <span className="px-2 py-0.5 text-[10px] font-semibold uppercase bg-violet-500 text-white rounded-full">
+                <span className="px-2 py-0.5 text-[10px] font-semibold uppercase bg-[var(--primary)] text-white rounded-full">
                   Active
                 </span>
               )}
@@ -355,16 +355,16 @@ export function AISettings() {
             onClick={() => handleModeChange("cloud")}
             className={`cursor-pointer relative p-4 rounded-2xl border transition-all duration-150 ${
               selectedMode === "cloud"
-                ? "border-blue-500 bg-blue-500/5 shadow-md shadow-blue-500/5 ring-2 ring-blue-500/20"
+                ? "border-[var(--primary)] bg-[var(--primary)]/5 shadow-md shadow-[var(--glow-primary)] ring-2 ring-[var(--ring)]/20"
                 : "border-[var(--border)] bg-[var(--card)] hover:border-[var(--foreground)]/20"
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="p-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
+              <span className="p-2 rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
                 <Cloud className="w-5 h-5" />
               </span>
               {selectedMode === "cloud" && (
-                <span className="px-2 py-0.5 text-[10px] font-semibold uppercase bg-blue-500 text-white rounded-full">
+                <span className="px-2 py-0.5 text-[10px] font-semibold uppercase bg-[var(--primary)] text-white rounded-full">
                   Active
                 </span>
               )}
@@ -433,7 +433,7 @@ export function AISettings() {
         <div className="p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <Cloud className="w-5 h-5 text-blue-500" />
+              <Cloud className="w-5 h-5 text-[var(--primary)]" />
               <h3 className="text-sm font-semibold text-[var(--foreground)]">Cloud API Configuration</h3>
             </div>
             {status?.cloud?.circuit_state === "CLOSED" ? (
@@ -456,7 +456,7 @@ export function AISettings() {
                   placeholder={status?.cloud?.masked_api_key || "Enter your API key..."}
                   value={cloudApiKey}
                   onChange={(e) => setCloudApiKey(e.target.value)}
-                  className="w-full px-3 py-2 pr-10 text-xs rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full px-3 py-2 pr-10 text-xs rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)]/20"
                 />
                 <button
                   type="button"
@@ -475,7 +475,7 @@ export function AISettings() {
               <button
                 onClick={testCloudConnection}
                 disabled={testingCloud}
-                className="px-3.5 py-1.5 text-xs font-medium rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center gap-1.5 disabled:opacity-50"
+                className="px-3.5 py-1.5 text-xs font-medium rounded-xl bg-[var(--primary)] text-white hover:brightness-110 transition-colors flex items-center gap-1.5 disabled:opacity-50"
               >
                 <Activity className={`w-3.5 h-3.5 ${testingCloud ? "animate-spin" : ""}`} />
                 Test Cloud API
@@ -584,7 +584,7 @@ export function AISettings() {
                   })}
                 </div>
                 {downloadStatus && (
-                  <p className="mt-2 text-xs text-violet-600 dark:text-violet-400 font-medium">
+                  <p className="mt-2 text-xs text-[var(--primary)] font-medium">
                     {downloadStatus}
                   </p>
                 )}

@@ -15,13 +15,14 @@ No LLM rewriting of stems ever happens here.
 from __future__ import annotations
 
 import asyncio
+from dataclasses import asdict, dataclass, field
+from dataclasses import fields as dataclass_fields
 import json
 import logging
 import re
 import time
-import uuid
-from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+import uuid
 
 logger = logging.getLogger(__name__)
 
@@ -97,7 +98,11 @@ class ExamPaper:
     def from_json(cls, raw: str) -> "ExamPaper":
         data = json.loads(raw)
         questions = [ExamQuestion(**q) for q in data.pop("questions", [])]
-        return cls(questions=questions, **data)
+        # Tolerate stored extras (bank_meta, cached totals) that are not
+        # constructor fields — only real fields are forwarded.
+        known = {f.name for f in dataclass_fields(cls)}
+        kwargs = {k: v for k, v in data.items() if k in known}
+        return cls(questions=questions, **kwargs)
 
     def public_dict(self, *, include_answers: bool = False) -> Dict[str, Any]:
         """Serialized paper for API responses."""

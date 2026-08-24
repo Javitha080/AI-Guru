@@ -27,7 +27,7 @@ export default function LlmSettingsPage() {
           onClick={() => setActiveTab("guru")}
           className={`px-4 py-2 text-xs font-semibold rounded-xl transition-all flex items-center gap-2 ${
             activeTab === "guru"
-              ? "bg-violet-600 text-white shadow-sm"
+              ? "bg-[var(--primary)] text-white shadow-sm"
               : "text-[var(--muted-foreground)] hover:bg-[var(--accent)] hover:text-[var(--foreground)]"
           }`}
         >
@@ -37,7 +37,7 @@ export default function LlmSettingsPage() {
           onClick={() => setActiveTab("advanced")}
           className={`px-4 py-2 text-xs font-semibold rounded-xl transition-all flex items-center gap-2 ${
             activeTab === "advanced"
-              ? "bg-violet-600 text-white shadow-sm"
+              ? "bg-[var(--primary)] text-white shadow-sm"
               : "text-[var(--muted-foreground)] hover:bg-[var(--accent)] hover:text-[var(--foreground)]"
           }`}
         >

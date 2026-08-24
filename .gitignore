@@ -17,6 +17,11 @@ deeptutor/services/rag/eg_only_for_analysis/
 .claude
 .agents/
 
+# Local-only working dirs (never publish)
+.opencode/
+scripts_tmp/
+ictfromabc/
+
 # LaTeX build artifacts
 *.aux
 *.bbl

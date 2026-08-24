@@ -2,8 +2,14 @@
 
 /**
  * First-run gate: mounts the AIWizard onboarding overlay when the user has
- * never completed it AND no LLM provider is configured yet. Dismissal
- * persists to localStorage so returning users are never nagged.
+ * never completed setup AND no usable LLM provider is configured yet.
+ *
+ * Dismissal semantics are deliberately asymmetric:
+ * - Completing setup with a verified provider persists `aiguru.onboarded`
+ *   to localStorage → never nagged again.
+ * - Closing early ("Skip for now") persists nothing global; the prompt is
+ *   suppressed for this browser session only, so the next launch nags again
+ *   until setup actually succeeded.
  */
 
 import React, { useEffect, useState } from "react";
@@ -16,6 +22,16 @@ const AIWizard = dynamic(
 );
 
 const FLAG_KEY = "aiguru.onboarded";
+const SESSION_SUPPRESS_KEY = "aiguru.onboarding.suppressed-session";
+
+interface ProviderStatus {
+  mode?: string;
+  persisted_tutoring_mode?: string | null;
+  configured?: boolean;
+  cloud?: { health?: { available?: boolean } };
+  ollama?: { health?: { available?: boolean } };
+  offline?: { health?: { available?: boolean } };
+}
 
 export default function FirstRunGate() {
   const [show, setShow] = useState(false);
@@ -26,17 +42,23 @@ export default function FirstRunGate() {
     const run = async () => {
       try {
         if (window.localStorage.getItem(FLAG_KEY) === "1") return;
+        if (window.sessionStorage.getItem(SESSION_SUPPRESS_KEY) === "1") return;
         const res = await apiFetch(apiUrl("/api/v1/ai-provider/status"));
         if (!res.ok || cancelled) return;
-        const status = await res.json().catch(() => null);
-        // Only nag when nothing is usable yet.
+        const status: ProviderStatus | null = await res.json().catch(() => null);
+        if (!status) return;
+        // Only nag when nothing is usable yet. `configured` is computed
+        // server-side from the same resolver the tutor pipeline uses; the
+        // health blocks cover local Ollama / explicit offline setups.
+        const offlineChosen = status.persisted_tutoring_mode === "offline";
+        const hasLocalOllama = Boolean(status.ollama?.health?.available);
         const configured =
-          status?.llm?.available ||
-          status?.ollama?.available ||
-          status?.offline?.available ||
-          Boolean(status?.api_key_configured) ||
-          Boolean(status?.configured);
-        if (!configured) setShow(true);
+          Boolean(status.configured) ||
+          Boolean(status.cloud?.health?.available) ||
+          Boolean(status.offline?.health?.available) ||
+          hasLocalOllama ||
+          offlineChosen;
+        if (!configured && !cancelled) setShow(true);
       } catch {
         /* backend unreachable — don't block the app with a wizard */
       } finally {
@@ -57,17 +79,20 @@ export default function FirstRunGate() {
         <div className="w-full max-w-2xl">
           <AIWizard
             isOpen
-            onClose={() => {
+            onComplete={() => {
+              // Only a verified completion clears the gate for good.
               try {
                 window.localStorage.setItem(FLAG_KEY, "1");
+                window.sessionStorage.removeItem(SESSION_SUPPRESS_KEY);
               } catch {
                 /* ignore */
               }
               setShow(false);
             }}
-            onComplete={() => {
+            onClose={() => {
+              // Early dismissal: suppress for THIS session only.
               try {
-                window.localStorage.setItem(FLAG_KEY, "1");
+                window.sessionStorage.setItem(SESSION_SUPPRESS_KEY, "1");
               } catch {
                 /* ignore */
               }

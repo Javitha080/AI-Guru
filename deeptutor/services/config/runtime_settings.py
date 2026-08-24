@@ -44,7 +44,17 @@ DEFAULT_SYSTEM_SETTINGS: dict[str, Any] = {
     # parent on the same network can open the dashboard without a tunnel.
     # The parent passcode gate still protects every /parent route.
     "lan_access_enabled": False,
+    # Tutoring execution mode chosen in the first-run wizard / settings
+    # (auto | cloud | ollama | offline). Persisted so the TutorProviderManager
+    # singleton survives restarts instead of silently resetting to "auto".
+    "tutoring_mode": "auto",
+    # Custom Ollama daemon endpoint for the local tutoring provider. Empty =
+    # the built-in default (http://127.0.0.1:11434).
+    "ollama_base_url": "",
 }
+
+# Valid values for the persisted tutoring mode; anything else normalizes to auto.
+TUTORING_MODES = frozenset({"auto", "cloud", "ollama", "offline"})
 
 # Clamp bounds for the chat attachment knobs. The MB ceilings are deliberately
 # generous (local deployments parse in-process; the WS frame cap is derived
@@ -890,6 +900,9 @@ class RuntimeSettingsService:
         )
         # A per-message total below the per-file cap is contradictory; lift it.
         max_total_mb = max(max_total_mb, max_file_mb)
+        tutoring_mode = _string(settings.get("tutoring_mode")) or ""
+        if tutoring_mode not in TUTORING_MODES:
+            tutoring_mode = "auto"
         return {
             "version": 1,
             "backend_port": _coerce_port(settings.get("backend_port"), 8001),
@@ -915,6 +928,15 @@ class RuntimeSettingsService:
                 DEFAULT_SYSTEM_SETTINGS["chat_attachment_max_chars_total"],
                 *CHAT_ATTACHMENT_CHARS_RANGE,
             ),
+            # NOTE: keep every DEFAULT_SYSTEM_SETTINGS key here. This normalizer
+            # builds a fresh dict (it does not merge), so a key missing from the
+            # return value is silently stripped on every save.
+            "lan_access_enabled": _coerce_bool(
+                settings.get("lan_access_enabled"),
+                DEFAULT_SYSTEM_SETTINGS["lan_access_enabled"],
+            ),
+            "tutoring_mode": tutoring_mode,
+            "ollama_base_url": _string(settings.get("ollama_base_url")).rstrip("/"),
         }
 
     def _normalize_auth(self, settings: dict[str, Any]) -> dict[str, Any]:

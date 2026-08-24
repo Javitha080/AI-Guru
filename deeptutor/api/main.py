@@ -90,12 +90,17 @@ def _build_cors_settings() -> dict[str, object]:
     # pre-v1.3.8 behavior and allow remote Docker/LAN origins out of the box.
     # When auth is enabled, require explicit CORS_ORIGIN(S) for credentialed
     # cross-origin requests.
-    allow_origin_regex = None if auth_settings["enabled"] else r"https?://.*"
-    mode = "explicit" if auth_settings["enabled"] else "permissive"
+    auth_enabled = bool(auth_settings["enabled"])
+    allow_origin_regex = None if auth_enabled else r"https?://.*"
+    mode = "explicit" if auth_enabled else "permissive"
+    # Credentials are only ever needed once cookies/JWTs exist (auth on). With
+    # auth off there is nothing to credential — advertising a credentialed
+    # wildcard over LAN/tunnel just widens the CSRF surface for no benefit.
     return {
         "allow_origins": origins,
         "allow_origin_regex": allow_origin_regex,
         "mode": mode,
+        "allow_credentials": auth_enabled,
     }
 
 
@@ -114,8 +119,9 @@ async def lifespan(app: FastAPI):
     # Automatically initialize and migrate AI Guru local SQLite database
     try:
         import sqlite3
-        from deeptutor.services.path_service import get_path_service
+
         from deeptutor.services.database.migrations import apply_migrations
+        from deeptutor.services.path_service import get_path_service
 
         db_path = get_path_service().user_dir / "chat_history.db"
         db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -320,7 +326,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=_cors_settings["allow_origins"],
     allow_origin_regex=_cors_settings["allow_origin_regex"],
-    allow_credentials=True,
+    allow_credentials=bool(_cors_settings["allow_credentials"]),
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -358,6 +364,7 @@ from deeptutor.api.routers import (
     monitoring,
     notebook,
     outputs,
+    paper_bank,
     partners,
     personas,
     plugins_api,
@@ -426,6 +433,9 @@ app.include_router(
     notebook.router, prefix="/api/v1/notebook", tags=["notebook"], dependencies=_auth
 )
 app.include_router(book.router, prefix="/api/v1/book", tags=["book"], dependencies=_auth)
+# Book streaming WS — mounted ungated like the other WS routers; the handler
+# authenticates itself via ws_require_auth (HTTP deps crash the WS handshake).
+app.include_router(book.ws_router, prefix="/api/v1/book", tags=["book-ws"])
 app.include_router(memory.router, prefix="/api/v1/memory", tags=["memory"], dependencies=_auth)
 app.include_router(
     capabilities_settings.router,
@@ -446,6 +456,12 @@ app.include_router(
     exams.router,
     prefix="/api/v1",
     tags=["exams"],
+    dependencies=_auth,
+)
+app.include_router(
+    paper_bank.router,
+    prefix="/api/v1",
+    tags=["paper-bank"],
     dependencies=_auth,
 )
 # Public UI-settings read (auth pages bootstrap the interface language
@@ -531,7 +547,17 @@ app.include_router(monitoring.router, prefix="/api/v1/monitoring", tags=["monito
 app.include_router(study_session.router, prefix='/api/v1/study-session', tags=['study-session'], dependencies=_auth)
 
 from deeptutor.api.routers import parent
-app.include_router(parent.router, prefix='/api/v1/parent', tags=['parent'], dependencies=_auth)
+
+# parent_context (NOT require_auth) installs the per-user workspace context:
+# the documented bootstrap trio (has-pin/set-pin/verify-pin/refresh) must stay
+# reachable for a remote parent holding no student JWT, while every sensitive
+# route still demands the parent PIN-JWT server-side via require_parent.
+app.include_router(
+    parent.router,
+    prefix='/api/v1/parent',
+    tags=['parent'],
+    dependencies=[Depends(parent.parent_context)],
+)
 
 
 @app.get("/")

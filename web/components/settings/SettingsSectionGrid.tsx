@@ -188,7 +188,7 @@ function LeafCard({
           </div>
 
           {activeDetail && (
-            <p className="mt-1 font-mono text-[11px] font-semibold text-blue-600 dark:text-blue-400 truncate">
+            <p className="mt-1 font-mono text-[11px] font-semibold text-[var(--primary)] truncate">
               {activeDetail}
             </p>
           )}

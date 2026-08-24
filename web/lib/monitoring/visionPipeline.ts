@@ -43,6 +43,8 @@ export interface TelemetryFrame {
   bbox?: [number, number, number, number];
   landmarks?: LandmarkGroups;
   jpeg_b64?: string;
+  /** Laplacian variance of the grayscale frame — in-session anti-spoof texture cue. */
+  texture_laplacian_var?: number;
   timestamp?: number;
 }
 
@@ -94,8 +96,11 @@ const CDN_MODEL =
 export class VisionPipeline {
   private landmarker: FaceLandmarker | null = null;
   private ws: WebSocket | null = null;
+  private wsReconnectTimer: ReturnType<typeof setTimeout> | null = null;
+  private wsBackoffMs = 1000;
   private rafId = 0;
   private lastTick = 0;
+  private tickCount = 0;
   private running = false;
   private grayCanvas: HTMLCanvasElement | null = null;
   private snapCanvas: HTMLCanvasElement | null = null;
@@ -158,6 +163,10 @@ export class VisionPipeline {
   stop(): void {
     this.running = false;
     cancelAnimationFrame(this.rafId);
+    if (this.wsReconnectTimer) {
+      clearTimeout(this.wsReconnectTimer);
+      this.wsReconnectTimer = null;
+    }
     if (this.ws) {
       try {
         this.ws.close();
@@ -192,6 +201,10 @@ export class VisionPipeline {
   private openSocket(sessionId: string): void {
     const proto = window.location.protocol === "https:" ? "wss:" : "ws:";
     const ws = new WebSocket(`${proto}//${window.location.host}/api/v1/monitoring/session/${sessionId}`);
+    ws.onopen = () => {
+      // Healthy connection: reset the backoff so a later drop retries fast.
+      if (this.ws === ws) this.wsBackoffMs = 1000;
+    };
     ws.onmessage = (evt) => {
       try {
         const msg = JSON.parse(evt.data);
@@ -205,7 +218,18 @@ export class VisionPipeline {
       }
     };
     ws.onclose = () => {
-      if (this.running && this.ws === ws) this.ws = null;
+      if (this.ws !== ws) return; // superseded by a newer socket
+      this.ws = null;
+      // A dropped socket previously killed monitoring for the whole session
+      // (HUD stuck on OFFLINE until restart). Reconnect with capped
+      // exponential backoff while the pipeline is still running.
+      if (!this.running) return;
+      const delay = this.wsBackoffMs;
+      this.wsBackoffMs = Math.min(this.wsBackoffMs * 2, 15000);
+      this.wsReconnectTimer = setTimeout(() => {
+        this.wsReconnectTimer = null;
+        if (this.running && !this.ws) this.openSocket(sessionId);
+      }, delay);
     };
     this.ws = ws;
   }
@@ -233,6 +257,14 @@ export class VisionPipeline {
         const groups = buildLandmarkGroups(faces[0]);
         this.landmarkHistory.push(groups);
         if (this.landmarkHistory.length > 40) this.landmarkHistory.shift();
+        // Anti-spoof texture cue for the backend liveness scorer. Computed
+        // every 3rd face frame (~2 Hz at the default 5 FPS target) — cheap
+        // at 64×48 but pointless to repeat every tick.
+        let textureVar: number | undefined;
+        this.tickCount += 1;
+        if (this.tickCount % 3 === 1) {
+          textureVar = this.computeTextureVariance(video);
+        }
         frame = {
           detected: true,
           confidence: 0.95,
@@ -240,6 +272,7 @@ export class VisionPipeline {
           bbox: this.computeBBox(groups.all_points),
           landmarks: groups,
           jpeg_b64: this.snapshotJpeg(video),
+          texture_laplacian_var: textureVar,
           timestamp: Date.now() / 1000,
         };
       } else {

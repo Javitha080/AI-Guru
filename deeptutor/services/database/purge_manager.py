@@ -9,8 +9,7 @@ All destructive operations require an explicit confirmation phrase.
 from __future__ import annotations
 
 import logging
-import time
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 import aiosqlite
 

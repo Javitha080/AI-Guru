@@ -1,0 +1,6 @@
+short_description: "Answer questions about the AI Guru app itself from the bundled local product guide."
+when_to_use: "Whenever the user asks about AI Guru's own features, pages or tools — what it can do, where a feature lives, how study monitoring / parent portal / tunnel / Telegram alerts / vault / exams / memory workbench / knowledge bases work, or why an in-app feature misbehaves. ALWAYS prefer this over web_search for such questions: web search cannot know this product."
+input_format: "{\"topic\": \"what to look up\"}. ``topic`` is optional free text such as 'video vault', 'telegram alerts', 'study monitoring warnings', 'tunnel', 'exam grading', 'memory workbench'. Omit it for the full product overview."
+guideline: "The guide is grounded in this exact installation — trust it over web results and never invent features for AI Guru. If the returned overview does not cover the question, say so honestly instead of guessing."
+note: "Answers cite the local product guide as their source. Distinct from read_memory (the user's personal preferences)."
+phase: "exploration"

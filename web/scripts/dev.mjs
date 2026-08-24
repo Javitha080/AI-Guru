@@ -52,7 +52,37 @@ const nodeOptions = /--max[-_]old[-_]space[-_]size/.test(inherited)
       Math.floor(memoryBudgetMB() * 0.5),
     )}`.trim();
 
-const child = spawn(process.execPath, [NEXT_BIN, "dev", ...process.argv.slice(2)], {
+/**
+ * Port resolution — kills the "dashboard on one port, frontend on another"
+ * class of bugs: bare `npm run dev` previously defaulted to Next's :3000 while
+ * the launcher ran :3782 from system.json, so bookmarks/tunnel links silently
+ * split across two ports.
+ *
+ * Precedence (mirrors the Python launcher):
+ *   1. explicit CLI flag (-p/--port) or PORT / FRONTEND_PORT env
+ *   2. frontend_port from <repo>/data/user/settings/system.json
+ *   3. 3782 — the documented AI Guru frontend default
+ */
+function resolvePortArg() {
+  const argv = process.argv.slice(2);
+  const flagIndex = argv.findIndex((a) => a === "-p" || a === "--port");
+  if (flagIndex !== -1 && argv[flagIndex + 1]) return [];
+  if (process.env.PORT || process.env.FRONTEND_PORT) return [];
+
+  let configured = 3782;
+  try {
+    const systemJson = JSON.parse(
+      readFileSync(path.join(WEB_DIR, "..", "data", "user", "settings", "system.json"), "utf8"),
+    );
+    const parsed = Number(systemJson?.frontend_port);
+    if (Number.isInteger(parsed) && parsed > 0) configured = parsed;
+  } catch {
+    // No system.json yet (fresh clone) — keep the documented default.
+  }
+  return ["-p", String(configured)];
+}
+
+const child = spawn(process.execPath, [NEXT_BIN, "dev", ...resolvePortArg(), ...process.argv.slice(2)], {
   cwd: WEB_DIR,
   stdio: "inherit",
   env: { ...process.env, NODE_OPTIONS: nodeOptions },

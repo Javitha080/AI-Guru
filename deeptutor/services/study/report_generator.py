@@ -47,7 +47,11 @@ class ReportGenerator:
         distracted_seconds = min(distracted_seconds, float(actual_duration))
 
         productive_seconds = max(0.0, float(actual_duration) - distracted_seconds)
-        warning_count = sum(1 for e in events if e['event_type'] == 'WARNING_ISSUED')
+        # Info-level presence pings (STUDENT_AWAY etc.) are not warnings.
+        warning_count = sum(
+            1 for e in events
+            if e['event_type'] == 'WARNING_ISSUED' and e.get('severity') in ('warning', 'alert')
+        )
 
         focus_score = float(
             session.get('focus_score')
@@ -55,10 +59,13 @@ class ReportGenerator:
         )
         engagement_score = float(session.get('engagement_score') or focus_score)
 
-        # AI summary is best-effort: a real LLM call when configured,
-        # an honest deterministic fallback otherwise.
+        # AI summary is best-effort: a real LLM call when configured (bounded
+        # so session completion stays snappy), an honest deterministic
+        # fallback otherwise.
         ai_summary = ""
         try:
+            import asyncio as _asyncio
+
             from deeptutor.services.llm.factory import complete
 
             prompt = (
@@ -68,7 +75,7 @@ class ReportGenerator:
                 f"Productive minutes: {productive_seconds // 60}\n"
                 f"Distraction warnings: {warning_count}\n"
             )
-            ai_summary = (await complete(prompt=prompt))[:600]
+            ai_summary = str(await _asyncio.wait_for(complete(prompt=prompt), timeout=6.0))[:600]
         except Exception as e:  # noqa: BLE001
             logger.info(f"AI summary skipped ({e}); using deterministic text.")
             ai_summary = (

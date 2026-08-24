@@ -103,6 +103,56 @@ export default function ExamRoomPage() {
   const orderedQuestions = useMemo(() => paper?.questions ?? [], [paper]);
   const current = orderedQuestions[currentIdx];
 
+  // Deep link: /exam?exam=<id> opens an existing paper (from Study Room's
+  // "Your Papers" list) — resumes a running timer or shows graded results.
+  const deepLinkDoneRef = useRef(false);
+  useEffect(() => {
+    if (deepLinkDoneRef.current) return;
+    deepLinkDoneRef.current = true;
+    const id = new URLSearchParams(window.location.search).get("exam");
+    if (!id) return;
+    (async () => {
+      setBusy(true);
+      setError("");
+      try {
+        const res = await fetch(`${api}/${encodeURIComponent(id)}`);
+        if (!res.ok) throw new Error("Exam not found");
+        const meta = await res.json();
+        const status = String(meta.status || "created");
+
+        if (status === "graded" || status === "submitted") {
+          const r = await fetch(`${api}/${encodeURIComponent(id)}/result`);
+          if (!r.ok) throw new Error("Could not load the saved result");
+          const data = await r.json();
+          setResults(data.results as ResultRow[]);
+          setScoreLine({ total_score: data.total_score, total_marks: data.total_marks });
+          setPhase("results");
+          return;
+        }
+
+        let endsAt: number | null = typeof meta.ends_at === "number" ? meta.ends_at : null;
+        if (status !== "active") {
+          const startRes = await fetch(`${api}/${encodeURIComponent(id)}/start`, { method: "POST" });
+          if (!startRes.ok) throw new Error("Could not start the exam timer");
+          const started = await startRes.json();
+          endsAt = started.ends_at;
+        }
+
+        setPaper(meta);
+        setCurrentIdx(0);
+        const remaining = endsAt ? Math.round(endsAt - Date.now() / 1000) : 60;
+        // An already-elapsed timer grades whatever was answered — same
+        // semantics as the in-exam countdown hitting zero.
+        setSecondsLeft(Math.max(0, remaining));
+        setPhase("running");
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "Failed to open the linked exam");
+      } finally {
+        setBusy(false);
+      }
+    })();
+  }, []);
+
   // ------------------------------------------------------------- actions
   const handlePreview = useCallback(async () => {
     if (!file) return;
@@ -196,16 +246,16 @@ export default function ExamRoomPage() {
 
   // ------------------------------------------------------------- render
   return (
-    <div className="flex-1 h-full overflow-y-auto bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="flex-1 h-full overflow-y-auto bg-gray-50 dark:bg-[var(--secondary)] text-[var(--foreground)]">
       <div className="max-w-4xl mx-auto p-6 space-y-6">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+          <div className="w-11 h-11 rounded-2xl bg-[var(--accent)] flex items-center justify-center text-[var(--primary)]">
             <FileText size={22} />
           </div>
           <div>
             <h1 className="text-2xl font-extrabold tracking-tight">Past-Paper Exam Room</h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              Your past papers, exactly as printed — timed, answered, and AI-graded.
+            <p className="text-xs text-[var(--muted-foreground)]">
+              Your past papers, exactly as printed â€” timed, answered, and AI-graded.
             </p>
           </div>
         </div>
@@ -218,7 +268,7 @@ export default function ExamRoomPage() {
 
         {/* PHASE: UPLOAD */}
         {(phase === "upload" || phase === "ready") && (
-          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 space-y-5">
+          <div className="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-6 space-y-5">
             <div
               onClick={() => fileInputRef.current?.click()}
               onDragOver={(e) => e.preventDefault()}
@@ -227,7 +277,7 @@ export default function ExamRoomPage() {
                 const f = e.dataTransfer.files?.[0];
                 if (f && f.name.toLowerCase().endsWith(".pdf")) setFile(f);
               }}
-              className="cursor-pointer rounded-2xl border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-indigo-400 p-10 text-center transition-colors"
+              className="cursor-pointer rounded-2xl border-2 border-dashed border-[var(--border)] hover:border-[var(--primary)] p-10 text-center transition-colors"
             >
               <input
                 ref={fileInputRef}
@@ -236,9 +286,9 @@ export default function ExamRoomPage() {
                 className="hidden"
                 onChange={(e) => setFile(e.target.files?.[0] ?? null)}
               />
-              <Upload size={28} className="mx-auto mb-3 text-gray-400" />
+              <Upload size={28} className="mx-auto mb-3 text-[var(--muted-foreground)]" />
               <p className="text-sm font-semibold">{file ? file.name : "Click or drop your past-paper PDF"}</p>
-              <p className="text-xs text-gray-400 mt-1">Questions are extracted verbatim — nothing is rewritten.</p>
+              <p className="text-xs text-[var(--muted-foreground)] mt-1">Questions are extracted verbatim â€” nothing is rewritten.</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -248,7 +298,7 @@ export default function ExamRoomPage() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. Mathematics 2023 Paper II"
-                  className="mt-1 w-full px-3 py-2 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                  className="mt-1 w-full px-3 py-2 rounded-xl bg-transparent border border-[var(--border)] text-sm focus:ring-2 focus:ring-[var(--ring)] focus:outline-none"
                 />
               </label>
               <label className="block">
@@ -259,7 +309,7 @@ export default function ExamRoomPage() {
                   max={360}
                   value={durationMin}
                   onChange={(e) => setDurationMin(Number(e.target.value))}
-                  className="mt-1 w-full px-3 py-2 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                  className="mt-1 w-full px-3 py-2 rounded-xl bg-transparent border border-[var(--border)] text-sm focus:ring-2 focus:ring-[var(--ring)] focus:outline-none"
                 />
               </label>
             </div>
@@ -267,10 +317,10 @@ export default function ExamRoomPage() {
             <button
               disabled={!file || busy}
               onClick={handleUploadAndStart}
-              className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-bold flex items-center justify-center gap-2 transition-colors"
+              className="w-full py-3 rounded-xl bg-[var(--primary)] hover:brightness-110 disabled:opacity-40 text-white font-bold flex items-center justify-center gap-2 transition-colors"
             >
               {busy ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
-              {busy ? "Extracting questions…" : `Create & Start ${durationMin}-min Exam`}
+              {busy ? "Extracting questionsâ€¦" : `Create & Start ${durationMin}-min Exam`}
             </button>
           </div>
         )}
@@ -278,7 +328,7 @@ export default function ExamRoomPage() {
         {/* PHASE: RUNNING */}
         {(phase === "running" || phase === "submitting") && paper && (
           <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 px-5 py-3 flex items-center justify-between sticky top-2 z-10 shadow-sm">
+            <div className="bg-[var(--card)] rounded-2xl border border-[var(--border)] px-5 py-3 flex items-center justify-between sticky top-2 z-10 shadow-sm">
               <div>
                 <p className="font-bold text-sm">{paper.title}</p>
                 <p className="text-[11px] text-gray-500">
@@ -287,7 +337,7 @@ export default function ExamRoomPage() {
               </div>
               <div
                 className={`font-mono font-bold text-lg px-3 py-1 rounded-xl ${
-                  secondsLeft < 300 ? "text-red-500" : "text-indigo-600 dark:text-indigo-400"
+                  secondsLeft < 300 ? "text-red-500" : "text-[var(--primary)]"
                 }`}
               >
                 <Clock size={16} className="inline mr-1 -mt-1" />
@@ -296,19 +346,19 @@ export default function ExamRoomPage() {
             </div>
 
             {current && (
-              <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 space-y-5">
+              <div className="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-6 space-y-5">
                 <div className="flex items-center gap-2">
                   {current.section === "mcq" ? (
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 flex items-center gap-1">
-                      <ListChecks size={11} /> SECTION A · MCQ
+                      <ListChecks size={11} /> SECTION A Â· MCQ
                     </span>
                   ) : (
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 flex items-center gap-1">
-                      <PenLine size={11} /> SECTION B · WRITTEN
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[var(--accent)] text-[var(--primary)] flex items-center gap-1">
+                      <PenLine size={11} /> SECTION B Â· WRITTEN
                     </span>
                   )}
-                  <span className="text-[10px] text-gray-400">
-                    Question {current.section_number} of {orderedQuestions.length} · {current.marks} mark{current.marks !== 1 ? "s" : ""}
+                  <span className="text-[10px] text-[var(--muted-foreground)]">
+                    Question {current.section_number} of {orderedQuestions.length} Â· {current.marks} mark{current.marks !== 1 ? "s" : ""}
                   </span>
                 </div>
 
@@ -326,8 +376,8 @@ export default function ExamRoomPage() {
                             onClick={() => setAnswer(current.id, { option_key: key })}
                             className={`text-left px-4 py-2.5 rounded-xl border text-sm transition-all ${
                               selected
-                                ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/30 font-semibold"
-                                : "border-gray-200 dark:border-gray-600 hover:border-indigo-300"
+                                ? "border-[var(--primary)] bg-[var(--accent)] font-semibold"
+                                : "border-gray-200 dark:border-gray-600 hover:border-[var(--primary)]"
                             }`}
                           >
                             <span className="font-mono font-bold mr-2">{key}.</span>
@@ -341,8 +391,8 @@ export default function ExamRoomPage() {
                     rows={7}
                     value={answers[current.id]?.answer_text ?? ""}
                     onChange={(e) => setAnswer(current.id, { answer_text: e.target.value })}
-                    placeholder="Write your full answer here — AI Guru will grade it against the marking scheme…"
-                    className="w-full p-4 text-sm font-mono bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                    placeholder="Write your full answer here â€” AI Guru will grade it against the marking schemeâ€¦"
+                    className="w-full p-4 text-sm font-mono bg-gray-50 dark:bg-[var(--secondary)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--ring)] focus:outline-none"
                   />
                 )}
 
@@ -350,7 +400,7 @@ export default function ExamRoomPage() {
                   <button
                     disabled={currentIdx === 0}
                     onClick={() => setCurrentIdx((i) => Math.max(0, i - 1))}
-                    className="px-4 py-2 rounded-xl text-sm font-semibold border border-gray-300 dark:border-gray-600 disabled:opacity-40 flex items-center gap-1"
+                    className="px-4 py-2 rounded-xl text-sm font-semibold border border-[var(--border)] disabled:opacity-40 flex items-center gap-1"
                   >
                     <ChevronLeft size={15} /> Prev
                   </button>
@@ -362,7 +412,7 @@ export default function ExamRoomPage() {
                         onClick={() => setCurrentIdx(i)}
                         className={`h-7 w-7 rounded-lg text-[10px] font-bold ${
                           i === currentIdx
-                            ? "bg-indigo-600 text-white"
+                            ? "bg-[var(--primary)] text-white"
                             : answers[q.id]?.option_key || answers[q.id]?.answer_text
                               ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300"
                               : "bg-gray-100 text-gray-500 dark:bg-gray-700"
@@ -376,7 +426,7 @@ export default function ExamRoomPage() {
                   {currentIdx < orderedQuestions.length - 1 ? (
                     <button
                       onClick={() => setCurrentIdx((i) => i + 1)}
-                      className="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 flex items-center gap-1"
+                      className="px-4 py-2 rounded-xl text-sm font-semibold bg-[var(--primary)] text-white hover:brightness-110 flex items-center gap-1"
                     >
                       Next <ChevronRight size={15} />
                     </button>
@@ -399,7 +449,7 @@ export default function ExamRoomPage() {
         {/* PHASE: RESULTS */}
         {phase === "results" && results && (
           <div className="space-y-4">
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#E06D44] to-[#C8613C] rounded-2xl p-6 text-white flex items-center justify-between">
               <div>
                 <p className="text-xs uppercase tracking-wide opacity-80">Total Score</p>
                 <p className="text-4xl font-extrabold font-mono">
@@ -411,7 +461,7 @@ export default function ExamRoomPage() {
             </div>
 
             {results.map((r) => (
-              <div key={r.question_id} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 space-y-2">
+              <div key={r.question_id} className="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-5 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-gray-500">Question {r.number}</span>
                   <span className="flex items-center gap-2 text-xs font-bold">
@@ -422,14 +472,14 @@ export default function ExamRoomPage() {
                     ) : r.verdict === "incorrect" ? (
                       <span className="text-red-600 flex items-center gap-1"><XCircle size={14} /> Incorrect</span>
                     ) : (
-                      <span className="text-gray-400">—</span>
+                      <span className="text-[var(--muted-foreground)]">â€”</span>
                     )}
                     <span className="font-mono">
                       {r.awarded}/{r.max_marks}
                     </span>
                   </span>
                 </div>
-                {r.feedback && <p className="text-sm text-gray-600 dark:text-gray-300">{r.feedback}</p>}
+                {r.feedback && <p className="text-sm text-[var(--muted-foreground)]">{r.feedback}</p>}
                 {r.reference_answer && (
                   <details className="text-xs text-gray-500">
                     <summary className="cursor-pointer font-semibold">Reference answer</summary>
@@ -448,7 +498,7 @@ export default function ExamRoomPage() {
                 setAnswers({});
                 setTitle("");
               }}
-              className="w-full py-3 rounded-xl border border-gray-300 dark:border-gray-600 font-bold text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="w-full py-3 rounded-xl border border-[var(--border)] font-bold text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               Take Another Paper
             </button>

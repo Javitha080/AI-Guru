@@ -1,61 +1,40 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+/**
+ * Ember Glass session timer — conic ring in deep orange, amber under 25%,
+ * red under 10%. Breathing pulse while paused; instant states when the OS
+ * prefers reduced motion.
+ */
+
+import { useEffect, useRef } from "react";
 import { Pause, Play } from "lucide-react";
+import gsap from "gsap";
+import { motionOK } from "@/lib/motion/useGsapReveal";
 
 interface StudyTimerProps {
-  durationMinutes: number;
-  isActive: boolean;
-  onComplete: () => void;
-  onPauseToggle: (isPaused: boolean) => void;
+  /** Seconds remaining; null = clock not started yet. */
+  timeLeft: number | null;
+  totalSeconds: number;
+  isPaused: boolean;
+  onTogglePause: () => void;
 }
 
-export default function StudyTimer({ durationMinutes, isActive, onComplete, onPauseToggle }: StudyTimerProps) {
-  const [timeLeft, setTimeLeft] = useState(durationMinutes * 60);
-  const [isPaused, setIsPaused] = useState(false);
-  
-  const totalSeconds = durationMinutes * 60;
-  const progress = timeLeft / totalSeconds;
-  
-  const requestRef = useRef<number>(undefined);
-  const previousTimeRef = useRef<number>(undefined);
+const RADIUS = 120;
+const CIRC = 2 * Math.PI * RADIUS;
 
-  useEffect(() => {
-    if (!isActive || isPaused) {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
-      return;
-    }
+export default function StudyTimer({
+  timeLeft,
+  totalSeconds,
+  isPaused,
+  onTogglePause,
+}: StudyTimerProps) {
+  const safeTotal = Math.max(1, totalSeconds);
+  const remaining = timeLeft ?? safeTotal;
+  const progress = Math.min(1, Math.max(0, remaining / safeTotal));
 
-    const animate = (time: number) => {
-      if (previousTimeRef.current != undefined) {
-        const deltaTime = (time - previousTimeRef.current) / 1000;
-        setTimeLeft((prev) => {
-          const next = prev - deltaTime;
-          if (next <= 0) {
-            onComplete();
-            return 0;
-          }
-          return next;
-        });
-      }
-      previousTimeRef.current = time;
-      requestRef.current = requestAnimationFrame(animate);
-    };
-
-    requestRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
-    };
-  }, [isActive, isPaused, onComplete]);
-
-  const togglePause = () => {
-    const newPausedState = !isPaused;
-    setIsPaused(newPausedState);
-    if (!newPausedState) {
-      previousTimeRef.current = undefined; // Reset timing ref on unpause
-    }
-    onPauseToggle(newPausedState);
-  };
+  let accent = "var(--primary)";
+  if (progress < 0.1) accent = "var(--destructive)";
+  else if (progress < 0.25) accent = "var(--amber)";
 
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
@@ -63,46 +42,112 @@ export default function StudyTimer({ durationMinutes, isActive, onComplete, onPa
     return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
-  let color = "text-green-500 stroke-green-500";
-  if (progress < 0.1) color = "text-red-500 stroke-red-500";
-  else if (progress < 0.25) color = "text-yellow-500 stroke-yellow-500";
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+
+  // Entrance pop.
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el || !motionOK()) return;
+    const tween = gsap.fromTo(
+      el,
+      { autoAlpha: 0, scale: 0.93 },
+      { autoAlpha: 1, scale: 1, duration: 0.65, ease: "power3.out" }
+    );
+    return () => {
+      tween.kill();
+    };
+  }, []);
+
+  // Breathing dim while paused; restore immediately on resume.
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el || !motionOK()) return;
+    if (isPaused) {
+      const pulse = gsap.to(el, {
+        opacity: 0.62,
+        duration: 1.1,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+      return () => {
+        pulse.kill();
+        gsap.set(el, { opacity: 1 });
+      };
+    }
+    gsap.killTweensOf(el);
+    gsap.set(el, { opacity: 1 });
+  }, [isPaused]);
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="relative w-64 h-64 flex items-center justify-center">
-        <svg className="absolute inset-0 w-full h-full -rotate-90">
+      <div ref={wrapRef} className="relative w-60 h-60 flex items-center justify-center">
+        {/* Ambient halo behind the ring */}
+        <div
+          aria-hidden
+          className="absolute inset-6 rounded-full blur-2xl transition-colors duration-500"
+          style={{ background: accent, opacity: 0.12 }}
+        />
+        <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 256 256">
           <circle
             cx="128"
             cy="128"
-            r="120"
+            r={RADIUS}
             fill="none"
-            stroke="var(--secondary)"
-            strokeWidth="12"
+            stroke="var(--glass-border)"
+            strokeWidth="11"
+          />
+          {/* Track highlight just inside the base ring */}
+          <circle
+            cx="128"
+            cy="128"
+            r={RADIUS}
+            fill="none"
+            stroke="var(--glass-border-highlight)"
+            strokeWidth="1"
+            opacity="0.5"
           />
           <circle
             cx="128"
             cy="128"
-            r="120"
+            r={RADIUS}
             fill="none"
-            className={color.split(" ")[1]}
-            strokeWidth="12"
+            stroke={accent}
+            strokeWidth="11"
             strokeLinecap="round"
-            strokeDasharray={2 * Math.PI * 120}
-            strokeDashoffset={2 * Math.PI * 120 * (1 - progress)}
-            style={{ transition: "stroke-dashoffset 0.1s linear" }}
+            strokeDasharray={CIRC}
+            strokeDashoffset={CIRC * (1 - progress)}
+            style={{
+              transition:
+                "stroke-dashoffset 0.35s linear, stroke 0.5s ease",
+              filter: "drop-shadow(0 0 8px currentColor)",
+              color: accent,
+            }}
           />
         </svg>
-        <div className={`text-5xl font-bold ${color.split(" ")[0]} tabular-nums z-10`}>
-          {formatTime(timeLeft)}
+        <div className="relative z-10 flex flex-col items-center gap-1">
+          <span
+            className="font-display text-[52px] leading-none font-extrabold tabular-nums tracking-tight transition-colors duration-500"
+            style={{ color: accent }}
+          >
+            {formatTime(remaining)}
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.24em] text-[var(--muted-foreground)] font-bold">
+            {isPaused ? "Paused" : "Remaining"}
+          </span>
         </div>
       </div>
-      
+
       <button
-        onClick={togglePause}
-        className="mt-8 flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--secondary)] hover:bg-[var(--accent)] hover:text-[var(--foreground)] text-[var(--muted-foreground)] transition-colors"
+        onClick={onTogglePause}
+        className="glow-ring mt-6 flex items-center gap-2 px-6 py-2.5 rounded-full surface-glass-base font-semibold transition-colors hover:text-[var(--primary)]"
       >
-        {isPaused ? <Play size={20} fill="currentColor" /> : <Pause size={20} fill="currentColor" />}
-        <span className="font-medium text-lg">{isPaused ? "Resume" : "Pause"}</span>
+        {isPaused ? (
+          <Play size={18} fill="currentColor" />
+        ) : (
+          <Pause size={18} fill="currentColor" />
+        )}
+        <span>{isPaused ? "Resume" : "Pause"}</span>
       </button>
     </div>
   );

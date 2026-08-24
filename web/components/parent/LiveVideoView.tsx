@@ -7,25 +7,31 @@
  * /api/v1/parent/live/snapshot through the tunnel or LAN at ~1 fps.
  * Frames are never stored server-side beyond the in-memory latest slot and
  * auto-expire when the study session ends or consent is revoked.
+ *
+ * Polling pauses while the browser tab is hidden to save bandwidth/battery.
+ * Ember Glass viewer with scanline sweep while live.
  */
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Video, XCircle, ShieldAlert } from "lucide-react";
+import { ShieldAlert, Video, XCircle } from "lucide-react";
 import { pFetch } from "@/lib/parent/parent-api";
 
 interface LiveVideoViewProps {
   studentName?: string;
+  /** Explicit monitoring session id; omit for "any consented session". */
+  sessionId?: string | null;
   onClose: () => void;
 }
 
 type LivePhase = "connecting" | "live" | "waiting" | "denied" | "error";
 
-export default function LiveVideoView({ studentName, onClose }: LiveVideoViewProps) {
+export default function LiveVideoView({ studentName, sessionId, onClose }: LiveVideoViewProps) {
   const [phase, setPhase] = useState<LivePhase>("connecting");
   const [frameUrl, setFrameUrl] = useState<string | null>(null);
   const [frameAge, setFrameAge] = useState<number>(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const objectUrlRef = useRef<string | null>(null);
+  const hiddenRef = useRef(false);
 
   const stopTimer = useCallback(() => {
     if (timerRef.current) {
@@ -35,8 +41,10 @@ export default function LiveVideoView({ studentName, onClose }: LiveVideoViewPro
   }, []);
 
   const poll = useCallback(async () => {
+    if (hiddenRef.current) return;
     try {
-      const res = await pFetch("/api/v1/parent/live/snapshot?session_id=current");
+      const qs = sessionId ? `session_id=${encodeURIComponent(sessionId)}` : "session_id=current";
+      const res = await pFetch(`/api/v1/parent/live/snapshot?${qs}`);
       if (res.ok) {
         const blob = await res.blob();
         const url = URL.createObjectURL(blob);
@@ -59,27 +67,45 @@ export default function LiveVideoView({ studentName, onClose }: LiveVideoViewPro
     } catch {
       setPhase((p) => (p === "live" ? p : "error"));
     }
-  }, [stopTimer]);
+  }, [sessionId, stopTimer]);
 
   useEffect(() => {
+    // Initial poll fires synchronously by design; subsequent ticks are interval-driven.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     void poll();
     timerRef.current = setInterval(() => void poll(), 1000);
+
+    const onVisibility = () => {
+      hiddenRef.current = document.hidden;
+      if (!document.hidden) void poll();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     return () => {
       stopTimer();
-      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+      document.removeEventListener("visibilitychange", onVisibility);
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
     };
   }, [poll, stopTimer]);
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 w-full max-w-2xl overflow-hidden">
+    <div
+      className="fixed inset-0 z-[999] flex items-center justify-center p-4 animate-overlay-in"
+      style={{ background: "var(--overlay)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+    >
+      <div className="w-full max-w-2xl bento-cell liquid-sheen !rounded-2xl overflow-hidden animate-pop-in">
         {/* Header */}
-        <div className="px-5 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-between">
+        <div className="relative z-[2] px-5 py-4 bg-gradient-to-r from-[var(--primary)] to-[#E8895F] text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <Video size={18} />
+            <span className="p-1.5 bg-white/20 rounded-lg backdrop-blur-sm">
+              <Video size={17} />
+            </span>
             <div>
-              <h3 className="font-bold text-sm">Live Supervision</h3>
-              <p className="text-[10px] text-purple-100">
+              <h3 className="font-display font-bold text-sm">Live Supervision</h3>
+              <p className="text-[10px] text-white/85">
                 {studentName ? `${studentName} · ` : ""}
                 {phase === "live" ? `Live snapshot · updated ${frameAge}s ago` : "Snapshot polling"}
               </p>
@@ -95,26 +121,29 @@ export default function LiveVideoView({ studentName, onClose }: LiveVideoViewPro
         </div>
 
         {/* Body */}
-        <div className="aspect-video bg-black flex items-center justify-center relative">
+        <div className="aspect-video bg-black flex items-center justify-center relative z-[2]">
           {phase === "live" && frameUrl && (
-            <img
-              src={frameUrl}
-              alt="Live student camera snapshot"
-              className="w-full h-full object-contain"
-            />
+            <>
+              <img
+                src={frameUrl}
+                alt="Live student camera snapshot"
+                className="w-full h-full object-contain"
+              />
+              <div className="scanline-bar !h-[14%]" style={{ opacity: 0.5 }} aria-hidden />
+            </>
           )}
           {phase !== "live" && (
             <div className="text-center space-y-3 px-6">
               {phase === "connecting" || phase === "waiting" ? (
                 <>
-                  <div className="mx-auto w-10 h-10 rounded-full border-4 border-purple-500 border-t-transparent animate-spin" />
-                  <p className="text-white/70 text-sm font-medium">
+                  <div className="mx-auto w-10 h-10 rounded-full border-4 border-[var(--primary)] border-t-transparent animate-spin" />
+                  <p className="text-white/75 text-sm font-medium">
                     {phase === "connecting"
                       ? "Connecting to live view…"
                       : "Waiting for the student's next frame…"}
                   </p>
                   <p className="text-white/40 text-xs max-w-sm mx-auto">
-                    Live view only streams when the student enables “Parent Live View”
+                    Live view only streams when the student enables &quot;Parent Live View&quot;
                     during an active session. Nothing is recorded.
                   </p>
                 </>
@@ -129,7 +158,7 @@ export default function LiveVideoView({ studentName, onClose }: LiveVideoViewPro
                 <>
                   <Video size={32} className="mx-auto text-white/30" />
                   <p className="text-white/60 text-sm">
-                    Could not reach the live view. Ensure you're connected via the tunnel or LAN.
+                    Could not reach the live view. Ensure you&apos;re connected via the tunnel or LAN.
                   </p>
                 </>
               )}
@@ -137,16 +166,16 @@ export default function LiveVideoView({ studentName, onClose }: LiveVideoViewPro
           )}
 
           {phase === "live" && (
-            <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 text-[10px] text-green-400 font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-[10px] text-[var(--amber)] font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] ember-dot" />
               LIVE · CONSENTED
             </div>
           )}
         </div>
 
         {/* Footer note */}
-        <div className="px-5 py-3 bg-gray-50 dark:bg-gray-800 text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-2">
-          <ShieldAlert size={13} className="shrink-0 text-amber-500" />
+        <div className="relative z-[2] px-5 py-3 border-t border-[var(--glass-border)] bg-[var(--glass-0)] text-[11px] text-[var(--muted-foreground)] flex items-center gap-2">
+          <ShieldAlert size={13} className="shrink-0 text-[var(--amber)]" />
           <span>
             Student-controlled: frames stream only while their toggle is ON and the session is active.
             Auto-terminates at session end — no recording.

@@ -15,7 +15,9 @@ from typing import Any
 from .factory import (
     DEFAULT_PROVIDER,
     GRAPHRAG_PROVIDER,
+    IMA_PROVIDER,
     LIGHTRAG_PROVIDER,
+    LIGHTRAG_SERVER_PROVIDER,
     PAGEINDEX_PROVIDER,
     normalize_provider_name,
 )
@@ -179,6 +181,54 @@ def _lightrag_preflight() -> dict:
     )
 
 
+def _ima_preflight() -> dict:
+    try:
+        import httpx  # noqa: F401
+
+        http_ok = True
+    except Exception:
+        http_ok = False
+    return _finalize(
+        [
+            _check(
+                "http_client",
+                "HTTP client available",
+                http_ok,
+                "Installed." if http_ok else "pip install httpx",
+            ),
+            _check(
+                "credentials",
+                "IMA connection (per knowledge base)",
+                True,
+                "Connect each KB with its Client ID, API key and knowledge base "
+                "ID from https://ima.qq.com/agent-interface.",
+                optional=True,
+            ),
+        ]
+    )
+
+
+def _lightrag_server_preflight() -> dict:
+    emb_model, emb_dim = _active_embedding()
+    return _finalize(
+        [
+            _check(
+                "endpoint",
+                "LightRAG server endpoint (per knowledge base)",
+                True,
+                "Point each KB at its LightRAG server URL (and API key) when connecting.",
+                optional=True,
+            ),
+            _check(
+                "embedding",
+                "Active embedding model",
+                bool(emb_model) and emb_dim > 0,
+                f"{emb_model} · {emb_dim}d" if emb_model else "Configure one in the model catalog.",
+            ),
+        ]
+    )
+
+
 def _finalize(checks: list[dict]) -> dict:
     ok = all(c["ok"] for c in checks if not c["optional"])
     return {"ok": ok, "checks": checks}
@@ -189,12 +239,51 @@ _PREFLIGHTS = {
     PAGEINDEX_PROVIDER: _pageindex_preflight,
     GRAPHRAG_PROVIDER: _graphrag_preflight,
     LIGHTRAG_PROVIDER: _lightrag_preflight,
+    IMA_PROVIDER: _ima_preflight,
+    LIGHTRAG_SERVER_PROVIDER: _lightrag_server_preflight,
 }
+
+# Engines without a dedicated preflight still get an honest generic report
+# instead of a KeyError -> 500 (this bit 'ima' before its entry existed).
+_GENERIC_ENVIRONMENT_CHECK = "environment"
+
+
+def _generic_preflight() -> dict:
+    chat_model, binding = _active_chat_model()
+    emb_model, emb_dim = _active_embedding()
+    return _finalize(
+        [
+            _check(
+                _GENERIC_ENVIRONMENT_CHECK,
+                "Runtime environment",
+                True,
+                "No engine-specific requirements; retrieval readiness depends on "
+                "the engine's per-KB connection settings.",
+                optional=True,
+            ),
+            _check(
+                "chat",
+                "Active chat model",
+                bool(chat_model),
+                f"{chat_model} · {binding}" if chat_model else "Configure one in the model catalog.",
+            ),
+            _check(
+                "embedding",
+                "Active embedding model",
+                bool(emb_model) and emb_dim > 0,
+                f"{emb_model} · {emb_dim}d" if emb_model else "Configure one in the model catalog.",
+            ),
+        ]
+    )
 
 
 def engine_preflight(provider: str) -> dict[str, Any]:
     """Run the requirement checks for ``provider`` and return the report."""
-    return _PREFLIGHTS[normalize_provider_name(provider)]()
+    normalized = normalize_provider_name(provider)
+    # Unknown ids already collapse to the default; known ids missing a
+    # dedicated report (or any future engine someone forgets to register)
+    # get the generic environment report — never a KeyError.
+    return _PREFLIGHTS.get(normalized, _generic_preflight)()
 
 
 __all__ = ["engine_preflight"]

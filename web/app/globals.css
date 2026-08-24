@@ -48,7 +48,19 @@
     --glass-shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.65);
     --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(224, 109, 68, 0.03) 100%);
     --glow-primary: rgba(224, 109, 68, 0.18);
-    --canvas-gradient: radial-gradient(ellipse at 50% 10%, rgba(224, 109, 68, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 90%, rgba(224, 109, 68, 0.03) 0%, transparent 50%);
+
+    /* Ember bento system — orange primary · amber secondary */
+    --ember-0: rgba(224, 109, 68, 0.08);
+    --ember-1: rgba(224, 109, 68, 0.16);
+    --ember-line: rgba(224, 109, 68, 0.42);
+    --amber: #F0B429;
+    --amber-glow: rgba(240, 180, 41, 0.22);
+    --grain-opacity: 0.05;
+
+    --canvas-gradient:
+      radial-gradient(ellipse 62% 46% at 16% -10%, rgba(224, 109, 68, 0.11) 0%, transparent 56%),
+      radial-gradient(ellipse 48% 42% at 86% 112%, rgba(224, 109, 68, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 36% 30% at 68% 18%, rgba(240, 180, 41, 0.04) 0%, transparent 55%);
   }
 
   .theme-light {
@@ -84,7 +96,18 @@
     --glass-shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.10);
     --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.60) 0%, transparent 50%);
     --glow-primary: rgba(200, 97, 60, 0.15);
-    --canvas-gradient: radial-gradient(ellipse at 85% 15%, rgba(223, 141, 111, 0.06) 0%, transparent 50%);
+
+    /* Ember bento system — light porcelain variant */
+    --ember-0: rgba(200, 97, 60, 0.07);
+    --ember-1: rgba(200, 97, 60, 0.14);
+    --ember-line: rgba(200, 97, 60, 0.34);
+    --amber: #B07C08;
+    --amber-glow: rgba(176, 124, 8, 0.16);
+    --grain-opacity: 0.03;
+
+    --canvas-gradient:
+      radial-gradient(ellipse 55% 42% at 82% -12%, rgba(223, 141, 111, 0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 34% at 12% 108%, rgba(200, 97, 60, 0.05) 0%, transparent 58%);
   }
 
   * {
@@ -150,6 +173,12 @@
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Respect the iOS/Android home-indicator inset for bottom-anchored chrome
+     (mobile tab bar). No-op on devices without a notch/home bar. */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
 

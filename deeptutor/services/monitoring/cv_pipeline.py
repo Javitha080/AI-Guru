@@ -12,26 +12,22 @@ Orchestrates local-first video frame processing and telemetry analysis:
 
 from __future__ import annotations
 
-import asyncio
+from dataclasses import dataclass
 import logging
 import math
 import time
-from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional
 
 from deeptutor.services.governor import ResourceGovernor, get_resource_governor
 from deeptutor.services.monitoring.distraction_analyzer import (
     DistractionAnalysisResult,
     DistractionAnalyzer,
-    DistractionType,
-    WhitelistedAction,
 )
 from deeptutor.services.monitoring.engagement_estimator import (
     EngagementEstimator,
     EngagementSnapshot,
 )
 from deeptutor.services.monitoring.face_engine import (
-    FaceDetectionResult,
     FaceEngine,
     FaceLandmarks,
     Point3D,
@@ -43,12 +39,10 @@ from deeptutor.services.monitoring.liveness_detector import (
 from deeptutor.services.monitoring.pose_gaze import (
     GazeResult,
     HeadPoseResult,
-    PoseAndGazeEstimation,
     PoseGazeEstimator,
     PostureCategory,
 )
 from deeptutor.services.monitoring.presence_state_machine import (
-    PresenceState,
     PresenceStateMachine,
     PresenceStateResult,
 )
@@ -231,7 +225,12 @@ class LocalCVPipeline:
             is_distracted=distraction_res.is_distracted,
         )
 
-        # 8. Warning Dispatcher & Cooldown
+        # 8. Warning Dispatcher & Cooldown (episode-aware: observe first so a
+        # state that stays true frame-after-frame notifies once, not per cooldown)
+        self.warning_manager.observe_distraction_state(
+            distraction_res.is_distracted,
+            distraction_res.distraction_type if distraction_res.is_distracted else None,
+        )
         warning_event = self.warning_manager.evaluate_and_dispatch(
             timestamp=now,
             distraction=distraction_res,

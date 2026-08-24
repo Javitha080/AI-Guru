@@ -9,21 +9,26 @@ and dynamic resource governor telemetry.
 
 from __future__ import annotations
 
-import asyncio
 import logging
-from typing import Any, List, Literal, Optional
-from urllib import error as urlerror
-from urllib import request as urlrequest
+from typing import Any, Literal, Optional
 
 import aiohttp
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field
 
+from deeptutor.multi_user.context import get_current_user
 from deeptutor.services.config.key_vault import get_key_vault, mask_api_key
+from deeptutor.services.config.runtime_settings import get_runtime_settings_service
 from deeptutor.services.governor import get_resource_governor
 from deeptutor.services.llm.hardware_profiler import get_hardware_profile
+from deeptutor.services.llm.provider_activation import (
+    DEFAULT_OLLAMA_BASE_URL,
+    ActivationRequest,
+    activate_tutor_provider,
+    probe_ollama,
+)
 from deeptutor.services.llm.tutor_provider import (
-    TutoringMode,
+    OllamaTutorProvider,
     get_tutor_provider_manager,
 )
 
@@ -34,6 +39,18 @@ router = APIRouter()
 
 class ModeUpdatePayload(BaseModel):
     mode: Literal["auto", "cloud", "ollama", "offline"]
+
+
+class ActivatePayload(BaseModel):
+    """One-shot first-run / settings wizard submission."""
+
+    mode: Literal["auto", "cloud", "ollama", "offline"]
+    provider: str = Field(default="openai", description="openai | deepseek | anthropic | dashscope | custom")
+    api_key: Optional[str] = None
+    base_url: Optional[str] = None
+    model: Optional[str] = None
+    binding: Optional[str] = None
+    ollama_base_url: Optional[str] = None
 
 
 class KeySavePayload(BaseModel):
@@ -72,14 +89,84 @@ async def set_tutoring_mode(payload: ModeUpdatePayload) -> dict[str, Any]:
     - 'cloud': Cloud API (with fallback if enabled)
     - 'ollama': Local Ollama only
     - 'offline': Deterministic offline educational engine
+
+    The choice is persisted to system settings so it survives restarts.
     """
     manager = get_tutor_provider_manager()
     manager.set_mode(payload.mode)
+    try:
+        settings_service = get_runtime_settings_service()
+        current = settings_service.load_system(include_process_overrides=False)
+        current["tutoring_mode"] = payload.mode
+        if payload.mode == "ollama":
+            adapter_url = getattr(manager.ollama_adapter, "base_url", "") or DEFAULT_OLLAMA_BASE_URL
+            current["ollama_base_url"] = str(adapter_url).rstrip("/")
+        settings_service.save_system(current)
+    except Exception as exc:  # noqa: BLE001 — mode switch must never 500 on a settings hiccup
+        logger.warning("Failed to persist tutoring mode: %s", exc)
     return {
         "status": "success",
         "mode": manager.mode.value,
         "message": f"Tutoring mode updated to '{payload.mode}'",
     }
+
+
+@router.post("/activate", summary="Verify & Activate AI Provider Setup")
+async def activate_provider_setup(payload: ActivatePayload) -> dict[str, Any]:
+    """
+    One-shot wizard activation: verifies the candidate provider (cloud API
+    probe or Ollama reachability), then — only on success — persists the API
+    key to the local vault, upserts an active LLM profile into the model
+    catalog (the config the tutor pipeline actually reads), stores the chosen
+    tutoring mode in system settings, and resets cached clients.
+
+    A failed verification changes nothing, so a typo'd key can never clobber
+    a previously-working setup.
+    """
+    if not get_current_user().is_admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Provider setup is managed by an administrator.",
+        )
+
+    result = await activate_tutor_provider(
+        ActivationRequest(
+            mode=payload.mode,
+            provider=payload.provider,
+            api_key=payload.api_key,
+            base_url=payload.base_url,
+            model=payload.model,
+            binding=payload.binding,
+            ollama_base_url=payload.ollama_base_url,
+        ),
+        vault=get_key_vault(),
+        catalog_service=_catalog_service_for_caller(),
+        settings_service=get_runtime_settings_service(),
+    )
+
+    if result.success:
+        # Refresh the running singleton without waiting for a restart.
+        manager = get_tutor_provider_manager()
+        manager.set_mode(result.mode)
+        if payload.mode == "ollama" and (payload.ollama_base_url or "").strip():
+            manager.ollama_adapter = OllamaTutorProvider(
+                base_url=(payload.ollama_base_url or "").strip().rstrip("/")
+            )
+    return {
+        "success": result.success,
+        "message": result.message,
+        "mode": result.mode,
+        "provider": result.provider,
+        "model": result.model,
+        "masked_key": result.masked_key,
+    }
+
+
+def _catalog_service_for_caller():
+    """Admin-scoped catalog service for the activation write."""
+    from deeptutor.services.config.model_catalog import get_model_catalog_service
+
+    return get_model_catalog_service()
 
 
 @router.get("/hardware-profile", summary="Get Hardware Capability Profile")
@@ -102,37 +189,17 @@ async def test_provider_connection(payload: ProviderTestPayload) -> dict[str, An
     API keys are validated securely without leaking credentials in response.
     """
     if payload.provider_type == "ollama":
-        host = (payload.base_url or "http://127.0.0.1:11434").rstrip("/")
-        url = f"{host}/api/tags"
-        timeout = aiohttp.ClientTimeout(total=4)
-        try:
-            async with aiohttp.ClientSession(timeout=timeout) as session:
-                async with session.get(url) as resp:
-                    if resp.status == 200:
-                        data = await resp.json()
-                        models = [m.get("name") for m in data.get("models", [])]
-                        return {
-                            "success": True,
-                            "provider": "ollama",
-                            "status": "online",
-                            "host": host,
-                            "models": models,
-                            "model_count": len(models),
-                            "message": f"Successfully connected to Ollama ({len(models)} models available)",
-                        }
-                    return {
-                        "success": False,
-                        "provider": "ollama",
-                        "status": "error",
-                        "message": f"Ollama returned HTTP {resp.status}",
-                    }
-        except Exception as e:
-            return {
-                "success": False,
-                "provider": "ollama",
-                "status": "offline",
-                "message": f"Could not connect to Ollama at {host}: {e}",
-            }
+        host = (payload.base_url or DEFAULT_OLLAMA_BASE_URL).rstrip("/")
+        ok, message, models = await probe_ollama(host)
+        return {
+            "success": ok,
+            "provider": "ollama",
+            "status": "online" if ok else "error",
+            "host": host,
+            "models": models,
+            "model_count": len(models),
+            "message": message if not ok or models else f"{message} Install one with /ollama/pull.",
+        }
 
     # Cloud API Test
     try:

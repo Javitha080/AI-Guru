@@ -30,7 +30,8 @@ class ExamStore:
                 title TEXT NOT NULL,
                 source_filename TEXT DEFAULT '',
                 paper_json TEXT NOT NULL,
-                status TEXT NOT NULL DEFAULT 'created',
+                status TEXT NOT NULL DEFAULT 'created'
+                    CHECK (status IN ('created', 'active', 'review', 'submitted', 'graded')),
                 mcq_duration_seconds INTEGER NOT NULL DEFAULT 7200,
                 essay_duration_seconds INTEGER,
                 total_marks INTEGER NOT NULL DEFAULT 0,
@@ -61,13 +62,23 @@ class ExamStore:
         )
 
     @classmethod
-    async def save_paper(cls, paper_dict: Dict[str, Any]) -> None:
+    async def save_paper(
+        cls,
+        paper_dict: Dict[str, Any],
+        *,
+        extra: Optional[Dict[str, Any]] = None,
+    ) -> None:
+        """Insert/replace an exam row. ``extra`` may carry sitting metadata:
+        ``sitting_id``, ``paper_no``, ``bank_paper_id`` (Paper-Bank links)."""
+        extra = extra or {}
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
+            await db.execute("PRAGMA foreign_keys = ON;")
             await db.execute(
                 "INSERT OR REPLACE INTO exams (id, title, source_filename, paper_json, status,"
-                " mcq_duration_seconds, essay_duration_seconds, total_marks, student_id, created_at)"
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                " mcq_duration_seconds, essay_duration_seconds, total_marks, student_id, created_at,"
+                " sitting_id, paper_no, bank_paper_id)"
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (
                     paper_dict["exam_id"],
                     paper_dict["title"],
@@ -79,6 +90,9 @@ class ExamStore:
                     float(paper_dict.get("total_marks") or 0),
                     paper_dict.get("student_id") or "student-primary",
                     time.time(),
+                    str(extra.get("sitting_id") or ""),
+                    extra.get("paper_no"),
+                    extra.get("bank_paper_id"),
                 ),
             )
             await db.commit()
@@ -94,6 +108,162 @@ class ExamStore:
         return json.loads(row[0])
 
     @classmethod
+    async def claim_for_grading(cls, exam_id: str) -> bool:
+        """Atomically transition status → 'graded' from an active phase.
+
+        Accepts both 'active' (timed run) and 'review' (double-check window);
+        exactly ONE concurrent caller wins; losers must not write answers or
+        award XP twice.
+        """
+        async with aiosqlite.connect(_db_path()) as db:
+            await cls.ensure_tables(db)
+            cursor = await db.execute(
+                "UPDATE exams SET status = 'graded'"
+                " WHERE id = ? AND status IN ('active', 'review')",
+                (exam_id,),
+            )
+            await db.commit()
+            return cursor.rowcount > 0
+
+    @classmethod
+    async def claim_status(cls, exam_id: str, *, from_status: str, to_status: str) -> bool:
+        """Optimistic single-winner status transition."""
+        async with aiosqlite.connect(_db_path()) as db:
+            await cls.ensure_tables(db)
+            cursor = await db.execute(
+                "UPDATE exams SET status = ? WHERE id = ? AND status = ?",
+                (to_status, exam_id, from_status),
+            )
+            await db.commit()
+            return cursor.rowcount > 0
+
+    @classmethod
+    async def save_drafts(cls, exam_id: str, answers: List[Dict[str, Any]]) -> int:
+        """Persist draft answers (graded=0) while a part is active/review."""
+        paper = await cls.load_paper(exam_id)
+        if not paper:
+            return 0
+        marks_by_qid = {q.get("id"): float(q.get("marks") or 1) for q in paper.get("questions", [])}
+        saved = 0
+        async with aiosqlite.connect(_db_path()) as db:
+            await cls.ensure_tables(db)
+            for ans in answers:
+                qid = str(ans.get("question_id", ""))
+                if not qid or qid not in marks_by_qid:
+                    continue
+                await db.execute(
+                    "INSERT OR REPLACE INTO exam_answers (exam_id, question_id, answer_text,"
+                    " option_key, awarded, max_marks, feedback, verdict, graded, answered_at)"
+                    " VALUES (?, ?, ?, ?, 0, ?, '', '', 0, ?)",
+                    (
+                        exam_id,
+                        qid,
+                        str(ans.get("answer_text", "") or "")[:8000],
+                        str(ans.get("option_key", "") or ""),
+                        marks_by_qid[qid],
+                        time.time(),
+                    ),
+                )
+                saved += 1
+            await db.commit()
+        return saved
+
+    # ------------------------------------------------------------- sittings
+
+    @classmethod
+    async def get_sitting(cls, sitting_id: str) -> List[Dict[str, Any]]:
+        """All parts of a Paper-Bank sitting, ordered Paper 1 → Paper 2."""
+        async with aiosqlite.connect(_db_path()) as db:
+            await cls.ensure_tables(db)
+            db.row_factory = aiosqlite.Row
+            cur = await db.execute(
+                "SELECT id, title, status, mcq_duration_seconds, total_marks,"
+                " student_id, sitting_id, paper_no, bank_paper_id, addon_seconds_used,"
+                " xp_multiplier, created_at, started_at, ends_at, submitted_at, paper_json"
+                " FROM exams WHERE sitting_id = ? ORDER BY COALESCE(paper_no, 1) ASC",
+                (sitting_id,),
+            )
+            return [dict(r) for r in await cur.fetchall()]
+
+    @classmethod
+    async def grant_addon(
+        cls,
+        exam_id: str,
+        *,
+        seconds: int,
+        multiplier_factor: float,
+        max_purchases: int = 2,
+        min_multiplier: float = 0.30,
+    ) -> Dict[str, Any]:
+        """Gamified extra-time purchase for the ACTIVE part of a sitting.
+
+        Optimistic-locking on (status, ends_at): exactly one concurrent caller
+        wins; losers get ``{"ok": False, "error": "conflict"}``. The purchase
+        counter rides inside ``paper_json.bank_meta`` so no schema change is
+        needed to enforce ``max_purchases``.
+        """
+        async with aiosqlite.connect(_db_path()) as db:
+            await cls.ensure_tables(db)
+            db.row_factory = aiosqlite.Row
+            cur = await db.execute(
+                "SELECT status, ends_at, addon_seconds_used, xp_multiplier, paper_json"
+                " FROM exams WHERE id = ?",
+                (exam_id,),
+            )
+            row = await cur.fetchone()
+            if not row:
+                return {"ok": False, "error": "not_found"}
+
+            meta: Dict[str, Any] = {}
+            try:
+                meta = json.loads(row["paper_json"] or "{}")
+            except json.JSONDecodeError:  # pragma: no cover
+                pass
+            purchases = int((meta.get("bank_meta") or {}).get("purchases", 0))
+
+            if row["status"] != "active":
+                return {"ok": False, "error": "not_active"}
+            if purchases >= max_purchases:
+                return {"ok": False, "error": "purchase_cap", "purchases": purchases}
+
+            new_mult = round(float(row["xp_multiplier"] or 1.0) * multiplier_factor, 4)
+            if new_mult < min_multiplier:
+                return {"ok": False, "error": "multiplier_floor", "multiplier": new_mult}
+
+            new_ends = float(row["ends_at"] or 0.0) + seconds
+            new_meta = dict(meta)
+            new_meta["bank_meta"] = {
+                **(meta.get("bank_meta") or {}),
+                "purchases": purchases + 1,
+            }
+
+            cur = await db.execute(
+                "UPDATE exams SET ends_at = ?, addon_seconds_used = addon_seconds_used + ?,"
+                " xp_multiplier = ?, paper_json = ?"
+                " WHERE id = ? AND status = 'active' AND ends_at = ?",
+                (
+                    new_ends,
+                    int(seconds),
+                    new_mult,
+                    json.dumps(new_meta),
+                    exam_id,
+                    row["ends_at"],
+                ),
+            )
+            await db.commit()
+            if cur.rowcount == 0:
+                return {"ok": False, "error": "conflict"}
+            return {
+                "ok": True,
+                "exam_id": exam_id,
+                "added_seconds": int(seconds),
+                "ends_at": new_ends,
+                "addon_seconds_used": int(row["addon_seconds_used"] or 0) + int(seconds),
+                "xp_multiplier": new_mult,
+                "purchases": purchases + 1,
+            }
+
+    @classmethod
     async def update_fields(cls, exam_id: str, **fields: Any) -> bool:
         allowed = {"status", "started_at", "ends_at", "submitted_at", "paper_json"}
         sets, vals = [], []
@@ -101,7 +271,7 @@ class ExamStore:
             if key not in allowed:
                 continue
             sets.append(f"{key} = ?")
-            vals.append(json.dumps(value) if key == "paper_json" else value)
+            vals.append(value)
         if not sets:
             return False
         vals.append(exam_id)

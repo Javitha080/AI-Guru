@@ -229,7 +229,6 @@ class VideoVaultManager:
                         "frame_count": meta.get("frame_count"),
                         **(meta.get("metadata") or {}),
                     }
-                    inner_meta.update(meta.get("metadata") or {})
                 else:
                     raw = (pending_dir / f"{stem}.jpg").read_bytes()
                     inner_meta = {"kind": "snapshot", **(meta.get("metadata") or {})}
@@ -377,6 +376,10 @@ class VideoVaultManager:
                 sess = "unknown"
                 ts = file.stat().st_mtime
                 evt = "INCIDENT"
+            try:
+                magic = file.open("rb").read(len(_MAGIC_V2))
+            except OSError:
+                magic = b""
             snapshots.append({
                 "clip_id": name,
                 "session_id": sess,
@@ -384,7 +387,7 @@ class VideoVaultManager:
                 "event_type": evt,
                 "size_bytes": file.stat().st_size,
                 "is_encrypted": True,
-                "format": "v2" if True else "v1",
+                "format": "v2" if magic == _MAGIC_V2 else ("v1" if magic.startswith(b"GURUVAULT01") else "unknown"),
             })
         snapshots.sort(key=lambda s: s["timestamp"], reverse=True)
         return snapshots

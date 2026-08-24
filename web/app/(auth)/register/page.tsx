@@ -65,7 +65,7 @@ export default function RegisterPage() {
 
       {/* First-user notice */}
       {!checkingFirst && isFirst && (
-        <div className="mb-4 rounded-lg border border-blue-500/30 bg-blue-500/10 px-4 py-3 text-sm text-blue-600 dark:text-blue-400">
+        <div className="mb-4 rounded-lg border border-[var(--glass-border)] bg-[var(--accent)] px-4 py-3 text-sm text-[var(--primary)]">
           <strong>{t("First user:")}</strong>{" "}
           {t(
             "You will be granted admin privileges and can manage other users from the admin dashboard.",
@@ -120,7 +120,7 @@ export default function RegisterPage() {
                          placeholder:text-[var(--muted-foreground)]
                          focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent
                          transition-shadow text-sm"
-              placeholder="••••••••"
+              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
             />
             <p className="mt-1 text-xs text-[var(--muted-foreground)]">
               {t("At least 8 characters")}
@@ -147,7 +147,7 @@ export default function RegisterPage() {
                          placeholder:text-[var(--muted-foreground)]
                          focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent
                          transition-shadow text-sm"
-              placeholder="••••••••"
+              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
             />
           </div>
 
@@ -168,7 +168,7 @@ export default function RegisterPage() {
                        disabled:opacity-50 disabled:cursor-not-allowed
                        transition-opacity"
           >
-            {loading ? t("Creating account…") : t("Create account")}
+            {loading ? t("Creating accountâ€¦") : t("Create account")}
           </button>
         </form>
       </div>
@@ -184,7 +184,7 @@ export default function RegisterPage() {
       </p>
 
       <p className="mt-3 text-center text-xs text-[var(--muted-foreground)]">
-        AI Guru · Agent-Native Learning
+        AI Guru Â· Agent-Native Learning
       </p>
     </div>
   );

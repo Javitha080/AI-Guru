@@ -37,8 +37,8 @@ function StatusIndicator({ status }: { status?: SessionRuntimeStatus }) {
   if (status === "running") {
     return (
       <span className="relative ml-1.5 inline-flex shrink-0">
-        <span className="session-pulse absolute inline-flex h-2 w-2 rounded-full bg-blue-400/60" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
+        <span className="session-pulse absolute inline-flex h-2 w-2 rounded-full bg-[var(--primary)] opacity-40" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--primary)]" />
       </span>
     );
   }
@@ -199,7 +199,7 @@ export default function SessionList({
                 sessionId={session.session_id}
                 running={session.status === "running"}
                 className={
-                  session.status === "running" ? "text-blue-500" : "opacity-70"
+                  session.status === "running" ? "text-[var(--primary)]" : "opacity-70"
                 }
               />
               {isEditing ? (

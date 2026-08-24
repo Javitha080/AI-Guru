@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Search, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { openCommandPalette } from "@/components/common/CommandPalette";
 
 interface HeaderBarProps {
   /** Current workspace/page title */
@@ -41,11 +42,13 @@ export default function HeaderBar({ title, actionSlot }: HeaderBarProps) {
         )}
       </div>
 
-      {/* Center: Search Launcher */}
+      {/* Center: Search Launcher — opens the global ⌘K command palette */}
       <button
         type="button"
+        onClick={() => openCommandPalette()}
         className="hidden md:flex items-center gap-2 glass-capsule px-4 py-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
         aria-label={t("Search")}
+        title={t("Search")}
       >
         <Search size={14} strokeWidth={1.6} />
         <span className="font-body text-xs">{t("Search")}</span>

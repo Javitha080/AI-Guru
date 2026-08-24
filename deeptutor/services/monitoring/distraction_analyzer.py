@@ -21,12 +21,11 @@ Guarantees 100% local execution.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import enum
 import logging
-from dataclasses import dataclass
-from typing import Any, Dict, Optional
+from typing import Optional
 
-from deeptutor.services.monitoring.face_engine import FaceLandmarks
 from deeptutor.services.monitoring.liveness_detector import LivenessResult
 from deeptutor.services.monitoring.pose_gaze import HeadPoseResult, PostureCategory
 from deeptutor.services.monitoring.presence_state_machine import PresenceState
@@ -87,6 +86,7 @@ class DistractionAnalyzer:
         self._drinking_start: Optional[float] = None
         self._page_turn_start: Optional[float] = None
         self._posture_shift_start: Optional[float] = None
+        self._away_start: Optional[float] = None
 
     def reset(self) -> None:
         """Reset all tracking timers."""
@@ -97,6 +97,7 @@ class DistractionAnalyzer:
         self._drinking_start = None
         self._page_turn_start = None
         self._posture_shift_start = None
+        self._away_start = None
 
     def analyze(
         self,
@@ -113,17 +114,22 @@ class DistractionAnalyzer:
         """
         Analyze current frame and state for distractions, applying the false-positive whitelist.
         """
-        # 1. State: AWAY -> Flagged immediately
+        # 1. State: AWAY -> Flagged (duration grows for the whole absence so
+        # warnings and reports can tell a 20s bathroom trip from a 10-min walkaway)
         if presence_state == PresenceState.AWAY:
+            if self._away_start is None:
+                self._away_start = timestamp
+            away_dur = timestamp - self._away_start
             return DistractionAnalysisResult(
                 is_distracted=True,
                 distraction_type=DistractionType.STUDENT_AWAY,
                 focus_score=0.0,
                 confidence=0.98,
-                duration_seconds=0.0,
+                duration_seconds=round(away_dur, 1),
                 whitelisted_action=None,
                 reason="Student is away from study desk",
             )
+        self._away_start = None
 
         # 2. Check Whitelisted Study Gestures FIRST (Priority 1)
 

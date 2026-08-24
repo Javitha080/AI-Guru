@@ -71,6 +71,12 @@ class ChatPromptAssembler:
             PromptBlock("runtime_policy", self._t("runtime_policy")),
             PromptBlock("loop", self._t("loop.system")),
         ]
+        # Authoritative local description of AI Guru's own tools/features so
+        # "what can you do / what is X" questions are answered from this app's
+        # built-in knowledge instead of a web search (or hallucination).
+        product_knowledge = self._t("product_knowledge")
+        if product_knowledge:
+            blocks.append(PromptBlock("product_knowledge", product_knowledge))
         # Capability playbooks sit high so they frame the whole turn when active;
         # empty blocks are omitted by ``system_prompt``'s join.
         blocks.extend(capability_blocks or [])

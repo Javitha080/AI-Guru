@@ -52,11 +52,32 @@ def _workspace_dir() -> Path:
     return d
 
 
+# The extraction pipeline is PDF-only; anything else is rejected before it
+# touches disk (both a size cap and an extension whitelist — the filename is
+# attacker-controlled, so the suffix alone must never reach the filesystem).
+_MAX_UPLOAD_BYTES = 50 * 1024 * 1024
+_ALLOWED_UPLOAD_SUFFIXES = {".pdf"}
+
+
 async def _persist_upload(upload: UploadFile) -> Path:
-    suffix = Path(upload.filename or "paper.pdf").suffix or ".pdf"
-    dest = _workspace_dir() / f"upload_{uuid.uuid4().hex[:10]}{suffix}"
+    raw_suffix = Path(upload.filename or "").suffix.lower()
+    if raw_suffix not in _ALLOWED_UPLOAD_SUFFIXES:
+        raise HTTPException(
+            status_code=415,
+            detail=f"Unsupported file type '{raw_suffix or '(none)'}' — upload a PDF past paper.",
+        )
+    dest = _workspace_dir() / f"upload_{uuid.uuid4().hex[:10]}{raw_suffix}"
+    written = 0
     with open(dest, "wb") as fh:
         while chunk := await upload.read(1024 * 512):
+            written += len(chunk)
+            if written > _MAX_UPLOAD_BYTES:
+                fh.close()
+                dest.unlink(missing_ok=True)
+                raise HTTPException(
+                    status_code=413,
+                    detail="Past-paper PDF exceeds the 50 MB upload limit.",
+                )
             fh.write(chunk)
     return dest
 
@@ -213,6 +234,12 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
     paper = ExamPaper.from_json(_dumps(data))
     result = await submit_and_grade(paper, req.answers)
 
+    # Atomic claim of the "graded" transition: only ONE concurrent submit can
+    # win, so answers/XP can never be double-written under a race.
+    claimed = await ExamStore.claim_for_grading(exam_id)
+    if not claimed:
+        raise HTTPException(status_code=409, detail="Exam already submitted")
+
     now = time.time()
     for row in result["results"]:
         graded = bool(row["verdict"]) or row["question_type"] in ("choice", "concept", "fill_in_blank")
@@ -241,7 +268,7 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
     try:
         pct = result["total_score"] / max(1.0, result["total_marks"])
         xp = int(20 + 80 * pct)
-        _award_exam_xp(req.student_id, xp, paper.exam_id)
+        await _award_exam_xp(req.student_id, xp, paper.exam_id)
         from deeptutor.services.gamification.gamification_service import GamificationService
 
         await GamificationService().check_and_award(req.student_id)
@@ -251,37 +278,35 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
     return result
 
 
-def _award_exam_xp(student_id: str, xp: int, exam_id: str) -> None:
+async def _award_exam_xp(student_id: str, xp: int, exam_id: str) -> None:
     """Persist an XP reward row for a graded exam (FK-safe: seeds the student)."""
-    import sqlite3
     import uuid as _uuid
+
+    import aiosqlite as _aiosqlite
 
     from deeptutor.services.path_service import get_path_service
 
     db_path = get_path_service().user_dir / "chat_history.db"
     now = time.time()
-    conn = sqlite3.connect(db_path)
-    try:
-        conn.execute("PRAGMA foreign_keys = ON;")
+    async with _aiosqlite.connect(db_path) as db:
+        await db.execute("PRAGMA foreign_keys = ON;")
         user_id = f"user-{student_id}"
-        conn.execute(
+        await db.execute(
             "INSERT OR IGNORE INTO users (id, username, password_hash, role, display_name, avatar_url, created_at, updated_at)"
             " VALUES (?, ?, '', 'student', ?, '', ?, ?)",
             (user_id, f"student:{student_id}", student_id, now, now),
         )
-        conn.execute(
+        await db.execute(
             "INSERT OR IGNORE INTO students (id, user_id, created_at, updated_at) VALUES (?, ?, ?, ?)",
             (student_id, user_id, now, now),
         )
-        conn.execute(
+        await db.execute(
             "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp, badge_id,"
             " badge_name, badge_icon, reason, unlocked_at)"
             " VALUES (?, ?, NULL, 'xp', ?, '', '', '', ?, ?)",
             (f"reward-{_uuid.uuid4().hex[:12]}", student_id, int(xp), f"exam_completed:{exam_id}", now),
         )
-        conn.commit()
-    finally:
-        conn.close()
+        await db.commit()
 
 
 @router.get("/{exam_id}/result")

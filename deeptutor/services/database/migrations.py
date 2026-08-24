@@ -12,7 +12,16 @@ import sqlite3
 import time
 from typing import Any, Callable
 
-from deeptutor.services.database.schema import CORE_TABLE_NAMES, V1_SCHEMA_DDL, V2_EXAM_SCHEMA_DDL
+from deeptutor.services.database.schema import (
+    CORE_TABLE_NAMES,
+    V1_SCHEMA_DDL,
+    V2_EXAM_SCHEMA_DDL,
+    V4_PAPER_BANK_SCHEMA_DDL,
+    v3_pause_aware_durations,
+    v5_exam_sitting_columns,
+    v6_paper_bank_grade11,
+    v7_exams_review_status,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +30,13 @@ logger = logging.getLogger(__name__)
 MIGRATIONS: list[tuple[int, str, str | Callable[[sqlite3.Connection], None]]] = [
     (1, "001_core_relational_tables", V1_SCHEMA_DDL),
     (2, "002_exam_engine_tables", V2_EXAM_SCHEMA_DDL),
+    # Callable: column-by-column idempotency — a DB that already carries
+    # worked_seconds must not crash startup with "duplicate column name".
+    (3, "003_pause_aware_durations", v3_pause_aware_durations),
+    (4, "004_paper_bank_tables", V4_PAPER_BANK_SCHEMA_DDL),
+    (5, "005_exam_sitting_columns", v5_exam_sitting_columns),
+    (6, "006_paper_bank_grade11", v6_paper_bank_grade11),
+    (7, "007_exams_review_status", v7_exams_review_status),
 ]
 
 
