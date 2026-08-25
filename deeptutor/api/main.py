@@ -179,6 +179,17 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.warning(f"Notification outbox worker failed to start: {e}")
 
+    # Telegram tunnel-command listener: lets a paired parent start the
+    # outbound tunnel remotely (idles cheaply until Telegram is configured).
+    try:
+        from deeptutor.services.remote.telegram_command_listener import (
+            start_telegram_command_listener,
+        )
+
+        start_telegram_command_listener()
+    except Exception as e:
+        logger.warning(f"Telegram command listener failed to start: {e}")
+
     # Ping PocketBase if configured — logs a warning (not an error) if unreachable
     try:
         from deeptutor.services.pocketbase_client import ping_pocketbase
