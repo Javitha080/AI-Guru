@@ -473,7 +473,7 @@ def test_the_apps_own_bin_comes_first_and_the_host_path_is_not_discarded(
     """
     from deeptutor.services.cli_apps.runner import _env_for
 
-    monkeypatch.setenv("PATH", "/opt/homebrew/bin:/usr/bin")
+    monkeypatch.setenv("PATH", os.pathsep.join(["/opt/homebrew/bin", "/usr/bin"]))
     app = _install()
 
     entries = _env_for(app)["PATH"].split(os.pathsep)

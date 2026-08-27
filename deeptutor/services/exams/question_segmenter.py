@@ -207,10 +207,18 @@ def _strip_instructions_preamble(lines: List[str]) -> List[str]:
     The exam instructions quote ``(1)…(5)`` and would otherwise form a fake
     option group that swallows Question 1.
     """
-    for i, line in enumerate(lines):
+    for i, line in enumerate(lines[:35]):
         m = re.match(r"^\s*1\s*[\.)]\s+(\S.*)$", line)
-        if m and len(m.group(1)) > 12:
+        if m and len(m.group(1)) > 8:
             return lines[i:]
+    # If no explicit '1.' in the first 35 lines, look for end of instructions
+    for i, line in enumerate(lines[:35]):
+        s = line.strip()
+        if any(marker in s for marker in [
+            "කතිරයක්", "කවය තුළ", "නොලැබේ", "කියවා පිළිපදින්න", "උපදෙස් පරිදි",
+            "not allowed", "Follow those carefully", "answer sheet with a cross",
+        ]):
+            return lines[i + 1:]
     return lines
 
 
@@ -219,7 +227,7 @@ def segment_essays(p2_text: str, *, part_label: str = "B") -> List[EssayQuestion
     lines = p2_text.splitlines()
     starts: List[Tuple[int, int]] = []
     for i, line in enumerate(lines):
-        m = re.match(r"^\s*(\d{1,2})\s*\.\s+(\S.*)$", line)
+        m = re.match(r"^\s*(\d{1,2})\s*[\.)]\s+(\S.*)$", line)
         if not m:
             continue
         rest = m.group(2).strip()

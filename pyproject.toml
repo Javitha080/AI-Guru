@@ -173,6 +173,17 @@ parse = [
     "deeptutor[parse-pymupdf4llm]",
 ]
 
+# AI Guru system-level study-monitoring CV engine (OpenCV webcam capture +
+# MediaPipe FaceLandmarker/ObjectDetector). Optional: monitoring degrades to
+# browser-side WASM CV when these are absent.
+monitoring = [
+    "opencv-contrib-python>=4.10,<7.0",
+    "mediapipe>=1.0,<2.0",
+    # Imported transitively by mediapipe.tasks' audio init; must be importable
+    # or `import mediapipe` itself fails.
+    "sounddevice>=0.5,<1.0",
+]
+
 # Legacy alias kept for one release: `pip install deeptutor[tutorbot]`.
 tutorbot = ["deeptutor[partners]"]
 

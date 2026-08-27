@@ -213,6 +213,63 @@ def extract_text_from_path(
     )
 
 
+def _is_sinhala_legacy_font(font_name: str) -> bool:
+    low = font_name.lower()
+    return any(tag in low for tag in [
+        "4u", "fm", "chami", "sawana", "milith", "malithi",
+        "abhaya", "bindumathi", "kaputa", "dl"
+    ])
+
+
+def _extract_page_text_font_aware(page: Any) -> str:
+    try:
+        data = page.get_text("dict")
+    except Exception:
+        return page.get_text() or ""
+
+    has_legacy = False
+    for block in data.get("blocks", []):
+        for line in block.get("lines", []):
+            for span in line.get("spans", []):
+                if _is_sinhala_legacy_font(span.get("font", "")):
+                    has_legacy = True
+                    break
+            if has_legacy:
+                break
+        if has_legacy:
+            break
+
+    if not has_legacy:
+        return page.get_text() or ""
+
+    try:
+        from pandukabhaya import Converter
+        converter = Converter("fm_abhaya")
+    except Exception:
+        return page.get_text() or ""
+
+    page_blocks: list[str] = []
+    for block in data.get("blocks", []):
+        if "lines" not in block:
+            continue
+        block_lines: list[str] = []
+        for line in block["lines"]:
+            line_parts: list[str] = []
+            for span in line.get("spans", []):
+                font = span.get("font", "")
+                text = span.get("text", "")
+                if _is_sinhala_legacy_font(font):
+                    try:
+                        line_parts.append(converter.convert(text))
+                    except Exception:
+                        line_parts.append(text)
+                else:
+                    line_parts.append(text)
+            block_lines.append("".join(line_parts))
+        page_blocks.append("\n".join(block_lines))
+    return "\n\n".join(page_blocks)
+
+
 def _extract_pdf(data: bytes, filename: str) -> str:
     global fitz, PdfReader, _PypdfNotDecryptedError
     if fitz is _NOT_LOADED:
@@ -231,7 +288,8 @@ def _extract_pdf(data: bytes, filename: str) -> str:
                         f"{filename} is encrypted and cannot be read", filename=filename
                     )
                 pages = [
-                    f"--- Page {i} ---\n{page.get_text() or ''}" for i, page in enumerate(doc, 1)
+                    f"--- Page {i} ---\n{_extract_page_text_font_aware(page)}"
+                    for i, page in enumerate(doc, 1)
                 ]
             return "\n\n".join(pages)
         except CorruptDocumentError:

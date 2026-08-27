@@ -14,7 +14,14 @@ const config = [
     },
   },
   {
-    ignores: ["node_modules/**", ".next/**", ".next-deeptutor/**", "dist/**", "out/**"],
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      ".next-deeptutor/**",
+      "dist/**",
+      "out/**",
+      "public/**",
+    ],
   },
 ];
 

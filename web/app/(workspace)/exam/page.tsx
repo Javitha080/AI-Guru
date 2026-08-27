@@ -20,9 +20,22 @@ import {
   Loader2,
   ListChecks,
   PenLine,
+  Code,
+  ImagePlus,
+  Trash2,
+  Paperclip,
 } from "lucide-react";
 
 // ----------------------------------------------------------------- types
+
+interface AnswerImage {
+  id: string;
+  base64?: string | null;
+  url?: string | null;
+  filename: string;
+  mime: string;
+  previewUrl?: string | null;
+}
 
 interface ExamQuestionView {
   id: string;
@@ -64,6 +77,29 @@ type Phase = "upload" | "ready" | "running" | "submitting" | "results";
 
 const api = "/api/v1/exams";
 
+const NUM_TO_LETTER: Record<string, string> = { "1": "A", "2": "B", "3": "C", "4": "D", "5": "E" };
+const LETTER_TO_NUM: Record<string, string> = { A: "1", B: "2", C: "3", D: "4", E: "5" };
+
+function extractSubParts(text: string): Array<{ label: string; title: string }> {
+  const lines = text.split("\n");
+  const parts: Array<{ label: string; title: string }> = [];
+  const rx = /^\s*(\([a-zA-Z0-9ivxIVX\u0d80-\u0dff]+\))\s+(.*)$/;
+  let curLabel = "";
+  let curBuf: string[] = [];
+  for (const line of lines) {
+    const m = line.match(rx);
+    if (m) {
+      if (curLabel) parts.push({ label: curLabel, title: curBuf.join(" ").trim() });
+      curLabel = m[1];
+      curBuf = [m[2]];
+    } else if (curLabel) {
+      curBuf.push(line);
+    }
+  }
+  if (curLabel) parts.push({ label: curLabel, title: curBuf.join(" ").trim() });
+  return parts;
+}
+
 export default function ExamRoomPage() {
   const [phase, setPhase] = useState<Phase>("upload");
   const [busy, setBusy] = useState(false);
@@ -74,13 +110,18 @@ export default function ExamRoomPage() {
   const [durationMin, setDurationMin] = useState(120);
 
   const [paper, setPaper] = useState<ExamPaperView | null>(null);
-  const [answers, setAnswers] = useState<Record<string, { option_key?: string; answer_text?: string }>>({});
+  const [answers, setAnswers] = useState<
+    Record<string, { option_key?: string; answer_text?: string; images?: AnswerImage[]; sub_answers?: Record<string, string> }>
+  >({});
   const [currentIdx, setCurrentIdx] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(0);
+  const [codeMode, setCodeMode] = useState(false);
+  const [activeSubPart, setActiveSubPart] = useState<string | null>(null);
 
   const [results, setResults] = useState<ResultRow[] | null>(null);
   const [scoreLine, setScoreLine] = useState<{ total_score: number; total_marks: number } | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const imageInputRef = useRef<HTMLInputElement | null>(null);
   const submittingRef = useRef(false);
 
   // ----------------------------------------------------------- countdown
@@ -234,12 +275,67 @@ export default function ExamRoomPage() {
     }
   }, [paper, answers]);
 
-  const setAnswer = (qid: string, patch: { option_key?: string; answer_text?: string }) =>
+  const setAnswer = (qid: string, patch: { option_key?: string; answer_text?: string; images?: AnswerImage[]; sub_answers?: Record<string, string> }) =>
     setAnswers((prev) => ({ ...prev, [qid]: { ...prev[qid], ...patch } }));
 
+  const subParts = useMemo(() => {
+    if (!current || current.section === "mcq") return [];
+    return extractSubParts(current.text);
+  }, [current]);
+
+  useEffect(() => {
+    if (subParts.length > 0) {
+      setActiveSubPart(subParts[0].label);
+    } else {
+      setActiveSubPart(null);
+    }
+  }, [subParts]);
+
+  const handleSubPartChange = (qid: string, partLabel: string, text: string) => {
+    const existing = answers[qid]?.sub_answers ?? {};
+    const updated = { ...existing, [partLabel]: text };
+    const combined = subParts
+      .map((item) => {
+        const ans = (updated[item.label] ?? "").trim();
+        return ans ? `${item.label} ${ans}` : "";
+      })
+      .filter(Boolean)
+      .join("\n\n");
+    setAnswer(qid, { sub_answers: updated, answer_text: combined || text });
+  };
+
+  const handleImageUpload = (qid: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    const currentImages = answers[qid]?.images ?? [];
+    Array.from(files).forEach((file) => {
+      if (!file.type.startsWith("image/")) return;
+      const reader = new FileReader();
+      reader.onload = (loadEvt) => {
+        const base64Data = loadEvt.target?.result as string;
+        const newImg: AnswerImage = {
+          id: Math.random().toString(36).slice(2, 11),
+          base64: base64Data.split(",")[1] ?? base64Data,
+          previewUrl: URL.createObjectURL(file),
+          filename: file.name,
+          mime: file.type,
+        };
+        setAnswer(qid, { images: [...currentImages, newImg] });
+      };
+      reader.readAsDataURL(file);
+    });
+    if (e.target) e.target.value = "";
+  };
+
+  const handleRemoveImage = (qid: string, imgId: string) => {
+    const currentImages = answers[qid]?.images ?? [];
+    setAnswer(qid, { images: currentImages.filter((img) => img.id !== imgId) });
+  };
+
   const answeredCount = Object.values(answers).filter(
-    (a) => (a.option_key ?? "").trim() || (a.answer_text ?? "").trim()
+    (a) => (a.option_key ?? "").trim() || (a.answer_text ?? "").trim() || ((a.images?.length ?? 0) > 0)
   ).length;
+  const currentImages = answers[current?.id]?.images ?? [];
 
   const fmtTime = (s: number) =>
     `${String(Math.floor(s / 3600)).padStart(2, "0")}:${String(Math.floor((s % 3600) / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
@@ -255,7 +351,7 @@ export default function ExamRoomPage() {
           <div>
             <h1 className="text-2xl font-extrabold tracking-tight">Past-Paper Exam Room</h1>
             <p className="text-xs text-[var(--muted-foreground)]">
-              Your past papers, exactly as printed â€” timed, answered, and AI-graded.
+              Your past papers, exactly as printed — timed, answered, and AI-graded.
             </p>
           </div>
         </div>
@@ -288,7 +384,7 @@ export default function ExamRoomPage() {
               />
               <Upload size={28} className="mx-auto mb-3 text-[var(--muted-foreground)]" />
               <p className="text-sm font-semibold">{file ? file.name : "Click or drop your past-paper PDF"}</p>
-              <p className="text-xs text-[var(--muted-foreground)] mt-1">Questions are extracted verbatim â€” nothing is rewritten.</p>
+              <p className="text-xs text-[var(--muted-foreground)] mt-1">Questions are extracted verbatim — nothing is rewritten.</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -320,7 +416,7 @@ export default function ExamRoomPage() {
               className="w-full py-3 rounded-xl bg-[var(--primary)] hover:brightness-110 disabled:opacity-40 text-white font-bold flex items-center justify-center gap-2 transition-colors"
             >
               {busy ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
-              {busy ? "Extracting questionsâ€¦" : `Create & Start ${durationMin}-min Exam`}
+              {busy ? "Extracting questions…" : `Create & Start ${durationMin}-min Exam`}
             </button>
           </div>
         )}
@@ -347,19 +443,51 @@ export default function ExamRoomPage() {
 
             {current && (
               <div className="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-6 space-y-5">
-                <div className="flex items-center gap-2">
-                  {current.section === "mcq" ? (
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 flex items-center gap-1">
-                      <ListChecks size={11} /> SECTION A Â· MCQ
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    {current.section === "mcq" ? (
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 flex items-center gap-1">
+                        <ListChecks size={11} /> SECTION A · MCQ
+                      </span>
+                    ) : (
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[var(--accent)] text-[var(--primary)] flex items-center gap-1">
+                        <PenLine size={11} /> SECTION B · WRITTEN
+                      </span>
+                    )}
+                    <span className="text-[10px] text-[var(--muted-foreground)]">
+                      Question {current.section_number} of {orderedQuestions.length} · {current.marks} mark{current.marks !== 1 ? "s" : ""}
                     </span>
-                  ) : (
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[var(--accent)] text-[var(--primary)] flex items-center gap-1">
-                      <PenLine size={11} /> SECTION B Â· WRITTEN
-                    </span>
+                  </div>
+                  {current.section !== "mcq" && (
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setCodeMode(!codeMode)}
+                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition-colors flex items-center gap-1 ${
+                          codeMode
+                            ? "bg-[var(--primary)] text-white border-transparent"
+                            : "surface-glass-base border-[var(--border)] text-[var(--muted-foreground)]"
+                        }`}
+                        title="Toggle code / monospaced font mode"
+                      >
+                        <Code size={12} /> Code mode
+                      </button>
+                      <button
+                        onClick={() => imageInputRef.current?.click()}
+                        className="px-2.5 py-1 rounded-lg text-[11px] font-semibold surface-glass-base border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
+                        title="Upload photo of handwritten notes or diagram"
+                      >
+                        <ImagePlus size={12} /> Add Photo
+                      </button>
+                      <input
+                        ref={imageInputRef}
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        className="hidden"
+                        onChange={(e) => handleImageUpload(current.id, e)}
+                      />
+                    </div>
                   )}
-                  <span className="text-[10px] text-[var(--muted-foreground)]">
-                    Question {current.section_number} of {orderedQuestions.length} Â· {current.marks} mark{current.marks !== 1 ? "s" : ""}
-                  </span>
                 </div>
 
                 <p className="text-base leading-relaxed whitespace-pre-wrap font-medium">{current.text}</p>
@@ -369,31 +497,109 @@ export default function ExamRoomPage() {
                     {Object.entries(current.options)
                       .sort(([a], [b]) => a.localeCompare(b))
                       .map(([key, value]) => {
-                        const selected = answers[current.id]?.option_key === key;
+                        const numKey = LETTER_TO_NUM[key.toUpperCase()] ?? key;
+                        const selected = answers[current.id]?.option_key === key || answers[current.id]?.option_key === numKey;
                         return (
                           <button
                             key={key}
                             onClick={() => setAnswer(current.id, { option_key: key })}
-                            className={`text-left px-4 py-2.5 rounded-xl border text-sm transition-all ${
+                            className={`text-left px-4 py-2.5 rounded-xl border text-sm transition-all flex items-start gap-2.5 ${
                               selected
                                 ? "border-[var(--primary)] bg-[var(--accent)] font-semibold"
                                 : "border-gray-200 dark:border-gray-600 hover:border-[var(--primary)]"
                             }`}
                           >
-                            <span className="font-mono font-bold mr-2">{key}.</span>
-                            {value}
+                            <span className={`font-mono font-bold px-1.5 py-0.5 rounded text-xs shrink-0 ${selected ? "bg-[var(--primary)] text-white" : "bg-gray-100 dark:bg-gray-700 text-gray-500"}`}>
+                              {LETTER_TO_NUM[key] ? `(${LETTER_TO_NUM[key]}) ${key}` : key}
+                            </span>
+                            <span className="pt-0.5">{value}</span>
                           </button>
                         );
                       })}
                   </div>
                 ) : (
-                  <textarea
-                    rows={7}
-                    value={answers[current.id]?.answer_text ?? ""}
-                    onChange={(e) => setAnswer(current.id, { answer_text: e.target.value })}
-                    placeholder="Write your full answer here â€” AI Guru will grade it against the marking schemeâ€¦"
-                    className="w-full p-4 text-sm font-mono bg-gray-50 dark:bg-[var(--secondary)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--ring)] focus:outline-none"
-                  />
+                  <div className="space-y-3">
+                    {subParts.length > 1 && (
+                      <div className="flex flex-wrap gap-1.5 p-1 rounded-xl surface-glass-base border border-[var(--border)]">
+                        {subParts.map((sp) => (
+                          <button
+                            key={sp.label}
+                            onClick={() => setActiveSubPart(sp.label)}
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                              activeSubPart === sp.label
+                                ? "bg-[var(--primary)] text-white shadow-sm"
+                                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                            }`}
+                          >
+                            Part {sp.label}
+                          </button>
+                        ))}
+                        <button
+                          onClick={() => setActiveSubPart(null)}
+                          className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                            activeSubPart === null
+                              ? "bg-[var(--primary)] text-white shadow-sm"
+                              : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                          }`}
+                        >
+                          All Parts (Full Answer)
+                        </button>
+                      </div>
+                    )}
+
+                    {subParts.length > 1 && activeSubPart ? (
+                      <div className="space-y-1.5">
+                        <p className="text-xs font-semibold text-[var(--primary)] flex items-center gap-1.5">
+                          <span>Answering {activeSubPart}:</span>
+                          <span className="text-[var(--muted-foreground)] font-normal text-[11px] truncate">
+                            {subParts.find((s) => s.label === activeSubPart)?.title}
+                          </span>
+                        </p>
+                        <textarea
+                          rows={7}
+                          value={answers[current.id]?.sub_answers?.[activeSubPart] ?? ""}
+                          onChange={(e) => handleSubPartChange(current.id, activeSubPart, e.target.value)}
+                          placeholder={`Write your answer for part ${activeSubPart} here…`}
+                          className={`w-full p-4 text-sm bg-gray-50 dark:bg-[var(--secondary)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--ring)] focus:outline-none ${codeMode ? "font-mono text-xs" : ""}`}
+                        />
+                      </div>
+                    ) : (
+                      <textarea
+                        rows={7}
+                        value={answers[current.id]?.answer_text ?? ""}
+                        onChange={(e) => setAnswer(current.id, { answer_text: e.target.value })}
+                        placeholder="Write your full answer here — AI Guru will grade it against the marking scheme…"
+                        className={`w-full p-4 text-sm bg-gray-50 dark:bg-[var(--secondary)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--ring)] focus:outline-none ${codeMode ? "font-mono text-xs" : ""}`}
+                      />
+                    )}
+
+                    {currentImages.length > 0 && (
+                      <div className="space-y-1.5 pt-1">
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-[var(--muted-foreground)] flex items-center gap-1">
+                          <Paperclip size={11} /> Attached Handwritten Work / Diagrams ({currentImages.length})
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {currentImages.map((img) => (
+                            <div key={img.id} className="relative group rounded-xl overflow-hidden border border-[var(--border)] bg-black/10 w-24 h-24">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src={img.previewUrl || `data:${img.mime};base64,${img.base64}`}
+                                alt={img.filename}
+                                className="w-full h-full object-cover"
+                              />
+                              <button
+                                onClick={() => handleRemoveImage(current.id, img.id)}
+                                className="absolute top-1 right-1 p-1 rounded-full bg-red-600/80 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                                title="Remove image"
+                              >
+                                <Trash2 size={12} />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 )}
 
                 <div className="flex items-center justify-between pt-2">

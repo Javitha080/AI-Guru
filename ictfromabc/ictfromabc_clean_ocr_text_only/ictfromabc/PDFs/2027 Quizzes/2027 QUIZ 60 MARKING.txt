@@ -1,0 +1,293 @@
+1. Which of the following statements about magnetic, optical, and flash storage devices is incorrect?
+චුම්බක, ප්‍රකාශ සහ සැනෙලි ගබඩා උපාංග පිළිබඳ පහත සඳහන් ප්‍රකාශ අතුරෙන් වැරදි වන්නේ කුමක්ද?
+
+1) Magnetic storage devices use magnetic fields to store and retrieve data.
+චුම්බක ගබඩා උපාංග දත්ත ගබඩා කිරීමට සහ ලබා ගැනීමට චුම්බක ක්ෂේත්‍ර භාවිතා කරයි.
+
+2) Optical storage devices utilize lasers to read and write data onto discs.
+ප්‍රකාශ ගබඩා උපාංග තැටි මත දත්ත කියවීමට සහ ලිවීමට ලේසර් භාවිතා කරයි.
+
+3) Flash storage devices rely on mechanical moving parts to access data quickly.
+දත්ත ඉක්මනින් ප්‍රවේශ කිරීමට සැනලි ගබඩා උපාංග යාන්ත්‍රික චලනය වන කොටස් මත රඳා පවතී.
+
+4) Magnetic tapes are an example of a magnetic storage device commonly used for backups.
+චුම්බක පටි යනු, උපස්ථ සඳහා බහුලව භාවිතා වන චුම්බක ගබඩා උපාංගයක උදාහරණයකි.
+
+5) Blu-ray discs are a type of optical storage device capable of storing high-definition video.
+Blu-ray තැටි යනු, අධි-විභේදන වීඩියෝ ගබඩා කිරීමේ හැකියාව ඇති ප්‍රකාශ ගබඩා උපාංග වර්ගයකි.
+
+Answer : 3)
+
+Explanation / පැහැදිලි කිරීම
+
+3 is incorrect. Flash storage devices do not rely on mechanical moving parts to access data quickly. Flash
+storage devices, such as solid-state drives (SSDs) and USB flash drives, use semiconductor-based memory
+cells to store data. These memory cells retain data even when power is removed and can be accessed
+electronically, without the need for any mechanical movement. This lack of moving parts contributes to
+the fast data access speeds and durability characteristic of flash storage devices.
+සැනෙලි ගබඩා උපාංග ඉක්මනින් දත්ත වෙත ප්‍රවේශ වීමට යාන්ත්‍රික චලනය වන කොටස් මත රඳා නොපවතී.
+ඝන-තත්ත්ව ධාවකයන් SSDs සහ USB සැනෙලි ධාවකයන් වැනි සැනෙලි ගබඩා උපාංග, දත්ත ගබඩා කිරීම
+සඳහා අර්ධ සන්නායක මත පදනම් වූ මතක කෝෂ භාවිතා කරයි. මෙම මතක කෝෂ බලය ඉවත් කරන විට
+පවා දත්ත රඳවා තබා ගන්නා අතර කිසිදු යාන්ත්‍රික චලනයකින් තොරව ඉලෙක්ට්‍රොනිකව ප්‍රවේශ විය හැක.
+මෙම චලනය වන කොටස් නොමැතිකම සැනෙලි ගබඩා උපාංගවල වේගවත් දත්ත ප්‍රවේශ වේගය සහ
+කල්පැවැත්ම සඳහා දායක වේ.
+
+2. Which type of cache memory is typically embedded directly in the processor?
+සාමාන්‍යයෙන් සකසනය තුළ සෘජුව කාවැදී ඇත්තේ කුමන ආකාරයේ වාරක මතකයක්ද?
+
+1) Level 1 cache / පළමු මට්ටමේ වාරක මතකය (L1)
+2) Level 2 cache / දෙවන මට්ටමේ වාරක මතකය (L2)
+3) Level 3 cache / තෙවන මට්ටමේ වාරක මතකය (L3)
+4) External cache/ බාහිර වාරක මතකය
+5) Virtual cache/  අතථ්‍ය වාරක මතකය
+
+Answer : 1)
+
+Explanation / පැහැදිලි කිරීම
+
+The correct answer is Level 1 cache (L1). Level 1 cache is a small, high-speed memory embedded directly
+within the processor itself. It provides the fastest access to frequently used data and instructions, as it is
+located closest to the CPU cores. This proximity ensures minimal latency, making it the first place the
+processor checks for data during computations. The L1 cache is divided into separate sections for
+instructions and data, optimizing the speed of fetching and execution processes.
+2027 QUIZ SERIES
+2027 QUIZ NO 60 MARKING
+2025/12/26
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+නිවැරදි පිළිතුර වන්නේ පළමු මට්ටමේ වාරක මතකය (L1) වේ. පළමු මට්ටමේ වාරක මතකය (L1) යනු
+සකසනය තුළම සෘජුව තැන්පත් කර ඇති කුඩා අධිවේගී මතකයකි. එය CPU මධ්‍යයට ආසන්නව පිහිටා ඇති
+බැවින් නිතර භාවිතා කරන දත්ත සහ උපදෙස් වෙත වේගවත්ම ප්‍රවේශය සපයයි. මෙම සමීපත්වය අවම
+ප්‍රමාදයක් සහතික කරයි, එය ගණනය කිරීම් අතරතුර දත්ත සඳහා සකසනය පරීක්ෂා කරන පළමු ස්ථානය
+බවට පත් කරයි. L1 වාරක මතකය උපදෙස් සහ දත්ත සඳහා වෙනම කොටස් වලට බෙදා ඇත, ලබා ගැනීමේ
+සහ ක්‍රියාත්මක කිරීමේ ක්‍රියාවලීන්ගේ වේගය ප්‍රශස්ත කරයි.
+
+L1 cache plays a critical role in improving overall system performance by reducing the time the CPU
+spends accessing data from slower memory sources like RAM. Its limited size, typically measured in
+kilobytes (KB), is a trade-off for its exceptional speed. This embedded design makes L1 cache essential
+for the efficient operation of modern processors.
+RAM වැනි මන්දගාමී මතක ප්‍රභවයන්ගෙන් දත්ත වෙත ප්‍රවේශ වීමට CPU වැය කරන කාලය අඩු කිරීම
+මගින් L1 වාරක මතකය සමස්ත පද්ධතියේ ක්‍රියාකාරිත්වය වැඩිදියුණු කිරීමේ තීරණාත්මක කාර්යභාරයක් ඉටු
+කරයි. එහි සීමිත ප්‍රමාණය, සාමාන්‍යයෙන් කිලෝබයිට් KB වලින් මනිනු ලැබේ, එහි සුවිශේෂී වේගය සඳහා
+වෙළඳාමකි. මෙම කාවැද්¥ සැලසුම නවීන සකසන වල කාර්යක්ෂම ක්‍රියාකාරිත්වය සඳහා L1 වාරක මතකය
+අත්‍යවශ්‍ය කරයි.
+
+Therefore, the Correct answer is 1)
+එබැවින්, නිවැරදි පිළිතුර 1)
+
+3. Following table shows three characters and the corresponding code of each character. These codes
+belong to different coding systems.
+පහත වගුවේ දැක්වෙන්නේ අක්ෂර තුනක් සහ එක් එක් අක්ෂරයේ අනුරූප කේතයයි. මෙම කේත විවිධ
+කේතීකරණ පද්ධති වලට අයත් වේ.
+
+Character
+Code
+A
+1000001
+B
+1100 0010
+C
+01000001 00001010
+Which of the following represents the correct coding system for characters A, B and C respectively?
+පිළිවෙළින් A, B සහ C අක්ෂර සඳහා නිවැරදි කේතීකරණ පද්ධතිය නියෝජනය කරන්නේ පහත සඳහන්
+මොනවාද?
+
+1) Unicode, ASCII, EBCDIC
+2) Unicode, EBCDIC, ASCII
+3) ASCII, Unicode, EBCDIC
+4) ASCII, EBCDIC, Unicode
+5) EBCDIC, ASCII, Unicode
+
+Answer: 4)
+Explanation / පැහැදිලි කිරීම:
+The following are different character encoding standards used to represent text in computers.
+පහත දැක්වෙන්නේ පරිගණකවල අකුරු නියෝජනය කිරීමට භාවිතා කරන විවිධ අක්ෂර කේතන ප්‍රමිතීන් වේ.
+
+UNICODE
+Unicode is a universal character set covering all languages that supports over a million characters. It is
+the most widely used today, especially UTF-8.
+යුනිකෝඩ්, සියලුම භාෂා ආවරණය වන විශ්වීය අක්ෂර කට්ටලයක් වන අතර එය මිලියනයකට වඩා අක්ෂර
+සඳහා සහය දක්වයි. අද බහුලව භාවිතා වේ, විශේෂයෙන්ම UTF-8.
+
+ASCII (American Standard Code for Information Interchange)
+Uses 7 bits (128 characters: 0–127). / බිටු 7ක් භාවිතා කරයි (අක්ෂර 128: 0–127)
+
+Includes English letters (A–Z, a–z), digits (0–9), punctuation, and control characters.
+ඉංග්‍රීසි අකුරු (A–Z, a–z), ඉලක්කම් (0–9), විරාම ලකුණු සහ පාලන අක්ෂර ඇතුළත් වේ.
+
+EBCDIC (Extended Binary Coded Decimal Interchange Code)
+Developed by IBM, mainly used in mainframes.
+ප්‍රධාන වශයෙන්, IBM විසින් වැඩි දියුණු කරන ලද මහා පරිගණක වල භාවිතා වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Uses 8 bits (256 characters). / බිටු 8 (අනුලක්ෂණ 256) භාවිතා කරයි.
+Not compatible with ASCII. / ASCII සමග නොගැලපේ.
+
+Let's analyze the codes and match them with the correct character encoding system.
+අපි කේත විශ්ලේෂණය කර ඒවා නිවැරදි අක්ෂර කේතකරණ පද්ධතිය සමඟ ගලපමු.
+
+Given data / ලබා දී ඇති දත්ත:
+
+Character
+Code
+A
+1000001
+B
+1100 0010
+C
+01000001 00001010
+
+Step / පියවර 1:
+Identify the encoding for A. / A සඳහා කේතනය හඳුනා ගන්න.
+This is a 7-bit binary code. In ASCII, 'A' is 65, and its binary representation is 1000001.
+මෙය බිටු 7 හි ද්විමය කේතයකි. ASCII හි, 'A' යනු 65 වන අතර, එහි ද්විමය නියෝජනය 1000001 වේ.
+So, A is ASCII. / එමනිසා, A යනු ASCII වේ.
+
+Step / පියවර 2:
+Identify the encoding for B. / B සඳහා කේතනය හඳුනා ගන්න.
+This is an 8-bit code. In EBCDIC, 'B' is 194, which is 1100 0010 in binary.
+මෙය බිටු 8 හි කේතයකි. EBCDIC හි 'B' යනු 194 වන අතර එය ද්විමය වශයෙන් 1100 0010 වේ.
+So, B is EBCDIC. / එමනිසා, B යනු EBCDIC වේ.
+
+Step / පියවර 3:
+Identify the encoding for C. / C සඳහා කේතනය හඳුනා ගන්න.
+This is a 16-bit binary code. Unicode uses UTF-16 encoding, which often has 16-bit or more per
+character.
+මෙය බිටු 16 හි ද්විමය කේතයකි. යුනිකෝඩ් UTF-16 කේතනය භාවිතා කරයි, බොහෝ විට එක් අක්ෂරයකට
+බිටු 16ක් හෝ වැඩි ගණනක් ඇත.
+So, C is Unicode. / එමනිසා, C යනු යුනිකෝඩ් ය.
+
+Final Answer/ අවසාන පිළිතුර:
+A → ASCII
+B → EBCDIC
+C → Unicode
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+4. Which of the following answers are arranged in descending order?
+පහත සඳහන් කුමන පිළිතුර අවරෝහණ අනුපිළිවෙලට සකසා තිබේද?
+A. 11101012
+B. 3458
+C. 12510
+D. 6E16
+1) C >D >B >A
+2) B >D >C >A
+3) C >B >D >A
+4) B >A >C >D
+5) B >C >A >D
+
+Answer: 5)
+Explanation / පැහැදිලි කිරීම
+If the numbers are in different bases, they must be converted into one type of base. As an example, in
+this question we will convert all the numbers into decimals.
+සංඛ්‍යා විවිධ පාදවල තිබේ නම්, ඒවා එක් වර්ගයකට පරිවර්තනය කළ යුතුය. උදාහරණයක් ලෙස මෙම
+ප්‍රශ්නයේදී සියලුම සංඛ්‍යා දශමය බවට පරිවර්තනය කළ හැක.
+
+2026 QUIZ SERIES
+#ictfromabc
+-3-
+
+Binary to decimal conversion
+ද්විමය දශමයට පරිවර්තනය
+11101012
+1
+1
+1
+0
+1
+0
+1
+64
+32
+16
+8
+4
+2
+1
+1x64 + 1x32 + 1x16 = 112
+1x4 + 1x1 = 5
+11710
+Now the numbers in decimal format are,
+දැන් දශමය පාදයේ සංඛ්‍යා වන්නේ,
+
+A= 11710
+B= 22910
+C= 12510
+D= 11010
+Therefore, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර 5) වේ.
+
+5. What is the logic gate representing the output of the logic circuit shown in the figure?
+දී ඇති රූපයේ දැක්වෙන තාර්කික පරිපථයේ ප්‍රතිදානය නිරූපණය කරන තාර්කික ද්වාරය වන්නේ කුමක්ද?
+1) OR
+2) AND
+3) NAND
+4) NOR
+5) XOR
+
+Answer : 2)
+Let's assume one input is A and the other input is B.
+එක් ආදානයක් A ලෙසද අනෙක් අදානය B ලෙසද සිතමු.
+
+A
+B
+A̅
+B̅
+A̅ + B̅̅̅̅̅̅̅̅
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+1
+0
+0
+1
+0
+1
+1
+0
+0
+1
+
+Accordingly, the correct answer is the AND gate.
+ඒ අනුව නිවැරදි පිළිතුර වන්නේ AND ද්වාරය වේ.
+
+Octal into decimal conversion
+අෂ්ඨමය දශමයට පරිවර්තනය
+3458
+3
+4
+5
+82
+81
+80
+3 x 64 =192
+4 x 8 =32
+5 x 1 =5
+= 22910
+Hexadecimal into decimal conversion
+ෂඩ්-දශමය දශමයට පරිවර්තනය
+6E16
+6
+E
+161
+160
+6 x 16 =96
+14 x 1 =14
+= 11010
+2027 QUIZ SERIES
+#ictfromabc
+-4-

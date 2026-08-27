@@ -1,0 +1,186 @@
+1. Which of the following statements about the most significant digit (MSD) is correct?
+වැඩිම වෙසෙසි ඉලක්කම් පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි කුමක්ද?
+
+1) It determines the number of digits in a number but does not affect its magnitude
+එය සංඛ්‍යාවක ඉලක්කම් ගණන තීරණය කරයි, නමුත් එහි විශාලත්වයට බලපාන්නේ නැත
+
+2) It is always greater than all other digits in the number
+එය සැමවිටම සංඛ්‍යාවේ අනෙකුත් සියලුම ඉලක්කම් වලට වඩා විශාල වේ
+
+3) It can be used to estimate the size or magnitude of a number
+එය සංඛ්‍යාවක ප්‍රමාණය හෝ විශාලත්වය ඇස්තමේන්තු කිරීමට භාවිතා කළ හැකිය
+
+4) It is the last digit in a decimal number
+එය දශම සංඛ්‍යාවක අවසාන ඉලක්කම් වේ
+
+5) It is irrelevant in sorting numbers in ascending order
+ආරෝහණ අනුපිළිවෙලින් සංඛ්‍යා වර්ග කිරීමේදී එය අදාළ නොවේ
+
+Consider the following numbers / පහත සංඛ්‍යා සලකා බලන්න:
+
+A. 1011.1012
+B. 13.58
+C. 11.62510
+
+2. Which of the above numbers is equal to B.A in hexadecimal?
+ඉහත සංඛ්‍යාවලින් ෂඩ් දශමයෙන් B.A ට සමාන වන්නේ කුමන සංඛ්‍යාවද?
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A and C only
+A සහ C පමණි
+5) All of these
+ඉහත සියල්ල
+
+3. Which of the following statements about coding systems is correct?
+කේතකරණ පද්ධති පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි කුමක්ද?
+
+1) ASCII is a coding system used to represent numbers in hexadecimal only.
+ASCII යනු ෂඩ් දශමයෙන් පමණක් සංඛ්‍යා නිරූපණය කිරීමට භාවිතා කරන කේතකරණ පද්ධතියකි.
+
+2) Unicode can represent characters from almost all languages in the world.
+යුනිකෝඩ් වලට ලෝකයේ සියලුම භාෂාවලින් පාහේ අක්ෂර නිරූපණය කළ හැකිය.
+
+3) Binary code cannot be used to represent text in computers.
+පරිගණකවල පෙළ නිරූපණය කිරීමට ද්විමය කේතය භාවිතා කළ නොහැක.
+
+4) UTF-8 is a variable-length coding system that can represent all Unicode characters.
+UTF-8 යනු සියලුම යුනිකෝඩ් අක්ෂර නිරූපණය කළ හැකි විචල්‍ය-දිග කේතීකරණ පද්ධතියකි.
+
+5) EBCDIC is a coding system used for storing images.
+EBCDIC යනු රූප ගබඩා කිරීම සඳහා භාවිතා කරන කේතීකරණ පද්ධතියකි.
+
+4. In the binary number 110101₂, which of the following statements is correct?
+ද්විමය සංඛ්‍යාව 110101₂ හි, පහත සඳහන් ප්‍රකාශ අතුරෙන් නිවැරදි වන්නේ කුමක්ද?
+
+1) MSB = rightmost bit 1, LSD = leftmost bit 1
+2) MSB = leftmost bit 1, LSD = rightmost bit 1
+3) Both MSB and LSD are always zero
+4) MSB = 0, LSD = 1
+5) MSB = 1, LSD = 0
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 19
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+5. Which of the following statements correctly compare binary addition and subtraction?
+පහත සඳහන් ප්‍රකාශවලින් ද්විමය එකතු කිරීම සහ අඩු කිරීම නිවැරදිව සංසන්දනය කරන්නේ කුමක්ද?
+
+A. Both operations are performed using base 2.
+මෙහෙයුම් දෙකම පාදම 2 භාවිතයෙන් සිදු කෙරේ.
+
+B. Binary addition can produce a carry, while subtraction may require a borrow.
+ද්විමය එකතු කිරීම සඳහා carry තිබිය හැකි අතර, අඩු කිරීම සඳහා ණයක් borrow විය හැකිය.
+
+C. Binary subtraction and addition follow the same carry rule.
+ද්විමය අඩු කිරීම සහ එකතු කිරීම එකම carry රීතිය අනුගමනය කරයි.
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A and C only
+A සහ C පමණි
+5) All of these
+ඉහත සියල්ල
+
+6. Consider the following statements about converting numbers from octal and hexadecimal to binary.
+සංඛ්‍යා අෂ්ටක සහ ෂඩ් දශම සිට ද්විමය බවට පරිවර්තනය කිරීම පිළිබඳ පහත ප්‍රකාශ සලකා බලන්න.
+
+A. Each octal digit is replaced by a group of 3 binary bits.
+සෑම අෂ්ටක ඉලක්කමක්ම ද්විමය බිටු 3ක කණ්ඩායමකින් ප්‍රතිස්ථාපනය වේ.
+
+B. Each hexadecimal digit is replaced by a group of 4 binary bits.
+සෑම ෂඩාස්රාකාර ඉලක්කමක්ම ද්විමය බිටු 4 ක කණ්ඩායමකින් ප්‍රතිස්ථාපනය වේ.
+
+C. Conversion from base 8 or 16 to base 2 can be done directly, without converting to base 10.
+පාදම 8 හෝ 16 සිට 2 පාදය දක්වා පරිවර්තනය කිරීම 10 පාදයට පරිවර්තනය නොකර සෘජුවම සිදු
+කළ හැක.
+
+Select the correct statement(s) / නිවැරදි ප්‍රකාශය(ය) තෝරන්න:
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A and C only
+A සහ C පමණි
+5) All of these
+ඉහත සියල්ල
+
+7. Which of the following best describes a coding system in computer number systems?
+පරිගණක අංක පද්ධතිවල කේතීකරණ පද්ධතියක් වඩාත් හොඳින් විස්තර කරන්නේ පහත මොනවාද?
+
+1) A method used to store only decimal numbers in memory.
+මතකයේ දශම සංඛ්‍යා පමණක් ගබඩා කිරීමට භාවිතා කරන ක්‍රමයකි.
+
+2) A process of converting data and symbols into binary form for computer processing.
+පරිගණක සැකසීම සඳහා දත්ත සහ සංකේත ද්විමය ආකාරයෙන් පරිවර්තනය කිරීමේ ක්‍රියාවලියකි.
+
+3) A system used to perform arithmetic operations only.
+ගණිතමය මෙහෙයුම් සිදු කිරීමට පමණක් භාවිතා කරන පද්ධතියකි.
+
+4) A device that converts analog signals to digital form.
+ඇනලොග් සංඥා ඩිජිටල් ආකෘතියට පරිවර්තනය කරන උපකරණයකි.
+
+5) A set of rules for designing computer algorithms.
+පරිගණක ඇල්ගොරිතම සැලසුම් කිරීම සඳහා නීති මාලාවක්.
+
+8. Convert the hexadecimal number 2A.C₁₆ to its equivalent octal form.
+ෂඩ් දශම අංකය 2A.C₁₆ එහි සමාන අෂ්ටක ස්වරූපයට පරිවර්තනය කරන්න.
+
+1) 52.6₈
+2) 52.75₈
+3) 52.3₈
+4) 51.7₈
+5) 53.2₈
+9. In the decimal number 7425, which digit is the LSD?
+දශම සංඛ්‍යාව වන 7425 හි, LSD යනු කුමන ඉලක්කමද?
+
+1) 7
+2) 4
+3) 2
+4) 5
+5) 0
+
+Answers:
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+1.
+3
+2.
+5
+3.
+2
+4.
+2
+5.
+3
+6.
+5
+7.
+2
+8.
+1
+9
+4
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-

@@ -1,4 +1,4 @@
-﻿"""Paper-Bank tests: classification, key parsing, store round-trip, and the
+"""Paper-Bank tests: classification, key parsing, store round-trip, and the
 bulk-import job (happy path with scheme pairing, quality gate, resumability).
 
 Runs fully offline — the MinerU parse + LLM extraction layers are monkeypatched
@@ -70,6 +70,51 @@ def test_parse_mcq_keys_line_table_and_paren_forms() -> None:
     keys = parse_mcq_keys("1 B   2 C   03 A\n(14) D\n25-E")
     assert keys == {1: "B", 2: "C", 3: "A", 14: "D", 25: "E"}
     assert parse_mcq_keys("") == {}
+
+
+def test_parse_mcq_keys_numeric_and_grid() -> None:
+    # Numeric answers (1..5) common in Sri Lankan marking schemes
+    keys = parse_mcq_keys("1 - 2\n2: 4\n3. (1)\n04 - (5)\n5. (3)")
+    assert keys == {1: "B", 2: "D", 3: "A", 4: "E", 5: "C"}
+
+    # Grid format
+    grid_keys = parse_mcq_keys("1.\n 3\n2.\n All\n3.\n 5")
+    assert grid_keys == {1: "C", 2: "ALL", 3: "E"}
+
+
+def test_split_options_sinhala_and_numeric() -> None:
+    from deeptutor.services.exams.engine import split_options
+
+    # Sinhala numeral options (1)-(5)
+    si_stem = "1. පරිගණකයක ප්‍රධාන මතකය කුමක්ද?\n(1) RAM\n(2) ROM\n(3) HDD\n(4) SSD\n(5) Cache"
+    clean_stem, opts = split_options(si_stem)
+    assert opts is not None
+    assert len(opts) == 5
+    assert opts["A"] == "RAM"
+    assert opts["B"] == "ROM"
+    assert opts["E"] == "Cache"
+
+    # Sinhala letter options (අ)-(ඉ)
+    si_letters = "ප්‍රශ්නය\n(අ) පළමු තේරීම\n(ආ) දෙවන තේරීම\n(ඇ) තෙවන තේරීම\n(ඈ) සිව්වන තේරීම\n(ඉ) පස්වන තේරීම"
+    clean_stem2, opts2 = split_options(si_letters)
+    assert opts2 is not None
+    assert len(opts2) == 5
+    assert opts2["A"] == "පළමු තේරීම"
+    assert opts2["E"] == "පස්වන තේරීම"
+
+
+def test_grade_mcq_interchangeable() -> None:
+    from deeptutor.services.exams.engine import ExamQuestion, grade_mcq
+
+    q = ExamQuestion(id="q1", number=1, question_type="choice", text="Q1", reference_answer="3", marks=1.0)
+    # Student answered letter 'C' (3rd option)
+    assert grade_mcq(q, option_key="C") is True
+
+    # Student answered numeric '3'
+    assert grade_mcq(q, option_key="3") is True
+
+    # Wrong answer
+    assert grade_mcq(q, option_key="A") is False
 
 
 def test_attach_keys_leading_number_then_positional_fallback() -> None:

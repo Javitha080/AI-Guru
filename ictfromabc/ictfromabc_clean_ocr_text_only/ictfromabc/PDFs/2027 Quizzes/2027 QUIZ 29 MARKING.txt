@@ -1,0 +1,420 @@
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+
+1. Which of the following components is directly connected to the Southbridge chip in a traditional
+computer architecture?
+සාම්ප්‍රදායික පරිගණක ආකෘතියක Southbridge භ̃පයට සෘජුවම සම්බන්ධ කර ඇති සංරචකය වන්නේ පහත
+සඳහන් කුමක්ද?
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+In a traditional computer architecture with a Northbridge-Southbridge chipset, the Southbridge is
+responsible for managing lower-speed peripheral connections, while the Northbridge handles high-speed
+components like RAM and the CPU.
+Northbridge-Southbridge භ̃ප්සෙට් එකක් සහිත සාම්ප්‍රදායික පරිගණක ආකෘතියක, Southbridge අඩු වේග
+පර්යන්ත සම්බන්ධතා කළමනාකරණය කිරීම සඳහා වගකිව යුතු අතර, Northbridge මගින් RAM සහ CPU
+වැනි අධිවේගී සංරචක හසුරුවයි.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+RAM communicates at high speed with the CPU and is directly managed by the Northbridge.
+RAM, CPU සමධ̃ අධික වේගයෙන් සන්නිවේදනය කරන අතර Northbridge විසින් සෘජුවම කළමනාකරණය
+කරනු ලැසෙ́.
+
+Option / විකල්ප 2)
+The CPU communicates with RAM and the GPU via the Northbridge, not the Southbridge.
+CPU, RAM සහ GPU සමධ̃ සන්නිවේදනය කරන්නේ Northbridge හරහා මිස Southbridge හරහා නොවේ.
+
+Option / විකල්ප 3)
+High-speed PCIe slots (like for GPUs) are connected to the Northbridge, while lower-speed slots (ex: for
+network cards, sound cards) may be connected to the Southbridge.
+අධිවේගී PCIe සම්බන්ධක (GPU වැනි දේ සඳහා) Northbridge වෙත සම්බන්ධ කර ඇති අතර, අඩු වේග
+සම්බන්ධක (උදා: ජාල කාඩ්පත්, ශස́ද කාඩ්පත් සඳහා) Southbridge වෙත සම්බන්ධ කළ හැකිය.
+
+Option / විකල්ප 4)
+Southbridge manages USB ports, SATA controllers, audio, and other low-speed peripherals.
+Southbridge මගින් USB කෙවෙනි, SATA පාලක, ශ්‍රව්‍ය සහ අනෙකුත් අඩු වේග පර්යන්ත කළමනාකරණය
+කරයි.
+
+Therefore, the correct answer is 4). / එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+2027 QUIZ NO 29 MARKING
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+2027 QUIZ SERIES
+2025/11/25
+ictfromabc
+Ravindu Bandaranayake
+1)  RAM
+2)  Processor
+සකසනය (CPU)
+3) PCIe slots
+PCIe සම්බන්ධක
+4) USB ports
+USB කෙවෙනි
+5) All of the above.
+ඉහත සියල්ලම.
+
+2. As of February 2025, Intel's latest processor line is the Core Ultra Series. Which of the following
+statements is true about Intel's Core Ultra processors?
+2025 පෙබරවාරි වන විට, Intel හි නවතම සකසන පරම්පරාව Core Ultra Series වේ. Intel හි Core Ultra
+සකසන සම්බන්ධයෙන් පහත සඳහන් කුමන ප්‍රකාශය සත්‍යද?
+
+1) They continue to use a monolithic design for improved performance.
+වැඩිදියුණු කළ කාර්ය සාධනය සඳහා ඔවුන් දිගටම monolithic පිරිසැලසුම භාවිතා කරයි.
+
+2) They are the first Intel processors to feature a chiplet-based architecture.
+Chiplet මත පදනම් වූ ආකෘතියක් සහිත පළමු Intel සනසනය එය වේ.
+
+3) They lack integrated AI capabilities / ඔවුන්ට අන්තර්බද්ධ AI හැකියාවන් නොමැත.
+4) They are compatible with the older LGA 1700 socket.
+ඒවා පැරණි LGA 1700 socket සමධ̃ භාවිතා කළ හැකිය.
+
+5) They only support DDR5 memory and do not work with DDR4.
+ඔවුන් DDR5 මතකයට පමණක් ප්‍රතිචාර දක්වන අතර DDR4 සමධ̃ ක්‍රියා නොකරයි.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+They do not use a monolithic design. / ඔවුන් monolithic පිරිසැලසුමක් භාවිතා නොකරයි.
+
+Option / විකල්ප 2)
+Intel’s Core Ultra processors do use a chiplet-based design.
+Intel හි Core Ultra සකසන chiplet මත පදනම් වූ සැලසුමක් භාවිතා කරයි.
+
+Option / විකල්ප 3)
+They do have integrated AI capabilities via the Neural Processing Unit (NPU).
+ඒවාට Neural Processing Unit (NPU) එක හරහා අන්තර්බද්ධ AI හැකියාවන් ඇත.
+
+Option / විකල්ප 4)
+They are incompatible with LGA 1700 because they use LGA 1851 instead.
+ඒවා LGA 1851 භාවිතා කරන බැවින්, ඒවා LGA 1700 සමධ̃ නොගැළපේ.
+
+Option / විකල්ප 5)
+They support both DDR4 and DDR5 memory.
+ඒවා DDR4 සහ DDR5 මතකය යන දෙකටම සහය වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+3. Ravindu is searching for a new staff member and presents each candidate with a test question. He is
+thinking of a 9-bit binary number that does not contain three consecutive identical bits (i.e., neither "000"
+nor "111"). The candidate must choose which number he is thinking of, from the following decimal values.
+Which number could it be?
+රවිඳු අලුත් සේවකයෙක් සොයමින් සිටින අතර සෑම අපේක්ෂකයෙකුටම පරීක්ෂණ ප්‍රශ්නයක් ඉදිරිපත් කරයි.
+ඔහු සිතන්නේ අඛණ්ඩව සමාන බිටු තුනක් (එනම් “000” හෝ “111”) අඩංගු නොවන බිටු 9 ද්විමය අංකයක්
+ගැන ය. අපේක්ෂකයා පහත දශමය අගයන්ගෙන් ඔහු සිතන්නේ කුමන අංකයද යන්න තෝරාගත යුතුය. එය
+කුමන අංකය විය හැකිද?
+1)  460
+2)  396
+3) 284
+4) 412
+5) 409
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Answer: 5)
+
+Explanation / පැහැදිලි කිරීම:
+
+First, convert each answer into a binary value.
+පළමුව, සෑම පිළිතුරක්ම ද්විමය අගයක් බවට පරිවර්තනය කරන්න.
+
+1) 460 = 1110011002
+Invalid (contains “111”) / වලංගු නැත (“111” අඩංගු වේ)
+
+2) 396 = 1100011002
+Invalid (contains “000”) / වලංගු නැත (“000” අඩංගු වේ)
+
+3) 284 = 1000111002
+Invalid (contains both “000” and “111”) / වලංගු නැත (“111” සහ “000” යන දෙකම අඩංගු වේ)
+
+4) 412 = 1100111002
+Invalid (contains “111”) / වලංගු නැත (“111” අඩංගු වේ)
+
+5) 409 = 1100110012
+Valid (No “000” or “111”) / වලංගු වේ (“000” හෝ “111” නැත)
+
+Therefore, the correct number is 409.
+එබැවින්, නිවැරදි අංකය 409 වේ.
+
+4. What is the 2’s complement representation of 68?
+68 හි දෙකෙහි අනුපූරක නියෝජනය වනුයේ කුමක්ද?
+1)  101000002
+2)  010001002
+3) 000010012
+4) 010111112
+5) 111110102
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+Here, it is meant to get the 2’s complement of 68. 68 is a positive number. So, it’s enough to get the
+binary value of the decimal number 68. No need to inverse and add one to the binary value.
+මෙහිදී, ධන 68 හි දෙකෙහි අනුපූරකය ලබා ගැනීමට අදහස් කරයි. එබැවින්, දශමය අංක 68 හි ද්විමය
+අගය ලබා ගැනීම ප්‍රමාණවත් වේ. ද්විමය අගයට එකක් එකතු කර ප්‍රතිලෝම කිරීම ද අවශ්‍ය නොවේ.
+
+2 460
+
+2 230
+0
+2 115
+0
+2 57
+1
+2 28
+1
+2 14
+0
+2 7
+0
+2 3
+1
+2 1
+1
+
+0
+1
+2 409
+
+2 204
+1
+2 102
+0
+2 51
+0
+2 25
+1
+2 12
+1
+2 6
+0
+2 3
+0
+2 1
+1
+
+0
+1
+2 396
+
+2 198
+0
+2 99
+0
+2 49
+1
+2 24
+1
+2 12
+0
+2 6
+0
+2 3
+0
+2 1
+1
+
+0
+1
+2 284
+
+2 142
+0
+2 71
+0
+2 35
+1
+2 17
+1
+2 8
+1
+2 4
+0
+2 2
+0
+2 1
+0
+
+0
+1
+2 412
+
+2 206
+0
+2 103
+0
+2 51
+1
+2 25
+1
+2 12
+1
+2 6
+0
+2 3
+0
+2 1
+1
+
+0
+1
+2
+68
+
+2
+34
+
+0
+2
+17
+
+0
+2
+8
+
+1
+2
+4
+
+0
+2
+2
+
+0
+2
+1
+
+0
+
+0
+
+1
+As we are representing the 2’s complement value in 8 bits, we should
+add 0 in front of the whole value.
+බිටු 8 කින්, දෙකෙහි අනුපූරක අගය නියෝජනය කරන බැවින් සම්පූර්ණ
+අගය ඉදිරියෙන් 0 එකතු කළ යුතුය.
+
+Therefore, decimal 68 is equal to 010001002 in 2’s complement.
+එබැවින්, දශමය 68 හි දෙකෙහි අනුපූරකය 010001002 ට සමාන වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+5. The decimal value of BCD 1001100101 is?
+BCD 1001100101 හි දශමය අගය වන්නේ?
+
+1) An invalid value / වලංගු නොවන අගයකි
+2) 265₁₀
+3) 613₁₀
+4) 383₁₀
+5) Insufficient information / තොරතුරු ප්‍රමාණවත් නැත
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම
+
+BCD uses 4 bits per decimal digit. The binary number is grouped from the right (least significant bit) to
+ensure proper alignment.
+BCD, දශමය ඉලක්කමක් නිරූපණය කිරීම සඳහා බිටු 4 ක් භාවිතා කරයි. ද්විමය සංඛ්‍යාව දකුණු පස
+(අඩුම වෙසෙසි බිටු) සිට කණ්ඩායම් කර ඇති අතර, එමගින් නිවැරදි සබැඳියාව සහතික කරයි.
+
+1001100101= 10  0110  0101
+
+If the leftmost group has fewer than 4 bits, it is padded with zeros on the left to meet the 4-bit
+requirement.
+යම් කණ්ඩායමක බිටු 4 ට වඩා අඩු ගණනක් තිසෙ́ නම්, එය වම් පසින් ශුන්‍ය එකතු කර 4-බිටු අවශ්‍යතාව
+සපුරාලයි.
+
+10 → 0010
+
+1001100101BCD
+0010
+0110
+0101
+0
+0
+1
+0
+0
+1
+1
+0
+0
+1
+0
+1
+23
+22
+21
+20
+23
+22
+21
+20
+23
+22
+21
+20
+
+2×1
+
+4×1
+2×1
+
+4×1
+
+1×1
+2
+4+2
+4+1
+2
+6
+5
+26510
+
+Therefore, the answer is 2). / එබැවින්, පිළිතුර 2) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-

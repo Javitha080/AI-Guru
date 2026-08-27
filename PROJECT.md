@@ -1,177 +1,87 @@
-# Project: AI Guru
+# Project: AI Guru — System-Wide Audit, Debugging, and Polish
 
 ## Architecture
 
-AI Guru is an intelligent, local-first, privacy-focused AI tutoring and study-monitoring platform built on an agent-native architecture.
+AI Guru is a local-first AI tutoring platform built on the DeepTutor 1.5.11 architecture with advanced student study-monitoring (on-device CV), past-paper Exam Room, passcode-gated Parent Portal (with Telegram alerts and outbound Cloudflare/ngrok tunnels), encrypted incident video vault (GURUVAULT02 PBKDF2/AES-GCM), and a floating PiP assistant.
 
-```
-                                    ┌───────────────────────────────────┐
-                                    │      Next.js 16 (React 19) UI     │
-                                    │     (Student & Parent Portals)    │
-                                    └─────────────────┬─────────────────┘
-                                                      │ HTTP / WebSocket
-                                                      ▼
-┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                       AI GURU LOCAL RUNTIME (FastAPI)                                  │
-│                                                                                                        │
-│  ┌─────────────────────────┐  ┌────────────────────────┐  ┌─────────────────────────────────────────┐  │
-│  │   ChatOrchestrator      │  │  StudyMonitoringEngine │  │         TutorProvider Manager           │  │
-│  │  - 7 Capabilities       │  │  - 5-10 FPS Analysis   │  │  - Mode A: External Cloud APIs          │  │
-│  │  - 43 Built-in Tools    │  │  - Face & Liveness     │  │  - Mode B: Local Ollama LLMs            │  │
-│  │  - StreamBus Fan-Out    │  │  - Presence & Posture  │  │  - Mode C: Offline Rule Engine          │  │
-│  │                         │  │  - Distraction Filter  │  │  - Hardware Profiler & Governor         │  │
-│  └────────────┬────────────┘  └───────────┬────────────┘  └────────────────────┬────────────────────┘  │
-│               │                           │                                    │                       │
-│               └───────────────────────────┼────────────────────────────────────┘                       │
-│                                           ▼                                                            │
-│                         ┌───────────────────────────────────┐                                          │
-│                         │   Session & Gamification Engine   │                                          │
-│                         │   - Study Session Lifecycle       │                                          │
-│                         │   - Real-Time Telemetry Logging   │                                          │
-│                         │   - XP, Streaks & Badges          │                                          │
-│                         └─────────────────┬─────────────────┘                                          │
-│                                           ▼                                                            │
-│                         ┌───────────────────────────────────┐                                          │
-│                         │  Local Relational Database Store  │                                          │
-│                         │   (SQLite / aiosqlite in WAL)     │                                          │
-│                         │   - 11 Core Relational Tables     │                                          │
-│                         │   - Versioned Migrations          │                                          │
-│                         └─────────────────┬─────────────────┘                                          │
-│                                           │                                                            │
-│  ┌────────────────────────────────────────┴─────────────────────────────────────────────────────────┐  │
-│  │  Parent Remote Access Gateway (Outbound Encrypted Tunnel + JWT Auth + Opt-In Live Supervision)     │  │
-│  └────────────────────────────────────────────────────────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+### Architecture Map & Data Flow
+1. **Frontend Presentation & State Layer (`web/`)**:
+   - Next.js 16 App Router, React 19, Tailwind CSS, TypeScript.
+   - Ember Glass theme tokens, GSAP motion utilities (`useGsapReveal.ts`), motion tokens in `globals.css`.
+   - Unified WebSocket transport (`lib/unified-ws.ts`), single-flight Parent Portal API client (`lib/parent/parent-api.ts`), MediaPipe WebAssembly FaceLandmarker pipeline (`lib/monitoring/visionPipeline.ts`).
+   - Workspace Views: Study Room (`/study-room`), Exam Room (`/exam`, `/papers`), Parent Portal (`/parent`), Unified Chat (`/home`), Floating PiP Guru, Achievements (`/achievements`), Book Creator (`/book`), Co-Writer (`/co-writer`), Settings (`/settings/*`).
+2. **Backend API & Service Layer (`deeptutor/`)**:
+   - FastAPI application (`deeptutor/api/main.py`) mounting 38 router modules (`deeptutor/api/routers/` + `multi_user/router.py`).
+   - Services:
+     - `services/monitoring/`: 8-stage CV pipeline, presence FSM (5s/20s thresholds), distraction whitelist, telemetry dispatcher.
+     - `services/exams/`: Verbatim paper extraction (MinerU/Docling/MarkItDown), MCQ deterministic grader, LLM essay judge, paper bank sitting runner.
+     - `services/remote/`: Video vault (`video_vault.py` GURUVAULT02 PBKDF2/AES-GCM), tunnel watchdog (`tunnel_gateway.py`), parent JWT auth (`auth_jwt.py`).
+     - `services/gamification/`: SQLite rewards, XP calculations, streak bonuses, milestone badges.
+     - `services/study/`: Session manager, telemetry logger, session report generator.
+3. **Storage & Persistence Layer (`chat_history.db`)**:
+   - SQLite with WAL mode, foreign key constraints enabled.
+   - Versioned migrations (001–007) managed strictly via `services/database/migrations.py`.
+   - Dual-shape key-value settings (`value TEXT` and `value_json TEXT NOT NULL`) initialized via `ensure_kv_settings(db)`.
+
+---
 
 ## Feature Inventory
 
-Every feature from R1 through R9 is assigned to a milestone:
+| # | Feature | Description | Milestone | Source |
+|---|---------|-------------|-----------|--------|
+| F01 | Backend Router Mounting & Wiring | 38 router modules in `deeptutor/api/routers/` fully wired with live endpoints | M1 (Backend Hardening) | Survey Backend |
+| F02 | Payload Validation & Path Traversal Guards | Typed Pydantic models, strict path traversal checks, raster magic-byte validation | M1 (Backend Hardening) | Survey Backend |
+| F03 | Database Schema & Migration Integrity | Strict adherence to migrations 001–007, `metadata_json`, `study_sessions` CHECK, `ensure_kv_settings` | M1 (Backend Hardening) | Survey Backend |
+| F04 | Mock Elimination in Backend Services | Real CV pipeline, PBKDF2/AES-GCM vault, verbatim exam engine, real gamification | M1 (Backend Hardening) | Survey Backend |
+| F05 | Frontend Workspace Live Data Binding | All workspace pages wired to live backend API/WS without fake stats | M2 (Frontend UI Wiring) | Survey Frontend |
+| F06 | Honest Fallbacks & Error States | Render honest `—`/null-states, offline banners, and skeleton loaders on network disconnect | M2 (Frontend UI Wiring) | Survey Frontend |
+| F07 | TypeScript Safety | Clean compilation with zero TypeScript errors (`npx.cmd tsc --noEmit`) | M2 (Frontend UI Wiring) | Survey Frontend |
+| F08 | UI Motion & Transition Token Polish | Smooth modals, dropdowns, sliding tabs, toast pop-ins, and AI thinking states | M3 (Motion Polish) | Survey Polish |
+| F09 | Motion Token Alignment | Standardized `--duration-*`, `--ease-*`, and `prefers-reduced-motion` compliance | M3 (Motion Polish) | Survey Polish |
+| F10 | 5-Tier E2E & Adversarial Test Battery | Comprehensive test suite covering Tiers 1–5, stress tests, and fresh install smoke | M4 (E2E Test Suite) | Survey Testing |
+| F11 | Final System Diagnostic & Debug Report | Exhaustive diagnostic report categorizing all audited subsystems, bugs resolved, and logs | M5 (Final Report) | Request R5 |
 
-| # | Feature ID | Feature Name | Description | Milestone | Source |
-|---|------------|--------------|-------------|-----------|--------|
-| 1 | `REQ-R1-01` | Architecture Audit Document | Create `docs/AI-GURU-ARCHITECTURE-AUDIT.md` documenting full system | M1 | R1, AC Line 102 |
-| 2 | `REQ-R1-02` | Implementation Phasing Plan | Create `docs/AI-GURU-IMPLEMENTATION-PLAN.md` with phased approach | M1 | R1, AC Line 103 |
-| 3 | `REQ-R1-03` | Web UI Rebranding | Rebrand user-visible strings to "AI Guru" across web UI, headers, layout | M1 | R1, AC Line 58 |
-| 4 | `REQ-R1-04` | PWA & Metadata Rebranding | Update manifest.json, OpenGraph metadata, page titles to "AI Guru" | M1 | R1, AC Line 58 |
-| 5 | `REQ-R1-05` | CLI & Banner Rebranding | Rebrand CLI help, welcome banners, and outputs to "AI Guru" | M1 | R1, AC Line 58 |
-| 6 | `REQ-R1-06` | Internal Code Preservation | Preserve internal Python package `deeptutor.*` imports and logic | M1 | R1, AC Line 57 |
-| 7 | `REQ-R2-01` | Unified Service Launcher | Single command `deeptutor start` / `aiguru start` launching backend+frontend | M2 | R2, AC Line 61 |
-| 8 | `REQ-R2-02` | Comprehensive Health Check | `/api/v1/health` status for DB, backend, camera, mic, AI, Ollama, CV, CPU, RAM | M2 | R2, AC Line 62 |
-| 9 | `REQ-R2-03` | Localhost Binding & Port Security | Bind backend and DB strictly to 127.0.0.1; zero external port exposure | M2 | R2, AC Line 63 |
-| 10 | `REQ-R2-04` | 11-Table SQLite Schema | Create all 11 core tables (users, students, parents, sessions, events, etc.) | M2 | R2, AC Line 79 |
-| 11 | `REQ-R2-05` | Non-Destructive Migrations | Schema migration manager preserving all existing chat & session history | M2 | R2, AC Line 79 |
-| 12 | `REQ-R2-06` | Windows Auto-Startup Support | Settings toggle for Windows startup entry | M2 | R2 Line 23 |
-| 13 | `REQ-R2-07` | Subsystem Recovery | Automatic supervisor recovery for internal workers | M2 | R2 Line 23 |
-| 14 | `REQ-R3-01` | `TutorProvider` Interface | Base abstract interface unifying cloud and local LLMs | M3 | R3, AC Line 66 |
-| 15 | `REQ-R3-02` | Cloud Provider Adapter | Adapter wrapping external API providers with streaming & thinking tags | M3 | R3, AC Line 66 |
-| 16 | `REQ-R3-03` | Ollama Local Provider Adapter | Adapter connecting to local Ollama (`http://127.0.0.1:11434`) | M3 | R3, AC Line 66 |
-| 17 | `REQ-R3-04` | AI Mode Settings UI | UI for switching between External API, Ollama, and Auto-Mode | M3 | R3, AC Line 66 |
-| 18 | `REQ-R3-05` | Auto-Fallback Chain | Seamless fallback: Cloud API -> Local Ollama -> Offline Mode on network cut | M3 | R3, AC Line 68 |
-| 19 | `REQ-R3-06` | Secure Local API Key Vault | Store API keys in local config with masked frontend delivery | M3 | R3, AC Line 67 |
-| 20 | `REQ-R3-07` | Hardware Profiler | Detect GPU (NVIDIA/AMD/Intel/Apple) & CPU, categorize into LOW/MED/HIGH | M3 | R3 Line 27 |
-| 21 | `REQ-R3-08` | Resource Governor | Dynamically throttle background tasks & CV rate if CPU > 85% or RAM > 90% | M3 | R3 Line 27 |
-| 22 | `REQ-R3-09` | AI Onboarding Setup Wizard | First-run setup modal for AI provider selection & Ollama model download | M3 | R3 Line 27 |
-| 23 | `REQ-R4-01` | Local-Only CV Pipeline | 100% local video processing pipeline; zero biometric frames sent to cloud | M4 | R4, AC Line 72 |
-| 24 | `REQ-R4-02` | Decoupled Sampling (5-10 FPS) | Full 30 FPS preview with 5-10 FPS rate-limited inference | M4 | R4, AC Line 71 |
-| 25 | `REQ-R4-03` | Face Detection & Landmarks | Local face bounding box and 3D facial landmark mesh | M4 | R4, AC Line 72 |
-| 26 | `REQ-R4-04` | Face Identity Verification | Verify student identity against enrolled baseline (cosine sim >= 0.65) | M4 | R4, AC Line 78 |
-| 27 | `REQ-R4-05` | Anti-Spoof Liveness Detector | Reject printed photos and screen replays via texture & blink analysis | M4 | R4, AC Line 78 |
-| 28 | `REQ-R4-06` | Head Pose & Gaze Estimation | Compute Yaw, Pitch, Roll angles to track visual attention | M4 | R4 Line 31 |
-| 29 | `REQ-R4-07` | Presence State Machine | 4-state machine (PRESENT, TEMPORARILY_NOT_VISIBLE, AWAY, UNKNOWN) with hysteresis | M4 | R4, AC Line 73 |
-| 30 | `REQ-R4-08` | Real-Time Engagement Estimator | Continuous 0-100 engagement score from gaze, posture, and stability | M4 | R4 Line 31 |
-| 31 | `REQ-R4-09` | Distraction False-Positive Filter | Whitelist reading, writing, turning pages, drinking water; flag phones & absence | M4 | R4, AC Line 74 |
-| 32 | `REQ-R4-10` | Warning System & Cooldown | Distraction alerts with confidence threshold and 60s cooldown | M4 | R4, AC Line 75 |
-| 33 | `REQ-R5-01` | Study Session Creation | UI to select subject, topic, duration, and AI capability | M5 | R5, AC Line 78 |
-| 34 | `REQ-R5-02` | Pre-flight Hardware Check | Step-by-step wizard validating camera, lighting, and framing | M5 | R5, AC Line 78 |
-| 35 | `REQ-R5-03` | Pre-flight Identity & Liveness | Face match and blink verification before timer starts | M5 | R5, AC Line 78 |
-| 36 | `REQ-R5-04` | Interactive Study Room View | Split-screen workspace: timer, focus gauge, camera preview, AI tutor | M5 | R5, AC Line 78 |
-| 37 | `REQ-R5-05` | Real-Time Telemetry Logging | Persist focus, presence, and distraction events to `monitoring_events` table | M5 | R5, AC Line 79 |
-| 38 | `REQ-R5-06` | Session Completion & Aggregation | End session, compute focus %, study time, and distraction summary | M5 | R5, AC Line 78 |
-| 39 | `REQ-R5-07` | AI Study Summary Report | LLM-generated study recap, strengths, improvement areas, and metrics | M5 | R5, AC Line 78 |
-| 40 | `REQ-R5-08` | Session Report UI & Export | Visual report view with graphs and export capability | M5 | R5, AC Line 78 |
-| 41 | `REQ-R6-01` | XP Points Calculation Engine | Compute earned XP based on duration and focus multiplier | M5 | R6, AC Line 78 |
-| 42 | `REQ-R6-02` | Daily Streak Tracker | Track consecutive study days, handle streaks and freezes | M5 | R6 Line 39 |
-| 43 | `REQ-R6-03` | Badges & Achievement System | Unlock badges ("Laser Focus", "7-Day Streak") and record in `rewards` | M5 | R6 Line 39 |
-| 44 | `REQ-R6-04` | Level Progression System | Level progression (1-50) based on cumulative XP | M5 | R6 Line 39 |
-| 45 | `REQ-R6-05` | Gamification Dashboard Widgets | UI widgets displaying level, XP bar, streak flame, and badge collection | M5 | R6 Line 39 |
-| 46 | `REQ-R7-01` | Parent-Student Pairing | 6-digit secure pairing code handshake linking student and parent | M6 | R7, AC Line 82 |
-| 47 | `REQ-R7-02` | Parent Overview Dashboard | Portal showing live status, study time, focus score, streak, reports | M6 | R7, AC Line 83 |
-| 48 | `REQ-R7-03` | Parent Analytics Views | Trend charts for daily/weekly/monthly focus and subjects | M6 | R7, AC Line 83 |
-| 49 | `REQ-R7-04` | Zero-Config Outbound Tunnel | Encrypted reverse tunnel for remote access without port forwarding | M6 | R7, AC Line 87 |
-| 50 | `REQ-R7-05` | Short-Lived Tokens & Revocation | JWT auth with 15-min expiry, refresh rotation, device tracking | M6 | R7, AC Line 88 |
-| 51 | `REQ-R7-06` | Opt-in Live Video Supervision | Encrypted point-to-point live camera stream with banner and auto-kill | M6 | R7, AC Line 84 |
-| 52 | `REQ-R7-07` | Remote Data Privacy Isolation | Relay stores zero study data; all queries proxy to local SQLite DB | M6 | R7 Line 43 |
-| 53 | `REQ-R7-08` | Parent Access Audit Logging | Record all parent logins, live video views, and report downloads in `audit_logs` | M6 | R7, AC Line 89 |
-| 54 | `REQ-R8-01` | `ConnectivityManager` Service | Monitor states: ONLINE, OFFLINE, LIMITED, RECONNECTING | M6 | R8, AC Line 92 |
-| 55 | `REQ-R8-02` | Navbar Connectivity Indicator | UI badge showing online/offline & AI provider status | M6 | R8, AC Line 93 |
-| 56 | `REQ-R8-03` | Offline Study Session Continuity | Uninterrupted offline timer, CV monitoring, local reports, and rewards | M6 | R8, AC Line 92 |
-| 57 | `REQ-R8-04` | Local Ollama Offline Tutoring | AI tutoring chats execute through local Ollama when offline | M6 | R8 Line 47 |
-| 58 | `REQ-R8-05` | User-Friendly Error Interceptor | Intercept low-level exceptions and display friendly actionable dialogs | M6 | R8, AC Line 94 |
-| 59 | `REQ-R9-01` | Zero-Cloud Biometric Privacy | Strict local-only guarantee for camera frames, embeddings, and audio | M7 | R9, AC Line 97 |
-| 60 | `REQ-R9-02` | Encrypted Local Backup & Restore | Export/import encrypted SQLite database backup archive (`.aiguru-backup`) | M7 | R9, AC Line 98 |
-| 61 | `REQ-R9-03` | Privacy Data Deletion Controls | Granular deletion of monitoring history, sessions, or account with confirmation | M7 | R9, AC Line 99 |
-| 62 | `REQ-R9-04` | Developer Simulation Test Mode | Headless simulation mode (`--mock-camera`, `--dev`) for testing without webcam | M7 | R9 Line 51 |
-| 63 | `REQ-R9-05` | Complete Documentation Suite | 8 comprehensive docs in `docs/` and root README.md | M7 | R9, AC Lines 102-105 |
-| 64 | `REQ-E2E-01` | Comprehensive E2E Test Suite | 4-Tier Opaque-Box E2E Test Suite + Tier 5 Adversarial Coverage Hardening | M8 | Acceptance Criteria |
+---
 
 ## Milestones
 
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Architecture Audit & Brand Transformation | R1: `docs/AI-GURU-ARCHITECTURE-AUDIT.md`, `docs/AI-GURU-IMPLEMENTATION-PLAN.md`, complete user-facing rebranding across Web UI, PWA, CLI, locales, preserving internal `deeptutor` package namespace | none | DONE |
-| M2 | Local-First Unified Runtime & Database | R2: 11-table SQLite schema, migrations in `sqlite_store.py`, `/api/v1/health` endpoint, localhost 127.0.0.1 binding, launcher supervisor, Windows auto-start | M1 | DONE |
-| M3 | AI Provider Abstraction (`TutorProvider`) & Dual-Mode | R3: `TutorProvider` interface, Cloud API + Local Ollama adapters, settings UI, hardware profiler (LOW/MED/HIGH), resource governor, auto-fallback | M2 | DONE |
-| M4 | Study Monitoring Engine (Local CV) | R4: Local CV pipeline (5-10 FPS analysis, 30 FPS preview), face detection, identity verification, anti-spoof liveness, presence state machine, false-positive distraction filter, warning cooldown | M2 | IN_PROGRESS |
-| M5 | Study Session Lifecycle & Gamification | R5 & R6: Session creation, pre-flight wizard, study room UI, telemetry logging, AI report summaries, XP calculation, streak tracking, badge system | M3, M4 | PLANNED |
-| M6 | Parent Dashboard, Remote Access & Offline Resilience | R7 & R8: Parent pairing code, parent dashboard, encrypted outbound tunnel gateway, short-lived JWTs, opt-in live video, audit logs, ConnectivityManager, friendly error interceptor | M5 | PLANNED |
-| M7 | Security, Backup, Dev Mode & Documentation | R9: Zero-biometric egress verification, encrypted backup/restore UI, privacy data purge, developer mock mode, all 8 documentation files (`docs/*`, `README.md`) | M6 | PLANNED |
-| M8 | Final Verification & Adversarial Hardening | Phase 1: 100% E2E test suite pass (Tiers 1-4); Phase 2: Adversarial Coverage Hardening (Tier 5) | M1-M7 | PLANNED |
+| M1 | Backend Routers & API Wiring Audit | Audit all 38 backend routers, eliminate mock stubs, verify DB schema adherence, harden error handling | None | DONE |
+| M2 | Frontend Workspace Real-Data Wiring & Fallbacks | Audit workspace routes, eliminate fake metrics, verify honest fallback/loading states, ensure TS 0 errors | M1 | DONE |
+| M3 | UI/UX Motion Tokens & Transitions Polish | Apply transitions-dev and transitions-polish tokens across modals, tabs, dropdowns, thinking states | M2 | DONE |
+| M4 | E2E Multi-Tier Test Suite Verification | Run & verify full test suite (Tiers 1–5, 100 pytest tests, 413 frontend tests) | M1, M2, M3 | IN_PROGRESS |
+| M5 | Comprehensive Diagnostic & Polish Report | Compile system-wide diagnostic, bug resolution, wiring inventory, and verification logs | M4 | PLANNED |
+
+---
 
 ## Interface Contracts
 
-### 1. Database Store (`deeptutor.services.session.sqlite_store`) ↔ All Subsystems
-- **Tables**: `users`, `students`, `parents`, `parent_student_links`, `study_sessions`, `monitoring_events`, `session_reports`, `rewards`, `study_goals`, `settings`, `audit_logs`.
-- **Methods**:
-  - `create_study_session(...) -> StudySession`
-  - `record_monitoring_event(session_id, event_type, confidence, duration, metadata) -> int`
-  - `finish_study_session(session_id, stats) -> SessionReport`
-  - `award_xp(student_id, xp, reason) -> Reward`
-  - `create_pairing_code(student_id) -> str`
-  - `verify_pairing_code(parent_id, code) -> bool`
+### Backend ↔ Frontend API Contract
+- Base URL: `http://127.0.0.1:8001/api/v1/` proxied via Next.js `web/proxy.ts`.
+- WebSocket Transport: `/ws/study/{session_id}`, `/ws/monitoring/session/{session_id}`, `/ws/chat/stream`.
+- Authentication:
+  - Student / General: Cookie-based / Bearer JWT validated via `require_auth` / `ws_require_auth`.
+  - Parent Portal: PIN-derived Bearer JWT validated via `require_parent` (15m access / 7d refresh in sessionStorage).
+- Error Response Format: `{"detail": string | list[dict]}` with standard HTTP status codes (400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 422 Unprocessable Entity, 500 Internal Server Error).
 
-### 2. AI Tutor Provider (`deeptutor.services.llm.tutor_provider`) ↔ ChatOrchestrator
-- **Class**: `TutorProvider(ABC)`
-- **Methods**:
-  - `async stream(messages: list[dict], params: dict) -> AsyncIterator[StreamChunk]`
-  - `async complete(messages: list[dict], params: dict) -> CompletionResponse`
-  - `async check_health() -> ProviderHealth`
-  - `get_hardware_profile() -> HardwareTier (LOW | MEDIUM | HIGH)`
+### Storage ↔ Service Contract
+- SQLite Database: `chat_history.db`.
+- Migrations: Applied in order 001 -> 007 at lifespan startup in `deeptutor/services/database/migrations.py`.
+- Settings Table: Dual-shape `(key TEXT PRIMARY KEY, value TEXT, value_json TEXT NOT NULL, updated_at REAL)`. Always call `ensure_kv_settings(db)`.
+- Study Sessions Table: Status column must strictly be one of `'in_progress'`, `'completed'`, `'paused'`, `'abandoned'`.
+- Monitoring Events Table: Columns `(id INTEGER PRIMARY KEY AUTOINCREMENT, session_id TEXT, event_type TEXT, timestamp REAL, severity TEXT, metadata_json TEXT)`.
 
-### 3. Study Monitoring Engine ↔ Frontend / WebSocket
-- **Endpoints**:
-  - `WS /api/v1/monitoring/session/{session_id}` (Telemetry streaming)
-  - `POST /api/v1/monitoring/enroll-face` (Local feature vector baseline)
-  - `POST /api/v1/monitoring/verify-liveness` (Anti-spoof check)
-- **Events**: `PRESENCE_CHANGE`, `LOOKING_AWAY`, `PHONE_DETECTED`, `IDENTITY_VERIFIED`, `WARNING_ISSUED`.
-
-### 4. Parent Remote Access ↔ Parent Dashboard
-- **Endpoints**:
-  - `POST /api/v1/parent/auth/pair` (Code handshake)
-  - `GET /api/v1/parent/student/{student_id}/live-status`
-  - `GET /api/v1/parent/student/{student_id}/reports`
-  - `WS /api/v1/parent/live-stream/{session_id}` (Opt-in WebRTC video feed)
+---
 
 ## Code Layout
 
-- Backend Root: `deeptutor/`
-  - API Routers: `deeptutor/api/routers/` (`health.py`, `study_session.py`, `monitoring.py`, `parent.py`, `gamification.py`, `backup.py`)
-  - Runtime & Supervisor: `deeptutor/runtime/` (`launcher.py`, `orchestrator.py`, `banner.py`, `governor.py`)
-  - Services: `deeptutor/services/` (`database/`, `llm/tutor_provider.py`, `monitoring/`, `gamification/`, `remote/`, `backup/`)
-- CLI Root: `deeptutor_cli/main.py`
-- Frontend Root: `web/`
-  - App Router: `web/app/` (`(workspace)/home`, `(workspace)/study-room`, `(workspace)/parent`, `(workspace)/reports`, `(workspace)/rewards`)
-  - Components: `web/components/` (`monitoring/`, `session/`, `parent/`, `gamification/`, `settings/`, `layout/`)
-  - Locales: `web/locales/{en,zh}/app.json`
-- Documentation: `docs/` (`AI-GURU-ARCHITECTURE-AUDIT.md`, `AI-GURU-IMPLEMENTATION-PLAN.md`, `AI-GURU-LOCAL-SETUP.md`, `AI-GURU-SECURITY.md`, `AI-GURU-PARENT-ACCESS.md`, `AI-GURU-AI-MODELS.md`, `AI-GURU-TROUBLESHOOTING.md`) and `README.md`
-- E2E Tests: `tests/e2e/` (Tiers 1-4 requirement-driven test runners)
+- `deeptutor/api/routers/`: 37 REST & WebSocket routers.
+- `deeptutor/services/`: Core business logic (monitoring, exams, remote/security, gamification, study, config).
+- `deeptutor/agents/`: LLM tutoring pipelines (chat, question, research, visualize, math_animator).
+- `web/app/(workspace)/`: User workspace routes (study-room, exam, papers, achievements, book, co-writer).
+- `web/app/(portal)/`: Passcode-gated Parent Portal routes.
+- `web/components/`: Reusable React components (floating assistant, chat, exam, monitoring, modals, common).
+- `web/lib/`: Frontend state stores, API clients, motion utilities, WebAssembly vision pipelines.
+- `tests/`: Multi-tier pytest test suites (e2e, CV monitoring, security, adversarial, fresh install).
+- `web/tests/`: Node-based frontend unit test suites.

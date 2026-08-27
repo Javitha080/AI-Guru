@@ -1,0 +1,250 @@
+1. The age limit is represented from 19 to 22 when students are registered for University entrance via the
+website. Which of the following data validation method is most appropriate for this situation?
+වෙබ් අඩවිය හරහා සිසුන් විශ්වවිද්‍යාල ප්‍රවේශය සඳහා ලියාපදිංචි වන විට වයස් සීමාව 19 සිට 22 දක්වා
+නියෝජනය වේ. මෙම තත්ත්වය සඳහා පහත සඳහන් දත්ත තහවුරු කිරීමේ ක්‍රමය වඩාත් සුදුසු වන්නේ
+කුමක්ද?
+1) Type check / ප්‍රරූප පරීක්ෂාව
+2) Range check / පරාස පරීක්ෂාව
+3) Numeric check / සංඛ්‍යාත්මක පරීක්ෂාව
+4) Format check / ආකෘති පරීක්ෂාව
+5) Presence check / තත්‍යතා පරීක්ෂාව
+
+Answer : 2 )
+
+Explanation / පැහැදිලි කිරීම
+The correct answer is 2) Range check. In this scenario, a range check is appropriate because it verifies
+whether a given value falls within a specified numerical range. Since the age limit for university
+registration is between 19 and 22, a range check can ensure that only ages within this range are accepted,
+preventing users from entering ages that are too young or too old. By setting this boundary, the system
+ensures the input aligns with the requirements, enhancing data accuracy and suitability for university
+entrance eligibility.
+නිවැරදි පිළිතුර 2) පරාසය පරීක්ෂා කිරීම වේ. මෙම අවස්ථාවෙහිදී, පරාස පරීක්ෂාවක් සුදුසු වන්නේ එය දී
+ඇති අගයක් නිශ්චිත සංඛ්‍යාත්මක පරාසයක් තුළට වැටේ දැයි තහවුරු කරන බැවිනි. විශ්ව විද්‍යාල
+ලියාපදිංචිය සඳහා වයස් සීමාව අවුරුදු 19 සහ 22 අතර වන බැවින්, මෙම පරාසය තුළ වයස පමණක්
+පිළිගන්නා බව පරාස පරීක්ෂාවකින් සහතික කළ හැකි අතර, පරිශීලකයන් ඉතා තරුණ හෝ වැඩි වයස්වලට
+ඇතුළු වීම වළක්වයි. මෙම මායිම සැකසීමෙන්, පද්ධතිය විශ්ව විද්‍යාල ප්‍රවේශ සුදුසුකම් සඳහා දත්ත
+නිරවද්‍යතාවය සහ යෝග්‍යතාවය වැඩි දියුණු කරමින් අවශ්‍යතා සමඟ ආදානය පෙළගැස්වීම සහතික කරයි.
+
+Other options are incorrect for this situation. A type check confirms that the input is of a certain data
+type, like integers or text, but does not limit the input to a range. A numeric check would only validate if
+the input is a number, without setting specific boundaries. Format check ensures the data follows a
+particular pattern, such as a date format, which is irrelevant here. Lastly, presence check confirms if a
+required field is filled, but it doesn't verify if the value meets a range requirement. So, range check is the
+most suitable method for this situation.
+මෙම තත්ත්වය සඳහා වෙනත් විකල්ප වැරදි වේ. ආදානය පූර්ණ සංඛ්‍යා හෝ පෙළ වැනි නිශ්චිත දත්ත
+වර්ගයක බව ප්‍රරූප පරීක්ෂාවක් තහවුරු කරයි, නමුත් ආදානය පරාසයකට සීමා නොකරයි. සංඛ්‍යාත්මක
+පිරික්සුමකින් වලංගු වන්නේ ආදානය අංකයක් නම්, නිශ්චිත සීමාවන් සැකසීමෙන් තොරව පමණී. ආකෘති
+පරික්ෂාවෙන් දත්ත මෙහි අදාළ නොවන දින ආකෘතියක් වැනි විශේෂිත රටාවක් අනුගමනය කරන බව සහතික
+කරයි. අවසාන වශයෙන්, තත්‍යථා පරීක්ෂාව අවශ්‍ය වන්නේ ක්ෂේත්‍රයක් පුරවා ඇත්දැයි යන්න තහවුරු කර
+ගැනීමටයි, නමුත් අගය පරාසයක අවශ්‍යතාවයක් සපුරාලන්නේ දැයි එය සත්‍යාපනය නොකරයි. එබැවින්, මෙම
+තත්ත්වය සඳහා වඩාත් සුදුසු ක්‍රමය වන්නේ පරාසය පරීක්ෂා කිරීම වේ.
+
+2027 QUIZ SERIES
+2027 QUIZ NO 71 MARKING
+2026/01/06
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2. Which of the following statement(s) about off-the-shelf software is/are incorrect?
+පෙරනිමි මෘදුකාංග පිළිබදව පහත සඳහන් කුමන ප්‍රකාශ(ය) වැරදිද?
+
+1) Off-the-shelf software is ready-made and available for immediate use.
+පෙරනිමි මෘදුකාංග පූර්ව-නිර්මාණය කර ඇති අතර ක්ෂණික භාවිතය සඳහා ලබා ගත හැකිය.
+
+2) The software is designed for general purposes and may not fully meet specific organizational needs.
+මෘදුකාංගය සාමාන්‍ය අරමුණු සඳහා නිර්මාණය කර ඇති අතර නිශ්චිත ආයතනික අවශ්‍යතා සම්පූර්ණයෙන්
+සපුරාලිය නොහැක.
+
+3) Off-the-shelf software may require some training but generally has user-friendly interfaces designed
+for a broad audience.
+පෙරනිමි මෘදුකාංග සඳහා යම් පුහුණුවක් අවශ්‍ය විය හැකි නමුත් සාමාන්‍යයෙන් පුළුල් ප්‍රේක්ෂක පිරිසක්
+සඳහා නිර්මාණය කර ඇති පරිශීලක-හිතකාමී අතුරුමුහුණත් ඇත.
+
+4) It requires a long development and implementation time.
+එය දිගු සංවර්ධන හා ක්‍රියාත්මක කිරීමේ කාලයක් අවශ්‍ය වේ.
+
+5) It is usually cost-effective because development costs are spread across many users.
+සංවර්ධන පිරිවැය බොහෝ පරිශීලකයින් අතර පැතිර ඇති බැවින් එය සාමාන්‍යයෙන් ලාභදායී වේ.
+
+Answer: 4)
+
+Off-the-shelf software is pre-designed and ready for immediate use, making it suitable for a wide range of
+users. It is created for general purposes, which means it may not fully meet the specific needs of an
+individual organization. Although the software is user-friendly, some training might be required depending
+on its complexity. One key advantage is its cost-effectiveness, as development costs are spread across
+many users. However, the statement that it requires a long development and implementation time is
+incorrect, as off-the-shelf software is already developed and can be implemented quickly, making it a
+convenient choice for many organizations.
+පෙරනිමි මෘදුකාංග පූර්ව-නිර්මාණය කර ඇති අතර ක්ෂණික භාවිතය සඳහා සූදානම් වන අතර, එය පුළුල්
+පරාසයක පරිශීලකයින් සඳහා සුදුසු වේ. එය සාමාන්‍ය අරමුණු සඳහා නිර්මාණය කර ඇත, එයින් අදහස්
+කරන්නේ එය තනි සංවිධානයක නිශ්චිත අවශ්‍යතා සම්පූර්ණයෙන් සපුරාලිය නොහැකි බවයි. මෘදුකාංගය
+පරිශීලක-හිතකාමී වුවද, එහි සංකීර්ණත්වය අනුව යම් පුහුණුවක් අවශ්‍ය විය හැකිය. එක් ප්‍රධාන වාසියක්
+වන්නේ සංවර්ධන පිරිවැය බොහෝ පරිශීලකයින් අතර පැතිරී ඇති බැවින් එහි පිරිවැය-ඵලදායීතාවයයි. කෙසේ
+වෙතත්, බොහෝ ආයතන සඳහා පහසු තේරීමක් කරමින්, පෙරනිමි මෘදුකාංග දැනටමත් සංවර්ධනය කර ඇති
+අතර ඉක්මනින් ක්‍රියාත්මක කළ හැකි බැවින්, එය දිගු සංවර්ධන හා ක්‍රියාත්මක කිරීමේ කාලයක් අවශ්‍ය බව
+ප්‍රකාශය වැරදිය.
+
+Therefore, the incorrect statement is 4).
+එබැවින් නිවැරදි ප්‍රකාශය 4) වේ.
+
+3. If A2+B10 = 111012, which of the following can be A and B respectively?
+A2+B10 = 111012 නම්, පහත සඳහන් ඒවායින් පිළිවෙලින් A සහ B විය හැක්කේ කුමක් ද?
+1)  11001, 4
+2)  11000, 4
+3) 11001, 5
+4) 4, 11001
+5) 5, 11001
+Answer : 1)
+
+In the given options, only options for B are 4 or 5. So, let’s find A when B is 4 and 5 respectively and
+find the correct pair.
+ලබා දී ඇති විකල්පයන් තුළ, B සඳහා විකල්ප පමණක් 4 හෝ 5 වේ. එබැවින්, B පිළිවෙලින් 4 සහ 5 වන
+විට A සොයාගෙන නිවැරදි යුගලය සොයා ගනිමු.
+
+ A2 + B10 = 111012
+
+First, let’s convert 111012 to Decimal.
+පළමුව, අපි 111012 දශමයට පරිවර්තනය කරමු.
+
+Let’s find A when B is 4.
+111012
+1
+1
+1
+0
+1
+24
+23
+22
+21
+20
+16
+8
+4
+0
+1
+16 + 8 + 4 + 0 + 1 = 2910
+2910
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+ B, 4 වන විට A සොයාගනිමු.
+
+A2 = 2910 - 410
+A2 = 2510
+
+Let’s convert 25 to Binary.
+අපි 25 ද්වීමය බවට පරිවර්තනය කරමු.
+
+Let’s find A when B is 5.
+ B, 5 වන විට A සොයාගනිමු.
+
+A2 = 2910 - 510
+A2 = 2410
+
+Let’s convert 25 to Binary.
+25 ද්වීමය බවට පරිවර්තනය කරමු.
+
+So, the correct pairs for A and B are 11001, 4 and 11000, 5.
+එමනිසා, A සහ B සඳහා නිවැරදි යුගල වන්නේ 11001, 4 සහ 11000, 5 වේ.
+
+4. The address of an instruction is given as 1A3F in hexadecimal. What is that address in decimal?
+උපදෙස්වල ලිපිනය ෂඩ්දශමයෙන් 1A3F ලෙස දක්වා ඇත. දශමයෙන් එම ලිපිනය කුමක්ද?
+1) 4527
+2) 6719
+3) 5687
+4) 6711
+5) 6719
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+First, let’s convert 1A3F16 into decimal.
+පළමුව, 1A3F16 දශමයට පරිවර්තනය කරමු.
+
+1A3F16
+1
+A
+3
+F
+1
+A = 10
+3
+F = 15
+1 × 163
+10 × 162
+3 × 161
+15 × 160
+4096
+2560
+48
+15
+4096 + 2560 + 48 + 15 = 6719
+671910
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2510
+24
+23
+22
+21
+20
+16
+8
+4
+2
+1
+1
+1
+0
+0
+1
+110012
+2410
+24
+23
+22
+21
+20
+16
+8
+4
+2
+1
+1
+1
+0
+0
+0
+110012
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+5. What is the Boolean equation of the following logic circuit?
+පහත තාර්කික පරිපථයේ බූලියන් සමීකරණය කුමක්ද?
+1) A + (B̅. C) + D̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+2) A̅ + (B̅. C) + D̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+3) A. (B̅. C). D̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+4) A + (B̅ + C) + D̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+5) A + (B̅. C) + D̅
+
+Answer: 1)
+Explanation / පැහැදිලි කිරීම
+
+Let’s write the Boolean equation of the logic gate.
+තාර්කික ද්වාරයෙහි බූලියානු සමීකරණය ලියමු.
+
+F= A + (B̅. C) + D̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-4-

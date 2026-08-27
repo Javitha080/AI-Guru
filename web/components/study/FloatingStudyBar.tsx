@@ -11,6 +11,8 @@ import {
   Sparkles, X, Send, Play, Pause,
   Clock, ExternalLink, Bot,
 } from "lucide-react";
+import GuruThinkingOrb from "@/components/ui/GuruThinkingOrb";
+import AnimatedNumber from "@/components/ui/AnimatedNumber";
 
 interface FloatingStudyBarProps {
   sessionTitle: string;
@@ -191,6 +193,16 @@ export default function FloatingStudyBar({
 
       {/* 2. FLOATING TICKING PILL BAR */}
       <div className="surface-glass-elevated rounded-2xl p-2.5 pl-3.5 flex items-center gap-3 transition-colors duration-300 hover:border-[var(--ember-line)]/50 shadow-[var(--glass-shadow-elevated),0_0_20px_rgba(0,0,0,0.35)]">
+        {/* Local AI Vision Guard Active Pill */}
+        <GuruThinkingOrb
+          state="listening"
+          label="Agent listening…"
+          size={20}
+          variant="inline"
+          shimmer
+          className="hidden sm:inline-flex rounded-full bg-black/40 border border-white/10 px-2.5 py-1 text-[11px]"
+        />
+
         {/* Timer Display — mirrors the page clock exactly */}
         <div className="flex items-center gap-2">
           <Clock size={16} className={isPaused ? "text-[var(--amber)]" : "text-[var(--primary)]"} />
@@ -199,7 +211,7 @@ export default function FloatingStudyBar({
               isPaused ? "text-[var(--amber)]" : ""
             }`}
           >
-            {formatTime(timeLeft)}
+            <AnimatedNumber value={formatTime(timeLeft)} />
           </span>
         </div>
 
@@ -211,14 +223,14 @@ export default function FloatingStudyBar({
             }`}
           />
           <span className={focusScore === null ? "text-[var(--muted-foreground)]" : "text-[var(--primary)]"}>
-            {focusScore === null ? "—" : `${Math.round(focusScore)}%`}
+            {focusScore === null ? "—" : <AnimatedNumber value={`${Math.round(focusScore)}%`} />}
           </span>
         </div>
 
         {/* Play/Pause Button — same state as the main session controls */}
         <button
           onClick={onTogglePause}
-          className="glow-ring p-1.5 rounded-lg surface-glass-base text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+          className="glow-ring p-1.5 rounded-lg surface-glass-base text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-all duration-150 hover:scale-110 active:scale-90"
           title={isPaused ? "Resume Session" : "Pause Session"}
           aria-label={isPaused ? "Resume session" : "Pause session"}
         >
@@ -228,7 +240,7 @@ export default function FloatingStudyBar({
         {/* Picture-in-Picture Popout */}
         <button
           onClick={() => void handleOpenPiP()}
-          className="glow-ring p-1.5 rounded-lg surface-glass-base text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+          className="glow-ring p-1.5 rounded-lg surface-glass-base text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-all duration-150 hover:scale-110 active:scale-90"
           title="Pop out timer (Chromium)"
           aria-label="Pop out timer"
         >
@@ -239,7 +251,7 @@ export default function FloatingStudyBar({
         <button
           onClick={() => setIsChatOpen(!isChatOpen)}
           aria-expanded={isChatOpen}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold text-xs transition-all duration-200 ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold text-xs transition-all duration-200 hover:scale-105 active:scale-95 ${
             isChatOpen
               ? "bg-[var(--primary)] text-white shadow-[0_4px_16px_var(--glow-primary)]"
               : "bg-gradient-to-r from-[var(--primary)]/20 to-[var(--amber)]/15 text-[var(--primary)] border border-[var(--ember-line)]/40 hover:border-[var(--ember-line)]"

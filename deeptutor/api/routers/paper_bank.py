@@ -590,8 +590,9 @@ async def explain_question(sitting_id: str, req: ExplainRequest):
     )
     prompt = "\n\n".join(parts)
     system_prompt = (
-        "You are AI Guru, a warm Sri Lankan A/L ICT tutor. Teach the concept behind "
-        "the mistake, never just restate the answer key."
+        "You are AI Guru, a warm and encouraging Sri Lankan tutor. Teach the concept behind "
+        "the mistake clearly, never just restate the answer key. If the question or student answer "
+        "is in Sinhala (සිංහල), respond in clear natural Sinhala. If in English, respond in English."
     )
     try:
         from deeptutor.services.llm.factory import complete

@@ -1,0 +1,439 @@
+1. Which of the following statements about universal logic gates is true?
+සාර්වත්‍ර තාර්කික ද්වාර පිළිබඳ පහත සඳහන් ප්‍රකාශ අතුරෙන් සත්‍ය වන්නේ කුමක්ද?
+1) The AND gate is a universal gate.
+AND ද්වාරය සාර්වත්‍ර ද්වාරයකි.
+
+2) The OR gate is a universal gate.
+OR ද්වාරය යනු සාර්වත්‍ර ද්වාරයකි.
+
+3) The NAND and NOR gates are universal gates.
+NAND සහ NOR ද්වාර සාර්වත්‍ර ද්වාර වේ.
+
+4) Universal gates can only be used to implement NOT operations.
+සාර්වත්‍ර ද්වාර භාවිතා කළ හැක්කේ NOT මෙහෙයුම් ක්‍රියාත්මක කිරීමට පමණි.
+
+5) XOR and XNOR are the only universal gates.
+සාර්වත්‍ර ද්වාර වන්නේ XOR සහ XNOR වන්නේ පමණි.
+
+Answer: 3)
+
+The NAND and NOR gates are universal gates.
+NAND සහ NOR ද්වාර සාර්වත්‍ර ද්වාර වේ.
+
+Correct. NAND and NOR gates are called universal gates because any Boolean function can be
+implemented using only NAND or only NOR gates.
+නිවැරදියි. NAND සහ NOR ද්වාර සාර්වත්‍ර ද්වාර ලෙස හඳුන්වනු ලබන්නේ ඕනෑම බූලියන් ශ්‍රිතයක්
+NAND පමණක් හෝ NOR ද්වාර පමණක් භාවිතයෙන් ක්‍රියාත්මක කළ හැකි බැවිනි.
+
+For example:
+උදාහරණ වශයෙන්:
+NAND can be used to create NOT, AND, and OR gates.
+NOT, AND, සහ OR ද්වාර නිර්මාණය කිරීමට NAND භාවිතා කළ හැක.
+NOR can be used to create NOT, OR, and AND gates.
+NOT, OR, සහ AND ද්වාර නිර්මාණය කිරීමට NOR භාවිතා කළ හැක.
+
+1) Incorrect. The AND gate is not a universal gate because it cannot be used alone to create other basic
+gates like OR or NOT.
+වැරදියි. AND ද්වාරය සාර්වත්‍ර ද්වාරයක් නොවේ, මන්ද එය OR හෝ NOT වැනි අනෙකුත් මූලික ද්වාර
+නිර්මාණය කිරීමට තනිවම භාවිතා කළ නොහැකි බැවිනි.
+
+2) Incorrect. Like the AND gate, the OR gate is not universal because it cannot be used alone to implement
+all other logic gates.
+වැරදියි. AND ද්වාරය මෙන්, OR ද්වාරයද සාර්වත්‍ර නොවේ, මන්ද එය අනෙකුත් සියලුම තාර්කික ද්වාර
+ක්‍රියාත්මක කිරීමට තනිවම භාවිතා කළ නොහැකි බැවිනි.
+
+4) Incorrect. Universal gates can be used to implement all basic gates (NOT, AND, OR) and even more
+complex circuits, not just NOT gates.
+වැරදියි. සාර්වත්‍ර ද්වාර භාවිතා කර NOT ගේට්ටු පමණක් නොව, සියලුම මූලික ගේට්ටු NOT, AND, OR
+සහ ඊටත් වඩා සංකීර්ණ පරිපථ ක්‍රියාත්මක කළ හැකිය.
+
+5) Incorrect. XOR and XNOR are not universal gates because they cannot be used alone to implement all
+Boolean functions. They require additional gates for full functionality.
+වැරදියි. XOR සහ XNOR සාර්වත්‍ර ද්වාර නොවේ, මන්ද ඒවා සියලු බූලියන් ශ්‍රිත ක්‍රියාත්මක කිරීමට තනිවම
+භාවිතා කළ නොහැකි බැවිනි. සම්පූර්ණ ක්‍රියාකාරීත්වය සඳහා ඒවාට අමතර ද්වාර අවශ්‍ය වේ.
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 26
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2.  Which of the following input combinations for A, B, and D will result in an output C of 1?
+ A, B, සහ D සඳහා පහත සඳහන් කුමන ආදාන සංයෝජන C 1 හි ප්‍රතිදානයක් ලබා දෙනු ඇත?
+(1) A = 0, B = 1, D = 0
+(2) A = 1, B = 0, D = 1
+(3) A = 1, B = 1, D = 0
+(4) A = 0, B = 0, D = 1
+(5) All of the above
+
+Answer: 5)
+
+AND Gate: Output is 1 only when both inputs are 1.
+AND ද්වාරය: ආදාන දෙකම 1 වූ විට පමණක් ප්‍රතිදානය 1 වේ.
+
+XOR Gate: Output is 1 when inputs are different
+XOR  ද්වාරය: ආදාන වෙනස් වන විට ප්‍රතිදානය 1 වේ.
+
+OR Gate: Output is 1 when at least one input is 1.
+OR ද්වාරය: අවම වශයෙන් එක් ආදානයක් 1 වන විට ප්‍රතිදානය 1 වේ.
+
+1. A = 0, B = 1, D = 0
+
+AND Gate (A, B): 0 AND 1 = 0
+XOR Gate (D, B): 0 XOR 1 = 1
+OR Gate (AND, XOR): 0 OR 1 = 1
+C = 1
+
+2. A = 1, B = 0, D = 1
+
+AND Gate (A, B): 1 AND 0 = 0
+XOR Gate (D, B): 1 XOR 0 = 1
+OR Gate (AND, XOR): 0 OR 1 = 1
+C = 1
+
+3. A = 1, B = 1, D = 0
+
+AND Gate (A, B): 1 AND 1 = 1
+XOR Gate (D, B): 0 XOR 1 = 1
+OR Gate (AND, XOR): 1 OR 1 = 1
+C = 1
+
+4. A = 0, B = 0, D = 1
+
+AND Gate (A, B): 0 AND 0 = 0
+XOR Gate (D, B): 1 XOR 0 = 1
+OR Gate (AND, XOR): 0 OR 1 = 1
+C = 1
+
+All the input combinations result in an output C of 1.
+සියලුම ආදාන සංයෝජනවල ප්‍රතිඵලයක් ලෙස (C) ප්‍රතිදානය 1 ලැබේ.
+
+Therefore, the answer is (5) All of the above.
+එබැවින්, පිළිතුර 5 ඉහත සියල්ලයි.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+3. The operation of the above circuit is similar to which of the following gates?
+පහත පරිපථයේ ක්‍රියාකාරීත්වය සමාන වන්නේ පහත කුමන ද්වාරයකටද?
+(1) AND gate
+(2) OR gate
+(3) NAND gate
+(4) NOR gate
+(5) XOR gate
+
+Answer : 5)
+
+Here, we will record the outputs given by each gate according to its input as follows and obtain the final
+output.
+මෙහිදී පහත ආකාරයට එක් එක් ද්වාරය මගින් එහි ආදානයට අනුව ලබාදෙන ප්‍රතිදාන සටහන් කරගෙන
+අවසන් ප්‍රතිදානය ලබාගනිමු.
+
+The final output A̅. B + A. B̅  is the output of the XOR gate.
+මෙහි අවසාන ප්‍රතිදානය වන A̅. B + A. B̅ යනු XOR ද්වාරයට අදාළ ප්‍රතිදානයයි.
+
+So, the correct answer number is 5.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 5 වේ.
+
+4. Sineth and Paramee are arguing about an apple. They write down 1 when they both either agree or disagree
+on something, but if both of them can't agree or disagree on something, they write down 0. Which of the
+following logic gates implies this logical operation?
+සිනෙත් සහ පාරමී ඇපල් ගෙඩියක් ගැන වාද කරයි. දෙදෙනාම යම් දෙයකට එකඟ වන විට හෝ එකඟ
+නොවන විට ඔවුන් 1 ලෙස ලියයි, නමුත් දෙදෙනාටම යම් දෙයකට එකඟ වීමට හෝ එකඟ නොවීමට නොහැකි
+නම්, ඔවුන් 0 ලෙස ලියයි. මෙම තාර්කික ක්‍රියාකාරිත්වය ඇඟවුම් කරන්නේ පහත සඳහන් තාර්කික ද්වාරවලින්
+කවරේද?
+1)   OR gate
+2)  NOT gate
+3)  XOR gate
+4)  NAND gate
+5)  XNOR gate
+
+Answer: 5)
+
+Explanation / පැහැදිලි කිරීම:
+
+Inputs / ආදාන:
+
+Sineth and Paramee's opinions on a particular point. Each can either agree (1) or disagree (0).
+යම් කරුණක් සම්බන්ධයෙන් සිනෙත් සහ පාරමී දක්වන අදහස් වේ. සෑම කෙනෙකුටම එකඟ විය හැකිය (1)
+හෝ එකඟ විය නොහැකිය (0).
+
+Output / ප්‍රතිදාන:
+
+They write down 1 if they either agree or disagree, and 0 if they can't agree or disagree.
+ඔවුන් එකඟ වන්නේ නම් හෝ එකඟ නොවන්නේ නම් 1 ද, එකඟ වීමට හෝ එකඟ නොවීමට නොහැකි නම්
+0 ද ලියා තබයි.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+Truth Table / සත්‍යතා වගුව:
+
+Sineth Paramee Output
+0
+0
+1
+(both say "no" - they disagree)
+0
+1
+0
+(disagree)
+1
+0
+0
+(disagree)
+1
+1
+1
+(both say "yes" - they agree)
+
+Logic Gate Identification / තාර්කික ද්වාරය හඳුනාගැනීම:
+
+The output is 1 only when both inputs are the same (both 0 or both 1).
+ප්‍රතිදානය 1 වන්නේ ආදාන දෙකම සමාන වූ විට පමණි (දෙකම 0 හෝ දෙකම 1).
+
+This behavior matches the XNOR gate, which outputs true (1) when both inputs are the same.
+මෙම හැසිරීම, ආදාන දෙකම සමාන වන විට සත්‍ය (1) ප්‍රතිදානය කරන XNOR ද්වාරයට ගැලපෙයි.
+
+Therefore, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර 5) වේ.
+
+5. Select the most suitable logic gates for X and Y in the above logic circuit to produce the following output.
+පහත ප්‍රතිදානය නිපදවීමට ඉහත තාර්කික පරිපථයෙ X සහ Y සඳහා වඩාත් සුදුසු තාර්කික ද්වාර තෝරන්න.
+𝐙= (𝐀+ 𝐁)̅̅̅̅̅̅̅̅̅̅(𝐂+ 𝐃)𝐂̅
+1) X – AND gate, Y – NOR gate
+2) X- NOR gate, Y- AND gate
+3) X- NAND gate, Y- AND gate
+4) X- AND gate, Y- NAND gate
+5) X-OR gate, Y-AND gate
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+To produce (A + B)̅̅̅̅̅̅̅̅̅̅ at X, we should use a NOR gate.
+X හි (A + B)̅̅̅̅̅̅̅̅̅̅ නිපදවීමට NOR ද්වාරයක් භාවිතා කළ යුතුය.
+Next, to combine (A + B)̅̅̅̅̅̅̅̅̅̅ and (C + D)C̅ to get Z, an AND gate should be used at Y.
+මීළගට, Z  ලබා ගැනීම සඳහා (A + B)̅̅̅̅̅̅̅̅̅̅  සහ (C + D). C̅  ඒකාබද්ධ කිරීමට Y හි, AND ද්වාරයක් භාවිතා
+කළ යුතුය.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+6. What is the correct truth table for the following logic circuit?
+පහත තාර්කික පරිපථයේ නිවැරදි සත්‍යතා වගුව කුමක්ද?
+
+1) ICN A B F
+1
+0
+0
+0
+2
+0
+1
+0
+3
+1
+0
+0
+4
+1
+1
+1
+2) ICN A B F
+1
+0
+0
+1
+2
+0
+1
+0
+3
+1
+0
+0
+4
+1
+1
+0
+3) ICN A B F
+1
+0
+0
+0
+2
+0
+1
+1
+3
+1
+0
+1
+4
+1
+1
+0
+4) ICN A B F
+1
+0
+0
+1
+2
+0
+1
+0
+3
+1
+0
+0
+4
+1
+1
+1
+5) ICN A B F
+1
+0
+0
+0
+2
+0
+1
+1
+3
+1
+0
+0
+4
+1
+1
+1
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Firstly, let’s make the Boolean expression as follows.
+පළමුව, බූලියානු ප්‍රකාශනය පහත පරිදි සාදමු.
+
+After that, let’s make a truth table to the expressions derived from the above circuit.
+ඊට පසු, ඉහත පරිපථයෙන් ලබාගත් ප්‍රකාශන සඳහා සත්‍යතා වගුවක් අඳිමු.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+ICN A B A̅ B̅ A̅. B A. B̅ A̅. B + A. B̅̅̅̅̅̅̅̅̅̅̅̅̅̅ A̅. B + A. B̅̿̿̿̿̿̿̿̿̿̿̿̿̿
+1
+0
+0
+1
+1
+0
+0
+1
+0
+2
+0
+1
+1
+0
+1
+0
+0
+1
+3
+1
+0
+0
+1
+0
+1
+0
+1
+4
+1
+1
+0
+0
+0
+0
+1
+0
+Aഥ
+Bഥ
+A
+B
+Aഥ. B
+A. Bഥ
+Aഥ. B + A. Bഥ
+തതതതതതതതതതതതത
+= Aഥ. B + A. Bഥ
+ധധധധധധധധധധധധധ
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+7. Which of the following statements about a NAND gate is CORRECT?
+NAND ද්වාරයක් පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි වන්නේ කුමක්ද?
+1) It produces an output 1 only when all inputs are 1.
+සියලුම ආදාන 1 වූ විට පමණක් එය ප්‍රතිදානය 1  නිපදවයි.
+
+2) It is formed by connecting the output of a NOT gate to an AND gate.
+NOT ද්වාරයක ප්‍රතිදානය AND ද්වාරයකට සම්බන්ධ කිරීමෙන් එය සෑදී ඇත.
+
+3) It produces an output 0 only when all inputs are 1.
+සියලුම ආදාන 1  වූ විට පමණක් එය ප්‍රතිදානය 0 නිපදවයි.
+
+4) It has only one input.
+එයට ඇත්තේ එක් ආදානයක් පමණි.
+
+5) It is not possible to construct other gates using a NAND gate.
+NAND ද්වාරයක් භාවිතයෙන් වෙනත් ද්වාර තැනීමට නොහැකිය.
+
+Answer: 3)
+
+Explanation
+පැහැදිලි කිරීම
+
+A NAND gate is a digital logic gate that performs the inverse of the AND operation. This means that it
+gives an output of 0 only when all of its inputs are 1, and for every other possible input combination,
+the output is 1. The NAND gate is an important and widely used gate in digital electronics because it can
+be used as a fundamental building block in digital circuits. It does not have only one input, and it is
+possible to construct other logic gates using only NAND gates.
+NAND ද්වාරයක් යනු AND මෙහෙයුමේ ප්‍රතිලෝමය සිදු කරන ඩිජිටල් තාර්කික ද්වාරයකි. මෙයින් අදහස්
+කරන්නේ එහි සියලුම ආදාන 1 වූ විට පමණක් එය 0 ප්‍රතිදානයක් ලබා දෙන බවත්, අනෙක් සෑම හැකි
+ආදාන සංයෝජනයක් සඳහාම ප්‍රතිදානය 1 බවත්ය. NAND ද්වාරය ඩිජිටල් ඉලෙක්ට්‍රොනික උපකරණවල
+වැදගත් සහ බහුලව භාවිතා වන ද්වාරයකි, මන්ද එය ඩිජිටල් පරිපථවල මූලික ගොඩනැගීමේ ඒකකයක්
+ලෙස භාවිතා කළ හැකිය. NAND ද්වාර පමණක් භාවිතා කරමින් අනෙකුත් තාර්කික ද්වාර ගොඩනගා ගත
+හැකිය.
+
+We can show the output of the NAND gate using a truth table as follows.
+සත්‍යතා වගුවක් භාවිතයෙන් අපට NAND ද්වාරයේ ප්‍රතිදානය පහත පරිදි පෙන්විය හැකිය.
+
+A B AND NAND
+0
+0
+0
+1
+0
+1
+0
+1
+1
+0
+0
+1
+1
+1
+1
+0
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-

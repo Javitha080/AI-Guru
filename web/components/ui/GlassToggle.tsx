@@ -27,7 +27,7 @@ export default function GlassToggle({
       aria-label={label}
       disabled={disabled}
       onClick={() => !disabled && onChange(!checked)}
-      className="relative inline-flex items-center rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2"
+      className="relative inline-flex items-center rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 active:scale-[0.96]"
       style={{
         width: dims.w,
         height: dims.h,
@@ -39,6 +39,7 @@ export default function GlassToggle({
         WebkitBackdropFilter: "blur(8px)",
         opacity: disabled ? 0.4 : 1,
         cursor: disabled ? "default" : "pointer",
+        transition: "all var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1))",
       }}
     >
       <motion.span
@@ -55,7 +56,7 @@ export default function GlassToggle({
             : "inset 0 1px 0 rgba(255,255,255,0.5)",
         }}
         animate={{ x: checked ? dims.travel : 3 }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        transition={{ type: "spring", stiffness: 550, damping: 26 }}
       />
     </button>
   );

@@ -11,6 +11,31 @@ from .config import LoggingConfig, load_logging_config
 from .formatters import ConsoleFormatter, ContextFilter, JsonlFormatter
 from .loguru_bridge import install_loguru_bridge
 
+
+class _SafeRotatingFileHandler(RotatingFileHandler):
+    """RotatingFileHandler that tolerates Windows file-locking errors.
+
+    On Windows ``os.rename()`` inside ``doRollover()`` fails with
+    ``PermissionError`` (WinError 32) when any other handle (or the
+    same process via a different handler instance) still has the log
+    file open.  The stdlib handler lets this propagate, which crashes
+    the entire logging pipeline and causes a ``--- Logging error ---``
+    dump to stderr for *every* subsequent log call.
+
+    This subclass catches the ``PermissionError`` and silently skips
+    the rotation — the file keeps growing until the next successful
+    rotation attempt.
+    """
+
+    def doRollover(self) -> None:  # noqa: N802 – stdlib naming
+        try:
+            super().doRollover()
+        except PermissionError:
+            # File is locked by another process on Windows.
+            # Skip rotation; we'll try again next time the size
+            # threshold is hit.
+            pass
+
 _CONFIGURED = False
 _MANAGED_ATTR = "_deeptutor_managed"
 
@@ -59,7 +84,7 @@ def configure_logging(force: bool = False) -> LoggingConfig:
         log_dir = Path(config.log_dir) if config.log_dir else Path("data/user/logs")
         log_dir.mkdir(parents=True, exist_ok=True)
         file_handler = _managed(
-            RotatingFileHandler(
+            _SafeRotatingFileHandler(
                 log_dir / "deeptutor.jsonl",
                 maxBytes=config.max_bytes,
                 backupCount=config.backup_count,

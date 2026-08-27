@@ -1,0 +1,414 @@
+1. During the Fetch-Execute Cycle, after the CPU fetches an instruction from memory and stores it in the
+Instruction Register (IR), what happens next?
+Fetch-Execute Cycle චක්‍රය අතරතුර, CPU  එක මතකයෙන් උපදෙස් ලබාගෙන එය උපදෙස් ලේඛනයේ
+(IR), ගබඩා කළ පසු, ඊළඟට කුමක් සිදුවේද?
+
+1) The Program Counter (PC) is reset to 0 and execution starts
+වැඩසටහන් කවුන්ටරය (PC) 0 ට නැවත සකසා ක්‍රියාත්මක කිරීම ආරම්භ වේ.
+
+2) The instruction is decoded by the Control Unit to generate control signals
+පාලන සංඥා ජනනය කිරීම සඳහා උපදෙස් පාලන ඒකකය මගින් විකේතනය කරනු ලැබේ.
+
+3) The instruction is immediately executed by the ALU without decoding
+උපදෙස් විකේතනය නොකර ALU විසින් වහාම ක්‍රියාත්මක කරනු ලැබේ
+
+4) The CPU fetches the next instruction before executing the current one
+වත්මන් උපදෙස් ක්‍රියාත්මක කිරීමට පෙර CPU එක ඊළඟ උපදෙස් ලබා ගනී.
+
+5) The CPU sends the instruction directly to the output device
+CPU එක මඟින් උපදෙස් සෘජුවම ප්‍රතිදාන උපාංගයට යවයි.
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම
+
+After the CPU fetches an instruction and stores it in the Instruction Register (IR), the next step is
+decoding. Let’s check each option.
+CPU එක උපදෙස් ලබාගෙන එය උපදෙස් Register (IR) ගබඩා කළ පසු, ඊළඟ පියවර වන්නේ විකේතනය
+කිරීමයි. අපි එක් එක් විකල්පය පරීක්ෂා කරමු.
+
+Option 1) says the Program Counter (PC) is reset to 0. This is wrong because the PC is only incremented
+to point to the next instruction, not reset.
+විකල්පය 1) මඟින් Program Counter (PC)  0 ට යළි සකසා ඇති බව පවසයි. මෙය වැරදියි, මන්ද
+පරිගණකය නැවත සැකසීමට නොව ඊළඟ උපදෙස් වෙත යොමු කිරීමට පමණක් වැඩි කර ඇති බැවිනි.
+
+Option 2) says the instruction is decoded by the Control Unit. This is correct. The Control Unit reads the
+instruction from the IR and produces control signals to tell the CPU what to do.
+විකල්පය 2) පවසන්නේ උපදෙස් පාලන ඒකකය මගින් විකේතනය කර ඇති බවයි. මෙය නිවැරදියි. පාලන
+ඒකකය IR වෙතින් ලැබෙන උපදෙස් කියවා CPU හට කළ යුතු දේ පැවසීමට පාලන සංඥා නිපදවයි.
+
+Option 3) says the ALU executes the instruction without decoding. That cannot happen because the ALU
+needs the Control Unit to first decode the instruction.
+විකල්පය 3) පවසන්නේ ALU  මඟින් උපදෙස් විකේතනය නොකර ක්‍රියාත්මක කරන බවයි. එය සිදු විය
+නොහැක, මන්ද ALU හට මුලින්ම උපදෙස් විකේතනය කිරීමට පාලන ඒකකය අවශ්‍ය වේ.
+
+Option 4) says the CPU fetches the next instruction before executing. In basic CPUs, this is not true. The
+CPU must decode and execute first. (This only happens in advanced pipelined processors, not in the
+simple cycle).
+විකල්ප 4) පවසන්නේ CPU ක්‍රියාත්මක කිරීමට පෙර ඊළඟ උපදෙස් ලබා ගන්නා බවයි. මූලික CPU  වල
+මෙය සත්‍ය නොවේ. CPU  මුලින්ම විකේතනය කර ක්‍රියාත්මක කළ යුතුය. (මෙය සිදුවන්නේ සරල චක්‍රයේ
+නොව, උසස් නල මාර්ගගත සකසනයන් තුළ පමණි).
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 14
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Option 5) says the CPU sends the instruction to the output device. This is wrong because instructions are
+not outputs; only the results of execution can be sent out.
+විකල්පය 5) පවසන්නේ CPU මඟින් උපදෙස් ප්‍රතිදාන උපාංගයට යවන බවයි. උපදෙස් ප්‍රතිදාන නොවන නිසා
+මෙය වැරදියි ක්‍රියාත්මක කිරීමේ ප්‍රතිඵල පමණක් යැවිය හැක.
+
+Therefore, the answer is 2).
+එබැවින්, පිළිතුර 2) වේ.
+
+2. Which is the correct order of memory access speed, including Virtual memory?
+අථත්‍ය මතකය ඇතුළුව මතක ප්‍රවේශ වේගයේ නිවැරදි අනුපිළිවෙල කුමක්ද?
+
+1) Registers → Cache → RAM → Virtual Memory → Secondary Storage
+2) Registers → RAM → Cache → Secondary Storage → Virtual Memory
+3) Cache → Registers → Virtual Memory → RAM → Secondary Storage
+4) Registers → Cache → Virtual Memory → RAM → Secondary Storage
+5) Secondary Storage → Virtual Memory → RAM → Cache → Registers
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම
+
+The correct order of memory access speed is Registers → Cache → RAM → Virtual Memory →
+Secondary Storage.
+මතක ප්‍රවේශ වේගයේ නිවැරදි අනුපිළිවෙල වන්නේ රෙජිස්ටර් → Cache → RAM → අතථ්‍ය මතකය →
+ද්විතීයික ගබඩාවයි.
+
+Registers, located inside the CPU, provide the fastest access, followed by high-speed cache memory.
+CPU තුළ පිහිටා ඇති රෙජිස්ටර්, වේගවත්ම ප්‍රවේශය සපයන අතර, පසුව අධිවේගී හැඹිලි මතකය සපයයි.
+
+RAM is slower than cache but faster than virtual memory, which uses secondary storage to extend main
+memory. Secondary storage is the slowest but provides the largest capacity.
+RAM එක හැඹිලියට වඩා මන්දගාමී නමුත් ප්‍රධාන මතකය දිගු කිරීම සඳහා ද්විතියික ගබඩාව භාවිතා කරන
+අථත්‍ය මතකයට වඩා වේගවත් වේ. ද්විතියික ගබඩාව මන්දගාමීම නමුත් විශාලතම ධාරිතාව සපයයි.
+
+This hierarchy balances speed, cost, and capacity, ensuring efficient CPU performance while supporting
+large data storage.
+මෙම ධූරාවලිය වේගය, පිරිවැය සහ ධාරිතාව සමතුලිත කරයි, විශාල දත්ත ගබඩා කිරීම සඳහා සහාය වන
+අතරම කාර්යක්ෂම CPU  ක්‍රියාකාරිත්වය සහතික කරයි.
+
+Therefore, the answer is 1). / එබැවින්, පිළිතුර 1) වේ.
+
+3. Which of the following statements correctly describes the role of memory registers in a CPU?
+CPU මතක රෙජිස්ටර් වල කාර්යභාරය නිවැරදිව විස්තර කරන පහත සඳහන් ප්‍රකාශවලින් කවරක්ද?
+
+1) Registers store data permanently and are slower than RAM.
+රෙජිස්ටර් ස්ථිරවම දත්ත ගබඩා කරන අතර RAM වලට වඩා මන්දගාමී වේ.
+
+2) Registers temporarily hold instructions, addresses, and data for immediate CPU access.
+CPU වෙත ක්ෂණික ප්‍රවේශය සඳහා රෙජිස්ටර් තාවකාලිකව උපදෙස්, ලිපින සහ දත්ත රඳවා ගනී.
+
+3) Registers are part of secondary storage and are used to backup main memory.
+රෙජිස්ටර් යනු ද්විතියික ගබඩාවේ කොටසක් වන අතර ප්‍රධාන මතකය උපස්ථ කිරීමට භාවිතා කරයි.
+
+4) Registers only store program counter values and nothing else.
+රෙජිස්ටර් වල වැඩසටහන් කවුන්ටර අගයන් පමණක් ගබඩා වන අතර වෙන කිසිවක් නැත.
+
+5) Registers are used exclusively to communicate with external devices.
+බාහිර උපාංග සමඟ සන්නිවේදනය කිරීම සඳහා පමණක් රෙජිස්ටර් භාවිතා වේ.
+
+Answer: 2)
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+Explanation / පැහැදිලි කිරීම
+
+Memory registers are small, very fast storage locations inside the CPU.
+මතක රෙජිස්ටර් යනු CPU තුළ ඇති කුඩා, ඉතා වේගවත් ගබඩා ස්ථාන වේ.
+
+Their main purpose is to temporarily hold data, instructions, or memory addresses that the CPU needs
+immediately while executing programs.
+ඒවායේ ප්‍රධාන අරමුණ වන්නේ වැඩසටහන් ක්‍රියාත්මක කිරීමේදී CPU එකට වහාම අවශ්‍ය දත්ත, උපදෙස්
+හෝ මතක ලිපින තාවකාලිකව රඳවා ගැනීමයි.
+
+This allows the CPU to access this information much faster than from RAM or any other memory, which
+speeds up processing and overall performance.
+මෙය CPU හට RAM හෝ වෙනත් ඕනෑම මතකයකින් ලබා ගන්නා තොරතුරු වලට වඩා වේගයෙන් මෙම
+තොරතුරු වෙත ප්‍රවේශ වීමට ඉඩ සලසයි, එමඟින් සැකසුම් සහ සමස්ත ක්‍රියාකාරිත්වය වේගවත් වේ.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Incorrect. Registers are not permanent storage and are faster than RAM, not slower.
+වැරදියි. රෙජිස්ටර් ස්ථිර ගබඩාවක් නොවන අතර RAM වලට වඩා වේගවත් වේ, මන්දගාමී නොවේ.
+
+Option / විකල්පය 2)
+Correct. Registers temporarily store data and instructions for immediate CPU use.
+නිවැරදියි. රෙජිස්ටර් මඟින් ක්ෂණික CPU  භාවිතය සඳහා දත්ත සහ උපදෙස් තාවකාලිකව ගබඩා කරයි.
+
+Option / විකල්පය 3)
+Incorrect. Registers are part of the CPU, not secondary storage. They do not act as backups.
+වැරදියි. රෙජිස්ටර් යනු CPU හි කොටසක් මිස ද්විතීයික ගබඩාවේ කොටසක් නොවේ. ඒවා උපස්ථ ලෙස
+ක්‍රියා නොකරයි.
+
+Option / විකල්පය 4)
+Incorrect. Registers store more than the program counter, such as the accumulator, instruction register,
+and stack pointer.
+වැරදියි. රෙජිස්ටර්, වැඩසටහන් කවුන්ටරයට වඩා වැඩි ප්‍රමාණයක් ගබඩා කරයි, එනම් ඇකියුමිලේටරය,
+උපදෙස් ලේඛනය සහ ස්ටැක් පොයින්ටරය වැනි.
+
+Option / විකල්පය 5)
+Incorrect. Registers are not only for external communication- they primarily support internal CPU
+operations.
+වැරදියි. රෙජිස්ටර් බාහිර සන්නිවේදනය සඳහා පමණක් නොවේ - ඒවා ප්‍රධාන වශයෙන් අභ්‍යන්තර CPU
+මෙහෙයුම් සඳහා සහය දක්වයි.
+
+Therefore, the answer is 2). / එබැවින්, පිළිතුර 2) වේ.
+
+4. The invention of microprocessors led to which generation of computers?
+ක්ෂුද්‍ර සකසනයන් සොයා ගැනීම කුමන පරිගණක පරම්පරාවට අයත්ද?
+
+1) First
+පළමු වන
+2) Second
+දෙවන
+3) Third
+තුන්වන
+4) Fourth
+හතරවන
+5) Fifth
+පස්වන
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම
+
+The invention of microprocessors marked the beginning of the fourth generation of computers.
+ක්ෂුද්‍ර සකසනයන් සොයා ගැනීම සිව්වන පරම්පරාවේ පරිගණකවල ආරම්භය සනිටුහන් කළේය.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+In this generation, computers started using microprocessors, which are integrated circuits (ICs)
+containing the entire CPU (central processing unit) on a single chip. This made computers smaller,
+faster, cheaper, and more efficient compared to earlier generations that used transistors and integrated
+circuits separately.
+මෙම පරම්පරාවේදී, පරිගණක ක්ෂුද්‍ර සකසනයන් භාවිතා කිරීමට පටන් ගත් අතර, ඒවා සම්පූර්ණ CPU
+(මධ්‍යම සැකසුම් ඒකකය) තනි චිපයක් මත අඩංගු ඒකාබද්ධ පරිපථ (IC) වේ. මෙය ට්‍රාන්සිස්ටර සහ
+ඒකාබද්ධ පරිපථ වෙන වෙනම භාවිතා කළ පෙර පරම්පරාවන්ට සාපේක්ෂව පරිගණක කුඩා, වේගවත්,
+ලාභදායී සහ කාර්යක්ෂම කළේය.
+
+The fourth generation began in the early 1970s with microprocessors like the Intel 4004 and Intel 8080.
+These chips revolutionized computer design, making personal computers and portable devices possible.
+සිව්වන පරම්පරාව 1970 ගණන්වල මුල් භාගයේදී Intel 4004 සහ Intel 8080 වැනි ක්ෂුද්‍ර සකසනයන්
+සමඟ ආරම්භ විය. මෙම චිප් පරිගණක නිර්මාණයේ විප්ලවීය වෙනසක් ඇති කළ අතර, පුද්ගලික පරිගණක
+සහ අතේ ගෙන යා හැකි උපාංග හැකි විය.
+
+Therefore, the answer is 4).
+එබැවින්, පිළිතුර 4) වේ.
+
+5. In magnetic storage devices, higher data density primarily depends on:
+චුම්භක ගබඩා උපාංගවල, ඉහළ දත්ත ඝනත්වය ප්‍රධාන වශයෙන් රඳා පවතින්නේ:
+
+1) Increasing the disk diameter / තැටි විෂ්කම්භය වැඩි කිරීම
+
+2) Reducing the bit cell size while maintaining signal-to-noise ratio
+සංඥා-ශබ්ද අනුපාතය පවත්වා ගනිමින් බිට් සෛල ප්‍රමාණය අඩු කිරීම
+
+3) Using thicker magnetic coatings / ඝන චුම්භක ආලේපන භාවිතා කිරීම
+
+4) Slowing down the spindle speed / ස්පින්ඩල් වේගය මන්දගාමී කිරීම
+
+5) Increasing track-to-track spacing / ධාවන පථයෙන් ධාවන පථයට පරතරය වැඩි කිරීම
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1) - Wrong / වැරදියි
+This just makes the disk physically larger / මෙය තැටිය භෞතිකව විශාල කරයි.
+You can store more overall data (more surface area), but this doesn’t increase the data density (data per
+square inch).
+ඔබට සමස්ත වැඩි දත්ත ප්‍රමාණයක් (වැඩි පෘෂ්ඨීය ප්‍රදේශයක්) ගබඩා කළ හැකිය, නමුත් මෙය දත්ත
+ඝනත්වය වැඩි නොකරයි (වර්ග අඟලකට දත්ත).
+
+Option / විකල්පය 2) - Correct / නිවැරදියි
+Data density / දත්ත ඝනත්වය = bits stored per unit area / ඒකක ප්‍රදේශයකට ගබඩා කර ඇති බිටු.
+If we shrink each magnetic "bit cell" (the area used to represent a 0 or 1), more bits fit in the same area.
+අපි එක් එක් චුම්බක “බිට් සෛලය” (0 හෝ 1 නිරූපණය කිරීමට භාවිතා කරන ප්‍රදේශය) හැකිලුවහොත්,
+එකම ප්‍රදේශයට තවත් බිටු ගැලපේ.
+
+But shrinking them too much makes signals weaker and harder to distinguish → noise issues. So, density
+increases only if shrinking is balanced with maintaining readability (signal-to-noise ratio).
+නමුත් ඒවා ඕනෑවට වඩා හැකිලීම සංඥා දුර්වල කරන අතර වෙන්කර හඳුනා ගැනීමට අපහසු කරයි →
+ශබ්ද ගැටළු. එබැවින්, ඝනත්වය වැඩි වන්නේ හැකිලීම කියවීමේ හැකියාව (සංඥා-ශබ්ද අනුපාතය) පවත්වා
+ගැනීම සමඟ සමතුලිත වුවහොත් පමණි.
+
+Option / විකල්පය 3) - Wrong / වැරදියි
+A thicker coating doesn’t let you pack bits closer together. It may help durability, but doesn’t improve
+areal density.
+ඝන ආලේපනයක් ඔබට බිටු එකට සමීපව ඇසුරුම් කිරීමට ඉඩ නොදේ. එය කල්පැවැත්මට උපකාරී විය
+හැකි නමුත් ප්‍රදේශීය ඝනත්වය වැඩි දියුණු නොකරයි.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+Option / විකල්පය 4) - Wrong / වැරදියි
+Affects read/write speed (latency, transfer rate), but not how many bits you can pack per inch.
+කියවීමේ/ලිවීමේ වේගයට ( ගුප්තතාව, හුවමාරු අනුපාතය) බලපාන නමුත් ඔබට අඟලකට කොපමණ බිටු
+ඇසුරුම් කළ හැකිද යන්න නොවේ.
+
+Option / විකල්පය 5) - Wrong / වැරදියි
+If you increase the spacing between tracks, you waste surface area. That actually reduces density.
+ඔබ ධාවන පථ අතර පරතරය වැඩි කළහොත්, ඔබ මතුපිට වර්ගඵලය නාස්ති කරයි. එය ඇත්ත වශයෙන්ම
+ඝනත්වය අඩු කරයි.
+
+Therefore, the answer is 2).
+එබැවින්, පිළිතුර 2) වේ.
+
+6. Which of the following best describes PROM?
+පහත සඳහන් ඒවායින් PROM වඩාත් හොඳින් විස්තර කරන්නේ කුමක්ද?
+
+1) Can be erased with UV light and reprogrammed multiple times.
+UV ආලෝකයෙන් මකා දමා කිහිප වතාවක් නැවත වැඩසටහන්ගත කළ හැකිය..
+
+2) Programmed once electrically and cannot be altered afterwards.
+විද්‍යුත් වශයෙන් එක් වරක් වැඩසටහන්ගත කළ හැකි අතර පසුව වෙනස් කළ නොහැක.
+
+3) Erased electrically one byte at a time
+විද්‍යුත් වශයෙන් එක් බයිට් එකකින් මකා දැමිය හැකිය..
+
+4) Randomly writable like RAM but non-volatile
+RAM මෙන් අහඹු ලෙස ලිවිය හැකි නමුත් නශ්‍ය නොවන වේ.
+
+5) Requires a magnetic field to erase and reprogram.
+මකා දමා නැවත වැඩසටහන්ගත කිරීමට චුම්භක ක්ෂේත්‍රයක් අවශ්‍ය වේ.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This is EPROM (Erasable Programmable ROM). EPROM has a quartz window for UV erasure. Not
+PROM. / මෙය EPROM (මකා දැමිය හැකි වැඩසටහන්ගත කළ හැකි ROM) වේ. EPROM හි UV මකා
+දැමීම සඳහා ක්වාර්ට්ස් කවුළුවක් ඇත. PROM නොවේ.
+
+Option / විකල්පය 2)
+This exactly matches PROM (Programmable ROM). It starts blank, and once programmed (by blowing
+fuses electrically), the data is permanent. / මෙය PROM (ක්‍රමලේඛගත කළ හැකි ROM) වලට හරියටම
+ගැලපේ. එය හිස්ව ආරම්භ වන අතර, ක්‍රමලේඛනය කළ පසු (විදුලියෙන් ෆියුස් පිඹීමෙන්), දත්ත ස්ථිර වේ.
+
+Option / විකල්පය 3)
+This is EEPROM (Electrically Erasable PROM). Byte-level erasure is EEPROM’s key advantage. Not
+PROM. / මෙය EEPROM (විද්‍යුත් වශයෙන් මකා දැමිය හැකි PROM) වේ. බයිට් මට්ටමේ මකා දැමීම
+EEPROM හි ප්‍රධාන වාසියයි. PROM නොවේ.
+
+Option / විකල්පය 4)
+This describes Flash memory (or in general NVRAM). PROM is not writable randomly; it’s only written
+once. Not correct. / මෙය සැණෙළි මතකය (හෝ සාමාන්‍යයෙන් NVRAM) විස්තර කරයි. PROM අහඹු
+ලෙස ලිවිය නොහැක; එය ලියා ඇත්තේ එක් වරක් පමණි. නිවැරදි නොවේ.
+
+Option / විකල්පය 5)
+This would be closer to magnetic storage (like hard disks, tapes), not ROM.
+මෙය ROM නොව චුම්භක ගබඩාවට (දෘඩ තැටි, පටි වැනි) සමීප වනු ඇත.
+
+Therefore, the answer is 2). / එබැවින්, පිළිතුර 2) වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+7. In the fetch-execute cycle, what is the role of the program counter (PC)?
+ආභරණ ක්‍රියාකරවුම් චක්‍රයේ, වැඩසටහන් කවුන්ටරයේ (PC) කාර්යභාරය කුමක්ද?
+
+1) It stores the current instruction being executed
+එය ක්‍රියාත්මක වන වත්මන් උපදෙස් ගබඩා කරයි.
+
+2) It holds the address of the next instruction to fetch.
+එය ක්‍රියාත්මක කිරීමට ඇති ඊළඟ උපදෙස් ලිපිනය රඳවා ගනී.
+
+3) It decodes the opcode before execution.
+එය ක්‍රියාත්මක කිරීමට පෙර මෙහෙයුම් කේතය විකේතනය කරයි.
+
+4) It stores intermediate results of ALU operations.
+එය ALU මෙහෙයුම් වල අතරමැදි ප්‍රතිඵල ගබඩා කරයි.
+
+5) It controls the data bus during memory writes.
+මතක ලිවීමේදී එය දත්ත පථය පාලනය කරයි.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1) - Wrong / වැරදියි
+The Instruction Register (IR) holds the current instruction, not the PC.
+උපදෙස් ලේඛනය (IR) PC නොව වත්මන් උපදෙස් රඳවා ගනී.
+
+Option / විකල්පය 2) - Correct / නිවැරදියි
+The PC always points to the memory address of the next instruction. After fetching, it usually increments
+to the following instruction.
+PC සෑම විටම ඊළඟ උපදෙස් වල මතක ලිපිනය වෙත යොමු කරයි. ලබා ගැනීමෙන් පසු, එය සාමාන්‍යයෙන්
+මීළගට ඇති උපදෙස් වෙත වැඩි වේ.
+
+Option / විකල්පය 3) - Wrong / වැරදියි
+Decoding is done by the Control Unit, not PC.
+විකේතනය කිරීම PC නොව පාලන ඒකකය විසින් සිදු කරනු ලැබේ.
+
+Option / විකල්පය 4) - Wrong / වැරදියි
+Temporary results go to registers (like accumulator), not PC.
+තාවකාලික ප්‍රතිඵල PC නොව ලේඛන වෙත යයි (සමුච්චකය වැනි).
+
+Option / විකල්පය 5) - Wrong / වැරදියි
+PC doesn’t control the data bus; that’s a part of control signals from the Control Unit.
+PC දත්ත බස් රථය පාලනය නොකරයි. එය පාලන ඒකකයෙන් ලැබෙන පාලන සංඥා වල කොටසකි.
+
+Therefore, the answer is 2).
+එබැවින්, පිළිතුර 2) වේ.
+
+8. As we go down the memory hierarchy, what happens to cost per bit?
+මතක ධූරාවලිය පහළට යන විට, බිට් එකකට පිරිවැයට කුමක් සිදුවේද?
+
+1) Increases / වැඩි වේ
+2) Decreases / අඩු වේ
+3) Remains constant / ස්ථාවරව පවතී
+4) First decreases, then increases / පළමුව අඩු වේ, පසුව වැඩි වේ
+5) Unaffected by hierarchy / ධූරාවලියෙන් බලපෑමට ලක් නොවේ
+
+Answer: 2)
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-
+
+Explanation / පැහැදිලි කිරීම
+
+As we move down the memory hierarchy, the cost per bit gradually decreases. This means that the
+memories at the top, such as CPU registers and cache, are the most expensive per bit, while those at the
+bottom, such as hard drives and SSDs, are much cheaper.
+මතක ධූරාවලිය පහළට යන විට, බිට් එකකට පිරිවැය ක්‍රමයෙන් අඩු වේ. මෙයින් අදහස් කරන්නේ CPU
+රෙජිස්ටර් සහ හැඹිලිය වැනි ඉහළින් ඇති මතකයන් බිට් එකකට වඩාත්ම මිල අධික වන අතර පහළින්
+ඇති දෘඪ තැටි සහ SSD වැනි ඒවා බෙහෙවින් ලාභදායී බවයි.
+
+At the top of the hierarchy, registers and cache memory are built using very fast and complex technologies.
+They need to operate at the same speed as the CPU, which makes them costly to manufacture. Although
+they provide high performance, they have limited storage capacity and a high cost per bit.
+ධූරාවලියේ ඉහළින්ම, රෙජිස්ටර් සහ හැඹිලි මතකය ඉතා වේගවත් හා සංකීර්ණ තාක්ෂණයන් භාවිතයෙන්
+ගොඩනගා ඇත. ඒවා CPU හා සමාන වේගයකින් ක්‍රියාත්මක විය යුතු අතර එමඟින් ඒවා නිෂ්පාදනය
+කිරීමට මිල අධික වේ. ඒවා ඉහළ කාර්ය සාධනයක් ලබා දුන්නද, ඒවාට සීමිත ගබඩා ධාරිතාවක් සහ බිට්
+එකකට ඉහළ පිරිවැයක් ඇත.
+
+As we move down to main memory (RAM) and secondary storage (SSD, HDD), the memory size
+increases, but the speed decreases. These lower levels use less expensive technologies that can store more
+data per unit cost. For example, a hard drive can hold terabytes of data for a low price, whereas the same
+amount of storage in cache memory would be extremely expensive.
+අපි ප්‍රධාන මතකය (RAM) සහ ද්විතියික ගබඩාව (SSD, HDD) වෙත පහළට යන විට, මතක ප්‍රමාණය
+වැඩි වන නමුත් වේගය අඩු වේ. මෙම පහළ මට්ටම් ඒකක පිරිවැයකට වැඩි දත්ත ගබඩා කළ හැකි අඩු
+මිල අධික තාක්ෂණයන් භාවිතා කරයි. උදාහරණයක් ලෙස, දෘඪ තැටියකට අඩු මිලකට ටෙරාබයිට් දත්ත
+රඳවා ගත හැකි අතර, හැඹිලි මතකයේ එම ගබඩා ප්‍රමාණයම අතිශයින් මිල අධික වනු ඇත.
+
+Therefore, the answer is 2).
+එබැවින්, පිළිතුර 2) වේ.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-7-

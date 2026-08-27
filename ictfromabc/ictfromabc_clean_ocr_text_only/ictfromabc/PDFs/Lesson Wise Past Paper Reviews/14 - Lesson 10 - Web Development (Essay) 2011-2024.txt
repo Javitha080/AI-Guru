@@ -1,7 +1,7 @@
 2011 WEB DEVELOPMENT ESSAY MARKING
 
 1.(a) Describe the terms “elements” and “attributes” with respect to an HTML document.
-HTML egaacs සමිබන්ධයෙන්‌ "මුලාංග" (Elements) සහ "උපලක්ෂණ" (Attributes) යන පද විස්තර
+HTML egaacs සම්බන්ධයෙන්‌ "මුලාංග" (Elements) සහ "උපලක්ෂණ" (Attributes) යන පද විස්තර
 කරන්න.
 
 Element / මුලාංග
@@ -40,8 +40,8 @@ Part Type Description
 උපලක්ෂණ <img> ටැගයක රෑප ගොනුවක මාර්ගය නියම කරයි.
 
 The root element of an HTML document. All content goes inside <html>
-Element ... <html> tags.
-මුලාංග HTML ලේඛනයක මුල අංගය. සියලුම අන්තර්ගතයන්‌ <html>...</html>
+Element …… <html> tags.
+මුලාංග HTML ලේඛනයක මුල අංගය. සියලුම අන්තර්ගතයන්‌ <html>……</html>
 ටැග්‌ තුළට යයි.
 
 (iv) html
@@ -71,7 +71,7 @@ Answer the following questions using the above figure.
 (1) It is required to format all the paragraphs of the above HTML document in “arial” font, 14 font
 size and in blue colour. Write the required CSS code segment for the paragraph.
 ඉහත 11']1/]1]1, ලේඛනයේ සියලුම ජේද ඒරියල්‌ අකුරැ වර්ගය (Arial font), අකුරැ ප්‍රමාණය 14 සහ නිල්‌ පැහැයෙන්‌
-හැඩහුරැ (Format) ගැන්වීමට අවග්‍යව තිබේ. ජේදය සඳහා අවශ්‍ය CSS කේත ඛණ්ඩය ලියා දක්වන්න.
+හැඩහුරැ (Format) ගැන්වීමට අවශ්‍යව තිබේ. ජේදය සඳහා අවශ්‍ය CSS කේත ඛණ්ඩය ලියා දක්වන්න.
 
 p {
 
@@ -101,7 +101,7 @@ Anchor සබැඳියක්‌ නිර්මාණය කරයි.
 
 e When the user clicks on the image icon “elephant-tnl.jpg” an image named “elephant.jpg” 1s loaded
 in a different web page. / පරිගීලකයා “elephant-tnl.jpg” රෑප නිරෑපකය මත ක්ලික්‌ කළ විට
-“elephant.jpg” නම්‌ රෑපයක්‌ වෙනත්‌ වෙබි පිටුවකට පුරණය වේ.
+“elephant.jpg” නම්‌ රූපයක්‌ වෙනත්‌ වෙබි පිටුවකට පුරණය වේ.
 
 e Ifthe browser can’t load the image “elephant-tnl.jpg” it displays the alternate text “Tour to Yala”.
 බ්‍රවුසරයට “elephant-tnl. jpg” රැපය පුරණය කළ නොහැකි නමි, එය “Tour to Yala” යන විකල්ප පෙළ
@@ -141,7 +141,7 @@ Days Price
 10 US$1220
 
 Write HTML code segment to create the table.
-මෙම වගුව නිට්මාණය කිරීමට අවග්‍ය HTML eso ඛණ්ඩය ලියන්න.
+මෙම වගුව නිට්මාණය කිරීමට අවශ්‍ය HTML eso ඛණ්ඩය ලියන්න.
 
 <table border="1">
 <caption>Wild Sri Lanka</caption>
@@ -204,15 +204,15 @@ The <br> tag is an empty tag used to force a line break within a block of text, 
 or a heading, when a new paragraph or a block-level element is not desired. It's often used for short lines
 of text like addresses or poetry.
 
-<br> උසුලනය යනු HO ජේදයක්‌ හෝ බිලොක්‌ මට්ටමේ මුලාංගයක්‌ අවග්‍ය නොවන විට, පේදයක්‌ හෝ Gdecesd
+<br> උසුලනය යනු HO ජේදයක්‌ හෝ බිලොක්‌ මට්ටමේ මුලාංගයක්‌ අවශ්‍ය නොවන විට, පේදයක්‌ හෝ Gdecesd
 වැනි පෙළ කොටසක ඊේඛා බිඳුමක්‌ බල කිරීමට භාවිතා කරන හිස්‌ උසුලනයකි. එය බොහෝ විට ලිපින හෝ
 කවි වැනි කෙටි පෙළ පේළි සඳුහා භාවිතා වේ.
 
 (0) What will be displayed when the following HTML code segment is rendered? Clearly indicate blank
 
-line(s) in the display, if any, with dotted lines (............. -...-.................... ).
+line(s) in the display, if any, with dotted lines (…… -……-…… ).
 පහත දැක්වෙන 1111/]], කේතය Sezeq (render) විට, කුමක්‌ aoe dana වනු ඇත්‌ ද? OO සංදර්ගනයෙහි හිස්‌ cb)
-(blank lines) ඇත්නමි ඵ්වා තිත්‌ ඉරි (......................................... ) මගින්‌ පැහැදිලිව දක්වන්න.
+(blank lines) ඇත්නමි ඵ්වා තිත්‌ ඉරි (…… ) මගින්‌ පැහැදිලිව දක්වන්න.
 
 <p>Our evergreen school days<br/>
 will not come back again</p>
@@ -371,9 +371,9 @@ The ALT (alternative text) attribute provides a text description of the image. T
 image cannot be loaded (e.g., due to a broken link or slow internet) or is read aloud by screen readers
 for visually impaired users. (This is optional)
 
-ALT (විකල්ප පෙළ) ගුණාංගය රෑපයේ පෙළ විස්තරයක්‌ සපයයි. රෑපය පුරණය කළ නොහැකි නමි (උදා:
+ALT (විකල්ප පෙළ) ගුණාංගය රූපයේ පෙළ විස්තරයක්‌ සපයයි. රූපය පුරණය කළ නොහැකි නමි (උදා:
 
-බිඳුණු සබැඳියක්‌ හෝ මන්දගාමි අන්තරපාලය හේතුවෙන්‌) හෝ දෘග්‍යාබාධිත පරිශීලකයින්‌ සඳහා තිර
+බිඳුණු සබැඳියක්‌ හෝ මන්දගාමි අන්තර්ජාලය හේතුවෙන්‌) හෝ දෘග්‍යාබාධිත පරිශීලකයින්‌ සඳහා තිර
 කියවනයන්‌ විසින්‌ ade, නඟා කියවනු ලැබුවහොත්‌ මෙම පෙළ පෙන්වනු ලැබේ. (මෙය වෛකල්පිතයි)
 
 <p>Sri Lanka is an agricultural country. Agriculture is one of the main
@@ -440,7 +440,7 @@ tags, but <br> is also valid.
 
 <a href = “http://www.lkagrisys.com">Lanka Agri Systems Pvt Ltd.</a>
 Another anchor tag, similar to the one above, linking to "http://www. lkagrisys.com".
-ඉහත ටැගයට සමාන තවත්‌ anchor ටැගයක්‌, “http://www.lkagrisys.com" වෙත සමිඛන්ධ කරයි.
+ඉහත ටැගයට සමාන තවත්‌ anchor ටැගයක්‌, “http://www.lkagrisys.com" වෙත සම්බන්ධ කරයි.
 
 <br/>
 Another line break after the second link
@@ -448,11 +448,10 @@ Another line break after the second link
 
 Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
 
-
 2013 WEB DEVELOPMENT ESSAY MARKING
 
 1. Consider the section of a web page on the Sri Lankan Test Cricket team, given in the Figure:
-රෑපයේ දි ඇති ශී ලංකා GOSS Gnd කණ්ඩායමේ වෙබ්‌ පිටුවක කොටස සලකන්න:
+රූපයේ දි ඇති ශී ලංකා GOSS Gnd කණ්ඩායමේ වෙබ්‌ පිටුවක කොටස සලකන්න:
 
 Sri Lankan Test cricket records
 
@@ -592,7 +591,7 @@ also correct instead of <h1> and <h2> respectively.
 2014 WEB DEVELOPMENT ESSAY MARKING
 
 1.(a) Consider the definition list given below rendered by a web browser:
-වෙබි අතරික්සුවක්‌ (web browser) මගින්‌ විදැහු (render) කරන ලද පහත පෙන්වා ඇති අරථ  දැක්වීමි
+වෙබි අතිරික්සුවක්‌ (web browser) මගින්‌ විදැහු (render) කරන ලද පහත පෙන්වා ඇති අරථ  දැක්වීමි
 ලැයිස්තුව සලකා බලන්න:
 
 CPU
@@ -607,10 +606,10 @@ Complete the following HTML code segment to display the above list.
 
 කරන්න.
 <dl>
-€,... 2 ල00]ද......... -. --.---.....-- >
-ඇ෴෴෴“෴෴~෴ය෴෴෴න >Central Processing [111% ද.......................... >
-€,... 2 අ8001ද......... .. ------.....--. >
-'අ෴අ෴෴෴෴ න >Read Only (15101: ද........... ..-............ >
+€,…… 2 ල00]ද…… -. --.---……-- >
+ඇ෴“෴~෴ය෴න >Central Processing [111% ද…… >
+€,…… 2 අ8001ද…… .. ------……--. >
+'අ෴අ෴ න >Read Only (15101: ද…… ..-…… >
 </dl1>
 
 <dl> — Description List
@@ -637,7 +636,7 @@ This tag gives the definition or explanation of the term in the <dt> tag.
 (c)
 
 Write the outputs of the following HTML code segments when rendered by a web browser.
-වෙබි අතරික්සුවක්‌ මගින්‌ පහත eso) ඇති HIML කේත ඛණ්ඩ විදැහු කරන ආකාරය ලියා දක්වන්න.
+වෙබි අතිරික්සුවක්‌ මගින්‌ පහත eso) ඇති HIML කේත ඛණ්ඩ විදැහු කරන ආකාරය ලියා දක්වන්න.
 
 (i) <abc>Greetings!</abc>
 
@@ -659,7 +658,7 @@ display as simple text.
 නොහැක. අතිරික්සුව එය නොසලකා හැර සරල පාධ ලෙස පෙන්වයි.
 
 Consider the following Output with check boxes rendered by a web browser:
-වෙබි අතරික්සුවක්‌ මගින්‌ විදැහු කරන ලදු පහත පෙන්වා ඇති ආවේක්ෂණ කොටු (check boxes) සහිත
+වෙබි අතිරික්සුවක්‌ මගින්‌ විදැහු කරන ලදු පහත පෙන්වා ඇති ආවේක්ෂණ කොටු (check boxes) සහිත
 ප්‍රතිදානය සලකා බලන්න:
 
 Programming Languages Used:
@@ -690,14 +689,14 @@ submit කිරීමෙන්‌ පසු තෝරාගත්‌ වික�
 
 name="language"
 
-value="..."
+value="……"
 
 2015 WEB DEVELOPMENT ESSAY MARKING
 
 1.(a) Consider the web form given in the figure which has been developed for sending text messages from
 
 a web application.
-වෙබි යෙදුමක්‌ මගින්‌ od පණිවුඩ (text messages) යැවීම සඳුහා සංවර්ධනය කරන EF, පහත රෑපයෙන්‌
+වෙබි යෙදුමක්‌ මගින්‌ od පණිවුඩ (text messages) යැවීම සඳුහා සංවර්ධනය කරන EF, පහත රූපයෙන්‌
 
 පෙන්වා ඇති වෙබ්‌ පෝරමය (web form) සලකා බලන්න:
 
@@ -717,23 +716,23 @@ The partial HTML code segment given below is prepared to generate the above form
 
 code segment to render the above form.
 පහත es) ඇති අර්ධ HTML oie ඛණඩය (partial code) ඉහත වෙබ්‌ පෝරමය Sane කිරීම සඳහා
-සකසා ඇත. ඉහත පෝරමය විදැහු කිරීමට එම කේන ඛණ්ඞය සමිපුර්ණ කරන්න.
+සකසා ඇත. ඉහත පෝරමය විදැහු කිරීමට එම කේන ඛණ්ඩය සමිපුර්ණ කරන්න.
 
 <h2>Send Text Message</h2>
 <p>Fill in all the fields and click Send Message</p>
 <form action=""_ method="POST">
 <div class = "a">
 <div class = “1"> Phone No. :</div>
-<div class = "r"><input type= ...."text".... name="phone" size="20"></div>
+<div class = "r"><input type= ……"text"…… name="phone" size="20"></div>
 </div>
 <div class ="a">
 <div class = "1">Message:</div>
-<div class ="r"><....textarea....name="message" rows="7" cols="30">
-</....textarea....></div>
+<div class ="r"><……textarea……name="message" rows="7" cols="30">
+</……textarea……></div>
 </div>
 <div class = "a">
-<div class = "r"><input type="submit" value=...."Send your
-message"....></div>
+<div class = "r"><input type="submit" value=……"Send your
+message"……></div>
 </div>
 </form>
 
@@ -746,7 +745,7 @@ HTML හි, <input type="text"> මුලාංගය භාවිතා කර
 The <textarea> element allows users to enter multi-line text, making it suitable for longer inputs like
 messages or comments.
 
-<textarea> මුලාංගය පරිගිලකයින්ට බහු පේළි OA ඇතුළත්‌ කිරීමට ඉඩ සලසයි, එමඟින්‌ පණිවිෙඞ හෝ අදහස්‌
+<textarea> මුලාංගය පරිගිලකයින්ට බහු පේළි OA ඇතුළත්‌ කිරීමට ඉඩ සලසයි, එමඟින්‌ පණිවිෙඩ හෝ අදහස්‌
 වැනි දිගු ආදාන සඳහා එය සුදුසු වේ.
 
 The <input type="submit"> element creates a button that, when clicked, submits all the form data
@@ -762,8 +761,8 @@ These elements are commonly used in forms to gather and send user information.
 includes an image of a school. However, the browser does not display the image. Instead, it only
 displays the text "School" which 1s given as the 'text' attribute of alt. Give two possible reasons for
 this behaviour.
-පාසලක පජායාරෑපයක්‌ Gon වෙබි පිටුවක්‌ විදැහු HOO Hem) නිවැරළි කාරක රිති භාවිත කරමින්‌ සුනිෂ්පන්න
-(well formed) 1111/11, කේතයක්‌ සංවර්ධනය කර ඇත. එහෙත්‌ වෙබි අතරික්සුව (web browser) මගින්‌
+පාසලක පජායාරූපයක්‌ Gon වෙබි පිටුවක්‌ විදැහු HOO Hem) නිවැරළි කාරක රිති භාවිත කරමින්‌ සුනිෂ්පන්න
+(well formed) 1111/11, කේතයක්‌ සංවර්ධනය කර ඇත. එහෙත්‌ වෙබි අතිරික්සුව (web browser) මගින්‌
 පාසලේ පිංතූරය විදැහු නොවන අතර alt උපලක්ෂණය සඳුහා පාධ (text) ලෙස ලබා දි තිබූ “School”
 පමණක්‌ ප්‍රදර්ශනය විය. මෙම චර්යාව පැවතීම සඳුහා හේතු දෙකක්‌ දක්වන්න.
 
@@ -778,7 +777,7 @@ the wrong folder location or spelling mistake.
 2. Image File Missing / රෑප ගොනුව අස්ථානගත 5 තිබිම:
 
 The image file might not be available in the given location or may have been deleted or moved.
-E ඇති ස්ටානයේ රෑප ගොනුව නොතිබිය හැකිය, නැතහොත්‌ මකා EO) හෝ ගෙන ගොස්‌ තිබිය හැකිය.
+E ඇති ස්ථානයේ රෑප ගොනුව නොතිබිය හැකිය, නැතහොත්‌ මකා EO) හෝ ගෙන ගොස්‌ තිබිය හැකිය.
 
 3. Unsupported Image Format / රෑප ගොනු ආකෘතිය සහාය නොදැක්විම:
 
@@ -788,7 +787,7 @@ The image file may be 11] a format that the browser doesn’t support.
 4. Internet Connection Issue / අන්තරජපාල සමිබඛන්ධතා OOo :
 
 If the image is hosted online, it may fail to load due to a network issue or broken link.
-රෑපය මාර්ගගතව සත්කාරකත්වය දරන්නේ නමි, HE ගැටඑවක්‌ හෝ DES) සබැඳියක්‌ හේතුවෙන්‌ එය
+රූපය මාර්ගගතව සත්කාරකත්වය දරන්නේ නමි, HE ගැටඑවක්‌ හෝ DES) සබැඳියක්‌ හේතුවෙන්‌ එය
 පුරණය විමට අසමන්‌ විය හැකිය.
 
 (c) Indicate whether the following CSS rules are syntactically correct or incorrect. If a rule is incorrect
@@ -844,8 +843,8 @@ color: blue; ප්‍රකාශනය ඒවායේ පාධ වටණය 
 
 1.(a) State the Operation of each HTML code segments given below. Assume that all images and HTML documents
 are in the same folder.
-පහත දෙන ලද එක්‌ එක්‌ HIML කේත බණ්ඞයන්හි ක්‍රියාකාරිත්වය ලියා දක්වන්න. BE HIML ලේඛන සහ අනුරෑ
-(images) එකම ෆෝල්ඞරයෙහි GAH යැයි උපකල්පනය කරන්න.
+පහත දෙන ලද එක්‌ එක්‌ HIML කේත බණ්ඩයන්හි ක්‍රියාකාරිත්වය ලියා දක්වන්න. BE HIML ලේඛන සහ අනුරෑ
+(images) එකම ෆෝල්ඩරයෙහි GAH යැයි උපකල්පනය කරන්න.
 
 (1) <a href="coverPage. jpg" target = "_blank">Cover Page</a>
 
@@ -904,11 +903,11 @@ inside the <head> section. These styles apply only to that specific HTML page.
 h2 {
 color: red;
 text-align: center;
-}
+
 p {
 font-family: "Courier New";
 font-size: 14px;
-}
+
 </style>
 </head>
 Note:
@@ -917,7 +916,6 @@ Note:
 “14 px” වෙනුවට “14.pt” භාවිතා කළ හැක.
 
 Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
-
 
 2017 WEB DEVELOPMENT ESSAY MARKING
 
@@ -933,8 +931,8 @@ the Figure 6.1 and Figure 6.2 respectively.
 ආයතනය වෙබි අඩවියක්‌ නිර්මාණය කිරීමට = 3rd place Rs. 5,000/
 අදහස්‌ කරයි. එහි එක්‌ වෙබි පිටුවක්‌ හා
 තරගාවලියට ලියාපදිංචි විම සඳහා ඇතුළත්‌
-විමේ පෝරමය සහිත නවත්‌ වෙබි පිටුවක්‌ රෑපය
-6.1 හා රෑපය 6.2 මගින්‌ පිළිවෙළින්‌ දැක්වෙයි.
+විමේ පෝරමය සහිත නවත්‌ වෙබි පිටුවක්‌ රූපය
+6.1 හා රූපය 6.2 මගින්‌ පිළිවෙළින්‌ දැක්වෙයි.
 
 ENTRY FORM
 
@@ -945,8 +943,8 @@ Figure 6.1 : A web page of the website
 (a) Using appropriate HTML tags, create an HTML file required to render the web page as shown in
 Figure 6.1. Your code should satisfy the following requirements.
 
-සුදුසු HIML උසුලන භාවිත කර, රෑපය 6.1 හි දැක්වෙන වෙබි පිටුව විදැහු කිරීමට අවග්‍ය HTML
-ගොනුවක්‌ නිර්මාණය කරන්න. ඔබගේ කේතය පහත දැක්වෙන අවග්‍යතා තෘප්ත කළ යුතු ය.
+සුදුසු HIML උසුලන භාවිත කර, රූපය 6.1 හි දැක්වෙන වෙබි පිටුව විදැහු කිරීමට අවශ්‍ය HTML
+ගොනුවක්‌ නිර්මාණය කරන්න. ඔබගේ කේතය පහත දැක්වෙන අවශ්‍යතා තෘප්ත කළ යුතු ය.
 
 It is required to format the text of the list in ‘Calibri’
 font, 14 points high, in red color. The list should be Art Competition Online Entrv
@@ -982,7 +980,7 @@ page with the entry form is ‘form.html’. ~ Chall
 උපකල්පනය කරන්න.
 
 There are three main ways to connect CSS (Cascading Style Sheets) to HTML. They are,
-CSS (Cascading Style Sheets) HTML eam සමිබන්ධ කිරීමට ප්‍රධාන ක්‍රම තුනක්‌ තිබේ. ඒවා නමි,
+CSS (Cascading Style Sheets) HTML eam සම්බන්ධ කිරීමට ප්‍රධාන ක්‍රම තුනක්‌ තිබේ. ඒවා නමි,
 
 1. Inline CSS/ පේළිගත CSS
 
@@ -1018,7 +1016,7 @@ websites, especially when multiple pages need to share the same style.
 
 අනෙක්‌ අතට, බාහිර CSS යනු සියලුම විලාස නීති වෙනම css ගොනුවක GSO. ඉන්පසු එම ගොනුව <head>
 හි <link> උසුලනයක්‌ භාවිතයෙන්‌ HTML පිටුවට සම්බන්ධ කෙරේ. මෙම ක්‍රමය SME වෙබි අඩවි සඳුහා
-ඉතා කාටර්යකක්‍්ෂම වේ, විශේෂයෙන්‌ බොහෝ පිටු සදහා එකම විලාසය බෙදා ගැනීමට අවග්‍ය © විට.
+ඉතා කාටර්යකක්‍්ෂම වේ, විශේෂයෙන්‌ බොහෝ පිටු සදහා එකම විලාසය බෙදා ගැනීමට අවශ්‍ය © විට.
 
 In the given question, answers should be provided using either internal or external CSS only. Let’s see
 how list formatting can be applied using internal and external CSS.
@@ -1047,7 +1045,7 @@ tag within the <head> section. This connects the HTML structure with the externa
 provided in the CSS file.
 බාහිර විලාස ගැන්වීම යෙදිම සඳහා, පළමුව CSS ගොනුව <head> කොටසේ ඇති <link> උසුලනය
 භාවිතයෙන්‌ HTML ලේඛනයට aSasa කළ යුතුය. මෙය HTML Ogme CSS ගොනුවේ සපයා ඇති
-බාහිර මෝස්තර අරටථ  දැක්විමි සමඟ සමිබන්ධ කරයි.
+බාහිර මෝස්තර අරටථ  දැක්විමි සමඟ සම්බන්ධ කරයි.
 
 The beginning HTML codes should be written as follows,
 ආරමිභක HTML essen පහත පරිදි ලිවිය යුතුය,
@@ -1095,9 +1093,9 @@ The competition</p>
 options for ‘Grade Category’ are given in the Figure 6.3. Your code should satisfy the following
 requirements. When the ‘Clear your Entries’ button is clicked, all the entries of the form should be
 cleared. Similarly, when the ‘Submit’ button is clicked, the form should be submitted to the server.
-සුදුසු HIML උසුලන mdm කර, රෑපය 6.2 හි ඇතුළත්‌ වීමේ පෝරමය විදැහු කිරීමට HTML ගොනුවක්‌
+සුදුසු HIML උසුලන mdm කර, රූපය 6.2 හි ඇතුළත්‌ වීමේ පෝරමය විදැහු කිරීමට HTML ගොනුවක්‌
 නිර්මාණය කරන්න. රැපය 6.3 හි 'Grade Category’ සඳුහා විකල්ප දි ඇත. ඔබගේ කේතය පහත දැක්වෙන
-අවග්‍යතා තෘප්ත කළ යුතු ය. 'උ]ලෘ1' your Entities' බොත්තම ක්ලික්‌ කළ විට, පෝරමයෙහි ඇති සියලු ම
+අවශ්‍යතා තෘප්ත කළ යුතු ය. 'උ]ලෘ1' your Entities' බොත්තම ක්ලික්‌ කළ විට, පෝරමයෙහි ඇති සියලු ම
 නිවේගික (entries) මැකී යා (Clear) යුතුයි. එලෙසම ‘Submit’ බොත්තම ක්ලික්‌ කළ විට, පෝරමය සේවාදායකට
 යොමු විය (Submit) යුතුයි.
 
@@ -1238,7 +1236,7 @@ content. It doesn’t interact with the server or send any data.
 
 අනෙක්‌ අතට, reset බොත්නම පෝරමයේ ඇති සියලුම ආදාන ක්ෂේත්‍ර ඉවත්‌ කිරිමට භාවිතා කරයි, JO) ඒවායේ
 මුල්‌ පෙරනිමි අගයන්‌ වෙත ආපසු යවයි. පරිගිලකයෙකුට එක්‌ එක්‌ ක්ෂේත්‍රයේ අන්තර්ගතය අතින්‌ මකා
-දැමිමකින්‌ තොරව නැවත ආරමිභ කිරීමට අවග්‍ය නමි මෙය ප්‍රයෝපනවත්‌ වේ. එය සේවාදායකය සමඟ අන්තර්‌
+දැමිමකින්‌ තොරව නැවත ආරමිභ කිරීමට අවශ්‍ය නමි මෙය ප්‍රයෝපනවත්‌ වේ. එය සේවාදායකය සමඟ අන්තර්‌
 ක්‍රියා නොකරයි.
 
 2018 WEB DEVELOPMENT ESSAY MARKING
@@ -1274,7 +1272,7 @@ e Cleaner code is ensured.
 වඩා නිරවුල්‌ කේතයක්‌ සහතික කරයි.
 
 (ii) Write the output of the following HTML code segment when rendered by a web_ browser.
-පහත දැක්වෙන 11111], කේත ඛණ්ඩය වෙබි අතරික්සුවක්‌ මගින්‌ Sem) දක්වන SO ලැඛෙන ප්‍රතිදානය ලියා
+පහත දැක්වෙන 11111], කේත ඛණ්ඩය වෙබි අතිරික්සුවක්‌ මගින්‌ Sem) දක්වන SO ලැඛෙන ප්‍රතිදානය ලියා
 දුක්වන්න.
 
 <html>
@@ -1309,8 +1307,7 @@ Tag / උසුලන Description / විස්තරය
 
 Underlines the text “Important Sites.”
 
-<u> m ෴
-්‌ “Important Sites’ යන පාධය යටින්‌ ඉරි දක්වයි.
+<u> m ෴ ‌ “Important Sites’ යන පාධය යටින්‌ ඉරි දක්වයි.
 
 Creates an unordered list to organize links.
 <ul> සබැඳි සංවිධානය කිරීමට. unordered
@@ -1333,7 +1330,7 @@ Creates a hyperlink that redirects to the
 <a href="www.doenets.1lk/exam/index.html">
 
 (111) Write the output of the following HTML code segment when rendered by a web browser.
-පහත දැක්වෙන 11111], කේත ඛණ්ඩය වෙබි අතරික්සුවක්‌ මගින්‌ Sem) දක්වන SO ලැඛෙන ප්‍රතිදානය ලියා
+පහත දැක්වෙන 11111], කේත ඛණ්ඩය වෙබි අතිරික්සුවක්‌ මගින්‌ Sem) දක්වන SO ලැඛෙන ප්‍රතිදානය ලියා
 දක්වන්න.
 
 <html>
@@ -1389,7 +1386,7 @@ Creates a horizontal line to visually separate content.
 
 Write down the internal Styles required to apply the styles mentioned in the following table for the
 elements /77 and p in the above code segment.
-ඉහත කේත ඛණ්ඩඞයෙහි ඇති hl] සහ p මුලාංග GED), පහත වගුවේ සඳහන්‌ CO) යෙදිමට අවග්‍ය අභ්‍යන්තර
+ඉහත කේත ඛණ්ඩඩයෙහි ඇති hl] සහ p මුලාංග GED), පහත වගුවේ සඳහන්‌ CO) යෙදිමට අවශ්‍ය අභ්‍යන්තර
 
 රටා (internal styles) ලියා දුක්වන්න.
 
@@ -1406,11 +1403,11 @@ font-size 12px
 color: blue;
 text-align: center;
 font-family: arial;
-}
+
 pt
 background-color: yellow;
 font-size: 12px;
-}
+
 </style>
 NOTE:
 
@@ -1514,7 +1511,7 @@ submit Defines a button for submitting a form.
 2019 WEB DEVELOPMENT ESSAY MARKING
 
 1.(a)()Draw the expected output of the following HTML code segment when rendered by a web browser.
-වෙබි අතරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන 11] /]] cose ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
+වෙබි අතිරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන 11] /]] cose ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
 අඳින්න.
 
 <html>
@@ -1533,8 +1530,6 @@ Note: Consider the following area as the display area of the browser.
 
 ' Social networking has |
 । advantages and disadvantages I
-|
-|
 
 Code Explanation / esa පැහැදිලි කිරීම.
 
@@ -1560,7 +1555,7 @@ and disadvantages” යන වාක්‍ය ඛණ්ඩය නව
 “advantages” යන වචනය යටින්‌ ඉරි දක්වයි.
 
 (11) Draw the expected output of the following HTML code segment when rendered by a web browser.
-වෙබි අතරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන HTML oso ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
+වෙබි අතිරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන HTML oso ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
 අඳින්න.
 
 <html>
@@ -1655,7 +1650,7 @@ text-align Justify
 Write an external style sheet in the most efficient way to fulfil the above requirements using only the CSS
 group Selector concept.
 
-විලාස කාණ්ඩ (CSS group selector) සංකල්පය පමණක්‌ යොදා ගනිමින්‌ ඉහත අවග්‍යතා සපුරාලීම සඳුහා
+විලාස කාණ්ඩ (CSS group selector) සංකල්පය පමණක්‌ යොදා ගනිමින්‌ ඉහත අවශ්‍යතා සපුරාලීම සඳුහා
 වඩාත්ම කාර්යක්ෂම ක්‍රමයට බාහිර විලාස පතක්‌ ලියන්න.
 
 In CSS, group selectors allow you to apply the same style to multiple elements by separating them with a
@@ -1681,22 +1676,20 @@ and 'A!2t*' respectively. Complete the PHP code segment by filling the blanks.
 සමිපුර්ණ කරන්න.
 
 <?php
-$conn = new mysgli('locathost', ....................... ෴෴෴෴ා ) ....................... );
+$conn = new mysgli('locathost', …… ෴ා ) …… );
 if ($conn->connect_error) {
 die("Connection failed:
 
 . $conn->connect_error);
 
-}
-BSG 1 -~ ",........................ 10100 .......................... (......................... ෴෴෴෴෴෴෴෴යී )
+BSG 1 -~ ",…… 10100 …… (…… ෴යී )
 values (‘Piyal', ‘'12-B')";
-if ($conn->query (.......................... ) ==true) {
+if ($conn->query (…… ) ==true) {
 echo "New record created successfully";
 } else {
 echo "Error: " . $sql . "<br>" , $conn->error;
-}
+
 $conn->close();
->>
 
 The correct code can be written as follows.
 පහත ආකාරයට නිවැරළි කේතය ලිවිය හැක.
@@ -1707,7 +1700,7 @@ if ($conn->connect_error) {
 die("Connection failed:
 
 . $conn->connect_error);
-}
+
 $sql = "INSERT into Student (name, class) values ('Piyal’, '12-B')";
 if ($conn->query( $sql ) ==true) {
 echo "New record created successfully";
@@ -1715,10 +1708,8 @@ echo "New record created successfully";
 } else {
 
 echo "Error: " . $sql . "<br>" . $conn->error;
-}
-$conn->close();
 
-?>
+$conn->close();
 
 Code explanation / කේත පැහැදිලි කිරීම
 
@@ -1740,7 +1731,7 @@ if($conn->connect_error){die("Connection failed: ". $conn->connect_error) ;}
 ($conn->connect_ error) Checks if there was an issue connecting to MySQL.
 MySQL වෙත සම්බන්ධ විමේ ගැටලුවක්‌ තිබේදැයි පරික්ෂා කරයි.
 die() If an error occurs, stops execution and prints the error message.
-බෝෂයක්‌ සිදුවුවහොත්‌, ක්‍රියාත්මක කිරීම නවතා දෝෂ පණිවිඞය මුද්‍රණය
+බෝෂයක්‌ සිදුවුවහොත්‌, ක්‍රියාත්මක කිරීම නවතා දෝෂ පණිවිඩය මුද්‍රණය
 කරයි.
 
 $sql = "INSERT INTO student (name, class) VALUES (' 01731', '12-B')";
@@ -1766,13 +1757,13 @@ executes.
 echo "New record created | Ifthe query was successful, this message confirms the record was
 
 successfully"; added.
-විමසුම සාර්ටක වුයේ නම්‌, මෙම පණිවිඞය, HOMO Os කළ බව
+විමසුම සාර්ටක වුයේ නම්‌, මෙම පණිවිඩය, HOMO Os කළ බව
 තහවුරැ කරයි.
 
 2020 WEB DEVELOPMENT ESSAY MARKING
 
 1.(a) Draw the expected output of the following code segment when rendered by a web browser.
-වෙබි අතරික්සුවක්‌ මගින්‌ විදැහු (render) විට පහත කේත ඛණ්ඩයෙන්‌ අපේක්ෂා කෙරෙන ප්‍රතිදානය අඳින්න.
+වෙබි අතිරික්සුවක්‌ මගින්‌ විදැහු (render) විට පහත කේත ඛණ්ඩයෙන්‌ අපේක්ෂා කෙරෙන ප්‍රතිදානය අඳින්න.
 
 <html>
 
@@ -1820,7 +1811,7 @@ High|——
 11. </html>
 
 (1) What are the colours of the text in line numbers 8 and 9 when the above code is rendered by browser?
-වෙබි අතරික්සුවක්‌ මගින්‌ කේතය විදැහු SO අංක 8 සහ 9 වන පේළිවල HA දිස්වෙන වටණයන්‌ මොනවාද?
+වෙබි අතිරික්සුවක්‌ මගින්‌ කේතය විදැහු SO අංක 8 සහ 9 වන පේළිවල HA දිස්වෙන වටණයන්‌ මොනවාද?
 
 Line number | Text Colour
 8 Title One | Green
@@ -1865,7 +1856,7 @@ font-family: Arial, sans-serif;
 retrieve data from a database to display on the screen. However, the code blocks are not in correct order.
 A,B,C සහ D ලෙස ලේබල්‌ කර ඇති පහත දැක්වෙන PHP කේත ඛණ්ඩ හතර දත්ත සමුදායකින්‌ දත්ත
 සමුද්දුරණය (retrieve) කර තිරය මත පදර්ශනය කිරීමේ කේතයකින්‌ ලබාගෙන ඇත. එහෙත්‌ මෙම කේත
-ඛණ්ඞ නිවැරදි අනුපිළිවෙළට නොමැත.
+ඛණ්ඩ නිවැරදි අනුපිළිවෙළට නොමැත.
 
 Label Code Block
 
@@ -1875,8 +1866,6 @@ $result = $conn->query($sql1);
 
 if ($conn->connect_error) {
 B die("Connection failed: " . $conn->connect_error);
-
-}
 
 if ($result->num_rows > @) {
 
@@ -1893,7 +1882,7 @@ t
 D $conn = new mysgli("localhost", "admin", "C#a8t", "StoreDB");
 
 (1) Write the labels of the four code blocks in the correct order inside four blanks of following PHP script.
-කේත ඛණ්ඩඞඩවල දක්වා ඇති ලේබල හතර පහන PHP කේතයේ හිස්තැන්‌ හතර mE නිවැරදි අනුපිළිවෙළට
+කේත ඛණ්ඩඩඩවල දක්වා ඇති ලේබල හතර පහන PHP කේතයේ හිස්තැන්‌ හතර mE නිවැරදි අනුපිළිවෙළට
 ලියා දක්වන්න.
 
 Correct order is / නිවැරදි අනුපිළිවෙල : 1) - B-A—C.
@@ -1966,7 +1955,6 @@ If there were no rows in the Product table, the output would be "0 results".
 WON AU PWN PR
 
 pa
-©-
 
 Below are the mistakes made in the code.
 පහතින්‌ දැක්වෙන්නේ කේතයෙහි සිදුකර ඇති වැරදිමි වේ.
@@ -1992,7 +1980,6 @@ Below are the mistakes made in the code.
 Ww ON AU 4 ටං [ට PR
 
 pa
-© -
 
 Below are the errors and corrections in the following code.
 පහතින්‌ දැක්වෙන්නේ පහත කේතයේ ඇති වැරදිමි සහ නිවැරදි කිරීමි වේ.
@@ -2047,7 +2034,7 @@ Line 7
 <a name = “one”’><h4> A/L ICT </h4></a>
 
 Consider the styles in Table 1, to answer the given questions.
-අසා ඇති ප්‍රශ්නවලට පිළිතුරැ දිමට, 1 වගුවේ ඇති විලාස (styles) සලකන්න.
+අසා ඇති ප්‍රශ්නවලට පිළිතුරු දිමට, 1 වගුවේ ඇති විලාස (styles) සලකන්න.
 
 Table 1
 Selector Description of the Style
@@ -2059,7 +2046,7 @@ Header 1 Text color is yellow
 
 style sheet to define the styles given in Table 1 to satisfy this requirement.
 
-ඉහත විලාස, වෙබි අඩවියක SQ කිහිපයකම භාවිතයට ගැනීමට අපේක්ෂා කෙටේ. මෙම අවග්‍යතාවය
+ඉහත විලාස, වෙබි අඩවියක SQ කිහිපයකම භාවිතයට ගැනීමට අපේක්ෂා කෙටේ. මෙම අවශ්‍යතාවය
 සපුරාගැන්මට, ඉහත 1 වගුවේ ඇති විලාස අර්ථට දැක්විම oem සුදුසු කැස්කේඩින්‌ විලාස පතක්‌ (CSS)
 ලියන්න.
 
@@ -2098,7 +2085,7 @@ Your Comments:
 (1) The relevant HTML code (incomplete) is given below. Fill the blanks in it in order to get the required
 output.
 
-අදාළ 11']1,/]], කේතය (අසමිපුර්ණ) පහත දැක්වේ. අවග්‍ය ප්‍රතිදානය ගැනීමට හැකිවන පරිදි එහි ඇති
+අදාළ 11']1,/]], කේතය (අසමිපුර්ණ) පහත දැක්වේ. අවශ්‍ය ප්‍රතිදානය ගැනීමට හැකිවන පරිදි එහි ඇති
 හිස්තැන්‌ සමිපුර්ණ කරන්න.
 
 <html>
@@ -2165,10 +2152,10 @@ form පරිගිලක ආදාන එකතු SOO සඳුහා 11111],
 නිර්වචනය කරයි.
 
 Groups related elements in a form.
-පෝරමයක සමුහ සමිබන්ධ මුලාංග
+පෝරමයක සමුහ සම්බන්ධ මුලාංග
 
 label Defines a label for an element.
-සමිබන්ධ මුලාංග aes) ලේබලයක්‌ නිර්වචනය කරයි.
+සම්බන්ධ මුලාංග aes) ලේබලයක්‌ නිර්වචනය කරයි.
 
 Defines a drop-down list.
 
@@ -2201,7 +2188,7 @@ submit
 2022 WEB DEVELOPMENT ESSAY MARKING
 
 1. (a) Draw the expected output of the following- HTML code segment when rendered by a web browser.
-පහත සඳහන්‌ HTML eto ඛණ්ඩය වෙබි අතරික්සුවක්‌ (web browser) මගින්‌ විදැහු (render) විට
+පහත සඳහන්‌ HTML eto ඛණ්ඩය වෙබි අතිරික්සුවක්‌ (web browser) මගින්‌ විදැහු (render) විට
 අපේක්ෂිත ප්‍රතිදානය අඳින්න.
 
 <html>
@@ -2217,7 +2204,7 @@ submit
 </html>
 
 Note: Consider the following dotted line box as the display area of the browser.
-සටහන : පහත කඩ QOOGS EMO) ඇති කොටුව වෙබි අතරික්සුවේ ප්‍රදර්ශන අවකාගය ලෙස සලකන්න.
+සටහන : පහත කඩ QOOGS EMO) ඇති කොටුව වෙබි අතිරික්සුවේ ප්‍රදර්ශන අවකාගය ලෙස සලකන්න.
 
 Answer:
 
@@ -2247,7 +2234,7 @@ e The second row starts with a cell (<td>) containing "Principal" that spans two
 කොටුවකින්‌ (<td>) ය.
 
 e The next cell in the second row contains the telephone number 061-2223211.
-දෙවන පේළියේ ඊළඟ කොටුවේ 061-2223211 දුරකටන අංකය අඞංගු වේ.
+දෙවන පේළියේ ඊළඟ කොටුවේ 061-2223211 දුරකටන අංකය අඩංගු වේ.
 
 e The third row contains another telephone number for the Principal, 067-5557772, under the same
 "Principal" cell from the previous row.
@@ -2264,7 +2251,7 @@ Common Phone Number:
 
 e The last row contains a cell with the text "Common Phone Number: 019-2233445" that spans both
 columns (colspan="2").
-අවසාන පේළියෙ "Common Phone Number: 019-2233445" යන Has සහිත කොටුවක්‌ අඞංගු වන
+අවසාන පේළියෙ "Common Phone Number: 019-2233445" යන Has සහිත කොටුවක්‌ අඩංගු වන
 අතර එය තීරැ දෙකටම විහිඳේ (colspan="2").
 
 (0) Rewrite the following HTML code by applying internal CSS with grouping selectors.
@@ -2380,7 +2367,7 @@ Internal CSS is used to apply styles within the <style> tag in the <head> sectio
 p {
 color: blue;
 text-align: center;
-}
+
 </style>
 </head>
 <body>
@@ -2416,7 +2403,7 @@ text-align: center;
 
 (c) Consider the HTML form given in Figure 1 Registration for Examination
 rendered by a web browser. BS
-වෙබි අතරික්සුවක්‌ මගින්‌ විදැහු (render) රෑපය 1 හි | Studnet Name|
+වෙබි අතිරික්සුවක්‌ මගින්‌ විදැහු (render) රූපය 1 හි | Studnet Name|
 
 දැක්වෙන HTML ආකෘති පත්‍රය (form) සලකන්න.
 
@@ -2430,7 +2417,7 @@ output shown in Figure 1. IQ
 
 අදාළ HTML කේතය (අසමපුරණ) පහත දැක්වේ.
 
-රෑපය 1 හි ඇක්වෙන ප්‍රතිදානය ලබාගැනීමට හැකිවන Prefered Medium: 'ම Sinhala © Tamil © English
+රූපය 1 හි ඇක්වෙන ප්‍රතිදානය ලබාගැනීමට හැකිවන Prefered Medium: 'ම Sinhala © Tamil © English
 
 පරිදි එහි ඇති හිස්තැන්‌ සමිපුර්ණ කරන්න. । oe |
 Select Test Center: Colombo v |
@@ -2510,8 +2497,6 @@ type="text" සහිත <input> උපලක්ෂණය තනි පේළි
 
 <input type="checkbox" name="module[ ]" value="ICT"/>ICT<br>
 
-—"
-
 The <input> tag with type="checkbox" creates a checkbox input. The name attribute, ending with [],
 allows multiple checkboxes to be grouped together and sent as an array. The value attribute specifies
 the value that will be sent to the server if the checkbox is checked.
@@ -2525,15 +2510,13 @@ type="checkbox" සහිත <input> උසුලනය පිරික්සු
 
 <input type="radio" name="language" value="Sinhala" checked />Sinhala
 
-—"
-
 The <input> tag with type="radio" creates a radio button input. The name attribute groups radio
 buttons so that only one can be selected at a time. The value attribute specifies the value that will be
 sent to the server if the radio button is selected. The checked attribute pre-selects this radio button.
 type="radio" සහිත <input> උසුලනය රේඩියෝ බොත්තම්‌ ආදානයක්‌ නිර්මාණය කරයි. name >
-උපලක්ෂණය රේඞ්යෝ බොත්තම්‌ සමුහගත කරයි. එවිට වරකට එකක්‌ පමණක්‌ තෝරාගන හැක. value
+උපලක්ෂණය රේඩ්යෝ බොත්තම්‌ සමුහගත කරයි. එවිට වරකට එකක්‌ පමණක්‌ තෝරාගන හැක. value
 ගුණාංගය Gases) බොත්තම තෝරා ඇත්නමි සේවාදායකය වෙත යවනු ලබන අගය නියම කරයි. පරික්ෂා
-කළ උපලක්ෂණය මෙම රේඞ්යෝ බොත්තම පෙර-තෝරා ගනි.
+කළ උපලක්ෂණය මෙම රේඩ්යෝ බොත්තම පෙර-තෝරා ගනි.
 
 5. Drop-down List (<select> and <option>):
 <select name="Center">
@@ -2560,19 +2543,17 @@ segment (process.php) to fulfil this requirement.
 <?php
 
 if ($ SERVER[ "REQUEST METHOD"] == "POST") {
-$name = & ..................... ["..................... "15
-$medium = $_..................... ["..................... "];
-$center = $ ..................... ['..................... "15H
+$name = & …… ["…… "15
+$medium = $_…… ["…… "];
+$center = $ …… ['…… "15H
 
 echo "<h2> Your Input:</h2>;
 
-OCHO $..................... 3 echo "<br>";
+OCHO $…… 3 echo "<br>";
 
-OCHO $..................... 3 echo "<br>";
+OCHO $…… 3 echo "<br>";
 
-OCHO $..................... 3 echo "<br>";
-
->>
+OCHO $…… 3 echo "<br>";
 
 Answer :
 
@@ -2587,7 +2568,6 @@ echo "<h2> Your Input:</h2>;
 echo $name; echo "<br>";
 echo $medium; echo "<br>";
 echo $center; echo "<br>";
->>
 
 This PHP script is designed to handle form data submitted via the POST method. When a form is
 submitted, the data is sent to the server, where this PHP script processes it.
@@ -2635,7 +2615,7 @@ echo $medium; echo "<br>";
 echo $center; echo "<br>";
 
 e echo is used to output data to the browser.
-අතරික්සුවට දුන්ත ප්‍රතිදානය කිරීමට echo භාවිතා කරයි.
+අතිරික්සුවට දුන්ත ප්‍රතිදානය කිරීමට echo භාවිතා කරයි.
 
 e = <h2>Your Input:</h2>: Outputs a heading "Your Input:".
 <h2> Your Input:</h2>: "Your Input:" යන ශීරිෂයක්‌ ප්‍රතිදානය කරයි.
@@ -2644,7 +2624,6 @@ e $name, $medium, and $center: Outputs the values of these variables.
 $name, $medium සහ $center මෙම විචල්‍යවල අගයන්‌ ප්‍රතිදානය කරයි.
 
 Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
-
 
 2020 WEB DEVELOPMENT ESSAY MARKING
 
@@ -2668,7 +2647,7 @@ Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technolog
 
 Note : Consider the following dotted line box as the display area of the browser.
 
-සටහන : පහත කඩ QOOGS EMO) ඇති කොටුව වෙබි අතරික්සුවේ ප්‍රදර්ශන අවකාගය ලෙස සලකන්න.
+සටහන : පහත කඩ QOOGS EMO) ඇති කොටුව වෙබි අතිරික්සුවේ ප්‍රදර්ශන අවකාගය ලෙස සලකන්න.
 ! Cricket |
 | Football |
 i Hockey
@@ -2684,8 +2663,7 @@ e The style attribute is used to apply CSS directly to list. The value list-styl
 removes the default bullet points that usually precede each list item.
 CSS සෘපුවම ලැයිස්තුවට යෙදිමට Style උපලක්ෂණය භාවිතා කරයි. list-style type:none;
 සාමාන්‍යයෙන්‌ එක්‌ එක්‌ ලැයිස්තු අයිතමයට පෙර ඇති පෙරනිමි බුලටි ලකුණු ඉවත්‌ කරයි
-
-ේ <li>Cricket</1li>
+  <li>Cricket</1li>
 This creates a list item with the text "Cricket".
 මෙය "Cricket" යන DAS සමඟ ලැයිස්තු අයිතමයක්‌ නිරිමාණය කරයි.
 
@@ -2700,7 +2678,7 @@ This creates a third list 1tem with the text "Hockey”’.
 (b) A registration form for a speech competition and its labeled HTML source are given in Figures 1.1
 and 1.2 respectively.
 MOM තරගයක්‌ GED) ලියාපදිංචිවීමේ පෝරමයක්‌ (registration form) සහ එහි ලේබල කරන ලද, HTML
-ප්‍රභවය (source) රැපය 1.1 සහ රෑපය 1.2 මගින්‌ පිළිවෙළින්‌ eso) ඇත.
+ප්‍රභවය (source) රැපය 1.1 සහ රූපය 1.2 මගින්‌ පිළිවෙළින්‌ eso) ඇත.
 
 Back to the nature!
 
@@ -2721,26 +2699,26 @@ Western Province Environment
 
 <html>
 
-<..A..>Back to the nature! </...A...>
-<..B..>Speech Competitions /...B...>
+<..A..>Back to the nature! </……A……>
+<..B..>Speech Competitions /……B……>
 <h3>Registration form</h3>
 
-<form method="...C... " D...="./action_page.php">
+<form method="……C…… " D……="./action_page.php">
 <label for="name">Name:</label>
-<input type="..E... " name="name" ><br><br>
+<input type="..E…… " name="name" ><br><br>
 <label for="gender">Gender:</label>
-<input type="..F... " name="gender" id="male" value="male">
+<input type="..F…… " name="gender" id="male" value="male">
 <label for="male">Male</label>
-<input type="..F... " name="gender" id="female" value="female">
+<input type="..F…… " name="gender" id="female" value="female">
 <label for="female">Female</label> <br><br>
 <label for="_ ">District: </label>
 
-<..H... name="district" id="district">
+<..H…… name="district" id="district">
 <option value="colombo">Colombo</option>
 <option value="gampaha" >Gampaha</option>
 <option value="kalutara">Kalutara</option>
 
-</...H...><br><br>
+</……H……><br><br>
 
 <label for="email">Email:</label>
 
@@ -2748,10 +2726,10 @@ Western Province Environment
 
 <input type="..L.." name="newsletter" id="newsletter">
 <label for="newsletter">Subscribe for newsletter?</label><br><br>
-<input type="..J... " value="Submit">
+<input type="..J…… " value="Submit">
 </form
 <br>
-<..K...="wpeLogo.jpg" alt="..L... " width="50" height="60">
+<..K……="wpeLogo.jpg" alt="..L…… " width="50" height="60">
 
 <..M..="https://www.wpe.lk" title="..N..">Western Province Environment</a>
 </html>
@@ -2760,7 +2738,7 @@ For each of the labels A to N in the HTML code in Figure 1.2, choose a suitable 
 the given list. In the answer table, write down the number of the replacement for each label.
 
 1.2 රැෑපයෙන්‌ දැක්වෙන HTML esiened A BO N තෙක්‌ © එක්‌ එක්‌ ලේඛලය සඳහා සුදුසු ආදේශකය, දි
-ඇති ලැයිස්තුවෙන්‌ තෝරාගන්න. එක්‌ එක්‌ ලේඛලයට අදාළ ආදේශකයේ අංකය පිළිතුරැ වගුවේ ලියා දක්වන්න.
+ඇති ලැයිස්තුවෙන්‌ තෝරාගන්න. එක්‌ එක්‌ ලේඛලයට අදාළ ආදේශකයේ අංකය පිළිතුරු වගුවේ ලියා දක්වන්න.
 
 List:
 1: action 2: a href 3: caption 4: checkbox 5: district
@@ -2799,8 +2777,6 @@ text උපලක්ෂණය මෙම ආදාන ක්ෂේත්‍රය
 3. Radio Buttons
 <input type ="radio" name="gender" id="male" value="male">
 
-—"
-
 The <input> element with type="radio" creates a radio button that allows the user to select one option
 from a group. The name attribute groups the radio button with others that share the same name, ensuring
 that only one option can be selected at a time within that group. The id attribute assigns a unique identifier
@@ -2826,7 +2802,7 @@ attribute will be sent to server upon form submission. If the checkbox is unchec
 <input type= “checkbox”> මඟින්‌ පරිගිලකයින්ට ද්විමය තේරීමක්‌ කිරීමට හෝ තේරිමෙන්‌ ඉවත්‌ කිරීමට ඉඩ
 සලසන පිරික්සුමි කොටුවක්‌ නිර්මාණය කරයි. name උපලක්ෂණය පිරික්සුමි කොටුවට නමක්‌ පවරයි, එය
 පෝරමය සේවාදායකයට ඉදිරිපත්‌ කරන විට දුන්ත හඳුනා ගැනීමට භාවිතා කරයි. පිරික්සුමි කොටුව සලකුණු
-කළ විට, පෝරමය ඉදිරිපත්‌ කිරීමෙන්‌ පසු name උපලක්ෂණය සමඟ සමිබන්ධින අගය සේවාදායකයට යවන
+කළ විට, පෝරමය ඉදිරිපත්‌ කිරීමෙන්‌ පසු name උපලක්ෂණය සමඟ සම්බන්ධින අගය සේවාදායකයට යවන
 ලැබේ, පිරික්සුමි කොටුව සලකුණු නොකළහොත්‌, අගයක්‌ නොයවනු ලැබේ.
 
 5. Label tag
@@ -2837,7 +2813,7 @@ usability. The for attribute associates the label with the input element that ha
 
 HTML හි <label> උසුලනය ආදාන මුලාංගයක්‌ සඳහා ලේඛලයක්‌ නිර්වචනය කිරීමට භාවිතා කරයි,
 ප්‍රවේශ්‍යතාව සහ උපයෝගීතාව වැඩි දියුණු කරයි. for ගුණාංගය "district" යන id එක ඇති ආදාන මුලාංගය
-සමඟ ලේබලය සමිබන්ධ කරයි.
+සමඟ ලේබලය සම්බන්ධ කරයි.
 
 6. The Select tag
 <select name="district" id="district">
@@ -2875,9 +2851,9 @@ pixels into the web page.
 HTML හි <img> උසුලනය වෙබි පිටුවකට රැපයක්‌ ඇතුළ කිරිමට භාවිතා MOB.Srce ගුණාංගය රෑප ගොනුවේ
 QOQS හෝ මාර්ගය නියම කරයි. මෙම අවස්ටාවෙහිදි, රැප ගොනුව "wpeLogo.jpg" ලෙස නමි කර ඇති
 අතර එය 1]1]]!|]], ගොනුව ලෙස එකම නාමාවලියෙහි පිහිටා ඇත Alt: මෙම උපලක්ෂණය රැපයේ විකල්ප
-aa විස්තරයක්‌ සපයයි. රෑපය ප්‍රදර්ශනය කළ නොහැකි විට oH} පරිගිලකයෙකු තිර කියවනයක්‌ භාවිතා
+aa විස්තරයක්‌ සපයයි. රූපය ප්‍රදර්ශනය කළ නොහැකි විට oH} පරිගිලකයෙකු තිර කියවනයක්‌ භාවිතා
 කරන විට වැනි ප්‍රවේශග්‍යතා අරමුණු සඳහා එය භාවිතා වේ."/14(] සහ Height උපලක්ෂණ මඟින්‌ රැපයේ
-පළල සහ උස පික්සල වලින්‌ සකසයි. මුල්‌ පිංතර ගොනුවට බලපෑමක්‌ නොකර රෑපයේ ප්‍රමාණය වෙනස්‌ කිරීමට
+පළල සහ උස පික්සල වලින්‌ සකසයි. මුල්‌ පිංතර ගොනුවට බලපෑමක්‌ නොකර රූපයේ ප්‍රමාණය වෙනස්‌ කිරීමට
 ඒවා භාවිතා කළ හැක. සාරාංශයක්‌ ලෙස, මෙම කේතය පික්සල 50ක පළලක්‌ සහ පික්සල 60ක උසකින්‌ යුත්‌
 "WPElogo" හි රැපයක්‌ වෙබි පිටුවට ඇතුළු කරයි.
 
@@ -2891,7 +2867,7 @@ The <a> tag
 The <a> tag in HTML is used to create hyperlinks that allow users to navigate to other web pages or
 resources.
 
-HTML හි <a> උසුලනය Mdm කරන්නන්ට වෙනත්‌ වෙබි SQ හෝ සමිපත්‌ වෙත සැරිසැරීමට ඉඩ සලසන
+HTML හි <a> උසුලනය Mdm කරන්නන්ට වෙනත්‌ වෙබි SQ හෝ සම්පත්‌ වෙත සැරිසැරීමට ඉඩ සලසන
 අධි සබැඳි නිර්මාණය කිරීමට භාවිතා කරයි.
 
 Href attribute specifies the URL of the page to which the link points. In this case, clicking the link will
@@ -2909,7 +2885,7 @@ Title උපලක්ෂණය සබැඳිය SEXQC, අමතර තොර�
 පාධය මෙවලමි ඉඟියක්‌ ලෙස පෙන්වනු ඇත.
 
 The action_page.php file mentioned in the given code of Figure 1.2 is shown below.
-කේතයේ (1.2 රෑපය) සඳුහන්‌ action_page. php ගොනුව පහත දක්වා ඇත.
+කේතයේ (1.2 රූපය) සඳුහන්‌ action_page. php ගොනුව පහත දක්වා ඇත.
 
 <?php
 $servername = "localhost"; $username = "root"; $password = "";
@@ -2940,11 +2916,9 @@ echo "Data inserted successfully!";
 } else {
 
 echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 // Close the connection
 mysqli_close($conn) ;
-?>
 
 Write down the purpose of section P and the purpose of section Q.
 P කොටසේ අරමුණ සහ Q කොටසේ අරමුණ ලියා දුක්වන්න.
@@ -2969,7 +2943,7 @@ is empty.
 
 මෙය MySQL සම්බන්ධතාවය HEH) සේවාදායකයේ නම, පරිගිලක නාමය සහ මුරපදය නිර්චචනය කරයි.
 localhost පෙන්නුම්‌ කරන්නේ MySQL සේවාදායකය එකම යන්ත්‍රයක ක්‍රියාත්මක වන බවයි. root යනු
-සමිමත පරිගිලක නාමය වන අතර මුරපදය හිස්ය.
+සම්මත පරිගිලක නාමය වන අතර මුරපදය හිස්ය.
 
 $conn = new mysqli($servername, $username, $password, $dbname) ;
 
@@ -2977,7 +2951,7 @@ Creates a new connection to the MySQL database using the server name, username, 
 database name.
 
 සේවාදායක MOG, COGEM නාමය, මුරපදුය සහ Em HOC) MOG භාවිතා කරමින්‌ MySQL exo
-සමුදායට HO සමිඛන්ධතාවයක්‌ නිර්මාණය කරයි.
+සමුදායට HO සම්බන්ධතාවයක්‌ නිර්මාණය කරයි.
 
 2. Retrieving HTML Form Data - 11111. පෝරමයේ දුන්ත ලබා ගැනීම
 
@@ -3015,7 +2989,7 @@ $ POST Method & $ GET Method
 
 The $ POST method is used to send data to the server for processing, typically when submitting forms that
 create or update resources. The data 15 sent in the body of HTTP request, making it more secure than GET.
-$ POST ක්‍රමය සාමාන්‍යයෙන්‌ සමිපත්‌ Hem හෝ යාවත්කාලීන කරන ආකෘති පතු ඉදිරිපත්‌ කිරීමේදි, සැකසීම
+$ POST ක්‍රමය සාමාන්‍යයෙන්‌ සම්පත්‌ Hem හෝ යාවත්කාලීන කරන ආකෘති පතු ඉදිරිපත්‌ කිරීමේදි, සැකසීම
 සඳුහා සේවාදායකය වෙත Ess යැවීමට භාවිතා කරයි. ess» HTTP ඉල්ලීමේ body කොටසට යවනු ලැබේ,
 එය GET ක්‍රමයට වඩා ආරක්ෂිත කරයි.
 
@@ -3025,7 +2999,7 @@ where data retrieval is needed without modifying server state.
 
 GET හරහා යවන ලද, EDM ලබා ගැනීමට $ GET ක්‍රමය භාවිතා කරයි. GET HOG භාවිතයෙන්‌ පෝරමයක්‌
 ඉදිරිපන්‌ කළ විට, පෝරම exw විමසුමි පරාමිති ලෙස URL වෙන එක්‌ ened. මෙම ක්‍රමය සේවාදායක
-තත්ත්වය වෙනස්‌ නොකර EMD ලබා ගැනීම අවග්‍ය වන ඉල්ලිමි OCH) සුදුසු වේ.
+තත්ත්වය වෙනස්‌ නොකර EMD ලබා ගැනීම අවශ්‍ය වන ඉල්ලිමි OCH) සුදුසු වේ.
 
 3. Constructing the SQL query using the variables
 විචල්‍යයන්‌ භාවිතයෙන්‌ SQL විමසුම ගොඩනැගීම
@@ -3071,7 +3045,6 @@ echo "Data inserted successfully!";
 } else {
 
 echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 This Code executes the SQL query using the MySQL connection. If the query is successful, the block
 inside the if statement runs and Outputs a success message if the data was inserted into the database
@@ -3079,8 +3052,8 @@ successfully. Then the else statement runs if the query fails and outputs an err
 the failed SQL query and the MySQL error message.
 
 මෙම කේතය MySQL සම්බන්ධතාවය භාවිතයෙන්‌ SQL විමසුම ක්‍රියාත්මක කරයි. විමසුම සාට්ඊක නමි, if
-ප්‍රකාගය තුළ ඇති බිලොක්‌ එක ක්‍රියාත්මක වන අතර eso Eee සමුදායට සාර්ටඊකව ඇතුළත්‌ කළහොන්‌
-සාර්ටක පණිවිඩයක්‌ ප්‍රතිදානය කරයි. විමසුම අසාර්ටක වුවහොත්‌ else ප්‍රකාගය ක්‍රියාත්මක වන අතර
+ප්‍රකාශය තුළ ඇති බිලොක්‌ එක ක්‍රියාත්මක වන අතර eso Eee සමුදායට සාර්ටඊකව ඇතුළත්‌ කළහොන්‌
+සාර්ටක පණිවිඩයක්‌ ප්‍රතිදානය කරයි. විමසුම අසාර්ටක වුවහොත්‌ else ප්‍රකාශය ක්‍රියාත්මක වන අතර
 අසාටර්ථඊක වු SQL විමසුම සහ MySQL ceJe පණිවිඩය සමඟ දෝෂ පණිවිඩයක්‌ ප්‍රතිදානය කරයි.
 
 Summary
@@ -3091,9 +3064,9 @@ connection to the database, prepares the SQL query, executes it, and checks for 
 the appropriate message. Finally, it closes the database connection.
 
 මෙම කේතය [1111.1], පිටුවකින්‌ ආකෘති exit» ලබාගෙන එය MySQL දූත්ත සමුදා වගුවකට ඇතුල්‌ කරයි. එය
-EDO සමුදායට සමිඛන්ධතාවයක්‌ ඇති කරයි, 50], විමසුම සකස්‌ කරයි, එය ක්‍රියාත්මක කරයි, සහ සාඊර්ඊක
+EDO සමුදායට සම්බන්ධතාවයක්‌ ඇති කරයි, 50], විමසුම සකස්‌ කරයි, එය ක්‍රියාත්මක කරයි, සහ සාඊර්ඊක
 හෝ Gadde දැයි පරීක්ෂා කරයි, සුදුසු පණිවිඩය ප්‍රතිදානය කරයි. අවසාන වගයෙන්‌, එය දත්ත සමුදා
-සමිඛන්ධතාවය වසා COG.
+සම්බන්ධතාවය වසා COG.
 
 2020 WEB DEVELOPMENT ESSAY MARKING
 
@@ -3101,8 +3074,8 @@ EDO සමුදායට සමිඛන්ධතාවයක්‌ ඇති �
 shown in Figure 1.1. The HTML source that was used to make the form is shown in Figure 1.2 with
 seven blanks (---------------------- ).
 පරිගිලකයකුට ඔහු/ඇය ලද යමි භාණ්ඩයක්‌ හෝ සේවාවක්‌ හෝ ගැන පැමිණිල්ලක්‌ කිරීමට භාවිත කළ හැකි
-පෝරමයක්‌ රෑපය 1.1 හි දැක්වේ. එම පෝරමය azEOO භාවිත කළ HIML Emde හිස්තැන්‌ (-------------
---) හතක්‌ ද සමඟින්‌ රෑපය 1.2 හි ඇත.
+පෝරමයක්‌ රූපය 1.1 හි දැක්වේ. එම පෝරමය azEOO භාවිත කළ HIML Emde හිස්තැන්‌ (-------------
+--) හතක්‌ ද සමඟින්‌ රූපය 1.2 හි ඇත.
 
 Central Province
 
@@ -3125,7 +3098,7 @@ Central Province Consumer Affairs
 Figure 1.1
 
 (1) Fill the seven blanks of Figure 1.2 to make the code complete.
-රෑපය 1.2 හි කේතය සමිපුර්ණ කිරීමට එහි ඇති හිස්තැන්‌ හත පුරවන්න.
+රූපය 1.2 හි කේතය සමිපුර්ණ කිරීමට එහි ඇති හිස්තැන්‌ හත පුරවන්න.
 
 <br>
 
@@ -3146,7 +3119,7 @@ Figure 1.1
 <option value="matale">Matale</option>
 <option value="nuwaraeliya">Nuwara Eliya</option>
 
-ජංකක්ක්්්්්්්්ා්ඳ (ය ><br><br>
+ජංකක්ක්ා්ඳ (ය ><br><br>
 
 <label for="ctype">Type:</label>
 
@@ -3216,7 +3189,7 @@ for transmitting sensitive information. It’s also better for sending large amo
 preferred method for most form submissions where user privacy 15 important.
 
 POST ක්‍රමය මඟින්‌ URL oe නොව HTTP ඉල්ලීමේ අන්තර්ගතය DE EMD යවයි. මෙය සංවේදි තොරතුරැ
-සම්ප්‍රේෂණය කිරීම සඳහා වඩාත්‌ ආරක්‍ෂිත කරයි. SME com ප්‍රමාණයක්‌ යැවීම සඳුහා දු එය වඩා සුදුසුය.
+සම්ප්‍රේෂණය කිරීම සඳහා වඩාත්‌ ආරක්ෂිත කරයි. SME com ප්‍රමාණයක්‌ යැවීම සඳුහා දු එය වඩා සුදුසුය.
 පරිගීලක පෞද්ගලිකත්වය වැදගත්‌ වන පෝරම සඳුහා POST වඩාත්‌ සුදුසු ක්‍රමයයි.
 
 Let's find the answers for the seven blanks in the question.
@@ -3245,7 +3218,7 @@ When the user presses the submit button in an HTML form, the browser collects al
 the form fields and sends it to the server using the method specified in the <form> tag, typically GET or
 POST method.
 
-S6Gen0) HTML පෝරමයක submit button 8Q විට, වෙබි අතරික්සුව පෝරම ක්ෂේත්‍රවලින්‌ සියලුම
+S6Gen0) HTML පෝරමයක submit button 8Q විට, වෙබි අතිරික්සුව පෝරම ක්ෂේත්‍රවලින්‌ සියලුම
 ආදාන essen එකතු කර <form> උසුලනයේ නිශ්චිතව දක්වා ඇති ක්‍රමය භාවිතා කර සේවාදායකයට යවයි,
 සාමාන්‍යයෙන්‌ GET හෝ POST ක්‍රමය වේ.
 
@@ -3264,10 +3237,10 @@ This reduces the number of incorrect or invalid entries being sent to the server
 
 PHP 68j6® ආදානයක type="text" වෙනුවට type="email" භාවිතා කිරීම වැදුගත්‌ වාසි කිහිපයක්‌
 විශේෂයෙන්‌ පරිගිලක අත්දැකීමි සහ essen වලංගුකරණය අනුව ලබා දෙයි. ක්ෂේත්‍රයක්‌ type="email",
-ලෙස සකසා ඇති විට, වෙබි අතරික්සුව ස්ව්‍යංක්‍රියව සේවාදායක-පාඊර්ග්ව වලංගුකරණය සිදු කරයි. මෙයින්‌
-අදහස්‌ කරන්නේ පෝරමය ඉදිරිපත්‌ කිරීමට පෙර ආදානය සමිමත විද්‍යුත්‌ තැපැල්‌ ආකෘතිය අනුගමනය
-කරන්නේද යන්න (උදා; "@" සහ "com" වැනි වසමක්‌ අඞංගු වේ) ඔවුන්‌ පරීක්ෂා කරන බවයි. මෙය
-සේවාදායකයට යවන වැරළි හෝ අවලංගු ඇතුළත්‌ කිරීමි ගණන අඞු කරයි.
+ලෙස සකසා ඇති විට, වෙබි අතිරික්සුව ස්ව්‍යංක්‍රියව සේවාදායක-පාඊර්ග්ව වලංගුකරණය සිදු කරයි. මෙයින්‌
+අදහස්‌ කරන්නේ පෝරමය ඉදිරිපත්‌ කිරීමට පෙර ආදානය සම්මත විද්‍යුත්‌ තැපැල්‌ ආකෘතිය අනුගමනය
+කරන්නේද යන්න (උදා; "@" සහ "com" වැනි වසමක්‌ අඩංගු වේ) ඔවුන්‌ පරීක්ෂා කරන බවයි. මෙය
+සේවාදායකයට යවන වැරළි හෝ අවලංගු ඇතුළත්‌ කිරීමි ගණන අඩු කරයි.
 
 (iv) What can you guess about the purpose of pattern="/0-9/{ 10} " with respect to the Phone entry
 field?
@@ -3299,7 +3272,7 @@ format.
 
 මෙම ආකාරයේ සේවාදායක-පාර්ශ්ව වලංගුකරණය වැරදි දුත්ත ඉදිරිපත්‌ කිරීම අඩු කරමින්‌, කලින්‌ දෝෂ
 හඳුනා ගැනීමට උපකාරී වේ. එය සම්බන්ධතා පෝරම, ලියාපදිංචි පිටු හෝ නිග්චිත දුරකටන අංක ආකෘතියක්‌
-අවග්‍ය ඕනෑම ක්ෂේත්‍රයක විගේෂයෙන්‌ ප්‍රයෝජනවත්‌ වේ.
+අවශ්‍ය ඕනෑම ක්ෂේත්‍රයක විගේෂයෙන්‌ ප්‍රයෝජනවත්‌ වේ.
 
 (v) What is the purpose of the use of title="10, Hill street, Kandy" in the <img src code line?
 <img src කේත පේළියේ titl="10, Hill street, Kandy" භාවිතයේ අරමුණ කුමක්ද?
@@ -3308,15 +3281,15 @@ The title attribute in an <img> tag adds a small popup text that appears when a 
 the image. This can be useful to give extra context, such as the name of the object in the image or a short
 description.
 
-<img> උසුලනයක ඇති title ගුණාංගය, පරිශිලකයෙකු රෑපය මත මුසිකය තබා ඇති විට දිස්වන කුඩා
-පාධයක්‌ එක්‌ කරයි. රෑපයේ ඇති වස්තුවේ නම හෝ කෙටි විස්තරයක්‌ වැනි අමතර සන්දර්භයක්‌ ලබා දිමට
+<img> උසුලනයක ඇති title ගුණාංගය, පරිශිලකයෙකු රූපය මත මුසිකය තබා ඇති විට දිස්වන කුඩා
+පාධයක්‌ එක්‌ කරයි. රූපයේ ඇති වස්තුවේ නම හෝ කෙටි විස්තරයක්‌ වැනි අමතර සන්දර්භයක්‌ ලබා දිමට
 මෙය ප්‍රයෝජනවත්‌ විය හැකිය.
 
 Note: In the question, the title attribute was mistakenly placed inside the <a> tag instead of the <img> tag.
-සටහන: ප්‍රග්නයේදි, title ගුණාංගය <img> උසුලනය ME වෙනුවට <a> උසුලනය තුළ වැරදිමකින්‌ MQ ඇත.
+සටහන: ප්‍රශ්නයේදි, title ගුණාංගය <img> උසුලනය ME වෙනුවට <a> උසුලනය තුළ වැරදිමකින්‌ MQ ඇත.
 
 (vi) Explain the main purpose of the HTML code extract shown in Figure 1.3.
-රෑපය 1.3 න්‌ පෙන්වන කේත කොටසේ මුලික අරමුණ කුමක්ද?
+රූපය 1.3 න්‌ පෙන්වන කේත කොටසේ මුලික අරමුණ කුමක්ද?
 
 <?php
 $host = "localhost";
@@ -3329,7 +3302,7 @@ $db_name) ;
 if (!$conn) {
 die("<tr><td colspan='3'>Connection failed:" .
 mysqli _connect_error () . "</td></tr>");
-}
+
 $sql = "SELECT student_id, first_name, last _name FROM stu-
 dents";
 $result = mysqli_query ($conn, $sql) ;
@@ -3340,14 +3313,13 @@ echo "<tr>
 <td>". g$row["first_name"] . "</td>
 <td>". $row["last_name"] . "</td>
 </tr>";
-}
+
 } else {
 echo "<tr><td colspan='3'>No students found .</td></tr>";
-}
-mysqli close ($conn);
->>
 
-Database Connection / ඳූත්ත සමුළා සමිබන්ධනාවය:
+mysqli close ($conn);
+
+Database Connection / ඳූත්ත සමුළා සම්බන්ධනාවය:
 
 The code starts by defining variables for the database host (localhost), username (student_user),
 password (student pass), and database name (studentDB). It then tries to connect to the MySQL
@@ -3356,7 +3328,7 @@ database using these credentials with the mysqli connect function.
 කේතය ආරමිභ වන්නේ දත්ත Oe) සත්කාරක (localhost), පරිශීලක නාමය (student user), මුරපදය
 (student pass) සහ exe සමුදා නාමය (studentDB) සඳුහා විචල්‍ය නිරවචචනය කිරීමෙනි. ඉන්පසු එය
 
-mysqli connect ග්‍රිතය සමඟ මෙම අක්තපත්‍ර භාවිතා කරමින්‌ MySQL දූත්ත සමුදායට සමිබන්ධ වීමට
+mysqli connect ග්‍රිතය සමඟ මෙම අක්තපත්‍ර භාවිතා කරමින්‌ MySQL දූත්ත සමුදායට සම්බන්ධ වීමට
 උත්සාහ කරයි.
 
 SQL Query Execution / 501, විමසුමි ක්‍රියාත්මක කිරීම:
@@ -3365,7 +3337,7 @@ The main purpose of this PHP code is to connect to a MySQL database named "stude
 retrieve student information from the "stu-dents" table. It fetches the student ID, first name, and last
 name for each student, then displays this data in an HTML table format.
 
-මෙම PHP කේතයේ ප්‍රධාන අරමුණ වන්නේ "studentDB" m8 MySQL දූත්ත සමුදායකට සමිබන්ධ වි
+මෙම PHP කේතයේ ප්‍රධාන අරමුණ වන්නේ "studentDB" m8 MySQL දූත්ත සමුදායකට සම්බන්ධ වි
 "stu-dents" වගුවෙන්‌ Ges තොරතුරැ ලබා ගැනීමයි. එය සෑම සිසුවෙකු සඳුහාම student ID, first name,
 සහ last name ලබා ගනී, පසුව මෙම දත්ත HTML OQ ආකෘතියකින්‌ පෙන්වයි.
 
@@ -3384,7 +3356,7 @@ If the query returns no rows, it prints a single table row stating "No students 
 විමසුම පේළි ආපසු ලබා නොදෙන්නේ නමි, එය "No students found." යනුවෙන්‌ ac ns තනි වගු පේළියක්‌
 මුද්‍රණය කරයි.
 
-5. Closing Connection / සමිබන්ධතාවය වසා දැමිම:
+5. Closing Connection / සම්බන්ධතාවය වසා දැමිම:
 After all the data is fetched and displayed, the database connection is closed using mysqli_close.
-සියලුම es ලබාගෙන ප්‍රදර්ගනය කළ og, mysqli close භාවිතයෙන්‌ දුත්ත HOE) සමිඛන්ධතාවය වසා
+සියලුම es ලබාගෙන ප්‍රදර්ගනය කළ og, mysqli close භාවිතයෙන්‌ දුත්ත HOE) සම්බන්ධතාවය වසා
 දමනු ලැබේ.

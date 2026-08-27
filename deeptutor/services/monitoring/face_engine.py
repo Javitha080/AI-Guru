@@ -10,12 +10,10 @@ Guarantees 100% on-device execution with zero cloud egress.
 
 from __future__ import annotations
 
-import base64
-import io
-import math
-import logging
 from dataclasses import dataclass, field
-from typing import Any, List, Optional, Tuple, Union
+import logging
+import math
+from typing import Any, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
 

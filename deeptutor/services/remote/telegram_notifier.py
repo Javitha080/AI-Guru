@@ -15,6 +15,7 @@ of maintaining a second, drifting copy of every template.
 from __future__ import annotations
 
 import html
+import json
 import logging
 from typing import Optional
 
@@ -27,8 +28,55 @@ class TelegramNotifier:
     """Dispatches study session alerts and encrypted tunnel links to parents via Telegram."""
 
     TELEGRAM_API_BASE = "https://api.telegram.org/bot{token}/sendMessage"
+    SEND_PHOTO_API_BASE = "https://api.telegram.org/bot{token}/sendPhoto"
 
     # ------------------------------------------------------------ plumbing
+
+    @classmethod
+    async def send_message_detailed(
+        cls,
+        bot_token: str,
+        chat_id: str,
+        text: str,
+        parse_mode: str = "HTML",
+        disable_web_page_preview: bool = False,
+    ) -> tuple[bool, str]:
+        """Send message with explicit diagnostic string on failure (for test/status endpoints)."""
+        if not bot_token:
+            return False, "Bot Token is missing."
+        if not chat_id:
+            return False, "Chat ID is missing."
+
+        url = cls.TELEGRAM_API_BASE.format(token=bot_token)
+        payload = {
+            "chat_id": chat_id,
+            "text": text,
+            "parse_mode": parse_mode,
+            "disable_web_page_preview": disable_web_page_preview,
+        }
+
+        try:
+            timeout = aiohttp.ClientTimeout(total=10.0)
+            async with aiohttp.ClientSession(timeout=timeout) as session:
+                async with session.post(url, json=payload) as resp:
+                    if resp.status == 200:
+                        return True, ""
+                    body = await resp.text()
+                    try:
+                        err_json = json.loads(body)
+                        desc = str(err_json.get("description", ""))
+                    except Exception:
+                        desc = body
+
+                    if resp.status == 401:
+                        return False, "Invalid Bot Token. Please check the token provided by @BotFather."
+                    if "chat not found" in desc.lower():
+                        return False, "Chat not found. Have you started the bot in Telegram? Search for your bot and send /start."
+                    if "bot was blocked" in desc.lower():
+                        return False, "The bot was blocked by the user in Telegram. Unblock the bot to receive alerts."
+                    return False, f"Telegram API error ({resp.status}): {desc}"
+        except Exception as e:
+            return False, f"Connection failed: {e}"
 
     @classmethod
     async def send_message(
@@ -61,9 +109,77 @@ class TelegramNotifier:
                         return True
                     body = await resp.text()
                     logger.warning("Telegram API error (status %d): %s", resp.status, body)
+                    # If HTML parsing failed, fall back to plain text
+                    if resp.status == 400 and parse_mode == "HTML":
+                        logger.info("Retrying Telegram notification as plain text without HTML")
+                        import re
+                        plain_text = re.sub(r"<[^>]+>", "", text)
+                        fallback_payload = {
+                            "chat_id": chat_id,
+                            "text": plain_text,
+                            "disable_web_page_preview": disable_web_page_preview,
+                        }
+                        async with session.post(url, json=fallback_payload) as fallback_resp:
+                            if fallback_resp.status == 200:
+                                logger.info("Telegram notification delivered as plain text")
+                                return True
                     return False
         except Exception as e:
             logger.warning("Failed to dispatch Telegram notification: %s", e)
+            return False
+
+    @classmethod
+    async def send_photo(
+        cls,
+        bot_token: str,
+        chat_id: str,
+        photo_bytes: bytes,
+        caption: str = "",
+        parse_mode: str = "HTML",
+    ) -> bool:
+        """Send a JPEG photo (multipart form) with an optional HTML caption.
+
+        Used for distraction-alert snapshots: the monitoring engine already
+        holds the original camera frame, so parents receive the real incident
+        photo instead of text-only descriptions.
+        """
+        if not bot_token or not chat_id or not photo_bytes:
+            logger.debug("Telegram photo skipped: token/chat/photo missing.")
+            return False
+
+        url = cls.SEND_PHOTO_API_BASE.format(token=bot_token)
+        try:
+            timeout = aiohttp.ClientTimeout(total=20.0)
+            form = aiohttp.FormData()
+            form.add_field("chat_id", str(chat_id))
+            if caption:
+                if len(caption) > 1024:
+                    import re
+                    plain = re.sub(r"<[^>]+>", "", caption)
+                    form.add_field("caption", plain[:1020] + "...")
+                else:
+                    form.add_field("caption", caption)
+                    if parse_mode:
+                        form.add_field("parse_mode", parse_mode)
+            elif parse_mode:
+                form.add_field("parse_mode", parse_mode)
+            form.add_field(
+                "photo",
+                photo_bytes,
+                filename="aiguru-alert.jpg",
+                content_type="image/jpeg",
+            )
+
+            async with aiohttp.ClientSession(timeout=timeout) as session:
+                async with session.post(url, data=form) as resp:
+                    if resp.status == 200:
+                        logger.info("Telegram photo delivered to %s (%d bytes)", chat_id, len(photo_bytes))
+                        return True
+                    body = await resp.text()
+                    logger.warning("Telegram sendPhoto error (status %d): %s", resp.status, body)
+                    return False
+        except Exception as e:
+            logger.warning("Failed to dispatch Telegram photo: %s", e)
             return False
 
     @staticmethod
@@ -75,7 +191,7 @@ class TelegramNotifier:
         """One-tap Parent Portal footer, only when a public tunnel is live."""
         if not tunnel_url:
             return ""
-        safe = cls._esc(tunnel_url)
+        safe = cls._esc(str(tunnel_url).rstrip("/"))
         return f'\n\n🔗 <a href="{safe}/parent">Open Parent Portal</a>'
 
     @classmethod

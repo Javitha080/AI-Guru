@@ -162,10 +162,12 @@ class LocalCVPipeline:
 
         # 3. Liveness Analysis
         laplacian_val = payload.get("texture_laplacian_var")
+        ear_override = payload.get("ear_override")
         liveness_res = self.liveness_detector.evaluate_frame(
             landmarks=face_res.landmarks,
             timestamp=now,
             texture_laplacian_var=laplacian_val,
+            ear_override=ear_override,
         )
 
         # 4. Head Pose and Gaze Estimation
@@ -215,6 +217,7 @@ class LocalCVPipeline:
             hand_to_mouth_gesture=hand_to_mouth,
             page_turn_gesture=page_turn,
             writing_gesture=writing_gesture,
+            gaze=gaze_res,
         )
 
         # 7. Engagement Estimation
@@ -226,7 +229,9 @@ class LocalCVPipeline:
         )
 
         # 8. Warning Dispatcher & Cooldown (episode-aware: observe first so a
-        # state that stays true frame-after-frame notifies once, not per cooldown)
+        # state that stays true frame-after-frame notifies once, not per cooldown).
+        # Tiered: a gentle nudge may fire early in the episode ([3s,6s) window);
+        # the real warning/alert tier keeps its classic gates untouched.
         self.warning_manager.observe_distraction_state(
             distraction_res.is_distracted,
             distraction_res.distraction_type if distraction_res.is_distracted else None,
@@ -235,6 +240,8 @@ class LocalCVPipeline:
             timestamp=now,
             distraction=distraction_res,
         )
+        if warning_event is None:
+            warning_event = self.warning_manager.evaluate_nudge(timestamp=now, distraction=distraction_res)
 
         return FrameAnalysisResult(
             timestamp=now,

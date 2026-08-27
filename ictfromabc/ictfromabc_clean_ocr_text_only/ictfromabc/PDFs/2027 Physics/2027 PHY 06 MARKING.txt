@@ -1,0 +1,459 @@
+1. Which of these represents the most challenging aspect of data removal in the data life cycle?
+මේවාගෙන් කුමක් දත්ත ජීවන චක්‍රයේ දත්ත ඉවත් කිරීමේ වඩාත්ම අභියෝගාත්මක අංගය නියෝජනය කරයිද?
+
+1) Deleting files stored on physical drives / භෞතික ධාවකවල ගබඩා කර ඇති ගොනු මකා දැමීම
+2) Identifying obsolete data across distributed systems
+බෙදා හරින ලද පද්ධති හරහා යල් පැන ගිය දත්ත හඳුනා ගැනීම
+
+3) Archiving sensitive data for future use / අනාගත භාවිතය සඳහා සංවේදී දත්ත සංරක්ෂණය කිරීම
+4) Automating backup processes before deletion / මකා දැමීමට පෙර උපස්ථ ක්‍රියාවලීන් ස්වයංක්‍රීය කිරීම
+5) Migrating data to cloud storage before removal
+ඉවත් කිරීමට පෙර දත්ත වලාකුළු ගබඩාවට සංක්‍රමණය කිරීම
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+While deleting files from physical drives can be challenging due to potential recovery of deleted data or
+security concerns, modern tools for secure deletion (ex: overwriting or shredding data) have mitigated
+these issues. Hence, this is not the most challenging aspect.
+මකා දැමූ දත්ත ප්‍රතිසාධනය කිරීමේ විභවය හෝ ආරක්ෂක ගැටළු හේතුවෙන් භෞතික ධාවකවලින් ගොනු මකා
+දැමීම අභියෝගාත්මක විය හැකි අතර, ආරක්ෂිත මකාදැමීම සඳහා නවීන මෙවලම් (උදා: දත්ත නැවත ලිවීම
+හෝ ඉරා දැමීම) මෙම ගැටළු අවම කර ඇත. එබැවින්, මෙය වඩාත්ම අභියෝගාත්මක අංගය නොවේ.
+
+Option / විකල්ප 2)
+This is highly challenging because distributed systems involve multiple nodes, servers, or databases, often
+in different geographic locations or organizational silos. Identifying which data is obsolete requires
+comprehensive metadata tracking, synchronization across systems, and understanding of data usage
+patterns. This aspect involves technical and organizational complexities, making it a strong candidate for
+the correct answer.
+බොහෝ විට විවිධ භූගෝලීය ස්ථානවල හෝ සංවිධානාත්මක silos වල බෙදා හරින ලද පද්ධතිවලට බහු නාඹි,
+සේවාදායක හෝ දත්ත සමුදායන් ඇතුළත් වන බැවින් මෙය ඉතා අභියෝගාත්මක ය. යල් පැන ගිය දත්ත
+හඳුනා ගැනීම සඳහා පුළුල් පාර-දත්ත tracking, පද්ධති හරහා සමමුහුර්තකරණය සහ දත්ත භාවිත රටා
+පිළිබඳ අවබෝධය අවශ්‍ය වේ. මෙම අංගයට තාක්ෂණික සහ සංවිධානාත්මක සංකීර්ණතා ඇතුළත් වන අතර,
+එය නිවැරදි පිළිතුර සඳහා වඩාත් සුදුසු වේ.
+
+Option / විකල්ප 3)
+Archiving involves storing sensitive data securely for long-term use, which can be challenging but is more
+of a data preservation problem than a removal problem. It does not directly relate to the complexities of
+data removal.
+සංරක්ෂිත කිරීම යනු දිගු කාලීන භාවිතය සඳහා සංවේදී දත්ත ආරක්ෂිතව ගබඩා කිරීම ඇතුළත් වන අතර
+එය අභියෝගාත්මක විය හැකි නමුත් ඉවත් කිරීමේ ගැටලුවකට වඩා දත්ත සංරක්ෂණ ගැටලුවකි. එය දත්ත
+ඉවත් කිරීමේ සංකීර්ණතා සමඟ සෘජුවම සම්බන්ධ නොවේ.
+
+Option / විකල්ප 4)
+Automating backups is a standard procedure in data management. While it is critical to prevent accidental
+data loss, it is not as complex as identifying obsolete data in a distributed setup.
+උපස්ථ ස්වයංක්‍රීය කිරීම දත්ත කළමනාකරණයේ සම්මත ක්‍රියා පටිපාටියකි. අහම්බෙන් දත්ත නැතිවීම වැළැක්වීම
+ඉතා වැදගත් වුවද, එය බෙදා හරින ලද සැකසුමක යල් පැන ගිය දත්ත හඳුනා ගැනීම තරම් සංකීර්ණ
+නොවේ.
+
+RAVINDU BANDARANAYAKE
+2027 දවසට කොළයක් වැඩසටහන 06
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Option / විකල්ප 5)
+Data migration to the cloud involves challenges like ensuring data integrity, security, and compliance.
+However, it is a distinct process from removal itself and is not as fundamentally difficult as dealing with
+distributed obsolete data.
+වලාකුළට (cloud) දත්ත සංක්‍රමණය කිරීම දත්ත අඛණ්ඩතාව, ආරක්ෂාව සහ අනුකූලතාවය සහතික කිරීම
+වැනි අභියෝග ඇතුළත් වේ. කෙසේ වෙතත්, එය ඉවත් කිරීමට වඩා වෙනස් ක්‍රියාවලියක් වන අතර බෙදා
+හරින ලද යල් පැන ගිය දත්ත සමඟ කටයුතු කිරීම තරම් මූලික වශයෙන් අපහසු නොවේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2. What is the main distinction between data and information in a processing system?
+සැකසුම් පද්ධතියක දත්ත සහ තොරතුරු අතර ඇති ප්‍රධාන වෙනස කුමක්ද ?
+
+1) Data is always numeric, and information is textual.
+දත්ත සැමවිටම සංඛ්‍යාත්මක වන අතර තොරතුරු පාඨමය (textual) වේ.
+
+2) Data represents valuable insights, while information is raw and unprocessed.
+දත්ත වටිනා අවබෝධයක් සහිත දෑ නියෝජනය කරන අතර තොරතුරු අමු සහ සැකසූ ඒවා නොවේ.
+
+3) Data is only relevant for big data analysis, while information is for decision-making.
+දත්ත අදාළ වන්නේ මහා දත්ත විශ්ලේෂණය සඳහා පමණක් වන අතර තොරතුරු තීරණ ගැනීම සඳහා
+වේ.
+
+4) Data and information are synonymous in any system.
+දත්ත සහ තොරතුරු ඕනෑම පද්ධතියක සමාන පද වේ.
+
+5) Data is the input, and information is the output.
+දත්ත යනු ආදානය වන අතර තොරතුරු ප්‍රතිදානය වේ.
+
+Answer: 5)
+
+What is Data and Information / දත්ත සහ තොරතුරු යනු කුමක්ද?
+
+Data is the raw and unprocessed collection of facts, figures, or observations that lacks context or meaning.
+For example, a set of numbers such as "25, 30, 28" is data without further explanation. Information, on
+the other hand, is derived from processing and organizing data to provide context and meaning. For
+example, stating that "the average temperature over three days is 27°C" is information because it adds
+value and insight to the data.
+දත්ත යනු සන්දර්භය හෝ අර්ථය නොමැති කරුණු, සංඛ්‍යා හෝ නිරීක්ෂණවල අමු සහ සැකසූ එකතුවකි.
+උදාහරණයක් ලෙස, "25, 30, 28" වැනි සංඛ්‍යා සමූහයක් වැඩිදුර පැහැදිලි කිරීමකින් තොරව දත්ත වේ. අනෙක්
+අතට, තොරතුරු සන්දර්භය සහ අර්ථය ලබා දීම සඳහා දත්ත සැකසීමෙන් සහ සංවිධානය කිරීමෙන් ලබා
+ගනී. උදාහරණයක් ලෙස, "දින තුනක් පුරා සාමාන්‍ය උෂ්ණත්වය 27°C" බව ප්‍රකාශ කිරීම තොරතුරු වන්නේ
+එය දත්ත වලට වටිනාකමක් සහ අවබෝධයක් එක් කරන බැවිනි.
+
+Correct answer / නිවැරදි පිළිතුර:
+5)   Data is the input, and information is the output.
+දත්ත යනු ආදානය වන අතර තොරතුරු ප්‍රතිදානය වේ.
+
+Option 5 is correct because data acts as the input to any processing system, while information is the
+processed output. A system collects data, organizes or analyzes it, and produces information as the final
+result. For instance, in a payroll system, raw attendance records (data) are processed to generate salary
+slips (information). This distinction emphasizes how data transforms into meaningful information, making
+Option 5 the most accurate representation of their relationship.
+විකල්ප 5 නිවැරදි වන්නේ දත්ත ඕනෑම සැකසුම් පද්ධතියකට ආදානය ලෙස ක්‍රියා කරන අතර තොරතුරු
+සැකසූ ප්‍රතිදානය වන බැවින්. පද්ධතියක් දත්ත රැස් කරයි, සංවිධානය කරයි හෝ විශ්ලේෂණය කරයි, සහ
+අවසාන ප්‍රතිඵලය ලෙස තොරතුරු නිෂ්පාදනය කරයි. උදාහරණයක් ලෙස, වැටුප් ගෙවීමේ පද්ධතියක, වැටුප්
+පත්‍රිකා (තොරතුරු) ජනනය කිරීම සඳහා අමු පැමිණීමේ වාර්තා (දත්ත) සකසනු ලැබේ. මෙම වෙනස දත්ත
+අර්ථවත් තොරතුරු බවට පරිවර්තනය වන ආකාරය අවධාරණය කරයි, එමනිසා විකල්ප 5 ඔවුන්ගේ
+සම්බන්ධතාවයේ වඩාත් නිවැරදි නිරූපණය බවට පත් කරයි.
+
+-2-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Why other options are incorrect / වෙනත් විකල්ප වැරදි වන්නේ ඇයි?
+
+Option 1 is incorrect because data is not always numeric, it can be textual, images, or other forms, and
+information is not limited to text.
+දත්ත සැමවිටම සංඛ්‍යාත්මක නොවන නිසා 1 වන විකල්පය නිවැරදි නොවේ - එය පාඨ, රූප හෝ වෙනත්
+ආකාර විය හැකි අතර තොරතුරු පෙළට සීමා නොවේ.
+
+Option 2 is incorrect as it reverses the roles of data and information; data is raw, while information is
+insightful.
+දත්ත සහ තොරතුරු වල භූමිකාවන් ආපසු හරවන බැවින් 2 වන විකල්පය නිවැරදි නොවේ; දත්ත අමු
+වන අතර තොරතුරු තීක්ෂණ බුද්ධියෙන් යුක්ත වේ.
+
+Option 3 is wrong because data is relevant in all systems, not just big data, and information is not
+exclusive to decision-making.
+විශාල දත්ත පමණක් නොව සියලුම පද්ධතිවල දත්ත අදාළ වන බැවින් 3 වන විකල්පය නිවැරදි නොවේ,
+සහ තොරතුරු තීරණ ගැනීම සඳහා පමණක් සීමා නොවේ.
+
+Option 4 is incorrect because data and information are not synonymous—they serve distinctly
+different purposes in a system.
+දත්ත සහ තොරතුරු සමාන නොවන නිසා 4 වන විකල්පය නිවැරදි නොවේ - ඒවා පද්ධතියක පැහැදිලිවම
+වෙනස් අරමුණු සඳහා සේවය කරයි.
+
+3. Which of the following is false about registers?
+රෙජිස්තර සම්බන්ධයෙන් පහත කවරක් අසත්‍ය වේද?
+
+1) Registers are limited in capacity. / රෙජිස්තරවල ධාරිතාව සීමිතය.
+
+2) They are located within computer's central processing unit.
+ඒවා පරිගණකයේ මධ්‍ය සැකසුම් ඒකකය තුළ පිහිටා ඇත.
+
+3) Registers hold data that are used for current operations of the CPU.
+CPU හි වත්මන් මෙහෙයුම් සඳහා භාවිතා කරන දත්ත රෙජිස්තරෙහි රඳවා තබා ගනී.
+
+4) They are slower than L1 cache memory. / ඒවා L1 cache මතකයට වඩා මන්දගාමී වේ.
+
+5) None of the above. / ඉහත කිසිවක් නොවේ.
+
+Answer: 4)
+
+Evaluating each statement / එක් එක් ප්‍රකාශය පැහැදිලි කිරීම:
+
+Statement / ප්‍රකාශය 1)
+This statement is true. Registers have limited capacity compared to other types of memory in a
+computer.
+මෙම ප්‍රකාශය සත්‍ය වේ. පරිගණකයක ඇති අනෙකුත් මතක වර්ග හා සසඳන විට රෙජිස්තර සතුව සීමිත
+ධාරිතාවක් ඇත.
+
+Statement / ප්‍රකාශය 2)
+This statement is true. Registers are typically located within the CPU itself, making them very fast to
+access.
+මෙම ප්‍රකාශය සත්‍ය වේ. රෙජිස්තර සාමාන්‍යයෙන් CPU තුළම පිහිටා ඇති අතර, ඒවාට ප්‍රවේශ වීම ඉතා
+වේගවත් කරයි.
+
+Statement / ප්‍රකාශය 3)
+This statement is true. Registers store data and instructions that are actively being processed by the CPU
+during its operations.
+මෙම ප්‍රකාශය සත්‍ය වේ. රෙජිස්තර ගබඩා දත්ත සහ උපදෙස් එහි මෙහෙයුම් අතරතුර CPU විසින් සක්‍රියව
+සකසනු ලැබේ.
+
+-3-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Statement / ප්‍රකාශය 4)
+This statement is false. Registers are the fastest type of memory in a computer, much faster than cache
+memory, including L1 cache. Registers are directly accessible by the CPU, while cache memory serves
+as a buffer between the CPU and main memory.
+මෙම ප්‍රකාශය අසත්‍යයි. රෙජිස්තර යනු පරිගණකයක ඇති වේගවත්ම මතක වර්ගය වන අතර, L1 නිහිත
+ඇතුළු නිහිත මතකයට වඩා ඉතා වේගවත් වේ. CPU මඟින් රෙජිස්තර සෘජුවම ප්‍රවේශ විය හැකි අතර,
+නිහිත මතකය CPU සහ ප්‍රධාන මතකය අතර බාධකයක් ලෙස ක්‍රියා කරයි.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර වන්නේ 4) වේ.
+
+4. Which of the following is an example of an output device used to display visual information?
+දෘශ්‍ය තොරතුරු ප්‍රදර්ශනය කිරීම සඳහා භාවිතා කරන ප්‍රතිදාන උපාංගයක උදාහරණය පහත ඒවායින්
+කවරේ ද?
+
+1) Keyboard / යතුරු පුවරුව
+2) Mouse / මූසිකය
+3) Printer / මුද්‍රණ යන්ත්‍රය
+4) Monitor / මොනිටරය
+5) Microphone / මයික්‍රෆෝනය
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+A keyboard and a mouse are input devices used to give commands or type data.
+යතුරු පුවරුව සහ මූසිකය යනු විධාන ලබා දීමට හෝ දත්ත ටයිප් කිරීමට භාවිතා කරන ආදාන උපාංග වේ.
+
+A printer is also an output device but it gives printed output, not screen display.
+මුද්‍රණ යන්ත්‍රයක් ද ප්‍රතිදාන උපාංගයක් වන නමුත් එය මුද්‍රිත ප්‍රතිදානය ලබා දෙයි, තිර සංදර්ශකය නොවේ.
+
+A monitor is an output device that displays images, text, and videos from the computer onto a screen.
+මොනිටරයක් යනු පරිගණකයේ ඇති රූප, පාඨ සහ වීඩියෝ තිරයක් මත පෙන්වන ප්‍රතිදාන උපාංගයකි.
+
+A microphone is an input device used to record sound.
+මයික්‍රෆෝනයක් යනු ශබ්දය පටිගත කිරීමට භාවිතා කරන ආදාන උපාංගයකි.
+
+So, the correct output device used to display visual information is the monitor.
+එබැවින්, දෘශ්‍ය තොරතුරු ප්‍රදර්ශනය කිරීම සඳහා නිවැරදි ප්‍රතිදාන උපාංගය මොනිටරය වේ.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර වන්නේ 4) වේ.
+
+-4-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+5. In the context of a simplified data life cycle, which of the following actions best represents the "Data
+Management" stage?
+සරල කළ දත්ත ජීවන චක්‍රයක සන්දර්භය තුළ, "දත්ත කළමනාකරණය" අදියර වඩාත් හොඳින් නියෝජනය
+කරන්නේ පහත ක්‍රියාවලින් කවරක් ද?
+
+1) Entering new student records into a school database.
+පාසල් දත්ත ගබඩාවකට නව ශිෂ්‍ය වාර්තා ඇතුළත් කිරීම
+
+2) Deleting old attendance records after graduation
+උපාධිය ලැබීමෙන් පසු පැරණි පැමිණිමේ වාර්තා මකා දැමීම
+
+3) Archiving inactive files without altering their content
+අක්‍රිය ගොනු ඒවායේ අන්තර්ගතය වෙනස් නොකර සංරක්ෂණය කිරීම
+
+4) Generating a student ID number at admission / ඇතුළත් කිරීමේදී ශිෂ්‍ය හැඳුනුම්පතක් ජනනය කිරීම
+5) Replacing duplicate entries with corrected data
+නිවැරදි කළ දත්ත සමඟ අනුපිටපත් ඇතුළත් කිරීම් ප්‍රතිස්ථාපනය කිරීම
+
+Answer: 5)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Entering new student records belongs to data creation (adding new data).
+නව ශිෂ්‍ය වාර්තා ඇතුළත් කිරීම, දත්ත නිර්මාණයට අදාළ වේ (නව දත්ත එකතු කිරීම).
+
+Option / විකල්පය 2)
+Deleting old records belongs to removal of obsolete data (cleaning out outdated info).
+පැරණි වාර්තා මකා දැමීම, යල් පැන ගිය දත්ත ඉවත් කිරීමට අදාළ වේ (යල් පැන ගිය තොරතුරු පිරිසිදු
+කිරීම).
+
+Option / විකල්පය 3)
+Archiving files is close to data preservation but does not reflect active management.
+ගොනු සංරක්ෂණය කිරීම දත්ත සංරක්ෂණයට ආසන්න නමුත් ක්‍රියාකාරී කළමනාකරණය පිළිබිඹු නොකරයි
+
+Option / විකල්පය 4)
+Generating IDs is a part of Data Creation.
+හැඳුනුම්පත් ජනනය කිරීම දත්ත නිර්මාණයේ කොටසකි.
+
+Option / විකල්පය 5)
+Replacing duplicate entries with corrected data is part of Data Management, as it involves maintaining
+accuracy and quality of existing data.
+පවතින දත්තවල නිරවද්‍යතාවය සහ ගුණාත්මකභාවය පවත්වා ගැනීම ඇතුළත් වන බැවින්, නිවැරදි කළ
+දත්ත සමඟ අනුපිටපත් ඇතුළත් කිරීම් ප්‍රතිස්ථාපනය කිරීම දත්ත කළමනාකරණයේ කොටසකි.
+
+Therefore, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර වන්නේ 5) වේ.
+-5-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+6. Which type of scanner is most used to digitize pages from books or documents?
+පොත් හෝ ලේඛන වල පිටු ඩිජිටල් කිරීමට බහුලව භාවිතා වන සුපරික්ෂකය කුමක්ද?
+1) Drum scanner
+2) Barcode scanner
+3) Flatbed scanner
+4) Handheld scanner
+5) Fingerprint scanner
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+1) Drum scanner
+High-end, used in publishing for very high-resolution scans (not common in everyday use).
+ඉහළ-අන්තය, ඉතා ඉහළ විභේදන ස්කෑන් සඳහා ප්‍රකාශනය කිරීමේදී භාවිතා වේ (එදිනෙදා භාවිතයේදී
+පොදු නොවේ).
+
+2) Barcode scanner
+Reads barcodes, used in retail and logistics.
+සිල්ලර සහ සැපයුම්වල භාවිතා වන තීරු කේත කියවයි.
+
+3) Flatbed scanner
+The most common type used in homes and offices; you place documents on a glass surface to scan
+pages.
+නිවාස සහ කාර්යාලවල භාවිතා කරන වඩාත් පොදු වර්ගයයි; පිටු පරිලෝකනය කිරීම සඳහා ඔබ වීදුරු
+මතුපිටක් මත ලේඛන තබයි.
+
+4) Handheld scanner
+Portable and used for small or quick scans, but less accurate for books or large documents.
+අතේ ගෙන යා හැකි සහ කුඩා හෝ ඉක්මන් ස්කෑන් සඳහා භාවිතා කරයි, නමුත් පොත් හෝ විශාල
+ලේඛන සඳහා අඩු නිරවද්‍යතාවයකි.
+
+5) Fingerprint scanner
+Used for biometric authentication, not for scanning pages or documents.
+පිටු හෝ ලේඛන පරිලෝකනය කිරීම සඳහා නොව ජෛවමිතික සත්‍යාපනය සඳහා භාවිතා කරයි.
+
+So, the correct and most practical choice for books or documents is C. Flatbed scanner.
+එබැවින්, පොත් හෝ ලේඛන සඳහා නිවැරදි හා වඩාත්ම ප්‍රායෝගික තේරීම වන්නේ Flatbed සුපරික්ෂකයයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර වන්නේ 3) වේ.
+
+7. What is DPI in relation to a mouse?
+මූසිකයක් සම්බන්ධයෙන් DPI යනු කුමක්ද?
+
+1) Data Processing Interface
+2) Digital Pointer Index
+3) Dots Per Inch
+4) Device Port Integration
+5) Drag Precision Indicator
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+DPI stands for Dots Per Inch, and it measures the sensitivity of a mouse. It indicates how many pixels
+(dots) the cursor moves on the screen when the mouse is physically moved one inch on a surface.
+DPI යනු අඟලකට තිත් යන්නයි, එය මූසිකයක සංවේදීතාව මනිනු ලබයි. මූසිකය මතුපිටක් මත අඟලක්
+භෞතිකව ගෙන යන විට කර්සරය තිරය මත කොපමණ පික්සල (තිත්) චලනය වේද යන්න එයින් දක්වයි.
+-6-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+A higher DPI setting means faster cursor movement (the pointer travels a longer distance with less
+physical mouse movement)
+ඉහළ DPI සැකසුමක් යනු වේගවත් කර්සර චලනයකි (අඩු භෞතික මූසික චලනයකින්, කර්සරය දිගු දුරක්
+ගමන් කරයි).
+
+A lower DPI means slower, more precise movement (useful for detailed tasks like photo editing or
+drawing)
+අඩු DPI යනු මන්දගාමී, වඩාත් නිරවද්‍ය චලනයකි (ඡායාරූප සංස්කරණය හෝ ඇඳීම වැනි සවිස්තරාත්මක
+කාර්යයන් සඳහා ප්‍රයෝජනවත් වේ).
+
+Therefore, the answer is 3).
+එබැවින්, පිළිතුර 3) වේ.
+
+8. Which data validation method is best used to ensure that a user enters a valid date in the format “YYYY-
+MM-DD”, and that the date is not in the future?
+පරිශීලකයෙකු වලංගු දිනයක් “YYYY-MM-DD” ආකෘතියෙන් ඇතුළත් කරන බවත්, එම දිනය අනාගතයේ
+නොවන බවත් සහතික කිරීමට භාවිතා කළ හැකි හොඳම දත්ත වලංගුකරණ ක්‍රමය කුමක්ද?
+
+1) Presence check + Format Check / ඇති බව පරීක්ෂාව  +  ආකෘති පරීක්ෂාව
+2) Format check /  ආකෘති පරීක්ෂාව
+3) Range check / පරාස පරීක්ෂාව
+4) Length check / දිග පරීක්ෂාව
+5) Format check + Range check / ආකෘති පරීක්ෂාව + පරාස පරීක්ෂාව
+
+Answer: 5)
+
+Explanation / පැහැදිලි කිරීම:
+
+To ensure a user enters a valid date like "YYYY-MM-DD" and that the date is not in the future, you
+need two types of validation checks
+පරිශීලකයෙකු "YYYY-MM-DD" වැනි වලංගු දිනයක් ඇතුළත් කරන බවත් එම දිනය අනාගතයේ නොවන
+බවත් සහතික කිරීමට, ඔබට වලංගුකරණ පරීක්ෂාවන් වර්ග දෙකක් අවශ්‍ය වේ.
+
+1) Format check confirms the input matches the required pattern in this case, the date must be entered
+as four digits for the year, two for the month, and two for the day, separated by hyphens
+ආකෘති පරීක්ෂාව මඟින් ආදානය අවශ්‍ය රටාවට ගැලපෙන බව තහවුරු කරයි, මෙම අවස්ථාවේදී,
+වසර සඳහා ඉලක්කම් හතරක් ලෙසත්, මාසය සඳහා ඉලක්කම් දෙකක් ලෙසත්, දිනය සඳහා ඉලක්කම්
+දෙකක් ලෙසත්, යටි ඉරි වලින් වෙන් කර ඇතුළත් කළ යුතුය.
+ex: 2024-12-31
+
+This prevents wrong formats like 31/12/2024 or Dec 31, 2024.
+මෙය 31/12/2024  හෝ  Dec 31, 2024 වැනි වැරදි ආකෘති වළක්වයි.
+
+2) Range check ensures that the entered date falls within an acceptable range. Specifically, it is not a
+future date.
+පරාස පරීක්ෂාව මඟින් ඇතුළත් කළ දිනය පිළිගත හැකි පරාසයක් තුළට වැටෙන බව සහතික කරයි.
+විශේෂයෙන්, එය අනාගත දිනයක් නොවේද යන්න.
+
+For example, entering 2030-01-01 would fail the range check if the system date is earlier than that.
+උදාහරණයක් ලෙස, 2030-01-01 ඇතුළත් කිරීමෙන් පද්ධති දිනය ඊට පෙරද යන්න පරාසය පරීක්ෂාව
+අසාර්ථක වනු ඇත.
+
+Therefore, the answer is 5).
+එබැවින්, පිළිතුර 5) වේ.
+
+-7-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+9. Which data processing method is most suitable for processing large volumes of transactions at the end of
+each day, such as payroll or utility billing?
+වැටුප් ගෙවීම් හෝ උපයෝගිතා බිල්පත් වැනි සෑම දිනකම අවසානයේ විශාල ගනුදෙනු ප්‍රමාණයක් සැකසීම
+සඳහා වඩාත් සුදුසු දත්ත සැකසුම් ක්‍රමය කුමක්ද?
+
+1) Real-time processing / තත්‍ය කාලීන සැකසුම්
+2) Distributed processing / බෙදා හරින ලද සැකසුම්
+3) Batch processing / කණ්ඩායම් සැකසීම
+4) Serial processing / අනුක්‍රමික සැකසුම්
+5) Manual processing / අතින් සැකසීම
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Real-time processing handles data immediately as it arrives, providing instant updates and responses.
+This is critical for systems like air traffic control or online banking.
+තත්‍ය කාලීන සැකසුම් මඟින් දත්ත ලැබුණු වහාම හසුරුවනු ලබන අතර, ක්ෂණික යාවත්කාලීන කිරීම් සහ
+ප්‍රතිචාර සපයයි. ගුවන් ගමනාගමන පාලනය හෝ මාර්ගගත බැංකුකරණය වැනි පද්ධති සඳහා මෙය ඉතා
+වැදගත් වේ.
+
+Option / විකල්පය 2)
+Distributed processing divides tasks across multiple computers or processors working in parallel,
+speeding up complex computations.
+බෙදා හරින ලද සැකසුම් මඟින් බහු පරිගණක හෝ සකසනයන් සමාන්තරව ක්‍රියා කරන කාර්යයන් බෙදන
+අතර සංකීර්ණ ගණනය කිරීම් වේගවත් කරයි.
+
+Option / විකල්පය 3)
+Batch processing collects transactions over a period and processes them all at once in a batch. Payroll
+and billing generate large amounts of data that can be processed efficiently after business hours in a
+single batch, reducing system load and ensuring accuracy.
+කණ්ඩායම් සැකසුම් ක්‍රියාවලිය මඟින් යම් කාල පරිච්ෙඡ්දයක් තුළ ගනුදෙනු එකතු කර ඒවා සියල්ලම එකවර
+කණ්ඩායමකට සකසනු ලැබේ. වැටුප් ලේඛනය සහ බිල්පත් කිරීම මඟින් විශාල දත්ත ප්‍රමාණයක් ජනනය
+කරන අතර ඒවා ව්‍යාපාරික වේලාවෙන් පසු තනි කණ්ඩායමක් තුළ කාර්යක්ෂමව සැකසිය හැකි අතර, පද්ධති
+බර අඩු කර නිරවද්‍යතාවය සහතික කරයි.
+
+Option / විකල්පය 4)
+Processes tasks one after another, sequentially. Slower and less efficient for large volumes of data
+compared to batch or distributed processing.
+කාර්යයන් එකින් එක, අනුපිළිවෙලින් සකසයි. කාණ්ඩ හෝ බෙදා හරින ලද සැකසුම් වලට සාපේක්ෂව විශාල
+දත්ත පරිමාවන් සඳහා මන්දගාමී සහ අඩු කාර්යක්ෂම වේ.
+
+Option / විකල්පය 5)
+Humans process data without automation. Slow, prone to errors, and impractical for large-scale
+transactions like payroll or billing.
+මිනිසුන් ස්වයංක්‍රීයකරණයකින් තොරව දත්ත සකසයි. මන්දගාමී, දෝෂ වලට ගොදුරු වීමේ ප්‍රවණතාවක් ඇති
+සහ වැටුප් ගෙවීම හෝ බිල්පත් කිරීම වැනි මහා පරිමාණ ගනුදෙනු සඳහා ප්‍රායෝගික නොවෙයි.
+
+Therefore, the answer is 3).
+එබැවින්, පිළිතුර 3) වේ.
+
+-8-
+RAVINDU BANDARANAYAKE
+#ictfromabc

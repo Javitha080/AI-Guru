@@ -1,0 +1,465 @@
+1)   What is the correct output, if we input A =1, B = 0, C = 1, to the following logic circuit?
+පහත තාර්කික පරිපථයට A = 1,  B = 0, C = 1 ආදානය කළහොත් ලැබෙන නිවැරදි ප්‍රතිදානය කුමක්ද?
+
+Answer :1)
+
+Explanation
+පැහැදිලි කිරීම
+
+Simply, we can get the output of this circuit from a truth table as follows.
+සරලව කිවහොත්, අපට මෙම පරිපථයේ ප්‍රතිදානය සත්‍ය වගුවකින් පහත පරිදි ලබා ගත හැක.
+
+ICN A B C
+A ⊕ B
+B̅
+B̅. C
+A ⊕ B ⊕B̅. C̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+A ⊕ B ⊕B̅. C̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+1
+0
+0
+0
+0
+1
+0
+1
+0
+2
+0
+0
+1
+0
+1
+1
+0
+1
+3
+0
+1
+0
+1
+0
+0
+0
+1
+4
+0
+1
+1
+1
+0
+0
+0
+1
+5
+1
+0
+0
+1
+1
+0
+0
+1
+6
+1
+0
+1
+1
+1
+1
+1
+0
+7
+1
+1
+0
+0
+0
+0
+1
+0
+8
+1
+1
+1
+0
+0
+0
+1
+0
+
+From the 6th combination, where A = 1,  B = 0, C = 1 are submitted as the inputs gives the output as 0.
+Therefore, the answer number is 1.
+6 වන සංයෝජනයෙන්, A = 1,  B = 0, C = 1 ඉදිරිපත් කර ඇති අතර, ආදාන ප්‍රතිදානය 0 ලෙස ලබා දෙයි.
+එබැවින්, පිළිතුරු අංක 1 නිවැරදි වේ
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 28
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+1.   0
+2.   1
+3.   A
+4.   C
+5.   Cannot process an output
+      ප්‍රතිදානයක් සැකසීමට
+   නොහැක
+
+      2)   Which of the following statements correctly explains the Double Inverse Law in Boolean algebra?
+බූලීය වීජ ගණිතයේ ද්විත්ව ප්‍රතිලෝම නියමය නිවැරදිව පැහැදිලි කරන පහත ප්‍රකාශවලින් කවරක්ද?
+
+1.   Taking the complement of a Boolean expression changes AND operations into OR operations.
+   බූලීය ප්‍රකාශනයක අනුපූරකය වෙනස් වන අතර AND මෙහෙයුම් OR මෙහෙයුම් බවට පත් වේ.
+2.   The complement of a Boolean variable, when complemented again, results in the original variable.
+   බූලීය විචල්‍යයක අනුපූරකය, නැවත අනුපූරක කළවිට මුල් විචල්‍යයම ලැබේ.
+3.   A Boolean variable combined with its complement always gives an output of 1.
+   බූලීය විචල්‍යයක් එහි අනුපූරකය සමඟ සංයුක්ත වූ විට, සෑම විටම 1 ක ප්‍රතිදානයක් ලබා දෙයි.
+4.   The complement of a product of variables is equal to the product of their complements.
+   විචල්‍යයන්ගේ ගුණිතයක අනුපූරකය, ඒවායේ අනුපූරකවල ගුණිතයට සමාන වේ
+5.   A Boolean variable remains unchanged when multiplied by 1.
+   බූලීය විචල්‍යයක් 1 න් ගුණ කළ විට නොවෙනස්ව පවතී.
+
+Answer: 2)
+
+Explanation
+පැහැදිලි කිරීම
+
+The statement / ප්‍රකාශය:
+A̿ = A
+
+The Double Inverse Law in Boolean algebra states that when the complement of a Boolean variable is
+taken twice, the result is the original variable. Mathematically, this law is written as A̿ = A. This means
+that the NOT operation cancels itself when applied two times. For example, if A is 1, its complement
+A̅ becomes 0, and taking the complement again returns it to 1. Similarly, if A is 0, the first complement
+gives 1, and the second complement returns it to 0. Hence, the variable remains unchanged after double
+complementation.
+බූලීය වීජ ගණිතයේ ද්විත්ව ප්‍රතිලෝම නියමයේ සඳහන් වන්නේ බූලීය විචල්‍යයක අනුපූරකය දෙවරක් ගත්
+විට, ප්‍රතිඵලය මුල් විචල්‍යය බවයි. ගණිතමය වශයෙන්, මෙම නියමය A̿ = A ලෙස ලියනු ලබයි. මෙයින්
+අදහස් කරන්නේ NOT මෙහෙයුම දෙවරක් යෙ¥ විට එයම අවලංගු වන බවයි. උදාහරණයක් ලෙස, A=1
+නම්, එහි අනුපූරකය A̅ =0 බවට පත් වන අතර, අනුපූරකය නැවත ගැනීමෙන් එය 1 වෙත ආපසු ලබා දේ.
+ඒ හා සමානව, A 0 නම්, පළමු අනුපූරකය 1 ලබා දෙන අතර, දෙවන අනුපූරකය එය 0 වෙත ආපසු ලබා
+දෙයි. එබැවින්, ද්විත්ව අනුපූරකයෙන් පසුව විචල්‍යය නොවෙනස්ව පවතී.
+
+      3)   What is the electronic circuit that represent NOR gate?
+            NOR ද්වාරය නියෝජනය කරන ඉලෙක්ට්‍රොනික පරිපථය කුමක්ද?
+
+Answer: 3)
+
+1.
+2.
+3.
+4.
+5.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+Explanation
+පැහැදිලි කිරීම
+
+Here, in this case, to find out which represents the NOR gate from an electronic circuit, we can simply
+draw truth tables for each circuit as follows.
+මෙහිදී, මේ අවස්ථාවේදී, ඉලෙක්ට්‍රොනික පරිපථයකින් NOR ද්වාරය නියෝජනය කරන්නේ කුමක්දැයි සොයා
+ගැනීමට, අපට පහත පරිදි එක් එක් පරිපථය සඳහා සත්‍යතා වගු නිර්මාණය කළ හැකිය.
+
+For the first circuit / පළමු පරිපථය සඳහා,
+
+S1
+S2
+B
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+0
+
+This represents an XOR gate.
+මෙය XOR ද්වාරයක් නියෝජනය කරයි.
+
+For the second circuit /දෙවන පරිපථය සඳහා,
+
+S1
+S2
+B
+0
+0
+1
+0
+1
+1
+1
+0
+1
+1
+1
+0
+
+This represents a NAND gate.
+මෙය NAND ද්වාරයක් නියෝජනය කරයි.
+
+For the third circuit / තෙවන පරිපථය සඳහා,
+
+S1
+S2
+B
+0
+0
+1
+0
+1
+0
+1
+0
+0
+1
+1
+0
+
+This represents a NOR gate.
+මෙය NOR ද්වාරයක් නියෝජනය කරයි.
+
+For the fourth circuit /හතරවන පරිපථය සඳහා,
+
+S1
+S2
+B
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+1
+
+This represents an OR gate.
+මෙය OR ද්වාරයක් නියෝජනය කරයි.
+
+For the fifth circuit /පස්වන පරිපථය සඳහා,
+
+S
+B
+0
+1
+1
+0
+
+This represents a NOT gate.
+මෙය NOT ද්වාරයක් නියෝජනය කරයි.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+      4)   Which of the following statements correctly describes the Idempotent Law in Boolean algebra?
+            බූලීය වීජ ගණිතයේ තදේවභාවී නියමය නිවැරදිව විස්තර කරන්නේ පහත ප්‍රකාශවලින් කවරක්ද?
+
+1.   A variable AND with its complement equals 0
+    එහි අනුපූරකය සහිත AND මෙහෙයුමට ලක් කළ විචල්‍යයක් 0 ට සමාන වේ
+2.   A variable ORed with its complement equals 1
+   එහි අනුපූරකය සහිත OR මෙහෙයුමට ලක් කළ විචල්‍යයක් 1 ට සමාන වේ
+3.   Repeating the same variable in an OR or AND operation does not change its value
+      OR හෝ AND මෙහෙයුමකදී එකම විචල්‍යය පුනරාවර්තනය කිරීමෙන් එහි අගය වෙනස් නොවේ
+4.   Taking the complement of a variable twice gives the original variable
+     විචල්‍යයක අනුපූරකය දෙවරක් ගැනීමෙන් මුල් විචල්‍යයම ලැබේ
+5.   A variable ANDed with 1 remains unchanged
+   1 සහිත AND කර්මයට ලක් කළ විචල්‍යයක් නොවෙනස්ව පවති
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම
+
+A + A = A
+A ⋅ A = A
+
+The Idempotent Law in Boolean algebra states that repeating the same variable in an OR or AND
+operation does not change the value of the expression. This law is expressed as A + A = A and A . A = A.
+In an OR operation, if A is 1, then 1 OR 1 equals 1, and if A is 0, then 0 OR 0 equals 0. Similarly, in an
+AND operation, 1 AND 1 equals 1 and 0 AND 0 equals 0. Therefore, using the same variable more than
+once has no effect on the final output, which is why this law is known as the Idempotent Law.
+බූලියන් වීජ ගණිතයේ තදේවභාවී නියමයේ සඳහන් වන්නේ OR හෝ AND මෙහෙයුමකදී එකම විචල්‍යය
+පුනරාවර්තනය කිරීමෙන් ප්‍රකාශනයේ අගය වෙනස් නොවන බවයි. මෙම නියමය A + A = A සහ A . A = A
+ලෙස ප්‍රකාශ වේ. OR මෙහෙයුමකදී, A = 1 නම්, 1 OR 1, 1 ට සමාන වන අතර, A = 0 නම්, 0 OR 0, 0
+ට සමාන වේ. ඒ හා සමානව, AND මෙහෙයුමකදී, 1 AND 1, 1 ට සමාන වන අතර 0 AND 0 0 ට සමාන
+වේ. එබැවින්, එකම විචල්‍යය එක් වරකට වඩා භාවිතා කිරීම අවසාන ප්‍රතිදානයට කිසිදු බලපෑමක් ඇති
+නොකරයි, එබැවින් මෙම නියමය තදේවභාවී නියමය ලෙස හැඳින්වේ.
+
+     5)   Which of the following statements correctly represents the Identity Law in Boolean algebra?
+      බූලිය වීජ ගණිතයේ සර්වසාම්‍ය නීතිය නිවැරදිව නියෝජනය කරන්නේ පහත ප්‍රකාශවලින් කවරක්ද?
+
+1.   A + A = A and A . A = A
+2.   A + 0 = A and A . 1 = A
+3.   A + 1 = 1 and A . 0 = 0
+4.   A̿ = A
+5.   A + A̅  = 1
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම
+
+A + 0 = A
+A . 1 = A
+
+The Identity Law in Boolean algebra explains that certain values do not change the identity of a Boolean
+variable when used in OR or AND operations. According to this law, A + 0 = A, meaning that OR-ing a
+variable with 0 does not change its value. Similarly, A . 1 = A means that AND-ing a variable with 1
+leaves it unchanged. This is because 0 has no effect in OR operations and 1 has no effect in AND
+operations. Therefore, the variable retains its original value, which is why these rules are referred to as
+the Identity Law.
+බූලීය වීජ ගණිතයේ සර්වසාම්‍ය නීතිය මගින් පැහැදිලි කරන්නේ OR හෝ AND මෙහෙයුම් වලදී භාවිතා
+කරන විට ඇතැම් අගයන් බූලීය විචල්‍යයක අනන්‍යතාවය වෙනස් නොකරන බවයි. මෙම නීතියට අනුව, A +
+0 = A එනම් 0 සහිත විචල්‍යයක් OR කර්මයට ලක්  කිරීමෙන් එහි අගය වෙනස් නොවන බවයි. ඒ හා
+සමානව, A . 1 = A යන්නෙන් අදහස් කරන්නේ 1 සහිත විචල්‍යයක් AND කර්මයට ලක් කිරීමෙන් එය
+නොවෙනස්ව තබන බවයි. මෙයට හේතුව 0 ට OR මෙහෙයුම් වලදී බලපෑමක් නොමැති අතර 1 ට AND
+මෙහෙයුම් වලදී කිසිදු බලපෑමක් නොමැති බැවිනි. එබැවින්, විචල්‍යය එහි මුල් අගය රඳවා ගනී, එම නිසා
+මෙම නීති සර්වසාම්‍ය නීතිය ලෙස හැඳින්වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+Correction
+නිවැරදි කිරීම
+
+Although the explanation identifies option 2 as the answer, option 3 is also correct according to Boolean
+algebra laws. Option 2, A + 0 = A and A · 1 = A, represents the Identity Law. Option 3, A + 1 = 1 and
+A · 0 = 0, also represents the Identity Law. So, both options 2 and 3 are correct.
+පැහැදිලි කිරීම මඟින් පිළිතුර ලෙස විකල්ප 2 හඳුනා ගත්තද, බූලිය වීජ ගණිත නීතිවලට අනුව විකල්ප 3
+ද නිවැරදි වේ. විකල්ප 2, A + 0 = A  සහ A · 1 = A සර්වසාම්‍ය නීතිය නියෝජනය කරයි. විකල්ප
+A + 1 = 1 සහ A · 0 = 0 සර්වසාම්‍ය නීතිය ද නියෝජනය කරයි. එබැවින්, විකල්ප 2 සහ 3 දෙකම නිවැරදි
+වේ.
+
+      6)   What is the Boolean expression can be obtain from the below logic circuit?
+පහත තාර්කික පරිපථයෙන් ලබාගත හැකි බූලියානු ප්‍රකාශනය කුමක්ද?
+
+Answer : 3 )
+
+Let’s further simplified Boolean expression obtained by above logical circuit using Boolean laws.
+බූලියානු නීති භාවිතයෙන් ඉහත තාර්කික පරිපථය මගින් ලබාගත් බූලියන් ප්‍රකාශනය තවදුරටත් සරල කරමු.
+
+F = (AB̅̅̅̅)(A̅ + (AB))̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+F = AB̅̅̅̅̅̅̅̅ + (A̅ + AB̅̅̅̅̅̅̅̅̅)
+
+De morgan’s law  ද මුවාර් න්‍යාය
+F = AB + (A̅ + AB̅̅̅̅̅̅̅̅̅)
+
+Double complement law  ද්විත්ව ප්‍රතිලෝම න්‍යාය
+F = AB + (A̿. (AB̅̅̅̅))
+
+De morgan’s law ද මුවාර් න්‍යාය
+F = AB + (A. (AB̅̅̅̅))
+
+Double complement law ද්විත්ව ප්‍රතිලෝම න්‍යාය
+F = AB + (A. (A̅ + B̅))
+De morgan’s law ද මුවාර් න්‍යාය
+F = AB + (AA̅ + AB̅)
+Distributive law විඝටන න්‍යාය
+F = AB + AB̅ + AA̅
+
+Commutative law න්‍යාදේශ න්‍යාය
+F = A(B + B̅) + AA̅
+
+Distributive law විඝටන න්‍යාය
+F = A(1) + AA̅
+
+Inverse law ප්‍රතිලෝම න්‍යාය
+F = A + AA̅
+
+Identity law සර්වසාම්‍ය න්‍යාය
+F = A + 0
+
+Inverse law ප්‍රතිලෝම න්‍යාය
+F = A
+
+Identity law සර්වසාම්‍ය න්‍යාය
+
+So the correct answer is 3.
+එබැවින් නිවැරදි පිළිතුර 3 වේ.
+
+1. 1
+2. 0
+3. A
+4.
+.(A + B)A̅
+5.
+.(A̅ + B)(A. B)
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+      7)    C(AD + BB̅̅̅̅)̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅ + B̅D̅̅̅̅
+What is the simplified form of the above boolean expression?
+ඉහත බූලියන් ප්‍රකාශනයේ සරල කළ ආකාරය කුමක්ද?
+
+1.   B̅ + C + D̅
+2.   A + B + C̅ + D̅ 0
+3.   B(A̅ + D̅) + C̅ + D̅
+4.   B̅ + C̅ + D̅
+5.   B + C̅ + D̅
+
+Answer : 5 )
+
+Let's find the answer, as below.
+පහත පරිදි පිළිතුර සොයා ගනිමු.
+
+C(AD + BB̅̅̅̅)̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅ + B̅D̅̅̅̅
+C̅ + AD + BB̅̅̅̅ ̅̅̅̅̅̅̅̅̅̅̅̅ + B̅D̅̅̅̅
+
+De Morgan’s law ද මුවාර් ප්‍රමේයය
+C̅ + (AD̅̅̅̅)BB̅̅̅̅̅̅̅̅ + B̅D̅̅̅̅
+
+De Morgan’s law ද මුවාර් ප්‍රමේයය
+C̅ + (A̅ + D̅)BB̅̅̅̅̅̅̅̅ + B̅D̅̅̅̅
+
+De Morgan’s law ද මුවාර් ප්‍රමේයය
+C̅ + (A̅ + D̅)BB + B̅D̅̅̅̅
+
+Double inverse law ද්විත්ව ප්‍රතිලෝම න්‍යාය
+C̅ + (A̅ + D̅)BB + B̅̅ + D̅
+De Morgan’s law ද මුවාර් ප්‍රමේයය
+C̅ + (A̅ + D̅)BB + B + D̅
+Double inverse law ද්විත්ව ප්‍රතිලෝම න්‍යාය
+C̅ + (A̅ + D̅)B + B + D̅
+Idempotent law තදේවභාවී න්‍යාය
+C̅ + B + D̅
+
+Redundancy law සමතිරික්ත න්‍යාය
+
+Therefore, the answer is number 5).
+එම නිසා පිළිතුර වන්නේ පිළිතුරු අංක 5) වේ
+
+      8)   What gate should be used in place of X to always get 1 as the output?
+සෑම විටම ප්‍රතිදානය ලෙස 1 ලබා ගැනීමට X වෙනුවට භාවිතා කළ යුතු ද්වාරය කුමක්ද?
+
+Answer : 1 )
+
+This can be solved using the inverse law, NAND is the inverse or the compliment of AND gate so when
+these are given as inputs to X either the output of the AND gate or the output of the NAND gate will
+always be one as they are the compliments of each other so when there’s an input as well the compliment
+of that input as another input to X the logical operation that should be done is an OR operation. This is
+according to the inverse law.
+පිළිතුර 1) වේ. මෙය ප්‍රතිලෝම න්‍යාය භාවිතයෙන් විසඳිය හැක. NAND ද්වාරය යනු AND ද්වාරයෙහි
+ප්‍රතිලෝමය වේ. එබැවින් මේවා X වෙත ආදාන ලෙස ලබාදුන් විට AND ද්වාරයේ ප්‍රතිදානය හෝ NAND
+ද්වාරයෙහි ප්‍රතිදානය සෑම විටම එකක් වනු ඇත. ඒවා එකිනෙකාගේ ප්‍රතිලෝමය වේ. එබැවින් එක් ආදානයක්
+ඇති විට X වෙත තවත් ආදානයක් ලෙස එම ආදානයේ ප්‍රතිලෝමය ලබාදෙන්නේ නම් සිදු කළ යුතු තාර්කික
+මෙහෙයුම OR මෙහෙයුමකි. මෙය ප්‍රතිලෝම න්‍යායට අනුරූප වේ.
+1. OR gate
+2. NOT gate
+3. NOR gate
+4. AND gate
+5. XNOR gate
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-

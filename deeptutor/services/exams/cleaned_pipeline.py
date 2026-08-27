@@ -64,6 +64,16 @@ def _grade_for(meta_year: Optional[int], filename: str) -> Optional[int]:
     return 13
 
 
+def _write_text(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        path.write_text(content, encoding="utf-8")
+    except OSError:
+        import time
+        time.sleep(0.1)
+        path.write_text(content, encoding="utf-8")
+
+
 def _find_book_for_year(year: int, books_dir: Path) -> Optional[Path]:
     if not books_dir.is_dir():
         return None
@@ -104,6 +114,7 @@ def build_artifacts(
         p
         for p in sorted(src.rglob("*.txt"))
         if ("Past Papers" in str(p) or "past papers" in str(p))
+        and not any(x in p.name for x in ["MCQ SHEET", "Review", "REVIEW", "විවරණය"])
     ]
 
     report: Dict[str, Any] = {"files": [], "books": 0}
@@ -133,12 +144,16 @@ def build_artifacts(
 
         part_base = dst / rel.parent / stem_txt
         part_base.parent.mkdir(parents=True, exist_ok=True)
-        (dst / rel.parent / f"{stem_txt}.p1.txt").write_text(sp.p1_text, encoding="utf-8")
-        (dst / rel.parent / f"{stem_txt}.p2.txt").write_text(sp.p2_text, encoding="utf-8")
-        (dst / rel.parent / f"{stem_txt}.mcq.json").write_text(
-            json.dumps([asdict(q) for q in mcq.questions], ensure_ascii=False, indent=1), encoding="utf-8")
-        (dst / rel.parent / f"{stem_txt}.essay.json").write_text(
-            json.dumps([asdict(q) for q in essays], ensure_ascii=False, indent=1), encoding="utf-8")
+        _write_text(dst / rel.parent / f"{stem_txt}.p1.txt", sp.p1_text)
+        _write_text(dst / rel.parent / f"{stem_txt}.p2.txt", sp.p2_text)
+        _write_text(
+            dst / rel.parent / f"{stem_txt}.mcq.json",
+            json.dumps([asdict(q) for q in mcq.questions], ensure_ascii=False, indent=1),
+        )
+        _write_text(
+            dst / rel.parent / f"{stem_txt}.essay.json",
+            json.dumps([asdict(q) for q in essays], ensure_ascii=False, indent=1),
+        )
 
         answers_payload: Dict[str, Any] = {"keys": {}, "conflicts": [], "sources": []}
         keypoints_path = None
@@ -148,9 +163,10 @@ def build_artifacts(
             book_keys = extract_book_answers(book_text, mcq_count=expected_mcq)
             keypoints = extract_keypoints(book_text, mcq_count=expected_mcq)
             keypoints_path = part_base.parent / f"Review {year}.keypoints.json"
-            keypoints_path.parent.mkdir(parents=True, exist_ok=True)
-            keypoints_path.write_text(
-                json.dumps(keypoints, ensure_ascii=False, indent=1), encoding="utf-8")
+            _write_text(
+                keypoints_path,
+                json.dumps(keypoints, ensure_ascii=False, indent=1),
+            )
 
             sheet = _sheet_for_year(year, sheet_search) if year is not None else None
             sources: List[Tuple[Dict[int, str], str]] = []
@@ -169,8 +185,10 @@ def build_artifacts(
             }
             report["books"] += 1
 
-        (dst / rel.parent / f"{stem_txt}.answers.json").write_text(
-            json.dumps(answers_payload, ensure_ascii=False, indent=1), encoding="utf-8")
+        _write_text(
+            dst / rel.parent / f"{stem_txt}.answers.json",
+            json.dumps(answers_payload, ensure_ascii=False, indent=1),
+        )
 
         report["files"].append({
             "file": str(rel),

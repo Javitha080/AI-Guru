@@ -10,6 +10,7 @@ filename.
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 import pytest
 
@@ -86,7 +87,8 @@ def test_the_tree_is_created_owner_only(cli_app_roots: Path) -> None:
     root = ensure_root()
     assert root.is_dir()
     assert (root / "apps").is_dir()
-    assert oct(root.stat().st_mode)[-3:] == "700"
+    if sys.platform != "win32":
+        assert oct(root.stat().st_mode)[-3:] == "700"
 
 
 @pytest.mark.parametrize("entry_point", ["../../../bin/sh", "sub/dir", "", "."])

@@ -1,0 +1,592 @@
+1. Which of these represents the most challenging aspect of data removal in the data life cycle?
+මේවාගෙන් කුමක් දත්ත ජීවන චක්‍රයේ දත්ත ඉවත් කිරීමේ වඩාත්ම අභියෝගාත්මක අංගය නියෝජනය කරයිද?
+
+1) Deleting files stored on physical drives / භෞතික ධාවකවල ගබඩා කර ඇති ගොනු මකා දැමීම
+2) Identifying obsolete data across distributed systems
+බෙදා හරින ලද පද්ධති හරහා යල් පැන ගිය දත්ත හඳුනා ගැනීම
+
+3) Archiving sensitive data for future use / අනාගත භාවිතය සඳහා සංවේදී දත්ත සංරක්ෂණය කිරීම
+4) Automating backup processes before deletion / මකා දැමීමට පෙර උපස්ථ ක්‍රියාවලීන් ස්වයංක්‍රීය කිරීම
+5) Migrating data to cloud storage before removal
+ඉවත් කිරීමට පෙර දත්ත වලාකුළු ගබඩාවට සංක්‍රමණය කිරීම
+
+Answer: 2)
+
+Let's explain the options in the above question / ඉහත ප්‍රශ්නයේ ඇති විකල්ප මෙසේ පැහැදිලි කරමු.
+
+Option / විකල්ප 1)
+While deleting files from physical drives can be challenging due to potential recovery of deleted data or
+security concerns, modern tools for secure deletion (e.x., overwriting or shredding data) have mitigated
+these issues. Hence, this is not the most challenging aspect.
+මකා දැමූ දත්ත ප්‍රතිසාධනය කිරීමේ විභවය හෝ ආරක්ෂක ගැටළු හේතුවෙන් භෞතික ධාවකවලින් ගොනු
+මකා දැමීම අභියෝගාත්මක විය හැකි අතර, ආරක්ෂිත මකාදැමීම සඳහා නවීන මෙවලම් (උදා: දත්ත නැවත
+ලිවීම හෝ ඉරා දැමීම) මෙම ගැටළු අවම කර ඇත. එබැවින්, මෙය වඩාත්ම අභියෝගාත්මක අංගය නොවේ.
+
+Option / විකල්ප 2)
+This is highly challenging because distributed systems involve multiple nodes, servers, or databases,
+often in different geographic locations or organizational silos. Identifying which data is obsolete requires
+comprehensive metadata tracking, synchronization across systems, and understanding of data usage
+patterns. This aspect involves technical and organizational complexities, making it a strong candidate for
+the correct answer.
+බොහෝ විට විවිධ භූගෝලීය ස්ථානවල හෝ සංවිධානාත්මක silos වල බෙදා හරින ලද පද්ධතිවලට බහු
+නාඹි, සේවාදායක හෝ දත්ත සමුදායන් ඇතුළත් වන බැවින් මෙය ඉතා අභියෝගාත්මක ය. යල් පැන ගිය
+දත්ත හඳුනා ගැනීම සඳහා පුළුල් පාර-දත්ත tracking, පද්ධති හරහා සමමුහුර්තකරණය සහ දත්ත භාවිත
+රටා පිළිබඳ අවබෝධය අවශ්‍ය වේ. මෙම අංගයට තාක්ෂණික සහ සංවිධානාත්මක සංකීර්ණතා ඇතුළත් වන
+අතර, එය නිවැරදි පිළිතුර සඳහා වඩාත් සුදුසු වේ.
+
+Option / විකල්ප 3)
+Archiving involves storing sensitive data securely for long-term use, which can be challenging but is
+more of a data preservation problem than a removal problem. It does not directly relate to the
+complexities of data removal.
+සංරක්ෂිත කිරීම යනු දිගු කාලීන භාවිතය සඳහා සංවේදී දත්ත ආරක්ෂිතව ගබඩා කිරීම ඇතුළත් වන අතර
+එය අභියෝගාත්මක විය හැකි නමුත් ඉවත් කිරීමේ ගැටලුවකට වඩා දත්ත සංරක්ෂණ ගැටලුවකි. එය දත්ත
+ඉවත් කිරීමේ සංකීර්ණතා සමඟ සෘජුවම සම්බන්ධ නොවේ.
+
+Option / විකල්ප 4)
+Automating backups is a standard procedure in data management. While it is critical to prevent
+accidental data loss, it is not as complex as identifying obsolete data in a distributed setup.
+උපස්ථ ස්වයංක්‍රීය කිරීම දත්ත කළමනාකරණයේ සම්මත ක්‍රියා පටිපාටියකි. අහම්බෙන් දත්ත නැතිවීම
+වැළැක්වීම ඉතා වැදගත් වුවද, එය බෙදා හරින ලද සැකසුමක යල් පැන ගිය දත්ත හඳුනා ගැනීම තරම්
+සංකීර්ණ නොවේ.
+
+2027 QUIZ SERIES
+2027 QUIZ NO 05 MARKING
+2025/07/28
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Option / විකල්ප 5)
+Data migration to the cloud involves challenges like ensuring data integrity, security, and compliance.
+However, it is a distinct process from removal itself and is not as fundamentally difficult as dealing with
+distributed obsolete data.
+වලාකුළට (cloud) දත්ත සංක්‍රමණය කිරීම දත්ත අඛණ්ඩතාව, ආරක්ෂාව සහ අනුකූලතාවය සහතික කිරීම
+වැනි අභියෝග ඇතුළත් වේ. කෙසේ වෙතත්, එය ඉවත් කිරීමට වඩා වෙනස් ක්‍රියාවලියක් වන අතර බෙදා
+හරින ලද යල් පැන ගිය දත්ත සමඟ කටයුතු කිරීම තරම් මූලික වශයෙන් අපහසු නොවේ.
+
+Correct answer / නිවැරදි පිළිතුර:
+
+2)   Identifying obsolete data across distributed systems.
+බෙදා හරින ලද පද්ධති හරහා යල් පැන ගිය දත්ත හඳුනා ගැනීම වේ.
+
+2. When is timely information is most crucial ?
+කාලෝචිත තොරතුරු වඩාත් වැදගත් වන්නේ කුමක් සදහාද?
+
+1) Preparing a historical analysis report / ඓතිහාසික විශ්ලේෂණ වාර්තාවක් සකස් කිරීම.
+2) Creating predictions for future stock trends / අනාගත කොටස් ප්‍රවණතා සඳහා අනාවැකි නිර්මාණය කිරීම.
+3) Calculating annual sales revenue months after year-end.
+වසර අවසානයේ මාස කිහිපයකට පසු වාර්ෂික විකුණුම් ආදායම ගණනය කිරීම.
+
+4) Generating archival records for reference / යොමු කිරීම සඳහා ලේඛනාගාර වාර්තා ජනනය කිරීම.
+5) Storing data that is rarely accessed / කලාතුරකින් ප්‍රවේශ විය හැකි දත්ත ගබඩා කිරීම.
+
+Answer: 2)
+
+Timely information is most crucial when decisions or actions depend on current or near-real-time data.
+තීරණ හෝ ක්‍රියාවන් වත්මන් හෝ ආසන්න තත්‍ය කාලීන දත්ත මත රඳා පවතින විට කාලෝචිත තොරතුරු
+වඩාත් වැදගත් වේ.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This involves analyzing past data, so it does not require current or real-time information. The timeliness
+of data isn’t critical for this task.
+මෙයට අතීත දත්ත විශ්ලේෂණය ඇතුළත් වේ, එබැවින් එයට වත්මන් හෝ තත්‍ය කාලීන තොරතුරු අවශ්‍ය
+නොවේ. මෙම කාර්යය සඳහා දත්තවල කාලෝචිතභාවය තීරණාත්මක නොවේ.
+
+Option / විකල්පය 2)
+This requires the latest information because stock trends change quickly. Timely data is essential for
+accurate forecasts.
+කොටස් ප්‍රවණතා ඉක්මනින් වෙනස් වන නිසා මේ සඳහා නවතම තොරතුරු අවශ්‍ය වේ. නිවැරදි පුරෝකථනයන්
+සඳහා කාලෝචිත දත්ත අත්‍යවශ්‍ය වේ.
+
+Option / විකල්පය 3)
+Here, the data is already finalized by year-end. Timeliness doesn’t matter much because you’re working
+with historical data.
+මෙහි, වසර අවසානය වන විට දත්ත දැනටමත් අවසන් කර ඇත. ඔබ ඓතිහාසික දත්ත සමඟ වැඩ කරන
+නිසා කාලෝචිතභාවය එතරම් වැදගත් නොවේ.
+
+Option / විකල්පය 4)
+Archival records are used for reference purposes, often years later. Timely data isn’t crucial since these
+records are not for immediate decision-making.
+ලේඛනාගාර වාර්තා බොහෝ විට වසර ගණනාවකට පසුව reference කිරීමේ අරමුණු සඳහා භාවිතා වේ. මෙම
+වාර්තා ක්ෂණික තීරණ ගැනීම සඳහා නොවන බැවින් කාලෝචිත දත්ත තීරණාත්මක නොවේ.
+
+Option / විකල්පය 5)
+Storing infrequently used data doesn’t require timely information. The emphasis is on storage, not how
+quickly the data is collected or accessed.
+කලාතුරකින් භාවිතා කරන දත්ත ගබඩා කිරීම සඳහා කාලෝචිත තොරතුරු අවශ්‍ය නොවේ. අවධාරණය වන්නේ
+දත්ත රැස් කරන්නේ හෝ ප්‍රවේශ වන්නේ කෙතරම් ඉක්මනින්ද යන්න නොව ගබඩා කිරීම කෙරෙහි ය.
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Therefore, the correct answer is, 2).
+එබැවින් නිවැරදි පිළිතුර, 2) වේ.
+
+3. Which of the following scenarios is an example of plagiarism?
+පහත සඳහන් අවස්ථා අතරින් කුමන අවස්ථාවක් රචනා චෞර්යය සඳහා උදාහරණයක්ද?
+
+1) Downloading a movie from an unauthorized website without paying.
+අනවසර වෙබ් අඩවියකින් චිත්‍රපටයක් ගෙවීමකින් තොරව බාගත කිරීම.
+
+2) Copying someone else's essay and submitting it as your own without giving credit.
+වෙනත් කෙනෙකුගේ රචනයක් පිටපත් කර එය ණය ලබා නොදී ඔබේම ලෙස ඉදිරිපත් කිරීම.
+
+3) Installing a single-user licensed software on multiple computers in your office.
+ඔබේ කාර්යාලයේ බහු පරිගණකවල තනි පරිශීලක බලපත්‍රලාභී මෘදුකාංගයක් ස්ථාපනය කිරීම.
+
+4) Claiming ownership of another person’s intellectual property.
+වෙනත් පුද්ගලයෙකුගේ බුද්ධිමය දේපළවල හිමිකාරිත්වය ඉල්ලා සිටීම.
+
+5) Sending phishing emails to collect sensitive user data.
+සංවේදී පරිශීලක දත්ත රැස් කිරීම සඳහා තතුබෑම් විද්‍යුත් තැපැල් යැවීම.
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+The correct answer is option 2) "Copying someone else's essay and submitting it as your own without
+giving credit."
+නිවැරදි පිළිතුර වන්නේ විකල්ප 2) "වෙනත් කෙනෙකුගේ රචනයක් පිටපත් කර එය ගෞරවය ලබා නොදී
+ඔබේම ලෙස ඉදිරිපත් කිරීම" වේ.
+
+This is an example of plagiarism because it involves taking someone else's work (in this case, an essay)
+and presenting it as if it were your own, without providing any attribution to the original author. Plagiarism
+is the act of using someone else's intellectual property without permission or acknowledgment. In
+academic and professional settings, this is considered unethical and can lead to serious consequences.
+මෙය රචනා චෞර්යය සඳහා උදාහරණයකි, මන්ද එයට වෙනත් කෙනෙකුගේ කෘතියක් (මෙම අවස්ථාවේදී,
+රචනයක්) ලබාගෙන එය මුල් කතුවරයාට කිසිදු ආරෝපණයක් ලබා නොදී එය ඔබේම ලෙස ඉදිරිපත් කිරීම
+ඇතුළත් වේ. රචනා චෞර්යය යනු වෙනත් කෙනෙකුගේ බුද්ධිමය දේපළ අවසරයකින් හෝ පිළිගැනීමකින්
+තොරව භාවිතා කිරීමේ ක්‍රියාවයි. ශාස්ත්‍රීය හා වෘත්තීය සැකසුම් තුළ, මෙය සදාචාර විරෝධී ලෙස සලකනු ලබන
+අතර බරපතල ප්‍රතිවිපාකවලට තුඩු දිය හැකිය.
+
+In short, plagiarism is not just copying and pasting, but also failing to give proper credit when using others'
+work.
+කෙටියෙන් කිවහොත්, රචනා චෞර්යය යනු පිටපත් කර ඇලවීම පමණක් නොව, අන් අයගේ කෘති භාවිතා
+කරන විට නිසි ගෞරවය ලබා දීමට අපොහොසත් වීමයි.
+
+4. "Allows the user to use the software itself or a portion of it for a short period of time. If the user wants to
+continue using the software, he must purchase it." Which type of software satisfies the above statement?
+“පරිශීලකයාට මෘදුකාංගයම හෝ ඉන් කොටසක් කෙටි කාලයක් සදහා භාවිත කිරීමට ඉඩදෙයි. පරිශීලකයාට
+දිගටම මෙය භාවිත කිරීමට අවැසි නම් මිලදීගැනීමට සිදුවේ.” ඉහත ප්‍රකාශය තෘප්තිමත් කරන මෘදුකාංග
+වර්ගය කුමක් ද?
+1) Propriety Software
+2) Open-Source Software
+3) Bespoke Software
+4) Off the shelf software
+5) Shareware
+Answer: 5)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+1) Proprietary Software / හිමිකාර මෘදුකාංග:
+This refers to software that is owned by an individual or company and is not freely available for
+modification or redistribution. It may or may not have a trial period.
+මෙය පුද්ගලයෙකුට හෝ සමාගමකට අයත් වන අතර වෙනස් කිරීම හෝ නැවත බෙදා හැරීම සඳහා
+නොමිලේ ලබා ගත නොහැකි මෘදුකාංග සඳහා යොමු වේ. එයට අත්හදා බැලීමේ කාල සීමාවක් තිබිය
+හැකිය හෝ නොතිබිය හැකිය.
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+2) Open-Source Software / විවෘත-මූලාශ්‍ර මෘදුකාංග:
+This is software whose source code is made available for modification and redistribution. It is
+typically free to use and does not require purchase.
+මෙය වෙනස් කිරීම සහ නැවත බෙදා හැරීම සඳහා මූලාශ්‍ර කේතය ලබා ගත හැකි මෘදුකාංගයකි. එය
+සාමාන්‍යයෙන් භාවිතා කිරීමට නොමිලේ වන අතර මිලදී ගැනීම අවශ්‍ය නොවේ.
+
+3) Bespoke Software / අභිරුචි මෘදුකාංග:
+This refers to custom software developed specifically for a particular user or organization. It is not
+typically distributed for trial use.
+මෙය විශේෂිත පරිශීලකයෙකු හෝ සංවිධානයක් සඳහා විශේෂයෙන් සංවර්ධනය කරන ලද අභිරුචි
+මෘදුකාංග සඳහා යොමු වේ. එය සාමාන්‍යයෙන් අත්හදා බැලීමේ භාවිතය සඳහා බෙදා හරිනු නොලැබේ.
+
+4) Off-the-Shelf Software / Off-the-Shelf මෘදුකාංග:
+This is pre-made software that is available for purchase and use without customization. It may or
+may not have a trial period.
+මෙය අභිරුචිකරණයකින් තොරව මිලදී ගැනීමට සහ භාවිතා කිරීමට ලබා ගත හැකි පෙර සාදන ලද
+මෘදුකාංගයකි. එයට අත්හදා බැලීමේ කාල සීමාවක් තිබිය හැකිය හෝ නොතිබිය හැකිය.
+
+5) Shareware
+Shareware is a type of software that is typically distributed free of charge for a trial period. After the
+trial period expires, the user is required to purchase the software to continue using it. This model
+allows users to try the software before committing to a purchase.
+Shareware යනු සාමාන්‍යයෙන් අත්හදා බැලීමේ කාලයක් සඳහා නොමිලේ බෙදා හරින මෘදුකාංග
+වර්ගයකි. අත්හදා බැලීමේ කාලය කල් ඉකුත් වූ පසු, පරිශීලකයා එය දිගටම භාවිතා කිරීම සඳහා
+මෘදුකාංගය මිලදී ගැනීමට අවශ්‍ය වේ. මෙම ආකෘතිය පරිශීලකයින්ට මිලදී ගැනීමකට කැපවීමට පෙර
+මෘදුකාංගය උත්සාහ කිරීමට ඉඩ සලසයි.
+
+Therefore, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර 5) වේ.
+
+5. A government uses information and communication technology to communicate with their citizens,
+companies, and other governments.
+රජයක් තොරතුරු හා සන්නිවේදන තාක්ෂණය යොදා ගනිමින් තම රටෙහි පුරවැසියන්, සමාගම් සහ වෙනත්
+රාජ්‍ය සමග සබඳතා පවත්වයි.
+
+Which of the following is NOT a part of the relationship between government and business (G2B)?
+රජය සහ ව්‍යාපාර(G2B) අතර සම්බන්ධතාවයට අයත් නොවන්නේ මින් කුමක්ද?
+
+1) Payment Services / මුදල් ගෙවීමේ සේවා
+2) Bank Details / බැංකු විස්තර
+3) Business Registration / ව්‍යාපාර ලියාපදිංචිය
+4) Election Result / ඡන්ද ප්‍රතිඵල
+5) Business and Investments / ව්‍යාපාර හා ආයෝජන
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+The E-government is divided into 4 parts.
+E-රාජ්‍ය කොටස් 4කට බෙදා දක්වයි.
+
+1. Services provided by a government to citizens
+රජයකින් පුරවැසියන්ට සපයන සේවා
+
+Government institution catalog / රාජ්‍ය ආයතන නියමාවලි
+Bill payment services / බිල්පත් ගෙවීමේ සේවා
+Renewal of Vehicle Licenses / වාහන බලපත්‍ර අලුත් කිරීම
+Government Information Centre / රාජ්‍ය තොරතුරු කේන්ද්‍රය
+Election Result / ඡන්ද ප්‍රතිඵල
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+
+2. Services provided by one government to another country
+රජයකින් තවත් රටකට සපයන සේවා
+
+Embassies and granting Visa / තානාපති කාර්යාල සහ වීසා ලබා දීම
+Government Law / රජයේ නීතිය
+Map of Sri Lanka / ශ්‍රි ලංකා සිතියම
+Sri Lanka custom details /  ශ්‍රි ලංකා රේගු විස්තර
+
+3. Services provided by a government to businesses
+රජයකින් ව්‍යාපාර වලට සපයන සේවා
+
+Payment services / ගෙවීම් සේවා
+Bank details / බැංකු තොරතුරු
+Business registration / ව්‍යාපර ලියාපදිංචිය
+Business and investment / ව්‍යාපාර සහ ආයෝජන
+
+4. Services provided to employees by a government
+රජයකින් සේවකයන්ට සපයන සේවා
+
+Forms / ආකෘති පත්‍ර
+Gazette / ගැසට්
+Circulars / චක්‍රලේක
+Loan facilities for government servants / රජයේ සේවකයන්ට ණය පහසුකම්
+
+The correct answer is 4).
+නිවැරදි පිළිතුර 4) වේ..
+
+6. Which event is considered by many to mark the beginning of the personal computer revolution?
+පුද්ගලික පරිගණක විප්ලවයේ ආරම්භය සනිටුහන් කිරීම සඳහා බොහෝ දෙනා සලකන්නේ කුමන සිදුවීමද?
+
+1) The release of the Apple Lisa / Apple Lisa නිකුත් කිරීම.
+2) The introduction of the IBM PC / IBM පරිගණකය හඳුන්වා දීම.
+3) The development of the ARPANET (precursor to the internet)
+ARPANET සංවර්ධනය (අන්තර්ජාලයේ පුරෝගාමියා).
+
+4) The invention of the microprocessor / ක්ෂුද්‍ර සකසනය සොයා ගැනීම.
+5) The creation of the first graphical user interface (GUI).
+පළමු චිත්‍රක පරිශීලක අතුරුමුහුණත (GUI) නිර්මාණය කිරීම.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+While the Apple Lisa was significant for its introduction of a graphical user interface (GUI), it did not
+have the same widespread impact as the IBM PC.
+Apple Lisa එහි චිත්‍රක පරිශීලක අතුරුමුහුණතක් (GUI) හඳුන්වාදීම සඳහා වැදගත් වූවද, එය IBM
+පරිගණකය මෙන් පුළුල් බලපෑමක් ඇති කළේ නැත.
+
+Option / විකල්ප 2)
+The introduction of the IBM PC in 1981 is widely considered the beginning of the personal computer
+revolution. It brought computing power to individuals and small businesses, setting the stage for
+widespread adoption of personal computers.
+1981 දී IBM පරිගණකය හඳුන්වාදීම පුද්ගලික පරිගණක විප්ලවයේ ආරම්භය ලෙස පුළුල් ලෙස සැලකේ.
+එය පුද්ගල සහ කුඩා ව්‍යාපාර සඳහා පරිගණක බලය ගෙන ආ අතර, පුද්ගල පරිගණක පුළුල් ලෙස භාවිතා
+කිරීම සඳහා වේදිකාව සකස් කළේය.
+
+2027 QUIZ SERIES
+#ictfromabc
+-5-
+
+Option / විකල්ප 3)
+The ARPANET was a precursor to the internet but focused on research and military purposes, rather than
+personal computing.
+ARPANET අන්තර්ජාලයේ පූර්වගාමියා වූ නමුත් පුද්ගලික පරිගණනයට වඩා පර්යේෂණ සහ හමුදාමය අරමුණු
+කෙරෙහි අවධානය යොමු කළේය.
+
+Option / විකල්ප 4)
+The invention of the microprocessor was crucial for computing but did not directly mark the beginning of
+the personal computer revolution.
+ක්ෂුද්‍ර සකසනයේ සොයා ගැනීම පරිගණනය සඳහා ඉතා වැදගත් වූ නමුත් පුද්ගලික පරිගණක විප්ලවයේ
+ආරම්භය සෘජුව සනිටුහන් කළේ නැත.
+
+Option / විකල්ප 5)
+While important, the creation of the first GUI, demonstrated by the Xerox Alto, did not directly initiate
+the personal computer revolution.
+මෙය වැදගත් වුවද, Xerox Alto විසින් ප්‍රදර්ශනය කරන ලද පළමු GUI නිර්මාණය පුද්ගලික පරිගණක
+විප්ලවය සෘජුව ආරම්භ කළේ නැත.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+7. Which of the following best describes the stored program concept?
+ආචිත ක්‍රමලේඛ සංකල්පය පහත සඳහන් ඒවායින් වඩාත් හොඳින් විස්තර කරන්නේ කුමක්ද?
+
+1) Instructions are manually entered during program execution.
+වැඩසටහන් ක්‍රියාත්මක කිරීමේදී උපදෙස් අත්යුරු ලෙස ඇතුළත් කරනු ලැබේ.
+
+2) Instructions and data share the same memory / උපදෙස් සහ දත්ත එකම මතකය බෙදා ගනී.
+
+3) The program must be stored in ROM to execute.
+ක්‍රියාත්මක කිරීමට වැඩසටහන ROM හි ගබඩා කළ යුතුය.
+
+4) Each instruction is stored in separate external hardware.
+සෑම උපදෙසක්ම වෙනම බාහිර දෘඩාංගවල ගබඩා කර ඇත.
+
+5) Programs are stored permanently on the processor / වැඩසටහන් ස්ථිරවම සකසනයේ ගබඩා කර ඇත.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This is not accurate. In the stored program concept, instructions are preloaded into memory and fetched
+automatically by the processor during execution.
+මෙය නිවැරදි නොවේ. ආචිත ක්‍රමලේඛ සංකල්පය තුළ, උපදෙස් මතකයට පූරණය කර ක්‍රියාත්මක කිරීමේදී
+සකසනය මඟින් ස්වයංක්‍රීයව ලබා ගනී.
+
+Option / විකල්පය 2)
+The stored program concept, introduced by John von Neumann, states that both program instructions and
+data are stored in the same memory. This is a fundamental principle of most modern computer
+architectures and allows the computer to retrieve and execute instructions dynamically during runtime.
+ජෝන් වොන් නියුමන් විසින් හඳුන්වා දුන් ආචිත ක්‍රමලේඛ සංකල්පයේ සඳහන් වන්නේ වැඩසටහන් උපදෙස්
+සහ දත්ත යන දෙකම එකම මතකයේ ගබඩා කර ඇති බවයි. මෙය බොහෝ නවීන පරිගණක ආකෘතිවල
+මූලික මූලධර්මයක් වන අතර පරිගණකයට ධාවන කාලය තුළ ගතිකව උපදෙස් ලබා ගැනීමට සහ
+ක්‍රියාත්මක කිරීමට ඉඩ සලසයි.
+
+Option / විකල්පය 3)
+While ROM (Read-Only Memory) can store programs, the stored program concept does not require
+programs to be in ROM specifically. Programs are typically stored in RAM (Random Access Memory)
+for execution.
+ROM (පඨන මාත්‍ර මතකය) මඟින් වැඩසටහන් ගබඩා කළ හැකි වුවද, ආචිත ක්‍රමලේඛ සංකල්පයට
+වැඩසටහන් විශේෂයෙන් ROM හි තිබීම අවශ්‍ය නොවේ. ක්‍රියාත්මක කිරීම සඳහා වැඩසටහන් සාමාන්‍යයෙන්
+RAM (සසම්භාවී ප්‍රවේශ මතකය) තුළ ගබඩා කර ඇත.
+2027 QUIZ SERIES
+#ictfromabc
+-6-
+
+Option / විකල්පය 4)
+This contradicts the concept, as instructions are stored together in the same internal memory as the data,
+not in external hardware.
+උපදෙස් බාහිර දෘඩාංගවල නොව දත්ත මෙන් එකම අභ්‍යන්තර මතකයේ එකට ගබඩා කර ඇති බැවින්
+මෙය සංකල්පයට පටහැනි වේ.
+
+Option / විකල්පය 5)
+Programs are not permanently stored on the processor. They are stored in memory (RAM, ROM or
+storage devices) and fetched by the processor for execution.
+වැඩසටහන් ස්ථිරවම සකසනයේ ගබඩා කර නොමැත. ඒවා මතකයේ (RAM, ROM හෝ ගබඩා උපාංග)
+ගබඩා කර ක්‍රියාත්මක කිරීම සඳහා සකසනය මඟින් ලබා ගනී.
+
+So, the correct answer number here is 2.
+එමනිසා, මෙහි නිවැරදි පිළිතුරු අංකය 2 වේ.
+
+8. Who developed the first, “Automatic Sequence Controlled Calculator”?
+
+පළමු “ස්වයංක්‍රීය අනුක්‍රමික පාලිත කැල්කියුලේටරය” සංවර්ධනය කළේ කවුද?
+
+1) Howard Aiken / හොවාර්ඩ් අයිකන්
+2) Charles Babbage / චාල්ස් බැබේජ්
+3) Blaise Pascal / බ්ලේස් පැස්කල්
+4) Ada Augasta Lovelace / ඇඩා ඔගස්ටා ලොව්ලේස්
+5) Gottfried Wilhelm Von / ගොඩ්ෆ්‍රීඩ් විල්හෙල්ම් වොන්
+
+Answer: 1)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Howard Aiken, an American physicist and computer scientist, developed the first "Automatic Sequence
+Controlled Calculator", also known as the Harvard Mark I, in 1944. It was one of the earliest
+electromechanical computers and could perform complex calculations automatically based on sequences
+programmed on punched cards. This machine marked a significant advancement in computing technology.
+ඇමරිකානු භෞතික විද්‍යාඥයෙකු සහ පරිගණක විද්‍යාඥයෙකු වන හොවාර්ඩ් අයිකන් විසින් 1944 දී Harvard
+Mark I ලෙසද හැඳින්වෙන ප්‍රථම "ස්වයංක්‍රීය අනුක්‍රමික පාලිත කැල්කියුලේටරය" නිපදවන ලදී. එය පැරණීතම
+විද්‍යුත් යාන්ත්‍රික පරිගණක වලින් එකක් වූ අතර එය ක්‍රමලේඛනය කර ඇති අනුපිළිවෙල මත ස්වයංක්‍රීයව
+සංකීර්ණ ගණනය කිරීම් සිදු කළ හැකිය. පන්ච් කාඩ්. මෙම යන්ත්‍රය පරිගණක තාක්ෂණයේ සැලකිය යුතු
+දියුණුවක් සනිටුහන් කළේය.
+
+Option / විකල්පය 2)
+Charles Babbage is often referred to as the "father of the computer." He designed the Difference Engine
+and later conceptualized the Analytical Engine, which was a mechanical general-purpose computer.
+Although he never completed a working model, the Analytical Engine's design included many features
+found in modern computers, such as a central processing unit (CPU) and memory.
+චාල්ස් බැබේජ් බොහෝ විට "පරිගණකයේ පියා" ලෙස හැඳින්වේ. ඔහු Difference එන්ජිම නිර්මාණය කළ
+අතර පසුව යාන්ත්‍රික පොදු කාර්ය පරිගණකයක් වූ විශ්ලේෂණ එන්ජිම සංකල්පගත කළේය. ඔහු කිසි විටෙක
+ක්‍රියාකාරී ආකෘතියක් සම්පූර්ණ නොකළද, විශ්ලේෂණ එන්ජිමේ සැලසුමට මධ්‍යම සැකසුම් ඒකකය (CPU) සහ
+මතකය වැනි නවීන පරිගණකවල ඇති බොහෝ විශේෂාංග ඇතුළත් විය.
+
+Option / විකල්පය 3)
+Blaise Pascal was a French mathematician, physicist, and inventor. He developed the Pascaline, one of the
+first mechanical calculators, in 1642. The Pascaline could perform addition and subtraction directly and
+was used to help with tax calculations. It laid the groundwork for future developments in mechanical
+calculation devices.
+බ්ලේස් පැස්කල් ප්‍රංශ ගණිතඥයෙක්, භෞතික විද්‍යාඥයෙක් සහ නව නිපැයුම්කරුවෙකු විය. ඔහු 1642 දී
+ප්‍රථම යාන්ත්‍රික ගණක යන්ත්‍රවලින් එකක් වන Pascaline නිපදවීය. එය යාන්ත්‍රික ගණනය කිරීමේ උපාංගවල
+අනාගත වර්ධනයන් සඳහා පදනම දැමීය.
+
+2027 QUIZ SERIES
+#ictfromabc
+-7-
+
+Option / විකල්පය 4)
+Ada Augusta Lovelace, often known simply as Ada Lovelace, was an English mathematician and writer.
+She is credited with writing the first algorithm intended to be processed by a machine, specifically
+Babbage's Analytical Engine. For this reason, she is considered the world's first computer programmer.
+Her work also included visionary ideas about the potential of computers to perform tasks beyond mere
+calculations.
+ඇඩා ඔගස්ටා ලොව්ලෙස් බොහෝ විට සරලව ඇඩා ලොව්ලෙස් ලෙස හැඳින්වෙන අතර, ඉංග්‍රීසි ගණිතඥයෙක්
+සහ ලේඛකයෙක් විය. යන්ත්‍රයකින්, විශේෂයෙන්ම බැබේජ්ගේ විශ්ලේෂණ එන්ජිම මගින් සැකසීමට අදහස් කරන
+පළමු ඇල්ගොරිතම ලිවීමේ ගෞරවය ඇයට හිමි වේ. මේ හේතුව නිසා ඇය ලොව ප්‍රථම පරිගණක ක්‍රමලේඛිකාව
+ලෙස සැලකේ. හුදු ගණනය කිරීම්වලින් ඔබ්බට කාර්යයන් ඉටු කිරීමට පරිගණකවලට ඇති හැකියාව පිළිබඳ
+¥රදර්ශී අදහස් ද ඇගේ කාර්යයට ඇතුළත් විය.
+
+Option / විකල්පය 5)
+Gottfried Wilhelm von Leibniz was a German mathematician and philosopher. He developed the Stepped
+Reckoner, a mechanical calculator that could perform addition, subtraction, multiplication, and division.
+Leibniz is also known for his work in formal logic and for co-developing calculus independently of Isaac
+Newton.
+ගොඩ්ෆ්‍රීඩ් විල්හෙල්ම් වොන් යනු ජර්මානු ගණිතඥයෙක් සහ දාර්ශනිකයෙක්. ඔහු එකතු කිරීම, අඩු කිරීම, ගුණ
+කිරීම සහ බෙදීම සිදු කළ හැකි යාන්ත්‍රික ගණක යන්ත්‍රයක් වන පියවර ගණකය නිර්මාණය කළේය. ලයිබ්නිස්
+ඔහුගේ විධිමත් තර්ක ශාස්ත්‍රය සහ අයිසැක් නිව්ටන්ගෙන් ස්වාධීනව කලනය සම-සංවර්ධනය කිරීම සඳහා ද
+ප්‍රසිද්ධය.
+
+Therefore, the correct answer is 1) Howard Aiken.
+එබැවින්, නිවැරදි පිළිතුර 1) හොවාර්ඩ් අයිකන් වේ.
+
+9. What does the term "offline input" refer to?
+"offline input" යන්නෙන් අදහස් කරන්නේ කුමක්ද?
+
+1) Data is entered continuously / දත්ත අඛණ්ඩව ඇතුළත් වේ.
+2) Data is processed in real-time / දත්ත තථ්‍ය කාලීනව සකසනු ලැබේ.
+3) Data is input after a specific time period / නිශ්චිත කාල සීමාවකට පසුව දත්ත ඇතුළත් වේ.
+4) Data is input with direct user interaction / දත්ත සෘජු පරිශීලක අන්තර්ක්‍රියා සමඟ ආදානය වේ.
+5) Data is automatically generated / දත්ත ස්වයංක්‍රීයව ජනනය වේ.
+
+Answer: 3)
+
+Let's explain the options in the above question / ඉහත ප්‍රශ්නයේ ඇති විකල්ප මෙසේ පැහැදිලි කරමු.
+
+1) Data is entered continuously / දත්ත අඛණ්ඩව ඇතුළත් වේ.
+This refers to data being input without interruption or in a stream, often associated with real-time
+systems or live input processes.
+මෙය බොහෝ විට තත්‍ය කාලීන පද්ධති හෝ සජීවී ආදාන ක්‍රියාවලීන් සමඟ සම්බන්ධිත, බාධාවකින් තොරව
+හෝ ප්‍රවාහයක් තුළ දත්ත ආදානය කිරීමට යොමු කරයි.
+
+2) Data is processed in real-time / දත්ත තත්‍ය කාලීනව සකසනු ලැබේ.
+This describes data that is processed immediately as it is entered, allowing for immediate feedback or
+results.
+මෙය ක්ෂණීක ප්‍රතිපෝෂණ හෝ ප්‍රතිඵල සඳහා ඉඩ සලසමින් ඇතුළත් කළ වහාම සකසන ලද දත්ත
+විස්තර කරයි.
+
+3) Data is input after a specific time period / නිශ්චිත කාල සීමාවකට පසුව දත්ත ඇතුළත් වේ.
+This is the correct explanation for "offline input". It refers to data being collected and stored for later
+entry or processing, typically after a certain period of time, rather than being processed immediately.
+"offline input" සඳහා නිවැරදි පැහැදිලි කිරීම මෙයයි. එය ක්ෂණීකව සැකසීමට වඩා, සාමාන්‍යයෙන් නිශ්චිත
+කාල සීමාවකට පසුව, පසුව ඇතුල්වීම හෝ සැකසීම සඳහා දත්ත රැස්කර ගබඩා කර තැබීමට යොමු
+කරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-8-
+
+4) Data is input with direct user interaction / දත්ත සෘජු පරිශීලක අන්තර්ක්‍රියා සමඟ ආදානය වේ.
+This refers to data being entered interactively by the user in real-time, where immediate input and
+feedback are involved.
+ක්ෂණීක ආදානය සහ ප්‍රතිපෝෂණ සම්බන්ධ වන තත්‍ය කාලීනව පරිශීලකයා විසින් අන්තර්ක්‍රියාකාරීව
+ඇතුළත් කරන දත්ත මෙයට යොමු කරයි.
+
+5) Data is automatically generated / දත්ත ස්වයංක්‍රීයව ජනනය වේ.
+This means data is produced without user interaction, typically by a system or process that creates
+data automatically.
+මෙයින් අදහස් කරන්නේ පරිශීලක අන්තර්ක්‍රියාකාරිත්වයකින් තොරව දත්ත නිපදවන බවයි, සාමාන්‍යයෙන්
+ස්වයංක්‍රීයව දත්ත සාදන පද්ධතියක් හෝ ක්‍රියාවලියක් මගින් සිදුකරයි.
+
+So, the correct answer number is 3).
+එබැවින්, නිවැරදි පිළිතුරු අංකය 3) වේ.
+
+10. Which of the following is a unique characteristic of plotters that distinguishes them from traditional
+printers?
+සාම්ප්‍රදායික මුද්‍රණ යන්ත්‍රවලින් වෙන්කර ලකුණූකරණය හඳුනා ගැනීමට සුවිශේෂී ලක්ෂණයක් වන්නේ පහත
+සඳහන් ඒවායින් කුමක්ද?
+
+1) Plotters are faster at producing detailed text-based documents.
+ලකුණූකරණය සවිස්තරාත්මක පාඨ-පාදක ලේඛන (text-based documents) නිෂ්පාදනය කිරීමේදී වේගවත්
+වේ.
+
+2) Plotters use vector graphics to create continuous lines rather than rasterized dots.
+රාස්ටරීකරණය කළ තිත් වෙනුවට අඛණ්ඩ රේඛා නිර්මාණය කිරීමට ලකුණූකරණය vector ග්‍රැෆික්ස් භාවිතා
+කරයි.
+
+3) Plotters are optimized for producing 3D models and simulations.
+ත්‍රිමාණ ආකෘති සහ සමාකරණ (simulations) නිෂ්පාදනය කිරීම සඳහා ලකුණූකරණය ප්‍රශස්තිකරණය
+කර ඇත.
+
+4) Plotters are primarily used for compact document printing in offices.
+ලකුණූකරණය ප්‍රධාන වශයෙන් කාර්යාලවල සංයුක්ත ලේඛන (compact document) මුද්‍රණය සඳහා භාවිතා
+කරයි.
+
+5) Plotters can only print using monochrome ink.
+ලකුණූකරණ යන්ත්‍රවලට ඒකවර්ණ තීන්ත භාවිතයෙන් පමණක් මුද්‍රණය කළ හැකිය.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+Incorrect. Plotters are not designed for text-heavy documents and are generally slower compared to
+traditional printers.
+වැරදියි. ලකුණුකරණ text-heavy ලේඛන සඳහා නිර්මාණය කර නොමැති අතර සාමාන්‍යයෙන් සාම්ප්‍රදායික
+මුද්‍රණ යන්ත්‍රවලට සාපේක්ෂව මන්දගාමී වේ.
+
+Option / විකල්ප 2)
+Correct. Plotters use vector graphics, which rely on mathematical equations to draw precise, continuous
+lines. This is ideal for blueprints, circuit diagrams, and technical drawings.
+නිවැරදියි. ලකුණුකරණ දෛශික ග්‍රැෆික්ස් භාවිතා කරන අතර, ඒවා නිරවද්‍ය, අඛණ්ඩ රේඛා ඇඳීම සඳහා
+ගණිතමය සමීකරණ මත රඳා පවතී. මෙය බ්ලූප්‍රින්ට්, පරිපථ රූප සටහන් සහ තාක්ෂණික ඇඳීම් සඳහා
+වඩාත් සුදුසු වේ.
+
+Option / විකල්ප 3)
+Incorrect. Plotters are not used for 3D models or simulations; this is more relevant to 3D printers or
+simulation software.
+වැරදියි. ලකුණුකරණ ත්‍රිමාණ ආකෘති හෝ සමාකරණ සඳහා භාවිතා නොකෙරේ; මෙය ත්‍රිමාණ මුද්‍රණ යන්ත්‍ර
+හෝ සමාකරණ මෘදුකාංග සඳහා වඩාත් අදාළ වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-9-
+
+Option / විකල්ප 4)
+Incorrect. Plotters are designed for large-scale prints, not compact office document printing.
+වැරදියි. ලකුණුකරණ නිර්මාණය කර ඇත්තේ කාර්යාල ලේඛන මුද්‍රණය සඳහා නොව විශාල පරිමාණ මුද්‍රණ
+සඳහා ය.
+
+Option / විකල්ප 5)
+Incorrect. While some plotters may use monochrome ink, many modern plotters can print in multiple
+colors.
+වැරදියි. සමහර ලකුණුකරණ ඒකවර්ණ තීන්ත භාවිතා කළ හැකි වුවද, බොහෝ නවීන ලකුණුකරණ බහු
+වර්ණවලින් මුද්‍රණය කළ හැකිය.
+
+According to this, answer should be 2).
+මේ අනුව, පිලිතුරු අංක 2) නිවැරදි වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-10-

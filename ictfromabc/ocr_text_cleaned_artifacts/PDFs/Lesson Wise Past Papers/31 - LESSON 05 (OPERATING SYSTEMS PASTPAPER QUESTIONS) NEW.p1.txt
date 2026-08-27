@@ -2,10 +2,10 @@
 දෘඬාංග නැටිය (Hard disk) "ඛණ්ඩනීකරණය " (Fragmentation) වීම නිසා ඇනිවන ප්‍රතිඵලය වඩාත්‌ හොඳන්‌ විස්නර
 කරන්නේ පහන සඳහන්‌ කුමන ප්‍රකාශය ද?
 
-1) Hard disk data access speed is reduced. / දෘඞාංග තැටියේ දන්ත ප්‍රවේශ වේගය අඩු වේ.
+1) Hard disk data access speed is reduced. / දෘඩාංග තැටියේ දන්ත ප්‍රවේශ වේගය අඩු වේ.
 2) Network access speed becomes slow. / ජාල ප්‍රවේශ වේගය අඩු වේ.
 3) Hard disk becomes totally inaccessible. / දෘඩාංග තැටියට ප්‍රවේශය මුළුමනින්ම නැති වේ.
-4) Some data will get erased from the hard disk. / සමහර දත්ත දෘඞාංග නැටියෙන්‌ මැකී යයි.
+4) Some data will get erased from the hard disk. / සමහර දත්ත දෘඩාංග නැටියෙන්‌ මැකී යයි.
 5) Number of bad sectors get increased. / භාවිනතයට ගන නොහැකි අංශ සංඛ්‍යාව වැඩි වෙයි.
 (2011 - 22)
 
@@ -207,7 +207,7 @@ system?
 
 1) application software / යෙදුම්‌ මෘදුකාංග 2) assembler / චසෙම්බලරය
 
-3) compiler / සමිපාදකය A) device driver / උපක්‍රම ධාවකය
+3) compiler / සම්පාදකය A) device driver / උපක්‍රම ධාවකය
 
 5) utility software / උපයෝගිතා මෘදුකාංග
 9/ ( 2018 - 37 )
@@ -243,7 +243,7 @@ A පමණි. B පමණි. A හා 6 පමණි. A හා ( පමණි
 ( 2019 - 11)
 
 17. Consider the process transition diagram in the figure: If the transitions shown are as follows:
-රෑපයේ දැක්වෙන ක්‍රියායන-සංඛ්‍රාන්ති (process transition) සටහන සලකන්න. පෙන්වා ඇති සංක්‍රාන්ති පහත දැක්වෙන
+රූපයේ දැක්වෙන ක්‍රියායන-සංඛ්‍රාන්ති (process transition) සටහන සලකන්න. පෙන්වා ඇති සංක්‍රාන්ති පහත දැක්වෙන
 
 පරිදි නමි,
 
@@ -291,7 +291,7 @@ responsibilities. What is another important responsibility of the OS?
 1) backup management / උපස්ථ කළමනාකරණය
 
 2) cache memory management / නිහිත මතක කළමනාකරණය
-3) compiler management / සමිපාදක කළමනාකරණය
+3) compiler management / සම්පාදක කළමනාකරණය
 
 4) process management / ක්‍රිායන කළමනාකරණය
 
@@ -423,7 +423,7 @@ up a web browser too to get some information as well. Consider the following pro
 diagram with respect to the process corresponding to Amara’s presentation program.
 අමර, තනි සකසනයක්‌ (single-processor) සහින පරිගණකයකට පුරන වී (login), ඔහුගේ සමරිපණයේ
 (presentation) වැඩ කටයුතු කිරීම සඳහා ක්‍රමලේඛයක්‌ අරඹයි. ඊට අමතරව, නොරතුරැ ලබාගනීම සඳහා ඔහු වෙබ්‌
-අතරික්සුවක්‌ දු විවෑත කරයි. අමරගේ සමරපණ ක්‍රමලේඛයට අදාළ කියායනයේ (process) අවස්ථා සංඛ්‍රාන්ති
+අතිරික්සුවක්‌ දු විවෑත කරයි. අමරගේ සමරපණ ක්‍රමලේඛයට අදාළ කියායනයේ (process) අවස්ථා සංඛ්‍රාන්ති
 
 රෑ5පසටහන පහන දැක්වේ.
 
@@ -448,7 +448,7 @@ Operating system scheduling the presentation process to run on the processor
 Operating system suspending the presentation process to let the web browser
 3 process to run on the processor.
 
-මෙහෙයුමි පද්ධතිය මගින්‌ GHA අතරික්සු ක්‍රියයනය මධ්‍ය සැකසුම්‌ වීකකයේ ධාවනය වීමට
+මෙහෙයුමි පද්ධතිය මගින්‌ GHA අතිරික්සු ක්‍රියයනය මධ්‍ය සැකසුම්‌ වීකකයේ ධාවනය වීමට
 ඉඩ ලබාදීම සඳහා සමරපණ ඛ්‍රියායනය අත්‌ සිටුවීම
 
 4 The finishing of saving the presentation on the hard disk
@@ -588,3 +588,137 @@ average.py file as well. 200 | 202
 
 Notes : I. The last block of a file is indicated by —1. on Os
 ගොනුවක අවසන්‌ කාණ්ඩය --1 මගින්‌ දැක්වේ.
+
+11. The directory entry of a file contains the block number of the
+
+first block of the file.
+
+ලගොනුවකට අදාළ නාමාවලි තොරතුර (directory entry) ගොනුවේ පළමු කාණ්ඩයේ කාණ්ඩ අංකය
+
+දක්වයි.
+Which of the following gives the directory entry for the average.py file and the disk space allocated for
+the average.py file respectively?
+aVerage.py ගොනුවේ නාමාවලි තොරතුර සහ average.py ගොනුව සඳහා ඩිස්කයේ වෙන්‌ කර ඇති Of) ප්‍රමාණය
+පිළිවෙළින්‌ දැක්වෙන්නේ පහන කවරක ද?
+
+1) 200, 12KB 2) 200, 16KB 3) 200, 20KB 4) 203, 16KB 5) 203, 20KB
+(2022 - 14)
+
+31. Which of the following will cause the CPU to execute a different set of instructions?
+මධ්‍ය සැකසුම්‌ ඒකකයට (CPU) වෙනත්‌ උපදෙස්‌ (instructions) සමූහයක්‌ ක්‍රියාත්මක කිරීම සඳහා පහත කවරක්‌ හේතු වේද ?
+
+A ~ context switch සන්ධර්භ ස්විචයක්‌
+B- 31] interrupt අතුරැබිඳුමක්‌
+
+C - user selecting the shutdown option in the computer
+පරිශීලකයා පරිගණකයේ ක්‍රියාවිරහිත කිරීමේ විකල්පය ක්‍රියාත්මක කිරීමක්‌
+
+1) A only. 2) B only. 3) C only. 4) B and C only. 5) All of the above
+A පමණි. B පමණි. C පමණි. Bem C පමණි. හන සියල්ලම.
+( 2023 - 05 )
+
+32. A program in execution in a computer is called a process. Which of the following is a possible state
+transition sequence of such a process?
+පරිගණකයක ඛ්‍රියාත්මක වන ක්‍රමලේඛයක්‌, ක්‍රියායනයක්‌ (process) ලෙස හැඳින්වේ. ක්‍රියායනයකට අදාළ තත්ත්ව
+සංඛ්‍රාන්නි පිළිවෙළක්‌ (state transition sequence) විය හැක්කේ පහත කවරක්‌ ද?
+1) New — Ready — Running — Terminated
+නව —- සූදානම්‌ —- ක්‍රියාත්මක - අවසන්‌
+2) New - Blocked — Terminated
+නව - අවහිර කළ - අවසන්‌
+3) New ~~ Ready ~- Blocked — Running ~* Terminated
+නව —- සූදානම්‌ —- අවහිර කළ - ක්‍රියාත්මක —- අවසන්‌
+4) New ~* Running ~* Ready > Running ~* Terminated
+නව - ක්‍රියාත්මක - සූදානම්‌ - ක්‍රියාත්මක - අවසන්‌
+5) New - Blocked > Ready ~~ Running — Terminated
+නව - අවහිර කළු —- සූදානමි - ක්‍රියාත්මක -- අවසන්‌
+( 2023 - 14)
+
+33. Amara powers on the computer and starts a spreadsheet application. Then he also opens a web browser.
+Which of the following are possible execution sequences on the processor of his computer?
+අමර පටරගණකය පණගන්වා පැනතුරැම්පත්‌ යෙදුමක්‌ ආරම්භ කරයි. නන්පසු ඔහු වෙබි අතිරික්සුවක්ද විවෘත කරයි. ඔහුගේ
+පටගණකයේ සකසනය මත ධාවනය වන්නන්ගේ නිවැරදි අනුපිළිවෙළක්‌ විය හැක්කේ පහත කවරක්‌ ද?
+1) BIOS > OS - spreadsheet process > OS -- web browser process > OS -- ……
+BIOS — spreadsheet process - OS — web browser process > OS — spreadsheet — process — ……
+BIOS — spreadsheet process — web browser process > OS -- ……
+BIOS — OS — spreadsheet process > web browser process - OS - ……
+
+BIOS — OS = spreadsheet process — web browser process — spreadsheet process — web browser
+process — ……
+
+wm BW අට
+෴.* ee ee
+
+(2023 - 15)
+
+34. Which of the following are correct regarding the Process Control Block (PCB)?
+BHD පාලන ඛණ්ඩය (PCB) සම්බන්ධයෙන්‌ පහත කවරක්‌ නිවැරදි වේ දු?
+
+A- Itis a data structure used by the operating system to manage information about a process.
+
+As ක්‍රියායනයක (process) තොරතුරු කළමණාකරණය කිරීම සදහා මෙහෙයුමි පද්ධතිය විසින්‌ භාවිතා කරනු
+ලබන දත්ත ව්‍යුහයකි.
+
+B- Itis created during the compilation of a program.
+එය ක්‍රමලේඛයක්‌ සම්පාදනයේ (compilation) දී සෑදේ.
+
+C- The Program Counter values of two PCBs can be the same.
+PCB දෙකක Program Counter ead එක සමාන විය හැකි ය.
+
+1) A only. 2) A and B only. 3) A and C only. 4) B and C only. 5) All of the above
+A පමණි. A හා 6 පමණි. A හා ( පමණි. B හා ( පමණි. හන සියල්ලම.
+( 2024 - 15)
+
+35. Amara switches on a multi-user computer system. After it has booted, Sama logs on to the computer from
+a terminal and starts a web browser. After sometime, Sama Starts a text editor also to work on her Python
+program. Then Rani also logs on to the computer from another terminal and starts a web browser.
+අමර බහු-පරිශීලක පරිගණකයක්‌ පණගන්වයි. එය ආරම්භ වූ විට සාමා එම පරට්ගණකයට ටරමිනයලයකින්‌ පූරන (login)
+වී වෙබ්‌ අතිරික්සුවක්‌ අරඹයි. මද වේලාවකට පසුව සාමා තම පයිතන්‌ කේතයේ වැඩකටයුතු කිරීම සදහා පාඨ
+සංස්කාරකයක්‌ දු (text editor) අරඹයි. නේපසු රාණි දු GOO පරිගණකයට චෙනත්‌ ටරිමිනලයකින්‌ පුරන 5 වෙබ්‌
+අතිරික්සුවක්‌ අරඹයි.
+
+Which of the following are possible execution sequences on the processor of this computer?
+එම SOOAWGS සකසනය OM ධාවනය වන්නන්ගේ නිවැරදි අනුපිළිවෙළක්‌ විය හැක්කේ පහත කවරක්‌ ද?
+
+1)
+
+5)
+
+BIOS - OS — Sama's web browser process ~ OS — Sama's text editor process - OS - Rani's web
+browser process — OS — Sama's text editor process — ……
+
+BIOS — OS — සාමාගේ GOO අතිරික්සු ක්‍රියායනය — OS — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය —- OS - රාණිගේ
+වෙබ්‌ අතිරික්සු ක්‍රියායනය —- OS > සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය — ……
+
+BIOS — OS — Sama's web browser process — Sama's text editor process - OS - Rani's web browser
+process > OS — Sama's web browser process — ……
+
+BIOS — OS > සාමාගේ වෙබ්‌ අතිරික්සු ක්‍රියායනය — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය - OS — රාණිගේ වෙබ්‌
+අතිරික්සු ක්‍රියායනය —- OS — සාමාගේ වෙබි අතරක්සු ක්‍රියායනය - ……
+
+BIOS — Sama's web browser process — Sama's text editor process > OS — Rani's web browser process
+— OS — Sama's text editor process — ……
+
+BIOS - සාමාගේ වෙබ්‌ අතිරික්සු ක්‍රියායනය -- සාමාගේ පාඨ සංස්කාරක Gana - OS - රාණිගේ වෙබි
+අතිරික්සු ක්‍රියායනය - OS — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය - ……
+
+OS — BIOS = Sama's web browser process - OS — Sama's text editor process - OS - Rani's web
+browser process —~ OS — Sama's web browser process — ……
+
+OS - BIOS > සාමාගේ වෙබ්‌ අතිරික්සු ක්‍රියායනය — OS - සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය — OS — රාණිගේ
+වෙබ්‌ අතිරික්සු ක්‍රියායනය —- OS -- සාමාගේ වෙබ්‌ අතිරික්සු ක්‍රියායනය - ……
+
+OS - BIOS — Sama's web browser process — Sama's text editor process - OS — Rani's web browser
+process > OS — Sama's web browser process — ……
+
+OS — BIOS > සාමාගේ වෙබ්‌ අතරක්සු ක්‍රියායනය - සාමාගේ end සංස්කාරක Banas — OS —- රාණිගේ වෙබ්‌
+අතිරික්සු ක්‍රියායනය —- OS — සාමාගේ වෙබි අතරක්සු ක්‍රියායනය - ……
+
+( 2024 - 16)
+
+36. Each block of a disk is 512 bytes. When a file of size 1959 bytes is stored on that disk, how many bytes
+allocated to the file would be wasted?
+ඩිස්කයක කට්ටියක්‌ (block) @BO 512 ක්‌ වේ. @BO 1959 ක විශාලත්වයකින්‌ යුත්‌ ගොනුවක්‌ එම ඩිස්කයේ ආචය කළ
+
+විට,
+
+එම ගොනුවට චෙන්‌ කරන ලද බයිට කොපමණ සංඛ්‍යාවක්‌ අපතේ යනු ඇති ද?

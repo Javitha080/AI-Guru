@@ -768,7 +768,7 @@ body[data-picker-open] .dt-mark-pulse {
   border: 1px solid var(--glass-border);
   border-top-color: var(--glass-border-highlight);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 14px var(--glow-primary);
-  animation: dt-tooltip-fade-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: dt-tooltip-fade-in var(--duration-quick) var(--ease-out);
 }
 
 .dt-tooltip-label {
@@ -794,7 +794,7 @@ body[data-picker-open] .dt-mark-pulse {
 @keyframes dt-tooltip-fade-in {
   from {
     opacity: 0;
-    transform: translateY(4px) scale(0.95);
+    transform: translateY(2px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -854,21 +854,178 @@ body[data-picker-open] .dt-mark-pulse {
   }
 }
 
-/* ─── Reduced transparency ─────────────────────────────────────────────
-   Disable backdrop-filter blur effects for users who prefer reduced
-   transparency. Glass surfaces fall back to opaque backgrounds. */
-@media (prefers-reduced-transparency: reduce) {
-  .surface-glass-base,
-  .surface-glass-elevated,
-  .glass-capsule,
-  .glass-btn-primary,
-  .glass-btn-secondary,
-  .glass-input {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
+/* ─── Transitions.dev — Thinking states, Reasoning stream, Streaming text, Number pop-in ─── */
 
-  .liquid-sheen::before {
-    display: none !important;
+:root {
+  --think-hold: 2000ms;
+  --think-swap: 150ms;
+  --think-gap: 50ms;
+  --think-distance: 8px;
+  --think-blur: 2px;
+  --think-shimmer: 2000ms;
+  --think-base: #9a9a9a;
+  --think-highlight: #f5f5f5;
+  --think-ease: ease-in-out;
+
+  --reason-hold: 840ms;
+  --reason-step: 500ms;
+  --reason-lines: 2;
+  --reason-fade: 28px;
+  --reason-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --stream-gap: 60ms;
+  --stream-fade: 350ms;
+  --stream-blur: 1px;
+  --stream-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --digit-dur: 500ms;
+  --digit-distance: 8px;
+  --digit-stagger: 70ms;
+  --digit-blur: 2px;
+  --digit-ease: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --digit-dir-x: 0;
+  --digit-dir-y: 1;
+}
+
+/* Thinking states */
+.t-think { position: relative; display: inline-block; text-align: center; }
+.t-think-sizer { display: block; visibility: hidden; white-space: nowrap; }
+.t-think-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  color: var(--think-base);
+  white-space: nowrap;
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+  transition:
+    transform var(--think-swap) var(--think-ease),
+    filter var(--think-swap) var(--think-ease),
+    opacity var(--think-swap) var(--think-ease);
+  will-change: transform, filter, opacity;
+}
+.t-think-text::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(90deg,
+    transparent 0%, transparent 40%,
+    var(--think-highlight) 50%,
+    transparent 60%, transparent 100%);
+  background-size: 400% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: t-think-shimmer var(--think-shimmer) linear infinite;
+}
+@keyframes t-think-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
+}
+.t-think-text.is-exit {
+  transform: translateY(calc(var(--think-distance) * -1));
+  filter: blur(var(--think-blur));
+  opacity: 0;
+}
+.t-think-text.is-enter-start {
+  transition: none;
+  transform: translateY(var(--think-distance));
+  filter: blur(var(--think-blur));
+  opacity: 0;
+}
+
+/* Reasoning stream */
+.t-reason { position: relative; overflow: hidden; }
+.t-reason-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    transparent 0,
+    black var(--reason-fade),
+    black calc(100% - var(--reason-fade)),
+    transparent 100%);
+  mask-image: linear-gradient(
+    transparent 0,
+    black var(--reason-fade),
+    black calc(100% - var(--reason-fade)),
+    transparent 100%);
+}
+.t-reason-scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+/* Streaming text */
+.t-stream-w {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(var(--stream-blur));
+  transition:
+    opacity var(--stream-fade) var(--stream-ease),
+    filter var(--stream-fade) var(--stream-ease);
+}
+.t-stream-w.is-in {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Number pop-in */
+@keyframes t-digit-pop-in {
+  0% {
+    transform: translate(
+      calc(var(--digit-distance) * var(--digit-dir-x)),
+      calc(var(--digit-distance) * var(--digit-dir-y))
+    );
+    opacity: 0;
+    filter: blur(var(--digit-blur));
   }
+  100% { transform: translate(0, 0); opacity: 1; filter: blur(0); }
+}
+
+.t-digit-group {
+  display: inline-flex;
+  align-items: baseline;
+}
+.t-digit {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  opacity: 1; /* Ensure visible even between animation re-trigger cycles */
+}
+.t-digit.is-changed,
+.t-digit-group.is-animating .t-digit {
+  animation: t-digit-pop-in var(--digit-dur) var(--digit-ease) forwards;
+}
+.t-digit-group.is-animating .t-digit[data-stagger="1"] {
+  animation-delay: var(--digit-stagger);
+}
+.t-digit-group.is-animating .t-digit[data-stagger="2"] {
+  animation-delay: calc(var(--digit-stagger) * 2);
+}
+.t-digit-group.is-animating .t-digit[data-stagger="3"] {
+  animation-delay: calc(var(--digit-stagger) * 3);
+}
+.t-digit-group.is-animating .t-digit[data-stagger="4"] {
+  animation-delay: calc(var(--digit-stagger) * 4);
+}
+.t-digit-group.is-animating .t-digit[data-stagger="5"] {
+  animation-delay: calc(var(--digit-stagger) * 5);
+}
+
+/* Reduced motion guards */
+@media (prefers-reduced-motion: reduce) {
+  .t-think-text { transition: none !important; transform: none !important; filter: none !important; }
+  .t-think-text::before { display: none !important; }
+  .t-reason-scroll { transition: none !important; transform: none !important; }
+  .t-stream-w { transition: none !important; filter: none !important; opacity: 1 !important; }
+  .t-digit-group .t-digit { animation: none !important; }
 }

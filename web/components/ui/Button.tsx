@@ -39,8 +39,9 @@ export default function Button({
 }: ButtonProps) {
   return (
     <motion.button
-      whileHover={disabled || loading ? {} : { scale: 1.02 }}
-      whileTap={disabled || loading ? {} : { scale: 0.97 }}
+      whileHover={disabled || loading ? {} : { scale: 1.02, y: -1 }}
+      whileTap={disabled || loading ? {} : { scale: 0.96, y: 0 }}
+      transition={{ type: "spring", stiffness: 450, damping: 28 }}
       className={`
         inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all
         disabled:opacity-50 disabled:cursor-not-allowed

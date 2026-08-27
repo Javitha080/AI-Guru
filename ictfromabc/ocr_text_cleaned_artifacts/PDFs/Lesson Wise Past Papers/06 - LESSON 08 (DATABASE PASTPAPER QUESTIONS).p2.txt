@@ -1,715 +1,3 @@
-1) Aonly. 2) B only. 3) AandBonly. 4) AandConly. 5) All of the above.
-A පමණි. B පමණි. Am 6 පමණි. A හා C පමණි. ඉහත සියල්ලම.
-
-(2018 - 26)
-
-29. Consider the following relational schema in a database.
-දත්ත සමුදාය පද්ධතියක පහත දැක්වෙන සම්බන්ධතා පරික්‍රමාව (relational schema) සලකන්න.
-
-Subject (SubjectID, TermID, SubjectDescription)
-
-Here the SubjectID, TermID, and SubjectDescription are ……-…… and Subject is ……-……
-චහි SubjectlD, TermID හා SubjectDescription යන දෑ …… වචන අතර Subject යන්න …… 6d.
-
-Which of the following are most suitable to fill the blanks, respectively?
-ඉහත හිස්තැන්‌ පිරවීම සඳහා වඩාත්‌ © සුදුසු වන්නේ පිළිවෙළින්‌ පහත කවරක්‌ ද?
-
-1) උපලක්ෂණ (attributes), සම්බන්ධයක්‌ (relation)
-2) සම්බන්ධ (relation), උපලක්ෂණයක්‌ (attributes)
-3) උපලැකියාන (tuples), සම්බන්ධයක්‌ (relation)
-4) උපලැකියාන (tuples), උපලක්ෂණයක්‌ (attributes)
-5) සම්බන්ධ (relation), උපලැකියානයක්‌ (tuples)
-( 2018 ~ 28 )
-
-30. Consider the following statements regarding databases.
-දත්ත සමුදායක්‌ BEDE පහත ප්‍රකාශ සලකන්න.
-
-A. For each attribute of a relation. there is a set of permitted values, called the domain of
-that attribute
-සම්බන්ධයක (relation) ඇති සෑම උපලක්ෂණයක්‌ (attribute) සඳහාම එම උපලක්ෂණයෙහි
-වසම (domain) ලෙස හැඳින්වෙන අනුමත අගයන්‌ කුලකයක්‌ පවතී.
-
-B. The tuples (records) of the relations are always in sorted order.
-සම්බන්ධයක ඇති උපලැකියාන (tuples) සෑම විටම අනුපිළිවෙළකට පවතී (sorted).
-
-C. Database schema shows the organization of data as a blueprint of how the database
-is constructed.
-දත්ත සමුදා පරික්‍රමාව (database schema), දත්ත සමුදායක්‌ ගොඩනැගීමට අදාළ දත්ත නිශ්චිත
-සැලැස්මකට (blueprint) අනුව සංවිධානය වී ඇති අයුරැ පෙන්වයි.
-
-Which of the above statements is/are correct?
-ඉහත ප්‍රකාශවලින්‌ කචරක්‌ නිවැරදි වේ ද?
-
-1) Aonly. 2) & 4011 6 901//. 3)AandConly. 4) BandConly. 5) All of the above.
-& පමණි. & හා 6 පමණි. & හා C පමණි. Bem C පමණි. ඉහත සියල්ලම.
-
-( 2018 ~ 39)
-
-e Consider the following relational schema consisting of text fields in answering questions
-31 and 32.
-අංක 31 සහ 32 යන ප්‍රශ්න සඳහා, පාඨ ක්ෂේත්‍රවලින්‌ (text fields) සමන්චිත පහත දැක්වෙන
-සම්බන්ධක පරික්‍රමාව (relational schema) සලකන්න.
-
-Students (admission_number, surname_with_initials, house_number, street_name, village,
-postal_town, postal_code)
-
-Assume that for a given postal_town only one postal_code exists.
-GED ලද තැපැල්‌ නගරයකට චක්‌ තැපැල්‌ කේතයක්‌ පමණක්‌ sOGe බව සලකන්න.
-
-31. Consider the following statements. / පහත ප්‍රකාශ සලකන්න.
-
-A. Students relation is not normalised.
-Students සම්බන්ධය ප්‍රමතනකරණය (normalized) කර නැත.
-
-B. Students is a relation in First Normal Form (1NF) only.
-Students යනු පළමු ප්‍රමනකරණයෙහි (First Normal Form - 1NF) පමණක්‌ ඇති සම්බන්ධයකි.
-
-C. In normalization terms, Students is a relation in Second Normal Form (2NF) and hence
-also in 1NF.
-ප්‍රමතකරණ EHOOEO අනුව Students යනු දෙවන ප්‍රමතකරණයෙහි (Second Normal Form -
-2NF) හි ඇති එනයින්‌ INF හි ද ඇති සම්බන්ධයකි.
-
-Which of the above statements is/are correct?
-ඉහත ප්‍රකාශවලින්‌ කචරක්‌ නිවැරදි වේ ද?
-
-1) Aonly. 2) B only. 3) AandConly. 4) BandConly. _ 5) All of the above.
-A පමණි. B පමණි. Am C පමණි. 5 හා C පමණි. ඉහත සියල්ලම.
-
-( 2018 ~ 40 )
-
-32. Consider the following statements relating to Entity Relationship (ER) modelling.
-භුතාරීථ සම්බන්ධතා (ER) ආකෘතිකරණය පිළිබඳ පහත දැක්වෙන ප්‍රකාශ සලකන්න.
-
-A. Cardinality specifies how many instances of an entity relates to one instance of another
-entity.
-ගණනීයතාව (cardinality) මගින්‌ Ha භූතාර්ථයක දෘෂ්ටාන්ත (instances) කොපමණ සංඛෲආණවක්‌
-වෙනත්‌ භූතාර්ථයක එක්‌ දෘෂ්ටාන්නයකට සම්බන්ධ වේ දැයි විශේෂයෙන්‌ සඳහන්‌ කරනු ලැබේ.
-
-B. An entity is a ‘thing’ or ‘object’ in the real world that can be identified separately
-(distinguishable) from all other objects.
-
-QOB60SS යනු තථ්‍ය ලෝකයෙහි (real world) ඇති අනෙක්‌ සියලු වස්තූන්ගෙන්‌ වෙන්කර හඳුනා
-ගත හැකි යම්‌ 'දෙයක්‌' හෝ 'වස්තුවක්‌' හෝ චේ.
-
-C. Cardinality specifies primary key attributes of an entity.
-ගණනීයතාව මගින්‌ භූතාර්ථයක ප්‍රාථමික යතුරේ උපලක්ෂණ විශේෂිතව දැක්වේ.
-
-Which of the above is/are correct?
-ඉහත කවරක්‌ නිවැරදි චේ ද?
-
-1) Aonly. 2) 4 4011 6 901//. 3) AandConly. 4) BandConly. 5) All of the above.
-A පමණි. Am 6 පමණි. Aw C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
-
-(2018 ~ 42 )
-
-e Consider the following database table to answer the questions 33 to 34.
-අංක 33 සිට 34 ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට පහත දැක්වෙන EDD BOE) වගුව සලකන්න.
-
-Student_Sport
-
-Student_Id | Event_Id Event_Name
-10012 S-02 Carrom
-10022 S-01 Basketball
-10018 S-02 Carrom
-10012 S-03 Volleyball
-10025 S-04 Chess
-10018 S-01 Basketball
-
-33. Consider the following statements regarding the above table:
-ඉහත වගුව පිළිබඳ පහත දැක්වෙන ප්‍රකාශ සලකන්න.
-
-A. It has a composite primary key.
-AGO සංයුක්ත ප්‍රාථමික යතුරක්‌ පවතී.
-
-B. Event_Name attribute is fully dependent on the primary key of Student_Sport table.
-Event_Name උපලැකිය Student_Sport වගුවෙහි ප්‍රාථමික යතුර මත පූරිණ පරායන්ත වේ.
-
-C. Event_Id is a candidate key.
-Event_Id යනු Sdzes (candidate) යතුරකි.
-
-Which of the above statements is/are correct?
-ඉහත කුමන වගන්තියක්‌/ වගන්ති සත්‍ය වේ ද?
-
-1) Aonly. 2) B only. 3) AandBonly. 4) AandConly. _ 5) All of the above.
-A පමණි. B පමණි. Am 6 පමණි. Am C පමණි. ඉහත සියල්ලම.
-
-(2019 - 16 )
-
-34. In which normal form does the above table exist?
-ඉහත වගුව පවතින්නේ කුමන GOD ආකාරයට ද?
-
-1) BCNF 2) First normal form 3) Second normal form
-4) Third normal form 5) Zero normal form
-
-(2019-15)
-
-35. Consider the following statements regarding the Extended Entity Relationship (EER) model.
-ව්ස්තෘත Qmbo සම්බන්ධතා (EER) ආකෘතිය පිළිබඳ පහත දැක්වෙන වගන්ති සලකන්න.
-
-A. EER model includes all the concepts of the original ER model.
-EER ආකෘතියට මුල්‌ ER ආකෘතියෙහි ඇති සියලු ම සංකල්ප ඇතුළත්‌ චේ.
-
-B. EER model has additional concepts of specialization/generalization.
-විශේෂකරණය /සාමාන්‍යකරණය පිළිබඳ අමතර සංකල්ප EER හි පවතී.
-
-C. EER model includes a new concept to model the weak entities.
-ටුර්චල භූතාර්ථ ආකෘතිකරණය සඳහා DO සංකල්පයක්‌ EER හි ඇතුළත්‌ වේ.
-
-Which of the above statements is/are correct?
-ඉහත කුමන වගන්තියක්‌/ වගන්ති නිවැරදි චේ ද?
-
-1) Aonly. 2) 6 only. 3) AandBonly. 4) AandConly. 5) All of the above.
-A පමණි. B පමණි. 7 හා 8 පමණි. 7 හා C පමණි. ඉහත සියල්ලම.
-
-(2019 - 24)
-
-36. Which of the following statement/s about a relation in the Second Normal Form are true?
-දෙවන ප්‍රමතකරණයෙහි (2NF) ඇති සම්බන්ධතාවයක්‌ පිළිබඳව පහත කවර වගන්ති/ ය සත්‍ය චේ ද?
-
-A. It can have a composite key. / එයට සංයුක්ත යතුරක්‌ තිබිය හැක.
-
-B. It should be in the First Normal Form (1NF) as well.
-Ad SEQ ප්‍රමතකරණයෙහි (1NF) ද පැවනිය යුතු ය.
-
-උල, All non-key attributes are fully functionally dependent on the primary key.
-යතුරැ නොවන සියලු උපලැකි ප්‍රාථමික යතුර මත මුළුමනින්ම කාරයබද්ධව පරායත්ත වේ.
-
-1) 8 only. 2) Conly. 3) AandBonly. 4) BandConly. _ 5) All of the above.
-B පමණි. C පමණි. 7 හා 8 පමණි. Bem C පමණි. ඉහත සියල්ලම.
-
-37. Which of the following statement/s regarding the logical database schema are true?
-තාර්කික දත්ත සමුදාය ක්‍රමානුරෑප (logical database shema) පිළිබඳව පහත කවර වගන්නි සත්‍ය වේද?
-
-A. It is a blueprint for a database.
-AG දත්ත සමුදායක්‌ සඳහා වන සැලසුමක පිටපතකි (blueprint).
-
-B. It contains data and information.
-AB දත්ත සහ තොරතුරැ අන්තර්ගත චේ.
-
-C. It formulates all the constraints that are to be applied on the data.
-AS දත්ත කෙරෙහි යෙදෙන්නා වූ සියලු සංරෝධක (constraints) විධිමත්ව දක්වයි.
-
-1) Aonly. 2) & 8011 6 901//. 3) AandConly. 4) BandConly. 5) All 01 the above.
-A පමණි. Am 6 පමණි. Aw C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
-
-( 2020 - 27 & 28 )
-
-38.
-
-39.
-
-Consider the following scenario about “authors” and “books” to answer the questions 38
-and 39.
-38 සහ 39 ප්‍රශ්න සඳහා පිළිතුරු සැපයීමට “කර්තෘවරැන්‌“ සහ “ග්‍රන්ථ” පිළිබඳ පහත සංසිද්ධිය සලකන්න.
-
-“An author can write books. A book has a title and a code called ISBN which is unique. A
-book can be written by either one or several authors. An author has a name and a unique
-ID. An author can have a type as either chief author or a co-author for a particular book.”
-“කරිතෘවරයකුට (author) ග්‍රන්ථ (book) ලිවිය (writes) හැකි ය. ග්‍රන්ථයක්‌ සඳහා නමක්‌ (title) සහ
-ISBN නම්න්‌ අනන්‍ය වූ කේතයක්‌ තිබේ. ග්‍රන්ථයක්‌ චක්‌ කරිතෘවරයකු හෝ කර්තෘවරු කිහිපදෙනකු ව්සින්‌
-හෝ ලිවිය හැකි ය. කරිතෘවරයකුට නමක්‌ (name) ese අනන්‍ය වූ අංකයක්‌ (ID) තිබේ. කරිතෘවරයකුට
-කිසියම්‌ ග්‍රන්ථයක්‌ සඳහා ප්‍රධාන කරිතෘෑ හෝ සමකර්තෘ ලෙස භෝ ප්‍රවචර්ගයක්‌ (type) තිබිය හැකි ය.”
-
-Which of the following is the most suitable Entity Relationship (ER) representation for the
-above scenario?
-ඉහත සංසිද්ධිය සඳහා වන වඩාත්‌ ම සුදුසු භූතාරිථ සම්බන්ධතා (ER) නිරෑපණය පහත ඒවායින්‌ කවරක්‌
-
-ී
-
-ee
-
-Author
-
-PS
-
-i,
-
-5)
-
-How many tables can be derived initially, when mapping the entity relationships in the
-above scenario to a relational schema?
-
-ඉහත QMbO සම්බන්ධතා (entity relationships), සම්බන්ධතා ක්‍රමානුරෑපයකට (relational
-schema) අනුරෑපණය කිරීමේ දී (mapping), ආරම්භක (initial) වශයෙන්‌ වගු කොපමණ 50Qs Oz}
-ව්‍යුත්පන්න කළ හැකි ද?
-
-1) 1 2) 2 3
-
-eS
-ටං
-
-4) 4 5) 5
-
-( 2020 -~- 30 & 31)
-
-40. Which of the following is a (are) good practice(s) to follow in database development?
-දත්ත සමුදායක්‌ සෑදීමෙදී පිළිපැදිය යුතු හොඳ පුරැද්දක්‌/ පුරුදු වන්නේ පහත කවරක්‌ ද?
-
-A. the use of meaningful names for tables and fields
-වගු සහ උපලැකි සඳහා අරිථාන්විත නම්‌ භාවිතය
-
-B. letting different tables repeat the same information (other than the primary keys)
-එකම තොරතුර (ප්‍රාථමික යතුරු නොවන) HSA OQOE නැවන නැවත අඩංගු කිරීම (repetition)
-
-C. avoiding a field and its table having the same name (in order to avoid confusion while
-writing queries)
-උපලැකියකට සහ AS අයත්‌ OQOO එකම නම දීමෙන්‌ වැළකීම (විමසුම්‌ [queries] ලිවීමේදී
-ඇතිවන සංකූලතා මඟහැරීම සඳහා)
-
-1) Aonly. 2) B only. 3) Conly. 4) AandBonly. 5) Aand C only.
-A පමණි. B පමණි. C පමණි. 7, හා B පමණි. Am C පමණි.
-(2021 - 31)
-
-e Consider the following Results and Subjects tables to answer questions from 41 to 42:
-ප්‍රශ්න අංක 41 BO 42 තෙක්‌ පිළිතුරු දීමට පහත Results සහ Subjects වගු සලකන්න.
-
-Results Subjects
-StudentNo NIC FirstName | SubjectID | Grade | | SubjectID | SubjectName
-$1234 986888457V Nilam ENG B ENG English
-$1447 992562321V | Praveena PHY C PHY Physics
-$1234 986888457V Nilam ACC A ECO Economics
-$1323 900251452V Thilan ENG 5 ACC Accountancy
-$1323 900251452V Thilan ACC B
-
-41. Which of the following is most suited to be selected as the primary key of the Results table
-with respect to the given details?
-දී ඇති විස්තර අනුව, Results වගුවේ ප්‍රාථමික යතුර ලෙස තෝරා ගැනීමට පහත කවරක්‌ වඩාත්ම
-සුදුසු වේ ද?
-
-1) NIC
-2) SubjectID
-3) StudentNo
-4) StudentNo and NIC
-5) StudentNo and SubjectID
-(2021 - 32)
-
-42. Which of the following is the correct statement about the Results table?
-Results වගුව සම්බන්ධයෙන්‌ පහත කවර වගන්තියක්‌ නිවැරදි චේ ද?
-
-1) All the non-key attributes are fully functionally dependent on the primary key.
-යතුරැ නොවන සියලු උපලැකි ප්‍රාථම්ක යතුර මත මුළුමනින්ම කාරියබද්ධව පරායත්ත Gd.
-
-2) It has one candidate key. එයට එක්‌ නිරෑප්‍ය (candidate key) යතුරක්‌ ඇත.
-
-3) It is in the First Normal Form (1NF). 26 පළමු ප්‍රමතකරණයෙමහි (1NF) පවතී.
-
-4) Itis in the Second Normal Form (2NF). 26 දෙවන ප්‍රමතකරණයෙහි (2NF) පවතී.
-5) The cardinality of the table is four. වගුවේ ගණනීයනාව (cardinality) 4 චේ.
-
-(2021 - 34)
-
-43. Which dependency is removed when converting the Results table to next normal form?
-Results වගුව ඊලඟ ප්‍රමතකරණයට පත්කරන විට පහත කුමන පරායත්තතාව ඉවත්‌ එච්‌ ද?
-
-1) foreign key dependency
-ආගන්තුක යතුරැ (foreign key) පරායත්තතාව
-
-2) fully functional dependency of non-key attributes on the primary key
-යතුරැ නොවන (non-key) උපලැකි, ප්‍රාථමික යතුර (primary key) මත පූර්ණ කාරයබද්ධ (full
-functional) පරායන්තතාව
-
-3) multivalued dependency
-බහු අගය (multivalued) පරායත්තතාව
-
-4) partial dependencies of non-key attributes on the primary key
-යතුරු නොවන උපලැකි, ප්‍රාථමික යතුර මත අර්ධ (partial) පරායත්තතාව
-
-5) transitive dependency of non-key attributes
-යතුරු නොවන උපලැකිවල සංක්‍රාන්ති (transitive) පරායත්තතාව
-(2021-35)
-
-44. Following are the steps involved in creating an Entity Relationship (ER) Diagram:
-භූතාරිථ සම්බන්ධතා (ER) රෑප සටහනක්‌ නිරිමාණය කිරීමට අදාළ පියවර පහත දැක්වේ.
-
-|. Determine the ……/…… in your diagram.
-ඔබගේ රෑප සටහනට අවශ්‍ය ……A…… තීරණය කරන්න.
-
-Il. Add ……B…… to each ……(……
-……නී…… චක්‌ එක්‌ ……C…… ට Awe කරන්න.
-
-|||. Include the ……D…… between the ……A……
-JOA…… අතර ……D…… චකතු කරන්න.
-
-IV. Add ……E…… to every relationship.
-සෑම සම්බන්ධතාවයකටම …… £…… ද චක්‌ කරන්න.
-
-Which of the following gives suitable choices for the A, පි, C, D and E blanks in above steps?
-ඉහත A,B, C,D සහ E හිස්තැන්‌ සඳහා නිවැරදි තෝරාගැනීම්‌ දක්වන්නේ පහත කවරක්‌ ද?
-
-1) &, -- අ(1/100(1/65 (උපලැකි), 6 -- entities (භූනාර්ථ), C - attribute (උපලැකිය), D -- cardinality
-(ගණනීයතාව), £ -- entities (භූතාර්ථ)
-
-2) A- attributes (උපලැකි), B - cardinality (ගණනීයතාව), C - attribute (උපලැකිය), D - entities
-(භූතාරිථ), E - entity (භූතාරිථ)
-
-3) A - entities (භූතාරිථ) , B - attributes (උපලැකි), C — entity (QmBbBOa), D - සම්බන්ධනා
-(relationships), E - cardinality (ගණනීයතාව)
-
-4) A- entities (භූතාර්ථ) , B - සම්බන්ධතා (relationships), C - entity (භූතාර්ථය), D -- attributes
-(උපලැකි), cardinality (හසණනීයතාව)
-
-5) 7& - සම්බන්ධතා (relationships), B - cardinality (උහණනීයනාව), C - relationships (සම්බන්ධතා),
-D - attributes (උපලැකි), E - entities (භූතාරථ)
-
-(2021 - 36)
-
-45. Which of the following can be modelled with an Extended Entity Relationship diagram?
-
-Sioa භූතාරිථ සම්බන්ධතා (Extended Entity Relationship) රෑප සටහනකින්‌ පහන කචරක්‌
-නිරූපණය කළ හැකි ද?
-
-A - subclasses of an entity / භූතාර්ථයක උපපන්ති
-B - inheritance of attributes / උපලැකි උරැමවීම
-C - specialization of entities / භූතාරිථවල විශේෂායනය
-
-1) Aonly. 2) B only. 3) Conly. 4) AandConly. 5) All of the above.
-A පමණි. B පමණි. C පමණි. 7 හා C පමණි. ඉහත සියල්ලම.
-( 2021 - 37)
-
-46. Consider the following relational schema:
-පහත දක්වා ඇති සම්බන්ධතා පරිපාටික සටහන (relational schema) සලකා බලන්න:
-
-Student (Studentid, StudentName, Address, Gender, DateOfBirth)
-
-Study (Studentld, Subjectld, Grade)
-
-෴~*
-
-Subject (Subjectld, SubjectName)
-
-Which of the following is the most suitable Entity Relationship (ER) diagram to correctly
-represent the relationship between Student and Subject entities?
-
-ශිෂ්‍ය (Student) සහ විෂය (Subject) භූනාර්ථ අතර BO@BAMOA නිවැරදිව නිරූපණය කිරීම සඳහා
-පහත සඳහන්‌ කුමන භූතාරිථ සම්බන්ධතා රෑපසටහන (ER diagram) වඩාත්‌ සුදුසු වේ ද?
-
-Note: In the ER diagrams, the entities are drawn without attributes.
-සටහන: |. ER රෑපසටහන්වල Qmbo ඇඳ ඇත්තේ උපලක්ෂණ (attributes) රහිතව ය.
-ll. study ~~ ඉගෙනගැනීම
-
-) ude <> Subject
-2 Student ject
-) 10611 Subjec
-
-Student
-3) udent 1 <> | Study
-Student
-4) udent | <> = Study
-5) | Student Subject
-n ml
-
-(2021-29 )
-
-e The tables which are partially extracted from a database used in an information system
-developed for a shop are shown below. Answer questions from 47 to 48 using those tables
-වෙළෙඳසැලක්‌ සඳහා සකස්‌ කරන ලද තොරතුරැ පද්ධතියක භාවිත කරන දත්ත සමුදායකින්‌ අර්ධ
-
-වශයෙන්‌ උපුටා ගත්‌ වගු කිහිපයක්‌ පහත දැක්‌වේ. එම වගු භාවිත කර අංක 47 සිට 48 දක්වා
-ප්‍රශ්නවලට පිළිතුරු සපයන්න.
-
-((151911161' (පාරිභෝගිකයා ) Product (භාණ්ඩය )
-Cusld Fname Lname Location Prold Name
-උ001 Saman Perera Dehiwala PROO1 Refrigerator
-C002 Kalum Gamage Galle PB401 Blender
-C003 Shiromi Silva Galle PMO025 Mobile Phone
-C004 Kalum Perera Kandy PPO0O09 Inkjet Printer
-Order (47400) Order_Product (ඇණවුම්භාණ්ඩය )
-Orderld Cusld OrderDate | Sellerld Orderld Prold
-A001 coo1 | 2022-07-14 | 9001 A003 PROOT
-A002 C002 2022-07-14 5001 A001 PROT
-A002 PB401
-A003 C003 2022-07-18 5002 A003 PM025
-A004 C004 2022-07-20 5002 7,004 50009
-
-47. Which of the following shows the most suitable primary keys for Order and Order_Product
-
-relations?
-
-Order e@ Order_Product වගු සඳහා වඩාත්‌ සුදුසු ප්‍රාථටම්ක යතුරැ පිළිවෙළින්‌ දැක්වෙන්නේ පහත
-කවරක ද?
-
-1) Order: Cusld, Order_ Product: Orderld
-
-2) Order: Orderld, Order_Product: Orderld
-
-3) Order: Orderld, Order_Product: Orderld + Prodld
-
-4) Order: Cusld + Sellerld, Order Product: Prodid
-
-5) Order: Orderld + Cusld, Order_Product: Orderld
-
-48. Which of the following is correct regarding the Order relation?
-Order වගුව සැලකීමේදී පහත සඳහන්‌ කුමක්‌ නිවැරදි ද?
-
-1) Cusld attribute uniquely identifies each tuple in the relation.
-Cusld උපලක්ෂණය (attribute) මගින්‌ වගුවේ එක්‌ චක්‌ උපලැකියාන (tuple) අනන්‍යව හඳුනාගනී.
-
-2) The relation is in First Normal Form (1NF).
-වගුව DB GO ප්‍රමත අවස්ථාවේ (First Normal Form-1NF) පවතී.
-
-3) The relation is in Second Normal Form (2NF).
-වගුව DGB දෙවන ප්‍රමත අවස්ථාවේ (Second Normal Form-2NF) පවතී.
-
-4) Orders of each customer are handled by a unique salesperson.
-චක්‌ එක්‌ පාරිභෝගිකයාගේ ඇණවුම්‌ හසුරැවනු ලබන්නේ අනන්‍ය විකුණුම්කරැවෙකු විසිනි.
-
-5) The relation consists of a composite primary key.
-වගුව සංයුක්ත ප්‍රාථමික යතුරකින්‌ (composite primary key) සමන්විත චේ.
-
-( 2022 - 30 & 32)
-
-49. Which of the following statements is/are correct regarding the normalization concept?
-ප්‍රමතකරණය (Normalization) සංකල්පය සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමන ප්‍රකාශ/ ය නිවැරදි ද?
-
-In first normal form, atomic attributes are removed from a relation.
-
-පළමු ප්‍රමත අවස්ථාවේදී (1NF), වගුව තුළ ඇති පරමාණුක උපලක්ෂණ (atomic attribute) ඉවත්‌
-කරනු ලැබේ.
-
-In second normal form, partial dependency of attributes on the primary key are
-removed.
-
-දෙවන OOD අවස්ථාවේදී (2NF), ප්‍රාටථම්ක යනුර (primary key) මත උපලක්ෂණවල ආංශික
-පරායත්තනාව (partial dependency) ඉවත්‌ කරනු ලැබේ.
-
-In third normal form, transitive dependency of attributes are removed.
-GOOD GOD අවස්ථාවේදී (3NF), උපලක්ෂණවල සංක්‍රාන්ති පරායත්තතාව (transitive
-dependency) ඉවත්‌ කරනු ලැබේ.
-
-1) Bonly. 2) 4 4011 6 001//. 3) AandConly. 4) 8 4011 ල 0(1/// 5) All of the above.
-
-8 පමණි. 7 හා 6 පමණි. Am C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
-
-( 2022 - 33 )
-
-50. Which of the following statements is/are correct regarding Entity Relationship (ER)
-modelling?
-
-QMBO සම්බන්ධතා eperaendgacs (ER Modelling) සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමන ප්‍රකාශ/ය
-නිවැරදි ද?
-
-A. Aweak entity is dependent on another entity.
-
-දුර්වල භූතාරිථයක්‌ (weak entity) තවන්‌ භූතාරීථයක්‌ මත රඳා පවතී.
-
-A derived attribute is represented as an attribute in a relation.
-
-ව්‍යුත්පන්න කරන ලද උපලක්ෂණයක්‌ (derived attribute) වගුවක්‌ තුළදී, උපලක්ෂණයක්‌ GEES
-නිරෑඈපණය වේ.
-
-An entity can contain a multi-value attribute and a composite attribute at the same
-time.
-
-භූතාර්ථයකට, ADO එේලාඑවේදී බහු-අගය (multi value) උපලක්ෂණයක්‌ සහ සංයුක්ත
-(composite) උපලක්ෂණයක්‌ අඩංගු විය හැකිය.
-
-1) Aonly. 2) 6 only. 3) AandConly. 4) BandConly. _ 5) All of the above.
-
-A පමණි. 8 පමණි. Aw C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
-
-( 2022 ~ 34)
-
-51. The following ER diagram represents a scenario of students borrowing books from a
-library. Which of the following gives the most suitable relation list for the given ER
-diagram?
-පහත භූතාරිථ සම්බන්ධතා රෑපසටහන (ER diagram) මගින්‌ සිසුන්‌ පුස්තකාලයකින්‌ පොත්‌ ලබාගන්නා
-
-සංසිද්ධියක්‌ නිරූපණය කරයි. දී ඇති භූතාරිථ සම්බන්ධතා රෑපසටහන සඳහා වඩාත්‌ සුදුසු වගු
-ලැයිස්තුව පහත කවරක්‌ ද?
-
-සටහන : author - ලේඛකයා, book - පොන, student - ශිෂ්‍යයා, write - ලිවීම, borrow -
-තාවකාලිකව ගැනීම
-
-"ට Gook_Namé) <p
-Book id) Id
-
-AUTHOR BOOK STUDENT
-1 m 1
-
-1) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
-STUDENT (Stu_Id, StuLFName, Stu_LName, DOB)
-AUTHOR (Aut_Id, Aut_Name)
-AUTHOR_QUALIFICATION (Aut _Id, Qualifications)
-
-2) BOOK (Book Id, Book_Name, ISBN)
-STUDENT (Stu_Id, StuLFName, Stu_LName, DOB)
-AUTHOR (Aut _Id, Aut_Name)
-AUTHOR_QUALIFICATION (Aut Id, Qualifications)
-
-3) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
-STUDENT (Stu_Id, StuLFName, Stu_LName, DOB)
-AUTHOR (Aut_Id, Aut_Name, Qualifications)
-
-4) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
-STUDENT (Stu_Id, Stu Name, DOB)
-AUTHOR (Aut Id, Aut_Name)
-AUTHOR_QUALIFICATION (Aut Id, Qualifications)
-
-5) BOOK (Book Id, Book_Name, ISBN, Stu_Id, Aut_Id)
-STUDENT (Stu_Id, StuLName, DOB)
-AUTHOR (Aut _Id, Aut_Name)
-AUTHOR_QUALIFICATION (Aut Id, Qualifications)
-BORROW (Aut Id, Book Id)
-WRITE (Aut Id, Book Id)
-
-(2022 ~ 35)
-
-54. Match the given entity attributes labelled from A to D to the corresponding descriptions
-labelled from 1 to 4.
-
-පහත A සිට D තෙක්‌ නම්‌ කර ඇති භූතාරීථ උපලක්ෂණ (attributes) 1 සිට 4 තෙක්‌ නම්‌ කර ඇති
-විස්නර සමග ගළපන්න.
-
-Entity attribute Description
-භූතාර්ථ උපලක්ෂණය විස්තරය
-
-Composite attribute
-සංයුක්ත උපලක්ෂණය
-
-an attribute that cannot be broken down into smaller components
-කුඩා සංරචකවලට GOES නොහැකි උපලක්ෂණයකි
-
-Simple attribute an attribute that can be broken down into component parts
-
-in
-
-'සරල උපලක්ෂණය 2 'සංරචක කොටස්වලට බෙදිය හැකි උපලක්ෂණයකි
-Multivalued attribute an attribute whose values can be calculated from related
-බහුඅගය උපලක්ෂණය 3 [attribute values
-Derived attribute අදාළ උපලක්ෂණවල අගයන්ගෙන්‌ DO අගය ගණනය කළ හැකි
-ච්‍යුත්පන්න උපලක්ෂණය උපලක්ෂණයකි
-
-4 4!) attribute that may take more than one value
-
-අගයන්‌ කිහිපයක්‌ තිබිය හැකි උපලක්ෂණයකි
-
--2, B-1, C-3, D-4 2) A-2, B-1, C-4, D-3 3) A-3, B-4, C-2, D-1
--4, B-2, C-3, D-1 5) A-4, B-3, C-1, D-2
-
-(2023 - 31)
-
-55. When the Employee entity of the Employee_Number
-following diagram is represented
-
-a database which of the aaa Empl al N
-. . e u——_ mployee ployee ame
-following should not be included? 'ල_ 5 prey
-
-රෑපයේ Employee භූතාරිථය දත්ත
-
-~ Designation
-සමුදායක නිරූපණය කිරීමේදී පහත
-කචරක්‌ ඇතුළත්‌ නොකළ යුතු ද?
-
-1)
-2)
-3)
-4)
-5)
-
-Date_of_Birth
-Designation
-Employee_Name
-Employee_Number
-Qualifications
-(2023 - 34)
-
-56. Which of the listed relations will be obtained if the following ER diagram is correctly
-mapped into the relational model?
-
-පහත ER රෑපසටහන, සම්බන්ධක ආකෘතියට (relational model) නිවැරදිව අනුරෑපණය (map) කළ
-ව්ට දී ලැයිස්තුගත කර ඇති කවර සම්බන්ධතා ලැබේ ද?
-
-ළත ලතා ලෟ හම
-
-1 M
-Lecturer Course
-
-A - Lecturer(NIC, LecturerName, DOB, Address)
-
-B - Lecturer(NIC, LecturerName, DOB, Address, Courseld)
-C - Teaches(NIC, Courseld, Hours)
-
-D - Course(Courseld, CourseName, Hours, NIC)
-
-1) Aand B only. 2) AandConly. 3) Aand Donly. 4) Band Conly. 5) A, Cand D only.
-7 හා B පමණි. Am C පමණි. Am D පමණි. 5 හා ල පමණි. A, ලංහා D පමණි.
-
-( 2023 - 35)
-
-57. Which of the following gives a correct matching between ER diagram components and the
-relational model?
-පහත ER රෑපසටහන්‌ සංරචක සහ සම්බන්ධක (relational) ආකෘතිය අතර නිවැරදි ගැළපීම කුමක්‌ ද?
-
-1) Entity > Field, Attribute -* Table, Unique attribute > Primary key, Multivalued attribute
-- Table
-භූතාර්ථය — ක්ෂේත්‍රය, උපලක්ෂණය - වගුව, අනන්‍ය උපලක්ෂණය -- ප්‍රාථමික යතුර, බහුඅගය
-උපලකක්‍්ෂණය -- වගුව
-
-2) Entity > Table, Attribute — Field, Unique attribute --* Primary key, Multivalued attribute
-— Table
-භූතාරිථය - වගුව, උපලක්ෂණය - ක්ෂේත්‍රය, අනන්‍ය උපලක්ෂණය - ප්‍රාථමික යතුර,
-බහුඅගය උපලක්ෂණය -- වගුව
-
-3) Entity ~* Table, Attribute > Field, Unique attribute ~~ Table, Multivalued attribute ~~
-Primary key
-භූතාරිථය ~ වගුව, උපලක්ෂණය - ක්ෂේත්‍රය, අනන්‍ය උපලක්ෂණය - වගුව, බහුඅගය
-උපලක්ෂණය -~ ප්‍රාථමික යතුර
-
-4) Entity > Table, Attribute — Primary key, Unique attribute — Primary key, Multivalued
-attribute > Table
-භූතාරිථය - වගුව, උපලක්ෂණය — MOSM යතුර, අනන්‍ය උපලක්ෂණය - ප්‍රාථමික යතුර,
-බහුඅගය උපලක්ෂණය -- වගුව
-
-5) Entity > Table, Attribute — Table, Unique attribute > Primary key, Multivalued attribute
-— Primary key
-භූතාරිථය —- වගුව, උපලක්ෂණය — වගුව, අනන්‍ය උපලක්ෂණය - ප්‍රාථමික යතුර, බහුඅගය
-උපලක්ෂණය -- ප්‍රාථම්ක යතුර
-( 2023 - 36)
-
-e Consider the following relations to answer questions 58 and 59.
-ප්‍රශ්න අංක 58 සහ 59 සඳහා පිළිතුරු ලබාදීම සඳහා පහත සම්බන්ධතා සලකන්න.
-
-adviser (adld, adName, adGender, adNIC, adPhone)
-farmer (farmerld, farmerName, farmerAddress, farmerPhone)
-
-task (taskld, taskName, farmerld, startDate, endDate)
-advises (adld, taskld, startDate, endDate)
-
-Note: adNIC — The National Identity Card number of an adviser
-
-සටහන: adviser — උපදේශකයා , farmer — ගොව්යා, task — කාර්ය, advises -- උපදෙස්‌ දෙයි, adNIC —
-උපදේශකයාගේ ජාතික හැඳුනුම්පත්‌ අංකය
-
-58. Which of the following statements are correct?
-BOD කවර ප්‍රකාශ නිවැරදි චේ ද?
-
-A - One farmer can have many tasks.
-චක්‌ ගොවියෙකුට කාර්ය කිහිපයක්‌ තිබිය හැකි ය.
-
-B - One adviser can advise many tasks.
-චක්‌ උපදේශකයෙකුට කාර්ය කිහිපයකට උපදෙස්‌ දිය හැකි ය.
-
-C - For one task, a farmer can have many advisers.
-චක්‌ කාරියක්‌ සඳහා ගොවියෙකුට උපදේශකයන්‌ කිහිපදෙනෙකු සිටිය හැකි ය.
-
-1) Aonly. 2) 4 4010 6 09(1/// 3) AandConly. 4) 6 401 Conly. 5) All of the above.
-A පමණි. Aw 6 පමණි. Am C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
-
-( 2023 - 37)
-
-59. Which of the following statements are correct with respect to the given relations?
-2 ඇති සම්බන්ධතා පිළිබඳව පහත කවර ප්‍රකාශ නිවැරදි ද?
-
-A ~ All relations are in 3'3 normal form.
-සියලු සම්බන්ධතා තෙවැනි ප්‍රමත අවස්ථාවේ (normal form) පවතී.
-
-B - The startDate attribute in the task relation is a derived attribute.
-task සම්බන්ධතාවයෙහි ඇති startDate උපලක්ෂණය ව්‍යුත්පන්න කළ (derived) උපලක්ෂණයකි.
-
-C - adNIC is a candidate key in the adviser relation.
-adviser සම්බන්ධතාවයෙහි ඇති adNiC යන්න අපේක්ෂක (candidate) යතුරකි.
-
 1) Aonly. 2) AandBonly. 3) AandConly. 4) 6 401 (ල _9(1/// 5) All of the above.
 A පමණි. Aw 6 පමණි. Am C පමණි. 8 හා C පමණි. ඉහත සියල්ලම.
 
@@ -891,7 +179,7 @@ house B <a> කී student
 Fill in the following blanks with the suitable labels or necessary information for the A, B, C,
 D and E shown in the ER diagram.
 
-භූතාරිථ සම්බන්ධක රෑපයේ A,B, C,D හා E සඳහා සුදුසු ලේබල හෝ අවශ්‍ය තොරතුරු යොදා පහත
+භූතාරිථ සම්බන්ධක රූපයේ A,B, C,D හා E සඳහා සුදුසු ලේබල හෝ අවශ්‍ය තොරතුරු යොදා පහත
 දැක්වෙන හිස්තැන්‌ පුරවන්න.
 
 ගී ~ ……
@@ -1056,7 +344,7 @@ Above statements are represented by the ER diagram in Figure 4.2.
 අයත්‌ වන්නේ එක්‌ පුද්ගලයකුට පමණි. දුරකථන අංකයෙන්‌ ජංගම දුරකථනයක්‌ අනන්‍යව හඳුනාගත
 
 හැකි බව උපකල්පනය කරන්න. ජාතික හැඳුනුම්පත්‌ අංකය (ජා.හැ. අංකය) පුද්ගලයකු අනන්‍යව
-හඳුනාගැනීමට යොදා ගනී. රෑපය 4.2 හි දැක්වෙන ER සටහන මගින්‌ ඉහත ප්‍රකාශ නිරූපණය කරයි.
+හඳුනාගැනීමට යොදා ගනී. රූපය 4.2 හි දැක්වෙන ER සටහන මගින්‌ ඉහත ප්‍රකාශ නිරූපණය කරයි.
 
 Telephone No CNIC No)
 
@@ -1159,10 +447,10 @@ DEPENDANT (……----------
 Identify the missing field names in each table and write them down against (P) — (5)
 චක්‌ එක්‌ OQGOSG දක්වා නොමැති ක්ෂේත්‍ර නාම හඳුනාගෙන (P) සිට (5) Q@060 ලියා දක්වන්න.
 
-(P) ~ ……..……
+(P) ~ ……෴..෴
 (0) -_ ……
 ([0) ~ ……
-(ව) ~ …….. 2
+(ව) ~ ……෴.. 2
 
 ( 2018 S.ESSAY )
 
@@ -1193,7 +481,7 @@ ClassName
 
 ClassTeacher
 
- ……ම
+ ෴ම
 
 ට ෴
 
@@ -1550,7 +838,7 @@ Note: DOB - Date of Birth
 
 20. Use the following Employee, and Assign Project denormalized tables to answer parts (i),
 (ii), (iii), (iv) and (v). Please note that primary key(s) of each table is(are) underlined.
-(i), (ii), (iii), (iv) සහ (Vv) යන කොටස්වලට පිළිතුරැ ලබාදීමට පහත සඳහන්‌ Employee (සේවක) සහ
+(i), (ii), (iii), (iv) සහ (Vv) යන කොටස්වලට පිළිතුරු ලබාදීමට පහත සඳහන්‌ Employee (සේවක) සහ
 Assign_Project (ව්‍යාපෘති අනියුක්තයන්‌) යන ප්‍රමතකරණය නොවූ වගු භාවිත කරන්න. එක්‌ එක්‌ වගුවේ
 ප්‍රාථමික යතුර(රැ) යටින්‌ ඉර්‌ ඇඳ ඇති බව සලකන්න.
 
@@ -1903,7 +1191,7 @@ Names of attributes in the output should be the same as names in the table defin
 A/AN ……-.--…… constraint.
 
 දත්ත නිරිචචන භාෂා (DDL) වගන්තියක්‌ භාවිතයෙන්‌ අර්ථ දක්වා ඇති උපලැකියක දිග (length)
-……ඇඇ……අඇඅඇ සංරෝධකයක්‌ වේ.
+෴ඇඇ෴අඇඅඇ සංරෝධකයක්‌ වේ.
 
 Which of the followings is the most appropriate to fill the blank in the above statement?
 පහත සඳහන්‌ කුමක්‌ ඉහත වගන්තියෙහි ඇති හිස්තැන පිරවීම සඳහා වඩාත්‌ සුදුසු වන්නේ ද?
@@ -1933,7 +1221,7 @@ attribute zscore in the above table to 2.1?
 (2016 - 48 )
 
 e Consider the following relation to answer questions:
-ප්‍රශ්නවලට පිළිතුරැ දීම සඳහා පහත EMO) ඇති සම්බන්ධතා සලකන්න:
+ප්‍රශ්නවලට පිළිතුරු දීම සඳහා පහත EMO) ඇති සම්බන්ධතා සලකන්න:
 
 book (book_no, title, publisher, edition)
 author (author_id, name, email_address)
@@ -2120,7 +1408,7 @@ subject වගුවෙහි Subject_lKd නම්‌ ක්ෂේත්‍ර�
 
 Consider the following Results and Subjects tables to answer question:
 
-ප්‍රශ්නයට පිළිතුරැ GOO පහත Results සහ Subjects වගු සලකන්න.
+ප්‍රශ්නයට පිළිතුරු GOO පහත Results සහ Subjects වගු සලකන්න.
 
 Results Subjects
 
@@ -2181,7 +1469,7 @@ e The tables which are partially extracted from a database used in an informatio
 
 developed for a shop are shown below. Answer questions using those tables.
 වෙළෙඳසැලක්‌ සඳහා සකස්‌ කරන ලද තොරතුරැ පද්ධතියක භාවිත කරන දත්ත සමුදායකින්‌ අර්ධ
-වශයෙන්‌ උපුටා ගත්‌ වගු කිහිපයක්‌ පහත දැක්වේ. එම වගු භාව්ත කර ප්‍රශ්නවලට පිළිතුරැ සපයන්න.
+වශයෙන්‌ උපුටා ගත්‌ වගු කිහිපයක්‌ පහත දැක්වේ. එම වගු භාව්ත කර ප්‍රශ්නවලට පිළිතුරු සපයන්න.
 
 ((151911161' (පාරිභෝගිකයා ) Product (භාණ්ඩය)
 Cusld Fname Lname Location Prold Name
@@ -2354,7 +1642,7 @@ capacity උපලක්ෂණය සඳහා captain, vice-captain, member ආ
 student sport
 
 Based on the table structures obtained in section above answer the following questions.
-ඉහත කොටසෙහි දී ලබා ගත්‌ OM ආකෘතීන්‌ SENS WO ගෙන පහත සඳහන්‌ ප්‍රශ්න සඳහා පිළිතුරැ
+ඉහත කොටසෙහි දී ලබා ගත්‌ OM ආකෘතීන්‌ SENS WO ගෙන පහත සඳහන්‌ ප්‍රශ්න සඳහා පිළිතුරු
 දෙන්න.
 
 (i) Write an SQL statement to get a list of sports that do not have captains.
@@ -2615,7 +1903,7 @@ Contracts වගුවේ EP003 ඒජන්ත කේතය සහිත ඒජ
 
 11. Use the following Employee, and Assign Project denormalized tables to answer parts (i),
 (ii), (iii), (iv) and (v). Please note that primary key(s) of each table is(are) underlined.
-(i), (ii), (iii), (iv) සහ (Vv) යන කොටස්වලට පිළිතුරැ ලබාදීමට පහත සඳහන්‌ Employee (සේවක) සහ
+(i), (ii), (iii), (iv) සහ (Vv) යන කොටස්වලට පිළිතුරු ලබාදීමට පහත සඳහන්‌ Employee (සේවක) සහ
 Assign_Project (ව්‍යාපෘති අනියුක්තයන්‌) යන ප්‍රමතකරණය නොවූ OQ භාවිත කරන්න. එක්‌ එක්‌ වගුවේ
 
 (ii)

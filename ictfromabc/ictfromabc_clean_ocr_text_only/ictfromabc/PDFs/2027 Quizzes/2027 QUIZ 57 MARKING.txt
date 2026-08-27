@@ -1,0 +1,281 @@
+1. Why is DRAM considered dynamic?
+DRAM, ගතික ලෙස සලකන්නේ ඇයි?
+
+1) It uses a dynamic programming architecture / එය ගතික ක්‍රමලේඛන ආකෘතියක් භාවිතා කරයි.
+2) It requires periodic refreshing to maintain data
+දත්ත පවත්වා ගැනීම සඳහා වරින් වර නැවුම් කිරීම අවශ්‍ය වේ.
+
+3) Its capacity varies dynamically with system requirements.
+එහි ධාරිතාව පද්ධති අවශ්‍යතා සමඟ ගතිකව වෙනස් වේ.
+
+4) It supports dynamic reallocation of storage resources.
+එය ගබඩා සම්පත් ගතිකව නැවත ස්ථානගත කිරීම සඳහා සහය දක්වයි.
+
+5) It operates dynamically across different voltage levels.
+එය විවිධ වෝල්ටීයතා මට්ටම් හරහා ගතිකව ක්‍රියාත්මක වේ.
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+DRAM (Dynamic Random-Access Memory) is considered dynamic because it stores data in tiny
+capacitors, which gradually lose their charge over time. To preserve the data, the capacitors need to be
+periodically refreshed.
+DRAM (ගතික සසම්භාවී-ප්‍රවේශ මතකය) ගතික ලෙස සලකනු ලබන්නේ එය කුඩා ධාරිත්‍රකවල දත්ත ගබඩා
+කරන නිසා වන අතර එමඟින් කාලයත් සමඟ ආරෝපණය ක්‍රමයෙන් නැති වේ. දත්ත සංරක්ෂණය කිරීම
+සඳහා, ධාරිත්‍රක වරින් වර නැවුම් කළ යුතුය.
+
+This periodic refreshing is what makes DRAM "dynamic." It contrasts with SRAM (Static RAM), which
+does not require refreshing because it uses flip-flops to store data.
+මෙම ආවර්තිතා නැවුම් කිරීම DRAM "ගතික" කරයි. එය SRAM (ස්ථිතික RAM) සමඟ වෙනස් වේ, එය
+දත්ත ගබඩා කිරීම සඳහා පිලි-පොළ භාවිතා කරන බැවින් එය නැවුම් කිරීම අවශ්‍ය නොවේ.
+
+So, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+Other options / වෙනත් විකල්ප:
+
+Option / විකල්ප 1)
+DRAM does not use a dynamic programming architecture.
+DRAM ගතික ක්‍රමලේඛන නිර්මාණ ආකෘතියක් භාවිතා නොකරයි.
+
+Option / විකල්ප 3)
+Its capacity is fixed and does not vary dynamically with system requirements.
+එහි ධාරිතාව ස්ථාවර වන අතර පද්ධති අවශ්‍යතා සමඟ ගතිකව වෙනස් නොවේ.
+
+Option / විකල්ප 4)
+It does not support dynamic reallocation of storage resources.
+එය ගබඩා සම්පත් ගතික නැවත වෙන් කිරීම සඳහා සහාය නොදක්වයි.
+
+Option / විකල්ප 5)
+DRAM does not operate dynamically across different voltage levels.
+DRAM විවිධ වෝල්ටීයතා මට්ටම් හරහා ගතිකව ක්‍රියා නොකරයි.
+2027 QUIZ SERIES
+2027 QUIZ NO 57 MARKING
+2025/12/23
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2. Calculate the answer for 3A16 + 568.
+3A16 + 568  සඳහා පිළිතුර ගණනය කරන්න.
+1)  1101002
+2)  6A16
+3) 10410
+4) 10210
+5) 1498
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+First, we should convert the above given numbers into decimal.
+මුලින්ම, ඉහත දී ඇති සංඛ්‍යා දශමය බවට පරිවර්තනය කළ යුතුය.
+
+3A16
+3
+A (10)
+161
+160
+3 × 16
+10 × 1
+48 + 10
+5810
+
+Now, we can add the two decimal numbers and get the result easily.
+දැන්, අපට දශමය සංඛ්‍යා දෙක එකතු කර ප්‍රතිඵලය පහසුවෙන් ලබා ගත හැක.
+
+5810 + 4610 = 10410
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+3. What is the false statement about sign-magnitude?
+ලකුණුවත් සංඛ්‍යා නිරූපණය පිළිබඳ අසත්‍ය ප්‍රකාශය කුමක්ද?
+
+1) Used to represent positive and negative numbers in the computer.
+පරිගණකයේ ධන සහ සෘණ සංඛ්‍යා නිරූපණය කිරීමට භාවිතා කරයි.
+2) Used 1 to represent the negative numbers and 0 to positive numbers as the first bit.
+සෘණ සංඛ්‍යා නියෝජනය කිරීමට 1 සහ ධන සංඛ්‍යා නියෝජනය කිරීමට 0 පළමු බිටුව ලෙස භාවිතා
+කරයි.
+3) Except for the first bit other bits are used to represent the absolute value.
+නිරපේක්ෂ අගය නිරූපණය කිරීමට පළමු බිටුව හැර අනෙකුත් බිටු භාවිතා වේ.
+4) To get the sign-magnitude value of a negative number, we should get the binary value of it and
+inverse it.
+සෘණ සංඛ්‍යාවක ලකුණුවත් සංඛ්‍යා නිරූපණ අගය ලබා ගැනීමට අප එහි ද්විමය අගය ලබාගෙන එය
+ප්‍රතිලෝම කළ යුතුය.
+5) Conversions between positive and negative numbers are simple.
+ධන සහ සෘණ සංඛ්‍යා අතර පරිවර්තන සරලයි.
+
+Answer : 4)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+This is correct. Sign magnitude is a method used in computers to represent both positive and negative
+numbers.
+මෙය සත්‍ය වේ. ලකුණුවත් සංඛ්‍යා නිරූපණය යනු ධන සහ ඍණ සංඛ්‍යා යන දෙකම නියෝජනය කිරීමට
+පරිගණකවල භාවිතා කරන ක්‍රමයකි.
+
+Option / විකල්ප 2)
+This is correct. The first bit (most significant bit) is the sign bit, where 1 represents a negative number
+and 0 represents a positive number.
+568
+5
+6
+81
+80
+5 × 8
+6 × 1
+40 + 6
+4610
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+මෙය සත්‍ය වේ. පළමු බිටුව (වැඩිම වෙසෙසි අගය) එම සංඛ්‍යාවේ ලකුණ වන අතර, 1 සෘණ අංකයක් සහ
+0 ධන අංකයක් නියෝජනය කරයි.
+
+Option / විකල්ප 3)
+This is correct. The remaining bits represent the absolute value of the number.
+මෙය සත්‍ය වේ. ඉතිරි බිටු, සංඛ්‍යාවේ නිරපේක්ෂ අගය නියෝජනය කරයි.
+
+Option / විකල්ප 4)
+This is incorrect. To get the sign-magnitude value of a negative number, we do not simply invert the
+bits. Instead, we set the first bit to 1 while keeping the magnitude (other bits) the same. The inversion
+method is used in two’s complement, not sign-magnitude.
+මෙය අසත්‍ය වේ. ලකුණුවත් සංඛ්‍යාවක අගය ලබා ගැනීමට, අපි හුදෙක් බිටු පෙරළන්නේ නැත. ඒ වෙනුවට,
+විශාලත්වය (අනෙකුත් බිටු) එලෙසම තබා ගනිමින් පළමු බිටුව 1 ලෙස සකස් කරයි. ප්‍රතිලෝම ක්‍රමය භාවිතා
+කරනුයේ දෙකෙහි අනුපූරකයේ මිස ලකුණු සහිත සංඛ්‍යාවලදී නොවේ.
+
+Option / විකල්ප 5)
+This is correct. Converting between positive and negative numbers in sign magnitude is easy; just flip
+the sign bit without altering the magnitude bits.
+මෙය සත්‍ය වේ. ලකුණුවත් සංඛ්‍යා නිරූපණයේදී ධන සහ සෘණ සංඛ්‍යා අතර පරිවර්තනය පහසුය. පළමු
+බිටුව පෙරළීමෙන් එය සිදු කළ හැකිය.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+4. What is the 1’s complement representation of 12 and -49?
+12 හා -49 හි එකෙහි අනුපූරක නියෝජනය වනුයේ කුමක්ද?
+1) 101000002, 001100112
+2) 101000012, 011010102
+3) 000011002, 110011102
+4) 010111112, 011111102
+5) 110011002, 010111112
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Here, the question is asked to get the 1’s complement of 12. 12 is a positive number. So, it’s enough to
+get the binary value of the decimal number 12. No need to inverse and add one to the binary value.
+මෙහිදී, ධන 12 හි එකෙහි අනුපූරකය ලබා ගැනීමට ප්‍රශ්නය අසයි. එබැවින්, දශමය අංක 12 හි ද්විමය
+අගය ලබා ගැනීම ප්‍රමාණවත් වේ. ද්විමය අගයට එකක් එකතු කර ප්‍රතිලෝම කිරීම අවශ්‍ය නොවේ.
+
+2
+12
+
+2
+6
+- 0
+2
+3
+- 0
+2
+1
+- 1
+2
+0
+- 1
+
+As we are representing the 1’s complement value in 8 bits, we should add 0s in front of the whole value.
+අපි බිටු 8 කින් එකෙහි අනුපූරක අගය නියෝජනය කරන බැවින් සම්පූර්ණ අගය ඉදිරියෙන් 0 එකතු කළ
+යුතුය.
+
+1210 = 000011002
+
+Also, the question is asked to get the 1’s complement of -49. First, we need to get the binary value of 49.
+එසේම, ප්‍රශ්නයෙන් -49 හි එකෙහි අනුපූරකය ලබා ගැනීමට පවසයි. පළමුව, අප 49 හි ද්වීමය අගය ලබා
+ගත යුතුයි.
+
+2026 QUIZ SERIES
+#ictfromabc
+-3-
+
+As we represent the 1’s complement value in 8 bits we should add 0s before the whole value.
+අපි බිටු 8 කින් එකෙහි අනුපූරක අගය නියෝජනය කරන බැවින් සම්පූර්ණ අගයට පෙර 0 එකතු කළ
+යුතුය.
+
+4910 = 001100012
+
+After this, the binary value should be inverted. / මෙයින් පසු, ද්විමය අගය ප්‍රතිලෝම කළ යුතුය.
+
+001100012 → 110011102
+
+So, the answer is / එබැවින්, පිළිතුර වන්නේ: 000011002 and 110011102
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+5. A security system uses three sensors: Motion (M), Door (D), and Window (W). An alarm (A) is
+triggered if either the Door or Window is breached, but only if there is no motion detected. Which
+combination of logic gates correctly represents the alarm condition?
+ආරක්ෂක පද්ධතියක් සංවේදක තුනක් භාවිතා කරයි. ඒවානම් චලන (M), දොර (D) සහ ජනේලය (W) වේ.
+දොර හෝ ජනේලය විවෘත වුවහොත් අනතුරු ඇඟවීමක් (A) ක්‍රියාත්මක කරනු ලැබේ, නමුත් චලනයක්
+අනාවරණය වී නොමැති නම් පමණි. අනතුරු ඇඟවීමේ තත්ත්වය නිවැරදිව නියෝජනය කරන්නේ කුමන
+තාර්කික සංයෝජනයෙන්ද?
+
+1)  A = (M AND D) OR (M AND W)
+4)  A = M AND (D OR W)
+2)  A = (NOT M) AND (D OR W)
+5)  A = (NOT M) OR (D AND W)
+3)     A = (M OR D) AND (M OR W)
+
+Answer: 2)
+Explanation / පැහැදිලි කිරීම:
+
+In this security system, the alarm (A) is triggered if either the Door (D) or Window (W) is breached, but
+only if there is no motion detected (NOT M).
+මෙම ආරක්ෂක පද්ධතිය තුළ, දොර (D) හෝ ජනේලය (W) කැඩී ගියහොත් අනතුරු ඇඟවීම (A) ක්‍රියාත්මක
+කරනු ලැබේ, නමුත් චලනයක් අනාවරණය වී නොමැති නම් (NOT M) නොවේ පමණි.
+
+This can be broken down into two conditions / මෙය කොන්දේසි දෙකකට බෙදිය හැකිය
+
+The Door (D) or Window (W) is breached (logical OR operation between D and W).
+දොර (D) හෝ ජනේලය (W) කැඩී ඇත (D සහ W අතර තාර්කික OR මෙහෙයුම).
+
+There is no motion detected, which is represented as NOT M.
+NOT M ලෙස නිරූපණය වන චලනයක් අනාවරණය වී නොමැත.
+
+So, the condition for the alarm can be described as A = (NOT M) AND (D OR W).
+එබැවින්, අනතුරු ඇඟවීමේ කොන්දේසිය A = (NOT M) AND (D OR W) ලෙස විස්තර කළ හැකිය.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2
+49
+
+2
+24
+- 1
+2
+12
+- 0
+2
+6
+- 0
+2
+3
+- 0
+2
+1
+- 1
+
+0
+- 1
+2027 QUIZ SERIES
+#ictfromabc
+-4-

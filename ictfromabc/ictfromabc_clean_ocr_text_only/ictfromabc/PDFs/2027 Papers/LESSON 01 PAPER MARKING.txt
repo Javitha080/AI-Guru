@@ -1,0 +1,1918 @@
+1. Which is the correct sequence of the data life cycle?
+දත්ත ජීවන චක්‍රයේ නිවැරදි අනුපිළිවෙල කුමක්ද?
+
+1) Process → Output → Storage / ක්‍රියාවලිය → ප්‍රතිදානය → ගබඩා කිරීම
+2) Input → Output → Process / ආදානය → ප්‍රතිදානය → ක්‍රියාවලිය
+3) Creation → Management → Removal / නිර්මාණය → කළමනාකරණය → ඉවත් කිරීම
+4) Output → Feedback → Input / ප්‍රතිදානය → ප්‍රතිපෝෂණය → ආදානය
+5) Decision → Input → Output / තීරණය → ආදානය → ප්‍රතිදානය
+
+Answer : 3)
+
+Explanation/ පැහැදිලි කිරීම
+
+Option/ විකල්පය 1)
+This skips the input/creation step and wrongly places output before storage, which is illogical.
+මෙය ආදාන/නිර්මාණ පියවර මඟ හරින අතර ගබඩා කිරීමට පෙර ප්‍රතිදානය වැරදි ලෙස තබයි, එය තාර්කික
+නොවේ.
+
+Normally: Input → Process → Output, and storage can occur at any stage.
+සාමාන්‍යයෙන්: ආදානය → ක්‍රියාවලිය → ප්‍රතිදානය සහ ගබඩා කිරීම ඕනෑම අදියරකදී සිදුවිය හැක.
+
+This is an incorrect sequence.
+මෙය වැරදි අනුපිළිවෙලකි.
+
+Option/ විකල්ප 2)
+This is not logical: You can’t get output before processing the input.
+මෙය තාර්කික නොවේ: ආදානය සැකසීමට පෙර ඔබට ප්‍රතිදානය ලබා ගත නොහැක.
+
+Correct order should be: Input → Process → Output
+නිවැරදි අනුපිළිවෙල විය යුත්තේ: ආදානය → ක්‍රියාවලිය → ප්‍රතිදානය
+
+This is also an incorrect sequence.
+මෙය ද වැරදි අනුපිළිවෙලකි.
+
+Option/ විකල්ප 3)
+This sequence matches the typical Data Life Cycle, which describes the stages data goes through from the
+moment it's created to when it's no longer needed and is disposed of.
+මෙම අනුපිළිවෙල සාමාන්‍ය දත්ත ජීවන චක්‍රයට ගැලපේ, එය දත්ත නිර්මාණය කළ මොහොතේ සිට එය
+තවදුරටත් අවශ්‍ය නොවන සහ බැහැර කරන අවස්ථාව දක්වා ගමන් කරන අවධීන් විස්තර කරයි.
+
+Creation: Data is first generated or collected.
+නිර්මාණය: දත්ත මුලින්ම ජනනය කරනු ලැබේ හෝ එකතු කරනු ලැබේ.
+
+Example: A user fills out a form, a sensor records temperature, etc.
+උදාහරණය: පරිශීලකයෙකු පෝරමයක් පුරවයි, සංවේදකයක් උෂ්ණත්වය වාර්තා කරයි, ආදිය.
+
+Management: The data is stored, processed, accessed, secured, updated, and maintained.
+කළමනාකරණය: දත්ත ගබඩා කිරීම, සැකසීම, ප්‍රවේශ වීම, සුරක්ෂිත කිරීම, යාවත්කාලීන කිරීම සහ නඩත්තු
+කිරීම.
+
+Example: Saving the form data in a database, analyzing it, backing it up.
+උදාහරණය: දත්ත සමුදායක පෝරම දත්ත සුරැකීම, විශ්ලේෂණය කිරීම, උපස්ථ කිරීම.
+
+RAVINDU BANDARANAYAKE
+LESSON 01  PAPER MARKING
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Removal: Once data is no longer needed, it's archived or deleted securely.
+ඉවත් කිරීම: දත්ත තවදුරටත් අවශ්‍ය නොවන විට, එය සංරක්ෂණය කිරීම හෝ ආරක්ෂිතව මකා දැමීම සිදු
+කෙරේ.
+
+Example: Deleting old records after a retention period ends.
+උදාහරණය: රඳවා ගැනීමේ කාලයක් අවසන් වූ පසු පැරණි වාර්තා මකා දැමීම.
+
+So, this option correctly shows the life cycle of data:
+ඉතින්, මෙම විකල්පය දත්තවල ජීවන චක්‍රය නිවැරදිව පෙන්වයි:
+
+Option/ විකල්ප 4)
+This seems to describe a control system or feedback loop, not the data life cycle.
+මෙය දත්ත ජීවන චක්‍රය නොව පාලන පද්ධතියක් හෝ ප්‍රතිපෝෂණ ලූපයක් විස්තර කරන බව පෙනේ.
+
+It misses the creation, storage, and deletion of data.
+එයට දත්ත නිර්මාණය, ගබඩා කිරීම සහ මකා දැමීම මග හැරේ.
+
+Not related to full data life cycle/ සම්පූර්ණ දත්ත ජීවන චක්‍රයට සම්බන්ධ නොවේ.
+
+Option/ විකල්ප 5)
+Decision-making happens after data is processed, not before input.
+තීරණ ගැනීම සිදුවන්නේ දත්ත සැකසූ පසු මිස ආදානයට පෙර නොවේ.
+
+The correct flow is: Input → Process → Decision/Output
+නිවැරදි ප්‍රවාහය වන්නේ: ආදානය → ක්‍රියාවලිය → තීරණය/ප්‍රතිදානය
+
+This is an incorrect order and concept.
+මෙය වැරදි අනුපිළිවෙලක් සහ සංකල්පයකි.
+
+2. Explain how a data can be an information and an information can be a data depending on user requirements.
+Explain with an example.
+පරිශීලක අවශ්‍යතා අනුව දත්තයක් තොරතුරක් විය හැකි ආකාරය සහ තොරතුරක් දත්තයක් විය හැකි ආකාරය
+උදාහරණයක් සමඟ පැහැදිලි කරන්න.
+
+The concepts of data and information are closely related, and the distinction between them often depends
+on context and user requirements.
+දත්ත සහ තොරතුරු පිළිබඳ සංකල්ප සමීපව සම්බන්ධ වන අතර, ඒවා අතර වෙනස බොහෝ විට සන්දර්භය
+සහ පරිශීලක අවශ්‍යතා මත රඳා පවතී.
+
+Core Concept / මූලික සංකල්පය:
+Data: Raw, unprocessed facts. It has no meaning by itself.
+දත්ත: අමු, සකස් නොකළ කරුණු. එයට තනිවම අර්ථයක් නැත.
+
+Information: Processed, organized, or structured data that is meaningful to the user.
+තොරතුරු: පරිශීලකයාට අර්ථවත් වන සැකසූ, සංවිධානාත්මක හෝ ව්‍යුහගත දත්ත.
+
+What is data for one user can be information for another, and vice versa, depending on needs.
+එක් පරිශීලකයෙකු සඳහා දත්ත යනු තවත් පරිශීලකයෙකුට තොරතුරු විය හැකි අතර, අවශ්‍යතා මත
+පදනම්ව අනෙක් අතටද විය හැකිය.
+
+Example 1: Weather Data / කාලගුණ දත්ත
+Data / දත්ත:
+28°C, 75%, 1013 hPa, 08:00 AM
+
+Just a set of numbers: temperature, humidity, pressure, time.
+සංඛ්‍යා කට්ටලයක් පමණි: උෂ්ණත්වය, ආර්ද්‍රතාවය, පීඩනය, වේලාව.
+
+User 1: A regular person planning their day/ නිතිපතා තම දවස සැලසුම් කරන පුද්ගලයෙක්
+Information: "It's 28°C and humid. It might feel hot today."
+තොරතුරු: එය 28°C සහ තෙතමනය සහිතයි. අද උණුසුම් බවක් දැනෙන්නට පුළුවන."
+
+This person interprets the raw data to decide what to wear. For them, this is information.
+මෙම පුද්ගලයා අඳින්නේ කුමක් දැයි තීරණය කිරීම සඳහා අමු දත්ත අර්ථකථනය කරයි. ඔවුන්ට, මෙය
+තොරතුරු වේ.
+-3-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+User 2: A weather scientist / කාලගුණ විද්‍යාඥයෙක්
+These same numbers are raw data for further analysis (e.g., predicting storms).
+මෙම සංඛ්‍යා තවදුරටත් විශ්ලේෂණය සඳහා අමු දත්ත වේ (උදා: කුණාටු පුරෝකථනය කිරීම).
+
+For the scientist, it's data to be processed into information like weather predictions.
+විද්‍යාඥයා සඳහා, එය කාලගුණ අනාවැකි වැනි තොරතුරු සැකසීමට අවශ්‍ය දත්ත වේ.
+
+Example 2: Student Grades / ශිෂ්‍ය ශ්‍රේණි
+Data / දත්ත: 85, 78, 92, 67
+(Marks for a student in four subjects / විෂයයන් හතරකින් ශිෂ්‍යයෙකුට ලකුණු)
+
+User 1: The Student / ශිෂ්‍යයා
+Information: “I passed all subjects and did well in math.”
+තොරතුරු: මම සියලුම විෂයයන් සමත් වූ අතර ගණිතය හොඳින් කළා.
+
+Student uses it to evaluate their performance / ශිෂ්‍යයා තම කාර්ය සාධනය ඇගයීමට එය භාවිතා කරයි.
+
+User 2: School Admin / පාසල් පරිපාලක
+For the admin, these are raw data / පරිපාලක සඳහා, මේවා අමු දත්ත වේ.
+
+They process it to calculate class average, pass rate → becomes information for reports.
+ඔවුන් පන්ති සාමාන්‍යය ගණනය කිරීම සඳහා එය සකසයි, සමත් වීමේ අනුපාතය → වාර්තා සඳහා තොරතුරු
+බවට පත්වේ.
+
+Example 3: Social Media Metrics / සමාජ මාධ්‍ය මිනුම්
+Data / දත්ත: 300 likes, 50 comments, 20 shares
+
+User 1: A Social Media Manager / සමාජ මාධ්‍ය කළමනාකරුවෙක්
+Information / තොරතුරු: "This post has high engagement / මෙම සටහනට ඉහළ ප්‍රතිචාර ඇත."
+These numbers tell them something useful/ මෙම සංඛ්‍යා ඔවුන්ට ප්‍රයෝජනවත් දෙයක් කියයි.
+
+User 2: A Data Analyst/ දත්ත විශ්ලේෂකයෙක්
+They use these numbers as raw data to analyze trends across months or platforms.
+මාස හෝ වේදිකා හරහා ප්‍රවණතා විශ්ලේෂණය කිරීමට ඔවුන් මෙම සංඛ්‍යා අමු දත්ත ලෙස භාවිතා කරයි.
+
+Only after aggregating and interpreting does it become information.
+එය එකතු කර අර්ථ නිරූපණය කිරීමෙන් පසුව පමණක් එය තොරතුරු බවට පත්වේ.
+
+Example 4: Health Monitoring/ සෞඛ්‍ය අධීක්ෂණය
+Data: BP: 140/90, Pulse: 100, Temp: 38.5°C
+
+User 1: The Patient/ රෝගියා
+Information/ තොරතුරු: “My blood pressure is high, and I have a fever
+/ මගේ රුධිර පීඩනය ඉහළයි, මට උණ තියෙනවා.”
+
+They can act on this/ ඔවුන්ට මේ මත ක්‍රියා කළ හැකිය.
+
+User 2: Doctor/ වෛද්‍යවරයා
+These are data points/ මේවා දත්ත ලක්ෂ්‍ය වේ.
+Doctor combines it with other symptoms and test results to derive information.
+වෛද්‍යවරයා එය වෙනත් රෝග ලක්ෂණ සහ පරීක්ෂණ ප්‍රතිඵල සමඟ ඒකාබද්ධ කර තොරතුරු ලබා ගනී
+
+Example 5: Business Sales Report/ ව්‍යාපාර විකුණුම් වාර්තාව
+Data/ දත්ත: Daily sales/ දෛනික විකුණුම්: 100, 150, 120, 130
+
+User 1: Store Manager /ගබඩා කළමනාකරු
+Information/ තොරතුරු: “Sales dropped on Tuesday and increased on Wednesday.”
+/ අඟහරුවාදා විකුණුම් පහත වැටී බදාදා වැඩි විය.
+
+Acts on the insight/ තීක්ෂ්ණ බුද්ධිය මත ක්‍රියා කරයි.
+-3-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+User 2: Regional Director/ ප්‍රාදේශීය අධ්‍යක්ෂ
+These are part of a large dataset for multiple stores.
+මේවා බහු වෙළඳසැල් සඳහා විශාල දත්ත කට්ටලයක කොටසකි.
+Needs further processing (total sales, trends) to gain useful information.
+ප්‍රයෝජනවත් තොරතුරු ලබා ගැනීම සඳහා තවදුරටත් සැකසීම (මුළු විකුණුම්, ප්‍රවණතා) අවශ්‍ය වේ.
+
+Any answer which shows the difference between a data and an information depending on user
+requirements is acceptable.
+පරිශීලක අවශ්‍යතා අනුව දත්ත සහ තොරතුරු අතර වෙනස පෙන්වන ඕනෑම පිළිතුරක් පිළිගත හැකිය.
+
+3. Data becomes information after it has been … processed.… .
+දත්ත තොරතුරු බවට පත්වන්නේ එය … සැකසීමෙන් ….  පසුවය.
+
+Data becomes information after it has been processed.
+දත්ත සැකසීමෙන් පසු තොරතුරු බවට පත් වේ.
+
+Explanation/ පැහැදිලි කිරීම:
+Processed/ සැකසූ:
+Raw data must be organized or analyzed to become meaningful — that's when it becomes information.
+අමු දත්ත අර්ථවත් වීමට සංවිධානය කළ යුතු හෝ විශ්ලේෂණය කළ යුතුය - එවිට එය තොරතුරු බවට
+පත්වේ.
+
+4. Which of the following is NOT a characteristic of valuable information?
+වටිනා තොරතුරු වල ලක්ෂණයක් නොවන්නේ පහත සඳහන් ඒවායින් කුමක්ද?
+1) Timely/ කාලෝචිත බව
+2) Accurate/ නිවැරදි බව
+3) Relevant/ අදාළ බව
+4) Understandable/ තේරුම් ගත හැකි බව 5) Repetitiveness/ පුනරාවර්තනය
+Answer : 5)
+
+Explanation / පැහැදිලි කිරීම
+Option/ විකල්පය 1
+Valuable information must be provided at the right time so that decisions can be made effectively.
+ඵලදායී ලෙස තීරණ ගත හැකි වන පරිදි වටිනා තොරතුරු නියම වේලාවට ලබා දිය යුතුය.
+Example: A weather warning is only useful before a storm hits. If it comes after, it’s useless.
+උදාහරණය: කාලගුණ අනතුරු ඇඟවීමක් ප්‍රයෝජනවත් වන්නේ කුණාටුවක් ඇතිවීමට පෙර පමණි. එය පසුව
+පැමිණියහොත් එය නිෂ්ඵල වේ.
+Therefore this is a characteristic of valuable information.
+එබැවින් මෙය වටිනා තොරතුරු වල ලක්ෂණයකි.
+
+Option/ විකල්ප 2
+Information must be correct and reliable. Inaccurate data can lead to wrong decisions.
+තොරතුරු නිවැරදි සහ විශ්වාසදායක විය යුතුය. සාවද්‍ය දත්ත වැරදි තීරණ වලට තුඩු දිය හැකිය.
+Example: If a report says a company made a profit when it actually made a loss, it can mislead stakeholders.
+උදාහරණය: සමාගමක් ඇත්ත වශයෙන්ම පාඩු ලැබූ විට, එය ලාභයක් ලැබූ බව වාර්තාවක් පවසන්නේ නම්, එය
+පාර්ශවකරුවන් නොමඟ යැවිය හැකිය.
+So this is a characteristic of valuable information.
+එබැවින් මෙය වටිනා තොරතුරු වල ලක්ෂණයකි.
+
+Option/ විකල්ප 3
+Information must be related to the context or decision being made. Irrelevant data adds no value.
+තොරතුරු සන්දර්භයට හෝ ගනු ලබන තීරණයට සම්බන්ධ විය යුතුය. අදාළ නොවන දත්ත කිසිදු වටිනාකමක්
+එක් නොකරයි.
+Example: If you're analyzing student performance, test scores are relevant—weather data is not.
+උදාහරණය: ඔබ ශිෂ්‍ය කාර්ය සාධනය විශ්ලේෂණය කරන්නේ නම්, පරීක්ෂණ ලකුණු අදාළ වේ—කාලගුණ දත්ත
+එසේ නොවේ.
+Therefore this is also a characteristic of valuable information.
+එබැවින් මෙය වටිනා තොරතුරු වල ලක්ෂණයකි.
+
+-4-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option/ විකල්ප 4
+Even if the data is accurate and timely, it must be presented clearly so users can grasp it.
+දත්ත නිවැරදි හා කාලෝචිත වුවද, පරිශීලකයින්ට එය ග්‍රහණය කර ගත හැකි වන පරිදි එය පැහැදිලිව
+ඉදිරිපත් කළ යුතුය.
+
+Example: Technical data shown in a confusing chart is less useful than the same data shown clearly in a
+table.
+උදාහරණය: ව්‍යාකූල ප්‍රස්ථාරයක දැක්වෙන තාක්ෂණික දත්ත, වෙනත් පැහැදිලිව වගුවක දක්වා ඇති එම
+දත්තවලට වඩා අඩු ප්‍රයෝජනවත් වේ.
+
+This is also a characteristic of valuable information.
+මෙය ද වටිනා තොරතුරු වල ලක්ෂණයකි.
+
+Option/ විකල්ප 5
+Repetition means the same information is presented again and again without adding anything new.
+පුනරාවර්තනය යන්නෙන් අදහස් කරන්නේ අලුත් කිසිවක් එකතු නොකර එකම තොරතුරු නැවත නැවතත් ඉදිරිපත්
+කිරීමයි.
+
+This can waste time, cause information overload, and confuse the decision-making process.
+මෙය කාලය නාස්ති කිරීමට, තොරතුරු අධික ලෙස පැටවීමට සහ තීරණ ගැනීමේ ක්‍රියාවලිය ව්‍යාකූල කිරීමට
+හේතු විය හැක.
+
+Example: Getting the same daily report multiple times doesn’t improve decisions.
+උදාහරණය: එකම දෛනික වාර්තාව කිහිප වතාවක් ලබා ගැනීමෙන් තීරණ වැඩිදියුණු නොවේ.
+
+Therefore this is not a characteristic of valuable information.
+එබැවින් මෙය වටිනා තොරතුරු වල ලක්ෂණයක් නොවේ.
+
+Therefore the answer is 5)
+එබැවින් පිළිතුර 5) වේ
+
+5. What is meant by the Golden Rule of Information? (Explain with a graph)
+තොරතුරු පිළිබද ස්වර්ණමය න්‍යාය මගින් අදහස් කරන්නේ කුමක්ද? (ප්‍රස්තාරය මගින් පහදන්න)
+
+The value of information is decided according to its freshness. Information has a maximum value at
+the time it is created or released. This is calle ‘Golden Rule of Information’.
+තොරතුරු වල වටිනාකම තීරණය වන්නේ එහි නැවුම් බව අනුව ය. තොරතුරු නිර්මාණය කරන විට හෝ නිකුත්
+කරන විට උපරිම වටිනාකමක් ඇත. මෙය තොරතුරු පිළිබඳ ස්වර්ණමය න්‍යායය ලෙස හැඳින්වේ.
+
+Information is only valuable if it is relevant, accurate, timely, and understandable to the person who needs
+it.
+තොරතුරු වටිනා වන්නේ අවශ්‍ය පුද්ගලයාට එය අදාළ, නිවැරදි, කාලෝචිත සහ තේරුම් ගත හැකි නම් පමණි.
+
+Here from the Y axis represents the value of an information while the X axis shows the time passing. The
+diagram shows how the value of an information decreases with the passing time.
+මෙහි Y අක්ෂය තොරතුරු වල වටිනාකම නිරූපණය කරන අතර X අක්ෂය කාලය ගතවීම පෙන්වයි. කාලය
+ගෙවී යාමත් සමඟ තොරතුරු වල වටිනාකම අඩු වන ආකාරය රූප සටහනේ දැක්වේ.
+
+Information is only as valuable as it is relevant and timely to the user.
+තොරතුරු
+වටිනා
+වන්නේ
+එය
+පරිශීලකයාට
+අදාළ
+සහ
+කාලෝචිත
+වන
+තරමට
+පමණි.
+
+Unneeded or late information, even if accurate, is nearly useless.
+අනවශ්‍ය හෝ ප්‍රමාද වූ තොරතුරු, නිවැරදි වුවද, නිෂ්ඵල වේ.
+
+-5-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+6. What is a common feature of Big Data?
+මහා දත්තවල පොදු ලක්ෂණයක් වන්නේ කුමක්ද?
+
+1) Stored on CDs / සංයුක්ත තැටිවල ගබඩා කර ඇත
+2) Simple data formats / සරල දත්ත ආකෘති
+3) High volume, velocity, variety / ඉහළ පරිමාව, ප්‍රවේගය, විවිධත්වය
+4) Small datasets / කුඩා දත්ත කට්ටල
+5) Low processing cost / අඩු සැකසුම් පිරිවැය
+
+Answer : 3)
+
+Explanation / පැහැදිලි කිරීම
+
+Option/ විකල්පය 1)
+Incorrect/ වැරදියි
+CDs have limited storage capacity (usually around 700MB).
+සංයුක්ත තැටිවල වල සීමිත ගබඩා ධාරිතාවක් ඇත (සාමාන්‍යයෙන් 700MB පමණ).
+
+Big Data involves terabytes to petabytes of data.
+මහා දත්තවලට ටෙරාබයිට් සිට පෙටාබයිට් දක්වා දත්ත ඇතුළත් වේ.
+
+So, storing Big Data on CDs is impractical and outdated.
+එබැවින්, සීඩී වල මහා දත්ත ගබඩා කිරීම ප්‍රායෝගික නොවන අතර යල් පැන ගිය ක්‍රමයකි.
+
+Option/ විකල්පය 2)
+Incorrect/ වැරදියි
+Big Data includes complex and diverse formats/ මහා දත්ත වලට සංකීර්ණ සහ විවිධ ආකෘති ඇතුළත් වේ:
+
+Structured (e.g., databases)/ ව්‍යුහගත (උදා: දත්ත සමුදායන්)
+
+Semi-structured (e.g., JSON, XML)/ අර්ධ ව්‍යුහගත (උදා: JSON, XML)
+
+Unstructured (e.g., images, audio, text)/ ව්‍යුහගත නොවූ (උදා: රූප, ශ්‍රව්‍ය, පෙළ)
+
+Therefore, Big Data does not use only simple formats.
+එබැවින්, මහා දත්ත සරල ආකෘති පමණක් භාවිතා නොකරයි.
+
+Option/ විකල්ප 3)
+Correct/ නිවැරදියි
+These are the three V's of Big Data. The most well-known characteristics:
+මහා දත්ත තුළ V's අඩංගු වේි. වඩාත් ප්‍රසිද්ධ ලක්ෂණ:
+
+Volume – Large amount of data/ පරිමාව – විශාල දත්ත ප්‍රමාණයක්
+
+Velocity – Fast data generation and processing/ ප්‍රවේගය – වේගවත් දත්ත උත්පාදනය සහ සැකසීම
+
+Variety – Different types of data/ විවිධත්වය – විවිධ වර්ගයේ දත්ත
+
+This option accurately describes the nature of Big Data.
+මෙම විකල්පය ඊසට මහා දත්තවල ස්වභාවය නිවැරදිව විස්තර කරයි.
+
+Option/ විකල්ප 4)
+Incorrect/ වැරදියි
+The term "Big Data" itself means large datasets/ මහා දත්ත යන යෙදුමේ තේරුම විශාල දත්ත කට්ටලයි.
+Big Data usually refers to huge volumes of data that cannot be handled by traditional methods.
+මහා දත්ත සාමාන්‍යයෙන් සම්ප්‍රදායික ක්‍රම මගින් හැසිරවිය නොහැකි විශාල දත්ත පරිමාවන් ගැන සඳහන්
+කරයි.
+
+Option/ විකල්ප 5)
+Incorrect/ වැරදියි
+Processing Big Data requires advanced tools and powerful infrastructure, such as:
+මහා දත්ත සැකසීම සඳහා දියුණු මෙවලම් සහ බලවත් යටිතල පහසුකම් අවශ්‍ය වේ, එනම්:
+Distributed computing (e.g., Hadoop, Spark)/ බෙදා හරින ලද පරිගණකකරණය (උදා: Hadoop, Spark)
+-6-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Cloud services/ වලාකුළු සේවා
+This often results in high processing costs, not low.
+මෙය බොහෝ විට අඩු නොව ඉහළ සැකසුම් පිරිවැයක් ඇති කරයි.
+
+Therefore the answer is 3)
+එබැවින් පිළිතුර 3) වේ
+
+7. List 4 applications of information in day-to-day life.
+එදිනෙදා ජීවිතයේදී තොරතුරු වල යෙදීම් 4ක් ලැයිස්තුගත කරන්න.
+
+Decision Making / තීරණ ගැනීම
+
+Policy Making / ප්‍රතිපත්ති සම්පාදනය
+
+Predictions / පුරෝකථනය
+
+Planning, Scheduling and Monitoring / සැලසුම් කිරීම, කාලසටහන්ගත කිරීම සහ අධීක්ෂණය
+
+8. What is a major drawback of manual data processing?
+අත්යුරු දත්ත සැකසීමේ ප්‍රධාන අඩුපාඩුව කුමක්ද?
+
+1) Utilizes traditional printing methods / සාම්ප්‍රදායික මුද්‍රණ ක්‍රම භාවිතා කරයි
+2) Susceptible to human error during data handling / දත්ත හැසිරවීමේදී මානව දෝෂ ඇති වේ
+3) Requires minimal use of paper resources / කඩදාසි සම්පත් අවම වශයෙන් භාවිතා කිරීම
+4) Easily scalable and automatable / පහසුවෙන් පරිමාණය කළ හැකි සහ ස්වයංක්‍රීය කළ හැකිවීම
+5) Offers enhanced data security over computerized systems
+පරිගණකගත පද්ධතිවලට වඩා වැඩි දියුණු කළ දත්ත ආරක්ෂාවක් ලබා දෙයි
+
+Answer : 2)
+
+ Option/ විකල්ප 1
+This means manual data processing often involves printing forms or documents. While true, it’s not a
+major drawback but more of a characteristic.
+මෙයින් අදහස් කරන්නේ අත්හුරු සැකසීම බොහෝ විට ආකෘති පත්‍ර හෝ ලේඛන මුද්‍රණය කිරීම ඇතුළත් වන
+බවයි. සත්‍ය වුවද, එය ප්‍රධාන අඩුපාඩුවක් නොව ලක්ෂණයකි.
+
+ Option/ විකල්ප 2
+This is a major drawback. Manual processes depend on people to enter, calculate, or process data, which
+can lead to mistakes like typos, miscalculations, or misplaced information, reducing accuracy.
+මෙය ප්‍රධාන අඩුපාඩුවකි. හස්තීය ක්‍රියාවලීන් දත්ත ඇතුළත් කිරීමට, ගණනය කිරීම හෝ සැකසීම පුද්ගලයින්
+මත රඳා පවතින අතර එමඟින් අක්ෂර වින්‍යාස දෝෂ, වැරදි ගණනය කිරීම් හෝ අස්ථානගත වූ තොරතුරු
+වැනි වැරදි වලට හේතු විය හැකි අතර නිරවද්‍යතාවය අඩු කරයි.
+
+ Option/ විකල්ප 3
+This is incorrect. Manual processing usually uses more paper since records are often kept physically,
+leading to inefficiency and storage problems.
+මෙය වැරදියි. අත්හුරු සැකසීම සාමාන්‍යයෙන් වැඩිපුර කඩදාසි භාවිතා කරන බැවින් වාර්තා බොහෝ විට
+භෞතිකව තබා ඇති අතර එය අකාර්යක්ෂමතාව සහ ගබඩා ගැටළු වලට මග පාදයි.
+
+ Option/ විකල්ප 4
+This is false. Manual processes are hard to scale or automate since they rely heavily on human labor and
+physical handling, limiting speed and volume.
+මෙය අසත්‍යයකි. හස්තීය ක්‍රියාවලි පරිමාණය කිරීම හෝ ස්වයංක්‍රීය කිරීම දුෂ්කර ය, මන්ද ඒවා මිනිස් ශ්‍රමය
+සහ භෞතික හැසිරවීම මත දැඩි ලෙස රඳා පවතින බැවින්, වේගය සහ පරිමාව සීමා කරයි.
+
+ Option/ විකල්ප 5
+This is generally incorrect. Manual data can be lost, damaged, or accessed without proper controls, while
+computerized systems can offer better access control and backups.
+මෙය සාමාන්‍යයෙන් වැරදියි. නිසි පාලනයකින් තොරව අතින් දත්ත නැතිවීමට, හානි වීමට හෝ ප්‍රවේශ වීමට
+හැකි අතර, පරිගණකගත පද්ධතිවලට වඩා හොඳ ප්‍රවේශ පාලනයක් සහ උපස්ථ ලබා දිය හැකිය.
+-7-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Therefore the answer is 2) / එබැවින් පිළිතුර 2) වේ.
+
+9. Who is credited with inventing the World Wide Web (WWW)?
+ලෝක විසිරි වියමන (WWW) නිර්මාණය කිරීමේ ගෞරවය හිමිවන්නේ කාටද?
+1)  Vint Cerf
+2)  Bob Kahn
+3) Tim Berners-Lee 4) Steve Jobs
+5) Bill Gates
+
+Answer : 3)
+
+Tim Berners-Lee is widely recognized as the inventor of the World Wide Web (WWW), which he proposed
+in 1989 and implemented in 1990 while working at CERN. His goal was to create a system for researchers
+to access and link information across different computers.
+Tim Berners-Lee ලෝක විසිරි වියමන (WWW) හි නව නිපැයුම්කරු ලෙස පුළුල් ලෙස පිළිගැනෙන අතර, එය
+ඔහු 1989 දී යෝජනා කර 1990 දී CERN හි සේවය කරමින් සිටියදී ක්‍රියාත්මක කළේය. ඔහුගේ ඉලක්කය
+වූයේ පර්යේෂකයන්ට විවිධ පරිගණක හරහා තොරතුරු වෙත ප්‍රවේශ වීමට සහ සම්බන්ධ කිරීමට පද්ධතියක්
+නිර්මාණය කිරීමයි.
+
+He developed key technologies/ ඔහු ප්‍රධාන තාක්ෂණයන් සංවර්ධනය කළේය:
+ HTML (HyperText Markup Language) – for creating and formatting web pages.
+වෙබ් පිටු නිර්මාණය කිරීම සහ ආකෘතිකරණය කිරීම සඳහා.
+
+ HTTP (HyperText Transfer Protocol) – for transferring data between client and server.
+සේවාදායකයා සහ සේවාග්‍රාහකයා අතර දත්ත මාරු කිරීම සඳහා.
+
+ URL (Uniform Resource Locator) – the address used to access resources on the web.
+වෙබයේ සම්පත් වෙත ප්‍රවේශ වීමට භාවිතා කරන ලිපිනය.
+
+He also created the first web browser and web server, enabling users to view and navigate documents online.
+This invention transformed the Internet from a tool mainly for academic and military use into a global, user-
+friendly information space.
+ඔහු පළමු වෙබ් අතිරික්සුව සහ වෙබ් සේවාදායකය ද නිර්මාණය කළ අතර, පරිශීලකයින්ට මාර්ගගතව ලේඛන
+බැලීමට සහ සැරිසැරීමට හැකි විය. මෙම නව නිපැයුම අන්තර්ජාලය ප්‍රධාන වශයෙන්, අධ්‍යයන හා හමුදා
+භාවිතය සඳහා වූ මෙවලමක සිට ගෝලීය, පරිශීලක-හිතකාමී තොරතුරු අවකාශයක් බවට පරිවර්තනය කළේය.
+
+10. Answer the questions.
+ප්‍රශ්නවලට පිළිතුරු සපයන්න
+
+(i) What are the advantages of using cloud computing over traditional computing?
+සාම්ප්‍රදායික පරිගණනයට වඩා වලාකුළු පරිගණනය භාවිතා කිරීමේ වාසි මොනවාද?
+
+1. Accessibility: Cloud services can be accessed from anywhere with an internet connection, allowing
+greater flexibility and remote work.
+ප්‍රවේශ්‍යතාව: අන්තර්ජාල සම්බන්ධතාවයක් ඇති ඕනෑම තැනක සිට වලාකුළු සේවාවන්ට ප්‍රවේශ විය හැකි
+අතර, වැඩි නම්‍යශීලී බවක් සහ දුරස්ථ වැඩකටයුතු සඳහා ඉඩ සලසයි.
+
+2. Cost Efficiency: It reduces the need for expensive hardware and maintenance since resources are
+hosted off-site and managed by the provider. ^
+පිරිවැය කාර්යක්ෂමතාව: සම්පත් පිටතින් සත්කාරකත්වය සපයන අතර සැපයුම්කරු විසින් කළමනාකරණය
+කරනු ලබන බැවින් එය මිල අධික දෘඩාංග සහ නඩත්තු කිරීමේ අවශ්‍යතාවය අඩු කරයි.
+
+3. Scalability: Users can easily scale resources up or down depending on their needs without investing
+in physical infrastructure.
+පරිමාණය කිරීමේ හැකියාව: භෞතික යටිතල පහසුකම් සඳහා ආයෝජනය නොකර පරිශීලකයින්ට ඔවුන්ගේ
+අවශ්‍යතා අනුව සම්පත් පහසුවෙන් ඉහළට හෝ පහළට පරිමාණය කළ හැකිය.
+
+4. Automatic Updates: Software and system updates are managed by the cloud provider, ensuring
+systems are up-to-date with minimal effort.
+ස්වයංක්‍රීය යාවත්කාලීන කිරීම්: මෘදුකාංග සහ පද්ධති යාවත්කාලීන කිරීම් වලාකුළු සැපයුම්කරු විසින්
+කළමනාකරණය කරනු ලබන අතර, පද්ධති අවම උත්සාහයකින් යාවත්කාලීන බව සහතික කරයි.
+
+-8-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+5. Data Backup and Recovery: Most cloud services offer built-in backup and disaster recovery options,
+minimizing data loss.
+දත්ත උපස්ථ සහ ප්‍රතිසාධනය: බොහෝ වලාකුළු සේවාවන් දත්ත නැතිවීම අවම කරමින් බිල්ට්-ඉන් උපස්ථ
+සහ ආපදා ප්‍රතිසාධන විකල්ප ලබා දෙයි.
+
+(ii) Explain mobile communication and mobile computing.
+ජංගම සන්නිවේදනය සහ ජංගම පරිගණනය පැහැදිලි කරන්න.
+
+without being connected by physical wires. It relies on wireless technologies such as cellular networks,
+Wi-Fi, Bluetooth, and satellite systems.
+ජංගම සන්නිවේදනය යනු භෞතික රැහැන් මගින් සම්බන්ධ නොවී උපාංග අතර හඩ, දත්ත සහ බහුමාධ්‍ය
+සම්ප්‍රේෂණය කිරීමේ හැකියාවයි. එය cellular networks, Wi-Fi, Bluetooth සහ චන්ද්‍රිකා පද්ධති වැනි රැහැන්
+රහිත තාක්ෂණයන් මත රඳා පවතී.
+
+Mobile Computing is the ability to use computing devices (like smartphones, laptops, and tablets) while
+being mobile, without needing a fixed physical connection to a network. It allows users to access data,
+applications, and services anytime and from anywhere.
+ජංගම පරිගණනය යනු ජාලයකට ස්ථාවර භෞතික සම්බන්ධතාවයක් අවශ්‍ය නොවී ජංගමව සිටියදී පරිගණක
+උපාංග (ස්මාර්ට්ෆෝන්, ලැප්ටොප් සහ ටැබ්ලට් වැනි) භාවිතා කිරීමේ හැකියාවයි. එය පරිශීලකයින්ට ඕනෑම
+වේලාවක සහ ඕනෑම තැනක සිට දත්ත, යෙදුම් සහ සේවාවන් වෙත ප්‍රවේශ වීමට ඉඩ සලසයි.
+
+11. Which of the following is a major advantage of using a computer network?
+පරිගණක ජාලයක් භාවිතා කිරීමේ ප්‍රධාන වාසියක් වන්නේ පහත සඳහන් ඒවායින් කුමක්ද?
+
+1) Increases the size of the computer / පරිගණකයේ ප්‍රමාණය වැඩි කරයි
+2) Reduces electricity usage only / විදුලි භාවිතය පමණක් අඩු කරයි
+3) Provides more printing options / වැඩි මුද්‍රණ විකල්ප සපයයි
+4) Enables resource and information sharing / සම්පත් සහ තොරතුරු බෙදාගැනීම සක්‍රීය කරයි
+5) Automatically upgrades software / මෘදුකාංග ස්වයංක්‍රීයව උත්ශ්‍රේණි කරයි
+
+Answer : 4)
+
+ Option/ විකල්ප 1
+This is not a benefit of networking. Networking connects multiple computers but does not physically
+increase the size of any individual computer.
+මෙය ජාලකරණයේ වාසියක් නොවේ. ජාලකරණය බහු පරිගණක සම්බන්ධ කරයි, නමුත් කිසිදු තනි පරිගණකයක
+ප්‍රමාණය භෞතිකව වැඩි නොකරයි.
+
+ Option/ විකල්ප 2
+While networking can lead to some energy efficiencies, this is not a primary advantage. The main benefits
+are resource and information sharing.
+ජාලකරණය සමහර බලශක්ති කාර්යක්ෂමතාවන්ට හේතු විය හැකි වුවද, මෙය ප්‍රාථමික වාසියක් නොවේ. ප්‍රධාන
+ප්‍රතිලාභ වන්නේ සම්පත් සහ තොරතුරු බෙදා ගැනීමයි.
+
+ Option/ විකල්ප 3
+Networking allows for shared access to printers but doesn't inherently provide more printing options.
+ජාලකරණය මුද්‍රණ යන්ත්‍ර වෙත බෙදාගත් ප්‍රවේශයට ඉඩ සලසයි, නමුත් සහජයෙන්ම වැඩි මුද්‍රණ විකල්ප
+සපයන්නේ නැත.
+
+ Option/ විකල්ප 4
+Computer networks allow multiple users to access shared devices like printers and files. They make
+collaboration easier by letting users share data quickly and efficiently across connected systems.
+පරිගණක ජාල මඟින් බහු පරිශීලකයින්ට මුද්‍රණ යන්ත්‍ර සහ ගොනු වැනි බෙදාගත් උපාංග වෙත ප්‍රවේශ වීමට
+ඉඩ සලසයි. සම්බන්ධිත පද්ධති හරහා පරිශීලකයින්ට ඉක්මනින් සහ කාර්යක්ෂමව දත්ත බෙදා ගැනීමට ඉඩ
+දීමෙන් ඒවා සහයෝගීතාව පහසු කරයි.
+
+ Option/ විකල්ප 5
+Software upgrades depend on specific management systems and are not an automatic feature of networking.
+මෘදුකාංග උත්ශ්‍රේණි කිරීම් නිශ්චිත කළමනාකරණ පද්ධති මත රඳා පවතින අතර ජාලකරණයේ ස්වයංක්‍රීය
+ලක්ෂණයක් නොවේ.
+
+-9-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Therefore the answer is 4) / එබැවින් පිළිතුර 4) වේ.
+
+12. List the services of cloud computing.
+වලාකුළු පරිගණනයේ සේවාවන් ලැයිස්තුගත කරන්න.
+
+Infrastructure as a Service (IaaS) / සේවාවක් ලෙස යටිතල පහසුකම් (IaaS)
+Platform as a Service (PaaS) / සේවාවක් ලෙස පසුතල (PaaS)
+Software as a Service (SaaS) / සේවාවක් ලෙස මෘදුකාංග (SaaS)
+
+Infrastructure as a Service (IaaS) is a cloud computing model that provides virtualized computing resources
+over the internet. Users can rent servers, storage, networking and processing power which eliminates the
+need for physical hardware and allows for quick scaling based on demand.
+සේවාවක් ලෙස යටිතල පහසුකම් (IaaS) යනු අන්තර්ජාලය හරහා අථත්‍ය කළ පරිගණක සම්පත් සපයන වලාකුළු
+පරිගණක ආකෘතියකි. පරිශීලකයින්ට සේවාදායක, ගබඩා, ජාලකරණය සහ සැකසුම් බලය කුලියට ගත හැකි
+අතර එමඟින් භෞතික දෘඩාංග සඳහා අවශ්‍යතාවය ඉවත් කරන අතර ඉල්ලුම මත පදනම්ව ඉක්මන් පරිමාණයට
+ඉඩ සලසයි.
+
+Platform as a Service (PaaS) is a cloud computing model that provides a platform allowing developers to
+build, deploy, and manage applications over the internet. PaaS offers a platform allowing customers to
+develop, run, and manage applications without dealing with the infrastructure.
+සේවාවක් ලෙස පසුතල (PaaS) යනු සංවර්ධකයින්ට අන්තර්ජාලය හරහා යෙදුම් තැනීමට, යෙදවීමට සහ
+කළමනාකරණය කිරීමට ඉඩ සලසන වේදිකාවක් සපයන වලාකුළු පරිගණක ආකෘතියකි. (PaaS), යටිතල පහසුකම්
+සමඟ කටයුතු නොකර යෙදුම් සංවර්ධනය කිරීමට, ක්‍රියාත්මක කිරීමට සහ කළමනාකරණය කිරීමට
+පාරිභෝගිකයින්ට ඉඩ සලසන වේදිකාවක් පිරිනමයි.
+
+Software as a Service (SaaS) is a cloud computing model where software applications are delivered over the
+internet as a service. Users can access software like email, CRM or office suites via a web browser, without
+needing to install or maintain the software locally.
+සේවාවක් ලෙස මෘදුකාංග (SaaS) යනු සේවාවක් ලෙස අන්තර්ජාලය හරහා මෘදුකාංග යෙදුම් බෙදා හරින වලාකුළු
+පරිගණක ආකෘතියකි. පරිශීලකයින්ට වෙබ් අතිරික්සුවක් හරහා විද්‍යුත් තැපෑල, CRM හෝ කාර්යාල කට්ටල
+වැනි මෘදුකාංග වෙත ප්‍රවේශ විය හැකි අතර, මෘදුකාංග දේශීයව ස්ථාපනය කිරීමට හෝ නඩත්තු කිරීමට අවශ්‍ය
+නොවේ.
+
+13. What are the three main components of an abstract model?
+වියුක්ත ආකෘතියේ ප්‍රධාන සංරචක තුන කුමක්ද?
+
+1) Input, Feedback, Output / ආදානය, ප්‍රතිපෝෂණය, ප්‍රතිදානය
+2) Input, Boundary, Output / ආදානය, සීමාව, ප්‍රතිදානය
+3) Input, Process, Output / ආදානය, ක්‍රියාවලිය, ප්‍රතිදානය
+4) Boundary, Process, Feedback / සීමාව, ක්‍රියාවලිය, ප්‍රතිපෝෂණය
+5) Process, Goal, Data / ක්‍රියාවලිය, ඉලක්කය, දත්ත
+
+Answer : 3)
+
+An abstract model simplifies a real-world system by focusing on its essential components.
+වියුක්ත ආකෘතිය එහි අත්‍යවශ්‍ය සංරචක කෙරෙහි අවධානය යොමු කිරීමෙන් සැබෑ ලෝකයේ පද්ධතියක් සරල
+කරයි.
+
+1. Input/ ආදානය – The data or material that goes into the system./ පද්ධතියට ඇතුළු වන දත්ත හෝ ද්‍රව්‍ය.
+2. Process/ ක්‍රියාවලිය – The transformation or computation applied to the input./ ආදානයට යොදන ලද දේ
+පරිවර්තනය හෝ ගණනය කිරීම.
+3. Output/ ප්‍රතිදානය – The result or product after processing./ සැකසීමෙන් පසු ප්‍රතිඵලය හෝ නිෂ්පාදනය.
+
+-10-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+14. Imagine you're at an ATM, ready to withdraw cash. Describe the input you provide, the internal process the
+ATM and its systems undergo, and the resulting output you receive.
+ඔබ ATM යන්ත්‍රයක මුදල් ලබා ගැනීමට සූදානම්ව සිටින බව සිතන්න. ඔබ සපයන ආදානය, ATM යන්ත්‍රය සහ
+එහි පද්ධති හරහා සිදුවන අභ්‍යන්තර ක්‍රියාවලිය සහ ඔබට ලැබෙන ප්‍රතිදානය විස්තර කරන්න.
+
+Input/ ආදානය
+
+Insert your card/ ඔබේ කාඩ්පත ඇතුළු කරන්න
+
+Enter your PIN/ ඔබේ රහස් අංකය ඇතුළත් කරන්න
+
+Choose "Withdraw Cash"/ මුදල් ආපසු ගන්න" තෝරන්න
+
+Enter the amount/ මුදල ඇතුළත් කරන්න
+
+Process/ ක්‍රියාවලිය
+
+Checks if your PIN is correct/ ඔබේ රහස් අංකය නිවැරදි දැයි පරීක්ෂා කරයි
+
+Checks if you have enough money/ ඔබට ප්‍රමාණවත් මුදල් තිබේදැයි පරීක්ෂා කරයි
+
+Gets the cash ready/ මුදල් සූදානම් කරයි
+
+Output/ ප්‍රතිදානය
+
+The cash/ මුදල්
+
+A receipt (if you want)/ ඔබට අවශ්‍ය නම් රිසිට්පතක්
+
+Your card back/ ඔබේ කාඩ්පත ආපසු
+
+15. Define a system and give one example.
+පද්ධතියක් යන්න කුමක්දැයි නිර්වචනය කර එක් උදාහරණයක් දෙන්න.
+
+A system is a group of parts or components that work together to achieve a common goal or purpose.
+පද්ධතියක් යනු පොදු ඉලක්කයක් හෝ අරමුණක් සාක්ෂාත් කර ගැනීම සඳහා එකට වැඩ කරන කොටස් හෝ
+සංරචක සමූහයකි.
+
+Computer System/ පරිගණක පද්ධතිය
+Human Body/ මිනිස් සිරුර
+School System/ පාසල් පද්ධතිය
+Transportation System/ ප්‍රවාහන පද්ධතිය
+Solar System/ සූර්ය ග්‍රහ මණ්ඩලය
+
+16. In a computer system, what performs the main processing tasks?
+පරිගණක පද්ධතියක, ප්‍රධාන සැකසුම් කාර්යයන් ඉටු කරන්නේ කුමක් ද?
+1)  Monitor
+මොනිටරය
+2)  Scanner
+ස්කෑනරය
+3) Printer
+මුද්‍රණ යන්ත්‍රය
+4) CPU
+5) Mouse / මූසිකය
+
+Answer : 4)
+
+In a computer system, the part that performs the main processing tasks is the
+පරිගණක පද්ධතියක, ප්‍රධාන සැකසුම් කාර්යයන් ඉටු කරන කොටස වන්නේ:
+
+CPU (Central Processing Unit)/ CPU (මධ්‍යම සැකසුම් ඒකකය)
+
+CPU Also known as the "brain" of the computer. / CPU පරිගණකයේ "මොළය" ලෙසද හැදින්වේ.:
+
+Processes data and instructions/ දත්ත සහ උපදෙස් සකසයි
+
+Performs calculations/ ගණනය කිරීම් සිදු කරයි
+
+Controls other parts of the computer/ පරිගණකයේ අනෙකුත් කොටස් පාලනය කරයි
+
+So, whenever you run a program, open a file, or play a game, the CPU is doing most of the work behind
+the scenes./ ඉතින්, ඔබ වැඩසටහනක් ක්‍රියාත්මක කරන විට, ගොනුවක් විවෘත කරන විට හෝ ක්‍රීඩාවක් කරන
+විට, තිරය පිටුපස බොහෝ වැඩ කටයුතු කරන්නේ CPU ය.
+
+-11-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+17. Which of the following is NOT a hardware component?
+පහත සඳහන් ඒවායින් දෘඪාංග සංරචකයක් නොවන්නේ කුමක්ද?
+1) Mouse/ මූසිකය
+2) Microphone/ මයික්‍රොෆෝනය
+3) Operating System
+මෙහෙයුම් පද්ධතිය
+4) Monitor/ මොනිටරය
+5) Keyboard/ යතුරු පුවරුව
+
+Answer : 3)
+
+Operating System/ මෙහෙයුම් පද්ධතිය
+
+This is software, not hardware. It is the system that manages the computer’s hardware and software
+resources.
+මෙය දෘඪාංගයක් නොව මෘදුකාංගයකි. එය පරිගණකයේ දෘඪාංග සහ මෘදුකාංග සම්පත් කළමනාකරණය කරන
+පද්ධතියයි.
+
+e.g., Windows, Linux
+
+1)Mouse/ මූසිකය – A physical device you can touch and use to control the pointer on the screen.
+තිරයේ ඇති දර්ශකය පාලනය කිරීමට ඔබට ස්පර්ශ කර භාවිතා කළ හැකි භෞතික උපාංගයකි.
+
+2) Microphone/ මයික්‍රොෆෝනය – A device that captures sound./ ශබ්දය ග්‍රහණය කරන උපකරණයකි.
+4) Monitor/ මොනිටරය – A screen that displays output from the computer. / පරිගණකයෙන් ප්‍රතිදානය පෙන්වන
+තිරයකි.
+5) Keyboard/ යතුරු පුවරුව – An input device used to type./ ටයිප් කිරීමට භාවිතා කරන ආදාන උපාංගයකි.
+
+18. Fill in the Blanks./ හිස්තැන් පුරවන්න.
+
+(i) A scanner is an …input…… device; a printer is an …output… device.
+සුපරීක්ෂණයක් යනු …ආදාන…… උපාංගයකි; මුද්‍රණ යන්ත්‍රයක් යනු …ප්‍රතිදාන… උපාංගයකි.
+
+(ii) The software type that controls hardware directly is called …device driver….
+දෘඪාංග සෘජුවම පාලනය කරන මෘදුකාංග වර්ගය …උපාංග ධාවකය…. ලෙස හැඳින්වේ.
+
+(iii) Hardware, software, and …liveware… are core ICT components.
+දෘඩාංග, මෘදුකාංග සහ ……මානව අංග…… යනු තොරතුරු හා සන්නිවේදන තාක්ෂණයෙහි මූලික සංරචක වේ.
+
+19. What does firmware do?
+ස්ථිරාංගවල කාර්යය කුමක්ද?
+
+1) Runs in the browser/ බ්‍රවුසරයේ ක්‍රියාත්මක වීම.
+2) Saves documents/ ලේඛන සුරැකීම.
+3) Controls hardware at startup/ ආරම්භයේදී දෘඪාංග පාලනය කිරීම.
+4) Edits photos/ ඡායාරූප සංස්කරණය කිරීම.
+5) Types characters/ අක්ෂර ටයිප් කිරීම.
+
+Answer : 3)
+
+Controls hardware at startup/ ආරම්භයේදී දෘඪාංග පාලනය කිරීම.
+
+Firmware is a special type of software embedded in hardware devices. It provides low-level control for the
+device, especially during startup. / ස්ථිරාංග යනු දෘඪාංග උපාංගවලට ඇතුළත් කර ඇති විශේෂ මෘදුකාංග
+වර්ගයකි. එය උපාංගය සඳහා, විශේෂයෙන් ආරම්භයේදී පහළ මට්ටමේ පාලනයක් සපයයි.
+
+For example:
+
+In a computer, the BIOS or UEFI firmware runs before the operating system loads, checking hardware
+components and preparing the system to boot. / පරිගණකයක, මෙහෙයුම් පද්ධතිය පූරණය වීමට පෙර BIOS
+හෝ UEFI ස්ථිරාංග ක්‍රියාත්මක වේ, දෘඩාංග සංරචක පරීක්ෂා කර පද්ධතිය ආරම්භ කිරීමට සූදානම් කරයි.
+
+-12-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+20. Give an example for Firmware.
+ස්ථිරාංග සදහා එක් උදාහරණයක් දෙන්න.
+
+An example of firmware is the BIOS (Basic Input/Output System) in a computer.
+ස්ථිරාංග සඳහා උදාහරණයක් වන්නේ පරිගණකයක ඇති BIOS ( මූලික ආදාන/ප්‍රතිදාන පද්ධතිය) ය.
+
+The BIOS is stored on a chip on the motherboard and is responsible for starting up the computer and
+initializing hardware components before the operating system loads.
+BIOS මවු පුවරුවේ චිපයක් මත ගබඩා කර ඇති අතර මෙහෙයුම් පද්ධතිය පූරණය වීමට පෙර පරිගණකය
+ආරම්භ කිරීම සහ දෘඩාංග සංරචක ආරම්භ කිරීම සඳහා වගකිව යුතුය.
+
+21. What is the role of the human component in ICT?
+තොරතුරු හා සන්නිවේදන තාක්ෂණයේ මානව සංරචකයේ කාර්යභාරය කුමක්ද?
+
+The human component (liveware) is essential because ICT systems cannot function effectively without
+human input, control, and decision-making.
+මානව සංරචකය (මානව අංග) අත්‍යවශ්‍ය වන්නේ මානව ආදානය, පාලනය සහ තීරණ ගැනීමකින් තොරව
+තොරතුරු හා සන්නිවේදන තාක්ෂණ පද්ධති ඵලදායී ලෙස ක්‍රියා කළ නොහැකි බැවිනි.
+
+1. Using ICT Systems/ ICT පද්ධති භාවිතා කිරීම.
+2. Developing Software and Systems/ මෘදුකාංග සහ පද්ධති සංවර්ධනය කිරීම.
+3. Managing and Maintaining ICT/ ICT පද්ධති කළමනාකරණය සහ නඩත්තු කිරීම
+4. Making Decisions Based on Information/ තොරතුරු මත පදනම්ව තීරණ ගැනීම
+5. Training and Support/ පුහුණුව සහ සහාය
+
+22. Write the difference between open source softwares and proprietary softwares and give two examples for
+them.
+විවෘත මූලාශ්‍ර මෘදුකාංග සහ හිමිකම් සහිත මෘදුකාංග අතර වෙනස ලියා ඒවාට උදාහරණ දෙකක් ලියන්න.
+
+open source softwares/ විවෘත ම්ෘදුකාංග
+proprietary softwares/ හිමිකම් සහිත මෘදුකාංග
+Software with source code that is freely
+available to use, modify, and share.
+භාවිතා කිරීමට, වෙනස් කිරීමට සහ බෙදා ගැනීමට
+නිදහසේ ලබා ගත හැකි මූලාශ්‍ර කේත සහිත
+මෘදුකාංගයකි.
+Software that is owned by a company or
+individual and whose source code is not shared.
+සමාගමක් හෝ පුද්ගලයෙකුගේ අයිතිය සතු
+මෘදුකාංගයක් වන අතර එහි මූල කේතය බෙදා
+නොගනී.
+
+23. List two main categories of softwares and give examples for them.
+ප්‍රධාන මෘදුකාංග වර්ග දෙකක් ලැයිස්තුගත කර ඒවාට උදාහරණ දෙන්න.
+
+The two main categories of software are / මෘදුකාංගවල ප්‍රධාන කාණ්ඩ දෙක වන්නේ:
+
+1. System Software / පද්ධති මෘදුකාංග
+This type of software is designed to manage and control computer hardware so that application software
+can function properly.
+යෙදුම් මෘදුකාංග නිසි ලෙස ක්‍රියාත්මක විය හැකි වන පරිදි පරිගණක දෘඩාංග කළමනාකරණය කිරීමට සහ
+පාලනය කිරීමට මෙම වර්ගයේ මෘදුකාංග නිර්මාණය කර ඇත.
+
+Examples:
+
+Operating Systems (e.g., Windows, Linux, macOS)
+
+Device Drivers
+
+Utility Programs (e.g., antivirus, disk cleanup tools)
+
+2. Application Software / යෙදුම් මෘදුකාංග
+This type of software is created to help users perform specific tasks or activities.
+මෙම වර්ගයේ මෘදුකාංග නිර්මාණය කර ඇත්තේ පරිශීලකයින්ට නිශ්චිත කාර්යයන් හෝ ක්‍රියාකාරකම් සිදු
+කිරීමට උපකාර කිරීම සඳහා ය.
+
+-13-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Examples:
+
+Microsoft Word (word processing)
+
+Google Chrome (web browsing)
+
+Adobe Photoshop (image editing)
+
+24. Which of the following is the correct order of data processing steps?
+දත්ත සැකසුම් පියවරවල නිවැරදි අනුපිළිවෙල පහත සඳහන් ඒවායින් කුමක්ද?
+
+1) Storage → Validation → Gathering → Output → Processing
+ගබඩා කිරීම → වලංගුකරණය → රැස් කිරීම → ප්‍රතිදානය → සැකසීම
+
+2) Gathering → Validation → Processing → Output → Storage
+රැස් කිරීම → වලංගුකරණය → සැකසීම → ප්‍රතිදානය → ගබඩා කිරීම
+
+3) Validation → Output → Gathering → Storage → Processing
+වලංගුකරණය → ප්‍රතිදානය → රැස් කිරීම → ගබඩා කිරීම → සැකසීම
+
+4) Gathering → Processing → Validation → Output → Storage
+රැස් කිරීම → සැකසීම → වලංගුකරණය → ප්‍රතිදානය → ගබඩා කිරීම
+
+5) Gathering → Validation → Storage → Processing → Output
+රැස් කිරීම → වලංගුකරණය → ගබඩා කිරීම → සැකසීම → ප්‍රතිදානය
+
+Answer : 2)
+
+1. Data Gathering / දත්ත රැස් කිරීම:
+This is the initial step where data is collected from multiple sources. There are manual, semi-automated and
+fully automated methods for data gathering. The quality and relevance of the data at this stage determine the
+effectiveness of the entire process.
+බහු මූලාශ්‍රවලින් දත්ත රැස් කරන ආරම්භක පියවර මෙයයි. දත්ත රැස් කිරීම සඳහා කායික, අර්ධ ස්වයංකෘත
+සහ පූර්ණ ස්වයංකෘත ක්‍රම තිබේ. මෙම අදියරේදී දත්තවල ගුණාත්මකභාවය සහ අදාළත්වය සමස්ත ක්‍රියාවලියේම
+කාර්යක්ෂමතාව තීරණය කරයි.
+
+2. Data Validation / දත්ත වලංගුකරණය:
+After data is collected, it must be validated to ensure it's correct, complete, and in the proper format. This
+prevents errors during later stages. Validation checks can include range checks, presence checks, and format
+checks.
+දත්ත රැස් කිරීමෙන් පසු, එය නිවැරදි, සම්පූර්ණ සහ නිසි ආකෘතියෙන් සහතික කිරීම සඳහා එය වලංගු කළ
+යුතුය. මෙය පසුකාලීන අවස්ථා වලදී දෝෂ වළක්වයි. වලංගුකරණ පරීක්ෂාවන්ට පරාස පරීක්ෂාවන්, තත්‍යතා
+පරීක්ෂාවන් සහ ආකෘති පරීක්ෂාවන් ඇතුළත් විය හැකිය.
+
+3. Data Processing / දත්ත සැකසීම:
+Validated data is then processed, that is, it’s manipulated or transformed into useful information. For
+example, calculations may be done, records sorted, or comparisons made. This is where raw data becomes
+meaningful.
+වලංගු කළ දත්ත පසුව සකසනු ලැබේ, එනම්, එය හැසිරවීම හෝ ප්‍රයෝජනවත් තොරතුරු බවට පරිවර්තනය
+කරනු ලැබේ. උදාහරණයක් ලෙස, ගණනය කිරීම් සිදු කළ හැකිය, වාර්තා වර්ග කළ හැකිය, නැතහොත් සැසඳීම්
+කළ හැකිය. අමු දත්ත අර්ථවත් වන්නේ මෙහිදීය.
+
+4. Data Output / දත්ත ප්‍රතිදානය:
+The result of processing is then displayed or shared. Output could be in the form of reports, visualizations
+(charts/graphs), notifications, or other formats depending on the user’s needs.
+සැකසීමේ ප්‍රතිඵලය පසුව ප්‍රදර්ශනය කෙරේ හෝ බෙදා ගැනේ. ප්‍රතිදානය පරිශීලකයාගේ අවශ්‍යතා අනුව වාර්තා,
+දෘශ්‍යකරණයන් (ප්‍රස්ථාර), දැනුම්දීම් හෝ වෙනත් ආකෘති ආකාරයෙන් විය හැකිය.
+
+5. Data Storage / දත්ත ගබඩා කිරීම:
+The final step is storing the processed data or information. This allows for future access, analysis, backups,
+or legal record-keeping. Storage can be local or on cloud platforms, depending on the system used.
+අවසාන පියවර වන්නේ සැකසූ දත්ත හෝ තොරතුරු ගබඩා කිරීමයි. මෙය අනාගත ප්‍රවේශය, විශ්ලේෂණය,
+උපස්ථ හෝ නීතිමය වාර්තා තබා ගැනීම සඳහා ඉඩ සලසයි. භාවිතා කරන පද්ධතිය අනුව ගබඩා කිරීම දේශීය
+හෝ වලාකුළු වේදිකාවල විය හැකිය.
+-14-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+25. Answer the questions
+ප්‍රශ්නවලට පිළිතුරු සපයන්න
+
+(i) What are the data gathering methods and give two examples for them.
+දත්ත රැස් කිරීමේ ක්‍රම මොනවාද යන්න සදහන් කර ඒවාට උදාහරණ දෙන්න.
+ Interviews / සම්මුඛ සාකච්ඡා
+ Document Sample Collection / ලියවිලි රැස් කිරීම
+ Questionaries / ප්‍රශ්නාවලින්
+ Observations / නිරීක්ෂණ
+
+(ii) List three types of data validation methods and provide an example for each method.
+දත්ත වලංගුකරන ක්‍රම තුනක් ලැයිස්තුගත කර ඒවාට උදාහරණ දෙන්න.
+
+1. Type Check = Ensures the data entered is of the correct data type. For example, entering a number in
+an age field and not text.
+වර්ග පරීක්ෂාව = ඇතුළත් කළ දත්ත නිවැරදි දත්ත වර්ගය බව සහතික කරයි. උදාහරණයක් ලෙස, වයස්
+ක්ෂේත්‍රයක අංකයක් ඇතුළත් කිරීම සහ පෙළ නොවේ.
+
+2. Presence Check = Makes sure that a required field is not left empty. It’s used to ensure essential
+information is provided, like a name or password.
+තත්‍යතා පරීක්ෂාව = අවශ්‍ය ක්ෂේත්‍රයක් හිස්ව තබා නොමැති බව සහතික කරයි. නමක් හෝ මුරපදයක් වැනි
+අත්‍යවශ්‍ය තොරතුරු සපයා ඇති බව සහතික කිරීමට එය භාවිතා කරයි.
+
+3. Range Check = Verifies that a number falls within a specified range. For example, test scores must be
+between 0 and 100.
+පරාසය පරීක්ෂාව = අංකයක් නිශ්චිත පරාසයක් තුළට වැටෙන බව සත්‍යාපනය කරයි. උදාහරණයක් ලෙස,
+පරීක්ෂණ ලකුණු 0 සහ 100 අතර විය යුතුය.
+
+4. Length Check = Checks whether the data entered has the correct number of characters. For example,
+a PIN code must have exactly 4 digits.
+දිග පරීක්ෂාව = ඇතුළත් කළ දත්තවල නිවැරදි අක්ෂර සංඛ්‍යාව තිබේද යන්න පරීක්ෂා කරයි. උදාහරණයක්
+ලෙස, PIN කේතයක හරියටම ඉලක්කම් 4ක් තිබිය යුතුය.
+
+5. Format Check = Validates that the input matches a required pattern or format, such as an email address
+containing “@” and a domain.
+ආකෘති පරීක්ෂාව = “@” සහ වසමක් අඩංගු විද්‍යුත් තැපැල් ලිපිනයක් වැනි අවශ්‍ය රටාවකට හෝ
+ආකෘතියකට ආදානය ගැලපෙන බව තහවුරු කරයි.
+
+(iii) Differentiate between validation and verification.
+වලංගුකරණය සහ සත්‍යාපනය අතර වෙනස දක්වන්න.
+
+Validation and verification are two key processes used to ensure data accuracy but focus on different
+aspects. Validation involves checking whether the data entered meets certain rules or criteria before it is
+accepted.This step helps prevent invalid or illogical data from entering the system, ensuring the input is
+reasonable and fits the expected pattern.
+වලංගුකරණය සහ සත්‍යාපනය යනු දත්ත නිරවද්‍යතාවය සහතික කිරීම සඳහා භාවිතා කරන ප්‍රධාන ක්‍රියාවලීන්
+දෙකකි, නමුත් විවිධ අංශ කෙරෙහි අවධානය යොමු කරයි. ඇතුළත් කළ දත්ත පිළිගැනීමට පෙර යම්
+නීතිරීති හෝ නිර්ණායක සපුරාලන්නේද යන්න පරීක්ෂා කිරීම වලංගුකරණයට ඇතුළත් වේ. මෙම පියවර
+මඟින් අවලංගු හෝ තාර්කික නොවන දත්ත පද්ධතියට ඇතුළු වීම වැළැක්වීමට උපකාරී වන අතර, ආදානය
+සාධාරණ බවත් අපේක්ෂිත රටාවට ගැලපෙන බවත් සහතික කරයි.
+
+Verification is the process of confirming that the data entered matches the original source or intended
+information. It often involves comparing entered data with the original document or re-entering data to
+detect errors. Verification is typically performed after data input and aims to catch mistakes made during
+data entry.
+සත්‍යාපනය යනු ඇතුළත් කළ දත්ත මුල් මූලාශ්‍රයට හෝ අපේක්ෂිත තොරතුරුවලට ගැලපෙන බව තහවුරු
+කිරීමේ ක්‍රියාවලියයි. එයට බොහෝ විට ඇතුළත් කළ දත්ත මුල් ලේඛනය සමඟ සංසන්දනය කිරීම හෝ
+දෝෂ හඳුනා ගැනීම සඳහා දත්ත නැවත ඇතුළත් කිරීම ඇතුළත් වේ. සත්‍යාපනය සාමාන්‍යයෙන් දත්ත
+ආදානයෙන් පසුව සිදු කරනු ලබන අතර දත්ත ඇතුළත් කිරීමේදී සිදුවන වැරදි අල්ලා ගැනීම අරමුණු
+කරයි.
+
+-15-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(iv) Compare batch processing and real-time processing with examples.
+කාණ්ඩ සැකසුම සහ තත්කාලීන සැකසුම් උදාහරණ සමඟ සසඳන්න.
+
+Batch processing involves collecting and storing data over a period of time and then processing it all at
+once as a single group or batch. This method is efficient for large volumes of data that do not require
+immediate action.
+කාණ්ඩ සැකසීම යනු යම් කාලයක් පුරා දත්ත රැස් කර ගබඩා කිරීම සහ පසුව ඒවා තනි කණ්ඩායමක් ලෙස
+එකවර සැකසීමයි. ක්ෂණික ක්‍රියාමාර්ග අවශ්‍ය නොවන විශාල දත්ත ප්‍රමාණයක් සඳහා මෙම ක්‍රමය කාර්යක්ෂම
+වේ.
+
+As an example, a payroll system processes employees salary payments once a month. All the salary data
+is collected throughout the month and processed together at the end to update bank accounts and generate
+payslips.
+උදාහරණයක් ලෙස, වැටුප් ගෙවීමේ පද්ධතියක් මසකට වරක් සේවකයින්ගේ වැටුප් ගෙවීම් සකසයි. සියලුම
+වැටුප් දත්ත මාසය පුරා එකතු කර අවසානයේ එකට සකසනු ලබන්නේ බැංකු ගිණුම් යාවත්කාලීන කිරීමට
+සහ වැටුප් පත්‍රිකා ජනනය කිරීමට ය.
+
+Real-time processing, in contrast, handles data instantly as it arrives, providing immediate results or
+responses. This method is crucial for applications where timely information is essential, such as air
+traffic control systems or online ticket booking platforms.
+තත්කාලීන සැකසීම, ඊට වෙනස්ව, එය පැමිණෙන විට ක්ෂණිකව දත්ත හසුරුවයි, ක්ෂණික ප්‍රතිඵල හෝ
+ප්‍රතිචාර සපයයි. ගුවන් ගමනාගමන පාලන පද්ධති හෝ මාර්ගගත ටිකට්පත් වෙන්කරවා ගැනීමේ වේදිකා
+වැනි කාලෝචිත තොරතුරු අත්‍යවශ්‍ය වන යෙදුම් සඳහා මෙම ක්‍රමය ඉතා වැදගත් වේ.
+
+As an example, an Automated Teller Machine (ATM) operates using real-time processing. When a
+customer withdraws cash, the ATM immediately verifies the account balance, deducts the withdrawn
+amount, and updates the bank’s database on the spot.
+උදාහරණයක් ලෙස, ස්වයංක්‍රීය ටෙලර් යන්ත්‍රයක් (ATM) තත්‍ය කාලීන සැකසුම් භාවිතයෙන් ක්‍රියාත්මක වේ.
+ගනුදෙනුකරුවෙකු මුදල් ලබා ගන්නා විට, ATM යන්ත්‍රය වහාම ගිණුම් ශේෂය සත්‍යාපනය කරයි, ආපසු ගත්
+මුදල අඩු කරයි, සහ බැංකුවේ දත්ත සමුදාය එම ස්ථානයේදීම යාවත්කාලීන කරයි.
+
+(v) Explain online and offline data input.
+මාර්ගගත සහ මාර්ග අපගත දත්ත ආදානය පිළිබදව පැහැදිලි කරන්න.
+
+Online Data Input / මාර්ගගත දත්ත ආදානය
+Online data input refers to entering data directly into a computer system in real time. When data is input
+online, it is immediately processed and stored in the system’s database.
+මාර්ගගත දත්ත ආදානය යනු තථ්‍ය කාලීනව පරිගණක පද්ධතියකට දත්ත සෘජුවම ඇතුළත් කිරීමයි. දත්ත
+මාර්ගගතව ආදානය කළ විට, එය වහාම සකසන ලද අතර පද්ධතියේ දත්ත සමුදායේ ගබඩා කෙරේ.
+
+Offline Data Input / මාර්ග අපගත දත්ත ආදානය
+Offline data input means collecting data first in a temporary storage device, and then entering it into the
+computer system later. This method does not require an active connection to the system at the time of
+data collection.
+මාර්ග අපගත දත්ත ආදානය යනු පළමුව තාවකාලික ගබඩා උපාංගයක දත්ත රැස් කිරීම සහ පසුව
+පරිගණක පද්ධතියට ඇතුළු කිරීමයි. මෙම ක්‍රමයට දත්ත රැස් කිරීමේදී පද්ධතියට ක්‍රියාකාරී සම්බන්ධතාවයක්
+අවශ්‍ය නොවේ.
+
+26. Fill in the Blanks.
+හිස් තැන් පුරවන්න
+
+(i) Data verification ensures data entered matches the original source.
+දත්ත සත්‍යාපනය මඟින් ඇතුළත් කළ දත්ත මුල් මූලාශ්‍රයට ගැලපෙන බව සහතික කරයි.
+
+(ii) Real-time processing gives results immediately.
+තත්‍ය කාලීන සැකසුම් ඉක්මනින් ප්‍රතිඵල ලබා දෙයි.
+
+(iii) Google Drive is an example of cloud storage.
+Google Drive යනු වලාකුළු ගබඩා සදහා උදාහරණයකි.
+
+-16-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+27. Which of the following platforms is an example of an online classroom system?
+පහත සඳහන් කුමන වේදිකාව මාර්ගගත පන්ති කාමර පද්ධතියකට උදාහරණයක් ද?
+1) Notepad
+2) Microsoft Paint
+3) Google Classroom
+4) VLC Media Player
+5) WinRAR
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Google Classroom is a well-known example of an online classroom system designed to support virtual
+learning environments. Unlike tools such as Notepad, Microsoft Paint, VLC Media Player, or WinRAR,
+which serve general-purpose or multimedia-related functions, Google Classroom is specifically built to
+facilitate teaching and learning processes online.
+Google Classroom යනු මාර්ගගත ඉගෙනුම් පරිසරයන්ට සහාය වීම සඳහා නිර්මාණය කර ඇති මාර්ගගත
+පන්ති කාමර පද්ධතියකට ප්‍රසිද්ධ උදාහරණයකි. සාමාන්‍ය අරමුණු හෝ බහුමාධ්‍ය ආශ්‍රිත කාර්යයන් ඉටු කරන
+Notepad, Microsoft Paint, VLC Media Player, හෝ WinRAR වැනි මෙවලම් මෙන් නොව, Google Classroom
+විශේෂයෙන් ගොඩනගා ඇත්තේ මාර්ගගතව ඉගැන්වීමේ සහ ඉගෙනුම් ක්‍රියාවලීන් පහසු කිරීම සඳහා ය.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+28. What is a key advantage of using simulation tools in education?
+අධ්‍යාපනයේ දී සමාකරණ මෙවලම් භාවිතා කිරීමේ ප්‍රධාන වාසිය කුමක්ද?
+
+1) Reduces homework load / ගෙදර වැඩ බර අඩු කරයි
+2) Guarantees high grades / ඉහළ ලකුණු මට්ටම් සහතික කරයි
+3) Allows safe, virtual practice for complex tasks.
+සංකීර්ණ කාර්යයන් සඳහා ආරක්ෂිත, අතථ්‍ය පුහුණුවට ඉඩ සලසයි.
+
+4) Eliminates teacher involvement / ගුරු සහභාගීත්වය ඉවත් කරයි
+5) Only used in sports education / ක්‍රීඩා අධ්‍යාපනයේ පමණක් භාවිතා වේ.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Simulation tools provide a significant advantage in education by enabling students to engage in complex or
+risky scenarios in a controlled, virtual environment.
+පාලනය කරන ලද, අතථ්‍ය පරිසරයක් තුළ සංකීර්ණ හෝ අවදානම් සහිත අවස්ථාවන්ට සම්බන්ධ වීමට සිසුන්ට
+හැකියාව ලබා දීමෙන් සමාකරණ මෙවලම් අධ්‍යාපනයේ සැලකිය යුතු වාසියක් සපයයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+-17-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+29. What is the main benefit of using Learning Management Systems (LMS) in education?
+අධ්‍යාපනයේ දී ඉගෙනුම් කළමනාකරණ පද්ධති (LMS)  භාවිතා කිරීමේ ප්‍රධාන ප්‍රතිලාභය කුමක්ද?
+
+1) To reduce the number of teachers / ගුරුවරුන් සංඛ්‍යාව අඩු කිරීමට
+2) For sharing entertainment content / විනෝදාස්වාද අන්තර්ගතයන් බෙදා ගැනීම සඳහා
+3) For centralized online learning access and management
+මධ්‍යගත මාර්ගගත ඉගෙනුම් ප්‍රවේශය සහ කළමනාකරණය සඳහා
+
+4) To block internet usage / අන්තර්ජාල භාවිතය අවහිර කිරීමට
+5) To record only attendance / පැමිණිම පමණක් සටහන් කිරීමට
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Learning Management Systems (LMS) are designed to streamline and centralize educational activities,
+making it easier for educators to deliver content, track student progress, manage assignments, and
+communicate with learners.
+ඉගෙනුම් කළමනාකරණ පද්ධති (LMS) අධ්‍යාපනික ක්‍රියාකාරකම් විධිමත් කිරීමට සහ මධ්‍යගත කිරීමට
+නිර්මාණය කර ඇති අතර එමඟින් ගුරුවරුන්ට අන්තර්ගතය ලබා දීම, සිසුන්ගේ ප්‍රගතිය නිරීක්ෂණය කිරීම,
+පැවරුම් කළමනාකරණය කිරීම සහ ඉගෙනුම ලබන්නන් සමඟ සන්නිවේදනය කිරීම පහසු කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+30. Which statement best explains how adaptive learning platforms transform traditional education?
+අනුවර්තන ඉගෙනුම් වේදිකා සාම්ප්‍රදායික අධ්‍යාපනය පරිවර්තනය කරන ආකාරය වඩාත් හොඳින් පැහැදිලි
+කරන්නේ කුමන ප්‍රකාශයද?
+
+1) They distribute fixed assignments to all students
+ඔවුන් සියලුම සිසුන්ට ස්ථාවර පැවරුම් බෙදා හරිනු ලැබේ.
+
+2) They monitor school attendance using biometric sensors
+ඔවුන් ජෛවමිතික සංවේදක භාවිතයෙන් පාසල් පැමිණිම නිරීක්ෂණය කරයි.
+
+3) They adjust content and difficulty in real-time based on individual performance and learning style
+ඔවුන් තනි පුද්ගල කාර්ය සාධනය සහ ඉගෙනුම් විලාසය මත පදනම්ව තත්‍ය කාලීනව අන්තර්ගතය සහ
+දුෂ්කරතා සකස් කරයි.
+
+4) They replace teachers with virtual agents for all subjects
+ඔවුන් සියලුම විෂයයන් සඳහා ගුරුවරුන් අතථ්‍ය නියෝජිතයන් සමඟ ප්‍රතිස්ථාපනය කරයි.
+
+5) They restrict internet access during exams / විභාග අතරතුර අන්තර්ජාල ප්‍රවේශය සීමා කරති.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+They adjust content and difficulty in real-time based on individual performance and learning style. Adaptive
+learning platforms revolutionize traditional education by personalizing the learning experience.
+ඒවා පුද්ගල කාර්ය සාධනය සහ ඉගෙනුම් විලාසය මත පදනම්ව තත්‍ය කාලීනව අන්තර්ගතය සහ දුෂ්කරතා
+සකස් කරයි. අනුවර්තන ඉගෙනුම් වේදිකා ඉගෙනුම් අත්දැකීම පුද්ගලීකරණය කිරීමෙන් සාම්ප්‍රදායික අධ්‍යාපනය
+විප්ලවීය වෙනසක් ඇති කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+-18-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+31. Which ICT tool is used in healthcare for scanning?
+සෞඛ්‍ය සේවා ක්ෂේත්‍රයේ ස්කෑන් කිරීම සඳහා භාවිතා කරන ICT මෙවලම කුමක්ද?
+1)  Barcode Reader 2)  Document Scanner 3) MRI Scanner
+4) Webcam
+5) Digital Camera
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+In the healthcare field, an MRI (Magnetic Resonance Imaging) scanner is a crucial ICT tool used for
+scanning the internal structures of the human body. It provides detailed images of organs, tissues, and other
+internal systems, helping in accurate diagnosis and treatment planning.
+සෞඛ්‍ය සේවා ක්ෂේත්‍රය තුළ, MRI (Magnetic Resonance Imaging) සුපරික්සකයක් යනු මිනිස් සිරුරේ
+අභ්‍යන්තර ව්‍යුහයන් පරිලෝකනය කිරීම සඳහා භාවිතා කරන ඉතා වැදගත් ICT මෙවලමකි. එය අවයව,
+පටක සහ අනෙකුත් අභ්‍යන්තර පද්ධතිවල සවිස්තරාත්මක රූප සපයන අතර නිවැරදි රෝග විනිශ්චය සහ
+ප්‍රතිකාර සැලසුම් කිරීමට උපකාරී වේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+32. What is the main function of a Patient Monitoring System in telemedicine?
+දුරස්ථ වෛද්‍ය විද්‍යාවේ රෝගී නිරීක්ෂණ පද්ධතියක ප්‍රධාන කාර්යය කුමක්ද?
+
+1) Deliver medications / ඖෂධ ලබා දීම සඳහා
+2) Perform remote surgeries / දුරස්ථ සැත්කම් සිදු කිරීම සඳහා
+3) Continuously observe patient vitals and alert doctors.
+රෝගියාගේ ජීව ශක්තිය අඛණ්ඩව නිරීක්ෂණය කිරීම සහ වෛද්‍යවරුන් දැනුවත් කිරීම සඳහා
+
+4) Scan the human brain / මිනිස් මොළය ස්කෑන් කිරීමට
+5) Record patient appointment times / රෝගියා හමුවීමේ වේලාවන් වාර්තා කිරීමට
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+A Patient Monitoring System in telemedicine is designed to track a patient's vital signs such as heart rate,
+blood pressure, and oxygen levels in real time, even from a remote location.
+දුරස්ථ ස්ථානයක සිට වුවද, හෘද ස්පන්දන වේගය, රුධිර පීඩනය සහ ඔක්සිජන් මට්ටම් වැනි රෝගියෙකුගේ
+වැදගත් ලක්ෂණ තත්‍ය කාලීනව නිරීක්ෂණය කිරීම සඳහා දුරස්ථ වෛද්‍ය විද්‍යාවේ රෝගී නිරීක්ෂණ පද්ධතියක්
+නිර්මාණය කර ඇත.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+-19-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+33. Which device is commonly used to monitor blood glucose levels in diabetic patients?
+දියවැඩියා රෝගීන්ගේ රුධිර ග්ලූකෝස් මට්ටම නිරීක්ෂණය කිරීම සඳහා බහුලව භාවිතා වන උපකරණය කුමක්ද?
+
+1) ECG Monitor
+2) EEG Scanner
+3) Blood Glucose Monitor
+4) CT Scanner
+5) Thermometer / උෂ්ණත්වමානය
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Blood Glucose Monitor is specifically designed to measure and monitor the blood glucose (sugar) levels of
+diabetic patients. It allows individuals to regularly check their sugar levels, helping them manage their
+condition effectively and avoid complications.
+Blood Glucose Monitor, දියවැඩියා රෝගීන්ගේ රුධිර ග්ලූකෝස් (සීනි) මට්ටම් මැනීම සහ නිරීක්ෂණය කිරීම
+සඳහා විශේෂයෙන් නිර්මාණය කර ඇත. එමඟින් පුද්ගලයන්ට තම සීනි මට්ටම නිතිපතා පරීක්ෂා කර
+ගැනීමටත්, ඔවුන්ගේ තත්ත්වය ඵලදායී ලෙස කළමනාකරණය කිරීමට සහ සංකූලතා වළක්වා ගැනීමටත් ඉඩ
+සලසයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+34. Which of these devices is best for checking oxygen saturation and heart rate in critical patients?
+අසාධ්‍ය රෝගීන්ගේ ඔක්සිජන් සන්තෘප්තිය සහ හෘද ස්පන්දන වේගය පරීක්ෂා කිරීම සඳහා මෙම උපකරණවලින්
+වඩාත් සුදුසු කුමක්ද?
+
+1) Mobile Phone / ජංගම දුරකථනය
+2) ECG Cable
+3) ICU Monitor
+4) Air Purifier / වායු පවිතකාරකය
+5) X-ray Film Viewer
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+An ICU Monitor is a specialized medical device used in critical care settings to continuously track vital signs
+such as oxygen saturation (SpO₂) and heart rate. It provides real-time monitoring and alerts healthcare staff
+if any values deviate from the safe range, ensuring immediate intervention when necessary.
+ICU සංදර්ශක යනු ඔක්සිජන් සන්තෘප්තිය (SpO₂) සහ හෘද ස්පන්දන වේගය වැනි වැදගත් ලක්ෂණ අඛණ්ඩව
+නිරීක්ෂණය කිරීම සඳහා තීරණාත්මක සත්කාර සැකසුම් තුළ භාවිතා කරන විශේෂිත වෛද්‍ය උපකරණයකි. එය
+තත්‍ය කාලීන නිරීක්ෂණයක් සපයන අතර කිසියම් අගයක් ආරක්ෂිත පරාසයෙන් බැහැර වුවහොත් සෞඛ්‍ය සේවා
+කාර්ය මණ්ඩලයට අනතුරු අඟවයි, අවශ්‍ය විටෙක ක්ෂණික මැදිහත්වීමද සහතික කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+-20-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+35. What type of telemedicine system helps perform quick and accurate lab tests?
+ඉක්මන් හා නිවැරදි රසායනාගාර පරීක්ෂණ සිදු කිරීමට උපකාරී වන දුරස්ථ සෞඛ්‍ය රැකවරණ පද්ධතිය කුමක්ද?
+1) Emergency Room Display
+2) Lab-Diagnostic System
+3) X-ray Machine
+4) Virtual Nurse Console
+5) Radiology Workstation
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+This type of telemedicine system is specifically designed to carry out quick and accurate laboratory tests
+such as blood analysis, urine tests, and other diagnostic procedures.
+මෙම වර්ගයේ දුරස්ථ වෛද්‍ය විද්‍යා පද්ධති විශේෂයෙන් නිර්මාණය කර ඇත්තේ රුධිර විශ්ලේෂණය, මුත්‍රා
+පරීක්ෂණ සහ අනෙකුත් රෝග විනිශ්චය ක්‍රියා පටිපාටි වැනි ඉක්මන් හා නිවැරදි රසායනාගාර පරීක්ෂණ සිදු
+කිරීම සඳහා ය.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+36. Which of the following is an electromagnetic ray commonly used in medical imaging to view bones and
+internal structures?
+අස්ථි සහ අභ්‍යන්තර ව්‍යුහයන් නැරඹීම සඳහා වෛද්‍ය ප්‍රතිබිම්බකරණයේදී බහුලව භාවිතා වන විද්‍යුත් චුම්භක
+කිරණ පහත සඳහන් ඒවායින් කුමක්ද?
+1) Gamma rays
+2) X-rays
+3) Ultraviolet rays / පාරජම්බුල කිරණ
+4) Infrared rays / අධෝරක්ත කිරණ 5) Sound waves / ශබ්ද තරංග
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+X-rays are a type of electromagnetic radiation widely used in medical imaging to view bones and internal
+structures. They can pass through the body, but are absorbed differently by various tissues making it possible
+to create clear images of bones, organs, and abnormalities.
+X-කිරණ යනු අස්ථි සහ අභ්‍යන්තර ව්‍යුහයන් නැරඹීම සඳහා වෛද්‍ය ප්‍රතිබිම්බකරණයේ බහුලව භාවිතා වන
+විද්‍යුත් චුම්භක විකිරණ වර්ගයකි. ඒවා ශරීරය හරහා ගමන් කළ හැකි නමුත් විවිධ පටක මගින් වෙනස් ලෙස
+අවශෝෂණය කර ගනී. එමඟින් අස්ථි, අවයව සහ අසාමාන්‍යතා පිළිබඳ පැහැදිලි රූප නිර්මාණය කිරීමට හැකි
+වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+-21-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+37. Why are CT scans preferred over standard X-ray scans in certain medical diagnoses?
+ඇතැම් වෛද්‍ය රෝග විනිශ්චයන්හිදී සම්මත එක්ස් කිරණ ස්කෑන් වලට වඩා CT ස්කෑන් වලට වැඩි කැමැත්තක්
+දක්වන්නේ ඇයි?
+
+1) They are faster than X-rays / ඒවා එක්ස් කිරණවලට වඩා වේගවත් ය.
+2) They use no radiation / එය විකිරණ භාවිතා නොකරයි
+3) They provide 3D and more detailed images of internal structures.
+ඒවා අභ්‍යන්තර ව්‍යුහයන්ගේ ත්‍රිමාණ සහ වඩාත් සවිස්තරාත්මක රූප සපයයි.
+
+4) They are cheaper than X-rays / ඒවා එක්ස් කිරණවලට වඩා ලාභදායී වේ.
+5) They are used only for dental imaging / ඒවා භාවිතා කරනු ලබන්නේ දන්ත රූපකරණය සඳහා පමණි.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+CT scans provide 3D and more detailed images of internal structures. CT (Computed Tomography) scans
+are preferred over standard X-rays in many medical diagnoses because they offer more comprehensive and
+clearer images, including cross-sectional and 3D views of the body's internal organs, bones, and tissues.
+CT සුපරික්සක අභ්‍යන්තර ව්‍යුහයන්ගේ ත්‍රිමාණ සහ වඩාත් සවිස්තරාත්මක රූප සපයයි. බොහෝ වෛද්‍ය රෝග
+විනිශ්චයන්හිදී සම්මත X-කිරණවලට වඩා CT (Computed Tomography) ස්කෑන් වඩාත් රුචි වන්නේ ඒවා
+ශරීරයේ අභ්‍යන්තර අවයව, අස්ථි සහ පටක වල හරස්කඩ සහ ත්‍රිමාණ දර්ශන ඇතුළුව වඩාත් පුළුල් හා
+පැහැදිලි රූප ලබා දෙන බැවිනි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+38. What is the primary function of a PET scanner machine in medical diagnosis?
+වෛද්‍ය රෝග විනිශ්චයේදී PET ස්කෑනර් යන්ත්‍රයක ප්‍රධාන කාර්යය කුමක්ද?
+
+1) To capture bone structure images / අස්ථි ව්‍යුහ රූප ලබා ගැනීමට
+2) To monitor brain wave activity / මොළයේ තරංග ක්‍රියාකාරිත්වය නිරීක්ෂණය කිරීමට
+3) To detect metabolic and biochemical activity in tissues
+පටක වල පරිවෘත්තීය හා ජෛව රසායනික ක්‍රියාකාරකම් හඳුනා ගැනීමට
+
+4) To measure blood pressure and heart rate / රුධිර පීඩනය සහ හෘද ස්පන්දන වේගය මැනීමට
+5) To scan for fractures and dislocations / අස්ථි බිඳීම් සහ විස්ථාපනයන් සඳහා ස්කෑන් කිරීම සඳහා
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+A PET (Positron Emission Tomography) scanner is primarily used in medical diagnosis to observe metabolic
+processes and biochemical activity within the body’s tissues and organs.
+PET (Positron Emission Tomography) සුපිරික්සකයක් ප්‍රධාන වශයෙන් වෛද්‍ය රෝග විනිශ්චය සඳහා භාවිතා
+කරනුයේ ශරීරයේ පටක හා අවයව තුළ පරිවෘත්තීය ක්‍රියාවලීන් සහ ජෛව රසායනික ක්‍රියාකාරකම් නිරීක්ෂණය
+කිරීම සඳහා ය.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+-22-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+39. Which of the following best describes the role of an e-Channeling system in modern healthcare
+infrastructure?
+නූතන සෞඛ්‍ය සේවා යටිතල පහසුකම් තුළ ඊ-චැනලින් පද්ධතියක කාර්යභාරය වඩාත් හොඳින් විස්තර කරන්නේ
+පහත සඳහන් ඒවායින් කවරක්ද?
+
+1) It replaces diagnostic tools by analyzing patient symptoms in real-time
+එය තත්‍ය කාලීනව රෝගියාගේ රෝග ලක්ෂණ විශ්ලේෂණය කිරීමෙන් රෝග විනිශ්චය මෙවලම් ප්‍රතිස්ථාපනය
+කරයි.
+
+2) It facilitates online scheduling, streamlines patient flow, and reduces waiting times by connecting
+patients with medical professionals
+එය මාර්ගගත කාලසටහන්ගත කිරීමට පහසුකම් සපයයි, රෝගීන්ගේ ප්‍රවාහය විධිමත් කරයි, සහ රෝගීන්
+වෛද්‍ය වෘත්තිකයන් සමඟ සම්බන්ධ කිරීමෙන් රැඳී සිටීමේ කාලය අඩු කරයි.
+
+3) It provides emergency alert systems for ambulatory services
+එය ගිලන්රථ සේවා සඳහා හදිසි අනතුරු ඇඟවීමේ පද්ධති සපයයි.
+
+4) It automates surgical procedures in rural hospitals using AI.
+එය AI භාවිතයෙන් ග්‍රාමීය රෝහල්වල ශල්‍යකර්ම ක්‍රියා පටිපාටි ස්වයංක්‍රීය කරයි.
+5) It monitors chronic diseases using wearable health devices
+එය පැළඳිය හැකි සෞඛ්‍ය උපාංග භාවිතයෙන් නිදන්ගත රෝග නිරීක්ෂණය කරයි.
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+An e-Channeling system plays a key role in modern healthcare by allowing patients to book medical
+appointments online, which helps reduce long queues and improve overall efficiency in hospitals and
+clinics.
+e-Channeling පද්ධතියක් නවීන සෞඛ්‍ය සේවා ක්ෂේත්‍රයේ ප්‍රධාන කාර්යභාරයක් ඉටු කරයි. රෝගීන්ට
+මාර්ගගතව වෛද්‍ය හමුවීම් වෙන්කරවා ගැනීමට ඉඩ සලසයි, එමඟින් දිගු පෝලිම් අඩු කිරීමට සහ රෝහල්
+සහ සායනවල සමස්ත කාර්යක්ෂමතාව වැඩි දියුණු කිරීමට උපකාරී වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+40. What is the primary function of WHOOP bands in health monitoring?
+සෞඛ්‍ය නිරීක්ෂණයේදී WHOOP පටිවල ප්‍රධාන කාර්යය කුමක්ද?
+
+1) They diagnose infectious diseases / මෙය බෝවන රෝග හඳුනා ගනී.
+2) They provide full-body scans for injuries / මෙය තුවාල සඳහා සම්පූර්ණ ශරීර ස්කෑන් පරීක්ෂණ සපයයි.
+3) They continuously track physiological data such as heart rate, sleep, and strain for performance
+optimization
+මෙය කාර්ය සාධනය ප්‍රශස්තිකරණය සඳහා හෘද ස්පන්දන වේගය, නින්ද සහ ආතතිය වැනි භෞතික
+විද්‍යාත්මක දත්ත අඛණ්ඩව නිරීක්ෂණය කරයි.
+
+4) They deliver medication through the skin / මෙය සම හරහා ඖෂධ ලබා දෙයි.
+5) They are used to detect fractures during sports injuries
+ක්‍රීඩා තුවාල වලදී අස්ථි බිඳීම් හඳුනා ගැනීමට මේවා භාවිතා කරයි.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+WHOOP bands are advanced wearable health devices that monitor key biometric data including heart rate,
+sleep patterns, strain (exertion), and recovery.
+WHOOP පටි යනු හෘද ස්පන්දන වේගය, නින්දේ රටා, වික්‍රියාව (වෙහෙස) සහ සුවය ලැබීම ඇතුළු ප්‍රධාන
+ජෛවමිතික දත්ත නිරීක්ෂණය කරන, දියුණු කළ පැළඳිය හැකි සෞඛ්‍ය උපාංග වේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+-23-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+41. Which sector uses GPS-guided machinery?
+GPS මඟ පෙන්වන යන්ත්‍රෝපකරණ භාවිතා කරන අංශය කුමක්ද?
+1) Education / අධ්‍යාපනය
+2) Agriculture / කෘෂිකර්මාන්තය
+3) Banking / බැංකුකරණය
+4) Health / සෞඛ්‍යය
+5) Media / මාධ්‍ය
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+GPS-guided machinery is widely used in the agriculture sector to improve precision and efficiency in tasks
+like planting, fertilizing, and harvesting. This technology allows farmers to map fields, monitor crop health,
+and reduce resource wastage, leading to precision farming.
+පැළ සිටුවීම, පොහොර යෙදීම සහ අස්වනු නෙලීම වැනි කාර්යයන්හි නිරවද්‍යතාවය සහ කාර්යක්ෂමතාව වැඩි
+දියුණු කිරීම සඳහා කෘෂිකාර්මික අංශයේ GPS-මාර්ගෝපදේශක යන්ත්‍රෝපකරණ බහුලව භාවිතා වේ. මෙම
+තාක්ෂණය ගොවීන්ට ක්ෂේත්‍ර සිතියම්ගත කිරීමට, භෝග සෞඛ්‍යය නිරීක්ෂණය කිරීමට සහ සම්පත් නාස්තිය අවම
+කිරීමට ඉඩ සලසයි, එමඟින් නිරවද්‍ය ගොවිතැනට මග පාදයි.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+42. Which of these is NOT a benefit of using ICT in the agriculture sector?
+කෘෂිකාර්මික අංශයේ තොරතුරු හා සන්නිවේදන තාක්ෂණය භාවිතා කිරීමේ ප්‍රතිලාභයක් නොවන්නේ මේවායින්
+කුමක්ද?
+
+1) Weather forecasting / කාලගුණ අනාවැකිය
+2) Predictive crop analytics / පුරෝකථන බෝග විශ්ලේෂණ
+3) Manual harvesting / අතින් අස්වනු නෙලීම
+4) Smart irrigation / ස්මාර්ට් වාරිමාර්ග
+5) Telematics
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Manual harvesting refers to the traditional, labor-intensive method of collecting crops by hand, which does
+not involve ICT (Information and Communication Technology).
+හස්තීය අස්වනු නෙලීම යනු ICT (තොරතුරු හා සන්නිවේදන තාක්ෂණය) ඇතුළත් නොවන, අතින් බෝග එකතු
+කිරීමේ සාම්ප්‍රදායික, ශ්‍රමය වැය වන ක්‍රමයයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+-24-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+43. How is ICT commonly used in the business and finance sector?
+ව්‍යාපාර සහ මූල්‍ය අංශයේ තොරතුරු හා සන්නිවේදන තාක්ෂණය බහුලව භාවිතා වන්නේ කෙසේද?
+
+1) To manage customer records and financial transactions
+පාරිභෝගික වාර්තා සහ මූල්‍ය ගනුදෙනු කළමනාකරණය කිරීමට
+
+2) To clean office buildings / කාර්යාල ගොඩනැගිලි පිරිසිදු කිරීමට
+3) To manufacture physical goods only / භෞතික භාණ්ඩ පමණක් නිෂ්පාදනය කිරීමට
+4) To perform traditional farming activities / සාම්ප්‍රදායික ගොවිතැන් කටයුතු සිදු කිරීමට
+5) To reduce employee working hours by law / නීතියෙන් සේවක වැඩ කරන කාලය අඩු කිරීමට
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+In the business and finance sector, ICT is most commonly used for handling data, such as storing and
+managing customer information, processing financial transactions, and supporting accounting, reporting,
+and communication systems.
+ව්‍යාපාර සහ මූල්‍ය අංශයේ, පාරිභෝගික තොරතුරු ගබඩා කිරීම සහ කළමනාකරණය කිරීම, මූල්‍ය ගනුදෙනු
+සැකසීම සහ ගිණුම්කරණය, වාර්තා කිරීම සහ සන්නිවේදන පද්ධති සඳහා සහාය වීම වැනි දත්ත හැසිරවීම
+සඳහා තොරතුරු හා සන්නිවේදන තාක්ෂණය බහුලව භාවිතා වේ.
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+
+44. What is the primary advantage of using Computer-Aided Design (CAD) in fields like engineering and
+architecture?
+ඉංජිනේරු විද්‍යාව සහ ගෘහ නිර්මාණ ශිල්පය වැනි ක්ෂේත්‍රවල පරිගණක ආධාරක නිර්මාණය (CAD) භාවිතා
+කිරීමේ ප්‍රධාන වාසිය කුමක්ද?
+
+1) It allows instant 3D printing without any design.
+එය කිසිදු සැලසුමකින් තොරව ක්ෂණික ත්‍රිමාණ මුද්‍රණයට ඉඩ සලසයි.
+
+2) It replaces the need for physical models and teamwork.
+එය භෞතික ආකෘති සහ කණ්ඩායම් වැඩ සඳහා ඇති අවශ්‍යතාවය ප්‍රතිස්ථාපනය කරයි.
+
+3) It enables precise, efficient, and easily modifiable digital designs.
+එය නිරවද්‍ය, කාර්යක්ෂම සහ පහසුවෙන් වෙනස් කළ හැකි ඩිජිටල් නිර්මාණ සක්‍රීය කරයි.
+
+4) It is used only for creating websites and mobile apps.
+එය භාවිතා කරන්නේ වෙබ් අඩවි සහ ජංගම යෙදුම් නිර්මාණය කිරීම සඳහා පමණි.
+
+5) It generates hand-drawn sketches automatically
+එය අතින් අඳින ලද කටු සටහන් ස්වයංක්‍රීයව ජනනය කරයි
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Computer-Aided Design (CAD) is widely used in engineering and architecture because it allows
+professionals to create accurate and detailed digital models of structures and components.
+පරිගණක ආධාරක නිර්මාණය (CAD) ඉංජිනේරු විද්‍යාව සහ ගෘහ නිර්මාණ ශිල්පයේ බහුලව භාවිතා වේ,
+මන්ද එය වෘත්තිකයන්ට ව්‍යුහයන් සහ සංරචකවල නිවැරදි හා සවිස්තරාත්මක අංකිත ආකෘති නිර්මාණය
+කිරීමට ඉඩ සලසයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+-25-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+45. What is the key difference between Augmented Reality (AR) and Virtual Reality (VR)?
+වර්ධිත යථාර්ථය (AR) සහ අතථ්‍ය යථාර්ථය (VR) අතර ඇති ප්‍රධාන වෙනස කුමක්ද?
+
+1) AR blocks out the real world, while VR blends digital elements into it
+AR සැබෑ ලෝකය අවහිර කරන අතර VR ඩිජිටල් අංග එයට මිශ්‍ර කරයි.
+
+2) VR overlays digital content onto the real world, while AR creates a fully immersive virtual environment
+VR තාක්ෂණය ඩිජිටල් අන්තර්ගතය සැබෑ ලෝකයට උඩින් තබයි, ඒ අතරතුර AR තාක්ෂණය සම්පූර්ණයෙන්ම
+ගිලී යන අතථ්‍ය පරිසරයක් නිර්මාණය කරයි.
+
+3) AR enhances the real-world environment with digital elements, while VR replaces the real world with
+a simulated one
+AR ඩිජිටල් මූලද්‍රව්‍ය සමඟ සැබෑ ලෝක පරිසරය වැඩි දියුණු කරන අතර VR සැබෑ ලෝකය අනුකරණය
+කරන ලද එකක් සමඟ ප්‍රතිස්ථාපනය කරයි.
+
+4) Both AR and VR are only used in gaming and have no educational use
+AR සහ VR යන දෙකම ක්‍රීඩා වලදී පමණක් භාවිතා වන අතර අධ්‍යාපනික භාවිතයක් නොමැත.
+
+5) AR requires headsets, while VR can only be used on smartphones
+AR සඳහා හෙඩ්සෙට් අවශ්‍ය වන අතර, VR භාවිතා කළ හැක්කේ ස්මාර්ට්ෆෝන් වල පමණි.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+AR enhances the real-world environment with digital elements, while VR replaces the real world with a
+simulated one. Augmented Reality (AR) adds digital images, sounds, or other information to the user’s view
+of the real world, enhancing the actual environment.
+AR අංකිත මූලාංග සමඟ සැබෑ ලෝක පරිසරය වැඩි දියුණු කරන අතර VR සැබෑ ලෝකය අනුකරණය කරන
+ලද එකක් සමඟ ප්‍රතිස්ථාපනය කරයි. වර්ධිත යථාර්ථය (AR), සැබෑ ලෝකය පිළිබඳ පරිශීලකයාගේ දැක්මට
+අංකිත රූප, ශබ්ද හෝ වෙනත් තොරතුරු එකතු කරයි, සැබෑ පරිසරය වැඩි දියුණු කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+46. Answer the questions
+ප්‍රශ්නවලට පිළිතුරු සපයන්න
+
+(i) Explain how ICT is applied in the travel and transport sector, focusing on route optimization and
+passenger convenience.
+මාර්ග ප්‍රශස්තිකරණය සහ මගී පහසුව කෙරෙහි අවධානය යොමු කරමින්, සංචාරක හා ප්‍රවාහන අංශයේ
+තොරතුරු හා සන්නිවේදන තාක්ෂණය යොදා ගන්නා ආකාරය පැහැදිලි කරන්න.
+
+ICT in travel and transport helps optimize routes using GPS and real-time traffic data, saving time and
+fuel. It also improves passenger convenience with online booking, digital tickets, and real-time
+updates on schedules and delays. This makes travel faster, easier, and more reliable.
+සංචාර සහ ප්‍රවාහන ක්ෂේත්‍රයේ තොරතුරු හා සන්නිවේදන තාක්ෂණය GPS සහ තත්‍ය කාලීන රථවාහන
+දත්ත භාවිතයෙන් මාර්ග ප්‍රශස්ත කිරීමට උපකාරී වන අතර, කාලය සහ ඉන්ධන ඉතිරි කරයි. එය
+මාර්ගගත වෙන්කරවා ගැනීම්, අංකිත ටිකට්පත්, කාලසටහන් සහ ප්‍රමාදයන් පිළිබඳ තත්‍ය කාලීන
+යාවත්කාලීන කිරීම් සමඟ මගීන්ගේ පහසුව වැඩි දියුණු කරයි. මෙය සංචාරය වේගවත්, පහසු සහ වඩාත්
+විශ්වාසදායක කරයි.
+-26-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(ii) Discuss the role of e-government systems. Include benefits and at least two specific services they
+provide to the public.
+ඉ-රාජ්‍ය පද්ධතිවල කාර්යභාරය සාකච්ඡා කරන්න. ඒවා මහජනතාවට සපයන ප්‍රතිලාභ සහ අවම වශයෙන්
+නිශ්චිත සේවාවන් දෙකක්වත් ඇතුළත් කරන්න.
+
+E-government systems use ICT to deliver government services online, making them more accessible
+and efficient. Benefits include faster service delivery, reduced paperwork, and increased transparency.
+Two common services are online tax filing and digital identity verification, which save time for
+citizens and improve government operations.
+ඊ-රාජ්‍ය පද්ධති රජයේ සේවාවන් මාර්ගගතව ලබා දීම සඳහා තොරතුරු හා සන්නිවේදන තාක්ෂණය
+භාවිතා කරන අතර එමඟින් ඒවා වඩාත් ප්‍රවේශ විය හැකි සහ කාර්යක්ෂම වේ. ප්‍රතිලාභ අතර වේගවත්
+සේවා සැපයීම, ලේඛන කටයුතු අඩු කිරීම සහ විනිවිදභාවය වැඩි කිරීම ඇතුළත් වේ. පොදු සේවාවන්
+දෙකක් වන්නේ මාර්ගගත බදු ගොනු කිරීම සහ අංකිත අනන්‍යතා සත්‍යාපනය වන අතර එමඟින්
+පුරවැසියන් සඳහා කාලය ඉතිරි වන අතර රජයේ මෙහෙයුම් වැඩිදියුණු වේ.
+
+(iii) Name two ICT tools used in the business and finance sector.
+ව්‍යාපාර සහ මූල්‍ය අංශයේ භාවිතා වන ICT මෙවලම් දෙකක් නම් කරන්න.
+
+Accounting software / ගිණුම්කරණ මෘදුකාංග
+
+Electronic payment systems / ඉලෙක්ට්‍රොනික ගෙවීම් පද්ධති
+
+Online banking platforms / මාර්ගගත බැංකු වේදිකා
+
+Data analytics tools / දත්ත විශ්ලේෂණ මෙවලම්
+
+(iv) Explain how ICT is applied in the media and journalism sector.
+මාධ්‍ය හා පුවත්පත් කලාව තුළ තොරතුරු හා සන්නිවේදන තාක්ෂණය යොදා ගන්නා ආකාරය පැහැදිලි
+කරන්න.
+
+ICT in media and journalism enables fast information gathering, editing, and publishing through digital
+tools. It supports online news platforms, social media, and multimedia content, allowing journalists to
+reach a wider audience quickly and interactively.
+මාධ්‍ය හා පුවත්පත් කලාවේ තොරතුරු හා සන්නිවේදන තාක්ෂණය අංකිත මෙවලම් හරහා වේගවත් තොරතුරු
+රැස් කිරීම, සංස්කරණය කිරීම සහ ප්‍රකාශනයට ඉඩ සලසයි. එය මාර්ගගත ප්‍රවෘත්ති වේදිකා, සමාජ මාධ්‍ය
+සහ බහුමාධ්‍ය අන්තර්ගතයන්ට සහාය වන අතර එමඟින් මාධ්‍යවේදීන්ට පුළුල් ප්‍රේක්ෂක පිරිසක් වෙත
+ඉක්මනින් හා අන්තර්ක්‍රියාකාරී ලෙස ළඟා වීමට ඉඩ සලසයි.
+
+(v) State one advantage of using drones in agriculture.
+කෘෂිකර්මාන්තයේ දී ඩ්‍රෝන යානා භාවිතා කිරීමේ එක් වාසියක් සඳහන් කරන්න.
+
+Quickly monitor crop health and detect issues early.
+බෝග සෞඛ්‍යය ඉක්මනින් නිරීක්ෂණය කර ගැටළු කලින් හඳුනාගැනීම.
+
+Assist in precise spraying of fertilizers and pesticides.
+පොහොර සහ පළිබෝධනාශක නිවැරදිව ඉසීමට සහාය වීම.
+
+Help in mapping and surveying large farmland efficiently.
+විශාල ගොවිබිම් කාර්යක්ෂමව සිතියම්ගත කිරීමට සහ සමීක්ෂණය කිරීමට උපකාරී වීම.
+
+(vi) Give an example of ICT in the security and law enforcement sector.
+ආරක්ෂක සහ නීතිය ක්‍රියාත්මක කිරීමේ අංශයේ තොරතුරු හා සන්නිවේදන තාක්ෂණයට උදාහරණයක්
+දෙන්න.
+
+Facial recognition technology for identifying suspects.
+සැකකරුවන් හඳුනාගැනීම සඳහා මුහුණු හඳුනාගැනීමේ තාක්ෂණය.
+
+Body-worn cameras used by police officers to record incidents.
+පොලිස් නිලධාරීන් විසින් සිදුවීම් වාර්තා කිරීමට භාවිතා කරන ශරීරයේ පැළඳ සිටින කැමරා.
+
+Automated fingerprint identification systems (AFIS) for criminal identification.
+අපරාධ හඳුනා ගැනීම සඳහා ස්වයංක්‍රීය ඇඟිලි සලකුණු හඳුනාගැනීමේ පද්ධති (AFIS).
+
+-27-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+47. Answer the questions.
+ප්‍රශ්නවලට පිළිතුරු සපයන්න
+
+(i) List three positive impacts of ICT.
+තොරතුරු හා සන්නිවේදන තාක්ෂණයේ ධනාත්මක බලපෑම් තුනක් ලැයිස්තුගත කරන්න.
+
+E-learning and Online Education / E-learning සහ මාර්ගගත අධ්‍යාපනය
+
+Job Creation / රැකියා නිර්මාණය
+
+Online Banking and E-commerce / මාර්ගගත බැංකුකරණය සහ විද්‍යුත් වාණිජ්‍යය
+
+Better Healthcare Services / වඩා හොඳ සෞඛ්‍ය සේවා
+
+Faster Business Operations / වේගවත් ව්යාපාර මෙහෙයුම්
+
+Social Connectivity / සමාජ සම්බන්ධතාවය
+
+Entertainment Access / විනෝදාස්වාද ප්‍රවේශය
+
+(ii) Explain the difference between legal issues and ethical issues.
+නෛතික ගැටළු සහ සදාචාරාත්මක ගැටළු අතර වෙනස පැහැදිලි කරන්න.
+
+Legal Issues / නෛතික ගැටළු:
+
+These are related to the law, established by the government.
+මේවා රජය විසින් ස්ථාපිත කරන ලද නීතිවලට සම්බන්ධ වේ.
+
+Breaking a legal rule can lead to punishments such as fines or imprisonment.
+නීතිමය රීතියක් කඩ කිරීම දඩ මුදල් හෝ සිර දක්ෂුවම් වැනි දඬුවම්වලට හේතු විය හැක.
+
+Example / උදාහරණ:
+Hacking into someone's computer is a legal issue because it's against the law.
+කෙනෙකුගේ පරිගණකය හැක් කිරීම නීතිමය ගැටළුවක් වන්නේ එය නීතියට පටහැනි බැවිනි.
+
+Ethical Issues / සදාචාරාත්මක ගැටළු:
+
+These are related to morals and values; what society considers right or wrong.
+මේවා සමාජය හරි හෝ වැරදි ලෙස සලකන සදාචාරය සහ වටිනාකම් හා සම්බන්ධයි.
+
+An action can be legal but still unethical.
+ක්‍රියාවක් නීත්‍යානුකූල විය හැකි නමුත් එය සදාචාර විරෝධී විය හැකිය.
+
+Example / උදාහරණ:
+Reading someone’s private messages without permission may be legal in some cases but still
+unethical.
+අවසරයකින් තොරව කෙනෙකුගේ පෞද්ගලික පණිවිඩ කියවීම සමහර අවස්ථාවලදී නීත්‍යානුකූල විය
+හැකි නමුත් තවමත් සදාචාර විරෝධී ය.
+
+(iii) List three common legal issues faced in information and communication technology.
+තොරතුරු හා සන්නිවේදන තාක්ෂණයේ දී මුහුණ දෙන පොදු නෛතික ගැටළු තුනක් ලැයිස්තුගත කරන්න.
+
+Unauthorized Access (Hacking) / අනවසර ප්‍රවේශය (හැක් කිරීම)
+
+Software Piracy / මෘදුකාංග කොල්ලකෑම
+
+Data Protection and Privacy Violations / දත්ත ආරක්ෂණය සහ රහස්‍යතා උල්ලංඝනය කිරීම්
+
+NOTE:
+
+Also check for other related answers / අනෙකුත් අදාළ පිළිතුරු ද සලකා බලන්න.
+
+(iv) List three positive impacts of ICT.
+තොරතුරු හා සන්නිවේදන තාක්ෂණයේ ධනාත්මක බලපෑම් තුනක් ලැයිස්තුගත කරන්න.
+
+E-learning and Online Education / E-learning සහ මාර්ගගත අධ්‍යාපනය
+
+Job Creation / රැකියා නිර්මාණය
+
+Online Banking and E-commerce / මාර්ගගත බැංකුකරණය සහ විද්‍යුත් වාණිජ්‍යය
+
+Better Healthcare Services / වඩා හොඳ සෞඛ්‍ය සේවා
+
+Faster Business Operations / වේගවත් ව්යාපාර මෙහෙයුම්
+
+Social Connectivity / සමාජ සම්බන්ධතාවය
+
+Entertainment Access / විනෝදාස්වාද ප්‍රවේශය
+-28-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(v) What is meant by digital divide?
+අංකිත බෙදුම යන්නෙන් අදහස් කරන්නේ කුමක්ද?
+
+The digital divide refers to the gap between people who have access to modern information and
+communication technology (ICT) and those who do not.
+අංකිත බෙදුම යනු නවීන තොරතුරු හා සන්නිවේදන තාක්ෂණය (ICT) වෙත ප්‍රවේශය ඇති පුද්ගලයින් සහ
+එය නොමැති පුද්ගලයින් අතර ඇති පරතරයයි.
+
+Digital divide means the inequality in access to digital technology and the internet between different
+groups of people.
+අංකිත බෙදුම යන්නෙන් අදහස් කරන්නේ විවිධ ජන කණ්ඩායම් අතර අංකිත තාක්ෂණය සහ අන්තර්ජාලය
+වෙත ප්‍රවේශ වීමේ අසමානතාවයයි.
+
+48. What is phishing?
+තතුබෑම යනු කුමක්ද?
+
+1) Scanning paper documents/ ලේඛන පරිලෝකනය කිරීම
+2) Writing encrypted software/ සංකේතාත්මක මෘදුකාංග ලිවීම
+3) Connecting to secure websites/ ආරක්ෂිත වෙබ් අඩවි වෙත සම්බන්ධ වීම
+4) Fake messages to steal personal data/ ව්‍යාජ පණිවිඩ මගින් පුද්ගලික දත්ත සොරකම් කිරීම
+5) Installing licensed antivirus software/ බලපත්‍රලාභී ප්‍රති-වයිරස මෘදුකාංග ස්ථාපනය කිරීම
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+Phishing is a type of cyberattack where attackers send fake emails, messages, or websites that look real to
+trick people into giving away personal information.
+තතුබෑම් යනු සයිබර් ප්‍රහාරයක ආකාරයකි, එහිදී ප්‍රහාරකයින් සැබෑ ලෙස පෙනෙන ව්‍යාජ ඊමේල්, පණිවිඩ හෝ
+වෙබ් අඩවි යවා පුද්ගලයින් රවටා පුද්ගලික තොරතුරු ලබා ගැනීමට පොළඹවයි.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+49. Which of the following best describes the purpose of copyright law?
+ප්‍රකාශන හිමිකම් නීතියේ අරමුණ වඩාත් හොඳින් විස්තර කරන්නේ පහත සඳහන් ඒවායින් කුමක් ද?
+
+1) To protect inventions and grant exclusive rights to inventors
+නව නිපැයුම් ආරක්ෂා කිරීම සහ නව නිපැයුම්කරුවන්ට සුවිශේෂී අයිතිවාසිකම් ලබා දීම
+
+2) To control access to personal data and ensure privacy
+පුද්ගලික දත්ත වෙත ප්‍රවේශය පාලනය කිරීම සහ පෞද්ගලිකත්වය සහතික කිරීම
+
+3) To safeguard original works of authorship from unauthorized use
+මුල් කර්තෘත්වය අනවසර භාවිතයෙන් ආරක්ෂා කිරීම
+
+4) To regulate fair use of internet bandwidth
+අන්තර්ජාල කලාප පළල සාධාරණ ලෙස භාවිතා කිරීම නියාමනය කිරීම
+
+5) To prevent unauthorized software installations on company computers
+සමාගම් පරිගණකවල අනවසර මෘදුකාංග ස්ථාපනයන් වැළැක්වීම
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Copyright law is designed to protect creative works such as books, music, films, software, and artwork
+from being copied or used without the creator’s permission.
+පොත්, සංගීතය, චිත්‍රපට, මෘදුකාංග සහ කලා කෘති වැනි නිර්මාණාත්මක කෘති නිර්මාණකරුගේ අවසරයකින්
+තොරව පිටපත් කිරීමෙන් හෝ භාවිතා කිරීමෙන් ආරක්ෂා කිරීම සඳහා ප්‍රකාශන හිමිකම් නීතිය නිර්මාණය කර
+ඇත.
+
+-29-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+It grants exclusive rights to the author or creator to reproduce, distribute, perform, or display their work.
+එය කතුවරයාට හෝ නිර්මාණකරුට තම කෘති ප්‍රති නිෂ්පාදනය කිරීමට, බෙදා හැරීමට, රඟ දැක්වීමට හෝ
+ප්‍රදර්ශනය කිරීමට සුවිශේෂී අයිතියක් ලබා දෙයි.
+
+Explanation of other options / අනෙකුත් විකල්ප පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+This refers to patent law, not copyright law.
+මෙය පේටන්ට් නීතියට යොමු වන අතර ප්‍රකාශන හිමිකම් නීතියට නොවේ.
+
+Option / විකල්ප 2)
+This is related to data protection and privacy laws, like GDPR.
+මෙය GDPR වැනි දත්ත ආරක්ෂණ සහ රහස්‍යතා නීතිවලට සම්බන්ධ වේ.
+
+Option / විකල්ප 4)
+This is about network management or internet service policy, not copyright.
+මෙය සඳහන් කරන්නේ ජාල කළමනාකරණය හෝ අන්තර්ජාල සේවා ප්‍රතිපත්තිය ගැන මිස ප්‍රකාශන හිමිකම
+ගැන නොවේ.
+
+Option / විකල්ප 5)
+This relates more to cybersecurity or licensing enforcement, not the primary focus of copyright law.
+මෙය වඩාත් අදාළ වන්නේ සයිබර් ආරක්ෂාව හෝ බලපත්‍ර බලාත්මක කිරීම සඳහා වන අතර, ප්‍රකාශන
+හිමිකම් නීතියේ මූලික අවධානයට නොවේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+50. Which of the following is an ethical issue in ICT?
+තොරතුරු හා සන්නිවේදන තාක්ෂණයේ සදාචාරාත්මක ගැටළුවක් වන්නේ පහත සඳහන් ඒවායින් කුමක්ද?
+
+1) Plagiarism / රචනා චෞරත්වය
+2) Phishing / තතුබෑම්
+3) Ignoring software licensing / මෘදුකාංග බලපත්‍ර නොසලකා හැරීම
+4) Data theft / දත්ත සොරකම
+5) Following copyright laws / ප්‍රකාශන හිමිකම් නීති අනුගමනය කිරීම
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Plagiarism / රචනා චෞරත්වය:
+Plagiarism is using someone else's work, ideas, or writing without giving proper credit.
+වෙනත් කෙනෙකුගේ කෘති, අදහස් හෝ ලිවීම් නිසි ගෞරවය ලබා නොදී භාවිතා කිරීම රචනා චෞරත්වයයි.
+
+It is considered an ethical issue because it involves dishonesty and misrepresentation, even if it may not
+always break the law.
+එය සැමවිටම නීතිය කඩ නොකළත්, වංකකම සහ වැරදි නිරූපණය ඇතුළත් වන බැවින් එය සදාචාරාත්මක
+ගැටළුවක් ලෙස සැලකේ.
+
+Explanation of other options / අනෙකුත් විකල්ප පැහැදිලි කිරීම:
+
+Option / විකල්ප 2)
+This is a legal issue (a cybercrime), not just an ethical one.
+මෙය නීතිමය ගැටලුවකි (සයිබර් අපරාධයක්), හුදෙක් සදාචාරාත්මක ගැටලුවක් නොවේ.
+
+Option / විකල්ප 3)
+This is a violation of software law (legal issue).
+මෙය මෘදුකාංග නීතිය උල්ලංඝනය කිරීමකි (නීතිමය ගැටළුවකි).
+
+-30-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්ප 4)
+This is also a legal/criminal issue. / මෙයද නීතිමය/අපරාධමය ගැටලුවක් වේ.
+
+Option / විකල්ප 5)
+This is not an issue; it is actually correct and ethical behavior.
+මෙය ගැටළුවක් නොවේ. එය සැබවින්ම නිවැරදි හා සදාචාරාත්මක හැසිරීමකි.
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+
+51. Which of the following best describes plagiarism?
+පහත සඳහන් ඒවායින් රචනා චෞරත්වය වඩාත් හොඳින් විස්තර කරන්නේ කුමක්ද?
+
+1) Copying someone else’s work and claiming it as your own
+වෙනත් කෙනෙකුගේ කෘතියක් පිටපත් කර එය ඔබේ යැයි කියා ගැනීම
+
+2) Using a pirated version of software without a license
+බලපත්‍රයක් නොමැතිව මෘදුකාංගයේ සොරකම් කරන ලද අනුවාදයක් භාවිතා කිරීම
+
+3) Downloading a movie from a torrent site illegally
+ටොරන්ට් අඩවියකින් චිත්‍රපටයක් නීති විරෝධී ලෙස බාගත කිරීම
+
+4) Sharing your password with a friend / ඔබේ මුරපදය මිතුරෙකු සමඟ බෙදා ගැනීම
+5) Installing antivirus software on multiple computers
+පරිගණක කිහිපයක ප්‍රති-වයිරස මෘදුකාංග ස්ථාපනය කිරීම
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Plagiarism / රචනා චෞරත්වය:
+Plagiarism is using someone else's work, ideas, or writing without giving proper credit.
+වෙනත් කෙනෙකුගේ කෘති, අදහස් හෝ ලිවීම් නිසි ගෞරවය ලබා නොදී භාවිතා කිරීම රචනා චෞරත්වයයි.
+
+It is considered an ethical issue because it involves dishonesty and misrepresentation, even if it may not
+always break the law.
+එය සැමවිටම නීතිය කඩ නොකළත්, වංකකම සහ වැරදි නිරූපණය ඇතුළත් වන බැවින් එය සදාචාරාත්මක
+ගැටළුවක් ලෙස සැලකේ.
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+
+-31-
+RAVINDU BANDARANAYAKE
+#ictfromabc

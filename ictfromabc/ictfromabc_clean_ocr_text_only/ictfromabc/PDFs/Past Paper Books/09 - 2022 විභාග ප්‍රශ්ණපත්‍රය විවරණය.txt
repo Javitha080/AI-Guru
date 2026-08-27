@@ -26,7 +26,7 @@ Firmware is a type of software that provides low-level control for a device's sp
 Firmware is often stored in non-volatile memory, such as ROM, EPROM, ensuring it remains intact
 even when the device is powered off.
 
-ස්ටිරාංග යනු උපාංගයක නිශ්චිත දෘඞාංග සඳහා පහත්‌ මටිටමේ පාලනයක්‌ සපයන මෘදුකාංග OOOH.
+ස්ටිරාංග යනු උපාංගයක නිශ්චිත දෘඩාංග සඳහා පහත්‌ මටිටමේ පාලනයක්‌ සපයන මෘදුකාංග OOOH.
 ස්ටිරාංග බොහෝ විට ROM, EPROM වැනි නශ්‍ය නොවන මතකයේ ගබඩා කර ඇත, උපාංගය ක්‍රියා
 විරහිත ව විට පවා එය නොවෙනස්ව පවතියි.
 
@@ -48,9 +48,9 @@ A driver 15 a software component that allows the operating system and other soft
 with hardware devices. It provides the necessary instructions and functions for the operating system
 to recognize, control, and use the hardware correctly.
 
-ධාවකයක්‌ යනු මෙහෙයුමි පද්ධතියට සහ අනෙකුත්‌ මෘදුකාංගවලට. දෘඞාංග උපාංග සමඟ සන්නිවේදනය
-කිරීමට ඉඩ සලසන මෘදුකාංග සංරචකයකි. එය මෙහෙයුමි පද්ධතියට දෘඞාංග නිවැරදිව හඳුනා ගැනීමට,
-පාලනය කිරීමට සහ භාවිතා කිරීමට අවග්‍ය උපදෙස්‌ සහ කාථටයයන්‌ සපයයි.
+ධාවකයක්‌ යනු මෙහෙයුමි පද්ධතියට සහ අනෙකුත්‌ මෘදුකාංගවලට. දෘඩාංග උපාංග සමඟ සන්නිවේදනය
+කිරීමට ඉඩ සලසන මෘදුකාංග සංරචකයකි. එය මෙහෙයුමි පද්ධතියට දෘඩාංග නිවැරදිව හඳුනා ගැනීමට,
+පාලනය කිරීමට සහ භාවිතා කිරීමට අවශ්‍ය උපදෙස්‌ සහ කාථටයයන්‌ සපයයි.
 
 4. Application Software
 යෙදුමි මෘදුකාංග
@@ -70,8 +70,8 @@ resources, and system operations. It acts as an intermediary between the hardwar
 software.
 
 පද්ධති මෘදුකාංග යනු වෙනත්‌ මෘදුකාංග oem) වේදිකාවක්‌ සැපයීම ace) නිර්මාණය කර ඇති
-මෘදුකාංගයකි. පරිගණක දෘඩාංග, මෘදුකාංග සමිපත්‌ සහ පද්ධති මෙහෙයුමි කළමනාකරණය සහ නඩත්තු
-කරන මෙහෙයුමි පද්ධතිය සහ උපයෝගිතා වැඩසටහන්‌ එයට ඇතුළත්‌ වේ. එය දෘඞාංග සහ යෙදුමි
+මෘදුකාංගයකි. පරිගණක දෘඩාංග, මෘදුකාංග සම්පත්‌ සහ පද්ධති මෙහෙයුමි කළමනාකරණය සහ නඩත්තු
+කරන මෙහෙයුමි පද්ධතිය සහ උපයෝගිතා වැඩසටහන්‌ එයට ඇතුළත්‌ වේ. එය දෘඩාංග සහ යෙදුමි
 මෘදුකාංග අතර අතරමැදියෙකු ලෙස ක්‍රියා කරයි.
 
 Firmware is a computer program that is usually embedded in the volatile memory of a computer.
@@ -84,7 +84,7 @@ boot and control the hardware.
 
 ස්ටිරාංග යනු සාමාන්‍යයෙන්‌ ROM, EPROM 825 aos නොවන මතකයේ ගබඩා කර ඇති මෘදුකාංග වර්ගයකි.
 මක්නිසාද යත්‌, NSS නොවන මතකය උපාංගය ක්‍රියා විරහිත වු විට පවා දුත්ත රඳුවා තබා ගනී, එය ස්ටිරාංග
-සඳහා අත්‍යවග්‍ය වේ, Ose එය දෘඩාංග ආරමිභ කිරීමට සහ පාලනය කිරීමට අවග්‍ය මුලික උපදෙස්‌ සපයන
+සඳහා අත්‍යවග්‍ය වේ, Ose එය දෘඩාංග ආරමිභ කිරීමට සහ පාලනය කිරීමට අවශ්‍ය මුලික උපදෙස්‌ සපයන
 බැවිනි.
 
 A printer driver is an example of application software.
@@ -95,7 +95,7 @@ includes drivers, which are programs that allow the operating system to communic
 hardware devices like printers.
 
 මුද්‍රණ ධාවකයක්‌ යෙදුමි මෘදුකාංගයක්‌ නොවේ එය පද්ධති මෘදුකාංගයකි. පද්ධති මෘදුකාංගවලට ධාවක ඇතුළත්‌
-වේ, ඒවා මෙහෙයුමි පද්ධතියට මුද්‍රණ යන්ත්‍ර වැනි දෘඞාංග උපාංග සන්නිවෙදූනය කිරීමට සහ පාලනය කිරීමට
+වේ, ඒවා මෙහෙයුමි පද්ධතියට මුද්‍රණ යන්ත්‍ර වැනි දෘඩාංග උපාංග සන්නිවෙදූනය කිරීමට සහ පාලනය කිරීමට
 ඉඩ සලසන වැඩසටහන්‌ වේ.
 
 Linux is an example of system software.
@@ -107,7 +107,7 @@ which is a fundamental type of system software that manages computer hardware, s
 provides common services for computer programs.
 
 ලිනක්ස්‌ යනු පද්ධති මෘදුකාංග සඳහා උදාහරණයකි. විශේෂයෙන්ම, එය මෙහෙයුමි පද්ධතියක්‌ වන අතර එය
-පටිගණක දෘඞාංග, මෘදුකාංග සම්පත්‌ කළමනාකරණය කරන සහ පරිගණක වැඩසටහන්‌ සඳුහා පොදු සේවාවන්‌
+පටිගණක දෘඩාංග, මෘදුකාංග සම්පත්‌ කළමනාකරණය කරන සහ පරිගණක වැඩසටහන්‌ සඳුහා පොදු සේවාවන්‌
 සපයන මුලික පද්ධති මෘදුකාංගයකි.
 
 The correct choice is C only.
@@ -203,7 +203,7 @@ This task does not require real-time processing. Electricity bills can be genera
 the month or at the end of the month, and the process can be completed in a batch mode without the
 need for immediate response.
 
-මෙම කාර්යයට තත්‍ය MOH සැකසුමි අවග්‍ය නොවේ. මාසය තුළ හෝ මාසය අවසානයේ ඕනෑම වේලාවක
+මෙම කාර්යයට තත්‍ය MOH සැකසුමි අවශ්‍ය නොවේ. මාසය තුළ හෝ මාසය අවසානයේ ඕනෑම වේලාවක
 විදුලි බිල්පත්‌ පනනය කළ හැකි අතර, ක්ෂණීක ප්‍රතිචාර දැක්වීමකින්‌ තොරව ක්‍රියාවලිය කණ්ඩායමි
 මාබිලියකින්‌ අවසන්‌ කළ හැකිය.
 
@@ -238,7 +238,7 @@ balance is not updated in real-time, it could lead to overselling or incorrect i
 systems, while A can be processed in a batch mode without the need for immediate response.
 
 13 සහ (ට පාරිභෝගික GSS සහ ඉන්වෙන්ටරි පද්ධති වෙත ක්ෂනික යාවන්කාලීන කිරීමි සහතික කිරීම සඳහා
-තත්‍ය කාලීන සැකසුමි අවග්‍ය වන amd, A ක්ෂනික ප්‍රතිචාර අවග්‍යතාවයකින්‌ නොරව කණ්ඩායමි මාදිලියකින්‌
+තත්‍ය කාලීන සැකසුමි අවශ්‍ය වන amd, A ක්ෂනික ප්‍රතිචාර අවශ්‍යතාවයකින්‌ නොරව කණ්ඩායමි මාදිලියකින්‌
 සැකසිය හැක.
 
 උපදෙස්‌ ක්‍රියාත්මක කිරීමේදි essen තාවකාලිකව CEO) ගැනීමට ඒවා භාවිතා වේ.
@@ -266,7 +266,7 @@ Size:- Typically very small, ranging from 16KB to 128KB per core.
 ප්‍රමාණය: සාමාන්‍යයෙන්‌ ඉතා කුඩා, හරයක 16KB සිට 128KB es) පරාසයක පවති.
 
 Purpose:- Stores the most frequently accessed data and instructions that the CPU needs immediately.
-CPU වෙන ක්ෂණිකව අවග්‍ය වන නිතර ප්‍රවේශ වන esi සහ උපදෙස්‌ ගබඩා කරයි
+CPU වෙන ක්ෂණිකව අවශ්‍ය වන නිතර ප්‍රවේශ වන esi සහ උපදෙස්‌ ගබඩා කරයි
 
 e L2 Cache (Level 2 Cache)
 
@@ -294,7 +294,7 @@ Location:- Shared among all the cores on a multi-core processor, typically farth
 L1 and L2 caches.
 
 ස්ටානය:- see සකසන ඇති සියලුම හරයන්‌ අතර බෙදාගෙන ඇත, සාමාන්‍යයෙන්‌ L1 සහ L2 වාරක
-මතකයට වඞා මධ්‍යයන්ගෙන්‌ දුරින්‌.
+මතකයට වඩා මධ්‍යයන්ගෙන්‌ දුරින්‌.
 
 Size:- The largest cache, ranging from a few megabytes to tens of megabytes.
 ප්‍රමාණය:- මෙගාබයිටි කිහිපයක සිට මෙගාබයිටි emus දක්වා ව විශාලතම වාරක මතකය
@@ -376,7 +376,7 @@ Answer should be 4.
 4. Which of the following gives the correct results of bit-wise AND and bit-wise OR operations between
 the two binary numbers 010101002 and 111010012 respectively?
 01010100, සහ 11101001 යන ද්විමය සංඛ්‍යා දෙක අතර බිටු අනුසාරිත (bit-wise) AND සහ බිටු
-අනුසාරිත OR මෙහෙයුමිවල නිවැරදි ප්‍රතිඵල පිළිවෙළින්‌ දැක්වෙන්නේ පහත කවරක දඋ?
+අනුසාරිත OR මෙහෙයුම්වල නිවැරදි ප්‍රතිඵල පිළිවෙළින්‌ දැක්වෙන්නේ පහත කවරක දඋ?
 
 1) 0901000000, 11111101,
 2) 000000102, 10111001:
@@ -637,7 +637,7 @@ without any sign information.
 Answer : 3 )
 
 Here we will consider how to convert a hexadecimal number to different bases.
-මෙහිදි ෂඞඩිදුශමය සංඛ්‍යාවක්‌ විවිධ පාදවලට පරිවරිතනය කරන ආකාරය
+මෙහිදි ෂඩඩිදුශමය සංඛ්‍යාවක්‌ විවිධ පාදවලට පරිවරිතනය කරන ආකාරය
 
 Converting hexadecimal to decimal.
 BHCOOS, E@OGO පරිවර්තනය කිරීම.
@@ -735,7 +735,7 @@ Writing all these numbers together gives the answer.
 00110000 00100000 01010111 01100001 01110011 01110100 01100101 00100001 00001010
 
 9. Consider the following logic circuit:
-පහත තාර්කික පරිපටය සලකන්න.
+පහත තාර්කික පරිපථය සලකන්න.
 
 A—
 B a Z
@@ -772,7 +772,7 @@ Q=A14+1
 
 10. Simplified Boolean expressions help to obtain simpler circuits. Which of the following is a
 simplified form of X + XY?
-සුළු කළ QOO ප්‍රකාශ වඩාත්‌ සරල පරිපට ලබාගැනීමට ඉවහල්‌ O8.X + XY හි සුබ කළ ප්‍රකාශනයක්‌
+සුළු කළ QOO ප්‍රකාශ වඩාත්‌ සරල පරිපථ ලබාගැනීමට ඉවහල්‌ O8.X + XY හි සුබ කළ ප්‍රකාශනයක්‌
 වන්නේ පහත කුමක්‌ ද?
 
 1) X 2) Y 3) XY 4) XY 5) X+Y
@@ -807,8 +807,8 @@ X+Y Identity law සරවසාම්‍ය න්‍යාය
 11. Consider the following truth table:
 පහත සත්‍යතා වගුව සලකන්න.
 
-| | ...।....। ක|ක|ක|ක]|]ර
--_-ේ |.) ක। යක |, | ,...। ක| ක| දැ
+| | ……।……। ක|ක|ක|ක]|]ර
+-_-ේ |.) ක। යක |, | ,……। ක| ක| දැ
 
 උ
 0
@@ -880,11 +880,7 @@ NBC (00)
 
 ඟ
 
-©)
-
 ඟ
-
-|
 
 0
 
@@ -943,8 +939,6 @@ Ready/Waiting
 රැඳී සිටින/
 සුදානම්‌ තත්වය
 
-,
-
 Suspended
 
 and Ready Suspended and තාවකාලිකව
@@ -971,7 +965,7 @@ The process is being created.
 At this stage, the process is not yet ready to execute. It is in the process of being initialized, including
 allocation of necessary resources.
 
-මෙම අදියරේදි, ක්‍රියාවලිය තවමන්‌ ක්‍රියාත්මක කිරීමට සූදානම්‌ නැන. අවග්‍ය සමිපත්‌ වෙන්‌ කිරීම ඇතුඑව
+මෙම අදියරේදි, ක්‍රියාවලිය තවමන්‌ ක්‍රියාත්මක කිරීමට සූදානම්‌ නැන. අවශ්‍ය සම්පත්‌ වෙන්‌ කිරීම ඇතුඑව
 එය ආරමිභ කිරීමේ ක්‍රියාවලියක පවති.
 
 e Ready සුදඳානමි තත්වය
@@ -982,7 +976,7 @@ The process is prepared to run but is waiting for CPU time.
 The process has all the resources it needs except for the CPU. It is placed in the ready queue, waiting
 for the scheduler to select it for execution.
 
-මධ්‍ය සැකසුම්‌ Same හැර එයට අවග්‍ය සියලුම සමිපත්‌ ක්‍රියාවලියට ඇත. එය ක්‍රියාත්මක කිරීම oem)
+මධ්‍ය සැකසුම්‌ Same හැර එයට අවශ්‍ය සියලුම සම්පත්‌ ක්‍රියාවලියට ඇත. එය ක්‍රියාත්මක කිරීම oem)
 කාලසටහන්කරැ විසින්‌ තෝරා ගන්නා තෙක්‌ බලා සිටින, සූදානමි පෝලිමේ නඛා ඇත.
 
 e Running ධාවන තන්වය
@@ -999,7 +993,7 @@ processor at any given time.
 e Blocked (or Waiting) අවහිර කළ තත්වය
 
 The process is waiting for some event to occur (e.g., I/O completion, resource availability).
-ක්‍රියාවලිය යමි සිදුවිමක්‌ සිදු වන තෙක්‌ බලා සිටි (Ce), ආදාන/ප්‍රතිදාන සමිපුර්ණ කිරීම, සමිපත්‌ ලබා
+ක්‍රියාවලිය යමි සිදුවිමක්‌ සිදු වන තෙක්‌ බලා සිටි (Ce), ආදාන/ප්‍රතිදාන සමිපුර්ණ කිරීම, සම්පත්‌ ලබා
 ගැනීමේ හැකියාව).
 
 The process cannot proceed until the specific event it is waiting for happens. It is not eligible for the
@@ -1041,7 +1035,7 @@ The process has completed its execution and is waiting to be removed from the pr
 resources used by the process are released.
 
 ක්‍රියායනය එහි ක්‍රියාත්මක කිරීම සමිපුර්ණ කර ඇති අතර ක්‍රියායන වගුවෙන්‌ ඉවත්‌ කිරීමට බලා සිටි. එම
-ක්‍රියායනය විසින්‌ භාවිතා කරන ලදු සියලුම සමිපත්‌ මුදා හරිනු ලැබේ.
+ක්‍රියායනය විසින්‌ භාවිතා කරන ලදු සියලුම සම්පත්‌ මුදා හරිනු ලැබේ.
 
 Which of the following is not a task of a computer operating system?
 පරිගණක මෙහෙයුමි පද්ධතියක mdbaces නොවන්නේ පහත කවරක්‌ දඋ?
@@ -1063,7 +1057,7 @@ maintaining a page table for each process
 එක්‌ එක්‌ ක්‍රියායනය aca) පිටු වගුවක්‌ (page table) පවත්වා ගැනීම
 
 monitoring the usage of binary files on a hard disk
-දෘඞ ඩිස්කයක ඇති ද්විමය ගොනුවල (binary files) භාවිතය අධික්ෂණය කිරිම
+දෘඩ ඩිස්කයක ඇති ද්විමය ගොනුවල (binary files) භාවිතය අධික්ෂණය කිරිම
 
 swapping processes between main memory and hard disk
 ප්‍රධාන මතකය හා ead ඩිස්කය අතර Goon ප්‍රතිහරණය (swapping)
@@ -1090,7 +1084,7 @@ Creates and terminates processes.
 Haas නිර්මාණය කර අවසන්‌ කරයි.
 
 Schedules processes for CPU execution, ensuring fair and efficient resource sharing.
-සාධාරණ සහ කාර්යක්ෂම සමිපත්‌ බෙදාගැනීම සහතික කරමින්‌ මධ්‍ය සැකසුමි ඒකකය ක්‍රියාත්මක කිරීම
+සාධාරණ සහ කාර්යක්ෂම සම්පත්‌ බෙදාගැනීම සහතික කරමින්‌ මධ්‍ය සැකසුමි ඒකකය ක්‍රියාත්මක කිරීම
 සඳුහා ක්‍රියායන උපලේඛනගත කරයි.
 
 Handles process synchronization and inter-process communication.
@@ -1102,7 +1096,7 @@ Controls communication with peripheral devices (printers, scanners, etc.).
 පට්යන්ත උපාංග (මුද්‍රණ යන්ත්‍ර, Sez, ආදිය) සමඟ සන්නිවේදනය පාලනය කරයි.
 
 Provides device drivers for specific hardware.
-විශේෂිත දෘඞාංග HEM) උපාංග ධාවක සපයයි.
+විශේෂිත දෘඩාංග HEM) උපාංග ධාවක සපයයි.
 
 Handles device interrupts and data transfer.
 උපාංග බාධා කිරීමි සහ දත්ත හුවමාරැව හසුරැවයි.
@@ -1157,7 +1151,7 @@ Bend (දැනට භාවිතයේ නොමැති) One රාමු �
 This is essential for memory management. The OS keeps track of free and used memory frames to
 allocate memory to processes as needed.
 
-මතක කළමනාකරණය සඳහා මෙය අත්‍යවග්‍ය වේ. මෙහෙයුමි පද්ධතිය මඟින්‌ අවග්‍ය SSE ක්‍රියාවලි
+මතක කළමනාකරණය සඳහා මෙය අත්‍යවග්‍ය වේ. මෙහෙයුමි පද්ධතිය මඟින්‌ අවශ්‍ය SSE ක්‍රියාවලි
 සඳුහා මතකය වෙන්‌ කිරීමට හිස්‌ සහ භාවිත කළ මතක රාමු පිළිබඳු වාරනාවක්‌ wm ගනී.
 
 maintaining a page table for each process
@@ -1188,16 +1182,16 @@ utilities or applications.
 14.
 
 5) swapping processes between main memory and hard disk
-ප්‍රධාන මතකය හා දෘඞ ඩිස්කය අතර Garon ප්‍රතිභහරණය (swapping)
+ප්‍රධාන මතකය හා දෘඩ ඩිස්කය අතර Garon ප්‍රතිභහරණය (swapping)
 
 This is known as swapping or paging. The OS manages the transfer of processes between main
 memory and secondary storage (hard disk) to ensure that the active processes have enough memory
 to execute, thereby managing system performance and resource allocation.
 
 මෙය හුවමාරැ HOO හෝ පිටුකරණය ලෙස හැඳින්වේ. සක්‍රිය ක්‍රියාවලින්‌ ක්‍රියාත්මක කිරීමට ප්‍රමාණවත්‌
-මතකයක්‌ ඇති බව සහතික කිරීම සඳහා ප්‍රධාන මතකය සහ ද්විතියික ආචයනය (දෘඞ තැටිය) අතර
+මතකයක්‌ ඇති බව සහතික කිරීම සඳහා ප්‍රධාන මතකය සහ ද්විතියික ආචයනය (දෘඩ තැටිය) අතර
 ක්‍රියාවලි මාරැ කිරීම මෙහෙයුමි පද්ධතිය විසින්‌ කළමනාකරණය කරයි, එමඟින්‌ පද්ධතියේ ක්‍රියාකාරිත්වය
-සහ සමිපත්‌ වෙන්‌ කිරීම කළමනාකරණය කරයි.
+සහ සම්පත්‌ වෙන්‌ කිරීම කළමනාකරණය කරයි.
 
 Accordingly, can be selected as the correct answer 15 monitoring the usage of binary files on a hard disk.
 ඒ අනුව නිවැරදි පිළිතුර ලෙස තෝරා ගත හැකි වන්නේ cad ඩිස්කයක ඇති ද්විමය ගොනුව, (binary files)
@@ -1217,7 +1211,7 @@ FAT
 203 | 201
 204 | 205
 
-Notes: I. The last block ofa file is indicated by -1.
+Notes: I. The last block of a file is indicated by -1.
 ගොනුවක අවසන්‌ කාණ්ඩය --1 මගින්‌ දැක්වේ.
 
 Il. The directory entry of a file contains the block number of the first block of the file.
@@ -1298,7 +1292,7 @@ FAT
 204 | 205
 
 Accordingly, it appears that 4 categories are required for the file.
-ඒ අනුව ගොනුව HEH) කාණ්ඞ 4ක්‌ අවග්‍ය බව පෙනි යයි.
+ඒ අනුව ගොනුව HEH) කාණ්ඩ 4ක්‌ අවශ්‍ය බව පෙනි යයි.
 
 If the size of one group is 4KB, the size of 4 groups is 16KB.
 එක කාණ්ඩයක විශාලතවය 4KB නමි කාණ්ඩයක 4 ක විශාලත්වය 16KB වේ.
@@ -1311,11 +1305,11 @@ TCP/IP ආකෘතියේ ප්‍රවාහන ස්තරයේ (Transp
 
 A - Transmission Control Protocol (TCP)
 
-සමිප්‍රේෂණ පාලන නියමාවලිය (TCP)
+සම්ප්‍රේෂණ පාලන නියමාවලිය (TCP)
 
 19 ~ User Datagram Protocol (UDP)
 
-පරිශීලක eso පණිවිඞ නියමාවලිය (UDP)
+පරිශීලක eso පණිවිඩ නියමාවලිය (UDP)
 
 C - File Transfer Protocol (FTP)
 
@@ -1334,7 +1328,7 @@ Answer : 1 )
 The TCP/IP architecture, also known as the Internet Protocol Suite, 15 a set of communication protocols
 used for the Internet and similar networks.
 
-TCP/IP ආකෘතිය, අන්තරපාල නියමාවලි කට්ටලය ලෙසද හැඳින්වේ, එය අන්තරපාලය සහ J හා සමාන
+TCP/IP ආකෘතිය, අන්තර්ජාල නියමාවලි කට්ටලය ලෙසද හැඳින්වේ, එය අන්තර්ජාලය සහ J හා සමාන
 පාල සඳුහා භාවිතා කරන සන්නිවේදන නියමාවලි සමුහයකි.
 
 1.
@@ -1365,7 +1359,7 @@ Transport Layer
 This layer is responsible for end-to-end communication, error-checking, and data flow control
 between devices.
 
-මෙම ස්තරය අන්තයේ BO අවසානය eso) සන්නිවේදනය, දෝෂ පරික්‍ෂා කිරීම සහ උපාංග අතර
+මෙම ස්තරය අන්තයේ BO අවසානය eso) සන්නිවේදනය, දෝෂ පරික්ෂා කිරීම සහ උපාංග අතර
 දුත්ත ප්‍රවාහ පාලනය HEH) වගකිව යුතුය.
 
 TCP
@@ -1373,17 +1367,15 @@ TCP
 Provides reliable, connection-oriented communication, ensuring that data is delivered error-free and
 in order.
 
-දුත්ත දෝෂයකින නොරව සහ පිළිවෙලට ලබා දෙන අතර විශ්වාසනීය, සමිබන්ධතා-නැඹුරැ සන්නිවේදනය සපයයි.
+දුත්ත දෝෂයකින නොරව සහ පිළිවෙලට ලබා දෙන අතර විශ්වාසනීය, සම්බන්ධතා-නැඹුරැ සන්නිවේදනය සපයයි.
 
 UDP
 
 Offers connectionless communication with minimal protocol overhead, useful for applications that
 require fast, efficient transmission.
 
-වේගවත්‌, කාර්යක්ෂම සම්ප්‍රේෂණයක්‌ අවග්‍ය යෙදුම්‌ සඳහා ප්‍රයෝපනවත්‌ බව අවම නියමාවලිය සමඟ
+වේගවත්‌, කාර්යක්ෂම සම්ප්‍රේෂණයක්‌ අවශ්‍ය යෙදුම්‌ සඳහා ප්‍රයෝපනවත්‌ බව අවම නියමාවලිය සමඟ
 සම්බන්ධතා රහිත සන්නිවේදනයක්‌ සිදුකරයි.
-
-~
 
 3. Internet Layer
 
@@ -1399,7 +1391,7 @@ Protocols:
 IP (Internet Protocol), ICMP (Internet Control Message Protocol), ARP (Address Resolution
 Protocol), and IGMP (Internet Group Management Protocol).
 
-IP (අන්තර්පාල නියමාවලිය, ICMP (අන්තරපාල පාලන පණිවිඩ නියමාවලිය) , ARP (ලිපින විභේදන
+IP (අන්තර්පාල නියමාවලිය, ICMP (අන්තර්ජාල පාලන පණිවිඩ නියමාවලිය) , ARP (ලිපින විභේදන
 නියමාවලිය) සහ IGMP (අන්තර්පාල කණ්ඩායම්‌ කළමනාකරණ නියමාවලිය).
 
 4. Network Interface Layer (Link Layer)
@@ -1408,14 +1400,14 @@ IP (අන්තර්පාල නියමාවලිය, ICMP (අන්ත�
 The lowest layer in the TCP/IP model, responsible for the physical transmission of data over
 network hardware.
 
-පාල දෘඩාංග හරහා essen භෞතික සමිප්‍රේෂණය aca) වගකිව යුතු (TCP/IP) ආකෘතියේ පහළම
+පාල දෘඩාංග හරහා essen භෞතික සම්ප්‍රේෂණය aca) වගකිව යුතු (TCP/IP) ආකෘතියේ පහළම
 ස්ටරය.
 
 This layer encompasses the hardware and protocols that provide the physical transmission of data.
-මෙම ස්තරය Essen භෞතික සමිප්‍රේෂණය සපයන දෘඞාංග සහ නියමාවලි ආවරණය කරයි.
+මෙම ස්තරය Essen භෞතික සම්ප්‍රේෂණය සපයන දෘඩාංග සහ නියමාවලි ආවරණය කරයි.
 
 It includes the device drivers and the hardware interfaces involved in data transmission.
-එයට උපාංග ධාවක සහ දත්ත සමිප්‍රේෂණයට සමිබන්ධ දෘඞාංග අතුරැමුහුණත්‌ ඇතුළත්‌ වේ.
+එයට උපාංග ධාවක සහ දත්ත සම්ප්‍රේෂණයට සම්බන්ධ දෘඩාංග අතුරැමුහුණත්‌ ඇතුළත්‌ වේ.
 
 Protocols:
 නියමාවලි
@@ -1436,8 +1428,8 @@ connectionless communication model with minimal protocol mechanism, primarily fo
 that require efficient, time-sensitive transmissions.
 
 UDP යනු TCP/IP ආකෘතියේ ප්‍රවාහන ස්ටරයේ තවත්‌ මුලික නියමාවලියකි. OBO අවම නියමාවලි
-යාන්ත්‍රණයක්‌ සහිත සරල, සමිබන්ධතා රහිත සන්නිවේදන ආකෘතියක්‌ සපයයි, මූලික වගයෙන්‌ කාර්යක්ෂම,
-කාල සංවේදී සමිප්‍රේෂණ අවග්‍ය යෙදුම්‌ සඳුහා භාවිත වේ.
+යාන්ත්‍රණයක්‌ සහිත සරල, සම්බන්ධතා රහිත සන්නිවේදන ආකෘතියක්‌ සපයයි, මූලික වගයෙන්‌ කාර්යක්ෂම,
+කාල සංවේදී සම්ප්‍රේෂණ අවශ්‍ය යෙදුම්‌ සඳුහා භාවිත වේ.
 
 Why the other answers are incorrect:
 
@@ -1455,7 +1447,7 @@ FTP යනු පාලයක්‌ හරහා පරිගණක අතර �
 It relies on the Transport Layer protocols (like TCP) to establish a connection and transfer data, but
 it is not a Transport Layer protocol itself.
 
-එය සමිඛන්ධතාවයක්‌ ස්ථාපනය කිරීමට සහ දත්ත හුවමාරැ කිරීමට ප්‍රවාහන ස්තර නියමාවලි (TCP
+එය සම්බන්ධතාවයක්‌ ස්ථාපනය කිරීමට සහ දත්ත හුවමාරැ කිරීමට ප්‍රවාහන ස්තර නියමාවලි (TCP
 වැනි) මත රඳා පවති, නමුත්‌ එය ප්‍රවාහන ස්තර නියමාවලියක්‌ නොවේ.
 
 A. Internet Protocol (IP):
@@ -1474,7 +1466,7 @@ So, the correct answer is (1) A and B only.
 එබැවින්‌, නිවැරදි පිළිතුර (1) A සහ B පමණි.
 
 Which of the following statements is/are correct about MAC and IPv4 addresses?
-MAC ae IPv4 ලිපියොමු සමිබන්ධයෙන්‌ පහන සඳහන්‌ කවරක්‌ නිවැරදි ද?
+MAC ae IPv4 ලිපියොමු සම්බන්ධයෙන්‌ පහන සඳහන්‌ කවරක්‌ නිවැරදි ද?
 
 A - MAC addresses are 32 bits in length and are used in the network layer.
 MAC ලිපියොමුවල දිග BQ 322ක්‌ වන අතර SO) පාල (network) ස්තරයේ භාවිත වේ.
@@ -1496,7 +1488,7 @@ MAC ලිපින බිටු 32 කින්‌ සමන්විත වන
 MAC addresses are actually 48 bits in length, and they are used in the data link layer, not the
 network layer.
 
-MAC ලිපින ඇත්ත වගයෙන්ම බිටු 48 කින්‌ සමන්විත වන අතර, ඒවා භාවිතා කරනුයේ දුත්ත සමිඛන්ධක
+MAC ලිපින ඇත්ත වගයෙන්ම බිටු 48 කින්‌ සමන්විත වන අතර, ඒවා භාවිතා කරනුයේ දුත්ත සම්බන්ධක
 ස්තරයේ මිස පාල ස්ටරයේ නොවේ.
 
 B. MAC addresses are 48 bits in length and are used in the datalink layer.
@@ -1505,7 +1497,7 @@ MAC ලිපින බිටු 48823 සමන්විත වන අතර en
 MAC (Media Access Control) addresses are 48 bits in length and are used to identify network
 interfaces at the data link layer.
 
-MAC (Media Access Control) ලිපින බිටු 48 කින්‌ සමන්විත වන අතර ei සමිබන්ධක ස්තරයේ HE
+MAC (Media Access Control) ලිපින බිටු 48 කින්‌ සමන්විත වන අතර ei සම්බන්ධක ස්තරයේ HE
 අතුරැමුහුණත්‌ හඳුනා ගැනීමට භාවිතා කරයි.
 
 They are essential for communication within the same local network segment.
@@ -1522,7 +1514,7 @@ IPv4 (අන්තර්පාල නියමාවලි අනුවාදය
 They provide unique addresses for devices on a network, enabling routing of packets across
 interconnected networks.
 
-ඔවුන්‌ පාලයක උපාංග සඳහා අනන්‍ය ලිපින සපයන අතර අන්තර්‌ සමිඛන්ධිත පාල හරහා පැකටි මාර්ගගත
+ඔවුන්‌ පාලයක උපාංග සඳහා අනන්‍ය ලිපින සපයන අතර අන්තර්‌ සම්බන්ධිත පාල හරහා පැකටි මාර්ගගත
 කිරීම සක්‍රීය කරයි.
 
 Therefore, the correct answer is 5) [3 and C only.
@@ -1533,7 +1525,7 @@ MAC ලිපිනයක්‌ යනු කුමක්ද?
 
 A MAC address, also known as a hardware or physical address, is a unique identifier assigned to a network
 interface controller (NIC) for use as a network address in communications within a network segment.
-MAC ලිපිනයක්‌, දෘඞාංග හෝ භෞතික ලිපිනයක්‌ ලෙසද හැඳින්වේ, HE අංශයක්‌ තුළ සන්නිවේදනය oe)
+MAC ලිපිනයක්‌, දෘඩාංග හෝ භෞතික ලිපිනයක්‌ ලෙසද හැඳින්වේ, HE අංශයක්‌ තුළ සන්නිවේදනය oe)
 පාල ලිපිනයක්‌ ලෙස භාවිතා කිරීම සඳහා ජාල අතුරැමුහුණත්‌ පාලක (NIC) වෙත පවරා ඇති අනන්‍ය
 හඳුනාගැනීමකි.
 
@@ -1553,7 +1545,7 @@ IPv4 is a protocol for use in packet-switched networks (such as Ethernet) and is
 Internet protocol used to connect devices to the Internet.
 
 IPv4 යනු පැකටි-ස්විචි කරන ලදු HE (ඊතර්නෙටි වැනි) භාවිතා කිරීම සඳුහා වන නියමාවලියක්‌ වන අතර
-අන්තරපාලය වෙත උපාංග සමිඛන්ධ කිරීමට භාවිතා කරන වඩාත්‌ GOOG ලෙස යොදවා ඇති අන්තර්ජාල
+අන්තර්ජාලය වෙත උපාංග සම්බන්ධ කිරීමට භාවිතා කරන වඩාත්‌ GOOG ලෙස යොදවා ඇති අන්තර්ජාල
 නියමාවලියක්‌ වේ.
 
 IPv4 addresses are 32 bits (4 bytes) long, which allows for a theoretical maximum of about 4.3 billion
@@ -1612,7 +1604,7 @@ Addresses that end in all 15 in the host part (e.g., 192.168.1.255 for a network
 වේ.
 
 17. Which of the following is/are correct regarding a firewalN
-ගිනිපවුරක්‌ (firewall) සමිබන්ධයෙන්‌ පහත සඳුහන්‌ කවරක්‌ නිවැරදි ද?
+ගිනිපවුරක්‌ (firewall) සම්බන්ධයෙන්‌ පහත සඳුහන්‌ කවරක්‌ නිවැරදි ද?
 
 A - It can monitor and filter outgoing traffic from an internal network.
 එයට අභ්‍යන්තර පාලයකින්‌ පිටතට යන eso ප්‍රවාහයන්‌ නිරීක්ෂණය සහ code@(filter) සිදු කළ හැකි ය.
@@ -1621,7 +1613,7 @@ B - It protects a network from unauthorized accesses.
 එය පාලයක්‌ අනවසර ප්‍රවේගයන්ගෙන්‌ ආරක්ෂා කිරීම Be කරයි.
 
 ල්‌ - It can be a hardware, a software or a combination of both.
-එය දෘඞාංගයක්‌, මෘදුකාංගයක්‌ හෝ J දෙකම හෝ විය හැකි ය.
+එය දෘඩාංගයක්‌, මෘදුකාංගයක්‌ හෝ J දෙකම හෝ විය හැකි ය.
 
 1) A only. 2) AandBonly. 3) AandConly. 4) BandConly. 5) Allof the above.
 A පමණි. A හා B පමණි. A හා C පමණි. 13 හා ලට පමණි. ඉහත සියල්ලම.
@@ -1641,7 +1633,7 @@ not accessing or transmitting data to unauthorized or potentially harmful extern
 
 B. It protects a network from unauthorized accesses.
 
-එය අනවසර පිවිසුමි වලින්‌ පාලයක්‌ ආරක්‍ෂා කරයි.
+එය අනවසර පිවිසුමි වලින්‌ පාලයක්‌ ආරක්ෂා කරයි.
 
 One of the primary functions of a firewall is to protect the network from unauthorized access by
 blocking unwanted or malicious incoming traffic.
@@ -1655,7 +1647,7 @@ C. It can be a hardware, a software or a combination of both.
 Firewalls can be implemented as hardware devices, software applications, or a combination of both,
 providing flexibility in deployment based on the specific needs and infrastructure of an organization.
 සංවිධානයක නිශ්චිත අවශ්‍යතා සහ යටිතල පහසුකමි මත GEMGO යෙදවිමේදි නම්‍යගිලි බවක්‌ ලබා
-දෙමින්‌ ගිනි පවුරු දෘඞාංග උපාංග, මෘදුකාංග යෙදුමි හෝ දෙකේම එකතුවක්‌ ලෙස ක්‍රියාත්මක කළ හැක.
+දෙමින්‌ ගිනි පවුරු දෘඩාංග උපාංග, මෘදුකාංග යෙදුමි හෝ දෙකේම එකතුවක්‌ ලෙස ක්‍රියාත්මක කළ හැක.
 
 Thus, the correct answer is 5) All A, B and C.
 මේ අනුව, නිවැරදි පිළිතුර 5) A,B සහ ට වේ.
@@ -1669,7 +1661,7 @@ network traffic based on predetermined security rules.
 Its primary purpose 15 to establish a barrier between a trusted internal network and untrusted external
 networks, such as the Internet, to protect against unauthorized access, cyberattacks, and data breaches.
 එහි මුලික අරමුණ වන්නේ අනවසර පිවිසීමි, සයිබර්‌ ප්‍රභාර සහ eso කඩකිරීමි වලින්‌ ආරක්ෂා විම aes)
-විග්වාසදායී අභ්‍යන්තර පාලයක්‌ සහ අන්තටරපාලය වැනි කළ නොහැකි බාහිර පාල අතර බාධකයක්‌ ඇති
+විග්වාසදායී අභ්‍යන්තර පාලයක්‌ සහ අන්තර්ජාලය වැනි කළ නොහැකි බාහිර පාල අතර බාධකයක්‌ ඇති
 කිරීමයි.
 
 18. An organization with the assigned IP address block 193.1.1.0/24 needs to define eight subnets. Each
@@ -1678,9 +1670,9 @@ subnet should provide for more than 25 IP addresses. Which of the following corr
 number of bits needed to identify the given network, the total number of bits needed to identify the
 subnets, and the number of bits needed to assign unique IP addresses for this requirement,
 respectively?
-IP ලිපින 193.1.1.0/24 කාණ්ඩය පවරා ඇති සංවිධානයකට උපපාල අටක්‌ සෑදිමට අවග්‍ය වේ. එක්‌ Oss
+IP ලිපින 193.1.1.0/24 කාණ්ඩය පවරා ඇති සංවිධානයකට උපපාල අටක්‌ සෑදිමට අවශ්‍ය වේ. එක්‌ Oss
 උපපාලය IP ලිපින 25කට වඩා සැපයිය යුතු ය. දෙන ලද, HES හඳුනාගැනීමට අවශ්‍ය බිටු සංඛ්‍යාව, උපපාල
-හඳුනාගැනීමට අවග්‍ය මුළු බිටු සංඛ්‍යාව සහ අනන්‍ය IP ලිපින පැවරීමට අවග්‍ය බිටු සංඛ්‍යාව නිවැරවිව
+හඳුනාගැනීමට අවශ්‍ය මුළු බිටු සංඛ්‍යාව සහ අනන්‍ය IP ලිපින පැවරීමට අවශ්‍ය බිටු සංඛ්‍යාව නිවැරවිව
 පිළිවෙළින්‌ ලැයිස්තුගත කර ඇත්තේ පහත සඳුහන්‌ කවරක උ?
 
 1) 24, 3, 5 2) 24, 5, 3 3) 24, 27, 5 4) 27, 3, 5 5) 27, 30, 2
@@ -1721,7 +1713,7 @@ However, we need to subtract 2 addresses (network address and broadcast address)
 උපපාලයකට භාවිත කළ හැකි IP ලිපින 30ක්‌ අපට ඉතිරී වේ.
 
 Since 30 usable addresses satisfy the requirement of more than 25 IP addresses per subnet, this works.
-භාවිත කළ හැකි ලිපින 30 න්‌ එක්‌ උපපාලයකට IP ලිපින 25කට වඩා අවග්‍ය වන බැවින්‌, මෙය ක්‍රියා
+භාවිත කළ හැකි ලිපින 30 න්‌ එක්‌ උපපාලයකට IP ලිපින 25කට වඩා අවශ්‍ය වන බැවින්‌, මෙය ක්‍රියා
 කරයි.
 
 Accordingly, the correct bit allocation is,
@@ -1732,35 +1724,35 @@ NOS හදුනාගැනීමට අවශ්‍ය BQ ගණන වන්�
 
 The total number of bits required to identify the subnet is - Number of network bits + Number of subnet
 bits = 27 bits
-උපපාලය හදුනාගැනීමට අවග්‍ය මුළු DQ සංඛ්‍යාව වන්නේ-පාල BQ ගණන + උපපාල BQ ගණන = බිටු 27
+උපපාලය හදුනාගැනීමට අවශ්‍ය මුළු DQ සංඛ්‍යාව වන්නේ-පාල BQ ගණන + උපපාල BQ ගණන = බිටු 27
 
 Number of host bits - 5 bits
 සත්කාරක BQ ගණන - BQ 5
 
 19. Which of the following statements is correct regarding network topologies?
-HE SOEs (topology) සමිබන්ධයෙන්‌ පහත සඳුහන්‌ කුමන ප්‍රකාගය නිවැරදි ද?
+HE SOEs (topology) සම්බන්ධයෙන්‌ පහත සඳුහන්‌ කුමන ප්‍රකාශය නිවැරදි ද?
 
 1) In dus topology, a central network hub is used to connect all nodes.
-බස්‌ ස්ටලකයේදි, සියලුම නෝඩු (nodes) සමිබන්ධ කිරීමට මධ්‍යගත පාල නාභියක්‌ (hub) භාවිත වේ.
+බස්‌ ස්ටලකයේදි, සියලුම නෝඩු (nodes) සම්බන්ධ කිරීමට මධ්‍යගත පාල නාභියක්‌ (hub) භාවිත වේ.
 
 2) In star topology, a linear cable is used to connect all nodes.
-තාරකා ස්ථලකයේදි, සියලුම නෝඩු සමිබන්ධ කිරීමට ටේඛිය කේබලයක්‌ භාවිත වේ.
+තාරකා ස්ථලකයේදි, සියලුම නෝඩු සම්බන්ධ කිරීමට ටේඛිය කේබලයක්‌ භාවිත වේ.
 
 3) In ring topology, messages are sent only clockwise.
 මුදු ස්ටඊලකයේදි, පණිවිඩ යචනු ලබන්නේ දුක්ෂිණාවටතව (clockwise) පමණි.
 
 A) Inring topology, each node is directly connected only to two of its neighbors.
-මුදු ස්ටඊලකයේදි, එක්‌ එක්‌ නෝඩුව සෘපුවම සමිබන්ධ වන්නේ අසල්වැසි නෝඞු දෙකකට පමණි.
+මුදු ස්ටඊලකයේදි, එක්‌ එක්‌ නෝඩුව සෘපුවම සම්බන්ධ වන්නේ අසල්වැසි නෝඩු දෙකකට පමණි.
 
 5) In mesh topology, each node is always connected to one other node only.
-බැඳි (mesh) ස්ටලකයේදි, එක්‌ එක්‌ නෝඩුව සැමවිටම නවත්‌ එක්‌ නෝඩුවකට පමණක්‌ සමිබන්ධ වේ.
+බැඳි (mesh) ස්ටලකයේදි, එක්‌ එක්‌ නෝඩුව සැමවිටම නවත්‌ එක්‌ නෝඩුවකට පමණක්‌ සම්බන්ධ වේ.
 
 Answer : 4)
 
 Network topology refers to the way different elements in a network are arranged, including devices,
 connections, and data flow. It defines how data travels from one device to another on the network.
 
-පාල BOE විද්‍යාව යනු උපාංග, සමිබන්ධනා සහ දත්ත ප්‍රවාහය ඇතුඑව පාලයක SHO මුලාංග සකසා ඇති
+පාල BOE විද්‍යාව යනු උපාංග, සම්බන්ධනා සහ දත්ත ප්‍රවාහය ඇතුඑව පාලයක SHO මුලාංග සකසා ඇති
 ආකාරයයි. Heed එක්‌ උපාංගයකින්‌ තවත්‌ උපාංගයකට දුූත්ත ගමන්‌ කරන ආකාරය එය නිර්වචනය කරයි.
 
 Bus Topology බස්‌ ය
@@ -1769,7 +1761,7 @@ Bus topology is a network layout where all devices are connected to a single mai
 backbone. In a network, data travels through this cable in both directions, and every device on the network
 receives the same signal simultaneously.
 
-බස්‌ BOE විද්‍යාව යනු සියලුම උපාංග එකම ප්‍රධාන කේබලයකට සමිබන්ධ කර ඇති HE සැකැස්මකි, එය
+බස්‌ BOE විද්‍යාව යනු සියලුම උපාංග එකම ප්‍රධාන කේබලයකට සම්බන්ධ කර ඇති HE සැකැස්මකි, එය
 බොහෝ විට කොඳු නාරටිය ලෙස හැඳින්වේ. පාලයක්‌ තුළ, COM මෙම කේබලය හරහා දෙපැත්තටම ගමන්‌
 කරයි, පාලයේ සැම උපාංගයකටම එකම සංඥාව එකවරම ලැබේ.
 
@@ -1787,13 +1779,13 @@ Advantages
 වාසි
 
 Use less wiring.
-අඞු රැහැන්‌ ප්‍රමාණයක්‌ භාවිතය.
+අඩු රැහැන්‌ ප්‍රමාණයක්‌ භාවිතය.
 
 Increased data transmission speed.
 EDD සම්ප්‍රේෂණ වේගය වැඩි විම.
 
 Computers can be easily connected to the centralized network.
-මධ්‍යගත රැහැනට පහසුවෙන්‌ පරිගණක සමිබන්ධ කරගත හැකි SO.
+මධ්‍යගත රැහැනට පහසුවෙන්‌ පරිගණක සම්බන්ධ කරගත හැකි SO.
 
 Disadvantages
 අවාසි
@@ -1856,7 +1848,7 @@ In a ring topology, devices are connected in a closed loop, forming a circular p
 Each device acts as a repeater, receiving data packets, regenerating the signal to maintain its strength, and
 then forwarding it to the next device in the ring.
 
-QE ස්ඊලකය ME, උපාංග සංවෘත ලුපයක්‌ තුළ සමිඛන්ධ කර ඇති අනර, cow සමිප්‍රේෂණය aes) වෘත්තාකාර
+QE ස්ඊලකය ME, උපාංග සංවෘත ලුපයක්‌ තුළ සම්බන්ධ කර ඇති අනර, cow සම්ප්‍රේෂණය aes) වෘත්තාකාර
 මාර්ගයක්‌ HEB. සෑම උපාංගයක්ම පුනරාවරතකයක්‌ ලෙස ක්‍රියා කරයි, දූත්ත පැකටි ලබා ගැනීම, එහි ශක්තිය
 පවත්වා ගැනීම සඳුහා සංඥාව නැවත උත්පාදනය කිරීම,පසුව එය වළල්ලේ ඊළඟ උපාංගය වෙත යොමු කරයි.
 
@@ -1869,7 +1861,7 @@ Node 01
 Advantages
 
 Using fewer wires.
-අඞු රැහැන්‌ ප්‍රමාණයක්‌ භාවිතා කිරීම.
+අඩු රැහැන්‌ ප්‍රමාණයක්‌ භාවිතා කිරීම.
 
 Disadvantages
 
@@ -1894,8 +1886,8 @@ devices, providing flexibility and fault tolerance.
 
 දැල්‌ BOE විද්‍යාව යනු තරැ BOE විද්‍යාවේ මෙන්‌ මධ්‍යම
 කේන්ද්‍රයක්‌ හෝ ස්විචයක්‌ මත යැපීමට ප්‍රතිවිරැද්ධව උපාංග
-එකිනෙක හා සමිබන්ධ වන වෙබි වැනි පාල ව්‍යහයකි. ඵක්‌ එක්‌
-ගැටයක්‌ තවත්‌ ගැට කිහිපයකට සමිබන්ධ වන අතර, අතිරික්ත
+එකිනෙක හා සම්බන්ධ වන වෙබි වැනි පාල ව්‍යහයකි. ඵක්‌ එක්‌
+ගැටයක්‌ තවත්‌ ගැට කිහිපයකට සම්බන්ධ වන අතර, අතිරික්ත
 මාර්ග පාලයක්‌ නිර්මාණය කරන මාළු දැලක්‌ සිතන්න. දැල්‌
 පාලයක්‌ තුළ, දත්ත උපාංග අතර බහු මාර්ග ඔස්සේ ගමන්‌
 කළ හැකි අතර, නම්‍යගිලි බව සහ දෝෂ ඉවසීම සපයයි.
@@ -1926,12 +1918,12 @@ Use of more cables.
 වැඩි රැහැන්‌ ප්‍රමාණයක්‌ භාවිතය.
 
 The correct statement regarding network topologies is,
-පාල ස්ටලක සමිබන්ධ නිවැරදි ප්‍රකාගය වන්නේ,
+පාල ස්ටලක සම්බන්ධ නිවැරදි ප්‍රකාශය වන්නේ,
 
 4)
 
 In ring topology, each node is directly connected only to two of its neighbors.
-මුදු ස්ටඊලකයේදි, එක්‌ එක්‌ නෝඩුව සෘපුවම සමිබන්ධ වන්නේ අසල්වැසි නෝඞු දෙකකට පමණි.
+මුදු ස්ටඊලකයේදි, එක්‌ එක්‌ නෝඩුව සෘපුවම සම්බන්ධ වන්නේ අසල්වැසි නෝඩු දෙකකට පමණි.
 
 why the other statements are incorrect,
 අනෙක්‌ ප්‍රකාශ වැරදි |G,
@@ -1948,10 +1940,10 @@ In bus topology, a central network hub is not used. Instead, all nodes are conne
 cable, known as the bus.
 
 බස්‌ HOE විදු්‍යාවේදි, මධ්‍යම HE කේන්ද්‍රයක්‌ භාවිතා නොවේ. ඒ වෙනුවට, සියලුම නෝඩි බස්‌ ලෙස හඳුන්වන
-තනි මධ්‍යම කේබලයකට සමිබන්ධ කර ඇත.
+තනි මධ්‍යම කේබලයකට සම්බන්ධ කර ඇත.
 
 In star topology, a central hub or switch is used to connect all nodes, not a linear cable.
-තරැ HOE විදු්‍යාවේදි, bal කේබලයක්‌ නොව සියලුම නෝඩි සමිබන්ධ කිරීමට මධ්‍යම කේන්ද්‍රයක්‌ හෝ
+තරැ HOE විදු්‍යාවේදි, bal කේබලයක්‌ නොව සියලුම නෝඩි සම්බන්ධ කිරීමට මධ්‍යම කේන්ද්‍රයක්‌ හෝ
 ස්විචයක්‌ භාවිතා කරයි.
 
 In ring topology, messages can be sent either clockwise or counterclockwise, depending on the specific
@@ -1963,7 +1955,7 @@ implementation.
 In mesh topology, each node 15 typically connected to multiple other nodes, providing multiple paths
 for data to travel.
 
-දැල්‌ BOE විද්‍යාවේදි, සැම නෝඩඞයක්ම සාමාන්‍යයෙන්‌ වෙනත්‌ නෝඩි කිහිපයකට සමිබන්ධ වන අතර, eso
+දැල්‌ BOE විද්‍යාවේදි, සැම නෝඩඩයක්ම සාමාන්‍යයෙන්‌ වෙනත්‌ නෝඩි කිහිපයකට සම්බන්ධ වන අතර, eso
 ගමන්‌ කිරීමට බහු OHO සපයයි.
 
 20. Consider the seven layer OSI reference model and match each of the given layers labeled from P to
@@ -1973,7 +1965,7 @@ S to the corresponding responsibility of it labeled from 1 to 4.
 
 Layer ස්තර Responsibility වගකීම
 12 - Application layer 1 - binary transmission over the communication medium
-යෙදුමි ස්තරය සන්නිවේදන මාධ්‍ය හරහා ද්විමය සමිප්‍රේෂනය
+යෙදුමි ස්තරය සන්නිවේදන මාධ්‍ය හරහා ද්විමය සම්ප්‍රේෂනය
 Q - Physical layer 2 - route determination
 භෞතික ස්තරය මං නිටිණය
 R - Transport layer 3 - user services that include file transfer, remote access etc.
@@ -1998,7 +1990,7 @@ Q.
 යෙදුමි ස්තරය: ගොනු හුවමාරැව, COBO ප්‍රවේගය යනාදිය ඇතුළත්‌ පරිශීලක සේවා OCH) වගකීම දුරයි.
 
 Physical layer: Responsible for binary transmission over the communication medium.
-භෞතික ස්තරය: සන්නිවෙදන මාධ්‍ය හරහා ද්විමය සමිප්‍රේෂණය සඳුහා වගකීම 606.
+භෞතික ස්තරය: සන්නිවෙදන මාධ්‍ය හරහා ද්විමය සම්ප්‍රේෂණය සඳුහා වගකීම 606.
 
 Transport layer: Responsible for data delivery from process to process.
 ප්‍රවාහන ස්තරය: ක්‍රියාවලියෙන්‌ ක්‍රියාවලියට essen බෙදා හැරීම සඳහා වගකීම දරයි.
@@ -2010,7 +2002,7 @@ Matching Layers to Responsibilities
 වගකීමි cee) ස්තර ගැලපීම
 
 Binary transmission over the communication medium: Physical layer ( (0)
-සන්නිවේදන මාධ්‍යය හරහා ද්විමය සමිප්‍රේෂණය: භෞතික ස්තරය (Q)
+සන්නිවේදන මාධ්‍යය හරහා ද්විමය සම්ප්‍රේෂණය: භෞතික ස්තරය (Q)
 
 Route determination: Network layer ( 5 )
 මාර්ග නිරණය: HE ස්තරය (5)
@@ -2034,14 +2026,14 @@ Physical Layer (Layer 1)
 
 This layer is concerned with the physical connection between devices. It deals with the transmission
 and reception of raw binary data over a physical medium such as cables, radio waves, or fiber optics.
-මෙම ස්තරය උපාංග අතර භෞතික සමිබන්ධතාව ගැන සැලකිලිමත්‌ වේ. එය කේබල්‌, රේඩියෝ තරංග
-හෝ ප්‍රකාශ තන්තු වැනි භෞතික මාධ්‍යයක්‌ හරහා අමු ද්විමය com සමිප්‍රේෂණය කිරීම සහ ලබා
-ගැනීම සමිඛන්ධයෙන්‌ කටයුතු කරයි.
+මෙම ස්තරය උපාංග අතර භෞතික සම්බන්ධතාව ගැන සැලකිලිමත්‌ වේ. එය කේබල්‌, රේඩියෝ තරංග
+හෝ ප්‍රකාශ තන්තු වැනි භෞතික මාධ්‍යයක්‌ හරහා අමු ද්විමය com සම්ප්‍රේෂණය කිරීම සහ ලබා
+ගැනීම සම්බන්ධයෙන්‌ කටයුතු කරයි.
 
 Functions කාර්යයන්‌
 
 e Defines hardware specifications (cables, connectors, voltage levels, etc.)
-උෘඞාංග පිරිවිතර HOOOHS කරයි (කේබල්‌, සමිබන්ධක, වෝල්ටියතා මටිටමි, ආදිය)
+උෘඩාංග පිරිවිතර HOOOHS කරයි (කේබල්‌, සම්බන්ධක, වෝල්ටියතා මටිටමි, ආදිය)
 
 e Handles bit-level transmission
 බිටු මට්ටමේ සම්ප්‍රේෂණය හසුරැවයි
@@ -2059,7 +2051,7 @@ This layer is responsible for the reliable transmission of data frames between t
 same network. It ensures error detection and correction, as well as proper framing and addressing
 using MAC addresses.
 
-එකම පාලයක උපාංග දෙකක්‌ අතර eso රාමු විශ්වාසදායක ලෙස සමිප්‍රේෂණය කිරීම සඳුහා මෙම
+එකම පාලයක උපාංග දෙකක්‌ අතර eso රාමු විශ්වාසදායක ලෙස සම්ප්‍රේෂණය කිරීම සඳුහා මෙම
 ස්තරය වගකිව යුතුය. එය MAC ලිපින භාවිතයෙන්‌ දෝෂ හඳුනා ගැනීම සහ නිවැරදි කිරීම මෙන්ම නිසි
 රාමු කිරීම සහ ආමන්ත්‍රණය කිරීම සහතික කරයි.
 
@@ -2158,7 +2150,7 @@ This layer is responsible for data translation, encryption, and compression. It 
 the application layer is in a usable format and that data from the transport layer is in a readable
 format for the application layer.
 
-EDD පරිවර්තනය, සංකේතනය සහ සමිපිඞඛනය HCH) GOO ස්තරය වගකිව යුතුය. එය යෙදුමි
+EDD පරිවර්තනය, සංකේතනය සහ සමිපිඩඛනය HCH) GOO ස්තරය වගකිව යුතුය. එය යෙදුමි
 ස්තරයේ දුත්ත භාවිත කළ හැකි ආකෘතියකින්‌ සහ ප්‍රවාහන ස්ටරයේ දත්ත යෙදුමි ස්තරය සඳහා
 කියවිය හැකි ආකෘතියක ඇති බව සහතික කරයි.
 
@@ -2225,10 +2217,10 @@ seal, but it provides far more inherent security. Digital signatures are commonl
 transactions, communications, and data exchanges to verify the identity of the sender and the integrity of
 the message.
 
-අංකිත අත්සනක්‌ යනු DOG පණිවිඩයක හෝ ලේඛනයක සත්‍යතාව, අඛණ්ඞතාව සහ ප්‍රතික්ෂේප නොකිරීම
+අංකිත අත්සනක්‌ යනු DOG පණිවිඩයක හෝ ලේඛනයක සත්‍යතාව, අඛණ්ඩතාව සහ ප්‍රතික්ෂේප නොකිරීම
 සහතික කිරීම සඳුහා භාවිතා කරන ගුප්ත ලේඛන ගිල්පිය ක්‍රමයකි. එය අතින්‌ ලියන ලදු අත්සනකට හෝ මුද්‍රා
 තැබු QOHOMO සමානව ක්‍රියා කරයි, නමුත්‌ එය වඩාත්‌ ආවේනික ආරක්ෂාවක්‌ සපයයි. යවන්නාගේ අනන්‍යතාවය
-සහ පණිවිඞයේ අඛණ්ඞතාව තහවුරැ කිරීම සඳුහා විවිධ ඩිපිටල්‌ ගනුදෙනු, සන්නිවේදනය සහ eis හුවමාරැ
+සහ පණිවිඩයේ අඛණ්ඩතාව තහවුරැ කිරීම සඳුහා විවිධ ඩිපිටල්‌ ගනුදෙනු, සන්නිවේදනය සහ eis හුවමාරැ
 වලදි ඩිපිටල්‌ අත්සන්‌ බහුලව භාවිතා වේ.
 
 Asymmetric Key Encryption අසමමිතික ගුප්ත කේතනය
@@ -2239,9 +2231,9 @@ related but distinct. The public key 1s used for encryption, while the private k
 This system addresses the key distribution problem of symmetric key encryption, where the same key 15
 used for both encryption and decryption.
 
-අසමමිතික ගුප්ත කේතනය, පොදු යතුරැ ගුප්තකේතනය ලෙසද හැඳින්වේ, එය ආරක්‍ෂිත සන්නිවේදනය සඳහා
+අසමමිතික ගුප්ත කේතනය, පොදු යතුරැ ගුප්තකේතනය ලෙසද හැඳින්වේ, එය ආරක්ෂිත සන්නිවේදනය සඳහා
 යතුරැ යුගලයක්‌ භාවිතා කරන සංකේතාංකන වට්ගයකි. එනමි පොදු යතුරක්‌ සහ පුද්ගලික යතුරක්‌ වේ. මෙම
-යතුරු ගණිතමය වශයෙන්‌ සමිඛන්ධ නමුත්‌ වෙනස්‌ ය. පොදු යතුර කේතනය සඳහා භාවිතා කරන අතර
+යතුරු ගණිතමය වශයෙන්‌ සම්බන්ධ නමුත්‌ වෙනස්‌ ය. පොදු යතුර කේතනය සඳහා භාවිතා කරන අතර
 පුද්ගලික යතුර විකේතනය සඳහා භාවිතා වේ. මෙම පද්ධතිය කේතනය සහ විකේතනය යන දෙකටම එකම
 යතුර භාවිතා කරන සමමිතික යතුරැ සංකේතාංකනයේ ප්‍රධාන බෙදාහැරීමේ ගැටලුව SacG.
 
@@ -2251,7 +2243,7 @@ Can be freely distributed and shared with anyone.
 ඕනෑම කෙනෙකුට නිදහසේ බෙදා හැරිය හැක.
 
 Used to encrypt messages or verify digital signatures.
-පණිවිඞ කේතනය SOOO හෝ අංකිත අත්සන්‌ සත්‍යාපනය කිරිමට භාවිතා කරයි.
+පණිවිඩ කේතනය SOOO හෝ අංකිත අත්සන්‌ සත්‍යාපනය කිරිමට භාවිතා කරයි.
 
 Private Key පුද්ගලික යතුර
 
@@ -2259,7 +2251,7 @@ Kept secret and secure by the owner.
 අයිතිකරැ විසින්‌ රහසිගතව සහ සුරක්ෂිතව w®) ඇත.
 
 Used to decrypt messages or create digital signatures.
-පණිවඞ විකේතනය කිරීමට හෝ අංකිත අත්සන්‌ සෑදිමට භාවිතා කරයි.
+පණිවඩ විකේතනය කිරීමට හෝ අංකිත අත්සන්‌ සෑදිමට භාවිතා කරයි.
 
 Encryption ගුප්තකේතනය
 
@@ -2329,7 +2321,7 @@ needing any decryption. In the context of cryptography and data security, plaint
 encryption and the end result of decryption.
 
 සරල පෙළ යන ගුප්තකේතනය කිරීමට පෙර essen හෝ තොරතුරැ වල මුල්‌, කියවිය හැකි ආකාරයයි. මෙය
-තේරැමි ගත හැකි een වන අතර කිසිදු විකේතනයක්‌ අවග්‍ය නොවි මිනිසුන්ට හෝ පරිගණකවලට කෙලින්ම
+තේරැමි ගත හැකි een වන අතර කිසිදු විකේතනයක්‌ අවශ්‍ය නොවි මිනිසුන්ට හෝ පරිගණකවලට කෙලින්ම
 කියවා අර්ටකටනය කළ හැකිය. ගුප්තකේතනය සහ eso ආරක්ෂණ සන්දර්භය තුළ, සරල පෙළ යනු
 කේතනය GED) ආරමිභක ලක්ෂ්‍යය සහ විකේතනයේ අවසාන ප්‍රතිවලයයි.
 
@@ -2375,7 +2367,7 @@ R- Domain Name System (DNS) Protocol =o) ව වග්වාසදාශක edo 
 S - Internet Protocol (IP) ලෝක විසිරි වියමනෙහි භාවිත වේ
 අන්තටජාල නියමාවලිය (IP)
 4- provides a connection-less transport service
-1 - User Datagram Protocol (UDP) සමිබන්ධතා රහිත ප්‍රවාහන සේවාවක්‌ සපයයි
+1 - User Datagram Protocol (UDP) සම්බන්ධතා රහිත ප්‍රවාහන සේවාවක්‌ සපයයි
 පරිශීලක edo පණිවිඩ නියමාවලිය (UDP) ; ; ;
 5- handles unique addressing of hosts in the Internet
 
@@ -2407,10 +2399,10 @@ R. Domain Name System (DNS): Provides directory lookup service for given web add
 සපයයි.
 
 S. Internet Protocol (IP): Handles unique addressing of hosts in the Internet.
-Internet Protocol (IP): අන්තරපාලය තුළ සත්කාරකයන්ගේ අනන්‍ය ලිපින හැසිරවීම.
+Internet Protocol (IP): අන්තර්ජාලය තුළ සත්කාරකයන්ගේ අනන්‍ය ලිපින හැසිරවීම.
 
 T. User Datagram Protocol (UDP): Provides a connection-less transport service.
-User Datagram Protocol (UDP-: සමිබන්ධතා රහිත ප්‍රවාහන සේවාවක්‌ සපයයි.
+User Datagram Protocol (UDP-: සම්බන්ධතා රහිත ප්‍රවාහන සේවාවක්‌ සපයයි.
 
 The correct answer 15:
 
@@ -2422,7 +2414,7 @@ Data communication protocols are sets of rules and conventions that govern the e
 devices over a network. These protocols ensure that data 15 transmitted accurately, efficiently, and securely.
 Here are some key data communication protocols categorized by the OSI model layers they operate in:
 දුත්ත සන්නිවේදන නියමාවලි යනු පාලයක්‌ හරහා උපාංග අතර EHD හුවමාරැව පාලනය කරන රීති සහ
-සම්මුතීන්‌ සමුහයකි. මෙම නියමාවලි com නිවැරදිව, කාර්යක්ෂමව සහ ආරක්ෂිතව සමිප්‍රේෂණය වන බව
+සම්මුතීන්‌ සමුහයකි. මෙම නියමාවලි com නිවැරදිව, කාර්යක්ෂමව සහ ආරක්ෂිතව සම්ප්‍රේෂණය වන බව
 
 සහතික කරයි. ඒවා ක්‍රියාත්මක වන OSI ආකෘති ස්ටර මගින්‌ වර්ගීකරණය කරන ලද, ප්‍රධාන දුන්ත සන්නිවේදන
 නියමාවලි කිහිපයක්‌ මෙසේය
@@ -2432,7 +2424,7 @@ Here are some key data communication protocols categorized by the OSI model laye
 HTTP (Hypertext Transfer Protocol)
 
 Purpose : Used for transmitting web pages over the Internet.
-අරමුණ : FaMHHEG හරහා වෙබි SQ සමිප්‍රේෂණය කිරීම aes) භාවිතා වේ.
+අරමුණ : FaMHHEG හරහා වෙබි SQ සම්ප්‍රේෂණය කිරීම aes) භාවිතා වේ.
 
 Ex : Port: 80 (HTTP), 443 (HTTPS for secure communication).
 
@@ -2468,7 +2460,7 @@ Ex : Port : Variable (e.g., 80 for HTTP, 443 for HTTPS).
 UDP (User Datagram Protocol)
 
 Purpose : Provides a connectionless, fast, but less reliable data transfer.
-අරමුණ : සමිබන්ධතා රහිත, වේගවත්‌, නමුත්‌ අඩු විග්වාසදායක දත්ත හුවමාරැවක්‌ සපයයි.
+අරමුණ : සම්බන්ධතා රහිත, වේගවත්‌, නමුත්‌ අඩු විග්වාසදායක දත්ත හුවමාරැවක්‌ සපයයි.
 
 Ex : Port : Variable (e.g., 53 for DNS, 67 and 68 for DHCP).
 Network Layer Protocols (Layer 3) ජාල GOO නියමාවලිය (3 වන Odo)
@@ -2505,7 +2497,7 @@ Standard : RFC 1661.
 Physical Layer Protocols (Layer 1) භෞතික ස්ටර නියමාවලිය (1 වන ස්ටරය)
 
 Purpose : Serial communication protocol for connecting computers and peripheral devices.
-අරමුණ : පරිගණක සහ පර්යන්ත උපාංග සමිබන්ධ කිරීම සඳහා අනුක්‍රමික සන්නිවෙදන නියමාවලිය.
+අරමුණ : පරිගණක සහ පර්යන්ත උපාංග සම්බන්ධ කිරීම සඳහා අනුක්‍රමික සන්නිවෙදන නියමාවලිය.
 
 Usage : Commonly used for modem connections and serial ports.
 භාවිතය : මොඩම සම්බන්ධතා සහ ගේණිගත කෙවෙනි OCH) බහුලව භාවිතා වේ.
@@ -2516,7 +2508,7 @@ Ex : RS-232
 පරිගණක පද්ධති ස්ථාපනය කිරීමේ (deployment) ආකාර තුනක්‌ පහත (A),(B) සහ (C) ලෙස සලකුණු කළ
 
 රෑපවලින්‌ දැක්වේ.
--
+
 Old Sytem
 , Old System i
 !। I
@@ -2530,7 +2522,6 @@ New System I
 
 සි ~ =
 
-෴
 > ෴
 
 Time” Time Time”
@@ -2591,7 +2582,6 @@ Old System New System
 I
 I
 1
-෴෴
 
 . ao
 Time
@@ -2615,7 +2605,7 @@ e Allows for a comparison of results from both systems to ensure accuracy.
 Disadvantages අවාසි
 
 e More expensive and resource-intensive as it requires running and maintaining both systems.
-පද්ධති දෙකම ක්‍රියාත්මක කිරීම සහ නඩත්ත HOO අවශ්‍ය වන බැවින්‌ වඩා මිල අධික සහ සමිපත්‌ බහුල වේ.
+පද්ධති දෙකම ක්‍රියාත්මක කිරීම සහ නඩත්ත HOO අවශ්‍ය වන බැවින්‌ වඩා මිල අධික සහ සම්පත්‌ බහුල වේ.
 
 e Can be confusing and cumbersome for users to operate two systems at once.
 එකවර පද්ධති දෙකක්‌ ක්‍රියාත්මක කිරීම පරිගිලකයින්ට ව්‍යාකූල සහ කරදුරකාරී විය හැක.
@@ -2627,7 +2617,6 @@ Old Sytem »
 
 New System »
 
-~~
 . ao
 Time
 
@@ -2661,7 +2650,7 @@ Old System
 1 1 :
 
 1]
-෴
+
 ao
 
 Time
@@ -2731,7 +2720,7 @@ supporting enterprise-wide functions.
 තොරතුරැ පද්ධති යනු තොරතුරැ රැස්‌ කිරීම, සැකසීම, ගබඩා කිරීම සහ බෙදා හැරීම Hem) HOOP කර
 ඇති සංවිධානාත්මක පද්ධති වේ. ඔවුන්‌ දත්ත කළමනාකරණය කිරීමට සහ විග්ලේෂණය කිරීමට නාක්ෂණය,
 පුද්ගලයන්‌ සහ ක්‍රියාවලින්‌ ඒකාබද්ධ කරයි, දැනුවත්‌ තීරණ ගැනීමට ආයතනවලට හැකි වේ. නොරතුරැ පද්ධති
-ව්‍යාපාරික මෙහෙයුමි සඳහා අත්‍යවග්‍ය වන අතර, එදිනෙදා ක්‍රියාකාරකමි කළමනාකරණය කරන සරල යෙදුමිවල
+ව්‍යාපාරික මෙහෙයුමි සඳහා අත්‍යවග්‍ය වන අතර, එදිනෙදා ක්‍රියාකාරකමි කළමනාකරණය කරන සරල යෙදුම්වල
 සිට ව්‍යවසාය-පුඑල්‌ කාර්යයන්‌ සඳහා සහය දුක්වන සංකීරණ පද්ධති දුක්වා විෂය පටය සහ ක්‍රියාකාරිත්වය
 අනුව වෙනස්‌ විය හැක.
 
@@ -2801,7 +2790,7 @@ e Provides interactive and ad-hoc queries
 අන්තරක්‍රියාකාරී සහ තාවකාලික විමසුමි සපයයි
 
 e Supports semi-structured and unstructured decision-making
-අර්ධ ව්‍යහගත සහ ව්‍යුහගත නොවන තරණ ගැනීමට සහාය වේ
+අර්ධ ව්‍යුහගත සහ ව්‍යුහගත නොවන තරණ ගැනීමට සහාය වේ
 
 Management Information Systems කළමනාකරණ තොරතුරැ පද්ධති (MIS)
 
@@ -2809,13 +2798,13 @@ To provide information needed to manage organizations effectively, focusing on o
 and management.
 
 මෙහෙයුමි කාර්යක්ෂමතාව සහ කළමනාකරණය කෙරෙහි අවධානය යොමු කරමින්‌ ඵලදායී ලෙස සංවිධාන
-කළමනාකරණය කිරීමට අවග්‍ය තොරතුරැ සැපයීම සිදු කරයි.
+කළමනාකරණය කිරීමට අවශ්‍ය තොරතුරැ සැපයීම සිදු කරයි.
 
 Examples
 
 e Sales management systems විකුණුමි කළමනාකරණ පද්ධති
 e Inventory control systems ඉන්වෙන්ටරි පාලන පද්ධති
-e Human resources management systems මානව සමිපත්‌ කළමනාකරණ පද්ධති
+e Human resources management systems මානව සම්පත්‌ කළමනාකරණ පද්ධති
 
 Characteristics ලක්ෂණ
 
@@ -2835,7 +2824,7 @@ To facilitate the collection, organization, and dissemination of knowledge withi
 
 Examples
 
-e Intranet-based knowledge repositories අන්තටපාලය පදුනමි කරගත්‌ දැනුමි ගබඩා
+e Intranet-based knowledge repositories අන්තර්ජාලය පදුනමි කරගත්‌ දැනුමි ගබඩා
 e Document management systems ලේඛන කළමනාකරණ පද්ධති
 e Collaboration tools සහයෝගිතා මෙවලමි
 
@@ -2850,7 +2839,7 @@ e Supports knowledge sharing and collaboration
 e Often includes search and retrieval functionalities
 බොහෝ විට සෙවිමි සහ නැවත ලබා ගැනීමේ ක්‍රියාකාරීත්වයන්‌ ඇතුළත්‌ වේ
 
-Enterprise Resource Planning Systems ව්‍යවසාය සමිපත්‌ සැලසුමි පද්ධති (ERP)
+Enterprise Resource Planning Systems ව්‍යවසාය සම්පත්‌ සැලසුමි පද්ධති (ERP)
 
 To integrate all departments and functions across an organization into a single IT system, providing a
 unified view.
@@ -2875,7 +2864,7 @@ EDD අනුකූලතාව සහ නිරවද්‍යතාවය ව�
 e Supports real-time data processing and reporting
 තත්‍ය කාලීන EMM සැකසීමට සහ OLD) කිරීමට සහය eso
 
-Office Automation Systems කාටයාල ස්වයංකීයකරණ පද්ධති (OAS)
+Office Automation Systems කාර්යාල ස්වයංකීයකරණ පද්ධති (OAS)
 
 To support a wide range of business office activities that improve the productivity of employees.
 සේවකයින්ගේ ඵලදායිනාව ඉහළ නැංවීම Hem) GOG පරාසයක Omadean MME කටයුතු HEH) සහාය
@@ -2893,7 +2882,7 @@ e Automates routine office tasks
 සාමාන්‍ය කාර්යාල mdoas ස්වයංක්‍රීය කරයි
 
 e Enhances communication and coordination
-සන්නිවේදනය සහ සමිබන්ධිකරණය වැඩි දියුණු කරයි
+සන්නිවේදනය සහ සම්බන්ධිකරණය වැඩි දියුණු කරයි
 
 e Often integrates with other business systems
 බොහෝ විට වෙනත්‌ ව්‍යාපාර පද්ධති සමඟ SmMaACD වේ
@@ -2926,7 +2915,7 @@ Therefore, the correct answer 15
 
 25. Which of the following statements is/are correct regarding System Development Life Cycle (SDLC)
 models?
-පද්ධති සංවර්ධන පිවන OM (SDLC) ආකෘති සමිබන්ධයෙන්‌ පහත කුමන ප්‍රකාශ/ය නිවැරදි ද?
+පද්ධති සංවර්ධන පිවන OM (SDLC) ආකෘති සම්බන්ධයෙන්‌ පහත කුමන ප්‍රකාශ/ය නිවැරදි ද?
 
 A - In the (077 model, small portions of systematically developed working software are delivered to
 the client frequently.
@@ -2968,12 +2957,12 @@ ES ඇලි ආකෘතිය යනු මෘදුකාංග සංවර�
 
 Phases අදියර
 
-1. Requirements Analysis අවග්‍යතා විග්ලේෂණය
+1. Requirements Analysis අවශ්‍යතා විග්ලේෂණය
 
 2. System Design පද්ධති නිටරමාණය
 
 3. Implementation (Coding) ක්‍රියාත්මක කිරීම (කේතිකරණය)
-4. Integration and Testing එකාබද්ධ කිරීම සහ පරික්‍ෂා කිරීම
+4. Integration and Testing එකාබද්ධ කිරීම සහ පරික්ෂා කිරීම
 5. Deployment යෙදවීම
 
 6. Maintenance නඩත්තු කිරීම
@@ -2987,8 +2976,6 @@ Design
 [Deptoyement} —
 
 Maintenance
-
-॥
 
 Advantages වාසි
 
@@ -3008,7 +2995,7 @@ e Inflexible to changes in requirements once the process is underway.
 ක්‍රියාවලිය ක්‍රියාත්මක වන SO අවශ්‍යතා OE වෙනස්කමි වලට නම්‍යගිලී නොවේ.
 
 e Late discovery of issues as testing is done after development.
-සංවට්ධනයෙන්‌ පසූව පරික්ෂණ Be කරන බැවින්‌ ගැටළු SOHC වී සොයා ගැනීම.
+සංවර්ධනයෙන්‌ පසූව පරික්ෂණ Be කරන බැවින්‌ ගැටළු SOHC වී සොයා ගැනීම.
 
 සහ භාවිතා කිරීමට පහසුය.
 
@@ -3026,7 +3013,7 @@ The Spiral Model combines iterative development with systematic aspects of the W
 
 focuses on risk assessment and minimization through each iteration (or spiral).
 
-සටර්පිල ආකෘතිය දියඇලි ආකෘතියේ ක්‍රමානුකල අංගයන්‌ සමඟ පුනරාවරිතන සංවට්ධනය ඒකාබද්ධ කරයි. එය
+සටර්පිල ආකෘතිය දියඇලි ආකෘතියේ ක්‍රමානුකල අංගයන්‌ සමඟ පුනරාවරිතන සංවර්ධනය ඒකාබද්ධ කරයි. එය
 එක්‌ එක්‌ පුනරාවරිතනය (හෝ සර්පිලාකාර) හරහා අවදානම තක්සේරැ කිරීම සහ අවම කිරීම කෙරෙහි
 
 අවධානය යොමු කරයි.
@@ -3090,7 +3077,7 @@ e Iterative refinement allows for gradual improvement.
 පුනරාවටිනන ගෝධනය ක්‍රමයෙන්‌ වැඩිදියුණු කිරීමට ඉඩ සලසයි.
 
 e Flexible to changes in requirements.
-අවග්‍යතා OE වෙනස්කමි වලට HOHE වේ.
+අවශ්‍යතා OE වෙනස්කමි වලට HOHE වේ.
 
 Disadvantages අවාසි
 
@@ -3098,7 +3085,7 @@ e Can be complex to manage.
 කළමනාකරණය කිරීමට aHb6gn විය හැකිය.
 
 e Requires expertise in risk analysis.
-අවදානමි විශ්ලේෂණය පිළිබඳු විශේෂඥ දැනුමක්‌ අවග්‍ය වේ.
+අවදානමි විශ්ලේෂණය පිළිබඳු විශේෂඥ දැනුමක්‌ අවශ්‍ය වේ.
 
 e Can be costly and time-consuming.
 මිල අධික හා කාලය ගත විය හැක.
@@ -3109,12 +3096,12 @@ The Prototyping Model focuses on creating a working model of the system early in
 process. This prototype 15 built, tested, and reworked until it meets user needs.
 
 Gonads ආකෘතිය සංවර්ධන ක්‍රියාවලියේ මුල්‌ අවධියේදි පද්ධතියේ ක්‍රියාකාරී ආකෘතියක්‌ නිර්මාණය කිරීම
-කෙරෙහි අවධානය යොමු කරයි. මෙම මුලාකෘතිය පරිගිලක අවග්‍යතා සපුරාලන තෙක්‌ ගොඩනගා, පරීක්ෂා
+කෙරෙහි අවධානය යොමු කරයි. මෙම මුලාකෘතිය පරිගිලක අවශ්‍යතා සපුරාලන තෙක්‌ ගොඩනගා, පරීක්ෂා
 කර, නැවත සකස්‌ කර ඇත.
 
 Phases අදියර
 
-1. Requirements Gathering අවග්‍යතා එකතු කිරීම
+1. Requirements Gathering අවශ්‍යතා එකතු කිරීම
 2. Quick Design ඉක්මන්‌ නිර්මාණය
 
 3. Build Prototype Q@ 2a} ගොඩනැගීම
@@ -3131,7 +3118,7 @@ e Users get a feel for the system early in the process.
 ක්‍රියාවලිය ආරමිභයේදිම පරිගිලකයින්ට පද්ධතිය පිළිබඳ අදහසක්‌ ලැබේ.
 
 e Identifies missing or unclear requirements early.
-නැතිව හෝ නොපැහැදිලි අවග්‍යතා කල්තියා හඳුනා ගනී.
+නැතිව හෝ නොපැහැදිලි අවශ්‍යතා කල්තියා හඳුනා ගනී.
 
 e Reduces risk of failure.
 අසාඊර්ටක විමේ අවදානම අඩු කරයි.
@@ -3169,7 +3156,7 @@ e Can be difficult to scale for large projects.
 විගාල ව්‍යාපෘති සඳුහා පරිමාණය කිරීමට අපහසු විය හැකිය.
 
 e Requires a high level of customer involvement.
-ඉහළ මටිටමේ පාරිභෝගික සහභාගිත්වයක්‌ අවග්‍ය වේ.
+ඉහළ මටිටමේ පාරිභෝගික සහභාගිත්වයක්‌ අවශ්‍ය වේ.
 
 e Can lead to scope creep without proper control.
 නිසි පාලනයකින්‌ තොරව විෂය පථයෙන්‌ රිංගා යා හැක.
@@ -3209,7 +3196,7 @@ May not be suitable for large, complex systems.
 OME, සංකීරණ පද්ධති සඳහා සුදුසු නොවේ.
 
 Requires strong user involvement.
-ශක්තිමත්‌ පරිගිලක සහභාගිත්වයක්‌ අවග්‍ය වේ.
+ශක්තිමත්‌ පරිගිලක සහභාගිත්වයක්‌ අවශ්‍ය වේ.
 
 Can lead to incomplete or rushed development.
 අසමිපුර්ණ හෝ වේගවත්‌ සංවර්ධනයකට හේතු විය හැක.
@@ -3217,7 +3204,7 @@ Can lead to incomplete or rushed development.
 To determine the correct statement(s) regarding System Development Life Cycle (SDLC) models, let's
 analyze each statement
 
-පද්ධති සංවර්ධන පිවන චක්‍ර (SDLC) ආකෘති සමිබන්ධයෙන්‌ නිවැරදි ප්‍රකාග(ය) තීරණය කිරීම සඳහා, එක්‌
+පද්ධති සංවර්ධන පිවන චක්‍ර (SDLC) ආකෘති සම්බන්ධයෙන්‌ නිවැරදි ප්‍රකාශ(ය) තීරණය කිරීම සඳහා, එක්‌
 එක්‌ ප්‍රකාශය විශ්ලේෂණය කරමු
 
 A.
@@ -3231,12 +3218,12 @@ client frequently.
 This statement 15 correct. Agile methodologies focus on iterative development with frequent delivery
 of working software to clients for feedback and improvements.
 
-මෙම ප්‍රකාගය නිවැරදියි. කඩිසර ක්‍රමවේදයන්‌ ප්‍රතිපෝෂණ සහ වැඩිදියුණු කිරීමි HEM) සේවාලාභීන්ට වැඩ
+මෙම ප්‍රකාශය නිවැරදියි. කඩිසර ක්‍රමවේදයන්‌ ප්‍රතිපෝෂණ සහ වැඩිදියුණු කිරීමි HEM) සේවාලාභීන්ට වැඩ
 කරන මෘදුකාංග නිතර බෙදා හැරීම සමඟ පුනරාවරිතන සංවර්ධනය කෙරෙහි අවධානය යොමු කරයි.
 
 Late changes in the requirements can be easily accomodated in the waterfall model.
 
-අවග්‍යතාවන්ගේ පසු වෙනස්කමි සඳුහා දියඇලි ආකෘතියේදි (waterfall model) පහසුවෙන්‌ ඉඩ ලබාගත
+අවශ්‍යතාවන්ගේ පසු වෙනස්කමි සඳුහා දියඇලි ආකෘතියේදි (waterfall model) පහසුවෙන්‌ ඉඩ ලබාගත
 හැකිය.
 
 This statement is incorrect. The Waterfall model is a linear and sequential approach where changes
@@ -3260,8 +3247,8 @@ The correct answer is 1) A only.
 
 26. Non-functional requirements specify quality attributes of a system. Which of the following is an example
 for a non-functional requirement?
-කාටයබද්ධ නොවන (non-functional) අවග්‍යතා පද්ධතියක ගුණාත්මක උපලක්ෂණ HOGG කරයි. කාඊරයබද්ධ
-නොවන අවග්‍යතාවක්‌ සඳහා උදාහරණයක්‌ වන්නේ සහන සඳහන්‌ කවරක්‌ ද?
+කාටයබද්ධ නොවන (non-functional) අවශ්‍යතා පද්ධතියක ගුණාත්මක උපලක්ෂණ HOGG කරයි. කාඊරයබද්ධ
+නොවන අවශ්‍යතාවක්‌ සඳහා උදාහරණයක්‌ වන්නේ සහන සඳහන්‌ කවරක්‌ ද?
 
 1) the email system should allow users to attach files
 විද්‍යුත්‌ තැපැල්‌ පද්ධතිය පරිගිලකයින්ට ගොනු ඇමිණීමට ඉඩ ලබාදිය QM ය.
@@ -3285,9 +3272,9 @@ Functional requirements specify the functions, capabilities, and behaviors that 
 satisfy its users and stakeholders. These requirements focus on the specific tasks and activities that the
 system needs to accomplish, often in response to inputs from users or other systems.
 
-කාර්යබද්ධ අවග්‍යතා පද්ධතියක්‌ SOGenGs සහ පාර්ශවකරැවන්‌ තෘප්තිමත්‌ කිරීම සඳහා පද්ධතිය විසින්‌
+කාර්යබද්ධ අවශ්‍යතා පද්ධතියක්‌ SOGenGs සහ පාර්ශවකරැවන්‌ තෘප්තිමත්‌ කිරීම සඳහා පද්ධතිය විසින්‌
 ඉටු කළ QD කාර්යයන්‌, හැකියාවන්‌ සහ හැසිරීමි ඔවුන්‌ නියම කරයි. මෙම අවශ්‍යතා පද්ධතියට ඉටු කිරීමට
-අවග්‍ය නිග්චිත කාර්යයන්‌ සහ ක්‍රියාකාරකමි කෙරෙහි අවධානය යොමු කරයි, බොහෝ විට පරිගිලකයින්‌ හෝ
+අවශ්‍ය නිග්චිත කාර්යයන්‌ සහ ක්‍රියාකාරකමි කෙරෙහි අවධානය යොමු කරයි, බොහෝ විට පරිගිලකයින්‌ හෝ
 වෙනත්‌ පද්ධති වලින්‌ ලැබෙන ආදාන වලට ප්‍රතිචාර දක්වයි.
 
 Non Functional Requirements කාටයබද්ධ නොවන අවශ්‍යතා
@@ -3297,8 +3284,8 @@ specific behaviors or functions it must perform. These requirements describe how
 performs certain functions, rather than what it does. They are crucial for defining the overall quality,
 performance, and usability characteristics of the system.
 
-MOSCA නොවන අවග්‍යතා මඟින්‌ පද්ධතියක්‌ ඉටු කළ යුතු නිශ්චිත හැසිරීමි හෝ කාර්යයන්‌ වෙනුවට තිබිය
-යුතු ගුණාංග නියම කරයි. මෙම අවග්‍යතා පද්ධතිය එය කරන දේට වඩා යමි යමි කාර්යයන්‌ ඉටු කරන්නේ
+MOSCA නොවන අවශ්‍යතා මඟින්‌ පද්ධතියක්‌ ඉටු කළ යුතු නිශ්චිත හැසිරීමි හෝ කාර්යයන්‌ වෙනුවට තිබිය
+යුතු ගුණාංග නියම කරයි. මෙම අවශ්‍යතා පද්ධතිය එය කරන දේට වඩා යමි යමි කාර්යයන්‌ ඉටු කරන්නේ
 කෙසේද යන්න විස්තර කරයි. පද්ධතියේ සමස්ත ගුණාත්මකභාවය, කාරය සාධනය සහ උපයෝගිතා ලක්ෂණ
 නිර්වචනය කිරීම සඳහා ඒවා ඉතා වැදගත්‌ වේ,
 
@@ -3317,7 +3304,7 @@ specifies what the system should do rather than a quality attribute of how well 
 This statement specifies a performance requirement related to the website. It defines a quality attribute
 (performance) by setting a measurable criterion (page load time).
 
-මෙම ප්‍රකාශය වෙබ්‌ අඩවියට අදාළ කාරය සාධන අවග්‍යතාවයක්‌ නියම කරයි. එය මැනිය හැකි
+මෙම ප්‍රකාශය වෙබ්‌ අඩවියට අදාළ කාරය සාධන අවශ්‍යතාවයක්‌ නියම කරයි. එය මැනිය හැකි
 නිරණායකයක්‌ (පිටු පැටවීමේ කාලය) සැකසීමෙන්‌ ගුණාත්මක ගුණාංගයක්‌(කාරය සාධනය) නිර්වචනය කරයි.
 
 3. Administrator of the E-commerce website should be able to view a list of customers.
@@ -3336,7 +3323,7 @@ Similar to statement 3, this statement specifies a functional requirement relate
 banking system to provide transaction information to users.
 
 QOS 3 ට සමානව, GOO ප්‍රකාශය SOGEMBHO ගනුදෙනු තොරතුරැ සැපයීමට බැංකු පද්ධතියට ඇති
-හැකියාවට අදාළ ක්‍රියාකාරී අවග්‍යතාවයක්‌ නියම කරයි.
+හැකියාවට අදාළ ක්‍රියාකාරී අවශ්‍යතාවයක්‌ නියම කරයි.
 
 5. The ATM machine should allow users to print a receipt.
 ATM යන්ත්‍රය භාවිත කරන්නන්ට රිසිටිපනක්‌ මුද්‍රණය කිරීමට ඉඩ ලබාදිය යුතු ය.
@@ -3356,7 +3343,7 @@ The correct answer is statement 2),
 This is because it specifies a non-functional requirement by defining a performance attribute (page load
 time) that the system must meet, rather than specifying a specific function or capability of the system.
 මක්නිසාද යත්‌, පද්ධතියේ නිග්චිත කාරයයක්‌ හෝ හැකියාවක්‌ සඳහන්‌ කරනවාට වඩා, පද්ධතිය සපුරාලිය යුතු
-කාර්ය සාධන ගුණාංගයක්‌ (පිටු පුරණ කාලය) නිරිවචචනය කිරීමෙන්‌ එය කාරයබද්ධ නොවන අවග්‍යතාවයක්‌
+කාර්ය සාධන ගුණාංගයක්‌ (පිටු පුරණ කාලය) නිරිවචචනය කිරීමෙන්‌ එය කාරයබද්ධ නොවන අවශ්‍යතාවයක්‌
 නියම කරයි.
 
 27. Which of the following Data Flow Diagrams (DFDs) 1s correct with respect to the rules of data flow
@@ -3368,7 +3355,6 @@ EDO ගැලීමේ ආකෘතිකරණය පිළිබඳු නී�
 Cy tlt e at Le
 1.0 1.0
 ලා නල ඈ ලෝ) ee
-|
 
 Answer : 1 )
 
@@ -3450,7 +3436,7 @@ modeling.
 සටහන 1) වන රෑප සටහන වේ.
 
 Which of the following statements is correct regarding software testing?
-මෘදුකාංග පරීක්ෂාව සමිබන්ධයෙන්‌ පහත සඳහන්‌ GMO අතුරෙන්‌ නිවැරදි වන්නේ කුමක්‌ ද?
+මෘදුකාංග පරීක්ෂාව සම්බන්ධයෙන්‌ පහත සඳහන්‌ GMO අතුරෙන්‌ නිවැරදි වන්නේ කුමක්‌ ද?
 
 1) Integration testing is usually carried out before unit testing.
 ඒකාඛද්ධ (integration) පරීක්ෂාව සාමාන්‍යයෙන්‌ ඒකක (unit) පරික්ෂාවට පෙර Be කෙටේ.
@@ -3485,7 +3471,7 @@ This is incorrect. Unit testing is done first, where individual units or compone
 tested. Integration testing follows unit testing and focuses on the integration of these units to ensure
 they work together as expected.
 
-මෙය වැරදියි. මෘදුකාංගයක තනි විකක හෝ සංරචක පරික්‍ෂා කෙරෙන තැනින්‌ Sew (unit) පරීක්ෂණය
+මෙය වැරදියි. මෘදුකාංගයක තනි විකක හෝ සංරචක පරික්ෂා කෙරෙන තැනින්‌ Sew (unit) පරීක්ෂණය
 පළමුව සිදු කෙරේ. ඒකාඛද්ධතා (integration) පරික්ෂණය මගින්‌ ඒකක (unit) පරීක්ෂාවෙන්‌ පසු වන අතර
 බලාපොරොත්තු වන පරිදි එකට ක්‍රියා කිරීම සහතික කිරීම සඳහා මෙම ඒකක එකාබද්ධ කිරීම කෙරෙහි
 අවධානය යොමු කරයි.
@@ -3499,7 +3485,7 @@ the internal workings of the application. This technique is typically used in ac
 the focus is on the functionality according to the requirements, rather than the internal system logic.
 මෙම ළ්‍රකාගය නිවැරදියි. කාලමංපුසා (black-box) පරීක්ෂාව යනු යෙදුමේ අභ්‍යන්තර ක්‍රියාකාරිත්වය SE,
 කිසිදු දැනුමකින්‌ තනොරව මෘදුකාංගය පරීක්ෂා කිරීමයි. මෙම තාක්ෂණය සාමාන්‍යයෙන්‌ ප්‍රතිග්‍රහණ
-පරීක්ෂණයේදි භාවිතා වන අතර එහිදි අභ්‍යන්තර පද්ධති තර්කයට වඩා අවග්‍යතා අනුව ක්‍රියාකාරීත්වය
+පරීක්ෂණයේදි භාවිතා වන අතර එහිදි අභ්‍යන්තර පද්ධති තර්කයට වඩා අවශ්‍යතා අනුව ක්‍රියාකාරීත්වය
 කෙරෙහි අවධානය යොමු කෙරේ.
 
 3. White box testing examines the behavior of a software based only on the inputs to a system.
@@ -3510,10 +3496,10 @@ This statement is incorrect. White box testing (also known as clear box testing 
 involves looking at the structure and logic of the code. Testers need knowledge of the internal workings
 of the software, as they test specific internal coding and infrastructure.
 
-මෙම ප්‍රකාගය වැරදියි. ශ්වේත මංපුසා (white-box) පරික්ෂාව (පැහැදිලි මංපුසා පරීක්ෂාව හෝ විදුරු
+මෙම ප්‍රකාශය වැරදියි. ශ්වේත මංපුසා (white-box) පරික්ෂාව (පැහැදිලි මංපුසා පරීක්ෂාව හෝ විදුරු
 මංපුසා පරීක්ෂාව ලෙසද හැඳින්වේ)" කේතයේ ව්‍යුහය සහ තර්කනය බැලීම ඇතුළත්‌ වේ. විගේෂිත
 අභ්‍යන්තර කේතිීිකරණය සහ යටිතල පහසුකමි පරීක්ෂා කරන බැවින්‌ පරීක්ෂකයින්ට මෘදුකාංගයේ
-අභ්‍යන්තර ක්‍රියාකාරිත්වය පිළිබඳ දැනුම අවග්‍ය වේ.
+අභ්‍යන්තර ක්‍රියාකාරිත්වය පිළිබඳ දැනුම අවශ්‍ය වේ.
 
 4. Unit testing examines the entire system's functionality as a whole.
 
@@ -3535,16 +3521,16 @@ requirements.
 
 මෙම ප්‍රකාශය OLOEGS. පරිගිලක ප්‍රතිග්‍රහණ පරීක්ෂණයට පෙර (UAT) පද්ධති (system) පරික්ෂාව Be,
 කෙරේ. පද්ධති (system) පරීක්ෂණය මඟින්‌ සම්පුර්ණ සහ සම්පුර්ණ වකාබද්ධ/(111[2514160්‌) මෘදුකාංග
-නිෂ්පාදනය එය නිග්චිත අවග්‍යතා සපුරාලන්නේ දැයි තහවුරැ කර ගැනීමට පරීක්ෂා කරයි.
+නිෂ්පාදනය එය නිග්චිත අවශ්‍යතා සපුරාලන්නේ දැයි තහවුරැ කර ගැනීමට පරීක්ෂා කරයි.
 
 Therefore, the correct statement is 2) Black-box testing techniques are usually used in acceptance
 testing.
 
-එබැවින්‌, නිවැරදි ප්‍රකාගය වන්නේ 2) කාලමංජුසා (black-box) පරීක්ෂාවේ SEBO ක්‍රම සාමාන්‍යයෙන්‌ ප්‍රතිග්‍රහණ
+එබැවින්‌, නිවැරදි ප්‍රකාශය වන්නේ 2) කාලමංජුසා (black-box) පරීක්ෂාවේ SEBO ක්‍රම සාමාන්‍යයෙන්‌ ප්‍රතිග්‍රහණ
 (acceptance) පටරීක්ෂාවේදී භාවිත වේ.
 
 29. Consider the following relational schema:
-පහත Eso) ඇති සමිබන්ධතා පරිපාටික සටහන (relational schema) සලකා බලන්න:
+පහත Eso) ඇති සම්බන්ධතා පරිපාටික සටහන (relational schema) සලකා බලන්න:
 
 Student (StudentId, StudentName, Address, Gender, DateOfBirth)
 Study (StudentId, SubjectId, Grade)
@@ -3553,8 +3539,8 @@ Subject (SubjectId, SubjectName)
 Which of the following is the most suitable Entity Relationship (ER) diagram to correctly represent the
 relationship between Student and Subject entities?
 
-See (Student) සහ විෂය (Subject) භූතාරට අතර සමිඛන්ධතාව නිවැරදිව නිරෑපණය කිරීම සඳහා පහත
-සඳුහන්‌ කුමන HMOD සමිබන්ධතා රැපසටහන (ER diagram) වඩාත්‌ සුදුසු වේ දු?
+See (Student) සහ විෂය (Subject) භූතාරට අතර සම්බන්ධතාව නිවැරදිව නිරෑපණය කිරීම සඳහා පහත
+සඳුහන්‌ කුමන HMOD සම්බන්ධතා රැපසටහන (ER diagram) වඩාත්‌ සුදුසු වේ දු?
 
 Note : In the ER diagrams, the entities are drawn without attributes.
 සටහන : I. ER රැපසටහන්වල භූතාරට ate ඇත්තේ උපලක්ෂණ (attributes) රහිතව ය.
@@ -3598,7 +3584,7 @@ e Study links students with subjects and includes a grade, indicating a many-to-
 Given this, we need to analyze each ER diagram option to see which correctly represents these
 relationships:
 
-මේ අනුව, මෙම සමිඛන්ධතා නිවැරදිව නියෝපනය කරන්නේ කුමක්‌ දැයි බැලීමට අපි එක්‌ එක්‌ ER රෑප
+මේ අනුව, මෙම සම්බන්ධතා නිවැරදිව නියෝපනය කරන්නේ කුමක්‌ දැයි බැලීමට අපි එක්‌ එක්‌ ER රෑප
 සටහන්‌ විකල්පය විශ්ලේෂණය කළ යුතුය:
 
 1)
@@ -3617,7 +3603,7 @@ Sesaes(Student) සහ විෂයය (Subject) අතර ඵක-ඒක සම�
 Incorrect. A one-to-one relationship implies each student studies exactly one subject, and each
 subject 15 studied by exactly one student, which is not supported by the schema.
 
-QLOEB. Sen-Sen සමිබන්ධතාවයකින්‌ අදහස්‌ වන්නේ සැම ගිෂ්‍යයෙක්ම හරියටම එක්‌ විෂයයක්‌
+QLOEB. Sen-Sen සම්බන්ධතාවයකින්‌ අදහස්‌ වන්නේ සැම ගිෂ්‍යයෙක්ම හරියටම එක්‌ විෂයයක්‌
 අධ්‍යයනය කරන බවත්‌, සෑම විෂයයක්ම හරියටම එක්‌ ගිෂ්‍යයෙකු විසින්‌ අධ්‍යයනය කරනු ලබන බවත්‌,
 එය සම්ඛන්ධතා සටහන මගින්‌ සහාය නොදක්වන බවත්ය.
 
@@ -3635,9 +3621,9 @@ Many-to-one relationship from Student to Study:
 
 Incorrect. This suggests many students can be linked to one study record, but a study record involves
 only one subject. This does not align with the many-to-many relationship indicated by the schema.
-වැරදියි. මෙයින්‌ ඇඟවෙන්නේ බොහෝ සිසුන්‌ එක්‌ අධ්‍යයන වාර්තාවකට සමිබන්ධ කළ හැකි නමුත්‌
+වැරදියි. මෙයින්‌ ඇඟවෙන්නේ බොහෝ සිසුන්‌ එක්‌ අධ්‍යයන වාර්තාවකට සම්බන්ධ කළ හැකි නමුත්‌
 අධ්‍යයන වාර්තාවකට ඇතුළත්‌ වන්නේ එක්‌ විෂයයක්‌ පමණි. මෙය යෝජනා ක්‍රමය මගින්‌ දක්වා ඇති
-බහු-බහු සමිබන්ධතාව සමඟ සමපාන නොවේ.
+බහු-බහු සම්බන්ධතාව සමඟ සමපාන නොවේ.
 
 Many-to-many relationship from Student to Study:
 ශිෂ්‍යයාගේ (Student) සිට අධ්‍යයනය ( 5'(1(1/) es බහු-බහු adem
@@ -3645,7 +3631,7 @@ Many-to-many relationship from Student to Study:
 Incorrect. Though it depicts a many-to-many relationship, it should directly relate students and
 subjects, not via the Study as a separate entity in this context.
 
-වැරළියි. එය බහු-බහු සබඳුතාවක්‌ නිරැපණය කළද, එය සිසුන්‌ සහ විෂයයන්‌ සෘපුවම සමිබන්ධ කළ
+වැරළියි. එය බහු-බහු සබඳුතාවක්‌ නිරැපණය කළද, එය සිසුන්‌ සහ විෂයයන්‌ සෘපුවම සම්බන්ධ කළ
 යුතුය, මෙම සන්දර්භය තුළ වෙනම ආයතනයක්‌ ලෙස අධ්‍යයනය හරහා නොවේ.
 
 Many-to-many relationship from Student to Subject:
@@ -3663,7 +3649,7 @@ Study serves as a join table facilitating this many-to-many relationship.
 Therefore, Diagram 5) is the correct answer as it best represents the relationships defined by the
 relational schema provided.
 
-එබැවින්‌, සපයා ඇති සම්බන්ධතා ක්‍රමයෙන්‌ GdO eso) ඇති සමිබන්ධතා වඩාත්‌ හොඳින්‌ නිරැපණය වන
+එබැවින්‌, සපයා ඇති සම්බන්ධතා ක්‍රමයෙන්‌ GdO eso) ඇති සම්බන්ධතා වඩාත්‌ හොඳින්‌ නිරැපණය වන
 බැවින්‌ 5) වන රෑෂ සටහන නිවැරදි පිළිතුර වේ.
 
 30.
@@ -3672,7 +3658,7 @@ The tables which are partially extracted from a database used in an information 
 for a shop are shown below. Answer the questions from 30 to 32 using those tables.
 
 වෙළෙඳුසැලක්‌ සඳහා සකස්‌ කරන ලදු තොරතුරැ පද්ධතියක භාවිත කරන දත්ත සමුදායකින්‌ අර්ධ වශයෙන්‌
-උපුටා ගන්‌ වගු කිහිපයක්‌ පහත දැක්වේ. එම වගු භාවිත කර අංක 30 සිට 32 දක්වා ප්‍රශ්නවලට පිළිතුරැ
+උපුටා ගන්‌ වගු කිහිපයක්‌ පහත දැක්වේ. එම වගු භාවිත කර අංක 30 සිට 32 දක්වා ප්‍රශ්නවලට පිළිතුරු
 
 සපයන්න.
 Customer Product
@@ -3713,14 +3699,14 @@ OrderId should uniquely identify each record since each order should have a uniq
 Order_Product Table is a junction table that connects Order and Product tables and contains
 OrderlId and ProdId.
 
-Order_Product Table යනු ඇණවුමි සහ නිෂ්පාදන වගු සමිබන්ධ කරන සන්ධි වගුවක්‌ වන අතර
+Order_Product Table යනු ඇණවුමි සහ නිෂ්පාදන වගු සම්බන්ධ කරන සන්ධි වගුවක්‌ වන අතර
 OrderId සහ ProdId අඩංගු වේ.
 
 A combination of OrderId and ProdTId is typically used to uniquely identify each record in a
 junction table like this because it defines which products are associated with which orders. A single
 order can contain multiple different products, and the same product can appear in multiple orders.
 OrderId සහ ProdId සංයෝගයක්‌ සාමාන්‍යයෙන්‌ මෙවැනි සන්ධි වගුවක එක්‌ එක්‌ HOMO අනන්‍ය ලෙස
-හඳුනා ගැනීමට භාවිතා කරනුයේ එය කුමන ඇණවුමි සමඟ සමිබන්ධ වි ඇත්ද යන්න නිර්වචනය කරන
+හඳුනා ගැනීමට භාවිතා කරනුයේ එය කුමන ඇණවුමි සමඟ සම්බන්ධ වි ඇත්ද යන්න නිර්වචනය කරන
 බැවිනි. තනි ඇණවුමක විවිධ නිෂ්පාදන කිහිපයක්‌ අඩංගු විය හැකි අතර, එම භාණ්ඩය ඛහුවිධ
 ඇණවුමිවල දිස්‌ විය හැක.
 
@@ -3856,7 +3842,7 @@ To determine if a table is in Second Normal Form, it must first meet the criteri
 (INF), and then it must satisfy an additional condition related to the way attributes depend on the key.
 වගුවක්‌ දෙවන සාමාන්‍ය පෝරමයේ තිබේ දැයි තීරණය කිරීම Hem), එය ප්‍රටමයෙන්‌ පළමු සාමාන්‍ය පෝරමය
 (INF) සඳුහා වන නිටරණායක සපුරාලිය යුතු අතර, පසුව එය Sede ගුණාංග මත රඳා පවතින ආකාරය
-සමිබන්ධ අමතර කොන්දේසියක්‌ සපුරාලිය යුතුය.
+සම්බන්ධ අමතර කොන්දේසියක්‌ සපුරාලිය යුතුය.
 
 Criteria for INF include:
 INF සඳහා වන Sdem@aDEO ඇතුළත්‌ වන්නේ;
@@ -3926,7 +3912,7 @@ Dependency Analysis:
 an order cannot be determined partially by another subset; it’s entirely dependent on knowing the full
 OrderlId.
 
-CusId: සැම ඇණවුමක්ම එක්‌ පාරිභෝගිකයෙකුට සමිඛන්ධ කළ හැකි බැවින්‌ මෙම ක්ෂේත්‍රය Orderld මත
+CusId: සැම ඇණවුමක්ම එක්‌ පාරිභෝගිකයෙකුට සම්බන්ධ කළ හැකි බැවින්‌ මෙම ක්ෂේත්‍රය Orderld මත
 රඳා පවතී. ඇණවුමක පාරිභෝගිකයා වෙනත්‌ උප කුලකයකින්‌ අර්ධ වශයෙන්‌ තීරණය කළ නොහැක. එය
 සමිපුර්ණයෙන්ම රඳා පවතින්නේ සමිපුර්ණ OrderlId දැන ගැනීම මත ය.
 
@@ -3965,7 +3951,7 @@ for 2NF.
 පරායත්තනාවක්‌ නොපවතියි. මේ අනුව, එය 2NF සඳුහා වන නිරණායක සපුරාලයි.
 
 33. Which of the following statements is/are correct regarding the normalization concept?
-g@©nmdsgva(normalization) සංකල්පය සමිබන්ධයෙන්‌ පහත සඳුහන්‌ කුමන ප්‍රකාශ/ය නිවැරදි ද?
+g@©nmdsgva(normalization) සංකල්පය සම්බන්ධයෙන්‌ පහත සඳුහන්‌ කුමන ප්‍රකාශ/ය නිවැරදි ද?
 
 A - In first normal form, atomic attributes are removed from a relation.
 පළමු ප්‍රමත අවස්ටාවේදි (INF), වගුව HE ඇති පරමාණුක උපලක්ෂණ (atomic attribute) ඉවත්‌ කරනු
@@ -3986,14 +3972,14 @@ C - In third normal form, transitive dependency of attributes are removed.
 Answer : 4)
 
 A. In first normal form, atomic attributes are removed from a relation.
-SEQ ප්‍රමතකරණයෙන්‌, සමිබන්ධනාවයකින්‌ අංගුමය ගුණාංග ඉවත්‌ කරනු ලැබේ.
+SEQ ප්‍රමතකරණයෙන්‌, සම්බන්ධනාවයකින්‌ අංගුමය ගුණාංග ඉවත්‌ කරනු ලැබේ.
 
 This statement is incorrect as phrased. In first normal form ( 1 NF), a table is in INF if it contains only
 atomic values, meaning each column in a table must contain indivisible values. It doesn't involve
 "removing atomic attributes".
 
 මෙම ප්‍රකාශය වාක්‍ය ඛණ්ඩය ලෙස වැරදිය. පළමු GOmMDdPveasi(INF), වගුවක්‌ අංශුමය අගයන්‌
-පමණක්‌ අඞංගු නමි INF හි ඇත, එනම්‌ වගුවක ඇති සෑම තීරැවකම නොබෙදිය යුතු අගයන්‌ අඩංගු
+පමණක්‌ අඩංගු නමි INF හි ඇත, එනම්‌ වගුවක ඇති සෑම තීරැවකම නොබෙදිය යුතු අගයන්‌ අඩංගු
 විය යුනුය. එයට “පරමාණුක ගුණාංග ඉවත්‌ කිරීම” ඇනුළත්‌ නොවේ.
 
 13. 111 second normal form, partial dependency of attributes on the primary key are removed.
@@ -4015,13 +4001,13 @@ This statement is also correct. A table is in third normal form (3NF) if it is i
 attribute depends on other non-key attributes. In other words, 1t removes transitive dependencies where
 changes to non-key attributes could lead to inconsistencies.
 
-මේ ප්‍රකාගයත්‌ නිවැරදියි. වගුවක්‌ 2NF හි තිබේ නමි තුන්වන ප්‍රමතකරණයෙන්‌ (3NF) වන අතර කිසිදු
+මේ ප්‍රකාශයත්‌ නිවැරදියි. වගුවක්‌ 2NF හි තිබේ නමි තුන්වන ප්‍රමතකරණයෙන්‌ (3NF) වන අතර කිසිදු
 යතුරැ-නොවන (non-key) ගුණාංගයක්‌ වෙනත්‌ යතුරැ නොවන/(11011-1::/) ගුණාංග මත රඳා පවති. වෙනත්‌
 වචන වලින්‌ කිවහොත්‌, එය ප්‍රධාන නොවන ගුණාංගවල වෙනස්විමි නොගැලපීමි වලට තුඩු දිය හැකි
 සංක්‍රාන්ති පරායත්තතා ඉවත්‌ කරයි.
 
 Given the correct analysis of each statement:
-එක්‌ එක්‌ ප්‍රකාගය නිවැරදිව විශ්ලේෂණය කිරීමෙන්‌:
+එක්‌ එක්‌ ප්‍රකාශය නිවැරදිව විශ්ලේෂණය කිරීමෙන්‌:
 
 e <A 15 incorrect.
 A වැරළියි.
@@ -4033,7 +4019,7 @@ So, the correct answer is 4).
 එබැවින්‌ නිවැරදි පිළිතුර 4) වේ.
 
 34. Which of the following statements is/are correct regarding Entity Relationship (ER) modelling?
-QMO සම්බන්ධතා ආකෘතිකරණය/(/1]*1$ Modelling) සමිබන්ධයෙන්‌ පහත සඳුහන්‌ කුමන ප්‍රකාශ/ය නිවැරදි ද?
+QMO සම්බන්ධතා ආකෘතිකරණය/(/1]*1$ Modelling) සම්බන්ධයෙන්‌ පහත සඳුහන්‌ කුමන ප්‍රකාශ/ය නිවැරදි ද?
 
 A - A weak entity is dependent on another entity.
 දුර්වල භතාට්ටයක්‌ (weak entity) තවත්‌ භතාඊටයක්‌ මත රඳා පවති.
@@ -4053,7 +4039,7 @@ Answer : 3 )
 To address this question, we will evaluate each statement about Entity Relationship (ER) modeling to
 determine which are correct.
 
-මෙම ගැටලුව විසඳිම Hem, අපි භූතාඊරට සමිඛන්ධතා (ER) ආකෘති නිරමාණය පිළිබඳ එක්‌ එක්‌ ප්‍රකාශය
+මෙම ගැටලුව විසඳිම Hem, අපි භූතාඊරට සම්බන්ධතා (ER) ආකෘති නිරමාණය පිළිබඳ එක්‌ එක්‌ ප්‍රකාශය
 නිවැරදි දැයි තීරණය කරන්නෙමු.
 
 A ~ A weak entity is dependent on another entity.
@@ -4065,7 +4051,7 @@ dependent on another entity with which it has an identifying relationship.
 
 නිවැරදිය දුර්වල භූනාරතයක්‌ තමන්ගේම QOS යනුරක්‌ සෑදිමට ප්‍රමාණවත්‌ ගුණාංග සමුහයක්‌ නොමැති
 අතර එහි අනන්‍යතාවය සඳහා යමි ප්‍රබල (හෝ හඳුනාගැනීමේ) භතාර්ඊයක්‌ Om රඳා පවති. එහි පැවැත්ම
-සහ සුවිගේෂත්වය රඳා පවතින්නේ එය හඳුනාගැනීමේ සමිබන්ධතාවයක්‌ ඇති වෙනත්‌ භූතාඊරටයක්‌ මත ය.
+සහ සුවිගේෂත්වය රඳා පවතින්නේ එය හඳුනාගැනීමේ සම්බන්ධතාවයක්‌ ඇති වෙනත්‌ භූතාඊරටයක්‌ මත ය.
 
 13 ~ A derived attribute is represented as an attribute in a relation.
 
@@ -4081,7 +4067,7 @@ values are computed as needed.
 වලින්‌ අගය ගණනය කරනු ලබන එකකි. නිදසුනක්‌ වශයෙන්‌, සේවකයෙකුගේ වයස ඔහුගේ උපන්‌ දිනයෙන්‌
 ලබා ගත හැකිය. මෙම පරායත්තතා හෝ ගණනය කිරීමි නිදර්ශනය කිරීම සඳහා ව්‍යුත්පන්න උපලක්ෂණ
 බොහෝ විට ER රෑප සටහන්‌ වල පෙන්වා ඇති අතර, ඒවා සාමාන්‍යයෙන්‌ භෞතික essen සමුදා ක්‍රමයේ
-කොටසක්‌ ලෙස සමිබන්ධක වගු වල ගබඩා නොවේ. ඒ වෙනුවට, එවායේ අගයන්‌ අවශ්‍ය පරිදි ගණනය
+කොටසක්‌ ලෙස සම්බන්ධක වගු වල ගබඩා නොවේ. ඒ වෙනුවට, එවායේ අගයන්‌ අවශ්‍ය පරිදි ගණනය
 කරනු ලැබේ.
 
 C - An entity can contain a multi-value attribute and a composite attribute at the same time.
@@ -4104,7 +4090,7 @@ All statements A and C correctly describe aspects of ER modeling
 35. The following ER diagram represents a scenario of students borrowing books from a library. Which
 of the following gives the most suitable relation list for the given ER diagram?
 පහත භූතාර්ට සම්බන්ධතා රැපසටහන (ER diagram) මගින්‌ සිසුන්‌ පුස්තකාලයකින්‌ පොත්‌ ලබාගන්නා
-සංසිද්ධියක්‌ නිරැෑපණය කරයි. දි ඇති භූතාර්ට සමිබන්ධනා රැපසටහන සඳහා OOF“ සුදුසු වගු ලැයිස්තුව
+සංසිද්ධියක්‌ නිරැෑපණය කරයි. දි ඇති භූතාර්ට සම්බන්ධනා රැපසටහන සඳහා OOF“ සුදුසු වගු ලැයිස්තුව
 පහත කවරක්‌ 6?
 සටහන : author - ලේඛකයා,09ර09] - පොත,$(11161( - Geac),write - GSO,borrow - තාවකාලිකව ගැනීම
 
@@ -4149,7 +4135,7 @@ who write BOOKS, STUDENTS who borrow BOOKS, and AUTHOR. QUALIFICATIONS that deta
 each author's credentials.
 
 සිසුන්‌ odomeshs පොත්‌ ලබා ගන්නා දර්ශනයක්‌ නියෝපනය කරන ER රැප සටහන අනුව, අපි වඩාත්‌
-සුදුසු සමිබන්ධනා සටහන තෝරාගත යුතුය. නිරැපිත භතාරට සහ සබඳුනාවලට පොත්‌ (BOOKS) ලියන
+සුදුසු සම්බන්ධනා සටහන තෝරාගත යුතුය. නිරැපිත භතාරට සහ සබඳුනාවලට පොත්‌ (BOOKS) ලියන
 කතුවරැන්‌ ( (AUTHORS), cares ලබා ගන්නා සිසුන්‌ (STUDENTS) සහ එක්‌ එක්‌ කතුවරයා ගැන විස්තර
 කරන ez (AUTHOR QUALIFICATIONS) හී ඇතුළත්‌ වේ.
 
@@ -4158,7 +4144,7 @@ Option 1) as the correct relational schema for the given scenario. This option o
 their relationships as follows:
 
 විකල්පයන්‌ සමාලෝචනය කිරීමෙන්‌ සහ ER රෑප සටහනේ නිරෑැපණය තේරැමි ගැනීමෙන්‌ පසුව, තීරණය
-වන්නේ ලබා දි ඇති අවස්ථාව සඳුහා නිවැරදි සමිබන්ධතා යෝජනා ක්‍රමය ලෙස විකල්පය ]) තේරිමයි. මෙම
+වන්නේ ලබා දි ඇති අවස්ථාව සඳුහා නිවැරදි සම්බන්ධතා යෝජනා ක්‍රමය ලෙස විකල්පය ]) තේරිමයි. මෙම
 විකල්පය ආයතන සහ එවායේ සමිබඛන්ධනා පහත SOE සංවිධානය කරයි:
 
 Option 1) proposes the following tables
@@ -4191,8 +4177,8 @@ AUTHOR (Aut_Id, Aut Name) හඳුනා ගැනීම සහ නමි ක�
 AUTHOR QUALIFICATION (Aut_Id, Qualifications): Links authors to their qualifications,
 providing a direct attribute relationship.
 
-AUTHOR QUALIFICATION (Aut_Id, Qualifications): සෘපු ගුණාංග සමිඛන්ධතාවයක්‌ ලබා දෙමින්‌
-කතුවරැන්‌ ඔවුන්ගේ සුදුසුකමිවලට සමිබන්ධ කරයි
+AUTHOR QUALIFICATION (Aut_Id, Qualifications): සෘපු ගුණාංග සම්බන්ධතාවයක්‌ ලබා දෙමින්‌
+කතුවරැන්‌ ඔවුන්ගේ සුදුසුකමිවලට සම්බන්ධ කරයි
 
 Reasoning for Selection: While Option (1) does not utilize junction tables to manage the many-to-many
 relationships between AUTHORS and BOOKS, or STUDENTS and BOOKS — which is a departure
@@ -4200,15 +4186,15 @@ from traditional relational database design — the selected structure might be 
 complexity for specific use cases or educational settings.
 
 තෝරා ගැනීමට හේතුව: mOmaOdzai AUTHORS සහ පොත්‌ BOOKS , හෝ සිසුන්‌ STUDENTS ao පොත්‌
-BOOKS අතර බඛහු- බහු සමිබන්ධතා කළමනාකරණය කිරීමට විකල්ප (1) junction tables භාවිතා නොකරන
-අතර එය සාමිප්‍රදායික සමිබන්ධතනා දුත්ත සමුදා සැලසුමෙන්‌ බැහැර වීමකි - නෝරාගත්‌ ව්‍යුහය අදහස්‌ කළ
+BOOKS අතර බඛහු- බහු සම්බන්ධතා කළමනාකරණය කිරීමට විකල්ප (1) junction tables භාවිතා නොකරන
+අතර එය සාමිප්‍රදායික සම්බන්ධතනා දුත්ත සමුදා සැලසුමෙන්‌ බැහැර වීමකි - නෝරාගත්‌ ව්‍යුහය අදහස්‌ කළ
 හැකිය. මෙය විගේෂිත භාවිත GOO) හෝ අධ්‍යාපනික සැකසුමි සඳුහා සංකීඊරණත්වය විධිමත්‌ කරයි.
 
 36. Which of the following statements is/are correct
 about the algorithm expressed by the given
 flowchart?
-දි ඇති ගැලීමි සටහනින්‌ ප්‍රකාගිත ඇල්ගොරිතමය 4:10
-(algorithm) සමිඛන්ධයෙන්‌ පහත සඳහන්‌ කුමන 1
+දි ඇති ගැලීමි සටහනින්‌ ප්‍රකාශිත ඇල්ගොරිතමය 4:10
+(algorithm) සම්බන්ධයෙන්‌ පහත සඳහන්‌ කුමන 1
 ප්‍රකාශ/ය නිවැරදි ද?
 A - An input is taken from the user only once.
 පරිඛීලකයාගෙන්‌ එක්වරක්‌ පමණක්‌ දානයක්‌ ගනු ෴ Input n /
@@ -4229,7 +4215,6 @@ II
 ඟා
 
 i]
-—
 
 1) Aonly
 2) Bonly
@@ -4296,7 +4281,7 @@ If there is a point where an arrow that is moving down comes from a different pa
 
 arrowhead, the repetition takes place from that point down.
 පහලට ගමන්‌ කරමින්‌ තිබෙන ඊතලයකට වෙනත්‌ මාර්ගයකින්‌ පැමිණ S හිසක්‌ ගැටිමක්‌ Be වන ස්ථානයක්‌
-පවතීනම්‌ එම ස්ටානයේ සිට පහලට පුනර්කරණය සිදු වේ.
+පවතීනම්‌ එම ස්ථානයේ සිට පහලට පුනර්කරණය සිදු වේ.
 
 Let's study the above flow chart step by step as below.
 ඉහත DOG සටහන පියවරෙන්‌ පියවර පහත පරිදි අධ්‍යනය කරමු.
@@ -4356,7 +4341,7 @@ generated and the process will end. Therefore this statement 15 true.
 මෙහි ක්‍රියාත්මක වන්නේ පසු පරික්ෂා කිරීමේ while ලපයක්‌ බැවින්‌ පළමු ලූපය අනිවාරයෙන්ම ක්‍රියාත්මක
 වේ. එහිදි ආදාන ලෙස අගයක්‌ ලබා ගනී. a හි අගය දැනටමත්‌ 10ට ආදේශ කර ඇති අතර පහලට
 ගමන්‌ කිරීමේදිදු 10 න්‌ 1ක්‌ අඩු වේ. නමුත්‌ මෙම අගයද 0 ට වඩා විගාල බැවින්‌ අනිවාරයෙන්ම
-කොන්දේසිය සත්‍ය වී අදාල ප්‍රතිදානය පනනය කර ක්‍රියාවලිය අවසන්‌ වේ. එමනිසා මෙම ප්‍රකාගය සත්‍ය වේ.
+කොන්දේසිය සත්‍ය වී අදාල ප්‍රතිදානය පනනය කර ක්‍රියාවලිය අවසන්‌ වේ. එමනිසා මෙම ප්‍රකාශය සත්‍ය වේ.
 
 The output of the algorithm is always 9.
 ඇල්ගොටීතමයේ ප්‍රතිඳානය සෑමවිටම 9 වේ.
@@ -4409,7 +4394,7 @@ The problem with this function is that this function can only accept string data
 Therefore, this obtained data should be converted into other data types according to their needs. The
 following functions can be used for that.
 
-එම නිසා මෙම ලබා ගන්න EHD තම අවග්‍යතාවය මත වෙනත්‌ දුත්ත OOW බවට පරිවර්තනය කල යුතු
+එම නිසා මෙම ලබා ගන්න EHD තම අවශ්‍යතාවය මත වෙනත්‌ දුත්ත OOW බවට පරිවර්තනය කල යුතු
 වේ. ඒ සඳුහා පහත GH යොදා ගන හැකි වේ.
 
 int()
@@ -4474,7 +4459,7 @@ In order to perform the above calculation, it is necessary to have an understand
 precedence. The operator precedence 15 as follows.
 
 ඉහත ගණනය කිරීම Be කිරීමටනම්‌ මෙහෙයවන ප්‍රමුඛතා අනුපිළිවෙළ පිළිබඳුව අවබෝධයක්‌ පැවතීම
-අවග්‍ය වේ. මෙහෙයවන ප්‍රමුඛතා අනුපිළිවෙල පහත පරිදි වේ.
+අවශ්‍ය වේ. මෙහෙයවන ප්‍රමුඛතා අනුපිළිවෙල පහත පරිදි වේ.
 
 1. Parentheses ()
 . Exponentiation ne
@@ -4667,36 +4652,36 @@ A function called foo 15 created. This function has three parameters namely name
 foo නමි ග්‍රිතයක්‌ H6Ogve කරනු ලබයි. මෙම ග්‍රිතයේ name, age, සහ address ලෙස පරාමිතීන්‌ තුනක්‌ පවති.
 
 The peculiarity here is that default values are given for parameters.
-මෙහි පවතින සුවිශේෂිත්වය වන්නේ සමිමත පරමිති අගයන්‌ ලබා දී HVOG.
+මෙහි පවතින සුවිශේෂිත්වය වන්නේ සම්මත පරමිති අගයන්‌ ලබා දී HVOG.
 
 Default parameter values
 
-සමිමත [686 අගයන්‌
+සම්මත [686 අගයන්‌
 
 Default values for one or several parameters of the function can be assigned.
-ග්‍රිතයේ පරාමිති එකක්‌ හෝ කිහිපයක්‌ සඳහා සමිමත අගයන්‌ පැවරිය හැක.
+ග්‍රිතයේ පරාමිති එකක්‌ හෝ කිහිපයක්‌ සඳහා සම්මත අගයන්‌ පැවරිය හැක.
 
 When a value is not substituted for any parameter, if default values are assigned, the function will move
 forward with those default values. An error is generated if the default values do not exist.
 
-කිසියමි පරාමිතියක්‌ සඳුහා අගයක්‌ ආදේශ නොකළ විට මෙසේ සමිමත අගයන්‌ පවරා ඇත්නමි එම සමිමත
-අගයන්‌ සමග ග්‍රිතයේ ඉදිරියට ගමන්‌ කරනු ලබයි. එසේ සමිමත අගයන්‌ නොපවතින අවස්ථාවක දෝෂයක්‌
+කිසියමි පරාමිතියක්‌ සඳුහා අගයක්‌ ආදේශ නොකළ විට මෙසේ සම්මත අගයන්‌ පවරා ඇත්නමි එම සම්මත
+අගයන්‌ සමග ග්‍රිතයේ ඉදිරියට ගමන්‌ කරනු ලබයි. එසේ සම්මත අගයන්‌ නොපවතින අවස්ථාවක දෝෂයක්‌
 ජනනය කරනු ලබයි.
 
 If a default value is substituted for any parameter here, default values must be substituted for each parameter
 after that parameter. Otherwise, an error is generated. The reason for this is that problems can arise when
 calling the function again.
 
-මෙහි කිසියමි පරාමිතියක්‌ සඳහා සමිමත අගයක්‌ ආදේශ කල හොත්‌ එම පරාමිතියට පසු ඇති සෑම
-පරාමිතියකටම සමිමත අගයන්‌ ආදේශ කල යුතු වේ. එසේ නොමැති අවස්ටාවන්හිදි දොෂයක්‌ ජනනය කරනු
+මෙහි කිසියමි පරාමිතියක්‌ සඳහා සම්මත අගයක්‌ ආදේශ කල හොත්‌ එම පරාමිතියට පසු ඇති සෑම
+පරාමිතියකටම සම්මත අගයන්‌ ආදේශ කල යුතු වේ. එසේ නොමැති අවස්ටාවන්හිදි දොෂයක්‌ ජනනය කරනු
 ලබයි. මෙසේ විමට හේතුව වන්නේ නැවත ග්‍රිතය කැඳුවිමේදි ගැටළු පැන නැගීමට හැකි විමයි.
 
 Accordingly, both the age and address parameters in the line of code are replaced with default values.
 Accordingly, if the values for the respective parameters are not substituted while calling the function, it
 will continue with the default values.
 
-ඒ අනුව කේත පේළියෙහි age සහ address යන පරාමිතීන්‌ ඳෙකටම සමිමත අගයන්‌ ආදේශ කර පවති. J
-අනුව ග්‍රිතය කැඳුවීමේදිී ඒ ඒ පරාමිතීන්‌ Heo) අගයන්‌ ආදේශ නොකලහොන්‌ සමිමත අගයන්‌ සමග ඉදිරියට
+ඒ අනුව කේත පේළියෙහි age සහ address යන පරාමිතීන්‌ ඳෙකටම සම්මත අගයන්‌ ආදේශ කර පවති. J
+අනුව ග්‍රිතය කැඳුවීමේදිී ඒ ඒ පරාමිතීන්‌ Heo) අගයන්‌ ආදේශ නොකලහොන්‌ සම්මත අගයන්‌ සමග ඉදිරියට
 ක්‍රියාත්මක වෙයි.
 
 print (name, address, age)
@@ -4722,7 +4707,7 @@ given when calling the function.
 
 Goo med© මෙහිදි Be වෙයි. එහිදි name යන පරාමිතියට "Nimal", age යන පරාමිතියට 25 දු සහ
 address යන පරාමිතියට "Colombo" යන අගයද ලබා දෙනු ලබයි. ග්‍රිතයේ age සහ address යන පරාමිතීන්ට
-සමිමත අගයන්‌ ලබා දී පැවතියද මෙහිදි ඒවා සඳහාද අගයන්‌ ලබා දීම නිසා Goo කැඳුවීමේදි ලබා දෙන
+සම්මත අගයන්‌ ලබා දී පැවතියද මෙහිදි ඒවා සඳහාද අගයන්‌ ලබා දීම නිසා Goo කැඳුවීමේදි ලබා දෙන
 අගයන්‌ සමග ග්‍රිතයේ ඉදිරියට ගමන්‌ කරනු ලබයි.
 
 Then in the function, the print function outputs the name, address, age. Then the following output is
@@ -4858,7 +4843,7 @@ pop() method
 This can be used to remove an element at a specific index in the list. Here the poped element is displayed
 on the screen. If desired, it can be assigned to another variable instead of being displayed on the screen.
 ලැයිස්තුවේ Adda දර්ශකයක ඇති අංගයක්‌ ඉවත්‌ කිරීමට මෙය භාවිත කළ හැක. මෙහිදී පොප්‌ වන අංගය
-තිරය මත දුර්ගනය වේ. අවග්‍යනමි එසේ තිරය මත දර්ශනය වීම වෙනුවට වෙනත්‌ විචල්‍යයකට එය ආදේග
+තිරය මත දුර්ගනය වේ. අවශ්‍යනමි එසේ තිරය මත දර්ශනය වීම වෙනුවට වෙනත්‌ විචල්‍යයකට එය ආදේග
 කල හැක.
 
 L=[10, 20, 30, 46, 56]
@@ -4981,7 +4966,7 @@ The stop value here is always exclusive.
 මෙහි stop අගය සැම විටම exclusive වේ.
 
 The start value here is always inclusive. The default of this is 0.
-මෙහි start අගය සෑම විටම inclusive වේ. මෙහි සමිමත අගය 0 වේ.
+මෙහි start අගය සෑම විටම inclusive වේ. මෙහි සම්මත අගය 0 වේ.
 
 instructions to be executed when the condition is true
 else:
@@ -5014,7 +4999,7 @@ Here it outputs 18 which is the value of val. So the answer is 1).
 මෙහිදි val හි අගය වන 18 ප්‍රතිදානය කරයි. ඵ්‌ අනුව පිළිතුර 1) වේ.
 
 42. Which of the following is/are correct regarding Python functions?
-පයිනන්‌ ග්‍රිත සමිබන්ධයෙන්‌ පහත සඳුහන්‌ කුමක්‌ නිවැරදි වන්නේ ද?
+පයිනන්‌ ග්‍රිත සම්බන්ධයෙන්‌ පහත සඳුහන්‌ කුමක්‌ නිවැරදි වන්නේ ද?
 
 A - A Python function can return a data structure that contains multiple values.
 පයිතන්‌ ග්‍රිතයකට අගයන්‌ සමුහයක්‌ ඇති දුත්ත Ogos (data structure) ප්‍රත්‍යාගමනය (return) කළ
@@ -5054,7 +5039,7 @@ Then (1, 2, 3) is output.
 එවිට (1, 2, 3) ලෙස ප්‍රතිදානය වෙයි.
 
 So, this statement is correct.
-එබැවින්‌, මෙම ප්‍රකාගය නිවැරදි ය.
+එබැවින්‌, මෙම ප්‍රකාශය නිවැරදි ය.
 
 A Python function can be used without passing any parameters to it.
 
@@ -5143,11 +5128,9 @@ print(myfunc(a, b))
 26
 
 Accordingly, this statement is also correct and all statements are correct. So the correct answer is 5).
-ඒ අනුව මෙම ප්‍රකාගයදු නිවැරදි වන අතර සියඑම ප්‍රකාශන නිවැරදි වේ. OO නිසා නිවැරදි පිළිතුර 5)
+ඒ අනුව මෙම ප්‍රකාශයදු නිවැරදි වන අතර සියඑම ප්‍රකාශන නිවැරදි වේ. OO නිසා නිවැරදි පිළිතුර 5)
 
 වේ.
-
-‘
 
 43. Which of the following HTML tags can be used to change the appearance of a word in a text?
 පාධයක ඇති වචනයක්‌ දිස්වෙන ආකාරය වෙනස්‌ කිරීම සඳහා පහන කුමන HTML උසුලන භාවිත කළ හැකි දු?
@@ -5219,7 +5202,7 @@ Embed images, audio, and video content into the
 Image & document. <img>, <audio>, <video>,
 Media ලේඛනයට පින්තර, ග්‍රව්‍ය සහ විඩියෝ <source>
 අන්තර්ගතයන්‌ ඇතුළත්‌ කිරිම
-ක්‍ෂ tables to organize data in a structured <table>, <tr> , <td> , <th>
+ක්ෂ tables to organize data in a structured <table>, <tr> , <td> , <th>
 ormat.
 ෴ = <th >, <tb >
 Tables ව්‍යුහගත ආකෘතියකින්‌ eso සංවිධානය කිරිමට වගු ” ead>, ody >
@@ -5277,7 +5260,7 @@ So the answer here is 2).
 ඒ අනුව මෙහි පිළිතුර වන්නේ 2) වේ.
 
 45. Which of the following statements is/are correct regarding HTML and CSS?
-HTML සහ CSS සමිබන්ධයෙන්‌ පහන කවර පකාශ/ය නිවැරදි ද?
+HTML සහ CSS සම්බන්ධයෙන්‌ පහන කවර පකාශ/ය නිවැරදි ද?
 
 A - CSS can be used to describe how HTML elements are to be displayed on screen.
 HTML @om (elements) තිරයක දිස්‌ කළ an ආකාරය CSS භාවිතයෙන්‌ විස්තර කළ හැකි ය.
@@ -5311,7 +5294,7 @@ e It allows you to specify things like colors, fonts, spacing, and the overall l
 කිරීමට ඉඩ සලසයි.
 
 Statement B
-B ප්‍රකාගය
+B ප්‍රකාශය
 
 External CSS can be used to define the style for many HTML pages.
 6@en} HTML පිටු aem විලාසය නිරවචනය කිරීමට බාහිර CSS භාවිතා කළ හැක.
@@ -5319,7 +5302,7 @@ External CSS can be used to define the style for many HTML pages.
 e External CSS is a separate CSS file linked to an HTML document using the <link> tag inside the
 <head> section.
 
-බාහිර CSS යනු <head> කොටසේ ඇති <link> උසුලනය MOncass HTML ලේඛනයකට සමිබන්ධ
+බාහිර CSS යනු <head> කොටසේ ඇති <link> උසුලනය MOncass HTML ලේඛනයකට සම්බන්ධ
 කර ඇති වෙනම CSS ගොනුවකි.
 
 e By using an external CSS file, you can apply a consistent style across multiple HTML pages.
@@ -5327,14 +5310,14 @@ e By using an external CSS file, you can apply a consistent style across multipl
 
 =» Example of linking an external CSS file:
 
-බාහිර CSS ගොනුවක්‌ සමිබන්ධ කිරීමේ උදාහරණය:
+බාහිර CSS ගොනුවක්‌ සම්බන්ධ කිරීමේ උදාහරණය:
 
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 Statement C
-C ප්‍රකාගය
+C ප්‍රකාශය
 Inline CSS can be used to apply a style to a single HTML element.
 තනි HIML මුලාංගයකට මෝස්තරයක්‌ යෙදිමට Inline CSS භාවිතා කළ හැක.
 e Inline CSS 15 used to apply a unique style to a single HTML element.
@@ -5353,8 +5336,8 @@ Accordingly all the three statements are correct. So the answer is 5).
 
 46. Which of the following HTML code line can be used to create a hyperlink to the website of the
 National Institute of Education? (The URL of the website is http://nie.Ik)
-පාතික අධ්‍යාපන ආයතනයේ වෙබි අඩවියට අධිසමිබන්ධකයක්‌ (hyperlink) නිර්මාණය කිරීමට යොදාගත හැකි
-HTML ote පේළිය පහත කවරක්‌ ද? (වෙබි අඩවියේ ඒකාකාරී සමිපත්‌ නිශ්චායකය([_ 121] ,) http://nie.lk
+පාතික අධ්‍යාපන ආයතනයේ වෙබි අඩවියට අධිසම්බන්ධකයක්‌ (hyperlink) නිර්මාණය කිරීමට යොදාගත හැකි
+HTML ote පේළිය පහත කවරක්‌ ද? (වෙබි අඩවියේ ඒකාකාරී සම්පත්‌ නිශ්චායකය([_ 121] ,) http://nie.lk
 වේ.)
 
 1) <a src = http://nie.1lk>National Institute of Education</a>
@@ -5448,8 +5431,6 @@ die("Connection failed:
 
 . mysqli connect_error());
 
-}
-
 $sql = "CREATE DATABASE A "5
 
 if (mysqli _query( B ; C )
@@ -5461,7 +5442,6 @@ echo "Error creating database: . mysqli _error($conn) ;
 
 mysqli_close($conn)
 
->>
 1) $sql, $conn, $Employees 2) $conn, $sql, Employees
 3) Employees, $conn, $sql 4) Employees, $conn, $sql
 
@@ -5473,7 +5453,7 @@ PHP Script Breakdown:
 The script aims to connect to a MySQL server, create a database named "Employees," and handle errors
 appropriately.
 
-Script එක MySQL server එකකට සමිඛන්ධ SO, "Employees" නමින්‌ esi සමුදායක්‌ නිර්මාණය කිරිම
+Script එක MySQL server එකකට සම්බන්ධ SO, "Employees" නමින්‌ esi සමුදායක්‌ නිර්මාණය කිරිම
 සහ ඉදඳෝෂ නිසියාකාරව හැසිරවිම අරමුණු කරයි.
 
 Initializing Connection Variables:
@@ -5503,7 +5483,7 @@ mysqli _connect() - Establishes a connection to the MySQL server using the provi
 username, and password.
 
 සපයා ඇති සේවාදායක නාමය, පරිශීලක නාමය සහ මුරපදය භාවිතා කරමින්‌ MySQL සේවාදායකය
-වෙත සමිඛන්ධතාවයක්‌ ස්ටාපින කරයි.
+වෙත සම්බන්ධතාවයක්‌ ස්ටාපින කරයි.
 
 $conn - Stores the connection resource.
 සම්බන්ධතා සමිපත ගබඩා කරයි.
@@ -5523,7 +5503,7 @@ if (!{$conn) - Checks if the connection was successful.
 
 die("Connection failed: "' . mysqli_connect_error()) - Outputs an error message and stops the script if
 the connection fails.
-දෝෂ පණිවිඞයක්‌ ප්‍රතිදානය කර සමිබන්ධනාවය අසාඊර්ටක වුවහොත්‌ ස්ක්‍රිප්ටි ඵක නතර කරයි.
+දෝෂ පණිවිඩයක්‌ ප්‍රතිදානය කර සම්බන්ධනාවය අසාඊර්ටක වුවහොත්‌ ස්ක්‍රිප්ටි ඵක නතර කරයි.
 
 Creating the SQL Query:
 SQL විමසුම නිර්මාණය කිරීම:
@@ -5547,7 +5527,7 @@ echo "Database created successfully";
 echo "Error creating database: . mysqli _error($conn) ;
 
 mysqli _query($conn, $sql) - Executes the SQL query on the connection $conn.
-mysqli_query($conn, $sql) - සමිබන්ධතාවය මත SQL විමසුම ක්‍රියාත්මක කරයි.
+mysqli_query($conn, $sql) - සම්බන්ධතාවය මත SQL විමසුම ක්‍රියාත්මක කරයි.
 
 if (mysqli_query($conn, $sql)) - Checks if the query was successful.
 if (mysqli_query($conn, $sql)) - විමසුම සාර්ටඊක වුයේ දැයි පරික්ෂා කරයි.
@@ -5569,7 +5549,7 @@ Closing the Connection:
 mysqli_close($conn) ;
 
 e mysqli close($conn): Closes the connection to the MySQL server.
-mysqli _close($conn): MySQL සේවාදායකය වෙත සමිඛන්ධතාවය වසා E06.
+mysqli _close($conn): MySQL සේවාදායකය වෙත සම්බන්ධතාවය වසා E06.
 
 Accordingly, the blanks should be filled as follows.
 මේ අනුව හිස්තැන්‌ පිරවිය යුත්තේ පහත dE වේ.
@@ -5582,7 +5562,7 @@ Thus, the answer is 4).
 මේ අනුව පිලිතුර වන්නේ 4) වේ.
 
 Which of the following statements is/are correct?
-පහත කවර ප්‍රකාග/ය නිවැරදි වේ ද?
+පහත කවර ප්‍රකාශ/ය නිවැරදි වේ ද?
 
 A - Quantum computing could be an alternative to overcome the limitations of the existing
 microprocessors.
@@ -5596,7 +5576,7 @@ computing models to solve complex problems.
 
 C - An inference engine of an expert system utilizes the facts in a knowledge base to support decision
 making.
-විශේෂඥ, පද්ධතියක (expert system) ඇති අනුමාන එන්පිම (inference engine) තම තිරණ ගැනීම
+විශේෂඥ, පද්ධතියක (expert system) ඇති අනුමාන එන්ජිම (inference engine) තම තිරණ ගැනීම
 සඳුහා දැනුමි පාදකයක (knowledge base) ඇති කරැණු (facts) භාවිත කරයි.
 
 1) A only. 2) B only. 3) C only. 4) AandB only. 5) All of the above.
@@ -5632,7 +5612,7 @@ Microprocessors are the central processing units (CPUs) of computers, integrated
 few integrated circuits (ICs). They execute instructions from programs to perform essential tasks such
 as arithmetic operations, data processing, and system control.
 
-ක්ෂුද්‍ර සකසන යනු පරිගණකවල මධ්‍යම සැකසුම්‌ ඒකක (CPU) වන අතර එය තනි හෝ එකාබද්ධ පරිපට
+ක්ෂුද්‍ර සකසන යනු පරිගණකවල මධ්‍යම සැකසුම්‌ ඒකක (CPU) වන අතර එය තනි හෝ එකාබද්ධ පරිපථ
 කිහිපයකට ICs එකාබද්ධ වේ. ඔවුන්‌ අංක ගණිත මෙහෙයුමි, ess සැකසීම සහ පද්ධති පාලනය වැනි
 අත්‍යවග්‍ය කාර්යයන්‌ ඉටු කිරීමට වැඩසටහන්‌ වලින්‌ උපදෙස්‌ ක්‍රියාත්මක කරයි.
 
@@ -5668,12 +5648,12 @@ backwards to find supporting facts. Inference engines are used in expert systems
 systems, diagnostic tools, and other AI applications to automate reasoning and provide solutions based
 on the given knowledge base.
 
-අනුමාන එන්පිමක්‌ යනු නිගමනවලට එළඹීමට හෝ තීරණ ගැනීමට නීති රිති සහ කරැණු පිළිබඳු දැනුමි
+අනුමාන එන්ජිමක්‌ යනු නිගමනවලට එළඹීමට හෝ තීරණ ගැනීමට නීති රිති සහ කරැණු පිළිබඳු දැනුමි
 පදුනමකට එරෙහිව ආදාන දුත්ත සකසන කෘතිම බුද්ධි පද්ධතිවල අංගයකි. එය ක්‍රියාත්මක වන්නේ නව
 තොරතුරැ අනුමාන කිරීමට තාර්කික 6H යෙදිමෙන්‌, දුන්නා කරැණු වලින්‌ ආරමිභ වි නව ඒවා අනුමාන
 කරන OES දාම සහ ඉලක්කයකින්‌ ආරමිභ වී ආධාරක කරැණු සෙවීමට පසුපසට ක්‍රියා කරන පසූපස දාම
 වැනි ක්‍රම භාවිතා කිරීමෙනි. නිගමන අනුමාන එන්පන්‌ විශේෂඥ පද්ධති, තිරණ ආධාරක පද්ධති, රෝග
-විනිග්චය මෙවලමි සහ වෙනත්‌ Al යෙදුමිවල තර්කනය ස්වයංක්‍රීය කිරීමට සහ ලබා දි ඇති දැනුමි පදනම
+විනිග්චය මෙවලමි සහ වෙනත්‌ Al යෙදුම්වල තර්කනය ස්වයංක්‍රීය කිරීමට සහ ලබා දි ඇති දැනුමි පදනම
 මත පදනම්ව විසඳුමි ලබා දිමට භාවිතා කරයි.
 
 5. Expert systems විශේෂඥ පද්ධතියක
@@ -5686,15 +5666,15 @@ problem-specific details or queries, similar to what a specialist in that domain
 විශේෂඥ පද්ධතියක්‌ යනු ASD වසමක මානව විශේෂඥයෙකුගේ තීරණ ගැනීමේ හැකියාව ප්‍රතිනිර්මාණය
 කිරීම HEH) නිර්මාණය කර ඇති කෘතිම බුද්ධි Al වැඩසටහනකි. එය ක්‍රියාත්මක වන්නේ නීති සහ කරැණු
 වලින්‌ සමන්විත දැනුමි පදනමක්‌ සහ නිගමන හෝ නිටර්දේශ ලබා ගැනීම සඳහා ආදාන Ems සකසන
-අනුමාන එන්පිමක්‌ භාවිතා කිරීමෙනි. විශේෂඥ පද්ධතියකට esto සංග්‍රහ කරන විට, තොරතුරැ
+අනුමාන එන්ජිමක්‌ භාවිතා කිරීමෙනි. විශේෂඥ පද්ධතියකට esto සංග්‍රහ කරන විට, තොරතුරැ
 සාමාන්‍යයෙන්‌ සමන්විත වන්නේ එම වසමේ විශේෂඥයෙකු විග්ලේෂණය කරන දේට සමාන ගැටළු-විශේෂිත
 විස්තර හෝ විමසුමි වලින්ය.
 
 All three statements (A, B, and C) are correct.
-AB සහ C ප්‍රකාග තුනම නිවැරදිය.
+AB සහ C ප්‍රකාශ තුනම නිවැරදිය.
 
 50. Which of the following statements is/are correct?
-පහත කවර ප්‍රකාග/ය නිවැරදි වේ ද?
+පහත කවර ප්‍රකාශ/ය නිවැරදි වේ ද?
 
 A - E-Commerce encourages to minimize physical interactions between buyers and sellers.
 e-E) Hess (e-commerce), ගැනුමිකරැවන්‌ සහ විකුණුමිකරැවන්‌ අතර භෞතික අන්තරක්‍රියා අවම කිරීමට
@@ -5736,9 +5716,9 @@ commerce, making it a dynamic and continuously evolving field.
 ඊ-වාණිප්‍යයේ වාසි අතර පාරිභෝගිකයින්‌ සඳහා පහසුව, ව්‍යාපාර BED) GOOG ප්‍රවේශයක්‌, අඩු මෙහෙයුමි
 පිරිවැය සහ සාප්පු සවාරි අත්දැකීමි පුද්ගලීකරණය කිරීමේ හැකියාව ඇතුළත්‌ වේ. කෙසේ වෙතත්‌, එය
 ආරක්ෂක ගැටළු, ඉහළ තරඟකාරීත්වය, සැපයුමි සංකීඊරණතා සහ මුහුණට මුහුණ අන්තරක්‍රියා වලින්‌
-නොරව පාරිභෝගික විග්වාසය ගොඩනැගීමේ අවග්‍යනාවය වැනි අභියෝග ද ඉදිරිපන්‌ කරයි. පංගම
+නොරව පාරිභෝගික විග්වාසය ගොඩනැගීමේ අවශ්‍යනාවය වැනි අභියෝග ද ඉදිරිපන්‌ කරයි. පංගම
 වාණිප්‍යය, BONS වාණිප්‍යය, වැඩිදියුණු කළ යටාර්ටය සහ දායකත්ව සේවා වැනි නැගි එන ප්‍රවණතා ඊ-
-වාණිප්‍යයේ අනාගතය හැඩඞගස්වන අතර එය ගතික සහ අඛණ්ඩව විකාගනය වන ක්ෂේත්‍රයක්‌ බවට පත්‌
+වාණිප්‍යයේ අනාගතය හැඩඩගස්වන අතර එය ගතික සහ අඛණ්ඩව විකාගනය වන ක්ෂේත්‍රයක්‌ බවට පත්‌
 කරයි.
 
 2, OTP(One Time Password-OTP)
@@ -5764,7 +5744,7 @@ other cyber-attacks. By requiring an OTP in addition to a password, organization
 sensitive information and systems. OTPs are widely used in banking and financial services to authorize
 transactions, as well as in various online services to control access to accounts and confidential data.
 OTP වල මුලික අරමුණ වන්නේ ආරක්ෂාව වැඩි දියුණු කිරීම සහ phishing, keylogging සහ වෙනත්‌
-සයිබර්‌ ප්‍රහාර වල අවදානම අවම කිරීමයි. මුරපළදයකට අමතරව OTP අවග්‍ය කිරීමෙන්‌, සංවිධානවලට
+සයිබර්‌ ප්‍රහාර වල අවදානම අවම කිරීමයි. මුරපළදයකට අමතරව OTP අවශ්‍ය කිරීමෙන්‌, සංවිධානවලට
 සංවේදි තොරතුරැ සහ පද්ධති වඩා හොඳින්‌ ආරක්ෂා කළ හැක. OTP ගණුදෙණු අනුමත කිරීම සඳුහා
 බැංකු සහ මුල්‍ය සේවාවන්හි මෙන්ම GEO සහ රහස්‍ය දුන්ත වෙත ප්‍රවේශය පාලනය කිරීම oem) විවිධ
 මාර්ගගත සේවාවන්හි බහුලව භාවිතා වේ.
@@ -5781,7 +5761,7 @@ decentralization.
 
 අතට්‍ය O66, අංකිත මුදල්‌ ලෙසද හැඳින්වේ, එය තනිකරම අංකිත ආකාරයෙන්‌ පවතින Gee වර්ගයක්‌
 වන අතර එය සාමාන්‍යයෙන්‌ විශේෂිත අටත්‍ය ප්‍රපාවන්‌ හෝ වේදිකා තුළ භාවිතා චේ. සාමිළදායික මුදුල්‌
-වටග මෙන්‌ නොව, එයට භෞතික ස්වරෑපයක්‌ නොමැති අතර ගනුදෙනු අන්තට්පාලය හරහා Be කෙරේ.
+වටග මෙන්‌ නොව, එයට භෞතික ස්වරූපයක්‌ නොමැති අතර ගනුදෙනු අන්තට්පාලය හරහා Be කෙරේ.
 එවා වැඩි කාර්යක්ෂමනාවයක්‌, ආරක්ෂාවක්‌ සහ විමධ්‍යගත කිරීමක්‌ ලබා දෙමින්‌ සාමිළදායික මුල්‍ය පද්ධති
 සඳුහා විකල්පයක්‌ ලෙස හඳුන්වා දෙන ලදී.
 
@@ -5792,8 +5772,8 @@ A. E-Commerce encourages to minimize physical interactions between buyers and se
 This statement is correct. E-commerce allows transactions to be conducted online, which means that
 buyers and sellers do not need to meet in person.
 
-මෙම ප්‍රකාගය නිවැරදියි. ඊ-වාණිප්‍යය ගනුදෙනු අන්තරපාලය හරහා සිදු කිරීමට ඉඩ සලසයි, එයින්‌ අදහස්‌
-කරන්නේ ගැනුමිකරැවන්‌ සහ විකුණුමිකරැවන්‌ පුද්ගලිකව හමුවීමට අවග්‍ය නොවන බවයි.
+මෙම ප්‍රකාශය නිවැරදියි. ඊ-වාණිප්‍යය ගනුදෙනු අන්තර්ජාලය හරහා සිදු කිරීමට ඉඩ සලසයි, එයින්‌ අදහස්‌
+කරන්නේ ගැනුමිකරැවන්‌ සහ විකුණුමිකරැවන්‌ පුද්ගලිකව හමුවීමට අවශ්‍ය නොවන බවයි.
 
 B. The main purpose of sending a One Time Password (OTP) to a credit card holder’s mobile phone
 during an online payment is to identify the current location of the card owner.
@@ -5826,7 +5806,7 @@ Given these explanations, the correct answer is 4).
 2022 AL PAPER S.ESSAY MARKING
 
 1. (a) Draw the expected output of the following- HTML code segment when rendered by a web browser.
-පහත සඳහන්‌ HTML eto ඛණ්ඩය වෙබි අතරික්සුවක්‌ (web browser) මගින්‌ විදැහු (render) විට
+පහත සඳහන්‌ HTML eto ඛණ්ඩය වෙබි අතිරික්සුවක්‌ (web browser) මගින්‌ විදැහු (render) විට
 අපේක්ෂිත ප්‍රතිදානය අඳින්න.
 
 <html>
@@ -5842,7 +5822,7 @@ Given these explanations, the correct answer is 4).
 </html>
 
 Note: Consider the following dotted line box as the display area of the browser.
-සටහන : පහත කඩ QOOGS EMO) ඇති කොටුව වෙබි අතරික්සුවේ ප්‍රදර්ශන අවකාගය ලෙස සලකන්න.
+සටහන : පහත කඩ QOOGS EMO) ඇති කොටුව වෙබි අතිරික්සුවේ ප්‍රදර්ශන අවකාගය ලෙස සලකන්න.
 
 Answer:
 
@@ -5872,7 +5852,7 @@ e The second row starts with a cell (<td>) containing "Principal" that spans two
 කොටුවකින්‌ (<td>) ය.
 
 e The next cell in the second row contains the telephone number 061-2223211.
-දෙවන පේළියේ ඊළඟ කොටුවේ 061-2223211 දුරකටන අංකය අඞංගු වේ.
+දෙවන පේළියේ ඊළඟ කොටුවේ 061-2223211 දුරකටන අංකය අඩංගු වේ.
 
 e The third row contains another telephone number for the Principal, 067-5557772, under the same
 "Principal" cell from the previous row.
@@ -5889,7 +5869,7 @@ Common Phone Number:
 
 e The last row contains a cell with the text "Common Phone Number: 019-2233445" that spans both
 columns (colspan="2").
-අවසාන පේළියෙ "Common Phone Number: 019-2233445" යන Has සහිත කොටුවක්‌ අඞංගු වන
+අවසාන පේළියෙ "Common Phone Number: 019-2233445" යන Has සහිත කොටුවක්‌ අඩංගු වන
 අතර එය තීරැ දෙකටම විහිඳේ (colspan="2").
 
 (0) Rewrite the following HTML code by applying internal CSS with grouping selectors.
@@ -6005,7 +5985,7 @@ Internal CSS is used to apply styles within the <style> tag in the <head> sectio
 p {
 color: blue;
 text-align: center;
-}
+
 </style>
 </head>
 <body>
@@ -6041,7 +6021,7 @@ text-align: center;
 
 (c) Consider the HTML form given in Figure 1 Registration for Examination
 rendered by a web browser.
-වෙබි අතරික්සුවක්‌ මගින්‌ Sere (render) රැපය 1 හි | Studnet Name)
+වෙබි අතිරික්සුවක්‌ මගින්‌ Sere (render) රැපය 1 හි | Studnet Name)
 
 දැක්වෙන HTML ආකෘති පත්‍රය (form) සලකන්න.
 
@@ -6052,7 +6032,7 @@ below. Fill the blanks in it in order to get the () English
 output shown in Figure 1. IQ
 
 අදාළ HTML කේතය (අසමපුරණ) පහත දැක්වේ. : .
-රෑපය 1 හි ඇක්වෙන ප්‍රතිදානය ලබාගැනීමට හැකිවන Prefered Medium: ® Sinhala ට Tamil ට English
+රූපය 1 හි ඇක්වෙන ප්‍රතිදානය ලබාගැනීමට හැකිවන Prefered Medium: ® Sinhala ට Tamil ට English
 
 පරිදි එහි ඇති හිස්තැන්‌ සමිපුරණ කරන්න. BO |
 Select Test Center: | Colombo v |
@@ -6132,8 +6112,6 @@ type="text" සහිත <input> උපලක්ෂණය තනි පේළි
 
 <input type="checkbox" name="module[ ]" value="ICT"/>ICT<br>
 
-—"
-
 The <input> tag with type="checkbox" creates a checkbox input. The name attribute, ending with [],
 allows multiple checkboxes to be grouped together and sent as an array. The value attribute specifies
 the value that will be sent to the server if the checkbox is checked.
@@ -6147,15 +6125,13 @@ type="checkbox" සහිත <input> උසුලනය පිරික්සු
 
 <input type="radio" name="language" value="Sinhala" checked />Sinhala
 
-—"
-
 The <input> tag with type="radio" creates a radio button input. The name attribute groups radio
 buttons so that only one can be selected at a time. The value attribute specifies the value that will be
 sent to the server if the radio button is selected. The checked attribute pre-selects this radio button.
 type="radio" සහිත <input> උසුලනය රේඩියෝ බොත්තම්‌ ආදානයක්‌ නිර්මාණය කරයි. name >
-උපලක්ෂණය රේඞ්යෝ බොත්තම්‌ සමුහගත කරයි. එවිට වරකට එකක්‌ පමණක්‌ තෝරාගන හැක. value
+උපලක්ෂණය රේඩ්යෝ බොත්තම්‌ සමුහගත කරයි. එවිට වරකට එකක්‌ පමණක්‌ තෝරාගන හැක. value
 ගුණාංගය Gases) බොත්තම තෝරා ඇත්නමි සේවාදායකය වෙත යවනු ලබන අගය නියම කරයි. පරික්ෂා
-කළ උපලක්ෂණය මෙම රේඞ්යෝ බොත්තම පෙර-තෝරා ගනි.
+කළ උපලක්ෂණය මෙම රේඩ්යෝ බොත්තම පෙර-තෝරා ගනි.
 
 5. Drop-down List (<select> and <option>):
 <select name="Center">
@@ -6181,19 +6157,17 @@ segment (process.php) to fulfil this requirement.
 <?php
 
 if ($ SERVER[ "REQUEST METHOD"] == "POST") {
-$name = & ..................... ["..................... "15
-$medium = $_..................... ["..................... "];
-$center = $ ..................... ['..................... "15H
+$name = & …… ["…… "15
+$medium = $_…… ["…… "];
+$center = $ …… ['…… "15H
 
 echo "<h2> Your Input:</h2>;
 
-OCHO $..................... 3 echo "<br>";
+OCHO $…… 3 echo "<br>";
 
-OCHO $..................... 3 echo "<br>";
+OCHO $…… 3 echo "<br>";
 
-OCHO $..................... 3 echo "<br>";
-
->>
+OCHO $…… 3 echo "<br>";
 
 Answer :
 
@@ -6208,7 +6182,6 @@ echo "<h2> Your Input:</h2>;
 echo $name; echo "<br>";
 echo $medium; echo "<br>";
 echo $center; echo "<br>";
->>
 
 This PHP script is designed to handle form data submitted via the POST method. When a form is
 submitted, the data is sent to the server, where this PHP script processes it.
@@ -6256,7 +6229,7 @@ echo $medium; echo "<br>";
 echo $center; echo "<br>";
 
 e echo is used to output data to the browser.
-අතරික්සුවට දුන්ත ප්‍රතිදානය කිරීමට echo භාවිතා කරයි.
+අතිරික්සුවට දුන්ත ප්‍රතිදානය කිරීමට echo භාවිතා කරයි.
 
 e = <h2>Your Input:</h2>: Outputs a heading "Your Input:".
 <h2> Your Input:</h2>: "Your Input:" යන ශීරිෂයක්‌ ප්‍රතිදානය කරයි.
@@ -6276,7 +6249,7 @@ a computer at each classroom to access the library system.
 
 ඔබේ පාසලේ උසස්‌ ICT පෙළ විෂය හදාරන මිතුරන්‌ කිහිපදෙනෙකු පාසල්‌ පුස්තකාලය වැඩිදියුණු කිරීම
 පිණිස මාර්ගගත පුස්තකාල කළමනාකරණ පද්ධතියක්‌ (Online Library Management System) හඳුන්වාදිමට
-තීරණය කර ඇත. අවග්‍යතා තමන්‌ දුන්නා බව උපකල්පනය කරමින්‌ පළමු පියවර ලෙස පද්ධති සංවර්ධනය
+තීරණය කර ඇත. අවශ්‍යතා තමන්‌ දුන්නා බව උපකල්පනය කරමින්‌ පළමු පියවර ලෙස පද්ධති සංවර්ධනය
 ආරමිභ කළ ඔවුහු පංගම පරිගිලක අතුරැමුහුණතක්‌ (mobile user interface) සහ edo සමුදායක්‌
 (database) සහිතව තම පද්ධතිය සම්පුර්ණ කළහ. පද්ධතිය සමිපුර්ණ කිරීමෙන්‌ පසුව ඔවුහු ආදර්ශනය සහ
 පද්ධති ස්ථාපනය (system deployment) සඳහා පාසලේ විදුහල්පතිතුමා සහ පුස්තකාල කාර්යමණ්ඩලය
@@ -6295,22 +6268,22 @@ organizational feasibility, problem definition, system deployment |
 ශක්‍යතාව, ගැටලු අර්ටකටනය, පද්ධති ස්ථාපනය }
 
 (i) This team of students could have found out about the existing library system at the beginning if they
-did not Skip the .............-.................෴෴
-සිසුන්‌ කණ්ඩායම ................ ................................. මඟ නොහැරියේ නමි ඔවුන්‌ දැනට පචතින පුස්තකාල
+did not Skip the ……-……෴
+සිසුන්‌ කණ්ඩායම …… …… මඟ නොහැරියේ නමි ඔවුන්‌ දැනට පචතින පුස්තකාල
 පද්ධතිය පිළිබඳාව ආරමිභයේදිම දැනුවන්වනවා ඇන.
 
 (11) The school principal refuses to accept this proposed solution due to resource constraints and the
 limited benefits compared to the investment. This indicates the solution developed by students lacks
 
-සමිපත්‌ සීමාසහිත SO සහ ආයෝජනයට සරීලන GSE ප්‍රතිලාභ නොමැතිවීම හේතුවෙන්‌ විදුහල්පතිතුමා සිසුන්ගේ
-යෝපිත විසඳුම ප්‍රතික්ෂේප කරයි. මෙයින්‌ පෙන්වන්නේ සිසුන්‌ සංවර්ධනය කරන ලද විසළඳුමේ ..........................
+සම්පත්‌ සීමාසහිත SO සහ ආයෝජනයට සරීලන GSE ප්‍රතිලාභ නොමැතිවීම හේතුවෙන්‌ විදුහල්පතිතුමා සිසුන්ගේ
+යෝපිත විසඳුම ප්‍රතික්ෂේප කරයි. මෙයින්‌ පෙන්වන්නේ සිසුන්‌ සංවර්ධනය කරන ලද විසළඳුමේ ……
 නොමැති බවයි.
 
 (111) The library staff says that they will accept and use this demonstrated system only if the existing
 database is used as a part of the new solution. This indicates the solution developed by students lacks
 දැනට පවතින eso 'සමුදාය අලුත්‌ විසඳුමේ කොටසක්‌ ලෙස භාවිත කරන්නේ නමි පමණක්‌ ආදර්ගනය කරන
 ලදු පද්ධතිය පිළිගෙන භාවිත කරන බව පුස්තකාල කාර්යමණ්ඩලය දැනුමි දෙයි. මෙයින්‌ පෙන්වන්නේ සිසුන්‌
-සංවර්ධනය කරන ලද විසඳුමේ .......................................... නොමැති බවයි.
+සංවර්ධනය කරන ලද විසඳුමේ …… නොමැති බවයි.
 
 (i) Preliminary investigation මුලික විමර්ශනය
 (11) Economic feasibility ආර්ථික ශක්‍යතාව
@@ -6374,7 +6347,7 @@ considers factors such as
 මෙවැනි සාධක සලකා බලයි
 
 e Estimated development and implementation costs
-ඇස්තමේන්තුගත සංවට්ධන හා ක්‍රියාත්මක කිරීමේ පිරිවැය
+ඇස්තමේන්තුගත සංවර්ධන හා ක්‍රියාත්මක කිරීමේ පිරිවැය
 
 e Ongoing operating and maintenance costs
 දැනට පවතින මෙහෙයුම්‌ සහ නඩත්තු වියදුමි
@@ -6395,7 +6368,7 @@ The operational feasibility assessment evaluates whether the proposed system can
 utilized within the organization's existing processes, resources, and management structure. It
 considers factors such as:
 
-මෙහෙයුම්‌ ගක්‍යතා තක්සේරැව මඟින්‌ සංවිධානයේ පවතින ක්‍රියාවලි, සමිපත්‌ සහ කළමනාකරණ ව්‍යුහය
+මෙහෙයුම්‌ ගක්‍යතා තක්සේරැව මඟින්‌ සංවිධානයේ පවතින ක්‍රියාවලි, සම්පත්‌ සහ කළමනාකරණ ව්‍යුහය
 තුළ යෝපිත පද්ධතිය ඵලදායී ලෙස භාවිතා කළ හැකිද යන්න ඇගයීමට ලක්‌ කරයි. එය මෙවැනි
 සාධක සලකා බලයි
 
@@ -6492,7 +6465,7 @@ Old and the new systems are run alongside
 each other for a period of time
 
 පැරණි සහ නව පද්ධති යමි කාල
-පරිච්ජේදයක්‌ සඳහා එකිනෙක සමිබන්ධ වේ
+පරිච්ජේදයක්‌ සඳහා එකිනෙක සම්බන්ධ වේ
 
 Usually only the new system is run
 සාමාන්‍යයෙන්‌ නව පද්ධතිය පමණක්‌ ක්‍රියාත්මක වේ
@@ -6582,7 +6555,7 @@ Security Concerns
 the area of a circle.The radius of the circle is given as an input.
 වෘත්තයක වර්ගවලය ගණනය කිරීමට සහ ප්‍රතිදානය කිරීම සඳහා වු
 ඇල්ගොරිතමයක්‌ (algorithm) වෙනුවෙන්‌ ගැලීිමි සටහනක්‌ ඇඳිමට
-අවග්‍ය වේ. වෘත්තයේ අරය ආදානය (input) ලෙස ලබාදේ.
+අවශ්‍ය වේ. වෘත්තයේ අරය ආදානය (input) ලෙස ලබාදේ.
 
 Note: Area of a circle = 3.14 x Radius x Radius
 
@@ -6610,8 +6583,6 @@ Answer:
 
 Yes
 
-෴
-
 As mentioned in the question here, to find the area of the circle, the radius should be given as input.
 මෙහි ප්‍රශ්නයේ සඳහන්‌ පරිදි වෘත්තයේ වර්ගවලය සෙවීම සඳහා ආදානය ලෙස අරය ලබා දිය යුතු වේ.
 
@@ -6628,8 +6599,6 @@ is not true, the program must terminate. Here, the radius must be checked as a c
 එම නිසා මෙහිදි if කොන්දේසියකට අනුව එය සතෲ්‍ය වේ නමි වටර්ගවලය ගණනය කිරීම සඳහා පහලට ගමන්‌
 කල යුතු වේ. කොන්දේසිය සත්‍ය නොවේ නමි වැඩසටහන අවසන්‌ කළ යුතු වේ. මෙහිදි අරය 0 ට වඩා
 විගාලදු යන්න කොන්දේසියක්‌ ලෙස පරීක්ෂා කළ යුතු වේ.
-
-~
 
 Then if the condition 15 true then move down from the yes section and calculate the area and output the
 area. There, in the first setting box, area=3.14*radius*radius is calculated and in the output box,
@@ -6767,12 +6736,12 @@ QQ ගොනුවක (text file) [A] අන්තර්ගතය තවත්�
 
 A = input("Enter the name of text file A")
 B = input("Enter the name of text file 8")
-11 ස ................... (, ................... )
-42 ස ,................... (8, ................... )
-for line in ...................
-Ff2.write (................... )
-11. ...................
-12. ...................
+11 ස …… (, …… )
+42 ස ,…… (8, …… )
+for line in ……
+Ff2.write (…… )
+11. ……
+12. ……
 Answer :
 
 What is required here is to write all the contents of one file in another file.
@@ -6903,7 +6872,7 @@ Here, the buyer posts a requirement for a product or service, and sellers compet
 This is often used for procurement in businesses. Features include:
 
 මාර්ගගත ප්‍රතිවෙන්දේසියකදඳි, ගැනුමිකරුගේ සහ විකුණුමිකරුැගේ භූමිකාවන්‌ සමිප්‍රදායික වෙන්දේසියකට
-සාපේක්ෂව ආපසු හැරේ. මෙහිදී, ගැනුමිකරු භාණ්ඩයක්‌ හෝ සේවාවක්‌ සඳහා අවග්‍යතාවයක්‌ පළ කරන අතර,
+සාපේක්ෂව ආපසු හැරේ. මෙහිදී, ගැනුමිකරු භාණ්ඩයක්‌ හෝ සේවාවක්‌ සඳහා අවශ්‍යතාවයක්‌ පළ කරන අතර,
 විකුණුම්කරුවන්‌ GHO මිල ලබා දිමට තරඟ කරයි. මෙය බොහෝ විට ව්‍යාපාරවල ප්‍රසමිපාදූන HEH) භාවිතා
 වේ. මෙයට පහන විශේෂාංග ඇතුළත්‌ GS:
 
@@ -6927,15 +6896,15 @@ and benefiting various stakeholders in the market.
 According to the above description, the following words can be applied to the spaces.
 ඉහත විස්තර වලට අනුව හිස්තැන්‌ සඳහා පහත වචන යෙදිය හැකිය.
 
-(i) In...... Online Reverse Auctions ......... , sellers bid for the prices at which they are willing to sell
+(i) In…… Online Reverse Auctions …… , sellers bid for the prices at which they are willing to sell
 their goods or services.
-......... මාර්ගගත ප්‍රතිවෙන්දේසිය....... OEE, විකුණුමිකරාැවෝ තමන්ට විකිණීමට හැකි භාණ්ඩවල හෝ
+…… මාර්ගගත ප්‍රතිවෙන්දේසිය…… OEE, විකුණුමිකරාැවෝ තමන්ට විකිණීමට හැකි භාණ්ඩවල හෝ
 සේවාවල මිල ගණන්‌ සඳහා ලංසු ඉවිරිපත්‌ කරති.
 
-(il) ......... E-Marketplace ........ . allows buyers to compare multiple online sellers within the same
+(il) …… E-Marketplace …… . allows buyers to compare multiple online sellers within the same
 online platform.
 එකම මාර්ගගත ehEmOsE (online platform), මාර්ගගත විකුණුමිකරුැවන්‌ බොහෝදෙනෙකු සංසන්දූනය
-කිරීමට ......... ඉ-වෙළඳුපොළ.......... ගැනුමිකරැවන්ට ඉඩ සලසයි.
+කිරීමට …… ඉ-වෙළඳුපොළ…… ගැනුමිකරැවන්ට ඉඩ සලසයි.
 
 (0) Write the most appropriate word or phrase to answer the following questions based on the description
 given below.
@@ -6949,9 +6918,9 @@ the system operates at a very low resource demand.
 
 ග්‍රී ලංකාව තළ මෑතකදි හඳුන්වා දුන්‌ පාතික ඉන්ධන අවසර පත්‍ර ක්‍රමය, පාතික අභියෝග සාටර්ටකව ජය ගැනීම
 සඳුහා තනොරතුරැ හා සන්නිවේදන තාක්ෂණය භාවිත කළ හැකි ආකාරය පිළිබඳ එක්‌ උදාහරණයකි. දෙන ලද
-සතියක්‌ සඳහා, උපටීම සේවාදායක දෘඞාංග සමිපත්‌ උපයෝජනය (maximum server hardware resource
+සතියක්‌ සඳහා, උපටීම සේවාදායක දෘඩාංග සම්පත්‌ උපයෝජනය (maximum server hardware resource
 utilization) සිදු වන්නේ කෙට්‌ කාලයකට (උදා: සුළු පැය ගණනක්‌) පමණක්‌ වන අතර ඉතිරි කාලයේ පද්ධතිය
-ඉතා අඩු සමිපත්‌ ඉල්ලුමක්‌ යටතේ ක්‍රියාත්මකවන බව නිරීක්ෂණය කර ඇන..
+ඉතා අඩු සම්පත්‌ ඉල්ලුමක්‌ යටතේ ක්‍රියාත්මකවන බව නිරීක්ෂණය කර ඇන..
 
 When an organization purchases computer hardware based on the maximum demand, it means they are
 investing in infrastructure that will only be fully utilized during peak times. However, as the description
@@ -6959,23 +6928,23 @@ states, the maximum server hardware resource utilization happens only for a shor
 the rest of the time, the system operates at a very low resource demand. This results in several
 disadvantages:
 
-ආයතනයක්‌ උපරීම ඉල්ලම මත පරිගණක දෘඞාංග මිලදි ගන්නා SO, එයින්‌ අදහස්‌ වන්නේ ඔවුන්‌ යටිනල
+ආයතනයක්‌ උපරීම ඉල්ලම මත පරිගණක දෘඩාංග මිලදි ගන්නා SO, එයින්‌ අදහස්‌ වන්නේ ඔවුන්‌ යටිනල
 පහසුකමි සඳහා ආයෝපනය කරන අතර එය උපරිම කාලවලදී පමණක්‌ සමිපුර්ණයෙන්ම භාවිතා කරන බවයි.
-කෙසේ වෙතත්‌, විස්තරයේ සඳහන්‌ පරිදි, උපරිම සේවාදායක දෘඞාංග සමිපත්‌ භාවිතය සෑම සතියකම කෙටි
-කාලයක්‌ සඳුහා පමණක්‌ සිදු වේ. ඉතිරි කාලය HED), පද්ධතිය ඉතා අඩු සමිපත්‌ ඉල්ලමක්‌ යටතේ කියාත්මක
+කෙසේ වෙතත්‌, විස්තරයේ සඳහන්‌ පරිදි, උපරිම සේවාදායක දෘඩාංග සම්පත්‌ භාවිතය සෑම සතියකම කෙටි
+කාලයක්‌ සඳුහා පමණක්‌ සිදු වේ. ඉතිරි කාලය HED), පද්ධතිය ඉතා අඩු සම්පත්‌ ඉල්ලමක්‌ යටතේ කියාත්මක
 වේ. මෙය අවාසි කිහිපයක්‌ ඇති කරයි;
 
 Inefficiency: Most of the time, the hardware resources are underutilized, leading to inefficiency. The
 organization has paid for capacity that 1t doesn't need most of the time.
 
-අකාර්යක්ෂමතාව: බොහෝ විට, දෘඞාංග සමිපත්‌ අඩුවෙන්‌ භාවිතා කර ඇති අතර, එය ambaseOmOcod
-හේතු වේ. සංවිධානයට බොහෝ විට අවග්‍ය නොවන ධාරිතාව සඳහා ගෙවා ඇත.
+අකාර්යක්ෂමතාව: බොහෝ විට, දෘඩාංග සම්පත්‌ අඩුවෙන්‌ භාවිතා කර ඇති අතර, එය ambaseOmOcod
+හේතු වේ. සංවිධානයට බොහෝ විට අවශ්‍ය නොවන ධාරිතාව සඳහා ගෙවා ඇත.
 
 High Cost: The cost of purchasing and maintaining this hardware is high. The organization incurs expenses
 for power, cooling, physical space, and maintenance, even when the hardware is not being fully utilized.
 This approach leads to unnecessary financial burdens without proportional benefits.
 
-අධික පිරිවැය; මෙම දෘඞාංග මිලදි ගැනීම සහ නඩත්තු HOO සඳහා වන පිරිවැය ඉහළ ය. දෘඞාංග
+අධික පිරිවැය; මෙම දෘඩාංග මිලදි ගැනීම සහ නඩත්තු HOO සඳහා වන පිරිවැය ඉහළ ය. දෘඩාංග
 සම්පුර්ණයෙන්‌ ප්‍රයෝජනයට නොගන්නා විට පවා, බලය, සිසිලනය, භෞතික අවකාශය සහ නඩත්තුව HEH)
 සංවිධානයට වියදුමි දැරීමට සිදුවේ. මෙය සමානුපාතික ප්‍රතිලාභ නොමැතිව අනවශ්‍ය මුල්‍ය බරක්‌ ඇති කරයි.
 
@@ -6984,22 +6953,22 @@ Accordingly part (1) can be answered as follows.
 
 (i) One of the views on resource provision is to purchase computer hardware permanently considering
 the maximum demand. What is the main disadvantage with this approach?
-සමිපත්‌ සපයාගැනීම පිළිබඳව එක්‌ මතයක්‌ වන්නේ උපරිම ඉල්ලම සලකා පරිගණක දෘඞාංග ස්ටිරවම මිලදී
+සම්පත්‌ සපයාගැනීම පිළිබඳව එක්‌ මතයක්‌ වන්නේ උපරිම ඉල්ලම සලකා පරිගණක දෘඩාංග ස්ටිරවම මිලදී
 ගැනීමයි. මෙම ප්‍රවේශයේ ප්‍රධාන අවාසිය කුමක්‌ අ?
 
 inefficiency and high cost.
 අකාර්යක්ෂමතාව සහ අධික පිරිවැය.
 
 Using less resources for more time.
-වැඩි කාලයක්‌ සමිපත්‌ අඩුවෙන්‌ ප්‍රයෝජනයට ගැනීම.
+වැඩි කාලයක්‌ සම්පත්‌ අඩුවෙන්‌ ප්‍රයෝජනයට ගැනීම.
 
 උපදෙස්‌ රෙපිස්තරයේ ඇති උපදෙස විකේතනය කෙරේ.
 
 4. The control unit of the CPU passes the decoded instruction as a sequence of control signals to the
 
-relevant .......... 0........... of the CPU.
+relevant …… 0…… of the CPU.
 විකේතනය කරන ලද උපදෙස්‌, පාලන සංඥා අනුක්‍රමයක්‌ ලෙස CPU හි පාලන ඒකකය CPU හි අදාළ
-..... Q........... වෙත යොමු කරයි.
+…… Q…… වෙත යොමු කරයි.
 
 5. The program counter is changed to point to the next instruction.
 ඊළඟ උපදෙස වෙත යොමු කිරීම සඳහා ක්‍රමලේඛ ගණකය (program counter) වෙනස්‌ ened.
@@ -7021,7 +6990,7 @@ programs. Here are the main steps involved in the fetch-execute cycle:
 
 සෙවුමි ආහරණ OMe, උපදෙස්‌ චක්‍රය ලෙසඳ හැඳින්වේ, මෙය පරිගණකයේ මධ්‍ය සැකසුම්‌ චකකයක (CPU)
 මුලික මෙහෙයුමි ක්‍රියාවලිය වේ. මෙම චක්‍රය CPU මතකයෙන්‌ උපදෙස්‌ ලබා ගැනීමට ගන්නා පියවර විස්තර
-කරයි, අවග්‍ය ක්‍රියාව කුමක්දැයි තිරණය කිරීමට එය විකේතනය කර, එම ක්‍රියාව ක්‍රියාත්මක කර ඊළඟ උපදෙස්‌
+කරයි, අවශ්‍ය ක්‍රියාව කුමක්දැයි තිරණය කිරීමට එය විකේතනය කර, එම ක්‍රියාව ක්‍රියාත්මක කර ඊළඟ උපදෙස්‌
 වෙත යයි. පරිගණකය ක්‍රියාත්මක කර වැඩසටහන්‌ ක්‍රියාත්මක කරන අතරතුර චක්‍රය අඛණ්ඩව නැවත සිදු වේ.
 සෙවුමි GMOS) චක්‍රයට සම්බන්ධ ප්‍රධාන පියවර කිහිපයකි:
 
@@ -7041,7 +7010,7 @@ instruction to be decoded and executed.
 CPU විසින්‌ වැඩසටහන්‌ ගණකය මගින්‌ පෙන්වා ඇති මතක ස්ථානයෙන්‌ උපදෙස්‌ ලබා ගනී. මෙම උපදෙස්‌
 
 පසුව උපදෙස්‌ රෙපිස්තරයේ (IR) තැන්පත්‌ කරනු ලැබේ, එය විකේතනය කර ක්‍රියාත්මක කිරීමට වත්මන්‌
-උපදෙස්‌ අඞංගු විශේෂ රෙපිස්තරයක්‌ වේ.
+උපදෙස්‌ අඩංගු විශේෂ රෙපිස්තරයක්‌ වේ.
 
 3. The instruction present in the instruction register is decoded.
 
@@ -7052,7 +7021,7 @@ the binary code of the instruction to determine which operation needs to be perf
 are involved.
 
 CPU හි පාලන dans උපදෙස්‌ ලේඛනයේ ඇති උපදෙස්‌ විකේතනය කරයි. විකේතනය කිරීම යනු කුමන
-මෙහෙයුමක්‌ සිදු කළ යුතුදු යන්න සහ කුමන ඔපෙරන්ඩි සමිබන්ධ වන්නේද යන්න තීරණය කිරීම සඳහා
+මෙහෙයුමක්‌ සිදු කළ යුතුදු යන්න සහ කුමන ඔපෙරන්ඩි සම්බන්ධ වන්නේද යන්න තීරණය කිරීම සඳහා
 උපදෙස්වල ද්විමය කේතය පරිවර්තනය කිරීමයි.
 
 4. 111ල control unit of the CPU passes the decoded instruction as a sequence of control signals to the
@@ -7067,7 +7036,7 @@ arithmetic operations, data movement).
 
 විකේතනය කරන ලදු උපදෙස්‌ මත පදනම්ව, පාලන ඒකකය CPU තුළ ඇති aca කාර්යබද්ධ Saw වෙත
 යවනු ලබන පාලන සංඥා සමුහයක්‌ පනනය කරයි (අංක ගණිතමය හා mbGen ඒකකය (ALU), රෙපිස්තර
-සහ අනෙකුත්‌ සංරචක වැනි). මෙම සංඥා අවග්‍ය මෙහෙයුමි සිදු කිරීම oes) කාර්යබද්ධ ඒකක වෙත යොමු
+සහ අනෙකුත්‌ සංරචක වැනි). මෙම සංඥා අවශ්‍ය මෙහෙයුමි සිදු කිරීම oes) කාර්යබද්ධ ඒකක වෙත යොමු
 කරයි (උදා: අංක ගණිත මෙහෙයුමි, ese චලනය).
 
 5. The program counter is changed to point to the next instruction.
@@ -7097,7 +7066,7 @@ P- program counter වැඩසටහන්‌ ගණකය
 Q - functional unit mdaaéaQ Smee
 
 (d) (1)Complete the truth table for the given logic circuit.
-පහත ළී ඇති නාර්කික පරිපටය සඳහා සතආතා වගුව සමිපුරණ කරන්න.
+පහත ළී ඇති නාර්කික පරිපථය සඳහා සතආතා වගුව සමිපුරණ කරන්න.
 
 x A | ॥ | x fy ia
 (| pA 0 | 0
@@ -7114,7 +7083,7 @@ NAND €800 mde) කිරීම
 ANAND gate can be used to create a NOT gate by connecting both inputs of the NAND gate to the same
 signal. The NAND gate's output will be the inverse of the input signal.
 
-NAND €8)0608 ආදාන දෙකම එකම සංඥාවකට සමිබන්ධ කිරීමෙන්‌ NOT ද්වාරයක්‌ නිරමාණය කිරීමට
+NAND €8)0608 ආදාන දෙකම එකම සංඥාවකට සම්බන්ධ කිරීමෙන්‌ NOT ද්වාරයක්‌ නිරමාණය කිරීමට
 හැකිය. NAND ද්වාරයෙහි ප්‍රතිදානය ආදාන සංඥාවේ ප්‍රතිලෝමය වනු ඇත.
 
 a] )--॥
@@ -7168,16 +7137,13 @@ A
 
 Q
 0
-]
-]
-]
 
 Accordingly, this is the truth table of the OR gate.
 ඒ අනුව මෙය OR ද්වාරයේ සන්‍යතා වගුව වේ.
 
 (6) The diagram below shows the OSI reference model and its mapping to the TCP/IP model. Write the
 correct names of the layers indicated by the labels P, Q, R, S, T and U.
-OSI යොමු ආකෘතිය (reference model) සහ TCP/IP ආකෘතිය අතර අනුරැපිතාව පහත රෑපයේ දැක්වේ.
+OSI යොමු ආකෘතිය (reference model) සහ TCP/IP ආකෘතිය අතර අනුරැපිතාව පහත රූපයේ දැක්වේ.
 P,Q,R,S,T සහ U ලේබලවලින්‌ නිරැපිත ස්තරවල නිවැරදළි නාමයන්‌ ලියා දක්වන්න.
 
 OSI Reference Model TCP/IP Model
@@ -7187,7 +7153,7 @@ Presentation Layer S P - Application Layer යෙදුමි ස්තරය
 Session. “ayer R - Data Link Layer ede» eSasiae ස්තරය
 Transport Layer S - Application Layer යෙදුමි ස්තරය
 ප්‍රවාහන ස්තරය 4 T - Transport Layer ප්‍රවාහන ස්තරය
-Q U U - Internet Laver අන්තටරපාල ස්තරය
+Q U U - Internet Laver අන්තර්ජාල ස්තරය
 R Network Access Layer
 Physical Layer ජාල ප්‍රවේශ ස්තරය
 භෞතික GOO
@@ -7198,7 +7164,7 @@ The OSI model is a conceptual framework used to understand and implement standar
 network communications. It divides the communication process into seven layers, each with specific
 functions.
 
-OSI ආකෘතිය යනු පාල සන්නිවේදනයේ සමිමත නියමාවලිය නතේරැමි ගැනීමට සහ ක්‍රියාත්මක කිරීමට භාවිතා
+OSI ආකෘතිය යනු පාල සන්නිවේදනයේ සම්මත නියමාවලිය නතේරැමි ගැනීමට සහ ක්‍රියාත්මක කිරීමට භාවිතා
 කරන සංකල්පිය රාමුවකි. එය සන්නිවේෙදුන ක්‍රියාවලිය HOO හතකට බෙදා ඇත, මේවාට එක්‌ එක්‌ විගේෂිත
 කාර්යයන්‌ ඇත.
 
@@ -7208,11 +7174,11 @@ Physical Layer (Layer 1)
 
 Transmits raw bit stream over a physical medium.
 
-භෞතික මාධ්‍යයක්‌ හරහා raw bit stream සමිප්‍රේෂණය කරයි.
+භෞතික මාධ්‍යයක්‌ හරහා raw bit stream සම්ප්‍රේෂණය කරයි.
 
 Data Link Layer (Layer 2)
 
-Edm සමිබන්ධක ස්තරය (2 වන ස්තරය)
+Edm සම්බන්ධක ස්තරය (2 වන ස්තරය)
 
 Provides node-to-node data transfer and handles error correction from the physical layer.
 node-to-node Es හුවමාරුව සපයන අතර භෞතික ස්ටරයෙන්‌ දෝෂ නිවැරදි කිරීම හසුරැවයි.
@@ -7238,7 +7204,7 @@ Session Layer (Layer 5)
 සැසි ස්තරය (5 වන dada)
 
 Manages sessions or connections between applications.
-යෙදුමි අතර සැසි හෝ සමිබන්ධතා කළමනාකරණය කරයි.
+යෙදුමි අතර සැසි හෝ සම්බන්ධතා කළමනාකරණය කරයි.
 
 Presentation Layer (Layer 6)
 
@@ -7247,7 +7213,7 @@ Presentation Layer (Layer 6)
 Translates data between the application layer and the network format, including encryption and
 compression.
 
-සංකේතනය සහ සමිපීඞනය ඇතුළුව යෙදුමි BOOS සහ HE ආකෘතිය අතර enw පරිවරතනය කරයි.
+සංකේතනය සහ සමිපීඩනය ඇතුළුව යෙදුමි BOOS සහ HE ආකෘතිය අතර enw පරිවරතනය කරයි.
 
 Application Layer (Layer 7)
 
@@ -7269,7 +7235,7 @@ Network Access Layer (Link Layer)
 ජාල ප්‍රවේශ ස්තරය (සබැඳි ස්තරය)
 
 Corresponds to the OSI's physical and data link layers. Handles the physical transmission of data.
-OSI හි භෞතික සහ දුන්ත සමිඛන්ධක ස්ටරවලට අනුරෑප වේ. esi භෞතික සමිප්‍රේෂණය හසුරැවයි.
+OSI හි භෞතික සහ දුන්ත සම්බන්ධක ස්ටරවලට අනුරෑප වේ. esi භෞතික සම්ප්‍රේෂණය හසුරැවයි.
 
 Internet Layer
 
@@ -7299,14 +7265,12 @@ OSI හි සැසි, ඉදිරිපත්‌ කිරීම සහ ය�
 
 5. (a) Consider the logic circuit shown in the following figure in which P, Q and R are the inputs and Z 1s
 the output.
-ආදාන 7”, ට හා R සහ ප්‍රතිදානය Z වන පහත රෑපයේ දී ඇති තරකන පරිපටය සලකන්න.
+ආදාන 7”, ට හා R සහ ප්‍රතිදානය Z වන පහත රූපයේ දී ඇති තරකන පරිපථය සලකන්න.
 
 7 ඒ R
 
 || “ඌගෙ
-|,
 
-~~
 771%
 Z
 |, ඇ ඈ [ට _
@@ -7326,10 +7290,8 @@ P Q R P 0 R POR PQR | PQR | PQR 7
 1 1 0 0 0 1 0 0 0 0 0
 1 1 1 0 0 0 0 0 0 1 1
 
-~
-
 (11) Complete the Karnaugh map relevant to the above circuit according to the following format.
-ඉහත පරිපටයට අදාළ කානෝ සිතියම පහන ආකෘතිය පරිදි සමිපුර්ණ කරන්න.
+ඉහත පරිපථයට අදාළ කානෝ සිතියම පහන ආකෘතිය පරිදි සමිපුර්ණ කරන්න.
 
 PQ
 
@@ -7375,7 +7337,7 @@ BC+ AC + AB Distributive Law විඝටන න්‍යාය
 (11) Draw a logic circuit for the above simplified expression in (b)(i) by only using OR and AND gates.
 
 ඉහත b(i) හි දැක්වෙන සථරලනම omacs ace) OR සහ AND ද්වාර පමණක්‌ භාවිතයෙන්‌ තාර්කික
-පරිපටයක්‌ ඇඳ දක්වන්න.
+පරිපථයක්‌ ඇඳ දක්වන්න.
 
 ABC
 
@@ -7384,13 +7346,12 @@ BC+AC+AB
 “5
 
 (111) Draw a logic circuit for the above simplified expression in (b)(1) by only using NAND gates.
-ඉහත 0 (1) හි දැක්වෙන සථරලතම ප්‍රකාශය aca) NAND ද්වාර පමණක්‌ භාවිතයෙන්‌ mdSea පරිපටයක්‌
+ඉහත 0 (1) හි දැක්වෙන සථරලතම ප්‍රකාශය aca) NAND ද්වාර පමණක්‌ භාවිතයෙන්‌ mdSea පරිපථයක්‌
 ඇඳු දක්වන්න.
 
 ABC
 
 Pr
->>
 
 v Lae
 
@@ -7404,27 +7365,27 @@ BC. AC. AB De Morgan’s Law ඩි මෝගන්‌ න්‍යාය
 
 6. (a) Write down the most suitable terms to replace the blanks labelled to in the following paragraph
 related to data encryption.
-EDD ගුප්ත කේතනය සමිඛන්ධව පහත දි ඇති පේදයේ BO eso) ලේබල කර ඇති හිස්තැන්වලට ආදේග
+EDD ගුප්ත කේතනය සම්බන්ධව පහත දි ඇති පේදයේ BO eso) ලේබල කර ඇති හිස්තැන්වලට ආදේග
 කළ හැකි වඩාත්‌ සුදුසු පදු ලියා දක්වන්න.
 
 There are two types of encryption techniques used namely, symmetric key encryption and asymmetric key
 
-encryption. In ........... Pow... key encryption, the same key is used for encrypting and decrypting the
-information. In this scheme, to exchange information, users must share a ........... 0........... key
-among themselves. In ........... 1%........... key encryption, different keys are used for encrypting and
+encryption. In …… Pow…… key encryption, the same key is used for encrypting and decrypting the
+information. In this scheme, to exchange information, users must share a …… 0…… key
+among themselves. In …… 1%…… key encryption, different keys are used for encrypting and
 decrypting the information. In this technique, users usually have a pair of dissimilar keys known as a
-biveeeeeees ට........... key and ...........T........... key. When one key is used for encryption, the other key
-can decrypt the ........... | Ore back to the original plain text.
+biveeeeeees ට…… key and ……T…… key. When one key is used for encryption, the other key
+can decrypt the …… | Ore back to the original plain text.
 
 සමමිතික යතුරැ කේතනය (symmetric key encryption) සහ අසමමිතික යතුරැ කේතනය (asymmetric key
 encryption) වශයෙන්‌ නමි කරන ලද, ගුප්ත කේතන GESe ක්‍රම (encryption techniques) දෙකක්‌ පවති.
-අ“ P........... යතුරු කේතයේ දි, නොරතුරැ ගුප්ත කේතනය සහ විකේතනය (decryption) සඳහා එකම
-යතුර යොදාගැනේ. GOO කුමයේදි පරිගිලකයින්‌ විසින්‌ නොරතුරැ හුවමාරැ කිරීමට ........... 0........... යතුරක්‌
-හවුලේ පරිහරණය කළ යුතුය. ........... R........... යතුරු කේතනයේදි තොරතුරු ගුප්ත කේතනය සහ
+අ“ P…… යතුරු කේතයේ දි, නොරතුරැ ගුප්ත කේතනය සහ විකේතනය (decryption) සඳහා එකම
+යතුර යොදාගැනේ. GOO කුමයේදි පරිගිලකයින්‌ විසින්‌ නොරතුරැ හුවමාරැ කිරීමට …… 0…… යතුරක්‌
+හවුලේ පරිහරණය කළ යුතුය. …… R…… යතුරු කේතනයේදි තොරතුරු ගුප්ත කේතනය සහ
 විකේතනය සඳුහා වෙනස්‌ යතුරැ භාවිත කෙරේ. මෙම ක්‍රමවේදයේදිී පරිගිලකයින්ට සාමාන්‍යයෙන්‌
-“අනි 5........... යතුර සහ ....................... යතුර ලෙස නමි කරන ලදු අසමාන යතුරැ යුගලක්‌ ඇත. එක්‌
+“අනි 5…… යතුර සහ …… යතුර ලෙස නමි කරන ලදු අසමාන යතුරැ යුගලක්‌ ඇත. එක්‌
 
-යතුරක්‌ ගුප්න කේතනය සඳුහා යොදාගන්නා විට අනෙක්‌ යතුරෙන්‌ ........... ච........... නැවත ආරමිභක සරල
+යතුරක්‌ ගුප්න කේතනය සඳුහා යොදාගන්නා විට අනෙක්‌ යතුරෙන්‌ …… ච…… නැවත ආරමිභක සරල
 පෙළට (plain text) විකේතනය කළ හැකි ය.
 
 Symmetric සමමිතික
@@ -7451,8 +7412,7 @@ keys. The primary purpose of encryption is to ensure the confidentiality and int
 Here’s a detailed explanation of encryption:
 සංකේතනය පිළිබඳ සවිස්තරාත්මක පැහැදිලි HOO මෙසේය.
 
-Key Concepts ප්‍රධාන සංකල්ප
-ේ Plaintext සරල පෙළ
+Key Concepts ප්‍රධාන සංකල්ප  Plaintext සරල පෙළ
 
 The original, readable data or message that is to be encrypted.
 සංකේතනය කළ යුතු මුල්‌, කියවිය හැකි evo හෝ පණිවිඩය.
@@ -7517,7 +7477,7 @@ Pros: Enhanced security as the private key is never shared; only the public key 
 පොදු යතුරක්‌ පමණි.
 
 Cons: Slower than symmetric encryption and requires more computational resources.
-අවාසි: සමමිතික සංකේතනයට Of) මන්දුගාමි වන අතර වැඩි පරිගණක සමිපත්‌ අවග්‍ය වේ.
+අවාසි: සමමිතික සංකේතනයට Of) මන්දුගාමි වන අතර වැඩි පරිගණක සම්පත්‌ අවශ්‍ය වේ.
 
 Examples: RSA (Rivest-Shamir-Adleman), ECC (Elliptic Curve Cryptography).
 
@@ -7529,7 +7489,7 @@ among its four departments.
 It is required to subnet the above IP address block to satisfy the following requirements. Assume that
 each department is located in a separate building.
 
-ඉහත IP ලිපින කාණ්ඩය පහත අවග්‍යනා සමිපුර්ණ කරන ලෙස උපපාලනය කිරීම අවග්‍ය වේ. OS එක්‌
+ඉහත IP ලිපින කාණ්ඩය පහත අවශ්‍යනා සමිපුර්ණ කරන ලෙස උපපාලනය කිරීම අවශ්‍ය වේ. OS එක්‌
 දෙපාර්තමේන්තුව වෙන්‌ වෙන්‌ ගොඩනැගිලිවල ස්ථාපනය කර ඇති බව උපකල්පනය කරන්න.
 
 Subnet Number Department Name Number of Computers
@@ -7593,16 +7553,15 @@ The number of host bits required to create the number of subnets is calculated b
 
 the number of subnets required.
 
-උපපාල ගණන නිට්මාණය කිරීමට අවශ්‍ය සත්කාරක බිටු ගණන ගණනය කරගනු ලබන්නේ අවග්‍ය උපපාල
+උපපාල ගණන නිට්මාණය කිරීමට අවශ්‍ය සත්කාරක බිටු ගණන ගණනය කරගනු ලබන්නේ අවශ්‍ය උපපාල
 ගණනට සමාන වන දෙකෙහි බලය මගිනි.
 
 Accordingly, since it is necessary to create 4 subnets, the number of host bits required to create this subnet
 is 2 because 4 is the second power of 2.
-ඒ අනුව මෙහිදි උපපාල 4 ක්‌ HOOP කරගැනීම අවග්‍ය බැවින්‌, 4 යනු 2 හි දෙවෙනි බලය නිසා මෙම
-උපපාලය නිර්මාණය කරගැනීම අවග්‍ය සත්කාරක බිටු ගණන වන්නේ 2 කි.
+ඒ අනුව මෙහිදි උපපාල 4 ක්‌ HOOP කරගැනීම අවශ්‍ය බැවින්‌, 4 යනු 2 හි දෙවෙනි බලය නිසා මෙම
+උපපාලය නිර්මාණය කරගැනීම අවශ්‍ය සත්කාරක බිටු ගණන වන්නේ 2 කි.
 
 4-- 22
-\
 
 Number of host bits
 
@@ -7708,18 +7667,18 @@ to 0, so the resulting subnet mask 15.
 
 (d) (1) Write one difference between User Datagram Protocol (UDP) and Transmission Control Protocol
 (TCP) transport layer protocols.
-පරිශිලක දත්ත පණිවිඩ නියමාවලිය (UDP) සහ සමිප්‍රේෂණ පාලන නියමාවලිය (TCP) යන ප්‍රවාහන ස්ටරයේ
+පරිශිලක දත්ත පණිවිඩ නියමාවලිය (UDP) සහ සම්ප්‍රේෂණ පාලන නියමාවලිය (TCP) යන ප්‍රවාහන ස්ටරයේ
 නියමාවලි අතර ඇති එක්‌ වෙනස්කමක්‌ ලියන්න.
 
 Feature UDP TCP
 
 Connection Connectionless Connection-oriented
 
-සම්ඛන්ධතාවය සම්බන්ධයක්‌ නැති සමිබන්ධතා-නැඹුරැ
+සම්ඛන්ධතාවය සම්බන්ධයක්‌ නැති සම්බන්ධතා-නැඹුරැ
 
 Speed Faster (Low latency) Slower
 
-වේගය වේගවත්‌ (අඩු ප්‍රමාදය) වේගය අඞු
+වේගය වේගවත්‌ (අඩු ප්‍රමාදය) වේගය අඩු
 
 Reliability Less reliable, no error checking Reliable, error checking and correction
 
@@ -7761,20 +7720,20 @@ A router is a networking device that forwards data packets between computer netw
 මං හසුරැව යනු පරිගණක HE අතර දත්ත S720 යොමු කරන පාලකරණ උපාංගයකි.
 
 Routers perform the traffic directing functions on the Internet.
-මං හසුරැව අන්තටරපාලයේ තදබදය මෙහෙයවිමේ කාථයයන්‌ ඉටු කරයි.
+මං හසුරැව අන්තර්ජාලයේ තදබදය මෙහෙයවිමේ කාථයයන්‌ ඉටු කරයි.
 
 Data sent through the internet, such as a web page or email, 15 in the form of data packets.
-වෙබි පිටුවක්‌ හෝ විද්‍යුත්‌ තැපැලක්‌ වැනි අන්තරපාලය හරහා යවන ess, EMD පැකට්‌ ආකාරයෙන්‌ වේ.
+වෙබි පිටුවක්‌ හෝ විද්‍යුත්‌ තැපැලක්‌ වැනි අන්තර්ජාලය හරහා යවන ess, EMD පැකට්‌ ආකාරයෙන්‌ වේ.
 
 A router is connected to at least two networks, commonly two LANs (Local Area Networks) or WANs
 (Wide Area Networks) or a LAN and its ISP's (Internet Service Provider) network.
-මංහසුරැව අවම වගයෙන්‌ HE දෙකකට සමිබන්ධ වේ, සාමාන්‍යයෙන්‌ LAN (පුරවර ප්‍රඳේශ) හෝ WAN
+මංහසුරැව අවම වගයෙන්‌ HE දෙකකට සම්බන්ධ වේ, සාමාන්‍යයෙන්‌ LAN (පුරවර ප්‍රඳේශ) හෝ WAN
 
-(පුළුල්‌ ප්‍රදේශ HE) දෙකකට oa} LAN සහ එහි ISP (අන්තරපාල සේවා සපයන්නා) HES සමග සමිඛන්ධ
+(පුළුල්‌ ප්‍රදේශ HE) දෙකකට oa} LAN සහ එහි ISP (අන්තර්ජාල සේවා සපයන්නා) HES සමග සම්බන්ධ
 වේ.
 
 Routers are located at gateways, the places where two or more networks connect.
-මංහසුරැව SHO) ඇත්තේ, HE දෙකක්‌ හෝ වැඩි ගණනක්‌ සමිබන්ධ වන ද්වාර පවතින ස්ටානවල ය.
+මංහසුරැව SHO) ඇත්තේ, HE දෙකක්‌ හෝ වැඩි ගණනක්‌ සම්බන්ධ වන ද්වාර පවතින ස්ටානවල ය.
 
 Main Functions of a Router
 
@@ -7790,7 +7749,7 @@ Firewall and Security Gago සහ ආරක්ෂාව
 
 Quality of Service ගුණාත්මක සේවය (QoS)
 
-Wireless Connectivity රැහැන්‌ රහිත සමිබන්ධතාව
+Wireless Connectivity රැහැන්‌ රහිත සම්බන්ධතාව
 
 VPN (Virtual Private Network) Support අතට පෞද්ගලික පාල සේවාව
 
@@ -7818,8 +7777,6 @@ e Hierarchy and Redundancy ධුරාවලිය සහ අතිරික්
 
 Function: — Ensures efficient and reliable domain name resolution through a hierarchical structure.
 කාර්යය : ධුරාවලි ව්‍යුහයක්‌ හරහා කාර්යක්ෂම සහ විග්වාසනීය O00 නාම විභේදනය සහතික කරයි.
-
-~
 
 e Caching 58a කිරීම
 
@@ -7882,7 +7839,7 @@ the water-releasing tap. As shown, the setup වතුර කරාමය
 includes sensor, controller and microcontroller ak
 (Arduino Board) with a communication module.
 හරිතාගාරයක ඇති පැළයකට පලය යෙදිය හැකි IoT
-ඇටවුමක්‌ රෑපය 1 හි දැක්වේ. පලය නිකුත්‌ කරන
+ඇටවුමක්‌ රූපය 1 හි දැක්වේ. පලය නිකුත්‌ කරන
 කරාමය ක්‍රියාකරවීමට පංගම යෙදුමක්‌ (mobile
 application) භාවිත චේ. රැපයේ es) ඇති පරිදි
 ඇටවුම, සංවේදකයකින්‌ (sensor), පාලකයකින්‌
@@ -7892,7 +7849,7 @@ application) භාවිත චේ. රැපයේ es) ඇති පරිද�
 First, let's examine what the mobile application, sensor, controller and communication module shown
 in Figure | of part 7. (a) are,
 
-පළමුව 7. (4) කොටසෙහි 1 රෑපයෙහි EO) ඇති ජංගම යෙදුම, සංවේදූකය,.පාලකය සහ සංනිවේදන මොඩියුලය
+පළමුව 7. (4) කොටසෙහි 1 රූපයෙහි EO) ඇති ජංගම යෙදුම, සංවේදූකය,.පාලකය සහ සංනිවේදන මොඩියුලය
 (communication module) යනු කුමක්දැයි විමසා බලමු,
 
 e Mobile application / පංගම යෙදුම
@@ -7917,7 +7874,7 @@ level. This sensor plays a crucial role in the IoT setup by providing accurate a
 soil's current moisture state.
 
 සංවේදකයක්‌ යනු පාරිසරික තත්ත්වයන්හි වෙනස්කමි හඳුනාගෙන SO අනරෑප ප්‍රතිදානය සපයන උපකරණයකි.
-1 රෑපයේ, C සංරචකය ලෙස ලේබල්‌ කර ඇති සංවේදකය, පසෙහි තෙතමන මට්ටම මනිනු ලබන තෙනමන
+1 රූපයේ, C සංරචකය ලෙස ලේබල්‌ කර ඇති සංවේදකය, පසෙහි තෙතමන මට්ටම මනිනු ලබන තෙනමන
 සංවේදකයකි. මෙම සංවේදකය පසෙහි වත්මන්‌ තෙතමන තත්ත්වය පිළිබඳු නිවැරදි සහ අඛණ්ඩ දත්ත සැපයිම
 මගින්‌ 10] සැකසුමෙහි තිරණාත්මක කාටර්යභාරයක්‌ ඉටු කරයි.
 
@@ -7928,7 +7885,7 @@ other devices or systems. According to the image 1, the controller, identified a
 
 පාලකයක්‌ යනු වෙනත්‌ උපාංග GH} පද්ධතිවල හැසිරීමි කළමනාකරණය කරන, විධාන කරන, මෙහෙයවන හෝ
 
-නියාමනය කරන උපාංගයක්‌ හෝ උපාංග සමුහයකි. | රෑපයට අනුව, පාලකය ලෙස ෴ සංරචකය හඳුනාගත
+නියාමනය කරන උපාංගයක්‌ හෝ උපාංග සමුහයකි. | රූපයට අනුව, පාලකය ලෙස ෴ සංරචකය හඳුනාගත
 හැකිය.
 
 e Communication module / සන්නිවේෙදුාන මොඩියුලය
@@ -7941,7 +7898,7 @@ received from the moisture sensor and makes decisions based on predefined algori
 central processing unit of the system. Additionally, it enables the mobile application to receive updates
 and send instructions remotely, ensuring the entire 10 1 setup functions cohesively and effectively.
 සන්නිවේදන මොඩියුලයක්‌ යනු පද්ධතියක විවිධ සංරචක අතර හෝ විවිධ පද්ධති අතර සන්නිවේදනය සක්‍රීය
-කරන උපකරණයකි. ] රෑපයේ, B සංරචකය ලෙස ලේබල්‌ කර ඇති සන්නිවේදුන මොඩියුලය Arduino
+කරන උපකරණයකි. ] රූපයේ, B සංරචකය ලෙස ලේබල්‌ කර ඇති සන්නිවේදුන මොඩියුලය Arduino
 පුවරැවකින්‌ නියෝපනය වේ එය සංවේදකය, පාලකය සහ SOO යෙදුම ඇතුළඑව පද්ධතියේ විවිධ සංරචක
 අතර සන්නිවේදුනය සඳුහා පහසුකමි සපයයි. මෙම පාලකය තෙතමනය සංවේදකයෙන්‌ ලැබෙන Eno සකසන
 අතර පුර්ව නිශ්චිත ඇල්ගොරිතම OM පදුනමිව තීරණ ගනී. එය පද්ධතියේ මධ්‍යම සැකසුමි Sama ලෙස
@@ -8000,7 +7957,6 @@ If Not Tap Closed If කරාමය වසා නැත
 Then | 7] Then | 7]
 End if End if
 End if End if
-} }
 
 According to the above (b) part explanation, the system will open the tap to water the soil when the
 moisture level drops below 8 and close the tap when the moisture level reaches or exceeds 8.
@@ -8023,7 +7979,6 @@ If Not Tap Closed If කරාමය වසා නැත
 Then Close Tap Then කරාමය වසන්න
 End if End if
 End if End if
-}
 
 X-ML < 8
 Y-—Open Tap / කරාමය විවෘත කරන්න
@@ -8071,7 +8026,7 @@ By monitoring brightness levels, an LDR sensor allows precise control over light
 plants with specific light needs at different growth stages.
 
 දිප්තියේ මට්ටම්‌ නිරීක්ෂණය කිරීමෙන්‌ LDR සංවෙදකය ආලෝකය On ASAD පාලනයක්‌ ලබා දෙයි, විවිධ
-වර්ධන අවයධින්හිදි Adda ආලෝක අවග්‍යතා ඇති MEO සඳුහා මෙය අත්‍යවග්‍ය වේ.
+වර්ධන අවයධින්හිදි Adda ආලෝක අවශ්‍යතා ඇති MEO සඳුහා මෙය අත්‍යවග්‍ය වේ.
 
 e Light Intensity / ආලෝක තිවතාව
 LDR sensor measures light intensity, crucial for photosynthesis. It ensures plants get the right amount
@@ -8089,7 +8044,7 @@ sensitive plants.
 (d) A multi-agent system is proposed for this greenhouse (Figure 2). In this system the images that are
 captured using a mobile phone are stored in the plant database. The multi-agent system works as
 follows:
-හරිතාගාරය VEO) ඛහුව්පන්ත පද්ධතියක්‌ (රෑපය 2) යෝපිත ය. එම පද්ධතියේදි SOO දුරකටනයකින්‌ ගනු
+හරිතාගාරය VEO) ඛහුව්පන්ත පද්ධතියක්‌ (රූපය 2) යෝපිත ය. එම පද්ධතියේදි SOO දුරකටනයකින්‌ ගනු
 ලබන පැළවල ජායාරෑප පැළ EHD සමුදායේ ගබඩා කෙරේ. බහු ඒපන්න පද්ධතිය පහන පරිදි ක්‍රියාකරයි.
 
 e Agent 1 handles the user interactions, user access to data, and triggers Agent 2.
@@ -8104,7 +8059,7 @@ e Search Agent searches relevant information from the Internet, feeds the search
 who updates the database after processing, and notifies Agent 1 if an alert is to be raised.
 
 සෙවුමි ඒපන්ත අදාළ තොරතුරැ සඳුහා අන්තර්ජාලය පිරික්සා, ප්‍රතිඵල ඒපන්ත 2 ට ලබාදුන්‌ විට, ඵ්පන්ත
-2 EDM සමුදාය සකසා යාවත්කාලින කර, අනතුරැ ඇඟවීමක්‌ අවග්‍ය නමි ඒජන්ත 1 ට දැනුමි දෙයි.
+2 EDM සමුදාය සකසා යාවත්කාලින කර, අනතුරැ ඇඟවීමක්‌ අවශ්‍ය නමි ඒජන්ත 1 ට දැනුමි දෙයි.
 
 User
 e Interaction
@@ -8116,8 +8071,7 @@ Figure 2
 First, let's examine what the multi-agent system, database, and agent mentioned in part (d) above are.
 පළමුව, ඉහත (3) කොටසෙහි සදහන්‌ AMddaim පද්ධතිය, em සමුදාය සහා ඒ්පන්ත යනු මොනවාදැයි
 විමසා බලමු.
-
-ේ Agent / ඒජන්ත
+  Agent / ඒජන්ත
 
 An agent is an autonomous program that performs tasks, makes decisions, and interacts with its
 environment and other agents to achieve goals. In computing and IoT, agents manage functions like
@@ -8142,12 +8096,12 @@ detects anomalies, and can prompt the Search Agent for additional online informa
 Agent retrieves relevant data, updates the database, and alerts Agent 2 if necessary. This setup
 optimizes greenhouse management by distributing tasks among specialized agents.
 
-රෑපයේ දැක්වෙන ඛහුව්පන්ත පද්ධතිය (MAS) යනු හරිතාගාරයක්‌ නිරීක්ෂණය කිරීමට aa කළමනාකරණය
+රූපයේ දැක්වෙන ඛහුව්පන්ත පද්ධතිය (MAS) යනු හරිතාගාරයක්‌ නිරීක්ෂණය කිරීමට aa කළමනාකරණය
 කිරීමට සහයෝගිව කටයුතු කරන ස්වයංක්‍රීය ඒජන්තයින්ගේ පාලයකි. සෑම ඒපන්තවටයෙකුටම නිග්චිත
 භූමිකාවන්‌ ඇත, ඒජන්ත ] පරිගිලක අන්තරක්‍රියා සහ දුත්ත ප්‍රවේගය හසුරැවයි, ඒපන්ත 2 සඳහා ක්‍රියා
 උැනුමිදෙයි. ඒපන්ත 2 විසින්‌ ග්‍රහණය කරගත්‌ රෑප සකසයි, විෂමතා හඳුනා ගනී, සහ අමතර සබැඳි
 තනොරතුරැ HEH) සෙවුමි ඒපන්තගෙන්‌ ඉල්ලා සිටිය හැක. සෙවුමි ඒපන්තවරයා අදාළ eso ලබා ගනී,
-EBD සමුදාය යාවත්කාලින කරයි සහ අවග්‍ය නමි ඒපජන්ත 2 දැනුවත්‌ කරයි. මෙම සැකසුම විගේෂිත
+EBD සමුදාය යාවත්කාලින කරයි සහ අවශ්‍ය නමි ඒපජන්ත 2 දැනුවත්‌ කරයි. මෙම සැකසුම විගේෂිත
 ඒපන්තවරයන්‌ අතර කාර්යයන්‌ බෙදා හැරීමෙන්‌ හරිතාගාර කළමනාකරණය ප්‍රශස්ත කරයි.
 
 Database / දුන්න සමුදාය
@@ -8157,11 +8111,11 @@ plant images and other vital information. It supports interactions within the MA
 and retrieves plant details securely for Agent 1, while Interaction R ensures continuous updates and
 data integrity by reading and writing search results.
 
-රෑපයේ ඇති exe ගබඩාව ශාක රෑප සහ අනෙකුත්‌ O7cas තොරතුරු ඇතුඑව හරිතාගාර ආශග්‍රිත
+රූපයේ ඇති exe ගබඩාව ශාක රෑප සහ අනෙකුත්‌ O7cas තොරතුරු ඇතුඑව හරිතාගාර ආශග්‍රිත
 EDO සඳහා මධ්‍යගත ගබඩාවක්‌ ලෙස ක්‍රියා කරයි. එය MAS තුළ අන්තරක්‍රියා සඳහා සහය දක්වයි,
 
 අන්තටක්‍රියා P එපන්ත 1 සඳහා ශාක තොරතුරැ සුරක්ෂිතව ගබඩා කර ලබා ගනි, අන්තටක්‍රියා R සෙවුමි
-ප්‍රතිවල කියවීමෙන්‌ සහ ලිවිමෙන්‌ අඛණ්ඞ යාවත්කාලින කිරීමි සහ දත්ත අඛණ්ඩතාව සහතික කරයි.
+ප්‍රතිවල කියවීමෙන්‌ සහ ලිවිමෙන්‌ අඛණ්ඩ යාවත්කාලින කිරීමි සහ දත්ත අඛණ්ඩතාව සහතික කරයි.
 
 Let's examine what is self-autonomous means according to question (1) in part (d).
 (d) කොටසෙහි (1) ප්‍රශ්නයට අදාළව ස්විය-ස්වයංකණය යනු කුමක්ද යන්න විමසාබලමු.
@@ -8173,7 +8127,7 @@ in various applications like robotics, AI systems, and automated processes.
 
 ස්විය-ස්වයංකණය යනු සෘජු මිනිස්‌ මැදිහත්වීමකින්‌ තොරව ස්වාධීනව කාර්යයන්‌ ඉටු කිරීමට හෝ තීරණ
 ගැනීමට හැකි ඒපන්තයන්‌ හෝ පද්ධති වැනි ආයතන වෙත යොමු වේ. රොබෝ විද්‍යාව, AI පද්ධති සහ
-ස්වයංක්‍රීය ක්‍රියාවලි වැනි විවිධ යෙදුමිවල ස්වයංක්‍රීිකරණය සහ කාරයක්‍ක්ෂමනාව වැඩි දියුණු කිරීම, පුරව
+ස්වයංක්‍රීය ක්‍රියාවලි වැනි විවිධ යෙදුම්වල ස්වයංක්‍රීිකරණය සහ කාරයක්‍ක්ෂමනාව වැඩි දියුණු කිරීම, පුරව
 නිශ්චිත නීති, අරමුණු හෝ ඇල්ගොරිතම මත SEHGO ක්‍රියා කිරීමට සහ ක්‍රියාත්මක කිරීමට ඔවුන්ට
 හැකියාව ඇත.
 
@@ -8186,7 +8140,7 @@ updating Agent 2 and potentially alerting relevant parties. Therefore, the self-
 scenario are Agent 2 and the Search Agent.
 
 යෝපිත හරිතාගාර ඛහුව්පජන්ත පද්ධතිය තුළ, ඒජන්ත 2 ස්වයංක්‍රීයව රෑප සකසයි, විෂමනා හඳුනා ගනී, සහ
-සෙවුමි ඒපන්තවරයා සක්‍රිය කළ හැක. සෙවුමි ඒඑපජන්තවරයා ස්වයංක්‍රීයව අන්තරපාලය හරහා නොරතුරැ සොයා
+සෙවුමි ඒපන්තවරයා සක්‍රිය කළ හැක. සෙවුමි ඒඑපජන්තවරයා ස්වයංක්‍රීයව අන්තර්ජාලය හරහා නොරතුරැ සොයා
 ගනී, එජන්ත 2 ට යාවත්කාලීන කිරීම සහ අදාළ පාටර්ග්වයන්ට අනතුරැ ඇඟවිමේ හැකියාව ඇත. එබැවින්‌,
 මෙම අවස්ථාවෙහි ස්විය-ස්වයංකණය ඒපන්තයන්‌ වන්නේ ඒපන්ත 2 සහ සෙවුමි ඒපන්තවරයා වේ.
 
@@ -8208,7 +8162,7 @@ S. Agent 2 releases the Search Agent if needed; the Search Agent delivers search
 (111) After long-term use of the system, it was decided to remove Search Agent assuming that the database
 
 contains all the information needed. Write down the main disadvantage of this removal.
-පද්ධතියේ දිගුකාලීන භාවිතයකින්‌ පසු, දූත්ත සමුදාය අවග්‍ය සියලුම තොරතුරැවලින්‌ සමන්විත යැයි සිතා,
+පද්ධතියේ දිගුකාලීන භාවිතයකින්‌ පසු, දූත්ත සමුදාය අවශ්‍ය සියලුම තොරතුරැවලින්‌ සමන්විත යැයි සිතා,
 සෙවුමි ඒපන්ත ඉවත්‌ කිරීමට තීරණය කෙරේ. මෙම ඉවත්‌ කිරිමෙන්‌ සිදුවන ප්‍රධාන අවාසිය ලියා දක්වන්න.
 
 The system is isolated from the latest updates of relevant information.
@@ -8275,7 +8229,7 @@ e Increasing the shelf life of the product.
 භාණ්ඩයේ රාක්ක කාලය වැඩි කිරීම.
 
 e Ability to connect to remote customers.
-දුරස්ට්‌ පාරිභෝගිකයන්ට සමිබන්ධ විමේ හැකියාව.
+දුරස්ට්‌ පාරිභෝගිකයන්ට සම්බන්ධ විමේ හැකියාව.
 
 e Compilation of better distributions.
 වඩාත්‌ හොද බෙදාහැරීමි BONE DO.
@@ -8340,7 +8294,7 @@ There are 2 types of loops in python:
 
 While loops execute the loop as long as the condition of the loop is true or until the loop hits a break
 statement
-E065 තත්ත්වය සත්‍ය වන තාක්‌ හෝ ලපයට break ප්‍රකාගය හමුවන තෙක්‌ While ලපය ක්‍රියාත්මක වේ.
+E065 තත්ත්වය සත්‍ය වන තාක්‌ හෝ ලපයට break ප්‍රකාශය හමුවන තෙක්‌ While ලපය ක්‍රියාත්මක වේ.
 
 In while loops we should manually add a control variable / condition to stop infinite looping
 EO තුළදි අනන්ත EO විම නැවැත්වීමට පාලන විචල්‍යයක්‌ / කොන්දේසියක්‌ එකතු කළ යුතුය.
@@ -8380,7 +8334,7 @@ Here 1 is the control variable, we don’t need to define it prior to the loop.
 Each time the loop executes, the control variable (1) changes according to the range, string, list or tuple
 given initially.
 
-මෙහි 1 යනු පාලන විචල්‍යය වේ, අපට එය ලුපයට පෙර අර්ථ දැක්වීමට අවග්‍ය නොවේ.
+මෙහි 1 යනු පාලන විචල්‍යය වේ, අපට එය ලුපයට පෙර අර්ථ දැක්වීමට අවශ්‍ය නොවේ.
 
 ලපය ක්‍රියාත්මක වන සැම අවස්ථාවකම, පාලන විචල්‍යය (i) මුලින්‌ ලබා දි ඇති පරාසය, string, ලැයිස්තුව
 හෝ tuple අනුව වෙනස්‌ වේ.
@@ -8460,8 +8414,8 @@ bottom in the table
 To get the 13 to output the reverse order we should make the number 7654 which means 7 should be in
 1000’s place 6 should be 100’s place should be in 10’s place and 4 should be in units place
 
-ප්‍රතිලෝම අනුපිළිවෙලට B ලබා ගැනීම oem aS 7654 අංකය සෑදිය යුතුය, එනමි 7, 1000 ස්ටානයේද
-6, 100 ස්ටානයේද 5, 10 ස්ටානයේද සහ 4, ] ස්ටානයේද තිබිය යුතුය.
+ප්‍රතිලෝම අනුපිළිවෙලට B ලබා ගැනීම oem aS 7654 අංකය සෑදිය යුතුය, එනමි 7, 1000 ස්ථානයේද
+6, 100 ස්ථානයේද 5, 10 ස්ථානයේද සහ 4, ] ස්ථානයේද තිබිය යුතුය.
 
 This means to make 7654 we should add 7000 + 600 + 50 + 4
 මෙයින්‌ අදහස්‌ කරන්නේ 7654 සෑළදිමට අපි 7000+ 600+ 50 4- 4 එකතු කළ යුතු බවයි.
@@ -8621,7 +8575,7 @@ of 5 is 5x4x3x2x1 = 120. The
 
 factorial of 0 is defined as 1. Vv
 ධන නිබිලයක ක්‍රමාරෝපිතය යනු ©
-එම නිබිලයේ හා ඊට අඞු BoE
+එම නිබිලයේ හා ඊට අඩු BoE
 
 නිබිලවල ගුණිතයයි. උදා: 5 හි
 ක්‍රමාරෝපිතය 5x4x3x2x1 = 120
@@ -8637,8 +8591,6 @@ statements.
 කොටුවක (process box) ප්‍රකාගන ( ආ )
 එකක්‌ හෝ ඊට වැඩි ගණනක්‌ හෝ
 තිබිය හැකි ය.
-
-©
 
 In this type of flow charts, we should analyse it and start filling it out with obvious points to gain much
 marks as possible
@@ -8734,11 +8686,11 @@ subject_offering is assigned to a single teacher who is represented by a teacher
 students for each subject that they register.
 
 ගිෂ්‍යයෙක්‌ විෂයන්‌ සඳුහා ලියාපදිංචි වීමට පහත සඳහන්‌ දන්ත භාවිත කරයි. සැම විෂයක්‌ සඳහාම එයට
-ආවේණික විෂය අංකයක්‌ (subjectNumber), විෂය නමක්‌ (subjectName) සහ පුර්ව අවග්‍යතා විෂයක්‌
+ආවේණික විෂය අංකයක්‌ (subjectNumber), විෂය නමක්‌ (subjectName) සහ පුර්ව අවශ්‍යතා විෂයක්‌
 (prerequisite subject) ඇත. එක්‌ අධ්‍යයන වාරයක්‌ තුළ, එක්‌ ගිෂ්‍යයෙකුට විෂයන්‌ එකකට වැඩි ගණනක්‌
 සඳුහා ලියාපදිංචි විය හැකිය. සෑම ගිෂ්‍යයෙක්‌ සඳුහාම මුල්‌ නමක්‌ (studentFname), වාසගමක්‌
 (studentLname) සහ අනන්‍ය වු Ges අංකයක්‌ (studentld) ඇත. විෂයන්‌ සඳුහා ලියාපදිංචි වීමට, ගිෂ්‍යාගේ
-වයස (age) අවග්‍ය වේ. සමිපත්‌ ලබා ගැනීමේ හැකියාව මත පදූනමිව විෂයන්‌ පිරිනැමෙයි. එබැවින්‌ සමහර
+වයස (age) අවශ්‍ය වේ. සම්පත්‌ ලබා ගැනීමේ හැකියාව මත පදූනමිව විෂයන්‌ පිරිනැමෙයි. එබැවින්‌ සමහර
 අධ්‍යයන වාර තුළ සමහර විෂයන්‌ පිරිනැමෙන්නේ නැත. විෂය පිරිනැමිමක්‌ (subject_offering) තුළ, විෂය
 Eoencs (subjectNumber), වර්ෂය (year), අධ්‍යයන වාරය (semester), ගුරුවරයාගේ හඳුන්වනය (1640116110)
 සහ පන්නි කාමරය (classroom) අඩංගු වේ. එක්‌ විෂය පිරිනැමිමක්‌ (subject_offering) එක්‌ ගුරැවරයකු
@@ -8750,7 +8702,7 @@ Use only the terms from the list given below for the entities and attributes in 
 You have the freedom to choose relationship names.
 
 ඔබේ ER සටහනේ qmdd (entities) සහ ලාක්ෂණික (attributes) සඳහා පහත ලැයිස්තුවේ & ඇති පද
-පමණක්‌ භාවිත කරන්න. සමිබන්ධතා (relationships) සඳහා නමි තෝරාගැනීමට ඔබට නිදහස ඇත.
+පමණක්‌ භාවිත කරන්න. සම්බන්ධතා (relationships) සඳහා නමි තෝරාගැනීමට ඔබට නිදහස ඇත.
 
 List: {age, classroom, DOB, marks, qualification, semester, student, studentFname, studentld,
 studentLname, subject, subject_offering, subjectName, subjectNumber, teacher, teacherld,
@@ -8765,13 +8717,13 @@ A student uses the following data to register for subjects.
 ගිෂ්‍යයෙක්‌ විෂයන්‌ සඳුහා ලියාපදිංචි වීමට පහත සඳහන්‌ දුන්ත භාවිත කරයි.
 
 This depicts the relationship between Student and Subject.
-මෙය ගිෂ්‍යයා (Student) සහ See (Subject) අතර සමිබන්ධය නිරැපණය කරයි.
+මෙය ගිෂ්‍යයා (Student) සහ See (Subject) අතර සම්බන්ධය නිරැපණය කරයි.
 
 Each subject is represented by its subject number (subjectNumber), subject name (subjectName)
 and prerequisite subject.
 
 සැම විෂයක්‌ සඳහාම එයට ආවේණික විෂය අංකයක්‌ (subjectNumber), විෂය නමක්‌ (subjectName)
-පුරව අවග්‍යතා විෂයක්‌ (prerequisite subject) ඇත.
+පුරව අවශ්‍යතා විෂයක්‌ (prerequisite subject) ඇත.
 
 This describes attributes of Subject entity.
 මෙය විෂය (Subject) භූතාර්ටයේ උපලක්ෂණ විස්තර කරයි.
@@ -8787,8 +8739,8 @@ relationship with itself.
 මෙහිදි prerequisite subject විෂය (Subject) භූතාරටයෙහි වෙනත්‌ උපලක්ෂණයක්‌ නොවේ, Ose එය
 විෂයක ලකක්‍්ෂණයක්‌/ගුණයක්‌ නොවේ. එය විෂය (Subject) භූතාර්ටයෙහි අවස්ටාවකි. යමි විෂයක්‌ QdoO
 
-අවශ්‍යතා විෂයක්‌ (prerequisite subject) ලෙස හැඳින්වෙන වෙනත්‌ විෂයයක්‌ සමඟ සමිඛන්ධතාවක්‌ ඇති බව
-එය නිරෑපණය කරයි. එබැවින්‌, එය ද්විමය සමිබන්ධතාවයක්‌ වන අතර එහිදි භතාර්ඊයක්‌ තමා සමඟම
+අවශ්‍යතා විෂයක්‌ (prerequisite subject) ලෙස හැඳින්වෙන වෙනත්‌ විෂයයක්‌ සමඟ සම්බන්ධතාවක්‌ ඇති බව
+එය නිරෑපණය කරයි. එබැවින්‌, එය ද්විමය සම්බන්ධතාවයක්‌ වන අතර එහිදි භතාර්ඊයක්‌ තමා සමඟම
 සම්බන්ධතාවයක්‌ ඇත.
 
 prerequisite
@@ -8811,14 +8763,14 @@ This describes the cardinality of Student, Subject relationship.
 While a subject can have more than one student, a student can register for more than one subject during
 a semester. (M:N, many-to-many relationship)
 
-විෂයකට සිසුන්‌ එකකට වඞා සිටිය හැකි අතර, Gesowyqo අධ්‍යයන වාරයක්‌ තුළ එක්‌ විෂයකට වඩා
-ලියාපදිංචි විය හැකිය. (M:N, බහු-බහු සමිබන්ධනාවයක්‌)
+විෂයකට සිසුන්‌ එකකට වඩා සිටිය හැකි අතර, Gesowyqo අධ්‍යයන වාරයක්‌ තුළ එක්‌ විෂයකට වඩා
+ලියාපදිංචි විය හැකිය. (M:N, බහු-බහු සම්බන්ධනාවයක්‌)
 
 Each student has a first name (studentFname), a last name (studentLname) and a unique student
 number (studentid). Student, age (age) is required to register for subjects.
 
 සෑම ගිස්‍යයෙක්‌ සඳුහාම මුල්‌ නමක්‌ (studentFname), වාසගමක්‌ (studentLname) සහ අනන්‍ය © Ges
-අංකයක්‌ (studentld) ඇත. විෂයන්‌ සඳුහා ලියාපදිංචි වීමට, Games වයස (age) අවග්‍ය වේ.
+අංකයක්‌ (studentld) ඇත. විෂයන්‌ සඳුහා ලියාපදිංචි වීමට, Games වයස (age) අවශ්‍ය වේ.
 
 This describes attributes of Student entity.
 මෙය Gea (Student) භූතාර්ටයේ උපලක්ෂණ විස්තර කරයි.
@@ -8832,14 +8784,14 @@ automatically updates its value. Those type of attributes are known as derived a
 ‘age’ සඳුහා පරිශිලක ආදානය ලබා ගැනීම ප්‍රායෝගික නොවන බැවින්‌ එය වෙනුවට, එක්‌ එක්‌
 පරිශීලකයාගේ ‘date of birth’ සටහන්‌ කර ගැනේ. එවිට පරිගීලකයාගේ වයස ගණනය කර ‘age’ සමඟ
 ගබඩා කරනු ලබන අතර, පද්ධතිය ස්වයංක්‍රීයව එහි අගය යාවත්කාලීන කරන බැවින්‌ අපට එහි අගය
-කාලයත්‌ සමඟ වෙනස්‌ කිරීමට අවග්‍ය නොවේ. එවැනි උපලක්ෂණ, ව්‍යුත්පන්න උපලක්ෂණ ලෙස හැඳින්වේ.
+කාලයත්‌ සමඟ වෙනස්‌ කිරීමට අවශ්‍ය නොවේ. එවැනි උපලක්ෂණ, ව්‍යුත්පන්න උපලක්ෂණ ලෙස හැඳින්වේ.
 
 Derived attributes ව්‍යුත්පන්න උපලක්ෂණ
 
 Derived attributes are typically represented by a dashed oval. Derived attributes are not stored directly in
 the database; instead, they are computed when needed.
 
-ව්‍යුත්පන්න උපලක්ෂණ සාමාන්‍යයෙන්‌ කඞඉරි සහිත ඕවලාකාරයකින්‌ නිරැපණය කෙරේ. ව්‍යුත්පන්න උපලක්ෂණ
+ව්‍යුත්පන්න උපලක්ෂණ සාමාන්‍යයෙන්‌ කඩඉරි සහිත ඕවලාකාරයකින්‌ නිරැපණය කෙරේ. ව්‍යුත්පන්න උපලක්ෂණ
 සෘපුවම දුන්ත ගබඩාවේ ගබඩා කර නැත. ඒ වෙනුවට, SO) අවශ්‍ය SO ගණනය කරගනු ලැබේ.
 
 e Primary key (ප්‍රාටමික යතුර) — studentid
@@ -8859,10 +8811,10 @@ Even though previously it was given that students can register for subjects, her
 register for any subject of his/her liking in a given semester; and that subjects offered in a particular
 semester may vary due to the availability of resources.
 
-සිසුන්ට විෂයයන්‌ Hem) ලියාපදිංචි විය හැකි බව මිට පෙර ලබාදි තිබුණද, මෙහි දි ඇත්තේ “සමිපත්‌ ලබා
+සිසුන්ට විෂයයන්‌ Hem) ලියාපදිංචි විය හැකි බව මිට පෙර ලබාදි තිබුණද, මෙහි දි ඇත්තේ “සම්පත්‌ ලබා
 ගැනීමේ හැකියාව මත පදනමිව විෂයන්‌ පිරිනැමෙයි යන්නයි, එනමි ගිෂ්‍යයෙකුට යමි අධ්‍යයන වාරයක
 තමන්‌ කැමති විෂයයක්‌ සඳුහා ලියාපදිංචි විය නොහැකි බවත්‌, යමි අධ්‍යයන වාරයක ඉදිරිපත්‌ කරනු ලබන
-විෂයයන්‌ සමිපත්‌ ඇති බව නිසා වෙනස්‌ විය හැකි බවත්‌ ය.
+විෂයයන්‌ සම්පත්‌ ඇති බව නිසා වෙනස්‌ විය හැකි බවත්‌ ය.
 
 Therefore, if we create a direct relationship between student and subject, that won’t be correct as a
 student can not register for any subject. So, the relationship should be made through subject_ offering, as
@@ -8871,15 +8823,15 @@ a student can only register to the subjects offered with in a certain semester.
 එබැවින්‌, අපි Ges) (Student) සහ විෂය (Subject) අතර සෘපු සම්බන්ධතාවයක්‌ ඇති කලහොත්‌,
 ගිෂ්‍යයෙකුට කිසිදු විෂයයක්‌ සඳුහා ලියාපදිංචි විය නොහැකි බැවින්‌ එය නිවැරදි නොවේ. එබැවින්‌,
 ගිෂ්‍යයෙකුට ලියාපදිංචි විය හැක්කේ යමි අධ්‍යයන වාරයක දී ඉදිරිපත්‌ කරන විෂයයන්‌ සඳහා පමණක්‌
-බැවින්‌, විෂය පිරිනැමිීමක්‌ (subject offering) හරහා සමිබන්ධතාවය ඇති කළ යුතුය.
+බැවින්‌, විෂය පිරිනැමිීමක්‌ (subject offering) හරහා සම්බන්ධතාවය ඇති කළ යුතුය.
 
 The following relationship is not correct.
-පහත සමිබන්ධනාවය නිවැරළි නොවේ.
+පහත සම්බන්ධනාවය නිවැරළි නොවේ.
 
 student M <> N subject
 
 So, the relationship between student and subject should be as follows;
-එබැවින්‌, Ges) (Student) සහ විෂය (Subject) අතර සමිඛන්ධය පහත COE විය යුතුය;
+එබැවින්‌, Ges) (Student) සහ විෂය (Subject) අතර සම්බන්ධය පහත COE විය යුතුය;
 
 M N M N
 
@@ -8893,7 +8845,7 @@ meaning that each subject_offering must be associated with specific subject for 
 විෂය පිරිනැමීම (subject_offering) වෙනම භතාථටටයක්‌ වුවද, එයට විෂය (Subject) භතාරටය නොමැතිව
 පැවතිය නොහැක. එබැවින්‌ එය දුර්වල භතාඊර්ඊයක්‌ ලෙස සැලකේ. විෂය පිරිනැමීම (subject_offering), එහි
 නිරචචනය සහ සන්දර්භය aca) විෂය (Subject) භූතාර්ටඊය මත Oe) පවති, එයින්‌ අදහස්‌ වන්නේ එක්‌
-එක්‌ විෂය පිරිනැමීම (subject offering) අරටවත්‌ සහ වලංගු විමට නිග්චත විෂයයක්‌ සමඟ සමිබන්ධ විය
+එක්‌ විෂය පිරිනැමීම (subject offering) අරටවත්‌ සහ වලංගු විමට නිග්චත විෂයයක්‌ සමඟ සම්බන්ධ විය
 යුතු බවයි.
 
 Every weak entity has total participation in its relationship with the strong entity. So, the
@@ -8932,23 +8884,23 @@ e Normal attributes (සාමාන්‍ය උපලක්ෂණ) — year, s
 
 subject_offering
 
-One subject_offering is assigned to a single teacher...
+One subject_offering is assigned to a single teacher……
 
-එක්‌ විෂය පිරිනැමිමක්‌ (subject_offering) එක්‌ ගුරැවරයකු මගින්‌ ඉගැන්වෙන අතර...
+එක්‌ විෂය පිරිනැමිමක්‌ (subject_offering) එක්‌ ගුරැවරයකු මගින්‌ ඉගැන්වෙන අතර……
 
 This describes the cardinality of subject_ offering, Teacher relationship.
-මෙය විෂය පිරිනැමිම (subject offering), ගුරැවර (Teacher) සමිඛන්ධතාවයේ ගණනියතාව විස්තර කරයි.
+මෙය විෂය පිරිනැමිම (subject offering), ගුරැවර (Teacher) සම්බන්ධතාවයේ ගණනියතාව විස්තර කරයි.
 
 One subject_ offering is assigned to one teacher. And a teacher can teach for one or more
 subject_offering(s). (1:M, one-to-many relationship)
 
 එක්‌ විෂය පිරිනැමීමක්‌ (subject offering) එක්‌ ගුරැවරයෙකුට පවරා ඇත. ගුරැවරයෙකුට විෂය පිරිනැමිමි
-(subject 0119111196) එකක්‌ හෝ කිහිපයක්‌ සඳහා ඉගැන්විය හැක. (1:M, වක-බහු සමිඛන්ධතාවයක්‌)
+(subject 0119111196) එකක්‌ හෝ කිහිපයක්‌ සඳහා ඉගැන්විය හැක. (1:M, වක-බහු සම්බන්ධතාවයක්‌)
 
-... a Single teacher who is represented by a teacherld, name of the teacher (teacherName), and
+…… a Single teacher who is represented by a teacherld, name of the teacher (teacherName), and
 qualifications. Teacher can have several qualifications.
 
-...සෑම ගුරැවරයකුටම හඳුන්වනයක්‌ (teacherId), නමක්‌ (teacherName) සහ සුදුසුකමි (qualifications) ඇත.
+……සෑම ගුරැවරයකුටම හඳුන්වනයක්‌ (teacherId), නමක්‌ (teacherName) සහ සුදුසුකමි (qualifications) ඇත.
 ගුරැවරයාට සුදුසුකමි කිහිපයක්‌ තිබිය හැකිය.
 
 This describes attributes of Teacher entity.
@@ -8981,7 +8933,7 @@ subject_offering rather than the entities themselves. ‘Marks’ is specific to
 relationship, meaning it is unique for each combination of Student and subject_ offering.
 
 *ලකුණු' (Marks) යනු විස්තරාත්මක උපලක්ෂණයකි, එය භතාර්ටවලට වඩා Ges (Student) සහ විෂය
-පිරිනැමීම (subject offering) අතර සමිඛන්ධතාවයේ උපලක්ෂණ විස්තර කරයි. සබඳුතාවයේ එක්‌ එක්‌
+පිරිනැමීම (subject offering) අතර සම්බන්ධතාවයේ උපලක්ෂණ විස්තර කරයි. සබඳුතාවයේ එක්‌ එක්‌
 අවස්ටාවට 'ලකුණු' (Marks) විශේෂිත වේ, එයින්‌ අදහස්‌ වන්නේ එය Ges (2511112111) සහ විෂය පිරිනැමීම
 (subject_offering) එක්‌ එක්‌ සංයෝජනය සඳුහා අනන්‍ය වේ.
 
@@ -9008,7 +8960,7 @@ Se”
 
 (0) Use the following Employee, and Assign Project denormalized tables to answer parts (1), (11), (111),
 (iv) and (v). Please note that primary key(s) of each table is(are) underlined.
-(1), (11), (111), (17) සහ (Vv) යන කොටස්වලට පිළිතුරැ ලබාදිමට පහත සඳහන්‌ Employee (සේවක) සහ
+(1), (11), (111), (17) සහ (Vv) යන කොටස්වලට පිළිතුරු ලබාදිමට පහත සඳහන්‌ Employee (සේවක) සහ
 Assign Project (ව්‍යාපෘති අනියුක්තයන්‌) යන ප්‍රමතකරණය නොවු වගු භාවිත කරන්න. එක්‌ එක්‌ වගුවේ
 
 ප්‍රාට්මික යතුර(රැ) යටින්‌ ඉරි ඇඳ ඇති බව සලකන්න.
@@ -9086,7 +9038,7 @@ This condition matches rows from the "Assign Project" table with rows from the "
 the Employeeld values are equal. This joins the two tables on the Employeeld column.
 
 මෙම කොන්දේසිය "Assign Project" වගුවේ ඇති පේළි හා Employeeld අගයන්‌ සමාන වන "Employee"
-වගුවේ ඇති පේළි සමඟ ගැලපේ. මෙය Employeeld තරැව මත වගු දෙක සමිඛන්ධ කරයි.
+වගුවේ ඇති පේළි සමඟ ගැලපේ. මෙය Employeeld තරැව මත වගු දෙක සම්බන්ධ කරයි.
 
 So, this query basically retrieves the names and salaries of employees who have been assigned to projects
 by matching their Employeeld in the "Assign Project" table with their Employeeld in "Employee" table.
@@ -9116,7 +9068,7 @@ assignment will produce a row in the result set.
 සෑම පැවරැමක්ම ප්‍රතිවල කට්ටලයේ පේළියක්‌ ඇති කරයි.
 
 (11) Write an SQL statement to display the names of the employees who are assigned to project P04.
-P04 OMeEaHaO(project) අනියුක්ත කර ඇති සේවකයන්ගේ නමි ප්‍රදර්ශනය කිරීමට SQL ප්‍රකාගයක්‌ ලියන්න.
+P04 OMeEaHaO(project) අනියුක්ත කර ඇති සේවකයන්ගේ නමි ප්‍රදර්ශනය කිරීමට SQL ප්‍රකාශයක්‌ ලියන්න.
 
 The statement in SQL which 15 used to retrieve data from tables in a database is the SELECT statement.
 It typically follows the following format:
@@ -9134,8 +9086,8 @@ SQL හි JOIN වගන්ති
 In SQL, joins are used to combine rows from two or more tables based on a related column between
 them. Here are explanations of the common types of joins:
 
-SQL හි, ඒවා අතර සමිඛන්ධිත තීරැවක්‌ මත පදනමිව වගු දෙකකින්‌ හෝ වැඩි ගණනකින්‌ පේළි ඒකාබද්ධ
-කිරීමට සමිඛන්ධ කිරීමි භාවිතා කරයි. පොදු සමිබන්ධක වර්ග පිළිබඳ පැහැදළිලි කිරීමි මෙන්න:
+SQL හි, ඒවා අතර සම්බන්ධිත තීරැවක්‌ මත පදනමිව වගු දෙකකින්‌ හෝ වැඩි ගණනකින්‌ පේළි ඒකාබද්ධ
+කිරීමට සම්බන්ධ කිරීමි භාවිතා කරයි. පොදු සම්බන්ධක වර්ග පිළිබඳ පැහැදළිලි කිරීමි මෙන්න:
 
 1. INNER JOIN
 
@@ -9201,7 +9153,7 @@ ON table1.column = table2.column;
 So, to display the names of the employees who are assigned to project "P04", you can use any of the
 following SQL statements.
 
-එබැවින්‌, "P04" ව්‍යාපෘතියට පවරා ඇති සේවකයින්ගේ නමි ප්‍රදර්ශනය කිරීමට, පහත SQL ප්‍රකාගයන්‌
+එබැවින්‌, "P04" ව්‍යාපෘතියට පවරා ඇති සේවකයින්ගේ නමි ප්‍රදර්ශනය කිරීමට, පහත SQL ප්‍රකාශයන්‌
 භාවිතා කළ හැක.
 
 Using a basic join in the WHERE clause:
@@ -9262,7 +9214,7 @@ Step 2: Ensure Second Normal Form (2NF)
 පියවර 2: දෙවන ප්‍රමත අවස්ටාව (2NF) සහතික කරන්න
 
 e 2NF requires that the table is in ] NF.
-2NF සඳහා වගුව INF හි තිබීම අවග්‍ය වේ.
+2NF සඳහා වගුව INF හි තිබීම අවශ්‍ය වේ.
 
 e All non-key attributes should fully functionally dependent on the entire primary key.
 සියලම යනුරැ නොවන ගුණාංග සම්පුර්ණ ප්‍රාට්මික යතුර මන සම්පුර්ණයෙන්ම ක්‍රියාකාරීව රඳා පැවතිය යුතුය.
@@ -9289,7 +9241,7 @@ Step 3: Ensure Third Normal Form (3NF)
 පියවර 3: තෙවන 98m අවස්ථාව (3NF) aaGen කරන්න
 
 e 3NF requires that the table 15 in 2NF.
-3NF සඳහා වගුව 2NF හි තිබිම අවග්‍ය වේ.
+3NF සඳහා වගුව 2NF හි තිබිම අවශ්‍ය වේ.
 
 e Non-key attributes should not depend on other non-key attributes.
 ප්‍රධාන නොවන ගුණාංග වෙනත්‌ ප්‍රධාන නොවන ගුණාංග මත රඳා නොසිටිය යුතුය.
@@ -9367,7 +9319,7 @@ Assign Project වගුවේ යාවත්කාලින කිරිමේ
 Insertion, deletion and update anomalies can happen in tables which are not fully normalized, just like
 Assign Project table given in this question.
 
-මෙම ප්‍රශ්නයේ දි ඇති Assign Project වගුව මෙන්‌, සම්ිපුරඞභයෙන්‌ ප්‍රමතකරණය නොකළ OQ තුළ ඇතුළු
+මෙම ප්‍රශ්නයේ දි ඇති Assign Project වගුව මෙන්‌, සම්ිපුරඩභයෙන්‌ ප්‍රමතකරණය නොකළ OQ තුළ ඇතුළු
 කිරීම, මකා දැමීම සහ යාවත්කාලීන විෂමතා සිදු විය හැක.
 
 Inconsistent data and foreign key mismatch are the outcomes of update anomalies.
@@ -9380,7 +9332,7 @@ When updating only specific rows instead of all related rows, it causes data inc
 updating the PName or Description for only one Employeeld does not propagate the changes to all rows
 related to the same project.
 
-BaQ@® සමිබන්ධිත පේළි වෙනුවට විශේෂිත පේළි පමණක්‌ යාවත්කාලීන කරන SO, එය දුත්ත නොගැලපීම
+BaQ@® සම්බන්ධිත පේළි වෙනුවට විශේෂිත පේළි පමණක්‌ යාවත්කාලීන කරන SO, එය දුත්ත නොගැලපීම
 ඇති කරයි. උදාහරණයක්‌ ලෙස, එක්‌ Employeeld සඳහා පමණක්‌ PName හෝ Description යාවත්කාලීන කිරිම
 එකම ව්‍යාපෘතියට අදාළ සියලුම පේළවලට වෙනස්කමි ප්‍රචාරය නොකරයි.
 
@@ -9451,30 +9403,28 @@ Assign Project වගුවේ Employeeld 5 අනුව යාවත්කා�
 10.(a)A user starts a web browser on her single processor computer to go through some Python tutorials.
 She also starts a text editor to work on her Python program.
 පරිශීලකයෙක්‌ පයිතන්‌ නිබන්ධ අධ්‍යයනය සඳහා ඇයගේ නනි සකසනයකින්‌ (single processor) යුත්‌
-පටිගණකයේ වෙබ්‌ අතරික්සුවක්‌ ආරමිභ කරයි. ඇයගේ පයිතන්‌ කේතයේ කටයුතු කිරීමට ඇය od
+පටිගණකයේ වෙබ්‌ අතිරික්සුවක්‌ ආරමිභ කරයි. ඇයගේ පයිතන්‌ කේතයේ කටයුතු කිරීමට ඇය od
 සංස්කාරකයක්‌ ද (text editor) ආරමිභ කරයි.
 
 The diagram shows how the web  p රැක
 browser (Pw) and the text editor (Pr)
 processes run on the processor along ;
 
-.
-
 with the operating system (Pos) since
 
 the time the user started the web
 
-browser. Pv ක්‍ෂ — ——
+browser. Pv ක්ෂ — ——
 a
 
-ඇය වෙබ්‌ අතරික්සුව ආරම්භ කළ
+ඇය වෙබ්‌ අතිරික්සුව ආරම්භ කළ
 
 මොහොතේ සිට, සකසනය මත, වෙබි
 
 ~ Pos i — — I !
-අතරික්සු ක්‍රියායනය (Pw), cad 14 | 4 ! ॥ ! 4 | Time
+අතිරික්සු ක්‍රියායනය (Pw), cad 14 | 4 ! ॥ ! 4 | Time
 සංස්කාරක ක්‍රියායනය (Pr), සහ <_
-මෙහෙයුමි පද්ධතිය (Pos), ක්‍රියාත්මක වන <-> +>; Ww ඞ*ඔ්‌ |
+මෙහෙයුමි පද්ධතිය (Pos), ක්‍රියාත්මක වන <-> +>; Ww ඩ*ඔ්‌ |
 ආකාරය යාබද ප්‍රස්තාරයෙන්‌ දැක්වේ. <->
 
 What important work related to Pw, and Pr
@@ -9486,7 +9436,7 @@ important work related to the web browser (Pw) and text editor (Pr) processes on
 computer.
 
 රෑප සටහනේ දක්වා ඇති ‘O’ කාල සීමාව HE, මෙහෙයුමි පද්ධතිය තනි anans පරිගණකයේ වෙබි
-අතරික්සුව Pw සහ OD සංස්කාරක Pr ක්‍රියාවලින්‌ සමිබන්ධ පහත සඳහන්‌ Orcas කාර්යයන්‌ ඉටු කරනු
+අතිරික්සුව Pw සහ OD සංස්කාරක Pr ක්‍රියාවලින්‌ සම්බන්ධ පහත සඳහන්‌ Orcas කාර්යයන්‌ ඉටු කරනු
 ඇත.
 
 Process Scheduling
@@ -9497,8 +9447,7 @@ e The operating system will schedule the Pw, Pr, and Pos processes to run on the
 timely manner.
 මෙහෙයුමි පද්ධතිය (Pw.Pr) සහ P,, ක්‍රියාවලි තනි සකසනය මත කාලානුරෑපව ක්‍රියාත්මක කිරීමට
 උපලේඛනගත කරනු ඇත.
-
-ේ 1[( will use a scheduling algorithm like round-robin or priority-based scheduling to give each process
+  1[( will use a scheduling algorithm like round-robin or priority-based scheduling to give each process
 a fair share of the CPU time.
 එය එක්‌ එක්‌ ක්‍රියාවලියට CPU කාලයෙන්‌ සාධාරණ කොටසක්‌ ලබා දිමට රවුන්ඩි රොබින්‌ හෝ ප්‍රමුඛතා
 මත C699 ව උපලේඛනගන කිරීමේ ඇල්ගොරිතමයක්‌ භාවිනා කරනු ඇත.
@@ -9534,7 +9483,7 @@ processes.
 
 e It will use techniques like paging and segmentation to load the code and data of each process into
 memory as needed.
-එය එක්‌ එක්‌ ක්‍රියාවලියේ කේතය සහ දත්ත අවග්‍ය පරිදි මනකයට පුරණය කිරිමට පේපිං සහ ඛණ්ඩනය
+එය එක්‌ එක්‌ ක්‍රියාවලියේ කේතය සහ දත්ත අවශ්‍ය පරිදි මනකයට පුරණය කිරිමට පේපිං සහ ඛණ්ඩනය
 වැනි ගිල්පීය ක්‍රම භාවිතා කරනු ඇත.
 
 e The operating system will handle virtual memory and page faults if a process tries to access memory
@@ -9556,7 +9505,7 @@ BOO ට යැයි උපකල්පනය කරන්න.
 Explain why W (the time period the web browser process runs at the second instance) is less than ට
 as shown in the graph.
 
-ප්‍රස්තාරයේ පෙන්වා ඇති පරිදි W (වෙබි අතරික්සු Gans දෙවන වතාවට ක්‍රියාත්මකවන කාලය) ට ට වඩා
+ප්‍රස්තාරයේ පෙන්වා ඇති පරිදි W (වෙබි අතිරික්සු Gans දෙවන වතාවට ක්‍රියාත්මකවන කාලය) ට ට වඩා
 අඩු වන්නේ මන්දැයි පැහැදිලි කරන්න.
 
 1/O Management
@@ -9696,7 +9645,7 @@ storage (e.g. hard disk) to make room for new pages.
 
 පද්ධතියේ පවතින සමිපුර්ණ භෞතික මතකය RAM ධාවන ක්‍රියාවලින්ට අවශ්‍ය සියලුම SQ och) තබා
 ගැනීමට ප්‍රමාණවත්‌ නොවේ නමි, නව පිටු HEH) ඉඩ සැලසීම සඳුහා මෙහෙයුමි පද්ධතියට සමහර පිටු
-ද්විතියික ගබඩාවට (උදා: දෘඞ්‌ තැටිය) මාරැ කිරීමට සිදුවේ.
+ද්විතියික ගබඩාවට (උදා: දෘඩ්‌ තැටිය) මාරැ කිරීමට සිදුවේ.
 
 In this case, the pages that are swapped out to disk will not be present in physical memory, and
 accessing them will result in a page fault.
@@ -9710,7 +9659,7 @@ Even if there is sufficient physical memory, the operating system may still need
 to make room for new ones.
 
 ප්‍රමාණවත්‌ භෞතික මනකයක්‌ තිබුණද, නව SQ සඳුහා ඉඩ සැලසීමට මෙහෙයුමි පද්ධතියට සමහර පිටු
-මාරු කිරීමට අවග්‍ය විය හැකිය.
+මාරු කිරීමට අවශ්‍ය විය හැකිය.
 
 This is because the operating system uses page replacement algorithms to decide which pages to evict
 from physical memory when new pages need to be brought in.
@@ -9793,7 +9742,7 @@ In index allocation, each file has an index block that contains pointers to the 
 The directory entry contains the address of the index block.
 
 COMM වෙන්කිරීමේෙදි, සැම ගොනුවකම දර්ශක කාණ්ඩයක්‌ ඇත, එය ගොනුව විසින්‌ අල්ලාගෙන ඇති කාණ්ඩ
-වෙත දර්ශක GAM වේ. නාමාවලි ප්‍රවේශයේ දර්ශක කාණ්ඩයක ලිපිනය අඞංගු වේ.
+වෙත දර්ශක GAM වේ. නාමාවලි ප්‍රවේශයේ දර්ශක කාණ්ඩයක ලිපිනය අඩංගු වේ.
 
 e Directory Entry: The directory entry contains the address of the index block.
 නාමාවලි ප්‍රවේගය: නාමාවලි ප්‍රවේශයේ දුර්ගශක කොටසේ ලිපිනය අඩංගු වේ.

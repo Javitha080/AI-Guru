@@ -1,0 +1,617 @@
+1. Which of the following is not a important function of data management?
+මේ අතරින් කුමක් දත්ත කළමනාකරණයේදී සිදුවන වැදගත් කාර්ය යක් නොවන්නේ ද?
+
+1) Data Validation /  දත්ත වලංගුකරණය
+2) Duplication of data / දත්ත අනුපිටපත් කිරීම
+3) Protecting processed data / සැකසු දත්ත ආරක්ෂා කිරීම
+4) User Access / පරිශීලකයාට ප්‍රවේශ පහසුකම් ලබාදීම
+5) Storing Data / දත්ත ගබඩා කිරීම
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+1) Data Validation / දත්ත වලංගුකරණය
+Ensures data accuracy, completeness, and consistency before processing or storing.
+සැකසීමට හෝ ගබඩා කිරීමට පෙර දත්තවල නිරවද්‍යතාව, සම්පූර්ණත්වය සහ අනුකූලතාව සහතික
+කරයි.
+
+2) Data Duplication / දත්ත අනුපිටපත් කිරීම
+Duplication of data is not a function of data management at all.
+දත්ත අනුපිටපත් කිරීම කිසිසේත්ම දත්ත කළමනාකරණයේ කාර්යයක් නොවේ.
+
+3) Protecting Processed Data / සැකසු දත්ත ආරක්ෂා කිරීම:
+Safeguards manipulated data from unauthorized access, alteration, or deletion.
+අනවසරයෙන් ප්‍රවේශ වීම, වෙනස් කිරීම හෝ මකා දැමීමෙන්, හසුරුවන ලද දත්ත ආරක්ෂා කරයි.
+
+4) User Access / පරිශීලකයාට ප්‍රවේශ පහසුකම් ලබාදීම:
+Controls permissions and privileges for data access to authorized users, preventing unauthorized
+access.
+අවසර ලත් පරිශීලකයින්ට දත්ත ප්‍රවේශය සඳහා අවසර ලබා දීම සහ ඔවුන්ට ඇති වරප්‍රසාද
+පාලනය කරයි, අනවසර ප්‍රවේශය වළක්වයි.
+
+5) Storing Data / දත්ත ගබඩා කිරීම:
+Involves storing data in structured formats using appropriate technologies for future use.
+අනාගත භාවිතය සඳහා සුදුසු තාක්ෂණයන් භාවිතා කරමින් ව්‍යුහගත ආකෘතිවලට අනුව දත්ත ගබඩා
+කිරීම ඇතුළත් වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+RAVINDU BANDARANAYAKE
+2027 දවසට කොළයක් වැඩසටහන 05
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2. Who invented the concept of storing and controlling computer programs?
+පරිගණක වැඩසටහන් ගබඩා කර පාලනය කිරීමේ සංකල්පය සොයා ගනු ලැබුවේ කවුරුන් විසින් ද?
+
+1) Charles Babbage / චාල්ස් බැබේජ්
+2) Blaise Pascal / බ්ලේයිස් පැස්කල්
+3) Joseph Jacquard / ජෝශප් ජැකුවාඩ්
+4) John von Neumann / ජෝන් වොන් නියුමාන්
+5) Gottfried Wilhelm / ගොට්ප්‍රිඩ් විල්හෙල්ම්
+
+Answer: 4)
+
+The correct answer is, 4) John von Neumann
+නිවැරදි පිළිතුර නම්, 4) ජෝන් වොන් නියුමන්
+
+John von Neumann invented the concept of storing and controlling computer programs. This concept is a
+fundamental principle of modern computing and is known as the von Neumann architecture.
+පරිගණක වැඩසටහන් ගබඩා කිරීම සහ පාලනය කිරීම පිළිබඳ සංකල්පය ජෝන් වොන් නියුමන් විසින් සොයා
+ගන්නා ලදී. මෙම සංකල්පය නූතන පරිගණකකරණයේ මූලික මූලධර්මයක් වන අතර එය වොන් නියුමන්
+ආකෘති ශිල්පය ලෙස හැඳින්වේ.
+
+Key Features of the von Neumann Architecture / වොන් නියුමන් ආකෘති ශිල්පයේ ප්‍රධාන ලක්ෂණ,
+
+1. Stored Program Concept: Both data and instructions are stored in the same memory, allowing the CPU
+to fetch and execute instructions sequentially.
+ගබඩා කරන ලද වැඩසටහන් සංකල්පය: දත්ත සහ උපදෙස් දෙකම එකම මතකයේ ගබඩා කර ඇති
+අතර, CPU හට උපදෙස් අනුක්‍රමිකව ලබා ගැනීමට සහ ක්‍රියාත්මක කිරීමට ඉඩ සලසයි.
+
+2. Single Memory: A unified memory holds both the program instructions and data.
+තනි මතකය: ඒකාබද්ධ මතකයක් වැඩසටහන් උපදෙස් සහ දත්ත දෙකම රඳවා ගනී.
+
+3. Sequential Execution: Instructions are executed in a linear sequence unless directed otherwise by
+control flow instructions like loops or conditionals.
+අනුක්‍රමික ක්‍රියාත්මක කිරීම: ලූප හෝ කොන්දේසි වැනි පාලන ප්‍රවාහ උපදෙස් මගින් වෙනත් ආකාරයකින්
+යොමු නොකළහොත් උපදෙස් රේඛීය අනුපිළිවෙලකින් ක්‍රියාත්මක වේ.
+
+Why the other options are incorrect / අනෙකුත් විකල්ප වැරදි වන්නේ ඇයි,
+
+Charles Babbage / චාල්ස් බැබේජ්
+Known as the "father of the computer," Babbage designed the Analytical Engine, which had many features
+of modern computers but did not embody the stored program concept.
+පරිගණකයේ පියා ලෙස හැඳින්වෙන බැබේජ්, විශ්ලේෂණාත්මක එන්ජිම නිර්මාණය කළ අතර, එය නවීන
+පරිගණකවල බොහෝ විශේෂාංග ඇති නමුත් ගබඩා කරන ලද වැඩසටහන් සංකල්පය මූර්තිමත් කළේ නැත.
+
+Blaise Pascal / බ්ලේස් පැස්කල්
+Invented the Pascaline, a mechanical calculator, but did not contribute to the stored program concept.
+යාන්ත්‍රික කැල්කියුලේටරයක් වන පැස්කලයින් සොයා ගත් නමුත් ගබඩා කරන ලද වැඩසටහන් සංකල්පයට
+දායක නොවීය.
+
+Joseph Jacquard / ජෝසප් ජැකුවාඩ්
+Developed the Jacquard Loom, which used punch cards for weaving patterns but was not related to stored
+programs.
+ජැකුවාඩ් ලූම් නිර්මාණය කරන ලද අතර එය රෙදි විවීම සඳහා සිදුරුකළ කාඩ්පත් භාවිතා කළ නමුත් ගබඩා
+කළ වැඩසටහන් සමඟ සම්බන්ධ නොවීය.
+
+-2-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Gottfried Wilhelm / ගොට්ප්‍රිඩ් විල්හෙල්ම්
+A mathematician and philosopher who contributed to early computational theories but did not invent the
+concept of storing and controlling programs.
+මුල් පරිගණක න්‍යායන් සඳහා දායක වූ නමුත් වැඩසටහන් ගබඩා කිරීම සහ පාලනය කිරීම පිළිබඳ සංකල්පය
+සොයා නොගත් ගණිතඥයෙකු සහ දාර්ශනිකයෙකි.
+
+Conclusion / නිගමනය
+John von Neumann's stored program architecture laid the foundation for modern computers, making him
+the correct answer.
+ජෝන් වොන් නියුමන්ගේ ගබඩා කළ වැඩසටහන් ආකෘති ශිල්පය නවීන පරිගණක සඳහා අඩිතාලම දැමූ අතර,
+එය ඔහුව නිවැරදි පිළිතුර බවට පත් කළේය.
+
+3. Who developed the first, “Automatic Sequence Controlled Calculator”?
+
+පළමු “ස්වයංක්‍රීය අනුක්‍රමික පාලිත කැල්කියුලේටරය” සංවර්ධනය කළේ කවුද?
+
+1) Howard Aiken / හොවාර්ඩ් අයිකන්
+2) Charles Babbage / චාල්ස් බැබේජ්
+3) Blaise Pascal / බ්ලේස් පැස්කල්
+4) Ada Augasta Lovelace / ඇඩා ඔගස්ටා ලොව්ලේස්
+5) Gottfried Wilhelm Von / ගොඩ්ෆ්‍රීඩ් විල්හෙල්ම් වොන්
+
+Answer: 1)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Howard Aiken, an American physicist and computer scientist, developed the first "Automatic Sequence
+Controlled Calculator", also known as the Harvard Mark I, in 1944. It was one of the earliest
+electromechanical computers and could perform complex calculations automatically based on sequences
+programmed on punched cards. This machine marked a significant advancement in computing technology.
+ඇමරිකානු භෞතික විද්‍යාඥයෙකු සහ පරිගණක විද්‍යාඥයෙකු වන හොවාර්ඩ් අයිකන් විසින් 1944 දී Harvard
+Mark I ලෙසද හැඳින්වෙන ප්‍රථම "ස්වයංක්‍රීය අනුක්‍රමික පාලිත කැල්කියුලේටරය" නිපදවන ලදී. එය පැරණීතම
+විද්‍යුත් යාන්ත්‍රික පරිගණක වලින් එකක් වූ අතර එය ක්‍රමලේඛනය කර ඇති අනුපිළිවෙල මත ස්වයංක්‍රීයව
+සංකීර්ණ ගණනය කිරීම් සිදු කළ හැකිය. පන්ච් කාඩ්. මෙම යන්ත්‍රය පරිගණක තාක්ෂණයේ සැලකිය යුතු
+දියුණුවක් සනිටුහන් කළේය.
+
+Option / විකල්පය 2)
+Charles Babbage is often referred to as the "father of the computer." He designed the Difference Engine
+and later conceptualized the Analytical Engine, which was a mechanical general-purpose computer.
+Although he never completed a working model, the Analytical Engine's design included many features
+found in modern computers, such as a central processing unit (CPU) and memory.
+චාල්ස් බැබේජ් බොහෝ විට "පරිගණකයේ පියා" ලෙස හැඳින්වේ. ඔහු Difference එන්ජිම නිර්මාණය කළ
+අතර පසුව යාන්ත්‍රික පොදු කාර්ය පරිගණකයක් වූ විශ්ලේෂණ එන්ජිම සංකල්පගත කළේය. ඔහු කිසි විටෙක
+ක්‍රියාකාරී ආකෘතියක් සම්පූර්ණ නොකළද, විශ්ලේෂණ එන්ජිමේ සැලසුමට මධ්‍යම සැකසුම් ඒකකය (CPU) සහ
+මතකය වැනි නවීන පරිගණකවල ඇති බොහෝ විශේෂාංග ඇතුළත් විය.
+
+Option / විකල්පය 3)
+Blaise Pascal was a French mathematician, physicist, and inventor. He developed the Pascaline, one of the
+first mechanical calculators, in 1642. The Pascaline could perform addition and subtraction directly and
+was used to help with tax calculations. It laid the groundwork for future developments in mechanical
+calculation devices.
+බ්ලේස් පැස්කල් ප්‍රංශ ගණිතඥයෙක්, භෞතික විද්‍යාඥයෙක් සහ නව නිපැයුම්කරුවෙකු විය. ඔහු 1642 දී
+ප්‍රථම යාන්ත්‍රික ගණක යන්ත්‍රවලින් එකක් වන Pascaline නිපදවීය. එය යාන්ත්‍රික ගණනය කිරීමේ උපාංගවල
+අනාගත වර්ධනයන් සඳහා පදනම දැමීය.
+
+-3-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්පය 4)
+Ada Augusta Lovelace, often known simply as Ada Lovelace, was an English mathematician and writer.
+She is credited with writing the first algorithm intended to be processed by a machine, specifically
+Babbage's Analytical Engine. For this reason, she is considered the world's first computer programmer.
+Her work also included visionary ideas about the potential of computers to perform tasks beyond mere
+calculations.
+ඇඩා ඔගස්ටා ලොව්ලෙස් බොහෝ විට සරලව ඇඩා ලොව්ලෙස් ලෙස හැඳින්වෙන අතර, ඉංග්‍රීසි ගණිතඥයෙක්
+සහ ලේඛකයෙක් විය. යන්ත්‍රයකින්, විශේෂයෙන්ම බැබේජ්ගේ විශ්ලේෂණ එන්ජිම මගින් සැකසීමට අදහස් කරන
+පළමු ඇල්ගොරිතම ලිවීමේ ගෞරවය ඇයට හිමි වේ. මේ හේතුව නිසා ඇය ලොව ප්‍රථම පරිගණක ක්‍රමලේඛිකාව
+ලෙස සැලකේ. හුදු ගණනය කිරීම්වලින් ඔබ්බට කාර්යයන් ඉටු කිරීමට පරිගණකවලට ඇති හැකියාව පිළිබඳ
+¥රදර්ශී අදහස් ද ඇගේ කාර්යයට ඇතුළත් විය.
+
+Option / විකල්පය 5)
+Gottfried Wilhelm von Leibniz was a German mathematician and philosopher. He developed the Stepped
+Reckoner, a mechanical calculator that could perform addition, subtraction, multiplication, and division.
+Leibniz is also known for his work in formal logic and for co-developing calculus independently of Isaac
+Newton.
+ගොඩ්ෆ්‍රීඩ් විල්හෙල්ම් වොන් යනු ජර්මානු ගණිතඥයෙක් සහ දාර්ශනිකයෙක්. ඔහු එකතු කිරීම, අඩු කිරීම, ගුණ
+කිරීම සහ බෙදීම සිදු කළ හැකි යාන්ත්‍රික ගණක යන්ත්‍රයක් වන පියවර ගණකය නිර්මාණය කළේය. ලයිබ්නිස්
+ඔහුගේ විධිමත් තර්ක ශාස්ත්‍රය සහ අයිසැක් නිව්ටන්ගෙන් ස්වාධීනව කලනය සම-සංවර්ධනය කිරීම සඳහා ද
+ප්‍රසිද්ධය.
+
+Therefore, the correct answer is 1) Howard Aiken.
+එබැවින්, නිවැරදි පිළිතුර 1) හොවාර්ඩ් අයිකන් වේ.
+
+4. Which of the following types of scanners is best suited for archiving high-quality images such as
+photographs and artwork?
+ඡායාරූප සහ කලා කෘති වැනි උසස් තත්ත්වයේ රූප සංරක්ෂණය කිරීම සඳහා වඩාත් සුදුසු වන්නේ පහත
+සඳහන් සුපරික්ෂක වර්ග අතුරින් කුමන වර්ගයද?
+1) Flatbed scanner
+2) Sheet-fed scanner
+3) Drum scanner
+4) Barcode scanner
+5) Handheld scanner
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+A flatbed scanner uses a glass surface where the original document or photo is placed flat for scanning.
+It’s versatile and good for various documents but may not always capture the highest detail required for
+professional archival work.
+Flatbed සුපරික්සකයක් සමතලා වීදුරු මතුපිටක් භාවිතා කරයි, එහිදී මුල් ලේඛනය හෝ ඡායාරූපය ස්කෑන්
+කරයි. එය බහුකාර්ය සහ විවිධ ලේඛන සඳහා හොඳ නමුත් වෘත්තීය ලේඛනාගාර කටයුතු සඳහා අවශ්‍ය
+ඉහළම විස්තර සැමවිටම ග්‍රහණය කර නොගත හැකිය.
+
+Option / විකල්ප 2)
+A sheet-fed scanner pulls documents through automatically, useful for quick scanning of many papers
+but not ideal for delicate or high-quality images since it can damage originals and often has lower image
+quality.
+Sheet-fed සුපරික්සකයක් ලේඛන ස්වයංක්‍රීයව ඇද ගන්නා අතර, බොහෝ කඩදාසි ඉක්මනින් පරිලෝකනය
+කිරීම සඳහා ප්‍රයෝජනවත් වේ, නමුත් සියුම් හෝ උසස් තත්ත්වයේ රූප සඳහා සුදුසු නොවේ, මන්ද එය මුල්
+පිටපත් වලට හානි කළ හැකි අතර බොහෝ විට අඩු රූප ගුණාත්මක භාවයක් ඇත.
+
+Option / විකල්ප 3)
+A drum scanner is a specialized, high-end device that uses photomultiplier tubes to scan images. It
+provides extremely high resolution and color accuracy, making it the preferred choice for archiving
+photographs and artwork where detail and fidelity are critical.
+Drum සුපරික්සකයක් යනු රූප පරිලෝකනය කිරීම සඳහා photomultiplier නල භාවිතා කරන විශේෂිත,
+ඉහළ මට්ටමේ උපාංගයකි. එය අතිශයින් ඉහළ විභේදනයක් සහ වර්ණ නිරවද්‍යතාවයක් සපයන අතර,
+විස්තර සහ විශ්වාසවන්තභාවය ඉතා වැදගත් වන ඡායාරූප සහ කලා කෘති සංරක්ෂණය කිරීම සඳහා එය
+වඩාත් කැමති තේරීම බවට පත් කරයි.
+-4-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්ප 4)
+A barcode scanner is designed solely to read barcodes and is irrelevant to image quality or archiving.
+තීරු කේත සුපරික්සකයක් තීරු කේත කියවීම සඳහා පමණක් නිර්මාණය කර ඇති අතර රූපයේ
+ගුණාත්මකභාවය හෝ ලේඛනාගාරයට අදාළ නොවේ.
+
+Option / විකල්ප 5)
+A handheld scanner is portable but generally has lower resolution and stability, making it unsuitable for
+detailed image archiving.
+Handheld (අතින් ගෙන යා හැකි) සුපරික්සකයක් අතේ ගෙන යා හැකි නමුත් සාමාන්‍යයෙන් අඩු විභේදනයක්
+සහ ස්ථාවරත්වයක් ඇති අතර, එය සවිස්තරාත්මක රූප සංරක්ෂණය සඳහා නුසුදුසු වේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+5. Which of the following is true about pointing devices?
+දැක්වුම් උපාංග සම්බන්ධයෙන් පහත සඳහන් දේවලින් සත්‍ය කුමක්ද?
+
+1) A mouse allows pressure-sensitive input like a stylus.
+මූසිකයක් ස්ටයිලස් එකක් මෙන් පීඩන සංවේදී ආදානයට ඉඩ දෙයි.
+
+2) A light pen is commonly used on modern touchscreens.
+නවීන ස්පර්ශ තිරවල ආලෝක සංවේදී පෑන  බහුලව භාවිතා වේ.
+
+3) A stylus is used to control the cursor without touching the screen.
+තිරය ස්පර්ශ නොකර කර්සරය පාලනය කිරීමට ස්ටයිලස් එකක් භාවිතා කරයි.
+
+4) A trackball remains stationary while the ball is rotated to move the pointer.
+දර්ශකය චලනය කිරීම සඳහා බෝලය කරකැවිය හැකි අතර මාර්ග ගුලාව නිශ්චලව පවතී.
+
+5) A joystick is mainly used for text editing.
+මෙහෙයුම් යටියක් ප්‍රධාන වශයෙන් පාඨ සංස්කරණය සඳහා භාවිතා කරයි.
+
+Answer: 4)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+This is incorrect because a traditional mouse detects movement and clicks but does not sense pressure.
+Pressure sensitivity is a feature of devices like styluses, used mainly for drawing or handwriting input.
+මෙය වැරදියි, මන්ද සාම්ප්‍රදායික මූසිකයක් චලනය සහ ක්ලික් කිරීම් හඳුනා ගන්නා නමුත් පීඩනය
+දැනෙන්නේ නැත. පීඩන සංවේදීතාව යනු ප්‍රධාන වශයෙන් ඇඳීම හෝ අත් අකුරු ආදානය සඳහා භාවිතා
+කරන ස්ටයිලස් වැනි උපාංගවල ලක්ෂණයකි.
+
+Option / විකල්ප 2)
+This is false since light pens were used with older CRT monitors and are largely obsolete today. Modern
+touchscreens mostly rely on finger touch or stylus input, not light pens.
+ආලෝක සංවේදී පෑන  පැරණි CRT මොනිටර සමඟ භාවිතා කළ අතර අද බොහෝ දුරට යල් පැන ගොස්
+ඇති බැවින් මෙය අසත්‍යයකි. නවීන ස්පර්ශ තිර බොහෝ දුරට ආලෝක සංවේදී පෑන  නොව ඇඟිලි
+ස්පර්ශය හෝ ස්ටයිලස් ආදානය මත රඳා පවතී.
+
+Option / විකල්ප 3)
+This is not accurate because a stylus physically touches the screen to interact with it, offering precise
+input especially on tablets and smartphones.
+මෙය නිවැරදි නොවේ, මන්ද ස්ටයිලස් එකක් තිරය සමඟ අන්තර් ක්‍රියා කිරීමට භෞතිකව ස්පර්ශ කරන
+අතර, විශේෂයෙන් ටැබ්ලට් සහ ස්මාර්ට්ෆෝන් මත නිවැරදි ආදානය ලබා දෙයි.
+
+Option / විකල්ප 4)
+This is true. Unlike a mouse, which moves across a surface, the trackball is fixed and the ball’s rotation
+moves the cursor on the screen.
+මෙය සත්‍යයකි. මතුපිටක් හරහා ගමන් කරන මූසිකයක් මෙන් නොව, මාර්ග ගුලාව ස්ථාවර වන අතර
+බෝලයේ භ්‍රමණය තිරය මත කර්සරය චලනය කරයි.
+
+-5-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්ප 5)
+This is incorrect. Joysticks are primarily used for gaming and controlling machinery or simulations, not
+for editing text.
+මෙය වැරදියි. මෙහෙයුම් යටිය ප්‍රධාන වශයෙන් භාවිතා කරන්නේ පාඨ සංස්කරණය කිරීම සඳහා නොව ක්‍රීඩා
+කිරීම සහ යන්ත්‍රෝපකරණ හෝ සමාකරණ පාලනය කිරීම සඳහා ය.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+6. Which ICT problem is least caused by improper e-waste disposal?
+ඉලෙක්ට්‍රොනික අපද්‍රව්‍ය අනිසි ලෙස බැහැර කිරීම නිසා අවම වශයෙන් ඇති වන ICT ගැටළුව කුමක්ද?
+
+1) Data breaches from discarded devices / ඉවතලන උපාංගවලින් දත්ත නිරාවරණය වීම
+2) Environmental pollution from heavy metals / බැර ලෝහ වලින් පරිසර ¥ෂණය
+3) Increased energy consumption during device manufacturing
+උපාංග නිෂ්පාදනය අතරතුර බලශක්ති පරිභෝජනය වැඩි වීම
+
+4) Increased risk of malware infections / අනිෂ්ට මෘදුකාංග ආසාදන අවදානම වැඩි වීම
+5) Resource depletion due to non-recycling / ප්‍රතිචක්‍රීකරණය නොකිරීම හේතුවෙන් සම්පත් ක්ෂය වීම
+
+Answer: 4)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+This is a real issue because devices thrown away without proper data wiping can leak sensitive
+information, making this a significant problem of improper e-waste disposal.
+මෙය සැබෑ ගැටළුවක් වන්නේ නිසි දත්ත මකා දැමීමකින් තොරව ඉවතලන උපාංග මගින් සංවේදී තොරතුරු
+කාන්දු විය හැකි බැවින්, මෙය නුසුදුසු විද්‍යුත් අපද්‍රව්‍ය බැහැර කිරීමේ සැලකිය යුතු ගැටළුවක් බවට පත්
+කරයි.
+
+Option / විකල්ප 2)
+E-waste often contains toxic substances like lead, mercury, and cadmium, which can contaminate soil
+and water if not handled properly, making pollution a key concern.
+E-අපද්‍රව්‍යවල බොහෝ විට ඊයම්, රසදිය සහ කැඩ්මියම් වැනි විෂ සහිත ද්‍රව්‍ය අඩංගු වන අතර, ඒවා නිසි
+ලෙස හසුරුවා නොගතහොත් පස සහ ජලය ¥ෂණය කළ හැකි අතර, ¥ෂණය ප්‍රධාන ගැටළුවක් බවට පත්
+කරයි.
+
+Option / විකල්ප 3)
+Improper e-waste disposal can indirectly increase manufacturing demand, as lost materials must be
+replaced. So, this option still has some connection to e-waste issues.
+නැතිවූ ද්‍රව්‍ය ප්‍රතිස්ථාපනය කළ යුතු බැවින්, නුසුදුසු විද්‍යුත් අපද්‍රව්‍ය බැහැර කිරීම නිෂ්පාදන ඉල්ලුම වක්‍රව
+වැඩි කළ හැකිය. එබැවින්, මෙම විකල්පයට තවමත් විද්‍යුත් අපද්‍රව්‍ය ගැටළු සමඟ යම් සම්බන්ධයක් ඇත.
+
+Option / විකල්ප 4)
+Increased risk of malware infections is primarily a software and network security issue, not directly
+caused by throwing away e-waste. Malware spreads through infected files, emails, or downloads, not
+because of how discarded devices are handled.
+අනිෂ්ට මෘදුකාංග ආසාදන ඇතිවීමේ අවදානම වැඩි වීම ප්‍රධාන වශයෙන් මෘදුකාංග සහ ජාල ආරක්ෂණ
+ගැටළුවක් වන අතර එය විද්‍යුත් අපද්‍රව්‍ය ඉවත දැමීමෙන් සෘජුවම ඇති නොවේ. අනිෂ්ට මෘදුකාංග ආසාදිත
+ලිපිගොනු, ඊමේල් හෝ බාගැනීම් හරහා පැතිරෙයි, ඉවතලන උපාංග හසුරුවන ආකාරය නිසා නොවේ.
+
+Option / විකල්ප 5)
+Resource depletion due to non-recycling happens when valuable materials like gold or copper are lost
+because e-waste isn’t recycled properly, making this a key consequence of poor disposal.
+ප්‍රතිචක්‍රීකරණය නොකිරීම හේතුවෙන් සම්පත් ක්ෂය වීම සිදුවන්නේ රන් හෝ තඹ වැනි වටිනා ද්‍රව්‍ය විද්‍යුත්
+අපද්‍රව්‍ය නිසි ලෙස ප්‍රතිචක්‍රීකරණය නොකිරීම නිසා නැති වූ විටය, මෙය දුර්වල බැහැර කිරීමේ ප්‍රධාන
+ප්‍රතිවිපාකයක් බවට පත් කරයි.
+
+-6-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+7. What is the primary function of a scanner in computing?
+පරිගණකකරණයේදී සුපරික්ෂකයක ප්‍රධාන කාර්යය කුමක්ද?
+
+1) To convert digital images into printed copies / ඩිජිටල් රූප මුද්‍රිත පිටපත් බවට පරිවර්තනය කිරීමට
+2) To input printed or handwritten text/images into the computer
+මුද්‍රිත හෝ අතින් ලියන ලද පාඨ/රූප පරිගණකයට ඇතුළත් කිරීමට
+
+3) To store data permanently for future use / අනාගත භාවිතය සඳහා ස්ථිරවම දත්ත ගබඩා කිරීමට
+4) To display visual output on the screen / තිරය මත දෘශ්‍ය ප්‍රතිදානය පෙන්වීමට
+5) To process data and perform calculations / දත්ත සැකසීමට සහ ගණනය කිරීම් සිදු කිරීමට
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This answer describes the function of a printer, not a scanner. A printer takes data from a computer and
+produces a physical copy on paper. It works in the opposite direction to a scanner. While scanners convert
+physical documents into digital format, printers do the reverse by rendering digital data into tangible
+outputs.
+මෙම පිළිතුර සුපරික්ෂකයක නොව මුද්‍රණ යන්ත්‍රයක ක්‍රියාකාරිත්වය විස්තර කරයි. මුද්‍රණ යන්ත්‍රයක්
+පරිගණකයකින් දත්ත ලබාගෙන කඩදාසි මත භෞතික පිටපතක් නිපදවයි. එය සුපරික්ෂකයකට ප්‍රතිවිරුද්ධ
+දිශාවට ක්‍රියා කරයි. සුපරික්ෂකයන් භෞතික ලේඛන ඩිජිටල් ආකෘතියට පරිවර්තනය කරන අතර, මුද්‍රණ යන්ත්‍ර
+ඩිජිටල් දත්ත ස්පර්ශ්‍ය ප්‍රතිදාන බවට පරිවර්තනය කිරීමෙන් ප්‍රතිලෝම කරයි.
+
+Option / විකල්පය 2)
+Scanners are input devices used to digitize physical content like documents, images, or handwritten text
+and send them into the computer as digital files. These files can then be edited, stored, or shared
+electronically. This function is essential in offices, educational institutions, and graphic design settings.
+Scanners help bridge the gap between physical and digital information.
+සුපරික්ෂකයක යනු ලේඛන, රූප හෝ අතින් ලියන ලද පාඨ වැනි භෞතික අන්තර්ගතයන් ඩිජිටල්කරණය කර
+ඩිජිටල් ගොනු ලෙස පරිගණකයට යැවීමට භාවිතා කරන ආදාන උපාංග වේ. මෙම ගොනු පසුව සංස්කරණය
+කිරීමට, ගබඩා කිරීමට හෝ ඉලෙක්ට්‍රොනිකව බෙදා ගැනීමට හැකිය. කාර්යාල, අධ්‍යාපන ආයතන සහ ග්‍රැෆික්
+නිර්මාණ සැකසුම් තුළ මෙම කාර්යය අත්‍යවශ්‍ය වේ. භෞතික සහ ඩිජිටල් තොරතුරු අතර පරතරය පියවීමට
+සුපරික්ෂක උපකාරී වේ.
+
+Option / විකල්පය 3)
+This option refers to the function of storage devices, such as hard drives, USB drives, or SSDs. These
+devices are responsible for saving data so it can be accessed and used later, even after the computer is
+turned off. Scanners, on the other hand, do not store the data themselves; they only act as a bridge to input
+that data into the system. Once the scanning is complete, the file needs to be saved manually to a storage
+location.
+මෙම විකල්පය දෘඪ තැටි, USB ධාවක හෝ SSD වැනි ගබඩා උපාංගවල ක්‍රියාකාරිත්වයට යොමු කරයි.
+පරිගණකය ක්‍රියා විරහිත කිරීමෙන් පසුව පවා ඒවාට ප්‍රවේශ වී පසුව භාවිතා කළ හැකි වන පරිදි දත්ත
+සුරැකීම සඳහා මෙම උපාංග වගකිව යුතුය. අනෙක් අතට, සුපරික්ෂක දත්ත තමන් විසින්ම ගබඩා නොකරයි
+ඒවා පද්ධතියට එම දත්ත ආදානය කිරීමට පාලමක් ලෙස පමණක් ක්‍රියා කරයි. ස්කෑන් කිරීම අවසන් වූ පසු,
+ගොනුව ගබඩා ස්ථානයකට අතින් සුරැකිය යුතුය.
+
+Option / විකල්පය 4)
+This answer refers to a monitor, which is an output device. Monitors are responsible for showing digital
+content such as text, images, videos, or user interfaces from the computer. Scanners have no role in
+displaying information visually; they work behind the scenes to capture and convert physical media into
+a digital form. The digital data may later be viewed on a monitor, but that’s a separate function.
+මෙම පිළිතුර මොනිටරයකට යොමු කරයි, එය ප්‍රතිදාන උපාංගයකි. පරිගණකයෙන් පාඨ, රූප, වීඩියෝ හෝ
+පරිශීලක අතුරුමුහුණත් වැනි ඩිජිටල් අන්තර්ගතයන් පෙන්වීම සඳහා මොනිටර වගකිව යුතුය. තොරතුරු
+දෘශ්‍යමය වශයෙන් ප්‍රදර්ශනය කිරීමේදී සුපරික්ෂකවලට කිසිදු කාර්යභාරයක් නොමැත භෞතික මාධ්‍ය ග්‍රහණය
+කර ඩිජිටල් ආකාරයක් බවට පරිවර්තනය කිරීමට ඒවා තිරය පිටුපස ක්‍රියා කරයි. ඩිජිටල් දත්ත පසුව
+මොනිටරයක නැරඹිය හැකි නමුත් එය වෙනම කාර්යයකි.
+-7-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්පය 5)
+Processing and calculation tasks are handled by the CPU (Central Processing Unit), not by input devices
+like scanners. The CPU interprets and executes commands from software programs, performing logical
+and arithmetic operations. Scanners do not analyze or manipulate data, they only collect it in a digital
+format. Any processing done to the scanned image (ex: cropping, enhancing) happens later through
+software tools on the computer.
+සැකසුම් සහ ගණනය කිරීමේ කාර්යයන් හසුරුවන්නේ සුපරික්ෂක වැනි ආදාන උපාංග මගින් නොව, (CPU
+මධ්‍යම සැකසුම් ඒකකය) මගිනි. CPU මෘදුකාංග වැඩසටහන් වලින් ලැබෙන විධාන අර්ථකථනය කර ක්‍රියාත්මක
+කරයි, තාර්කික සහ අංක ගණිතමය මෙහෙයුම් සිදු කරයි. සුපරික්ෂක දත්ත විශ්ලේෂණය හෝ හැසිරවීම සිදු
+නොකරයි, ඒවා එකතු කරන්නේ ඩිජිටල් ආකෘතියකින් පමණි. ස්කෑන් කරන ලද රූපයට (උදා: කප්පාදු කිරීම,
+වැඩි දියුණු කිරීම) සිදු කරන ඕනෑම සැකසුමක් පසුව පරිගණකයේ මෘදුකාංග මෙවලම් හරහා සිදු වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+8. Which of the following best describes the difference between licensed and unlicensed software?
+බලපත්‍රලාභී සහ බලපත්‍ර රහිත මෘදුකාංග අතර වෙනස පහත සඳහන් ඒවායින් වඩාත් හොඳින් විස්තර කරන්නේ
+කුමක්ද?
+
+1) Licensed software is legal and comes with terms of use, while unlicensed software is unauthorized
+and often illegal.
+බලපත්‍රලාභී මෘදුකාංග නීත්‍යානුකූල වන අතර භාවිත නියමයන් සමඟ පැමිණේ, බලපත්‍ර රහිත මෘදුකාංග
+අනවසර සහ බොහෝ විට නීති විරෝධී වේ.
+
+2) Licensed software can only be used online, while unlicensed software works offline.
+බලපත්‍රලාභී මෘදුකාංග භාවිතා කළ හැක්කේ මාර්ගගතව පමණි, බලපත්‍ර රහිත මෘදුකාංග නොබැඳි ලෙස
+ක්‍රියා කරයි.
+
+3) Licensed software is open-source, and unlicensed software is always commercial.
+බලපත්‍රලාභී මෘදුකාංග විවෘත මූලාශ්‍ර වන අතර බලපත්‍ර රහිත මෘදුකාංග සැමවිටම වාණිජමය වේ.
+
+4) Licensed software never requires payment, whereas unlicensed software is usually very expensive.
+බලපත්‍රලාභී මෘදුකාංග කිසි විටෙකත් ගෙවීමක් අවශ්‍ය නොවන අතර බලපත්‍ර රහිත මෘදුකාංග සාමාන්‍යයෙන්
+ඉතා මිල අධික වේ.
+
+5) Licensed software works only on Mac, and unlicensed software works on Windows.
+බලපත්‍රලාභී මෘදුකාංග මැක් මත පමණක් ක්‍රියා කරන අතර බලපත්‍ර රහිත මෘදුකාංග වින්ඩෝස් මත ක්‍රියා
+කරයි.
+
+Answer: 1)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This is the correct and most accurate description of the difference. Licensed software is distributed under
+a legal agreement called a license, which outlines how it can be used, how many users or devices it
+supports, and whether modifications are allowed. On the other hand, unlicensed software is used without
+the creator’s permission or proper licensing, often violating copyright laws. Using unlicensed software
+can lead to legal consequences, data breaches, or malware risks. So, this option directly addresses the core
+distinction between the two.
+මෙම වෙනස පිළිබඳ නිවැරදි හා වඩාත්ම නිවැරදි විස්තරය මෙයයි. බලපත්‍රලාභී මෘදුකාංග බෙදා හරිනු
+ලබන්නේ බලපත්‍රයක් ලෙස හඳුන්වන නීතිමය ගිවිසුමක් යටතේය, එය භාවිතා කළ හැකි ආකාරය, එය සහාය
+දක්වන පරිශීලකයින් හෝ උපාංග ගණන සහ වෙනස් කිරීම් වලට අවසර තිබේද යන්න දක්වා ඇත. අනෙක්
+අතට, බලපත්‍ර රහිත මෘදුකාංග නිර්මාපකයාගේ අවසරයකින් තොරව හෝ නිසි බලපත්‍රයකින් තොරව භාවිතා
+කරනු ලැබේ, බොහෝ විට ප්‍රකාශන හිමිකම් නීති උල්ලංඝනය කරයි. බලපත්‍ර රහිත මෘදුකාංග භාවිතා කිරීම
+නීතිමය ප්‍රතිවිපාක, දත්ත කඩ කිරීම් හෝ අනිෂ්ට මෘදුකාංග අවදානම් වලට හේතු විය හැක. එබැවින්, මෙම
+විකල්පය දෙක අතර මූලික වෙනස කෙලින්ම ආමන්ත්‍රණය කරයි.
+
+-8-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්පය 2)
+The license status of software (licensed or unlicensed) has nothing to do with being online or offline. Both
+licensed and unlicensed software can be designed to function online, offline, or both. For example,
+licensed products like Microsoft Office or Adobe Photoshop often work offline. This answer confuses
+network access with licensing, which are separate concerns.
+(බලපත්‍රලාභී හෝ බලපත්‍ර රහිත) මෘදුකාංගවල බලපත්‍ර තත්ත්වය මාර්ගගතව හෝ නොබැඳිව සිටීම සමඟ කිසිදු
+සම්බන්ධයක් නැත. බලපත්‍රලාභී සහ බලපත්‍ර රහිත මෘදුකාංග දෙකම මාර්ගගතව, නොබැඳිව හෝ දෙකම
+ක්‍රියාත්මක වන පරිදි නිර්මාණය කළ හැකිය. උදාහරණයක් ලෙස, මයික්‍රොසොෆ්ට් ඔෆිස් හෝ ඇඩෝබි
+ෆොටෝෂොප් වැනි බලපත්‍රලාභී නිෂ්පාදන බොහෝ විට නොබැඳිව ක්‍රියා කරයි. මෙම පිළිතුර බලපත්‍රලාභී සමඟ
+ජාල ප්‍රවේශය ව්‍යාකූල කරයි, ඒවා වෙනම ගැටළු වේ.
+
+Option / විකල්පය 3)
+Open-source software can still be licensed, just under a free or permissive license like GPL or MIT. Not
+all licensed software is open-source; most commercial or proprietary software, like Microsoft Office,
+Windows, or Photoshop, is licensed but not open-source. Also, unlicensed software doesn’t mean it’s
+commercial, it simply means it’s being used without a valid license, whether it’s free or paid. This answer
+shows a misunderstanding of software categories.
+විවෘත මූලාශ්‍ර මෘදුකාංග තවමත් බලපත්‍රලාභී විය හැකිය, GPL හෝ MIT වැනි නිදහස් හෝ අවසර ලත්
+බලපත්‍රයක් යටතේ පමණි. සියලුම බලපත්‍රලාභී මෘදුකාංග විවෘත මූලාශ්‍ර නොවේ මයික්‍රොසොෆ්ට් ඔෆිස්, වින්ඩෝස්
+හෝ ෆොටෝෂොප් වැනි බොහෝ වාණිජ හෝ හිමිකාර මෘදුකාංග බලපත්‍රලාභී නමුත් විවෘත මූලාශ්‍ර නොවේ.
+එසේම, බලපත්‍ර රහිත මෘදුකාංග එය වාණිජමය බව අදහස් නොවේ, එයින් අදහස් වන්නේ එය වලංගු
+බලපත්‍රයක් නොමැතිව භාවිතා කරන බවයි, එය නොමිලේ හෝ ගෙවන ලද එකක් වුවද. මෙම පිළිතුර මෘදුකාංග
+කාණ්ඩ පිළිබඳ වැරදි අවබෝධයක් පෙන්නුම් කරයි.
+
+Option / විකල්පය 4)
+Many licensed software products do require payment, especially commercial tools like antivirus programs,
+design tools, or operating systems. On the other hand, unlicensed software is often obtained illegally for
+free (pirated versions), not expensively. This option confuses the price of software with the legal licensing
+status, which are not directly related.
+බොහෝ බලපත්‍රලාභී මෘදුකාංග නිෂ්පාදන සඳහා ගෙවීමක් අවශ්‍ය වේ, විශේෂයෙන් ප්‍රති-වයිරස වැඩසටහන්,
+නිර්මාණ මෙවලම් හෝ මෙහෙයුම් පද්ධති වැනි වාණිජ මෙවලම්. අනෙක් අතට, බලපත්‍ර රහිත මෘදුකාංග බොහෝ
+විට නීති විරෝධී ලෙස නොමිලේ (කොල්ලකන අනුවාද) සඳහා ලබා ගනී, මිල අධික ලෙස නොවේ. මෙම
+විකල්පය මෘදුකාංගයේ මිල සහ නීතිමය බලපත්‍ර තත්ත්වය අතර ව්‍යාකූලත්වයක් ඇති කරයි, එය සෘජුවම
+සම්බන්ධ නොවේ.
+
+Option / විකල්පය 5)
+Licensing has nothing to do with the operating system. Software for both Windows and Mac can be either
+licensed or unlicensed. For example, Microsoft Office is licensed and available for both platforms. The
+answer makes an irrelevant connection between licensing and compatibility, which doesn’t hold.
+බලපත්‍ර ලබා දීම මෙහෙයුම් පද්ධතිය සමඟ කිසිදු සම්බන්ධයක් නැත. Windows සහ Mac යන දෙකටම
+මෘදුකාංග බලපත්‍රලාභී හෝ බලපත්‍ර රහිත විය හැකිය. උදාහරණයක් ලෙස, Microsoft Office බලපත්‍රලාභී වන
+අතර වේදිකා දෙකටම ලබා ගත හැකිය. පිළිතුර බලපත්‍ර ලබා දීම සහ අනුකූලතාව අතර අනදාල
+සම්බන්ධතාවයක් ඇති කරයි, එය නොපවතී.
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+-9-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+9. Which of the following is a major disadvantage of Information and Communication Technology (ICT)?
+තොරතුරු හා සන්නිවේදන තාක්ෂණයේ (ICT) ප්‍රධාන අවාසියක් වන්නේ පහත සඳහන් ඒවායින් කුමක්ද?
+
+1) Enhances communication speed and global connectivity.
+සන්නිවේදන වේගය සහ ගෝලීය සම්බන්ධතාවය වැඩි දියුණු කරයි.
+
+2) Increases the risk of cybercrimes and data breaches.
+සයිබර් අපරාධ සහ දත්ත කඩකිරීම් අවදානම වැඩි කරයි.
+
+3) Supports distance learning and online collaboration.
+දුරස්ථ ඉගෙනීම සහ මාර්ගගත සහයෝගීතාවයට සහාය වේ.
+
+4) Promotes automation, reducing human errors/ස්වයංක්‍රීයකරණය ප්‍රවර්ධනය කරයි, මානව දෝෂ අඩු කරයි.
+
+5) Enables real-time access to information / තොරතුරු සඳහා තත්‍ය කාලීන ප්‍රවේශය සක්‍රීය කරයි
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+It’s one of its biggest advantages. ICT tools like email, social media, and video conferencing make
+communication faster, cheaper, and more accessible across the world. It breaks geographic boundaries and
+promotes real-time interaction. Therefore, while important, this point supports the benefits of ICT, not its
+drawbacks.
+එය එහි විශාලතම වාසි වලින් එකකි. විද්‍යුත් තැපෑල, සමාජ මාධ්‍ය සහ වීඩියෝ සම්මන්ත්‍රණ වැනි ICT මෙවලම්
+ලොව පුරා සන්නිවේදනය වේගවත්, ලාභදායී සහ වඩාත් ප්‍රවේශ විය හැකි කරයි. එය භූගෝලීය සීමාවන් බිඳ
+දමමින් තත්‍ය කාලීන අන්තර්ක්‍රියා ප්‍රවර්ධනය කරයි. එබැවින්, වැදගත් වුවද, මෙම කරුණ ICT හි ප්‍රතිලාභ
+සඳහා සහාය වේ, එහි අඩුපාඩු සඳහා නොවේ.
+
+Option / විකල්පය 2)
+One of the most serious disadvantages of ICT is its vulnerability to cyber threats. With the increased use
+of internet-based services and cloud storage, sensitive data can be exposed to hacking, phishing, malware,
+and identity theft. Cybercrimes not only affect individuals but can also cause massive losses to businesses
+and governments. This highlights a major downside of depending heavily on digital systems. Proper
+cybersecurity measures are essential to counter this drawback.
+තොරතුරු හා සන්නිවේදන තාක්ෂණයේ ඇති බරපතලම අවාසියක් නම් සයිබර් තර්ජනවලට ගොදුරු වීමේ
+අවදානමයි. අන්තර්ජාලය පදනම් කරගත් සේවාවන් සහ වලාකුළු ගබඩා භාවිතය වැඩි වීමත් සමඟ සංවේදී
+දත්ත අනවසරයෙන් ඇතුළුවීම, තතුබෑම්, අනිෂ්ට මෘදුකාංග සහ අනන්‍යතා සොරකම් වලට නිරාවරණය විය
+හැකිය. සයිබර් අපරාධ පුද්ගලයන්ට පමණක් නොව ව්‍යාපාර සහ රජයන්ට දැවැන්ත පාඩු ද ඇති කළ හැකිය.
+මෙය ඩිජිටල් පද්ධති මත දැඩි ලෙස යැපීමේ ප්‍රධාන අවාසියක් ඉස්මතු කරයි. මෙම අඩුපාඩුවට එරෙහිව සටන්
+කිරීම සඳහා නිසි සයිබර් ආරක්ෂණ පියවර අත්‍යවශ්‍ය වේ.
+
+Option / විකල්පය 3)
+ICT enables virtual classrooms, remote work, and collaborative tools like Google Docs or Zoom,
+especially useful during global crises like pandemics. It has widened access to education and teamwork
+regardless of location. As such, it doesn't reflect a disadvantage of ICT.
+වසංගත වැනි ගෝලීය අර්බුද වලදී විශේෂයෙන් ප්‍රයෝජනවත් වන අතථ්‍ය පන්ති කාමර, දුරස්ථ වැඩ සහ
+ගූගල් ඩොක්ස් හෝ සූම් වැනි සහයෝගී මෙවලම් (ICT) මඟින් සක්‍රීය කරයි. ස්ථානය නොසලකා අධ්‍යාපනයට
+සහ කණ්ඩායම් වැඩ සඳහා ප්‍රවේශය එය පුළුල් කර ඇත. එබැවින්, එය ICT හි අවාසියක් පිළිබිඹු නොකරයි.
+
+Option / විකල්පය 4)
+Automation through ICT systems reduces manual errors and improves efficiency. For example, banking
+software and industrial control systems operate with high precision. While automation can lead to job loss
+(which is a real disadvantage), the statement itself highlights error reduction, which is a positive effect of
+ICT.
+තොරතුරු හා සන්නිවේදන තාක්ෂණ පද්ධති හරහා ස්වයංක්‍රීයකරණය අතින් දෝෂ අඩු කරන අතර
+කාර්යක්ෂමතාව වැඩි දියුණු කරයි. උදාහරණයක් ලෙස, බැංකු මෘදුකාංග සහ කාර්මික පාලන පද්ධති ඉහළ
+නිරවද්‍යතාවයකින් ක්‍රියාත්මක වේ. ස්වයංක්‍රීයකරණය රැකියා අහිමිවීමට හේතු විය හැකි අතර (එය සැබෑ
+අවාසියකි), ප්‍රකාශයම දෝෂ අඩු කිරීම ඉස්මතු කරයි, එය ICT හි ධනාත්මක බලපෑමකි.
+
+-10-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්පය 5)
+ICT allows users to retrieve information instantly from databases, search engines, or communication
+platforms. This is a powerful advantage because it helps in faster decision-making, better learning, and
+immediate response. From news updates to academic resources, real-time information sharing is one of
+ICT’s most helpful features.
+තොරතුරු හා සන්නිවේදන තාක්ෂණය පරිශීලකයින්ට දත්ත සමුදායන්, සෙවුම් යන්ත්‍ර හෝ සන්නිවේදන වේදිකා
+වලින් ක්ෂණිකව තොරතුරු ලබා ගැනීමට ඉඩ සලසයි. මෙය වේගවත් තීරණ ගැනීම, වඩා හොඳ ඉගෙනීම සහ
+ක්ෂණික ප්‍රතිචාර දැක්වීම සඳහා උපකාරී වන බැවින් මෙය බලවත් වාසියකි. ප්‍රවෘත්ති යාවත්කාලීන කිරීම්වල
+සිට අධ්‍යයන සම්පත් දක්වා, තත්‍ය කාලීන තොරතුරු හුවමාරුව ICT හි වඩාත්ම ප්‍රයෝජනවත් විශේෂාංගවලින්
+එකකි.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+-11-
+RAVINDU BANDARANAYAKE
+#ictfromabc

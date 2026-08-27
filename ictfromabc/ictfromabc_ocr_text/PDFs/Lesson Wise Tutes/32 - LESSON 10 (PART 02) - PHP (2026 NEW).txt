@@ -1,8 +1,5 @@
 ictfromabc.com
 
-
-
-
                    I DID NOT DEVELOP THE
                       PHP WE KNOW TODAY.
                  DOZENS, IF NOT HUNDREDS
@@ -10,42 +7,34 @@ ictfromabc.com
                    PHP. I WAS SIMPLY THE
                         FIRST DEVELOPER.
 
-
                          -RASMUS LERDORF-
-ictfromabc.com
 
-
-
+ictfromabc.com
 
                                                 Contents
 
                  Introduction to PHP ………………………………………………………………………………..…………….…….          1
-                 How PHP works……………………………………………………………………………………………………...………. 3
+                 How PHP works…………………………………………………………………………………………………………………. 3
                  Setting up a virtual server…………………………………………………………………………………..…………. 5
-                 PHP syntax………………………………………………………………………………………..……………………………... 10
-                 PHP variables…………………………………………………………………………………………………………………... 11
+                 PHP syntax………………………………………………………………………………………..………………………………… 10
+                 PHP variables……………………………………………………………………………………………………………………… 11
                  PHP comments………………………….…………..………………………….…………..……………….…………..……. 12
                  PHP operators…………………….……………………………………………………..………………………….…………. 13
-                 var_dump() in PHP…...……………….……………………………………………………....…………………………         16
+                 var_dump() in PHP……………………….……………………………………………………………………………………         16
                  Data types in PHP………………………………….………..……………………………………..………………………… 17
-                 if-else conditions…………..……….…………………………………………………………………….…………............ 18
-                 Switch statement………………………………………………...……………..………………………….…………..……. 20
+                 if-else conditions…………..……….…………………………………………………………………….……………… 18
+                 Switch statement…………………………………………………………………..………………………….…………..……. 20
                  Loops in PHP………….………………………….……………………………………………………….…………………… 22
                  PHP functions……………………………………….………………………………………………………………………… 26
                  Variable scope……….………………………….………………………………………………….…………………………. 27
                  Commonly used built-in functions……………………….………………………………………….…………… 30
                  Handling HTML forms with PHP…………………….………………………………………………….…………… 34
                  Superglobal variables……….………………………………………….………………………….…………..………… 47
-                 Working with databases…………………………………………………………………………………..……..……... 51
-
-
-
+                 Working with databases…………………………………………………………………………………..……..………… 51
 
                                                      0
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Introduction to PHP                                       Later versions
           PHP ye¢kaùu
@@ -99,14 +88,9 @@ ictfromabc.com
                                                                     ld¾h idOkhla i|yd ^JIT& iïmdolh y÷kajd
                                                                     fok ,§'
 
-
-
-
                                                                 1
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Static webpages                                         Dynamic webpages
           iaÓ;sl fjí msgq                                         .;sl fjí msgq
@@ -116,7 +100,6 @@ ictfromabc.com
           iaÓ;sl fjí msgq ia:djr wka;¾.;hka fmkajhs'              .;sl fjí msgq mßYS,l wka;¾l%shd" leue;a;" fyda
           tAjd HTML iy iuyr wjia:d j,§ CSS iy                     fjk;a idOl u; mokïj fjkia úh yels
           JavaScript Ndú;fhka f.dvk.d we;'                        wka;¾.; ixo¾Yk lrhs'
-
 
           The content remains the same for every user             They are created using server-side scripting
           and doesn't change unless the web developer             languages like PHP, Ruby, Python, or Node.js,
@@ -128,7 +111,6 @@ ictfromabc.com
                                                                   .ekSug iy .nvd lsÍug fndfyda úg o;a;
                                                                   iuqodhka iuÕ wka;¾ l%shd lrhs'
 
-
            Feature              Static Webpages                 Dynamic Webpages
 
            Content              Fixed                           Changes based on user interaction
@@ -136,7 +118,6 @@ ictfromabc.com
 
            Generation           Pre-generated HTML              Generated with server-side scripts
            ks¾udKh              fmr-ckkh lrk ,o HTML            fiajdodhl w.%fhys NdId u.ska ckkh lr we;
-
 
            Complexity           Simple (HTML, CSS)              Complex (server-side languages, databases)
            ixlS¾K;ajh           ir,hs                           ixlS¾Khs ^fiajdodhl NdId" o;a; iuqodhka&
@@ -153,24 +134,14 @@ ictfromabc.com
 
                                 Wikipedia, portfolios           E-commerce, social media, Steaming-services
 
-
-
            Examples
 
-
-
-
                                                             2
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           How PHP works
           PHP l%shd lrk wdldrh
-
-
-
 
           Request Handling                                            Dynamic Content Generation
           b,a,Sï yeisrùu                                              .;sl wka;¾.; W;amdokh
@@ -214,13 +185,9 @@ ictfromabc.com
                                                                       ,nd fok w;r wjidk fjí msgqj mßYS,lhdg
                                                                       fmkajhs'
 
-
-
                                                                   3
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Client-side processing and Server-side                  Use cases of PHP
           processing                                              PHP ys Ndú;
@@ -284,13 +251,9 @@ ictfromabc.com
                                                                   úfYaIs; jHdmdßl wjYH;d i|yd iqÿiq fhÿï
                                                                   ks¾udKh lsÍu'
 
-
-
                                                               4
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Setting up a virtual server
           w;:H fiajdodhlhla ilid .ekSu
@@ -342,14 +305,9 @@ ictfromabc.com
           meñfKk b,a,Sïj,g ijka fok w;r PHP fla;
           ia:dkShj ilikq ,nhs'
 
-
-
-
                                                                 5
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           WAMP (Windows, Apache, MySQL, PHP)                      It serves as a robust platform for deploying and
                                                                   testing PHP applications locally or on Linux-
@@ -378,7 +336,6 @@ ictfromabc.com
                                                                   ia:dkSh    fjí     fiajdodhl      ieliqï     i|yd
                                                                   ixj¾Olhskag tAldnoaO ixrpl lÜg,hla imhhs'
 
-
                                                                   WAMP Software download Link:
 
                                                                   https://wampserver.aviatech
@@ -402,14 +359,9 @@ ictfromabc.com
           Apache" MySQL ^fyda MariaDB& iy PHP j,ska               https://www.apachefriends.org/
           iukaú; Linux moaO;s u; LAMP nyq,j Ndú;d fõ'             download.html
 
-
-
-
                                                               6
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Setting up WAMP                                       Click on the WAMP shortcut to launch the
           WAMP ia:dmkh                                          application.
@@ -423,9 +375,6 @@ ictfromabc.com
           Run the installer and follow the on-screen
           instructions to complete the installation.
 
-
-
-
           After installation, you should find a WAMP
           shortcut on your desktop or in your Start menu.       Open your web browser and type
           ia:dmkh lsÍfuka miq" Tfí desktop tfla fyda            http://localhost/ into the address bar.
@@ -437,14 +386,9 @@ ictfromabc.com
                                                                 lrñka WAMP fiajdodhlfha uq,a msgj   q oelsh yels
                                                                 fõ'
 
-
-
-
                                                             7
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Setting up XAMPP                                       Navigate to the htdocs directory inside your
           XAMPP ia:dmkh                                          XAMPP      installation   folder     (usually
@@ -468,7 +412,7 @@ ictfromabc.com
                                                                  <?php
           Complete the installation.                             echo "Hello, world!";
           ia:dmkh iïmQ¾K lrkak'
-                                                                 ?>
+
           Launch the XAMPP Control Panel from the start
                                                                  Launch your preferred web browser and
           menu or installation directory.
@@ -486,14 +430,9 @@ ictfromabc.com
                                                                  Tnf.a w;sßlaiqfõ o¾Ykh fjk "Hello, world!"
                                                                  kï m%;sodkh oelsh hq;=h'
 
-
-
-
                                                              8
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Once your set-up is done, you can start                 For example, create a file named index.php with
           writing PHP programs                                    the following content
@@ -536,20 +475,12 @@ ictfromabc.com
           IDE tlla&'                                              'php È.=jla iys; f.dkqjl HTML" CSS iy PHP
                                                                   fla; wvx.= úh yel'
 
-
-
-
           Write your PHP code in the editor.
           ixialdrlfha Tfí PHP fla;h ,shkak'
 
-
-
-
                                                               9
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           PHP syntax
           PHP code should be written in-between <?php and ?> tags
@@ -557,7 +488,6 @@ ictfromabc.com
 
           <?php
           // PHP code goes here
-          ?>
 
           PHP code is embedded within HTML using PHP tags.
           PHP fla; PHP Wiq,k Ndú;fhka HTML ;=< wka;¾.; lr we;'
@@ -568,10 +498,9 @@ ictfromabc.com
           <body>
           <?php
                  echo "Hello World!";
-          ?>
+
           </body>
           </html>
-
 
           Semicolon (;)                                         echo and print in PHP
           ;s;a fldudj                                           In PHP, both echo and print are used to
@@ -582,8 +511,6 @@ ictfromabc.com
           mß.Klhg oekqï §u ioyd;a kj Wmfoila
           wdrïN ùug hk nj oekqï §u ioyd;a semicolon
           tlla Ndú;d fõ'
-
-
 
                               echo command                       Print function
            Type               Language construct                 Language construct
@@ -599,14 +526,9 @@ ictfromabc.com
                                                                  wdmiq w.h fya;=fjka echo g jvd ;rula
                                                                  ukao.dó fõ
 
-
-
-
                                                            10
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           PHP variables                                            Variable naming rules
           PHP úp,H                                                 úp,H kdulrK kS;S
@@ -647,7 +569,7 @@ ictfromabc.com
           PHP yS§ Echo, echo, eCHo hkq tlu fõ'                        print "<br>";
                                                                       print "Perimeter is $p";
           Variables have a scope that defines where they
-                                                                   ?>
+
           can be accessed within the code.
           (Scopes will be discussed later)
                                                                    Area is 60
@@ -658,14 +580,9 @@ ictfromabc.com
                                                                    Area is 60
                                                                    Perimeter is 34
 
-
-
-
                                                               11
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           PHP comments                                                NOTE: Multi-line comments can be used to
           PHP újrK                                                    comment a part of a single-line comment.
@@ -676,7 +593,7 @@ ictfromabc.com
           ;ks fma<sfha újrK                                              $x = 10 + /* 50 */ + 20;
                                                                          echo $x; # 30
           •      Double Slash (//)
-                                                                      ?>
+
                  Everything on the right of // will be treated
                  as a comment.
                                                                       Here, /* 50 */ is a comment. Therefore, only
@@ -706,28 +623,22 @@ ictfromabc.com
           Multi-line comments
           fma<s lsysmhl újrK
 
-          •      Slash-Asterisk (/* ... */)
+          •      Slash-Asterisk (/* …… */)
                  Encloses a block of text, allowing for multi-
                  line comments.
                  fma<S lsysmhl újrK ioyd bv foñka mdGh
                  ixjD; lrhs'
 
                  <?php
-                 /*
+
                   This is a multi-line comment
                   that spans multiple lines.
-                 */
+
                  echo "Hello, World!";
-                 ?>
-
-
-
 
                                                                  12
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           PHP operators                                          Ex.
           PHP fufyhjk
@@ -748,7 +659,6 @@ ictfromabc.com
           fufyhjkhla f,i Ndú;d fkdfõ' tA fjkqjg th
           ;ks fma<sfha újrK we;=<;a lsÍug Ndú;d lrhs'
 
-
            Operators               Calculation        Description
            fufyhjk                 .Kkh lsÍï          úia;rh
            Addition                20 + 4 = 24        Adds two numbers.
@@ -764,9 +674,6 @@ ictfromabc.com
            Exponentiation          4 ** 2 = 16        Raises one number to the power of another.
            n,h ,nd .ekSu                              ixLHdjla ;j;a ixLHjl n,h f,i ,nd fohs'
 
-
-
-
           2. Assignment Operators                                Augmented Assignment
           wdfoaYl fufyhjk                                        jeä ÈhqKq lrk ,o wdfoaYh
           These operators are used to assign values to           Adds the right operand to the left operand and
@@ -780,21 +687,16 @@ ictfromabc.com
           on the left.
                                                                     echo $a; # 15
           jï mi we;s úp,Hhg ol=fKys w.h mjrhs'
-                                                                   ?>
+
           <?php
           $a = 10;                                               NOTE: Augmented assignment can be used for
           $b = $a;                                               other arithmetic operators.
                                                                  wfkl=;a wxl .‚;uh fufyhjk iuÕo jeä
           ?>                                                     ÈhqKq lrk ,o wdfoaYh Ndú;d l< yelsh'
 
-
-
-
                                                             13
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           3. Logical Operators                                   Ex.
           ;d¾lsl fufyhjk
@@ -805,8 +707,6 @@ ictfromabc.com
           fldkafoais iys; m%ldY tAldnoaO lsÍug fuu                  echo 10 > 5 || 5 < 4; # 1
           fufyhjk Ndú;d lrhs                                        echo !0; # 1
                                                                     echo 10 > 5 xor 5 < 4; # 1
-                                                                 ?>
-
 
            Operators         Calculation               Description
            fufyhjk           .Kkh lsÍï                 úia;rh
@@ -819,7 +719,6 @@ ictfromabc.com
            Xor (xor)         20 > 5 xor 10 < 4 = 1     Returns true if either operand is true, but not both.
                                                        operand foflka tlla i;H kï i;H ,nd fohs" kuq;a folu
                                                        fkdfõ'
-
 
           4. Comparison Operators
           ixikaokd;aul fufyhjk
@@ -839,16 +738,10 @@ ictfromabc.com
              echo 10 > 5; # 1
              echo 10 <= 10; # 1
              echo 10 >= 11;
-          ?>
-
-
-
 
                                                             14
-ictfromabc.com
 
-
-
+ictfromabc.com
 
            Operators                             Calculation          Description
            fufyhjk                               .Kkh lsÍï            úia;rh
@@ -885,14 +778,12 @@ ictfromabc.com
                                                                       jï mi we;s w.h ol=Kq mi we;s w.hg jvd
                                                                       jeä fyda iudkoehs mÍlaId lrhs'
 
-
-
           5. Increment/Decrement Operators                            <?php
           These operators are used to increment or                       $number = 5;
           decrement a variable’s value:                                  echo ++$number; // Outputs: 6
           úp,Hhl w.h jeä lsÍug fyda wvq lsÍug fuu                        echo $number;   // Outputs: 6
           fufyhjk Ndú;d lrhs
-                                                                      ?>
+
           Increment (++)
           Increases a variable's value by one.                        2. Post-increment
           úp,Hhl w.h tllska jeä lrhs'                                 In post-increment, the current value of the
@@ -907,14 +798,10 @@ ictfromabc.com
           ,nk w;r" miqj kj w.h m%ldYkfha Ndú;d fõ'
                                                                          echo $number++; // Outputs: 5
                                                                          echo $number;   // Outputs: 6
-                                                                      ?>
-
 
                                                                  15
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Decrement (--)                                            var_dump() in PHP
           Decreases a variable's value by one.                      The var_dump() function in PHP is used to
@@ -934,7 +821,7 @@ ictfromabc.com
           <?php
              $number = 5;                                           <?php
              echo --$number; // Outputs: 4                          var_dump($variable1, $variable2,
-             echo $number;   // Outputs: 4                          ...);
+             echo $number;   // Outputs: 4                          ……);
           ?>                                                        ?>
 
                                                                     Ex.
@@ -955,21 +842,15 @@ ictfromabc.com
              echo $number--; // Outputs: 5
                                                                        var_dump($boolean);
              echo $number;   // Outputs: 4
-                                                                    ?>
-          ?>
+
                                                                     int(42)
                                                                     string "Hello, world!" (length=13)
                                                                     float 3.14
                                                                     boolean true
 
-
-
-
                                                                16
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Data types in PHP                                     Array
           PHP j, o;a; j¾.                                       wdrdjka
@@ -984,7 +865,7 @@ ictfromabc.com
              $name = "John";
              var_dump($name);                                   1. Indexed arrays
                                                                 2. Associative arrays
-          ?>
+
                                                                 3. Multi-dimensional arrays
           string "John" (length=4)
                                                                 1. Indexed arrays
@@ -1000,8 +881,7 @@ ictfromabc.com
              $number = 42;
                                                                 var_dump($indexedArray);
              var_dump($number);
-                                                                ?>
-          ?>
+
                                                                 array (size=4)
           int 42                                                  0 => int 10
                                                                   1 => string 'apple' (length=5)
@@ -1025,18 +905,13 @@ ictfromabc.com
              $bool1 = true;                                       'c' => float 3.14
              $bool2 = false;                                      'd' => boolean true
              var_dump($bool1, $bool2);
-          ?>
 
           boolean true
           boolean false
 
-
-
                                                            17
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           3. Multi-dimensional arrays                        if-else conditions
           These are Arrays containing one or more            if-else fldkafoais
@@ -1050,10 +925,10 @@ ictfromabc.com
                                                              This control structure is fundamental for
            "letters" => array("a", "b", "c")
                                                              creating dynamic and responsive applications.
-          );
+
                                                              .;sl iy m%;spdrd;aul fhÿï ks¾udKh lsÍu
           var_dump($multiArray);                             i|yd fuu md,k jHqyh uQ,sl fõ'
-          ?>
+
                                                              if syntax
           array (size=2)
             'nums' =>                                        <?php
@@ -1071,19 +946,12 @@ ictfromabc.com
                                                              $age = 20;
                                                              if ($age >= 18) {
                                                                  echo "You are eligible to vote.";
-                                                             }
-                                                             ?>
 
                                                              You are eligible to vote.
 
-
-
-
                                                         18
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           if-else syntax                                        Nested If Statements
                                                                 If statements inside another if statement are
@@ -1097,9 +965,9 @@ ictfromabc.com
                                                                 <?php
                  condition is false */
                                                                 $age = 25;
-          }
+
                                                                 $hasLicense = true;
-          ?>
+
                                                                 if ($age >= 18) {
                                                                     if ($hasLicense == true) {
           Ex.
@@ -1111,8 +979,7 @@ ictfromabc.com
           } else {                                              You can drive the car.
               echo "You failed the exam.";
                                                                 if inside else
-          }
-          ?>
+
                                                                 <?php
                                                                 $marks = 45;
           You failed the exam.
@@ -1126,7 +993,7 @@ ictfromabc.com
                                                                     } else {
           <?php                                                         echo "You failed the exam.";
           $score = 85;                                              }
-                                                                }
+
           if ($score >= 90) {                                   ?>
               echo "Grade: A";
           } elseif ($score >= 80) {                             You failed the exam.
@@ -1135,19 +1002,12 @@ ictfromabc.com
               echo "Grade: C";
           } else {
               echo "Grade: F";
-          }
-          ?>
 
           Grade: B
 
-
-
-
                                                            19
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Shorthand If                                            Switch Statement
           The shorthand if-else statement in PHP is called        The switch statement in PHP is used to perform
@@ -1182,7 +1042,7 @@ ictfromabc.com
           $message = ($age >= 18) ? "You are                             case */
           an adult." : "You are a minor.";                        }
           echo $message;                                          ?>
-          ?>
+
                                                                   How It Works
           You are an adult.                                       th l%shd lrk wdldrh
 
@@ -1205,12 +1065,9 @@ ictfromabc.com
                                                                                kï" wod< fla; fldgi l%shd;aul
                                                                                fõ'
 
-
                                                              20
-ictfromabc.com
 
-
-
+ictfromabc.com
 
            break:     This keyword terminates the                Example with numbers.
                       case once it is executed. Without
@@ -1234,7 +1091,7 @@ ictfromabc.com
                       jk úl,am wjia:djls                                 echo "Number is not 1, 2,
                                                                           or 3";
           Ex.                                                    }
-                                                                 ?>
+
           <?php
           $day = "Wednesday";                                    Number is 2
                                                                  Example with Default Case
@@ -1269,21 +1126,15 @@ ictfromabc.com
                   break;
                                                                           blue, or green.";
               default:
-                                                                 }
+
                   echo "Invalid day.";
-                                                                 ?>
-          }
+
           ?>                                                     Color is not red, blue, or green.
           Today is Wednesday.
 
-
-
-
                                                             21
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Loops in PHP                                          While loop
           Loops are used to execute the same block of           The while loop executes a block of code as long
@@ -1317,7 +1168,7 @@ ictfromabc.com
           increment) {
               // code to be executed
                                                                 Ex.
-          }
+
           ?>                                                    <?php
                                                                 $x = 1;
           Ex.                                                   while ($x <= 5) {
@@ -1327,10 +1178,7 @@ ictfromabc.com
           for ($x = 0; $x <= 10; $x++) {
               echo "The number is: $x <br>";
                                                                       $x++;
-          }
-                                                                }
-          ?>
-                                                                ?>
+
           The number is: 0
           The number is: 1                                      The number is: 1
           The number is: 2                                      The number is: 2
@@ -1343,14 +1191,9 @@ ictfromabc.com
           The number is: 9
           The number is: 10
 
-
-
-
                                                            22
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Do-While Loop                                          Let’s consider a scenario where the condition
           The do-while loop will always execute the block        is false at the very beginning.
@@ -1383,7 +1226,7 @@ ictfromabc.com
                $x++;
           } while ($x <= 5);
                                                                  So, a do-while loop executes the instruction
-          ?>
+
                                                                  inside it at least one time.
                                                                  tneúka" do-while Æmhla wju jYfhka tla
           The number is: 1                                       jrlaj;a tys we;s Wmfoia l%shd;aul lrhs'
@@ -1411,14 +1254,9 @@ ictfromabc.com
                                  l%shd;aul lsÍu iïmQ¾Kfhkau             l%shd;aul úh hq;= úg
                                  fldkafoaish u; r|d mj;sk úg
 
-
-
-
                                                             23
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Foreach Loop                                               Associative Array Example:
           The foreach loop is used to loop through
@@ -1464,7 +1302,7 @@ ictfromabc.com
           foreach ($colors as $color) {                                  echo "<br>";
               echo "$color <br>";                                    }
           }                                                          ?>
-          ?>
+
                                                                      Outer Loop iteration 1
           red                                                        - Inner iteration 1
           green                                                      - Inner iteration 2
@@ -1480,13 +1318,9 @@ ictfromabc.com
                                                                      - Inner iteration 2
                                                                      - Inner iteration 3
 
-
-
                                                                 24
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Break                                     Continue
           Used to exit the loop immediately.        Used to skip the current iteration and proceed
@@ -1502,7 +1336,7 @@ ictfromabc.com
               echo "The number is: $x <br>";                continue;
           }                                             }
           ?>                                            echo "The number is: $x <br>";
-                                                    }
+
           The number is: 0                          ?>
           The number is: 1
           The number is: 2                          The number is: 0
@@ -1515,13 +1349,11 @@ ictfromabc.com
           for ($x = 0; $x < 10; $x++) {             Without continue statement
               if ($x == 5) {
                                                     <?php
-              }
+
                                                     for ($x = 0; $x < 7; $x++) {
               echo "The number is: $x <br>";
                                                         if ($x == 5) {
-          }
-                                                        }
-          ?>
+
                                                         echo "The number is: $x <br>";
           The number is: 0                          }
           The number is: 1                          ?>
@@ -1534,14 +1366,9 @@ ictfromabc.com
           The number is: 8                          The number is: 5
           The number is: 9                          The number is: 6
 
-
-
-
                                                25
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           PHP Functions                                         1. Functions with Only Parameters, No
           PHP Y%s;                                              Return Value
@@ -1562,7 +1389,7 @@ ictfromabc.com
                                                                 <?php
           Defining and Calling Functions                        function greet($name) {
           Y%s; ks¾jpkh lsÍu iy weu;Su                               echo "Hello, $name!";
-                                                                }
+
           Basic Function Definition
                                                                 greet("Alice");
           uQ,sl Y%;
@@ -1582,21 +1409,20 @@ ictfromabc.com
           function functionName() {
               // code to be executed
                                                                 Ex.
-          }
+
           ?>                                                    <?php
                                                                 function getGreeting() {
           Ex.                                                       return "Hello, world!";
-                                                                }
+
           <?php
                                                                 echo getGreeting();
           // Defining the function
           function greet() {                                    ?>
               echo "Hello, world!";
                                                                 Hello, world!
-          }
+
           // Calling the function
           greet();
-          ?>
 
           Hello, world!
 
@@ -1605,12 +1431,9 @@ ictfromabc.com
           mrdñ;s iy return w.h u; mokïj Y%;    s j¾.
           y;rlg ldKav l< yelsh'
 
-
                                                            26
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           3. Functions with Parameters and Return                Variable Scope
           Values                                                 úp,Hhl mrdih
@@ -1629,11 +1452,10 @@ ictfromabc.com
               return $a + $b;                                    Y%;
                                                                    s fhka msg; úp,Hhkag f.da,Sh m:hla we;s
                                                                  w;r meyeÈ,sj i|yka lr we;akï ñi Y%s; ;=<g
-          }
+
                                                                  m%fõY úh fkdyel' tAjd f.da,Sh úp,Hhka kï fõ'
           $result = add(3, 4);
           echo "Result is $result.";
-          ?>
 
           Result is 7.
 
@@ -1657,30 +1479,27 @@ ictfromabc.com
                                                                  $globalVar = "I'm a global variable";
               echo "Hello, world!";
                                                                  function testScope() {
-          }
+
                                                                  $localVar = "I'm a local variable";
           greet();
                                                                  echo $localVar; // Accessible
-          ?>
+
                                                                  echo "<br>";
                                                                  // echo $globalVar;
           Hello, world!
                                                                  // Error: Undefined variable
-                                                                 }
+
                                                                  testScope();
                                                                  echo $globalVar; // Accessible
                                                                  // echo $localVar;
                                                                  // Error: Undefined variable
-                                                                 ?>
 
                                                                  I'm a local variable
                                                                  I'm a global variable
 
                                                             27
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           The global Keyword                                       It allows functions and methods to access and
           global h;=re moh                                         modify global variables without explicitly using
@@ -1697,7 +1516,7 @@ ictfromabc.com
               echo $globalVar; // Accessible                       }
           }                                                        testGlobalAccess();
           testScope();                                             ?>
-          ?>
+
                                                                    I'm a global variable
           I'm a global variable
                                                                    In this example, the function
@@ -1722,7 +1541,7 @@ ictfromabc.com
           fkdyels Y%s; iy methods we;=¿j" fla;fha                      $GLOBALS['globalVar'] = "I've
           ´kEu ;ekl isg f.da,Sh úp,H fj; m%fõY ùug                     been modified!";
           ud¾.hla imhhs'
-                                                                   }
+
           NOTE: The keys in the $GLOBALS array are the             modifyGlobal();
           names of the global variables, and the values            echo $globalVar;
           are the contents of those variables.                     ?>
@@ -1730,14 +1549,9 @@ ictfromabc.com
           jk w;r tu keys j, w.hka hkq úp,Hj,                       I'm a global variable
           wka;¾.;h fõ'                                             I've been modified!
 
-
-
-
                                                               28
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Using $GLOBALS with Multiple Global                    In this example, the function testConflict
           Variables                                              demonstrates the distinction between a local
@@ -1756,7 +1570,7 @@ ictfromabc.com
           showGlobals();                                         Tng Y%;
                                                                        s mrdñ;s i|yd fmrksñ w.hka kshu l<
                                                                  yel'
-          ?>
+
                                                                  If a new argument for a parameter with a
           First variable
                                                                  default value is not provided during the
@@ -1778,7 +1592,7 @@ ictfromabc.com
           The $GLOBALS array helps prevent conflicts             greet();
           between local and global variables by providing        greet("Alice");
           a clear distinction and access mechanism.
-                                                                 ?>
+
           $GLOBALS wrdj meyeÈ,s fjkila iy m%fõY
           hdka;%Khla ,nd §fuka ia:dkSh iy f.da,Sh
           úp,Hhka w;r .eg¨ j<lajd .ekSug WmldÍ fõ'               Hello, Guest!
@@ -1789,21 +1603,15 @@ ictfromabc.com
               $var = "Local variable";
               echo $var; echo "<br>";
               echo $GLOBALS['var'];
-          }
+
           testConflict();
-          ?>
 
           Local variable
           Global variable
 
-
-
-
                                                             29
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Commonly used built-in functions                          Concatenation Assignment (.=)
                                                                     Appends the right string to the left string and
@@ -1832,7 +1640,7 @@ ictfromabc.com
           echo str_replace("Hello", "Hi",                           <?php
           $txt);                                                    $arr = array(1, 2, 3);
           ?>                                                        echo count($arr);
-                                                                    ?>
+
           Hi world!
                                                                     3
           substr()
@@ -1860,17 +1668,12 @@ ictfromabc.com
           $lastName = "Hamilton";
           $fullName = $firstName . $lastName;
           echo "Full Name is $fullName";
-          ?>
 
           Full Name is JohnHamilton
 
-
-
                                                                30
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           array_push()                                              rsort()
           Pushes one or more elements onto the end of an            Sorts arrays in descending order
@@ -1882,7 +1685,7 @@ ictfromabc.com
           $arr = array("apple", "banana");                          rsort($arr);
           array_push($arr, "orange", "grape");                      var_dump($arr);
           var_dump($arr);                                           ?>
-          ?>
+
                                                                     array (size=2)
           array (size=4)                                              0 => string 'banana' (length=6)
             0 => string 'apple' (length=5)                            1 => string 'apple' (length=5)
@@ -1899,9 +1702,9 @@ ictfromabc.com
           <?php
           $arr = array("a" => "apple",                              asort($arr);
           "b" => "banana");                                         var_dump($arr);
-                                                                    ?>
+
           var_dump(array_keys($arr));
-          ?>
+
                                                                     array (size=2)
                                                                       'a' => string 'apple' (length=5)
           array (size=2)                                              'b' => string 'banana' (length=6)
@@ -1925,21 +1728,15 @@ ictfromabc.com
                                                                     ksort($arr);
           var_dump($arr);
                                                                     var_dump($arr);
-          ?>
-                                                                    ?>
+
           array (size=2)
             0 => string 'apple' (length=5)                          array (size=2)
             1 => string 'banana' (length=6)                           'a' => string 'apple' (length=5)
                                                                       'b' => string 'banana' (length=6)
 
-
-
-
                                                                31
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           arsort()                                              rand()
           Sorts associative arrays in descending order,         Generates a random integer.
@@ -1953,14 +1750,14 @@ ictfromabc.com
           arsort($arr);
           var_dump($arr);                                       sqrt()
                                                                 Returns the square root of a number.
-          ?>
+
                                                                 ixLHdjl j¾.uQ,h ,nd fohs'
 
           array (size=2)                                        <?php
             'b' => string 'banana' (length=6)
                                                                 echo sqrt(16);
             'a' => string 'apple' (length=5)
-                                                                ?>
+
           krsort()
                                                                 4
           Sorts associative arrays in descending order,
@@ -1989,9 +1786,7 @@ ictfromabc.com
           <?php
                                                                     echo "Variable is not set";
              echo abs(-4.2);
-                                                                }
-          ?>
-                                                                ?>
+
           4.2
                                                                 Variable is set
 
@@ -2002,15 +1797,13 @@ ictfromabc.com
           <?php                                                 <?php
           echo round(3.6);                                      $var = "";
           ?>                                                    echo empty($var);
-                                                                ?>
+
           4
                                                                 1
 
                                                            32
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           print_r()                                                  Example
           Prints human-readable information about a
@@ -2044,12 +1837,12 @@ ictfromabc.com
           wrdjl uQ,djhj ;ks ;ka;=jlg iïnkaO lsÍug                        $count++;
           implode() Y%;
                       s h ^join()& f,io ye¢kafõ& Ndú;d fõ'               echo $count;
-                                                                     }
+
           Syntax
                                                                      counter();
           string implode(string $separator,                          counter();
           array $array)                                              counter();
-                                                                     ?>
+
           Example
                                                                      1
           <?php                                                      2
@@ -2058,7 +1851,7 @@ ictfromabc.com
                                                                      Nested Ternary Operators
           echo $string;
                                                                      You can nest ternary operators, but this can
-          ?>
+
                                                                      reduce readability.
                                                                      Ternary operators, nest l< yelsh" kuq;a fuh
           explode()                                                  lshùfï yelshdj wvq l< yel'
@@ -2077,10 +1870,8 @@ ictfromabc.com
                                                                      B
 
                                                                 33
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Handling HTML forms with PHP                            •    Consistent Data Entry
           PHP iu.ska HTML fmdaru yeisrùu                               ia:djr o;a; we;=<;a lsÍu
@@ -2149,10 +1940,8 @@ ictfromabc.com
           .nvd lsÍu j<lajhs'
 
                                                              34
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Basic Structure of an HTML Form                         2. <input> tag
           HTML fmdaruhl uQ,sl jHqyh                               The <input> element is the most widely used
@@ -2211,14 +2000,9 @@ ictfromabc.com
                  <!-- Form elements go here -->
           </form>
 
-
-
-
                                                              35
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           required                                                 Syntax
           Specifies that the input must be filled out
@@ -2278,14 +2062,9 @@ ictfromabc.com
                                                                    name="pwd">
                                                                    </pre> </form>
 
-
-
-
                                                               36
-ictfromabc.com
 
-
-
+ictfromabc.com
 
                                                                  It helps in organizing the form elements into
                                                                  logical sections, making the form easier to
@@ -2332,22 +2111,15 @@ ictfromabc.com
           <input type="submit" value="Submit">
           </pre> </form>
 
-
-
-
                                                             37
-ictfromabc.com
 
-
-
+ictfromabc.com
 
                                                                 4. Number (<input type="number">)
                                                legend           Used for numeric input, includes validation for
                                                                 numbers
                                                 fieldset        ixLHd;aul wdodkh i|yd Ndú; flfra" ixLHd
                                                                 i|yd j,x.= lsÍu we;=<;a fõ
-
-
 
                                     Label
 
@@ -2357,7 +2129,6 @@ ictfromabc.com
                                                                 Used for date input, provides a date picker.
                                                                 Èk wdodkh i|yd Ndú;d lrhs" Èk f;darkhla
                                                                 imhhs'
-
 
           Input Types
           wdodk j¾.
@@ -2371,7 +2142,6 @@ ictfromabc.com
           Used for single-line text input.
           ;ks fma<sfha fm< wdodkh i|yd Ndú;d fõ'
 
-
                                                                 6. Time (<input type="time">)
 
                                                                 Used for time input, provides a time picker.
@@ -2381,9 +2151,6 @@ ictfromabc.com
           uqrmo wdodkh i|yd Ndú;d lrhs" wkq,laIK
           iÕjhs'
 
-
-
-
           3. Email (<input type="email">)
 
           Used for email addresses, includes validation.
@@ -2391,14 +2158,9 @@ ictfromabc.com
                            s i|yd Ndú; flfra"
           j,x.=lrKh we;=<;a fõ'
 
-
-
-
                                                            38
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           7. Checkbox                                          How it is displayed
           (<input type="checkbox">)                            ksrEmKh jk wdldrh
@@ -2412,7 +2174,6 @@ ictfromabc.com
           they share the same name attribute
           iEu checkbox tllau tlu name Wm,laIKh
           fnod .;a;o tjd iajdëkj l%shd lrhs
-
 
           HTML code for the above page (<html>, <body> are not mentioned here)
           by; msgqj i|yd HTML fla;h
@@ -2441,17 +2202,10 @@ ictfromabc.com
           $preferences = $_POST['preferences'] ?? []; // $preferences is an array
           foreach ($preferences as $preference) {
               echo htmlspecialchars($preference) . "<br>";
-          }
-          ?>
-
-
-
 
                                                           39
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           8. Radio Buttons                                      How it is displayed
           (<input type="radio">)                                ksrEmKh jk wdldrh
@@ -2484,35 +2238,24 @@ ictfromabc.com
           The name attribute is set to gender, grouping the radio buttons together.
           Radio buttons tlg iuQy.; lrñka name Wm,laIKh gender f,ig ilid we;'
 
-
-
           Server-Side processing (PHP)
 
           <?php
           $gender = $_POST['gender'] ?? "Not selected"; // $gender contains the selected value
           echo "Selected gender: " . htmlspecialchars($gender);
-          ?>
 
           Only the selected value will be submitted and accessible.
           f;dard.;a w.h muKla submit jk w;r thg muKla m%fõY úh yelsh'
 
-
-
-
                                                            40
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           9. File (<input type="file">)                             13. Color (<input type="color">)
 
           Used for file uploads.                                    Used for color input, provides a color picker.
           f.dkq Wvq.; lsÍï i|yd Ndú;d fõ'                           j¾K wdodkh i|yd Ndú;d lrhs" j¾K f;dard
                                                                     .ekSula imhhs'
-
-
-
 
           10. Hidden (<input type="hidden">)
 
@@ -2533,8 +2276,6 @@ ictfromabc.com
                                                                     mrdihla ;=< ixLHd;aul wdodkh i|yd Ndú;d
                                                                     fõ" ia,hsvrhla imhhs'
 
-
-
           12. Reset (<input type="reset">)
 
           Used for resetting the form to its initial values.        15. URL (<input type="url">)
@@ -2543,14 +2284,9 @@ ictfromabc.com
                                                                     URL wdodkh i|yd Ndú;d lrhs" j,x.= lsÍu
                                                                     we;=<;a fõ'
 
-
-
-
                                                                41
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           5. <select> and <option> tags                             multiple
                                                                     Allows multiple selections if set. By default, only
@@ -2602,9 +2338,6 @@ ictfromabc.com
           my<g jefgk ,ehsia;=fõ fmfkk úl,am .Kk
           kshu lrhs'
 
-
-
-
           Example
 
           <form action="/submit_form" method="post">
@@ -2618,14 +2351,9 @@ ictfromabc.com
              </select>
           </form>
 
-
-
-
                                                                42
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           6. <textarea> tag                                      cols
                                                                  Defines the visible width of the text area by
@@ -2650,7 +2378,6 @@ ictfromabc.com
           fma<s lShla fmkaúh yelso hkak kshu lsÍfuka
           fm< m%foaYfha oDYHudk Wi ks¾jpkh lrhs'
 
-
           Example.
 
           <form action="submit.php" method="post">
@@ -2659,14 +2386,9 @@ ictfromabc.com
               <input type="submit" value="Submit">
           </form>
 
-
-
-
                                                             43
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Action attribute                                         POST Method
           Action Wm,laIKh                                          Data is sent in the body of the HTTP request,
@@ -2725,13 +2447,9 @@ ictfromabc.com
           tlu URL iuÕ kej; kej; b,a,Sï ^Wod' msgqj
           refresh lsÍu& u.ska tlu n,mEula we;s lrhs'
 
-
-
                                                               44
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Example (GET):
 
@@ -2749,9 +2467,6 @@ ictfromabc.com
           </body>
           </html>
 
-
-
-
           If the user enters "Alice" for the name and "alice@example.com" for the email, the URL will look like
           this upon submission:
           mßYS,lhd ku i|yd "Alice" iy úoHq;a ;emE, i|yd "alice@example.com" we;=¿ lrkafka kï" Submit
@@ -2759,19 +2474,11 @@ ictfromabc.com
 
           get method
 
-
-
-
           post method
 
-
-
-
                                                            45
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Comparison between GET and POST methods
           GET iy POST methods w;r ixikaokh
@@ -2829,14 +2536,9 @@ ictfromabc.com
 
            HTML Form Syntax                 method="GET"                       method="POST"
 
-
-
-
                                                            46
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Superglobal variables                                    Common Elements
           iqmsß f.da,Sh úp,Hh
@@ -2898,30 +2600,19 @@ ictfromabc.com
           wvx.= fõ' th fjí fiajdodhlh úiska mqrjKq                 ^process.php f.dkqfõ& f,i fjkia l< hq;=h'
           we;'                                                     wksl=;a ish,af,a lsisÿ fjkila fkdue;'
 
-
-
-
                                                               47
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           We can use the var_dump() to look what’s inside $_SERVER
           $_SERVER ;=< we;s foa ne,Sug wmg var_dump() Ndú;d l< yel
 
           <?php
               var_dump($_SERVER);
-          ?>
-
-
-
 
                                                      48
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Real world example 01:                                Imagine we need to collect the data that user
                                                                 entered into the form and display that data
@@ -2969,14 +2660,9 @@ ictfromabc.com
                                                                 mßYS,lhd úiska we;=<;a l< o;a; fmkaùug wmg
                                                                 yels úh hq;=h'
 
-
-
-
                                                            49
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           We have another file called process.php that is          Since $_GET is an associative array, the keys of
           responsible for collecting and displaying this           the key-value pairs are the values of the name
@@ -3010,22 +2696,14 @@ ictfromabc.com
                   echo "You have checked the agreed button";
               } else {
                   echo "You have not checked the agreed button";
-              };
-          ?>
-
 
           When the show data button is pressed, the user will be redirected to the process.php file and displayed as
           follows:
           o;a; show data fnd;a;ï tnQ úg" mßYS,lhd process.php f.dkqj fj; yrjd hjd my; mßÈ fmkajkq we;(
 
-
-
-
                                                               50
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Working with databases                                  Using these credentials, PHP establishes a
                                                                   connection to the database server.
@@ -3075,14 +2753,9 @@ ictfromabc.com
                                                                   fy<sorõ fkdlr mßYS,lhdg okajd th w,xldr
                                                                   f,i yeisrúh hq;=h'
 
-
-
-
                                                              51
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           2. Retrieving and Displaying Data                         The retrieved data can then be displayed on web
           o;a; ,nd .ekSu iy m%%o¾Ykh lsÍu                           pages, providing dynamic content based on the
@@ -3096,9 +2769,6 @@ ictfromabc.com
           SELECT úuiqï l%shd;aul lsÍu iy m%;sM, ,nd
           .ekSu fuhg we;=<;a fõ'
 
-
-
-
           Establishing database connection                          1.   Structured approach (procedural)
           o;a; iuqod iïnkaO;djh ia:dms; lsÍu                        2.   Object-Oriented Programming (OOP)
                                                                          approach.
@@ -3108,7 +2778,6 @@ ictfromabc.com
           PHP ys o;a; iuqod iïnkaO;djhla ia:dms; lsÍu
           i|yd uQ,sl m%fõYhka folla ;sfí'                           examples.
                                                                     fuu WodyrK i|yd wm MySQLi È.=j Ndú;d lruq
-
 
           1. Structured approach (procedural)
 
@@ -3123,11 +2792,10 @@ ictfromabc.com
           // Check connection
           if (!$conn) {
               die("Connection failed: " . mysqli_connect_error());
-          }
+
           echo "Connected successfully";
           //Close the connection
           mysqli_close($conn);
-          ?>
 
           Explanation                                               $username
                                                                     This is the username used to authenticate with the
@@ -3141,14 +2809,9 @@ ictfromabc.com
                      s h .nvd lrhs' fndfyda ia:dkSh ixj¾Ok
           mßirhka ;=<" fuh localhost fõ'
 
-
-
-
                                                                52
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           $password                                               3. Check Connection
           This is the password for the specified user. By
@@ -3195,14 +2858,9 @@ ictfromabc.com
           w.hla ,ndfok mysqli_connect() Y%s;fha
           m%;sM,h .nvd lsÍug fuu úÉ,Hh Ndú;d lrhs'
 
-
-
-
                                                              53
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           2. Object-Oriented Programming (OOP) approach.
 
@@ -3217,11 +2875,9 @@ ictfromabc.com
           // Check connection
           if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
-          }
+
           echo "Connected successfully";
           $conn->close();
-          ?>
-
 
           Explanation
                                                                    If the connection is successful, this object
@@ -3269,10 +2925,8 @@ ictfromabc.com
           orhs'                                                    fodaI m‚úvh wvx.= fõ'
 
                                                               54
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           2. Check Connection                                     $conn->connect_error
                                                                   This property provides the description of the
@@ -3315,14 +2969,9 @@ ictfromabc.com
                                               Y%;
                                                 s Ndú;d lrhs'                   Ndú;d lrhs'
 
-
-
-
                                                              55
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Real world example 02:
 
@@ -3373,15 +3022,10 @@ ictfromabc.com
                                                                        age INT,
                                                                        gender VARCHAR(10),
                                                                        agreement VARCHAR(10)
-                                                                   );
-
-
 
                                                               56
-ictfromabc.com
 
-
-
+ictfromabc.com
 
                                                                    mysqli_real_escape_string()
           When we collect data from users, there could
@@ -3418,7 +3062,7 @@ ictfromabc.com
           // Check connection
           if (!$conn) {
               die("Connection failed: " . mysqli_connect_error());
-          }
+
           // Collect and sanitize form data
           $uname = mysqli_real_escape_string($conn, $_POST['uname']);
           $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -3433,16 +3077,13 @@ ictfromabc.com
               echo "New record created successfully";
           } else {
               echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-          }
+
           // Close connection
           mysqli_close($conn);
-          ?>
 
                                                               57
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           This is how the database table will look like after inserting the data entered by the user
           mßYS,lhd wdodkh l< o;a; we;=<;a lsÍfuka miq o;a; iuqod j.=j fuf,i fmfkkq we;'
@@ -3468,7 +3109,7 @@ ictfromabc.com
           // Check connection
           if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
-          }
+
           // Collect and sanitize form data
           $uname = mysqli_real_escape_string($conn, $_POST['uname']);
           $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -3483,22 +3124,16 @@ ictfromabc.com
               echo "New record created successfully";
           } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
-          }
+
           // Close the connection
           $conn->close();
-          ?>
 
           OOP approach executes the SQL query using the query() method.
           OOP m%fõYh query() hk method tl Ndú;fhka SQL úuiqu l%shd;aul lrhs'
 
-
-
-
                                                              58
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Retrieving Data from an Existing Table
           mj;sk j.=jlska o;a; ,nd .ekSu
@@ -3542,14 +3177,9 @@ ictfromabc.com
           fuh MySQL o;a; iuqodh fj; úuiqu hjd
           m%;sM,h ,nd .kS'
 
-
-
-
                                                             59
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Real world example 03:
 
@@ -3569,7 +3199,7 @@ ictfromabc.com
           // Check connection
           if (!$conn) {
               die("Connection failed: " . mysqli_connect_error());
-          }
+
           // SQL query to fetch data
           $sql = "SELECT * FROM users";
           $result = mysqli_query($conn, $sql);
@@ -3583,22 +3213,16 @@ ictfromabc.com
               " - Age: " . $row["age"] .
               " - Gender: " . $row["gender"] .
               " - Agreement: " . $row["agreement"] . "<br>";
-          }
+
           } else {
               echo "0 results";
-          }
+
           // Close connection
           mysqli_close($conn);
-          ?>
-
-
-
 
                                                   60
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           OOP approach
 
@@ -3613,7 +3237,7 @@ ictfromabc.com
           // Check connection
           if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
-          }
+
           // SQL query to fetch data
           $sql = "SELECT * FROM users";
           $result = $conn->query($sql);
@@ -3627,22 +3251,16 @@ ictfromabc.com
                   " - Age: " . $row["age"] .
                   " - Gender: " . $row["gender"] .
                   " - Agreement: " . $row["agreement"] . "<br>";
-              }
+
           } else {
               echo "0 results";
-          }
+
           // Close connection
           $conn->close();
-          ?>
-
-
-
 
                                                   61
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Procedural Explanation                                      OOP Explanation
 
@@ -3712,10 +3330,8 @@ ictfromabc.com
                                                                       f,i ,nd fohs
 
                                                                  62
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Real world example 04:
 
@@ -3733,7 +3349,7 @@ ictfromabc.com
           // Check connection
           if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
-          }
+
           // SQL query to create table
           $sql = "CREATE TABLE employees (
               id INT AUTO_INCREMENT PRIMARY KEY,
@@ -3742,25 +3358,19 @@ ictfromabc.com
               email VARCHAR(100) NOT NULL,
               phone VARCHAR(20),
               hire_date DATE
-          )";
+
           // Execute the query
           if ($conn->query($sql) === TRUE) {
               echo "Table employees created successfully";
           } else {
               echo "Error creating table: " . $conn->error;
-          }
+
           // Close the connection
           $conn->close();
-          ?>
-
-
-
 
                                                   63
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Real world example 05:
 
@@ -3784,10 +3394,9 @@ ictfromabc.com
               echo "Record updated successfully";
           } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
-          }
+
           // Close connection
           $conn->close();
-          ?>
 
           Using alter table
           alter table Ndú;d lsÍu
@@ -3803,7 +3412,7 @@ ictfromabc.com
           // Check connection
           if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
-          }
+
           // SQL query to alter table
           $sql = "ALTER TABLE employees ADD salary DECIMAL(10,2)";
           // Execute the query
@@ -3813,13 +3422,10 @@ ictfromabc.com
               echo "Error altering table: " . $conn->error;}
           // Close connection
           $conn->close();
-          ?>
 
                                                     64
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Real world example 06:
 
@@ -3837,17 +3443,16 @@ ictfromabc.com
           // Check connection
           if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
-          }
+
           // SQL query to delete data
           $sql = "DELETE FROM employees WHERE id=3";
           if ($conn->query($sql) === TRUE) {
               echo "Record deleted successfully";
           } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
-          }
+
           // Close connection
           $conn->close();
-          ?>
 
           Real world example 07:
 
@@ -3878,13 +3483,9 @@ ictfromabc.com
                                                                  w;r" bkamiq tu o;a; fhdodf.k fmdarufha
                                                                  wdodk w.hka ilia lrkq ,nhs'
 
-
-
                                                             65
-ictfromabc.com
 
-
-
+ictfromabc.com
 
           Step-by-Step Example                             The form automatically shows:
           mshjfrka mshjr WodyrKh                           fmdaruh iajhxl%Shj fmkajkafka(
@@ -3900,7 +3501,6 @@ ictfromabc.com
           = $id";                                          form values dynamically.
           $result = mysqli_query($conn, $sql);             fmdaru lafIa;% mQ¾j msrùu fyda fmdaru w.hka
           $row = mysqli_fetch_assoc($result);              .;slj ieliSu f,I fuh ye¢kafjhs
-          ?>
 
           Now $row contains:
              • $row['name']
@@ -3922,8 +3522,4 @@ ictfromabc.com
               <input type="submit" value="Update">
           </form>
 
-
-
-
                                                       66
-

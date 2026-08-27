@@ -1,4 +1,4 @@
-﻿"""
+"""
 AI Guru Parent Portal & Remote Access API Router.
 =================================================
 
@@ -19,6 +19,7 @@ Endpoints:
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import time
@@ -33,6 +34,7 @@ from fastapi import (
     HTTPException,
     Query,
     Request,
+    WebSocket,
     status,
 )
 from pydantic import BaseModel, Field
@@ -375,7 +377,35 @@ async def save_telegram_config(req: TelegramConfigRequest):
         )
         await db.commit()
 
+    if req.enabled:
+        try:
+            from deeptutor.services.monitoring.notification_queue import start_notification_worker
+            from deeptutor.services.remote.telegram_command_listener import (
+                start_telegram_command_listener,
+            )
+
+            start_telegram_command_listener()
+            start_notification_worker()
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("Worker startup on telegram config save: %s", exc)
+
     _audit("telegram.config_saved", actor=req.parent_id or "default")
+    try:
+        from deeptutor.services.background import spawn_bg
+        from deeptutor.services.monitoring.notification_queue import (
+            flush_once,
+            start_notification_worker,
+        )
+        from deeptutor.services.remote.telegram_command_listener import (
+            start_telegram_command_listener,
+        )
+
+        start_notification_worker()
+        start_telegram_command_listener()
+        spawn_bg(flush_once(limit=5), name="tg-config-saved-flush")
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Background worker activation skipped on config save: %s", exc)
+
     return {"success": True, "message": "Telegram notifications configured."}
 
 
@@ -392,7 +422,7 @@ async def test_telegram_notification(parent_id: str = "default"):
         raise HTTPException(status_code=400, detail="Telegram not configured.")
 
     data = json.loads(row[0])
-    success = await TelegramNotifier.send_message(
+    success, err_detail = await TelegramNotifier.send_message_detailed(
         bot_token=data.get("bot_token"),
         chat_id=data.get("chat_id"),
         text=(
@@ -403,7 +433,10 @@ async def test_telegram_notification(parent_id: str = "default"):
     )
     _audit("telegram.test_sent", actor=parent_id, details={"success": success})
     if not success:
-        raise HTTPException(status_code=502, detail="Failed to deliver message via Telegram. Check Token and Chat ID.")
+        raise HTTPException(
+            status_code=502,
+            detail=err_detail or "Failed to deliver message via Telegram. Check Token and Chat ID.",
+        )
     return {"success": True, "message": "Test notification sent successfully."}
 
 
@@ -602,8 +635,31 @@ async def live_snapshot(
         not session_id
         or session_id not in _live_consent
         or session_id not in _active_monitoring_sessions
-        or session_id not in _live_frames
     ):
+        raise HTTPException(status_code=404, detail="No live frame available")
+
+    # System-camera sessions have no student-side uploads — serve the engine's
+    # raw frame directly while consent is on.
+    try:
+        from deeptutor.services.monitoring.system_monitor import get_system_monitor
+
+        sys_monitor = get_system_monitor(session_id)
+    except Exception:  # noqa: BLE001
+        sys_monitor = None
+
+    if sys_monitor is not None:
+        jpeg = sys_monitor.get_snapshot_jpeg()
+        if jpeg is not None:
+            _audit("live.snapshot_accessed", details={"session_id": session_id, "source": "system_camera"})
+            from fastapi import Response as _Response
+
+            return _Response(
+                content=jpeg,
+                media_type="image/jpeg",
+                headers={"Cache-Control": "no-store", "X-Frame-Timestamp": str(time.time())},
+            )
+
+    if session_id not in _live_frames:
         raise HTTPException(status_code=404, detail="No live frame available")
 
     # Pairing permission check (only when an explicit link exists).
@@ -631,6 +687,211 @@ async def live_snapshot(
         media_type="image/jpeg",
         headers={"Cache-Control": "no-store", "X-Frame-Timestamp": str(ts)},
     )
+
+
+@router.post("/live/start", dependencies=[Depends(require_parent)])
+async def parent_start_live_stream(
+    session_id: str = "current",
+) -> Dict[str, Any]:
+    """Parent-initiated live stream — forces consent without student toggle.
+
+    Also auto-starts the tunnel if not already active, and returns both
+    tunnel and LAN URLs so the parent can share or bookmark them.
+    """
+    from deeptutor.api.routers.monitoring import (
+        _active_monitoring_sessions,
+        _live_consent,
+    )
+
+    if session_id == "current":
+        active = list(_active_monitoring_sessions.keys())
+        if not active:
+            raise HTTPException(404, "No active study session")
+        session_id = active[0]
+
+    if session_id not in _active_monitoring_sessions:
+        raise HTTPException(404, "Session not found or not active")
+
+    # Force-enable live consent (parent authority)
+    _live_consent.add(session_id)
+
+    # Auto-start tunnel with failure isolation & timeout
+    tunnel_url = None
+    try:
+        if TunnelGateway.is_url_public():
+            tunnel_url = TunnelGateway.get_tunnel_url()
+        else:
+            result = await asyncio.wait_for(TunnelGateway.start_tunnel(), timeout=8.0)
+            if result.get("url_is_public"):
+                tunnel_url = result.get("url")
+    except asyncio.TimeoutError:
+        logger.info("Tunnel auto-start taking longer than 8s; continuing with LAN endpoint")
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Tunnel auto-start in parent_start_live_stream failed: %s", exc)
+
+    # LAN URL with fallback
+    try:
+        from deeptutor.services.setup import get_frontend_port
+        fe_port = get_frontend_port()
+    except Exception:  # noqa: BLE001
+        fe_port = 3782
+
+    try:
+        lan_ip = _lan_ip()
+    except Exception:  # noqa: BLE001
+        lan_ip = "127.0.0.1"
+
+    lan_url = f"http://{lan_ip}:{fe_port}/parent"
+    tunnel_portal = f"{tunnel_url}/parent" if tunnel_url else None
+
+    _audit("live.parent_initiated_start", details={
+        "session_id": session_id,
+        "tunnel_url": tunnel_url or "",
+    })
+    return {
+        "session_id": session_id,
+        "enabled": True,
+        "tunnel_url": tunnel_portal,
+        "lan_url": lan_url,
+    }
+
+
+@router.post("/live/stop", dependencies=[Depends(require_parent)])
+async def parent_stop_live_stream(
+    session_id: str = "current",
+) -> Dict[str, Any]:
+    """Parent stops live stream and clears in-memory frames."""
+    try:
+        from deeptutor.api.routers.monitoring import _live_consent, _live_frames
+
+        if session_id == "current":
+            _live_consent.clear()
+            _live_frames.clear()
+            _audit("live.parent_initiated_stop", details={"session_id": "all"})
+            return {"stopped": True}
+
+        _live_consent.discard(session_id)
+        _live_frames.pop(session_id, None)
+        _audit("live.parent_initiated_stop", details={"session_id": session_id})
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Error stopping live stream for %s: %s", session_id, exc)
+    return {"session_id": session_id, "stopped": True}
+
+
+@router.websocket("/live/stream")
+async def parent_live_ws_stream(
+    ws: WebSocket,
+    session_id: str = "current",
+):
+    """High-speed WebSocket live video stream for the parent dashboard.
+
+    Pushes JPEG frames as binary messages at up to ~5 fps while the
+    session is active and consent is on.  Falls back gracefully when
+    no frames are available (sends a JSON keep-alive ping every 2s).
+    """
+    import base64 as _b64
+
+    from starlette.websockets import WebSocketDisconnect
+
+    # Authenticate the parent via query-param token (WS can't use headers easily)
+    token = ws.query_params.get("token", "")
+    if not token:
+        token = ws.cookies.get("aiguru_parent_access", "")
+    try:
+        _parent = await JWTAuthService.verify_parent_access_token(token)
+    except Exception as exc:
+        logger.debug("Parent live stream WS auth rejected: %s", exc)
+        try:
+            await ws.close(code=4001, reason="Unauthorized")
+        except Exception:
+            pass
+        return
+
+    try:
+        await ws.accept()
+    except Exception:
+        return
+
+    try:
+        from deeptutor.api.routers.monitoring import (
+            _active_monitoring_sessions,
+            _live_consent,
+            _live_frames,
+        )
+    except Exception as exc:
+        try:
+            await ws.send_json({"type": "error", "message": f"Monitoring unavailable: {exc}"})
+            await ws.close()
+        except Exception:
+            pass
+        return
+
+    # Resolve session
+    if session_id == "current":
+        candidates = [s for s in _live_consent if s in _active_monitoring_sessions]
+        session_id = candidates[0] if candidates else ""
+
+    if not session_id:
+        try:
+            await ws.send_json({"type": "error", "message": "No active live session"})
+            await ws.close()
+        except Exception:
+            pass
+        return
+
+    # Force consent on (parent-initiated)
+    _live_consent.add(session_id)
+
+    last_ts = 0.0
+    try:
+        while True:
+            # Check session still active
+            if session_id not in _active_monitoring_sessions:
+                try:
+                    await ws.send_json({"type": "ended", "message": "Study session ended"})
+                except Exception:
+                    pass
+                break
+
+            # Try system camera direct frame first
+            jpeg_bytes = None
+            try:
+                from deeptutor.services.monitoring.system_monitor import get_system_monitor
+                sys_mon = get_system_monitor(session_id)
+                if sys_mon is not None:
+                    jpeg_bytes = sys_mon.get_snapshot_jpeg()
+            except Exception:
+                pass
+
+            if jpeg_bytes is not None:
+                await ws.send_bytes(jpeg_bytes)
+                last_ts = time.time()
+            elif session_id in _live_frames:
+                frame_b64, ts = _live_frames[session_id]
+                if ts > last_ts:
+                    try:
+                        await ws.send_bytes(_b64.b64decode(frame_b64))
+                        last_ts = ts
+                    except Exception:
+                        pass
+                else:
+                    await ws.send_json({"type": "keepalive", "ts": time.time()})
+            else:
+                await ws.send_json({"type": "waiting", "ts": time.time()})
+
+            await asyncio.sleep(0.2)
+
+    except WebSocketDisconnect:
+        logger.debug("Parent live stream WS disconnected normally")
+    except (ConnectionResetError, asyncio.CancelledError):
+        pass
+    except Exception as exc:
+        logger.debug("Parent live stream WS ended: %s", exc)
+    finally:
+        try:
+            await ws.close()
+        except Exception:
+            pass
 
 
 # ------------------------------- 5b. Supervision Rules

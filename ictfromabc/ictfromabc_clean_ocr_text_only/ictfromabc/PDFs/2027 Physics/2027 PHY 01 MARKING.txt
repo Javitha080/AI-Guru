@@ -1,0 +1,468 @@
+1. Which characteristic most fundamentally distinguishes Platform as a Service (PaaS) from Infrastructure
+as a Service (IaaS)?
+සේවාවක් ලෙස පසුතල (PaaS) සහ සේවාවක් ලෙස යටිතල පහසුකම් (IaaS) අතර වෙනස හඳුනා ගන්නේ
+කුමන ලක්ෂණයෙන්ද?
+
+1) PaaS includes physical networking hardware / PaaS හි භෞතික ජාලකරණ දෘඩාංග ඇතුළත් වේ
+2) IaaS manages software deployment environments.
+IaaS මෘදුකාංග යෙදවුම් පරිසරයන් කළමනාකරණය කරයි.
+3) PaaS abstracts server management from developers.
+PaaS සංවර්ධකයින්ගෙන් සේවාදායක කළමනාකරණය වියුක්ත කරයි
+
+4) IaaS restricts users to preconfigured runtimes
+IaaS මගින් පරිශීලකයන්ව පෙර වින්‍යාස කළ ධාවන වේලාවන්ට සීමා කරයි
+
+5) PaaS offers no scalability for application hosting
+PaaS යෙදුම් සත්කාරකත්වය සඳහා පරිමාණය කිරීමේ හැකියාවක් ලබා නොදේ
+
+Answer : 3)
+
+Explanation / පැහැදිලි කිරීම
+
+Option / විකල්පය 1
+Incorrect. Physical hardware is part of IaaS, not a defining trait of PaaS.
+වැරදියි. භෞතික දෘඩාංග යනු IaaS හි කොටසක් වන අතර PaaS හි නිර්වචන ලක්ෂණයක් නොවේ.
+
+Option / විකල්පය 2
+Incorrect. Software deployment environments are part of PaaS, not IaaS, which offers raw compute and
+storage.
+වැරදියි. මෘදුකාංග යෙදවුම් පරිසරයන් යනු raw ගණනය කිරීම් සහ ගබඩා කිරීම ලබා දෙන IaaS නොව
+PaaS හි කොටසකි.
+
+Option / විකල්පය 3
+Correct. PaaS removes the need for server-level management, allowing developers to focus on application
+logic while the platform handles provisioning and scaling.
+නිවැරදියි. PaaS සේවාදායක මට්ටමේ කළමනාකරණයේ අවශ්‍යතාවය ඉවත් කරයි, වේදිකාව ප්‍රතිපාදන සහ
+පරිමාණය හසුරුවන අතරතුර සංවර්ධකයින්ට යෙදුම් තර්කනය කෙරෙහි අවධානය යොමු කිරීමට ඉඩ සලසයි.
+
+Option / විකල්පය 5
+Incorrect. IaaS provides flexibility and does not restrict runtimes. That restriction is more common in SaaS
+environments.
+වැරදියි. IaaS නම්‍යශීලී බවක් ලබා දෙන අතර ධාවන වේලාවන් සීමා නොකරයි. එම සීමාව SaaS පරිසරවල
+බහුලව දක්නට ලැබේ.
+
+Option / විකල්පය 5
+Incorrect. PaaS platforms are inherently scalable and are designed to manage application hosting under
+fluctuating loads.
+වැරදියි. PaaS වේදිකා සහජයෙන්ම පරිමාණය කළ හැකි අතර උච්චාවචනය වන බර යටතේ යෙදුම්
+සත්කාරකත්වය කළමනාකරණය කිරීමට නිර්මාණය කර ඇත.
+
+RAVINDU BANDARANAYAKE
+2027 දවසට කොළයක් වැඩසටහන 01
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+The final answer is Option 3
+අවසාන පිළිතුර වන්නේ විකල්පය 3
+
+2. Which web hosting model provides each user with a fully isolated operating system instance while still
+sharing the same physical server?
+එකම භෞතික සේවාදායකය බෙදා ගනිමින් සෑම පරිශීලකයෙකුටම සම්පූර්ණයෙන්ම හුදකලා මෙහෙයුම් පද්ධති
+අවස්ථාවක් ලබා දෙන වෙබ් සත්කාරක ආකෘතිය කුමක්ද?
+
+1) Shared hosting / බෙදාගත් සත්කාරකත්වය
+2) Cloud hosting / වලාකුළු සත්කාරකත්වය
+3) Virtual Private Server hosting / අතථ්‍ය පුද්ගලික සේවාදායක සත්කාරකත්වය
+4) Dedicated server hosting / කැපවූ සේවාදායක සත්කාරකත්වය
+5) Reseller hosting / නැවත විකුණුම්කරු සත්කාරකත්වය
+
+Answer : 3)
+
+Explanation / පැහැදිලි කිරීම
+
+Option / විකල්පය 1
+Incorrect. Shared hosting involves multiple websites on the same OS instance, with minimal isolation
+between users.
+වැරදියි. බෙදාගත් සත්කාරකත්වය යනු එකම OS අවස්ථාවක වෙබ් අඩවි කිහිපයක් ඇතුළත් වන අතර,
+පරිශීලකයින් අතර අවම හුදකලාව ඇත.
+
+Option / විකල්පය 2
+Incorrect. Cloud hosting distributes resources across multiple servers but does not inherently guarantee
+an isolated OS per user.
+වැරදියි. වලාකුළු සත්කාරකත්වය බහු සේවාදායක හරහා සම්පත් බෙදා හරින නමුත් පරිශීලකයෙකුට හුදකලා
+OS එකක් සහජයෙන්ම සහතික නොකරයි.
+
+Option / විකල්පය 3
+Correct. VPS hosting uses virtualization to give each user an independent OS instance on a shared
+physical server, offering both flexibility and isolation.
+නිවැරදියි. VPS සත්කාරකත්වය සෑම පරිශීලකයෙකුටම බෙදාගත් භෞතික සේවාදායකයක ස්වාධීන OS
+අවස්ථාවක් ලබා දීම සඳහා අථත්‍යකරණය භාවිතා කරයි, නම්‍යශීලීභාවය සහ හුදකලාව යන දෙකම ලබා
+දෙයි
+
+Option / විකල්පය 4
+Incorrect. Dedicated hosting provides a full physical server to one user, not a shared physical
+environment with virtual separation.
+වැරදියි. කැපවූ සත්කාරකත්වය එක් පරිශීලකයෙකුට සම්පූර්ණ භෞතික සේවාදායකයක් සපයයි, අතථ්‍ය වෙන්
+කිරීමක් සහිත බෙදාගත් භෞතික පරිසරයක් නොවේ.
+
+Option / විකල්පය 5
+Incorrect. Reseller hosting is a business model built on shared hosting, where the reseller has limited
+control over the environment.
+වැරදියි. නැවත විකුණුම්කරු සත්කාරකත්වය යනු බෙදාගත් සත්කාරකත්වය මත ගොඩනගා ඇති ව්‍යාපාර
+ආකෘතියකි, එහිදී නැවත විකුණුම්කරුට පරිසරය කෙරෙහි සීමිත පාලනයක් ඇත.
+
+The final answer is Option 3
+අවසාන පිළිතුර වන්නේ විකල්පය 3
+
+-2-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+3. In an IaaS model, which of the following components is the consumer explicitly responsible for
+configuring and managing?
+IaaS ආකෘතියක, වින්‍යාස කිරීම සහ කළමනාකරණය කිරීම සඳහා පාරිභෝගිකයා පැහැදිලිවම වගකිව යුත්තේ
+පහත සඳහන් කුමන සංරචකයද?
+
+1) Hypervisor layer / හයිපර්වයිසර ස්ථරය
+2) Physical storage hardware / භෞතික ගබඩා දෘඩාංග
+3) Application runtime environment / යෙදුම් ධාවන කාල පරිසරය
+4) Data center networking infrastructure / දත්ත මධ්‍යස්ථාන ජාලකරණ යටිතල පහසුකම්
+5) Virtual machine instances and operating systems / අතථ්‍ය යන්ත්‍ර අවස්ථා සහ මෙහෙයුම් පද්ධති
+
+Answer : 5)
+
+Explanation / පැහැදිලි කිරීම
+
+Option / විකල්පය 1
+Incorrect. The hypervisor is managed by the cloud provider and abstracted away from the user.
+වැරදියි. හයිපර්වයිසර් වලාකුළු සැපයුම්කරු විසින් කළමනාකරණය කරනු ලබන අතර පරිශීලකයාගෙන්
+ඈත් කර ඇත.
+
+Option / විකල්පය 2
+Incorrect. Physical hardware, including disks and drives, is handled entirely by the provider.
+වැරදියි. තැටි සහ ධාවක ඇතුළු භෞතික දෘඩාංග සම්පූර්ණයෙන්ම සැපයුම්කරු විසින් හසුරුවනු ලැබේ.
+
+Option / විකල්පය 3
+Incorrect. Application runtimes are part of PaaS. In IaaS, users must install and configure them
+manually.
+වැරදියි. යෙදුම් ධාවන වේලාවන් PaaS හි කොටසකි. IaaS හි, පරිශීලකයින් ඒවා අතින් ස්ථාපනය කර
+වින්‍යාස කළ යුතුය.
+
+Option / විකල්පය 4
+Incorrect. Core networking (such as switches and physical routers) is controlled by the provider, though
+virtual networking may be exposed.
+වැරදියි. අථත්‍ය ජාලකරණය නිරාවරණය විය හැකි වුවද, මූලික ජාලකරණය (ස්විච සහ භෞතික රවුටර
+වැනි) සැපයුම්කරු විසින් පාලනය කරනු ලැබේ.
+
+Option / විකල්පය 5
+Correct. IaaS gives users full control over virtual machines and operating systems, allowing them to
+install, configure, and manage software, updates, and security.
+නිවැරදියි. IaaS පරිශීලකයින්ට අථත්‍ය යන්ත්‍ර සහ මෙහෙයුම් පද්ධති පිළිබඳ පූර්ණ පාලනය ලබා දෙන
+අතර, ඔවුන්ට මෘදුකාංග, යාවත්කාලීන කිරීම් සහ ආරක්ෂාව ස්ථාපනය කිරීමට, වින්‍යාස කිරීමට සහ
+කළමනාකරණය කිරීමට ඉඩ සලසයි.
+
+The final answer is Option 5
+අවසාන පිළිතුර වන්නේ විකල්පය 5
+-3-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+4. Which of the following inventions is most closely associated with the Mechanical Era of computing
+history?
+පරිගණක ඉතිහාසයේ යාන්ත්‍රික යුගය සමඟ වඩාත් සමීපව සම්බන්ධ වන්නේ පහත සඳහන් නව නිපැයුම්
+අතරින් කුමක්ද?
+
+1) The ENIAC
+2) The Abacus / ඇබකසය
+3) The Analytical Engine by Charles Babbage / චාල්ස් බැබේජ් විසින් නිර්මාණය කළ විශ්ලේෂණ එන්ජිම
+4) The Vacuum Tube / රික්තක නළය
+5) The Microprocessor / ක්ෂුද්‍ර සකසනය
+
+Answer : 3)
+
+Explanation / පැහැදිලි කිරීම
+
+Option / විකල්පය 1)
+Incorrect – The ENIAC was one of the first electronic general-purpose computers, built in the 1940s. It
+belongs to the Electronic Era, not the Mechanical Era. Though revolutionary, it came well after the time
+of mechanical computing machines.
+වැරදියි - ENIAC යනු 1940 ගණන්වල ඉදිකරන ලද පළමු ඉලෙක්ට්‍රොනික පොදු කාර්ය පරිගණක වලින්
+එකකි. එය අයත් වන්නේ යාන්ත්‍රික යුගයට නොව ඉලෙක්ට්‍රොනික යුගයට ය. විප්ලවීය වුවද, එය යාන්ත්‍රික
+පරිගණක යන්ත්‍ර කාලයෙන් පසුව බොහෝ කලකට පසුව පැමිණියේය.
+
+Option / විකල්පය 2)
+Incorrect – While the abacus is one of the earliest known computing devices, it belongs to the Ancient Era
+of computing history, not the Mechanical Era. The mechanical era refers to devices that use gears, levers,
+and moving parts for computation, which is more advanced than the simple bead-based abacus.
+වැරදියි - ඇබකසය පැරණිතම පරිගණක උපාංගවලින් එකක් වුවද, එය අයත් වන්නේ යාන්ත්‍රික යුගයට නොව
+පරිගණක ඉතිහාසයේ පුරාණ යුගයට ය. යාන්ත්‍රික යුගය යනු ගණනය කිරීම සඳහා ගියර්, ලීවර සහ චලනය
+වන කොටස් භාවිතා කරන උපාංග වන අතර එය සරල පබළු මත පදනම් වූ ඇබකසයට වඩා දියුණු ය.
+
+Option / විකල්පය 3)
+Correct – The Analytical Engine, proposed by Charles Babbage in the 1830s, is considered the first
+mechanical computer concept. It featured key elements like a control unit, arithmetic logic unit, and
+memory, making it a true symbol of the Mechanical Era. Although it was never completed in Babbage’s
+lifetime, it laid the foundation for modern computing principles.
+නිවැරදියි - 1830 ගණන්වල චාල්ස් බැබේජ් විසින් යෝජනා කරන ලද විශ්ලේෂණාත්මක එන්ජිම, පළමු යාන්ත්‍රික
+පරිගණක සංකල්පය ලෙස සැලකේ. එහි පාලන ඒකකයක්, අංක ගණීත තාර්කික ඒකකය සහ මතකය වැනි
+ප්‍රධාන අංග අඩංගු වූ අතර එය යාන්ත්‍රික යුගයේ සැබෑ සංකේතයක් බවට පත් කළේය. බැබේජ්ගේ ජීවිත
+කාලය තුළ එය කිසි විටෙකත් සම්පූර්ණ නොකළද, එය නවීන පරිගණක මූලධර්ම සඳහා අඩිතාලම දැමීය.
+
+Option / විකල්පය 4)
+Incorrect – Vacuum tubes were central to the first generation of electronic computers, starting in the 1940s.
+They marked the beginning of the Electronic Era, not the Mechanical Era. They replaced the gears and
+levers used in mechanical computing machines.
+වැරදියි - 1940 ගණන්වල සිට ඉලෙක්ට්‍රොනික පරිගණකවල පළමු පරම්පරාවේ කේන්ද්‍රීය වූයේ රික්ත නල ය.
+ඒවා යාන්ත්‍රික යුගයේ නොව ඉලෙක්ට්‍රොනික යුගයේ ආරම්භය සනිටුහන් කළේය. යාන්ත්‍රික පරිගණක යන්ත්‍රවල
+භාවිතා කරන ගියර් සහ ලීවර ඒවා ප්‍රතිස්ථාපනය කළේය.
+
+Option / විකල්පය 5)
+Incorrect – The microprocessor is a product of the Fourth Generation of computers, emerging in the 1970s.
+It enabled the development of personal computers and compact digital devices. This invention is far
+removed from the gear-driven mechanical devices of Babbage's era.
+වැරදියි - ක්ෂුද්‍ර සකසනය යනු 1970 ගණන්වල මතු වූ පරිගණකවල සිව්වන පරම්පරාවේ නිෂ්පාදනයකි. එය
+පුද්ගලික පරිගණක සහ සංයුක්ත ඩිජිටල් උපාංග සංවර්ධනය කිරීමට හැකියාව ලබා දුන්නේය. මෙම නව
+නිපැයුම බැබේජ්ගේ යුගයේ ගියර්-ධාවනය කරන ලද යාන්ත්‍රික උපාංගවලින් බොහෝ දුරස් ය.
+
+-4-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+The final answer is Option 3
+අවසාන පිළිතුර වන්නේ විකල්පය 3
+
+5. Which of the following best describes the difference between SaaS and PaaS?
+SaaS සහ PaaS අතර වෙනස පහත සඳහන් ඒවායින් වඩාත් හොඳින් විස්තර කරන්නේ කුමක්ද?
+
+1) SaaS provides virtual machines while PaaS provides storage services
+SaaS අථත්‍ය යන්ත්‍ර සපයන අතර PaaS ගබඩා සේවා සපයයි
+
+2) SaaS allows users to develop applications, whereas PaaS only allows application access.
+SaaS පරිශීලකයින්ට යෙදුම් සංවර්ධනය කිරීමට ඉඩ දෙන අතර PaaS යෙදුම් ප්‍රවේශය පමණක් ඉඩ දෙයි.
+
+3) SaaS delivers fully functional applications to end-users, while PaaS offers tools and platforms for
+developers to build and deploy applications.
+SaaS අවසාන පරිශීලකයින්ට පූර්ණ ක්‍රියාකාරී යෙදුම් ලබා දෙන අතර PaaS යෙදුම් ගොඩනැගීමට සහ
+යෙදවීමට සංවර්ධකයින් සඳහා මෙවලම් සහ වේදිකා ලබා දෙයි.
+
+4) SaaS is a type of private cloud, and PaaS is a type of public cloud.
+SaaS යනු පුද්ගලික වලාකුළු වර්ගයක් වන අතර PaaS යනු පොදු වලාකුළු වර්ගයකි.
+
+5) SaaS gives network-level control, while PaaS provides physical hardware access.
+SaaS ජාල මට්ටමේ පාලනයක් ලබා දෙන අතර PaaS භෞතික දෘඩාංග ප්‍රවේශය සපයයි.
+
+Answer : 3)
+
+Explanation / පැහැදිලි කිරීම
+
+Option / විකල්පය 1)
+Incorrect – This option mixes up the services. Virtual machines are more aligned with IaaS (Infrastructure
+as a Service), not SaaS. Storage services may be part of PaaS, but that’s not its main purpose. This answer
+confuses the primary functions of each service model.
+වැරදියි – මෙම විකල්පය සේවාවන් මිශ්‍ර කරයි. අථත්‍ය යන්ත්‍ර SaaS සමඟ නොව (IaaS සේවාවක් ලෙස යටිතල
+පහසුකම්) සමඟ වඩාත් පෙළගස්වා ඇත. ගබඩා සේවා PaaS හි කොටසක් විය හැකි නමුත් එය එහි ප්‍රධාන
+අරමුණ නොවේ. මෙම පිළිතුර එක් එක් සේවා ආකෘතියේ ප්‍රාථමික කාර්යයන් ව්‍යාකූල කරයි.
+
+Option / විකල්පය 2)
+Incorrect – This is the reverse of what happens. PaaS is the one designed for application development,
+while SaaS offers ready-to-use applications. This statement misrepresents the core roles of both services.
+වැරදියි – මෙය ඇත්ත වශයෙන්ම සිදුවන දෙයෙහි ප්‍රතිවිරුද්ධයයි. PaaS යනු යෙදුම් සංවර්ධනය සඳහා
+නිර්මාණය කර ඇති අතර SaaS භාවිතයට සූදානම් යෙදුම් පිරිනමයි. මෙම ප්‍රකාශය සේවා දෙකෙහිම මූලික
+භූමිකාවන් වැරදි ලෙස නිරූපණය කරයි.
+
+Option / විකල්පය 3)
+Correct – This is the best answer. SaaS examples include Gmail and Google Docs, where the user gets a
+finished product. PaaS, like Google App Engine or Heroku, provides an environment for developers to
+write and deploy code without managing infrastructure.
+නිවැරදියි – මෙය හොඳම පිළිතුරයි. SaaS උදාහරණ අතර Gmail සහ Google Docs ඇතුළත් වේ, එහිදී
+පරිශීලකයාට නිමි භාණ්ඩයක් ලැබේ. Google App Engine හෝ Heroku වැනි PaaS සංවර්ධකයින්ට යටිතල
+පහසුකම් කළමනාකරණය නොකර කේත ලිවීමට සහ යෙදවීමට පරිසරයක් සපයයි.
+
+Option / විකල්පය 4)
+Incorrect – Both SaaS and PaaS can be deployed in private, public, or hybrid clouds. They are not
+inherently limited to one type of cloud deployment model. This statement incorrectly defines them based
+on deployment method rather than service type.
+වැරදියි – SaaS සහ PaaS දෙකම පුද්ගලික, පොදු හෝ දෙමුහුන් වලාකුළු වල යෙදවිය හැක. ඒවා එක්
+වර්ගයක වලාකුළු යෙදවීමේ ආකෘතියකට ආවේණිකව සීමා නොවේ. මෙම ප්‍රකාශය සේවා වර්ගයට වඩා
+යෙදවීමේ ක්‍රමය මත පදනම්ව ඒවා වැරදි ලෙස අර්ථ දක්වයි.
+
+-5-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්පය 5)
+Incorrect – SaaS does not give network-level control; it hides infrastructure from the user. Similarly, PaaS
+abstracts physical hardware; it does not give direct hardware access. This option confuses the capabilities
+and abstraction levels of both models.
+වැරදියි – SaaS ජාල මට්ටමේ පාලනයක් ලබා නොදෙයි එය පරිශීලකයාගෙන් යටිතල පහසුකම් සඟවයි. ඒ හා
+සමානව, PaaS භෞතික දෘඩාංග සාරාංශ කරයි එය සෘජු දෘඩාංග ප්‍රවේශය ලබා නොදේ. මෙම විකල්පය
+ආකෘති දෙකෙහිම හැකියාවන් සහ වියුක්ත මට්ටම් ව්‍යාකූල කරයි.
+
+The final answer is Option 3
+අවසාන පිළිතුර වන්නේ විකල්පය 3
+
+6. Which of the following best describes the role of an Information System (IS) in an organization?
+සංවිධානයක තොරතුරු පද්ධතියක (IS) කාර්යභාරය පහත සඳහන් ඒවායින් වඩාත් හොඳින් විස්තර කරන්නේ
+කුමක්ද?
+
+1) It only stores raw data without processing it / එය සැකසීමෙන් තොරව අමු දත්ත පමණක් ගබඩා කරයි.
+2) It helps in the processing, storing, and communication of information to support decision-making.
+තීරණ ගැනීමට සහාය වීම සඳහා තොරතුරු සැකසීම, ගබඩා කිරීම සහ සන්නිවේදනය සඳහා එය උපකාරී
+වේ.
+
+3) It functions the same as the internet by providing websites and search engines.
+එය වෙබ් අඩවි සහ සෙවුම් යන්ත්‍ර සැපයීමෙන් අන්තර්ජාලය මෙන් ක්‍රියා කරයි.
+
+4) It is used only by IT departments and not accessible by other departments.
+එය IT දෙපාර්තමේන්තු විසින් පමණක් භාවිතා කරන අතර අනෙකුත් දෙපාර්තමේන්තු මගින් ප්‍රවේශ විය
+නොහැක.
+
+5) It is primarily used for artistic design and media production only.
+එය ප්‍රධාන වශයෙන් කලාත්මක නිර්මාණ සහ මාධ්‍ය නිෂ්පාදනය සඳහා පමණක් භාවිතා කරයි.
+
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම
+
+Option / විකල්පය 1)
+Incorrect – While data storage is a part of an information system, it also includes processing, analysis, and
+communication. Simply storing raw data without turning it into useful information is not enough for
+decision-making or organizational needs. This answer limits the true scope of IS.
+වැරදියි - දත්ත ගබඩා කිරීම තොරතුරු පද්ධතියක කොටසක් වුවද, එයට සැකසීම, විශ්ලේෂණය සහ
+සන්නිවේදනය ද ඇතුළත් වේ. අමු දත්ත ප්‍රයෝජනවත් තොරතුරු බවට පත් නොකර ගබඩා කිරීම තීරණ
+ගැනීමේ හෝ ආයතනික අවශ්‍යතා සඳහා ප්‍රමාණවත් නොවේ. මෙම පිළිතුර IS හි සැබෑ විෂය පථය සීමා කරයි.
+
+Option / විකල්පය 2)
+Correct – This definition covers the core functions of an Information System: collecting, processing,
+storing, and distributing information. It plays a critical role in helping businesses make informed decisions
+and operate efficiently. This answer reflects the comprehensive nature of IS in organizational settings.
+නිවැරදියි - මෙම නිර්වචනය තොරතුරු පද්ධතියක මූලික කාර්යයන් ආවරණය කරයි: තොරතුරු රැස් කිරීම,
+සැකසීම, ගබඩා කිරීම සහ බෙදා හැරීම. ව්‍යාපාර දැනුවත් තීරණ ගැනීමට සහ කාර්යක්ෂමව ක්‍රියාත්මක වීමට
+උපකාර කිරීමේදී එය තීරණාත්මක කාර්යභාරයක් ඉටු කරයි. මෙම පිළිතුර ආයතනික සැකසුම් තුළ IS හි පුළුල්
+ස්වභාවය පිළිබිඹු කරයි.
+
+Option / විකල්පය 3)
+Incorrect – The internet is a global network, not an information system in itself. IS may use the internet as
+a tool, but they are not the same. Information systems are more structured and internal to organizations,
+often customized for specific business needs.
+වැරදියි - අන්තර්ජාලය ගෝලීය ජාලයක් වන අතර එයම තොරතුරු පද්ධතියක් නොවේ. IS අන්තර්ජාලය
+මෙවලමක් ලෙස භාවිතා කළ හැකි නමුත් ඒවා සමාන නොවේ. තොරතුරු පද්ධති වඩාත් ව්‍යුහගත සහ
+සංවිධානවලට අභ්‍යන්තර වන අතර, බොහෝ විට නිශ්චිත ව්‍යාපාරික අවශ්‍යතා සඳහා අභිරුචිකරණය කර
+ඇත.
+
+-6-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Option / විකල්පය 4)
+Incorrect – Information Systems are designed for multiple users across departments, not just the IT team.
+For example, HR, finance, and marketing departments all rely on IS to carry out their operations. This
+statement wrongly limits IS to technical staff only.
+වැරදියි - තොරතුරු පද්ධති IT කණ්ඩායම පමණක් නොව දෙපාර්තමේන්තු හරහා බහු පරිශීලකයින් සඳහා
+නිර්මාණය කර ඇත. උදාහරණයක් ලෙස, මානව සම්පත්, මූල්‍ය සහ අලෙවිකරණ දෙපාර්තමේන්තු සියල්ලම
+ඔවුන්ගේ මෙහෙයුම් සිදු කිරීම සඳහා IS මත රඳා පවතී. මෙම ප්‍රකාශය වැරදි ලෙස IS තාක්ෂණික කාර්ය
+මණ්ඩලයට පමණක් සීමා කරයි.
+
+Option / විකල්පය 5)
+Incorrect – While creative tools may be supported by specific software, they are not the main role of an
+Information System. IS focuses more on business operations, management, data analysis, and
+communication processes. This answer confuses IS with graphic design or multimedia software.
+වැරදියි - නිර්මාණාත්මක මෙවලම් නිශ්චිත මෘදුකාංග මගින් සහාය විය හැකි වුවද, ඒවා තොරතුරු පද්ධතියක
+ප්‍රධාන කාර්යභාරය නොවේ. IS ව්‍යාපාර මෙහෙයුම්, කළමනාකරණය, දත්ත විශ්ලේෂණය සහ සන්නිවේදන
+ක්‍රියාවලීන් කෙරෙහි වැඩි අවධානයක් යොමු කරයි. මෙම පිළිතුර IS ග්‍රැෆික් නිර්මාණය හෝ බහුමාධ්‍ය මෘදුකාංග
+සමඟ පටලවා ගනී.
+
+The final answer is Option 2
+අවසාන පිළිතුර වන්නේ විකල්පය 2
+
+7. Which of the following best represents a computing tool or concept from the Pre-mechanical Era of
+computing?
+පහත සඳහන් ඒවායින් පූර්ව-යාන්ත්‍රික පරිගණක යුගයේ පරිගණක මෙවලමක් හෝ සංකල්පයක් වඩාත් හොඳින්
+නියෝජනය කරන්නේ කුමක්ද?
+1) Vacuum Tubes / රික්තක නල
+2) Abacus / ඇබකසය
+3) Transistors / ට්‍රාන්සිස්ටර
+4) Punch Cards / සිදුරුපත්
+5)  Analytical Engine / විශ්ලේෂණ එන්ජිම
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම
+
+Pre-mechanical Era / පූර්ව-යාන්ත්‍රික යුගය
+This era generally refers to the period before the widespread use of mechanical devices for calculation,
+often encompassing ancient times up to the early 17th century. Calculations were done manually or with
+very simple, non-mechanical aids.
+මෙම යුගය සාමාන්‍යයෙන් ගණනය කිරීම් සඳහා යාන්ත්‍රික උපාංග බහුලව භාවිතා වීමට පෙර කාල පරිච්ෙඡ්දයට
+යොමු වන අතර, බොහෝ විට පුරාණ කාලයන් 17 වන සියවසේ මුල් භාගය දක්වා ඇතුළත් වේ. ගණනය
+කිරීම් අතින් හෝ ඉතා සරල, යාන්ත්‍රික නොවන ආධාරක භාවිතයෙන් සිදු කරන ලදී.
+
+Abacus / ඇබකසය
+The abacus is an ancient counting tool that predates mechanical devices by thousands of years. It relies on
+human manipulation for calculation and doesn't involve any gears, levers, or other mechanical parts.
+ඇබකසය යනු යාන්ත්‍රික උපාංගවලට වසර දහස් ගණනකට පෙර පැවති පුරාණ ගණන් කිරීමේ මෙවලමකි. එය
+ගණනය කිරීම සඳහා මානව හැසිරවීම මත රඳා පවතින අතර කිසිදු ගියර්, ලීවර හෝ වෙනත් යාන්ත්‍රික
+කොටස් සම්බන්ධ නොවේ.
+
+Analytical Engine / විශ්ලේෂණාත්මක එන්ජිම
+A concept from the Mechanical Era (19th century).
+යාන්ත්‍රික යුගයේ 19 වන සියවස) සංකල්පයකි.
+
+Punch Cards / පන්ච් කාඩ්පත්
+While used with earlier mechanical looms, their prominent role in computing came with mechanical and
+electromechanical computers (19th and 20th centuries).
+පෙර යාන්ත්‍රික රෙදි වියන යන්ත්‍ර සමඟ භාවිතා කළද, පරිගණකකරණයේ ඒවායේ ප්‍රමුඛ කාර්යභාරය යාන්ත්‍රික
+සහ විද්‍යුත් යාන්ත්‍රික පරිගණක සමඟ (19 වන සහ 20 වන සියවස්) පැමිීණීයේය.
+-7-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Vacuum Tubes / රික්ත නල
+Key components of early electronic computers (mid-20th century).
+මුල් ඉලෙක්ට්‍රොනික පරිගණකවල ප්‍රධාන සංරචක (20 වන සියවසේ මැද භාගය).
+
+Transistors / ට්‍රාන්සිස්ටර
+Replaced vacuum tubes and ushered in the solid-state era of computing (mid-20th century onwards).
+රික්ත නල ප්‍රතිස්ථාපනය කර පරිගණකකරණයේ ඝන-තත්ව යුගය (20 වන සියවසේ මැද භාගයේ සිට) ආරම්භ
+විය.
+
+Therefore the correct answer is option 2)
+එබැවින් නිවැරදි පිළිතුර විකල්පය 2) වේ
+
+8. Which of the following devices was developed during the Mechanical Era of computing?
+පරිගණකවල යාන්ත්‍රික යුගයේදී සංවර්ධනය කරන ලද්දේ පහත සඳහන් උපාංගවලින් කුමක්ද?
+1) ENIAC
+2) Pascaline / පැස්කලිනය
+3) Integrated Circuit / අනුකලිත පරිපථය
+4) Scanner / සුපිරික්සකය
+5)  Microprocessor / ක්ෂුද්‍ර සකසනය
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම
+
+Pascaline / පැස්කලයින්
+Invented by Blaise Pascal in the 17th century, the Pascaline was a mechanical calculator. This falls
+squarely within the Mechanical Era of computing.
+17 වන සියවසේදී බ්ලේස් පැස්කල් විසින් සොයා ගන්නා ලද පැස්කලයින් යනු යාන්ත්‍රික ගණක යන්ත්‍රයකි.
+මෙය හරියටම යාන්ත්‍රික පරිගණක යුගයට අයත් වේ.
+
+ENIAC
+This was one of the first electronic general-purpose computers, developed in the 1940s, marking the
+beginning of the Electronic Era, not the Mechanical Era.
+මෙය 1940 ගණන්වල සංවර්ධනය කරන ලද පළමු ඉලෙක්ට්‍රොනික පොදු කාර්ය පරිගණක වලින් එකක් වන
+අතර එය යාන්ත්‍රික යුගයේ නොව ඉලෙක්ට්‍රොනික යුගයේ ආරම්භය සනිටුහන් කරයි.
+
+Integrated Circuit / ඒකාබද්ධ පරිපථය
+Developed in the late 1950s and 1960s, integrated circuits are the foundation of modern electronics and
+microprocessors. They belong to the Electronic Era.
+1950 ගණන්වල අගභාගයේ සහ 1960 ගණන්වල සංවර්ධනය කරන ලද ඒකාබද්ධ පරිපථ නවීන
+ඉලෙක්ට්‍රොනික උපකරණ සහ ක්ෂුද්‍ර සකසනයන්ගේ පදනම වේ. ඒවා ඉලෙක්ට්‍රොනික යුගයට අයත් වේ.
+
+Scanner / ස්කෑනරය
+While the concept of scanning has evolved, modern optical scanners are electronic devices developed
+much later than the Mechanical Era.
+ස්කෑන් කිරීමේ සංකල්පය පරිණාමය වී ඇති අතර, නවීන දෘශ්‍ය ස්කෑනර් යනු යාන්ත්‍රික යුගයට වඩා බොහෝ
+කලකට පසුව සංවර්ධනය කරන ලද ඉලෙක්ට්‍රොනික උපාංග වේ.
+
+Microprocessor / ක්ෂුද්‍ර සකසනය
+Invented in the early 1970s, microprocessors are highly integrated electronic circuits and are a
+cornerstone of the modern computing era.
+1970 ගණන්වල මුල් භාගයේදී සොයා ගන්නා ලද ක්ෂුද්‍ර සකසනයන් ඉතා ඒකාබද්ධ ඉලෙක්ට්‍රොනික පරිපථ
+වන අතර නූතන පරිගණක යුගයේ මුල් ගලකි.
+
+Therefore the correct answer is option 2)
+එබැවින් නිවැරදි පිළිතුර විකල්පය 2) වේ
+
+-8-
+RAVINDU BANDARANAYAKE
+#ictfromabc

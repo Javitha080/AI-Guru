@@ -733,18 +733,16 @@ Excel වඩාත්‌ සංකීරණ දත්ත ව්‍යුහය�
 තනි පත්‍ර පැතලි ගොනු ලෙස සැලකිය හැක.
 
 EX.
-[
-{
+
 "name": "John Doe",
 "age": 28,
 "email": "john@example.com"
 }s
-{
+
 "name": "Jane Smith",
 "age": 34,
 "email": "“jane@example.com"
-}
-]
+
 Log Files
 
 Text files that record events or activities
@@ -1100,8 +1098,7 @@ improves data integrity.
 EDD අදාළ වගු වලට බෙදීමෙන්‌, ප්‍රමතකරණය
 මගින්‌ අනුපිටපත්‌ කිරීම අඩු කරන අතර දත්ත
 අඛණ්ඩතාචව වැඩි දියුණු කරයි.
-
-ූ Members
+  Members
 
 _ | id (primary key)
 name (string)
@@ -1158,10 +1155,6 @@ class_name type_name
 type_id (foreign key)
 
 duration_mins (integer)
-
->
-
-.
 
 = Instructors
 
@@ -1315,8 +1308,6 @@ new ones or modifying existing ones.
 ව්‍යුත්පන්න කළ හැකි බවය,
 
 Object-Oriented Relational
-
-~~
 
 ය කක ~
 
@@ -1570,7 +1561,7 @@ perform specific functions.
 
 පද්ධතියක්‌ යනු පොදු අරමුණක්‌ සාක්ෂාත්‌ කර
 ගැනීම සඳහා හෝ නිශ්චිත කාර්යයන්‌ ටු කිරීම
-සඳහා එකට වැඩ කරන අන්තර්‌ සමිබන්ධිත
+සඳහා එකට වැඩ කරන අන්තර්‌ සම්බන්ධිත
 සංරචකවල සංච්ධිත කට්ටලයකි
 
 Environment
@@ -1615,7 +1606,7 @@ generate outputs (such as_ products,
 
 services, or results)
 
-පද්ධති ආදාන ලබාගෙන (සමිපත්‌, තොරතුරැ,
+පද්ධති ආදාන ලබාගෙන (සම්පත්‌, තොරතුරැ,
 හෝ බලශක්තිය වැනි), SO) ක්‍රියාවට නංවා,
 ප්‍රනිදානයන්‌ ජනනය කරයි (නිෂ්පාදන, සේවා, හෝ
 ප්‍රතිඵල වැනි)
@@ -1717,8 +1708,7 @@ e A Place (Park, Restaurant, School,
 Hospital)
 ස්ථානයක්‌ (උද්‍යානය, ආපන GOO, පාසල,
 රෝහල)
-
-ේ A Thing (Bicycle, Furniture, Appliance)
+  A Thing (Bicycle, Furniture, Appliance)
 දෙයක්‌ (බයිසිකලය, ගෘහ භාණ්ඩ,
 උපකරණ),
 
@@ -1796,13 +1786,13 @@ Price
 5. Entities can be related to each other
 
 through relationships.
-MMBO සම්බන්ධතා හරහා එකිනෙකාට සමිබන්ධ
+MMBO සම්බන්ධතා හරහා එකිනෙකාට සම්බන්ධ
 විය හැක.
 
 6. Some entities cannot exist without being
 
 related to other entities
-සමහර MMBO වෙනත්‌ භූතාරිථයකට සමිබන්ධ
+සමහර MMBO වෙනත්‌ භූතාරිථයකට සම්බන්ධ
 GME පැවතිය නොහැක
 
 7. A system will not work properly without
@@ -1993,8 +1983,6 @@ MDIGOGS සරල උපලක්ෂණ GO
 
 Student
 
-\
-
 Composite attributes
 සංයුක්ත උපලක්ෂණ
 
@@ -2030,7 +2018,7 @@ illustrating their relationship.
 සංයුක්ත උපලක්ෂණයේ නම සමඟ ඉලලේබල්‌ කර
 ඇති විශාල ඕවලාකාරයකින්‌ වන අතර, TOO
 සම්බන්ධ සදම උප ගුණාංග සඳහාම කුඩා
-ඕවලාකාර, විශාල ඕවලාකාරයට සමිබන්ධ කර
+ඕවලාකාර, විශාල ඕවලාකාරයට සම්බන්ධ කර
 නිරූපණය කරනු ලැබේ
 
 Example
@@ -2096,8 +2084,6 @@ attributes of the entity Student
 භූතාරිථයේ චික්‌ අගයක්‌ සහිත උපලක්ෂණය GS
 
 Student
-
-\
 
 Multi valued attributes
 අගයන්‌ කිහිපයක්‌ සහිත උපලක්ෂණ
@@ -2407,7 +2393,7 @@ association between two or more entities.
 
 භුතාර්ථ-සම්බන්ධතා (ER) රෑප සටහනක aH
 සම්බන්ධතාවයක්‌ භූතාරිථ දෙකක්‌ හෝ වැඩි
-ගණනක්‌ අතර අන්තරකියා හෝ සමිබන්ධය
+ගණනක්‌ අතර අන්තරකියා හෝ සම්බන්ධය
 නියෝජනය කරයි.
 
 Relationships are usually represented by a
@@ -2549,7 +2535,7 @@ with exactly one instance of another entity.
 
 චක චක (1:1) සම්බන්ධතාවයක්‌ යනු das
 භූතාරිීථයක තනි අවස්ථාවක්‌ හරියටම ඉවනත්‌
-භූතාරිථයක එක්‌ අවස්ථාවක්‌ සමඟ සමිබන්ධ 5
+භූතාරිථයක එක්‌ අවස්ථාවක්‌ සමඟ සම්බන්ධ 5
 ඇති බවයි.
 
 It is also possible for an instance of one
@@ -2575,7 +2561,7 @@ without women and women without men.
 පිරිමින්‌ සහ පිරිමින්‌ නොමැතිව කාන්තාචන්‌ සිටිය
 හැකිය
 
-~~~ ්‌ /
+~~~ ‌ /
 
 1 1
 Man ඇලි Woman
@@ -2650,7 +2636,7 @@ entity.
 
 එක්‌ භූුතාරිථයක Atm කිහිපයක්‌ තවත්‌
 
-භුතාරිථයක චාර්තා කිහිපයක්‌ සමඟ සමිබන්ධ වූ
+භුතාරිථයක චාර්තා කිහිපයක්‌ සමඟ සම්බන්ධ වූ
 විට බහු බහු සම්බන්ධතාවක්‌ ඇතිවේ.
 
 In අ many-to-many relationship, both
@@ -2762,7 +2748,7 @@ relationship. It connects instances of two
 different entities.
 
 වඩාත්ම පොදළු ආකාරයේ සම්බන්ධතා වර්ගය
-මෙයයි. එය භූතාරිථ දෙකක අවස්ථා සමිබන්ධ
+මෙයයි. එය භූතාරිථ දෙකක අවස්ථා සම්බන්ධ
 කරයි.
 
 Example:
@@ -3011,7 +2997,7 @@ Strong Entity: LibraryMember
 A library card cannot exist without being
 
 associated with a library member.
-පුස්තකාල සාමාපිකයෙකු සමඟ සමිබන්ධ නොවී
+පුස්තකාල සාමාපිකයෙකු සමඟ සම්බන්ධ නොවී
 පුස්තකාල කාඩිපතක්‌ පැවතිය නොහැක.
 
 The card might be identified by a
@@ -3113,7 +3099,7 @@ associated with a customer.
 පාරිභෝගිකයයකු සමඟ සම්බන්ධ emd
 ඇණවුමක්‌ පැවතිය නොහැක
 
-දව... order
+දව…… order
 
 Customer
 
@@ -3429,7 +3415,7 @@ specialization.
 උප පංතිය සහ සුපිරි පංතිය යන පද
 
 සාමාන්‍යකරණය සහ ව්ශේෂීකරණය පිළිබඳ
-සංකල්පවලට සමිබන්ධ GH.
+සංකල්පවලට සම්බන්ධ GH.
 
 Subclass
 උප පංතිය
@@ -3440,7 +3426,7 @@ more general entity.
 
 උප පංතියක්‌ යනු වඩාත්‌ පොදු භූතාරිතයකින්‌
 
-ගුණාංග සහ සමිබන්ධතා උරැම කර ගන්නා
+ගුණාංග සහ සම්බන්ධතා උරැම කර ගන්නා
 විශේෂිත භූතාරිතයකි.
 
 It represents the derived class.
@@ -3714,7 +3700,7 @@ The new table will contain a foreign key
 linking back to the original entity and a
 column for the multivalued attribute.
 
-DO වගුචේ OS වගුව GHD ආපසු සමිබන්ධ
+DO වගුචේ OS වගුව GHD ආපසු සම්බන්ධ
 කරන ආගන්තුක යතුරක්‌ සහ අගයන්‌ කිහිපයක්‌
 සහිත උපලක්ෂණය සඳහා තීරැවක්‌ අඩංගු GH.
 
@@ -3848,7 +3834,7 @@ Woman
 WNIC | name | DOB
 
 2. One to many relationship
-ඒක බහු සමිබන්ධතා වගු බවට හැරවීම
+ඒක බහු සම්බන්ධතා වගු බවට හැරවීම
 
 Create two separate tables for each entity.
 එක්‌ එක්‌ භූතාර්තය සඳහා වෙන චෙනම OQ
@@ -3927,7 +3913,7 @@ created by using both primary keys of the
 two tables as foreign keys.
 
 වගු දෙකේ ප්‍රාථමික යතුරු දෙකම ආගන්තුක
-යතුරැ GOS භාවිත කිරීමෙන්‌ ලවනම සමිබන්ධතා
+යතුරැ GOS භාවිත කිරීමෙන්‌ ලවනම සම්බන්ධතා
 වගුචක්‌ සෑදිය හැක.
 
 This avoids data duplication.
@@ -3996,7 +3982,7 @@ mentor within the same table.
 සේවකයෙකු වන උපදේශකයෙකු සිටිය හැක.
 
 2. One to many relationship
-ඒක බහු සමිබන්ධතා වගු බවට හැරවීම
+ඒක බහු සම්බන්ධතා වගු බවට හැරවීම
 
 Create the entity table with all the instances
 
@@ -4008,14 +3994,11 @@ Add a self-referencing foreign key which
 allows multiple instances into the same
 
 table to represent the relationship.
-සම්බන්ධතාවය නිරෑපනය කිරීමට එකම වගුවෙහි
+සම්බන්ධතාවය නිරූපණය කිරීමට එකම වගුවෙහි
 අවස්ථා කිහිපයකට ඉඬඩෙ දෙන ස්වයං-යොමු සහිත
 ආගන්තුක යතුරක්‌ චක්‌ කරන්න.
 
-;
-|
 Employee Manages
-|
 
 God A
 
@@ -4052,9 +4035,7 @@ junction table.
 AS සම්බන්ධතා වගුව සඳහා සංයුක්ත ප්‍රාථමික
 යතුරක්‌ ද සාදයි.
 
-x
 Employee Manages
-|
 
 n
 Cate) රත
@@ -4148,7 +4129,6 @@ linked via foreign keys.
 භූථාර්ත වගු වලට හෝ ආගන්තුක යතුරැ හරහා
 සම්බන්ධ කර ඇති සම්බන්ධතා වගුවට යෙදිය
 
-= ~
 යං &
 
 1
@@ -4955,7 +4935,7 @@ data.
 
 ප්‍රමතකරණය සම්බන්ධිත නොචන දත්ත චෙනස්‌
 
-වගු වලට චෙන්‌ කරයි. මෙය වැදගත්‌ සමිබන්ධ
+වගු වලට චෙන්‌ කරයි. මෙය වැදගත්‌ සම්බන්ධ
 EDD අහම්බෙන්‌ මකා දැමීම වළක්වයි.
 
 Functional Dependencies (FD)
@@ -4971,7 +4951,7 @@ relation (table).
 කාථරයබද්ධ පරායත්තනාවක්‌ යනු
 සම්බන්ධතාවයක (OGD) ගුණාංග දෙකක්‌ (හෝ
 ගුණාංග කට්ටලයක්‌) අතර සමිභාධකයක්‌ විස්තර
-කරන සමිබන්ධතා දත්ත සමුදා awed මූලික
+කරන සම්බන්ධතා දත්ත සමුදා awed මූලික
 සංකල්පයකි.
 
 It establishes a relationship where the value
@@ -5136,11 +5116,6 @@ EX.
 
 — | | | /
 C studentiD TeacherlD | StudentName SDOB TeacherName | TeacherGender
-»
-
-।
-
-।
 
 Composite key
 
@@ -5463,7 +5438,7 @@ value.
 
 Solution 2
 
-SID | Name | Sub1 50102 |...
+SID | Name | Sub1 50102 |……
 
 101 | Akon | Maths | Null Null
 102 | Bkon | Maths | ICT Null
@@ -5516,7 +5491,7 @@ entire composite primary key, not just a
 subset of it.
 
 යතුරු-නොවන උපලක්ෂණ ප්‍රාථමික යතුරේ උප
-කුලකයක්‌ මත නොව සමිපූර්ණ සංයුක්ත ප්‍රාථම්ක
+කුලකයක්‌ මත නොව සම්පූර්ණ සංයුක්ත ප්‍රාථම්ක
 යතුර මත රඳා පැවතිය යුතුය.
 
 (This rule only applies to tables with

@@ -13,9 +13,9 @@ Guarantees instant recovery to PRESENT upon face re-detection.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import enum
 import logging
-from dataclasses import dataclass, field
 from typing import List, Optional
 
 logger = logging.getLogger(__name__)

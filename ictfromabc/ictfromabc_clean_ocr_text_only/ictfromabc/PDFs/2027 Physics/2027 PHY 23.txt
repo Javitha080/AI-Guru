@@ -1,0 +1,141 @@
+1. In 1’s complement representation, which of the following statements is TRUE about negative binary
+numbers? 1 හි අනුපූරක නිරූපණයෙහි, සෘණ ද්විමය සංඛ්‍යා පිළිබඳ පහත සඳහන් කුමන ප්‍රකාශය සත්‍ය ද?
+
+1) They are obtained by adding 1 to every bit of the positive number
+  ධන අංකයේ සෑම බිටුවකටම 1ක් එකතු කිරීමෙන් ඒවා ලබා ගණි
+
+2) They are obtained by inverting all bits of the positive number
+  ධන අංකයේ සියලුම බිටු පෙරළීමෙන් ඒවා ලබා ගනී
+
+3) They are obtained by subtracting 1 from every bit of the positive number
+     ධන අංකයේ සෑම බිට් එකකින්ම 1ක් අඩු කිරීමෙන් ඒවා ලබා ගනී
+
+4) They are represented using two extra sign bits
+  අමතර සලකුණු බිටු දෙකක් භාවිතයෙන් ඒවා නිරූපණය කෙරේ
+
+5) They always end with a 1
+    ඒවා සෑම විටම 1කින් අවසන් වේ
+
+2. Perform 1’s complement addition:
+1හි අනුපූරක එකතු කිරීම සිදු කරන්න:
+
+101110 + 011011
+
+1) 001001          2) 000101        3) 001010       4) 100010        5) 010000
+
+3. Which statement is TRUE about representing negative numbers in 2’s complement?
+2 හි අනුපූරකයේ සෘණ සංඛ්‍යා නිරූපණය කිරීම සම්බන්ධයෙන් සත්‍ය ප්‍රකාශය කුමක්ද?
+
+1) We invert all bits of the number  අපි අංකයේ සියලුම බිටු පෙරළන්නෙමු.
+
+2) We invert all bits and then add 1 to the result.
+  අපි සියලු බිටු ප්රතිලෝම කර පසුව ප්‍රතිඵලයට 1ක් එකතු කරන්නෙමු.
+
+3) We subtract 1 from the inverted bits of the number.
+  අපි අංකයේ ප්‍රතිලෝම බිටු වලින් 1ක් අඩු කරන්නෙමු.
+
+4) We invert only the most significant bit (MSB).
+  අපි උපරීම වෙසෙසි බිටුව (MSB) පමණක් පෙරළන්නෙමු.
+
+5) We add 2 to the positive number.
+  අපි ධන සංඛ්‍යාවට 2ක් එකතු කරමු.
+
+4. In 8-bit 2’s complement, which of the following is TRUE?
+බිටු අටෙහි 2 හි අනුපූරකයේ, පහත සඳහන් දේවලින් සත්‍ය වන්නේ කුමක්ද?
+
+N₁ = 11110101
+N₂ = 00001011
+
+        Which statement is correct / කුමන ප්‍රකාශය නිවැරදිද?
+
+1) N₁ > N₂
+2) N₁ < N₂
+3) N₁ = N₂
+4) Both represent positive numbers  දෙකම ධන සංඛ්‍යා නියෝජනය කරයි
+5) Both represent negative numbers  දෙකම සෘණ සංඛ්‍යා නියෝජනය කරයි
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 23
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+5. Perform the addition using 8-bit 2’s complement
+ බිටු අටෙහි 2 හි අනුපූරකය භාවිතයෙන් එකතු කිරීම සිදු කරන්න:
+
+N1 = 25, N2 = -12
+
+What is the result
+ප්‍රතිඵලය කුමක්ද?
+
+1) 00001101        2) 00010001      3) 00001111      4) 11110101      5) 11110011
+
+6. 002768.00751
+The maximum significant digit and the least significant digit of the above decimal conversion
+respectively,
+ඉහත සදහන් දශමය සංඛ්‍යාවේ වැඩිම වෙසෙසි බිටුව හා අඩුම වෙසෙසි බිටුව පිළිවෙලින්,
+
+1) 0,0                     2) 2,1                   3) 2,7                   4) 8,1                   5) 8,7
+
+7. What is the 2’s complement of the eight bits of -20?
+-20 හි බිටු අටෙහි දෙවන අනුපූරකය(2’s complement) කුමක්ද?
+
+1) 000100102          2) 001010102       3) 111011002       4) 000101112      5) 000101002
+
+8. What is the one's complement of decimal -12 ?
+ දශම -12 හි එකෙහි අනුපූරකය කුමක්ද?
+
+1) 000011002
+2) 111100112
+3) 001100112
+4) 111101002
+5) 111100002
+
+9. The ages of a father and a son are 2C16 and 10002 years, respectively. In how many years will the father be
+4 times as old as his son?
+පියෙකුගේ සහ පුතෙකුගේ වයස පිළිවෙලින් අවුරුදු 2C16 සහ 10002 කි. අවුරුදු කීයකින් පියාගේ වයස
+ඔහුගේ පුතා මෙන් 4 ගුණයක් වනු ඇත් ද?
+1) 1                      2) 2                    3) 4                     4) 4                     5) 5
+
+10. What is the 2’s complement representation of -54?
+-54 හි දෙකෙහි අනුපූරක නියෝජනය වනුයේ කුමක්ද?
+
+ 1) 001001012
+2) 100110012
+3) 110010102
+4) 111000112
+5) 110010012
+
+Answers:
+
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+1.
+2
+2.
+1
+3.
+2
+4.
+2
+5
+1
+6
+2
+7
+3
+8.
+2
+9.
+4
+10.
+3
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-

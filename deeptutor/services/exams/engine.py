@@ -33,7 +33,17 @@ _TYPE_ORDER = {"choice": 0, "concept": 1, "fill_in_blank": 2, "short_answer": 3,
                "written": 4, "coding": 5}
 _ESSAY_TYPES = ("short_answer", "written", "coding")
 
-_OPTION_BLOCK_RE = re.compile(r"(?:^|(?<=\s))\(?([A-Ea-e])[\)\].](?:\s+)")
+_OPTION_BLOCK_RE = re.compile(r"(?:^|\s)(?:\(([A-Ea-e])\)|([A-Ea-e])[\)\].])(?:\s+)")
+_NUMERIC_OPTION_RE = re.compile(r"(?:^|\s)(?:\(([1-5])\)|([1-5])\))(?:\s+)")
+_SINHALA_OPTION_RE = re.compile(r"(?:^|\s)(?:\(([අආඇඈඉ])\)|([අආඇඈඉ])\))(?:\s+)")
+_NUM_TO_LETTER = {"1": "A", "2": "B", "3": "C", "4": "D", "5": "E"}
+_LETTER_TO_NUM = {"A": "1", "B": "2", "C": "3", "D": "4", "E": "5"}
+_SINHALA_MAP = {"අ": "A", "ආ": "B", "ඇ": "C", "ඈ": "D", "ඉ": "E"}
+# The extractor occasionally fuses the NEXT question's stem onto the tail of
+# the last option ("E) All of the above 2. Which of the following…"). A true
+# decimal never has whitespace after the dot, so requiring "\d+. +text" is a
+# safe next-question marker.
+_FUSED_QUESTION_RE = re.compile(r"\s+\d{1,2}\.\s+\S")
 
 
 @dataclass
@@ -46,6 +56,8 @@ class ExamQuestion:
     marks: float = 1.0
     reference_answer: Optional[str] = None
     explanation: Optional[str] = None
+    section: str = "mcq"
+    section_number: int = 1
 
     def to_dict(self, *, include_answers: bool = False) -> Dict[str, Any]:
         d = {
@@ -72,11 +84,12 @@ class ExamPaper:
     essay_duration_seconds: Optional[int] = None
     status: str = "created"
     student_id: str = "student-primary"
-    created_at: float = field(default_factory=time.time)
+    created_at: float = field(default_factory=lambda: time.time())
     started_at: Optional[float] = None
     ends_at: Optional[float] = None
     submitted_at: Optional[float] = None
-
+    graded_at: Optional[float] = None
+    total_score: Optional[float] = None
     @property
     def total_marks(self) -> float:
         return round(sum(q.marks for q in self.questions), 2)
@@ -90,23 +103,9 @@ class ExamPaper:
             "essay_count": essay,
         }
 
-    def to_json(self) -> str:
-        payload = asdict(self)
-        return json.dumps(payload)
-
-    @classmethod
-    def from_json(cls, raw: str) -> "ExamPaper":
-        data = json.loads(raw)
-        questions = [ExamQuestion(**q) for q in data.pop("questions", [])]
-        # Tolerate stored extras (bank_meta, cached totals) that are not
-        # constructor fields — only real fields are forwarded.
-        known = {f.name for f in dataclass_fields(cls)}
-        kwargs = {k: v for k, v in data.items() if k in known}
-        return cls(questions=questions, **kwargs)
-
     def public_dict(self, *, include_answers: bool = False) -> Dict[str, Any]:
         """Serialized paper for API responses."""
-        ordered = sorted(self.questions, key=lambda q: (_TYPE_ORDER.get(q.question_type, 9), q.number))
+        ordered = self.order_questions()
         section_boundary = next((i for i, q in enumerate(ordered) if q.question_type not in AUTO_GRADABLE), len(ordered))
         out_questions = []
         for idx, q in enumerate(ordered):
@@ -130,33 +129,135 @@ class ExamPaper:
             "section_boundary": section_boundary,
         }
 
+    def to_dict(self) -> Dict[str, Any]:
+        d = asdict(self)
+        d["mcq_count"] = sum(1 for q in self.questions if q.question_type in MCQ_TYPES)
+        d["essay_count"] = sum(1 for q in self.questions if q.question_type in _ESSAY_TYPES)
+        d["question_count"] = len(self.questions)
+        return d
+
+    def to_json(self) -> str:
+        return json.dumps(self.to_dict(), ensure_ascii=False)
+
+    @classmethod
+    def from_json(cls, raw: str) -> "ExamPaper":
+        data = json.loads(raw)
+        questions = [ExamQuestion(**q) for q in data.pop("questions", [])]
+        known = {f.name for f in dataclass_fields(cls)}
+        kwargs = {k: v for k, v in data.items() if k in known}
+        return cls(questions=questions, **kwargs)
+
+    def order_questions(self) -> List[ExamQuestion]:
+        """Order questions: choice/concept first (Paper 1), written/coding after."""
+        return sorted(self.questions, key=lambda q: (_TYPE_ORDER.get(q.question_type, 99), q.number))
+
+    def reindex_sections(self) -> None:
+        """Assign section labels and 1-based section_number to each question in-place."""
+        mcq_seq, essay_seq = 1, 1
+        for q in self.order_questions():
+            if q.question_type in MCQ_TYPES or q.question_type in ("concept", "fill_in_blank"):
+                q.section = "mcq"
+                q.section_number = mcq_seq
+                mcq_seq += 1
+            else:
+                q.section = "essay"
+                q.section_number = essay_seq
+                essay_seq += 1
+
+    def to_client_view(self) -> Dict[str, Any]:
+        """Client-safe view: answers and explanations hidden; section numbers stamped."""
+        ordered = self.order_questions()
+        mcq_seq, essay_seq = 1, 1
+        client_questions: List[Dict[str, Any]] = []
+        section_boundary = 0
+        for q in ordered:
+            is_mcq = q.question_type in MCQ_TYPES or q.question_type in ("concept", "fill_in_blank")
+            sec = "mcq" if is_mcq else "essay"
+            sec_num = mcq_seq if is_mcq else essay_seq
+            if is_mcq:
+                mcq_seq += 1
+                section_boundary += 1
+            else:
+                essay_seq += 1
+            client_questions.append({
+                "id": q.id,
+                "number": q.number,
+                "question_type": q.question_type,
+                "text": q.text,
+                "options": q.options,
+                "marks": q.marks,
+                "section": sec,
+                "section_number": sec_num,
+            })
+        return {
+            "exam_id": self.exam_id,
+            "title": self.title,
+            "status": self.status,
+            "total_marks": self.total_marks,
+            "question_count": len(self.questions),
+            "mcq_count": sum(1 for q in self.questions if q.question_type in MCQ_TYPES),
+            "essay_count": sum(1 for q in self.questions if q.question_type in _ESSAY_TYPES),
+            "mcq_duration_seconds": self.mcq_duration_seconds,
+            "ends_at": self.ends_at,
+            "questions": client_questions,
+            "section_boundary": section_boundary,
+        }
+
 
 # --------------------------------------------------------------- option split
 
 def split_options(text: str) -> Tuple[str, Optional[Dict[str, str]]]:
-    """Split a merged stem like ``What is 2+2? A) 3 B) 4`` into stem + options.
+    """Split a merged stem like ``What is 2+2? A) 3 B) 4`` or ``(1) 3 (2) 4`` into stem + options.
+
+    Supports:
+    - Letter options (A-E): ``A)``, ``(A)``, ``A.``
+    - Numeric options (1-5): ``(1)``, ``1)``
+    - Sinhala letter options (අ-ඉ): ``(අ)``, ``අ)``
 
     Returns ``(stem, options_or_None)``. Never raises.
     """
     try:
+        # Check standard A-E letter options
         matches = list(_OPTION_BLOCK_RE.finditer(text))
-        # Require a well-formed option block: starts at 'A' with at least 3 options
-        # (typical MCQ) to avoid matching stray lettered fragments in prose.
-        if len(matches) >= 2 and matches[0].group(1).upper() == "A":
-            stem = text[: matches[0].start()].strip()
-            options: Dict[str, str] = {}
-            for i, m in enumerate(matches):
-                key = m.group(1).upper()
-                start = m.end()
-                end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
-                value = text[start:end].strip().rstrip(";")
-                if value:
-                    options[key] = value
-            if stem and len(options) >= 2:
-                return stem, options
+        if len(matches) >= 2 and (matches[0].group(1) or matches[0].group(2) or "").upper() == "A":
+            return _extract_from_matches(text, matches, key_map=lambda k: k.upper())
+
+        # Check numeric (1)-(5) options (A/L 5 options or O/L 4 options)
+        num_matches = list(_NUMERIC_OPTION_RE.finditer(text))
+        if len(num_matches) >= 2 and (num_matches[0].group(1) or num_matches[0].group(2) or "") == "1":
+            return _extract_from_matches(text, num_matches, key_map=lambda k: _NUM_TO_LETTER.get(k, k))
+
+        # Check Sinhala letter (අ)-(ඉ) options
+        si_matches = list(_SINHALA_OPTION_RE.finditer(text))
+        if len(si_matches) >= 2 and (si_matches[0].group(1) or si_matches[0].group(2) or "") == "අ":
+            return _extract_from_matches(text, si_matches, key_map=lambda k: _SINHALA_MAP.get(k, k))
+
         return text.strip(), None
     except Exception:  # noqa: BLE001 - defensive: never fail extraction on format quirks
         return text.strip(), None
+
+
+def _extract_from_matches(
+    text: str,
+    matches: List[re.Match],
+    key_map: Any,
+) -> Tuple[str, Optional[Dict[str, str]]]:
+    stem = text[: matches[0].start()].strip()
+    options: Dict[str, str] = {}
+    for i, m in enumerate(matches):
+        raw_key = m.group(1) or m.group(2)
+        key = key_map(raw_key)
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        value = text[start:end].strip().rstrip(";")
+        fused = _FUSED_QUESTION_RE.search(value)
+        if fused:
+            value = value[: fused.start()].strip().rstrip(";")
+        if value:
+            options[key] = value
+    if stem and len(options) >= 2:
+        return stem, options
+    return text.strip(), None
 
 
 # ------------------------------------------------------------------ conversion
@@ -212,8 +313,8 @@ def templates_to_paper(
 
 # -------------------------------------------------------------------- grading
 
-_TRUE_WORDS = {"true", "t", "yes", "y", "correct", "✓"}
-_FALSE_WORDS = {"false", "f", "no", "n", "incorrect", "✗"}
+_TRUE_WORDS = {"true", "t", "yes", "y", "correct", "✓", "සත්‍ය", "හරි"}
+_FALSE_WORDS = {"false", "f", "no", "n", "incorrect", "✗", "අසත්‍ය", "වැරදි"}
 
 
 def _coerce_bool(value: str) -> Optional[bool]:
@@ -226,28 +327,43 @@ def _coerce_bool(value: str) -> Optional[bool]:
 
 
 def grade_mcq(question: ExamQuestion, *, option_key: str = "", answer_text: str = "") -> bool:
-    """Deterministic grading mirroring QuizViewer.isAnswerCorrect semantics."""
+    """Deterministic grading mirroring QuizViewer.isAnswerCorrect semantics with bilingual/numeric support."""
     qtype = question.question_type
     expected = (question.reference_answer or "").strip()
 
     if qtype == "choice":
         if not expected:
             return False
-        # Expected may be a bare key ("B") or the literal option text.
+        
+        # Normalize expected (e.g. "(3)" -> "3" -> "C", "B" -> "B")
+        exp_clean = expected.strip("().,[]- ")
+        exp_letter = _NUM_TO_LETTER.get(exp_clean, exp_clean.upper())
+
+        # Normalize user answer
+        usr_clean = (option_key or answer_text or "").strip().strip("().,[]- ")
+        usr_letter = _NUM_TO_LETTER.get(usr_clean, usr_clean.upper())
+
         if question.options:
-            expected_key = expected.upper() if expected.upper() in {k.upper() for k in question.options} else None
-            if expected_key is None:
-                for k, v in question.options.items():
-                    if v.strip().lower() == expected.lower():
-                        expected_key = k.upper()
-                        break
-            user_key = (option_key or "").strip().upper()
-            if expected_key is not None:
-                return bool(user_key) and user_key == expected_key
-            # Fall through to text comparison below.
+            opt_keys = {k.upper(): k for k in question.options}
+            # Key-level match (e.g. A..E or 1..5)
+            if exp_letter in opt_keys and usr_letter in opt_keys and usr_letter == exp_letter:
+                return True
+            if exp_clean in opt_keys and usr_clean in opt_keys and usr_clean == exp_clean:
+                return True
+
+            # Match against literal option text
+            for k, v in question.options.items():
+                if v.strip().lower() == expected.lower():
+                    k_letter = _NUM_TO_LETTER.get(k.upper(), k.upper())
+                    if usr_letter == k_letter or usr_clean.lower() == v.strip().lower():
+                        return True
+                    break
+
+        if usr_letter and exp_letter and usr_letter == exp_letter:
+            return True
+
+        # Fall through to text comparison
         user_raw = (option_key or answer_text or "").strip()
-        if not user_raw:
-            return False
         user_val = question.options.get(user_raw.upper(), user_raw) if question.options else user_raw
         return user_val.strip().lower() == expected.lower()
 
@@ -264,11 +380,13 @@ def grade_mcq(question: ExamQuestion, *, option_key: str = "", answer_text: str 
 
 
 _ESSAY_JUDGE_SYSTEM = (
-    "You are a strict but fair exam grader. Compare the student's answer against "
-    "the reference answer for this exam question. Award partial credit where "
-    "justified. Respond with ONLY a JSON object, no other text:\n"
+    "You are a strict but fair exam grader for past paper exams (G.C.E. A/L and O/L). "
+    "Compare the student's answer against the reference answer / marking guide for this exam question. "
+    "Student answers may be in English, Sinhala (සිංහල), or Tamil. Evaluate conceptual understanding, "
+    "calculations, code/syntax, and structured sub-points (a, b, c / i, ii, iii) according to the marking criteria. "
+    "Award partial credit where justified. Respond with ONLY a JSON object, no other text:\n"
     '{"verdict": "correct|partial|incorrect", "score": <0.0-1.0>, '
-    '"feedback": "<one or two sentences of constructive feedback>"}'
+    '"feedback": "<one or two constructive sentences explaining what was correct and what was missing>"}'
 )
 
 

@@ -67,7 +67,7 @@ export function ConnectivityBadge() {
       type="button"
       onClick={() => void forceCheck()}
       title={`Connection: ${config.label}. Click to retry.`}
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium transition-all duration-200 ${config.color} bg-[var(--background)]/80 border border-[var(--border)]/50 hover:bg-[var(--accent)]/50`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium transition-all duration-150 hover:scale-105 active:scale-95 ${config.color} bg-[var(--background)]/80 border border-[var(--border)]/50 hover:bg-[var(--accent)]/50`}
     >
       <Icon
         size={12}

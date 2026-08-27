@@ -202,11 +202,16 @@ def _steps(entry: CliAppEntry, env_dir) -> list[tuple[list[str], dict[str, str]]
     plan = entry.install
     if plan.runtime is AppRuntime.PYTHON:
         base = _clean_env()
+        py_bin = (
+            env_dir / "Scripts" / "python.exe"
+            if sys.platform == "win32"
+            else env_dir / "bin" / "python"
+        )
         return [
             ([sys.executable, "-m", "venv", str(env_dir)], base),
             (
                 [
-                    str(env_dir / "bin" / "python"),
+                    str(py_bin),
                     "-m",
                     "pip",
                     "install",

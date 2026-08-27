@@ -2,7 +2,7 @@
 
 1. Which of the following is a hardware device that maps virtual addresses to physical addresses?
 පහත දැක්වෙන දෑ අතුරෙන්‌ කවරක්‌ අතට්‍ය ලිපින (virtual addresses) භෞතික ලිපින (physical addresses)
-බවට අනුරැපණය කරන්නා වු දෘඞාංග උපක්‍රමයක්‌ වේ ද?
+බවට අනුරැපණය කරන්නා වු දෘඩාංග උපක්‍රමයක්‌ වේ ද?
 
 1) bus / බසය
 2) cache memory / නිහිත මතකය
@@ -44,7 +44,7 @@ Memory management unit (MMU) / ®ae කළමනාකරණ ඒකකය
 This hardware device maps virtual addresses to physical addresses. It's crucial for managing memory in
 a computing system.
 
-මෙම දෘඞාංග උපාංගය භෞතික GSH වෙත අතට්‍ය ලිපින සිතියමිගත කරයි. පරිගණක පද්ධතියක මතකය
+මෙම දෘඩාංග උපාංගය භෞතික GSH වෙත අතට්‍ය ලිපින සිතියමිගත කරයි. පරිගණක පද්ධතියක මතකය
 කළමනාකරණය කිරීම සඳුහා එය ඉනා වැදගත්‌ වේ.
 
 Register / e68800@
@@ -52,7 +52,7 @@ Register / e68800@
 This is a small amount of fast storage within the CPU. Registers hold data that the CPU needs to access
 quickly, but they do not map virtual addresses to physical addresses.
 
-මෙය CPU තුළ ඇති NO) වේගවත්‌ ගබඩා ප්‍රමාණයකි. CPU HO ඉක්මනින්‌ ප්‍රවේශ SOO අවග්‍ය දුන්ත
+මෙය CPU තුළ ඇති NO) වේගවත්‌ ගබඩා ප්‍රමාණයකි. CPU HO ඉක්මනින්‌ ප්‍රවේශ SOO අවශ්‍ය දුන්ත
 රෙපිස්ටර්‌ සතුව ඇත, නමුත්‌ ඒවා භෞතික ලිපින වෙත ands ලිපින සිතියමිගත නොකරයි.
 
 This question is asking about a specific hardware component in computer systems that is responsible for
@@ -61,9 +61,9 @@ actual hardware). This process is vital for modern computing systems because it 
 virtual memory spaces, which can be larger and more flexible than the physical memory (RAM)
 installed on the machine.
 
-මෙම ප්‍රග්නය අසන්නේ පරිගණක පද්ධතිවල ඇති අටත්‍ය Ome GSH (මෘදුකාංග මගින්‌ භාවිතා කරන)
-භෞතික මතක ලිපින (සැබැ දෘඞාංග විසින්‌ භාවිතා කරන) බවට පරිවරිතනය කිරීම සඳහා වගකිව යුතු
-නිශ්චිත දෘඞාංග සංරචකයක්‌ ගැන ය. මෙම ක්‍රියාවලිය නවින පරිගණක පද්ධති සඳහා අත්‍යවග්‍ය වන්නේ
+මෙම ප්‍රශ්නය අසන්නේ පරිගණක පද්ධතිවල ඇති අටත්‍ය Ome GSH (මෘදුකාංග මගින්‌ භාවිතා කරන)
+භෞතික මතක ලිපින (සැබැ දෘඩාංග විසින්‌ භාවිතා කරන) බවට පරිවරිතනය කිරීම සඳහා වගකිව යුතු
+නිශ්චිත දෘඩාංග සංරචකයක්‌ ගැන ය. මෙම ක්‍රියාවලිය නවින පරිගණක පද්ධති සඳහා අත්‍යවග්‍ය වන්නේ
 එය යන්ත්‍රයේ ස්ථාපනය කර ඇති භෞතික මතකයට වඩා SME සහ නම්‍යශගීලි විය හැකි අතට්‍ය මතක
 අවකාගයන්‌ භාවිතා කිරීමට වැඩසටහන්‌ වලට ඉඩ සලසන බැවිනි.
 
@@ -72,8 +72,8 @@ refer to the exact location in the hardware's memory. A hardware device commonly
 Management Unit (MMU) handles this mapping.
 
 සරලව කිවහොත්‌, අතට්‍ය ලිපින මතකය aca) ස්ටාන දුරන්නන්‌ හෝ ලේබල්‌ ලෙස Ha) කරන අතර
-භෞතික ලිපින දෘඞාංග මතකයේ නිශ්චිත ස්ථානයට යොමු කරයි. මතක කළමනාකරණ චඒකකය (17],11)
-ලෙස පොදුවේ හඳුන්වන දෘඞාංග උපාංගයක්‌ මෙම සිතියමිගත කිරීම හසුරැවයි.
+භෞතික ලිපින දෘඩාංග මතකයේ නිශ්චිත ස්ථානයට යොමු කරයි. මතක කළමනාකරණ චඒකකය (17],11)
+ලෙස පොදුවේ හඳුන්වන දෘඩාංග උපාංගයක්‌ මෙම සිතියමිගත කිරීම හසුරැවයි.
 
 2, Which of the following represents the bitwise AND operation of the two binary numbers 01010101
 and 10101010?
@@ -141,7 +141,7 @@ confidentiality and integrity.
 කිරීමේ ක්‍රියාවලියකි. එය සාමාන්‍යයෙන්‌ භාවිතා කරන්නේ කියවිය හැකි තොරතුරැ කේතික පෙල බවට පරිවරිතනය
 කරන ඇල්ගොරිතම භාවිතා කරමිනි. මෙම කේතික පෙල විශේෂයෙන්‌ නිග්චිත යතුරක්‌ භාවිතා කරමින්‌ පමණක්‌
 විකේතනය කළ හැකිය. සන්නිවේදනය, ගබඩා කිරීම සහ සයිබර්‌ ආරක්ෂාව යන ක්ෂේත්‍රවල භාවිතා වන මෙම
-ක්‍රියාචලිය, දූත්ත රහස්‍යභාවය සහ අඛණ්ඞතාව තහවුරැ කරයි.
+ක්‍රියාචලිය, දූත්ත රහස්‍යභාවය සහ අඛණ්ඩතාව තහවුරැ කරයි.
 
 Decryption - විකේතනය
 
@@ -152,7 +152,7 @@ security and privacy. Commonly used in secure communication and data protection.
 විකේතනය යනු, ගුප්ත කේතනය කරන ලදු EDD නැවත එහි මුල්‌, කියවිය හැකි ආකාරයට පරිවර්තනය
 කිරීමේ ක්‍රියාවලියකි. මෙය සිදු කරනු ලබන්නේ විශේෂිත යතුරක්‌ හෝ ඇල්ගොරිතමක්‌ භාවිතා කරමිනි. එමගින්‌
 අවසර ලත්‌ පරිගිලකයින්ට ආරක්ෂිත තොරතුරැ වෙත ප්‍රවේග වීමට හැකි වන අතර, ආරක්ෂාව සහ
-පෞද්ගලිකත්වය පවත්වා ගැනීම සහතික කරයි. මෙය සාමාන්‍යයෙන්‌ ආරක්‍ෂිත සන්නිවෙදනය සහ eso
+පෞද්ගලිකත්වය පවත්වා ගැනීම සහතික කරයි. මෙය සාමාන්‍යයෙන්‌ ආරක්ෂිත සන්නිවෙදනය සහ eso
 ආරක්ෂාව සඳහා භාවිතා වේ.
 
 Public Key - පොළු යතුර
@@ -227,7 +227,7 @@ symmetric encryption. It is used to achieve both speed and strong data protectio
 systems
 
 ක දමුහුමි ගුප්ත කේතනය යනු අසමමිතික ගුප්ත කේතනයක ආරක්ෂාව සහ සමමිතික ගුප්ත කේතාංකනයේ
-කාර්යක්ෂමතාවය එකාබද්ධ කරන ක්‍රමයකි. ආරක්‍ෂිත සන්නිවේදන පද්ධතිවල වේගය සහ ගක්තිමත්‌ දුත්ත
+කාර්යක්ෂමතාවය එකාබද්ධ කරන ක්‍රමයකි. ආරක්ෂිත සන්නිවේදන පද්ධතිවල වේගය සහ ගක්තිමත්‌ දුත්ත
 ආරක්ෂාව යන දෙකම ලබා ගැනීමට එය භාවිතා කරයි.
 
 How It Works / එහි ක්‍රියාකාරීත්වය
@@ -250,8 +250,6 @@ not use public or private keys.
 
 සමමිතික ගුප්ත කේතනය යවන්නා සහ ලබන්නා අතර බෙදා ගන්නා තනි රහස්‌ යතුරක්‌ මත රඳා පවති. එය
 පොදු හෝ පෞද්ගලික යතුරැ භාවිතා නොකරයි.
-
-~
 
 Hybrid encryption uses a unique symmetric key to encrypt the actual data and a public key to encrypt that
 symmetric key. The private key is used to decrypt the symmetric key.
@@ -312,7 +310,7 @@ Network Topology / පාල ස්ටල Sen
 
 Network topology refers to the arrangement of devices, connections, and communication paths in a
 network. It defines how data flows between nodes and impacts performance, scalability, and reliability.
-පාල HOE විද්‍යාව යනු HEGM උපාංග, සමිබන්ධතා සහ සන්නිවෙදුන මාර්ග සැකසීමයි. එය නෝඩි අතර
+පාල HOE විද්‍යාව යනු HEGM උපාංග, සම්බන්ධතා සහ සන්නිවෙදුන මාර්ග සැකසීමයි. එය නෝඩි අතර
 EBD ගලා යන ආකාරය සහ කාථටය සාධනය, පරිමාණය සහ විග්වසනයත්වය කෙරෙහි බලපාන ආකාරය
 HOOOHe කරයි.
 
@@ -323,7 +321,7 @@ process data. Nodes are interconnected to facilitate communication and resource 
 Examples of nodes include Computers, Network Devices, Peripheral Devices, Mobile Devices.
 
 GHQOM යනු EMM යැවීමට, ලැබීමට හෝ සැකසීමට හැකි ඕනෑම උපාංගයක්‌ හෝ ලක්ෂ්‍යයක්‌ නියෝපනය
-කරන පාලයක මූලික ඒකකයකි. පාලයක්‌ තුළ සන්නිවේදනය සහ සමිපත්‌ බෙදාගැනීම පහසු කිරීම සඳහා නෝඩු
+කරන පාලයක මූලික ඒකකයකි. පාලයක්‌ තුළ සන්නිවේදනය සහ සම්පත්‌ බෙදාගැනීම පහසු කිරීම සඳහා නෝඩු
 එකිනෙක සම්බන්ධ වේ. GQ වලට උදාහරණ ලෙස පරිගණක, ජාල උපාංග, පරිධි උපාංග සහ පංගම උපාංග
 ඇතුළත්‌ වේ.
 
@@ -333,17 +331,17 @@ Central network device is a hardware component that manages and controls data tr
 devices in a network. It ensures efficient communication, security, and resource sharing.
 
 මධ්‍යම ජාල උපාංගය යනු පාලයක aGa@aide උපාංග අතර ED ගමනාගමනය කළමනාකරණය කරන සහ
-පාලනය කරන දෘඞාංග සංරචකයකි. එය mbase® සන්නිවෙදනය, ආරක්ෂාව සහ සමිපත්‌ බෙදාගැනීම
+පාලනය කරන දෘඩාංග සංරචකයකි. එය mbase® සන්නිවෙදනය, ආරක්ෂාව සහ සම්පත්‌ බෙදාගැනීම
 සහතික කරයි.
 
 11110 / නාභිය _ Broadcasts data to all connected devices without filtering.
-පෙරිමකින්‌ තොරව සමිබන්ධිත සියලුම උපාංග වෙත eso විකාගනය කරයි.
+පෙරිමකින්‌ තොරව සම්බන්ධිත සියලුම උපාංග වෙත eso විකාගනය කරයි.
 
 e Switch / ස්විචය _ Directs data only to the intended recipient, improving efficiency.
 කාර්යක්ෂමතාව වැඩිදියුණු කරමින්‌ අපේක්ෂිත ලබන්නාට පමණක්‌ essen යොමු කරයි.
 
 e Router / මාර්ගකය — Connects different networks and manages data traffic between them.
-විවිධ පාල සමිබන්ධ කර ඒවා අතර EHD ගමනාගමනය කළමනාකරණය කරයි.
+විවිධ පාල සම්බන්ධ කර ඒවා අතර EHD ගමනාගමනය කළමනාකරණය කරයි.
 
 1) Bus Topology / බස්‌ ස්ටලකය
 
@@ -352,12 +350,12 @@ or backbone. Data is transmitted along this cable, and each device receives the 
 a device sends data, it travels through the bus, and all connected devices receive the signal. However, only
 the device with the matching address processes the data, while others ignore it. Each node 15 not directly
 connected to a central network device. Instead, all nodes are connected to a single communication line.
-බස්‌ ස්ටලකය යනු සියලම උපාංග එක්‌ මධ්‍යම කේබලයකට සමිබන්ධ කර ඇති HE සැකැස්මකි, එය බසය
-හෝ නාරටිය ලෙස හැඳින්වේ. මෙම කේබලය ඔස්සේ දුත්ත සමිප්‍රේෂණය වන අතර, සෑම උපාංගයක්ම ඵ්‌
+බස්‌ ස්ටලකය යනු සියලම උපාංග එක්‌ මධ්‍යම කේබලයකට සම්බන්ධ කර ඇති HE සැකැස්මකි, එය බසය
+හෝ නාරටිය ලෙස හැඳින්වේ. මෙම කේබලය ඔස්සේ දුත්ත සම්ප්‍රේෂණය වන අතර, සෑම උපාංගයක්ම ඵ්‌
 සඳුහා අදහස්‌ කරන දත්ත ලබා ගනී. උපාංගයක්‌ esse යවන විට, එය බසය හරහා ගමන්‌ කරයි, සහ
-සමිබන්ධිත සියලුම උපාංගවලට සංඥා ලැබේ. කෙසේ වෙතත්‌, ගැලපෙන ලිපිනය සහිත උපාංගය පමණක්‌
+සම්බන්ධිත සියලුම උපාංගවලට සංඥා ලැබේ. කෙසේ වෙතත්‌, ගැලපෙන ලිපිනය සහිත උපාංගය පමණක්‌
 EDD සකසන අතර අනෙක්‌ අය එය නොසලකා NOH. සැම නෝඩුවක්ම මධයම HE උපාංගයකට සෘපුවම
-සමිබන්ධ නොවේ. ඒ වෙනුවට, සියලුම නෝඩු තනි සන්නිවේදන රේඛාවකට සමිබන්ධ වේ,
+සම්බන්ධ නොවේ. ඒ වෙනුවට, සියලුම නෝඩු තනි සන්නිවේදන රේඛාවකට සම්බන්ධ වේ,
 
 2) Hybrid Topology / දෙමුහුන්‌ ස්ටලකය
 
@@ -368,18 +366,18 @@ is directly connected to a central network device depends on the specific topolo
 
 දෙමුහුන්‌ ස්ටලකය, GOEM දෙකක්‌ හෝ වැඩි ගණනක්‌ (උදා: MOO, බසය, මුද්ද) තනි පාලයකට ඒකාබද්ධ
 කරයි. එය ක්‍රියා කරන්නේ කුඩා උපපාල නිර්මාණය කිරීමෙනි, ව්‌ සැම එකක්ම තමන්ගේම ස්ථලකයක්‌ ඇති
-අතර ඒවා මධ්‍යම නාරටියක්‌ හෝ වෙනත්‌ SOEMGD හරහා සමිබන්ධ කරයි. උපපාල තුළ සහ ඒවා අතර
+අතර ඒවා මධ්‍යම නාරටියක්‌ හෝ වෙනත්‌ SOEMGD හරහා සම්බන්ධ කරයි. උපපාල තුළ සහ ඒවා අතර
 EDD ගලා යයි. දෙමුහුන්‌ ස්ටලකයකදි, සෑම නෝඩුවක්ම මධ්‍යම පාල උපාංගයකට සෘපුවම සම්බන්ධ වි තිබේද
 යන්න රඳා පවතින්නේ ඒකාබද්ධ විගේෂිත ADH මත ය.
 
 e If astar topology is part of the hybrid network, nodes within that star subnetwork are directly
 connected to a central device like a hub or switch.
 තරැ ස්ථඵලකය දෙමුහුන්‌ පාලයේ කොටසක්‌ නම, OO තරැ උප HES HE ඇති නෝඩු සෘපුවම
-කේන්ද්‍රස්ටානයක්‌ හෝ ස්විචයක්‌ වැනි මධ්‍යම උපාංගයකට සමිබන්ධ වේ.
+කේන්ද්‍රස්ටානයක්‌ හෝ ස්විචයක්‌ වැනි මධ්‍යම උපාංගයකට සම්බන්ධ වේ.
 
 e Other subnetworks (e.g., bus or ring) may not use a central device, as nodes in those topologies are
 connected differently.
-වෙනත්‌ උපපාල (උදා., බස්‌ හෝ Qe) එම ස්ටලකවල නෝඩු වෙනස්‌ ලෙස සමිබන්ධ වි ඇති බැවින්‌, මධ්‍යම
+වෙනත්‌ උපපාල (උදා., බස්‌ හෝ Qe) එම ස්ටලකවල නෝඩු වෙනස්‌ ලෙස සම්බන්ධ වි ඇති බැවින්‌, මධ්‍යම
 උපාංගයක්‌ භාවිතා නොකළ හැකිය.
 
 3) Mesh Topology / දැලිසනය ස්ටලකය
@@ -389,8 +387,8 @@ is interconnected with every other node in the network, creating multiple direct
 It works by allowing data to travel through various routes, ensuring redundancy and reliability. If one path
 fails, data can be rerouted through another, maintaining uninterrupted communication.
 
-දැලිසමය SOEMGS, සෑම නෝඩයක්ම මධ්‍යම පාල උපාංගයකට සෘපුවම සමිබන්ධ නොවේ. ඒ වෙනුවට, සෑම
-නෝඩුවක්ම පාලයේ අනෙකුත්‌ සෑම නෝඩුවක්‌ සමඟම අන්තර සමිඛන්ධිත වන අතර, eso සමිප්‍රේශනය සඳුහා
+දැලිසමය SOEMGS, සෑම නෝඩයක්ම මධ්‍යම පාල උපාංගයකට සෘපුවම සම්බන්ධ නොවේ. ඒ වෙනුවට, සෑම
+නෝඩුවක්ම පාලයේ අනෙකුත්‌ සෑම නෝඩුවක්‌ සමඟම අන්තර සම්බන්ධිත වන අතර, eso සමිප්‍රේශනය සඳුහා
 බහු සෘපු මාර්ග නිර්මාණය කරයි. එය ක්‍රියා කරන්නේ දත්ත විවිධ මාර්ග හරහා ගමන්‌ කිරීමට ඉඩ දිම,
 අතිරික්තය සහ විග්වසනියත්වය සහතික කිරීමෙනි. එක්‌ මාර්ගයක්‌ අසාර්ටක වුවහොත්‌, බාධාවකින්‌ තොරව
 සන්නිවේදනය පවත්වා ගනිමින්‌ තවත්‌ මාර්ගයක්‌ හරහා EVD නැවත හරවා යැවිය හැක.
@@ -403,10 +401,10 @@ there is no central network device, each node acts as a repeater, boosting the s
 the next node. While efficient for small networks, a single node failure can disrupt the entire system unless
 a dual-ring setup is used for redundancy.
 
-මුදු BOEDS යනු HE ව්‍යුහයක්‌ වන අතර එහිදි සෑම නෝඩුවම නිවැරදිව වෙනත්‌ නෝඩු දෙකකට සමිබන්ධ
+මුදු BOEDS යනු HE ව්‍යුහයක්‌ වන අතර එහිදි සෑම නෝඩුවම නිවැරදිව වෙනත්‌ නෝඩු දෙකකට සම්බන්ධ
 කර සංවෘත ලුපයක්‌ සාදයි. දත්ත එහි ගමනාන්තයට ළඟා වන තෙක්‌ වළල්ල වටා එක්‌ දිශාවකට හෝ දෙකකින්‌
 ගමන්‌ කරයි. මධ්‍යම HE උපාංගයක්‌ නොමැති බැවින්‌, සැම නෝඩුවක්ම පුනරාවරිතකයක්‌ ලෙස ක්‍රියා කරයි,
-EBD ඊළඟ නෝඞුවට ළඟා වන බව සහතික කිරීම සඳහා සංඥාව වැඩි කරයි. කුඩා පාල සඳහා කාර්යක්ෂම
+EBD ඊළඟ නෝඩුවට ළඟා වන බව සහතික කිරීම සඳහා සංඥාව වැඩි කරයි. කුඩා පාල සඳහා කාර්යක්ෂම
 වන අතර, අතිරික්තය සඳුහා ද්විත්ව වළලු සැකසුම භාවිතා නොකළහොත්‌ තනි නෝඩයක්‌ අසමත්‌ විම සමස්ත
 පද්ධතියම බිඳු වැටිය හැකිය.
 
@@ -417,7 +415,7 @@ as a hub or switch. It works by sending all data through the central device, whi
 intended node. This setup simplifies management and troubleshooting, as issues in one node do not affect
 others.
 
-තරැ ස්ථඵලකය යනු සෑම නෝඩුවක්ම නාභියක්‌ හෝ ස්විචයක්‌ වැනි මධ්‍යම HE උපාංගයකට සෘපුවම සමිබන්ධ
+තරැ ස්ථඵලකය යනු සෑම නෝඩුවක්ම නාභියක්‌ හෝ ස්විචයක්‌ වැනි මධ්‍යම HE උපාංගයකට සෘපුවම සම්බන්ධ
 වන HE සැකැස්මකි. එය මධ්‍යම උපාංගය හරහා සියලුම දත්ත යැවිමෙන්‌ ක්‍රියා කරයි, එය අපේක්ෂිත නෝඩුව
 වෙත EDD යොමු කරයි. මෙම සැකසුම කළමනාකරණය සහ sein නිරාකරණය සරල කරයි, එක්‌ නෝඩුවක
 ගැටළු අනෙක්‌ ඒවාට බලපාන්නේ නැත.
@@ -426,7 +424,7 @@ According to this explanation answer should be 5 )
 මෙම පැහැදිලි කිරිම අනුව පිලිතුර විය යුත්තේ 5)
 
 5. Consider the following activities related to e-commerce.
-උ-වාණිප්‍යයට සමිබන්ධ පහත දැක්වෙන ක්‍රියාවලි සලකන්න.
+උ-වාණිප්‍යයට සම්බන්ධ පහත දැක්වෙන ක්‍රියාවලි සලකන්න.
 
 A - online purchase of a pair of shoes // සපත්තු යුගලක්‌ මාර්ගගතව මිලදි ගැනීම
 B - online purchase of an e-book of your favourite novel
@@ -466,9 +464,9 @@ automation, and global connectivity.
 
 ල-ව්‍යාපාර යන්නෙන්‌ අදහස්‌ කරන්නේ ව්‍යාපාරයක්‌ කළමනාකරණය කිරීමට සහ ක්‍රියාත්මක කිරීමට අංකිත
 තාක්ෂණය සහ අන්තර්පාලය භාවිතා කිරිමයි. එය හුදෙක්‌ මිලදි ගැනම සහ විකිණීම ( --වාණිප්‍යය ) ඉක්මවා
-යන අතර සබැඳි අලෙවිකරණය, පාරිභෝගික සමිබන්ධතා කළමනාකරණය, සැපයුමි දාම කළමනාකරණය සහ
+යන අතර සබැඳි අලෙවිකරණය, පාරිභෝගික සම්බන්ධතා කළමනාකරණය, සැපයුමි දාම කළමනාකරණය සහ
 ව්‍යාපාරික සන්නිවෙදනය වැනි ක්‍රියාකාරකම්‌ ඇතුළත්‌ වේ. තාක්ෂණයේ නැඟමත්‌ සමඟ, කාර්යක්ෂමතාව,
-ස්වයංක්‍රීිකරණය සහ ගෝලීය සමිඛන්ධතා වැඩි දියුණු කිරීම මගින්‌ :-ව්‍යාපාර, සමිප්‍රදායික ව්‍යාපාරික මෙහෙයුමි
+ස්වයංක්‍රීිකරණය සහ ගෝලීය සම්බන්ධතා වැඩි දියුණු කිරීම මගින්‌ :-ව්‍යාපාර, සමිප්‍රදායික ව්‍යාපාරික මෙහෙයුමි
 පරිවර්තනය කර ඇත.
 
 Business type model / ව්‍යාපාර ආකෘති වට්ග
@@ -479,7 +477,7 @@ presence. All transactions, interactions, and services are conducted through the
 business model typically involves digital products (such as e-books, software, or online courses) or
 physical products that are sold and delivered entirely through online channels.
 මාර්ගගත ව්‍යාපාරයක්‌ තනිකරම මාඊර්ගගතව ක්‍රියාත්මක වේ. එයින්‌ අදහස්‌ වන්නේ එයට භෞතික
-වෙළඳසැල්‌ නොමැති බවයි. සියලම ගනුදෙන, අන්තටරක්‍රියා සහ සේවාවන්‌ අන්තටරපාලය හරහා සිදු කරයි.
+වෙළඳසැල්‌ නොමැති බවයි. සියලම ගනුදෙන, අන්තටරක්‍රියා සහ සේවාවන්‌ අන්තර්ජාලය හරහා සිදු කරයි.
 මෙම වර්ගයේ වණනපාර ආකෘතියට සාමාන්‍යයෙන්‌ අංකිත නිෂ්පාදුන (c-cd, මෘදුකාංග හෝ මාර්ගගත
 පාධමාලා වැනි) හෝ සමිපුර්ණයෙන්ම අන්තර්පාල නාලිකා හරහා විකුණනු ලබන සහ බෙදා හරින භෞතික
 නිෂ්පාදන ඇතුළත්‌ වේ.
@@ -491,7 +489,7 @@ have no online presence. These businesses focus on customers, who visit physical
 purchase goods or services. The company relies on face-to-face interactions, in-store promotions, and
 physical transactions to drive business.
 
-මාර්ග අපගත ව්‍යාපාර ආකෘතිය යනු භෞතික වෙළඳසැල්‌ සමඟ පමණක්‌ ක්‍රියාත්මක වන සහ අන්තරපාල
+මාර්ග අපගත ව්‍යාපාර ආකෘතිය යනු භෞතික වෙළඳසැල්‌ සමඟ පමණක්‌ ක්‍රියාත්මක වන සහ අන්තර්ජාල
 පැවැත්මක්‌ නොමැති ව්‍යාපාර වේ. මෙම ව්‍යාපාර භාණ්ඩ හෝ සේවා මිලදි ගැනීමට භෞතික ස්ථාන වෙත
 පැමිණෙන පාරිභෝගිකයින්‌ කෙරෙහි අවධානය යොමු කරයි. ව්‍යාපාරය මෙහෙයවීම සඳුහා සමාගම මුහුණට
 මුහුණ අන්තරක්‍රියා, වෙළඳුසැල්‌ තුළ ප්‍රවර්ධනය සහ භෞතික ගනුදෙනු සිදු කරනු ලබයි.
@@ -504,13 +502,13 @@ where businesses operate traditional physical locations and also have an online 
 booking, or customer service.
 
 දෙමුහුම්‌ ව්‍යාපාරයක්‌ මාර්ගගත හා මාර්ගගත නොවන මෙහෙයුමි දෙකම එකාබද්ධ කරයි. පාරිභෝගිකයින්ට
-භෞතික වෙළඳුසැල්‌ සහ මාර්ගගත නාලිකා හරහා ව්‍යාපාරය සමඟ සමිබන්ධ වීමට ඉඩ සලසයි. මෙම
+භෞතික වෙළඳුසැල්‌ සහ මාර්ගගත නාලිකා හරහා ව්‍යාපාරය සමඟ සම්බන්ධ වීමට ඉඩ සලසයි. මෙම
 දෙමුහුන්‌ ආකෘතිය නම්‍යගිලි බවක්‌ ලබා දෙයි. එහිදි ව්‍යාපාර සාමිප්‍රදායික භෞතික ස්ටාන ක්‍රියාත්මක කරන
 අතර සාප්පු, වෙන්කරවා ගැනීමි හෝ පාරිභෝගික සේවා සඳහා අන්තර්ජාල පැවැත්මක්ද ඇත.
 
 Evaluating each statement / එක්‌ එක්‌ ප්‍රකාශය පැහැදිලි කිරීම
 
-Statement / ප්‍රකාගය A
+Statement / ප්‍රකාශය A
 
 If the shoes are bought from a store that has both physical locations and an online presence, this 15
 considered a brick and click model. Therefore, this is not a pure-click business because it involves a mix
@@ -520,11 +518,11 @@ of both physical and online operations.
 වෙළඳුසැලකින්‌ බැවින්‌, මෙය දෙමුහුමි ව්‍යාපාර ආකෘතියක්‌ ලෙස සැලකේ. එබැවින්‌, භෞතික සහ මාර්ගගත
 මෙහෙයුමි යන අංශ දෙකේම මශග්‍රණයක්‌ ඇතුළත්‌ වන බැවින්‌ මෙය මාර්ගගත ව්‍යාපාරයක්‌ නොවේ.
 
-Statement / ප්‍රකාගය B
+Statement / ප්‍රකාශය B
 The e-book is purchased from an online platform. Therefore, this 1s a pure-click business because the
 
 transaction 1s conducted entirely online without any physical presence.
-පොත DEE ගෙන ඇත්තේ අන්තරපාලය HOM) පමණක්‌ ක්‍රියාත්මක වන මාර්ගගත වේදිකාවකිනි. එබැවින්‌,
+පොත DEE ගෙන ඇත්තේ අන්තර්ජාලය HOM) පමණක්‌ ක්‍රියාත්මක වන මාර්ගගත වේදිකාවකිනි. එබැවින්‌,
 කිසිදු භෞතික පැවැත්මකින්‌ තොරව ගනුදෙනුව සිදුකර ඇති බැවින්‌, මෙය මාර්ගගත ව්‍යාපාරයකි.
 
 Statement / ප්‍රකාශය C
@@ -534,7 +532,7 @@ physical component. This involves offline interactions with the physical world, 
 classified as a pure-click business.
 
 නිවසේ BO ගුවන්‌ තොටුපළ වෙත කුලි COW වෙන්කරවා ගැනීමේ ක්‍රියාවලිය මාර්ගගතව Be වුවද, සේවාවට
-භෞතික සංරචකයක්‌ අවග්‍ය වේ. මෙයට භෞතික ලෝකය සමඟ H6OOM නොවන අන්තරකක්‍්‍රියා ඇතුළත්‌ වන
+භෞතික සංරචකයක්‌ අවශ්‍ය වේ. මෙයට භෞතික ලෝකය සමඟ H6OOM නොවන අන්තරකක්‍්‍රියා ඇතුළත්‌ වන
 අතර, එබැවින්‌ එය මාර්ගගත ව්‍යාපාරයක්‌ ලෙස වටඊර්ගිකරණය කළ නොහැක.
 
 Therefore, the correct answer is 2).
@@ -580,7 +578,7 @@ Acceptance Testing / ප්‍රතිග්‍රහණ පරීක්ෂා�
 Testing the software in a real-world scenario to determine whether it meets the business requirements
 and is ready for deployment.
 
-මෘදුකාංගය Osada අවග්‍යතා සපුරාලන්නේද සහ යෙදවීමට සුදානමිදු යන්න තීරණය HOO සඳහා සැබෑ
+මෘදුකාංගය Osada අවශ්‍යතා සපුරාලන්නේද සහ යෙදවීමට සුදානමිදු යන්න තීරණය HOO සඳහා සැබෑ
 ලෝකයේ නත්වයකදී එය පරීක්ෂා කිරීම.
 
 The question "Which of the following shows the correct order of software testing?" 1s asking you to
@@ -595,7 +593,7 @@ The objective of this question is to assess your understanding of the correct se
 stages. Knowing the proper order is essential for ensuring a systematic and thorough testing process that
 leads to high-quality software.
 
-මෙම ප්‍රග්නයේ අරමුණ වන්නේ මෘදුකාංග පරීක්ෂණ අදියරවල නිවැරදි අනුපිළිවෙල SEDC, ඔබේ අවබෝධය
+මෙම ප්‍රශ්නයේ අරමුණ වන්නේ මෘදුකාංග පරීක්ෂණ අදියරවල නිවැරදි අනුපිළිවෙල SEDC, ඔබේ අවබෝධය
 තක්සේරැ කිරීමයි. උසස්‌ තත්ත්වයේ මෘදුකාංගයකට මඟ පාදුන ක්‍රමානුකූල හා පරටිපුරණ පරීක්ෂණ
 ක්‍රියාවලියක්‌ සහතික කිරීම සඳහා නිසි අනුපිළිවෙල දැන ගැනීම අත්‍යවග්‍ය වේ.
 
@@ -607,15 +605,15 @@ business needs and is ready for deployment.
 
 මෘදුකාංග පරීක්ෂාව සාමාන්‍යයෙන්‌ ආරමිභ වන්නේ තනි සංරචක පරික්ෂා කිරීම ace) ඒකක පරීක්ෂාවෙනි.
 ඊළඟට, ඒකාබද්ධ පරීක්ෂාව එකාබද්ධ ඒකක අතර අන්තරක්‍රියා තහවුරැ කරයි. ඉන්පසුව, පද්ධති පරීක්ෂාව
-මඟින්‌ සමිපුර්ණ පද්ධතියේ අවග්‍යතා සමඟ අනුකූල වීම ඇගයීමට ලක්‌ කරයි. අවසාන වගයෙන්‌, ප්‍රතිග්‍රහණ
-පරීක්ෂාව මඟින්‌ මෘදුකාංගය ව්‍යාපාරික අවග්‍යතනා සපුරාලන අතර යෙදවිමට සූදානමි බව සහතික කරයි.
+මඟින්‌ සමිපුර්ණ පද්ධතියේ අවශ්‍යතා සමඟ අනුකූල වීම ඇගයීමට ලක්‌ කරයි. අවසාන වගයෙන්‌, ප්‍රතිග්‍රහණ
+පරීක්ෂාව මඟින්‌ මෘදුකාංගය ව්‍යාපාරික අවශ්‍යතනා සපුරාලන අතර යෙදවිමට සූදානමි බව සහතික කරයි.
 
 7. Asoftware development company identifies that their new system development project has complex
 requirements and has a medium to high risk level. Further, an evaluation is needed to clear the
 
 requirements and significant changes are expected during system development.
 
-මෘදුකාංග සංවර්ධන සමාගමක්‌ තම නව පද්ධති සංවර්ධන ව්‍යාපෘතිය සංකීරණ අවග්‍යතාවලින්‌ සමන්වත බවත්‌,
+මෘදුකාංග සංවර්ධන සමාගමක්‌ තම නව පද්ධති සංවර්ධන ව්‍යාපෘතිය සංකීරණ අවශ්‍යතාවලින්‌ සමන්වත බවත්‌,
 මධ්‍යම (medium) සිට ඉහළ (high) දක්වා අවදානමි (risk) මට්ටමක්‌ ඇති බවත්‌ හඳුනාගනියි. තවද අවශ්‍යතා
 පැහැදිලි කර ගැනීමට ඇගයීිමක්‌ (evaluation) අවශ්‍ය බවත්‌ පද්ධති සංවඊර්ධන ක්‍රියාවලියේ දි සැලකිය an
 වෙනස්කම්‌ අපේක්ෂා කෙරෙන බවත්‌ හඳුනාගනියි.
@@ -648,7 +646,7 @@ Prototyping / මුලාකෘතිකරණය
 Involves creating a preliminary version (prototype) of the software to better understand its functionality
 and requirements through iterative feedback.
 
-පුනරාවර්තන ප්‍රතිපෝෂණ හරහා එහි ක්‍රියාකාරීත්වය සහ අවග්‍යතා වඩා හොඳින්‌ අවබෝධ කර ගැනීම HEM)
+පුනරාවර්තන ප්‍රතිපෝෂණ හරහා එහි ක්‍රියාකාරීත්වය සහ අවශ්‍යතා වඩා හොඳින්‌ අවබෝධ කර ගැනීම HEM)
 මෘදුකාංගයේ මුලික අනුවාදයක්‌ (මුල ආකෘතියක්‌) නිර්මාණය කිරීම ඇතුළත්‌ වේ.
 
 Rapid Application Development (RAD) / ගශීඝ යෙදුමි සංවර්ධනය
@@ -665,21 +663,21 @@ Combines iterative development with risk assessment, designed for projects with 
 complex requirements, allowing continuous evaluation and refinement.
 
 අවදානමි තක්සේරැව සමඟ පුනරාවරනන සංවටර්ධනය එකාබද්ධ කරයි, ඉහළ අවිනිග්චිතතාවයකින්‌ සහ සංකීරණ
-අවග්‍යතා සහිත ව්‍යාපෘති සඳහා නිරමාණය කර ඇත, GAMA ඇගයීමට සහ ගෝධනයට ඉඩ සලසයි.
+අවශ්‍යතා සහිත ව්‍යාපෘති සඳහා නිරමාණය කර ඇත, GAMA ඇගයීමට සහ ගෝධනයට ඉඩ සලසයි.
 
 Waterfall / දිය ඇලි
 
 A linear and sequential approach where each phase of development must be completed before moving on
 to the next, suitable for projects with well-defined requirements.
 
-හොඳින්‌ FSO දුක්වා ඇති අවශ්‍යතා සහිත ව්‍යාපෘති HEM සුදුසු, ඊළඟට යාමට පෙර සංවට්ධනයේ සෑම
+හොඳින්‌ FSO දුක්වා ඇති අවශ්‍යතා සහිත ව්‍යාපෘති HEM සුදුසු, ඊළඟට යාමට පෙර සංවර්ධනයේ සෑම
 අදියරක්ම සමිපුර්ණ කළ යුතු ටේඛිය සහ අනුක්‍රමික ප්‍රවේගශයකි.
 
 The objective of this question is to assess your understanding of various software development process
 models and their suitability for different types of projects. Based on the given characteristics of the
 project, you need to identify which process model would be the most appropriate.
 
-මෙම ප්‍රග්නයේ අරමුණ වන්නේ විවිධ මෘදුකාංග සංවඊට්ධන ක්‍රියාවලි ආකෘති SE®E OGD අවබෝධය සහ
+මෙම ප්‍රශ්නයේ අරමුණ වන්නේ විවිධ මෘදුකාංග සංවඊට්ධන ක්‍රියාවලි ආකෘති SE®E OGD අවබෝධය සහ
 විවිධ ව්‍යාපෘති වර්ග Hem) එවායේ යෝග්‍යතාවය තක්සේරැ කිරීමයි. ව්‍යාපෘතියේ දි ඇති ලක්ෂණ මත
 පදුනම්ව, වඩාත්‌ සුදුසු ක්‍රියාවලි ආකෘතිය කුමක්දැයි ඔබ හඳුනාගත යුතුය.
 
@@ -689,7 +687,7 @@ following reasons.
 පහත සඳුහන්‌ හේතන්‌ නිසා මෙම වනාපෘතිය HED) වඩාත්‌ සුදුසු මෘදුකාංග සංවර්ධන ක්‍රියාවලි ආකෘතිය
 වන්නේ සර්පිලාකාර ආකෘතියයි.
 
-Complex Requirements / සංකීරණ අවග්‍යතා
+Complex Requirements / සංකීරණ අවශ්‍යතා
 
 The Spiral Model is designed for projects with high complexity and uncertainty. It allows continuous
 refinement of requirements.
@@ -707,13 +705,13 @@ projects with significant risk.
 
 Need for Evaluation & Requirement Clarification
 
-ඇගයීම සහ අවග්‍යතා පැහැදිලි කිරීම oem) අවග්‍යතාවය
+ඇගයීම සහ අවශ්‍යතා පැහැදිලි කිරීම oem) අවශ්‍යතාවය
 
 The model includes prototyping and iterative evaluation, ensuring that requirements are thoroughly
 analyzed and adjusted as needed.
 
 ආකෘතියට මුලාකෘතිකරණය සහ පුනරාවරතන ඇගයීම ඇතුළන්‌ වන අතර, අවශ්‍යතා හොඳින්‌ විශ්ලේෂණය
-කර අවග්‍ය පරිදි සකස්‌ කර ඇති බව සහතික කරයි.
+කර අවශ්‍ය පරිදි සකස්‌ කර ඇති බව සහතික කරයි.
 
 Significant Changes Expected / අපේක්ෂිත සැලකිය යුතු වෙනස්කමි
 
@@ -729,7 +727,7 @@ Communication Technology (ICT) usage?
 දායකත්වයක්‌ ලැබුණි ද?
 
 A. exponential progress of the semiconductor technology paving the way for low-cost hardware.
-අර්ධ සන්නායක තාක්ෂණයෙහි Ge ප්‍රගතිය තුළින්‌ අඩු පිරිවැයක්‌ සහිත දෘඞාංගවලට මඟ පෑදිම.
+අර්ධ සන්නායක තාක්ෂණයෙහි Ge ප්‍රගතිය තුළින්‌ අඩු පිරිවැයක්‌ සහිත දෘඩාංගවලට මඟ පෑදිම.
 
 B. introduction of user-friendly software and interfaces to computers.
 පරිශීලක PHGHO (user-friendly) මෘදුකාංග සහ අතුරැමුහුණත්‌ පරිගඟණකවලට හඳුන්වා දීම.
@@ -750,7 +748,7 @@ Technology (ICT).
 තොරතුරැ හා සන්නිවේදන තාක්ෂණයේ ICT වර්ධනය Hem) ලබා දී ඇති සෑම සාධකයක්ම තීරණාත්මක
 කාටරයභාරයක්‌ ඉටු කර ඇන.
 
-Statement / ප්‍රකාගය A
+Statement / ප්‍රකාශය A
 
 The development of semiconductor technology, including microprocessors and memory chips, has made
 computing devices more affordable, powerful, and accessible. This has significantly contributed to the
@@ -760,7 +758,7 @@ widespread adoption of ICT.
 දැරිය හැකි, බලවත්‌ සහ ප්‍රවේශ විය හැකි බවට පත්‌ කර ඇත. තොරතුරැ හා සන්නිවෙදන තාක්ෂණ පුළඑල්‌
 ලෙස භාවිතා කිරීම HEM) මෙය සැලකිය යුතු ලෙස දායක වී ඇත.
 
-Statement / ප්‍රකාගය B
+Statement / ප්‍රකාශය B
 
 User friendly interfaces, such as graphical user interfaces (GUI) and intuitive operating systems, have
 made computers and ICT tools accessible to non-experts, thereby increasing their usage across various
@@ -770,13 +768,13 @@ sectors.
 අතුරැමුහුණන්‌, ප්‍රවිණයන්‌ නොවන අයට ප්‍රවේශ විය හැකි පරිගණක සහ ICT මෙවලමි බවට පත්‌ කර ඇති
 අතර එමඟින්‌ විවිධ අංශ හරහා ඒවායේ භාවිතය වැඩි කර ඇත.
 
-Statement / ප්‍රකාගය C
+Statement / ප්‍රකාශය C
 
 The integration of computing and communication technologies has led to the development of smartphones,
 tablets, and other smart devices, enabling seamless connectivity and digital transformation.
 
 පටිගණක සහ සන්නිවේදන තාක්ෂණයන්‌ ඒකාබද්ධ කිරීම ස්මාඊ්ටි ෆෝන්‌, ODES සහ අනෙකුත්‌ ස්මාඊටි උපාංග
-සංවට්ධනය කිරීමට හේතු වී ඇති අතර, බාධාවකින්‌ තොරව සමිඛන්ධතා සහ ඩිපිටල්‌ පරිවරිතනය සක්‍රිය කර
+සංවර්ධනය කිරීමට හේතු වී ඇති අතර, බාධාවකින්‌ තොරව සම්බන්ධතා සහ ඩිපිටල්‌ පරිවරිතනය සක්‍රිය කර
 ඇත.
 
 The final answer 15
@@ -785,7 +783,7 @@ The final answer 15
 Option / විකල්පය 5)
 
 9. Which of the following is the correct statement to connect to "login.php" from an HTML form?
-11111], පෝරමයක්‌ "login.php" වෙත සමිබන්ධ විමට භාවිත කළ හැකි නිවැරදි කේත පේළිය කුමක්‌ ද?
+11111], පෝරමයක්‌ "login.php" වෙත සම්බන්ධ විමට භාවිත කළ හැකි නිවැරදි කේත පේළිය කුමක්‌ ද?
 
 1) <form action ="GET" method ="/login.php">
 2) <form action ="/login.php" method ="GET">
@@ -901,9 +899,9 @@ Option 4
 Incorrect ( වැරදියි)
 
 The submit attribute does not exist in <form>. The correct way to specify the target file is using
-action="...".
+action="……".
 
-form හි submit ගුණාංගය නොපවතී. ඉලක්ක ගොනුව නියම කිරීමට නිවැරදි ක්‍රමය (action”...") භාවිතා
+form හි submit ගුණාංගය නොපවතී. ඉලක්ක ගොනුව නියම කිරීමට නිවැරදි ක්‍රමය (action”……") භාවිතා
 කිරීමයි.
 
 submit="/login.php" is invalid syntax.
@@ -926,7 +924,6 @@ target="/login.php" ක්‍රියාව සැකසීමට වලංග�
 of Examinations” using the URL: http://www.doe.index html?
 නිශ්චායකය (URL) භාවිතයෙන්‌ අධිසන්ධානයක්‌ (hyperlink) S6Ogue කිරීම සඳහා පහත දැක්වෙන කුමන
 HTML etm පේළිය නිවැරදි වන්නේ ද?
-
 
 Answer : 2)
 
@@ -965,7 +962,7 @@ The href contains a valid URL (http://www.doe.index. html).
 href හි වලංගු URL එකක්‌ http://www.doe.index.html අඩංගු වේ.
 
 The clickable text displayed will be Department of Examinations, which is what is required.
-ක්ලික්‌ කළ හැකි පාධය විභාග දෙපාරතමේන්තුව වන ඇත, එය අවග්‍ය වේ.
+ක්ලික්‌ කළ හැකි පාධය විභාග දෙපාරතමේන්තුව වන ඇත, එය අවශ්‍ය වේ.
 
 When a user clicks Department of Examinations, they will be taken to http://www.doe.index.html.
 පරිගීලකයෙකු විභාග දෙපාර්තමේන්තුව ක්ලික්‌ කළ විට, ඔවුන්‌ http://www.doe.index.html වෙත ගෙන යනු
@@ -976,7 +973,6 @@ When a user clicks Department of Examinations, they will be taken to http://www.
 Option 3
 Incorrect ( වැරදියි)
 
-
 The alt attribute is not valid for <a> tags.
 alt ගුණාංගය <a> උසුලනයක්‌ සඳහා වලංගු නොවේ.
 
@@ -985,7 +981,6 @@ The anchor text is missing between <a> and </a>, meaning there is no clickable t
 
 Option 4
 Incorrect ( වැරදියි)
-
 
 The <a> tag does not use src, it uses href for links.
 <a> උසුලනය src භාවිතා නොකරයි, එය සබැඳි සඳුහා href Mdm කරයි.
@@ -1012,7 +1007,7 @@ spreadsheet. To get some information required for the spreadsheet he opens a lar
 his Database Management System (DBMS). After completing his spreadsheet he saves it.
 
 පරිගිලභකයකු තමන්ගේ තනි-සකසනය සහිත පරිගණකයෙහි (single processor computer) පැතුරැමිපත්‌
-යෙදුමක්‌ ආරමිභ කර, නව පැතුරැමි පනතක්‌ නිර්මාණය කරයි. පැතුරැමිපත සඳහා අවග්‍ය ඇතැමි තොරතුරැ
+යෙදුමක්‌ ආරමිභ කර, නව පැතුරැමි පනතක්‌ නිර්මාණය කරයි. පැතුරැමිපත සඳහා අවශ්‍ය ඇතැමි තොරතුරැ
 
 ලබා ගැනීම Heo) ඔහු තමන්ගේ දුත්ත සමුදා කළමණාකරන පද්ධතිය (DBMS) භාවිත කර, විගාල දත්ත
 සමුදායක්‌ විවෘත කරයි. පැතුරැමිපත සමිපුර්ණ කිරීමෙන්‌ අනතුරැව ඔහු එය සුරකියි (save).
@@ -1039,7 +1034,7 @@ as efficiently handling memory to work with such a large amount of data. Finally
 spreadsheet, the operating system ensures the data 15 correctly written and stored onto the storage device.
 These actions showcase various key functions of the operating system working together smoothly.
 
-මෙම ප්‍රග්නය පරිගිලකයෙකු විසින්‌ කාර්යයන්‌ කිහිපයක්‌ සිදු කරන අතරතුර භාවිතා කරන EC මෙහෙයුමි
+මෙම ප්‍රශ්නය පරිගිලකයෙකු විසින්‌ කාර්යයන්‌ කිහිපයක්‌ සිදු කරන අතරතුර භාවිතා කරන EC මෙහෙයුමි
 පද්ධති විශේෂාංග පිළිබඳව වේ. පරිශීලකයා පැතුරැමිපත්‌ යෙදුමක්‌ දියත්‌ කිරීමෙන්‌ ආරමිභ කරයි. මෙහිදි,
 වැඩසටහන ක්‍රියාත්මක කිරීම කළමනාකරණය කිරීමෙන්‌ මෙහෙයුමි පද්ධතිය උපකාරී වේ. ඉන්පසුව, පරිගීලකයා
 EBD HOE) කළමනාකරණ පද්ධතියක්‌ භාවිතයෙන්‌ විශාල em ගබඩාවක්‌ SOawm කරන විට, em සමුදායට
@@ -1070,7 +1065,7 @@ Virtual memory / අතට්‍ය මතකය
 Opening a large database may require more memory than what 15 physically available, which means the
 operating system uses virtual memory to manage 11.
 
-විශාල EMD ගබඩාවක්‌ විවෘත HOO සඳහා භෞතිකව පවතින ප්‍රමාණයට O8) වැඩි මතකයක අවග්‍ය විය
+විශාල EMD ගබඩාවක්‌ විවෘත HOO සඳහා භෞතිකව පවතින ප්‍රමාණයට O8) වැඩි මතකයක අවශ්‍ය විය
 හැක, එනමි මෙහෙයුමි පද්ධතිය එය කළමනාකරණය කිටීමට අනට්‍ය මතකය භාවිතා කරයි.
 
 Thus, the correct answer is 5).
@@ -1080,21 +1075,21 @@ A smart environment can be created by having an interconnected network of hardwa
 sensors, connectivity and required software, which is often referred to as the Internet of Things (ToT).
 Which of the following statements is correct about IoT?
 
-පාලගත දෘඞාංග උපක්‍රම, සංවේදක, සම්බන්ධතාවයන්‌ සහ අවශ්‍ය මෘදුකාංග භාවිතයෙන්‌ MO දුව්‍ය
+පාලගත දෘඩාංග උපක්‍රම, සංවේදක, සම්බන්ධතාවයන්‌ සහ අවශ්‍ය මෘදුකාංග භාවිතයෙන්‌ MO දුව්‍ය
 අන්තට්පාලය (Internet of Things[IoT]) ලෙස හැඳින්වෙන සුහුරු පරිසරයක්‌ ගොඩනඟා ගත හැක. සාර්ව
 ද්‍රව්‍ය අන්තර්පාලය පිළිබඳුව පහත කවර වගන්තියක්‌ සන්‍ය වේ ද?
 
 1) Every IoT device or item must be connected using UTP cables.
-සැම IoT උපක්‍රමයක්‌ © හෝ අයිතමයක්‌ © UTP රැහැන්‌ මගින්‌ සමිබන්ධ කළ යුතු ය.
+සැම IoT උපක්‍රමයක්‌ © හෝ අයිතමයක්‌ © UTP රැහැන්‌ මගින්‌ සම්බන්ධ කළ යුතු ය.
 2) Ifany item of the IoT setup fails to operate the entire IoT setup will be shutdown.
 IoT 88Q50m ඇති කිසියමි හෝ අයිතමයක මෙහෙයුමි අක්‍රිය (fail) ව විට සමස්ත IoT පිහිටුවීම ම
 වසා දැමෙනු ඇත (shutdown).
 3) 1091 environments cannot be monitored and controlled remotely.
 IoT පරිසරයක්‌ 608080 අධික්ෂණය (monitor) කිරීම සහ පාලනය කිරීම සිදු කළ නොහැක.
 4) Modern smart mobile phones cannot be connected to an IoT setup.
-IoT පිහිටුවීමකට (setup) නවින සුහුරු දුරකටන සමිඛන්ධ කළ නොහැක.
+IoT පිහිටුවීමකට (setup) නවින සුහුරු දුරකටන සම්බන්ධ කළ නොහැක.
 5) The Internet connectivity is not essential for an 10 1 setup to function.
-IoT පිහිටුවීමක (setup) ක්‍රියාකාරිත්වය සඳහා අන්තරපාල සමිඛන්ධතාවයක්‌ අත්‍යවග්‍ය නොවේ.
+IoT පිහිටුවීමක (setup) ක්‍රියාකාරිත්වය සඳහා අන්තර්ජාල සම්බන්ධතාවයක්‌ අත්‍යවග්‍ය නොවේ.
 
 Answer: 5)
 
@@ -1103,13 +1098,13 @@ and share data over the internet. These devices, which can range from household 
 machines, are embedded with sensors, software, and other technologies that enable them to collect,
 exchange, and act on data.
 
-අන්තටරපාලය HOM) cow සන්නිවෙදනය කරන සහ බෙදා ගන්නා අන්තර සමිඛන්ධිත භෞතික උපාංග
+අන්තර්ජාලය HOM) cow සන්නිවෙදනය කරන සහ බෙදා ගන්නා අන්තර සම්බන්ධිත භෞතික උපාංග
 පාලයක්‌ යනු සාර්ව ද්‍රව්‍ය අන්තර්පාලය (101) යන්නයි. ගෘහ උපකරණවල සිට mdSa යන්ත්‍ර දක්වා
 පරාසයක විහිදෙන මෙම උපාංග, දුත්ත රැස්‌ කිරීමට, හුවමාරැ කිරීමට සහ ක්‍රියා කිරීමට හැකි වන පරිදි
 සංවේදක, මෘදුකාංග සහ වෙනත්‌ තාක්ෂණයන්ගෙන්‌ සමන්විත වේ.
 
 Hardware Devices are the physical components that make up an IoT system, including,
-දෘඞාංග උපාංග යනු 10] පද්ධතියක්‌ සැදෙන භෞතික සංරචක වන අතර SOO ඇතුළත්‌ වන්නේ.
+දෘඩාංග උපාංග යනු 10] පද්ධතියක්‌ සැදෙන භෞතික සංරචක වන අතර SOO ඇතුළත්‌ වන්නේ.
 
 Microcontrollers & Microprocessors / ක්ෂුදු පාලක සහ ක්ෂුද්‍ර සකසන
 Actuators / ක්‍රියාකාරක
@@ -1123,7 +1118,7 @@ Sensors / සංවේදක
 Sensors are also hardware devices, and they play a crucial role in IoT by collecting real-time data from
 the environment. Some common [oT sensors include,
 
-සංවේදක දු දෘඞාංග උපාංග වන අතර, ඒවා පරිසරයෙන්‌ ons කාලීන essen රැස්‌ කිරීමෙන්‌ ]0] හි
+සංවේදක දු දෘඩාංග උපාංග වන අතර, ඒවා පරිසරයෙන්‌ ons කාලීන essen රැස්‌ කිරීමෙන්‌ ]0] හි
 තීරණාත්මක කාර්යභාරයක්‌ ඉටු කරයි. සමහර පොදු 10] සංවේදකවලට ඇතුළත්‌ වන්නේ.
 
 Temperature Sensors / උෂ්ණත්ව සංවේදක
@@ -1137,7 +1132,7 @@ Gas Sensors / වායු සංවේදක
 GPS Sensors / GPS සංවේදක
 
 Connectivity is what enables IoT devices to transmit and receive data over the internet or local networks.
-සම්බන්ධතාවය යනු IloT උපාංගවලට අන්තරපාලය හෝ දේශීය HE හරහා esi සමිප්‍රේෂණය කිරීමට සහ
+සම්බන්ධතාවය යනු IloT උපාංගවලට අන්තර්ජාලය හෝ දේශීය HE හරහා esi සම්ප්‍රේෂණය කිරීමට සහ
 ලබා ගැනීමට හැකියාව ලබා දෙන දෙයයි.
 
 While hardware devices, sensors, and connectivity form the physical backbone of an IoT system,
@@ -1145,7 +1140,7 @@ software 1s what processes data, enables communication, and provides control ove
 software includes firmware, operating systems, cloud platforms, and applications that work together to
 manage IoT devices and data.
 
-දෘඞාංග උපාංග, සංවේදක සහ සමිබඛන්ධතාවය IoT පද්ධතියක භෞතික කොඳු නාරටිය වන අතර, මෘදුකාංග
+දෘඩාංග උපාංග, සංවේදක සහ සමිබඛන්ධතාවය IoT පද්ධතියක භෞතික කොඳු නාරටිය වන අතර, මෘදුකාංග
 EDD සැකසීම, සන්නිවෙදනය සක්‍රීය කිරීම සහ උපාංග පාලනය කිරීම සපයයි. loT මෘදුකාංගයට ස්ටිරාංග,
 මෙහෙයුමි පද්ධති, වලාකුළු වේදිකා සහ 10] උපාංග සහ ess කළමනාකරණය කිරිම සඳුහා එක්ව ක්‍රියා
 කරන යෙදුමි ඇතුළත්‌ වේ.
@@ -1157,20 +1152,20 @@ computer networks, telecommunications, and 101 applications. They consist of twi
 wires inside a plastic sheath, but they lack additional shielding, making them more flexible and cost-
 effective.
 
-UTP (Unshielded Twisted Pair) කේඛල්‌ යනු පරිගණක පාල, විදුලි සංඳේගශ සහ 101 යෙදුමිවල eso
+UTP (Unshielded Twisted Pair) කේඛල්‌ යනු පරිගණක පාල, විදුලි සංඳේගශ සහ 101 යෙදුම්වල eso
 සම්ප්‍රේෂණය සඳුහා භාවිතා කරන ජාල කේබල්‌ වර්ගයකි. JO) ප්ලාස්ටික්‌ කොපුවක්‌ තුළ ඇඹරැණු තඹ Od
 යුගල වලින්‌ සමන්විත වේ, නමුත්‌ ඒවාට අමතර ආවරණයක්‌ නොමැති බැවින්‌ ඒවා වඩාත්‌ නම්‍යගිලි සහ
 ලාභදායී වේ.
 
 Does Every IoT Device Need to Be Connected Through UTP?
 
-සෑම 101 උපාංගයක්ම UTP හරහා සමිබන්ධ කළ ane?
+සෑම 101 උපාංගයක්ම UTP හරහා සම්බන්ධ කළ ane?
 
 No, not every 101 device needs to be connected using UTP (Unshielded Twisted Pair) cables. While UTP
 cables are commonly used for wired networking, many IoT devices use wireless connectivity instead.
-නැත, සෑම 101 උපාංගයක්ම UTP (Unshielded Twisted Pair) කේබල්‌ භාවිතයෙන්‌ සමිබන්ධ කිරීම අවග්‍ය
+නැත, සෑම 101 උපාංගයක්ම UTP (Unshielded Twisted Pair) කේබල්‌ භාවිතයෙන්‌ සම්බන්ධ කිරීම අවශ්‍ය
 නොවේ. ['] ]) කේබල්‌ බහුලව රැහැන්ගත පාලකරණය සඳුහා භාවිතා කරන අතර, බොහෝ IoT උපාංග ඵ්‌
-වෙනුවට රැහැන්‌ රහිත සමිබන්ධතාවය භාවිතා කරයි.
+වෙනුවට රැහැන්‌ රහිත සම්බන්ධතාවය භාවිතා කරයි.
 
 Therefore, the first option 15 wrong.
 එබැවින්‌, පළමු විකල්පය වැරදියි.
@@ -1192,7 +1187,7 @@ Some IoT setups use edge computing to process data locally instead of relying so
 සමහර loT සැකසුමි වලාකුළ මත පමණක්‌ රඳා නොසිට SDAHGO evi සැකසීමට edge computing
 භාවිතා කරයි.
 
-e Multiple Connectivity Options / බහු සමිබන්ධතා විකල්ප
+e Multiple Connectivity Options / බහු සම්බන්ධතා විකල්ප
 
 Devices can use both Wi-Fi and cellular as backup communication methods.
 උපාංගවලට උපස්ට සන්නිවේදන ක්‍රම ලෙස Wi-Fi සහ cellularom දෙකම භාවිතා කළ හැකිය.
@@ -1213,7 +1208,7 @@ One of the core features of 10 1 1s remote monitoring and control. 101 systems a
 
 to enable users to access, manage, and automate devices from anywhere using internet connectivity.
 10] හි මුලික ලක්ෂණයක්‌ වන්නේ දුරස්ට අධික්ෂණය සහ පාලනයයි. lol පද්ධති විශේෂයෙන්‌ නිරමාණය
-කර ඇත්තේ පරිගිලකයින්ට අන්තටරපාල සමිබන්ධතාවය භාවිතයෙන්‌ ඕනෑම තැනක සිට උපාංග වෙත ප්‍රවේග
+කර ඇත්තේ පරිගිලකයින්ට අන්තර්ජාල සම්බන්ධතාවය භාවිතයෙන්‌ ඕනෑම තැනක සිට උපාංග වෙත ප්‍රවේග
 විමට, කළමනාකරණය කිරීමට සහ ස්වයංඛක්‍රිය කිරීමට හැකි වන පරිදිය.
 
 Therefore, the third option is wrong.
@@ -1239,18 +1234,18 @@ by using local networks, edge computing, or offline processing. The need for int
 depends on the architecture and use case of the IoT system.
 
 බොහෝ 10] සැකසුමි අන්තර්පාලය මත රඳා පවතින අතර, සමහර IoT පද්ධති local networks, edge
-computing, හෝ offline processing භාවිතා කිරීමෙන්‌ අන්තරපාල සමිබන්ධතාවයකින්‌ තොරව ක්‍රියා කළ
-හැකිය. අන්තර්පාල සමිබන්ධතාවයේ අවග්‍යතාවය ]0] පද්ධතියේ නිර්මාණ ගිල්පය සහ භාවිත අවස්ථාව මත
+computing, හෝ offline processing භාවිතා කිරීමෙන්‌ අන්තර්ජාල සම්බන්ධතාවයකින්‌ තොරව ක්‍රියා කළ
+හැකිය. අන්තර්පාල සම්බන්ධතාවයේ අවශ්‍යතාවය ]0] පද්ධතියේ නිර්මාණ ගිල්පය සහ භාවිත අවස්ථාව මත
 රඳා පවති.
 
 Therefore, the fifth option is correct.
 එබැවින්‌, පස්වන විකල්පය නිවැරදි ය.
 
 Which of the following indicates a non-functional requirement?
-පහත කුමකින්‌ කාරයබද්ධ නොවන (non functional) අවග්‍යතාවක්‌/අවග්‍යතා දැක්වෙයි ද?
+පහත කුමකින්‌ කාරයබද්ධ නොවන (non functional) අවශ්‍යතාවක්‌/අවශ්‍යතා දැක්වෙයි ද?
 
 A. A user shall be allowed to upload an image to the system to be used as his/her profile picture.
-රෑපයක්‌ තමන්ගේ පැතිකඩ ජායාරෑපය ලෙස පද්ධතියට උඩුගත කිරීමට පරිගිලකයකුට අවස්ටාව තිබිය
+රූපයක්‌ තමන්ගේ පැතිකඩ ජායාරූපය ලෙස පද්ධතියට උඩුගත කිරීමට පරිගිලකයකුට අවස්ටාව තිබිය
 යුතු ය.
 
 B. The correct invoice value should be calculated including applicable tax rates at the check-out.
@@ -1266,7 +1261,7 @@ Answer: 3)
 Non-functional requirements describe how a system performs a specific function, focusing on aspects such
 as performance, reliability, and usability, rather than the specific actions it performs.
 
-MOSCA නොවන අවග්‍යතා පද්ධතියක්‌ Adda කාරයයක්‌ ඉටු කරන ආකාරය විස්තර කරයි, එය සිදු කරන
+MOSCA නොවන අවශ්‍යතා පද්ධතියක්‌ Adda කාරයයක්‌ ඉටු කරන ආකාරය විස්තර කරයි, එය සිදු කරන
 නිශ්චිත ක්‍රියාවන්ට වඩා කාර්ය සාධනය, විශ්වසනීයත්වය සහ උපයෝගීතාව වැනි අංශ කෙරෙහි අවධානය
 යොමු කරයි.
 
@@ -1275,8 +1270,8 @@ Statement / ප්‍රකාශනය A
 Allowing a user to upload an image for their profile picture 15 a functional requirement, as it describes a
 specific action.
 
-පරිගීලකයෙකුට ඔවුන්ගේ පැතිකඩ පින්තූරය ae) රෑපයක්‌ උඩුගත කිරීමට ඉඩ දිම, එය විශේෂිත ක්‍රියාවක්‌
-විස්තර කරන බැවින්‌ එය කාරයබද්ධ අවග්‍යතාවයකි.
+පරිගීලකයෙකුට ඔවුන්ගේ පැතිකඩ පින්තූරය ae) රූපයක්‌ උඩුගත කිරීමට ඉඩ දිම, එය විශේෂිත ක්‍රියාවක්‌
+විස්තර කරන බැවින්‌ එය කාරයබද්ධ අවශ්‍යතාවයකි.
 
 Statement / ප්‍රකාශනය B
 
@@ -1284,23 +1279,23 @@ Calculating the correct invoice value including tax rates at checkout is also a 
 specifies a precise behavior.
 
 නිශ්චන හැසිරීමක්‌ nen කරන බැවින්‌ ගෙවා පිටවිමේෙදි DE අනුපාත ඇතුඑව නිවැරදි ඉන්වොයිස්‌ අගය
-ගණනය කිරීම දු කාර්යබද්ධ අවග්‍යතාවයකි.
+ගණනය කිරීම දු කාර්යබද්ධ අවශ්‍යතාවයකි.
 
 Statement / ප්‍රකාශනය C
 
 Ensuring the system has 99.9% availability of service is a non-functional requirement, as it relates to the
 system's performance and reliability.
 
-පද්ධතියේ ක්‍රියාකාරීත්වය සහ විශ්වසනීයත්වය සමිඛන්ධයෙන්‌ පද්ධතියට 99.9% ක සේවා ලබා ගැනීමේ
-හැකියාවක්‌ ඇති බව සහතික කිරීම කාරියබද්ධ නොවන අවග්‍යතාවයකි.
+පද්ධතියේ ක්‍රියාකාරීත්වය සහ විශ්වසනීයත්වය සම්බන්ධයෙන්‌ පද්ධතියට 99.9% ක සේවා ලබා ගැනීමේ
+හැකියාවක්‌ ඇති බව සහතික කිරීම කාරියබද්ධ නොවන අවශ්‍යතාවයකි.
 
 In summary, the question asks you to identify which statement describes a non-functional requirement.
 The correct answer is C — The system must satisfy 99.9% availability of service, as it relates to the system's
 performance and availability, rather than a specific function or task.
 
-සාරාංගයක්‌ ලෙස, ප්‍රශ්නය මඟින්‌ ඔබෙන්‌ අසනු ලබන්නේ කාටරයබද්ධ නොවන අවග්‍යනාවයක්‌ විස්තර කරන
-ප්‍රකාගය කුමක්ද යන්න හඳුනා ගැනීමටයි. නිවැරදි පිළිතුර C වේ - පද්ධතිය නිශ්චිත කාර්යයක්‌ හෝ mbaced
-වෙනුවට පද්ධතියේ කාරය සාධනය සහ ලබා ගත හැකි බව හා සමිඛන්ධ වන බැවින්‌, සේවාවේ ලබා ගැනීමේ
+සාරාංගයක්‌ ලෙස, ප්‍රශ්නය මඟින්‌ ඔබෙන්‌ අසනු ලබන්නේ කාටරයබද්ධ නොවන අවශ්‍යනාවයක්‌ විස්තර කරන
+ප්‍රකාශය කුමක්ද යන්න හඳුනා ගැනීමටයි. නිවැරදි පිළිතුර C වේ - පද්ධතිය නිශ්චිත කාර්යයක්‌ හෝ mbaced
+වෙනුවට පද්ධතියේ කාරය සාධනය සහ ලබා ගත හැකි බව හා සම්බන්ධ වන බැවින්‌, සේවාවේ ලබා ගැනීමේ
 හැකියාවෙන්‌ 99.9% ක්‌ සපුරාලිය යුතුය.
 
 14.
@@ -1309,7 +1304,7 @@ Therefore, the correct answer is 3)
 එබැවින්‌, නිවැරදි පිළිතුර 3)
 
 Consider the process transition diagram in the figure:
-රෑපයේ දැක්වෙන ක්‍රියායන-සංක්‍රාන්ති (process transition) සටහන සලකන්න.
+රූපයේ දැක්වෙන ක්‍රියායන-සංක්‍රාන්ති (process transition) සටහන සලකන්න.
 
 If the transitions shown are as follows.
 පෙන්වා ඇති සංක්‍රාන්ති පහත දැක්වෙන SOE නමි,
@@ -1345,7 +1340,7 @@ and C to Ready.
 ආදානය/ප්‍රතිදානය සඳුහා අවහිර කිරීම, ආදානය/ප්‍රතිදානය සමිපුර්ණ කිරීම සහ උපලේඛන තෝරා ගැනීමේ
 ක්‍රියාවලින්‌ වැනි විස්තර කරන ලද සංක්‍රාන්ති මත පදනම්ව, ක්‍රියාවලි සංක්‍රාන්ති රැප සටහනක කුමන ප්‍රාන්ත
 නියෝජනය කරන්නේ දැයි තීරණය කිරිමට ප්‍රශ්නය ඔබෙන්‌ අසයි. ධාවනය, අවහිර කළ සහ සූදානමි වැනි
-ක්‍රියාවලි කළමනාකරණයේ ඔවුන්ගේ භූමිකාවන්‌ සමඟ මෙම ප්‍රාන්ත ඔබ ගැලපීම එයට අවග්‍ය වේ. නිවැරදි
+ක්‍රියාවලි කළමනාකරණයේ ඔවුන්ගේ භූමිකාවන්‌ සමඟ මෙම ප්‍රාන්ත ඔබ ගැලපීම එයට අවශ්‍ය වේ. නිවැරදි
 
 පිළිතුර 4 වේ A යනු ධාවනය වන ආකාරය, B යනු අවහිර කරන ලද ආකාරය සහ C යනු සූදානමි ආකාරය
 වේ.
@@ -1356,7 +1351,7 @@ A තත්වය: ධාවනය වෙමින්‌ පවති: ක්‍
 
 When it requires I/O, it stops executing and transitions to State B: Blocked.
 
-එයට I/O අවග්‍ය වු විට, එය ක්‍රියාත්මක කිරීම නවත්වන අතර B තන්වයට සංක්‍රමණය වේ. අවහිර කර ඇති
+එයට I/O අවශ්‍ය වු විට, එය ක්‍රියාත්මක කිරීම නවත්වන අතර B තන්වයට සංක්‍රමණය වේ. අවහිර කර ඇති
 තත්වය
 
 Statement / ප්‍රකාගනය 2
@@ -1554,7 +1549,7 @@ Student_Sport වගුවට Age යනුවෙන්‌ HO ක්ෂේත්
 10 ට වඩා වැඩි විය යුතු ය.
 
 Which one is the correct SQL statement to implement the above requirement?
-ඉහත අවග්‍යතාවය ක්‍රියාත්මක කිරීම සඳහා නිවැරදි SOL ප්‍රකාශය කුමක්‌ ද?
+ඉහත අවශ්‍යතාවය ක්‍රියාත්මක කිරීම සඳහා නිවැරදි SOL ප්‍රකාශය කුමක්‌ ද?
 
 1) Alter table Student_Sport add check (Age> 10);
 
@@ -1640,7 +1635,7 @@ Solid State Storage
 Optical Disk
 
 1) Magnetic Tape, Magnetic (Hard) Disk, Random Access Memory (RAM), Processor Registers
-චුම්බක පටිය, චුම්ඛක (දෘඞ්‌) තැටිය, සසමිභාවි ප්‍රවේශ මතකය (RAM), සකසනයෙහි රෙපිස්තර
+චුම්බක පටිය, චුම්ඛක (දෘඩ්‌) තැටිය, සසමිභාවි ප්‍රවේශ මතකය (RAM), සකසනයෙහි රෙපිස්තර
 
 2) Processor Registers. Magnetic (Hard) Disk, Random Access Memory (RAM), Magnetic Tape
 සකසනයෙහි රෙපිස්තර, වුමිබඛක (ca) තැටිය, සසමිභාවී ප්‍රවේග මතකය, චුම්බක පටිය
@@ -1725,14 +1720,14 @@ The final answer 15
 3) 01110111
 
 21. Which of the following statements is/are correct about two's complement?
-දෙකෙහි අනුපුරකය (two’s complement) පිළිබඳාව පහත කුමන ප්‍රකාගය/ප්‍රකාශ සත්‍ය වේ ද?
+දෙකෙහි අනුපුරකය (two’s complement) පිළිබඳාව පහත කුමන ප්‍රකාශය/ප්‍රකාශ සත්‍ය වේ ද?
 
 A. Subtraction is carried out as addition / අඩු කිරීම, එකතු කිරීම ලෙස සිදු කිරීම
 
 B. Calculations are more efficient / ගණනය කිරීමි වඩා කාටරයක්ෂම විම
 
 ල්‌, It 15 possible to represent negative numbers within the two’s complement.
-සෘණ සංඛ්‍යා, 2 හි අනුපුරකය නුළම නිරෑපනය කිරීමට හැකි SO
+සෘණ සංඛ්‍යා, 2 හි අනුපුරකය නුළම නිරූපණය කිරීමට හැකි SO
 
 1) & 011. 2) B only. 3) AandBonly. 4) BandConly. 5) AllA, Band C.
 
@@ -1764,18 +1759,18 @@ Add 7and-5/7 සහ -5 එකතු කරන්න
 00000111 (7) + 11111011 (-5) = 0000010 (2)
 
 Therefore, statement A is correct.
-එබැවින්‌ A ප්‍රකාගය නිවැරළි වේ.
+එබැවින්‌ A ප්‍රකාශය නිවැරළි වේ.
 
 Statement 13
 
 Two’s complement simplifies arithmetic operations (addition, subtraction, multiplication) as there is no
 need for separate circuits to handle subtraction.
 
-දෙකේ අනුපුරකයේ Gh කිරීමි හැසිරවීමට වෙනම පරිපට අවශ්‍ය නොවන බැවින්‌ අංක ගණිතමය මෙහෙයුමි
+දෙකේ අනුපුරකයේ Gh කිරීමි හැසිරවීමට වෙනම පරිපථ අවශ්‍ය නොවන බැවින්‌ අංක ගණිතමය මෙහෙයුමි
 (එකතු කිරීම, අඩු කිරීම, ගුණ කිරීම) සරල කරයි.
 
 Therefore, B statement is correct.
-එබැවින්‌ B ප්‍රකාගය නිවැරළි වේ.
+එබැවින්‌ B ප්‍රකාශය නිවැරළි වේ.
 
 Statement C
 It allows negative numbers to be stored and operated on naturally.
@@ -1795,7 +1790,7 @@ Therefore, answer 15 5 (All A,B, and C)
 එබැවින්‌, පිළිතුර 5 වේ. (A,B සහ ට සියල්ලම)
 
 Which of the following statements correctly describe/describes hackers?
-අපහාරකයින්‌ (Hackers) පිළිබඳු පහත කවර ප්‍රකාශයක්‌ /ප්‍රකාග වලංගු වේ ද?
+අපහාරකයින්‌ (Hackers) පිළිබඳු පහත කවර ප්‍රකාශයක්‌ /ප්‍රකාශ වලංගු වේ ද?
 
 A. They are bored and lonely anti-social teenagers who attack computer systems as a challenge and
 
@@ -1838,7 +1833,7 @@ them to explore hacking as a way to prove their abilities or seek profit. While 
 hackers, it accurately reflects a portion of individuals involved in hacking activities, particularly those
 with less mature or ethical motivations. Thus, the statement can be considered correct.
 
-කුතුහලයෙන්‌ සිටින, තාක්ගණය පිළිබඳ නිපුණතා ඇති, සහ සමාජ සමිබන්ධතා නොමැති තරැණ පුද්ගලයින්‌,
+කුතුහලයෙන්‌ සිටින, තාක්ගණය පිළිබඳ නිපුණතා ඇති, සහ සමාජ සම්බන්ධතා නොමැති තරැණ පුද්ගලයින්‌,
 ඔවුන්ගේ හැකියාවන්‌ ඔප්පු කිරීමට හෝ ලාභ ලැබිමට මාර්ගයක්‌ ලෙස අනවසරයෙන්‌ ඇතුඑවිම ගවේෂණය
 කිරීමට යොමු කරයි. මෙය සියලු අපහාරකයින්‌ නියෝපනය නොකරන අතර, එය අනවසරයෙන්‌ ඇතුළඑවිීමේ
 ක්‍රියාකාරකම්වල යෙදි සිටින පුද්ගලයින්ගෙන්‌ කොටසක්‌, විගේෂයෙන්‌ අඩු පරිණත හෝ සදාචාරාත්මක අභිප්‍රේරණ
@@ -1857,7 +1852,7 @@ cause harm or disruption. Thus, the statement is correct.
 
 මෙම SMOG, තරඟයෙන්‌ හෝ ඔවුන්ගේ තාක්ෂණික කුසලතා ඔප්පු කිරීමට ඇති ආගාවෙන්‌ පෙලඹී සිටින
 හැකට්වරැන්‌ නිවැරදිව විස්තර කරයි. සමහර අපහාරකයින්‌, විශේෂයෙන්ම අනවසරයෙන්‌ ඇතුඑවිීමේ woe,
-සයිබර්‌ අභියෝග හෝ හැක්ටිවිසමි වලට සමිබන්ධ වුවන්‌, පුද්ගලයන්ගේ සහ ව්‍යාපාරවල පරිගණක පද්ධති
+සයිබර්‌ අභියෝග හෝ හැක්ටිවිසමි වලට සම්බන්ධ වුවන්‌, පුද්ගලයන්ගේ සහ ව්‍යාපාරවල පරිගණක පද්ධති
 ඉලක්ක කර ගනිමින්‌ ඔවුන්ගේ විශේෂඥානාව ප්‍රදර්ශනය කිරීමට, පිළිගැනීමක්‌ ලබා ගැනීමට හෝ අන්‌ අය
 සමඟ තරඟ කරති. මෙම පුද්ගලයින්‌ බොහෝ විට තොරතුරැ mseged ඉහළ නිපුණනාවයක්‌ ඇති අතර
 අනවසරයෙන්‌ ඇතුළඑවීම බුද්ධිමය අභියෝගයක්‌ හෝ එදිරිවාදිකමක්‌ ලෙස සලකයි. ඔවුන්ගේ ක්‍රියාවන්‌ සෑම
@@ -1873,7 +1868,7 @@ or disrupt operations for certain benefits, such as ransom payments, fraud, or s
 the dark web. These hackers are often well-funded, operate in structured networks, and employ tactics like
 ransomware, phishing, and advanced persistent threats (APTs). Thus, the statement is correct.
 
-මෙම ප්‍රකාගය, සංවිධානාත්මක අපරාධ කණ්ඩායමිවල කොටසක්‌ ලෙස ක්‍රියාත්මක වන අපහාරකරැවන්‌ නිවැරවිව
+මෙම ප්‍රකාශය, සංවිධානාත්මක අපරාධ කණ්ඩායමිවල කොටසක්‌ ලෙස ක්‍රියාත්මක වන අපහාරකරැවන්‌ නිවැරවිව
 විස්තර කරයි. මෙම කණ්ඩායම්‌ ඉතා සංකීරණ වන අතර පුද්ගලයන්ගේ සහ ව්‍යාපාරවල පරිගණක පද්ධති
 වෙත ඉලක්කගත ප්‍රහාර එල්ල කිරීම සඳහා උසස්‌, ස්වයංක්‍රීය මෙවලමි භාවිතා කරයි. ඔවුන්ගේ මුලික ඉලක්ක
 වන්නේ මුල්‍යමය වාසි අත්කර ගැනීම, සංවේදි essen සොරකමි කිරීම හෝ කප්පමි ගැනීම, වංචාව, හෝ dark
@@ -1946,7 +1941,7 @@ Works just like a text input but adds basic security
 පාධ Menace මෙන්‌ Ga) කරයි, නමුත්‌ මූලික ආරක්ෂාව Hed කරයි.
 
 Consider the following statements regarding the Extended Entity Relationship (EER) model.
-විස්තෘත භූතාඊර්ට සමිබන්ධතා (EER) ආකෘතිය පිළිබඳ පහත දැක්වෙන වගන්ති සලකන්න.
+විස්තෘත භූතාඊර්ට සම්බන්ධතා (EER) ආකෘතිය පිළිබඳ පහත දැක්වෙන වගන්ති සලකන්න.
 
 A. EER model includes all the concepts of the original ER model.
 EER ආකෘතියට මුල්‌ ER ආකෘතියෙහි ඇති සියලු ම සංකල්ප ඇතුළත්‌ වේ.
@@ -1968,7 +1963,7 @@ Answer : 3)
 25.
 
 What is the Extended Entity Relationship (EER) model?
-විස්තෘත භූටාටත සමිබන්ධතා (EER) ආකෘතිය යනු කුමක්ද 7
+විස්තෘත භූටාටත සම්බන්ධතා (EER) ආකෘතිය යනු කුමක්ද 7
 
 The Extended Entity Relationship (EER) model is an enhanced version of the original Entity Relationship
 (ER) model. It includes all the features of the ER model but introduces additional concepts for modeling
@@ -1978,9 +1973,9 @@ concepts like specialization, generalization, and modeling weak entities, which 
 representation of real-world scenarios.
 
 විස්තෘත භූටාරත aGaAsidam) (EER) ආකෘතිය යනු මුල්‌ භූටාඊරත සමිබඛන්ධතනා (ER) ආකෘතියේ වැඩි දියුණු කළ
-අනුවාදුයකි. එයට ER ආකෘතියේ සියලුම විගේෂාංග ඇතුළත්‌ වන නමුත්‌ සංකීරණ දත්ත සමිබන්ධතා ආකෘති
+අනුවාදුයකි. එයට ER ආකෘතියේ සියලුම විගේෂාංග ඇතුළත්‌ වන නමුත්‌ සංකීරණ දත්ත සම්බන්ධතා ආකෘති
 නිර්මාණය සඳුහා අමතර සංකල්ප හඳුන්වා දෙයි. මෙම වැඩිදියුණු කිරීමි EER ආකෘතිය වඩාත්‌ බලවත්‌ හා
-නම්‍යගිලි කරයි, දූත්ත සමුදා නිර්මාණයේ විවිධ උසස්‌ අවග්‍යතා සපුරාලයි. මෙම වැඩිදියුණු කිරිීමිවලින්‌ සමහරක්‌
+නම්‍යගිලි කරයි, දූත්ත සමුදා නිර්මාණයේ විවිධ උසස්‌ අවශ්‍යතා සපුරාලයි. මෙම වැඩිදියුණු කිරිීමිවලින්‌ සමහරක්‌
 විගේෂිකරණය, සාමාන්‍යයකරණය සහ දුට්වල භූටාර්ත ආකෘති නිර්මාණය වැනි සංකල්ප ඇතුළත්‌ වන අතර
 එමඟින්‌ සැබෑ ලෝක අවස්ටා වඩාත්‌ සියුමි ලෙස නිරෑැපණය කිරීමට ඉඩ සලසයි.
 
@@ -1989,7 +1984,7 @@ Statement A
 Correct, The EER model is an extension of the ER model, meaning it includes all its fundamental concepts
 like entities, attributes, relationships, and weak entities.
 
-නිවැරදි, EER ආකෘතිය ER ආකෘතියේ දිගුවකි, එනමි එයට භතාරත, උපලක්ෂණ, සමිබන්ධනා සහ දුර්වල
+නිවැරදි, EER ආකෘතිය ER ආකෘතියේ දිගුවකි, එනමි එයට භතාරත, උපලක්ෂණ, සම්බන්ධනා සහ දුර්වල
 amon වැනි එහි සියලු මූලික සංකල්ප ඇතුළත්‌ වේ.
 
 Statement 13
@@ -2036,7 +2031,7 @@ transmit information. It can be represented in various forms, such as electrical
 and is categorized as either analog (continuous) or digital (discrete). Signals are essential in
 communication systems, where they are modulated to carry data over distances.
 
-සංඥාවක්‌ යනු තනොරතුරැ සමිප්‍රේෂණය කිරීමට භාවිතා කරන ME, අවකාශය හෝ වෙනත්‌ ස්වාධීන විචල්‍යයක්‌
+සංඥාවක්‌ යනු තනොරතුරැ සම්ප්‍රේෂණය කිරීමට භාවිතා කරන ME, අවකාශය හෝ වෙනත්‌ ස්වාධීන විචල්‍යයක්‌
 අනුව වෙනස්‌ වන භෞතික ප්‍රමාණයකි. එය Sey, දෘශ්‍ය හෝ MVE තරංග වැනි විවිධ ස්වරෑපවලින්‌ නිරැපණය
 කළ හැකි අතර ප්‍රතිසම (අඛණ්ඩ) හෝ ඩිපිටල්‌ (විවික්ත)] ලෙස වර්ගීකරණය කර ඇත. සන්නිවේදන පද්ධතිවල
 සංඥා අත්‍යවග්‍ය වන අතර, ඒවා දුරකට Essen රැගෙන යාමට මුහුර්පනය කර ඇත.
@@ -2049,13 +2044,13 @@ peak. In electrical signals, it is often expressed in volts, while in sound wave
 or pressure units.
 
 විස්තාරය යනු සංඥාවක්‌ ධන හෝ සෘණ EMOO ළඟා වන උපරිම අගයයි. එය සංඥාවේ ප්‍රබලත්වය හෝ
-SOMOS තීරණය කරන අතර සාමාන්‍යයෙන්‌ සමතුලිත ස්ටානයේ සිට උචිචය දක්වා මනිනු ලැබේ. විද්‍යුත්‌
-සංඥා වලදි එය බොහෝ විට වෝල්ට්‌ වලින්‌ ප්‍රකාග වන අතර ගබිදු තරංග වලදි එය ඩෙසිබල්‌ හෝ පීඩන
+SOMOS තීරණය කරන අතර සාමාන්‍යයෙන්‌ සමතුලිත ස්ථානයේ සිට උචිචය දක්වා මනිනු ලැබේ. විද්‍යුත්‌
+සංඥා වලදි එය බොහෝ විට වෝල්ට්‌ වලින්‌ ප්‍රකාශ වන අතර ගබිදු තරංග වලදි එය ඩෙසිබල්‌ හෝ පීඩන
 ඒකක වලින්‌ මනිනු ලැබේ.
 
 Amplitude is a fundamental property of a signal because it defines its magnitude, influencing power and
 transmission quality.
-විස්තාරය යනු සංඥාවක මුලික ගුණාංගයක්‌ වන්නේ එය එහි විශාලත්වය, බලය සහ සමිප්‍රේෂණ ගුණයට
+විස්තාරය යනු සංඥාවක මුලික ගුණාංගයක්‌ වන්නේ එය එහි විශාලත්වය, බලය සහ සම්ප්‍රේෂණ ගුණයට
 බලපෑමි කරන බැවිනි.
 
 Frequency / සංඛ්‍යාතය
@@ -2079,9 +2074,9 @@ property of a signal, as it helps in understanding the alignment or synchronizat
 in systems like wireless communication and audio processing.
 
 කලාව යනු තරංග රැෑපයක්‌ එහි චක්‍රයකදි යොමු ලක්ෂයකට සාපේක්ෂව ඇති ස්ථානයයි. එය අංශක හෝ
-ටේඞඩියන්‌ වලින්‌ මනිනු ලබන අතර, සංඥා අතර කාලීන සමිබඛන්ධතා විග්ලේෂණය කිරීමට අත්‍යවග්‍ය වේ. කලාව
-යනු සංඥාවක මුලික ගුණාංගයකි, මන්ද එය සංඥා සමිපාතනය (synchronization) හෝ සමිඛන්ධතාවය
-තේරැමි ගැනීමට උපකාරී වේ. එය ටේඞියෝ සන්නිවේදන හා ශ්‍රව්‍ය සැකසුමි වැනි ක්ෂේත්‍රවලදී ඉනාමත්‌ වැදගත්‌
+ටේඩඩියන්‌ වලින්‌ මනිනු ලබන අතර, සංඥා අතර කාලීන සමිබඛන්ධතා විග්ලේෂණය කිරීමට අත්‍යවග්‍ය වේ. කලාව
+යනු සංඥාවක මුලික ගුණාංගයකි, මන්ද එය සංඥා සමිපාතනය (synchronization) හෝ සම්බන්ධතාවය
+තේරැමි ගැනීමට උපකාරී වේ. එය ටේඩියෝ සන්නිවේදන හා ශ්‍රව්‍ය සැකසුමි වැනි ක්ෂේත්‍රවලදී ඉනාමත්‌ වැදගත්‌
 වේ.
 
 Wavelength / තරංග ආයාමය
@@ -2092,7 +2087,7 @@ critical property of a signal, especially in wave-based systems like radio and l
 the signal propagates through space.
 
 තරංග ආයාමය යනු සංඥාවක එකම අවධියේ පවතින Ewes දෙකක්‌ අතර දුරයි (උදා; උවිචයේ BO E500
-දුක්වා), එය සංඛ්‍යාතයට ප්‍රතිලෝමව සමිබන්ධ වන අතර, තරංග ප්‍රචාරණ අධ්‍යයනවලදි වැදගත්‌ වේ. තරංග
+දුක්වා), එය සංඛ්‍යාතයට ප්‍රතිලෝමව සම්බන්ධ වන අතර, තරංග ප්‍රචාරණ අධ්‍යයනවලදි වැදගත්‌ වේ. තරංග
 ආයාමය යනු සංඥාවක මුලික ගුණාංගයකි, විශේෂයෙන්‌ රේඩියෝ හා ආලෝක පද්ධති වැනි තරංග-ආධාරීිත
 පද්ධතිවලදි, මන්ද එය සංඥාවක්‌ අවකාශය හරහා ප්‍රචාරණය වන ආකාරය තීරණය කරයි.
 
@@ -2138,7 +2133,7 @@ Determines how often the signal oscillates per unit time.
 
 3. Phase / කලාව
 Describes the position of the waveform relative to a reference point.
-තරංග රෑපයක්‌ යොමු ලක්ෂයකට සාපේක්ෂව ඇති ස්ථානය විස්තර කරයි.
+තරංග රූපයක්‌ යොමු ලක්ෂයකට සාපේක්ෂව ඇති ස්ථානය විස්තර කරයි.
 
 4. Wavelength / තරංග ආයාමය
 Represents the spatial distance between two points in the same phase.
@@ -2158,7 +2153,7 @@ Clock time is not a property of a signal. It refers to a specific time measureme
 to the intrinsic characteristics of a signal.
 
 කාලය යනු සංඥාවක ගුණාංගයක්‌ නොවේ. එය කාල GG පද්ධතියක්‌ වන අතර, සංඥාවේ Hamdan
-ලක්ෂණ සමඟ සමිබන්ධ නැත.
+ලක්ෂණ සමඟ සම්බන්ධ නැත.
 
 26.
 
@@ -2186,13 +2181,13 @@ signals. It is not a universal characteristic like amplitude, frequency, phase, 
 Which of the following options contains only guided media?
 පහත කුමන වරණයෙහි නියමු මාධ්‍ය (guided media) පමණක්‌ අන්තර්ගත වේ ද?
 
-1) Coaxial, Fiber optics and Infrared / සමාක්ෂ, ප්‍රකාග තන්තු සභ අධෝරක්ත
+1) Coaxial, Fiber optics and Infrared / සමාක්ෂ, ප්‍රකාශ තන්තු සභ අධෝරක්ත
 2) Coaxial, Fiber optics and Microwave / සමාක්ෂ, ප්‍රකාශ තන්තු සහ BEE තරංග
 3) Coaxial, Fiber optics and Twisted pair / සමාක්ෂ, ප්‍රකාශ තන්තු සහ ඇඹරි යුගල
 4) Coaxial, Infrared and Twisted pair / සමාක්ෂ, අධොරක්ත සහ ඇඹරි යුගල
 5) Fiber optics, Satellite communication and Twisted pair
 
-ප්‍රකාග තන්තු, චන්ද්‍රිකා සන්නිවේදනය සහ ඇඹරි යුගල
+ප්‍රකාශ තන්තු, චන්ද්‍රිකා සන්නිවේදනය සහ ඇඹරි යුගල
 
 Answer : 3)
 
@@ -2202,7 +2197,7 @@ Guided media refers to communication channels where signals are transmitted thro
 such as cables or wires. Examples include twisted-pair cables, coaxial cables, and optical fibers. The signal
 is confined within the medium, ensuring controlled and reliable transmission.
 
-නියමු මාධ්‍යය යනු කේබල්‌ හෝ වයර්‌ වැනි භෞතික මාර්ග හරහා සංඥා සමිප්‍රේෂණය වන සන්නිවේදන නාලිකා
+නියමු මාධ්‍යය යනු කේබල්‌ හෝ වයර්‌ වැනි භෞතික මාර්ග හරහා සංඥා සම්ප්‍රේෂණය වන සන්නිවේදන නාලිකා
 වේ. උදාහරණ ලෙස ඇඹරෑ කමිබි යුගල, සමාක්ෂ කේබල්‌ සහ optical fibers ඇතුළත්‌ වේ. පාලිත සහ
 විග්වාසනය සම්ප්‍රේෂණය සහතික කරමින්‌ සංඥාව මාධ්‍යය තුළට සමා වේ.
 
@@ -2218,7 +2213,7 @@ networks (LANs). කාය ට .
 දුරකටන පාල සහ ස්ටානීය පාල (LAN) වල බහුලව භාවිතා වේ.
 
 e Unshielded Twisted Pair (UTP):Used in most networking applications, including Ethernet.
-නොවැසුනු ඇඹරැණු යුගල රැහැන්‌: Ethernet ඇතුළු බොහෝ පාලකරණ යෙදුමිවල භාවිතා වේ.
+නොවැසුනු ඇඹරැණු යුගල රැහැන්‌: Ethernet ඇතුළු බොහෝ පාලකරණ යෙදුම්වල භාවිතා වේ.
 
 e Shielded Twisted Pair (STP): Provides additional protection against electromagnetic
 interference(EMI).
@@ -2231,7 +2226,7 @@ Composed of a central conductor, an insulating layer, a metallic shield, and an 
 
 Used for cable television, broadband internet, and other high-frequency signal transmissions.
 
-රැහැන්‌ රෑපවාහිනිය, බ්‍රෝඩිබෑන්ඩි අන්තරපාලය සහ අනෙකුත්‌ අධි සංඛ්‍යාත සංඥා සම්ප්‍රේෂණ සඳහා භාවිතා
+රැහැන්‌ රෑපවාහිනිය, බ්‍රෝඩිබෑන්ඩි අන්තර්ජාලය සහ අනෙකුත්‌ අධි සංඛ්‍යාත සංඥා සම්ප්‍රේෂණ සඳහා භාවිතා
 වේ.
 
 Offers better shielding and higher bandwidth compared to twisted-pair cables.
@@ -2249,7 +2244,7 @@ Conducting Shield
 Outer Jackt
 
 BNC Connectors used to connect a Coaxial Cable.
-සමාක්ෂක යොත්‌ රැහැන්‌ එකිනෙක සමිඛන්ධ කිරීමට භාවිතා කරයි.
+සමාක්ෂක යොත්‌ රැහැන්‌ එකිනෙක සම්බන්ධ කිරීමට භාවිතා කරයි.
 
 Fiber Optics / ප්‍රකාශ තන්තු
 
@@ -2261,21 +2256,21 @@ Made of thin strands of glass or plastic that carry light signals.
 Used for high-speed data transmission over long distances, such as in
 telecommunications and internet backbone networks.
 
-විදුලි සංඳේශ සහ අන්තටරපාල backbone networks වැනි EQ දුරක්‌ හරහා
-අධිවෙගි දත්ත සමිප්‍රේෂණය සඳුහා භාවිතා වේ.
+විදුලි සංඳේශ සහ අන්තර්ජාල backbone networks වැනි EQ දුරක්‌ හරහා
+අධිවෙගි දත්ත සම්ප්‍රේෂණය සඳුහා භාවිතා වේ.
 
 Immune to electromagnetic interference, capable of carrying large amounts of data at very high speeds,
 and can transmit over long distances without significant signal loss.
 
 විද්‍යුත්‌ චුමිභක මැදිහත්විමි වලට ප්‍රතිශක්තිය, ඉතා ඉහළ වේගයකින්‌ SME ew ප්‍රමාණයක්‌ රැගෙන යාමේ
-හැකියාව ඇති අතර සැලකිය යුතු සංඥා අලාභයකින්‌ තොරව දිගු දුරක්‌ සමිප්‍රේෂණය කළ හැක.
+හැකියාව ඇති අතර සැලකිය යුතු සංඥා අලාභයකින්‌ තොරව දිගු දුරක්‌ සම්ප්‍රේෂණය කළ හැක.
 
 Unguided Media / නියමු නොවන මාධ්‍යය
 
 Unguided media involves the transmission of signals through wireless means, without the use of
 physical pathways. Examples include radio waves, microwaves, and infrared signals. The signal
 propagates freely through the air or vacuum, allowing for flexible and widespread communication. නියමු
-නොවන මාධ්‍යය යනු භෞතික මාර්ග භාවිතයෙන්‌ තොරව රැහැන්‌ රහිත ක්‍රම මගින්‌ සංඥා සමිප්‍රේෂණය
+නොවන මාධ්‍යය යනු භෞතික මාර්ග භාවිතයෙන්‌ තොරව රැහැන්‌ රහිත ක්‍රම මගින්‌ සංඥා සම්ප්‍රේෂණය
 කිරීමයි. උදාහරණ ලෙස රේඩියෝ තරංග, ක්ෂුද්‍ර තරංග සහ අධෝරක්ත සංඥා ඇතුළත්‌ වේ. සංඥා, වාතය
 හෝ රික්තය හරහා නිදහසේ ප්‍රචාරණය වන අතර එමඟින්‌ නම්‍යගිලි සහ පුලුල්ව පැතිරැනු සන්නිවේදනයට
 ඉඩ සලසයි.
@@ -2308,7 +2303,7 @@ Used in satellite communications, radar systems, and point-to-point communicatio
 Microwaves require line-of-sight communication (the transmitter and receiver must be in direct view of
 each other). They are less prone to interference but can be affected by physical obstacles and weather
 conditions.
-BBE තරංගවලට දෘශ්‍යමාන සන්නිවේදනය අවග්‍ය චේ (aSedemn සහ ලබන්නා එකිනෙකාගේ aac
+BBE තරංගවලට දෘශ්‍යමාන සන්නිවේදනය අවශ්‍ය චේ (aSedemn සහ ලබන්නා එකිනෙකාගේ aac
 දෘෂ්ටියෙන්‌ සිටිය යුතුය). ඒවා මැදිහත්වීමකට ගොදුරැ වු නමුත්‌ ශාරීරික බාධක හා කාලගුණික නත්ත්වයන්ගෙන්‌
 එය බලපායි.
 
@@ -2486,7 +2481,7 @@ Answer : 3)
 Convert the decimal number to a binary
 EGO සංඛ්‍යාව ද්විමය සංඛ්‍යාවක්‌ බවට පරිවරිතනය කරන්න
 
-54.2510 ~ ..................2
+54.2510 ~ ……2
 27 26 25 24 23 22 7! 20 । 21/2 21/4
 1280 | 64x0 | 32x1 | 16x1 | 8x0 | 4x1 | 2x1 | 150 | . | 0.50 | 0.251
 0 0 1 1 0 1 1 0 |. 0 1
@@ -2546,8 +2541,8 @@ myclass එකෙන්‌ පසු තිබෙන colon (:) වැරදි �
 Semicolon (;) after myclass is incorrect.
 Myclass ට පසු Semicolon (;) වැරදි වේ.
 
-Semicolons separate CSS properties inside { ... }, but should not be used after the selector.
-Semicolons { ... } ඇතුළත CSS ගුණාංග වෙන්‌ කරයි, නමුත්‌ තේරීමෙන්‌ පසුව භාවිතා නොකළ යුතුය.
+Semicolons separate CSS properties inside { …… }, but should not be used after the selector.
+Semicolons { …… } ඇතුළත CSS ගුණාංග වෙන්‌ කරයි, නමුත්‌ තේරීමෙන්‌ පසුව භාවිතා නොකළ යුතුය.
 
 Thus, the correct answer is 1)
 මේ අනුව, නිවැරදි පිලිතුර 1)
@@ -2628,9 +2623,6 @@ each event is made available on-line real time.
 
 Value
 
-।
-*
-
 (0,0) Time —>
 
 Consider the following statements related to the above mission:
@@ -2640,7 +2632,7 @@ A. Only the events P, Q and R comply with the Golden Rule of Information.
 P,Q සහ R සිද්ධි පමණක්‌ තොරතුරැ පිළිබඳ ස්වර්ණමය රිතියට අනුකුල වේ.
 
 B. Event 5 has the highest demand and needs to be facilitated with the highest technical resources.
-5 සිද්ධියට වැඩිම ඉල්ලමක්‌ ඇති GMO එයට වැඩිම තාක්ෂණික සමිපත්වලින්‌ පහසුකමි සැලසීම අවග්‍ය
+5 සිද්ධියට වැඩිම ඉල්ලමක්‌ ඇති GMO එයට වැඩිම තාක්ෂණික සම්පත්වලින්‌ පහසුකමි සැලසීම අවශ්‍ය
 වේ.
 
 C. The value of an event can be determined reasonably using the demand for the information about
@@ -2650,7 +2642,7 @@ the particular event.
 සහගතව නිශ්චය කළ හැක.
 
 Which of the above statements related to this mission is/are valid?
-මෙම මෙහෙවරට සමිඛන්ධව ඉහත කවර වගන්තියක්‌/වගන්ති වලංගු වේ ද?
+මෙම මෙහෙවරට සම්බන්ධව ඉහත කවර වගන්තියක්‌/වගන්ති වලංගු වේ ද?
 
 1) A only. 2) C only. 3) AandBonly. 4) BandConly. 5) AllA, BandC.
 A පමණි. C පමණි. A සහ B පමණි. B සහ ට පමණි. A, 0 සහ C සියල්ලම.
@@ -2677,7 +2669,7 @@ increasing demand. This is an assumption, not directly shown in the graph.
 
 2. Increasing demand / වැඩිවන ඉල්ලුම
 need for more resources. Another assumption, not directly supported by the graph.
-වැඩි සමිපත්‌ අවග්‍යතාවය. තවත්‌ උපකල්පනයක්‌, ප්‍රස්ථාරයෙන්‌ සෘපුව සහාය නොදක්වයි.
+වැඩි සම්පත්‌ අවශ්‍යතාවය. තවත්‌ උපකල්පනයක්‌, ප්‍රස්ථාරයෙන්‌ සෘපුව සහාය නොදක්වයි.
 
 Based on these assumptions / මෙම උපකල්පන මත පදනමිව
 
@@ -2689,10 +2681,10 @@ A අසත්‍යය වේ: P,Q සහ R සාමිපළ්‍රදා�
 more resources.
 
 B යනු සත්‍යයකි: ප්‍රශ්නය උපකල්පනය කරන්නේ 5 හට වැඩිම ඉල්ලමක්‌ ඇති බව (OH වැඩිවන අගය
-හේතුවෙන්‌) සහ ඒ අනුව වැඩි සමිපත්‌ අවග්‍ය බවයි.
+හේතුවෙන්‌) සහ ඒ අනුව වැඩි සම්පත්‌ අවශ්‍ය බවයි.
 
 C is TRUE: The question assumes value is linked to demand.
-C සත්‍ය 68: ප්‍රශ්නය අගය ඉල්ලමට සමිබන්ධ යැයි උපකල්පනය කරයි.
+C සත්‍ය 68: ප්‍රශ්නය අගය ඉල්ලමට සම්බන්ධ යැයි උපකල්පනය කරයි.
 
 Thus, the correct answer is 4)
 මේ අනුව, නිවැරදි පිලිතුර 4)
@@ -2737,7 +2729,7 @@ Examples: Genetic Algorithms, Neural Networks
 උදාහරණ: පාන ඇල්ගොරිතම, ස්නායු HE
 
 Therefore, this statement is correct.
-ඒ නිසා මේ ප්‍රකාගය නිවැරදියි.
+ඒ නිසා මේ ප්‍රකාශය නිවැරදියි.
 
 Statement B
 
@@ -2750,7 +2742,7 @@ Example: Neural networks are inspired by the human brain and are widely used in 
 උදාහරණය: ස්නායුක පාල මිනිස්‌ මොළයෙන්‌ ආභාෂය ලබා ඇති අතර Al හි බහුලව භාවිතා වේ.
 
 Therefore, this statement is correct.
-ඒ නිසා මේ ප්‍රකාගය නිවැරදියි.
+ඒ නිසා මේ ප්‍රකාශය නිවැරදියි.
 
 Statement C
 
@@ -2766,7 +2758,7 @@ These models are used in various fields, such as robotics, finance, optimization
 34.
 
 Therefore, this statement is incorrect.
-ඒ නිසා මේ ප්‍රකාගය වැරදියි.
+ඒ නිසා මේ ප්‍රකාශය වැරදියි.
 
 Therefore, the answer is 3 (Only C).
 එබැවින්‌ පිළිතුර 3 (C පමණි) වේ.
@@ -2796,9 +2788,9 @@ The objective of this question is to assess your understanding of system deploym
 practices. You need to identify which statement accurately reflects the activities, principles, or best
 practices associated with system deployment.
 
-මෙම ප්‍රග්නයේ අරමුණ වන්නේ පද්ධති යෙදුවිමේ ක්‍රියාවලින්‌ සහ භාවිතයන්‌ SEDC, ඔබේ අවබෝධය
-තක්සේරැ කිරීමයි. පද්ධති යෙදුවිම හා සමිඛන්ධ ක්‍රියාකාරකමි, මුලධර්ම හෝ හොඳුම භාවිතයන්‌ නිවැරදිව
-පිළිබිඹු කරන ප්‍රකාගය කුමක්දැයි ඔබ හඳුනාගත යුතුය.
+මෙම ප්‍රශ්නයේ අරමුණ වන්නේ පද්ධති යෙදුවිමේ ක්‍රියාවලින්‌ සහ භාවිතයන්‌ SEDC, ඔබේ අවබෝධය
+තක්සේරැ කිරීමයි. පද්ධති යෙදුවිම හා සම්බන්ධ ක්‍රියාකාරකමි, මුලධර්ම හෝ හොඳුම භාවිතයන්‌ නිවැරදිව
+පිළිබිඹු කරන ප්‍රකාශය කුමක්දැයි ඔබ හඳුනාගත යුතුය.
 
 System Installation Methods / පද්ධති ස්ටාපන ක්‍රම
 
@@ -2827,10 +2819,10 @@ Quickest method as the transition happens in one step.
 සංක්‍රාන්තිය එක්‌ පියවරකින්‌ සිදුවන බැවින්‌ වේගවත්ම ක්‍රමය.
 
 Less expensive in terms of maintaining only one system.
-එක්‌ පද්ධතියක්‌ පමණක්‌ පවත්වාගෙන යාම සමිබන්ධයෙන්‌ GH Sac.
+එක්‌ පද්ධතියක්‌ පමණක්‌ පවත්වාගෙන යාම සම්බන්ධයෙන්‌ GH Sac.
 
 Disadvantages / අවාසි
-High risk due to immediate switch-over. ී
+High risk due to immediate switch-over.
 ක්ෂණිකව මාරැ SO හේතුවෙන්‌ ඉහළ අවදානම. Old = con
 
 Any problems with the new system can cause major disruptions.
@@ -2857,7 +2849,7 @@ Allows for a comparison of results from both systems to ensure accuracy.
 
 Disadvantages / අවාසි
 More expensive and resource-intensive as it requires running and maintaining both systems.
-පද්ධති දෙකම ක්‍රියාත්මක කිරීම සහ නඩත්තු HOO අවග්‍ය වන බැවින්‌ වඩා මිල අධික සහ සමිපත්‌ බහුල වේ.
+පද්ධති දෙකම ක්‍රියාත්මක කිරීම සහ නඩත්තු HOO අවශ්‍ය වන බැවින්‌ වඩා මිල අධික සහ සම්පත්‌ බහුල වේ.
 
 Can be confusing and cumbersome for users to operate two systems at once.
 එකවර පද්ධති දෙකක්‌ ක්‍රියාත්මක කිරීම පරිගිලකයින්ට ව්‍යාකූල සහ කරදුරකාරී විය හැක.
@@ -2884,7 +2876,7 @@ Takes longer to fully implement the new system.
 නව පද්ධතිය සමිපුර්ණයෙන්ම ක්‍රියාත්මක කිරීමට වැඩි කාලයක්‌ ගත වේ.
 
 May require temporary interfaces between the old and new systems during the transition.
-සංක්‍රමණයේදි පැරණි සහ නව පද්ධති අතර තාවකාලික අතුරැමුහුණත්‌ අවග්‍ය විය හැක.
+සංක්‍රමණයේදි පැරණි සහ නව පද්ධති අතර තාවකාලික අතුරැමුහුණත්‌ අවශ්‍ය විය හැක.
 
 Pilot Implimentation / නියමු ස්ටාපනය
 
@@ -2911,7 +2903,7 @@ Delays full implementation as pilot testing and adjustments take time.
 නියමු පරීක්ෂණ සහ ගැලපීමි සඳහා MEG ගතවන බැවින්‌ සමිපුර්ණ ක්‍රියාත්මක කිරීම ප්‍රමාද කරයි.
 
 May require additional effort to ensure consistency and integration with the rest of the organization.
-සංවිධානයේ සෙසු කොටස්‌ සමඟ අනුකූලතාව සහ එකාග්‍රනාවය සහතික කිරීමට අමතර වෑයමක්‌ අවග්‍ය So
+සංවිධානයේ සෙසු කොටස්‌ සමඟ අනුකූලතාව සහ එකාග්‍රනාවය සහතික කිරීමට අමතර වෑයමක්‌ අවශ්‍ය So
 හැකිය.
 
 Option 1 / විකල්පය 1
@@ -2927,7 +2919,7 @@ Option 2 / විකල්පය 2
 This statement is incorrect. In pilot deployment, only a selected group of users uses the system initially,
 not all users.
 
-මෙම ප්‍රකාගය වැරදියි. නියමු ස්ථටාපනයේදි, තෝරාගත්‌ පරිගිලකයින්‌ කණ්ඩායමක්‌ පමණක්‌ මුලින්‌ පද්ධතිය
+මෙම ප්‍රකාශය වැරදියි. නියමු ස්ථටාපනයේදි, තෝරාගත්‌ පරිගිලකයින්‌ කණ්ඩායමක්‌ පමණක්‌ මුලින්‌ පද්ධතිය
 භාවිතා කරයි, සියලුම පරිශීලකයින්‌ නොවේ.
 
 Option 3 / විකල්පය 3
@@ -2944,7 +2936,7 @@ Option 4 / විකල්පය 4
 This statement is incorrect. Phased deployment allows users to gradually develop skills required for the
 new system as it is deployed in stages.
 
-මෙම ප්‍රකාගය වැරදියි. FEGO වගයෙන්‌ GHESDO මඟින්‌ නව පද්ධතියට අවග්‍ය කුසලතා ක්‍රමානකූලව
+මෙම ප්‍රකාශය වැරදියි. FEGO වගයෙන්‌ GHESDO මඟින්‌ නව පද්ධතියට අවශ්‍ය කුසලතා ක්‍රමානකූලව
 වටඊර්ධනය කර ගැනීමට පරිගිලකයින්ට ඉඩ සලසයි.
 
 Option 5 / විකල්පය 5
@@ -2952,7 +2944,7 @@ Option 5 / විකල්පය 5
 This statement is incorrect. Phased deployment means deploying the system in stages across the
 organization, not just in one location.
 
-මෙම ප්‍රකාගය වැරදියි. GFEGO වගයෙන්‌ ස්ථාපනය යනු එක්‌ ස්ටානයකට පමණක්‌ නොව, සංවිධානය පුරා
+මෙම ප්‍රකාශය වැරදියි. GFEGO වගයෙන්‌ ස්ථාපනය යනු එක්‌ ස්ටානයකට පමණක්‌ නොව, සංවිධානය පුරා
 අදියර වගයෙන්‌ පද්ධතිය යෙදවිමයි.
 
 Therefore, the answer is 3.
@@ -2964,7 +2956,7 @@ Therefore, the answer is 3.
 
 A. A hub connects only the networked computers but a switch connects multiple devices.
 
-නාභිය (hub) මගින්‌ පාලගත පරිගණක පමණක්‌ සමිබන්ධ කෙරෙන අතර ස්විචය (switch) මගින්‌ බහුවිධ
+නාභිය (hub) මගින්‌ පාලගත පරිගණක පමණක්‌ සම්බන්ධ කෙරෙන අතර ස්විචය (switch) මගින්‌ බහුවිධ
 
 උපක්‍රම සම්බන්ධ කෙටේ.
 
@@ -2973,12 +2965,12 @@ B. A switch manages the ports and the VLAN security settings.
 
 C. In data transmission, a hub uses bits while a switch uses frames and packets.
 
-EdD සමිප්‍රේෂණයේ දි නාභිය විසින්‌ බිටු භාවිත කෙරෙන අතර, ස්විචය මගින්‌ රාමු සහ පොදි (packet)
+EdD සම්ප්‍රේෂණයේ දි නාභිය විසින්‌ බිටු භාවිත කෙරෙන අතර, ස්විචය මගින්‌ රාමු සහ පොදි (packet)
 
 භාවිත කෙරේ.
 
 D. The data transmission speed in a Aub is higher than that in a switch.
-නාභියෙහි em සමිප්‍රේෂණ වේගය ස්විචයෙහි එම අගයට Of) වැඩි වේ.
+නාභියෙහි em සම්ප්‍රේෂණ වේගය ස්විචයෙහි එම අගයට Of) වැඩි වේ.
 
 Which of the above statements are correct?
 ඉහත වගන්ති අතුරෙන්‌ කවරක්‌ සතෲ වේ ද?
@@ -3014,7 +3006,7 @@ address) it 1s intended for.
 ලිපිනය) දත්ත යොමු කරයි.
 
 Broadcasts data to all devices connected to it.
-එයට සමිබන්ධ සියලුම උපාංග වෙත දත්ත
+එයට සම්බන්ධ සියලුම උපාංග වෙත දත්ත
 විකාගනය කරයි.
 
 Uses MAC addresses to identify devices and
@@ -3082,8 +3074,8 @@ traffic.
 Provides better security as data is sent only to Less secure, as data is broadcast to all connected
 the intended recipient. devices.
 
-EDD අපේක්ෂිත ලබන්නාට පමණක්‌ යවන බැවින්‌ | සමිබන්ධිත සියලුම උපාංග වෙත Essen විකාශනය
-වඩඞා හොඳ ආරක්ෂාවක්‌ සපයයි. වන බැවින්‌ අඩු ආරක්ෂිතයි.
+EDD අපේක්ෂිත ලබන්නාට පමණක්‌ යවන බැවින්‌ | සම්බන්ධිත සියලුම උපාංග වෙත Essen විකාශනය
+වඩඩා හොඳ ආරක්ෂාවක්‌ සපයයි. වන බැවින්‌ අඩු ආරක්ෂිතයි.
 
 Statement A
 
@@ -3093,9 +3085,9 @@ A hub is a basic networking device that connects computers in a network, but it 
 broadcasts data to all connected devices. A switch, on the other hand, can connect various devices (like
 computers, printers, etc.) and intelligently forwards data only to the intended recipient.
 
-නාහිය යනු මුලික HE උපාංගයක්‌ වන අතර එය පරිගණක පාලයකට සමිඛන්ධ කරයි, නමුත්‌ එය බුද්ධිමත්‌
-නොවන අතර දත්ත සියලුම සමිඛන්ධිත උපාංගවලට ප්‍රචාරණය කරයි. switch එක, අනෙක්‌ අතට, විවිධ
-උපාංග (පරිගණක, මුද්‍රණ යන්ත්‍ර, ආදිය) සමිබන්ධ කළ හැකි අතර een බුද්ධිමත්‌ ලෙස අදහස්‌ කළ
+නාහිය යනු මුලික HE උපාංගයක්‌ වන අතර එය පරිගණක පාලයකට සම්බන්ධ කරයි, නමුත්‌ එය බුද්ධිමත්‌
+නොවන අතර දත්ත සියලුම සම්බන්ධිත උපාංගවලට ප්‍රචාරණය කරයි. switch එක, අනෙක්‌ අතට, විවිධ
+උපාංග (පරිගණක, මුද්‍රණ යන්ත්‍ර, ආදිය) සම්බන්ධ කළ හැකි අතර een බුද්ධිමත්‌ ලෙස අදහස්‌ කළ
 ලබන්නාට පමණක්‌ යොමු කරයි.
 
 Statement B
@@ -3120,14 +3112,14 @@ transmit data more efficiently.
 ලෙස වඩාත්‌ කාර්යක්ෂමව සමිප්‍රේශනය කරයි.
 
 Statement 1)
-This statement is false / මෙම ප්‍රකාගය අසත්‍ය වේ.
+This statement is false / මෙම ප්‍රකාශය අසත්‍ය වේ.
 
 This statement is incorrect. A switch provides higher data transmission speeds compared to a hub
 because it avoids collisions and uses full-duplex communication, whereas a hub is slower due to its half-
 duplex nature and collision-prone design.
 
-මෙම ප්‍රකාගය වැරදියි. ස්විචයරක ein සමිප්‍රේශනය වේගය නාභියට වඩා වැඩි වේ, Ose එය ගැටුමි
-වළක්වා සම්පුර්ණ-ද්විමය සන්නිවේදනය භාවිතා කරයි. නාභිය අනෙක්‌ අතට, අඞඩු-ද්විමය සන්නිවේදනය සහ
+මෙම ප්‍රකාශය වැරදියි. ස්විචයරක ein සමිප්‍රේශනය වේගය නාභියට වඩා වැඩි වේ, Ose එය ගැටුමි
+වළක්වා සම්පුර්ණ-ද්විමය සන්නිවේදනය භාවිතා කරයි. නාභිය අනෙක්‌ අතට, අඩඩු-ද්විමය සන්නිවේදනය සහ
 ගැටුම්‌ වලට ලක්වීමේ අවධානම නිසා සෙමින්‌ ක්‍රියා කරයි.
 
 Thus, the correct answer is 1)
@@ -3171,9 +3163,9 @@ A server is a powerful computer or software that provides services, data, or res
 (clients) over a network. Servers can handle multiple requests simultaneously and are essential for the
 functioning of the internet and internal networks.
 
-සේවාදායකයක්‌ යනු පාලයක්‌ හරහා වෙනත්‌ පරිගණක (සේවාලාභින්‌) වෙත සේවා, com හෝ සමිපත්‌ සපයන
+සේවාදායකයක්‌ යනු පාලයක්‌ හරහා වෙනත්‌ පරිගණක (සේවාලාභින්‌) වෙත සේවා, com හෝ සම්පත්‌ සපයන
 බලවත්‌ පරිගණකයක්‌ හෝ මෘදුකාංගයකි. සේවාදායකයන්ට එකවර ඉල්ලීමි කිහිපයක්‌ හැසිරවිය හැකි අතර
-අන්තටරපාලයේ සහ අභ්‍යන්තර ජාලවල ක්‍රියාකාරීත්වය HEM) අත්‍යවග්‍ය වේ.
+අන්තර්ජාලයේ සහ අභ්‍යන්තර ජාලවල ක්‍රියාකාරීත්වය HEM) අත්‍යවග්‍ය වේ.
 
 Types of Servers & Their Functions
 සේවාදායක OO6@ සහ එවායේ mbacsa
@@ -3186,7 +3178,7 @@ Mail Server -_ Handles email sending, receiving, and storage (e.g., Gmail, Outlo
 ඊමේල්‌ යැවීම, ලැබීම සහ ගබඩා කිරීම හසුරැවයි.
 
 DNS Server — Converts domain names into IP addresses for internet browsing
-අන්තරපාල ගවේෂණය HEM) වසමි නාම IP ලිපින බවට පරිවරතනය කරයි.
+අන්තර්ජාල ගවේෂණය HEM) වසමි නාම IP ලිපින බවට පරිවරතනය කරයි.
 (e.g., Google DNS - 8.8.8.8).
 
 Web Server — Hosts websites and serves web pages (e.g., Apache, Nginx).
@@ -3202,11 +3194,11 @@ Application Server — Runs applications for users over a network (e.g., Tomcat,
 පාලයක්‌ හරහා පරිගිලකයින්‌ සඳුහා යෙදුමි ධාවනය කරයි.
 
 Let's analyze each statement about the proxy server.
-proxy සේවාදචායකය SEQe, එක්‌ එක්‌ ප්‍රකාගය විග්ලේෂණය කරමු.
+proxy සේවාදචායකය SEQe, එක්‌ එක්‌ ප්‍රකාශය විග්ලේෂණය කරමු.
 
 Statement A
 This statement 15 true
-මෙම ප්‍රකාගය සත්‍ය වේ.
+මෙම ප්‍රකාශය සත්‍ය වේ.
 
 A proxy server masks the user's real IP address by acting as an intermediary between the client and the
 internet.
@@ -3216,7 +3208,7 @@ internet.
 
 Statement B
 This statement 15 true
-මෙම ප්‍රකාගය සත්‍ය වේ.
+මෙම ප්‍රකාශය සත්‍ය වේ.
 
 Organizations use proxy servers to block or restrict access to certain websites for security or productivity
 
@@ -3226,7 +3218,7 @@ reasons.
 
 Statement C
 This statement 15 true
-මෙම ප්‍රකාගය සත්‍ය වේ.
+මෙම ප්‍රකාශය සත්‍ය වේ.
 
 Proxy servers store frequently accessed web pages in a cache to speed up loading and reduce bandwidth
 
@@ -3259,7 +3251,7 @@ customization.
 සමහර විට පිළිගනු ලැබේ.
 
 e Consider the following logic circuit diagram to answer the questions 37 and 38:
-අංක 37 BO 38 ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා පහත දැක්වෙන තාර්කික පරිපට සටහන සලකන්න
+අංක 37 BO 38 ප්‍රශ්නවලට පිළිතුරු සැපයීම සඳහා පහත දැක්වෙන තාර්කික පරිපථ සටහන සලකන්න
 
 37. Which of the following statements is/are correct about the above circuit?
 ඉහත පටරිපටය පිළිබඳව පහත කවර වගන්ති/වගන්තියක්‌ ons වේ ද?
@@ -3276,7 +3268,7 @@ Coun තර්කන ග්‍රිතය C,,= AB+ BC, + AC, ලෙස දැ�
 Answer : 5)
 
 The circuit consists of,
-පරිපටය සමන්විත වන්නේ,
+පරිපථය සමන්විත වන්නේ,
 
 Two XOR gates: These are used to calculate the sum (S).
 XOR ළ්චාර දෙකක්‌: මේවා එකතුව (5) ගණනය කිරිමට භාවිතා කරයි.
@@ -3296,7 +3288,7 @@ e Carry-out: Cou=AB + BCin + ACin
 
 Statement 1
 Since the circuit follows the standard full-adder structure, this statement is correct.
-656808 සමිමත පුරණ ආකලකයක්‌ කිරීමේ ව්‍යඈහය අනුගමනය කරන බැවින්‌, මෙම ප්‍රකාශය නිවැරදි වේ.
+656808 සම්මත පුරණ ආකලකයක්‌ කිරීමේ ව්‍යඈහය අනුගමනය කරන බැවින්‌, මෙම ප්‍රකාශය නිවැරදි වේ.
 
 Statement 2
 This matches the sum equation of a full adder, so it is correct
@@ -3328,12 +3320,12 @@ Answer : 4)
 
 Statement 1
 This statement is true
-මෙම ප්‍රකාගය සත්‍ය වේ.
+මෙම ප්‍රකාශය සත්‍ය වේ.
 
 A half adder consists of one XOR gate for the sum and one AND gate for the carry, which matches the
 circuit inside the dotted line.
 
-අර්ධ ආකලක එකතුව සඳුහා එක්‌ XOR ද්වාරයකින්‌ සහ තින්‌ රේඛාව නුළ ඇති පරිපටයට ගැලපෙන
+අර්ධ ආකලක එකතුව සඳුහා එක්‌ XOR ද්වාරයකින්‌ සහ තින්‌ රේඛාව නුළ ඇති පරිපථයට ගැලපෙන
 රැගෙන යාම ace) එක්‌ AND ද්වාරයකින්‌ සමන්විත වේ.
 
 Statement 2
@@ -3363,7 +3355,7 @@ implemented using only AND and OR gates.
 
 Statement 3
 This statement is true
-මෙම ප්‍රකාගය සත්‍ය වේ.
+මෙම ප්‍රකාශය සත්‍ය වේ.
 
 NAND is a universal gate, meaning it can be used to build NOT, AND, OR, and XOR.
 
@@ -3399,8 +3391,6 @@ any
 ගී
 C
 
-/
-
 Here the group output is 0. This should yield a product of sums (POS) expression. (like getting the
 maxterm of a truth table)
 
@@ -3432,9 +3422,8 @@ Therefore, the final answer is,
 
 Thus, the correct answer is 4)
 මේ අනුව, නිවැරදි පිලිතුර 4)
-
-ේ Consider the following flowchart to answer the questions 40 to 42:
-අංක 40 BO 42 තෙක්‌ ප්‍රග්නවලට පිළිතුරැ සැපයීම HED) පහන දැක්වෙන DOG සටහන සලකන්න.
+  Consider the following flowchart to answer the questions 40 to 42:
+අංක 40 BO 42 තෙක්‌ ප්‍රශ්නවලට පිළිතුරු සැපයීම HED) පහන දැක්වෙන DOG සටහන සලකන්න.
 
 i=8
 result = ]
@@ -3518,7 +3507,7 @@ Thus, the correct answer is 4)
 
 Answer: 3)
 
-Flowchart Analysis / ගැලිමි සටහන පරීක්‍ෂාව
+Flowchart Analysis / ගැලිමි සටහන පරීක්ෂාව
 Initialization / ආරමිභ කිරීම
 
 i=8
@@ -3636,8 +3625,6 @@ Loop: while (1 > 0) (matches the flowchart).
 Input and Condition: Takes n and checks if n > 0 (matches the flowchart).
 ආදානය සහ තත්ත්වය: 1 ලබාගෙන n>0 දැයි පරීක්ෂා කරයි. (ගැලීමි සටහනට ගැලපේ).
 
-~
-
 Update and Output: Decrements i and prints result after the loop (matches the flowchart).
 යාවත්කාලීන කිරීම සහ ප්‍රතිදානය: ලුපයෙන්‌ පසු 1 අඩු කර ප්‍රතිඵලය මුද්‍රණය කරයි (ගැලීමි සටහනට ගැලපේ).
 
@@ -3724,7 +3711,7 @@ converting into machine code.
 කේතයට හැරවිය යුතු ය.
 
 3) Interpreted programs run faster than compiled ones.
-පරිවර්තනය (interpreted) කරන ලද, ක්‍රමලේඛයක්‌ සමිපාදනය කරන ලදු (compiled) ක්‍රමලේඛයකට වඩා
+පරිවර්තනය (interpreted) කරන ලද, ක්‍රමලේඛයක්‌ සම්පාදනය කරන ලදු (compiled) ක්‍රමලේඛයකට වඩා
 වැඩි වේගයෙන්‌ ක්‍රියාත්මක වේ.
 
 4) Programs in some high-level languages are translated into a form called byte-code because such
@@ -3749,7 +3736,7 @@ two computers have the same processor and operating system, a compiled machine c
 often run on both without modification.
 
 යන්ත්‍ර කේතය පජනනය කරනු ලබන්නේ නිශ්චිතවම තනි පරිගණකයක්‌ සඳහා නොව, සකසන ආකෘති
-ගිල්පයක්‌ සඳහා ය. BOM දෙකක එකම සකසනය සහ මෙහෙයුමි පද්ධතිය තිබේ නමි, සමිපාදනය කරන
+ගිල්පයක්‌ සඳහා ය. BOM දෙකක එකම සකසනය සහ මෙහෙයුමි පද්ධතිය තිබේ නමි, සම්පාදනය කරන
 ලදු යන්ත්‍ර කේත වැඩසටහනක්‌ බොහෝ විට වෙනස්‌ කිරීමකින්‌ තොරව දෙකෙහිම ක්‍රියාත්මක විය හැකිය.
 
 Statement 2
@@ -3760,8 +3747,8 @@ While some compilers may generate assembly language as an intermediate step befo
 this is not a strict requirement. Many modern compilers translate high-level languages directly into
 machine code without producing assembly code.
 
-සමහර සමිපාදකයින්‌ යන්ත්‍ර කේතයට පෙර අතරමැදි පියවරක්‌ ලෙස assembly භාෂාව පනනය කළ හැකි
-වුවද, මෙය දැඩි අවග්‍යතාවයක්‌ නොවේ. බොහෝ නවින සමිපාදකයින්‌ assembly කේත නිපදුවීමකින්‌ තොරව
+සමහර සම්පාදකයින්‌ යන්ත්‍ර කේතයට පෙර අතරමැදි පියවරක්‌ ලෙස assembly භාෂාව පනනය කළ හැකි
+වුවද, මෙය දැඩි අවශ්‍යතාවයක්‌ නොවේ. බොහෝ නවින සම්පාදකයින්‌ assembly කේත නිපදුවීමකින්‌ තොරව
 ඉහළ මටිටමේ භාෂා කෙලින්ම යන්ත්‍ර කේතයට පරිවටරිතනය කරයි.
 
 44.
@@ -3775,8 +3762,8 @@ at runtime, whereas compiled programs are fully translated into machine code bef
 them much faster.
 
 GO විනනාසනය කරන ලදු වැඩසටහන්‌, ධාවන වේලාවේදි පේළියෙන්‌ පේළිය ක්‍රියාත්මක වන බැවින්‌, FdO
-වින්‍යාසනය කරන ලද වැඩසටහන්‌ සමිපාදනය කරන EC වැඩසටහන්‌ වලට වඩා සෙමින්‌ ක්‍රියාත්මක විමට
-නැඹුරැ වන අතර, සමිපාදනය කරන ලද වැඩසටහන්‌ ක්‍රියාත්මක කිරීමට පෙර සමිපුර්ණයෙන්ම යන්ත්‍ර
+වින්‍යාසනය කරන ලද වැඩසටහන්‌ සම්පාදනය කරන EC වැඩසටහන්‌ වලට වඩා සෙමින්‌ ක්‍රියාත්මක විමට
+නැඹුරැ වන අතර, සම්පාදනය කරන ලද වැඩසටහන්‌ ක්‍රියාත්මක කිරීමට පෙර සමිපුර්ණයෙන්ම යන්ත්‍ර
 කේතයට පරිවරිතනය කර ඇති බැවින්‌ විවා බොහෝ වේගවත්‌ වේ.
 
 Statement 4
@@ -3806,7 +3793,7 @@ Conclusion / නිගමනය
 None of the statements are completely correct. The fourth statement is the closest to being correct but
 
 contains a misconception regarding speed comparison between byte-code and machine code.
-ප්‍රකාග කිසිවක්‌ සමිපුර්ණයෙන්ම නිවැරළි නොවේ. BOD ප්‍රකාශය නිවැරදි SOO ආසන්නතම ප්‍රකාගය වන
+ප්‍රකාශ කිසිවක්‌ සමිපුර්ණයෙන්ම නිවැරළි නොවේ. BOD ප්‍රකාශය නිවැරදි SOO ආසන්නතම ප්‍රකාශය වන
 නමුත්‌ බයිට කේතය සහ යන්ත්‍ර කේතය අතර වේග සංසන්දනය පිළිබඳ වැරදි මතයක්‌ අඩංගු වේ.
 
 Answer: / පිළිතුර: All
@@ -3828,8 +3815,6 @@ In Python, operations with higher precedence are executed before operations with
 ප්‍රකාශනයක ගණිත මෙහෙයුමි කිහිපයක්‌ අඩංගු වන SO ක්‍රියා ප්‍රමුඛතාවය මෙහෙයුමි අනුපිළිවෙල තීරණය
 කරයි. පයිතන්‌ හි, අඩු ප්‍රමුඛතාවයක්‌ සහිත මෙහෙයුමි වලට පෙර වැඩි ප්‍රමුඛතාවයක්‌ සහිත මෙහෙයුමි
 ක්‍රියාත්මක වේ.
-
-~
 
 Precedence Operators Description Associativit
 Rank P P y
@@ -3872,8 +3857,6 @@ It only focuses on the remainder part of the answer.
 
 Step 3
 Solve 1|8
-
-=]
 
 (33/4 is 8 with a remainder of 1)
 
@@ -4075,7 +4058,6 @@ Thus, the correct answer is 4)
 What will be the output of the following Python code segment?
 පහත දැක්වෙන පයිතන්‌ කේත ඛණ්ඩයෙහි ප්‍රතිදානය කුමක්‌ ද?
 
--
 ll
 
 [1,-2,4,3,2,-7,11,2,8,-1]
@@ -4109,9 +4091,7 @@ First Iteration / පළුමු පුනරාවටතනය (i = 0)
 L[0] = 1 (not less than 0, so continue is not executed).
 =1(0 ට නොඅඩුය, එබැවින්‌ ඉදිරියට WO ක්‍රියාත්මක නොවෙ).
 
-(
 (not greater than 10, so break is not executed).
-(
 
 L[0]
 L[0]
@@ -4128,14 +4108,12 @@ L[1] = -2 (less than 0, so continue is executed, skipping the rest of the loop b
 
 L[1] =-2 (0 ට වඩා අඩු බැවින්‌, continue ක්‍රියාත්මක කරනු ලැබේ, ඉතිරි ලප්‌ කොටස්‌ මඟ හරිනු ලැබේ).
 
-~
-
 x remains 1.
 x, 1 හිම රැඳී පවති.
 
 Third Iteration / තුන්වන පුනරාවටතනය (i = 2)
 L[2]= ; (not less than 0, so continue is not executed).
-4(0 ට නොඅඩඞුය, එබැවින්‌ ඉදිරියට යාම ක්‍රියාත්මක නොවේ).
+4(0 ට නොඅඩඩුය, එබැවින්‌ ඉදිරියට යාම ක්‍රියාත්මක නොවේ).
 
 [2] ~
 L[2]= ; (not greater than 10, so break is not executed).
@@ -4283,7 +4261,7 @@ When func(x) is called, the global x (which 16 50) is passed as an argument to t
 Func(x) ට ඇමතූ විට, ගෝලීය x (එය 50) ග්‍රිතයට තර්කයක්‌ ලෙස ලබා දෙනු ලැබේ.
 
 Inside the function, y is initially set to 50 (the value passed in), but then it is changed to 4.
-GOO තුළ, y මුලින්‌ 50 (සමිමත කළ අගය) ලෙස සකසා ඇත, නමුත්‌ පසුව එය 4 ලෙස වෙනස්‌ වේ.
+GOO තුළ, y මුලින්‌ 50 (සම්මත කළ අගය) ලෙස සකසා ඇත, නමුත්‌ පසුව එය 4 ලෙස වෙනස්‌ වේ.
 
 The local x is set to 2, but this does not change the global x.
 ස්ථානීය x, 2 ලෙස සකසා ඇත, නමුත්‌ මෙය HOG x වෙනස්‌ නොකරයි.
@@ -4337,7 +4315,7 @@ PCB daw සාමාන්‍ය අන්තර්ගතයන්‌ අතර 
 අරමුණයි. PCB හි ක්‍රියාවලි කළමනාකරණය සහ ක්‍රියාත්මක කිරීම nem අත්‍යවශ්‍ය තොරතුරැ අඩංගු වන
 අතර, නිදහස්‌ තැටි කටිටි තැටි ගබඩා කළමනාකරණයට අදාළ වන අතර PCB හි කොටසක්‌ නොවේ.
 
-Lets dive into other answers / වෙනත්‌ පිළිතුරැ වෙන පිවිසෙමු
+Lets dive into other answers / වෙනත්‌ පිළිතුරු වෙන පිවිසෙමු
 
 Memory Management Information / මනක කළමනාකරණ තොරතුරැ
 This section contains data about the memory allocated to the process.
@@ -4365,7 +4343,7 @@ and coordinate the execution of processes. Thus, the correct answer 15 option 1:
 විසින්‌ භාවිතා කරන EHD ව්‍යුහයකි. එහි ක්‍රියාවලි හඳුනාගැනීමේ අංකය, ක්‍රමලේඛ ගණකය, මතක කළමනාකරණ
 තොරතුරැ සහ ක්‍රියාවලි තත්ත්වය වැනි ප්‍රධාන තොරතුරැ අඩංගු වේ. කෙසේ වෙතත්‌, එය ගොනු පද්ධතිය
 විසින්‌ කළමනාකරණය කරනු ලබන නිදහස්‌ නැටි කටිටි පිළිබඳ තොරතුරැ ගබඩා නොකරයි. PCB මෙහෙයුමි
-පද්ධතිය කාර්යක්ෂමව පාලනය කිරීමට සහ ක්‍රියාවලි ක්‍රියාත්මක කිරීම සමිබන්ධිකරණය කිරීමට උපකාරී වේ.
+පද්ධතිය කාර්යක්ෂමව පාලනය කිරීමට සහ ක්‍රියාවලි ක්‍රියාත්මක කිරීම සම්බන්ධිකරණය කිරීමට උපකාරී වේ.
 මේ අනුව, නිවැරදි පිළිතුර විකල්ප ] නිදහස්‌ තැටි කටිටි වේ.
 
 50. Consider the following SQL statement:
@@ -4456,7 +4434,7 @@ BED) පමණි නිසාය.
 2019 AL S.ESSAY MARKING
 
 1.(a)()Draw the expected output of the following HTML code segment when rendered by a web browser.
-වෙබි අතරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන 11] /]] cose ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
+වෙබි අතිරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන 11] /]] cose ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
 අඳින්න.
 
 <html>
@@ -4475,8 +4453,6 @@ Note: Consider the following area as the display area of the browser.
 
 ' Social networking has ;
 । advantages and disadvantages I
-|
-|
 
 Code Explanation / esa පැහැදිලි කිරීම.
 
@@ -4502,7 +4478,7 @@ and disadvantages” යන වාක්‍ය ඛණ්ඩය නව
 “advantages” යන වචනය යටින්‌ ඉරි දක්වයි.
 
 (11) Draw the expected output of the following HTML code segment when rendered by a web browser.
-වෙබි අතරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන HTML oso ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
+වෙබි අතිරික්සුවක්‌ මගින්‌ විදැහු SO පහත දැක්වෙන HTML oso ඛණ්ඩයෙන්‌ බලාපොරොත්තු වන ප්‍රතිදානය
 අඳින්න.
 
 <html>
@@ -4597,7 +4573,7 @@ text-align Justify
 Write an external style sheet in the most efficient way to fulfil the above requirements using only the CSS
 group Selector concept.
 
-විලාස කාණ්ඩ (CSS group selector) සංකල්පය පමණක්‌ යොදා ගනිමින්‌ ඉහත අවග්‍යතා සපුරාලීම සඳුහා
+විලාස කාණ්ඩ (CSS group selector) සංකල්පය පමණක්‌ යොදා ගනිමින්‌ ඉහත අවශ්‍යතා සපුරාලීම සඳුහා
 වඩාත්ම කාර්යක්ෂම ක්‍රමයට බාහිර විලාස පතක්‌ ලියන්න.
 
 In CSS, group selectors allow you to apply the same style to multiple elements by separating them with a
@@ -4623,22 +4599,20 @@ and 'A!2t*' respectively. Complete the PHP code segment by filling the blanks.
 සමිපුර්ණ කරන්න.
 
 <?php
-$conn = new mysgli('locathost', ....................... ෴෴෴෴ා ) ....................... );
+$conn = new mysgli('locathost', …… ෴ා ) …… );
 if ($conn->connect_error) {
 die("Connection failed:
 
 . $conn->connect_error) ;
 
-}
-BSG 1 -~ ",........................ 10100 .......................... (......................... ෴෴෴෴෴෴෴෴යී )
+BSG 1 -~ ",…… 10100 …… (…… ෴යී )
 values (‘Piyal', ‘'12-B')";
-if ( $(0(1/] ~ 5 016 1)/ (......................... ) ==true) {
+if ( $(0(1/] ~ 5 016 1)/ (…… ) ==true) {
 echo "New record created successfully";
 } else {
 echo "Error: " . $sql . "<br>" , $conn->error;
-}
+
 $conn->close();
->>
 
 The correct code can be written as follows.
 පහත ආකාරයට නිවැරළි කේතය ලිවිය හැක.
@@ -4649,7 +4623,7 @@ if ($conn->connect_error) {
 die("Connection failed:
 
 . $conn->connect_error);
-}
+
 $sql = "INSERT into Student (name, class) values ('Piyal’, '12-B')";
 if ($conn->query( $sql ) ==true) {
 echo "New record created successfully";
@@ -4657,10 +4631,8 @@ echo "New record created successfully";
 } else {
 
 echo "Error: " . $sql . "<br>" . $conn->error;
-}
-$conn->close();
 
-?>
+$conn->close();
 
 Code explanation / කේත පැහැදිලි කිරීම
 
@@ -4682,7 +4654,7 @@ if($conn->connect_error){die("Connection failed: ". $conn->connect_error) ;}
 ($conn->connect_ error) Checks if there was an issue connecting to MySQL.
 MySQL වෙත සම්බන්ධ විමේ ගැටලුවක්‌ තිබේදැයි පරික්ෂා කරයි.
 die() If an error occurs, stops execution and prints the error message.
-බෝෂයක්‌ සිදුවුවහොත්‌, ක්‍රියාත්මක කිරීම නවතා දෝෂ පණිවිඞය මුද්‍රණය
+බෝෂයක්‌ සිදුවුවහොත්‌, ක්‍රියාත්මක කිරීම නවතා දෝෂ පණිවිඩය මුද්‍රණය
 කරයි.
 
 $sql = "INSERT INTO student (name, class) VALUES (' 01731', '12-B')";
@@ -4708,7 +4680,7 @@ executes.
 echo "New record created | Ifthe query was successful, this message confirms the record was
 
 successfully"; added.
-විමසුම සාර්ටක වුයේ නම්‌, මෙම පණිවිඞය, HOMO Os කළ බව
+විමසුම සාර්ටක වුයේ නම්‌, මෙම පණිවිඩය, HOMO Os කළ බව
 තහවුරැ කරයි.
 
 2.(a) Match each of the given phrases (1) - (vi) relating to commerce with most suitable item from the list below:
@@ -4724,7 +4696,7 @@ explosives), මාර්ගගත වෙළඳුපොළ (online marketplace)
 පහසුවෙන්‌ හානිවිය හැකි ද්‍රව්‍ය (perishable goods), සමාජ වාණිප්‍යය (social commerce), ග්‍රාහකත්වය ආදායමි
 ආකෘතියක්‌ ලෙස (subscription as a revenue model), සමිප්‍රදායික වෙළඳුපොළ (traditional marketplace) }
 
-Phrases / ප්‍රකාග ඛණ්ඩ:
+Phrases / ප්‍රකාශ ඛණ්ඩ:
 
 (1) a place where buyers and sellers interact physically for exchanging goods and services for a price
 මෙය QEEO භාණ්ඩ සහ සේවාවන්‌ හුවමාරැ කෙරෙන ගැනුමිකරැවන්‌ සහ වෙළෙන්දන්‌ භෞතික ලෙස අන්තට
@@ -4739,7 +4711,7 @@ Phrases / ප්‍රකාග ඛණ්ඩ:
 (iv) a subset of e-commerce that involves using social media to assist in the online buying and selling of
 
 products and services
-මෙය මාර්ගගත භාණ්ඞ සහ සේවා මිල දි ගැනීම හා විකිණීම සඳහා සමාජ මාධ්‍ය භාවිත කෙරෙන £-වාණිප්‍ය
+මෙය මාර්ගගත භාණ්ඩ සහ සේවා මිල දි ගැනීම හා විකිණීම සඳහා සමාජ මාධ්‍ය භාවිත කෙරෙන £-වාණිප්‍ය
 උපකුලකයකි.
 
 (v) facilitates a payment transaction by the transfer of information between the e-commerce application and
@@ -4753,7 +4725,7 @@ relevant government office
 MEGS බලපත්‍රය අලත්‌ කිරීම.
 
 Note: Write only the matching item against the phrase number.
-සටහන : වාක්‍ය ඛණ්ඞයෙහි අංකය ඉදිරියෙන්‌ ගැළපෙන අයිතමය පමණක්‌ ලියන්න.
+සටහන : වාක්‍ය ඛණ්ඩයෙහි අංකය ඉදිරියෙන්‌ ගැළපෙන අයිතමය පමණක්‌ ලියන්න.
 
 Let’s consider the meanings of each term here.
 මෙහි ඇති එක්‌ එක්‌ වචනවල අර්ටදැක්වීමි සලකා බලමු.
@@ -4768,7 +4740,7 @@ e Credit Cards / ණය කාඩිපත්‌
 Payment cards issued by financial institutions allow users to borrow funds for purchases. Repayment
 is required along with possible interest and fees.
 මුල්‍ය ආයතන විසින්‌ නිකුත්‌ කරන ලදු ණය mies භාවිතා කරන්නන්ට මිලදි ගැනීමි සඳහා අරමුදුල්‌
-ණයට ගැනීමට ඉඞ සලසයි. පොලි සහ ගාස්තු සමඟ ආපසු ගෙවිම අවග්‍ය වේ.
+ණයට ගැනීමට ඉඩ සලසයි. පොලි සහ ගාස්තු සමඟ ආපසු ගෙවිම අවශ්‍ය වේ.
 
 e Government e-Tendering Service / රජයේ (-ටෙන්ඩට්‌ සේවාව
 An online platform where government procurement processes, such as bidding and tender
@@ -4786,7 +4758,7 @@ and social welfare programs, improving accessibility and convenience.
 e Group Purchasing - කණ්ඩායමි ලෙස මිලදී ගැනීම
 A method where multiple buyers pool their demand to negotiate bulk discounts from suppliers,
 commonly used in e-commerce and business procurement.
-උ-වාණිපෟ්‍යය සහ ව්‍යාපාර ප්‍රසමිපාදන වලදි බහුලව MSD) වන සැපයුමිකරැවන්ගෙන්‌ තොග OOP
+උ-වාණිපෟ්‍යය සහ ව්‍යාපාර ප්‍රසම්පාදන වලදි බහුලව MSD) වන සැපයුමිකරැවන්ගෙන්‌ තොග OOP
 සාකච්ඡා කිරීම සඳහා බහුවිධ ගැනුමිකරැවන්‌ තම ඉල්ලම එකතු කරන ක්‍රමයකි.
 
 e Harmful Explosives - හානිකර පුපුරන ද්‍රව්‍ය
@@ -4937,7 +4909,7 @@ e The program finds the largest positive number entered by the user.
 වැඩසටහන, පරිගිලකයා විසින්‌ ඇතුළත්‌ කරන ලදු SHEMO ධන සංඛ්‍යාව සොයා ගනි.
 
  1॥1( continuously accepts user input and updates maximum value until a non-positive number is entered.
-එය අඛණ්ඩඞව පරිගිලක ආදාන ලබාගන්නා අතර, ධන නොවන අංකයක්‌ ඇතුළත්‌ කරන තෙක්‌ උපරිම අගය
+එය අඛණ්ඩඩව පරිගිලක ආදාන ලබාගන්නා අතර, ධන නොවන අංකයක්‌ ඇතුළත්‌ කරන තෙක්‌ උපරිම අගය
 යාවන්කාලීන කරයි.
 
 3.(a) Consider the following Entity Relationship (ER) diagram which represents the information about projects
@@ -4964,8 +4936,6 @@ attribute NoOfHours in the relevant position of the ER diagram with the correct 
 පැය ගණන (110ට011101115) සටහන්‌ කරනු ලැබේ. නිවැරළි සංකේතය සහ ලේඛලය සමග NoOfHours උපලැකිය
 ER සටහනෙහි අදාළ ස්ටානයෙහි අඳින්න.
 
-—,
-
 has Location
 —__
 
@@ -4985,7 +4955,7 @@ Draw the Entity ‘Location’ with relevant attributes inside the area X in the
 existing ER diagram by indicating the cardinality.
 
 Location නමි භතාර්ඊය අදාළ උපලැකි සහිතව රැපසටහනෙහි X නමි ප්‍රදේශය තුළ ඇඳ, පවතින ER සටහන
-සමග ගණනියතාව දක්වමින්‌ සමිබන්ධ කරන්න.
+සමග ගණනියතාව දක්වමින්‌ සම්බන්ධ කරන්න.
 
 Weak Entity / දුර්වල භූතාටතය : Location
 
@@ -5003,13 +4973,13 @@ relevant.
 හේතුව: AGS ව්‍යාපෘතියක්‌ සඳුහා පමණක්‌ ස්ථානයක්‌ කුලියට ගෙන ඇති අතර, ව්‍යාපෘතිය අවසන්‌ වු පසු,
 එම ස්ථානය තවදුරටත්‌ අදාළ නොවේ.
 
-Weak Relationship / දුරවල සමිබන්ධතාව : has
+Weak Relationship / දුරවල සම්බන්ධතාව : has
 
 A weak relationship is a relationship that links a weak entity to its strong entity. In this case, the
 relationship "has" between Project and Location is a weak relationship.
 
-දුර්වල සම්බන්ධතාවයක්‌ යනු දුර්වල Qmdnas එහි ශක්තිමත්‌ භතනාරතයක්‌ සමිබන්ධ කරන සමිබන්ධතාවයකි.
-මෙම අවස්ටාවෙහිදි, Project සහ Location අතර has සමිබන්ධතාවය දුර්වල සමිබඛන්ධනාවයකි.
+දුර්වල සම්බන්ධතාවයක්‌ යනු දුර්වල Qmdnas එහි ශක්තිමත්‌ භතනාරතයක්‌ සම්බන්ධ කරන සම්බන්ධතාවයකි.
+මෙම අවස්ටාවෙහිදි, Project සහ Location අතර has සම්බන්ධතාවය දුර්වල සමිබඛන්ධනාවයකි.
 
 Reason: A location cannot exist in the system without a project. It is rented only for a project, and once
 the project ends, the location is no longer recorded.
@@ -5017,12 +4987,12 @@ the project ends, the location is no longer recorded.
 හේතුව: ව්‍යාපෘතියක්‌ නොමැතිව පද්ධතිය තුළ ස්ටානයක්‌ පැවතිය නොහැක. එය ව්‍යාපෘතියක්‌ සඳහා පමණක්‌
 කුලියට ගෙන ඇති අතර, ව්‍යාපෘතිය අවසන්‌ වු පසු, ස්ටානය නවදුරටන්‌ සටහන්‌ නොවේ.
 
-Cardinality / ගණනීයතාව : One-to-One (1:1) Relationship / ඒක-ඒක (1:1) සමිබන්ධතාවය
+Cardinality / ගණනීයතාව : One-to-One (1:1) Relationship / ඒක-ඒක (1:1) සම්බන්ධතාවය
 Each project has exactly one rented location, and each location is assigned to only one project.The
 
 existence of the location depends on the project.
 සැම ව්‍යාපෘතියකටම හරියටම එක්‌ කුලියට ගත්‌ ස්ථානයක්‌ ඇති අතර, සෑම ස්ථානයකම එක්‌ ව්‍යාපෘතියකට
-පමණක්‌ පවරා ඇත. ස්ටානයේ පැවැත්ම ව්‍යාපෘතිය මත රඳා පවති.
+පමණක්‌ පවරා ඇත. ස්ථානයේ පැවැත්ම ව්‍යාපෘතිය මත රඳා පවති.
 
 (b) Write down the most appropriate term from the given list to fill the blank in each statement given below.
 පහත දැක්වෙන එක්‌ එක්‌ වගන්තියෙහි හිස්තැන පිරවීමට වඩාත්ම සුදුසු අයිතමය දි ඇති ලැයිස්තුවෙන්‌ තෝරා
@@ -5032,26 +5002,26 @@ List = {ALOHA, Application Layer (යෙදුමි ස්ටරය). CIDR, DHC
 පද්ධතිය ). Network Layer (පාල SOdc), Packet Switching ( පොළි හුවමාරැව). Parity Bit (සමතා BQO), Parity
 Byte (සමතා @BOo), Proxy Server (නියෝපන සේවාදායකය) |
 
-(1) .............--.............................. provides IP addresses for the given URLs and web addresses
-............................................. දෙන ලද URL හා වෙබි ලිපිනවලට අනුරෑප IP ලිපින ලබා දෙයි.
+(1) ……--…… provides IP addresses for the given URLs and web addresses
+…… දෙන ලද URL හා වෙබි ලිපිනවලට අනුරෑප IP ලිපින ලබා දෙයි.
 
 (11) File Transfer Protocol (FTP), Simple Mail Transfer Protocol (SMTP) and the Telnet service are
-implemented in the ................... ... -......................
+implemented in the …… …… -……
 ගොනු හුවමාරැ නියමාවලිය (FTP), සරල තැපැල්‌ හුවමාරැ නියමාවලිය (SMTP), සහ Telnet සේවාව
-.................................. හි ක්‍රියාත්මක වේ.
+…… හි ක්‍රියාත්මක වේ.
 
-(111) With the .................... ............. a device may get a different IP address every time it connects to the network.
-............................... මගින්‌, යමි උපක්‍රමයකට, එය පාලයකට සම්බන්ධ වන සෑම අවස්ටාවකදි ම වෙනස්‌ IP
+(111) With the …… …… a device may get a different IP address every time it connects to the network.
+…… මගින්‌, යමි උපක්‍රමයකට, එය පාලයකට සම්බන්ධ වන සෑම අවස්ටාවකදි ම වෙනස්‌ IP
 ලිපිනයක්‌ ලැබිමට ඉඩ ඇත.
 
-(1) .............. - --............................ helps to effectively manage the available IP address space.
-........................................... තිබෙන IP ලිපින අවකාශය, කාර්යක්ෂමව කළමනාකරණය කිරීමට ඉවහල්‌ වේ.
+(1) …… - --…… helps to effectively manage the available IP address space.
+…… තිබෙන IP ලිපින අවකාශය, කාර්යක්ෂමව කළමනාකරණය කිරීමට ඉවහල්‌ වේ.
 
-(v) In data transmission, for the process of error detection, 3 ................ .................... is added to a binary string
+(v) In data transmission, for the process of error detection, 3 …… …… is added to a binary string
 to ensure that the total number of 1-bits in the string is either even or odd.
 ED සම්ප්‍රේෂණයේදි දෝෂ අනාවරණය කිරිම oem) ද්විමය අනුලක්ෂණ පෙළක (binary string) ඇති මුඑ
 1-බ්ටු ගගන ඔන්තේ හෝ ඉරටිටේ බව නිග්වය කර ගැනීමට එම අනුලක්ෂණ පෙළට
-............................................. ක්‌ එකතු කරනු ලැබේ.
+…… ක්‌ එකතු කරනු ලැබේ.
 
 e ALOHA
 
@@ -5059,9 +5029,9 @@ ALOHA is a simple communication protocol used in networking for data transmissio
 for wireless networks and allows devices to send data whenever they want. However, if multiple devices
 transmit at the same time, data collisions occur, requiring retransmissions. There are two main types: Pure
 ALOHA and Slotted ALOHA, with the latter reducing collision chances by dividing time into slots.
-ALOHA යනු Ese සමිප්‍රඞේෂණය සඳහා පාලකරණයේදි MSD) කරන සරල සන්නිවේදන නියමාවලියකි. OO
-රැහැන්‌ රහිත පාල සඳුහා සංවර්ධනය කර ඇති අතර උපාංගවලට අවග්‍ය විටෙක දුන්ත යැවිමට ඉඩ සලසයි.
-කෙසේ වෙතත්‌, උපාංග කිහිපයක්‌ එකවර සමිප්‍රේෂණය කරන්නේ නමි, em ඝටිටන සිදු වේ, නැවත සමිප්‍රේෂණය
+ALOHA යනු Ese සමිප්‍රඩේෂණය සඳහා පාලකරණයේදි MSD) කරන සරල සන්නිවේදන නියමාවලියකි. OO
+රැහැන්‌ රහිත පාල සඳුහා සංවර්ධනය කර ඇති අතර උපාංගවලට අවශ්‍ය විටෙක දුන්ත යැවිමට ඉඩ සලසයි.
+කෙසේ වෙතත්‌, උපාංග කිහිපයක්‌ එකවර සම්ප්‍රේෂණය කරන්නේ නමි, em ඝටිටන සිදු වේ, නැවත සම්ප්‍රේෂණය
 කිරීම අවශ්‍ය 68. Pure ALOHA සහ Slotted ALOHA ලෙස ප්‍රධාන වර්ග දෙකක්‌ තිබේ. දෙවැන්න කාලය
 කොටස්‌ වලට බෙදිමෙන්‌ BOOM අවස්ථා අඩු කරයි.
 
@@ -5096,7 +5066,7 @@ unless a static IP is set.
 DHCP යනු පාලයකට සමිබඛන්ධ වන SO උපාංග වෙත ස්වයංක්‍රීයව IP ලිපින සහ අනෙකුත්‌ වින්‍යාස විස්තර
 (උපපාල ආවරණය සහ දොරටු මග වැනි) ලබා දෙන ජාල නියමාවලියකි. වය පාල කළමනාකරණය සරල
 කරයි, නමුත්‌ IP ලිපින ගතිකව පවරනු ලබන බැවින්‌, ස්ථිතික IP එකක්‌ සකසා නොමැති නමි උපාංගයකට
-සමිබන්ධ වන සෑම අවස්ථාවකම වෙනස්‌ wes එකක්‌ ලැබෙනු ඇත.
+සම්බන්ධ වන සෑම අවස්ථාවකම වෙනස්‌ wes එකක්‌ ලැබෙනු ඇත.
 
 e Domain Name System (DNS) / වසමීි නාම පද්ධතිය
 
@@ -5116,7 +5086,7 @@ across networks. It handles IP addressing, routing, and packet forwarding, ensur
 correct destination. Important protocols in this layer include IP (Internet Protocol) and ICMP (used for
 error reporting and diagnostics).
 
-OSI ආකෘතියේ HE ස්ථරය HE හරහා දුන්ත සමිප්‍රේෂණය HEH) හොඳුම මාර්ගය තීරණය කිරීම oem)
+OSI ආකෘතියේ HE ස්ථරය HE හරහා දුන්ත සම්ප්‍රේෂණය HEH) හොඳුම මාර්ගය තීරණය කිරීම oem)
 වගකිව යුතුය. එය දුත්ත නිවැරදි ගමනාන්තයට ළඟා වන බව සහතික කරමින්‌ [P ලිපිනය, මාර්ගගත කිරීම
 සහ පැකටි යොමු කිරීම හසූරැවයි. මෙම ස්ටරයේ ඇති වැදගත්‌ නියමාවලි අතර IP (අන්තර්පාල නියමාවලිය)
 සහ ICMP (දෝෂ වාර්තා කිරීම සහ විනිශ්චය සඳහා භාවිනා වේ) ඇතුළත්‌ වේ.
@@ -5139,7 +5109,7 @@ A parity bit 15 an extra bit added to a binary sequence for error detection duri
 ensures that the total number of ] 5 in the data (including the parity bit) is either even (even parity) or odd
 (odd parity). If an error occurs, the parity check can detect it, prompting retransmission.
 
-සමතා බිටුව යනු ese සමිප්‍රේෂණයේදි දෝෂ හඳුනාගැනීම HEM) ද්විමය අනුක්‍රමයකට එකතු කරන OG
+සමතා බිටුව යනු ese සම්ප්‍රේෂණයේදි දෝෂ හඳුනාගැනීම HEM) ද්විමය අනුක්‍රමයකට එකතු කරන OG
 අමතර බිටුවකි. එය දත්තවල මුළ ] ඒවා සංඛ්‍යාව (සමතා බිටු ඇතුඑව) ඉරටිටේ (ඉරටිටේ සමතා) හෝ
 ඔත්තේ (ඔත්තේ සමතා) බව සහතික කරයි. දෝෂයක්‌ සිදුවවහොත්‌, සමතා පිරික්සුම මඟින්‌ එය නැවත
 සම්ප්‍රේෂණය කිරීමට පොළඹවයි.
@@ -5168,7 +5138,7 @@ network security.
 සේවාදායකයන්‌ අන්තර්ගත පෙරිම, බර සමතුලිත කිරීම සහ පාල ආරක්ෂාවට ආයතනවල බහුලව භාවිතා වේ.
 
 Accordingly, the answers can be obtained in the following way.
-ඒ අනුව පහත ආකාරයට පිළිතුරැ ලබා ගත හැකිය.
+ඒ අනුව පහත ආකාරයට පිළිතුරු ලබා ගත හැකිය.
 
 (1) Domain name system provides IP addresses for the given URLs and web addresses.
 වසමි නාම පද්ධතිය දෙන ලද URL හා වෙබි ලිපිනවලට අනුරෑප IP ලිපින ලබා දෙයි.
@@ -5197,7 +5167,7 @@ about each process.
 පාලන ඛණ්ඩ (Process Control Blocks [PCB]) භාවිත කරයි.
 
 Read the following scenario and answer the given questions:
-පහත විස්තරය කියවා අසා ඇති ප්‍රග්නවලට පිළිතුරු සපයන්න.
+පහත විස්තරය කියවා අසා ඇති ප්‍රශ්නවලට පිළිතුරු සපයන්න.
 
 Rani starts a computational application on a single processor computer. While the relevant computations
 are in progress, she starts a web browser application as well, in order to search for some information.
@@ -5208,10 +5178,10 @@ application) ආරමිභ කරනු ලබයි. අදාළ ගණන�
 Write down the content that will be stored in the following PCB fields of the computing process when
 the "computing process — web browser process" context switch 15 made.
 
-“ගණනය කිරීමේ ක්‍රියායනය — වෙබි අතරික්සු ක්‍රියායනය” om සන්දීඊභ ස්චිචනය (context switch) සිදුව
+“ගණනය කිරීමේ ක්‍රියායනය — වෙබි අතිරික්සු ක්‍රියායනය” om සන්දීඊභ ස්චිචනය (context switch) සිදුව
 විට ගණනය කිරීමේ ක්‍රියායනයේ පහත දැක්වෙන PCB ක්ෂේත්‍රවල අඩංගු වන්නේ මොනවාදැයි ලියා දුක්වන්න.
 
-e Process Control Block / ක්‍රියායන පාලන බණ්ඩඞය
+e Process Control Block / ක්‍රියායන පාලන බණ්ඩඩය
 A Process Control Block (PCB) is a data structure used by the operating system (OS) to store important
 information about a process. It acts as a record or a profile for each process running in the system. The
 PCB is crucial for process management and is maintained by the OS to track the execution state of a
@@ -5294,7 +5264,7 @@ The file size cannot be increased dynamically.
 If the required contiguous memory space 15 not available or if external fragmentation occurs, It is
 difficult to allocate space for a new file.
 
-අවග්‍ය යාබද මතක අවකාශය නොමැති නමි හෝ DSO ඛණ්ඩනය සිදුවුවහොත්‌, HO ගොනුවක්‌ He)
+අවශ්‍ය යාබද මතක අවකාශය නොමැති නමි හෝ DSO ඛණ්ඩනය සිදුවුවහොත්‌, HO ගොනුවක්‌ He)
 ඉඩ වෙන්‌ කිරීම දුෂ්කර වේ.
 
 Deleting a file may create small fragmented free spaces, leading to inefficient space utilization.
@@ -5324,7 +5294,7 @@ to jump around, making sequential access more efficient.
 
 සංයුක්ත තැටි අනුපිළිවෙලින්‌ කියවනු ලැබේ, එනමි com තැටියේ ආරමිභයේ BO අවසානය දක්වා රේඛිය
 ආකාරයෙන්‌ ප්‍රවේශ වේ. ගොනු ODE කාණ්ඩවල ගබඩා කර ඇති බැවින්‌, තැටියේ කියවීමේ හිසට එහා
-මෙහා පැනීමට අවග්‍ය නොවන අතර, අනුක්‍රමික ප්‍රවේශය වඩාත්‌ කාර්යක්ෂම කරයි.
+මෙහා පැනීමට අවශ්‍ය නොවන අතර, අනුක්‍රමික ප්‍රවේශය වඩාත්‌ කාර්යක්ෂම කරයි.
 
 Fixed Size / ස්ටාවර ප්‍රමාණය:
 
@@ -5335,7 +5305,7 @@ fragmentation.
 
 සංයුක්ත තැට්වල SOOO ගබඩා ඉඩ ප්‍රමාණයක්‌ ඇති අතර, ඒවායේ ව්‍යඝහය බොහෝ විට esse අඛණ්ඩව
 ගබඩා කර ඇති කොටස්‌ වලට පෙර සංවිධානය කර ඇත. දුත්ත රේඛිය ආකෘතියකින්‌ ලියා ඇති අතර,
-එය BADE විභාජනය සඳහා වඩාත්‌ සුදුසු වේ, මන්ද එක්‌ එක්‌ ගොනුව ඛණ්ඩනය කිරීම අවග්‍ය නොවි OSes
+එය BADE විභාජනය සඳහා වඩාත්‌ සුදුසු වේ, මන්ද එක්‌ එක්‌ ගොනුව ඛණ්ඩනය කිරීම අවශ්‍ය නොවි OSes
 එක තැබිය හැකිය.
 
 Write Once, Read Many (WORM) / එක්‌ වරක්‌ ලියු පසු මකා නොදැමිම:
@@ -5345,7 +5315,7 @@ modify or reallocate space dynamically is minimal. Files are written in contiguo
 written, they are not changed, which is why contiguous allocation works well.
 
 සංයුක්ත තැටි සාමාන්‍යයෙන්‌ වරක්‌ ලිවීමට හෝ කලාතුරකින්‌ යාවත්කාලින කරන ලද ගබඩා කිරීම (WORM)
-සඳුහා භාවිතා කරන බැවින්‌, ගතිකව ඉඩ වෙනස්‌ කිරීමට හෝ නැවත වෙන්‌ කිරීමට අවග්‍යතාවය අවම
+සඳුහා භාවිතා කරන බැවින්‌, ගතිකව ඉඩ වෙනස්‌ කිරීමට හෝ නැවත වෙන්‌ කිරීමට අවශ්‍යතාවය අවම
 වේ. ගොනු යාබද කාණ්ඩවල ලියා ඇති අතර, වරක්‌ ලියා ඇති විට, SO) වෙනස්‌ නොකෙරේ, එම නිසා
 යාබදු වෙන්‌ කිරීම හොඳින්‌ ක්‍රියාත්මක වේ.
 
@@ -5374,7 +5344,7 @@ to the entire file.
 
 මෙම දර්ශකය මඟින්‌ සම්බන්ධිත දාමයේ ඊළඟ කොටසේ පිහිටිම දක්වයි. ඛණ්ඩ එකිනෙක ගබඩා කර නොමැති
 නමුත්‌ ගබඩා මාධ්‍යය පුරා විසිරි ඇති බැවින්‌ එය පද්ධතියට ගොනු කොටස්‌ හරභා සැරිසැරීමට ඉඩ සලසයි.
-දර්ශකය මඟින්‌ ඛණ්ඩ එකට සමිබන්ධ කළ හැකි බව සහතික කරයි, එමඟින්‌ සමිපුර්ණ ගොනුවට අනුක්‍රමික
+දර්ශකය මඟින්‌ ඛණ්ඩ එකට සම්බන්ධ කළ හැකි බව සහතික කරයි, එමඟින්‌ සමිපුර්ණ ගොනුවට අනුක්‍රමික
 ප්‍රවේගය සක්‍රීය කරයි.
 
 Any answer provided below is correct.
@@ -5447,7 +5417,7 @@ size of physical memory.
 (page tables) භාවිතය නිසා ලැබෙන එක්‌ වාසියක්‌ ලියා දක්වන්න.
 
 Allows Programs Larger Than Physical Memory (Virtual Memory Support).
-භෞතික මතකයට වඞා SME වැඩසටහන්‌ සඳහා ඉඩ සලසයි (අටත්‍ය මතක සහාය).
+භෞතික මතකයට වඩා SME වැඩසටහන්‌ සඳහා ඉඩ සලසයි (අටත්‍ය මතක සහාය).
 
 Efficient Memory Allocation (No External Fragmentation).
 කාර්යක්ෂම මතක විභපනය (බාහිර ඛණ්ඩනයකින්‌ තොරව).
@@ -5519,8 +5489,6 @@ n=3 බැවින්‌, බහුතර ග්‍රිතයේ විස්
 
 ICN
 
->
-
 | ~~-|ක|। ක | el} |O|/O| w&
 
 ~|ක|ධ|]ක|ත|ක|ධ|ක| ඨ
@@ -5561,11 +5529,10 @@ AB /
 A+B
 
 (c) Construct a logic circuit for the 3-input majority function using NAND gates only.
-ආදාන 3 හි බහුතර ගිතය aem) NAND ද්වාර පමණක්‌ භාවිත කරමින්‌ තර්කන පරිපටයක්‌ ගොඩනගන්න.
+ආදාන 3 හි බහුතර ගිතය aem) NAND ද්වාර පමණක්‌ භාවිත කරමින්‌ තර්කන පරිපථයක්‌ ගොඩනගන්න.
 
 Dp
 ॥ HO?
->
 
 Zsop =A.B+ B.C +A.C
 
@@ -5595,7 +5562,7 @@ wa Uy
 A school has acquired the following resources to its Administrative (Admin), Laboratory (Lab) and
 Library (Lib) buildings:
 පාසලක්‌ තම පරිපාලන (Admin), විද්‍යාගාර (Lab) හා පුස්තකාල (Lib) ගොඩනැගිලි සඳහා පහන දැක්වෙන
-සමිපත්‌ ලබා ගෙන ඇත.
+සම්පත්‌ ලබා ගෙන ඇත.
 
 Building Resources
 
@@ -5604,26 +5571,26 @@ Lab 40 computers, 1 printer
 Lib 10 computers, 1 printer
 
 A school computer network has to be created to fulfil the following requirements:
-පහත අවග්‍යතා සපුරා ගැනීම Hem) පාසල්‌ පරිගණක පාලයක්‌ H6@gne කළ QMO ඇත.
+පහත අවශ්‍යතා සපුරා ගැනීම Hem) පාසල්‌ පරිගණක පාලයක්‌ H6@gne කළ QMO ඇත.
 
 e Each building needs to have its own local area network (LAN) in order to share the printer.
 
 Gena හවුලේ භාවිත කිරිමට, එක්‌ එක්‌ ගොඩනැගිල්ල aca) ස්ථානීය ප්‍රදේශ පාලයක්‌ (LAN) බැගින්‌
-අවග්‍ය වේ.
+අවශ්‍ය වේ.
 
 e The above three networks are also to be interconnected so that the School Information System
 (SIS) which is running on one computer in the Admin building and the Library Information
 System (LIS) running on one computer in the Lib building are accessible from all computers.
 සැම පරිගණකයකටම, Admin ගොඩනැගිල්ලෙහි එක්‌ පරිගණකයක ධාවනය වන පාසල්‌ තොරතුරැ
 පද්ධතියට දු (SIS), Lib ගොඩනැගිල්ලෙහි එක්‌ පරිගණකයක ධාවනය Om පුස්තකාල තොරතුරැ පද්ධතියට
-දූ (LIS) ප්‍රවේගවීම සඳහා ඉහත පාල තුන එකිනෙක පාලගත කිරිමට ද අවග්‍ය ය.
+දූ (LIS) ප්‍රවේගවීම සඳහා ඉහත පාල තුන එකිනෙක පාලගත කිරිමට ද අවශ්‍ය ය.
 
 e All computers are to be given efficient Internet connectivity as well. For this purpose, the school
 has subscribed to an Internet Service Provider (ISP) who is to supply the Internet connectivity to
 the Lab building. The Lad building is separated from the other two buildings by approximately
 500m. One computer in the Lab building is to be used as the DNS server. Another computer in
 the Lab building is to be used as the proxy server.
-සැම පටිගණකයකටම කාර්යක්ෂම අන්තර්ජාල සමිබන්ධතාවයක්‌ ලබා දීමට දු අවශ්‍ය ය. මේ HEH) පාසල
+සැම පටිගණකයකටම කාර්යක්ෂම අන්තර්ජාල සම්බන්ධතාවයක්‌ ලබා දීමට දු අවශ්‍ය ය. මේ HEH) පාසල
 අන්තර්පාල සේවා සැපයුමිකරැවකුගේ (ISP) සේවාවකට දායක වී ඇති අතර, එම සැපයුමිකරැු අන්තටර්පාල
 සම්බන්ධතාවය Lab ගොඩනැගිල්ලට ලබාදිමට නියමිත ය. Lab ගොඩනැගිල්ල අනෙකුත්‌ ගොඩනැගිලි
 දෙකෙන්‌ ආසන්න වගයෙන්‌ 500m ක්‌ දුරස්ටව පවති. Lab ගොඩනැගිල්ලෙහි එක්‌ පරිගණකයක්‌ DNS
@@ -5762,7 +5729,7 @@ computer network.
 In networking, all-to-all topology refers to a network setup in which every node or device in the network
 is directly connected to every other node or device.
 
-පාලකරණයේදි, සමිපුර්ණයෙන්ම සම්ඛන්ධිත පාල සමිඛන්ධනා ස්ඵලකයක්‌ යනු පාලයේ සෑම උපාංගයක්ම
+පාලකරණයේදි, සමිපුර්ණයෙන්ම සම්ඛන්ධිත පාල සම්බන්ධනා ස්ඵලකයක්‌ යනු පාලයේ සෑම උපාංගයක්ම
 අනෙක්‌ සෑම උපාංගයකටම සෘපුවම සම්බන්ධ වන ජාල සැකසුමකි.
 
 [1] ()
@@ -5779,7 +5746,7 @@ Node4
 There are several reasons to say that all-to-all network topology is not suitable for this school computer
 network.
 
-මෙම පාසල්‌ පරිගණක HEGO සමිපුරණයෙන්ම සමිඛන්ධිත පාල සමිබන්ධතා ස්ඵලකයක්‌ නොගැලපෙන බව
+මෙම පාසල්‌ පරිගණක HEGO සමිපුරණයෙන්ම සම්බන්ධිත පාල සම්බන්ධතා ස්ඵලකයක්‌ නොගැලපෙන බව
 පැවසීමට හේතු කිහිපයක්‌ තිබේ.
 
 e Cost is high/ අධික පිරිවැය.
@@ -5793,7 +5760,7 @@ e Difficult to configure / වින්‍යාස කිරීමට අපහ
 
 e Increased risk of congestion / තදුඛදුය වැඩි විමේ අවදානම.
 
-e There is no such requirement for the school / පාසල සඳුහා එවැනි අවග්‍යතාවයක්‌ නොමැත.
+e There is no such requirement for the school / පාසල සඳුහා එවැනි අවශ්‍යතාවයක්‌ නොමැත.
 
 The Lab administrator who is responsible to setup the school computer network has requested for
 switches and a router.
@@ -5804,16 +5771,16 @@ Showing clearly the network connection topology and the devices, draw the networ
 represent the logical arrangement for the school computer network that the Lab administrator can
 implement to fulfil the school requirements.
 
-පාල සමිබන්ධතා ස්ඵලකය (network connection topology) හා උපක්‍රම (devices) පැහැදිලිව දක්වමින්‌,
-පාසලේ අවග්‍යතා ඉටුකර ගැනීම සඳුහා Lab පරිපාලක විසින්‌ ගොඩනගාගන හැකි පාසල්‌ පරිගණක පාලයයෙහි
+පාල සම්බන්ධතා ස්ඵලකය (network connection topology) හා උපක්‍රම (devices) පැහැදිලිව දක්වමින්‌,
+පාසලේ අවශ්‍යතා ඉටුකර ගැනීම සඳුහා Lab පරිපාලක විසින්‌ ගොඩනගාගන හැකි පාසල්‌ පරිගණක පාලයයෙහි
 තට්කන සැකස්ම නිරෑපණය කිරීමට HE රැෑපසටහනක්‌ අඳින්න.
 
 The internet is at the top, which 15 connected to a router. The router acts as the central gateway between
 the external network and the internal network, enabling communication between the internal devices and
 the internet.
 
-මං හසුරැවකට සමිබන්ධ වි ඇති අන්තර්පාලය ඉහළින්ම ඇන. මං හසුරැව මගින්‌ බාහිර පාලය සහ
-අභ්‍යන්තර HES අතර දොරටුව ලෙස ක්‍රියා කරයි, එය අභ්‍යන්තර උපාංග සහ අන්තටරපාලය අතර
+මං හසුරැවකට සම්බන්ධ වි ඇති අන්තර්පාලය ඉහළින්ම ඇන. මං හසුරැව මගින්‌ බාහිර පාලය සහ
+අභ්‍යන්තර HES අතර දොරටුව ලෙස ක්‍රියා කරයි, එය අභ්‍යන්තර උපාංග සහ අන්තර්ජාලය අතර
 සන්නිවේදනය සක්‍රීය කරයි.
 
 The Firewall is installed to act as a security layer between the internal network and the outside world. It
@@ -5826,7 +5793,7 @@ controls the traffic flow and prevents unauthorized access to the network.
 Normally, Fiber optic cables are used for long-distance, because of its high-speed data transmission and
 they are capable of carrying data over much longer distances without signal degradation.
 
-සාමාන්‍යයෙන්‌, ප්‍රකාග තන්තු EQ දුරක්‌ සඳුහා භාවිතා වේ. ඒ මන්ද, OD අධිවේගි දූත්ත සමිප්‍රේෂණය නිසා
+සාමාන්‍යයෙන්‌, ප්‍රකාශ තන්තු EQ දුරක්‌ සඳුහා භාවිතා වේ. ඒ මන්ද, OD අධිවේගි දූත්ත සම්ප්‍රේෂණය නිසා
 සහ සංඥා පිරිහිමකින්‌ තොරව වැඩි දුරක්‌ esi රැගෙන යාමේ හැකියාවක්‌ ඇති බැවිනි.
 
 Laboratory
@@ -5835,8 +5802,8 @@ Switch-Lab
 Proxy server
 [-on-1 | — Agno
 = a
-=
-කම්ම...
+
+කම්ම……
 
 Library
 
@@ -5861,8 +5828,6 @@ Switch-Lib
 
 | bel
 
-=.
-
 SIS
 
 (d) Give one reason as to why TCP is preferred over UDP as the transport protocol for the school
@@ -5880,7 +5845,7 @@ between two devices or systems over a network. It operates at the transport laye
 The difference between UDP (User Datagram Protocol) and TCP (Transport Control Protocol) is shown
 below.
 
-UDP (ede estan a5 නියමාවලිය) සහ TCP (සමිප්‍රේෂණ පාලන නියමාවලිය) අතර වෙනස පහත
+UDP (ede estan a5 නියමාවලිය) සහ TCP (සම්ප්‍රේෂණ පාලන නියමාවලිය) අතර වෙනස පහත
 දැක්වේ.
 
 #ictfromabe
@@ -5892,10 +5857,10 @@ TCP (Transport Control Protocol)
 සම්ප්‍රේෂණ පාලන නියමාවලිය
 
 Not connection-oriented
-සමිඛන්ධතා-නැඹුරැ ස්වභාවයක්‌ නොමැත
+සම්බන්ධතා-නැඹුරැ ස්වභාවයක්‌ නොමැත
 
 Connection-oriented
-සමිබන්ධතා-නැඹුරැ ස්වභාවයක්‌ පවතී.
+සම්බන්ධතා-නැඹුරැ ස්වභාවයක්‌ පවතී.
 
 Does not guarantee reliable data transfer
 
@@ -5915,8 +5880,8 @@ Ex: Live streaming, Gaming
 used in applications where speed is more important used in applications where reliability is
 than reliability important
 
-විග්වාසනයත්වයට වඞා වේගය Ocean වන විග්වාසනීයත්වය වැදගත්‌ වන යෙදුමිවල
-යෙදුමිවල භාවිතා වේ භාවිතා වේ
+විග්වාසනයත්වයට වඩා වේගය Ocean වන විග්වාසනීයත්වය වැදගත්‌ වන යෙදුම්වල
+යෙදුම්වල භාවිතා වේ භාවිතා වේ
 
 Ex: Web browsing, File transfer
 
@@ -5925,13 +5890,13 @@ Reasons for preferring TCP over UDP for the school computer network can be,
 
 e Features of TCP such as Reliability, In order delivery, Connection-oriented nature, Flow control,
 Congestion control, Error recovery etc.
-TCP හි විග්වසනීයන්වය, පිළිවෙලට බෙදා හැරීම, සමිඛන්ධනා-නැඹුරැ ස්වභාවය, ගැලීම පාලනය,
+TCP හි විග්වසනීයන්වය, පිළිවෙලට බෙදා හැරීම, සම්බන්ධනා-නැඹුරැ ස්වභාවය, ගැලීම පාලනය,
 තදුබදුය පාලනය, දෝෂ ප්‍රතිසාධනය වැනි විශේෂාංග පැවතීම.
 
 e Can used for web and email applications / වෙබි සහ ඊමේල්‌ යෙදුමි සඳුහා භාවිතා කළ හැක.
 
 e Transmission time required for the school applications is not very critical.
-පාසල්‌ යෙදුමි සඳහා අවශ්‍ය සමිප්‍රේෂණ MEG ඉනා තීරණාත්මක නොවේ.
+පාසල්‌ යෙදුමි සඳහා අවශ්‍ය සම්ප්‍රේෂණ MEG ඉනා තීරණාත්මක නොවේ.
 
 3.(a) ABC Books (Pvt.) Ltd. specializes in buying and selling used secondhand books. At present the
 business operations are fully manual (pure brick).
@@ -5981,7 +5946,7 @@ products or services directly to customers over the internet. It's a fundamental
 where businesses establish an online presence through websites or platforms to showcase and sell their
 offerings.
 
-මාර්ගගත විකුණුම්‌ ආදායම්‌ ආකෘතිය යනු ව්‍යාපාර ace) නිෂ්පාදන හෝ සේවා අන්තටරපාලය හරහා
+මාර්ගගත විකුණුම්‌ ආදායම්‌ ආකෘතිය යනු ව්‍යාපාර ace) නිෂ්පාදන හෝ සේවා අන්තර්ජාලය හරහා
 පාරිභෝගිකයින්ට සෘපුවම විකිණීමෙන්‌ ආදායමි උත්පාදුනය කිරීමට ඇති සරල ක්‍රමයකි. එය ඊ-වාණිප්‍යයේ
 මුලික ප්‍රවේගයකි, එහිදි ව්‍යාපාර තම පිරිනැමිමි ප්‍රදර්ශනය කිරීමට සහ විකිණීමට වෙබි අඩවි හෝ වේදිකා
 හරහා මාර්ගගත පැවැත්මක්‌ ස්ථාපිත කරයි.
@@ -6044,8 +6009,7 @@ ABC පොත්හල සහ එහි ගනුදෙනුකරැවන්�
 e B2B (Business to Business / ව්‍යාපාරයෙන්‌ ව්‍යාපාරයට)
 Between ABC books and other businesses / Between a business and another business.
 ABC පොත්හල සහ අනෙකුත්‌ ව්‍යාපාර අතර / ව්‍යාපාරයක්‌ සහ තවත්‌ ව්‍යාපාරයක්‌ අතර.
-
-ේ (2( (Customer to Customer / පාරිභෝගිකයාගෙන්‌ පාරිභෝගිකයාට )
+  (2( (Customer to Customer / පාරිභෝගිකයාගෙන්‌ පාරිභෝගිකයාට )
 Between individual customers of the marketplace.
 වෙළඳුපොළේ තනි ගනුදෙනුකරැවන්‌ අතර.
 
@@ -6108,7 +6072,7 @@ Cash on Delivery (COD) / භාණ්ඩ ලැබීමෙන්‌ පසු �
 Customers pay in cash when the product is delivered, common in regions with low digital payment
 adoption.
 
-භාණ්ඩය MO දුන්‌ SO පාරිභෝගිකයන්‌ Ges වගයෙන්‌ ගෙවයි, එය GH ඩිපිටල්‌ ගෙවිමි සමිමතයක්‌ ඇති
+භාණ්ඩය MO දුන්‌ SO පාරිභෝගිකයන්‌ Ges වගයෙන්‌ ගෙවයි, එය GH ඩිපිටල්‌ ගෙවිමි සම්මතයක්‌ ඇති
 කලාපවල බහුලව දක්නට ලැබේ.
 
 Cryptocurrency Payments
@@ -6292,7 +6256,7 @@ both C and R interactions separately.
 The duplex links for interactions C and R indicate bidirectional communication between the connected
 entities.
 
-ල්‌ සහ R අන්තරක්‍රියා සඳුහා ද්විත්ව සබැඳි සමිබන්ධිත ආයතන අතර ද්විපාර්ශ්වික සන්නිවේදනය පෙන්නුමි
+ල්‌ සහ R අන්තරක්‍රියා සඳුහා ද්විත්ව සබැඳි සම්බන්ධිත ආයතන අතර ද්විපාර්ශ්වික සන්නිවේදනය පෙන්නුමි
 කරයි.
 
 1. Duplex Link for Interaction C (Agent 1 — Database)
@@ -6378,7 +6342,7 @@ algorithm for this purpose. Assume that the first input is the number of student
 the marks of n students will be input one-by-one.
 
 පාසලක නොරතුරැ හා සන්නිවේෙදුන තාක්ෂණය (ICT) MO MOHGOSDO පංතියෙහි සියලු © සිසුන්‌ ICT
-විෂයය සඳුහා ලබාගත්‌ ලකුණු සැකසීමට අවග්‍යව ඇති අතර පංතියෙහි සාමාන්‍ය ලකුණු ගණනය කළ යුතුව
+විෂයය සඳුහා ලබාගත්‌ ලකුණු සැකසීමට අවශ්‍යව ඇති අතර පංතියෙහි සාමාන්‍ය ලකුණු ගණනය කළ යුතුව
 ඇත. මෙම කාටර්යයට අදාළ ඇල්ගොරිතමයක්‌ ප්‍රකාශ වන ගැලීමි සටහනක්‌ ගොඩනගන්න. පළමු ආදානය
 පංතියෙහි සිටින මුඑ සිසුන්‌ සංඛ්‍යාව n යැයි උපකල්පනය කරන්න. ඉන්පසු n සිසුන්ගේ ලකුණු එකින්‌ එක
 ආදානය කරන ලැබේ.
@@ -6390,7 +6354,7 @@ students and calculates the average mark for the class.
 තොරතුරැ හා සන්නිවෙදන තාක්ෂණ ලකුණු ලබා ගැනීමට සහ පන්තියේ සාමාන්‍ය ලකුණ ගණනය කිරීමට වේ.
 
 Then, identify the requirements mentioned in the question.
-ඉන්පසු, ප්‍රශ්නයේ සඳහන්‌ අවග්‍යතා හඳුනාගත යුතුයි.
+ඉන්පසු, ප්‍රශ්නයේ සඳහන්‌ අවශ්‍යතා හඳුනාගත යුතුයි.
 
 1. Must get the value for n, the number of students. /n සඳුහා අගය, සිසුන්‌ සංඛ්‍යාව ලබා ගත යුතුය.
 2. Must get student marks one by one. / Gea ලකුණු එකින්‌ එක ලබා ගත යුතුය.
@@ -6412,13 +6376,10 @@ Vv
 No
 Y Output avg
 / Input mark /
-(
 
 mark of student i)
 
 total = total + mark ධම
-
-!
 
 |__| i=i+
 
@@ -6536,7 +6497,7 @@ times data should be entered to x, variable x becomes the main input.
 ගණන පාලනය කිරීමට යොදාගන්නා බැවින්‌ x විචලඅය ප්‍රධාන ආදානය බවට පත්වේ.
 
 x % 2 = 0 decision is the only relation between the main input and output.
-ප්‍රධාන ආදානය සහ ප්‍රතිදානය අතර පවතින එකම සමිඛන්ධතාවය x %2=0 තරණය වේ.
+ප්‍රධාන ආදානය සහ ප්‍රතිදානය අතර පවතින එකම සම්බන්ධතාවය x %2=0 තරණය වේ.
 
 If the decision is true, the algorithm adds | to the variable a. Else it does not modify the variable at all.
 තීරණය සත්‍ය වේ HO ඇල්ගොරිතමය a SOEBSO ]ක්‌ එකතු කරයි. නැතහොන්‌ එය කිසිම විටෙක විචල්‍යය
@@ -6636,7 +6597,7 @@ A vehicle rental company has registered vehicle owners. Vehicles are obtained fr
 rented to the customers. Consider the following relations regarding the vehicle rental company.
 එක්තරා වාහන කුලියට සැපයීමේ සමාගමකට ලියාපදිංචි වාහන හිමිකරැවන්‌ ඇත. හිමිකරැවන්ගෙන්‌ වාහන
 ලබාගෙන පාරිභෝගිකයන්‌ වෙත කුලියට ලබා oc. වාහන කුලියට සැපයීමේ සමාගමට අදාළ පහත දැක්වෙන
-සමිබන්ධතා (relations) සලකන්න.
+සම්බන්ධතා (relations) සලකන්න.
 
 I. Customer (Customer_NIC, Customer_Name, City, Postal_Code)
 II. Vehicle_Owner (Owner_Id, Owner_Name, Contact_No)
@@ -6646,7 +6607,7 @@ e The Customer relation contains customer’s national identity card number (NIC
 
 name, city where he/she is living and the postal code of the city. A customer lives 11] a single city
 and there are many customers in one city. The postal code depends on the city.
-Customer (පාරිභෝගිකයා) සමිබන්ධතාවයෙහි අනන්‍යවන Customer_NIC (පාරිභෝගිකයාගේ Hie
+Customer (පාරිභෝගිකයා) සම්බන්ධතාවයෙහි අනන්‍යවන Customer_NIC (පාරිභෝගිකයාගේ Hie
 හැඳුනුමිපත්‌ අංකය), Customer_Name (නම), ඔහු/ඇය පිවත්වන City (නගරය) සහ එම නගරයෙහි
 Postal_Code (තැපැල්‌ කේතය) GOoq වේ. එක්‌ පාරිභෝගිකයකු එක්‌ නගරයක පිවත්වන අතර එක්‌
 නගරයක්‌ තුළ පාරිභෝගිකයන්‌ රාගියක්‌ පිවත්‌ විය හැක. තැපැල්‌ කේතය, නගරය මත රඳා පවතී
@@ -6654,24 +6615,24 @@ Postal_Code (තැපැල්‌ කේතය) GOoq වේ. එක්‌ ප�
 
 e The Vehicle_Owner relation contains the Owner_Id which is unique, owner’s name and the
 contact number.
-Vehicle_Owner (වාහනය - හිමිකරැ) සමිබන්ධතාවයෙහි අනන්‍ය © Owner_Id (හිමිකරැ හැඳුනුමි
+Vehicle_Owner (වාහනය - හිමිකරැ) සම්බන්ධතාවයෙහි අනන්‍ය © Owner_Id (හිමිකරැ හැඳුනුමි
 අංකය), Owner_Name (හිමිකරුගේ නම) සහ Contact_No (ඇමතුමි අංකය) අඩංගු වේ.
 
 e The Vehicle relation contains the vehicle registration number which is unique, a description
 about the vehicle and the Owner_Id.
-Vehicle (වාහනය) සමිඛන්ධතාවයෙහි අනන්‍ය වු වාහනයේ Vehicle Reg No (ලියාපදිංචි අංකය),
+Vehicle (වාහනය) සම්බන්ධතාවයෙහි අනන්‍ය වු වාහනයේ Vehicle Reg No (ලියාපදිංචි අංකය),
 Description (වාහනය පිළිබඳු විස්තරය) සහ Owner_Id (හිමිකරැ හැඳුනුමි අංකය) අඩංගු වේ.
 
 A customer can rent more than one vehicle. Also, it is possible to rent one vehicle to many customers
 at different instances. Each vehicle is owned by one owner and one owner can have more than one
 vehicle.
 
-පාරිභෝගිකයකුට වාහන එකකට වඞා කුලියට Ow හැකි © නවද කිසියමි වාහනයක්‌ පාරිභෝගිකයන්‌
+පාරිභෝගිකයකුට වාහන එකකට වඩා කුලියට Ow හැකි © නවද කිසියමි වාහනයක්‌ පාරිභෝගිකයන්‌
 කිහිපදෙනකුට වෙනස්‌ අවස්ටාවල & කුලියට දිය හැකි ය. සැම වාහනයකටම තනි හිමිකරැවකු සිටින අතර,
 එක්‌ හිමිකරුවකුට වාහන එකකට වඩා තිබිය හැකි ය.
 
 In which normal form do the above relations given in I, II, 111 above exist? Justify your answer.
-ඉහත I, 1] හා Ill හි ඇති සමිබන්ධතා පවතින්නේ කුමන ප්‍රමනකරණයෙහි ද? ඔබේ පිළිතුර සාධාරණීකරණය
+ඉහත I, 1] හා Ill හි ඇති සම්බන්ධතා පවතින්නේ කුමන ප්‍රමනකරණයෙහි ද? ඔබේ පිළිතුර සාධාරණීකරණය
 කරන්න.
 
 First Normal Form — පළමු ප්‍රමටකරණය (1 NF)
@@ -6688,7 +6649,7 @@ Each column must contain unique values, and each row must be unique.
 
 e Single Value- තනි අගය
 Each field should contain only a single value, not a set of values.
-සෑම ක්ෂේත්‍රයකම අඞංගු So යුත්තේ එක්‌ අගයක්‌ පමණක්‌ මිස අගයන්‌ සමුහයක්‌ නොවේ.
+සෑම ක්ෂේත්‍රයකම අඩංගු So යුත්තේ එක්‌ අගයක්‌ පමණක්‌ මිස අගයන්‌ සමුහයක්‌ නොවේ.
 
 Second Normal Form / දෙවන ප්‍රමටකරණය (2017)
 e INF Compliance - INF අනුකූලතාව
@@ -6699,7 +6660,7 @@ The table must already be in First Normal Form (1 NF).
 e Full Functional Dependency - පුර්ණ කාටයබද්ධ පරායත්තතාව
 Every non-key attribute must be fully functionally dependent on the entire primary key, not just a
 part of it. This eliminates partial dependencies.
-සෑම යතුරු නොවන උපලක්ෂණයක්ම එහි කොටසක්‌ පමණක්‌ නොව සමිපූර්ණ ප්‍රාටමික යතුර මත පුට්ණ
+සෑම යතුරු නොවන උපලක්ෂණයක්ම එහි කොටසක්‌ පමණක්‌ නොව සම්පූර්ණ ප්‍රාටමික යතුර මත පුට්ණ
 කාටර්යබද්ධව රඳා පැවතිය යුතුය. මෙය ආංශික පරායත්තතා ඉවත්‌ කරයි.
 
 Third Normal Form - තුන්වන ප්‍රමටකරණය (3NF)
@@ -6729,7 +6690,7 @@ e Postal Code depends on City, not directly on Customer NIC. This indicates a tr
 Therefore, the Customer relation is in 2NF (Second Normal Form) because it has a primary key and no
 repeating groups, but it's not in 3NF due to the transitive dependency.
 
-එබැවින්‌, පාරිභෝගික සමිබන්ධතාවය INF (දෙවන සාමාන්‍ය ආකෘතිය) තුළ ඇත, Ose එයට ප්‍රාට්මික
+එබැවින්‌, පාරිභෝගික සම්බන්ධතාවය INF (දෙවන සාමාන්‍ය ආකෘතිය) තුළ ඇත, Ose එයට ප්‍රාට්මික
 යතුරක්‌ ඇති අතර පුනරාවරිතන කණ්ඩායමි නොමැති නමුත්‌ සංක්‍රාන්ති පරායත්තතනාව නිසා එය 31] හි
 නොමැත.
 
@@ -6743,7 +6704,7 @@ e All non-key attributes (Owner Name, Contact No) depend directly on the primary
 Therefore, the Vehicle Owner relation is in 3NF (Third Normal Form) because it's in INF, 2NF, and
 there are no transitive dependencies.
 
-එබැවින්‌, වාහන හිමිකරැ සමිබන්ධතාවය 3NF (තෙවන සාමාන්‍ය ආකෘතිය) ME ඇත, Ose, එය INF, 2NF
+එබැවින්‌, වාහන හිමිකරැ සම්බන්ධතාවය 3NF (තෙවන සාමාන්‍ය ආකෘතිය) ME ඇත, Ose, එය INF, 2NF
 වල වන අතර සංක්‍රාන්ති පරායත්තතා නොමැත.
 
 III > Vehicle Relation / වාහන සමිබඛන්ධතාවය
@@ -6760,14 +6721,14 @@ Therefore, the Vehicle relation 15 in 2NF (Second Normal Form) because it's in 1
 attributes are fully functionally dependent on the primary key, but it's not in 3NF due to the lack of
 transitive dependencies (there are none).
 
-එබැවින්‌, වාහන සමිබන්ධතාවය INF (දෙවන සාමාන්‍ය ආකෘතිය) තුළ ඇත, Ose එය INF හි ඇති අතර
+එබැවින්‌, වාහන සම්බන්ධතාවය INF (දෙවන සාමාන්‍ය ආකෘතිය) තුළ ඇත, Ose එය INF හි ඇති අතර
 සියලම යතුරැ නොවන ගුණාංග ප්‍රාටමික යතුර මන පුරණ කාටරයබද්ධව රඳා පවති, නමුත්‌ සංක්‍රාන්ති පරායත්තතා
 නොමැතිකම නිසා එය 3NF හි නොමැත (කිසිවක්‌ නැත).
 
 (0) Convert the above relations to the next Normal Form from the current Normal Form which you have
 stated in 5(a). (Present the contents relevant to the labels to indicated in the following table as
 your answer.)
-ඉහත සමිඛන්ධතා, ඔබ විසින්‌ 5 (a) කොටසෙහි සඳහන්‌ කරන ලදු දැනට පවතින ප්‍රමතකරණයෙන්‌, මිළඟ
+ඉහත සම්බන්ධතා, ඔබ විසින්‌ 5 (a) කොටසෙහි සඳහන්‌ කරන ලදු දැනට පවතින ප්‍රමතකරණයෙන්‌, මිළඟ
 ප්‍රමතකරණයට හරවන්න. (පහත වගුවෙහි සිට EO) වන ලේඛලවලට අදාළ දෑ ඔබේ පිළිතුර ලෙස ඉදිරිපත්‌
 කරන්න.)
 
@@ -6802,11 +6763,11 @@ e The Customer table now only has attributes directly dependent on the primary k
 පාරිභෝගික වගුවේ දැන්‌ ඇත්තේ QHOGe යතුර මත සෘපුවම රඳා පවතින ගුණාංග පමණි.
 
 e The City table establishes the relationship between City and Postal Code.
-නගර (City) වගුව නගරය සහ තැපැල්‌ කේතය අතර සමිඛන්ධතාවය ස්ථාපිත කරයි.
+නගර (City) වගුව නගරය සහ තැපැල්‌ කේතය අතර සම්බන්ධතාවය ස්ථාපිත කරයි.
 
 Vehicle Owner (Already in 3NF):
 e No changes are needed as it's already in 3NF.
-එය දැනටමත්‌ 3NF හි ඇති බැවින්‌ වෙනස්කමි අවග්‍ය නොවේ.
+එය දැනටමත්‌ 3NF හි ඇති බැවින්‌ වෙනස්කමි අවශ්‍ය නොවේ.
 
 Vehicle (2NF to 3NF):
 e There are no transitive dependencies in the Vehicle table, so it 15 already in 3NF. No changes are
@@ -6817,10 +6778,9 @@ needed.
 
 (c) Draw an Entity Relationship (ER) diagram to depict, the above relations by identifying the
 relationships, key attributes, other attributes and the cardinality.
-සමිඛන්ධතාවයන්‌ (relationships), යතුරැ උපලැකි (key attributes), වෙනත්‌ උපලැකි සහ ගණනියතනා (cardinality)
+සම්බන්ධතාවයන්‌ (relationships), යතුරැ උපලැකි (key attributes), වෙනත්‌ උපලැකි සහ ගණනියතනා (cardinality)
 හඳුනාගනිමින්‌ ඉහන සම්බන්ධනා නිරෑපණය කිරීම සඳහා භූතාටට-සම්බන්ධතා (ER) සටහනක්‌ අඳින්න.
 
->
 M . 1 3
 Customer ig Customer_City
 M
@@ -6828,8 +6788,6 @@ M
 Postal_Code
 
 rents
-
-—>
 
 N
 ” i
@@ -6841,7 +6799,7 @@ Description ~
 called “Rent”, including the details Rent_Date, Start_Time and End_Time.
 පාරිභෝගිකයන්‌ විසින්‌ වාහන කුලියට ගැනීම පළිබඳ විස්තර සමාගම විසින්‌ තබා ගැනිම අවගෲ වේ. Rent_Date
 (කුලියට ගත්‌ දිනය), Start_Time (ආරමිභ © වේලාව) හා End_Time (අවසන්‌ වූ වේලාව) යන විස්තර ද ඇතුළත්‌
-වන Rent (කුලියට ගැනීම) ලෙස හැඳින්වෙන සමිඛන්ධතාවයක්‌ (relation) නිරමාණය කරන්න.
+වන Rent (කුලියට ගැනීම) ලෙස හැඳින්වෙන සම්බන්ධතාවයක්‌ (relation) නිරමාණය කරන්න.
 
 Customer_Name C ay 9)
 
@@ -6858,8 +6816,6 @@ i
 i)
 
 rents
-
-()\
 
 N
 
@@ -6923,10 +6879,9 @@ The context diagram for the above activities, with missing data flows (1), (0), 
 in Figure 1 below.
 
 ඉහත ක්‍රියාකාරකමි සඳහා acho සටහන (context diagram) (P), (0), (R), (S) සහ (1) යන ස්ථානවලට
-අදාළ දූත්ත ගැලීමි (data flows) නොමැතිව 1 වන රෑපයෙහි දි ඇත.
+අදාළ දූත්ත ගැලීමි (data flows) නොමැතිව 1 වන රූපයෙහි දි ඇත.
 
 ම
-©
 
 Approved Invoice + Payment ,|
 
@@ -6935,8 +6890,6 @@ Patient Rood
 Updated Receipt System
 
 Re-updated Receipt WY
-
-©
 
 Figure 1
 
@@ -6982,7 +6935,7 @@ The answers should be in the form of nouns.
 
 පිළිතුරු නාම පදු ආකාරයෙන්‌ විය යුතුය.
 
-Answers / පිළිතුරැ.
+Answers / පිළිතුරු.
 
 P — Test request slip / Request slip / පරික්ෂාව නියමකිරිමේ තුණ්ඩුව / නියම කිරිමේ තුණ්ඩුව
 Q — Invoice / වාර්ණාව
@@ -6994,10 +6947,8 @@ S — Updated receipt / යාවත්කාලීන වු රිසිටි
 T — Report / වාටතාව
 
 (ii) Level 1 of the DFD for the above context diagram is shown in Figure 2.
-ඉහත සංදර්භ සටහන සඳුහා දත්ත LOG සටහනෙහි (DFD හි) පළමු මට්ටම (Level 1) 2 රෑපයෙහි
+ඉහත සංදර්භ සටහන සඳුහා දත්ත LOG සටහනෙහි (DFD හි) පළමු මට්ටම (Level 1) 2 රූපයෙහි
 පෙන්වා ඇත.
-
-©
 
 ® ,| 10 2.0
 Process © Process
@@ -7030,7 +6981,6 @@ EBD ගැලීමි සටහනක සංරවක - පළමු කොට�
 
 External entity/ බාහිර HMSO Data flow/ ese ප්‍රවාහය
 
->»
 La
 
 A
@@ -7051,20 +7001,20 @@ B. Identify and write down the missing data flow labelled (X).
 X — Approved Invoice + Payment / අනුමත වාරණාව + ගෙවීම
 
 (0)(1) What is requirement analysis?
-අවග්‍යතා විශ්ලේෂණය (requirement analysis) යනු කුමක්‌ ද?
+අවශ්‍යතා විශ්ලේෂණය (requirement analysis) යනු කුමක්‌ ද?
 
-Requirement Analysis/ අවග්‍යතා විශ්ලේෂණය
+Requirement Analysis/ අවශ්‍යතා විශ්ලේෂණය
 
 Requirement Analysis is the process of identifying, gathering, and documenting the needs and
 expectations of stakeholders(clients) for a system or project.
 
-අවග්‍යතා විග්ලේෂණය යනු පද්ධතියක්‌ oH) ව්‍යාපෘතියක්‌ aes) පාර්ශවකරැවන්ගේ (සේවාදායකයින්ගේ)
-අවග්‍යතා සහ අපේක්ෂාවන්‌ හඳුනා ගැනීම, රැස්‌ කිරීම සහ ලේඛනගත කිරීමේ ක්‍රියාවලියයි.
+අවශ්‍යතා විග්ලේෂණය යනු පද්ධතියක්‌ oH) ව්‍යාපෘතියක්‌ aes) පාර්ශවකරැවන්ගේ (සේවාදායකයින්ගේ)
+අවශ්‍යතා සහ අපේක්ෂාවන්‌ හඳුනා ගැනීම, රැස්‌ කිරීම සහ ලේඛනගත කිරීමේ ක්‍රියාවලියයි.
 
 It is accritical phase in software development and project management, ensuring that the final product
 meets user and business requirements.
 
-එය මෘඅදුකාංග සංවට්ධනයේ සහ ව්‍යාපෘති කළමනාකරණයේ තීරණාත්මක අවධියකි, අවසාන නිෂ්පාදනය
+එය මෘඅදුකාංග සංවර්ධනයේ සහ ව්‍යාපෘති කළමනාකරණයේ තීරණාත්මක අවධියකි, අවසාන නිෂ්පාදනය
 පටිගිලක සහ OAS අවශ්‍යතා සපුරාලන බව සහතික කරයි.
 
 This process involves / මෙම ක්‍රියාවලියට ඇතුළත්‌ වන්නේ,
@@ -7076,19 +7026,19 @@ usability) requirements.
 
 e Engaging with stakeholders through interviews, surveys and prototyping to clarify needs.
 GFOOBM) SCH7ESG කර ගැනීම Heo) සමිමුඛ සාකච්ජා, සමික්ෂණ සහ මුලාකෘතිකරණය හරහා
-පාර්ග්වකරැවන්‌ සමඟ සමිඛන්ධ විම.
+පාර්ග්වකරැවන්‌ සමඟ සම්බන්ධ විම.
 
 e Documenting requirements in formats like the Software Requirement Specification (SRS).
 මෘදුකාංග අවශ්‍යතා පිරිවිතර (SRS) වැනි ආකෘතිවල අවශ්‍යතා ලේඛනගත කිරීම.
 
 e Validating requirements to ensure they are clear, complete, and testable before development begins.
-සංවට්ධනය ආරමිභ කිරීමට පෙර එවා පැහැදිලි, සමිපුර්ණ සහ පරීක්ෂා කළ හැකි බව සහතික කිරීම
-සඳුහා අවග්‍යතා තහවුරැ කිරීම.
+සංවර්ධනය ආරමිභ කිරීමට පෙර එවා පැහැදිලි, සමිපුර්ණ සහ පරීක්ෂා කළ හැකි බව සහතික කිරීම
+සඳුහා අවශ්‍යතා තහවුරැ කිරීම.
 
 A well-executed requirement analysis helps in avoiding project failures, reducing errors, and ensuring
 smooth development and implementation.
 
-හොඳින්‌ ක්‍රියාත්මක කරන ලද අවග්‍යතා විග්ලේෂණයක්‌ ව්‍යාපෘති qav6Owm SO වළක්වා ගැනීමට, දෝෂ
+හොඳින්‌ ක්‍රියාත්මක කරන ලද අවශ්‍යතා විග්ලේෂණයක්‌ ව්‍යාපෘති qav6Owm SO වළක්වා ගැනීමට, දෝෂ
 අවම කිරීමට සහ සුමට සංවර්ධනය සහ ක්‍රියාත්මක කිරීම සහතික කිරීමට උපකාරී වේ.
 
 The answer could be anyone of the followings;
@@ -7096,23 +7046,23 @@ The answer could be anyone of the followings;
 පිළිතුරට පහත සඳහන්‌ ඕනැම එකක්‌ විය හැකිය:
 
 e Analyzing / finding the requirements of an information system before its development.
-තොරතුරැ පද්ධතියක්‌ සංවර්ධනය කිරීමට පෙර එහි අවග්‍යතා විශ්ලේෂණය කිරීම / සෙවීම.
+තොරතුරැ පද්ධතියක්‌ සංවර්ධනය කිරීමට පෙර එහි අවශ්‍යතා විශ්ලේෂණය කිරීම / සෙවීම.
 
 e Finding the functional and non-functional requirements of a system.
 පද්ධතියක කාර්යබද්ධ සහ කාර්යබද්ධ නොවන අවශ්‍යතා සොයා ගැනම.
 
 e Analyzing the requirements of a proposed system.
-යෝපිත පද්ධතියක අවග්‍යතා විශ්ලේෂණය කිරීම.
+යෝපිත පද්ධතියක අවශ්‍යතා විශ්ලේෂණය කිරීම.
 
 e Studying and analyzing the user needs to define the problem domain and system requirements.
-පටරිගිලකයා අවග්‍යතා අධ්‍යනය HOO සහ විග්ලේෂණය HOO මගින්‌ ගැටඑවෙහි වසම සහ පද්ධති
-අවග්‍යතා හඳුනා ගැනම.
+පටරිගිලකයා අවශ්‍යතා අධ්‍යනය HOO සහ විග්ලේෂණය HOO මගින්‌ ගැටඑවෙහි වසම සහ පද්ධති
+අවශ්‍යතා හඳුනා ගැනම.
 
 e Determining user expectations for a new or modified product.
 නව හෝ වෙනස්‌ කරන ලදු නිෂ්පාදනයක්‌ සඳහා පරිශීලක අපේක්ෂාවන්‌ තරණය කිරීම.
 
 (11) List two advantages of requirement analysis.
-අවග්‍යතා විග්ලේෂණයෙහි OS දෙකක්‌ ලැයිස්තුගත කරන්න.
+අවශ්‍යතා විග්ලේෂණයෙහි OS දෙකක්‌ ලැයිස්තුගත කරන්න.
 
 Answers could be anyone of the followings / පිළිතුරු පහත සඳුහන්‌ ඕනෑම එකක්‌ විය හැකිය.
 
@@ -7122,10 +7072,10 @@ environment.
 ඉඩ සලසයි.
 
 e Allows to detect and resolve conflicts between the requirements.
-අවග්‍යතා අනර ගැටුම්‌ හඳුනා ගැනීමට සහ SHEOO ඉඩ සලසයි.
+අවශ්‍යතා අනර ගැටුම්‌ හඳුනා ගැනීමට සහ SHEOO ඉඩ සලසයි.
 
 e Allows to prioritize requirements relatively to each other.
-එකිනෙකාට සාපේක්ෂව අවග්‍යතා වලට ප්‍රමුඛත්වය දිමට ඉඩ සලසයි.
+එකිනෙකාට සාපේක්ෂව අවශ්‍යතා වලට ප්‍රමුඛත්වය දිමට ඉඩ සලසයි.
 
 e Helps in deciding the critical success factors.
 තිරණාත්මක සාර්ටඊක සාධක තීරණය කිරීමට උපකාරී වේ.
@@ -7134,7 +7084,7 @@ e Reduces projects /implementation risks.
 ව්‍යාපෘතියේ / ක්‍රියාත්මක කිරීමේ අවදානමි අඩු කරයි.
 
 e Helps in distinguishing functional and non-functional requirements.
-කාර්යබද්ධ සහ කාරයබද්ධ නොවන අවග්‍යතා වෙන්කර හඳුනා ගැනීමට උපකාරී වේ.
+කාර්යබද්ධ සහ කාරයබද්ධ නොවන අවශ්‍යතා වෙන්කර හඳුනා ගැනීමට උපකාරී වේ.
 
 For additional reading/ උඌඹනර SeIO eee);
 
@@ -7145,23 +7095,23 @@ Clear Understanding of Requirements — . . . .
 Ensures all stakeholders have a shared vision. :
 requirements can delay development.
 
-අවශ්‍යතා පිළිබඳු පැහැදිලි අවබෝධයක්‌ - කාලය ගත කිරීම - අවග්‍යතා එක්රැස්‌ කිරීම සහ
+අවශ්‍යතා පිළිබඳු පැහැදිලි අවබෝධයක්‌ - කාලය ගත කිරීම - අවශ්‍යතා එක්රැස්‌ කිරීම සහ
 
 සියලුම පාර්ශවකරැවන්ට හවුල්‌ දැක්මක්‌ ඇති ps ;
 බව සහතික කරයි. විග්ලේෂණය කිරීම සංවර්ධනය ප්‍රමාදු කළ හැකිය.
 
 Reduces Development Errors — Identifies Difficult to Capture Complete Requirements —
 issues early, preventing costly mistakes. Users may not always know exactly what they
-සංවට්ධන චෝෂ qh කරයි - ගැටළු කලින්‌ want.
+සංවර්ධන චෝෂ qh කරයි - ගැටළු කලින්‌ want.
 
-හඳුනා ගැනීම, GE අධික වැරදි වළක්වා ගැනීම. | සමිපුරණ අවග්‍යතා ග්‍රහණය කර ගැනීමට අපහසුය -
+හඳුනා ගැනීම, GE අධික වැරදි වළක්වා ගැනීම. | සමිපුරණ අවශ්‍යතා ග්‍රහණය කර ගැනීමට අපහසුය -
 පරිගිලකයන්‌ සෑම විටම තමන්ට අවශ්‍ය දේ හරියටම
 නොදන්නවා විය හැක.
 
 Saves Time and Cost — Efficient resource High Initial Cost — Skilled analysts, meetings, and
 allocation minimizes rework. tools add to early project expenses.
 
-කාලය සහ පිරිවැය ඉතිරි කරය - කාටියකක්‍්ෂම ඉහළ ආරමිභක පිරිවැය - දක්‍ෂ විග්ලේෂකයින්‌,
+කාලය සහ පිරිවැය ඉතිරි කරය - කාටියකක්‍්ෂම ඉහළ ආරමිභක පිරිවැය - දක්ෂ විග්ලේෂකයින්‌,
 සම්පත්‌ වෙන්‌ කිරීම නැවත වැඩ කිරීම අවම රැස්විමි සහ මෙවලමි මුල්‌ ව්‍යාපෘති වියදුමි වලට
 කරයි. එකතු වේ.
 
@@ -7170,7 +7120,7 @@ collaboration between clients, developers, and | stakeholders may lead to incomp
 users. requirements.
 
 සන්නිවේදනය වැඩි දියුණු කරයි - පාරගවකරැවන්‌ මත යැපීම - අක්‍රිය පාර්ශවකරැවන්‌
-සේවාදායකයින්‌, සංවඊර්ධකයින්‌ සහ පරිගිලකයින්‌ අසමිපුර්ණ හෝ වැරදි අවග්‍යනා වලට හේතු විය
+සේවාදායකයින්‌, සංවඊර්ධකයින්‌ සහ පරිගිලකයින්‌ අසමිපුර්ණ හෝ වැරදි අවශ්‍යනා වලට හේතු විය
 අතර සහයෝගිතාව වැඩි දියුණු කරයි. හැක
 
 Better Project Planning — Helps in setting Risk of Misinterpretation — Poor documentation
@@ -7188,7 +7138,7 @@ friendly, and efficient final product. analysis may impact timelines and budgets
 නිෂ්පාදනයක්‌ සහතික කරයි. බලපෑ හැකිය.
 
 (111) Give one method that can be used to verify whether a functional requirement is satisfied in a system.
-කිසියමි පද්ධතියක එහි කාරයබද්ධ අවග්‍යතාවයක්‌ තෘප්ත වන්නේ දැයි තහවුරැ කර ගැනීමට භාවිත HE
+කිසියමි පද්ධතියක එහි කාරයබද්ධ අවශ්‍යතාවයක්‌ තෘප්ත වන්නේ දැයි තහවුරැ කර ගැනීමට භාවිත HE
 හැකි එක්‌ ක්‍රමයක්‌ ලබා දෙන්න.
 
 Functional requirements / කාටියබද්ධ අවශ්‍යතා
@@ -7196,11 +7146,11 @@ Functional requirements / කාටියබද්ධ අවශ්‍යතා
 A functional requirement defines what a system should do. It specifies the features, operations, and
 
 processes that the system must perform to meet user and business needs.
-MOGaEA අවශ්‍යතාවයක්‌ පද්ධතියක්‌ කළ යුතු දේ HOOOHS කරයි. පරිගිලක සහ ව්‍යාපාරික අවග්‍යතා
+MOGaEA අවශ්‍යතාවයක්‌ පද්ධතියක්‌ කළ යුතු දේ HOOOHS කරයි. පරිගිලක සහ ව්‍යාපාරික අවශ්‍යතා
 සපුරාලිම සඳුහා පද්ධතිය විසින්‌ ඉටු කළ යුතු විශේෂාංග, මෙහෙයුමි සහ ක්‍රියාවලින්‌ එය නියම කරයි.
 
 Why is verifying a functional requirement needed in system development?
-පද්ධති සංවර්ධනයේදී කාටයබද්ධ අවග්‍යතාවයක්‌ සත්‍යාපනය කිරීම අවග්‍ය වන්නේ ඇයි?
+පද්ධති සංවර්ධනයේදී කාටයබද්ධ අවශ්‍යතාවයක්‌ සත්‍යාපනය කිරීම අවශ්‍ය වන්නේ ඇයි?
 
 It / එය,
 e Ensures Accuracy — Confirms that the system functions as expected and meets user needs.
@@ -7237,7 +7187,7 @@ e Through testing methods based on functional requirements (Except system testin
 
 testing)
 
-MOSCA අවග්‍යතා මත පදනම්‌ වු පරීක්ෂණ ක්‍රම හරහා (පද්ධති පරීක්ෂණ සහ වඒකාඛද්ධ පරික්ෂණ
+MOSCA අවශ්‍යතා මත පදනම්‌ වු පරීක්ෂණ ක්‍රම හරහා (පද්ධති පරීක්ෂණ සහ වඒකාඛද්ධ පරික්ෂණ
 හැර)
 
 eg: Through unit testing / ඒකක පරීක්ෂාව හරහා
@@ -7252,7 +7202,7 @@ usual tasks.
 අනෙකුත්‌ සාමාන්‍ය කාර්යයන්ට අමතරව පරිගිලකයන්ට පොත්‌ බැහැර ගෙන යා හැකි හා භාර දිය හැකි
 යෝපිත පාසල්‌ පුස්තකාල කළමනාකරණ පද්ධතියක ඇතැමි කාටරයබද්ධ, කාරි්යබද්ධ නොවන සහ වෙනත්‌
 
-අවග්‍යතා පහත දැක්වෙන ප්‍රකාගවල ඇතුළත්‌ වේ.
+අවශ්‍යතා පහත දැක්වෙන ප්‍රකාශවල ඇතුළත්‌ වේ.
 
 (A) The system should authenticate users through username and password.
 පද්ධතිය විසින්‌ පරිගිලන නම සහ මුරපදය මගින්‌ පරිගීලභකයන්ගේ අනන්‍යතාවය සහතික කළ යුතු ය.
@@ -7293,14 +7243,14 @@ From A to 11, identify and write down the labels of two functional requirements 
 requirements respectively.
 
 (A) සිට (11) වලින්‌ කාර්යබද්ධ (functional) අවශ්‍යතා දෙකක ලේඛල සහ කාරයබද්ධ නොවන (non-
-functional) අවග්‍යතා දෙකක ලේබල හඳුනාගෙන පිළිවෙළින්‌ ලියා දුක්වන්න.
+functional) අවශ්‍යතා දෙකක ලේබල හඳුනාගෙන පිළිවෙළින්‌ ලියා දුක්වන්න.
 
 First let’s identify the difference between a functional requirement and a non-functional requirement.
-මුලින්ම අපි කාරියබද්ධ අවග්‍යතාවයක්‌ සහ කාටර්යබද්ධ නොවන අවග්‍යතාවයක්‌ අතර වෙනස හඳුනා ගනිමු.
+මුලින්ම අපි කාරියබද්ධ අවශ්‍යතාවයක්‌ සහ කාටර්යබද්ධ නොවන අවශ්‍යතාවයක්‌ අතර වෙනස හඳුනා ගනිමු.
 
 What is a functional requirement?
 
-කාට්යබද්ධ අවග්‍යනාවයක්‌ යනු කුමක්ද?
+කාට්යබද්ධ අවශ්‍යනාවයක්‌ යනු කුමක්ද?
 
 A functional requirement defines what the system must do, including specific features, operations, and
 processes.
@@ -7313,12 +7263,12 @@ eg: The system must allow users to log in with a username and password.
 
 What is a non-functional requirement?
 
-කාරයබද්ධ නොවන අවග්‍යතනාවයක්‌ යනු කුමක්ද?
+කාරයබද්ධ නොවන අවශ්‍යතනාවයක්‌ යනු කුමක්ද?
 
 A non-functional requirement defines how the system should perform, focusing on quality attributes like
 performance, security, and usability.
 
-කාරියබද්ධ නොවන අවග්‍යතාවයක්‌ මඟින්‌ පද්ධතිය HO) කළ QD ආකාරය නිර්වචනය කරයි, mda
+කාරියබද්ධ නොවන අවශ්‍යතාවයක්‌ මඟින්‌ පද්ධතිය HO) කළ QD ආකාරය නිර්වචනය කරයි, mda
 සාධනය, ආරක්ෂාව සහ උපයෝගිතාව වැනි ගුණාත්මක ගුණාංග කෙරෙහි අවධානය යොමු කරයි.
 
 eg: The system should load within 2 seconds under normal conditions.
@@ -7329,14 +7279,14 @@ Key Difference / ප්‍රධාන වෙනස;
 Functional requirements describe actions and features of the system while non-functional requirements
 describe performance, reliability, and constraints.
 
-කාරයබද්ධ අවග්‍යතා පද්ධතියේ ක්‍රියා සහ විශේෂාංග විස්තර කරන අතර කාර්යබද්ධ නොවන අවග්‍යතා
+කාරයබද්ධ අවශ්‍යතා පද්ධතියේ ක්‍රියා සහ විශේෂාංග විස්තර කරන අතර කාර්යබද්ධ නොවන අවශ්‍යතා
 MSO සාධනය, විශ්වසනියත්වය සහ සීමාවන්‌ විස්තර කරයි.
 
 So now we have to separate the given requirements according to the key features of the both functional
 and non-functional requirements.
 
-එබැවින්‌ දැන්‌ අපට කාර්යබද්ධ සහ කාරයබද්ධ නොවන අවග්‍යතා දෙකෙහිම ප්‍රධාන ලක්ෂණ අනුව ලබා දි
-ඇති අවග්‍යතා වෙන්‌ කිරීමට සිදුවේ.
+එබැවින්‌ දැන්‌ අපට කාර්යබද්ධ සහ කාරයබද්ධ නොවන අවශ්‍යතා දෙකෙහිම ප්‍රධාන ලක්ෂණ අනුව ලබා දි
+ඇති අවශ්‍යතා වෙන්‌ කිරීමට සිදුවේ.
 
 Accordingly, the answers will be as follows.
 ඒ අනුව පිළිතුරු පහත පරිදි වේ.
@@ -7345,12 +7295,12 @@ e Functional requirements / කාටයබද්ධ අවශ්‍යතා: A
 e Non-functional requirements / කාටියබද්ධ නොවන අවශ්‍යතා: D,F ,G
 
 Why other mentioned requirements are not given for the answers?
-පිළිතුරු HED) වෙනත්‌ සඳහන්‌ අවග්‍යතා EQ) නොදෙන්නේ ඇයි?
+පිළිතුරු HED) වෙනත්‌ සඳහන්‌ අවශ්‍යතා EQ) නොදෙන්නේ ඇයි?
 
 e (C) isa budgetary constraint related to project management, not the system behavior or
 performance.
 
-(C) යනු ව්‍යාපෘති කළමනාකරණයට සමිබන්ධ පිරිවැය BOOS, පද්ධති හැසිරීම හෝ කාරය සාධනය
+(C) යනු ව්‍යාපෘති කළමනාකරණයට සම්බන්ධ පිරිවැය BOOS, පද්ධති හැසිරීම හෝ කාරය සාධනය
 නොවේ.
 
 e (E) defines a timeline constraint for project completion, not a feature or the system quality.

@@ -1,0 +1,491 @@
+1. Which of the following binary numbers is equivalent to the decimal number 45?
+පහත සඳහන් ද්විමය සංඛ්‍යා අතරින් 45 වන දශම සංඛ්‍යාවට සමාන වන්නේ කුමක්ද?
+
+1) 101001
+2) 101101
+3) 101011
+4) 110101
+5) 100101
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+Divide the number by 2 repeatedly and record remainders.
+අංකය නැවත නැවතත් 2 න් බෙදන්න, ඉතිරිය සටහන් කරන්න.
+
+2
+45
+
+1
+2
+22
+
+0
+2
+11
+
+1
+2
+5
+
+1
+2
+2
+
+0
+2
+1
+
+1
+
+Write the remainders in reverse order / ඉතිරිය පහළ සිට ඉහළට ලියන්න,
+101101
+
+Therefore, the answer is 2. / එබැවින්, පිළිතුර 2 වේ.
+
+2. Which of the following is an example of a non-positional number system?
+පහත සඳහන් ඒවායින් ස්ථානීය නොවන සංඛ්‍යා පද්ධතියකට උදාහරණයක් වන්නේ කුමක්ද?
+
+1) Decimal system / දශම පද්ධතිය
+2) Binary system / ද්විමය පද්ධතිය
+3) Roman numerals / රෝම ඉලක්කම්
+4) Octal system / අෂ්ටක පද්ධතිය
+5) Hexadecimal system / ෂඩ්දශමය පද්ධතිය
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+In non-positional systems, the position of a symbol doesn’t affect its value. Each symbol has a fixed
+numerical value.
+ස්ථානීය නොවන පද්ධතිවල, සංකේතයක පිහිටීම එහි අගයට බලපාන්නේ නැත. සෑම සංකේතයකටම ස්ථාවර
+සංඛ්‍යාත්මක අගයක් ඇත.
+
+Example / උදාහරණය: Roman numeral / රෝම ඉලක්කම්: XIV = 10 + 4 = 14
+
+But if you write VXI, it doesn’t follow positional rules - you must interpret it symbolically, not
+positionally.
+නමුත් ඔබ VXI ලියන්නේ නම්, එය ස්ථානීය නීති අනුගමනය නොකරයි - ඔබ එය ස්ථානීයව නොව
+සංකේතාත්මකව අර්ථ නිරූපණය කළ යුතුය.
+
+RAVINDU BANDARANAYAKE
+2027 දවසට කොළයක් වැඩසටහන 16
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+In contrast, systems like binary, decimal, or hexadecimal are positional, because each digit’s value
+depends on its position (power of base).
+ඊට වෙනස්ව, ද්විමය, දශම හෝ ෂඩ් දශම වැනි පද්ධති ස්ථානීය වේ, මන්ද එක් එක් ඉලක්කම්වල අගය
+එහි පිහිටීම (පාදයේ බලය) මත රඳා පවතී.
+
+Therefore, the answer is 3 / එබැවින්, පිළිතුර 3 වේ.
+
+3. In a positional number system, what does the value of a number depend on?
+ස්ථානීය සංඛ්‍යා පද්ධතියක, සංඛ්‍යාවක අගය රඳා පවතින්නේ කුමක් මතද?
+
+1) Only the digits used / භාවිතා කරන ඉලක්කම් පමණි
+2) The symbols, not their order / සංකේත, ඒවායේ අනුපිළිවෙල නොවේ
+3) The base of the system and the position of each digit
+පද්ධතියේ පදනම සහ එක් එක් ඉලක්කම්වල පිහිටීම
+4) The total number of digits / මුළු ඉලක්කම් ගණන
+5) The largest digit in the number / සංඛ්‍යාවේ විශාලතම ඉලක්කම්
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+In a positional number system, the place of each digit decides its value.
+ස්ථානීය සංඛ්‍යා පද්ධතියක, එක් එක් ඉලක්කම්වල ස්ථානය එහි අගය තීරණය කරයි.
+
+Each position has a weight that is a power of the base.
+සෑම ස්ථානයකටම පාදයේ බලයක් වන බරක් ඇත.
+
+For example, in 34510 / උදාහරණයක් ලෙස, 34510 දී,
+(3×102) + (4×101) + (5×100) = 300 + 40 + 5 = 345
+
+So, if you change the position of digits, the value changes, that’s why it’s called positional.
+ඉතින්, ඔබ ඉලක්කම්වල පිහිටීම වෙනස් කළහොත්, අගය වෙනස් වේ, ඒ නිසා එය ස්ථානීය ලෙස හැඳින්වේ.
+
+Therefore, the answer is 3) / එබැවින්, පිළිතුර 3) වේ.
+
+4. What is the result of 10112 + 11012? / 10112 + 11012 හි ප්‍රතිඵලය කුමක්ද?
+
+1) 101102
+2) 110002
+3) 110102
+4) 110012
+5) 111002
+
+Answer: 2)
+
+1 0 1 1
++ 1 1 0 1
+1 1 0 0 0
+
+Therefore, the answer is 2).
+එබැවින්, පිළිතුර 2) වේ.
+
+5. The octal number 25.48 equals what in decimal?
+25.48 අෂ්ටක සංඛ්‍යාව කුමන දශම සංඛ්‍යාවට සමාන වේද?
+
+1) 21.5
+2) 21.25
+3) 21.75
+4) 22.5
+5) 20.5
+
+Answer: 1)
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+Explanation / පැහැදිලි කිරීම:
+
+2
+5
+
+4
+81
+80
+
+8-1 = 1/8
+16
+5
+
+0.5
+21 + 0.5
+21.5
+
+Therefore, the answer is 1).
+එබැවින්, පිළිතුර 1) වේ.
+
+6. What is the result of 1010₂ + 0101₂?
+1010₂ + 0101₂ හි ප්‍රතිඵලය කුමක්ද?
+
+1) 1111₂
+2) 1101₂
+3) 1000₂
+4) 1011₂
+5) 1110₂
+
+Answer: 1)
+
+Breakdown / බිඳ වැටීම:
+
+0 + 1 = 1
+
+1 + 0 = 1
+
+0 + 1 = 1
+
+1 + 0 = 1
+
+So, the result is / එබැවින්, ප්‍රතිඵලය: 1111₂
+
+Correct answer / නිවැරදි පිළිතුර: 1) 1111₂
+
+7. Which of the following digits are used in the decimal number system?
+දශම සංඛ්‍යා පද්ධතියේ භාවිතා වන පහත සඳහන් සංඛ්‍යාංක මොනවාද?
+
+1) 0–1
+2) 0–7
+3) 0–9
+4) 1–10
+5) 1–9
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+The decimal number system (also known as base-10) is the standard system for denoting integer and non-
+integer numbers. It uses 10 digits:
+දශම සංඛ්‍යා පද්ධතිය (පාදය-10 ලෙසද හැඳින්වේ) යනු පූර්ණ සංඛ්‍යා සහ පූර්ණ සංඛ්‍යා නොවන සංඛ්‍යා
+දැක්වීම සඳහා සම්මත පද්ධතියයි. එය ඉලක්කම් 10ක් භාවිතා කරයි:
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+These digits are combined in various ways to represent all possible numbers.
+මෙම ඉලක්කම් සියලු හැකි සංඛ්‍යා නිරූපණය කිරීම සඳහා විවිධ ආකාරවලින් ඒකාබද්ධ කර ඇත.
+
+The other options describe different or incorrect ranges:
+අනෙකුත් විකල්ප වෙනස් හෝ වැරදි පරාසයන් විස්තර කරයි:
+
+1) 0–1 → Binary system (base-2) / ද්විමය පද්ධතිය (පාදය-2)
+2) 0–7 → Octal system (base-8) /   අෂ්ටක පද්ධතිය (පාදය-8)
+4) 1–10 → Invalid range; 10 is not a single digit / අවලංගු පරාසයකි; 10 යනු තනි ඉලක්කමක් නොවේ
+5) 1–9 → Excludes 0, which is part of the decimal system / දශම පද්ධතියේ කොටසක් වන 0 බැහැර කරයි
+
+So, the correct option is / එබැවින්, නිවැරදි විකල්පය වන්නේ: 3) 0–9
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+8. Which statement about writable and rewritable optical discs is correct?
+ලිවිය හැකි සහ නැවත ලිවිය හැකි ප්‍රකාශ තැටි පිළිබඳ කුමන ප්‍රකාශය නිවැරදි වේද?
+
+1) CD-R and DVD-R allow multiple overwrites, while Blu-ray discs do not.
+CD-R සහ DVD-R බහුවිධ නැවත ලිවීමට ඉඩ දෙන අතර Blu-ray තැටි එසේ නොකරයි.
+
+2) CD-RWs and DVD-RWs can be rewritten up to a limited number of times.
+CD-RW සහ DVD-RW සීමිත වාර ගණනක් නැවත ලිවිය හැක.
+
+3) Blu-ray discs do not support rewritable formats such as BD-RE.
+Blu-ray තැටි BD-RE වැනි නැවත ලිවිය හැකි ආකෘති සඳහා සහය නොදක්වයි.
+
+4) Writable discs store data in a pre-recorded format, while rewritable discs use a dye-based recording
+surface.
+ලිවිය හැකි තැටි කලින් පටිගත කළ ආකෘතියකින් දත්ත ගබඩා කරන අතර නැවත ලිවිය හැකි තැටි,
+ඩයි මත පදනම් වූ පටිගත කිරීමේ මතුපිටක් භාවිතා කරයි.
+
+5) Rewritable discs are only compatible with older optical drives.
+නැවත ලිවිය හැකි තැටි පැරණි ප්‍රකාශ ධාවකයන් සමඟ පමණක් අනුකූල වේ.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+This is incorrect because CD-R (Recordable) and DVD-R (Recordable) are write-once formats. Once data
+is written, it cannot be erased or overwritten. Blu-ray discs, on the other hand, have a rewritable format
+(BD-RE), which allows multiple rewrites.
+CD-R (පටිගත කළ හැකි) සහ DVD-R (පටිගත කළ හැකි) එක් වරක් ලිවිය හැකි ආකෘති වන බැවින් මෙය
+වැරදිය. දත්ත ලියා ඇති පසු, එය මකා දැමීමට හෝ නැවත ලිවිය නොහැක. අනෙක් අතට, Blu-ray තැටි
+නැවත ලිවිය හැකි ආකෘතියක් (BD-RE) ඇත, එය නැවත නැවත ලිවිය හැකිය.
+
+Option / විකල්ප 2)
+CD-RWs (Compact Disc-Rewritable) and DVD-RWs (Digital Versatile Disc-Rewritable) are optical disc
+formats designed to allow rewriting of data multiple times. This is achieved by using a special phase-
+change material that can be altered between crystalline and amorphous states when heated by the laser in
+the optical drive. Therefore, this statement is correct.
+CD-RW (සංයුක්ත තැටි-නැවත ලිවිය හැකි) සහ DVD-RW (ඩිජිටල් බහුකාර්ය තැටි-නැවත ලිවිය හැකි) යනු
+දත්ත කිහිප වතාවක් නැවත ලිවීමට ඉඩ දීම සඳහා නිර්මාණය කර ඇති දෘශ්‍ය තැටි ආකෘති වේ. දෘශ්‍ය
+ධාවකයේ ලේසර් මගින් රත් කළ විට ස්ඵටිකරූපී සහ අස්ඵටික තත්වයන් අතර වෙනස් කළ හැකි විශේෂ
+අවධි-වෙනස් කිරීමේ ද්‍රව්‍යයක් භාවිතා කිරීමෙන් මෙය සාක්ෂාත් කරගනු ලැබේ. එබැවින්, මෙම ප්‍රකාශය නිවැරදි
+ය.
+
+Option / විකල්ප 3)
+This is incorrect because Blu-ray discs do support rewritable formats. BD-RE (Blu-ray Disc Recordable
+Erasable) is a rewritable version of Blu-ray, allowing data to be erased and rewritten multiple times.
+Blu-ray තැටි නැවත ලිවිය හැකි ආකෘති සඳහා සහය දක්වන බැවින් මෙය වැරදිය. BD-RE (Blu-ray තැටි
+පටිගත කළ හැකි මකා දැමිය හැකි) යනු Blu-ray හි නැවත ලිවිය හැකි අනුවාදයක් වන අතර එමඟින් දත්ත
+කිහිප වතාවක් මකා දමා නැවත ලිවීමට ඉඩ සලසයි.
+
+Option / විකල්ප 4)
+This is incorrect because writable discs (like CD-R and DVD-R) use a dye-based recording surface that is
+altered by the laser to store data. Rewritable discs (like CD-RWs and DVD-RWs) use phase-change
+material, not a dye-based surface, for data storage.
+මෙය වැරදිය, මන්ද ලිවිය හැකි තැටි (CD-R සහ DVD-R වැනි) දත්ත ගබඩා කිරීම සඳහා ලේසර් මගින්
+වෙනස් කරන ලද ඩයි-පාදක පටිගත කිරීමේ මතුපිටක් භාවිතා කරයි. නැවත ලිවිය හැකි තැටි (CD-RW සහ
+DVD-RW වැනි) දත්ත ගබඩා කිරීම සඳහා ඩයි-පාදක මතුපිටක් නොව අදියර-වෙනස් කිරීමේ ද්‍රව්‍ය භාවිතා
+කරයි.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+Option / විකල්ප 5)
+This is incorrect because rewritable discs (CD-RWs, DVD-RWs, and BD-RE) are compatible with modern
+optical drives that support those formats. Older drives may not support newer formats like BD-RE.
+මෙය වැරදිය, මන්ද නැවත ලිවිය හැකි තැටි (CD-RW,  DVD-RW සහ BD-RE) එම ආකෘති සඳහා සහය
+දක්වන නවීන දෘශ්‍ය ධාවක සමඟ අනුකූල වේ. පැරණි ධාවක BD-RE වැනි නව ආකෘති සඳහා සහය
+නොදක්වයි.
+
+The correct answer is 2) CD-RWs and DVD-RWs can be rewritten up to a limited number of times.
+නිවැරදි පිළිතුර නම් 2) CD-RW සහ DVD-RW සීමිත වාර ගණනක් නැවත ලිවිය හැක.
+
+9. Which of the following is a characteristic of a GPU compared to a CPU?
+CPU එකකට සාපේක්ෂව GPU එකක ලක්ෂණයක් වන්නේ පහත සඳහන් කුමක්ද?
+
+1) Lower number of cores optimized for sequential processing
+අනුක්‍රමික සැකසුම් සඳහා ප්‍රශස්ත කර ඇති අඩු හර (cores) සංඛ්‍යාව
+
+2) Higher number of cores optimized for parallel processing
+සමාන්තර සැකසුම් සඳහා ප්‍රශස්ත කර ඇති හර (cores) ගණන වැඩි වීම
+
+3) Lower memory bandwidth / අඩු මතක කලාප පළල
+4) Greater clock speed for single-threaded tasks
+single-threaded කාර්යයන් සඳහා වැඩි ස්පන්ධන වේගය
+5) Larger cache memory / විශාල වාරක මතකය
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+1) Lower number of cores optimized for sequential processing
+1) අනුක්‍රමික සැකසුම් සඳහා ප්‍රශස්ත කර ඇති අඩු හර (cores) සංඛ්‍යාව
+Incorrect. GPUs typically have many smaller cores, and these cores are optimized for parallel processing
+tasks (e.g., handling multiple operations at once). In contrast, CPUs have fewer cores that are optimized
+for sequential tasks (one task after the other).
+වැරදියි. GPU වලට සාමාන්‍යයෙන් කුඩා හරයන් බොහොමයක් ඇති අතර, මෙම හර සමාන්තර සැකසුම්
+කාර්යයන් සඳහා ප්‍රශස්ත කර ඇත (උදා: එකවර මෙහෙයුම් කිහිපයක් හැසිරවීම). ඊට ප්‍රතිවිරුද්ධව, CPU
+වලට අනුක්‍රමික කාර්යයන් සඳහා ප්‍රශස්ත කරන ලද හරය අඩුයි (එක් කාර්යයක් පසු එකක්).
+
+2) Higher number of cores optimized for parallel processing
+2) සමාන්තර සැකසුම් සඳහා ප්‍රශස්ත කර ඇති හර (cores) ගණන වැඩි වීම
+Correct. GPUs are designed with a large number of smaller cores to perform many tasks at the same time.
+This architecture is ideal for applications like video rendering, machine learning, and scientific
+simulations, where a large amount of data can be processed in parallel. GPUs are capable of handling
+thousands of threads concurrently, making them highly efficient for tasks that can be divided into many
+smaller tasks.
+නිවැරදියි. GPU නිර්මාණය කර ඇත්තේ කුඩා හර විශාල සංඛ්‍යාවක් සමඟින් බොහෝ කාර්යයන් එකවර ඉටු
+කිරීමටය. මෙම නිර්මාණ ශිල්පය වීඩියෝ විදැහුම්කරණය, යන්ත්‍ර ඉගෙනීම සහ විද්‍යාත්මක අනුහුරුකරණ වැනි
+යෙදුම් සඳහා වඩාත් සුදුසු වන අතර එහිදී විශාල දත්ත ප්‍රමාණයක් සමාන්තරව සැකසිය හැක. GPU වලට
+threads දහස් ගණනක් සමගාමීව හැසිරවීමේ හැකියාව ඇති අතර, ඒවා බොහෝ කුඩා කාර්යයන් වලට බෙදිය
+හැකි කාර්යයන් සඳහා ඉතා කාර්යක්ෂම වේ.
+
+3) Lower memory bandwidth / අඩු මතක කලාප පළල
+Incorrect. GPUs typically have higher memory bandwidth compared to CPUs. This is because GPUs
+handle large volumes of data, especially in tasks like image processing, where high bandwidth is crucial
+to move data quickly between the processor and memory.
+වැරදියි. GPU වලට සාමාන්‍යයෙන් CPU වලට සාපේක්ෂව ඉහල මතක කලාප පළලක් ඇත. මක්නිසාද යත්
+GPU විශාල දත්ත පරිමාවක් හසුරුවන බැවිනි, විශේෂයෙන් රූප සැකසීම වැනි කාර්යයන් වලදී, සකසනය
+සහ මතකය අතර දත්ත ඉක්මනින් ගෙනයාමට ඉහළ කලාප පළලක් ඉතා වැදගත් වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+4) Greater clock speed for single-threaded tasks / කාර්යයන් සඳහා වැඩි ස්පන්ධන වේගය
+Incorrect. While GPUs have high clock speeds, CPUs are usually optimized for better single-threaded
+performance (processing tasks one by one). A CPU typically has a higher clock speed in comparison,
+which helps it handle tasks that require more focused processing.
+වැරදියි. GPU වලට ඉහළ ස්පන්ධන වේගය ඇති අතර, CPU සාමාන්‍යයෙන් වඩා හොඳ single-threaded
+කාර්ය සාධනයක් සඳහා ප්‍රශස්ත කර ඇත (කාර්යයන් එකින් එක සැකසීම). CPU එකකට සාමාන්‍යයෙන්
+සාපේක්ෂව වැඩි ස්පන්ධන වේගයක් ඇත, එය වඩාත් අවධානය යොමු කළ සැකසුම් අවශ්‍ය වන කාර්යයන්
+හැසිරවීමට උපකාරී වේ.
+
+5) Larger cache memory / විශාල වාරක මතකය
+Incorrect. CPUs typically have larger cache memory compared to GPUs. Cache memory is important for
+reducing the time needed to access frequently used data. Since GPUs focus on parallel processing and
+high throughput for massive data sets, they typically do not need as much cache memory as CPUs, which
+are used for tasks requiring fast access to smaller datasets.
+වැරදියි. CPU වලට සාමාන්‍යයෙන් GPU වලට සාපේක්ෂව විශාල වාරක මතකයක් ඇත. නිතර භාවිතා කරන
+දත්ත වෙත ප්‍රවේශ වීමට ගතවන කාලය අඩු කිරීම සඳහා වාරක මතකය වැදගත් වේ. GPUs විශාල දත්ත
+කට්ටල සඳහා සමාන්තර සැකසුම් සහ ඉහළ ප්‍රතිදානය කෙරෙහි අවධානය යොමු කරන බැවින්, ඒවාට
+සාමාන්‍යයෙන් CPU තරම් වාරක මතකයක් අවශ්‍ය නොවේ, ඒවා කුඩා දත්ත කට්ටලවලට වේගවත් ප්‍රවේශයක්
+අවශ්‍ය කාර්යයන් සඳහා භාවිතා කරයි.
+
+Therefore, the correct answer is 2) Higher number of cores optimized for parallel processing.
+එබැවින්, නිවැරදි පිළිතුර 2) සමාන්තර සැකසුම් සඳහා ප්‍රශස්ත කර ඇති මධ්‍ය ගණන වැඩි වේ.
+
+10. Which of the following consist of correct sequence of Data Processing Life Cycle ?
+දත්ත සැකසීමේ ජීවන චක්‍රයේ නිවැරදි අනුපිළිවෙලින් සමන්විත වන්නේ පහත සඳහන් මොනවාද?
+
+1) Data Input , Data Collecting , Data Processing , Data Storing , Data Output
+දත්ත ආදානය , දත්ත එකතු කිරීම , දත්ත සැකසීම , දත්ත ගබඩා කිරීම , දත්ත ප්‍රතිදානය
+2) Data Collecting  , Data Processing ,  Data Storing, Data Input, Data Output
+දත්ත එකතු කිරීම , දත්ත සැකසීම , දත්ත ගබඩා කිරීම, දත්ත ආදානය, දත්ත ප්‍රතිදානය
+3) Data Collecting  , Data Input ,  Data Processing , Data Storing , Data Output
+දත්ත එකතු කිරීම , දත්ත ආදානය , දත්ත සැකසීම, දත්ත ගබඩා කිරීම, දත්ත ප්‍රතිදානය
+4) Data Input , Data Collecting   , Data Storing , Data Processing ,  Data Output
+දත්ත ආදානය , දත්ත එකතු කිරීම , දත්ත ගබඩා කිරීම , දත්ත සැකසීම , දත්ත ප්‍රතිදානය
+5) Data Input, Data Processing, Data Collecting, Data Storing, Data Output
+දත්ත ආදානය, දත්ත සැකසීම, දත්ත එකතු කිරීම, දත්ත ගබඩා කිරීම, දත්ත ප්‍රතිදානය
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+The Data Processing Life Cycle is a systematic approach to transform raw data into meaningful and useful
+information.
+දත්ත සැකසුම් ජීවන චක්‍රය යනු අමු දත්ත අර්ථවත් සහ ප්‍රයෝජනවත් තොරතුරු බවට පරිවර්තනය කිරීමේ
+ක්‍රමානුකූල ප්‍රවේශයකි.
+
+Below are the stages involved / අදාළ අදියර පහතින්,
+
+1. Data Collecting / දත්ත රැස් කිරීම
+The first step is to gather raw data from various sources such as surveys, sensors, or logs. Without
+proper collection, the subsequent steps will lack reliable data.
+පළමු පියවර වන්නේ සමීක්ෂණ, සංවේදක හෝ ලඝු-සටහන් වැනි විවිධ මූලාශ්‍රවලින් අමු දත්ත රැස්
+කිරීමයි. නිසි එකතු කිරීමකින් තොරව, පසුකාලීන පියවර විශ්වසනීය දත්ත නොමැති වනු ඇත.
+
+2. Data Input / දත්ත ආදානය
+After collecting data, it is prepared and entered into a system for processing. This involves verifying,
+organizing, and transforming raw data into a structured format.
+දත්ත එකතු කිරීමෙන් පසුව, එය සකස් කර සැකසීම සඳහා පද්ධතියකට ඇතුල් වේ. අමු දත්ත සත්‍යාපනය
+කිරීම, සංවිධානය කිරීම සහ ව්‍යුහගත ආකෘතියක් බවට පරිවර්තනය කිරීම මෙයට ඇතුළත් වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-
+
+3. Data Processing / දත්ත සැකසීම
+The structured data is processed using calculations, algorithms, or transformations to derive
+meaningful insights or intermediate results.
+අර්ථවත් තීක්ෂණ බුද්ධිය හෝ අතරමැදි ප්‍රතිඵල ලබා ගැනීම සඳහා ව්‍යුහගත දත්ත ගණනය කිරීම්,
+ඇල්ගොරිතම හෝ පරිවර්තන භාවිතයෙන් සකසනු ලැබේ.
+
+4. Data Storing / දත්ත ගබඩා කිරීම
+The processed data is then stored in a database, file system, or any other storage medium for future
+reference or analysis.
+සැකසූ දත්ත පසුව දත්ත සමුදායක, ගොනු පද්ධතියක හෝ වෙනත් ගබඩා මාධ්‍යයක අනාගත විමර්ශනය
+හෝ විශ්ලේෂණය සඳහා ගබඩා කෙරේ.
+
+5. Data Output / දත්ත ප්‍රතිදානය
+The final stage involves presenting the processed data in the form of reports, dashboards, or
+visualizations for decision-making or further use.
+අවසන් අදියරේදී සකසන ලද දත්ත වාර්තා, උපකරණ පුවරු හෝ දර්ශන ආකාරයෙන් තීරණ ගැනීම හෝ
+වැඩිදුර භාවිතය සඳහා ඉදිරිපත් කිරීම ඇතුළත් වේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+11. What factor of computers has remained constant as the generations of computers have progressed?
+පරිගණක පරම්පරා දිගේ ඉදිරියට පැමිණීමේදී පරිගණකවල කුමන සාධකය නියතව පැවතී ඇතිද?
+
+1) Processing power / සැකසුම් බලය
+2) Portability / සුවහනීයතාව
+3) Power consumption / ශක්ති පරිභෝජනය
+4) Heat generation / තාප උත්පාදනය
+5) Accuracy / නිරවද්‍යතාව
+
+Answer: 5)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Processing power has increased significantly with each generation of computers. From vacuum tubes to
+transistors, integrated circuits, and now microprocessors, computational speed and capacity have
+continually improved.
+පරිගණක පරම්පරා සමඟ සෑම අවස්ථාවකම සැකසුම් බලය සැලකිය යුතු ලෙස වැඩි වී ඇත. රික්ත නළවල
+සිට ට්‍රාන්සිස්ටර, සංගෘහිත පරිපථ සහ දැන් ක්ෂුද්‍ර සකසන දක්වා, පරිගණක වේගය සහ ධාරිතාව අඛණ්ඩව
+වැඩිදියුණු වී ඇත.
+
+Option / විකල්පය 2)
+Computers have become more portable over time. Early generations were large and immobile, whereas
+modern computers include lightweight laptops and handheld devices.
+පරිගණක කාලයත් සමඟ වඩාත් අතේ ගෙන යා හැකි වී ඇත. මුල් පරම්පරාවන් විශාල හා නිශ්චල වූ අතර
+නවීන පරිගණකවල සැහැල්ලු ලැප්ටොප් සහ අතේ ගෙන යා හැකි උපාංග බවට පත්වී ඇත.
+
+Option / විකල්පය 3)
+Power consumption has decreased with advances in technology. Modern computers are far more energy-
+efficient than earlier generations, thanks to innovations in hardware and power management.
+තාක්ෂණයේ දියුණුවත් සමඟ බල පරිභෝජනය අඩු වී ඇත. දෘඪාංග සහ බල කළමනාකරණයේ
+නවෝත්පාදනයන් නිසා නවීන පරිගණක පෙර පරම්පරාවන්ට වඩා බොහෝ බලශක්ති කාර්යක්ෂම වේ.
+
+Option / විකල්පය 4)
+While early computers generated excessive heat due to inefficiencies, advancements in cooling
+technologies and energy-efficient processors have reduced heat output in modern systems.
+අකාර්යක්ෂමතාව හේතුවෙන් මුල් පරිගණක අධික ලෙස තාපය ජනනය කළද, සිසිලන තාක්ෂණයන්හි සහ
+බලශක්ති කාර්යක්ෂම සකසනයන්ගේ දියුණුව නවීන පද්ධතිවල තාප ප්‍රතිදානය අඩු කර ඇත.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-7-
+
+Option / විකල්පය 5)
+The accuracy of computers has always been consistent, as they are designed to process and execute
+instructions exactly as programmed. Errors, if any, are typically due to human input or software issues,
+not the inherent design of computers.
+පරිගණකවල නිරවද්‍යතාවය සැමවිටම ස්ථාවර වී ඇත, මන්ද ඒවා ක්‍රමලේඛනගත කර ඇති ආකාරයටම
+උපදෙස් සැකසීමට සහ ක්‍රියාත්මක කිරීමට නිර්මාණය කර ඇත. දෝෂ, ඇත්නම්, සාමාන්‍යයෙන් සිදුවන්නේ මානව
+ආදාන හෝ මෘදුකාංග ගැටළු නිසා මිස පරිගණකවල ආවේණික නිර්මාණය නිසා නොවේ.
+
+So, the correct answer number here is 5.
+එමනිසා, මෙහි නිවැරදි පිළිතුරු අංකය 5 වේ.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-8-

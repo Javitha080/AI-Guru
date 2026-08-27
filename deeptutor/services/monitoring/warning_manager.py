@@ -50,6 +50,23 @@ class WarningManager:
     MAX_ALERTS_PER_WINDOW: int = 5
     WINDOW_SECONDS: float = 600.0  # 10 minutes
 
+    # Tier-1 "nudge" gate: gentle in-app prompt early in a distraction episode,
+    # BEFORE the real warning tier fires at 7-10s. Never sent to parents.
+    NUDGE_COOLDOWN_SECONDS: float = 40.0
+    NUDGE_MIN_DURATION: float = 3.0
+    NUDGE_MAX_DURATION: float = 6.0
+    NUDGE_TYPES = frozenset({
+        DistractionType.LOOKING_AWAY,
+        DistractionType.PHONE_DETECTED,
+        DistractionType.DROWSINESS,
+    })
+
+    NUDGE_MESSAGES: Dict[DistractionType, str] = {
+        DistractionType.LOOKING_AWAY: "Quick focus check — bring your eyes back to your work ✨",
+        DistractionType.PHONE_DETECTED: "That phone can wait — back to studying 📱",
+        DistractionType.DROWSINESS: "Looking sleepy — sit up and take a breath 💪",
+    }
+
     # Friendly student-facing messages
     WARNING_MESSAGES: Dict[DistractionType, str] = {
         DistractionType.LOOKING_AWAY: "Let's bring our focus back to the study material! 📚",
@@ -89,6 +106,8 @@ class WarningManager:
         # observe_distraction_state(); bare evaluate_and_dispatch() callers
         # keep the classic cooldown-only semantics.
         self._episode_tracking_armed = False
+        # Per-category last nudge emission time (tier-1 gentle prompt).
+        self._nudge_timestamps: Dict[str, float] = {}
 
     def reset(self) -> None:
         """Reset all cooldowns and warning histories."""
@@ -96,6 +115,7 @@ class WarningManager:
         self._alert_history.clear()
         self._emitted_warnings.clear()
         self._episode_notified.clear()
+        self._nudge_timestamps.clear()
         self._episode_tracking_armed = False
 
     def observe_distraction_state(self, is_distracted: bool, category: object = None) -> None:
@@ -121,6 +141,63 @@ class WarningManager:
         if elapsed < self.cooldown_seconds:
             return round(self.cooldown_seconds - elapsed, 1)
         return 0.0
+
+    def evaluate_nudge(
+        self,
+        timestamp: float,
+        distraction: DistractionAnalysisResult,
+    ) -> Optional[WarningEvent]:
+        """Tier-1 gentle in-app prompt, early in a distraction episode.
+
+        Fires once per episode while the distraction duration is inside the
+        [3s, 6s) window — before the real warning tier escalates at 7-10s.
+        Accepts both flagged distractions and BUILDING ones (pre-threshold
+        ``pending_distraction_type``), which is what makes an early nudge
+        possible at all. Subject to the same confidence gate and a 40s
+        per-category cooldown. Never consumes the main warning gates; skipped
+        entirely when the episode already escalated (episode gate below).
+        """
+        dtype = distraction.distraction_type
+        if dtype == DistractionType.NONE or not distraction.is_distracted:
+            dtype = distraction.pending_distraction_type or DistractionType.NONE
+        if dtype == DistractionType.NONE or dtype not in self.NUDGE_TYPES:
+            return None
+
+        duration = float(distraction.duration_seconds)
+        if not (self.NUDGE_MIN_DURATION <= duration < self.NUDGE_MAX_DURATION):
+            return None
+        if distraction.confidence < self.min_confidence:
+            return None
+
+        category = dtype.value
+        # Episode already escalated to a real notification — nudging is moot.
+        if self._episode_notified.get(category):
+            return None
+        last_nudge = self._nudge_timestamps.get(category)
+        if last_nudge is not None and (timestamp - last_nudge) < self.NUDGE_COOLDOWN_SECONDS:
+            return None
+
+        event = WarningEvent(
+            warning_id=f"nudge-{uuid.uuid4().hex[:8]}",
+            category=category,
+            message=self.NUDGE_MESSAGES.get(
+                dtype,
+                "Gentle focus check ✨",
+            ),
+            severity="nudge",
+            timestamp=timestamp,
+            confidence=round(distraction.confidence, 3),
+            duration_seconds=round(duration, 1),
+            metadata={
+                "reason": distraction.reason,
+                "focus_score": distraction.focus_score,
+                "tier": "nudge",
+            },
+        )
+        self._nudge_timestamps[category] = timestamp
+        self._emitted_warnings.append(event)
+        logger.debug("Nudge dispatched [%s] at %.1fs into episode", category, duration)
+        return event
 
     def evaluate_and_dispatch(
         self,

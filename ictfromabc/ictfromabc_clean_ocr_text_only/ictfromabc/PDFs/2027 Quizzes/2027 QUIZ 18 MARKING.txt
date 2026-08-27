@@ -1,0 +1,659 @@
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+
+1. Which of the following is a characteristic of a GPU compared to a CPU?
+CPU එකකට සාපේක්ෂව GPU එකක ලක්ෂණයක් වන්නේ පහත සඳහන් කුමක්ද?
+
+1) Lower number of cores optimized for sequential processing
+අනුක්‍රමික සැකසුම් සඳහා ප්‍රශස්ත කර ඇති අඩු හර (cores) සංඛ්‍යාව
+
+2) Higher number of cores optimized for parallel processing
+සමාන්තර සැකසුම් සඳහා ප්‍රශස්ත කර ඇති හර (cores) ගණන වැඩි වීම
+
+3) Lower memory bandwidth / අඩු මතක කලාප පළල
+
+4) Greater clock speed for single-threaded tasks
+single-threaded කාර්යයන් සඳහා වැඩි ස්පන්ධන වේගය
+
+5) Larger cache memory / විශාල වාරක මතකය
+
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම
+
+1) Lower number of cores optimized for sequential processing
+1) අනුක්‍රමික සැකසුම් සඳහා ප්‍රශස්ත කර ඇති අඩු හර (cores) සංඛ්‍යාව
+Incorrect. GPUs typically have many smaller cores, and these cores are optimized for parallel processing
+tasks (e.g., handling multiple operations at once). In contrast, CPUs have fewer cores that are optimized
+for sequential tasks (one task after the other).
+වැරදියි. GPU වලට සාමාන්‍යයෙන් කුඩා හරයන් බොහොමයක් ඇති අතර, මෙම හර සමාන්තර සැකසුම්
+කාර්යයන් සඳහා ප්‍රශස්ත කර ඇත (උදා: එකවර මෙහෙයුම් කිහිපයක් හැසිරවීම). ඊට ප්‍රතිවිරුද්ධව, CPU
+වලට අනුක්‍රමික කාර්යයන් සඳහා ප්‍රශස්ත කරන ලද හරය අඩුයි (එක් කාර්යයක් පසු එකක්).
+
+2) Higher number of cores optimized for parallel processing
+2) සමාන්තර සැකසුම් සඳහා ප්‍රශස්ත කර ඇති හර (cores) ගණන වැඩි වීම
+Correct. GPUs are designed with a large number of smaller cores to perform many tasks at the same time.
+This architecture is ideal for applications like video rendering, machine learning, and scientific
+simulations, where a large amount of data can be processed in parallel. GPUs are capable of handling
+thousands of threads concurrently, making them highly efficient for tasks that can be divided into many
+smaller tasks.
+නිවැරදියි. GPU නිර්මාණය කර ඇත්තේ කුඩා හර විශාල සංඛ්‍යාවක් සමඟින් බොහෝ කාර්යයන් එකවර ඉටු
+කිරීමටය. මෙම නිර්මාණ ශිල්පය වීඩියෝ විදැහුම්කරණය, යන්ත්‍ර ඉගෙනීම සහ විද්‍යාත්මක අනුහුරුකරණ වැනි
+යෙදුම් සඳහා වඩාත් සුදුසු වන අතර එහිදී විශාල දත්ත ප්‍රමාණයක් සමාන්තරව සැකසිය හැක. GPU වලට
+threads දහස් ගණනක් සමගාමීව හැසිරවීමේ හැකියාව ඇති අතර, ඒවා බොහෝ කුඩා කාර්යයන් වලට බෙදිය
+හැකි කාර්යයන් සඳහා ඉතා කාර්යක්ෂම වේ.
+
+3) Lower memory bandwidth / අඩු මතක කලාප පළල
+Incorrect. GPUs typically have higher memory bandwidth compared to CPUs. This is because GPUs
+handle large volumes of data, especially in tasks like image processing, where high bandwidth is crucial
+to move data quickly between the processor and memory.
+වැරදියි. GPU වලට සාමාන්‍යයෙන් CPU වලට සාපේක්ෂව ඉහල මතක කලාප පළලක් ඇත. මක්නිසාද යත්
+GPU විශාල දත්ත පරිමාවක් හසුරුවන බැවිනි, විශේෂයෙන් රූප සැකසීම වැනි කාර්යයන් වලදී, සකසනය
+සහ මතකය අතර දත්ත ඉක්මනින් ගෙනයාමට ඉහළ කලාප පළලක් ඉතා වැදගත් වේ.
+
+2027 QUIZ NO 18 MARKING
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+2027 QUIZ SERIES
+2025/10/27
+ictfromabc
+Ravindu Bandaranayake
+
+4) Greater clock speed for single-threaded tasks / කාර්යයන් සඳහා වැඩි ස්පන්ධන වේගය
+Incorrect. While GPUs have high clock speeds, CPUs are usually optimized for better single-threaded
+performance (processing tasks one by one). A CPU typically has a higher clock speed in comparison,
+which helps it handle tasks that require more focused processing.
+වැරදියි. GPU වලට ඉහළ ස්පන්ධන වේගය ඇති අතර, CPU සාමාන්‍යයෙන් වඩා හොඳ single-threaded
+කාර්ය සාධනයක් සඳහා ප්‍රශස්ත කර ඇත (කාර්යයන් එකින් එක සැකසීම). CPU එකකට සාමාන්‍යයෙන්
+සාපේක්ෂව වැඩි ස්පන්ධන වේගයක් ඇත, එය වඩාත් අවධානය යොමු කළ සැකසුම් අවශ්‍ය වන කාර්යයන්
+හැසිරවීමට උපකාරී වේ.
+
+5) Larger cache memory / විශාල වාරක මතකය
+Incorrect. CPUs typically have larger cache memory compared to GPUs. Cache memory is important for
+reducing the time needed to access frequently used data. Since GPUs focus on parallel processing and
+high throughput for massive data sets, they typically do not need as much cache memory as CPUs, which
+are used for tasks requiring fast access to smaller datasets.
+වැරදියි. CPU වලට සාමාන්‍යයෙන් GPU වලට සාපේක්ෂව විශාල වාරක මතකයක් ඇත. නිතර භාවිතා කරන
+දත්ත වෙත ප්‍රවේශ වීමට ගතවන කාලය අඩු කිරීම සඳහා වාරක මතකය වැදගත් වේ. GPUs විශාල දත්ත
+කට්ටල සඳහා සමාන්තර සැකසුම් සහ ඉහළ ප්‍රතිදානය කෙරෙහි අවධානය යොමු කරන බැවින්, ඒවාට
+සාමාන්‍යයෙන් CPU තරම් වාරක මතකයක් අවශ්‍ය නොවේ, ඒවා කුඩා දත්ත කට්ටලවලට වේගවත් ප්‍රවේශයක්
+අවශ්‍ය කාර්යයන් සඳහා භාවිතා කරයි.
+
+Therefore, the correct answer is 2) Higher number of cores optimized for parallel processing.
+එබැවින්, නිවැරදි පිළිතුර 2) සමාන්තර සැකසුම් සඳහා ප්‍රශස්ත කර ඇති මධ්‍ය ගණන වැඩි වේ.
+
+2. What is the function of cache memory in a computer system?
+පරිගණක පද්ධතියක නශ්‍ය මතකයේ කාර්යය කුමක්ද?
+
+1) To store permanent data for long-term use
+දිගුකාලීන භාවිතය සඳහා ස්ථිර දත්ත ගබඩා කිරීමට.
+
+2) To improve the speed of accessing frequently used data.
+නිතර භාවිතා කරන දත්ත වෙත ප්‍රවේශ වීමේ වේගය වැඩි දියුණු කිරීමට.
+
+3) To act as an interface for external devices
+බාහිර උපාංග සඳහා අතුරු මුහුණතක් ලෙස ක්‍රියා කිරීමට.
+
+4) To backup data in case of a system crash
+පද්ධතිය බිඳවැටීමකදී දත්ත උපස්ථ කිරීමට.
+
+5) To replace main memory during operations
+මෙහෙයුම් අතරතුර ප්‍රධාන මතකය ප්‍රතිස්ථාපනය කිරීමට.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Incorrect. Permanent data storage is a function of storage devices like HDDs, SSDs or ROM, not cache
+memory. Cache memory is temporary and volatile.
+වැරදියි. ස්ථිර දත්ත ගබඩා කිරීම යනු නිහිත මතකය නොව HDD, SSD හෝ ROM වැනි ගබඩා උපාංගවල
+කාර්යයකි. නිහිත මතකය තාවකාලික හා නෂ්‍ය වේ.
+
+Option / විකල්පය 2)
+Correct. This is the primary function of cache memory. It temporarily holds frequently accessed data to
+make it readily available to the CPU, reducing access time compared to retrieving it from RAM or storage.
+නිවැරදියි. මෙය නිහිත මතකයේ ප්‍රධාන කාර්යයයි. එය නිතර ප්‍රවේශ වන දත්ත CPU වෙත පහසුවෙන් ලබා
+ගත හැකි වන පරිදි තාවකාලිකව රඳවා තබා ගන්නා අතර, RAM හෝ ගබඩාවෙන් එය ලබා ගැනීමට
+සාපේක්ෂව ප්‍රවේශ කාලය අඩු කරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Option / විකල්පය 3)
+Incorrect. Interfaces for external devices, like USB controllers or ports, are handled by device drivers and
+input/output (I/O) controllers, not cache memory.
+වැරදියි. USB පාලක හෝ කෙවෙනි වැනි බාහිර උපාංග සඳහා අතුරුමුහුණත් හසුරුවනු ලබන්නේ උපාංග
+ධාවක සහ ආදාන/ප්‍රතිදාන (I/O) පාලකයන් විසිනි, නිහිත මතකය නොවේ.
+
+Option / විකල්පය 4)
+Incorrect. Data backup during crashes is managed by backup systems or storage drives. Cache memory is
+volatile and loses its contents when power is lost or the system crashes.
+වැරදියි. බිඳවැටීම් වලදී දත්ත උපස්ථ කිරීම උපස්ථ පද්ධති හෝ ගබඩා ධාවක මගින් කළමනාකරණය කෙරේ.
+නිහිත මතකය නෂ්‍ය වන අතර බලය නැති වූ විට හෝ පද්ධතිය බිඳ වැටුණු විට එහි අන්තර්ගතය නැති
+වේ.
+
+Option / විකල්පය 5)
+Incorrect. Cache memory cannot replace main memory (RAM). Instead, it works alongside the main
+memory to provide faster access to data for the CPU.
+වැරදියි. නිහිත මතකයට ප්‍රධාන මතකය (RAM) ප්‍රතිස්ථාපනය කළ නොහැක. ඒ වෙනුවට, එය CPU සඳහා
+දත්ත වෙත වේගවත් ප්‍රවේශයක් ලබා දීම සඳහා ප්‍රධාන මතකය සමඟ ක්‍රියා කරයි.
+
+Correct answer / නිවැරදි පිළිතුර:
+
+2) To improve the speed of accessing frequently used data.
+  නිතර භාවිතා වන දත්ත වෙත ප්‍රවේශ වීමේ වේගය වැඩි දියුණු කිරීම සඳහා.
+
+3. Which was the first electronic digital computer developed with the help of John Vincent Atanosoph and
+Clifford Berry?
+ජෝන් වින්සන්ට් ඇටනොසොෆ් සහ ක්ලිෆර්ඩ් බෙරිගේ සහය ඇතිව නිපදවූ පළමු විද්‍යුත් සංඛ්‍යාංක පරිගණකය
+කුමක්ද?
+1)  MARK 1
+2)  ABC
+3) IBM
+4) Analytical Engine
+5) Tabulating Machine
+
+Answer : 2)
+
+The correct answer is 2) ABC (Atanasoff-Berry Computer)
+නිවැරදි පිළිතුර 2) ABC (Atanasoff-Berry Computer)
+
+The Atanasoff-Berry Computer (ABC) was the first electronic digital computer, developed in the late
+1930s by John Vincent Atanasoff and his graduate student Clifford Berry at Iowa State College (now Iowa
+State University). It was specifically designed for solving linear algebraic equations and was a significant
+step in the history of computing.
+Atanasoff-Berry Computer (ABC) යනු 1930 ගණන්වල අගභාගයේදී ජෝන් වින්සන්ට් ඇටනාසොෆ් සහ
+ඔහුගේ උපාධිධාරී ශිෂ්‍ය ක්ලිෆර්ඩ් බෙරී විසින් අයෝවා ප්‍රාන්ත විද්‍යාලයේ (දැන් අයෝවා ප්‍රාන්ත විශ්ව විද්‍යාලය)
+සංවර්ධනය කරන ලද පළමු ඉලෙක්ට්‍රොනික සංඛ්‍යාංක පරිගණකයයි. එය රේඛීය වීජීය සමීකරණ විසඳීම සඳහා
+විශේෂයෙන් නිර්මාණය කරන ලද අතර එය පරිගණක ඉතිහාසයේ සැලකිය යුතු පියවරක් විය.
+
+Why not the others, / අනෙක් ඒවා නොවන්නේ ඇයි,
+
+MARK 1
+Created by Howard Aiken and IBM in the 1940s.It was an electromechanical computer, not fully
+electronic.
+1940 ගණන්වල හොවාර්ඩ් අයිකන් සහ IBM විසින් නිර්මාණය කරන ලදී. එය සම්පූර්ණයෙන්ම ඉලෙක්ට්‍රොනික
+නොවන විද්‍යුත් යාන්ත්‍රික පරිගණකයකි.
+
+IBM
+IBM is a company that developed many influential computers but was not involved in the creation of the
+ABC.
+IBM යනු බොහෝ බලගතු පරිගණක සංවර්ධනය කළ නමුත් ABC නිර්මාණයට සම්බන්ධ නොවූ සමාගමකි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+Analytical Engine
+Designed by Charles Babbage in the 19th century. It was a theoretical mechanical computer, not digital or
+electronic.
+19 වන සියවසේදී චාල්ස් බැබේජ් විසින් නිර්මාණය කරන ලදී. එය සංඛ්‍යාංක හෝ ඉලෙක්ට්‍රොනික නොව
+න්‍යායාත්මක යාන්ත්‍රික පරිගණකයකි.
+
+Tabulating Machine
+Invented by Herman Hollerith in 1890 for census data processing. It was electromechanical, not an
+electronic digital computer.
+සංගණන දත්ත සැකසීම සඳහා 1890 දී හර්මන් හොලරිත් විසින් සොයා ගන්නා ලදී. එය විද්‍යුත් යාන්ත්‍රික
+විය, ඉලෙක්ට්‍රොනික සංඛ්‍යාංක පරිගණකයක් නොවේ.
+
+The ABC is recognized as the first fully electronic digital computer.
+ABC පළමු පූර්ණ විද්‍යුත් සංඛ්‍යාංක පරිගණකය ලෙස පිළිගැනේ.
+
+4. Which of the following best describes the primary purpose of a data logger?
+දත්ත සටහන්කරණයක මූලික අරමුණ වඩාත් හොඳින් විස්තර කරන්නේ පහත සඳහන් කුමක් මගින්ද?
+
+1) Generating real-time alerts based on environmental conditions
+පාරිසරික තත්ත්වයන් මත තථ්‍ය කාලීන ඇඟවීම් ජනනය කිරීම
+
+2) Collecting and recording data over time
+කාලයත් සමඟ දිගින් දිගටම දත්ත රැස් කිරීම සහ වාර්තා කිරීම
+
+3) Providing wireless connectivity for remote monitoring
+දුරස්ථ නිරීක්ෂණ සඳහා රැහැන් රහිත සම්බන්ධතාව සැපයීම
+
+4) Analyzing historical data trends
+ඓතිහාසික දත්ත ප්‍රවණතා විශ්ලේෂණය කිරීම
+
+5) Controlling external devices based on sensor readings
+සංවේදක කියවීම් මත පදනම්ව බාහිර උපාංග පාලනය කිරීම
+
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම
+
+A data logger is primarily designed for the purpose of collecting and recording data over time. It
+continuously captures data from sensors or external sources without manual intervention. This data can
+include various measurements, such as temperature, humidity, pressure, or voltage, depending on the type
+of sensor the data logger is connected to. The information is then stored for future analysis, often in a
+digital format, which can be retrieved later for examination or decision-making.
+දත්ත සටහන් කරන්නෙකු මූලික වශයෙන් නිර්මාණය කර ඇත්තේ කාලයත් සමඟ දත්ත රැස් කිරීම සහ
+පටිගත කිරීම සඳහා ය. එය අතින් මැදිහත් වීමකින් තොරව සංවේදක හෝ බාහිර මූලාශ්‍රවලින් දත්ත අඛණ්ඩව
+ග්‍රහණය කරයි. දත්ත ලොගර් සම්බන්ධ කර ඇති සංවේදක වර්ගය මත පදනම්ව, මෙම දත්තවලට උෂ්ණත්වය,
+ආර්ද්‍රතාවය, පීඩනය හෝ වෝල්ටීයතාව වැනි විවිධ මිනුම් ඇතුළත් විය හැක. තොරතුරු පසුව අනාගත
+විශ්ලේෂණය සඳහා ගබඩා කරනු ලැබේ, බොහෝ විට අංකිත ආකෘතියකින්, පසුව එය විභාග කිරීම හෝ තීරණ
+ගැනීම සඳහා ලබා ගත හැක.
+
+The key advantage of using a data logger is that it allows data to be recorded autonomously over extended
+periods, which is particularly useful for monitoring environmental conditions, machinery performance, or
+research experiments where continuous tracking is essential. This process enables users to review long-
+term trends and make informed decisions based on comprehensive data sets, making Option 2 ("Collecting
+and recording data over time") the correct answer.
+දත්ත ලොගරයක් භාවිතා කිරීමේ ප්‍රධාන වාසිය නම්, එය දිගු කාලයක් පුරා දත්ත ස්වයංක්‍රීයව පටිගත කිරීමට
+ඉඩ සලසයි, එය පාරිසරික තත්ත්වයන්, යන්ත්‍රෝපකරණ ක්‍රියාකාරීත්වය හෝ අඛණ්ඩ ලුහුබැඳීම අත්‍යවශ්‍ය වන
+පර්යේෂණ අත්හදා බැලීම් සඳහා විශේෂයෙන් ප්‍රයෝජනවත් වේ. මෙම ක්‍රියාවලිය පරිශීලකයින්ට දිගු කාලීන
+ප්‍රවණතා සමාලෝචනය කිරීමට සහ විස්තීරණ දත්ත කට්ටල මත පදනම්ව දැනුවත් තීරණ ගැනීමට හැකියාව
+ලබා දෙයි, විකල්ප 2 ("කාලයත් සමඟ දත්ත රැස් කිරීම සහ පටිගත කිරීම") නිවැරදි පිළිතුර බවට පත්
+කරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+
+5. What is the primary difference between volatile and non-volatile memory?
+තත්‍ය සහ අතත්‍ය මතකය අතර මූලික වෙනස කුමක්ද?
+
+1) Volatile memory is larger in capacity
+තථ්‍ය මතකය ධාරිතාවයෙන් විශාල වේ.
+
+2) Volatile memory retains data without power
+තථ්‍ය මතකය බලය නොමැතිව දත්ත රඳවා ගනී.
+
+3) Non-volatile memory requires constant power
+අතථ්‍ය මතකයට නියත බලයක් අවශ්‍ය වේ.
+
+4) Non-volatile memory retains data without power
+අතථ්‍ය මතකය බලය නොමැතිව දත්ත රඳවා ගනී.
+
+5) Volatile memory operates slower than non-volatile memory.
+තථ්‍ය මතකය වාෂ්පශීලී නොවන මතකයට වඩා සෙමින් ක්‍රියා කරයි.
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+The primary difference between volatile and non-volatile memory lies in data retention:
+තථ්‍ය සහ අතථ්‍ය මතකය අතර මූලික වෙනස පවතින්නේ දත්ත රඳවා තබා ගැනීමයි:
+
+Volatile memory / නශ්‍ය මතකය (ex: RAM):
+Requires constant power to retain data. Once the power is lost, the data is erased.
+දත්ත රඳවා ගැනීමට නිරන්තර බලය අවශ්‍ය වේ. බලය නැති වූ පසු, දත්ත මැකී යයි.
+
+Non-volatile memory / නශ්‍ය නොවන මතකය (ex: SSD, HDD, Flash):
+Retains data even when power is turned off, making it ideal for long-term storage.
+බලය අක්‍රිය වූ විට පවා දත්ත රඳවා තබා ගනී, එය දිගුකාලීන ගබඩා කිරීම සඳහා වඩාත් සුදුසු වේ.
+
+The correct answer is / නිවැරදි පිළිතුර නම්:
+
+4) Non-volatile memory retains data without power
+  අතථ්‍ය මතකය බලය නොමැතිව දත්ත රඳවා ගනී.
+
+Other options / වෙනත් විකල්ප:
+
+Option / විකල්ප 1)
+Volatile memory (like RAM) is typically smaller in capacity compared to non-volatile memory (like
+SSDs), not larger.
+තථ්‍ය මතකය (RAM වැනි) අතථ්‍ය නොවන මතකය (SSDs වැනි) හා සසඳන විට ධාරිතාවයෙන් සාමාන්‍යයෙන්
+කුඩා වේ, විශාල නොවේ.
+
+Option / විකල්ප 2)
+This is incorrect because volatile memory loses its data once the power is turned off.
+විදුලිය විසන්ධි කළ පසු තථ්‍ය මතකය එහි දත්ත නැති වන නිසා මෙය වැරදියි.
+
+Option / විකල්ප 3)
+Non-volatile memory does not require constant power; it is designed to retain data without power.
+අතථ්‍ය මතකයට නියත බලයක් අවශ්‍ය නොවේ;  එය බලය නොමැතිව දත්ත රඳවා ගැනීමට සැලසුම් කර
+ඇත.
+
+Option / විකල්ප 5)
+Volatile memory, such as RAM, operates much faster than non-volatile memory, which is optimized for
+storage rather than speed.
+RAM, වැනි තථ්‍ය මතකය, වේගයට වඩා ගබඩා කිරීම සඳහා ප්‍රශස්ත වන අතථ්‍ය මතකයට වඩා ඉතා
+වේගයෙන් ක්‍රියා කරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-5-
+
+6. What is 2B16+1916?
+2B16+1916 යනු කුමක්ද?
+1)  4416
+2)  3A16
+3) 5016
+4) 5C16
+5) 4916
+
+Answer : 1)
+
+This can be solved as follows. / පහත පරිදි මෙය විසදිය හැක.
+
+First, let's convert all the given numbers to decimal.
+පළමුව, දී ඇති සියලුම සංඛ්‍යා දශමයට පරිවර්තනය කරමු.
+
+2B8
+
+1916
+2
+B
+
+1
+9
+161
+160
+
+161
+160
+32
+11
+
+16
+9
+32 + 11
+
+16 + 9
+4310
+
+2510
+
+43 + 25 = 68
+
+Convert 68 to Hexadecimal
+68
+4416
+
+The correct answer is 1). / නිවැරදි පිළිතුර 1) වේ.
+
+7. Why are binary numbers widely used in digital electronics and computing systems?
+ඩිජිටල් ඉලෙක්ට්‍රොනික උපකරණ සහ පරිගණක පද්ධතිවල ද්විමය සංඛ්‍යා බහුලව භාවිතා වන්නේ ඇයි?
+
+1) Binary simplifies data representation, making it easier to represent large numbers and complex data.
+ද්විමය දත්ත නිරූපණය සරල කරයි, විශාල සංඛ්‍යා සහ සංකීර්ණ දත්ත නිරූපණය කිරීම පහසු කරයි.
+
+2) Using binary reduces errors and increases reliability compared to more complex systems. ද්විමය
+භාවිතා කිරීම දෝෂ අඩු කරන අතර වඩාත් සංකීර්ණ පද්ධති හා සසඳන විට විශ්වසනීයත්වය වැඩි
+කරයි.
+
+3) Binary aligns with Boolean algebra, supporting digital circuit design and analysis.
+ද්විමය බූලියානු වීජ ගණිතය සමඟ පෙළ ගැසෙන අතර ඩිජිටල් පරිපථ නිර්මාණය සහ විශ්ලේෂණයට
+සහාය වේ.
+
+4) Binary arithmetic is simpler, making hardware implementation easier.
+ද්විමය මගින් අංක ගණිතය සිදු කිරීම සරල වන අතර දෘඩාංග ක්‍රියාත්මක කිරීම පහසු කරයි.
+
+5) All above / ඉහත සියල්ලම
+
+Answer: 5)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Binary efficiently represents data such as numbers, text, and images using just two states (0 and 1). It
+can represent large numbers and complex data with fewer bits compared to systems like decimal.
+ද්විමය සංඛ්‍යා, පෙළ සහ රූප වැනි දත්ත කාර්යක්ෂමව නිරූපණය කරන්නේ අවස්ථා දෙකක් 0 සහ 1
+පමණක් භාවිතා කරමිනි. එයට දශම වැනි පද්ධති හා සසඳන විට අඩු බිටු සහිත විශාල සංඛ්‍යා සහ
+සංකීර්ණ දත්ත නිරූපණය කළ හැකිය.
+
+2027 QUIZ SERIES
+#ictfromabc
+-6-
+
+Option / විකල්පය 2)
+Binary systems are simpler than multi-state systems because they rely on just two states (ON/OFF or
+0/1). This simplicity minimizes errors and ensures reliable operation.
+ද්විමය පද්ධති බහු-තත්ව පද්ධතිවලට වඩා සරල ය, මන්ද ඒවා අවස්ථා දෙකක් මත පමණක් රඳා පවතී
+(ON/OFF or 0/1). මෙම සරල බව දෝෂ අවම කරන අතර විශ්වාසදායක ක්‍රියාකාරිත්වය සහතික කරයි,
+
+Option / විකල්පය 3)
+Binary numbers work seamlessly with Boolean algebra, which is fundamental in digital circuit design.
+Boolean logic (AND, OR, NOT) helps design and analyze circuits, ensuring proper functioning of
+digital systems.
+ද්විමය සංඛ්‍යා ඩිජිටල් පරිපථ නිර්මාණයේ මූලික වන බූලියන් වීජ ගණිතය සමඟ බාධාවකින් තොරව ක්‍රියා
+කරයි. බූලියන් තර්කනය (AND, OR, NOT)  පරිපථ සැලසුම් කිරීමට සහ විශ්ලේෂණය කිරීමට උපකාරී වන
+අතර, ඩිජිටල් පද්ධතිවල නිසි ක්‍රියාකාරිත්වය සහතික කරයි.
+
+Option / විකල්පය 4)
+Operations like addition and multiplication are easier to implement in hardware when using binary.For
+example, in binary addition, you only carry when adding two 1s, reducing complexity compared to
+decimal.
+ද්විමය භාවිතා කරන විට දෘඩාංගවල එකතු කිරීම සහ ගුණ කිරීම වැනි මෙහෙයුම් ක්‍රියාත්මක කිරීම පහසුය.
+උදාහරණයක් ලෙස, ද්විමය එකතු කිරීමේදී, ඔබ 1 දෙකක් එකතු කරන විට පමණක් රැගෙන යන අතර,
+දශමයට සාපේක්ෂව සංකීර්ණත්වය අඩු කරයි.
+
+According to this, answer should be 5 / මේ අනුව, පිලිතුරු අංක 5 නිවැරදි වේ.
+
+8. 738 + …… = 111000112
+
+Choose the appropriate answer in the above blank. / ඉහත හිස්තැනට අදාල පිළිතුර තෝරන්න.
+1)  888
+2)  A816
+3) 17810
+4) 110000112
+5) 5910
+
+Answer: 2)
+
+First, let's convert 738 to base 2. / ප්‍රථමයෙන්ම යන 738   අගය 2 පාදයට හරවමු.
+
+Octal to Binary
+738
+7
+3
+22
+21
+20
+22
+21
+20
+4
+2
+1
+4
+2
+1
+1
+1
+1
+0
+1
+1
+1110112
+
+111000112 – 1110112 = 101010002
+
+Binary to Decimal
+27
+26
+25
+24
+23
+22
+21
+20
+1
+0
+1
+0
+1
+0
+1
+0
+128
+
+32
+
+8
+
+2
+
+128 + 32 + 8 + 2
+17010
+Binary to Hexadecimal
+101010002
+1010
+1000
+1
+0
+1
+0
+1
+0
+0
+0
+23
+22
+21
+20
+23
+22
+21
+20
+8
+
+2
+
+8
+
+8 + 2 = 10 (A)
+8
+A816
+
+So, the answer is A816.
+ඒ අනුව, පිළිතුර A816 වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-7-
+
+9. What is the hexadecimal value of the answer obtained by calculating 010010012+100101012-011001112 ?
+010010012+100101012-011001112 යන ගණනය කිරීමෙන් ලැබෙන පිළිතුරෙහි ෂඩ්දශමය අගය කුමක්වේද?
+1)  14516
+2)  7716
+3) 6716
+4) 9216
+5) 8816
+
+Answer: 2)
+
+Let's do this calculation first.
+පළමුව මෙම ගණනය කිරීම සිදුකරමු.
+
+0 1 0 0 1 0 0 12
++ 1 0 0 1 0 1 0 12
+
+1 1 0 1 1 1 1 02
+
+0 1 1 0 0 1 1 12
+
+0 1 1 1 0 1 1 12
+
+Now let's convert this number to hexadecimal.
+දැන් මෙම සංඛ්‍යාව ෂඩ්දශමය බවට පරිවර්තනය කරමු.
+
+011101112
+0111
+0111
+7
+7
+7716
+
+So, the correct answer number is 2.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 2 වේ.
+
+10. What is the decimal equivalent to 11101011.1012 in binary notation?
+ද්විමය අංකනයෙහි 11101011.1012 ට සමාන දශම සංඛ්‍යාව කුමක්ද?
+
+1) 235.62510
+253.42510
+220.51210
+200.12510
+198.12510
+
+Answer: 1)
+
+The answer can be obtained by specifying the place values of the binary number as follows.
+ද්වීමය සංඛ්‍යාවේ ස්ථානීය අගයන් සඳහන් කරමින් පහත පරිදි පිළිතුර ලබා ගත හැක.
+
+11101011.1012
+1
+1
+1
+0
+1
+0
+1
+1.
+1
+0
+1
+27
+26
+25
+24
+23
+22
+21
+20
+2-1
+2-2
+2-3
+128
+64
+32
+16
+8
+4
+2
+1
+0.5
+0.25
+0.125
+128
+64
+32
+0
+8
+0
+2
+1
+0.5
+0
+0.125
+128 + 64 + 32 + 0 + 8 + 0 + 2 + 1 + 0.5 + 0 + 0.125 = 235.62510
+235.62510
+
+Accordingly, the decimal equivalent of 11101011.1012 is 235.625, so the answer is 1.
+ඒ අනුව 11101011.1012 ට සමාන දශමය අගය 235.625 වන බැවින් පිළිතුර 1 වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-8-

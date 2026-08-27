@@ -62,7 +62,8 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
          (1) arithmetic and logic unit (ALU).        (2) control unit.          (3) L1 cache memory.
          (4) memory management unit.                 (5) page table.
                                                                                                                                                                    [See page two
-AL/2020/20/E-I(NEW)                                    -2-                                          #ictfromabc
+
+AL/2020/20/E-I(NEW)                                    -2-                                          #ictfromabc
  5. Consider the two binary numbers P = 10110001 and Q = 01001110. If X = P OR Q and Y = P
     AND Q, what will be the values of X and Y respectively?
     (1) 01001110, 10110001
@@ -137,9 +138,6 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
 
                                                        A
 
-
-
-
                                                        B
 
      Which of the following statements about the above block diagram are correct?
@@ -150,7 +148,8 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
      (4) Only I and III                          (5) All I, II and III
 
                                                                                                    [See page three
-AL/2020/20/E-I(NEW)                               -3-                                        #ictfromabc
+
+AL/2020/20/E-I(NEW)                               -3-                                        #ictfromabc
 
 11. Consider the following logic circuit consisting of NAND gates:
                          A
@@ -158,7 +157,7 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
 
                          𝐴̅
                                                                      F
-                         X
+
                          Y
    If the required output of the above circuit is 𝐴𝐵 + 𝐴̅𝐵̅ + 𝐶̅ , then what should the inputs X and Y
    be?
@@ -207,7 +206,8 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
     (5) All A, B and C
 
                                                                                             [See page four
-AL/2020/20/E-I(NEW)                                  -4-                                         #ictfromabc
+
+AL/2020/20/E-I(NEW)                                  -4-                                         #ictfromabc
 
 17. Which of the following statements regarding guided and unguided media are correct?
         A - Guided media transmission supports higher data speeds than unguided media transmission.
@@ -235,7 +235,7 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
     (5) C and D only
 
 20. Consider the following statement with a blank.
-    A Media Access Control (MAC) address is usually represented in ........................ numbers.
+    A Media Access Control (MAC) address is usually represented in …… numbers.
     Which of the following is suitable to fill the blank?
     (1) binary        (2) decimal      (3) hexadecimal    (4) natural         (5) octal
 
@@ -261,10 +261,9 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
     (3) C only                                (4) A and C only
     (5) All A,B and C
 
-
-
                                                                                                 [See page five
-AL/2020/20/E-I(NEW)                                   -5-                                      #ictfromabc
+
+AL/2020/20/E-I(NEW)                                   -5-                                      #ictfromabc
 
 24. The following details are given about a software project:
         A - requirements are fixed (not allowed to change throughout the complete project)
@@ -312,11 +311,9 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
      (4) A table named subject is created with a primary key named Subject_Id.
      (5) The values of the field Subject_Id should not be repeated in subject table.
 
-
-
-
                                                                                                [See page six
-AL/2020/20/E-I(NEW)                                      -6-                                    #ictfromabc
+
+AL/2020/20/E-I(NEW)                                      -6-                                    #ictfromabc
 
 •     Consider the following scenario about ‘authors’ and ‘books’ to answer the questions 30 and 31.
        “An author can write books. A book has a title and a code called ISBN which is unique. A book can
@@ -332,16 +329,11 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
                                  1          Writes          M Author             ID
               Title       Book
 
-
-
                                               Type
                                                                             Name
                   ISBN
      (2)                          N                            M Author
                 Title     Book                Writes                               ID
-
-
-
 
                                                                 Type            Name
                    ISBN
@@ -349,17 +341,11 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
                                     N          Writes          M Author                ID
                  Title     Book
 
-
-
-
                                                                 Type            Name
                    ISBN
      (4)
                                     1          Writes          M Author                ID
                 Title      Book
-
-
-
 
                              Type                                               Name
                    ISBN
@@ -367,17 +353,13 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
                                     N          Writes          M Author                ID
                  Title     Book
 
-
-
     31. How many tables can be derived initially, when mapping the entity relationships in the above scenario
         to a relational schema?
         (1) 1             (2) 2                  (3) 3                  (4) 4                  (5) 5
 
-
-
-
                                                                                                [See page seven
-AL/2020/20/E-I(NEW)                                 -7-                                                  #ictfromabc
+
+AL/2020/20/E-I(NEW)                                 -7-                                                  #ictfromabc
 
 •   The questions 32 — 34 are based on the algorithm expressed by the flowchart below. The algorithm
     takes a list L of items and an item K as inputs and is expected to output the number of items
@@ -405,7 +387,7 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
      I    L = [int(x) for x in input().split()]
           K = int(input())                                                                 Yes
           count = 0                                                                      P
-          for i in range(len(L)):                                             ........................
+          for i in range(len(L)):                                             ……
                  if (L[i]== K):
                         count = count + 1
           print (count)                                                              i = i+1
@@ -413,7 +395,7 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
     II    L = input().split()
           K = input()                                                                    Q
                                                                                                              Yes
-          count = 0                                                               .................
+          count = 0                                                               ……
           n = len(L)
           for i in range(n):
                                                                                              No
@@ -433,11 +415,9 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
     (1) Only I                            (2) Only II                                     (3) Only I and II
     (4) Only I and III                    (5) All I, II and III
 
-
-
-
                                                                                                       [See page eight
-AL/2020/20/E-I(NEW)                               -8-                                      #ictfromabc
+
+AL/2020/20/E-I(NEW)                               -8-                                      #ictfromabc
 
 35. What would be the output of the following Python code, if the input was 17?
             n = float(input())
@@ -491,11 +471,9 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
 
     (1) A              (2) B          (3) C                 (4) D          (5) Z
 
-
-
-
                                                                                           [See page nine
-AL/2020/20/E-I(NEW)                                 -9-                                            #ictfromabc
+
+AL/2020/20/E-I(NEW)                                 -9-                                            #ictfromabc
 
 40. What would be the output of the following Python code?
          x = 1
@@ -537,7 +515,7 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
                 $one = "Welcome";
                 $two = "2020";
          echo $one.$two ;
-         ?>
+
     (1) Welcome.2020                  (2) Welcome2020                  (3) Welcome 2020
     (4) Welcome;2020;                 (5) Welcome.2020;
 
@@ -548,18 +526,16 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
     (4) processing power of the server computer that stores the web page
     (5) the bandwidth of the internet connection which is used to access the web page
 
-
-
-
                                                                                                    [See page ten
-AL/2020/20/E-I(NEW)                                -10-                                         #ictfromabc
+
+AL/2020/20/E-I(NEW)                                -10-                                         #ictfromabc
 
 46. Which of the following statements is true about the code given below?
           <style>
                  .title {
                  text-align: center;
                  color: blue;
-                 }
+
           </style>
     (1) This defines internal styles and uses the CSS ‘class’ concept.
     (2) This defines internal styles and uses the CSS ‘group’ concept.
@@ -601,9 +577,7 @@ eeeeeWhich of the following is incorrect about the above SQL statement?
     (1) A only                      (2) B only                             (3) C only
     (4) A and B only                (5) All A, B and C
 
-
-                                                ⁕⁕⁕
-AL/2020/20/E-II(NEW)                                                                                                                                              #ictfromabc
+AL/2020/20/E-II(NEW)                                                                                                                                              #ictfromabc
 ishÆ u ysñlï weúßKs / முழுப் பதிப்புரிமையுமையது / All Rights Reserved ]
                                                      kj ks¾foaYh / புதிய பாைத்திட்ைம் / New Syllabus
 YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS%S ,xld úNd. fomd¾;fïka;=j
@@ -632,9 +606,7 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
     Use additional reading time to go through the question paper, select the questions you will answer and
                                    decide which of them you will prioritise.
 
-
-                                                                                              Index No. : ……………………………………….........
-
+                                                                                              Index No. : ……………………………………………
 
    Important:                                                                                                      For Examiner’s Use Only
          ⁕ This question paper consists of 13 pages.                                                                  For the Second Paper
@@ -672,9 +644,9 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
              question paper from the Examination Hall.                                             Marks checked by :
                                                                                                    Supervised by :
 
-
                                                                                                                                                                  [See page two
-AL/2020/20/E-II(NEW)                                             -2-                                          #ictfromabc
+
+AL/2020/20/E-II(NEW)                                             -2-                                          #ictfromabc
                                                  Part A – Structured Essay                                           Do not
                                                                                                                      write
                                            Answer all four questions on this paper itself                            in this
@@ -692,9 +664,6 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
        </html>
        Note : Please consider the edges of the following dotted line box as the display area of
               web browser.
-
-
-
 
       (b)          Consider the following html code in which the lines are numbered to answer the
                    questions in this part.
@@ -714,18 +683,18 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                       is rendered by the browser?
 
                           Line number                   Text                      Colour
-                                   8                 Title One         ...................................
-                                   9                 Title Two         ...................................
+                                   8                 Title One         ……
+                                   9                 Title Two         ……
 
             (ii)       Write one advantage of defining styles as in line numbers 3,4 and 5 over that
                        of line number 8.
 
                        ………………………………………………………………………………………
                        ………………………………………………………………………………………
-                       ......................
 
                                                                                                              [See page three
-AL/2020/20/E-II(NEW)                                 -3-              Index No.: .......................................
+
+AL/2020/20/E-II(NEW)                                 -3-              Index No.: ……
                                                                                                                  Do not
    (iii)    Write only the content of an external style sheet to include the following:                          write
                                                                                                                  in this
@@ -735,7 +704,7 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
 
             ………………………………………………………………………………………
             ………………………………………………………………………………………
-             ......................
+
   (c)      The following four PHP code blocks which are labeled as A,B,C and D are taken from
            a code intended to retrieve data from a database to display on the screen. However,
            the code blocks are not in correct order.
@@ -749,7 +718,6 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                      if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
              B
-                     }
 
                     if ($result->num_rows > 0) {
                            while($row = $result->fetch_assoc()) {
@@ -757,11 +725,8 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
              C             }
                     } else {
                         echo "0 results";
-                    }
-
 
              D       $conn = new mysqli("localhost", "admin", "C#a8t", "StoreDB");
-
 
            (i)      Write the labels of the four code blocks in the correct order inside four blanks
                     of the following PHP script.
@@ -772,7 +737,6 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                      ………………………………
 
                      $conn- >close();
-                     ?>
 
             (ii)    If the above code blocks are in the correct order, what is the expected output
                     if the ‘Product’ table has only the following values?
@@ -785,9 +749,10 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
              (ii)   If the above code blocks are in the correct order, what is the expected
                     ………………………………………………………………………………………
                     output if the ‘Product’ table has only the following values?
-                    ......................
+
                                                                                                         [See page four
-AL/2020/20/E-II(NEW)                                          -4-                                                 #ictfromabc
+
+AL/2020/20/E-II(NEW)                                          -4-                                                 #ictfromabc
 
  2. (a)   In an emergency health problem where people have to stay at home for a long period,                             Do not
                                                                                                                           write
@@ -796,25 +761,24 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
           practicing their business through e-commerce.
           Considering the above scenario, fill the blanks in the following statements with suitable
           phrases from the given list of phrases.
-           (i)        In this emergency situation, shops follow the ................................ business
+           (i)        In this emergency situation, shops follow the …… business
                       model.
-           (ii)       Shops must use ................................. to allow customers to purchase more
+           (ii)       Shops must use …… to allow customers to purchase more
                       than one type of product in a single transaction.
-           (iii)      The e-commerce site for each shop can implement ................................... to
+           (iii)      The e-commerce site for each shop can implement …… to
                       display their products to the customers.
            (iv)       For business owners who cannot use payment gateway through online fund
                       receipts and for the customers who do not have any online mode of payments
-                      can still be supported through .........................................
-           (v)        .................................................. is one of the best ways to reduce the overhead
+                      can still be supported through ……
+           (v)        …… is one of the best ways to reduce the overhead
                       costs of delivery within a local area such as a lane, street or housing scheme.
-           (vi)       The local shop owners can establish .................................... to serve their
+           (vi)       The local shop owners can establish …… to serve their
                       community better by enabling access to each shop’s services through a common
                       portal.
   List of phrases: {advertising banners, an online marketplace, a shopping cart, a web product
                   catalogue, cash-on-delivery, credit-cards, discount pricing, group purchasing,
                   payment gateways, click and brick, pure click, subscription as a revenue
                   model}
-
 
     (b) Consider the following Python program:
                 L1 = [int(x) for x in input().split()]
@@ -829,18 +793,15 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
 
           (i)       Write the output of the program if the first input (that creates L1) is “7 4 1 2 2 8”
                     and the second input (that creates L2) is “8 2 4 5 6”?
-                     ……………………………………………………………………………………....
+                     …………………………………………………………………………………………
 
           (ii)      What is the purpose of this program?
                      ………………………………………………………………………………………
                      ………………………………………………………………………………………
-                     ......................
-
-
-
 
                                                                                                                   [See page five
-AL/2020/20/E-II(NEW)                                 -5-                                        #ictfromabc
+
+AL/2020/20/E-II(NEW)                                 -5-                                        #ictfromabc
                                                                                                        Do not
  3. (a)    (i) State two service models in cloud computing.                                            write
                                                                                                        in this
@@ -871,21 +832,19 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
 
               Note: Write only the matching item against the phrase number.
 
-               (i) ……………………………….......
+               (i) ……………………………………
 
-               (ii) ………………………………......
+               (ii) ……………………………………
 
-               (iii) ……………………………….....
+               (iii) ……………………………………
 
-               (iv) …………………………….…....
+               (iv) …………………………….………
 
-               (v) ……………………………….......
-
-
-
+               (v) ……………………………………
 
                                                                                                 [See page six
-AL/2020/20/E-II(NEW)                                             -6-                                              #ictfromabc
+
+AL/2020/20/E-II(NEW)                                             -6-                                              #ictfromabc
                                                                                                                         Do not
 4. (a)        An operating system uses Process Control Blocks (PCBs) to maintain important                              write
               information about each process.                                                                           in this
@@ -898,14 +857,14 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                         PCB of the spreadsheet process from “Running” to “Blocked”. Give one likely
                         reason for that transition.
                          ………………………………………………………………………………………….
-                         ……………………………………………………………………………………........
-              (ii)       ..............
+                         …………………………………………………………………………………………
+              (ii)       ……
                          When      the state of a process changes (e.g., “Running” “Ready”), the values of
                          the machine registers are stored in the PCB of that process. Why is it important
                          to store them?
 
                          ………………………………………………………………………………………….
-                         ………………………………………………………………………………...............
+                         ……………………………………………………………………………………
 
         (b)           The block size of a disk is 4 KB. A portion of its File Allocation Table (FAT) starting
                       from block 300 at a particular time, is shown below. It gives the blocks of maximum.py
@@ -921,12 +880,12 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
           (i)           Write down the value of an important number that will be stored in the directory
                         entry for maximum.py file that will help an operating system locate the blocks in
                         that file.
-                        …………………….....
+                        …………………………
           (ii)          Assume that additional improvements are made to the maximum.py file that results
                         in its size becoming 20 KB. What changes are needed in the FAT for this purpose?
 
                         ………………………………………………………………………………………….
-                        ………………………………………………………………………………...............
+                        ……………………………………………………………………………………
 
   (c)           Assume that we have a computer that can use 16-bit virtual addresses from 0 up to 64 K.
                 Assume further that this computer has only 32 KB of physical memory and that the page
@@ -937,12 +896,12 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                            ………………………………………………………………………………………..
 
                                                                                                                 [See page seven
-AL/2020/20/E-II(NEW)                                                 -7-                                                            #ictfromabc
+
+AL/2020/20/E-II(NEW)                                                 -7-                                                            #ictfromabc
                                                                                                                                              Do not
       (ii)       User runs a particular program having a size of 32KB on this computer. A few                                                write
                  selected fields of the page table of that process at a particular time are shown in                                         in this
                  the figure below.                                                                                                           column
-
 
                                 Page number                Frame number                 Present/absent
                                          0                          101                            1
@@ -968,13 +927,8 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                   The above virtual address is mapped to the physical address 110 0000 0000 0010.
                   Explain it.
                  …………………………………………………………………………………………
-                 .……………………………………………………………………………….............
-                 .........................................................................................................................
-                 .........................................................................................................................
-                 .........................................................................................................................
-                 .........................................................................................................................
-                 .........................................................................................................................
-                 .............
+                 .……………………………………………………………………………………
+
        (iii)      Assume that there was a request for the virtual address 0001 0000 0000 0000.
                   Due to the set of tasks that the operating system initiated to fulfil that request,
                   the present/absent bit of the page number 6 in the above page table changed
@@ -983,13 +937,9 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
 
                   ………………………………………………………………………………………..
 
-
-                                                                     ⁕⁕
-
-
-
                                                                                                                                    [See page eight
-AL/2020/20/E-II(NEW)                                  -8-                                                                                                         #ictfromabc
+
+AL/2020/20/E-II(NEW)                                  -8-                                                                                                         #ictfromabc
 ishÆ u ysñlï weúßKs / முழுப் பதிப்புரிமையுமையது / All Rights Reserved ]
                                                        kj ks¾foaYh / புதிய பாைத்திட்ைம் / New Syllabus
 YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS%S ,xld úNd. fomd¾;fïka;=j
@@ -1016,13 +966,9 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
              output.
                                   A
 
-
                                                 B                                                                                            Z
 
-
-
                                                C
-
 
      (a)          Give the complete truth table for the given circuit.
      (b)          Using a Karnaugh map, derive a simplified sum-of-products (SOP) expression for the output Z.
@@ -1051,7 +997,8 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                    •     All computers to be given efficient Internet connectivity with the help of a DNS (Domain
                          Name System) and proxy servers
                                                                                                                                                                 [See page nine
-AL/2020/20/E-II(NEW)                                   -9-                                        #ictfromabc
+
+AL/2020/20/E-II(NEW)                                   -9-                                        #ictfromabc
 
           •     An Internet Service Provider (ISP) to supply the Internet connectivity to the IT unit
 
@@ -1078,8 +1025,6 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
   (d)      Network administrator decides to dynamically manage the IP addresses of the entire
            network. Write down the mechanism that needs to be implemented to achieve this task.
 
-
-
  7. (a)   AB Stores is a grocery shop in your home town. With your expert advise, AB Stores has
           implemented a web-based e-commerce system to conduct their business online as well.
           Customers can select their required products and confirm the order online.
@@ -1100,11 +1045,9 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                             (2) AB Stores
                             (3) other local shops
 
-
-
-
                                                                                                   [See page ten
-AL/2020/20/E-II(NEW)                                   -10-                                        #ictfromabc
+
+AL/2020/20/E-II(NEW)                                   -10-                                        #ictfromabc
 
         (vii)       A recent market survey has identified the following about the customers who have registered
                     with the AB Stores e-commerce system proposed in (v) above:
@@ -1140,11 +1083,9 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
             (iii)       Write a disadvantage of using a multi-agent system for the given example user
                         requirement.
 
-
-
-
                                                                                                 [See page eleven
-AL/2020/20/E-II(NEW)                              -11-                                         #ictfromabc
+
+AL/2020/20/E-II(NEW)                              -11-                                         #ictfromabc
 
 8.    (a) You are given two positive integers N1 and N2 as inputs (assume NI < N2) and you have to
           output the list of even numbers between N1 and N2. Construct a flowchart or a pseudo code
@@ -1152,21 +1093,15 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
       (b) Consider the flowchart given below. Assume that L is a list of positive integers, K is a positive
           integer and every element in L is less than M, which is a large integer.
 
-
                                                           Start
-
 
                                                      input L, K
 
-
                                                    N = length of L
-
 
                                                          X=M
 
-
                                                           a=0
-
 
                                              No
                                                          Is a < N ?
@@ -1182,26 +1117,20 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                                                               Yes
                                                          X = L[a]
 
-
                                                          a=a+1
-
 
                                                          output X
 
-
                                                            Stop
-
 
           (i)     What would be the output if the first input L was 2, 4, 7, 9, 3, 5 and the next input K
                   was 5?
           (ii)    What is the purpose of this algorithm?
           (iii)   Develop a Python program to implement the algorithm expressed by the flowchart.
 
-
-
-
                                                                                              [See page twelve
-AL/2020/20/E-II(NEW)                                          -12-                                          #ictfromabc
+
+AL/2020/20/E-II(NEW)                                          -12-                                          #ictfromabc
 
 9. (a)   Consider the following description relating to details of players attached to different sports clubs.
          A player always belongs to a sports club and he/she can be identified uniquely by the NIC
@@ -1252,15 +1181,13 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
                      identification code to the letter, keeps the letter and issues a receipt with sender and recipient
                      information with the date and the amount paid, to the customer.
 
-
-
                                                                                                         [See page thirteen
-AL/2020/20/E-II(NEW)                             -13-                                      #ictfromabc
+
+AL/2020/20/E-II(NEW)                             -13-                                      #ictfromabc
 
          Using standard symbols, draw the following:
          (i) Context Diagram
          (ii) Level 1 Data Flow Diagram (DFD)
-
 
    (b)    Your school plans to use an online system to provide extended learner Support to A/L and
           O/L students during school holidays, weekends and other times that the School is not open.
@@ -1289,8 +1216,3 @@ YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fomd¾;fïka;=j YS% ,xld úNd. fom
 
           (iii)   What is the most appropriate testing Strategy for your team to evaluate the selected
                   COTS software system for the identified requirements?
-
-
-
-                                                ⁕⁕⁕
-

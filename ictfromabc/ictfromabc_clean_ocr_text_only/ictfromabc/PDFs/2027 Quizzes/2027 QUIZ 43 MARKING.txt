@@ -1,0 +1,408 @@
+1. What is the function of the ALU according to Von Neumann Architecture?
+වොන් නියුමාන් ආකෘතියට අනුව ALU හි කාර්යය වනුයේ කුමක්ද?
+
+1) Holding small sets of data / කුඩා දත්ත කට්ටල රඳවා ගැනීම.
+2) Coordinating various components /  විවිධ සංරචක සම්බන්ධීකරණය.
+3) Controls the signals of the computer system / පරිගණක පද්ධතියේ සංඥා පාලනය කිරීම.
+4) Decoding the instructions / උපදෙස් විකේතනය කිරීම.
+5) Handles the computational tasks / ගණනය කිරීමේ කාර්යයන් හසුරුවයි.
+
+Answer: 5)
+
+Explanation / පැහැදිලි කිරීම:
+
+Von Neumann architecture/ වොන් නියුමාන් ආකෘතිය
+Von Neumann Architecture is a stored program concept that consists of a CPU, memory and input output
+devices. The program is stored in memory. The CPU fetches an instruction from the memory at a time
+and executes it.
+වොන් නියුමාන් ආකෘතිය යනු CPU, මතකය සහ ආදාන ප්‍රතිදාන උපාංග වලින් සමන්විත ගබඩා කර ඇති
+වැඩසටහන් සංකල්පයකි. වැඩසටහන මතකයේ ගබඩා කර ඇත. CPU එක වරකට මතකයෙන් උපදෙසක්
+බැගින් ලබාගෙන එය ක්‍රියාත්මක කරයි.
+
+Arithmetic Logic Unit (ALU)
+අංක ගණීත තාර්කික ඒකකය
+Responsible for performing all arithmetic and
+logical operations. This includes tasks like
+addition, subtraction, multiplication, and logical
+comparisons (AND, OR, NOT, etc.). It is a core
+component that handles the computational
+functions of the computer.
+සියලුම අංක ගණිතමය සහ තාර්කික මෙහෙයුම් සිදු
+කිරීම සඳහා වගකීම දරයි. මෙයට එකතු කිරීම, අඩු
+කිරීම, ගුණ කිරීම, සහ තාර්කික සැසඳීම්  (AND,
+OR, NOT,ආදිය) වැනි කාර්යයන් ඇතුළත් වේ. එය
+පරිගණකයේ ගණනය කිරීමේ කාර්යයන් හසුරුවන
+මූලික අංගයකි.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+Incorrect. This refers to memory or registers, which are used to store small amounts of data temporarily,
+not the ALU.
+අසත්‍ය වේ. මෙය ALU නොව තාවකාලිකව කුඩා දත්ත ප්‍රමාණයක් ගබඩා කිරීමට භාවිතා කරන මතකය හෝ
+රෙජිස්තර වලට යොමු වේ.
+
+Option / විකල්ප 2)
+Incorrect. This is the job of the control unit (CU) which ensures that all parts of the computer work
+together.
+අසත්‍ය වේ. පරිගණකයේ සියලුම කොටස් එකට වැඩ කරන බව සහතික කරන පාලන ඒකකයේ කාර්යය
+මෙයයි.
+2027 QUIZ SERIES
+2027 QUIZ NO 43 MARKING
+2025/12/09
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Option / විකල්ප 3)
+Incorrect. The control unit handles this, as it manages the signals sent to different components of the
+system, directing operations like fetching and decoding instructions.
+අසත්‍ය වේ. පාලන ඒකකය මෙය හසුරුවන්නේ, එය පද්ධතියේ විවිධ සංරචක වෙත යවන ලද සංඥා
+කළමනාකරණය කරන බැවින්, උපදෙස් ලබා ගැනීම සහ විකේතනය කිරීම වැනි මෙහෙයුම් මෙහෙයවීම සිදු
+කරයි.
+
+Option / විකල්ප 4)
+Incorrect. The control unit decodes instructions so that the computer knows what operations to perform.
+අසත්‍ය වේ. පාලක ඒකකය උපදෙස් විකේතනය කරයි, එවිට පරිගණකය සිදු කළ යුතු මෙහෙයුම් මොනවාදැයි
+දැන ගනී.
+
+Option / විකල්ප 5)
+This is the correct role of the ALU, as it performs arithmetic (ex: addition, subtraction) and logic
+operations.
+එය අංක ගණීතය (උදා: එකතු කිරීම, අඩු කිරීම) සහ තාර්කික මෙහෙයුම් සිදු කරන බැවින්, ALU හි සත්‍ය
+භූමිකාව මෙයයි.
+
+Therefore, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර 5) වේ.
+
+2. In which generation Keyboard, Monitor used as Input/output devices to the computer?
+පරිගණකයට ආදාන/ප්‍රතිදාන උපාංග ලෙස භාවිතා කරන යතුරුපුවරුව, සංදර්ශකය කුමන පරම්පරාවේ ද?
+
+1) 1st Generation / 1 වන පරම්පරාව.
+2) 2nd Generation / 2 වන පරම්පරාව.
+3) 3rd Generation / 3 වන පරම්පරාව.
+4) 4th Generation / 4 වන පරම්පරාව.
+5) 5th Generation / 5 වන පරම්පරාව.
+
+Answer : 3 )
+
+Let’s consider the below table.
+පහත වගුව සලකා බලමු.
+
+Generation
+පරම්පරාව
+Time Period
+කාල සීමාව
+Input Devices
+ආදාන උපාංග
+Output Devices
+ප්‍රතිදාන උපාංග
+First Generation
+පළමු පරම්පරාව
+1940s-1950s
+Punched cards
+සිදුරුපත්
+Indicator lights
+දර්ශක බල්බ
+Second Generation
+දෙවන පරම්පරාව
+1950s-1960s
+Punched cards, Magnetic tape
+සිදුරුපත්,  චුම්බක පටි
+
+Magnetic tape
+චුම්බක පටි
+
+Third Generation
+තුන්වන පරම්පරාව
+1960s-1970s
+Keyboards, Punched cards,
+Magnetic tape
+යතුරු පුවරුව, සිදුරුපත්, චුම්බක
+පටි
+Monitors (CRT)
+Fourth Generation
+හතරවන පරම්පරාව
+1970s-1980s
+Keyboards, Mice, Magnetic
+disks, Floppy disks
+යතුරු පුවරුව, මුසිකය චුම්බක
+පටි, Floppy disks
+Monitors (CRT)
+Fifth Generation
+පස්වන පරම්පරාව
+1980s-Present
+Keyboards, Mice, Touchscreens,
+Scanners, Voice recognition
+යතුරු පුවරුව, මුසිකය, ස්පර්ශ
+තල, සුපරික්ෂක, හඩ හදුනාගැනිම
+Monitors (LCD/LED),
+Printers, Speakers
+
+According to the above table, initially Keyboard and Monitor is used as input and output device in 3rd
+generation computer.
+ඉහත වගුවට අනුව, මුලදී යතුරුපුවරුව සහ සංදර්ශකය 3 වන පරම්පරාවේ පරිගණකයේ ආදාන සහ
+ප්‍රතිදාන උපාංගයක් ලෙස භාවිතා කරයි.
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+So, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+3. Which of the following statements about One’s Complement representation is correct?
+1හි අනුපූරකය නිරූපණය පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි කුමක්ද?
+
+1) One’s Complement represents negative numbers by flipping all bits of the positive number.
+1හි අනුපූරකය ධන සංඛ්‍යාවේ සියලුම බිටු පෙරලීමෙන් සෘණ සංඛ්‍යා නියෝජනය කරයි.
+
+2) In One’s Complement, there is only one representation for zero.
+1හි අනුපූරකයහි, ශුන්‍යය සඳහා ඇත්තේ එක් නිරූපණයක් පමණි.
+
+3) One’s Complement and Two’s Complement produce the same binary result for all values.
+1හි අනුපූරකය සහ 2හි අනුපූරකය සියලු අගයන් සඳහා එකම ද්විමය ප්‍රතිඵලය නිපදවයි.
+
+4) Arithmetic operations in One’s Complement never require end-around carry.
+1හි අනුපූරකය හි අංක ගණිත මෙහෙයුම් කිසි විටෙකත් අවසානය දක්වා රැගෙන යාම අවශ්‍ය නොවේ.
+
+5) One’s Complement uses a sign-magnitude format for all integers.
+1හි අනුපූරකය සියලුම නිඛිල සඳහා සංඥා-විශාලත්ව ආකෘතියක් භාවිතා කරයි.
+
+Answer: 1)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+This is the definition of one’s complement. If +5 in binary (4-bit) is 0101, then -5 is simply 1010 - all
+bits flipped. This method is quick and was historically used in early computer systems.
+1 හි අනුපූරකයෙහි අර්ථ දැක්වීම මෙයයි. ද්විමය (බිටු-4) හි -5  0101 නම්, -5 යනු සරලව 1010 වේ -
+සියලුම බිටු පෙරළා ඇත. මෙම ක්‍රමය ඉක්මන් වන අතර එය ඓතිහාසිකව මුල් පරිගණක පද්ධතිවල
+භාවිතා කරන ලදී.
+
+Option / විකල්ප 2)
+One’s complement has two representations for zero:
+1හි අනුපූරකයෙහි ශුන්‍යය සඳහා නිරූපණයන් දෙකක් ඇත:
+
+Positive zero → 0000 / ධන ශුන්‍යය → 0000
+
+Negative zero → 1111 / සෘණ ශුන්‍යය → 1111
+
+This can lead to logical and implementation issues, which is why two’s complement (which has only one
+zero) is used in modern systems.
+මෙය තාර්කික සහ ක්‍රියාත්මක කිරීමේ ගැටළු වලට තුඩු දිය හැකිය, එබැවින්, නවීන පද්ධතිවල 2 හි
+අනුපූරකය (එක ශුන්‍යයක් පමණක් ඇති) වඩාත් භාවිතා වේ.
+
+Option / විකල්ප 3)
+While they match for positive numbers, they differ in representing negatives. In two’s complement, flip
+all bits and add 1 to get the negative. In one’s complement, just flip the bits.
+ධන සංඛ්‍යා සඳහා ඒවා ගැලපෙන අතර, ඒවා සෘණ නියෝජනය කිරීමේදී වෙනස් වේ. 2 හි අනුපූරකයෙහි,
+සියලු බිටු පෙරළා සෘණ ලබා ගැනීමට 1 ක් එකතු කරයි. 1 හි අනුපූරකයෙහි, බිටු පෙරළා දමයි.
+
+Option / විකල්ප 4)
+In one’s complement, if there's a carry out of the most significant bit (MSB), it must be added back to
+the least significant bit (LSB), known as end-around carry.
+1 හි අනුපූරකයෙහි, වැඩිම වෙසෙසි බිටු (MSB) වලින් රැගෙන යාමක් (carry-out) තිබේ නම්, එය අඩුම
+වෙසෙසි බිටු (LSB) වෙත නැවත එකතු කළ යුතුය. එය අවසන් වටයේ රැගෙන යාම (carry-out) ලෙස
+හැඳින්වේ.
+
+Option / විකල්ප 5)
+Sign-magnitude is a separate format where the MSB indicates the sign, and the rest holds the magnitude.
+One’s complement does not use that system, it simply inverts the bits for negative values.
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+ලකුණු සහිත සංඛ්‍යා නිරූපණය යනු MSB මඟින් ලකුණ දක්වන අතර ඉතිරි කොටස විශාලත්වය රඳවා
+ගන්නා වෙනම ආකෘතියකි. 1 හි අනුපූරකය එම පද්ධතිය භාවිතා නොකරයි. එය හුදෙක් සෘණ අගයන්
+සඳහා බිටු ප්‍රතිලෝම කරයි.
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+
+4. 4210 – 1910 = ……………
+
+Which of the following is the correct answer to fill in the blank above?
+ඉහත හිස්තැන පිරවීම සදහා නිවැරදි පිලිතුර කුමක්ද?
+
+Answer : 5)
+
+First let’s convert 4210 into binary.
+මුලින්ම 4210 ද්විමය බවට පරිවර්තනය කරමු.
+
+128 64 32 16 8 4 2 1
+0
+0
+1
+0
+1 0 1 0
+4210 = 001010102
+
+Then let’s convert 1910 into binary.
+ඉන්පසු 1910 ද්විමය බවට පරිවර්තනය කරමු.
+
+128 64 32 16 8 4 2 1
+0
+0
+0
+1
+0 0 1 1
+1910 = 000100112
+
+Now Let’s subtract 19 from 42 and convert the answer into binary.
+දැන් 42 න් 19 අඩු කර පිළිතුර ද්විමය බවට පරිවර්තනය කරමු.
+
+4210 – 1910 = 2310
+
+128 64 32 16 8 4 2 1
+0
+0
+0
+1
+0 1 1 1
+2310=000101112
+
+So, the correct answer is 5.
+ඒ අනුව නිවැරදි පිලිතුරු 5 වේ.
+
+5. Sum of the 1100111.1012 and 46.37510 equals to,
+1100111.1012 සහ 46.37510 හි එකතුවට සමාන වන්නේ,
+1)  9716
+2)  2338
+3) 10516
+4) 2208
+5) 2268
+Answer: 5)
+
+Explanation / පැහැදිලි කිරීම:
+
+Let’s convert the binary value into decimal.
+ද්වීමය අගය, දශමය බවට පරිවර්තනය කරමු.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+1) 000001112
+2) 101110012
+3) 001110012
+4) 010011102
+5) 000101112
+
+1100111.1012
+1
+1
+0
+0
+1
+1
+1
+
+1
+0
+1
+26
+25
+24
+23
+22
+21
+20
+
+2-1
+2-2
+2-3
+64
+32
+
+4
+2
+1
+
+0.5
+
+0.125
+64 + 32 + 4 + 2 + 1 + 0.5 + 0.125
+103.62510
+
+103.62510 + 46.37510 = 15010
+Then, the received decimal number should be converted into binary, octal and hexadecimal.
+ඉන්පසු, එම ලැබුනු දශමය සංඛ්‍යාව ද්විමය, අෂ්ඨමය හා ෂඩ් දශමය බවට පරිවර්තනය කරගත යුතුය.
+15010
+27
+26
+25
+24
+23
+22
+21
+20
+128
+64
+32
+16
+8
+4
+2
+1
+1
+0
+0
+1
+0
+1
+1
+0
+100101102
+
+15010 = 100101102
+22
+21
+20
+22
+21
+20
+22
+21
+20
+0
+1
+0
+0
+1
+0
+1
+1
+0
+2
+2
+6
+2268
+
+15010 = 100101102
+23
+22
+21
+20
+23
+22
+21
+20
+1
+0
+0
+1
+0
+1
+1
+0
+9
+6
+9616
+
+Therefore, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර 5) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-5-

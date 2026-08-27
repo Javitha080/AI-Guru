@@ -21,6 +21,7 @@ import React, {
 } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { Sparkles, X, MonitorUp } from "lucide-react";
+import GuruThinkingOrb from "@/components/ui/GuruThinkingOrb";
 import FloatingGuruPanel, { type FloatingPanelPrefill } from "./FloatingGuruPanel";
 import {
   FLOATING_EMPTY_SNAPSHOT,
@@ -340,10 +341,10 @@ export default function FloatingGuru() {
     <>
       {/* Selection capture chip */}
       {selText && !open && !pipWindowRef.current && (
-        <div className="fixed bottom-24 left-1/2 z-[9999] -translate-x-1/2">
+        <div className="fixed bottom-24 left-1/2 z-[9999] -translate-x-1/2 animate-pop-in">
           <button
             onClick={askAboutSelection}
-            className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/95 px-4 py-2 text-xs font-medium text-slate-100 shadow-2xl backdrop-blur hover:bg-[var(--muted)]"
+            className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/95 px-4 py-2 text-xs font-medium text-slate-100 shadow-2xl backdrop-blur transition-all duration-200 hover:bg-[var(--muted)] hover:scale-105 active:scale-95"
           >
             <Sparkles size={14} className="text-[var(--primary)]" />
             Ask Guru about “{selText.slice(0, 40)}
@@ -364,18 +365,24 @@ export default function FloatingGuru() {
       {!open && (
         <div
           ref={bubbleRef}
-          className="fixed z-[9998]"
+          className="fixed z-[9998] animate-pop-in"
           style={{ left: pos.x, top: pos.y }}
         >
           <button
             aria-label="AI Guru floating chat"
             onDoubleClick={() => setOpen(true)}
-            className={`relative flex h-14 w-14 items-center justify-center rounded-full border border-[var(--glass-border)] bg-gradient-to-br from-[#E06D44] to-[#B85A38] text-white shadow-2xl transition hover:scale-105 ${
+            className={`relative flex h-14 w-14 items-center justify-center rounded-full border border-[var(--glass-border)] bg-gradient-to-br from-[#E06D44] to-[#B85A38] text-white shadow-2xl transition-transform duration-200 hover:scale-110 active:scale-95 ${
               hasUnread ? "ring-4 ring-[var(--glow-primary)]" : ""
             }`}
             onClick={() => setOpen(true)}
           >
-            <Sparkles size={22} />
+            {snapshot.status === "streaming" ? (
+              <GuruThinkingOrb state="working" size={20} variant="orb-only" />
+            ) : snapshot.status === "connecting" ? (
+              <GuruThinkingOrb state="connecting" size={20} variant="orb-only" />
+            ) : (
+              <Sparkles size={22} />
+            )}
             {hasUnread && (
               <span className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 animate-pulse rounded-full bg-emerald-400 ring-2 ring-slate-900" />
             )}
@@ -383,7 +390,7 @@ export default function FloatingGuru() {
           <button
             aria-label="Hide AI Guru"
             onClick={() => toggleHidden(true)}
-            className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-700 text-white opacity-70 shadow hover:opacity-100"
+            className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-700 text-white opacity-70 shadow hover:opacity-100 transition-all hover:scale-110 active:scale-90"
             style={{ pointerEvents: "auto" }}
           >
             <X size={11} />
@@ -394,7 +401,7 @@ export default function FloatingGuru() {
       {/* Panel */}
       {open && (
         <div
-          className="fixed bottom-5 right-5 z-[9999]"
+          className="fixed bottom-5 right-5 z-[9999] animate-pop-in"
           ref={bubbleRef}
         >
           <FloatingGuruPanel

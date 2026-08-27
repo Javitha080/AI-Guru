@@ -11,6 +11,7 @@ import {
 } from "react";
 import { ChevronDown, Loader2, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import GuruThinkingOrb, { type GuruOrbState } from "@/components/ui/GuruThinkingOrb";
 import MarkdownRenderer from "@/components/common/MarkdownRenderer";
 import { formatTurnDuration, getTurnDurationSeconds } from "@/lib/trace-timing";
 import {
@@ -2340,25 +2341,53 @@ export function StreamingStatus({
     mode === "responded"
       ? "text-[var(--muted-foreground)]/70"
       : "text-[var(--muted-foreground)]";
-  const Mark =
+
+  const orbState: GuruOrbState =
     mode === "tool_using"
-      ? ToolMark
+      ? "working"
       : mode === "responding" || mode === "drafting"
-        ? RespondingMark
-        : mode === "responded"
-          ? RespondedMark
-          : ReasoningMark;
+        ? "composing"
+        : mode === "exploring"
+          ? "searching"
+          : mode === "planning"
+            ? "shaping"
+            : mode === "reflecting" || mode === "quizzing"
+              ? "weaving"
+              : "breathing";
 
   const rowInner = (
     <>
       {showMark ? (
-        <Mark
-          size={22}
-          strokeWidth={1.5}
-          className={`${breathingClass} ${markPulseClass} shrink-0 text-[var(--primary)]/90 drop-shadow-[0_0_4px_var(--glow-primary)]`}
-        />
+        mode === "responded" ? (
+          <RespondedMark
+            size={20}
+            strokeWidth={1.5}
+            className="shrink-0 text-[var(--primary)]/90 drop-shadow-[0_0_4px_var(--glow-primary)]"
+          />
+        ) : (
+          <GuruThinkingOrb
+            state={orbState}
+            size={20}
+            variant="orb-only"
+            className="shrink-0"
+          />
+        )
       ) : null}
-      <span className={breathingClass}>{label}</span>
+      {mode !== "responded" ? (
+        <span className="t-think" role="status">
+          <span className="t-think-sizer" aria-hidden="true">
+            {label}
+          </span>
+          <span
+            className="t-think-text text-[var(--foreground)]"
+            data-text={label}
+          >
+            {label}
+          </span>
+        </span>
+      ) : (
+        <span>{label}</span>
+      )}
       {durationLabel ? (
         <span className="text-[12px] font-medium tabular-nums text-[var(--muted-foreground)]/55">
           · {durationLabel}

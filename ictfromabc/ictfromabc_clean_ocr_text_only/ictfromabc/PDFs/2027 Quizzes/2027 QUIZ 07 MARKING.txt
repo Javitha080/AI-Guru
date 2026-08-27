@@ -1,0 +1,632 @@
+1. What is the purpose of data validation in the data processing lifecycle?
+දත්ත සැකසුම් ජීවන චක්‍රයේ දත්ත වලංගු කිරීමේ අරමුණ කුමක්ද?
+
+1) To collect raw data from various sources / විවිධ මූලාශ්‍රවලින් අමු දත්ත රැස් කිරීම
+2) To ensure data accuracy, consistency, and reliability
+දත්ත නිරවද්‍යතාවය, අනුකූලතාව සහ විශ්වසනීයත්වය සහතික කිරීම
+
+3) To present information in a usable format / භාවිතා කළ හැකි ආකෘතියකින් තොරතුරු ඉදිරිපත් කිරීම
+4) To retain data for future use / අනාගත භාවිතය සඳහා දත්ත රඳවා ගැනීමට
+5) To analyze and transform data into insights
+දත්ත විශ්ලේෂණය සහ තීක්ෂණ බුද්ධිය බවට පරිවර්තනය කිරීම
+
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම
+
+The correct answer is 2) To ensure data accuracy, consistency, and reliability. Data validation is a critical
+step in the data processing lifecycle that involves verifying and checking the data to ensure it meets
+predefined quality criteria. It helps identify errors, inconsistencies, or incomplete data to ensure the
+processed data is accurate, reliable, and fit for analysis or decision-making. For example, in a customer
+database, validating that email addresses follow a standard format ensures correctness and reliability.
+නිවැරදි පිළිතුර වන්නේ 2) දත්ත නිරවද්‍යතාවය, අනුකූලතාව සහ විශ්වසනීයත්වය සහතික කිරීම වේ. දත්ත
+වලංගු කිරීම යනු දත්ත සැකසීමේ ජීවන චක්‍රයේ තීරණාත්මක පියවරක් වන අතර එය පූර්ව නිශ්චිත තත්ත්ව
+නිර්ණායක සපුරාලන බව සහතික කිරීම සඳහා දත්ත සත්‍යාපනය කිරීම සහ පරීක්ෂා කිරීම ඇතුළත් වේ.
+සැකසූ දත්ත නිවැරදි, විශ්වාසදායක සහ විශ්ලේෂණයට හෝ තීරණ ගැනීමට සුදුසු බව සහතික කිරීම සඳහා
+දෝෂ, නොගැළපීම් හෝ අසම්පූර්ණ දත්ත හඳුනා ගැනීමට එය උදවු කරයි. උදාහරණයක් ලෙස, පාරිභෝගික
+දත්ත ගබඩාවක, විද්‍යුත් තැපැල් ලිපින සම්මත ආකෘතියක් අනුගමනය කරන බව තහවුරු කිරීම නිවැරදි බව
+සහ විශ්වසනීයත්වය සහතික කරයි.
+
+The other options are incorrect as they describe different stages or purposes within the data processing
+lifecycle. 1) To collect raw data from various sources refers to the data collection phase, not validation. 3)
+To present information in a usable format pertains to data presentation or reporting. 4) To retain data for
+future use describes data storage, while 5) To analyze and transform data into insights focuses on data
+analysis and transformation, not the validation process.
+දත්ත සැකසුම් ජීවන චක්‍රය තුළ විවිධ අවධීන් හෝ අරමුණු විස්තර කරන බැවින් අනෙකුත් විකල්ප වැරදි වේ.
+1) විවිධ මූලාශ්‍රවලින් අමු දත්ත රැස් කිරීම යන්නෙන් අදහස් කරන්නේ දත්ත රැස් කිරීමේ අදියර මිස වලංගු
+කිරීම නොවේ. 3) භාවිතා කළ හැකි ආකෘතියකින් තොරතුරු ඉදිරිපත් කිරීම දත්ත ඉදිරිපත් කිරීම හෝ වාර්තා
+කිරීම සම්බන්ධ වේ. 4) අනාගත භාවිතය සඳහා දත්ත රඳවා තබා ගැනීම දත්ත ගබඩාව විස්තර කරන අතර
+5) දත්ත විශ්ලේෂණය කිරීම සහ තීක්ෂණ බුද්ධිය බවට පරිවර්තනය කිරීම අවධානය යොමු කරන්නේ දත්ත
+විශ්ලේෂණය සහ පරිවර්තනය කෙරෙහි මිස වලංගු කිරීමේ ක්‍රියාවලිය කෙරෙහි නොවේ.
+
+So, the correct answer number is 2.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 2 වේ.
+
+2027 QUIZ SERIES
+2027 QUIZ NO 07 MARKING
+2025/08/11
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2. Match each cloud computing service below with the function they perform.
+පහත එක් එක් වලාකුළු පරිගණන සේවා ඒවා මගින් සිදුවන කාර්යය සමග ගලපන්න.
+
+1)  1 – A, 2 – C, 3 – B
+2)  1 – B, 2 – A, 3 – C
+3)  1 – A, 2 – B, 3 – C
+4)  1 – C, 2 – B, 3 – A
+5)  1 – C, 2 – A, 3 – B
+
+Answer : 3)
+
+Let us first find out more details about each service here.
+අප මෙහිදී මුලින්ම එක් එක් සේවාවන් පිළිබදව වැඩිදුර විස්තර සොයා බලමු.
+
+Infrastructure as a Service / යටිතල පහසුකම් සේවාවක් ලෙස (IaaS)
+IaaS provides the fundamental building blocks of cloud computing by offering virtualized computing
+resources such as servers, storage, and networking over the internet. It allows businesses to avoid the cost
+and complexity of purchasing and managing physical servers, focusing instead on configuring and
+managing their operating systems, applications, and data. For example, services like Amazon EC2 and
+Microsoft Azure Virtual Machines enable users to rent infrastructure on-demand to host and scale
+applications.
+IaaS විසින් අන්තර්ජාලය හරහා සේවාදායකයන්, ගබඩා කිරීම සහ ජාලකරණය වැනි අථත්‍ය කළ පරිගණක
+සම්පත් ලබා දීමෙන් වලාකුළු පරිගණකකරණයේ මූලික ගොඩනැඟිලි කොටස් සපයයි. එය ව්‍යාපාරවලට ඔවුන්ගේ
+මෙහෙයුම් පද්ධති, යෙදුම් සහ දත්ත වින්‍යාස කිරීම සහ කළමනාකරණය කිරීම කෙරෙහි අවධානය යොමු
+කරමින් භෞතික සේවාදායකයන් මිලදී ගැනීමේ සහ කළමනාකරණය කිරීමේ පිරිවැය සහ සංකීර්ණත්වය
+මඟහරවා ගැනීමට ඉඩ සලසයි. උදාහරණයක් ලෙස, Amazon EC2 සහ Microsoft Azure Virtual Machines
+වැනි සේවාවන් පරිශීලකයින්ට ඉල්ලුම මත යටිතල පහසුකම් කුලියට ගැනීමට සහ යෙදුම් පරිමාණයට ලබා
+දෙයි.
+
+Platform as a Service / වේදිකාව සේවාවක් ලෙස (PaaS)
+PaaS offers a cloud-based platform where developers can build, test, deploy, and manage applications
+without worrying about the underlying infrastructure. This model simplifies the development process by
+providing tools, middleware, and runtime environments needed for application creation, while the cloud
+provider handles servers, operating systems, and network configurations. Examples include Google App
+Engine and Heroku, which allow developers to focus on coding rather than infrastructure management.
+PaaS වලාකුළු මත පදනම් වූ වේදිකාවක් පිරිනමයි, සංවර්ධකයින්ට යටින් පවතින යටිතල පහසුකම් ගැන
+කරදර නොවී යෙදුම් තැනීමට, පරීක්ෂා කිරීමට, යෙදවීමට සහ කළමනාකරණය කිරීමට හැකිය. මෙම ආකෘතිය
+යෙදුම් නිර්මාණය සඳහා අවශ්‍ය මෙවලම්, middleware සහ ධාවන කාල පරිසරයන් ලබා දීමෙන් සංවර්ධන
+ක්‍රියාවලිය සරල කරන අතර වලාකුළු සපයන්නා සේවාදායකයන්, මෙහෙයුම් පද්ධති සහ ජාල වින්‍යාසයන්
+හසුරුවයි. උදාහරණ ලෙස Google App Engine සහ Heroku සංවර්ධකයින්ට යටිතල පහසුකම්
+කළමනාකරණයට වඩා කේතීකරණය කෙරෙහි අවධානය යොමු කිරීමට ඉඩ සලසයි.
+
+1. Infrastructure as a Service
+යටිතල පහසුකම් සේවාවක්
+ලෙස (IaaS)
+
+2. Platform as a Service (PaaS)
+පසුතල සේවාවක් ලෙස
+
+3. Software as a Service (SaaS)
+මෘදුකාංග සේවාවක් ලෙස
+A) Provides virtualized computing resources (like servers,
+storage, and networking) over the internet
+අන්තර්ජාලය හරහා අථත්‍ය පරිගණක සම්පත් (සේවාදායක,
+ගබඩා සහ ජාලකරණය වැනි) සපයයි
+
+B) Offers a development platform allowing developers to
+build, deploy, and manage applications
+සංවර්ධකයින්ට යෙදුම් තැනීමට, යෙදවීමට සහ කළමනාකරණය
+කිරීමට ඉඩ සලසන සංවර්ධන වේදිකාවක් පිරිනමයි
+
+C) Delivers ready-to-use software applications over the
+internet without local installation
+දේශීය ස්ථාපනයකින් තොරව අන්තර්ජාලය හරහා භාවිතයට
+සූදානම් මෘදුකාංග යෙදුම් ලබා දෙයි
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Software as a Service / සේවාවක් ලෙස මෘදුකාංග (SaaS)
+SaaS delivers fully functional software applications over the internet, accessible via web browsers or
+dedicated apps. This model eliminates the need for users to install, update, or manage software locally, as
+everything is maintained by the provider. SaaS is ideal for businesses and individuals seeking ready-to-
+use solutions for tasks like document editing, email management, or CRM. Examples include Google
+Workspace (Gmail, Google Docs) and Salesforce, which offer seamless software access and updates.
+SaaS සම්පුර්ණයෙන්ම ක්‍රියාකාරී මෘදුකාංග යෙදුම් අන්තර්ජාලය හරහා ලබා දෙයි, වෙබ් බ්‍රව්සර් හෝ කැපවූ
+යෙදුම් හරහා ප්‍රවේශ විය හැක. සෑම දෙයක්ම සපයන්නා විසින් නඩත්තු කරන බැවින්, මෙම ආකෘතිය
+පරිශීලකයින්ට දේශීයව මෘදුකාංග ස්ථාපනය කිරීම, යාවත්කාලීන කිරීම හෝ කළමනාකරණය කිරීමේ අවශ්‍යතාවය
+ඉවත් කරයි. ලේඛන සංස්කරණය, විද්‍යුත් තැපැල් කළමනාකරණය, හෝ CRM වැනි කාර්යයන් සඳහා භාවිතයට
+සූදානම් විසඳුම් සොයන ව්‍යාපාර සහ පුද්ගලයන් සඳහා SaaS වඩාත් සුදුසු වේ. උදාහරණ ලෙස බාධාවකින්
+තොරව මෘදුකාංග ප්‍රවේශය සහ යාවත්කාලීන ලබා දෙන Google Workspace, Gmail, Google Docs සහ
+Salesforce ඇතුළත් වේ.
+
+Accordingly, the correct answer is 3) 1 – A, 2 – B, 3 – C.
+ඒ අනුව නිවැරදි පිළිතුර වන්නේ 3) 1 – A, 2 – B, 3 – C  වේ.
+
+3. A teacher wants to implement a collaborative online project where students from different schools can
+work together on environmental research. Which ICT tool would be MOST effective for achieving this
+goal while ensuring easy document sharing, real-time collaboration, and communication?
+විවිධ පාසල්වල සිසුන්ට පාරිසරික පර්යේෂණ සඳහා එක්ව වැඩ කළ හැකි සහයෝගී සබැඳි ව්‍යාපෘතියක්
+ක්‍රියාත්මක කිරීමට ගුරුවරයෙකුට අවශ්‍යය. පහසු ලේඛන හුවමාරුව, තථ්‍ය කාලීන සහයෝගීතාව සහ සන්නිවේදනය
+සහතික කරන අතරම මෙම ඉලක්කය සපුරා ගැනීම සඳහා වඩාත් ඵලදායි වන්නේ කුමන ICT මෙවලමද?
+
+1) Microsoft PowerPoint
+2) Google Workspace for Education
+3) WhatsApp
+4) Adobe Photoshop
+5) Local desktop word processor
+
+Answer : 2)
+
+Let's consider each answer / එක් එක් පිළිතුර පිළිබදව සලකා බලමු:
+
+1) Microsoft PowerPoint
+While it is useful for presentations, it lacks robust features for real-time collaboration and multi-tool
+integration required for a full-scale project. It is more suited to creating and presenting information rather
+than collaborating on research.
+එය ඉදිරිපත් කිරීම් සඳහා ප්‍රයෝජනවත් වන අතර, පූර්ණ-පරිමාණ ව්‍යාපෘතියක් සඳහා අවශ්‍ය තත්‍ය කාලීන
+සහයෝගීතාවය සහ බහු-මෙවලම් ඒකාබද්ධ කිරීම සඳහා එහි ශක්තිමත් විශේෂාංග නොමැත. එය පර්යේෂණ
+සඳහා සහයෝගයෙන් කටයුතු කරනවාට වඩා තොරතුරු නිර්මාණය කිරීමට සහ ඉදිරිපත් කිරීමට වඩාත් සුදුසු
+වේ.
+
+2) Google Workspace for Education
+Google Workspace for Education provides a suite of tools that supports collaborative online projects,
+including:
+Google Workspace for Education ඇතුළුව සහයෝගී සබැඳි ව්‍යාපෘති සඳහා සහාය දක්වන මෙවලම්
+කට්ටලයක් සපයයි:
+
+Google Docs:
+For real-time document sharing and collaboration.
+තත්‍ය කාලීන ලේඛන බෙදාගැනීම සහ සහයෝගීතාවය සඳහා.
+
+Google Sheets:
+For analyzing and sharing data.
+දත්ත විශ්ලේෂණය සහ බෙදාගැනීම සඳහා.
+
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+Google Drive:
+For centralized file storage and sharing.
+මධ්‍යගත ගොනු ගබඩා කිරීම සහ බෙදාගැනීම සඳහා.
+
+Google Meet/Chat:
+For real-time communication and discussions.
+තත්‍ය කාලීන සන්නිවේදනය සහ සාකච්ඡා සඳහා.
+
+These tools are accessible online, enabling students from different schools to collaborate regardless of
+location. The suite is user-friendly and widely used in educational settings.
+මෙම මෙවලම් මාර්ගගතව ප්‍රවේශ විය හැකි අතර, විවිධ පාසල්වල සිසුන්ට ස්ථානය කුමක් වුවත් සහයෝගයෙන්
+කටයුතු කිරීමට හැකි වේ. කට්ටලය පරිශීලක-හිතකාමී වන අතර අධ්‍යාපනික සැකසුම් තුළ බහුලව භාවිතා
+වේ.
+
+3) WhatsApp
+WhatsApp is a messaging tool, effective for communication but not ideal for document sharing, real-time
+collaboration, or project management on a larger scale. It lacks document editing features.
+WhatsApp යනු පණිවිඩ හුවමාරු මෙවලමකි, සන්නිවේදනය සඳහා ඵලදායී නමුත් ලේඛන බෙදාගැනීම, තත්‍ය
+කාලීන සහයෝගීතාවය හෝ විශාල පරිමාණයෙන් ව්‍යාපෘති කළමනාකරණය සඳහා සුදුසු නොවේ. එහි ලේඛන
+සංස්කරණය කිරීමේ විශේෂාංග නොමැත.
+
+4) Adobe Photoshop
+Photoshop is a graphic design tool. It is not relevant for collaborative research or document sharing. It
+focuses on image editing and design rather than collaborative writing or analysis.
+Photoshop යනු ග්‍රැෆික් නිර්මාණ මෙවලමකි. සහයෝගී පර්යේෂණ හෝ ලේඛන බෙදාගැනීම සඳහා එය අදාළ
+නොවේ. එය සහයෝගයෙන් ලිවීමට හෝ විශ්ලේෂණයට වඩා රූප සංස්කරණය සහ සැලසුම් කෙරෙහි අවධානය
+යොමු කරයි.
+
+5) Local desktop word processor
+Tools like Microsoft Word (offline) are limited to single-device usage unless paired with cloud services.
+They do not inherently support real-time collaboration or easy sharing among multiple schools without
+external tools.
+Microsoft Word (offline) වැනි මෙවලම් වලාකුළු සේවා සමඟ යුගල නොකළහොත් තනි උපාංග භාවිතයට
+සීමා වේ. ඔවුන් සහජයෙන්ම තත්‍ය කාලීන සහයෝගීතාවයට හෝ බාහිර මෙවලම් නොමැතිව බහු පාසල් අතර
+පහසුවෙන් බෙදා ගැනීමට සහාය නොදක්වයි.
+
+So, the correct answer is 2) Google Workspace for Education.
+එමනිසා, නිවැරදි පිළිතුර වන්නේ 2) Google Workspace for Education  වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+
+4. Which of the following best describes the difference between real-time processing and batch processing?
+තථ්‍ය කාලීන සැකසුම් සහ කාණ්ඩ සැකසීම අතර වෙනස වඩාත් හොඳින් විස්තර කරන්නේ පහත සඳහන්
+මොනවාද?
+
+1) Real-time processing processes data immediately as it is entered, while batch processing processes
+data after collecting it over a period.
+තථ්‍ය කාලීන සැකසුම් දත්ත ඇතුළත් කළ වහාම දත්ත සකසන අතර, කාණ්ඩ සැකසුම් කාල සීමාවක් තුළ
+දත්ත රැස් කිරීමෙන් පසු දත්ත සකසයි.
+
+2) Real-time processing requires a network connection, while batch processing does not.
+තථ්‍ය කාලීන සැකසුම් සඳහා ජාල සම්බන්ධතාවයක් අවශ්‍ය වන අතර කාණ්ඩ සැකසීමට අවශ්‍ය නොවේ.
+
+3) Real-time processing is typically slower than batch processing due to continuous data handling.
+අඛණ්ඩ දත්ත හැසිරවීම හේතුවෙන් තථ්‍ය කාලීන සැකසුම් කාණ්ඩ සැකසීමට වඩා සාමාන්‍යයෙන් මන්දගාමී
+වේ.
+
+4) Real-time processing is used for payroll systems, while batch processing is used for airline reservation
+systems.
+තථ්‍ය කාලීන සැකසුම් වැටුප් ගෙවීම් පද්ධති සඳහා භාවිතා කරන අතර කාණ්ඩ සැකසීම ගුවන් සේවා
+වෙන්කිරීමේ පද්ධති සඳහා භාවිතා වේ.
+
+5) Both real-time processing and batch processing require manual intervention to execute tasks.
+තථ්‍ය කාලීන සැකසුම් සහ කාණ්ඩ සැකසීම යන දෙකටම කාර්යයන් ක්‍රියාත්මක කිරීමට අතින් මැදිහත්වීමක්
+අවශ්‍ය වේ.
+
+Answer : 1)
+
+Let's consider each answer / එක් එක් පිළිතුර පිළිබදව සලකා බලමු:
+
+Statement / ප්‍රකාශය 1)
+Real-time processing handles data as soon as it is generated, ensuring immediate results (ex: banking
+transactions, air traffic control). Batch processing collects data over time and processes it later as a group
+(ex: payroll, billing). This is suitable for tasks that don't require instant processing.
+තත්‍ය කාලීන සැකසුම් දත්ත උත්පාදනය වූ විගස හසුරුවන අතර, ක්ෂණික ප්‍රතිඵල සහතික කරයි (උදා:
+බැංකු ගනුදෙනු, ගුවන් ගමනාගමන පාලනය). කණ්ඩායම් සැකසීම කාලයත් සමඟ දත්ත රැස්කර කණ්ඩායමක්
+ලෙස පසුව සකසයි (උදා: වැටුප් ගෙවීම, බිල්පත් කිරීම). මෙය ක්ෂණික සැකසුම් අවශ්‍ය නොවන කාර්යයන්
+සඳහා සුදුසු වේ.
+
+Statement / ප්‍රකාශය 2)
+Incorrect because network connectivity is not a defining factor for either type. Both can function with or
+without a network depending on the system's setup.
+ජාල සම්බන්ධතාව වර්ග දෙක සඳහා නිර්වචන සාධකයක් නොවන නිසා වැරදියි. පද්ධතියේ සැකසුම අනුව
+ජාලයක් ඇතිව හෝ නැතිව දෙකම ක්‍රියා කළ හැක.
+
+Statement / ප්‍රකාශය 3)
+Incorrect because real-time processing is faster by design, focusing on quick responses. In contrast,
+batch processing is slower due to the volume of data being processed at once.
+ඉක්මන් ප්‍රතිචාර කෙරෙහි අවධානය යොමු කරමින් නිර්මාණය අනුව තත්‍ය කාලීන සැකසුම් වේගවත් වන
+බැවින් වැරදියි. ඊට ප්‍රතිවිරුද්ධව, එකවර සැකසෙන දත්ත පරිමාව හේතුවෙන් කණ්ඩායම් සැකසීම මන්දගාමී
+වේ.
+
+Statement / ප්‍රකාශය 4)
+Incorrect because payroll systems typically use batch processing (periodic processing), while airline
+reservation systems rely on real-time processing for immediate updates on seat availability and
+bookings.
+වැටුප් ගෙවීම් පද්ධති සාමාන්‍යයෙන් කණ්ඩායම් සැකසීම (ආවර්තිතා සැකසීම) භාවිතා කරන නිසා වැරදියි,
+නමුත් ගුවන් සේවා වෙන් කිරීමේ පද්ධති ආසන ලබා ගැනීමේ හැකියාව සහ වෙන් කිරීම් පිළිබඳ ක්ෂණික
+යාවත්කාලීන කිරීම් සඳහා තත්‍ය කාලීන සැකසුම් මත රඳා පවතී.
+
+Statement / ප්‍රකාශය 5)
+Incorrect because both real-time and batch systems are typically automated, with manual intervention
+only needed in exceptional cases (ex: system errors or exceptional processing requirements).
+වැරදි නිසා තත්‍ය කාලීන සහ කණ්ඩායම් පද්ධති සාමාන්‍යයෙන් ස්වයංක්‍රීය බැවින්, අතින් මැදිහත් වීමක්
+අවශ්‍ය වන්නේ සුවිශේෂී අවස්ථාවන්හිදී පමණි (උදා: පද්ධති දෝෂ හෝ සුවිශේෂී සැකසුම් අවශ්‍යතා).
+2027 QUIZ SERIES
+#ictfromabc
+-5-
+
+Therefore, the correct statement is option 1).
+එබැවින්, නිවැරදි ප්‍රකාශය විකල්ප 1) වේ.
+
+5. Which of the following statements best highlights a social benefit of ICT in daily life?
+එදිනෙදා ජීවිතයේදී තොරතුරු හා සන්නිවේදන තාක්ෂණය භාවිතා කිරීමේ සමාජ ප්‍රතිලාභයක් වඩාත් හොඳින්
+ඉස්මතු කරන්නේ පහත සඳහන් කුමන ප්‍රකාශයද?
+
+1) ICT makes it possible to create and distribute software legally without licenses
+තොරතුරු හා සන්නිවේදන තාක්ෂණය මඟින් බලපත්‍ර නොමැතිව නීත්‍යානුකූලව මෘදුකාංග නිර්මාණය කිරීමට
+සහ බෙදා හැරීමට හැකි වේ
+
+2) ICT can increase productivity in manufacturing but reduces employment in other sectors
+තොරතුරු හා සන්නිවේදන තාක්ෂණය මගින් නිෂ්පාදන ඵලදායිතාව වැඩි කළ හැකි නමුත් අනෙකුත්
+අංශවල රැකියා අඩු කරයි
+
+3) ICT improves access to information, enabling people to connect and collaborate globally
+තොරතුරු හා සන්නිවේදන තාක්ෂණය, තොරතුරු වෙත ප්‍රවේශය වැඩි දියුණු කරයි, ගෝලීය වශයෙන්
+සම්බන්ධ වීමට සහ සහයෝගයෙන් කටයුතු කිරීමට මිනිසුන්ට හැකි වේ
+
+4) ICT reduces the environmental impact of electronic waste through continuous upgrades
+තොරතුරු හා සන්නිවේදන තාක්ෂණය අඛණ්ඩ වැඩිදියුණු කිරීම් හරහා ඉලෙක්ට්‍රොනික අපද්‍රව්‍යවල පාරිසරික
+බලපෑම අඩු කරයි
+
+5) ICT allows users to access high-quality entertainment, reducing the need for physical activities
+තොරතුරු හා සන්නිවේදන තාක්ෂණය මඟින් පරිශීලකයින්ට උසස් තත්ත්වයේ විනෝදාස්වාදය සඳහා ප්‍රවේශ
+වීමට ඉඩ සලසයි, ශාරීරික ක්‍රියාකාරකම්වල අවශ්‍යතාවය අඩු කරයි
+
+Answer : 3)
+
+ICT brings various social benefits by enhancing communication, collaboration, and access to resources
+in daily life.
+එදිනෙදා ජීවිතයේදී සන්නිවේදනය, සහයෝගීතාවය සහ සම්පත් වෙත ප්‍රවේශය වැඩි දියුණු කිරීම මගින්
+තොරතුරු හා සන්නිවේදන තාක්ෂණ විවිධ සමාජ ප්‍රතිලාභ ගෙන එයි.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This is a legal or economic benefit, not primarily social.
+මෙය නෛතික හෝ ආර්ථික ප්‍රතිලාභයක් මිස මූලික වශයෙන් සමාජීය ප්‍රතිලාභයක් නොවේ.
+
+Option / විකල්පය 2)
+This relates more to economic impacts rather than social benefits.
+මෙය සමාජ ප්‍රතිලාභවලට වඩා ආර්ථික බලපෑම්වලට සම්බන්ධයි.
+
+Option / විකල්පය 3)
+Correct. This highlights ICT's role in fostering global social connections and collaboration.
+නිවැරදියි. මෙය ගෝලීය සමාජ සම්බන්ධතා සහ සහයෝගීතාව වර්ධනය කිරීමෙහිලා තොරතුරු හා
+සන්නිවේදන තාක්ෂණය හි කාර්යභාරය ඉස්මතු කරයි.
+
+Option / විකල්පය 4)
+This addresses environmental benefits rather than social ones.
+මෙය සමාජීය ප්‍රතිලාභවලට වඩා පාරිසරික ප්‍රතිලාභ පිළිබඳවයි.
+
+Option / විකල්පය 5)
+While this could have a social impact, it focuses more on individual lifestyle changes than broad social
+benefits.
+මෙය සමාජීය බලපෑමක් ඇති කළ හැකි වුවද, එය පුළුල් සමාජ ප්‍රතිලාභවලට වඩා පුද්ගල ජීවන රටාව
+වෙනස් කිරීම කෙරෙහි වැඩි අවධානයක් යොමු කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර වන්නේ 3) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-6-
+
+6. What was a key limitation of first-generation computers compared to later generations?
+පසු පරම්පරාවන්ට සාපේක්ෂව පළමු පරම්පරාවේ පරිගණකවල ප්‍රධාන සීමාව කුමක්ද?
+
+1) Lack of stored program capability / ගබඩා කර ඇති වැඩසටහන් හැකියාව නොමැතිකම
+2) Inability to perform basic arithmetic operations / මූලික ගණීතමය මෙහෙයුම් සිදු කිරීමට නොහැකි වීම
+3) High reliance on mechanical components / යාන්ත්‍රික සංරචක මත ඉහළ විශ්වාසයක් පැවතීම
+4) Use of transistors instead of vacuum tubes / රික්තක නල වෙනුවට ට්‍රාන්සිස්ටර භාවිතය
+5) Integration of artificial intelligence algorithms / කෘතිම බුද්ධි ඇල්ගොරිතම ඒකාබද්ධ කිරීම
+
+Answer : 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+First-generation computers primarily relied on hardwired programming, meaning instructions had to be
+manually configured using switches or punched cards. They did not have the concept of a stored program,
+which was introduced later with the von Neumann architecture. This limitation made reprogramming time-
+consuming and error-prone. Therefore this is the correct answer.
+පළමු පරම්පරාවේ පරිගණක මූලික වශයෙන් දෘඪ රැහැන්ගත ක්‍රමලේඛනය මත රඳා පැවතුනි, එනම් ස්විච
+හෝ පන්ච් කාඩ්පත් භාවිතයෙන් උපදෙස් අතින් වින්‍යාස කළ යුතු බවයි. පසුව වොන් නියුමන් ගෘහ නිර්මාණ
+ශිල්පය සමඟින් හඳුන්වා දුන් ගබඩා කරන ලද වැඩසටහනක් පිළිබඳ සංකල්පය ඔවුන් සතුව නොතිබුණී. මෙම
+සීමාව නිසා ප්‍රතික්‍රමලේඛනය කාලය ගතවන අතර දෝෂ සහිතයි. එබැවින් මෙය නිවැරදි පිළිතුරයි.
+
+Option / විකල්ප 2)
+This is incorrect. First-generation computers could perform basic arithmetic and logic operations, though
+they were slow compared to later generations.
+මෙය වැරදියි. පළමු පරම්පරාවේ පරිගණකවලට මූලික ගණීතමය සහ තාර්කික මෙහෙයුම් සිදු කළ හැකි වුවද
+පසු පරම්පරාවන්ට සාපේක්ෂව ඒවා මන්දගාමී විය.
+
+Option / විකල්ප 3)
+This is incorrect. First-generation computers used electronic components, specifically vacuum tubes,
+rather than mechanical parts.
+මෙය වැරදියි. පළමු පරම්පරාවේ පරිගණක යාන්ත්‍රික කොටස් වෙනුවට ඉලෙක්ට්‍රොනික උපාංග, විශේෂයෙන්
+රික්තක නල භාවිතා කරන ලදී.
+
+Option / විකල්ප 4)
+This is incorrect. First-generation computers used vacuum tubes for processing. Transistors replaced
+vacuum tubes in second-generation computers, significantly improving reliability and reducing size.
+මෙය වැරදියි. පළමු පරම්පරාවේ පරිගණක සැකසීම සඳහා රික්තක නල භාවිතා කරන ලදී. ට්‍රාන්සිස්ටර දෙවන
+පරම්පරාවේ පරිගණකවල රික්තක නල ප්‍රතිස්ථාපනය කර, විශ්වසනීයත්වය සැලකිය යුතු ලෙස වැඩිදියුණු
+කිරීම සහ ප්‍රමාණය අඩු කිරීම.
+
+Option / විකල්ප 5)
+This is incorrect. Artificial intelligence was not a concept explored during the first generation of
+computers, this development came much later in the field of computing.
+මෙය වැරදියි. කෘත්‍රිම බුද්ධිය පරිගණකවල පළමු පරම්පරාවේදී ගවේෂණය කරන ලද සංකල්පයක් නොවේ,
+මෙම වර්ධනය බොහෝ පසුකාලීනව පරිගණක ක්ෂේත්‍රයේ ඇති විය.
+
+Therefore, the correct answer is 1).
+එබැවින් නිවැරදි පිළිතුර 1) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-7-
+
+7. The Jacquard Loom, a key influence in computing, is known for introducing which concept into
+mechanical systems?
+පරිගණකකරණයේ ප්‍රධාන බලපෑමක් වන ජැකාර්ඩ් ලූම් යාන්ත්‍රික පද්ධති තුළට කුමන සංකල්පය හඳුන්වා දීම
+සඳහා ප්‍රසිද්ධියට පත්ව තිබේද?
+
+1) Binary arithmetic / ද්විමය අංක ගණීතය
+2) Punch card programming  / සිදුරුපත් වැඩසටහන්කරණය
+3) Stored program architecture / ආචිත ක්‍රමලේඛ නිර්මාණ ශිල්පය
+4) Floating-point calculations / ඉපිලීම් ලක්ෂ්‍ය ගණනය කිරීම්
+5) Boolean logic / බූලියානු තර්කය
+
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+While binary arithmetic is foundational to modern computing, it was not introduced by the Jacquard
+Loom. Binary arithmetic was formally developed by Gottfried Wilhelm Leibniz in the 17th century.
+ද්විමය ගණීතය නවීන පරිගණනය සඳහා පදනම වන අතර, එය ජැකාර්ඩ් ලූම් විසින් හඳුන්වා දුන්නේ නැත.
+ද්විමය අංක ගණීතය 17 වන සියවසේදී Gottfried Wilhelm Leibniz  විසින් විධිමත් ලෙස සංවර්ධනය කරන
+ලදී.
+
+Option / විකල්ප 2)
+The Jacquard Loom, invented by Joseph Marie Jacquard in 1804, revolutionized textile manufacturing
+by using punch cards to control the patterns woven into fabrics. These punch cards allowed the loom to
+execute complex weaving patterns automatically by reading the presence or absence of holes in the
+cards, effectively introducing the concept of programmable machines.
+1804 දී Joseph Marie Jacquard විසින් සොයා ගන්නා ලද ජැකාර්ඩ් ලූම් රෙදිපිළිවල වියන ලද රටා පාලනය
+කිරීම සඳහා පන්ච් කාඩ් භාවිතා කරමින් රෙදිපිළි නිෂ්පාදනයේ විප්ලවීය වෙනසක් ඇති කළේය. මෙම පන්ච්
+කාඩ්පත් මගින් කාඩ්පත් වල සිදුරු තිබීම හෝ නොමැති වීම කියවීමෙන් යන්ත්‍රවල ඇති සිදුරු ස්වයංක්‍රීයව
+ක්‍රියාත්මක කිරීමට රෙදි වියන යන්ත්‍ර යන්ත්‍ර පිළිබඳ සංකල්පය ඵලදායී ලෙස ක්‍රියාත්මක කිරීමට හැකි විය.
+
+Option / විකල්ප 3)
+This concept, where both data and instructions are stored in a computer’s memory, was introduced by
+John von Neumann in the 1940s and is unrelated to the Jacquard Loom.
+දත්ත සහ උපදෙස් දෙකම පරිගණකයේ මතකයේ ගබඩා කර ඇති මෙම සංකල්පය, 1940 ගණන්වලදී John
+von Neumann විසින් හඳුන්වා දෙන ලද අතර එය ජැකාර්ඩ් ලූම් හා සම්බන්ධ නොවේ.
+
+Option / විකල්ප 4)
+This pertains to the representation of real numbers in computers and is not relevant to the operation of
+the Jacquard Loom.
+මෙය පරිගණකවල තාත්වික සංඛ්‍යා නිරූපණයට අදාළ වන අතර ජැකාර්ඩ් ලූම් හි ක්‍රියාකාරිත්වයට අදාළ
+නොවේ.
+
+Option / විකල්ප 5)
+Boolean logic, developed by George Boole, underpins modern computing's logical operations but is
+unrelated to the Jacquard Loom.
+ජෝර්ජ් බූල් විසින් වැඩි දියුණු කරන ලද බූලියන් තර්කනය, නවීන පරිගණනයේ තාර්කික ක්‍රියාකාරකම් වලට
+අනුබල දෙන නමුත් ජැකාර්ඩ් ලූම් හා සම්බන්ධ නොවේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-8-
+
+8. What is a characteristic of direct data entry methods as compared to keyboard entry?
+යතුරු පුවරුව මගින් දත්ත ආදානය කිරීම සමඟ සැසඳීමේදී සෘජුව දත්ත ආදානය කිරීමේ ක්‍රමවල පවතින
+ලක්ෂණයක් වන්නේ කුමක්ද?
+
+1) Less speed / වේගය අඩුය.
+2) Less efficiency / අකාර්යක්ෂමයි.
+3) High reliability / ඉහළ විශ්වසනීයත්වය.
+4) Takes more time / වැඩි කාලයක් ගතවේ.
+5) Fully automatic / පූර්ණ ස්වයංක්‍රීය වේ.
+
+Answer : 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Direct data entry methods, such as barcode scanning or RFID, are typically faster than keyboard entry,
+not slower.
+තීරු කේත කියවීම හෝ RFID වැනි සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම සාමාන්‍යයෙන් යතුරුපුවරු ඇතුළත්
+කිරීමට වඩා වේගවත් වේ, මන්දගාමී නොවේ.
+
+Option / විකල්පය 2)
+Direct data entry methods are designed for high efficiency, reducing errors and time compared to manual
+keyboard input.
+සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම නිර්මාණය කර ඇත්තේ අතින් යතුරුපුවරු ආදානයට සාපේක්ෂව ඉහළ
+කාර්යක්ෂමතාව, දෝෂ සහ කාලය අඩු කිරීම සඳහාය.
+
+Option / විකල්පය 3)
+Correct. Direct data entry methods minimize human error by automating the input process, making them
+more reliable than manual keyboard entry.
+නිවැරදියි. සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම මඟින් ආදාන ක්‍රියාවලිය ස්වයංක්‍රීය කිරීම මගින් මානව දෝෂ
+අවම කරයි, ඒවා අතින් යතුරුපුවරු ප්‍රවේශයට වඩා විශ්වාසදායක වේ.
+
+Option / විකල්පය 4)
+Direct data entry methods are usually quicker, as they eliminate the need for manual typing.
+සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම සාමාන්‍යයෙන් ඉක්මන් වේ, ඒවා අතින් යතුරුකරණයේ අවශ්‍යතාවය ඉවත්
+කරයි.
+
+Option / විකල්පය 5)
+While many direct data entry methods are semi-automatic or automated, not all of them are fully
+automatic.
+බොහෝ සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම අර්ධ ස්වයංක්‍රීය හෝ ස්වයංක්‍රීය වන අතර, ඒවා සියල්ලම පූර්ණ
+ස්වයංක්‍රීය නොවේ.
+
+So, the correct answer number is 3.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 3 වේ.
+
+9. A company is using a printer to create large architectural plans. Which printer type would provide the best
+results for large-format printing?
+සමාගමක් විශාල නිර්මාණ සැලසුම් නිර්මාණය කිරීමට මුද්‍රණ යන්ත්‍රයක් භාවිතා කරයි. විශාල ආකෘති මුද්‍රණය
+සඳහා හොඳම ප්‍රතිඵල සපයන මුද්‍රණ යන්ත්‍ර වර්ගය කුමක්ද?
+
+1) Inkjet Printer / තීන්ත විදුම් මුද්‍රණ යන්ත්‍රය
+2) Laser Printer / ලේසර් මුද්‍රණ යන්ත්‍රය
+3) Plotter / ලකුණුකරණය
+4) Dot Matrix Printer / තිත් න්‍යාස මුද්‍රණ යන්ත්‍රය
+5) Thermal Printer / තාප මුද්‍රකය
+
+Answer : 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+2027 QUIZ SERIES
+#ictfromabc
+-9-
+
+Option / විකල්පය 1)
+While capable of high-quality printing, inkjet printers are generally not optimized for large-format or
+detailed line drawings required in architectural plans.
+උසස් තත්ත්වයේ මුද්‍රණය කිරීමේ හැකියාවක් ඇති අතර, තීන්ත විදුම් මුද්‍රණ යන්ත්‍ර සාමාන්‍යයෙන් ගෘහ නිර්මාණ
+සැලසුම්වල අවශ්‍ය විශාල හැඩතල හෝ සවිස්තරාත්මක රේඛා ඇඳීම් සඳහා ප්‍රශස්ත නොවේ.
+
+Option / විකල්පය 2)
+Laser printers are efficient and produce sharp text and images, but they are not typically designed for
+large-format printing or intricate line work.
+ලේසර් මුද්‍රණ යන්ත්‍ර කාර්යක්ෂම වන අතර තියුණු පාඨ සහ රූප නිපදවයි, නමුත් ඒවා සාමාන්‍යයෙන් විශාල
+ආකෘති මුද්‍රණ හෝ සංකීර්ණ රේඛා වැඩ සඳහා නිර්මාණය කර නොමැත.
+
+Option / විකල්පය 3)
+This is the correct answer. Plotters are specifically designed for large-format printing, making them ideal
+for architectural plans, engineering drawings, and CAD outputs. They excel in precision and can handle
+detailed line work on large paper sizes.
+මෙය නිවැරදි පිළිතුරයි. ලකුණුකරනය විශේෂයෙන්ම විශාල ආකාරෙය් මුද්‍රණය සඳහා නිර්මාණය කර ඇති
+අතර, ඒවා ගෘහ නිර්මාණ සැලසුම්, ඉංජිනේරු ඇඳීම් සහ CAD නිමැවුම් සඳහා වඩාත් සුදුසු වේ. ඒවා
+නිරවද්‍යතාවයෙන් වැඩි වන අතර විශාල කඩදාසි ප්‍රමාණයේ සවිස්තරාත්මක රේඛා වැඩ හැසිරවිය හැකිය.
+
+Option / විකල්පය 4)
+These are outdated and mainly used for simple, low-quality printing, such as receipts or invoices, not
+suitable for architectural work.
+මේවා යල් පැන ගිය ඒවා වන අතර ප්‍රධාන වශයෙන් වාස්තු විද්‍යාත්මක කටයුතු සඳහා සුදුසු නොවන කුවිතාන්සි
+හෝ ඉන්වොයිස් වැනි සරල, අඩු ගුණාත්මක මුද්‍රණය සඳහා භාවිතා වේ.
+
+Option / විකල්පය 5)
+Thermal printers are primarily used for printing labels, receipts, or barcodes, and they do not support large-
+format or high-quality printing.
+තාප මුද්‍රණ යන්ත්‍ර මූලික වශයෙන් භාවිත වන්නේ ලේබල්, රිසිට්පත් හෝ තීරු කේත මුද්‍රණය කිරීම සඳහා වන
+අතර ඒවා විශාල ආකෘතියක් හෝ උසස් තත්ත්වයේ මුද්‍රණය සඳහා සහාය නොදක්වයි.
+
+So, the correct answer number is 3.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 3 වේ.
+
+10. Which scenario demonstrates the best practical use of a flatbed scanner?
+පැතලි තල සුපරීක්ෂකය හොඳම ප්‍රායෝගික භාවිතය පෙන්නුම් කරන්නේ කුමන අවස්ථාවේදීද?
+
+1) Scanning a check to verify its authenticity of a cheque.
+චෙක්පතක සත්‍යතාව තහවුරු කිරීම සඳහා චෙක්පතක් පරිලෝකනය කිරීම.
+
+2) Digitizing a printed photograph for editing and storage.
+සංස්කරණය සහ ගබඩා කිරීම සඳහා මුද්‍රිත ඡායාරූපයක් ඩිජිටල් කිරීම.
+
+3) Reading marks on a survey / සමීක්ෂණයක ලකුණු කියවීම.
+4) Creating editable copies of handwritten documents.
+අතින් ලියන ලද ලේඛනවල සංස්කරණය කළ හැකි පිටපත් නිර්මාණය කිරීම.
+
+5) Capturing fingerprints for biometric identification.
+ජෛවමිතික හඳුනාගැනීම සඳහා ඇඟිලි සලකුණු සුපරීක්ෂණය.
+
+Answer : 2)
+
+Flatbed scanners are versatile devices that create high-quality digital copies of physical documents or
+images by scanning them with precision and detail.
+පැතලි තල සුපිරික්සකය යනු භෞතික ලේඛනවල හෝ රූපවල නිරවද්‍යතාවයෙන් සහ සවිස්තරාත්මකව
+සුපිරික්සනය කිරීමෙන් උසස් තත්ත්වයේ ඩිජිටල් පිටපත් නිර්මාණය කරන බහුකාර්ය උපාංග වේ.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+2027 QUIZ SERIES
+#ictfromabc
+-10-
+
+Option / විකල්පය 1)
+Incorrect. Verifying authenticity of a cheque, usually requires a MICR
+වැරදි වේ. චෙක්පතක සත්‍යතාව තහවුරු කිරීම සඳහා සාමාන්‍යයෙන් MICR අවශ්‍ය වේ
+
+Option / විකල්පය 2)
+Correct, as flatbed scanners are commonly used for converting printed photographs into editable and
+storable digital images.
+මුද්‍රිත ඡායාරූප සංස්කරණය කළ හැකි සහ ගබඩා කළ හැකි ඩිජිටල් රූප බවට පරිවර්තනය කිරීම සඳහා
+පැතලි තල සුපිරික්සක බහුලව භාවිතා වන බැවින් නිවැරදි වේ.
+
+Option / විකල්පය 3)
+Incorrect. This task is better suited for an Optical Mark Reader (OMR), not a flatbed scanner.
+වැරදි වේ. මෙම කාර්යය වඩාත් සුදුසු වන්නේ පැතලි තල සුපිරික්සකයකට නොව ප්‍රකාශ ලකුණු කියවනය
+(OMR) සඳහා ය.
+
+Option / විකල්පය 4)
+Incorrect. This task requires OCR (Optical Character Recognition) to convert handwritten copies into
+digital text that can be edited.
+වැරදි වේ. මෙම කාර්යය සඳහා OCR (ප්‍රකාශ අනුලක්ෂණ කියවන) අවශ්‍ය වන්නේ අතින් ලියන ලද පිටපත්
+සංස්කරණය කළ හැකි සංඛ්‍යාංක පෙළ බවට පරිවර්තනය කිරීම සඳහා ය.
+
+Option / විකල්පය 5)
+Incorrect. Biometric scanners are specifically designed for capturing fingerprints, not flatbed scanners.
+වැරදි වේ. පැතලි තල සුපිරික්සක නොව ඇඟිලි සලකුණු ලබා ගැනීම සඳහා විශේෂයෙන් නිර්මාණය කර
+ඇත්තෙ ජෛවමිතික සුපිරික්සක වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර වන්නේ 2) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-11-

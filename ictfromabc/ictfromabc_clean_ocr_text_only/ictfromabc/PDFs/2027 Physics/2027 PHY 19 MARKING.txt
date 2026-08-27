@@ -1,0 +1,418 @@
+1. Which of the following statements about the most significant digit (MSD) is correct?
+වැඩිම වෙසෙසි ඉලක්කම් පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි කුමක්ද?
+
+1) It determines the number of digits in a number but does not affect its magnitude
+එය සංඛ්‍යාවක ඉලක්කම් ගණන තීරණය කරයි, නමුත් එහි විශාලත්වයට බලපාන්නේ නැත
+
+2) It is always greater than all other digits in the number
+එය සැමවිටම සංඛ්‍යාවේ අනෙකුත් සියලුම ඉලක්කම් වලට වඩා විශාල වේ
+
+3) It can be used to estimate the size or magnitude of a number
+එය සංඛ්‍යාවක ප්‍රමාණය හෝ විශාලත්වය ඇස්තමේන්තු කිරීමට භාවිතා කළ හැකිය
+
+4) It is the last digit in a decimal number
+එය දශම සංඛ්‍යාවක අවසාන ඉලක්කම් වේ
+
+5) It is irrelevant in sorting numbers in ascending order
+ආරෝහණ අනුපිළිවෙලින් සංඛ්‍යා වර්ග කිරීමේදී එය අදාළ නොවේ
+
+Answer: 3)
+
+The most significant digit (MSD) is the leftmost digit of a number, and it primarily determines the
+number’s magnitude, allowing quick estimation and comparison of sizes.
+වැඩිම වෙසෙසි ඉලක්කම් යනු සංඛ්‍යාවක වම් කෙළවරේ ඇති ඉලක්කම් වන අතර, එය ප්‍රධාන වශයෙන්
+සංඛ්‍යාවේ විශාලත්වය තීරණය කරයි, එමඟින් ඉක්මන් ඇස්තමේන්තු කිරීමට සහ ප්‍රමාණ සංසන්දනය කිරීමට
+ඉඩ සලසයි.
+
+Therefore the correct answer is option 3).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 3) වේ.
+
+Consider the following numbers / පහත සංඛ්‍යා සලකා බලන්න:
+
+A. 1011.1012
+B. 13.58
+C. 11.62510
+
+2. Which of the above numbers is equal to B.A in hexadecimal?
+ඉහත සංඛ්‍යාවලින් ෂඩ් දශමයෙන් B.A ට සමාන වන්නේ කුමන සංඛ්‍යාවද?
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A and C only
+A සහ C පමණි
+5) All of these
+ඉහත සියල්ල
+
+Answer: 5)
+
+Understand the target value / ඉලක්ක අගය තේරුම් ගන්න
+
+Hexadecimal B.A means / ෂඩ් දශම B.A යන්නෙන් අදහස් වන්නේ:
+
+B
+A
+11
+10
+
+10/16
+11
+0.625
+= 11.6252
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 19
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Convert the given numbers to decimal / දී ඇති සංඛ්‍යා දශමයට පරිවර්තනය කරන්න
+
+1011.1012 → Decimal / දශමය
+
+1
+0
+1
+1
+.1
+0
+1
+23
+22
+21
+20
+2-1
+2-2
+2-3
+8
+4
+2
+1
+1/2
+0/4
+1/8
+8
+0
+2
+1
+0.5
+0
+0.125
+11
+.625
+= 11.6252
+
+13.58 → Decimal / දශමය
+
+1
+3
+.5
+81
+80
+8-1
+8
+1
+5/8
+8
+3
+0.625
+11
+0.625
+= 11.625
+
+Therefore all of the given numbers (A, B, and C) are equal to B.A16
+එබැවින් දී ඇති සියලුම සංඛ්‍යා (A, B සහ C) B.A16 ට සමාන වේ.
+
+3. Which of the following statements about coding systems is correct?
+කේතකරණ පද්ධති පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි කුමක්ද?
+
+1) ASCII is a coding system used to represent numbers in hexadecimal only.
+ASCII යනු ෂඩ් දශමයෙන් පමණක් සංඛ්‍යා නිරූපණය කිරීමට භාවිතා කරන කේතකරණ පද්ධතියකි.
+
+2) Unicode can represent characters from almost all languages in the world.
+යුනිකෝඩ් වලට ලෝකයේ සියලුම භාෂාවලින් පාහේ අක්ෂර නිරූපණය කළ හැකිය.
+
+3) Binary code cannot be used to represent text in computers.
+පරිගණකවල පෙළ නිරූපණය කිරීමට ද්විමය කේතය භාවිතා කළ නොහැක.
+
+4) UTF-8 is a variable-length coding system that can represent all Unicode characters.
+UTF-8 යනු සියලුම යුනිකෝඩ් අක්ෂර නිරූපණය කළ හැකි විචල්‍ය-දිග කේතීකරණ පද්ධතියකි.
+
+5) EBCDIC is a coding system used for storing images.
+EBCDIC යනු රූප ගබඩා කිරීම සඳහා භාවිතා කරන කේතීකරණ පද්ධතියකි.
+
+Answer: 2)
+
+Unicode covers virtually all characters from all writing systems.
+යුනිකෝඩ් සියලුම ලිවීමේ පද්ධතිවල සියලුම අක්ෂර පාහේ ආවරණය කරයි.
+
+ASCII represents characters using 7 or 8 bits, not just hexadecimal.
+ASCII ෂඩ් දශම පමණක් නොව බිටු 7ක් හෝ 8ක් භාවිතා කරමින් අක්ෂර නියෝජනය කරයි.
+
+Binary is the foundation of all computer data, including text.
+ද්විමය යනු පෙළ ඇතුළුව සියලුම පරිගණක දත්තවල පදනමයි.
+
+UTF-8 is indeed a Unicode encoding, but the question asks for the system that covers all languages, so
+Unicode itself is the most general answer.
+UTF-8 ඇත්ත වශයෙන්ම යුනිකෝඩ් කේතන ක්‍රමයකි, නමුත් ප්‍රශ්නය සියලුම භාෂා ආවරණය කරන පද්ධතිය
+සඳහා අසයි, එබැවින් යුනිකෝඩ් යනු වඩාත් පොදු පිළිතුරයි.
+
+EBCDIC is a text encoding system, not for images.
+EBCDIC යනු රූප සඳහා නොව පෙළ කේතීකරණ පද්ධතියකි.
+
+Therefore the correct answer is option 2).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 2) වේ.
+-2-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+4. In the binary number 110101₂, which of the following statements is correct?
+ද්විමය සංඛ්‍යාව 110101₂ හි, පහත සඳහන් ප්‍රකාශ අතුරෙන් නිවැරදි වන්නේ කුමක්ද?
+
+1) MSB = rightmost bit 1, LSD = leftmost bit 1
+2) MSB = leftmost bit 1, LSD = rightmost bit 1
+3) Both MSB and LSD are always zero
+4) MSB = 0, LSD = 1
+5) MSB = 1, LSD = 0
+
+Answer : 2)
+
+For the binary number 110101₂:
+110101₂ ද්විමය අංකය සඳහා:
+
+The Most Significant Bit (MSB) is the leftmost bit, which is 1.
+වඩාත්ම වැදගත් බිට් එක (MSB) යනු වම්පස ඇති බිට් එක වන අතර එය 1 වේ.
+The Least Significant Bit (LSD) (also called Least Significant Bit (LSB)) is the rightmost bit, which is
+also 1.
+අවම වැදගත් බිට් එක (LSD) අවම වැදගත් බිට් එක (LSB) ලෙසද හැඳින්වේ) යනු දකුණුපස ඇති බිට්
+එක වන අතර එය 1 ද වේ.
+
+So the correct statement is 2) MSB = leftmost bit 1, LSD = rightmost bit 1.
+එබැවින් නිවැරදි ප්‍රකාශය වන්නේ 2) MSB = leftmost bit 1, LSD = rightmost bit.
+
+5. Which of the following statements correctly compare binary addition and subtraction?
+පහත සඳහන් ප්‍රකාශවලින් ද්විමය එකතු කිරීම සහ අඩු කිරීම නිවැරදිව සංසන්දනය කරන්නේ කුමක්ද?
+
+A. Both operations are performed using base 2.
+මෙහෙයුම් දෙකම පාදම 2 භාවිතයෙන් සිදු කෙරේ.
+
+B. Binary addition can produce a carry, while subtraction may require a borrow.
+ද්විමය එකතු කිරීම සඳහා carry තිබිය හැකි අතර, අඩු කිරීම සඳහා ණයක් borrow විය හැකිය.
+
+C. Binary subtraction and addition follow the same carry rule.
+ද්විමය අඩු කිරීම සහ එකතු කිරීම එකම carry රීතිය අනුගමනය කරයි.
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A and C only
+A සහ C පමණි
+5) All of these
+ඉහත සියල්ල
+
+Answer : 3)
+
+Let’s check each statement / අපි එක් එක් ප්‍රකාශය පරීක්ෂා කර බලමු:
+
+A. Both operations are performed using base 2. (True)
+2කේ පාදය භාවිතයෙන් මෙහෙයුම් දෙකම සිදු කෙරේ. (සත්‍ය)
+
+Binary addition and subtraction are done in base 2 (using digits 0 and 1).
+ද්විමය එකතු කිරීම සහ අඩු කිරීම 2 පාදයේ සිදු කෙරේ (ඉලක්කම් 0 සහ 1පමණක් භාවිතා කරමින්).
+
+B. Binary addition can produce a carry, while subtraction may require a borrow.  (True)
+ද්විමය එකතු කිරීම මඟින් රැගෙන යාමක් නිපදවිය හැකි අතර, අඩු කිරීම මඟින් ණයක් ලබා ගැනීමට
+අවශ්‍ය විය හැකිය. (සත්‍ය)
+
+In addition, when the sum exceeds 1, a carry occurs.
+එකතු කිරීම, එකතුව 1 ඉක්මවන විට, රැගෙන යාමක් සිදු වේ.
+
+In subtraction, when the subtrahend is larger than the minuend bit, a borrow is required.
+අඩු කිරීමේදී, උපලක්ෂණ බිට් එකට වඩා විශාල වන විට, රැගෙන යාමක් අවශ්‍ය වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+C. Binary subtraction and addition follow the same carry rule.  (False)
+ද්විමය අඩු කිරීම සහ එකතු කිරීම එකම රැගෙන යාමේ රීතිය අනුගමනය කරයි. (අසත්‍ය)
+
+Subtraction uses borrowing, not the same carry rule as addition.
+අඩු කිරීම මඟින් එකතු කිරීම ලෙස එකම රැගෙන යාමේ රීතිය නොව, ණයක් ගැනීම භාවිතා කරයි.
+
+Correct answer: 3) A and B only / නිවැරදි පිළිතුර: 3) A සහ B පම”
+
+6. Consider the following statements about converting numbers from octal and hexadecimal to binary.
+සංඛ්‍යා අෂ්ටක සහ ෂඩ් දශම සිට ද්විමය බවට පරිවර්තනය කිරීම පිළිබඳ පහත ප්‍රකාශ සලකා බලන්න.
+
+A. Each octal digit is replaced by a group of 3 binary bits.
+සෑම අෂ්ටක ඉලක්කමක්ම ද්විමය බිටු 3ක කණ්ඩායමකින් ප්‍රතිස්ථාපනය වේ.
+
+B. Each hexadecimal digit is replaced by a group of 4 binary bits.
+සෑම ෂඩාස්රාකාර ඉලක්කමක්ම ද්විමය බිටු 4 ක කණ්ඩායමකින් ප්‍රතිස්ථාපනය වේ.
+
+C. Conversion from base 8 or 16 to base 2 can be done directly, without converting to base 10.
+පාදම 8 හෝ 16 සිට 2 පාදය දක්වා පරිවර්තනය කිරීම 10 පාදයට පරිවර්තනය නොකර සෘජුවම සිදු
+කළ හැක.
+
+Select the correct statement(s) / නිවැරදි ප්‍රකාශ(ය) තෝරන්න:
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A and C only
+A සහ C පමණි
+5) All of these
+ඉහත සියල්ල
+
+Answer: 5)
+
+According to statement A, each octal digit (base 8) can be directly converted into a group of 3 binary bits,
+since 8=23. This is true because each octal digit (0–7) can be exactly represented by 3 binary digits.
+A ප්‍රකාශයට අනුව, එක් එක් අෂ්ටක ඉලක්කම් (පාදය 8) 8=23 සිට ද්විමය බිටු 3 ක කාණ්ඩයක් බවට සෘජුවම
+පරිවර්තනය කළ හැකිය. මෙය සත්‍ය වන්නේ එක් එක් අෂ්ටක ඉලක්කම් (0–7) හරියටම ද්විමය ඉලක්කම් 3
+කින් නිරූපණය කළ හැකි බැවිනි.
+
+According to statement B, each hexadecimal digit (base 16) is replaced by 4 binary bits, since 16=24. This
+is also true, as each hexadecimal digit (0–F) maps perfectly to 4 binary bits.
+B ප්‍රකාශයට අනුව, සෑම ෂඩ් දශම ඉලක්කම් (පාදය 16) 16=24 සිට ද්විමය බිටු 4 කින් ප්‍රතිස්ථාපනය වේ.
+මෙය ද සත්‍ය වේ, මන්ද එක් එක් ෂඩ් දශම ඉලක්කම් (0–F) ද්විමය බිටු 4 කට පරිපූර්ණ ලෙස සිතියම්ගත
+කරයි.
+
+According to statement C, conversion from octal (base 8) or hexadecimal (base 16) to binary (base 2) can
+be done directly without converting to decimal (base 10). This is true, because both 8 and 16 are powers
+of 2, so the digits can be directly grouped into binary bits.
+C ප්‍රකාශයට අනුව, අෂ්ටක (පාදය 8) හෝ ෂඩ් දශම (පාදය 16) සිට ද්විමය (පාදය 2) දක්වා පරිවර්තනය
+දශම (පාදය 10) බවට පරිවර්තනය නොකර කෙලින්ම කළ හැකිය. මෙය සත්‍ය වේ, මන්ද 8 සහ 16 යන
+දෙකම 2 හි බල වන බැවින් ඉලක්කම් සෘජුවම ද්විමය බිටු වලට කාණ්ඩගත කළ හැකිය.
+
+Therefore, all statements A, B and C are correct.
+එබැවින්, සියලුම ප්‍රකාශ A, B සහ C නිවැරදි වේ.
+
+7. Which of the following best describes a coding system in computer number systems?
+පරිගණක අංක පද්ධතිවල කේතීකරණ පද්ධතියක් වඩාත් හොඳින් විස්තර කරන්නේ පහත මොනවාද?
+
+1) A method used to store only decimal numbers in memory.
+මතකයේ දශම සංඛ්‍යා පමණක් ගබඩා කිරීමට භාවිතා කරන ක්‍රමයකි.
+
+2) A process of converting data and symbols into binary form for computer processing.
+පරිගණක සැකසීම සඳහා දත්ත සහ සංකේත ද්විමය ආකාරයෙන් පරිවර්තනය කිරීමේ ක්‍රියාවලියකි.
+
+3) A system used to perform arithmetic operations only.
+ගණිතමය මෙහෙයුම් සිදු කිරීමට පමණක් භාවිතා කරන පද්ධතියකි.
+
+4) A device that converts analog signals to digital form.
+ඇනලොග් සංඥා ඩිජිටල් ආකෘතියට පරිවර්තනය කරන උපකරණයකි.
+
+5) A set of rules for designing computer algorithms.
+පරිගණක ඇල්ගොරිතම සැලසුම් කිරීම සඳහා නීති මාලාවක්.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+A coding system represents numbers, characters, or symbols using binary codes (0s and 1s) so that a
+computer can store, interpret, and process them.
+කේතීකරණ පද්ධතියක් ද්විමය කේත (0 සහ 1) භාවිතා කරමින් සංඛ්‍යා, අක්ෂර හෝ සංකේත නියෝජනය
+කරන අතර එමඟින් පරිගණකයකට ඒවා ගබඩා කිරීමට, අර්ථකථනය කිරීමට සහ සැකසීමට හැකිය.
+
+It is not a hardware device, algorithm, or mathematical operation method.
+එය දෘඪාංග උපාංගයක්, ඇල්ගොරිතමයක් හෝ ගණිතමය මෙහෙයුම් ක්‍රමයක් නොවේ.
+
+Therefore the answer is 2)
+එබැවින් පිළිතුර විකල්පය 2) වේ
+
+8. Convert the hexadecimal number 2A.C₁₆ to its equivalent octal form.
+ෂඩ් දශම අංකය 2A.C₁₆ එහි සමාන අෂ්ටක ස්වරූපයට පරිවර්තනය කරන්න.
+
+1) 52.6₈
+2) 52.75₈
+3) 52.3₈
+4) 51.7₈
+5) 53.2₈
+Answer: 1)
+
+Step-by-step Explanation / පියවරෙන් පියවර පැහැදිලි කිරීම:
+Convert 2A.C₁₆ to binary / 2A.C₁₆ ද්විමය බවට පරිවර්තනය කරන්න:
+
+2A.C₁₆ to binary
+2
+A
+
+C
+0 0 1 0 1 0 1 0 . 1 1 0 0
+00101010.11002
+
+Group binary digits in sets of 3 (for base 8) / ද්විමය ඉලක්කම් 3 කට්ටල කරන්න (8 පාදය සඳහා):
+
+00101010.11002
+00101010
+
+1100
+0
+0
+1
+0
+1
+0
+1
+0
+
+1
+1
+0
+0
+21
+20
+22
+21
+20
+22
+21
+20
+
+22
+21
+20
+20
+0  + 0 = 0 4 + 0 + 1 = 5 0 + 2 + 0 = 2 . 4 + 2 + 0 = 6
+0
+52
+
+6
+52.68
+
+Therefore / එබැවින්, 2A.C₁₆ = 52.6₈
+
+9. In the decimal number 7425, which digit is the LSD?
+දශම සංඛ්‍යාව වන 7425 හි, LSD යනු කුමන ඉලක්කමද?
+
+1) 7
+2) 4
+3) 2
+4) 5
+5) 0
+Answer : 4)
+
+In the decimal number 7425, the Least Significant Digit (LSD) is the rightmost digit, which is 5.
+දශම සංඛ්‍යාව වන 7425 හි, අවම සැලකිය යුතු ඉලක්කම් (LSD) දකුණු පසින් ඇති ඉලක්කම් වන අතර
+එය 5 වේ.
+
+So, the correct answer is 4) 5
+එබැවින්, නිවැරදි පිළිතුර වන්නේ 4) 5
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-

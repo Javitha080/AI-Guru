@@ -57,7 +57,6 @@ Basic elements of digital graphics
 
 =A)
 
-
 1. Pixel / පික්සල
 
 A pixel is the smallest part of a digital
@@ -70,7 +69,7 @@ When arranged in a grid, pixels form a pixel
 array, creating a full image.
 
 ජාලකයක සකසන විට, පික්සල, පික්සල්‌ අරාවක්‌
-සාදයි, සම්පූර්ණ රෑපයක්‌ නිරිමාණය කරයි.
+සාදයි, සම්පූර්ණ රූපයක්‌ නිරිමාණය කරයි.
 
 Matrix Display
 A 8x8 matrix display with a total of 64 pixels.
@@ -91,9 +90,6 @@ N
 I ee
 1100019900
 
- ।!
-
-|
 D
 oe
 
@@ -103,7 +99,7 @@ BPP (Bits Per Pixel) refers to the number of
 bits used to represent the color of a single
 pixel in a digital image.
 
-BPP (Bits Per Pixel) යනු අංකිත රෑපයක තනි
+BPP (Bits Per Pixel) යනු අංකිත රූපයක තනි
 
 පික්සලයක වර්ණය නිරෑපණය කිරීමට mdm
 කරන බිටු ගණනයි.
@@ -166,7 +162,6 @@ Blurrier images, but smaller file sizes.
 නොපැහැදිලි රෑප, නමුත්‌ ගොනු ප්‍රමාණය කුඩා
 
 චව්‌.
-
 
 3. Color / වර්ණය
 
@@ -236,7 +231,6 @@ with Mathematical
 calculation.
 
 Vector Raster
-
 
 Graphic Types
 ග්‍රාපික 96265
@@ -344,12 +338,12 @@ loss).
 
 1.
 
-Analyze image. / රෑපය විශ්ලේෂණය කිටීම.
+Analyze image. / රූපය විශ්ලේෂණය කිටීම.
 The algorithm looks at the image and
 identifies areas with fine details or subtle
 
 color variations.
-ඇල්ගොරිතම රෑපය දෙස DED BQO විස්තර හෝ
+ඇල්ගොරිතම රූපය දෙස DED BQO විස්තර හෝ
 සියුම්‌ වර්ණ වෙනස්කම්‌ සහිත ප්‍රදේශ හඳුනා ගනී.
 
 Remove less important data.
@@ -378,10 +372,10 @@ Save / සුරැකීම
 The image is saved in a smaller file size, but
 some quality is lost permanently.
 
-රෑපය කුඩා ගොනු ප්‍රමාණයකින්‌ සුරකින නමුන්‌
+රූපය කුඩා ගොනු ප්‍රමාණයකින්‌ සුරකින නමුන්‌
 සමහර ගුණාත්මක භාවය ස්ථිරචම නැති වී යයි.
 
-1. Analyze image. / රෑපය විශ්ලේෂණය කිටීම.
+1. Analyze image. / රූපය විශ්ලේෂණය කිටීම.
 The algorithm looks for patterns or
 repetitions in the image (ex: large areas of
 the same color).
@@ -411,8 +405,8 @@ techniques, but no information is deleted.
 The image is saved in a smaller file size, but
 the original quality is preserved. When
 opened, the image is reconstructed perfectly.
-රෑපය කුඩා ගොනු ප්‍රමාණයකින්‌ සුරකින නමුන්‌ මුල්‌
-ගුණත්වය සුරැකේ. විවෘත කළ විට, රෑපය පථටීපූරිණ
+රූපය කුඩා ගොනු ප්‍රමාණයකින්‌ සුරකින නමුන්‌ මුල්‌
+ගුණත්වය සුරැකේ. විවෘත කළ විට, රූපය පථටීපූරිණ
 ලෙස ප්‍රතිනිරිමාණය එව්‌.
 
 e JPEG, MPEG, WEBP
@@ -438,7 +432,7 @@ e Permanent loss of data
 දන්ත ස්ථිර නැතිවීම.
 
 e Lower image quality
-රෑපයේ අඩු ගුණාත්මකභාවය.
+රූපයේ අඩු ගුණාත්මකභාවය.
 
 e Larger file size compared to lossy.
 lossy හා සසඳන විට විශාල ගොනු ප්‍රමාණය.
@@ -481,7 +475,6 @@ transparency.
 
 උසස්‌ තත්ත්වයෙන්‌ සහ විනිවිදභාවයෙන්‌ යුත්‌
 රෑප සඳහා වඩාත්‌ සුදුසුය.
-
 
 3. BMP (Bitmap)
 
@@ -582,7 +575,6 @@ professional designs.
 කිරීමට රෑප, මුද්‍රණ ශිල්පය, පිරිසැලසුමි සහ
 බලපෑමි සමඟ වැඩ කිරීමට උදවු කරයි.
 
-
 Adobe Photoshop
 Best for photo editing and raster-
 based designs.
@@ -652,8 +644,6 @@ Installing GIMP
 Visit https://www.gimp.org
 https://www.gimp.org වෙත පිවිසෙන්න
 
-?
-
 Download the correct version for your OS.
 
 ඔබගේ OS සඳහා නිවැරදි අනුවාදය බාගත
@@ -662,19 +652,16 @@ Download the correct version for your OS.
 Follow the installation prompts.
 ස්ථාපන විමසීම්‌ අනුගමනය කරන්න,
 
-© [11110 ::./*....
+© [11110 ::./*……
 
 The Free & Open Source Image Editor
 
 After installation
 ස්ථාපනය කිටීමෙන්‌ පසුව
 
-
 GIMP IL
 
 GNU IMAGE MANIPL
-
-?
 
 File Edit Select View Image Layer Colors Tools Filters Windows Help
 
@@ -714,7 +701,6 @@ Resolution,
 Graphical User Interface
 
 මෘදුකාංගයේ චිත්‍රක පරිශීලක අතුරැමුහුණත
-
 
 Title bar
 
@@ -810,10 +796,10 @@ Shift + 0
 
 Tool Name | Icon Shortcut Description
 Rectangle vores * Selects rectangular or square areas in the image.
-Select : : R රෑපයේ සෘජුකෝණාස්‍රාකාර හෝ චතුරස්‍රාකාර ප්‍රදේශ
+Select : : R රූපයේ සෘජුකෝණාස්‍රාකාර හෝ චතුරස්‍රාකාර ප්‍රදේශ
 ඡ්‌ තෝරා ගනී.
 Ellipse දී °. Selects circular or elliptical areas in the image.
-Select *. - E රෑපයේ වෘත්තාකාර හෝ රලේිප්සාකාර ප්‍රදේශ තෝරා
+Select *. - E රූපයේ වෘත්තාකාර හෝ රලේිප්සාකාර ප්‍රදේශ තෝරා
 meres ගනී.
 Free Select Allows freehand or polygonal selections by
 (Lasso) O : drawing around an area.
@@ -827,7 +813,7 @@ Select by Selects all pixels in the image that match the
 Color oy clicked color.
 
 ක්ලික්‌ කළ වර්ණයට ගැලපෙන පික්සෙල්‌ සියල්ල
-රෑපයේ ඉතාරා ගනී.
+රූපයේ ඉතාරා ගනී.
 
 Scissors V7 Creates selections by "snapping" to edges in the
 Select foxe) I image.
@@ -836,7 +822,7 @@ Select foxe) I image.
 Foreground Selects foreground objects by marking them
 Select Shift + F | with a brush.
 
-පින්සලක්‌ භාවිතයෙන්‌ රෑපයේ පසුබිම Dinas.
+පින්සලක්‌ භාවිතයෙන්‌ රූපයේ පසුබිම Dinas.
 
 e Paint Tools / 8640 ගැල්වීමේ මෙවලමී:
 
@@ -855,7 +841,7 @@ Ww A OKs) පින්සලය මෙන්‌ ග්‍රාපිකය ම�
 ? ඉලස ක්‍රියාකරමින්‌ වරණ ගැල්වීමට.
 Ink ~ Simulates calligraphy or ink strokes.
 P K වර්ණ පින්සලය මෙන්‌ Bas මත වරණ
-॥
+
 ෂු ගල්වයි.
 MyPaint Uses MyPaint brushes for artistic painting.
 Brush Y MyPaint බුරුසු භාවිතා කරම්න්‌ කලාත්මක
@@ -865,7 +851,7 @@ Shift + B | ප්‍රදේශ වර්ණයක්‌ හෝ රටාව�
 Gradient Fills areas with a gradient.
 a L ප්‍රදේශ අනුක්‍රමණයකින්‌ පුරචයි,.
 Clone Copies from a pattern or image.
-SS c රටාචක්‌ හෝ රෑපයකින්‌ පිටපත්‌ කිරීම.
+SS c රටාචක්‌ හෝ රූපයකින්‌ පිටපත්‌ කිරීම.
 Perspective | Copies into a changed perspective.
 Clone ශු Shift + C | වෙනස්‌ වූ දෘශ්‍ය කෝණයකට පිටපත්‌ කිරීම.
 Heal Corrects small defects.
@@ -885,21 +871,21 @@ Align Tool Align layers, selections, or paths.
 Move Move layers, selections, or paths.
 M ස්ථර, තේරීම්‌ හෝ OKO චලනය කිරීම.
 Crop a Crop an image to a selected area.
-Shift + රෑපයක්‌ තෝරාගත්‌ ප්‍රදේශයකට කැපීම,
+Shift + රූපයක්‌ තෝරාගත්‌ ප්‍රදේශයකට කැපීම,
 Rotate බං । Rotate a layer, selection, or path.
 x shift + ස්ථරයක්‌, තේරීමක්‌ හෝ මාර්ගයක්‌ භ්‍රමණය කිරීම.
 Scale Resize a layer, selection, or path.
 ES Shift + ස්ථරයක්‌, තේරීමක්‌ හෝ මාර්ගයක්‌ ප්‍රමාණය
 චෙනස්‌ කිරීම,
 Shear Slant an image horizontally or vertically.
-‘ws shift + රෑපයක්‌ තිරස්‌ හෝ සිරස්‌ ලෙස ඇලවීම.
+‘ws shift + රූපයක්‌ තිරස්‌ හෝ සිරස්‌ ලෙස ඇලවීම.
 Perspective ; Adjust perspective distortion.
 (සී. shift + දෘශ්‍ය ආවරනය සකස්‌ කිරීම.
 Handle Transform using draggable handles.
 Transform Shift + ඇදගෙන යා හැකි හසුරැ භාවිතයෙන්‌
 පර්චරිතනය කිරීම.
 Flip ro Flip an image horizontally or vertically.
-i, Shift + රෑපයක්‌ තිරස්‌ හෝ සිරස්‌ ලෙස පෙරළීම.
+i, Shift + රූපයක්‌ තිරස්‌ හෝ සිරස්‌ ලෙස පෙරළීම.
 Cage ප්‍ර Warp an area using a flexible cage.
 Transform of Shift + නම්‍යශීලී කූඩුවක්‌ භාවිතයෙන්‌ ප්‍රදේශයක්‌
 9596 ආවරණය කිරීම.
@@ -909,7 +895,6 @@ Transform JS No Default | අන්තර්ක්‍රියාකාර්ව
 කිරීම.
 
 e Color Tools / වරණ මෙවලමී:
-
 
 converting it to grayscale.
 625608) වර්ණ වෙන්‌ කිරීම, එය අළු
@@ -923,7 +908,7 @@ shadows, midtones, and highlights. adding creative color effects.
 කිරීම. එකතු කිරීම.
 Hue- Changes the hue, saturation, and Enhancing or reducing color
 Saturation lightness of colors in an image. intensity, changing color
-ee රෑපයක OKAOE වරිණාවලිය, tones.
+ee රූපයක OKAOE වරිණාවලිය, tones.
 = සංතෘප්තතාවය, සහ ආලෝකමත්තාවය වරිණ තීච්‍රතාවය වැඩි කිරීම හෝ
 වෙනස්‌ කිරීම. අඩු කිරීම, වරණ ස්වරූප වෙනස්‌
 කිටීම.
@@ -939,7 +924,7 @@ Contrast q % contrast of an image. overexposed images.
 තීවතාවය සකස්‌ කිරීම. කිටීම.
 Threshold Converts an image to black and white | Creating high-contrast,
 based on a brightness threshold. binary images
-aa ආලෝකමතනත්නාවයේ සීමාවක්‌ අනුව රෑපයක්‌ | (ex: silhouettes).
+aa ආලෝකමතනත්නාවයේ සීමාවක්‌ අනුව රූපයක්‌ | (ex: silhouettes).
 
 _ කළු සහ සුදු පැහැයට පරිවරිතනය කිරීම. | හෙළ SOnrOcas යුත්‌ ද්විමය
 රෑ5ප නිරිමාණය OO (උදා:
@@ -959,8 +944,7 @@ Curves Allows precise control over Advanced color correction
 brightness and contrast using a curve | and tonal adjustments.
 
 | graph. 296) වරිණ නිවැරදි කිරීමි සහ
-
-ී වක්‍ර ප්‍රස්නාරයක්‌ භාවිතයෙන්‌ ටෝනල්‌ සකස්‌ GOS.
+  වක්‍ර ප්‍රස්නාරයක්‌ භාවිතයෙන්‌ ටෝනල්‌ සකස්‌ GOS.
 
 ඇඈආලෝකමතන්තාවය සහ තීච්‍රනාවය පිළිබඳ
 නිශ්ච්ින පාලනය ලබා දීම.
@@ -977,7 +961,7 @@ Path Allows selecting and modifying paths.
 B මාර්ග තෝරාගෙන වෙනස්‌ කිරීමට ඉඩ දෙයි.
 Color Picker Selects the color of any image opened on your
 ණ්‌ 0 screen.
-} ඔබගේ තිරයේ SAaD කර ඇති ඕනෑම රෑපයක වරිණය
+} ඔබගේ තිරයේ SAaD කර ඇති ඕනෑම රූපයක වරිණය
 තෝරා ගනී.
 Magnify Alters the zoom level of the image.
 (Zoom) QQ Z 628665 විශාලන මට්ටම වෙනස්‌ කරයි.
@@ -1027,7 +1011,7 @@ or File / හිස්‌ කැන්වස්‌ සඳහා හෝ
 ගොනුවක්‌ සාදන්න)
 
 e File > Open or Ctrl + ට (to open an
-image / රෑපයක්‌ විවෘත කිරීමට).
+image / රූපයක්‌ විවෘත කිරීමට).
 
 One window can be kept open and use
 
@@ -1100,7 +1084,6 @@ e Ctrl+L
 
 e Windows — Dockable Dialogs
 — Layers
-
 
 Basics of GIMP
 GIMP මෘදුකාංගයේ මූලිකාංග
@@ -1184,7 +1167,6 @@ print use.
 අපනයනය කිරීමෙන්‌ ගොනුව (web/print)
 භාවිතය සඳහා සංයුක්ත (COMpress) චේ.
 
-
 Opening an Existing File.
 පචතින ගොනුවක්‌ විවෘත කිරීම.
 
@@ -1257,14 +1239,14 @@ Step 4: # From Path Shift+V
 
 Prepare the First Image. (1 Selection Editor
 
-පළමු රෑපය සකස්‌ කිරීම
+පළමු රූපය සකස්‌ කිරීම
 
 Sharpen
-. . . (2 :। Shrink...
+. . . (2 :। Shrink……
 
 1. Select the first image in the Layers
 Panel. ක්‌ Feather Selection x
-Layers Panel හි පළමු රෑපය නෝරන්න. Feather selection by
+Layers Panel හි පළමු රූපය නෝරන්න. Feather selection by
 
 . . Q, 10.000 =| pxv
 
@@ -1284,7 +1266,7 @@ Channel තෝරන්න (පාරදෘශ්‍යතාවය
 
 Mode: Normal Remove Alpha Channel
 Opacity 0 Alpha to Selection
-Lock 7 සහ Merge Visible Layers...
+Lock 7 සහ Merge Visible Layers……
 
 Flatten Image
 <> Jia |
@@ -1295,7 +1277,7 @@ Edit Select View Image Layer Colors
 
 @ Redo Ctrl+¥
 
-ණූ Fade...
+ණූ Fade……
 
 ණූ Undo History
 
@@ -1318,7 +1300,7 @@ DO කැන්වස්‌ MQECA චෙත යන්න,
 
 2. Paste the copied image.
 
-පිටපත්‌ කළ රෑපය ඇතුළත්‌ කරන්න.
+පිටපත්‌ කළ රූපය ඇතුළත්‌ කරන්න.
 
 Edit - Paste as — New Layer
 
@@ -1334,7 +1316,7 @@ Copy Visible Shift+ Ctrl+C
 © Paste Into
 Paste as >) P) New Image Shift+ Ctrl+V
 Buffer > eae
-& Clear Delete New Brush...
+& Clear Delete New Brush……
 HE Fill with FG Color ලං ෴
 
 3. Use the Move Tool to position the
@@ -1345,7 +1327,7 @@ image.
 Step 7:
 
 Resize the First Image.
-පළමු රෑපය නැවන ප්‍රමාණය කිරීම.
+පළමු රූපය නැවන ප්‍රමාණය කිරීම.
 
 1.
 
@@ -1356,7 +1338,7 @@ Click on the image and set Width to
 and drag from a corner to scale
 proportionally.
 
-රෑපය මත ක්ලික්‌ කර පළල 450px සහ උස
+රූපය මත ක්ලික්‌ කර පළල 450px සහ උස
 
 600px ලෙස සකසන්න හෝ Ctrl ඔබා
 කෙළවරක්‌ ඇදීමෙන්‌ සමානුපාතිකව ප්‍රමාණය
@@ -1374,34 +1356,33 @@ Height: 517 = 8 | xv
 
 72 ppi
 
-
 Step 8:
 Add the Second Image.
-දෙවන රෑපය චඑක්‌ කිරීම.
+දෙවන රූපය චඑක්‌ කිරීම.
 
 1.
 
 Repeat Steps 4 to / for the second
 image.
 
-පළමු රෑපය සඳහා කළ පියවර 4 සට /
+පළමු රූපය සඳහා කළ පියවර 4 සට /
 නැවත කරන්න.
 
 2. Position and scale the second image on
 the canvas.
-දෙවන රෑපය කැන්වස්‌ මත ස්ථානගත කර
+දෙවන රූපය කැන්වස්‌ මත ස්ථානගත කර
 ප්‍රමාණය කරන්න.
 
 Step 9:
 
 Add the Third Image.
-තෙවන රෑපය චක්‌ කිරීම.
+තෙවන රූපය චක්‌ කිරීම.
 
 1.
 
 Repeat Steps 4 to 7 for the third image.
 
-පළමු රෑපය සඳහා කළ පියවර 4 සට /
+පළමු රූපය සඳහා කළ පියවර 4 සට /
 නැවත කරන්න.
 
 Position and scale the third image on
@@ -1465,7 +1446,6 @@ Merge within active group only
 
 [_] Discard invisible layers
 
-
 Step 12:
 Crop and Add Borders.
 කැපීම සහ රාමු චක්‌ කිරීම.
@@ -1512,18 +1492,15 @@ Blur
 Enhance
 Distorts
 
-»
-»
-»
 Light and Shadow »
 Noise »
 Edge-Detect >
 Generic *
 Combine *
 Artistic >
-Add Bevel...
+Add Bevel……
 Map >
-Render * Coffee Stain...
+Render * Coffee Stain……
 ක්‌ Script-Fu: Add Border x
 Border X size:
 Border Y size: 10 ත්‌
@@ -1547,7 +1524,6 @@ As (choose jpg or .png for sharing).
 png ලෙස තෝරන්න.
 
 Final Graphic / අවසාන ග්‍රාපිකය
-
 
 Creating graphics with texts.
 
@@ -1712,7 +1688,6 @@ e Color: Black
 
 4. Click OK.
 
-
 Step 8:
 Add a Quote.
 උපුටා දැක්වීමක්‌ එක්‌ BOO.
@@ -1861,7 +1836,6 @@ and professionals.
 ආරම්භකයින්‌ සහ වෘත්තීයයින්‌ දෙපක්ෂයටම සුදුසු
 බහුකාඊරය සංස්කාරකයකි.
 
-
 Installing Audacity
 
 1. Visit https://www.audacityteam.ord/
@@ -1969,9 +1943,6 @@ managed from this section.
 සංස්කරණය මෙම කොටසෙන්‌
 කළමනාකරණය කරනු ලැබේ.
 
-!
-
-| /
 12 10
 14 1 11
 . Transport Toolbar 3. Tools Toolbar
@@ -2047,7 +2018,6 @@ represented.
 Clipping and distortions can be monitored.
 ක්ලිප්‌ කිරීම සහ විකෘති නිර්ක්ෂණය කළ හැකිය.
 
-
 9. Playback Meter Toolbar
 
 Output levels during playback are
@@ -2100,7 +2070,7 @@ Audio clips and selections are aligned to
 
 predefined points.
 ශ්‍රව්‍ය ක්ලිප්‌ සහ තේරීමි පූරිව නිර්වචනය WE
-ලක්ෂ්‍ය වලට සමිබන්ධ කරයි.
+ලක්ෂ්‍ය වලට සම්බන්ධ කරයි.
 
 Consistency in arrangement is ensured.
 සැකැස්මේ අනුකූලතාවය සහතික කරයි.
@@ -2152,13 +2122,12 @@ Waveforms are displayed for editing.
 Right-click options for managing time-
 related settings are available.
 
-කාලය සමිබන්ධ සැකසුමි කළමනාකරණය සඳහා
+කාලය සම්බන්ධ සැකසුමි කළමනාකරණය සඳහා
 දකුණු-ක්ලික්‌ විකල්ප ලබා ගත හැකිය.
 
 Customization and adjustments are
 simplified.
 අභිරැච්කරණය සහ සකස්‌ BOS සරල කර ඇත.
-
 
 Basics of Audacity
 Audacity මෘදුකාංගයේ මූලිකාංග
@@ -2249,7 +2218,6 @@ noise reduction from the Effects menu.
 Effects ලමනුවෙන්‌ fade-in, fade-out හෝ
 ශබ්ද අඩු BOO වැනි බලපෑමි යොදන්න,
 
-
 Recording Audio.
 ශ්‍රව්‍ය පටිගත B50.
 
@@ -2306,7 +2274,7 @@ Recording Channels , |# Microphone (Realtek Audio)
 
 Rescan Audio Devices
 
-Audio Settings...
+Audio Settings……
 
 3. Check Audio Levels.
 
@@ -2337,7 +2305,6 @@ i
 X Audio 1 Aw Audio 1.1 +++
 0
 
-*
 ie) 0.04 *
 
 Speak Your Memo.
@@ -2354,7 +2321,6 @@ Click the Yellow (old version) Square
 කහ පාට කොටු බොත්තම ක්ලික්‌ කරන්න
 
 (stop).
-
 
 7. Play Back.
 
@@ -2385,7 +2351,7 @@ Effects 05
 
 05
 
-601 a} ෴෴෴..... ෴෴ යකු
+601 a} ෴…… ෴ යකු
 
 05
 10
@@ -2408,16 +2374,16 @@ File>Export Audio චෙත යන්න — ස්ථානය
 
 File Edit Select View Transport Tracks Generat
 New Ctrl+N
-Open... Ctrl+O
+Open…… Ctrl+O
 Recent Files >
-Open From Cloud...
+Open From Cloud……
 Save Project >
-Save To Cloud...
+Save To Cloud……
 Update Cloud Audio Preview
-Export Audio... Ctrl+Shift+E
+Export Audio…… Ctrl+Shift+E
 Export Other >
 Import >
-Share Audio...
+Share Audio……
 Close Project Ctrl+W
 Quit Audacity Ctrl+Q
 
@@ -2439,7 +2405,6 @@ OK ක්ලික්‌ කරන්න.
 
 Find the saved file , Double-click to
 play.
-
 
 4. Select the Unnecessary Section.
 
@@ -2524,7 +2489,6 @@ file size.
 සම්පීඩනය නොකළ, උසස්‌ තත්ත්වයේ ශුව්‍ය චේ,
 ගොනු විශාලත්වය ඉහළ GH.
 
-
 3. FLAC (Free Lossless Audio Codec)
 
 Lossless compression, maintains original
@@ -2602,7 +2566,6 @@ Windows Movie Maker is considered
 outdated as Microsoft officially
 discontinued it in 2017
 
-
 2. Adobe Premiere Pro
 (Paid, Windows / Mac)
 
@@ -2679,7 +2642,6 @@ clips.
 ක්ලිප්‌ අතර සංක්‍රමණ එකතු කරයි, (ce): fade,
 wipe)
 
-
 Apply visual effects (ex: black-and-white,
 
 vintage filters).
@@ -2724,7 +2686,6 @@ Item 12 of 12
 
 (55)
 
-@
 ද්‌ අ
 නෑ] | 4෴ 24 XFeveve a
 si - Rotate Row {Gi} Select all Tube} _| Save
@@ -2777,7 +2738,6 @@ ensure smooth playback during editing.
 සංස්කරණය අතරතුර සුමට පෙරදසුවක්‌
 සහතික කිරීම සඳහා පෙරදසු
 ගුණාත්මකභාවය සකස්‌ කළ හැක.
-
 
 2. Timeline Stage
 
@@ -2883,7 +2843,6 @@ and preview pane.
 කාලරේඛාව සහ පෙරදසුන්‌ පේනයේ
 ස්වයංඛකීයව පිළිබිඹු වේ.
 
-
 Making a Video Clip with Windows
 Movie Maker.
 
@@ -2918,7 +2877,7 @@ Apply Transition.
 Animations ඉමනුව Saw කරන්න,
 
 2. Click on the first frame.
-පළමු රෑපය මත ක්ලික්‌ කරන්න.
+පළමු රූපය මත ක්ලික්‌ කරන්න.
 
 3. Hover over each transition to preview it.
 සංක්‍රමණයක්‌ මත මූසිකය ඉගගනයන්න,.
@@ -2955,7 +2914,7 @@ Adjust Display Duration.
 2. Set the time period for displaying an
 
 image frame.
-රෑපයක්‌ පෙන්වීමේ කාලය සකසන්න.
+රූපයක්‌ පෙන්වීමේ කාලය සකසන්න.
 
 3. Select Apply to all to use the same
 duration for all frames.
@@ -2966,7 +2925,7 @@ Move Image Frames.
 රෑප චලනය කරන්න.
 
 1. Select the image frame.
-රෑපය තෝරන්න.
+රූපය තෝරන්න.
 
 2. Use Pan and Zoom to apply motion
 effects.
@@ -2977,12 +2936,11 @@ Pan and Zoom mdaeass චලන බලපෑමි
 3. Click on අ suitable motion.
 සුදුසු චෑනයක්‌ මත ක්ලික්‌ කරන්න.
 
-
 Step 7:
 Add a Title. / මාතෘකාව එක්‌ කරන්න.
 
 Select the first frame.
-පළමු රෑපය තෝරන්න,
+පළමු රූපය තෝරන්න,
 
 2. Goto Home - Title.
 
@@ -3001,7 +2959,7 @@ Add Captions. / ශීර්ෂ එක්‌ කරන්න.
 1.
 
 Select an image frame.
-රෑපය තෝරන්න.
+රූපය තෝරන්න.
 
 2. Goto Home -* Caption.
 3. Type a suitable caption.
@@ -3037,7 +2995,7 @@ Add Audio. වීඩියෝ ව්‍යාපෘතිය සුරැකී�
 ශ්‍රව්‍ය චක්‌ කරන්න.
 Step 1:
 1. Select the first frame. Save the Project.
-පළමු රෑපය තෝරන්න. ව්‍යාපෘතිය සුරකින්න.
+පළමු රූපය තෝරන්න. ව්‍යාපෘතිය සුරකින්න.
 2. Goto Home — Add Music. 1. Go to File > Save Project.
 3. Select and open a prepared audio file. 2. Select a location, give the file a name,
 සූදානම්‌ කර ඇති ශ්‍රව්‍ය ගොනුවක්‌ තෝරා and click Save.
@@ -3081,7 +3039,6 @@ devices.
 Older format, good quality, large file size.
 පැරණි ආකෘතියකි, හොඳ ගුණාත්මක බවක්‌ ඇත,
 ගොනු විශාලත්වය ඉහළය,
-
 
 3. MOV (QuickTime Movie)
 
@@ -3147,7 +3104,6 @@ a
 1 =
 | [522
 
-|
 .෴ම෴ ( । | 2 [= “~~”.
 tis \ Workstation
 
@@ -3180,7 +3136,6 @@ centimeters to around 10 meters.
 
 ප්‍රමාණය ඉසන්ටිමීටර කිහිපයක සිට SOB 10 ක්‌
 පමණ දක්වා වෙනස්‌ චිය හැකිය.
-
 
 e LAN- Local Area Network
 ස්ථානීය පෙදෙස්‌ ජාල
@@ -3264,7 +3219,6 @@ systems, devices, or networks.
 සන්නිවේදන උපාංග යනු විවිධ පද්ධති, උපාංග
 හෝ ජාල අතර දත්ත සම්ප්‍රේෂණය සක්‍රීය කරන
 දෘඩාංග GA).
-
 
 1. Hub නාභිය
 
@@ -3378,7 +3332,7 @@ wireless.
 
 NIC චකක්‌ මඟින්‌ පර්ගණකයකට Ga)
 
-උපාංගයකට, ජාලයකට සමිබන්ධ වීමට ඉඩ
+උපාංගයකට, ජාලයකට සම්බන්ධ වීමට ඉඩ
 සලසයි. එය රැහැන්ගත හෝ ර0හැන්‌ රහිත විය
 හැකිය.
 
@@ -3390,7 +3344,6 @@ network.
 සන්නිවේදනය සඳහා GOSS අතුරැ මුහුණත
 සපයයි.
 
-
 5. Wireless Access Point (WAP)
 
 A WAP allows wireless devices to connect to
@@ -3400,7 +3353,7 @@ of the network.
 
 WAP මඟින්‌ රැහැන්‌ රහිත උපාංගචලට WI-FI
 
-භාවිතයෙන්‌, රැහැන්‌ රහිත ජාලයකට සමිබන්ධ
+භාවිතයෙන්‌, රැහැන්‌ රහිත ජාලයකට සම්බන්ධ
 වීමට ඉඩ සලසයි. එය ජාලයේ රැහැන්‌ රහිත සහ
 රැහැන්ගත කොටස්‌ අතර අතරමැදියෙකු ලෙස කියා
 කරයි.
@@ -3427,7 +3380,7 @@ pathway used to transmit data from one
 device to another in a network.
 
 සම්ප්‍රේෂණ මාධ්‍ය යනු ජාලයක චක්‌ උපාංගයකින්‌
-තවත්‌ උපාංගයකට දත්ත සමිප්‍රේෂණය කිරීමට
+තවත්‌ උපාංගයකට දත්ත සම්ප්‍රේෂණය කිරීමට
 භාවිතා කරන භෞතික මාරගයයි.
 
 Transmission media can be classified into two
@@ -3461,7 +3414,6 @@ Ex: Fiber optic cables, Coaxial cables, Twisted
 
 pair cables
 ප්‍රකාශ තන්තු, සමක්ෂක කේබලය, ඇඹරී යුගල
-
 
 2. Unguided media (Wireless)
 නියමු නොචන මාධ්‍ය (රැහැන්‌ රහිත)
@@ -3537,7 +3489,6 @@ Lg, s fiber ද
 
 —_ Copper/Aluminum mesh
 
-|
 | ~~~ Copper center උර
 
 Insulator
@@ -3578,7 +3529,7 @@ Peer to Peer model
 In this model, all devices act as both servers
 
 and clients.
-මෙම ආකෘත්්‌යේ දී, සියලුම උපාංග සේවාදායකයන්‌
+මෙම ආකෘත්‌යේ දී, සියලුම උපාංග සේවාදායකයන්‌
 සහ සේවාලාභීන්‌ යන දෙකම ලලස ක්‍රියා කරයි.
 
 Each device can share resources or services
@@ -3602,7 +3553,6 @@ models.
 දෙමුහුන්‌ ජාලයක්‌ සේවාග්‍රාහක සේවාදායක
 ආකෘතිය සහ සම සම ජාල ආකෘතිය යන
 දෙකෙහිම අංග චකාබද්ධ කරයි.
-
 
 Internet
 
@@ -3691,7 +3641,6 @@ transmission of audio and video files over the
 internet.
 ප්‍රචාහ මාධ්‍ය යනු අන්තර්ජාලය හරහා ශ්‍රව්‍ය සහ
 දෘශ්‍ය ගොනු අඛණ්ඩව සම්ප්‍රේෂණය කිටථීමයි,
-
 
 Accessing internet
 
@@ -3804,7 +3753,6 @@ other files to anyone with an email address.
 ඔබට ඊමේල්‌ ලිපිනයක්‌ ඇති ඕනෑම කෙනෙකුට පාඨ,
 පින්තූර, ලේඛන සහ චෙනත්‌ ගොනු යැවිය හැක.
 
-
 Parts of an E-mail address
 E-mail වකක කොටස්‌
 
@@ -3899,9 +3847,8 @@ with the email. This could be a document,
 image, video, or any other file.
 
 Attachment යනු Sega) තැපෑල සමඟ යවන
-ගොනුවකි. GOS ඉල්ඛනයක්‌, රෑපයක්‌, වීඩියෝචක්‌
+ගොනුවකි. GOS ඉල්ඛනයක්‌, රූපයක්‌, වීඩියෝචක්‌
 හෝ චෙනත්‌ ඕනෑම ගොනුචක්‌ විය හැකිය
-
 
 Reply
 
@@ -3988,7 +3935,6 @@ share written content on various topics.
 අතර චඑහිදී පුද්ගලයන්‌ හෝ කණ්ඩායම්‌ SSO
 මාතෘකා පිළිබඳ ලිඛිත අන්තර්ගතයන්‌ බෙදා ගනී.
 
-
 Cloud computing
 OOEQS පරිගණනය
 
@@ -4002,7 +3948,7 @@ computer or physical servers.
 භෞතික ඉසේවාදායකයන්‌ මත විශ්වාසය තැබීම
 වෙනුවට දත්ත GOD ප්‍රවේශ වීමට සහ ගබඩා
 කිරීමට, යෙදුම්‌ ධාවනය කිරීමට සහ ගබඩා කිරීම
-සහ සැකසුම්‌ බලය චැනි පරිගණක සමිපත්‌ භාවිතා
+සහ සැකසුම්‌ බලය චැනි පරිගණක සම්පත්‌ භාවිතා
 කිරීමට අන්තර්ජාලය භාචිතා කිරීමයි.
 
 Ex: Google Drive, Dropbox, iCloud
@@ -4016,7 +3962,7 @@ Provides virtualized computing resources
 like servers, storage, and networking.
 
 සේවාදායක, ආචයනය සහ ජාලකරණය Os
-අථත්‍ය පරිගණක සමිපත්‌ සපයයි.
+අථත්‍ය පරිගණක සම්පත්‌ සපයයි.
 
 2. Platform as a Service (PaaS)
 සංවර්ධන පරිසර සේවාවක්‌ ලෙස
@@ -4073,7 +4019,6 @@ BOD පාලනය
 e Ongoing Costs (Subscription fees)
 පචතින Sac (දායකත්ව ගාස්තු)
 
-
 Internet of Things (191)
 The internet of things refers to everyday
 objects that are equipped with sensors,
@@ -4089,7 +4034,7 @@ internet and share data with other devices
 
 and systems.
 
-මෙමඟින්‌ ඔවුන්ට අන්තර්ජාලයට සමිබන්ධ වීමට
+මෙමඟින්‌ ඔවුන්ට අන්තර්ජාලයට සම්බන්ධ වීමට
 සහ අනෙකුත්‌ උපාංග සහ පද්ධති සමඟ දත්ත
 හුවමාරැ කිරීමට ඉඩ සලසයි
 
@@ -4136,7 +4081,7 @@ loT enables the concept of "as-a-service,"
 where users can consume resources or
 services on demand.
 "සේවාවක්‌ ලෙස" යන සංකල්පය HBAs කරයි,
-චිහිදී පරිශිලකයින්ට ලේලුම මත සමිපත්‌ හෝ
+චිහිදී පරිශිලකයින්ට ලේලුම මත සම්පත්‌ හෝ
 සේවාවන්‌ පරිභෝජනය කළ හැඟකිය.
 
 e Time considerations
@@ -4156,7 +4101,6 @@ generate.
 උපාංග ජනනය කරන අතිවිශාල දත්ත
 ප්‍රමාණයන්ගෙන්‌ ප්‍රම4යෝජනවත්‌ අවබෝධයක්‌ ලබා
 ගැනීමේ හැකියාව.
-
 
 Needs of loT
 191 හි අවශ්‍යතා
@@ -4247,7 +4191,6 @@ Identification)
 පළිබෝධ පාලන උපකරණ, ස්වයංක්‍රීය OSG පැලෑටි
 ඉවත්‌ කිරීමේ යන්ත්‍ර
 
-
 5. Manufacturing Industry
 නිෂ්පාදන කර්මාන්තය
 
@@ -4315,7 +4258,6 @@ applets.
 
 ලහෝ Java applets 825 වෙබ්‌ වස්තු චලින්‌
 සමන්විත එච්‌.
-
 
 Web pages are viewed using web browsers
 like Google Chrome, Mozilla Firefox,
@@ -4416,7 +4358,6 @@ web page.
 පිටුවේ තවත්‌ කොටසක්‌ සම්බන්ධ කිරීමට
 භාවිතා කරයි.
 
-
 Organization of contents
 අන්තරගතවල සංවිධානය
 
@@ -4479,8 +4420,6 @@ Editor
 browser
 Save Open
 
-</>
-
 example.html
 
 Text Editor
@@ -4501,7 +4440,6 @@ Brackets
 Visual Studio
 
 KP ATOM Loe 0 00001
-
 
 Save
 
@@ -4593,7 +4531,6 @@ brackets.
 Tags can be nested one in another.
 උසුලන චකිනෙකක්‌ තුල කූඩු කල හැක.
 
-
 Types of html tags
 html උසුලන වර්ග
 
@@ -4666,7 +4603,6 @@ placeholder="Enter your name">
 href="styles.css">
 
 <meta charset="UTF-8">
-
 
 Examples:
 
@@ -4751,7 +4687,6 @@ Page</title>
 
 </head>
 
-
 Text formatting tags
 පාඨ ආකෘතීකරණය කිරීමේ උසුලන
 
@@ -4766,7 +4701,6 @@ keywords or important information.
 චේ.
 
 <body>
-
 
 <hi>Welcome to HTML</h1>
 
@@ -4827,7 +4761,6 @@ quotes, or foreign words.
 සඳහා බොහෝ SO භාවිතා කරන පාඨ ඇල
 අකුරැ බවට පත්‌ කරයි.
 
-
 <u> (Underline):
 Underlines the text to draw attention or
 
@@ -4835,13 +4768,11 @@ emphasize it.
 අවධානය ලබා ගැනීමට හෝ වැදගත්‌ කර
 පෙන්වීමට පාඨ යටින්‌ රෙක්‌ අදිනු ලැබේ.
 
-
 Line Breaks (<br>):
 
 Adds a line break to start text on a new line.
 නව පේළියක්‌ ආරමිභ කිරීමට පාඨ බිළීමක්‌ එක්‌
 කරයි.
-
 
 Ravindu
 
@@ -4868,7 +4799,6 @@ HTML5)
 පාඨ පෙළගැස්ම නියම කරයි,
 
 (values: left, right, center, justify)
-
 
 Heading <h> Tags
 
@@ -4953,7 +4883,6 @@ red, blue, green වැනි පූර්ව නිශ්චිත නමි.
 
 Example:
 
-
 2. face
 
 Specifies the font family.
@@ -5036,7 +4965,6 @@ points.
 ප්‍රදර්ශනය කෙරේ.
 
 Syntax:
-
 
 Attributes
 උපලක්ෂණ
@@ -5142,13 +5070,13 @@ Defines the numbering style.
 
 Values:
 
-1 (default): Numbers (1, 2, 3...).
+1 (default): Numbers (1, 2, 3……).
 
-A: Uppercase letters (A, B, C...).
+A: Uppercase letters (A, B, C……).
 
-a: Lowercase letters (a, b, c...).
+a: Lowercase letters (a, b, c……).
 
-I: Uppercase Roman numerals (I, Il, Ill...).
+I: Uppercase Roman numerals (I, Il, Ill……).
 i: Lowercase Roman numerals (i, Il, til..).
 
 3. Definition Lists
@@ -5175,7 +5103,6 @@ Description list Beas ආරම්භය නිරිචචනය
 
 Defines a heading or topic.
 QOS? හෝ මාතෘකාවක්‌ නිරිචචනය කරයි.
-
 
 <dd>
 Defines the description or value for the
@@ -5227,7 +5154,6 @@ Aas ස්චයං FOae කිරීමේ උසුලනයකි, එනම�
 ABO අවසන්‌ කිරීමේ උසුළනයක්‌ අවශ්‍ය නොංඑේ.
 
 Syntax:
-
 
 <audio> Tag
 
@@ -5344,9 +5270,8 @@ height
 Sets the height of the video.
 වීඩියෝවේ උස සකසයි,
 
-
 Web authoring tools
-වෙබ්‌ පිටු සමිපාදන මෙවලමි
+වෙබ්‌ පිටු සම්පාදන මෙවලමි
 
 Software used to create or modify web
 content, simplifying the complexities of
@@ -5446,7 +5371,6 @@ open education resources.
 ව්වෘතව බලපතලාභී අධ්‍යාපන දට්‍රව්‍ය ව්වෘත
 අධ්‍යාපන සම්පත්‌ GS.
 
-
 4. Web based training ( WBT )
 
 5.
@@ -5506,7 +5430,7 @@ price
 Advantages of ICT in the Education
 
 Sector
-අධ්‍යාපන ක්‍ෂේත්‍රයේ තොරතුරැ භා සන්නිවේදන
+අධ්‍යාපන ක්ෂේත්‍රයේ තොරතුරැ භා සන්නිවේදන
 තාක්ෂණය ඇති වාසි
 
 e Access Anytime, Anywhere
@@ -5536,7 +5460,7 @@ e Streamlined Administration
 Disadvantages of ICT in the Education
 Sector
 
-අධ්‍යාපන ක්‍ෂේත්‍රයේ තොරතුරැ භා සන්නිවේදන
+අධ්‍යාපන ක්ෂේත්‍රයේ තොරතුරැ භා සන්නිවේදන
 තාක්ෂණය ඇති අවාසි
 
 e Addiction to technology
@@ -5548,7 +5472,6 @@ e Expensive setup and maintenance.
 e Teachers often lack ICT skills.
 ගුරුැවරැන්ට බොහෝ SO ඉතොරතුරු හා
 සන්නිවේදන තාක්ෂණ කුසලතා නොමැති වීම.
-
 
 Health sector
 සෞඛ්‍ය ක්ෂේත්‍රය
@@ -5564,7 +5487,7 @@ images as the patient lies on a moving
 
 table.
 
-මෙම යන්ත්‍රය භ්‍රමණය OD ඞ-ර්හ නලයකින්‌ සහ
+මෙම යන්ත්‍රය භ්‍රමණය OD ඩ-ර්හ නලයකින්‌ සහ
 රෝගියා චලනය වන ලඉමිසයක්‌ මත වැතිර සිටින
 විට බහුවිධ ඡායාරූප ග්‍රහණය කරන අනාවරක
 වලින්‌ සමන්විත GS.
@@ -5617,7 +5540,6 @@ conditions.
 සහ වෛද්‍ය තත්වයන්‌ හඳුනා ගැනීම සඳහා
 බහුලව භාවිතා 6s.
 
-
 Positron Emission Tomography (PET)
 
 Positron Emission Tomography (PET)
@@ -5639,23 +5561,17 @@ body electrons, using this data to create a
 PET ස්කෑනරය ලේඩ්යෝ රපඉට්‍ර්සර්‌ ශරීරයේ
 ඉලෙක්ට්‍රෝන සමඟ අන්තරක්‍රියා කරන ව්ට නිකුත්‌
 වන ගැමා කිරණ හළුනාලගෙන, අභ්‍යන්තර
-ක්‍රියාකාරකම්වල තිමාණ රෑපයක්‌ නිර්මාණය
+ක්‍රියාකාරකම්වල තිමාණ රූපයක්‌ නිර්මාණය
 කිරීමට ලමම දත්ත භාවිතා කරයි.
 
- ෴
-\
 / 4 න
 ¢ | ) । =
-— }
-\
+
 ao
 
-—
-—
 ලක
-—=—
+
 —_—
-—
 
 Electroencephalography (EEG)
 
@@ -5683,7 +5599,6 @@ rhythms.
 ECG යන්ත්‍රය හෘදයේ විද්‍යුත්‌ ක්‍රියාකාරකම්‌ Dbend
 කර, හෘද රිද්ම නිවැරදිච අර්ථකථනය කරන
 දෘශ්‍ය ප්‍රස්ථාර බවට පත්‌ කරයි.
-
 
 Cardiac screening machine
 
@@ -5746,7 +5661,6 @@ communication media.
 විශේෂඥ ඉචෙද්‍ය උපදෙස්‌ අනුව හදිසි ප්‍රතිකාර
 
 ලබාදී රෝහල GAD යැවීම.
-
 
 Home Health Supervision
 නිවසේ සිට සෞඛ්‍ය අධීක්ෂණය
@@ -5830,7 +5744,6 @@ E-channeling යනු සෞඛ්‍ය සේවා සපයන්නන්�
 
 සමඟ හමුවීම්‌ කාලසටහනකට අනුව Be කරන
 සරල මාරගගත පද්ධතියකි.
-
 
 5. Patient / medical report database
 රෝගීන්ගේ / eeHes Oren) දත්තපාදක
@@ -5933,7 +5846,6 @@ developing countries.
 රටවල MAM කරන චවැනි Gay පිළිබඳ
 උදාහරණ කිහිපයක්‌ පහත දක්වා ඇත.
 
-
 Meteorological Devices
 කාලගුණික උපකරණ
 
@@ -5960,7 +5872,7 @@ weather.
 ගැනීමට බෝග වගාව සහ අස්වනු නෙලන
 කාලය පිළිබඳව දැනුවත්‌ තීරණ ගැනීමේදී
 මෙම උපකරණ මගින්‌ රැස්‌ කරන දත්ත
-අතිශයින්‌ වචැදගත්්‌එචවේ.
+අතිශයින්‌ වචැදගත්‌එචවේ.
 
 Automated Insect Control Devices
 ස්වයංක්‍රීය කෘම්‌ පාලන උපකරණ
@@ -6017,7 +5929,6 @@ excessive heat, cold, rain or pests.
 පරිසරයක්‌ සපයන අතර, අධික තාපය,
 සීතල, වැසි හෝ පළිබෝධ වැනි කාලගුණික
 චිචල්‍යයන්ගෙන්‌ එවා ආරක්ෂා කරයි.
-
 
 For Farmhouse Management
 ගොවිපල කළමනාකරණය සඳහා
@@ -6116,7 +6027,6 @@ good catch.
 වැඩිම මත්සෟ ගහනයක්‌ ඇති ස්ථාන වත
 සෘජුවම යාත්‍රා කළ හැකිය.
 
-
 ICT in Manufacturing and Business
 Benen සහ ව්‍යාපාර පිළිබඳ තොරතුරැ
 තාක්ෂණය
@@ -6211,7 +6121,6 @@ businesses in developing countries.
 රටවල වෲණපාර සඳහා ලමය නව
 වෙළෙඳපොළ සහ වර්ධන අවස්ථා ව්චෘත කර
 ඇත.
-
 
 E-government
 ඉ-රාජ්‍ය පාලනය
@@ -6312,7 +6221,6 @@ https://wbb.gov.|k/
 Legal Systems
 නීති පද්ධති
 
-
 Government to Business (G2B)
 රජයකින්‌ ව්‍යාපාරවලට
 
@@ -6399,7 +6307,6 @@ e Increased Transparency
 e Cost Savings
 පිරිචැය ඕතෛේරිකිරීමි
 
-
 Disadvantages of usage of ICT in
 
 governance
@@ -6472,8 +6379,7 @@ e Computer programmer (Software
 Engineer)
 පරිගණක ක්‍රමලේඛක (මෘදුකාංග
 ඉංජිනේරැ)
-
-ේ Computer/Information Systems
+  Computer/Information Systems
 
 Analyst
 පරිගණක පද්ධති විශ්ලේෂක
@@ -6511,7 +6417,6 @@ e Cyber security analyst
 e Machine Learning Engineer
 
 e Al engineer
-
 
 Problems associated with the use of ICT
 පතනොරතුරැ හා සන්නිවේදනය තාක්ෂනය
@@ -6604,7 +6509,7 @@ fallen victim to these attacks attacks.
 නිල චෙබි පිටුවද හැක්වුනි. GHA) නිතර සිදුවේ.
 
 3. Intellectual property rights
-බුද්ධිමය දේපල සමිබන්ධ අයිතීන්‌
+බුද්ධිමය දේපල සම්බන්ධ අයිතීන්‌
 
 Intellectual property rights are legal rights
 that protect the intangible things created in
@@ -6629,7 +6534,6 @@ asa තනි පුද්ගලයෙකුගේ හෝ සංවිධාන�
 නිර්මාණකරැචන්ට GO කාලයක්‌ සඳහා ඔවුන්ගේ
 නිර්මාණ භාව්තය කෙරෙහි සුවිශේෂී පාලනයක්‌
 ලබා Ges.
-
 
 Patent
 පටෙන්ටි බලපත්‍ර
@@ -6729,7 +6633,6 @@ the fraud gets benefited from this.
 වංචාචක්‌ වේ. මෙම වංචාව කරනු ලබන
 පුද්ගලයාට බොහෝ විට වාසියක්‌ හිමිවේ
 
-
 Issues related to values
 සදාචාරාත්මක ගැටලු
 
@@ -6827,7 +6730,6 @@ the IT platforms and others don't.
 අවකාශය ඉනාතනිබීම සහ අළකුත්‌ පිරිසට
 අවකාශ තිබීම නිසාය,
 
-
 De-Skilling
 හසුරැ කුසලතා අහෝසි වීම
 
@@ -6918,7 +6820,6 @@ REUSEG@,S
 REDUCE
 RECYCLE
 
-
 Health issues related with computers
 පරිගණක ආශ්‍රින සෞඛ්‍ය ගැටලු
 
@@ -6988,7 +6889,6 @@ Eye Fatigue Itchy Eyes Dryness
 
 Blurred Vision Double Vision Headaches
 
-
 6. Musculoskeletal problems
 මාංශපේශි සහ අස්ථි ආශිත ගැටලු
 
@@ -7025,7 +6925,7 @@ e Using a blue light filter at night
 නිල්‌ ආලෝක පෙරන භාවිතය
 
 Physical and Logical security issues
-භෞතික හා mb6Siea ආරක්‍ෂාව පිළිබඳ ගැටලු
+භෞතික හා mb6Siea ආරක්ෂාව පිළිබඳ ගැටලු
 
 Physical security issues
 භෞතික ආරක්ෂාව පිලිබඳ ගැටලු
@@ -7068,7 +6968,6 @@ UPS හි ඔබගේ පරිගණකයට උපස්ථ බලය
 කාරයය සුරැකීමට සහ විදුලිය ඇනහිටීමකදී
 ආරක්ෂිතව වසා දැමීමට ඔබට ඉඩ සලසයි.
 
-
 2. Limiting and monitoring access
 ප්‍රවේශය සීමා කිරීම සහ අධීක්ෂණය කිරීම
 
@@ -7098,8 +6997,6 @@ as well.
 කිරීමෙන්‌ කාමරයට ප්‍රවේශ වන පුද්ගලයින්‌ සහ
 ඔවුන්ගේ ක්‍රියා නිර්ක්ෂණය කිරීමට උපකාරී වේ.
 
-,
-
 3. Power surge protectors
 විදුලි බල සරජන
 
@@ -7121,7 +7018,6 @@ off.
 සරීජ ලෙස හැඳින්වේ. අකුණු සැර වැදීම, විදුලි
 ජාලයේ ගැටලු හෝ විශාල උපකරණ සකිය හෝ
 අක්‍රිය වූ විට පචා මෙම සථිජ සිදුවිය හැක.
-
 
 4. Climatic conditions and
 
@@ -7164,7 +7060,7 @@ caused due to lightning.
 සන්නායකයක්‌ MAID) කළ හැකිය.
 
 Logical Security Issues
-තාරකික ආරක්‍ෂාව පිලිබද ගැටලු
+තාරකික ආරක්ෂාව පිලිබද ගැටලු
 
 Logical security refers to the protection of
 computer systems, networks, and data
@@ -7203,7 +7099,6 @@ computer
 
 3. Malicious software
 හානිකර මෘදුකාංග
-
 
 Measures taken to minimize logical
 
@@ -7273,7 +7168,6 @@ _ 4
 
 SS
 
-
 3. Backups
 අනුපිටපත්‌
 
@@ -7312,7 +7206,6 @@ ap =
 DATA
 Pendrive Floppy Disk | Memory Card
 
-=
 S|
 
 5
@@ -7479,10 +7372,9 @@ WIL I rica exc WILLIE iE i
 [1 OULU een I
 = OOOO
 
-(51111 1 ක්‍ක්‍ෂ
+(51111 1 ක්‍ක්ෂ
 JULI | 1 10
 
-[]
 O
 U
 O
@@ -7503,7 +7395,6 @@ distractions and annoys the user.
 මෙය හානිකර නොවේ, නමුත්‌ එය අවධානය
 වෙනතකට යොමු කරන අතර පථටීශිලකයාට
 කරදර කරයි.
-
 
 Phishing
 
@@ -7594,7 +7485,6 @@ on insecure websites
 අනාරක්ෂිත GOOD GAS වලට පුද්ගලික
 තොරතුරැ ඇතුළත්‌ කිරීමෙන්‌ වැළකීම
 
-
 Popular antivirus software
 ප්‍රචලිත ප්‍රතිවෛරස මෘදුකාංග
 
@@ -7630,7 +7520,7 @@ F-Secure
 
 Security Essentials
 න
-¥
+
 avast!
 be free N0D32 See
 4

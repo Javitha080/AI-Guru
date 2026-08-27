@@ -154,9 +154,7 @@ export default function CommandPalette() {
   }, [items, query]);
 
   // Keep selection inside bounds as the filter narrows.
-  useEffect(() => {
-    if (activeIdx >= filtered.length) setActiveIdx(0);
-  }, [filtered.length, activeIdx]);
+  const safeActiveIdx = activeIdx >= filtered.length ? 0 : activeIdx;
 
   const runItem = useCallback(
     (item: PaletteItem) => {
@@ -176,11 +174,11 @@ export default function CommandPalette() {
         setActiveIdx((i) => Math.max(0, i - 1));
       } else if (e.key === "Enter") {
         e.preventDefault();
-        const item = filtered[activeIdx];
+        const item = filtered[safeActiveIdx];
         if (item) runItem(item);
       }
     },
-    [filtered, activeIdx, runItem],
+    [filtered, safeActiveIdx, runItem],
   );
 
   // Scroll the active row into view while arrowing through the list.
@@ -188,7 +186,7 @@ export default function CommandPalette() {
     const list = listRef.current;
     const el = list?.querySelector<HTMLElement>('[data-active="true"]');
     el?.scrollIntoView({ block: "nearest" });
-  }, [activeIdx]);
+  }, [safeActiveIdx]);
 
   let renderIdx = -1;
   const sections: Array<{ key: PaletteItem["section"]; title: string }> = [
@@ -240,7 +238,7 @@ export default function CommandPalette() {
                 )}
                 {sectionItems.map((item) => {
                   renderIdx += 1;
-                  const active = renderIdx === activeIdx;
+                  const active = renderIdx === safeActiveIdx;
                   return (
                     <button
                       key={item.id}

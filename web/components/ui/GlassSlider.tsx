@@ -85,14 +85,17 @@ export default function GlassSlider({
         />
         {/* Glass sphere thumb */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 rounded-full transition-shadow"
+          className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 rounded-full cursor-grab active:cursor-grabbing ${
+            dragging ? "scale-125" : "hover:scale-110"
+          }`}
           style={{
             left: `${pct}%`,
             background: "radial-gradient(circle at 40% 35%, rgba(255,255,255,0.9), var(--primary))",
-            border: "2px solid rgba(255,255,255,0.5)",
+            border: "2px solid rgba(255,255,255,0.6)",
             boxShadow: dragging
-              ? "0 0 16px var(--glow-primary), 0 2px 8px rgba(0,0,0,0.15)"
-              : "0 0 8px var(--glow-primary), 0 2px 4px rgba(0,0,0,0.1)",
+              ? "0 0 20px var(--glow-primary), 0 4px 12px rgba(0,0,0,0.25)"
+              : "0 0 10px var(--glow-primary), 0 2px 6px rgba(0,0,0,0.15)",
+            transition: dragging ? "none" : "transform var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)), box-shadow var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1))",
           }}
         />
       </div>

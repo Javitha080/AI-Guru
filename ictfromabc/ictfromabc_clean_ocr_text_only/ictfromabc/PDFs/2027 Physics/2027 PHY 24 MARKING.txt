@@ -1,0 +1,573 @@
+1. A robotics engineer is designing a microcontroller for a robotic arm. The controller needs to process both
+positive and negative values efficiently. The engineer decides to use 2’s complement for signed number
+representation.
+රොබෝ විද්‍යා ඉංජිනේරුවෙක් රොබෝ අතක් සඳහා ක්ෂුද්‍ර පාලකයක් නිර්මාණය කරමින් සිටී. පාලකය ධන සහ
+සෘණ අගයන් දෙකම කාර්යක්ෂමව සැකසීමට අවශ්‍ය වේ. ලකුණුවත් සංඛ්‍යා නිරූපණය සඳහා ඉංජිනේරුවා
+2 හි අනුපූරකය භාවිතා කිරීමට තීරණය කරයි.ි
+
+The robotic arm must store the movement values ranging from -128 to +127 using an 8-bit register. If the
+robot needs to move -45 units, what would be its 2’s complement representation in 8-bit binary?
+රොබෝ අත බිටු 8ක ලේඛනයක් භාවිතයෙන් -128 සිට +127 දක්වා පරාසයක චලන අගයන් ගබඩා කළ
+යුතුය. රොබෝවරයාට ඒකක -45 චලනය කිරීමට අවශ්‍ය නම්, බිටු 8හි ද්විමය තුළ එහි 2 හි අනුපූරක
+නිරූපණය කුමක් වේද?
+1)  00101101
+2)  11010011
+3) 10101101
+4) 01010011
+5) 11110011
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+Here, the question is asked to get the 2’s complement of -45. So, it should get the binary value of the
+decimal number 45. / මෙහිදී, -45 හි 2 හි අනුපූරකය ලබා ගැනීමට ප්‍රශ්නය අසයි. එබැවින්, දශමය 45 හි
+ද්විමය අගය ලබා ගැනීම කළ යුතුය.
+
+2 45
+
+2 22 - 1
+2 11 - 0
+2
+5
+- 1
+2
+2
+- 1
+2
+1
+- 0
+
+0
+- 1
+
+= 1011012
+As we represent the 2’s complement value in 8 bits we should add 0s before the whole value. /බිටු
+8 කින් 2 හි අනුපූරක අගය නියෝජනය කරන බැවින් සම්පූර්ණ අගයට පෙර 0 එකතු කළ යුතුය.
+= 001011012
+
+After this, the binary value should be inverted. /මෙයින් පසු, ද්විමය අගය ප්‍රතිලෝම කළ යුතුය.
+001011012 → 110100102
+
+Finally, add 1 to the inverted binary value. /අවසාන වශයෙන්, ප්‍රතිලෝම ද්විමය අගයට 1ක් එකතු කරන්න.
+
+1 1 0 1 0 0 1 0
+
++ 1
+1 1 0 1 0 0 1 1
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 24
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2.  Which of the following statements about complementary number systems is true?
+ අනුපූරක සංඛ්‍යා පද්ධති පිළිබඳ පහත සඳහන් ප්‍රකාශ අතුරෙන් සත්‍ය වන්නේ කුමක්ද?
+
+1) 1’s complement of a binary number is found by adding 1 to it.
+ද්විමය සංඛ්‍යාවක 1 හි අනුපූරකය එයට 1 එකතු කිරීමෙන් සොයාගත හැකිය.
+
+2) 2’s complement is obtained by flipping all bits of a binary number.
+ද්විමය සංඛ්‍යාවක සියලුම බිටු පෙරලීමෙන් 2 හි අනුපූරකය ලබා ගනී.
+
+3) 1’s complement and 2’s complement of a number are always the same.
+සංඛ්‍යාවක 1 හි අනුපූරකය සහ 2 හි අනුපූරකය සැමවිටම සමාන වේ.
+
+4) 2’s complement is obtained by taking the 1’s complement and adding 1 to it.
+1 හි අනුපූරකය ගෙන එයට 1  එකතු කිරීමෙන් 2 හි අනුපූරකය ලබා ගනී.
+
+5) 1’s complement is used more often than 2’s complement for representing signed numbers.
+ලකුණු කළ සංඛ්‍යා නිරූපණය කිරීම සඳහා 1  හි අනුපූරකය 2 හි අනුපූරකයට වඩා බොහෝ විට භාවිතා
+වේ.
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+The 1’s complement and 2’s complement are two methods for representing negative numbers in binary
+systems.
+ද්විමය පද්ධතිවල සෘණ සංඛ්‍යා නිරූපණය කිරීම සඳහා 1 හි අනුපූරකය සහ 2 හි අනුපූරකය ලෙස ක්‍රම
+දෙකකි.
+
+1’s Complement / 1 හි අනුපූරකය:
+Obtained by flipping all bits (changing 0s to 1s and 1s to 0s).
+සියලුම බිටු පෙරලීමෙන් ලබා ගන්නා ලදී. (0 සිට 1 දක්වා සහ 1 සිට 0 දක්වා වෙනස් කිරීම).
+
+2’s Complement / 2 හි අනුපූරකය:
+Obtained by taking the 1’s complement and then adding 1.
+1  හි අනුපූරකය ගෙන 1  ක් එකතු කිරීමෙන් ලබා ගනී.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+       3.   What is the result of 25 + (-45) in binary using one's complement representation (8-bit)?
+එකෙහි අනුපූරක නිරූපණය (8-බිට්) භාවිතා කරමින් ද්විමය වශයෙන් 25 + (-45) හි ප්‍රතිඵලය කුමක්ද?
+1)  11101011
+2)  10111001
+3) 11101100
+4) 10111011
+5) 10111000
+
+Answer: 1)
+
+Explanation/ පැහැදිලි කිරීම,
+
+In one's complement representation, we only need to convert the negative number to its one's
+complement. The positive number remains unchanged because its one's complement is the same as the
+original binary value.
+එකෙහි අනුපූරක නිරූපණයේදී, අපට අවශ්‍ය වන්නේ සෘණ සංඛ්‍යා එහි එකෙහි අනුපූරකය බවට
+පරිවර්තනය කිරීම පමණි. ධන සංඛ්‍යාවල එකෙහි අනුපූරකය මුල් ද්විමය අගයට සමාන බැවින් එය
+නොවෙනස්ව පවතී.
+
+Let’s solve this step by step
+අපි මෙය පියවරෙන් පියවර විසඳමු
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+ Step/ පියවර 1
+Convert 25 and 45 into binary / 25 සහ 45 ද්විමය සංඛ්‍යා බවට පරිවර්තනය කරන්න
+
+2
+25
+
+2
+12
+- 1
+2
+6
+- 0
+2
+3
+- 0
+2
+1
+- 1
+
+0
+- 1
+
+In one's complement representation, the Most Significant Bit (MSB) is used to determine whether a
+number is positive or negative. For positive numbers, the MSB is set to 0, while for negative numbers,
+the MSB is set to 1.
+එකෙහි අනුපූරක නිරූපණයේදී, සංඛ්‍යාවක් ධන හෝ සෘණ ද යන්න තීරණය කිරීම සඳහා වැඩිම වෙසෙසි
+බිටුව (MSB) භාවිතා කරයි. ධන සංඛ්‍යා සඳහා, MSB 0 ලෙස සකසා ඇති අතර, සෘණ සංඛ්‍යා සඳහා,
+MSB 1 ලෙස සකසා ඇත.
+
++ 25 = 00011001
+- 45 = 10101101
+
+ Step/ පියවර 2
+Convert - 45 into one’s complement / - 45 එකෙහි අනුපූරකයට පරිවර්තනය කරන්න
+
+1 0 1 0 1 1 0 1  - 45
+1 1 0 1 0 0 1 0  1s complement
+
+ Step/ පියවර 3
+Compute the result of the given expression / ලබා දී ඇති ප්‍රකාශනයේ ප්‍රතිඵලය ගණනය කරන්න
+
+1
+1
+0
+1
+0
+0
+1
+0
+ - 45
+0
+0
+0
+1
+1
+0
+0
+1
+ + 25
+1
+1
+1
+0
+1
+0
+1
+1
+
+Therefore the answer is 1) / එබැවින් පිළිතුර 1) වේ.
+
+4.   Given that the ASCII decimal values of “H” and “r” are 72 and 114, respectively, what is the ASCII
+binary representation of the word "SyMBol"?
+“H” සහ “r” හි ASCII දශමය අගයන් පිළිවෙලින් 72 සහ 114 වේ. “SyMBol” යන වචනයේ ASCII
+ද්විමය නිරූපණය වනුයේ කුමක්ද?
+
+1) 01010010 01111001 01001100 01000010 01101110 01101100
+2) 01010011 01110001 01001101 01000001 01101111 01101101
+3) 01010100 01111001 01001111 01000010 01101101 01101100
+4) 01010011 01101111 01001101 01000011 01101111 01101011
+5) 01010011 01111001 01001101 01000010 01101111 01101100
+
+Answer : 5)
+
+2
+45
+
+2
+22
+- 1
+2
+11
+- 0
+2
+5
+- 1
+2
+2
+- 1
+2
+1
+- 0
+
+0
+- 1
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+Explanation / පැහැදිලි කිරීම
+
+When the decimal value of H is 72,
+H හි දශමය අගය 72 වන විට,
+
+H is the 8th letter of the English alphabet. There are 7 letters before H.
+H යනු ඉංග්‍රීසි හෝඩියේ 8 වන අකුරයි .H ට පෙර අකුරු 7කි.
+
+72-7 = A
+65 = A
+
+Therefore, the decimal value of A is 65. / එම නිසා A හි දශමය අගය 65 වේ.
+
+18 letters after H.
+H ට පසු අකුරු 18 කි.
+
+72 + 18 = Z
+90=Z
+
+Therefore, the decimal value of Z is 90. Therefore, the decimal values of A-Z are between 65 - 90.
+එම නිසා Z හි දශමය අගය 90 වේ. එම නිසා A-Z දශමය අගයන් 65 - 90 අතර වේ.
+
+Similarly, when the decimal value of r is 114, the decimal values of a-z are between 97 - 122.
+මෙලෙසම, r හි දශමය අගය 114 වන විට, a – z දශමය අගයන් 97 - 122 අතර වේ.
+
+Therefore, the answer is 5.
+එබැවින්, පිළිතුර 5 වේ.
+
+       5.   What is the false statement about sign-magnitude?
+       ලකුණු සහිත සංඛ්‍යා නිරූපණය පිළිබඳ අසත්‍ය ප්‍රකාශය කුමක්ද?
+
+1)   Used to represent positive and negative numbers in the computer.
+   පරිගණකයේ ධන සහ සෘණ සංඛ්‍යා නිරූපණය කිරීමට භාවිතා කරයි.
+2)   Used 1 to represent the negative numbers and 0 to positive numbers as the first bit.
+සෘණ සංඛ්‍යා නියෝජනය කිරීමට 1 සහ ධන සංඛ්‍යා නියෝජනය කිරීමට 0
+පළමු බිටුව ලෙස භාවිතා කරයි.
+3)   Except for the first bit other bits are used to represent the absolute value.
+   නිරපේක්ෂ අගය නිරූපණය කිරීමට පළමු බිටුව හැර අනෙකුත් බිටු භාවිතා වේ.
+4)   To get the sign-magnitude value of a negative number, we should get the binary value of it
+       and  inverse it.
+   සෘණ සංඛ්‍යාවක ලකුණු සහිත සංඛ්‍යා නිරූපණ අගය ලබා ගැනීමට අප එහි ද්විමය අගය ලබාගෙන
+   එය ප්‍රතිලෝම කළ යුතුය.
+5)   Conversions between positive and negative numbers are simple.
+   ධන සහ සෘණ සංඛ්‍යා අතර පරිවර්තන සරලයි
+
+Answer: 4)
+
+Letter The position of the Alphabet Decimal
+Binary
+8-bits ASCII
+S
+19
+83
+1010011
+01010011
+y
+25
+121
+1111001
+01111001
+M
+13
+77
+1001101
+01001101
+B
+2
+66
+1000010
+01000010
+o
+15
+111
+1101111
+01101111
+l
+12
+108
+1101100
+01101100
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+True – Sign magnitude is a method used in computers to represent both positive and negative numbers.
+සත්‍යයි - ලකුණු සහිත සංඛ්‍යා නිරූපණය යනු ධන සහ ඍණ සංඛ්‍යා යන දෙකම නියෝජනය කිරීමට
+පරිගණකවල භාවිතා කරන ක්‍රමයකි.
+
+True – The first bit (most significant bit) is the sign bit, where 1 represents a negative number and 0
+represents a positive number.
+සත්‍යයි - පළමු බිටුව (වැඩිම වෙසෙසි අගය) එම සංඛ්‍යාවේ ලකුණ වන අතර, 1 සෘණ අංකයක් සහ 0 ධන
+අංකයක් නියෝජනය කරයි.
+
+True – The remaining bits represent the absolute value of the number.
+සත්‍යයි - ඉතිරි බිටු සංඛ්‍යාවේ නිරපේක්ෂ අගය නියෝජනය කරයි.
+
+False – To get the sign-magnitude value of a negative number, we do not simply invert the bits. Instead,
+we set the first bit to 1 while keeping the magnitude (other bits) the same. The inversion method is used
+in two’s complement, not sign-magnitude.
+අසත්‍යයි - ලකුණු සහිත සංඛ්‍යාවක අගය ලබා ගැනීමට, අපි හුදෙක් බිටු පෙරළන්නේ නැත. ඒ වෙනුවට,
+අපි විශාලත්වය (අනෙකුත් බිටු) එලෙසම තබා ගනිමින් පළමු බිටුව 1 ලෙස සකස් කරමු. ප්‍රතිලෝම ක්‍රමය
+භාවිතා කරනුයේ දෙකේ අනුපූරකයේ මිස ලකුණු සහිත සංඛ්‍යාවලදී නොවෙයි.
+
+True – Converting between positive and negative numbers in sign magnitude is easy; just flip the sign
+bit without altering the magnitude bits.
+සත්‍යයි - ලකුණු සහිත සංඛ්‍යා නිරූපණයේදී ධන සහ සෘණ සංඛ්‍යා අතර පරිවර්තනය පහසු ය; පළමු
+බිටුව පෙරළීමෙන් එය සිදු කළ හැකිය.
+
+The final answer is Option 4
+අවසාන පිළිතුර වන්නේ විකල්පය 4
+
+       6.   Which character encoding standard supports the largest number of characters, including characters
+            from various languages and symbols?
+විවිධ භාෂා සහ සංකේතවලින් අනුලක්ෂණ ඇතුළුව වැඩිම අනුලක්ෂණ සංඛ්‍යාවට සහය දක්වන්නේ කුමන
+අනුලක්ෂණ කේතකරණ ක්‍රමයද?
+
+1)   BCD (Binary Coded Decimal)
+2)   EBCDIC (Extended Binary Coded Decimal Interchange Code)
+3)   ASCII (American Standard Code for Information Interchange)
+4)   Unicode
+5)   UTF-8 (Unicode Transformation Format - 8-bit)
+
+Answer: 4)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+Primarily used for representing decimal digits (0-9) in binary form, very limited in scope.
+මූලික වශයෙන් භාවිතා වන්නේ දශමය ඉලක්කම් (0-9)  ද්විමය ආකාරයෙන්, විෂය පථයෙන් ඉතා සීමිත ලෙස
+නිරූපණය කිරීම සඳහා ය.
+
+Option / විකල්ප 2)
+An older character encoding system, used mainly in IBM mainframes. Supports fewer characters
+compared to Unicode.
+ප්‍රධාන වශයෙන් IBM ප්‍රධාන රාමු වල භාවිතා වන පැරණි අනුලක්ෂණ කේතන පද්ධතියකි. යුනිකෝඩ් හා
+සසඳන විට අඩු අනුලක්ෂණ ප්‍රමාණයක් සඳහා සහය දක්වයි.
+
+Option / විකල්ප 3)
+Represents 128 or 256 characters (with extended ASCII), mainly limited to English characters and some
+control characters.
+අනුලක්ෂණ 128  හෝ 256 (with extended ASCII) නියෝජනය කරයි, ප්‍රධාන වශයෙන් ඉංග්‍රීසි අනුලක්ෂණ සහ
+සමහර පාලන අනුලක්ෂණවලට සීමා වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+Option / විකල්ප 4)
+Unicode is a comprehensive encoding standard that aims to cover all characters from all writing systems,
+symbols, and special characters. It supports over 140,000 characters from various languages and symbol
+sets.
+යුනිකෝඩ් යනු සියලුම ලේඛන පද්ධති, සංකේත සහ විශේෂ අනුලක්ෂණ වලින් සියලුම අනුලක්ෂණ ආවරණය
+කිරීම අරමුණු කරගත් විස්තීරණ කේතකරණ ප්‍රමිතියකි. එය විවිධ භාෂා සහ සංකේත කට්ටල වලින් අනුලක්ෂණ
+140,000 කට වඩා සහය දක්වයි.
+
+Option / විකල්ප 5)
+While UTF-8 is a popular encoding format that can represent every character in the Unicode standard, it
+is not a separate character set but rather a way to encode Unicode characters efficiently using 8-bit code
+units.
+UTF-8 යනු යුනිකෝඩ් ප්‍රමිතියේ සෑම අනුලක්ෂණයක්ම නියෝජනය කළ හැකි ජනප්‍රිය කේතකරණ ආකෘතියක්
+වන අතර, එය වෙනම අනුලක්ෂණ කට්ටලයක් නොව බිටු-8 භාවිතා කරමින් කාර්යක්ෂමව යුනිකෝඩ් අනුලක්ෂණ
+කේතනය කිරීමේ ක්‍රමයකි. එම නිසා මෙය පිළිතුරක් නොවේ.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+       7.   Which of the following hexadecimal numbers is equivalent to 23.458?
+       පහත සඳහන් ෂඩ් දශමය සංඛ්‍යා අතරින් 23.458 ට සමාන වන්නේ කුමක්ද?
+
+1)  1A.2C16
+2)   1B.3D16
+3)  13.9416
+4)  25.1E16
+5)  32.A616
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Let’s convert the octal value into hexadecimal.
+අෂ්ටමය අගය, ෂඩ් දශමය බවට පරිවර්තනය කරමු.
+
+23.458
+2
+3
+
+4
+5
+010
+011
+
+100
+101
+010011
+
+100101
+0001
+0011
+
+1001
+0100
+1
+3
+
+9
+4
+13.9416
+
+So, 23.458 in hexadecimal is / එබැවින්, 23.458 ෂඩ් දශමයෙන් = 13.9416  වේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+       8.   What is the correct 2’s complement binary representation of decimal -80?
+       දශමය -80 හි නිවැරදි දෙකෙහි අනුපූරක ද්විමය නිරූපණය කුමක්ද?
+
+1)   11011000
+2)  10110000
+3)  11100011
+4)  10101110
+5)  11011011
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම
+
+First, convert 80 to binary (positive)
+පළමුව, 80 ද්විමය (ධන) බවට පරිවර්තනය කරන්න.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-
+
+As we represent the 2’s complement value in 8 bits we should add 0s before the whole value.
+අපි බිටු 8 කින් දෙකෙහි අනුපූරක අගය නියෝජනය කරන බැවින් සම්පූර්ණ අගයට පෙර 0 එකතු කළ
+යුතුය.
+
+8010 = 010100002
+
+To take the 2’s complement, first we should invert the bits and get the 1’s complement.
+දෙකෙහි අනුපූරකය ලබා ගැනීමට, පළමුව අපි බිටු පෙරළා එකෙහි අනුපූරකය ලබා ගනිමු,
+
+010100002 → 101011112
+
+Then, let’s add 1 to the inverted binary number.
+ඉන්පසු, අපි ප්‍රතිලෝම ද්විමය අංකයට 1 ක් එකතු කරමු.
+
+1 0 1 0 1 1 1 1
+
++ 1
+1 0 1 1 0 0 0 0
+
+So, the 8-bit 2’s complement binary representation of -80 is 101100002.
+එබැවින්, -80 හි දෙකෙහි අනුපූරකයේ බිටු 8 ක නිරූපණය 101100002 වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+       9.   Which of the following statements about 2’s complement representation is true?
+       පහත සඳහන් ප්‍රකාශ අතුරින් 2හි අනුපූරක නියෝජනය පිළිබඳ සත්‍ය ප්‍රකාශය
+
+1)   There are two representations for zero in 2’s complement.
+       2 හි අනුපූරකයෙ 0 සඳහා නිරූපණයන් දෙකක් ඇත.
+2)   In 2’s complement, negating a number is done by inverting all bits and subtracting 1.
+      2 හි අනුපූරකයේදී, සංඛ්‍යාවක් ඍණාත්මක කිරීම සිදු කරනු ලබන්නේ සියලුම බිටු ප්‍රතිලෝම කිරීමෙන්
+   සහ 1ක් අඩු කිරීමෙනි.
+3)   The range of an 8-bit 2’s complement number is -127 to +127.
+   බිටු 8හි 2 හි අනුපූරක අංකයක පරාසය -127 සිට +127 දක්වා වේ.
+4)   To obtain the 2’s complement of a number, we should invert the bits and add 2.
+   අංකයක 2 හි අනුපූරකය ලබා ගැනීම සඳහා, අපි බිටු ප්‍රතිලෝම කර එයට 2ක් එකතු කළ යුතුය.
+5)   The most significant bit (MSB) determines whether a number is positive or negative.
+   වැඩිම වෙසෙසි බිටුව (MSB) සංඛ්‍යාවක් ධන හෝ සෘණ ද යන්න තීරණය කරයි.
+
+Answer: 5)
+
+Explanation:/ පැහැදිලි කිරීම:
+Option 1:
+
+False. 2’s complement has only one representation for zero.
+අසත්‍යයි. 2හි අනුපූරකයට ඇත්තේ බිංදුව සඳහා එක් නියෝජනයක් පමණි.
+
+2 80
+2 40 -0
+2 20 -0
+2 10 -0
+2 5
+-0
+2 2
+-1
+2 1
+-0
+
+0
+-1
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-7-
+
+00000000 represents 0
+00000000 → 0 නියෝජනය කරයි
+
+Unlike sign magnitude representation, where both 00000000 (+0) and 10000000 (-0) exist, 2’s
+complement has only one zero.
+00000000 (+0)  සහ 10000000 (-0) යන දෙකම පවතින ලකුණුවත් සංඛ්‍යා නිරූපණය මෙන් නොව, 2 හි
+අනුපූරකයට ඇත්තේ බිංදුව සඳහා එක් නියෝජනයක් පමණි.
+
+Option 2:
+False. In 2’s complement, negating a number is done by inverting all bits and adding 1.
+For example, in 8-bit 2’s complement:
+2 හි අනුපූරකයේදී, සංඛ්‍යාවක් ඍණාත්මක කිරීම සිදු කරනු ලබන්නේ සියලුම බිටු ප්‍රතිලෝම කර 1ක් එකතු
+කිරීමෙනි.
+
++5 (00000101) → Invert bits (11111010) → Add 1 (11111011) → -5
+
+-5 (11111011) → Invert bits (00000100) → Add 1 (00000101) → +5
+Option 3:
+False. The correct 8-bit 2’s complement range is -128 to +127, not -127 to +127.
+අසත්‍යයි. නිවැරදි බිටු 8 2 හි අනුපූරක අංකයක පරාසය -128 සිට  +127 දක්වා වේ. -127 සිට +127 දක්වා
+නොවේ.
+
+Option 4:
+False. You obtain the 2’s complement by inverting the bits and adding 1, not 2.
+අසත්‍යයි. අංකයක 2 හි අනුපූරකය ලබා ගැනීම සඳහා, අපි බිටු ප්‍රතිලෝම කර එයට 2ක් නොව 1ක් එකතු
+කළ යුතුය.
+
+Option 5:
+True. The most significant bit (MSB) determines whether a number is positive or negative.
+සත්‍යයි. වැඩිම වෙසෙසි බිටුව (MSB) සංඛ්‍යාවක් ධන හෝ සෘණ ද යන්න තීරණය කරයි.
+0 → Positive or zero / ධන
+1 → Negative/ සෘණ
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-8-

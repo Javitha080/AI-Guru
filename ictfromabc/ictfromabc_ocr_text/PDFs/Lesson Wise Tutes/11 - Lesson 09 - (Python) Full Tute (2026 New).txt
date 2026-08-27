@@ -2,41 +2,36 @@
                      Show me the code.
                      ~ Linus Torvalds
 
-
-
-
                  Guido Van Rossum
            (Founder of python)
 
-
-
-
 ictfromabc.com
-                                           Contents
+
+                                           Contents
           Python introduction ………………………………………………………………………………………. 2
           Modularization………………………………………………………………………………………………… 4
           Structure charts……………………………………………………..………………………………………… 7
           Programming languages………………………………………………………………………………… 9
           Programming paradigms…………………………….…………………………………………………. 11
           Source code vs object code…………………….…………………………………………………… 14
-          Language translators…...……………….………………………………………………………………....16
-          Linkers…………………….………………………………………………………………………………………... 19
+          Language translators……………………….……………………………………………………………………16
+          Linkers…………………….…………………………………………………………………………………………… 19
           Loaders…………………….………………………………………………………………………………………..20
           Integrated Developments Environment…………………….…………………………………. 21
           Python basics…………………….…………………………………………………………………………….. 29
           Operators…………………….…………………………………………………………………………………… 35
           Variable Types………………………………….……………………………………………………………… 47
           Getting input…………………….………………..………………………………………………………….. 53
-           Casting…………………….……………………………………………………………………………………... 54
+           Casting…………………….………………………………………………………………………………………… 54
            Control structures…………………….……………………………………………………………………                 58
            Data structures…………………….………………………………………………………………………..                 59
            Conditional Statements………………………………………………………………………………….                60
            Repetition……………………………………………………………………………………………………….                    99
            List Comprehension………………………………………………………………………………………..
            ………………                                                                114
-           Functions………………….………………………………………………………………….........................   115
+           Functions………………….………………………………………………………………………   115
            Recursive functions………………….…………………………………………………………………… 119
-           Global and Local variables………………….………………………………………………………... 121
+           Global and Local variables………………….…………………………………………………………… 121
            Number conversion and built-in functions………………….…………………………….. 123
            Error handling………………….……………………………………………………………………………. 129
            File operations………………….…………………………………………………………………………… 130
@@ -44,11 +39,9 @@ ictfromabc.com
            Sorting and searching algorithms………………….……………………………………………. 143
            Flowcharts and Pseudocodes………………….………………………………………………..….. 158
 
-
-
-
 ictfromabc.com
-          What is Python?                               How python differs from other
+
+          What is Python?                               How python differs from other
           Python hkq l=ulao@                            languages?
                                                         mhs;ka fjk;a NdIdj,ska fjkia jkafka
           Python is a high-level, interpreted           flfiao@
@@ -106,12 +99,10 @@ ictfromabc.com
           Python fndfyda fufyhqï moaO;s iu. iyh         f;drj ;j;a fyhqï moaO;shl Odjkh l<
           olajhs'                                       yel'
 
-
-
-
                                                                                                       2
 ictfromabc.com
-          Problem-Solving Process                        3. Explore Solutions
+
+          Problem-Solving Process                        3. Explore Solutions
           .eg¿ úi£fï l%shdj,sh                           úi÷ï .fõIKh lrkak
 
           1. Understand the Problem                      Consider different approaches.
@@ -165,12 +156,10 @@ ictfromabc.com
                                                          kï" lshùfï yelshdj fyda ld¾h idOkh jeä
                                                          ÈhqKq lsÍu i|yd kej; ilia lrkak'
 
-
-
-
                                                                                                          3
 ictfromabc.com
-          6. Test the Solution                          Modularization
+
+          6. Test the Solution                          Modularization
           úi÷u mÍlaId lrkak                             fudähq,ßlrKh
 
           Test the solution with a variety of inputs,   Modularization is a design principle that
@@ -205,7 +194,6 @@ ictfromabc.com
           ld¾hlaIu fyda jeäÈhqKq l< m%fõYhla            m%j¾Okh lrk iuia; l%shdldÍ;ajfha ksYÑ   a ;
           ;sfíoehs ;lafiare lrkak'                      wx.hla yeisrùug ie,iqï lr we;'
 
-
                                                         Key Concepts of Modularization
                                                         fudähq,ßlrKfha m%Odk ixl,am
 
@@ -217,12 +205,10 @@ ictfromabc.com
                                                         wjOdkh fhduq lrhs" tAjd w;r mrdh;a;;d
                                                         wju lrhs'
 
-
-
-
                                                                                                         4
 ictfromabc.com
-          Once a module is created, it can be reused      Top-Down Design
+
+          Once a module is created, it can be reused      Top-Down Design
           across different parts of a system or even in   uqÿka ìï ie,eiau
           different projects.
           fudähq,hla ks¾udKh l< miq" th moaO;shl          Top-down design is a systematic approach
@@ -259,12 +245,10 @@ ictfromabc.com
           tla tla fudähq,h iajdëkj mÍlaId l< yels
           neúka mÍlaIKh lsÍu ir, fõ'
 
-
-
-
                                                                                                          5
 ictfromabc.com
-          Determine how each component interacts        Steps
+
+          Determine how each component interacts        Steps
           with others, outlining their relationships
           and dependencies.                             Define the primary task or problem that
           tla tla ixrpl wka wh iuÕ wka;¾l%h       s d   needs to be solved.
@@ -307,12 +291,10 @@ ictfromabc.com
                                                         ;jÿrg;a ì| oeóu i|yd msßmyÿ lsÍfï
                                                         l%shdj,sh kej; lrkak'
 
-
-
-
                                                                                                       6
 ictfromabc.com
-          Structure charts                               Shapes used in structure charts
+
+          Structure charts                               Shapes used in structure charts
           jHqy igyka                                     jHqy igykaj, Ndú;d jk yev;,
 
           Structure charts are a visual representation
@@ -367,12 +349,10 @@ ictfromabc.com
           i|yd iqÿiq ;SrK .ekSfï iy wkql%ñl
           ieliqï tAldnoaO lrhs'
 
-
-
-
                                                                                            7
 ictfromabc.com
-          Steps to Create a Structure Chart             Specify how each module interacts with
+
+          Steps to Create a Structure Chart             Specify how each module interacts with
           jHqy igykla iE§ug mshjr                       others and draw the necessary control and
                                                         data flow between them.
           Break down the system into major              tla tla fudähq,h wka wh iuÕ wka;¾l%h   s d
@@ -387,12 +367,10 @@ ictfromabc.com
           úfhdackh lrkak" tA iEu tllau fjku
           ld¾hhla bgq lrhs'
 
-
-
-
                                                                                                      8
 ictfromabc.com
-          Programming Languages                         1. Machine Code (1940s-1950s)
+
+          Programming Languages                         1. Machine Code (1940s-1950s)
           l%uf,aLk NdId                                 hka;% fla;h
 
           Programming languages are formal              The first "language" was machine code,
@@ -426,20 +404,14 @@ ictfromabc.com
           mß.Klhla i|yd Tyqf.a ie,iqu i|yd
           iyfhda.fhka lghq;= l<dh'
 
-
            Ada Lovelace         Charles Babbage
-
-
-
 
                                                              Analytical Engine
 
-
-
-
                                                                                                         9
 ictfromabc.com
-          2. Assembly Language (1950s)                  4. Structured Programming (1970s)
+
+          2. Assembly Language (1950s)                  4. Structured Programming (1970s)
           wefiïí,s NdIdj                                jHqy.; l%uf,aLklrKh
 
           Assembly language provided a small level      A paradigm that emphasized a clear,
@@ -490,12 +462,10 @@ ictfromabc.com
                                                         Examples
                                                         Smalltalk (1980), C++ (1985), Java (1995
 
-
-
-
                                                                                                        10
 ictfromabc.com
-          6. Scripting and Web Development            Programming Paradigms
+
+          6. Scripting and Web Development            Programming Paradigms
           ial%m
               s aáka iy fjí ixj¾Okh                   l%uf,aLk iqiudo¾Y
           (1990s-2000s)
@@ -553,12 +523,10 @@ ictfromabc.com
           C# (2000), Scala (2003), Go (2009), Rust
           (2010), Kotlin (2011)
 
-
-
-
                                                                                                    11
 ictfromabc.com
-          Examples
+
+          Examples
                                                             3. Object-Oriented Programming (OOP)
           •      SQL                                        jia;=-keUqre l%uf,aLlrKh
                  A query like SELECT * FROM Users
@@ -611,12 +579,10 @@ ictfromabc.com
           Go, FORTRAN, Swift
                                                             .NET(VB NET), TypeScript
 
-
-
-
                                                                                                                12
 ictfromabc.com
-          Game Characters                               Cars in a Game
+
+          Game Characters                               Cars in a Game
 
           Class: Character                              Class: Car
           Attributes:                                   Attributes:
@@ -668,10 +634,10 @@ ictfromabc.com
           mgka .kS' tfukau" fid,aodÿjd oeka myr
           fokjd fjkqjg player j ÿgq úg m,d hhs'
 
-
                                                                                                          13
 ictfromabc.com
-          Characteristics                             The need of translation of programs
+
+          Characteristics                             The need of translation of programs
           ,laIK                                       jevigyka mßj¾;kh lsÍfï wjYH;djh
 
           Encapsulation                               Programs need to be converted into a
@@ -722,11 +688,10 @@ ictfromabc.com
                                                       fuu fla; fjk;a jia;= fla; f.dkq iy
                                                       libraries iuÕ iïnkaO l< yel'
 
-
-
                                                                                                     14
 ictfromabc.com
-          Comparison
+
+          Comparison
 
            Feature          Source Code                         Object Code
            Definition       Human-readable instructions         Machine-readable code generated from
@@ -757,16 +722,14 @@ ictfromabc.com
            ixj¾Okfha§       jevigyka ,sùu i|yd ixj¾Ok           jevigyka iïnkaO lsÍfï wÈhr iy
            Ndú;h            wjêfha§ Ndú;d fõ'                   l%shd;aul lsÍfï§ Ndú;d fõ'
            Example          print("Hello, World!") in Python.   Binary representation of the compiled
-                            mhs;ka ys print("Hello, World!")    code (Ex. 110100101...).
+                            mhs;ka ys print("Hello, World!")    code (Ex. 110100101……).
                                                                 iïmdokh lrk ,o fla;fha oaúuh
-                                                                ksrEmKhhs(Ex. 110100101...).
-
-
-
+                                                                ksrEmKhhs(Ex. 110100101……).
 
                                                                                                              15
 ictfromabc.com
-          Language translators                         Types of Language Translators
+
+          Language translators                         Types of Language Translators
           NdId mßj¾;lhka                               NdId mßj¾;l j¾.
 
           Programs that convert programs written in    1. Compilers
@@ -789,9 +752,6 @@ ictfromabc.com
                                                        lrñka jevigyk l%shd;aul ùug fmr fuu
                                                        mßj¾;kh isÿ fõ'
 
-
-
-
           Process                                      Semantic Analysis
           l%shdj,sh                                    Checks for logical errors and verifies the
                                                        operations' correctness.
@@ -809,12 +769,10 @@ ictfromabc.com
           Í;s wkqj fgdalk ixúOdkh lrhs" tu.ska         m%Yia;lrKh( ckkh lrk ,o fla;fha
           ú.%y .ila (parse tree) idohs'                ld¾hlaIu;dj jeä ÈhqKq lrhs
 
-
-
-
                                                                                                      16
 ictfromabc.com
-          Advantages                                       2. Interpreters
+
+          Advantages                                       2. Interpreters
           • Compiled code typically executes faster        w¾:úkHdi
              than interpreted code due to direct
              translation into machine code.                An interpreter directly executes the
@@ -867,12 +825,10 @@ ictfromabc.com
                  fufyhqï moaO;s i|yd fjk fjku
                  iïmdokh lsÍu wjYH fõ'
 
-
-
-
                                                                                                            17
 ictfromabc.com
-          Disadvantages                                   Transpilers
+
+          Disadvantages                                   Transpilers
                                                           iïfm%aIlh
           •      Interpreted code runs slower than        (Source-to-Source Compilers)
                  compiled code due to runtime
@@ -905,7 +861,6 @@ ictfromabc.com
           iïnkaO jk w;r" fuu mßj¾;kh
           idfmalaIj ir, lrhs'                             Advantages
 
-
           Advantages                                      •   Enables the use of modern language
                                                               features       while       maintaining
          •    Allows for efficient translation with           compatibility with older environments.
@@ -916,7 +871,6 @@ ictfromabc.com
 
           Disadvantages                                   Disadvantages
 
-
           •      Writing in assembly can be tedious and   •   May      not     perform       extensive
                  requires detailed hardware knowledge.        optimizations, resulting in less efficient
                  tl,ia lsÍfï§ ,sùu fjfyilr úh yels            generated code.
@@ -925,12 +879,10 @@ ictfromabc.com
                                                               ld¾hËu;djfhka W;amdokh jQ fla;
                                                               we;s fõ'
 
-
-
-
                                                                                                            18
 ictfromabc.com
-          Linkers                                        Key Functions of a Linker
+
+          Linkers                                        Key Functions of a Linker
           ikaOdrl                                        iïnkaOlfha m%Odk ld¾hhka
 
           A linker combines multiple object code files   Symbol Resolution
@@ -975,12 +927,10 @@ ictfromabc.com
                                                          iy o;a;j, ,smsk wjidk jevigyka jHqyhg
                                                          .e,fmk mßÈ ilia lrhs'
 
-
-
-
                                                                                                          19
 ictfromabc.com
-          Loaders                                         Linking
+
+          Loaders                                         Linking
           m%fõYl
                                                           In cases where programs consist of
           The Loader is responsible for loading           multiple modules or dependencies, the
@@ -1020,17 +970,12 @@ ictfromabc.com
           fhduq lsÍu i|yd jevigyfka ,smsk ilia
           lrhs
 
-
-
-
                                                                                  *IMPORTANT
-
-
-
 
                                                                                                       20
 ictfromabc.com
-          Integrated Development Environments
+
+          Integrated Development Environments
           ifudaOdks; ixj¾Ok mßir
           (IDE)
 
@@ -1050,16 +995,11 @@ ictfromabc.com
                                                          uDÿldx. ixj¾Okfha jvd;au ;SrKd;aul
                                                          wx.hla jkafka ksfodialrKhhs'
 
-
-
-
           PyCharm     VS code     Sublime     Atom
                                   text
 
-
           Why do we need an IDE?
           wmg IDE tlla wjYH jkafka wehs@
-
 
           1. Code Writing and Editing
 
@@ -1079,12 +1019,10 @@ ictfromabc.com
           yelshdj jeä ÈhqKq lrk w;r fla; ,sùfï§          iy      úi£ug       bv     i,ik     fmrksñ
           fodaI wvq lrhs'                                ksfodialrKhka iuÕsk's
 
-
-
-
                                                                                                         21
 ictfromabc.com
-          3. Project Management                           5. Automation
+
+          3. Project Management                           5. Automation
 
           Modern IDEs        come with         project    IDEs can automate repetitive tasks like
           management       features   that       allow    compiling code, running tests, or deploying
@@ -1117,7 +1055,6 @@ ictfromabc.com
                                                           fla; iudf,dapk il%Sh lrk j,dl=¿ u;
                                                           mokï jQ fuj,ï iuÕ tAldnoaO lr we;'
 
-
           4. Code Compilation and Execution               8. Customization
 
           IDEs streamline the process of compiling        IDEs are highly customizable, allowing
@@ -1135,12 +1072,10 @@ ictfromabc.com
           yia;uh jYfhka Ndú;d lsÍfï wjYH;djh
           bj;a lrhs
 
-
-
-
                                                                                                         22
 ictfromabc.com
-          Python IDLE                                   Cross-platform
+
+          Python IDLE                                   Cross-platform
           (Integrated Development and Learning          Since IDLE comes packaged with Python, it
           Environment)                                  works across all major operating systems,
                                                         including Windows, macOS, and Linux.
@@ -1193,12 +1128,10 @@ ictfromabc.com
           ,sùug" th tiekska l%shd;aul lsÍug iy
           m%;sodkh ne,Sug bv i,ihs'
 
-
-
-
                                                                                                      23
 ictfromabc.com
-          2. Writing Code in the Python Shell            This opens a blank editor window.
+
+          2. Writing Code in the Python Shell            This opens a blank editor window.
                                                          fuh ysia ixialdrl ljq¿jla újD; lrhs'
           IDLE starts in the Python shell, which is an
           interactive mode. Here, you can type and
@@ -1218,9 +1151,6 @@ ictfromabc.com
                                                          kj ixialdrl ljq¿j ;=<" Tng ´kEu fm<
                                                          ixialdrlhl fuka Tfí fla;h ,súh yelsh'
 
-
-
-
           3. Creating a New Script File
                                                          5. Saving Your File
           To write more complex code, you need to
@@ -1234,12 +1164,10 @@ ictfromabc.com
           f.dkq fukqj fj; f.dia kj f.dkqj
           f;darkak'
 
-
-
-
                                                                                                          24
 ictfromabc.com
-          6. Running Your Python Code                   How to debug
+
+          6. Running Your Python Code                   How to debug
                                                         ksfodialrKh lrk wdldrh
           Once your code is saved, you can run it by
           going to Run > Run Module or pressing F5.
@@ -1263,7 +1191,6 @@ ictfromabc.com
                                                            fkdmj;sk f.dkqjlg m%fõY ùu jeks Í;S
                                                            úfrdaë fufyhqï fya;=fjka" jevigyk
                                                            l%shd;aul jk úg isÿjk fodaI'
-
 
                                                            For further reference
 
@@ -1292,12 +1219,10 @@ ictfromabc.com
                                                                j,x.= fkdjk o¾Ylhla fj; m%fõY
                                                                ùu'
 
-
-
-
                                                                                                        25
 ictfromabc.com
-                 •   KeyError: Accessing a non-existent     •   UnicodeEncodeError
+
+                 •   KeyError: Accessing a non-existent     •   UnicodeEncodeError
                      key in a dictionary.                       UnicodeDecodeError:
                      Dictionary tll fkdmj;sk h;=rla             Issues with encoding or decoding
                      fj; m%fõY ùu'                              text.
@@ -1348,12 +1273,10 @@ ictfromabc.com
                      ixLHd;aul m%;sM,h o;a; j¾.fha
                      iSudjka blaujhs'
 
-
-
-
                                                                                                       26
 ictfromabc.com
-          3. Logical Errors: Errors that occur when        SyntaxError
+
+          3. Logical Errors: Errors that occur when        SyntaxError
              the program doesn't perform the
              intended task. These are often the most
              difficult to detect since the code runs
@@ -1364,7 +1287,6 @@ ictfromabc.com
              ì|jeàulska f;drj l%shd;aul jk neúka
              fïjd fndfyda úg y÷kd .ekSug wmyiq
              fõ" kuq;a th jerÈ m%;sM,hla ,nd fohs'
-
 
                  For further reference
 
@@ -1402,11 +1324,10 @@ ictfromabc.com
                      .Kkh lsÍï jerÈ wkqms<sfj,lg isÿ
                      jk mßÈ fufyhqï ñY% lsÍu'
 
-
-
                                                                           27
 ictfromabc.com
-          Debugging Techniques                           3. Using Debuggers
+
+          Debugging Techniques                           3. Using Debuggers
           fodaY ksrdlrK Ys,amSh l%u
                                                          •   Breakpoints
                                                              You can set a breakpoint in your code
@@ -1435,12 +1356,10 @@ ictfromabc.com
           we;=<;a lsÍuhs'                                ksfodialdrlh Step" Go" Over iy Out jeks
                                                          l%shd i|yd fnd;a;ï fmkajhs'
 
-
-
-
                                                                                                        28
 ictfromabc.com
-          print() function                            •   file (default: sys.stdout):
+
+          print() function                            •   file (default: sys.stdout):
 
           Used to output something to the standard    Specifies where print sends output, such as
           output device (the screen)                  the screen, a file that can handle text.
@@ -1485,12 +1404,10 @@ ictfromabc.com
                                                       print(x)
                                                       11
 
-
-
-
                                                                                                     29
 ictfromabc.com
-          What is a string                             Printing strings using print()
+
+          What is a string                             Printing strings using print()
           String tlla hkq l=ulao
                                                        print("Helloworld")
           A string is made up of zero or more          Helloworld
@@ -1541,12 +1458,10 @@ ictfromabc.com
           u.ska th ;srh u; fmkaúh yelsh                print('''There's a "PEN" ''')
                                                        There's a "PEN"
 
-
-
-
                                                                                                       30
 ictfromabc.com
-          Escape sequences                             Also used to print single or double
+
+          Escape sequences                             Also used to print single or double
                                                        quotation marks on the output.
           These are a combination of specific          ;srh u; ;ks fyda oaù WoaD; mdG uqøKh
           characters used with backslash.              lsÍugo Ndú;d lrhs
@@ -1602,12 +1517,10 @@ ictfromabc.com
           print('hello\\world')
           hello\world
 
-
-
-
                                                                                                          31
 ictfromabc.com
-          Raw strings                                    A raw string can’t end with an unescaped
+
+          Raw strings                                    A raw string can’t end with an unescaped
                                                          backslash because it would escape the
           A raw string in Python treats backslashes as   closing quote, causing a syntax error.
           literal characters.                            raw string tlla .e,ù fkd.sh unescaped
@@ -1651,12 +1564,10 @@ ictfromabc.com
           This is a raw string with an escaped
           quote: "
 
-
-
-
                                                                                                        32
 ictfromabc.com
-          Comments in python                                   is a multiline
+
+          Comments in python                                   is a multiline
           Python NdYdfõ újrK                                   comment'''
 
           Code lines that the computer should              """This
@@ -1698,7 +1609,7 @@ ictfromabc.com
           kej; hashtag fhÈh hq;=h
                                                            def add(x, y):
           Since python ignores string literals that are
-                                                               """
+
           not assigned to a variable, we can also add
           a multi-line string (using triple quotes) to         Adds two numbers.
           place a comment inside of it                         Args:
@@ -1712,11 +1623,10 @@ ictfromabc.com
 
           '''This
 
-
-
                                                                                                             33
 ictfromabc.com
-          help() function                                help(print)
+
+          help() function                                help(print)
 
           The help() function is used to display         This will display the documentation for the
           documentation about objects, modules,          print() function, explaining how it works,
@@ -1741,9 +1651,6 @@ ictfromabc.com
                   flush
                     whether to forcibly flush the stream.
 
-
-
-
           It provides useful information such as         •   end: What to add at the end.
           method descriptions, usage details, and            wjidkfha tl;= l< hq;= foa (default:
           parameter requirements, helping users              newline)
@@ -1763,12 +1670,10 @@ ictfromabc.com
                  nyq whs;u w;r fnÿïlre'
                  (default: space)
 
-
-
-
                                                                                                        34
 ictfromabc.com
-          OPERATORS                                      3. Comparison operators
+
+          OPERATORS                                      3. Comparison operators
           fufyhjk                                        ixikaokd;aul fufyhjk
 
           A symbol which is used to represent a          Compare values and return True or False
@@ -1816,12 +1721,10 @@ ictfromabc.com
           we.hSug ,la lrhs'                              úp,Hhka fj; w.hka mjrhs" úl,amhla
                                                          f,i fufyhqïo isÿ l< yel'^Wod( ¬}" -}&'
 
-
-
-
                                                                                                         35
 ictfromabc.com
-          Arithmetic operators                         Floor division / Integer division
+
+          Arithmetic operators                         Floor division / Integer division
           wxl .‚;uh fufyhjk                            ksÅ, fn§u
 
           Addition                                     Divides the first data from the second and
@@ -1868,12 +1771,10 @@ ictfromabc.com
           5 / 2
           2.5
 
-
-
-
                                                                                                      36
 ictfromabc.com
-          NOTE 1                                       Arithmetic operator precedence
+
+          NOTE 1                                       Arithmetic operator precedence
           Result of a calculation which includes       .‚;uh fufyhjk m%uqL;d wkqms,sfj,
           several types of data will be displayed in
           the data type which occupies the highest     The order in which operators are evaluated
@@ -1924,12 +1825,10 @@ ictfromabc.com
                                                        In general math, the answer is 64.
                                                        idudkH .‚;fha§ fuys ms<s;=r 64 ls
 
-
-
-
                                                                                                     37
 ictfromabc.com
-          Bitwise Operators                              Right shift
+
+          Bitwise Operators                              Right shift
           ìgq wkqidß; fufyhqï
                                                          The right shift operator shifts the bits of a
           These operators are used to perform            number to the right by a specified number
@@ -1948,7 +1847,6 @@ ictfromabc.com
           positions.
           Left shift fufyhjkh úiska ixLHdjl ìgq
           kshñ; ia:dk .Kklska jug ;,a¨ lrhs'
-
 
           5 << 2
           20                                              We can use the following formula to
@@ -1973,12 +1871,10 @@ ictfromabc.com
                                                          1
             n << x = n * 2x
 
-
-
-
                                                                                                          38
 ictfromabc.com
-          Bitwise OR                                  Bitwise XOR
+
+          Bitwise OR                                  Bitwise XOR
 
           Compares each bit of two numbers and        Compares each bit of two numbers and
           returns 1 if either of the bits is 1.       returns 1 if the bits are different, otherwise
@@ -1990,9 +1886,6 @@ ictfromabc.com
                                                       5^3
                                                       6
 
-
-
-
           Bitwise NOT                                 This operator also changes the sign of the
                                                       number in most systems that use two’s
           Inverts all the bits of a number (Ex.1      complement for representing signed
@@ -2003,17 +1896,13 @@ ictfromabc.com
           ~2                                          ixLHd ,l=K fjkia lrhs'
           -3
 
-
-
           Bitwise NOT explained further
           ìgq wkqidß; NOT ms<sno jeäÿr meyeÈ,s lsÍu
 
-
-
-
                                                                                                        39
 ictfromabc.com
-          Bitwise NOT with positive numbers              Bitwise NOT with negative numbers
+
+          Bitwise NOT with positive numbers              Bitwise NOT with negative numbers
           Ok ixLHd iuÕ ìgq wkqidß; NOT                   iDK ixLHd iuÕ ìgq wkqidß; NOT
 
           For example, if we ask the computer to find    ~-2
@@ -2064,12 +1953,10 @@ ictfromabc.com
           wm by; rEm igyk foi ne¨jfyd;a" 101ys
           foflys wkqmQrlh -3 nj tu.ska fmfka'
 
-
-
-
                                                                                                      40
 ictfromabc.com
-          Logical operators                            3. Logical and operator
+
+          Logical operators                            3. Logical and operator
           ;d¾lsl ldrl                                  ;d¾lsl and ldrlh
 
           Used to check the validity of any Boolean    Outputs True when both two expressions
@@ -2123,12 +2010,10 @@ ictfromabc.com
           True or True                                 not 0.0
           True                                         True
 
-
-
-
                                                                                                      41
 ictfromabc.com
-          Comparison operators                           To check if operands are not equal
+
+          Comparison operators                           To check if operands are not equal
           iei÷ï ldrl                                     úp,H wiudkoehs úuiSu i|yd
 
           Operators which are used to compare two        a!=b
@@ -2174,12 +2059,10 @@ ictfromabc.com
           2==2.0
           True
 
-
-
-
                                                                                                         42
 ictfromabc.com
-          Identity operators                            Assignment operator discussed further
+
+          Identity operators                            Assignment operator discussed further
           y÷kd.ekSfï fufyhjk                            wdfoaY lsÍfï fufyhjkh jeäÿr wOHkh
 
           NOTE: This operator compares the id()         (1) Normal assignment
@@ -2210,8 +2093,6 @@ ictfromabc.com
           y is not z                                        C = 1
           True
 
-
-
           Membership operators
           idudðl fufyhjk
 
@@ -2230,12 +2111,10 @@ ictfromabc.com
           'm' not in 'Man'
           True
 
-
-
-
                                                                                                     43
 ictfromabc.com
-          APPLICATION:                                 Augmented assignment
+
+          APPLICATION:                                 Augmented assignment
           Swapping two variables                       jeä ÈhqKq lrk ,o wdfoaYh
           úp,H foll w.h yqjudre lsÍu
                                                           x+=1      equals        x=x+1
@@ -2293,12 +2172,10 @@ ictfromabc.com
           wjhj m%udKhg iudk fkdjk ksid fuh             print(x) # 12
           isÿfõ
 
-
-
-
                                                                                            44
 ictfromabc.com
-          Operator precedence                         Bitwise operators (excluding NOT) have
+
+          Operator precedence                         Bitwise operators (excluding NOT) have
           fufyhjk m%uqL;d wkqms<sfj,                  lower    precedence     than   arithmetic
                                                       operators but higher precedence than
           1. Arithmetic Operators                     comparison and logical operators.
@@ -2314,7 +2191,7 @@ ictfromabc.com
             *                                         Precedence Order:
             /     second highest precendence          Comparisons have equal precedence.
             //    fojk by<u m%uqL;djh                 iei£ïj,g iudk m%uqL;djhla we;'
-            %
+
                                                       Comparison     operators    have    lower
                   the lowest precedence among
                                                       precedence than arithmetic and bitwise
@@ -2352,15 +2229,13 @@ ictfromabc.com
              ^     next highest
                    B<Õ by<u
                    Lowest
-             |
+
                    wvqu
-
-
-
 
                                                                                                    45
 ictfromabc.com
-          5. Logical Operators                          Total operator precedence (summary)
+
+          5. Logical Operators                          Total operator precedence (summary)
 
           Precedence Order:                                   Parentheses        ()
 
@@ -2393,11 +2268,11 @@ ictfromabc.com
 
           Parentheses                                         Comparisons        <
           Parentheses have the highest precedence                                <=
-                                                                                 >
+
           over all operators.
           ish¨u fufyhjk j,g jvd jryka j,g                                        >=
           by,u m%uqL;djhla we;'                                                  !=
-                                                                                 ==
+
                                                               Assignments
           NOTE 1: Parentheses
                                                               operators          =
@@ -2422,11 +2297,10 @@ ictfromabc.com
           wfkl=;a     fufyhjkj,g        jvd    by<u
           m%uqL;djla fuhg we;'
 
-
-
                                                                                                 46
 ictfromabc.com
-          Python variable types                      Primitive data types of variables
+
+          Python variable types                      Primitive data types of variables
           mhs;ka NdYdfõ úp,H j¾.                     úp,H j, m%d:ñl o;a; j¾.
 
                                                      Integer variables store any whole number.
@@ -2472,12 +2346,10 @@ ictfromabc.com
           jia;=jl o;a; j¾.h ,nd .ekSug mhs;ka ys
           we;s type() Y%s;h Ndú;d lrhs'
 
-
-
-
                                                                                                    47
 ictfromabc.com
-          Lists are ordered collections of items that      Variables
+
+          Lists are ordered collections of items that      Variables
           can hold different data types.                   úp,H
           ,ehsia;= hkq úúO o;a; j¾. /|úh yels
           whs;uj, weKjqï tl;=jls'                          A temporary storage location in the main
@@ -2522,12 +2394,10 @@ ictfromabc.com
           type(person)                                     isÿlrhs'
           <class 'dict'>
 
-
-
-
                                                                                                         48
 ictfromabc.com
-          Variable creation in different languages
+
+          Variable creation in different languages
           úúO NdId j, úp,H ks¾udKh
 
            Language    Example          Typing       Declaration Requirements
@@ -2565,7 +2435,6 @@ ictfromabc.com
                        Integer; x:=5;                var uQ, moh wjYHhs¦ m%ldYfhka miqj j¾.h
                                                      iaÓr fõ '
 
-
           Dynamic Typing                                  Declaration Needed
           No type declaration needed; the type is         Indicates whether you must declare the
           inferred from the value.                        type or use specific keywords (Ex. let, var).
@@ -2578,12 +2447,10 @@ ictfromabc.com
           iaÓ;sl ghsma lsÍu( j¾.hla m%ldY lsÍug
           wjYHfõ¦ j¾.h ia:djr fõ
 
-
-
-
                                                                                                           49
 ictfromabc.com
-          Creating variables and assigning values         Practices in defining variable names.
+
+          Creating variables and assigning values         Practices in defining variable names.
           úp,H idod w.hka wdfoaYh                         úp,H kdu iE§fï§ we;s mqreÿ
 
           For this the assignment operator is used        Multi word variable names are defined in
@@ -2638,12 +2505,10 @@ ictfromabc.com
           5. A variable can be of any length.
           úpH,hla ´kEu È.lska mej;sh yel'
 
-
-
-
                                                                                                        50
 ictfromabc.com
-          Special Variables and Conventions             Displaying a variable
+
+          Special Variables and Conventions             Displaying a variable
           úfYaI úp,Hhka iy iïuq;Ska                     úp,Hla fmkaùu
 
           Single Underscore (_):                        x=1
@@ -2692,12 +2557,10 @@ ictfromabc.com
           hello_
           AgeAndGender
 
-
-
-
                                                                                                   51
 ictfromabc.com
-          Calculations with variables              Constants
+
+          Calculations with variables              Constants
           úp,H iu. .KkhlsÍï                        ksh;
 
           z=x+y                                    Constants are variables whose values are
@@ -2740,12 +2603,10 @@ ictfromabc.com
                                                        y hkq m, c, fukau x u.ska ;SrKh lrkq
                                                        ,nk mrdh;a; úp,Hh fõ'
 
-
-
-
                                                                                                  52
 ictfromabc.com
-          Getting input from the user                   Inputs are taken as follows
+
+          Getting input from the user                   Inputs are taken as follows
           mßYS,lhdf.ka wdodk ,nd.ekSu                   wdodk ,nd.kafka my; mßÈh
 
           Values for a variable can be assigned from    VariableName = input('prompt')
@@ -2760,7 +2621,6 @@ ictfromabc.com
                                                         x=input('give length')
                                                         y=input('give width')
                                                         print(length*width)
-
 
                                                         NOTE:
                                                         input() function always takes the user
@@ -2791,12 +2651,10 @@ ictfromabc.com
                                                         ,enqKq wdldrh mßYS,lhd oekqïj;a l,
                                                         hq;=h
 
-
-
-
                                                                                                       53
 ictfromabc.com
-          Casting                                        Boolean and Integer
+
+          Casting                                        Boolean and Integer
 
           Converting a specific data type into           a=True
           another data type for temporary usage,         b=3
@@ -2843,12 +2701,10 @@ ictfromabc.com
           4.14                                               print(list(a))
                                                              ['h','e','l','l','o']
 
-
-
-
                                                                                                        54
 ictfromabc.com
-          •      String to float                     2. Integer Casting
+
+          •      String to float                     2. Integer Casting
 
                  a = "3.14"                          •   Integer to String
                  print(float(a))
@@ -2871,7 +2727,6 @@ ictfromabc.com
           print(int(b))                                  <class 'float'>
           #gives a valueerror
 
-
                                                      •   Integer to Boolean
           String to Boolean
                                                          Converts 0 to False, and any non-zero
@@ -2889,12 +2744,10 @@ ictfromabc.com
           print(bool(a))
           False
 
-
-
-
                                                                                                  55
 ictfromabc.com
-          3. Float Casting                                 4. Boolean Casting
+
+          3. Float Casting                                 4. Boolean Casting
 
           •      Float to Integer                          •   Boolean to Integer
 
@@ -2935,12 +2788,10 @@ ictfromabc.com
                  print(type(a))
                  <class 'bool'>
 
-
-
-
                                                                                                     56
 ictfromabc.com
-          5. List Casting                                6. Tuple Casting
+
+          5. List Casting                                6. Tuple Casting
 
           •      List to String                          •   Tuple to List
 
@@ -2989,12 +2840,10 @@ ictfromabc.com
                                                              {10,20,30}
                  {'a': 10, 'b': 20}
 
-
-
-
                                                                                  57
 ictfromabc.com
-          Control Structures                           Sequence
+
+          Control Structures                           Sequence
           md,k jHqy                                    wkql%uh
                                                        Statements are executed from the
           A block of programming that chooses a        beginning to end in a strict order.
@@ -3047,12 +2896,10 @@ ictfromabc.com
           Selection              jrKh/f;aÍu
           Repetition             mqK¾lrKh
 
-
-
-
                                                                                                     58
 ictfromabc.com
-          Data structures / Sequences
+
+          Data structures / Sequences
           o;a; jHqy $wkql%uh                              Unordered collection of key-value pairs,
                                                           mutable.
           A sequence is a collection of items that can    h;=re-w.h hq.,j, wkqms<sfj,la ke;s
@@ -3107,10 +2954,10 @@ ictfromabc.com
           ia:djr tl;=jla ;nd .ekSug Ndú;d fõ'
           3. Dictionaries
 
-
                                                                                                        59
 ictfromabc.com
-          Lists                                          mß.Klfha u;lh ;=, list tll jHqyh
+
+          Lists                                          mß.Klfha u;lh ;=, list tll jHqyh
           ,ehsia;=                                       my; mßÈh'
 
           Lists are used to store several data under     K=[10, False, 20, 3.14, True, 5.1]
@@ -3158,16 +3005,13 @@ ictfromabc.com
           wkkH jQ index Ndú;fhka tu o;a; fj;
           fjka fjkaj msúiSu isÿ l, yel
 
-
-
-
           Structure of a list inside main memory of
           a computer may look like follows
 
-
                                                                                                      60
 ictfromabc.com
-          Slicing                                        Modifying a slice of a list at once can be
+
+          Slicing                                        Modifying a slice of a list at once can be
                                                          done using the following method.
           Accessing several elements of a list can be    List tll fldgila tljr fjkia lsÍu my;
           done by defining start, stop and step          l%uh u.ska isÿl, yel'
@@ -3181,8 +3025,6 @@ ictfromabc.com
                                                          marks[1:3] = [60, 70]
                                                          print(marks)
                                                          [10, 60, 70, 40, 50]
-
-
 
                                                          Changing less values with more
                                                          wvq w.hka .Kkla jeä w.hka .Kklska
@@ -3216,16 +3058,11 @@ ictfromabc.com
           print(J[-1:0:-1])                              R[0]=34
           [50, 40, 30, 20]                               gives an error.
 
-
-
-
                                                                                                       61
 ictfromabc.com
-          Using methods with lists
+
+          Using methods with lists
           ,ehsia;= iu. methods Ndú;d lsÍu
-
-
-
 
           append() method is used to add new        insert() method is used to add an
           elements into a list.                     element to a specific index of a list.
@@ -3246,12 +3083,10 @@ ictfromabc.com
           R.append(3,4,5)
           gives an error.
 
-
-
-
                                                                                               62
 ictfromabc.com
-          extend() method is used to extend a list       remove() method can be used to remove
+
+          extend() method is used to extend a list       remove() method can be used to remove
           by another list                                the first coming specific item from a list
           list tlla ;j;a list tllska §¾. lsÍu i|yd       list tll uq,skua yuqjk ksYaÑ; o;a;hla
           extend() method tl Ndú;d lrhs'                 bj;a lsÍu i|yd remove() method tl
@@ -3304,12 +3139,10 @@ ictfromabc.com
                                                          print(x)
                                                          'o'
 
-
-
-
                                                                                                       63
 ictfromabc.com
-          NOTE:                                        sort() method sorts the list in
+
+          NOTE:                                        sort() method sorts the list in
           If we do not specify which item to remove,   ascending order by default.
           pop() method removes the last item of the    sort() method tl u.ska fmrksñfhka
           list.                                        ,ehsia;=j wdfrdayK wkqms<sfj,g sort lrhs'
@@ -3330,7 +3163,7 @@ ictfromabc.com
           x.clear()                                    reverse=True ,ehsia;=j wjfrdayK
                                                        wkqms<sfj,g j¾. lrhs' fmrksñh
           print(x)                                     reverse=False fõ
-          []
+
                                                        key
                                                        The key parameter allows you to specify a
           reverse() method reverses the order of       function that determines the criteria by
@@ -3361,12 +3194,10 @@ ictfromabc.com
                                                        'banana']
           3
 
-
-
-
                                                                                                    64
 ictfromabc.com
-          index() Method                                     copy() method
+
+          index() Method                                     copy() method
 
           index() method in Python is used to find           The copy() method is used to create a copy
           the position of the first occurrence of a          of a list.
@@ -3421,12 +3252,10 @@ ictfromabc.com
                                                              print(a) # [100, 20, 30, 40, 50]
                                                              print(b) # [10, 20, 30, 40, 50]
 
-
-
-
                                                                                                               65
 ictfromabc.com
-          NOTE                                             copy() with Nested Lists
+
+          NOTE                                             copy() with Nested Lists
           Assigning a List vs Copying a List
           ,ehsia;=jla mejÍu tÈßj ,ehsia;=jla msgm;a        when the list contains nested lists (lists
           lsÍu                                             within lists), the behavior of copy() differs.
@@ -3478,12 +3307,10 @@ ictfromabc.com
                                                            copied_nestedL)
                                                            [[100, 2, 3], [4, 5, 6]]
 
-
-
-
                                                                                                                66
 ictfromabc.com
-          Using functions with lists                   5. Checking Data Type
+
+          Using functions with lists                   5. Checking Data Type
           lists iu. Y%s; Ndú;h                         o;a; j¾.h mÍlaId lsÍu
 
           Example List                                 This shows the data type of the object.
@@ -3533,12 +3360,10 @@ ictfromabc.com
                                                        180
           65
 
-
-
-
                                                                                                       67
 ictfromabc.com
-          Tuples                                       The structure of a tuple in the main
+
+          Tuples                                       The structure of a tuple in the main
                                                        memory of a computer looks like
           Tuples also can be used to store several     follows.
           data under the same identifier.              mß.Klfha u;lh ;=, tuple tll jHqyh
@@ -3589,19 +3414,16 @@ ictfromabc.com
                                                        S.remove() gives an error.
                                                        S.pop()     gives an error.
 
-
-
-
                                                                                                    68
 ictfromabc.com
-          Deleting the whole tuple can be done           Using methods with tuples
+
+          Deleting the whole tuple can be done           Using methods with tuples
           uq¨ tuple tlu uld oeóu isÿ l, yel'             tuples iu. methods Ndú;h
 
           S = 1, 2, 3, 4, 5                              copy()
           del S       # deletes the tuple.
           print(S)    # gives an error.                  Q = 10 , 50 , 30 , 25 , 65
                                                          R = Q.copy()
-
 
           Slicing                                        Gives an error because tuples are
                                                          immutable.
@@ -3643,12 +3465,10 @@ ictfromabc.com
                                                          print(tup.index(30))
                                                          2
 
-
-
-
                                                                                                         69
 ictfromabc.com
-          Using functions with tuples                  sum()
+
+          Using functions with tuples                  sum()
           Tuples iu. Y%s; Ndú;h                        Returns the sum of all the elements in the
                                                        tuple (if they are numeric).
           Q = 10 , 50 , 30 , 25 , 65                   Tuple tflys we;s ish¨u wjhj j, tl;=j
@@ -3700,12 +3520,10 @@ ictfromabc.com
           print(max(tup))
           89
 
-
-
-
                                                                                                         70
 ictfromabc.com
-          Strings                                        The structure of a string in the main
+
+          Strings                                        The structure of a string in the main
                                                          memory of a computer looks as follows.
           Strings are arrays of bytes representing       mß.Klfha u;lh ;=, string tll jHqyh
           Unicode characters.                            my; mßÈh'
@@ -3755,12 +3573,10 @@ ictfromabc.com
                                                          S.remove( ) gives an error.
                                                          S.pop( )    gives an error.
 
-
-
-
                                                                                                      71
 ictfromabc.com
-          Deleting the whole string can be done.          Using functions with strings
+
+          Deleting the whole string can be done.          Using functions with strings
           uq¨ string tlu uld oeóu isÿ l, yel
                                                           Q='hello'
           S='hello'
@@ -3810,11 +3626,10 @@ ictfromabc.com
                                                           string tl wjfrdayK ms<sfj,g ilihs
                                                           ['o', 'l', 'l', 'e', 'h']
 
-
-
                                                                                                        72
 ictfromabc.com
-          Using methods with strings                     capitalize() method
+
+          Using methods with strings                     capitalize() method
           strings iu. methods Ndú;h                      Returns a string where the first letter is
                                                          upper case, and the rest is lower case.
           x = y.copy()                                   m<uq wlaYrh lemsg,a iy b;sß wlaYr isïm,a
@@ -3858,12 +3673,10 @@ ictfromabc.com
           '-'.join(a)
           'k-u-r-u-n-e-g-a-l-a'
 
-
-
-
                                                                                                          73
 ictfromabc.com
-          center() method                                 strip() method
+
+          center() method                                 strip() method
           Returns the aligned string, using a specified   Used to remove the whitespaces at the
           character (default is space)                    beginning and end of a string.
           ksYÑ
@@ -3884,7 +3697,7 @@ ictfromabc.com
           x.center(25)                                    Ravindu Bandaranayake
           '         Ravindu         '
           x. center(25,'_')                               This method will not remove characters in
-          '_________Ravindu_________'                     the middle of a string.
+          '……Ravindu……'                     the middle of a string.
                                                           fuu method tl u.ska string tll uOHfha
                                                           we;s characters bj;a lsÍu isÿ fkdlrhs'
           count() method
@@ -3913,12 +3726,10 @@ ictfromabc.com
           x.count('l',0,2)
           0
 
-
-
-
                                                                                                       74
 ictfromabc.com
-          split() method                                 isalnum()
+
+          split() method                                 isalnum()
           Each word of a string is separated into an     Returns True if all characters in the string
           item in a list.                                are alphanumeric
           String tll iEu jpkhlau fldgia j,g lvd          ;ka;=fjys ish¨u wkq,laIK wlaIr iy
@@ -3973,12 +3784,10 @@ ictfromabc.com
                                                          print(string.isdigit())
                                                          True
 
-
-
-
                                                                                                         75
 ictfromabc.com
-          isdecimal()                                       islower()
+
+          isdecimal()                                       islower()
           Returns True if all characters in the string      Returns True if all characters in the string
           are decimals                                      are lower case
           ;ka;=fõ ish¨u wkq,laIK oyfha mdofha kï            ;ka;=fjys ish¨u wkq,laIK l=vd wl=re kï
@@ -3991,7 +3800,6 @@ ictfromabc.com
           string = "John123"                                string = "Andrew"
           print(string.isdecimal())                         print(string.islower())
           False                                             False
-
 
           isidentifier()
                                                             isupper()
@@ -4030,12 +3838,10 @@ ictfromabc.com
           print(z.isidentifier())
           False
 
-
-
-
                                                                                                            76
 ictfromabc.com
-          isnumeric()                                    isspace()
+
+          isnumeric()                                    isspace()
           Returns True if all characters in the string   Returns True if all characters in the string
           are numeric                                    are whitespaces
           ;ka;=fjys we;s ish¨u wkq,laIK ixLHd;aul        ;ka;=fjys ish¨u wlaIr whitespaces kï
@@ -4048,7 +3854,6 @@ ictfromabc.com
           string = "kld11738"                            string = " .      "
           print(string.isnumeric())                      print(string.isspace())
           False                                          False
-
 
           isprintable()                                  istitle()
           Returns True if all characters in the string   Returns True if the string follows the rules
@@ -4064,12 +3869,10 @@ ictfromabc.com
           print(string.isprintable())                    print(string.istitle())
           False                                          False
 
-
-
-
                                                                                                         77
 ictfromabc.com
-          Dictionaries                                   Structure of a dictionary
+
+          Dictionaries                                   Structure of a dictionary
                                                          Dictionary tll jHqyh
           Dictionaries are also used to store several
           data under the same identifier.                person1 = {'name':'Rav','age':26}
@@ -4121,12 +3924,10 @@ ictfromabc.com
           ks¾udKh lsÍfuka miq fïjd fjkia l,              'gender':' male'}
           yelsh'
 
-
-
-
                                                                                                  78
 ictfromabc.com
-          Deleting values from a dictionary                 was a random item because dictionaries
+
+          Deleting values from a dictionary                 was a random item because dictionaries
           Dictionary tllska wjhjhla uld oeóu                were unordered.
                                                             Python 3.7 ixialrKfhka miq popitem()
           pop()                                             method tl Ndú;fhka wjidk h;=re w.h
@@ -4175,11 +3976,10 @@ ictfromabc.com
           In Python 3.7 and later versions last item is
           removed by popitem() method. Earlier it
 
-
-
                                                                                                        79
 ictfromabc.com
-          Commonly used methods                        fromkeys() methods
+
+          Commonly used methods                        fromkeys() methods
                                                        fromkeys() method is used to create a new
           dictionary.get() method                      dictionary from a given sequence of keys,
           Is used with a dictionary to retrieve the    with all values initialized to the same
@@ -4229,12 +4029,10 @@ ictfromabc.com
           print(my_dict.values())
           dict_values([1, 2, 3])
 
-
-
-
                                                                                                         80
 ictfromabc.com
-          NOTE:                                       Using functions with dictionaries.
+
+          NOTE:                                       Using functions with dictionaries.
           Copying a dictionary cannot be simply       Dictionaries iu. Y%s; Ndú;h
           done using assignment operator. It will
           only generate a reference to the original   Q={1:'one',2:'two',3:'three'}
@@ -4287,11 +4085,10 @@ ictfromabc.com
           msgm;la ,nd.ekSu i|yd copy() method
           tlo Ndú;d l, yelsh
 
-
-
                                                                                                  81
 ictfromabc.com
-          Sets                                            Sets don’t maintain a specific order of
+
+          Sets                                            Sets don’t maintain a specific order of
                                                           elements. So, you cannot be sure in which
           A set is a data structure that stores unique,   order the items will appear.
           unordered items.                                Sets ksYÑa ; whs;u wkqms<sfj,la mj;ajd
@@ -4311,7 +4108,6 @@ ictfromabc.com
           so each element in a set is unique.
           Sets iajhxl%Shj wkqmsgm;a w.hka bj;a lrhs"      print(my_set[0])
           tneúka set tll tla tla whs;u wkkH fõ'           # gives an error
-
 
           You can add or remove elements from a set       NO duplicates
           after it’s created.
@@ -4342,12 +4138,10 @@ ictfromabc.com
           <class 'set'>
           <class 'set'>
 
-
-
-
                                                                                                       82
 ictfromabc.com
-          len() function can be used to get the        Adding items to a set can be done by
+
+          len() function can be used to get the        Adding items to a set can be done by
           length of a set.                             using add() function.
           Set tll È. ,nd .ekSug len() Y%s;h            Set tllg whs;u tl;= lsÍu add() Y%s;h
           Ndú;d l< yel'                                Ndú;fhka l< yel'
@@ -4385,18 +4179,15 @@ ictfromabc.com
           4                                            print(my_set)
           3                                            {1, 2, 3, 4, 'Hello', 10}
 
-
           Checking
 
           print(2 in my_set)
           True
 
-
-
-
                                                                                                 83
 ictfromabc.com
-          Removing items in a set                        clear()
+
+          Removing items in a set                        clear()
           Set tll we;s whs;u bj;a lsÍu                   Removes all the items in the set. Doesn’t
                                                          delete the set.
           remove()                                       Set tflys we;s ish¨u whs;u bj;a lrhs' Set
@@ -4446,12 +4237,10 @@ ictfromabc.com
           print(my_set)
           {1, 3, 4}
 
-
-
-
                                                                                                          84
 ictfromabc.com
-          original_set = {1, 2, 3, 4}                  Intersection (& or .intersection()):
+
+          original_set = {1, 2, 3, 4}                  Intersection (& or .intersection()):
           copied_set = original_set.copy()             Returns elements that are common to
                                                        both sets.
           print("Original Set:",                       Sets folgu fmdÿ wjhj ,nd fohs'
@@ -4503,12 +4292,10 @@ ictfromabc.com
           print(result2)
           {1, 2, 3, 4, 5}
 
-
-
-
                                                                                                     85
 ictfromabc.com
-          difference_update() method                    intersection_update() method
+
+          difference_update() method                    intersection_update() method
 
           The difference_update() method is used to     intersection_update() method is used to
           modify a set by removing all elements         modify a set by retaining only the elements
@@ -4548,12 +4335,10 @@ ictfromabc.com
                                                         set3)
                                                         {4, 5, 6}
 
-
-
-
                                                                                                        86
 ictfromabc.com
-          Unpacking                                     Tuples
+
+          Unpacking                                     Tuples
 
           Unpacking refers to the process of            marks = 10, 20, 30, 40, 50, 60
           assigning elements from an iterable to a
@@ -4605,12 +4390,10 @@ ictfromabc.com
                                                         print(a) # 70
                                                         print(b) # [80,90] # order may vary
 
-
-
-
                                                                                               87
 ictfromabc.com
-          Summary of common functions and
+
+          Summary of common functions and
           methods
 
           Functions
@@ -4622,7 +4405,6 @@ ictfromabc.com
            sum()          ✔           ✔        ✘         ✘            ✔
            sorted()       ✔           ✔        ✘         ✘            ✔
            reversed()     ✔           ✔        ✘         ✘            ✔
-
 
           Methods
 
@@ -4648,12 +4430,10 @@ ictfromabc.com
            join()        ✘           ✘         ✔         ✘            ✘
            replace()     ✘           ✘         ✔         ✘            ✘
 
-
-
-
                                                                              88
 ictfromabc.com
-          Nesting data structures in one another      Here, the points tuple is immutable, but
+
+          Nesting data structures in one another      Here, the points tuple is immutable, but
           o;a; jHqyhka tlsfkl ;=< leo,s lsÍu          the items (lists) within it are mutable.
                                                       fuys points hk tuple tl immutable fõ
           Lists                                       kuq;a tys we;s whs;u ^,ehsia;=& mutable fõ'
@@ -4664,7 +4444,7 @@ ictfromabc.com
               [1, 2, 3],                              print(points)
               [4, 5, 6],                              ([10, 2], [3, 4], [5, 6])
               [7, 8, 9]
-          ]
+
                                                       •   Strings
           •      List of Tuples
                                                       NOTE:
@@ -4679,7 +4459,6 @@ ictfromabc.com
           points[0] = (8,9)                           worthless as it becomes a single element.
           print(points)                               tl w.hla njg m;ajk neúka strings ;=,g
           [(8, 9), (3, 4), (5, 6)]                    wfkl=;a o;a; jHqy oeófï mokula ke;
-
 
                                                       Accessing items in nested data
           points[0][0] = 10                           structures
@@ -4702,12 +4481,10 @@ ictfromabc.com
                                                       50
           points = ([1, 2], [3, 4], [5, 6])
 
-
-
-
                                                                                                     89
 ictfromabc.com
-          Calculations with data structures             Multiplication
+
+          Calculations with data structures             Multiplication
           o;a; jHqyhka iu. .Kkh lsÍï                    .=K lsÍu
 
           Out of all calculations, there are only two   Data structures can only be multiplied by
@@ -4723,7 +4500,7 @@ ictfromabc.com
           Data structures of the same type can be
                                                         print(p*False)
           added
-                                                        []
+
           tlu j¾.fha o;a; jHqy tlg tl;= l, yel
                                                         print(p*True)
           •      Lists                                  [1, 2, 3]
@@ -4743,7 +4520,7 @@ ictfromabc.com
                                                         (1,2,3)
           [1, 2, 3] [7, 8, 9]
                                                         print(k*False)
-                                                        ()
+
           •      Tuples
                                                         •   Strings
           a = 10,20,30
@@ -4771,12 +4548,10 @@ ictfromabc.com
                                                         Dictionaries and sets cannot be extended.
           fuh string concatenation f,i ye¢kafõ          Dictionaries and sets os.= l, fkdyel
 
-
-
-
                                                                                                           90
 ictfromabc.com
-          Special instances of data structures          •   Strings
+
+          Special instances of data structures          •   Strings
           úfYaI o;a; jHqy wdldr
                                                         a='b'
           Singleton data structures
@@ -4819,22 +4594,19 @@ ictfromabc.com
           m%Odk idOlh jkafka jryka mej;Sulska           type(a)
           f;drj fyda o;a; tllg jvd mej;Suhs             <class 'set'>
 
-
-
-
                                                                                                       91
 ictfromabc.com
-          Empty data structures                          •   Dictionaries
+
+          Empty data structures                          •   Dictionaries
           ysia o;a; jHqy
                                                          a={} # or a = dict()
           •      Lists
                                                          print(a)
           x=[] # or x = list()
-                                                         {}
 
           print(x)
                                                          type(a)
-          []
+
                                                          <class 'dict'>
 
           type(x)
@@ -4863,8 +4635,6 @@ ictfromabc.com
 
           •      Strings
 
-
-
           x='' # or x = str()
           print(x)
           type(x)
@@ -4875,12 +4645,10 @@ ictfromabc.com
           ;jÿrg;a fjkia lsÍug we;s fkdyelshdj
           ksid empty string iE§fuka we;s M,la ke;
 
-
-
-
                                                                                                     92
 ictfromabc.com
-          Formatted output                                    2. format() method
+
+          Formatted output                                    2. format() method
           ieliQ m%;sodk                                       The format() method allows you to insert
                                                               values into a string using placeholders,
           Formatted output allows you to control the          denoted by curly braces {}.
@@ -4936,12 +4704,10 @@ ictfromabc.com
                                                               value)
                                                               Formatted Value: 12.35
 
-
-
-
                                                                                                              93
 ictfromabc.com
-          %s is String format                                 %f is Floating-point format
+
+          %s is String format                                 %f is Floating-point format
           It inserts the argument as a string. If it is not   It inserts the argument as a floating-point
           a string, it's converted to a string using the      number and allows you to control the
           str() function.                                     number of decimal places.
@@ -4986,12 +4752,10 @@ ictfromabc.com
                                                               print("Value is %e" % value)
                                                               Value is 1.234560e+01
 
-
-
-
                                                                                                             94
 ictfromabc.com
-          %s or %r              - for string             2. Implicit line joining
+
+          %s or %r              - for string             2. Implicit line joining
           %d or %i              - for integers              Rcq fma<s tla lsÍu
           %f or %g or %e        - for floating point
                                                          Expressions inside parentheses {},[],()
@@ -5040,11 +4804,10 @@ ictfromabc.com
                                                          lsyms hl m%ldYKhla ysia fma,shla u.ska
                                                          wjika lrkafka hehs ie,fla
 
-
-
                                                                                                             95
 ictfromabc.com
-          Conditional Statements                           if else
+
+          Conditional Statements                           if else
           fldkafoaisuh m%ldYk
                                                            With this statement we can provide the
           if                                               computer with two sets of instructions to
@@ -5054,7 +4817,6 @@ ictfromabc.com
           hï wjYH;djhla ;Dma; jkafka kï muKla              mokïj l%shd;aul úh hq;= tlsfklg fjkia
           Wmfoia iuQyhla l%shd;aul lsÍu i|yd fuu           Wmfoia ud,djka folla mß.Klhg ,nd§u
           jHqyh Ndú;d lrhs                                 i|yd fuu jHqyh Ndú;d l< yel
-
 
             if(condition):                                     if (condition):
                 instructions to be executed                        instructions to be
@@ -5068,7 +4830,6 @@ ictfromabc.com
           fkdi,ldyeÍu fuys§ isÿfõ                                  condition is false
                                                                    fldkafoaish wi;H úg l%shd;aul
           x=int(input('give marks : '))                            l, hq;= Wmfoia
-
 
           if x>=50:
                 print('passed')                            The computer will always choose one side
@@ -5094,12 +4855,10 @@ ictfromabc.com
                                                            tla tla fldgig wod, Wmfoia fjk fjku
                                                            uÜgï foll indent lsÍu isÿl, yel
 
-
-
-
                                                                                                        96
 ictfromabc.com
-          Nested if else
+
+          Nested if else
                                                               if(condition 1):
           Using if else structure inside another if else            statement 1
           structure is known as nesting.                      else:
@@ -5146,12 +4905,10 @@ ictfromabc.com
                                   print('F')
           print('goodbye!')
 
-
-
-
                                                                                                           97
 ictfromabc.com
-          Ex: Let’s take a system login:                if elif else
+
+          Ex: Let’s take a system login:                if elif else
 
           un=input('input username : ')                 in python, the traditional nesting of if else
           pw=input('input password : ')                 statement is made simple as follows, such
@@ -5179,7 +4936,6 @@ ictfromabc.com
                  else:                                  else:
                      statement 4                              print('Failed!')
 
-
           Statement 1 is executed when condition1       print('goodbye!')
           condition 2 and condition 3 are true.
           1 jk fldkafoaish 2 jk fldkafoaish iy 3 jk
@@ -5204,12 +4960,10 @@ ictfromabc.com
           is false. 1 jk fldkafoaish wi;H jk úg 4
           jk m%ldYKh l%shd;aul fõ
 
-
-
-
                                                                                                         98
 ictfromabc.com
-          pass statement                                   Repetition
+
+          pass statement                                   Repetition
                                                            mqkrela;sh
           pass statement is used to fill an if statement
           when there are no instructions to be given       while loop
@@ -5270,11 +5024,10 @@ ictfromabc.com
                                                            th wkka; jdrhla l%shd;aul jkq we;
                                                            NOTE:
 
-
-
                                                                                                           99
 ictfromabc.com
-          If the content of a loop is a constant,     Examples
+
+          If the content of a loop is a constant,     Examples
           number of times that a loop is going to
           execute can be only changed by              Difficulty: level 1
           ¨mhl wka;¾.;h ksh; jkafka kï" ¨mhla
@@ -5311,7 +5064,6 @@ ictfromabc.com
                                                             4         2              1
                                                             5         1              0
 
-
                                                           Output will be,
 
                                                            5
@@ -5321,12 +5073,10 @@ ictfromabc.com
                                                            1
                                                            Blast off!
 
-
-
-
                                                                                                    100
 ictfromabc.com
-          Difficulty: level 2                          Difficulty: level 3
+
+          Difficulty: level 2                          Difficulty: level 3
 
           A loop that adds user input to a running     A loop that generates Fibonacci numbers
           total until it reaches or exceeds a target   until the numbers exceed a given limit.
@@ -5380,12 +5130,10 @@ ictfromabc.com
           Target reached!
                                                        0 1 1 2 3 5 8 13 21 34
 
-
-
-
                                                                                                    101
 ictfromabc.com
-          Difficulty: level 4
+
+          Difficulty: level 4
 
           A program to check if a word is a palindrome. A palindrome reads the same forwards and
           backwards (like "racecar" or "madam"). The code will compare characters from the start and
@@ -5423,21 +5171,16 @@ ictfromabc.com
 
           racecar is a palindrome
 
-
-
            For a non-palindrome word – "London"
            rep           if word[start]!=word[end]      start+=1   end-=1
            1              is_palindrome=False; break
 
-
           London is not a palindrome
-
-
-
 
                                                                                                        102
 ictfromabc.com
-          Difficulty: level 5
+
+          Difficulty: level 5
 
           A loop that finds and prints all prime numbers up to a specified limit.
           ksYÑa ; iSudjla olajd ish¨u m%:ul ixLHd fidhdf.k uqøKh lrk Æmhla'
@@ -5477,15 +5220,13 @@ ictfromabc.com
                                           2      is_prime = False         -            -              10
            9     True           2         1      is_prime = False         -            -              11
 
-
           The output will be 2 3 5 7
           m%;sodkh 2 3 5 7
 
-
-
                                                                                                                103
 ictfromabc.com
-          range() function                            list(range(8,3,-1))
+
+          range() function                            list(range(8,3,-1))
                                                       [8,7,6,5,4]
           Used to generate a list of integers in a
           specific range instantly.
@@ -5494,7 +5235,7 @@ ictfromabc.com
           ,nd.ekSu i|yd Ndú;d lrhs                    [8, 6, 4]
 
           Syntax                                      list(range(-8))
-                                                      [ ]
+
           range(start, stop, step)
                                                       Setting step to 0 gives an error.
           start (optional): The starting integer of   by,hdu 0 jQ úg fodaYhla ,efí
@@ -5535,12 +5276,10 @@ ictfromabc.com
           list(range(2,10,2))                         {0, 1, 2, 3, 4, 5, 6, 7}
           [2, 4, 6, 8]
 
-
-
-
                                                                                                       104
 ictfromabc.com
-          for loop                                     range function
+
+          for loop                                     range function
 
           here, a condition depending on a data        for a in range(0,5,1):
           sequence is introduced to the control              print(a)
@@ -5589,12 +5328,10 @@ ictfromabc.com
 
                                                        0,1,2,3,4
 
-
-
-
                                                                                    105
 ictfromabc.com
-          with tuples                       Using else statement in for loop
+
+          with tuples                       Using else statement in for loop
                                             for mqK¾lrK jHqyh ;=, else Ndú;h
           for y in (1, 2, 3, 4, 5):
                 print ('hello')             If we assign an else statement to a for loop,
@@ -5643,19 +5380,17 @@ ictfromabc.com
                                             3
                                             no longer less than 4
 
-
-
-
                                                                                             106
 ictfromabc.com
-          break statement                               With the break statement:
+
+          break statement                               With the break statement:
 
           This statement is used to stop a repetition   i =0
           control structure in the middle of its        while i < 5:
           functioning, depending on whether a               if i == 3:
           certain condition is fulfilled.                       print("Encountered 3")
           l%shd;aul ùu w;r;=r§ hïlsis fldkafoaishla
-          u; mokïj mqK¾lrk md,k jHqyhlska                       print("Terminated...")
+          u; mokïj mqK¾lrk md,k jHqyhlska                       print("Terminated……")
           keje;aùu i|yd fuu úOdkh fhdod.kS                      break
                                                             print(f"Processing {i}")
           Without the break statement:                      i = i + 1
@@ -5681,12 +5416,10 @@ ictfromabc.com
            2     1      False      Processing 1         Processing 1
            3     2      False      Processing 2         Processing 2
                                                         Encountered 3
-           4     3      True       Encountered 3        Terminated...
+           4     3      True       Encountered 3        Terminated……
                                    + Processing 3       Loop ended with break
 
            5     4      False      Processing 4
-
-
 
           Processing 0
           Processing 1
@@ -5696,12 +5429,10 @@ ictfromabc.com
           Processing 4
           Loop ended without break
 
-
-
-
                                                                                                  107
 ictfromabc.com
-          continue statement.                          With the continue statement:
+
+          continue statement.                          With the continue statement:
 
           This statement is used to stop the current   With continue
           repeating cycle of a loop from somewhere
@@ -5755,11 +5486,10 @@ ictfromabc.com
           Processing 4
           Loop ended without continue
 
-
-
                                                                                                    108
 ictfromabc.com
-          NOTE:                                            Nested Loops
+
+          NOTE:                                            Nested Loops
           In a while loop, the control variable (i) must   tlla ;=, tlla mj;sk mqK¾lrK jHqy
           be updated before using continue, or the
           loop will run indefinitely.                      The inner loop will be executed one time
@@ -5813,14 +5543,11 @@ ictfromabc.com
               print(f"Processing {i}")                     *********
                                                             *******
               i += 1                                         *****
-                                                              ***
-                                                               *
-
-
 
                                                                                                         109
 ictfromabc.com
-          Examples                                       Difficulty: level 2
+
+          Examples                                       Difficulty: level 2
 
           Difficulty: level 1                            A loop that finds and prints all divisors of a
                                                          given number.
@@ -5863,19 +5590,15 @@ ictfromabc.com
                                                           9      9        False             [1,2,5]
           The sum of digits in 12345 is 15                10     10       True              [1,2,5,10]
 
-
                                                          [1, 2, 5, 10]
-
-
-
 
                                                                                                           110
 ictfromabc.com
-          Difficulty: level 3
+
+          Difficulty: level 3
 
           A loop that counts the number of vowels in a given string
           § we;s ;ka;=jl iajr wlaIr .Kk .Kkh lrk Æmhla
-
 
           text = "Hi! How are you?"
 
@@ -5889,7 +5612,6 @@ ictfromabc.com
                   vowel_count += 1
 
           print("Number of vowels:", vowel_count)
-
 
           Trace table
 
@@ -5915,12 +5637,10 @@ ictfromabc.com
 
           Number of vowels: 6
 
-
-
-
                                                                            111
 ictfromabc.com
-          Difficulty: level 4
+
+          Difficulty: level 4
 
           A loop that counts how often each character appears in a string, ignoring spaces.
           ysia;eka fkdi,ld yßñka tla tla wkq,laIKh ;ka;=jl fldmuK jdrhla Èia fõ oehs .Kkh
@@ -5962,16 +5682,13 @@ ictfromabc.com
            11    'd'    True        False              -
                                                                                    ':1,'d':1}
 
-
           Character frequencies: {'h': 1, 'e': 1, 'l': 3, 'o': 2, 'w': 1, 'r': 1,
           'd': 1}
 
-
-
-
                                                                                                                       112
 ictfromabc.com
-          Difficulty: level 5
+
+          Difficulty: level 5
           Nested loops for element-wise addition of two matrices.
           kHdi foll wjhj wkqj tl;= lsÍu i|yd jQ leo,S Æm'
 
@@ -5979,12 +5696,11 @@ ictfromabc.com
               [1, 2, 3],
               [4, 5, 6],
               [7, 8, 9]
-          ]
+
           matrix2 = [
               [9, 8, 7],
               [6, 5, 4],
               [3, 2, 1]
-          ]
 
           result = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
@@ -5993,7 +5709,6 @@ ictfromabc.com
                   result[i][j] = matrix1[i][j] + matrix2[i][j]
           for row in result:
               print(row)
-
 
           Trace table
           range(len(matrix1)) = [0,1,2]
@@ -6015,11 +5730,10 @@ ictfromabc.com
           [10, 10,10]
           [10, 10,10]
 
-
-
                                                                                                           113
 ictfromabc.com
-          List comprehension                              Creating a list of products for each pair
+
+          List comprehension                              Creating a list of products for each pair
                                                           of elements from two lists.
           List comprehension is a concise way to          ,ehsia;= foll tla tla wjhj hq.,h i|yd
           create lists based on existing lists or other   jk .=‚; ,ehsia;=jla ks¾udKh lsÍu'
@@ -6072,11 +5786,10 @@ ictfromabc.com
           fuys" if num % 2 == 0 u.ska brÜfÜ ixLHd
           muKla j¾. lsÍug fldkafoaishla tla lrhs'
 
-
-
                                                                                                           114
 ictfromabc.com
-          Functions                                      NOTE:
+
+          Functions                                      NOTE:
           Y%s;
                                                          parameters vs arguments
           A block of organized and reusable code
@@ -6120,12 +5833,10 @@ ictfromabc.com
           ,o Y%s;hla mjd l%shd;aul jkafka th leojQ
           úg mu‚'
 
-
-
-
                                                                                                        115
 ictfromabc.com
-          User defined functions                        1. Functions with parameters and return
+
+          User defined functions                        1. Functions with parameters and return
           mßYS,lhd úiska w¾:olajk ,o Y%s;               mrdñ;Ska iy m%;Hd.uk w.hka we;s Y%s;
 
           keyword def is used to define functions.      def big(x,y):
@@ -6137,7 +5848,6 @@ ictfromabc.com
                 return value
           FuntionName(Arguments)                        print(big(5,10))
                                                         10
-
 
                                                         2. Functions with no parameters and no
                                                         return
@@ -6179,11 +5889,10 @@ ictfromabc.com
           3.     Without parameters with return
           4.     With parameters without retur
 
-
-
                                                                                                   116
 ictfromabc.com
-          Arbitrary Arguments, *args                   Keyword arguments
+
+          Arbitrary Arguments, *args                   Keyword arguments
                                                        h;=remo mrdñ;Ska
           When we don’t know how many arguments
           will be passed into the function, we add     These can be used to pass values
@@ -6230,16 +5939,13 @@ ictfromabc.com
           town('Ravindu')
           Ravindu is from Kurunegala                   600
 
-
           town('Tharindu', 'Colombo')                  total(500,400)
           Tharindu is from Colombo                     1100
 
-
-
-
                                                                                                     117
 ictfromabc.com
-          Parameter passing methods                      Immutable Objects (Ex. integers,
+
+          Parameter passing methods                      Immutable Objects (Ex. integers,
                                                          strings, tuples):
           1. Passing by Value
           When a function receives a copy of the         A copy of the original object is passed to
@@ -6288,12 +5994,10 @@ ictfromabc.com
           lrk ,o fjkialï Y%s;fhka msg; uq,a
           jia;=jg n,mdk njhs'
 
-
-
-
                                                                                                       118
 ictfromabc.com
-          Recursive functions                                 To calculate factorial(5), we need to
+
+          Recursive functions                                 To calculate factorial(5), we need to
           wdj¾Ól Y%s;                                         calculate 5×factorial(4), so we look at the
                                                               next row to see what factorial(4) is.
           In programming, a recursive function is a           factorial(5) idod.ekSu i|yd factorial(4)
@@ -6334,16 +6038,11 @@ ictfromabc.com
            factorial(4)       4×factorial(3)      24
            factorial(5)       5×factorial(4)      120
 
-
-
-
                                                                                                               119
 ictfromabc.com
-          Demontration
+
+          Demontration
           rEm igykla wdY%fhka meyeÈ,s lsÍu
-
-
-
 
           Another recursive function example that
           reverses a string
@@ -6362,16 +6061,10 @@ ictfromabc.com
 
           Reversed string: olleh
 
-
-
-
                                                                                     120
 ictfromabc.com
-          NOTE:
-                                                         \
 
-
-
+          NOTE:
 
                                                          x=100
           Global variables vs Local variables            def function2(y):
@@ -6424,12 +6117,10 @@ ictfromabc.com
           jevigyk l%shd;aul jkf;la fïjd tAjdfha
           w.h r|jd mj;ajd.kS'
 
-
-
-
                                                                                                      121
 ictfromabc.com
-          2021- 42                                       2020 – 38
+
+          2021- 42                                       2020 – 38
           What will be the result when the following     What would be the output when the
           Python code is executed?                       following Python code is executed?
           my; mhs;ka fla;h l%shd;aul l< úg               my; mhs;ka fla;h l%shd;aul l< úg
@@ -6485,10 +6176,10 @@ ictfromabc.com
                                                          Therefore, print(x) prints 4.
                                                          tneúka print(x) u.ska 4 uqøKh flfra'
 
-
                                                                                                           122
 ictfromabc.com
-          Number conversion functions                     hex() function
+
+          Number conversion functions                     hex() function
           ixLHd mßj¾;k Y%s;                               converts into hexadecimal.
                                                           Yâ oYuh ixLHd mdohg mßj¾;kh lrhs
           can be used to convert a given base 10
@@ -6539,12 +6230,10 @@ ictfromabc.com
           oct(0x32)
           '0o62'
 
-
-
-
                                                                                                       123
 ictfromabc.com
-          Commonly used built-in functions              sum() function
+
+          Commonly used built-in functions              sum() function
           nyq,j Ndú;d jk built-in Y%s;
                                                         Used to add numeric data in lists tuples or
           type() function                               dictionaries.
@@ -6591,12 +6280,10 @@ ictfromabc.com
                                                         divmod(7,3)
                                                         (2, 1)
 
-
-
-
                                                                                                         124
 ictfromabc.com
-          abs() function                                 pow() function - two arguments
+
+          abs() function                                 pow() function - two arguments
           gives the absolute value of a number
           ixLHdjl udmdxlh ,ndfoa                         pow(x,y) returns x**y
                                                          pow(x,y) u.ska x**y ,ndfoa
@@ -6642,19 +6329,17 @@ ictfromabc.com
                                                          id(a); id(b); id(c)
                                                          id(d); id(e); id(f)
           type 2:
-          function(arg1, arg2,... argN)
+          function(arg1, arg2,…… argN)
                                                          id() of a, b, c, e, f are different
           max(10,50,30,25,65)                            a, b, c, e, f f.a id() wiudk fõ
           65
                                                          id() of a and d is the same
                                                          a and d f.a id() iudk fõ
 
-
-
-
                                                                                                       125
 ictfromabc.com
-          math Module in python                     NOTE
+
+          math Module in python                     NOTE
                                                     An easy method to call functions in a
           Use help() function to learn more about   module is as follows.
           the math module                           Module tlla ;=, mj;sk Y%s;hla le|ùu
@@ -6707,12 +6392,10 @@ ictfromabc.com
                                                     len(d)
                                                     2
 
-
-
-
                                                                                                  126
 ictfromabc.com
-          chr() function                                 list.extend() method
+
+          chr() function                                 list.extend() method
           Returns the UNICODE character of a given       Used to extend an existing list with the
           integer                                        elements from any other type of sequence
           fok ,o ksÅ,hl UNICODE wlaYrh ,ndfoa            (list,tuple,string).
@@ -6765,12 +6448,10 @@ ictfromabc.com
           list tll mj;sk ksYÑ   a ; tll o;a;hla bj;a
           lr f.keú;a fmkaùug Ndú;d lrhs
 
-
-
-
                                                                                                     127
 ictfromabc.com
-          list.index() method                              dictionary.get() method
+
+          list.index() method                              dictionary.get() method
           string.index() method                            Is used with a dictionary to retrieve the
           tuple.index() method                             value for a specified key.
           Displays the index of the first coming           ksYÑ
@@ -6802,12 +6483,10 @@ ictfromabc.com
           Dictionary tll we;s ish¨u w.hka
           ,ehsia;=jla wdmiq ,nd §ug Ndú;d fõ
 
-
-
-
                                                                                                           128
 ictfromabc.com
-          Error handling with try: except:              Example
+
+          Error handling with try: except:              Example
           try: except: iu.ska fodaY md,kh
                                                         try:
           The try and except statements are used            num = int(input("Enter a
@@ -6859,12 +6538,10 @@ ictfromabc.com
                                                         AttributeError
                                                         NameError
 
-
-
-
                                                                                                      129
 ictfromabc.com
-          File operation                                 open() function
+
+          File operation                                 open() function
           f.dkq yeisrùu                                  This function is used to create a file in the
                                                          secondary storage of a computer and open
           File operations are fundamental actions        it inside a file object in the main memory of
@@ -6918,12 +6595,10 @@ ictfromabc.com
           f.dKqjla .kajdf.k újD; lsÍfï§ m%d:ñl
           u;lh ;=, ks¾udKh jk u;l wjldYhls'
 
-
-
-
                                                                                                          130
 ictfromabc.com
-          There are main 4 different modes.                  "x" or the create mode.
+
+          There are main 4 different modes.                  "x" or the create mode.
           f.dKqjla újD; lr.; yels m%Odk wdldr
           y;rls'                                             It is used to create a new file in secondary
                                                              storage and open it in the main memory to
@@ -6973,12 +6648,10 @@ ictfromabc.com
           any existing content.")
           file.close()
 
-
-
-
                                                                                                               131
 ictfromabc.com
-          "a" or the append mode.                           File methods
+
+          "a" or the append mode.                           File methods
 
           Also used to open an already available file       close() method
           in the secondary storage for writing data.        This method is used to close an open file
@@ -7030,12 +6703,10 @@ ictfromabc.com
           file = open("img.png", "rb")                      'line1\nline2\n'
                                                             f4.close()
 
-
-
-
                                                                                                             132
 ictfromabc.com
-          Reading a file                                readline() method.
+
+          Reading a file                                readline() method.
           f.dkqjla lshùu
                                                         This method can be used to read a file line
           read() method.                                by line from the beginning once.
@@ -7075,12 +6746,10 @@ ictfromabc.com
           f4.read(20)
           '13\nictfromabc.com'
 
-
-
-
                                                                                                       133
 ictfromabc.com
-          Navigating in a File                           tell() method.
+
+          Navigating in a File                           tell() method.
           f.dkqjla ;=, ießieÍu
                                                          Can be used to ask the computer to return
           seek(position) method.                         the current position of the cursor in the file.
@@ -7132,16 +6801,13 @@ ictfromabc.com
                                                          os.mkdir('helloworld')
                                                          os.rmdir('helloworld')
 
-
-
-
                                                                                                            134
 ictfromabc.com
-            A Python code that reads student marks from a file, calculates the total of their
+
+            A Python code that reads student marks from a file, calculates the total of their
             marks, and writes the results with their names to another file.
             f.dkqjlska YsIH ,l=Kq lshjd" Tjqkf a .a ,l=Kqj, tl;=j .Kkh lr fjk;a f.dkqjlg
             isiqkaf.a kï iuÕ m%;sM, ,shkq ,nk mhs;ka fla;hla'
-
 
             # Open the input file (marks.txt) in read mode
             marks_file = open("marks.txt", "r")
@@ -7160,8 +6826,6 @@ ictfromabc.com
                  name = parts[0] # The first part is the name
                  marks = [] # Create an empty list for marks
 
-
-
                  for i in range(1, len(parts)):
                      marks.append(int(parts[i]))
 
@@ -7179,12 +6843,10 @@ ictfromabc.com
 
             total_file.close()
 
-
-
-
                                                                                                 135
 ictfromabc.com
-          Connecting to a database in python           (1) MySQL database connection
+
+          Connecting to a database in python           (1) MySQL database connection
           mhs;ka Ndú;fhka o;a; iuqodhlg iïnkaO
           ùu                                           Here, a library called mysql-connector-
                                                        python should be installed.
@@ -7244,17 +6906,14 @@ ictfromabc.com
           The sqlite3 module can directly be used.     mysql-connector-python ia:dmkh
           sqlite3 fudähq,h iDcqju Ndú;d l< yel'        lsÍug" pip Ndú;d fõ'
 
-
-
-
                                                                                                    136
 ictfromabc.com
-          What is pip?                                   1. Installing the MySQL Connector
+
+          What is pip?                                   1. Installing the MySQL Connector
           pip hkq l=ulao                                 MySQL iïnkaOlh ia:dmkh lsÍu
 
           pip is Python’s package installer.
           pip hkq mhs;ka ys meflac ia:dmlhhs'            How to Use pip
-
 
           It enables easy installation, updating, and    To install the package, the command pip
           management of additional libraries (or         install [package name] is run on the
@@ -7279,7 +6938,6 @@ ictfromabc.com
           Package Index ^PyPI& fj;ska ,ndf.k th          f.k th nd.; lr ia:dmkh lsÍug pip fj;
           moaO;sh u; ia:dmkh lrhs'                       Wmfoia ,nd fohs'
 
-
           What is PyPI?                                  2. Verifying the Installation
           PyPI hkq l=ulao                                ia:dmkh iy;sl lr.ekSu
 
@@ -7303,12 +6961,10 @@ ictfromabc.com
           i;aldrl;ajh imhhs'                             fodaIhla yg fkd.kS kï" ia:dmkh id¾:l
                                                          ù we;
 
-
-
-
                                                                                                        137
 ictfromabc.com
-          3. Establishing a Connection                 4. Creating a Cursor
+
+          3. Establishing a Connection                 4. Creating a Cursor
 
           A connection to the MySQL database is        A cursor is an object that enables a Python
           created by specifying the host, username,    program to send SQL commands (like
@@ -7360,12 +7016,10 @@ ictfromabc.com
                                                        employees") u.ska j.=fjka ish¨u fma<s
                                                        ,nd .ekSug úuiqula hjhs'
 
-
-
-
                                                                                                      138
 ictfromabc.com
-          5. Creating a Table                           6. Inserting data
+
+          5. Creating a Table                           6. Inserting data
                                                         o;a; we;=<;a lsÍu
           cursor.execute('''
               CREATE TABLE employees (                  Method 1
@@ -7373,7 +7027,7 @@ ictfromabc.com
                  PRIMARY KEY,                           cursor.execute('''
                  name VARCHAR(20),                      INSERT INTO employees (name, age)
                  age INTEGER                            VALUES (?, ?)''', ("Alice", 30))
-              )
+
           ''')
                                                         Method 2
 
@@ -7415,12 +7069,10 @@ ictfromabc.com
           úuiqug wdrlaIs;j we;=<;a l< hq;= w.hka'       tAjd u.ska o;a; j,ska úuiqï jHqyh fjka
                                                         lsÍfuka SQL injection j<lajhs'
 
-
-
-
                                                                                                      139
 ictfromabc.com
-          Inserting multiple data rows                  employees table
+
+          Inserting multiple data rows                  employees table
           o;a; fma<s lsym
                         s hla we;=<;a lsÍu               id       name      age
                                                          1        Alice     30
@@ -7436,7 +7088,6 @@ ictfromabc.com
                                                         Commit lsÍï wjYH jkafka INSERT,
           cursor.executemany(query, values)             UPDATE" fyda DELETE m%ldYhka jeks o;a;
                                                         iuqodfha fjkila we;s úg mu‚'
-
 
           executemany()                                 When selecting data (using SELECT
           This method executes the            INSERT    queries), committing is not required, as no
@@ -7463,7 +7114,7 @@ ictfromabc.com
           fndfyda o;a; iuqodhkays ^SQLite iy MySQL            print(row)
           we;=¿j&" fjkialï uq,ska isÿ lrkq ,nkafka
           ;djld,sl ;;ajhlh§h'
-                                                        [
+
           Calling commit() finalizes these changes           (1, "Alice", 30),
           and saves them permanently to the                  (2, "Bob", 24),
           database.                                          (3, "Charlie", 28)
@@ -7473,12 +7124,10 @@ ictfromabc.com
                                                         (2, "Bob", 24)
                                                         (3, "Charlie", 28)
 
-
-
-
                                                                                                       140
 ictfromabc.com
-          fetchall()                                   10. Deleting Data
+
+          fetchall()                                   10. Deleting Data
           fetchall() is used to obtain every row
           returned by the executed query.              delete_query = "DELETE FROM
           fetchall() Ndú;d lrkqfha l%shd;aul l<        employees WHERE name = %s"
@@ -7532,11 +7181,10 @@ ictfromabc.com
                                                        iïm;a mßfNdackhg fya;= úh yel'
           1
 
-
-
                                                                                                      141
 ictfromabc.com
-          (2) SQLite connection                                 4. Creating a Table and Inserting Data
+
+          (2) SQLite connection                                 4. Creating a Table and Inserting Data
 
           SQLite is a lightweight database that is built        cursor.execute('''
           into Python, so no additional driver                        CREATE TABLE employees (
@@ -7544,14 +7192,14 @@ ictfromabc.com
           SQLite hkq mhs;ka ;=< f.dvk.d we;s                             name TEXT,
           ieye,a¨ o;a; iuqodhls" tneúka wu;r Odjl                        age INTEGER
           ia:dmkhla wjYH fkdfõ'
-                                                                      )
+
           In SQLite, there is no need to specify host,          ''')
           username, password, or database name
           because SQLite is a file-based database.              query = '''
           SQLite ys" Odrl" mßYS,l kduh" uqrmoh"                 INSERT INTO employees (name, age)
           fyda o;a; iuqodfha ku i|yka lsÍug wjYH                VALUES (?, ?)
           ke;" ukao SQLite hkq f.dkq-mdol o;a;
-                                                                '''
+
           iuqodhls'
                                                                 values = ("Alice", 30)
           The only required information is the path to          cursor.execute(query, values)
@@ -7589,12 +7237,10 @@ ictfromabc.com
                                                                 isÿ l< yel'
           cursor = conn.cursor()
 
-
-
-
                                                                                                           142
 ictfromabc.com
-          Sorting Algorithms in Python                 Understanding Time Complexity
+
+          Sorting Algorithms in Python                 Understanding Time Complexity
           mhs;ka ys j¾. lsÍfï we,af.dß;u               ld, ixlS¾K;ajh wjfndaO lr .ekSu
 
           Sorting algorithms are fundamental in        Time complexity is a measure of how an
@@ -7614,7 +7260,7 @@ ictfromabc.com
           we,af.dß;uj, ld¾h idOkh m%Yia; lsÍu
           olajd     úúO       fhÿïj,   ;SrKd;aul       O(1)           Constant time.
           ld¾hNdrhla bgq lrhs'                                        ia:djr ld,h
-                                                                      '
+
            Example:                                    O(n)           Linear time.
           Suppose we have an unsorted list of                         f¾Çh ld,h'
           integers:
@@ -7639,12 +7285,10 @@ ictfromabc.com
 
           [1,2,5,7,8]
 
-
-
-
                                                                                                      143
 ictfromabc.com
-          Bubble Sort                                        5. Repeat the Process
+
+          Bubble Sort                                        5. Repeat the Process
                                                                 l%shdj,sh kej; lrkak
           Bubble sort is a simple sorting algorithm
           that repeatedly steps through the list,               Continue this process for the entire list.
@@ -7693,12 +7337,10 @@ ictfromabc.com
                  ixikaokh iy yqjudre lsÍfï l%shdj,sh
                  kej; lrkak'
 
-
-
-
                                                                                                              144
 ictfromabc.com
-          Example:                                         Compare 64 and 22. Swap because 64 >
+
+          Example:                                         Compare 64 and 22. Swap because 64 >
                                                            22. List becomes [34, 25, 12, 22, 64, 11, 90].
           Suppose we have the following list to sort       64 iy 22 ii|kak' 64 > 22 ksid yqjudre
           in ascending order:.                             lrkak' ,ehsia;=j [34, 25, 12, 22, 64, 11, 90]
@@ -7707,18 +7349,12 @@ ictfromabc.com
 
           [64, 34, 25, 12, 22, 11, 90]
 
-
-
-
           First Pass:                                      Compare 64 and 11. Swap because 64 >
           Compare 64 and 34. Swap because 64 > 34.         11. List becomes [34, 25, 12, 22, 11, 64, 90].
           List becomes [34, 64, 25, 12, 22, 11, 90].       64 iy 11 ii|kak' 64 > 11 ksid yqjudre
           64 iy 34 ii|kak' 64 > 34 ksid yqjudre            lrkak' ,ehsia;=j [34, 25, 12, 22, 11, 64, 90]
           lrkak' ,ehsia;=j [34, 64, 25, 12, 22, 11, 90]    njg m;a fõ'
           njg m;a fõ'
-
-
-
 
                                                            Compare 64 and 90. No swap needed.
           Compare 64 and 25. Swap because 64 >             64 iy 90 ii|kak' yqjudrej wjYH fkdfõ'
@@ -7727,29 +7363,21 @@ ictfromabc.com
           lrkak' ,ehsia;=j [34, 25, 64, 12, 22, 11, 90]
           njg m;a fõ'
 
-
-
-
           Compare 64 and 12. Swap because 64 > 12.
           List becomes [34, 25, 12, 64, 22, 11, 90].
           64 iy 12 ii|kak' 64 > 12 ksid yqjudre
           lrkak' ,ehsia;=j [34, 25, 12, 64, 22, 11, 90]
           njg m;a fõ'
 
-
-
-
                                                                                                             145
 ictfromabc.com
-          Second Pass:                                    Compare 34 and 11. Swap because 34 > 11.
+
+          Second Pass:                                    Compare 34 and 11. Swap because 34 > 11.
           Compare 34 and 25. Swap because 34 > 25.        List becomes [25, 12, 22, 11, 34, 64, 90].
           List becomes [25, 34, 12, 22, 11, 64, 90].      34 iy 11 ii|kak' 34 > 11 ksid yqjudre
           34 iy 25 ii|kak' 34 > 25 ksid yqjudre           lrkak' ,ehsia;=j [25, 12, 22, 11, 34, 64, 90]
           lrkak' ,ehsia;=j [25, 34, 12, 22, 11, 64, 90]   njg m;a fõ'
           njg m;a fõ'
-
-
-
 
                                                           Compare 34 and 64. No swap needed.
                                                           34 iy 64 ii|kak' yqjudrej wjYH fkdfõ'
@@ -7772,15 +7400,10 @@ ictfromabc.com
           lrkak' ,ehsia;=j [25, 12, 22, 34, 11, 64, 90]
           njg m;a fõ'
 
-
-
-
                                                                                                           146
 ictfromabc.com
-          Fourth Pass:                             Fifth Pass:
 
-
-
+          Fourth Pass:                             Fifth Pass:
 
           Python Implementation:
 
@@ -7793,7 +7416,6 @@ ictfromabc.com
                       if arr[j] > arr[j + 1]:
                            arr[j], arr[j + 1] = arr[j + 1], arr[j]
               return arr
-
 
           2. Using a while loop
 
@@ -7809,12 +7431,10 @@ ictfromabc.com
                   i += 1
               return arr
 
-
-
-
                                                                      147
 ictfromabc.com
-          3.Using a for loop with dynamic range
+
+          3.Using a for loop with dynamic range
 
           def bubble_sort_dynamic_range(arr):
               n = len(arr)
@@ -7823,7 +7443,6 @@ ictfromabc.com
                       if arr[j] > arr[j + 1]:
                            arr[j], arr[j + 1] = arr[j + 1], arr[j]
               return arr
-
 
           4. Using a for loop with a flag (early exit)
 
@@ -7838,9 +7457,6 @@ ictfromabc.com
                   if not swapped:
                       break
               return arr
-
-
-
 
           Time Complexity                                Average Case (O(n^2)): Typically, the
                                                          algorithm performs a number of
@@ -7861,12 +7477,10 @@ ictfromabc.com
                                                          not of comparable types.ixikaokd;aul
                                                          j¾. fkdjk uQ,dx. ixikaokh lsÍu
 
-
-
-
                                                                                                      148
 ictfromabc.com
-          Selection Sort                                  4. Repeat the Process
+
+          Selection Sort                                  4. Repeat the Process
                                                              l%shdj,sh kej; isÿ lrkak
           Selection sort is another simple sorting
           algorithm, which works by repeatedly               Repeat the process until the entire list
@@ -7916,12 +7530,10 @@ ictfromabc.com
                  fldgiaj, udhsu tla ia:dkhlska ol=Kg      ,ehsia;=j [11, 25, 12, 22, 64] njg m;a fõ'
                  f.k hkak'
 
-
-
-
                                                                                                         149
 ictfromabc.com
-          Second Pass:                                    Third Pass:
+
+          Second Pass:                                    Third Pass:
 
           The unsorted list is [25, 12, 22, 64]           The unsorted list is [25, 22, 64].
           (excluding the first element which is already   j¾. fkdl< ,ehsia;=j [25, 22, 64] fõ'
@@ -7930,7 +7542,6 @@ ictfromabc.com
           (oekgu;a j¾. lr we;s m<uq uQ,dx.h yer)
           fõ'
 
-
                                                           Find the minimum element in the unsorted
                                                           list. The minimum is 22.
                                                           j¾. fkdl< ,ehsia;=fõ wju uQ,dx.h
@@ -7938,9 +7549,6 @@ ictfromabc.com
           list. The minimum is 12.
           j¾. fkdl< ,ehsia;=fõ wju uQ,dx.h
           fidhkak' wju w.h 12 ls'
-
-
-
 
                                                           Swap 22 with the first element of the
                                                           unsorted list (25). List becomes [11, 12, 22,
@@ -7952,27 +7560,19 @@ ictfromabc.com
           iuÕ 12 udre lrkak' ,ehsia;=j [11, 12, 25,
           22, 64] njg m;a fõ'
 
-
-
-
                                                                                                           150
 ictfromabc.com
-          Fourth Pass:                                    Fifth Pass:
+
+          Fourth Pass:                                    Fifth Pass:
                                                           The unsorted list is [64].
           The unsorted list is [25, 64].                  j¾. fkdl< ,ehsia;=j [64] fõ'
           j¾. fkdl< ,ehsia;=j [25, 64] fõ'
-
-
-
 
                                                           Since there's only one element left, it is
           Find the minimum element in the unsorted        already sorted.
           list. The minimum is 25.                        tla wx.hla muKla b;sßj we;s neúka" th
           j¾. fkdl< ,ehsia;=fõ wju uQ,dx.h                oekgu;a j¾. lr we;'
           fidhkak' wju w.h 25 ls'
-
-
-
 
           Swap 25 with the first element of the
           unsorted list (25). List remains [11, 12, 22,
@@ -7981,13 +7581,10 @@ ictfromabc.com
           iuÕ 25 udre lrkak' ,ehsia;=j fjkia
           fkdfõ [11, 12, 22, 25, 64].
 
-
-
-
                                                                                                        151
 ictfromabc.com
-          Python Implementation:
 
+          Python Implementation:
 
           1. Using a for loop (Basic)
 
@@ -8000,8 +7597,6 @@ ictfromabc.com
                            min_idx = j
                   arr[i], arr[min_idx] = arr[min_idx], arr[i]
               return arr
-
-
 
           2.Using a while loop
 
@@ -8019,12 +7614,10 @@ ictfromabc.com
                   i += 1
               return arr
 
-
-
-
                                                                 152
 ictfromabc.com
-          3. Using a for loop with a flag (early exit)
+
+          3. Using a for loop with a flag (early exit)
 
           def selection_sort_for_flag(arr):
               n = len(arr)
@@ -8041,7 +7634,6 @@ ictfromabc.com
                       break
               return arr
 
-
           4.Using a for loop with dynamic range
 
           def selection_sort_dynamic_range(arr):
@@ -8053,8 +7645,6 @@ ictfromabc.com
                            min_idx = j
                   arr[i], arr[min_idx] = arr[min_idx], arr[i]
               return arr
-
-
 
           Time Complexity:                               Average Case (O(n^2)): Generally, the
                                                          algorithm performs a quadratic number of
@@ -8071,12 +7661,10 @@ ictfromabc.com
           wrdj oekgu;a j¾. lr we;s úg isÿ fõ"
           ;ju;a iudk iei£ï ixLHdjla wjYH fõ'
 
-
-
-
                                                                                                     153
 ictfromabc.com
-          Insertion Sort                                   4. Shift Elements
+
+          Insertion Sort                                   4. Shift Elements
                                                               uQ,dx. udre lrkak
           Insertion sort is a straightforward and
           efficient algorithm for small or nearly             Shift all elements in the sorted sublist
@@ -8126,12 +7714,10 @@ ictfromabc.com
                  ,ehsia;=fõ we;s uQ,dx. iuÕ ii|d th
                  we;=<;a l< hq;= ia:dkh fidhd .kak'
 
-
-
-
                                                                                                          154
 ictfromabc.com
-          Example                                      Insert 10. List becomes [10, 29, 14, 37, 14].
+
+          Example                                      Insert 10. List becomes [10, 29, 14, 37, 14].
                                                        10 we;=¿ lrkak 10. ,ehsia;=j [10, 29, 14,
           Suppose we have the following list to sort   37, 14] njg m;a fõ'
           in ascending order:.
@@ -8151,13 +7737,11 @@ ictfromabc.com
                                                        Unsorted portion: [14, 37, 14]
                                                        j¾. fkdl< fldgi : [14, 37, 14]
 
-
           Unsorted portion: [10, 14, 37, 14]
           j¾. fkdl< fldgi: [10, 14, 37, 14]
 
                                                        Pick the next element (14).
                                                        ó<Õ uQ,dx.h f;darkak (14).
-
 
           Pick the next element (10).
           ó<Õ uQ,dx.h f;darkak (10).
@@ -8176,30 +7760,19 @@ ictfromabc.com
                                                        14 we;=,;a lrkak ' ,ehsia;=j [10, 14, 29,
                                                        37, 14] njg m;a fõ'
 
-
-
-
                                                                                                        155
 ictfromabc.com
-          Third Pass:                                     Fourth Pass:
+
+          Third Pass:                                     Fourth Pass:
 
           Sorted sublist: [10, 14, 29]                    Sorted sublist: [10, 14, 29, 37]
           j¾. l< Wm ,ehsia;=j( [10, 14, 29]               j¾. l< Wm ,ehsia;=j: [10, 14, 29, 37]
 
-
-
-
           Unsorted portion: [37, 14]                      Unsorted portion: [14]
           j¾. fkdl< fldgi: [37, 14]                       j¾. fkdl< fldgi( [14]
 
-
-
-
           Pick the next element (37).                     Pick the next element (14).
           ó<Õ uQ,øjHh f;darkak (37).                      ó<Õ uQ,dx.h f;darkak (14).
-
-
-
 
           Find the correct position (after 29).           Find the correct position (between 14 and
           ksjerÈ ia:dkh fidhd .kak (29 ka miq).           29).
@@ -8208,19 +7781,14 @@ ictfromabc.com
           udre lsÍu wjYH fkdfõ'                           Shift 29 and 37 to the right.
                                                           29 iy 37 ol=Kg udre lrkak'
 
-
-
-
           Insert 37. List becomes [10, 14, 29, 37, 14].   Insert 14. List becomes [10, 14, 14, 29, 37].
           37 we;=¿ lrkak' ,ehsia;=j [10, 14, 29, 37,      we;=¿ lrkak 14' ,ehsia;=j [10, 14, 14, 29,
           14] njg m;a fõ                                  37] njg m;a fõ'
 
-
-
-
                                                                                                           156
 ictfromabc.com
-          Python Implementation:                        3.Using a for loop with dynamic range
+
+          Python Implementation:                        3.Using a for loop with dynamic range
 
           1.Using a for loop (Basic)                    def sort_dynamic_range(arr):
                                                             n = len(arr)
@@ -8251,8 +7819,6 @@ ictfromabc.com
                   i += 1                                            arr[0] = key
               return arr                                    return arr
 
-
-
           Time Complexity:                              Possible Errors:
           Worst Case (O(n^2)): Occurs when the
           array is sorted in reverse order, requiring   Index Out of Range
@@ -8270,12 +7836,10 @@ ictfromabc.com
           we,af.dß;u ixikaokh iy udreùï p;=ri%
           ixLHdjla isÿ lrhs'
 
-
-
-
                                                                                                 157
 ictfromabc.com
-          Flowcharts                                          Pseudocodes
+
+          Flowcharts                                          Pseudocodes
           .e,Sï igyka
                                                               Pseudocode is an informal way of writing
           A flowchart is a graphical representation           an algorithm using plain language (usually
@@ -8291,9 +7855,6 @@ ictfromabc.com
           fmkajhs' th úúO l%shdjka iy ;SrK                    l%uhls' th lsishï l%uf,aLk NdIdjl jdlH
           ksrEmKh lsÍug úúO ixfla; Ndú;d lrhs"                LKavhg wkq.; fkdjk kuq;a jHqy.;
           ;¾lfha .e,Sï oDYHudk lsÍu myiq lrhs'                wdlD;shla wkq.ukh lrhs'
-
-
-
 
           Uses of Flowcharts and Pseudocode                   02. Communication Across Different
           .e,Sï igyka iy jHdc fla; Ndú;h                          Programming Languages
@@ -8328,12 +7889,10 @@ ictfromabc.com
                  jeäÈhqKq lsÍï l,a we;sj y÷kd .ekSu              wjYH fkdù uQ,sl woyi f;areï .ekSug
                  myiq lrhs'                                      bv i,ihs'
 
-
-
-
                                                                                                               158
 ictfromabc.com
-          04. Explaining to Non-Programmers                  05. Debugging and Problem-Solving
+
+          04. Explaining to Non-Programmers                  05. Debugging and Problem-Solving
               l%uf,aLlrejka fkdjk whg meyeÈ,s                    ksfodia lsÍu iy .eg¿ úi£u
               lsÍu
                                                                 Visual and Textual Representation
@@ -8384,14 +7943,11 @@ ictfromabc.com
                                                                 fkdokakd NdIdjlska ,shd we;s úg th
                                                                 úfYaIfhka WmldÍ fõ'
 
-
-
-
                                                                                                               159
 ictfromabc.com
-          Shapes Used in Flow Charts       Uses of shapes with flow arrows
-          .e,Sï igyka j, Ndú;d lrk yev;,   .e,sï ioyd B;, iys; yev;, Ndú;h
 
+          Shapes Used in Flow Charts       Uses of shapes with flow arrows
+          .e,Sï igyka j, Ndú;d lrk yev;,   .e,sï ioyd B;, iys; yev;, Ndú;h
 
           Start / End                      •   Start/Begin can only have one arrow
           wdrïNh $ wjidkh                      out.
@@ -8401,20 +7957,14 @@ ictfromabc.com
           Input / Output
           wdodk $ m%;sodk
 
-
-
           Process
           l%shdj,sh
                                            •   End / Stop can only have one arrow in.
           Conditions                           End / Stop ;=< ;sìh yelafla tla
           fldkafoais                           B;,hla we;=<;g mu‚'
 
-
-
-
           Flow Direction
           .e,Sï ÈYdj
-
 
                                            •   Inputs, outputs, and processes can have
           Connectors                           one or more arrows in and only one
@@ -8424,12 +7974,10 @@ ictfromabc.com
                                                w;r msg;g B;,hla muKla ;sìh yel'
           Subroutine
 
-
-
-
                                                                                          160
 ictfromabc.com
-          •      There must be a condition to split a    Control Structure
+
+          •      There must be a condition to split a    Control Structure
                  flow into two.                          md,k jHqyh
                  m%jdyhla folg fn§ug fldkafoaishla
                  ;sìh hq;=h'
@@ -8453,22 +8001,14 @@ ictfromabc.com
 
                  Method 01
 
-
-
-
                                                          Example.
-
-
-
 
                  Method 02
 
-
-
-
                                                                                                         161
 ictfromabc.com
-          2. Selection                                3. Repetition
+
+          2. Selection                                3. Repetition
           jrKh                                        mqK¾lrKh
 
           Selection allows the program to choose      Repetition allows a set of instructions to be
@@ -8484,17 +8024,12 @@ ictfromabc.com
           fldkafoaish wkqj tla ud¾.hla muKla          kej; lsÍug Ndú;d lrhs' for, while, do-
           wkq.ukh lrhs'                               while jeks Æm fï i|yd Ndú;d fõ'
 
-
-
-
           Example                                     Example
-
-
-
 
                                                                                                       162
 ictfromabc.com
-          Selection inside Selection                      Example.
+
+          Selection inside Selection                      Example.
           jrKh ;=< jrKh
 
           Selection inside Selection (also known as
@@ -8506,9 +8041,6 @@ ictfromabc.com
           ye¢kafõ& hkq tla f;aÍï jHqyhla ^if-else fyda
           switch-case m%ldYhla jeks& fjk;a f;aÍï
           jHqyhla ;=< ;nd we;s ;;ajhls'
-
-
-
 
                                                           In the above example, the access will be
                                                           granted only if both username and
@@ -8531,12 +8063,10 @@ ictfromabc.com
           Instruction SET 3 l%shd;aul jkafka condition
           1 i;H iy condition 2 wi;H jQ úg mu‚'
 
-
-
-
                                                                                                           163
 ictfromabc.com
-          Selection after Selection                        Example.
+
+          Selection after Selection                        Example.
           jrKfhka miq jrKh
 
           Selection after Selection refers to a scenario
@@ -8556,16 +8086,11 @@ ictfromabc.com
           jrKfhaÈ" iEu fldkafoaishlau ;ksj mj;sk
           w;r wkqms<sfj,ska mÍlaId lrkq ,efí'
 
-
-
-
                                                            If num is -10, the outputs would be
                                                            -10 jqjfyd;a" m%;sodkhka my; mßÈ jkq we;
 
                                                            Negative
                                                            Even
-
-
 
           Here, Condition 1 does not have any effect
           on Instruction Set 3 and Instruction Set 4
@@ -8573,12 +8098,10 @@ ictfromabc.com
           Instruction Set 4 flfrys lsisÿ n,mEula we;s
           fkdlrhs'
 
-
-
-
                                                                                                       164
 ictfromabc.com
-          Selection inside Repetition                    Example.
+
+          Selection inside Repetition                    Example.
           mqK¾lrKh ;=< jrKh
 
           Selection inside Repetition refers to a
@@ -8589,9 +8112,6 @@ ictfromabc.com
           lrkafka ;SrK .ekSfï l%shdj,shla ^jrKh&
           Æmhla ^mqK¾lrKh& ;=< kej; kej;;a
           isÿjk ;;ajhls'
-
-
-
 
                                                          If L is [10,12,13,51,45], the outputs will
                                                          be
@@ -8614,12 +8134,10 @@ ictfromabc.com
           fuys" condition 1 kej; kej; mÍlaId lrk
           w;r;=r fuu Æmh 10 j;djla l%shd;aul fõ
 
-
-
-
                                                                                                       165
 ictfromabc.com
-          Repetition inside Repetition                       After executing Instruction SET, y is
+
+          Repetition inside Repetition                       After executing Instruction SET, y is
           mqK¾lrKh ;=< mqK¾lrKh                              increased by 1. Once the inner loop finishes
                                                              (when y = 5), it returns to the outer loop,
           Repetition inside Repetition refers to a           where x is incremented by 1.
@@ -8639,9 +8157,6 @@ ictfromabc.com
 
                                                              Example.
 
-
-
-
           The outer loop starts by initializing x = 0,
           and it checks the condition x < 10. If x < 10
           is true, the flow enters the outer loop and
@@ -8660,11 +8175,10 @@ ictfromabc.com
           lrhs' y < 5 i;H kï" wNHka;r Æmh
           Instruction SET l%shd;aul lrhs'
 
-
-
                                                                                                             166
 ictfromabc.com
-          Pseudocodes
+
+          Pseudocodes
           jHdc fla;
 
           As previously explained, pseudocodes do not have a specific syntax or predefined keywords,
@@ -8679,29 +8193,19 @@ ictfromabc.com
 
            Python         print("Hello, World!")            input("Enter something: ")
 
-
                                                             Scanner sc=new Scanner(System.in);
            Java           System.out.println("Hello");
                                                             String input=sc.nextLine();
 
            C              printf("Hello, World!\n");        scanf("%s", input);
 
-
            C++            cout << "Hello, World!";          cin >> input;
-
 
            JavaScript     console.log("Hello, World!");     prompt("Enter something:")
 
-
            PHP            echo "Hello, World!";             $input = fgets(STDIN);
 
-
-
-
            Pseudocodes
-
-
-
 
           NOTE:                                           Benefits of Pseudocode
           Pseudocodes are not executable by               Helps visualize the algorithm’s flow.
@@ -8717,10 +8221,10 @@ ictfromabc.com
                                                           lKavdhï f,i .eg¿ úi£ug myiqlï
                                                           imhhs'
 
-
                                                                                                        167
 ictfromabc.com
-          1. Start/Begin                                3. Conditions
+
+          1. Start/Begin                                3. Conditions
           wdrïNh                                        fldkafoais
 
           Every pseudocode usually begins with a        Conditions in pseudocode allow decision-
@@ -8767,12 +8271,10 @@ ictfromabc.com
                                                                Print "X is zero"
                                                            ENDIF
 
-
-
-
                                                                                                       168
 ictfromabc.com
-          4. Loops                                    •   For Loop
+
+          4. Loops                                    •   For Loop
 
           Loops are used when you want to repeat a    A FOR loop runs a set number of times,
           set of instructions multiple times.         iterating over a range or a sequence.
@@ -8815,27 +8317,21 @@ ictfromabc.com
                  Increment counter by 1               End
              ENDWHILE
 
-
-
-
                                                                                                   169
 ictfromabc.com
-          Comparing python programs and their related pseudocodes
-          mhs;ka jevigyka iy tAjdg wod< jHdc fla; ixikaokh lsÍu
 
+          Comparing python programs and their related pseudocodes
+          mhs;ka jevigyka iy tAjdg wod< jHdc fla; ixikaokh lsÍu
 
                          Python Code                            Pseudocode
 
            Sequence
 
-
            print("Enter your name:")              DISPLAY "Enter your name:"
            name = input()                         INPUT name
            print("Hello, " + name)                DISPLAY "Hello, " + name
 
-
            Selection
-
 
                                                   DISPLAY "Enter your age:"
            age = int(input("Enter age: "))
@@ -8848,7 +8344,6 @@ ictfromabc.com
                                                        DISPLAY "You are not eligible."
                print("You are not eligible.")
                                                   ENDIF
-
 
            Selection inside Selection
 
@@ -8863,7 +8358,6 @@ ictfromabc.com
                print(-1)                              DISPLAY -1
                                                   ENDIF
 
-
            Selection inside Repetition
 
                                                   SET i = 1
@@ -8876,13 +8370,10 @@ ictfromabc.com
                i += 1                                 ADD 1 TO i
                                                   ENDWHILE
 
-
-
-
                                                                                          170
 ictfromabc.com
-           Repetition
 
+           Repetition
 
                                                 SET i = 1
            i = 1
@@ -8894,9 +8385,7 @@ ictfromabc.com
                i += 1
                                                 ENDWHILE
 
-
            Repetition inside Repetition
-
 
                                                 SET i = 1
                                                 WHILE i <= 5 DO
@@ -8918,10 +8407,7 @@ ictfromabc.com
                                                     ADD 1 TO i
                                                 ENDWHILE
 
-
            Repetition inside Selection
-
-
 
                                                 DISPLAY "Enter a number:"
                                                 INPUT x
@@ -8943,9 +8429,5 @@ ictfromabc.com
                                                     DISPLAY 0
                                                 ENDIF
 
-
-
-
                                                                                    171
 ictfromabc.com
-

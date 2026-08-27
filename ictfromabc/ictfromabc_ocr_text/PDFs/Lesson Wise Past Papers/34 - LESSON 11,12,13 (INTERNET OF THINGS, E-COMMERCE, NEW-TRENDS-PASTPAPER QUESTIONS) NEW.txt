@@ -42,12 +42,10 @@
         ATMega328P laIqø md,lfhys A0 – A5 w;r ;=vq y;rg B;¾fkÜ m<syla iïnkaO l< hq;=u h'
                                                                                                    ( 2024 – 48 )
 
-
-
-
                                                         1
                                                                                                          ictfromabc.com
-4.   Which of the following statements are true?
+
+4.   Which of the following statements are true?
      my; ljr j.ka;s ksjerÈ fõ o?
      A - Even when analog inputs are given to the digital pins of an Arduino board, they are read as analog
          values.
@@ -72,7 +70,6 @@
 
                       void setup() {
                            pinmode(motorPin, P );
-                      }
 
                       void loop() {
                            int sensorValue = Q (sensorPin);
@@ -82,7 +79,6 @@
                                  R (S , HIGH);
                            else
                                  R (S , Low);
-                      }
 
 5.   Which of the following contains the correct replacements for the labels?
      f,an, i|yd ksjerÈ wdfoaYl we;af;a my; ljrl o?
@@ -93,12 +89,10 @@
      5) P – OUTPUT,     Q – digitalWrite,       R – analogRead,          S – sensorPin
                                                                                                 ( 2025 – 45 )
 
-
-
-
                                                        2
                                                                                                        ictfromabc.com
-6.   Which of the following statements are true?
+
+6.   Which of the following statements are true?
      my; ljr j.ka;s i;H fõ o?
      A - The input from the temperature sensor could have been connected to any of the pins A1-A5 as well
          but then the ‘const int sensorPin = A0;’ line in the code should be changed to reflect that change.
@@ -127,12 +121,10 @@
         A muKs          A yd B muKs             A yd C muKs            B yd C muKs            by; ish,a,u
                                                                                                  ( 2025 – 47 )
 
-
-
-
                                                       3
                                                                                                        ictfromabc.com
-1. (a) An IoT setup to water a plant in a greenhouse is shown in Figure 1. A mobile application is used to
+
+1. (a) An IoT setup to water a plant in a greenhouse is shown in Figure 1. A mobile application is used to
        operate the water-releasing tap. As shown, the setup includes a sensor, a controller, and a microcontroller
        (Arduino Board) with a communication module.
        yß;d.drhl we;s me<hlg c,h fh§h yels IoT wegjqula rEmh 1 ys oelafú' c,h ksl=;a lrk lrduh
@@ -153,7 +145,6 @@
                                                                                   Then [Z]
                                                                            End if
                                                                     End if
-                                                              }
 
                        Figure / rEmh 1
 
@@ -180,7 +171,6 @@
 
                                                 D
 
-
                  A
 
                                                     C
@@ -189,12 +179,10 @@
                                           B
                           Figure / rEmh 7.1
 
-
-
-
                                                         4
                                                                                                           ictfromabc.com
-      (i) Identify the parts marked as A, B, C, and D in Figure 7.1 and briefly explain each of their functionalities.
+
+      (i) Identify the parts marked as A, B, C, and D in Figure 7.1 and briefly explain each of their functionalities.
           rEmh 7.1 ys A, B, C iy D f,i ,l=Kq lr we;s fldgia y÷kdf.k ta tlsfkflys ld¾hNdrh ieflúka
           myokak'
       (ii) Assume that you want to build an IoT setup that switches an LED light on when motion is detected.
@@ -206,12 +194,8 @@
            w¢kak'
                                                                                      ( 2023 ESSAY – 07[a] )
 
-
 3. (a) Figure 7.1 shows the Arduino circuit that Saman implemented to detect a door opening.
        rEmh 7.1 ka fmkajkafka fodrl újD; úula wkdjrKh lr.eksug iuka iE¥ wdvqhsfkda mßm:hhs '
-
-
-
 
                                                Figure / rEmh 7.1
 
@@ -228,14 +212,14 @@
               void    setup() {
                         pinMode (SensorP,            INPUT);
                         pinMode (BuzzerP,            OUTPUT);
-              }
+
               void    loop() {
                         int senState = digitalRead(SensorP);
                         if (senState == HIGH)
                                 tone(SensorP,262);
                         else
                                 noTone(BuzzerP,0);
-              }
+
      (iii) Saman hopes to extend this circuit to indicate the door openings only at night time. What does he
            need to modify in this circuit to add that feature? If any item(s) must be connected to the
            ATmega328P, indicate the relevant pin(s).
@@ -244,11 +228,10 @@
            l,hq;= kï, wod< ;=vq(j) olajkak'
                                                                                        ( 2024 ESSAY – 07[a] )
 
-
-
                                                          5
                                                                                                               ictfromabc.com
-                             LESSON 12 PAST PAPERS
+
+                             LESSON 12 PAST PAPERS
 1.   Consider the following statements:
      my; oelafjk m%ldY i,ld n,kak'
      A - Customer can obtain the services while he/she is at his/her home or office.
@@ -296,12 +279,10 @@
      4)   Business to Business / jHdmdrfhka jHdmdrhg f,i h'
      5)   Employee to Business. / fiajlhdf.ka jHdmdrhg f,i h.                                    ( 2012 – 30 )
 
-
-
-
                                                        6
                                                                                                         ictfromabc.com
-4.   Consider the following attributes related to business:
+
+4.   Consider the following attributes related to business:
      jHdmdrhlg iïnkaO my; oelafjk Wm,laIK i,lkak(
      A - Speed of services / fiajd iemhqfï fõ.h
      B - Purchase and distribution / ñ, § .ekSu iy fnod yeÍu
@@ -354,12 +335,10 @@
      5) Any e-business application is an e-commerce application.
         ´kEu úoHq;a jHdmdr fhÿula úoHq;a jdKscH fhÿuls'                                          ( 2017 – 26 )
 
-
-
-
                                                            7
                                                                                                         ictfromabc.com
-9.   Consider the following statements related to e-business.
+
+9.   Consider the following statements related to e-business.
      e-jHdmdr iïnkaO my; m%ldY i,lkak'
      A - Brick-and-click is a business model by which a company integrates both offline and online presence
          of the business.
@@ -414,10 +393,10 @@
         A muKs            B muKs            A yd B muKs              B yd C muKs              by; ish,a,u
                                                                                                   ( 2021 – 30 )
 
-
                                                         8
                                                                                                           ictfromabc.com
-13. Which of the following statements is/are correct?
+
+13. Which of the following statements is/are correct?
     my; i|yka l=uk m%ldY$h ksjerÈ fõ o?
     A - E-Commerce encourages to minimize physical interactions between buyers and sellers.
         e-jdKscH .ekqïlrejka iy úl=Kqïlrejka w;r fN!;sl wka;¾l%shd wju lsÍug Èßu;a lrhs'
@@ -430,12 +409,10 @@
       A muKs             B muKs             C muKs             A yd C muKs                  B yd C muKs
                                                                                                      ( 2022 – 50 )
 
-
-
-
                                                         9
                                                                                                            ictfromabc.com
-1. (b) Give four (4) different examples for the following electronic business types:
+
+1. (b) Give four (4) different examples for the following electronic business types:
        my; olajd we;s bf,lafg%dksl jHdmdr j¾. i|yd tlsfklg fjkia WodyrK y;rla ,shkak'
 
           Type / j¾.h                                   Example / WodyrKh
@@ -498,10 +475,10 @@
            wlue;a;la olajhs' fuu wlue;a;g fya;= folla ,shd tla tla fya;=j i|yd WodyrKh ne.ska fokak'
                                                                                            ( 2016 S.ESSAY – 02 )
 
-
                                                          10
                                                                                                            ictfromabc.com
-4.(a) (i) Write three key conditions to be satisfied in order to classify a transaction/service between two persons
+
+4.(a) (i) Write three key conditions to be satisfied in order to classify a transaction/service between two persons
           as B2B in e-commerce.
           mqoa.,hska fofokl= w;r isÿ jk .kqfokqjla$fiajdjla e-jdKscHh ;=< B2B f,i j¾.SlrKh lsÍu i|yd
           ;Dma;su;a úh hq;= m%Odk fldkafoais ;=kla ,shkak'
@@ -510,7 +487,6 @@
          by; .kqfokqfõ úl=Kï     q lre fjkqjg uDÿldx. tacka;jrhl= fhdod .;fyd;a" tu uDÿldx. tacka;jrhdg
          ;sìh hq;= m%Odk;u fmrl%shdldß yeisÍu i|yka lrkak'
                                                                                           ( 2017 S.ESSAY – 03[a] )
-
 
  5. (a) Match each of the given phrases (i) - (viii) relating to e-commerce with the most suitable term from the
         list below.
@@ -552,12 +528,10 @@
             igyk: m%ldY nKavfhys wxlh bÈßfhka .e<fmk moh muKla ,shkak'
                                                                                         ( 2018 S.ESSAY – 02[a] )
 
-
-
-
                                                          11
                                                                                                            ictfromabc.com
-6. (a) Match each of the given phrases (i) - (vi) relating to commerce with the most suitable item from the list
+
+6. (a) Match each of the given phrases (i) - (vi) relating to commerce with the most suitable item from the list
        below:
        jdKscHhg iïnkaO my; (i) isg (vi) olajd jk jdlH LKav" my; § we;s mo ,ehsia;=fjys jvd;au iqÿiq
        whs;uh iu. .<mkak'
@@ -602,35 +576,33 @@
       given list of phrases.
       by; ixisoaêh i,lñka § we;s ,ehsia;=fjka iqÿiq mo f;dardf.k my; j.ka;sj, ysia;eka mqrjkak'
 
-       (i) In this emergency situation, shops follow the ................................ business model.
-           fuu yÈis wjia:dfõ §" idmamq úiska ................................ jHdmdr wdlD;sh wkq.ukh flf¾'
-      (ii) Shops must use ................................. to allow customers to purchase more than one type of product in
+       (i) In this emergency situation, shops follow the …… business model.
+           fuu yÈis wjia:dfõ §" idmamq úiska …… jHdmdr wdlD;sh wkq.ukh flf¾'
+      (ii) Shops must use …… to allow customers to purchase more than one type of product in
            a single transaction.
            lsishï .kqfokqjl § mdßfNda.slhl=g jrlg tla ksIamdok j¾.hlg jvd jeä ixLHdjla ñ,§ .ekSug
-           yels jk mßÈ idmamq úiska ................................. la Ndú; l< hq;= h'
-      (iii) The e-commerce site for each shop can implement ................................... to display their products to the
+           yels jk mßÈ idmamq úiska …… la Ndú; l< hq;= h'
+      (iii) The e-commerce site for each shop can implement …… to display their products to the
             customers.
             tla tla idmamqj i|yd jk e-jdKcH wvúh u.ska mdßfNda.slhka i|yd ksIamdok m%o¾Ykh lsÍug
-            ................................... la l%shd;aul l< yels h'
-
-
-
+            …… la l%shd;aul l< yels h'
 
                                                               12
                                                                                                                        ictfromabc.com
-      (iv) For business owners who cannot use payment gateway through online fund receipts and for the
+
+      (iv) For business owners who cannot use payment gateway through online fund receipts and for the
            customers who do not have any online mode of payments can still be supported through
-           .........................................
+
            ud¾..; wruqo,a ßisÜ u.ska f.ùï oajdr Ndú; l< fkdyels jHdmdr ysñhkag iy ud¾..;j f.ùï isÿ
-           lsÍfï l%u fkdue;s mßfNda.slhkag ......................................... u.ska WmldÍ l< yels h.
-      (v) .................................................. is one of the best ways to reduce the overhead costs of delivery within a
+           lsÍfï l%u fkdue;s mßfNda.slhkag …… u.ska WmldÍ l< yels h.
+      (v) …… is one of the best ways to reduce the overhead costs of delivery within a
           local area such as a lane, street or housing scheme.
-          .................................................. mgqu.la" ùÈhla fyda ksjdi l%uhla jeks ia:dkSh fmfoil § fnodyeÍï úhoï
+          …… mgqu.la" ùÈhla fyda ksjdi l%uhla jeks ia:dkSh fmfoil § fnodyeÍï úhoï
           wvq lr .ekSfï jvd;au fyd| l%uhls'
-      (vi) The local shop owners can establish .................................... to serve their community better by enabling
+      (vi) The local shop owners can establish …… to serve their community better by enabling
            access to each shop’s services through a common portal.
            fmdÿ oajdrhla u.ska tla tla idmamqfjys fiajdjka i|yd m%fõYhla ,nd foñka ;u m%cdjg jvd fyd|
-           fiajdjla ie,iSu i|yd m%foaYfha idmamq ysñlrejkag .................................... la ia:dms; l< yel'
+           fiajdjla ie,iSu i|yd m%foaYfha idmamq ysñlrejkag …… la ia:dms; l< yel'
       List = {advertising banners, an online marketplace, a shopping cart, a web product catalogue, cash-on-
       delivery, credit-cards, discount pricing, group purchasing, payment gateways, click and brick, pure click,
       subscription as a revenue model}
@@ -638,7 +610,6 @@
       úg uqo,a f.ùu, Kh m;a, wvqjg ñ, kshu lsÍu, lKavdhï f,i ñ,§ .ekSu, f.ùï oajdrh, la,sla iy ì%la,
       msfhda la,sla, .%dyl;ajh wdodhï wdlD;shla f,i}
                                                                                 ( 2020 S.ESSAY – 02[a] )
-
 
 8. (d) You have decided to start an E-Business to sell your home-made food through an online store (web site).
        Once the customers place orders and pay through debit/credit cards, you will deliver the ordered food
@@ -659,7 +630,6 @@
            uDÿldx. fiajdj fmdÿfõ y÷kajkafka l=uk kulska o?
                                                                                     ( 2021 S.ESSAY – 02[d] )
 
-
 9. (a) Write down the most suitable items from the given list for the following statements.
        my; m%ldY i|yd jvd;a iqÿiq whs;uhka § we;s ,ehsia;=fjka f;dard ,shkak .
       List: {e-marketplace, group purchasing, online auctions, online reverse auctions}
@@ -674,12 +644,10 @@
            …………………………………… .ekqïlrejkag bv i,ihs'
                                                                           ( 2022 S.ESSAY – 04[a] )
 
-
-
-
                                                                 13
                                                                                                                              ictfromabc.com
-10. (c) For the box in each of the following statements, select a suitable replacement from the given list and
+
+10. (c) For the box in each of the following statements, select a suitable replacement from the given list and
         write the number of the selected replacement in the box.
         my; tla tla m%ldYfha we;s fldgqjg iqÿiq wdfoaYlh § we;s ,ehsia;=fjka f;dard" tu wdfoaYlfha wxlh
         fldgqj ;=< ,shkak'
@@ -709,7 +677,6 @@
            ud¾..; idmamq fjí wvúhla"        hla iu. iïLkaO ùu fhda.H fõ'
                                                                                         ( 2023 S.ESSAY – 02[c] )
 
-
 11. (e) You browse an online product catalogue in an e commerce website looking for a product purchase and
         the website collects your product browsing history without obtaining your consent. What is the security
         related concern that you face in this situation?
@@ -718,18 +685,16 @@
         uqyqK fok wdrlaIdjg wod< ;ejq, l=ula o?
    (f) Fill the two blanks of the following statement:
        my; j.ka;sfha ysia;eka fol mqrjkak
-       In a reverse auction, from sellers and buyers, . ……………........ do the bidding and usually the ………………………
+       In a reverse auction, from sellers and buyers, . ………………… do the bidding and usually the ………………………
        bid wins.
-       “m%;sfjkafoaishl§, úl=Kkakka iy .ekqïlrejka w;=frka ……………........ ,xiq bÈßm;a lsÍu isÿ lrk w;r,
+       “m%;sfjkafoaishl§, úl=Kkakka iy .ekqïlrejka w;=frka ………………… ,xiq bÈßm;a lsÍu isÿ lrk w;r,
        idudkHfhka ……………………… ,xiqj ch.%yKh lrhs'”
                                                                                        ( 2024 S.ESSAY – 02[e],[f] )
 
-
-
-
                                                          14
                                                                                                            ictfromabc.com
-1.(a) (i) Using an example for each category explain the three types of business: Business to Business (B2B),
+
+1.(a) (i) Using an example for each category explain the three types of business: Business to Business (B2B),
           Business to Consumer (B2C) and Consumer to Consumer (C2C) in e commerce.
           tla tla j¾.h i|yd ksoiqk ne.ska fhdod.ksñka, B-jdkscHfhys we;s, jHdmdrfhka jHdmdrhg (B2B),
           jHdmdrfhka mdßfNda.slhdg (B2C) iy mdßfNda.slhdf.ka mdßfNda.slhdg (C2C) hk jHdmdr j¾. ;=k meyeÈ,s
@@ -764,7 +729,6 @@
             lrkak'
                                                                                         ( 2012 ESSAY – 06 )
 
-
   3.   Consider the following employee evaluation process of a software development company to answer the
        questions given below.
        my; olajd we;s uDÿldx. ksIamdok iud.ul fiajlhska we.hSï l%shdj,sh i,ld n,d § we;s m%Yakj,g ms<s;=re
@@ -791,10 +755,10 @@
        ie,lsh hq;= m%udKhla ñvx.= fõ' ,l=Kq tl;= lr .;a miq udkj iïm;a l<ukdlreg tu ,l=Kq ilia fldg
        jd¾;djla ms<sfh, lsÍu i|yd udi foll muK ld,hla .; fõ' iEu fiajlhl=f.a u jegqma j¾Olh ;SrKh
 
-
                                                           15
                                                                                                             ictfromabc.com
-     lsÍu i|yd udkj iïm;a fomd¾;fïka;=fõ úOdhl ks,OdÍka fofofkl=f.ka iy uqo,a fomd¾;fïka;=fõ uQ,H
+
+     lsÍu i|yd udkj iïm;a fomd¾;fïka;=fõ úOdhl ks,OdÍka fofofkl=f.ka iy uqo,a fomd¾;fïka;=fõ uQ,H
      úfYaI{hl=f.ka iukaú; lñgqjla m;a lrkq ,nhs' tu lñgqj udkj iïm;a l<ukdlref.a jd¾;dj iy uQ,H
      úfYaI{hdf.a úfYaI jd¾;djla u; mokïj ;SrK .kq ,nhs' uQ,H úfYaI{hd Tyqf.a úfYaI jd¾;dj ms<sfh,
      lsÍu i|yd wdh;kfha Wmfoiaud,djg wu;r j Tyqf.a fmr we.hSï lghq;=j,ska ,nd.;a m,mqreoao Ndú;
@@ -830,7 +794,6 @@
           n,mEula m%ldY lrkak'
                                                                                     ( 2014 ESSAY – 03 )
 
-
 4.   The management of the Siri Lak bank has decided to develop a web portal to deliver personalized services
      to its employees. The services include, access banking plans, regulations and policies, register for learning
      opportunities provided by the bank, quick search, weather reports, communicate with other employees
@@ -854,12 +817,10 @@
           lrkak'
                                                                               ( 2016 ESSAY – 03[a],[b],[c] )
 
-
-
-
                                                         16
                                                                                                           ictfromabc.com
-5.   A state health authority decided to conduct an awareness program as an online service through Internet
+
+5.   A state health authority decided to conduct an awareness program as an online service through Internet
      to reduce dengue infection by transmission of the virus through the mosquitoes. This service provides
      information on how to adopt dengue control approaches, such as cleaning the environment, destroying
      non essential containers that provide larva habitats etc., in order to minimize mosquitoes’ propagation.
@@ -911,12 +872,10 @@
            lrkq ,nk e-wf,ú lsÍfï tla l%uhla fláfhka meyeÈ,s lrkak'
                                                                                       ( 2018 ESSAY – 03[a] )
 
-
-
-
                                                        17
                                                                                                           ictfromabc.com
-7.(a) ABC Books (Pvt.) Ltd. specializes in buying and selling used secondhand books. At present the business
+
+7.(a) ABC Books (Pvt.) Ltd. specializes in buying and selling used secondhand books. At present the business
       operations are fully manual (pure brick).
       ABC Books mqoa.,sl iud.u" mdúÉÑ lrk ,o fmd;a ñ, § .ekSu yd úlsKu          S i|yd úfYaI;ajhla orhs'
       j¾;udkfha§ jHdmdßl fufyhqï uq¿ukskau w;ahqre l%uhg (msfhda ì%la) isÿ fõ'
@@ -951,7 +910,6 @@
           jkafka flfiaoehs fláfhka meyeÈ,s lrkak'
                                                                                   ( 2019 ESSAY – 03[a] )
 
-
 8.(a) AB Stores is a grocery shop in your home town. With your expert advise, AB Stores has implemented a
       web-based e-commerce system to conduct their business online as well. Customers can select their
       required products and confirm the order online.
@@ -970,12 +928,10 @@
            fj<| wxYh Ndú; lsÍug jeä leue;a;la olajk Lj oek.kakg ,enqK's fujeks leue;a;lg ;sìh yels
            fya;= folla ,shd olajkak'
 
-
-
-
                                                       18
                                                                                                         ictfromabc.com
-     (iv) AB Stores extended its e-commerce system to integrate with its suppliers’ systems to maintain its
+
+     (iv) AB Stores extended its e-commerce system to integrate with its suppliers’ systems to maintain its
           product stocks through automation. What is the e-commerce business type AB Stores implements
           with this system modification?
           AB Stores úiska ish e-jdKscH moaO;sh ;u NdKav f;d. kv;a;= lsÍu i|yd ;u iemhqïlrejkaf.a moaO;s
@@ -1016,7 +972,6 @@
            AB Stores fj; ,eìh yels jdis folla meyeÈ,s lrkak'
                                                                                     ( 2020 ESSAY – 07[a] )
 
-
 9.(a) PQR Books, a book shop in your area starts an E-Commerce site to expand its business and to provide
       services to the customers in other areas. Through it the customers can select their desired books and
       stationery products and confirm their orders online.
@@ -1028,12 +983,10 @@
      (ii) What is the revenue model used in this E-Commerce site of PQR Books?
           PQR Books ys fuu b-jdKscH wvúh Ndú; lrk wdodhï wdlD;sh l=ula o?
 
-
-
-
                                                       19
                                                                                                       ictfromabc.com
-      (iii) With the successful implementation of its E-Commerce site, PQR Books decides to offer digital
+
+      (iii) With the successful implementation of its E-Commerce site, PQR Books decides to offer digital
             learning material such as e-books and audio-visual content to its customers. Do you recommend the
             same revenue model of (ii) above for this as well? Justify your answer.
             tu b-jdKscH wvúfha id¾:l;ajh;a iu." b-fmd;a iy wfkl=;a Y%jH oDYH ikaOdr wvx.= wxlk bf.kqï
@@ -1057,7 +1010,6 @@
            mq¿,a lsÍfï úi÷u kï lrkak'
                                                                                        ( 2021 ESSAY – 07[a] )
 
-
 10.(e) The owner has started an online shop to sell the harvest from this greenhouse to buyers who are nearby.
        wjg fjfik .eKqïlrejkag yß;d.drfha wiajekak wf,úlsÍug ud¾..; fjf<|ie,la whs;slre wrUd we;'
        (i) State one advantage of limiting sales to the community nearby the greenhouse.
@@ -1070,7 +1022,6 @@
             lsÍu f,i y÷kajk fuhska jeä ,dNhla ,efí' Tyqf.a b-jHdmdrhg fuu w.h jeä ls¾u ksid ,efnk
             ;j;a jdishla ,shd olajkak'
                                                                                           ( 2022 ESSAY – 07[e] )
-
 
 11.(b) SuperMobile is an online mobile phone shop where customers can purchase mobile phones through its
        e-Commerce site. SuperMobile uses the third-party courier service DeliverToday as its delivery partner.
@@ -1093,10 +1044,10 @@
             fuu oelaug mlaIj iy úmlaIj tla fya;=jla ne.ska olajñka tu wkqudk úYaf,aIKh lrkak' (igyk:
             uQ,Huh me;slv muKla i,lkak')
 
-
                                                        20
                                                                                                         ictfromabc.com
-     (iii) Mobile phones are not perishable and thus don’t indicate expiry dates. However, they often have a
+
+     (iii) Mobile phones are not perishable and thus don’t indicate expiry dates. However, they often have a
            finite shelf life beyond which the customers are reluctant to purchase them. Give a reason for this
            observation.
            cx.u ÿrl:k úkdY fkdjk ksid tAjdfha l,a bl=;a jk Èk olajkafka ke;' tkuqÿ" tAjdg fndfyda úg
@@ -1150,12 +1101,10 @@
                  by; (v) i|yd Tn ,ehsia;=.; l< tla .eg¨jlg iukag ,ndÈh yels úi÷ula meyeÈ,s lrkak '
                                                                                       ( 2025 ESSAY – 07[a] )
 
-
-
-
                                                       21
                                                                                                        ictfromabc.com
-                             LESSON 13 PAST PAPERS
+
+                             LESSON 13 PAST PAPERS
 1.   Consider the following statements:
      my; oelafjk m%ldY i,ld n,kak.
      A - Reading time from memory (latency) was assumed to be negligible.
@@ -1201,15 +1150,13 @@
      4) Point of Sales (POS) Machine / úl=Kï q fmd, hka;% jeks fhÿïj,§ h'
      5) Controlling a wall clock / ì;a;s Trf,daiqjla md,kh jeks fhÿïj,§ h.                          ( 2012 – 33 )
 
-
-
-
                                                            22
                                                                                                           ictfromabc.com
-5.   Ubiquitous Computing is a/an ................. computing environment. The user will be able to use both ................
-     and .................... services,
+
+5.   Ubiquitous Computing is a/an …… computing environment. The user will be able to use both ……
+     and …… services,
      Which of the following is most appropriate to fill the blanks in the above statement?
-     i¾jj¾;S wd.Kkh hkq ..................... wd.Kk mßirhls' fuys § mßYS,lhdg ..................... yd ..................... fiajd
+     i¾jj¾;S wd.Kkh hkq …… wd.Kk mßirhls' fuys § mßYS,lhdg …… yd …… fiajd
      fol u ,nd .; yelsh'
      by; j.ka;sfha ysia;eka msrùu i|yd jvd;a u fhda.H jpk wkqms<sfj< ljrla o?
      1) everywhere, mobile, local / ieu;eklu mj;sk" cx.u" ia:dkSh
@@ -1252,12 +1199,10 @@
      5) They are always cooperative in a multi-agent environment.
         nyq ksfhdað; mßirhl § Tjqka ieuúg u tluq;= fõ'                                                           ( 2015 – 49 )
 
-
-
-
                                                                23
                                                                                                                          ictfromabc.com
-9.   Which of the following is/are examples for artificial intelligence techniques?
+
+9.   Which of the following is/are examples for artificial intelligence techniques?
      lD;s%u nqoaê l%fudamd i|yd my; i|yka ljrla WodyrK jkafka o?
      A - Neural Networks / iakdhql cd,
      B - Genetic Algorithms / cdk m%fõKs we,af.dß;u
@@ -1303,12 +1248,10 @@
         A yd B muKs           A yd C muKs          A, yd D muKs         B yd C muKs       C yd D muKs
                                                                                                ( 2017 – 50 )
 
-
-
-
                                                        24
                                                                                                      ictfromabc.com
-13. A smart home application that automates the controlling of lighting, temperature, entertainment systems,
+
+13. A smart home application that automates the controlling of lighting, temperature, entertainment systems,
     and appliances is an example for,
     wdf,dallrKh" WIaK;ajh" úfkdaodiajdo moaO;s yd WmlrK md,kh lrk iqyqre ksfjia fhÿula my; ljrlg
     WodyrKhla fõ o?
@@ -1354,12 +1297,10 @@
        A muKs          A yd B muKs            A yd C muKs            B yd C muKs             by; ish,a,u
                                                                                                     ( 2018 – 38 )
 
-
-
-
                                                        25
                                                                                                           ictfromabc.com
-16. Consider the following statements related to nature inspired computing:
+
+16. Consider the following statements related to nature inspired computing:
     fidndoyfuka fm<Ufjk mß.KllrKh ms<sn| my; oelafjk j.ka;s i,lkak:
     A - In nature inspired computing natural phenomena/scenario are observed and used to design and
         develop computing models to solve complex problems.
@@ -1414,10 +1355,10 @@
       A muKs          A yd B muKs           A yd C muKs            B yd C muKs          by; ish,a,u
                                                                                                ( 2022 – 49 )
 
-
                                                         26
                                                                                                        ictfromabc.com
-20. Which of the following statements are true?
+
+20. Which of the following statements are true?
     my; ljr j.ka;s i;H fõ o?
     A - Generative Artificial Intelligence (AI) tools can produce new content or data, according to their learned
         patterns.
@@ -1455,22 +1396,20 @@
                                                                                                            ( 2024 – 50 )
 22. What is the suitable replacement for the blank in the following statement?
     my; j.ka;sfha we;s ysia;ekg iqÿiq wdfoaYlh l=ula o?
-    By analyzing historical data of a person’s previous hotel visits and his/her ...................... submitted to social
+    By analyzing historical data of a person’s previous hotel visits and his/her …… submitted to social
     media of the same, an AI-based hotel recommendation system should be successfully able to suggest hotels
     that the person would like.
     mßYS,lfhl=f.a fmr jQ fydag,a kej;S isàï ms<sn| b;sydi.; o;a; iy tAjd ms<sn| Tyq /weh iudc cd, ;=<
-    ie,lr isá ...................... úYaf,aIKh lsÍï u.ska" lD;su nqoaêh u; mokï jQ fydag,a ks¾foaY lsÍï moaO;shlg
+    ie,lr isá …… úYaf,aIKh lsÍï u.ska" lD;su nqoaêh u; mokï jQ fydag,a ks¾foaY lsÍï moaO;shlg
     mßYS,lhd leu;s úh yels fydag,a id¾:lj fhdackd lsÍug yelsjkq we;'
     1) email addresses / f.ùï jd¾;d                             2) payment records / f.ùï jd¾;d
     3) phone numbers / ÿrl:k wxl                                4) reviews / úpdr
     5) street addresses / ùÈ ,smsk                                                                         ( 2025 – 48 )
 
-
-
-
                                                            27
                                                                                                                   ictfromabc.com
-23. Which of the following statements are true with respect to Artificial Intelligence (AI)?
+
+23. Which of the following statements are true with respect to Artificial Intelligence (AI)?
     lD;su nqoaêh iïnkaOfhka my; ljr j.ka;s i;H fõ o?
     A - AI applications are also computer programs.
         lD;su nqoaê fhÿï o" mß.Kl l%uf,aL fõ'
@@ -1496,12 +1435,10 @@
        A muKs             B muKs               C muKs              A yd C muKs                B yd C muKs
                                                                                                     ( 2025 – 50 )
 
-
-
-
                                                         28
                                                                                                           ictfromabc.com
-  1. (c) The ABC company wants to introduce a new software agent service to monitor and display frequently
+
+  1. (c) The ABC company wants to introduce a new software agent service to monitor and display frequently
          browsed items by its consumers via eABC.com web site. The following diagram depicts the interactions
          among the consumer, company web site and the software agent.
          ABC iud.ug Tjqkaf.a mdßfNda.slhka eABC.com kï jQ fjí wvúh yryd ksrka;rfhka w;ßlaik whs;u
@@ -1510,7 +1447,6 @@
          fmkajkq ,efí'
 
                                   A                           B                        C
-
 
          Draw lines and connect the rows in the following two tables to represent the above scenario.
          by; ixisoaêh ksrEmKh lsÍu i|yd my; olajd we;s j.= foflys fma<s hd lsÍug bß w¢kak'
@@ -1521,29 +1457,28 @@
 
                                                                                            ( 2014 S.ESSAY – 02[c] )
 
-
 2.(b) (ii) Write down whether each of the following statements regarding software agents is either True or False.
            uDÿldx. tackakjrekag iïnkaO my; oelafjk tla tla m%ldYh i;H o wi;H o hk j. ,shd olajkak'
                                                                                                   True $ False
                                                                                                  i;Hhs $ wi;Hhs
          (1) A software agent can perform tasks in achieving a goal with minimum or no
-             direct supervision.                                                                   ..........................
+             direct supervision.                                                                   ……
              uDÿldx. tacka;jrhl=g ;u wruqKq lrd hdfï § wju wëlaIKh hgf;a fyda iDcq
              wëlaIKhlska f;drj fyda ld¾h isÿ l< yel'
          (2) Software applications can interact with agent without direct supervision of a
-             user.                                                                                 ..........................
+             user.                                                                                 ……
              mßYS,lhl=f.a iDcq wëlaIKhlska f;drj uDÿldx. fhÿïj,g tacka;jrhl= iu.
              wka;¾l%shdfõ fhÈh yel'
-         (3) A user may obtain answers to a problem directly from an agent.                        ..........................
+         (3) A user may obtain answers to a problem directly from an agent.                        ……
              mßYS,lhl=g tacka;jrekaf.ka iDcqju hï .eg¨ jlg ms<s;=re ,nd .; yel'
          (4) A multi-agent system is a network of problem-solving entities called agents
              that work together to find answers to problems that are beyond the individual
-             abilities of each agent.                                                              ..........................
+             abilities of each agent.                                                              ……
              nyq tacka; moaO;shla hkq tla tla N+;d¾:fhys ;ks yelshd wNsnjd hk .eg¿j,g
              ms<s;=re ,nd .ekSu i|yd tlaj lghq;= lrkq ,nk tacka;jre f,i ye¢kafjk
              .eg¿ úi|Sfï N+;d¾: cd,hls'
          (5) In a multi-agent system, individual agents may compete or co-operate to
-             achieve the system goals.                                                  ..........................
+             achieve the system goals.                                                  ……
              nyq tacka; moaO;shl§" moaO;sfhys wruqKq bgq lr .ekSu i|yd ;ks tacka;jre
              tlsfkld ;r. lsÍu fyda iyfhda.Sj lghq;= lsÍu fyda isÿ fõ'
                                                                              ( 2018 S.ESSAY – 03[b][ii] )
@@ -1560,12 +1495,10 @@
           lajkagï mß.Klj, mß.Kk n,h ck;djg ,nd§u i|yd ;dlaIKsl fhdackdjla lrkak'
                                                                                        ( 2023 S.ESSAY – 02[b] )
 
-
-
-
                                                          29
                                                                                                                        ictfromabc.com
-1.(b) (i) In the domain of Agent technology, explain the term ‘Agent’.
+
+1.(b) (i) In the domain of Agent technology, explain the term ‘Agent’.
           ldrl ;dlaIKfõo jiu ;=< ‘ldrlh’ hk moh meyeÈ,s lrkak.
    (iii) Give two main characteristics of an Agent.
          ldrlhl m%Odk ,laIK folla fokak.
@@ -1610,7 +1543,6 @@
  3. (b) Consider the following figure which shows a simplified view of a multi-agent system.
         nyq tacka; moaO;shl ir, lrk ,o oiqkla oelafjk my; rEmigyk i,lkak'
 
-
                                               interacts with
                                            wka;¾ l%shdfõ fhfoa
                                                                          User / mßYS,l
@@ -1624,12 +1556,10 @@
                                                                               Agent B
                                                                               tAcka; B
 
-
-
-
                                                          30
                                                                                                         ictfromabc.com
-      Answer the following, question by studying the above figure.
+
+      Answer the following, question by studying the above figure.
       by; rEmigyk wOHhkh lr" my; oelafjk m%Yakhg ms<s;=r imhkak'
       “A software agent may or may not have a user interface”.
       “uDÿldx. tacka;jrhl=g mßYS,l w;=re uqyqK;la ;sîug fyda fkd;sîug fyda ms<sjk'“
@@ -1647,12 +1577,8 @@
                             Server Room Door
                                                      B
 
-
                                     Keypad
                                                                    C
-
-
-
 
                                                                         Database
                                               A
@@ -1693,12 +1619,10 @@
             C iy R hk wka;¾ l%shd wE÷ï ÈYd follg fmkajd we;' C iy R wka;¾ l%shd fol i|yd oaúm: wE÷ï
             j,g fya;= fjk fjk u meyeÈ,s lrkak'
 
-
-
-
                                                               31
                                                                                                         ictfromabc.com
-      (iv) Interaction A can be seen as a user-to-agent interaction. Identify an agent-to-agent interaction and
+
+      (iv) Interaction A can be seen as a user-to-agent interaction. Identify an agent-to-agent interaction and
            explain the operational use of that interaction.
            A wka;¾ l%shdj mßYS,lf.ka tacka;g wka;¾ l%shdjla f,i oelsh yels h' tacka;f.ka tacka;g wka;¾
            l%shdjla y÷kdf.k tu wka;¾ l%shdfjys fufyhqï Ndú; jk wdldrh meyeÈ,s lrkak'
@@ -1756,10 +1680,10 @@
       results and gives the details of the best product back to the chat-bot. The chat-bot will then display it
       to the user as text.
 
-
                                                        32
                                                                                                          ictfromabc.com
-         mßYS,lhd ^.ekqïlre& myShopper fjí wvúhg msúis úg" ixjdofha fhfok chat-bot frdfnda
+
+         mßYS,lhd ^.ekqïlre& myShopper fjí wvúhg msúis úg" ixjdofha fhfok chat-bot frdfnda
          tackakjrfhla mßYS,l iu. wka;¾ l%shdj wrUhs' mßYS,lg lgy~ fyda mdG fyda wdodk udOH f,i Ndú;
          lr NdKavh ms<sn| ;u wjYH;djhka ,ndÈh yel' fuu wka;¾l%shdj w;r;=r chat-bot tacka; úiska Wlyd
          .kq ,nk f;dr;=re fijqï tacka;jrhl=g Ndr lrkq ,nk w;r" mßYS,l i|yd fyd|u NdKavh fiùfï
@@ -1781,7 +1705,6 @@
                wNsfhda.hla ,shd olajkak'
                                                                                        ( 2021 ESSAY – 07[b] )
 
-
 7. (d) A multi-agent system is proposed for this greenhouse. In this system the images that are captured using
        a mobile phone are stored in the plant database. The multi-agent system works as follows:
        yß;d.drh i|yd nyqtacka; moaO;shla fhdað; h' tu moaO;sfha§ cx.u ÿrl:khlska .kq ,nk me<j,
@@ -1798,7 +1721,6 @@
                               Plant / me<h            Q
                                                                Agent 2            S
                                                                tAcka; 2
-
 
      •     Agent 1 handles the user interactions, user access to data, and triggers Agent 2.
            tacka; 1 mßYS,l wka;¾l%shd yeisrùu iy o;a; iuqoHhg mßYS,l m%fõYh yeisrùu isÿ lr tacka; 2
@@ -1826,7 +1748,8 @@
 
                                                               33
                                                                                                                  ictfromabc.com
-8. (b) An e-commerce warehouse automation system includes a set of agent based robots which move ordered
+
+8. (b) An e-commerce warehouse automation system includes a set of agent based robots which move ordered
        goods to their respective dispatch areas to start relevant shipments.
        b-jdKscHh nvq .nvdjl iajhx hka;%k moaO;shl" keõ.; lsÍï wdrïN lsßu i|yd wekjqï l< NdKav tajdg
        wod< msg;alrk ia:dkj,g f.k hk frdfnda ldrl iuQyhla we;=<;a h'
@@ -1849,7 +1772,6 @@
                                                                                    Dispatch
                                                                                     Area 1
 
-
                                 Delivery                                                      Dispatch
                                                                                    Dispatch
                                 Handler                                             Area 2    Handler
@@ -1866,7 +1788,6 @@
 
                                                                                    msg;alrk
                                                                                     ia:dk 1
-
 
                                  fn§ï                                              msg;alrk   msg;aùï
                                 yiqrejk                                             ia:dk 2   yiqrejk
@@ -1896,12 +1817,10 @@
            nyqldrl frdfnda iuQyh iajdëk .;s,laIK muKla wkqj yeisÍ" iyfhda.S;ajfhka lghq;= fkdlrkafka
            kï" Tjqkaf.a l%shdldß;ajh w;r;=r nyq,j oelsh yels ksÍlaIKh ,shkak '
 
-
-
-
                                                              34
                                                                                                                     ictfromabc.com
-      (iv) If this system is redesigned by replacing the multi agent behaviour with centralized control and a
+
+      (iv) If this system is redesigned by replacing the multi agent behaviour with centralized control and a
            broker agent for communication, identify one main change that will be seen with respect to each of
            the following.
            fuu moaO;sh nyqldrl yeisÍu fjkqjg uOH.; md,khla iy ikaksfõokh i|yd w;rueÈ ldrlhla
@@ -1917,7 +1836,6 @@
            (igyk: fldgq iy B;, rEmhl fldgqj,ska moaO;s ixrpl;a" B;,j,ska ixrpl w;r iïnkaO;d;a
            oelafõ.)
                                                                            ( 2023 ESSAY – 07[b] )
-
 
  9. (c) Consider a multi-agent system where agents (mobile robots) are designed to collaborate in a warehouse
         package moving task.
@@ -1941,8 +1859,6 @@
             (;E.s ,efnk) iyd tla iDKd;aul (o~qqjï ,efnk) lreK ne.ska ,shkak'
                                                                                       ( 2024 ESSAY – 07[c] )
 
-
-
 10. (b) Saman has a future plan to include three software agents in this online shop as follows:
         fuu ud¾..; idmamqjg my; mßÈ uDÿldx. tacka;jre ;sfofkla we;=<;a lsÍug iukag wkd.; ie,eiaula
         we;'
@@ -1959,12 +1875,10 @@
        (i) From these three agents, which one is mainly an interface agent and why?
            fuu tacka;jreka ;sfokdf.ka uQ,slju w;=reuqyqK;a tacka;jrhl= jkafka l=ula o? thg fya;=j l=ula o?
 
-
-
-
                                                        35
                                                                                                         ictfromabc.com
-(ii) Draw a simplified agent diagram for the above multi-agent system. Properly label the diagram and
+
+(ii) Draw a simplified agent diagram for the above multi-agent system. Properly label the diagram and
      show all the interactions clearly.
      by; nyq tacka; moaO;sh i|yd ir, tacka; rEmigykla w¢kak' fuu rEmigyk kshñ; mßos f,an,a
      lr ish¨ u wka;¾ l%shdldÍ;ajhka meyeÈ,sj olajkak '
@@ -1980,9 +1894,5 @@
     fnÈï tacka; úiska .kqfokqlrejkag jerÈ f;dr;=re ,ndÈh yels tla wjia:djla úia;r lrkak'
                                                                                ( 2025 ESSAY – 07[b] )
 
-
-
-
                                                 36
                                                                                                 ictfromabc.com
-

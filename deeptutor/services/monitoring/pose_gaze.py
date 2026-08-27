@@ -10,13 +10,13 @@ Guarantees 100% local calculation.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import enum
 import logging
 import math
-from dataclasses import dataclass
 from typing import Optional, Tuple
 
-from deeptutor.services.monitoring.face_engine import FaceLandmarks, Point3D
+from deeptutor.services.monitoring.face_engine import FaceLandmarks
 
 logger = logging.getLogger(__name__)
 
@@ -71,6 +71,48 @@ class PoseGazeEstimator:
     # Yaw thresholds for looking away
     YAW_SCREEN_THRESHOLD: float = 25.0
     YAW_AWAY_THRESHOLD: float = 35.0
+
+    @classmethod
+    def classify(
+        cls,
+        yaw_deg: float,
+        pitch_deg: float,
+        roll_deg: float,
+    ) -> Tuple[PostureCategory, bool, bool]:
+        """Shared threshold classification from (yaw, pitch, roll) degrees.
+
+        Returns (posture, is_facing_screen, is_reading_writing_pose). Used both
+        by the landmark path below and by the solvePnP head-pose path in
+        python_face_processor so the two engines can never drift apart.
+        """
+        is_reading_writing = (
+            cls.PITCH_READING_MIN <= pitch_deg <= cls.PITCH_READING_MAX
+            and abs(yaw_deg) <= cls.YAW_SCREEN_THRESHOLD
+        )
+
+        is_facing_screen = (
+            abs(yaw_deg) <= cls.YAW_SCREEN_THRESHOLD
+            and -15.0 <= pitch_deg < cls.PITCH_READING_MIN
+        )
+
+        if is_reading_writing:
+            posture = PostureCategory.LOOKING_DOWN
+        elif is_facing_screen:
+            posture = PostureCategory.HEAD_CENTER
+        elif pitch_deg > cls.PITCH_READING_MAX:
+            posture = PostureCategory.SLOUCHING
+        elif pitch_deg < -20.0:
+            posture = PostureCategory.LOOKING_UP
+        elif yaw_deg < -cls.YAW_SCREEN_THRESHOLD:
+            posture = PostureCategory.LOOKING_LEFT
+        elif yaw_deg > cls.YAW_SCREEN_THRESHOLD:
+            posture = PostureCategory.LOOKING_RIGHT
+        elif abs(roll_deg) > 25.0:
+            posture = PostureCategory.HEAD_TILT
+        else:
+            posture = PostureCategory.HEAD_CENTER
+
+        return posture, is_facing_screen, is_reading_writing
 
     def estimate_pose(self, landmarks: Optional[FaceLandmarks]) -> HeadPoseResult:
         """
@@ -140,33 +182,10 @@ class PoseGazeEstimator:
         pitch_deg = round(pitch_deg, 1)
         roll_deg = round(roll_deg, 1)
 
-        # 5. Classify posture
-        is_reading_writing = (
-            self.PITCH_READING_MIN <= pitch_deg <= self.PITCH_READING_MAX
-            and abs(yaw_deg) <= self.YAW_SCREEN_THRESHOLD
+        # 5. Classify posture (shared thresholds with the solvePnP path)
+        posture, is_facing_screen, is_reading_writing = self.classify(
+            yaw_deg, pitch_deg, roll_deg
         )
-
-        is_facing_screen = (
-            abs(yaw_deg) <= self.YAW_SCREEN_THRESHOLD
-            and -15.0 <= pitch_deg < self.PITCH_READING_MIN
-        )
-
-        if is_reading_writing:
-            posture = PostureCategory.LOOKING_DOWN
-        elif is_facing_screen:
-            posture = PostureCategory.HEAD_CENTER
-        elif pitch_deg > self.PITCH_READING_MAX:
-            posture = PostureCategory.SLOUCHING
-        elif pitch_deg < -20.0:
-            posture = PostureCategory.LOOKING_UP
-        elif yaw_deg < -self.YAW_SCREEN_THRESHOLD:
-            posture = PostureCategory.LOOKING_LEFT
-        elif yaw_deg > self.YAW_SCREEN_THRESHOLD:
-            posture = PostureCategory.LOOKING_RIGHT
-        elif abs(roll_deg) > 25.0:
-            posture = PostureCategory.HEAD_TILT
-        else:
-            posture = PostureCategory.HEAD_CENTER
 
         return HeadPoseResult(
             yaw=yaw_deg,

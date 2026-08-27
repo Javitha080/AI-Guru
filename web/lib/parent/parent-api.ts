@@ -142,3 +142,36 @@ export async function pJson<T = unknown>(
   }
   return { ok: res.ok, status: res.status, data };
 }
+
+export interface LiveStreamStartResult {
+  session_id?: string;
+  enabled?: boolean;
+  tunnel_url?: string | null;
+  lan_url?: string | null;
+}
+
+export async function startParentLiveStream(
+  sessionId = "current"
+): Promise<{ ok: boolean; status: number; data: LiveStreamStartResult | null }> {
+  return pJson<LiveStreamStartResult>(
+    `/api/v1/parent/live/start?session_id=${encodeURIComponent(sessionId)}`,
+    { method: "POST" }
+  );
+}
+
+export async function stopParentLiveStream(
+  sessionId = "current"
+): Promise<{ ok: boolean; status: number; data: { stopped?: boolean } | null }> {
+  return pJson<{ stopped?: boolean }>(
+    `/api/v1/parent/live/stop?session_id=${encodeURIComponent(sessionId)}`,
+    { method: "POST" }
+  );
+}
+
+export function getParentLiveWsUrl(sessionId = "current"): string | null {
+  if (typeof window === "undefined") return null;
+  const token = getParentAccessToken();
+  if (!token) return null;
+  const proto = window.location.protocol === "https:" ? "wss:" : "ws:";
+  return `${proto}//${window.location.host}/api/v1/parent/live/stream?session_id=${encodeURIComponent(sessionId)}&token=${encodeURIComponent(token)}`;
+}

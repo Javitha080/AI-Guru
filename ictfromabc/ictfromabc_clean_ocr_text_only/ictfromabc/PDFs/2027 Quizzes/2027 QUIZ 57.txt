@@ -1,0 +1,75 @@
+1. Why is DRAM considered dynamic?
+DRAM, ගතික ලෙස සලකන්නේ ඇයි?
+
+1) It uses a dynamic programming architecture / එය ගතික ක්‍රමලේඛන ආකෘතියක් භාවිතා කරයි.
+2) It requires periodic refreshing to maintain data
+දත්ත පවත්වා ගැනීම සඳහා වරින් වර නැවුම් කිරීම අවශ්‍ය වේ.
+
+3) Its capacity varies dynamically with system requirements.
+එහි ධාරිතාව පද්ධති අවශ්‍යතා සමඟ ගතිකව වෙනස් වේ.
+
+4) It supports dynamic reallocation of storage resources.
+එය ගබඩා සම්පත් ගතිකව නැවත ස්ථානගත කිරීම සඳහා සහය දක්වයි.
+
+5) It operates dynamically across different voltage levels.
+එය විවිධ වෝල්ටීයතා මට්ටම් හරහා ගතිකව ක්‍රියාත්මක වේ.
+
+2. Calculate the answer for 3A16 + 568.
+3A16 + 568  සඳහා පිළිතුර ගණනය කරන්න.
+1)  1101002
+2)  6A16
+3) 10410
+4) 10210
+5) 1498
+
+3. What is the false statement about sign-magnitude?
+ලකුණුවත් සංඛ්‍යා නිරූපණය පිළිබඳ අසත්‍ය ප්‍රකාශය කුමක්ද?
+
+1) Used to represent positive and negative numbers in the computer.
+පරිගණකයේ ධන සහ සෘණ සංඛ්‍යා නිරූපණය කිරීමට භාවිතා කරයි.
+2) Used 1 to represent the negative numbers and 0 to positive numbers as the first bit.
+සෘණ සංඛ්‍යා නියෝජනය කිරීමට 1 සහ ධන සංඛ්‍යා නියෝජනය කිරීමට 0 පළමු බිටුව ලෙස භාවිතා
+කරයි.
+3) Except for the first bit other bits are used to represent the absolute value.
+නිරපේක්ෂ අගය නිරූපණය කිරීමට පළමු බිටුව හැර අනෙකුත් බිටු භාවිතා වේ.
+4) To get the sign-magnitude value of a negative number, we should get the binary value of it and
+inverse it.
+සෘණ සංඛ්‍යාවක ලකුණුවත් සංඛ්‍යා නිරූපණ අගය ලබා ගැනීමට අප එහි ද්විමය අගය ලබාගෙන එය
+ප්‍රතිලෝම කළ යුතුය.
+5) Conversions between positive and negative numbers are simple.
+ධන සහ සෘණ සංඛ්‍යා අතර පරිවර්තන සරලයි.
+
+4. What is the 1’s complement representation of 12 and -49?
+12 හා -49 හි එකෙහි අනුපූරක නියෝජනය වනුයේ කුමක්ද?
+1) 101000002, 001100112
+2) 101000012, 011010102
+3) 000011002, 110011102
+4) 010111112, 011111102
+5) 110011002, 010111112
+
+2027 QUIZ SERIES
+2027 QUIZ NO 57
+2025/12/23
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+5. A security system uses three sensors: Motion (M), Door (D), and Window (W). An alarm (A) is
+triggered if either the Door or Window is breached, but only if there is no motion detected. Which
+combination of logic gates correctly represents the alarm condition?
+ආරක්ෂක පද්ධතියක් සංවේදක තුනක් භාවිතා කරයි. ඒවානම් චලන (M), දොර (D) සහ ජනේලය (W) වේ.
+දොර හෝ ජනේලය විවෘත වුවහොත් අනතුරු ඇඟවීමක් (A) ක්‍රියාත්මක කරනු ලැබේ, නමුත් චලනයක්
+අනාවරණය වී නොමැති නම් පමණි. අනතුරු ඇඟවීමේ තත්ත්වය නිවැරදිව නියෝජනය කරන්නේ කුමන
+තාර්කික සංයෝජනයෙන්ද?
+
+1)  A = (M AND D) OR (M AND W)
+4)  A = M AND (D OR W)
+2)  A = (NOT M) AND (D OR W)
+5)  A = (NOT M) OR (D AND W)
+3)     A = (M OR D) AND (M OR W)
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-

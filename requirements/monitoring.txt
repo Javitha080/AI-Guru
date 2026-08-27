@@ -1,0 +1,7 @@
+# Mirror of pyproject.toml `[project.optional-dependencies].monitoring`.
+# System-level study-monitoring CV engine (OpenCV + MediaPipe). Optional —
+# monitoring degrades to browser-side WASM CV when absent.
+opencv-contrib-python>=4.10,<7.0
+mediapipe>=1.0,<2.0
+# Imported transitively by mediapipe.tasks' audio init.
+sounddevice>=0.5,<1.0

@@ -1,27 +1,25 @@
             CONTENT
 
-            Introduction to Logic Gates………………………………………………………………………………………........................................ 1
+            Introduction to Logic Gates…………………………………………………………………………………………… 1
             Basic Logic Gates…………………………………………………………………………………………………………………………………………………. 3
             Implementing XOR gate using Basic Logic gates……………………………………………………………… 10
             Universal Gates……………………………………………………………………………………………………………………………………………………… 14
-            Electrical Circuits to model the functionality of Logic gates………………………...………... 19
-            Boolean Algebra & Laws…...………................................................................................................................................ ................. 22
-            Karnaugh-Maps………………………...……………………………………………………………………………………………………………………........ 31
-            Designs simple logic circuits using Logic gates………………………………….……………………...………... 36
-            Minterms and Maxterms…………………………………………………………………………………………………………………...………... 40
-            SOP to POS and POS to SOP conversions………………………………………………………………………...………... 43
+            Electrical Circuits to model the functionality of Logic gates………………………………………… 19
+            Boolean Algebra & Laws…………………… …… 22
+            Karnaugh-Maps……………………………………………………………………………………………………………………………………………………… 31
+            Designs simple logic circuits using Logic gates………………………………….……………………………………… 36
+            Minterms and Maxterms…………………………………………………………………………………………………………………………………… 40
+            SOP to POS and POS to SOP conversions………………………………………………………………………………………… 43
             Standard and Non-standard expressions…………………………………………………………………………………… 48
             Designs logic circuits for a given scenario………………………………………………………………………………… 51
-            Full adders and Half adders………………………………………………………………………………...………..................................... 58
-            Flip-Flops…………………………………………………………………………………………………………………...………..................................................... 65
-            Integrated Circuits…………………………………………………………………………………………………………………...………....................... 74
-
-
-
+            Full adders and Half adders………………………………………………………………………………………………… 58
+            Flip-Flops…………………………………………………………………………………………………………………………………… 65
+            Integrated Circuits…………………………………………………………………………………………………………………………………… 74
 
                                                                                                             0
 ictfromabc.com
-          Introduction                                      What is a Boolean event?
+
+          Introduction                                      What is a Boolean event?
           ye¢kaùu                                           nQ,Sh isoaêhla hkq l=ulao@
 
           George Boole (1815-1864)                          An event that has only two possible
@@ -62,21 +60,16 @@ ictfromabc.com
           Ndú;d l< w;r" th kùk mß.KllrKh
           i|yd wä;d,u oeóh'
 
-
                                                                                             OUTPUT
                                                                                             m%;sodkh
-
-
 
                                                                 INPUTS
                                                                 wdodk
 
-
-
-
                                                         1
 ictfromabc.com
-          NOTES                                               Input Combinations
+
+          NOTES                                               Input Combinations
                                                               wdodk ixfhdack
           •      A logic gate can have any number of
                  inputs.                                      All possible combinations of unique binary
@@ -114,19 +107,16 @@ ictfromabc.com
           2. Combinational Logic Gates
              ixhqla; ;d¾lsl oajdr
 
-
                                                               For 2 input variables (AB):
                                                               wdodk úp,Hh 2la i|yd(
 
                                                               Number of Input Combinations = 22 = 4
                                                               wdodk ixfhdack .Kk
 
-
-
-
                                                           2
 ictfromabc.com
-          Basic Logic Gates                                 Combinational logic gates
+
+          Basic Logic Gates                                 Combinational logic gates
           uQ,sl ;d¾lsl oajdr                                ixhqla; ;d¾lsl oajdr
 
           Basic logic gates are the fundamental             Gates which are made up of two or more
@@ -141,22 +131,14 @@ ictfromabc.com
           There are 3 basic logic gates.
           uQ,sl ;d¾lsl oajdr 3 la mj;S'
 
-
                                                                                   NAND Gate
                                NOT Gate
 
-
-
                                                                                   XOR Gate
-
-
 
                                AND Gate
 
                                                                                   XNOR Gate
-
-
-
 
                                                             What is a truth table?
                                OR Gate
@@ -178,16 +160,11 @@ ictfromabc.com
           wfkl=;a ish¨u ;d¾lsl oajdrj, wju                  úúO ;;ajhka hgf;a l%shd lrk wdldrh oel
           jYfhka wdodk follaj;a we;'                        .ekSug WmldÍ fõ'
 
-
-
-
                                                         3
 ictfromabc.com
-          NOT Gate (Negation)                                 3 input AND gate
+
+          NOT Gate (Negation)                                 3 input AND gate
           NOT oajdrh ^kdia;H¾:h&                              wdodk ;=fka AND oajdrh
-
-
-
 
           Gives the output as the inverse of the input.
           wdodkfha m%;sf,dauh f,i m%;sodkh ,ndfoa'
@@ -237,10 +214,10 @@ ictfromabc.com
           F becomes true when A and B is true.
           A iy B i;H jk úg F i;H fõ'
 
-
                                                           4
 ictfromabc.com
-          2 input OR gate                                NAND gate
+
+          2 input OR gate                                NAND gate
           wdodk fofla OR oajdrh                          NAND oajdrh
 
                                                          This gate is made by providing the output
@@ -264,9 +241,6 @@ ictfromabc.com
                                                          wdodk fofla NAND oajdrh
           3 input OR gate
           wdodk ;=fka OR oajdrh
-
-
-
 
                                                           ICN    A       B      K         K       F
           F becomes true when A OR B OR C is true.
@@ -293,14 +267,11 @@ ictfromabc.com
 
                                                          F = A. B (A NAND B)
 
-
                                                      5
 ictfromabc.com
-          3 input NAND gate                                 2 input NOR gate
+
+          3 input NAND gate                                 2 input NOR gate
           wdodk ;=fka NAND oajdrh                           wdodk fofla NOR oajdrh
-
-
-
 
                                                              ICN   A       B       K       K       F
             ICN         A   B        C       F               1     0       0       0       0       1
@@ -347,17 +318,14 @@ ictfromabc.com
 
                                                             F =A+B+C
 
-
                                                         6
 ictfromabc.com
-          XOR Gate                                            3 input XOR gate
+
+          XOR Gate                                            3 input XOR gate
           XOR oajdrh                                          wdodk ;=fka XOR oajdrh
 
           2 input XOR gate
           wdodk fofla XOR oajdrh
-
-
-
 
                                                               Output becomes positive when the positive
                                                               number of inputs is an odd number.
@@ -394,9 +362,6 @@ ictfromabc.com
                                                                Not divisible by 2 (Ex. 1, 3, 5, 7).
                                                                2ka b;sß ke;sj fnÈh fkdyel'
 
-
-
-
           NOTE:
           The definition of a 3-input XOR gate is also
           valid for a 2-input XOR gate. But the
@@ -408,10 +373,10 @@ ictfromabc.com
           oelaùu wdodk ;=fkys XOR oajdrhla i|yd
           j,x.= fkdfõ'
 
-
                                                           7
 ictfromabc.com
-          XNOR gate                                        3 input XNOR gate
+
+          XNOR gate                                        3 input XNOR gate
           XNOR oajdrh                                      wdodk ;=fka XNOR oajdrh
 
           This gate is made by connecting the output
@@ -440,17 +405,11 @@ ictfromabc.com
 
                                                            F =A⊕ B⊕C
 
-
-
-
             ICN       A       B   K       K       F
             1         0       0   0       0       1
             2         0       1   1       1       0
             3         1       0   1       1       0
             4         1       1   0       0       1
-
-
-
 
                 ICN           A       B       F
             1             0       0       1
@@ -460,18 +419,15 @@ ictfromabc.com
 
           F =A⊕ B
 
-
                                                        8
 ictfromabc.com
-          Implementing XOR gate from basic logic       2. POS
+
+          Implementing XOR gate from basic logic       2. POS
           gate
           uq,sl ;d¾lsl oajdr Ndú;fhka XOR oajdrh
           ia:dmkh lsrus
 
           •       Two input XOR gate
-
-
-
 
                                                        A        B   A    B    (A + B) (A + B)         F
               A             B            K             0        0   1    1    0       1               0
@@ -490,8 +446,6 @@ ictfromabc.com
 
           1. SOP
 
-
-
                                                            A         B        C         K
                                                            0         0        0         0
                                                            0         0        1         1
@@ -502,7 +456,6 @@ ictfromabc.com
               1     0   0       1   0    1    1            1         1        0         0
               1     1   0       0   0    0    0            1         1        1         1
 
-
           As we can see K = F                          KSOP = A. B. C + A. B. C + A. B. C + A. B. C
           wmg fmfkk mßÈ K = F fõ'
                                                        KPOS = (A + B + C). (A + B + C). (A + B + C).
@@ -510,18 +463,13 @@ ictfromabc.com
                         ̅+A
                           ̅B                                    (A + B + C)
 
-
-
-
                                                    9
 ictfromabc.com
-          By using basic logic gates
+
+          By using basic logic gates
           uq,sl ;d¾lsl oajdr Ndú;fhka f.dvke.Su'
 
           1. SOP
-
-
-
 
             A    B     C      A     B     C     A. B. C        A. B. C   A. B. C   A. B. C   F
             0    0     0      1     1     1     0              0         0         0         0
@@ -533,19 +481,12 @@ ictfromabc.com
             1    1     0      0     0     1     0              0         0         0         0
             1    1     1      0     0     0     0              0         0         1         1
 
-
-
           Note: A ⊕ B ⊕ C = A. B. C + A. B. C + A. B. C + A. B. C
-
-
-
 
                                                           10
 ictfromabc.com
-          2. POS
 
-
-
+          2. POS
 
             A    B     C     A    B     C     A+B+C       A+B+C      A+B+C       A+B+C   F
             0    0     0     1    1     1     0           1          1           1       0
@@ -557,33 +498,22 @@ ictfromabc.com
             1    1     0     0    0     1     1           1          1           0       0
             1    1     1     0    0     0     1           1          1           1       1
 
-
-
           Note: A ⊕ B ⊕ C = (A + B + C). (A + B + C). (A + B + C). (A + B + C)
-
-
-
 
                                                      11
 ictfromabc.com
-          Logic gates and their relevant Ven diagram.
+
+          Logic gates and their relevant Ven diagram.
           ;d¾lsl oajdr iy tAjdg wod< fjka rEm igyk'
-
-
 
                  INPUT
 
-
-
-
                  OUTPUT
-
-
-
 
                                                    12
 ictfromabc.com
-          Universal Gates                                     3. Flexibility in Logic Design
+
+          Universal Gates                                     3. Flexibility in Logic Design
           id¾j;% ;d¾lsl oajdr                                 ;d¾lsl ks¾udKfha kuHYS,SNdjh
 
           A universal gate is a logic gate that can be        Any Boolean function can be implemented
@@ -626,17 +556,12 @@ ictfromabc.com
           u.ska m%ñ;slrKh lsÍu" ie,iqï lsÍu iy                mßfNdackhla jk w;r" wvq n,Yla;s fhÿï
           fodaY ksrdlrKh ir, lrhs'                            i|yd iqÿiq fkdúh yelsh'
 
-
-
-
                                                          13
 ictfromabc.com
-          1. NOR GATE                                Implementing OR gate from NOR gate
+
+          1. NOR GATE                                Implementing OR gate from NOR gate
                                                      NOR oajdrhlska OR oajdrhla ia:dmkh
                                                      lsßu
-
-
-
 
           Implementing NOT gate from NOR gate
           (Inverter)                                 Proof:
@@ -652,8 +577,6 @@ ictfromabc.com
                                                      = (A + B)                     Idempotent Law
                                                      = (A + B)
 
-
-
           Proof:                                     Implementing Buffer from NOR gate
                                                      NOR oajdrhlska Buffer tlla ks¾udKh lsÍu
           = ̅̅̅̅̅̅̅̅
@@ -661,15 +584,11 @@ ictfromabc.com
           =A̅. A̅        De Morgan’s Law
           =A̅             Idempotent Law
 
-
           Implementing AND gate from NOR gate
           NOR oajdrhlska AND oajdrhla ia:dmkh        Implementing NAND gate from NOR
           lsßu                                       gate
                                                      NOR oajdrhlska NAND oajdrhla ia:dmkh
                                                      lsßu
-
-
-
 
           Proof:
 
@@ -680,18 +599,13 @@ ictfromabc.com
                ̿          De morgan’s Law
           = A. B         Double inverse Law
 
-
-
-
                                                 14
 ictfromabc.com
-          Implementing Exclusive-OR (XOR) gate                Implementing    Exclusive-NOR    gate
+
+          Implementing Exclusive-OR (XOR) gate                Implementing    Exclusive-NOR    gate
           from NOR gate                                       (XNOR) from NOR gate
           NOR oajdrhlska XOR oajdrhla ia:dmkh                 NOR oajdrhlska XNOR oajdrhla ia:dmkh
           lsßu                                                lsßu
-
-
-
 
                                                               Proof:
           Proof:
@@ -719,7 +633,7 @@ ictfromabc.com
                                                               AA + AB + AB + BB̅     Distributive Law
                     ̅    ̅
           = 0 + AB + AB + 0                Inverse Law        0+A ̅B̅ + AB + 0            Inverse Law
-              ̅
+
           = AB + AB ̅                     Identity Law        ̅B
                                                               A ̅ + AB                   Identity Law
 
@@ -727,16 +641,14 @@ ictfromabc.com
            ̅+A
           AB   ̅B = A ⊕ B                                     AB + AB = A ⊕ B
 
-
-
-
                                                          15
 ictfromabc.com
-          2. NAND GATE                                        Proof:
+
+          2. NAND GATE                                        Proof:
                                                               = ̅̅̅̅̅
                                                                 ̅. B
                                                                 A  ̅
-                                                                ̿
+
                                                               =A+B    ̿             De Morgan’s Law
                                                               =A+B                 Double inverse Law
 
@@ -745,8 +657,6 @@ ictfromabc.com
           gate (Inverter)                                     lsÍu
           NAND oajdrhlska NOT oajdrhla ia:dmkh
           lsßu
-
-
 
                                                               Implementing Exclusive-OR gate (XOR)
                                                               from NAND gate
@@ -783,52 +693,33 @@ ictfromabc.com
                                                                           ̅̅̅̅̅
                                                               = ̅̅̅̅̅̅̅̅
                                                                 (A. B). (A̅. B
-                                                                             ̅)
+
                                                                                           De Morgan’s Law
                                                               = (A. B) + (A. B)
                                                               = (A. B) + (A. B)         Double inverse Law
                                                               = (A. B) + (A. B)               Associate law
 
-
-
-
                                                          16
 ictfromabc.com
-          Summary
 
+          Summary
 
                     NOR         NAND
 
-
-
            NOT
-
-
-
 
            AND
 
-
-
-
            OR
-
-
-
 
                     NAND        NOR
 
-
-
-
            Buffer
-
-
-
 
                            17
 ictfromabc.com
-          Electric circuits to model the                       The convention used when drawing
+
+          Electric circuits to model the                       The convention used when drawing
           functionality of logic gates                         circuits.
           úoHq;a mßm: Ndú;fhka ;d¾lsl oajdrj,                  mßm: we£fï§ Ndú;d lrk iïuq;sh'
           l%shdldÍ;ajh wdo¾Ykh lsÍu
@@ -850,38 +741,27 @@ ictfromabc.com
           •      Inputs → Switch                                   iaúph
                  wdodk → iaúph
 
-
-
-
           •      Outputs → Bulbs
                  m%;sodk → n,an
 
                                                                •   BULBS
                                                                    n,an
 
-
           •      Connections → Wires
                  iïnkaOl → jh¾
-
 
           •      Power Supply → Batteries
                  n, iemhqu → negß
 
-
-
-
                                                           18
 
 ictfromabc.com
-          Gate Implementations   3. NOT Gate (Inverter)   6. XOR Gate
-          oajdr l%shd;aul lsÍu   NOT oajdrh               XOR oajdrh
 
+          Gate Implementations   3. NOT Gate (Inverter)   6. XOR Gate
+          oajdr l%shd;aul lsÍu   NOT oajdrh               XOR oajdrh
 
           1. AND Gate
           AND oajdrh
-
-
-
 
                                   S           B            S1     S2     B
                                   0           1            0      0      0
@@ -894,10 +774,8 @@ ictfromabc.com
            1     0      0                                 7. XNOR Gate
            1     1      1                                 XNOR oajdrh
 
-
           2. OR Gate
           OR oajdrh
-
 
                                   S1     S2        B
                                   0      0         1
@@ -915,21 +793,17 @@ ictfromabc.com
            1     0      1
            1     1      1
 
-
-
                                   S1     S2        B
                                   0      0         1
                                   0      1         0
                                   1      0         0
                                   1      1         0
 
-
-
-
                                               19
 
 ictfromabc.com
-          Boolean algebra                                      Importance of simplifying logic circuits
+
+          Boolean algebra                                      Importance of simplifying logic circuits
           nQ,shdkq ùc .‚;h                                     using Boolean Laws
                                                                nQ,shdkQ kS;s Ndú;fhka ;d¾lsl mßm: ir,
           Boolean algebra is a mathematical                    lsÍfï jeo.;alu
@@ -974,12 +848,10 @@ ictfromabc.com
           idohs'                                                   wjldYh m%Yia; lrhs - mßm: mqjre u;
                                                                    wvq fN!;sl bvla wjYH fõ'
 
-
-
-
                                                           20
 ictfromabc.com
-          Boolean Algebraic Laws                      Double inverse law/Double
+
+          Boolean Algebraic Laws                      Double inverse law/Double
                                                       complement law
           1. Double complement law                    oaú;aj m%;sf,dau kHdh
              oaú;aj m%;sf,dau kHdh
@@ -1030,11 +902,10 @@ ictfromabc.com
                  A + A. B = A
                  A + A. B = A + B
 
-
-
                                                  21
 ictfromabc.com
-          Idempotent law (type 1)                             Idempotent law (type 2)
+
+          Idempotent law (type 1)                             Idempotent law (type 2)
           ;foajNdù kHdh ^m<uq wdldrh&                         ;foajNdù kHdh ^ fojk wdldrh&
 
           Adding the same value again by it does not          Multiplying the same value again by it
@@ -1047,9 +918,6 @@ ictfromabc.com
           nQ,shka tl;= lsÍu (OR fufyhqu) OR oajdrh            represented by the AND gate.
           u.ka ksrEmKh lrhs                                   nQ,shka .=K lsÍu (AND fufyhqu) AND
                                                               oajdrh u.ska ksrEmKh lrhs
-
-
-
 
            ICN        A          B          F                  ICN        A          B          F
            1          0          0          0                  1          0          0          0
@@ -1066,9 +934,6 @@ ictfromabc.com
           F = A + A (When B = A at ICN 1 and 4)
                                                               F = A. A (When B = A at ICN 1 and 4)
 
-
-
-
            ICN            A=B           F                      ICN            A=B           F
            1              0             0                      1              0             0
            4              1             1                      4              1             1
@@ -1083,11 +948,10 @@ ictfromabc.com
           wmg meyeÈ,sj oel.; yelsh' tu.ska                    wmg meyeÈ,sj oel.; yelsh' tu.ska
           ;foajNdù kHdh ;yjqre fõ'                            ;foajNdù kHdh ;yjqre fõ'
 
-
-
                                                          22
 ictfromabc.com
-          Identity law (type 1)                                 Identity law (type 2)
+
+          Identity law (type 1)                                 Identity law (type 2)
           i¾jiduH kHdh ^m<uq wdldrh&                            i¾jiduH kHdh ^fojk wdldrh&
 
           Multiplying something by 0 in Boolean                 Multiplying a value by 1 in Boolean algebra
@@ -1141,11 +1005,10 @@ ictfromabc.com
           m%;sodkfha w.h iEuúgu 0 nj fmfka tu.ska
           i¾jiduH kHdh ;yjqre fõ'
 
-
-
                                                            23
 ictfromabc.com
-          Identity law (type 3)                             Identity law (type 4)
+
+          Identity law (type 3)                             Identity law (type 4)
           i¾jiduH kHdh ^;=kj a k wdldrh&                    i¾jiduH kHdh ^y;rjk wdldrh&
 
           Adding 0 to something in Boolean algebra          This law states that adding 1 to something
@@ -1195,11 +1058,10 @@ ictfromabc.com
           It proves the Identity law.
           tu.ka i¾jiduH kHdh ;yjqre fõ'
 
-
-
                                                        24
 ictfromabc.com
-          Inverse law (type 1)                             Inverse law (type 2)
+
+          Inverse law (type 1)                             Inverse law (type 2)
           m%;sf,dau kHdh ^m<uq wdldrh&                     m%;sf,dau kHdh ^fojk wdldrh&
 
           Adding its own complement to a variable          Multiplying its own complement from a
@@ -1208,9 +1070,6 @@ ictfromabc.com
           wkqmQrlh tl;= lsÍu u.ska ieuúgu 1 ,ndfoa         nQ,shdkq ùc .‚;fhaÈ úp,Hla ;ukf.au
                                                            wkqmQrlh u.ka .=K lsÍfï§ ieuúgu 0
                                                            ,ndfoa
-
-
-
 
            ICN        A          B             F
            1          0          0             0            ICN       A          B          F
@@ -1227,9 +1086,6 @@ ictfromabc.com
           F = A + A (When B = A at ICN 2 and 3)            F = A. B
                                                            F = A. A (When B = A at ICN 2 and 3)
 
-
-
-
            ICN        A         B=A        F
            2          0         1          1                ICN        A         B=A        F
            3          1         0          1                2          0         1          0
@@ -1244,12 +1100,10 @@ ictfromabc.com
           It proves the Inverse law.                       m%;sodkfha w.h iEuúgu 0 nj fmfka tu.ska
           tu.ka m%;sf,dau kHdh ;yjqre fõ'                  m%;sf,dau kHdh ;yjqre fõ'
 
-
-
-
                                                       25
 ictfromabc.com
-          Associative law (type 1)                             Associative law (type 2)
+
+          Associative law (type 1)                             Associative law (type 2)
           ix>gk kHdh ^m<uq wdldrh&                             ix>gk kHdh ^fojk wdldrh&
 
           This law states that the order of multiplying        This law states that the order of adding
@@ -1260,9 +1114,6 @@ ictfromabc.com
           lshefõ                                               lshefõ
 
           Left Hand Side Expression                            Left Hand Side Expression
-
-
-
 
            ICN    A     B     C      B.C   P=A.(B.C)
                                                                 ICN   A    B    C   B+C     P=A+(B+C)
@@ -1285,9 +1136,6 @@ ictfromabc.com
           Right Hand Side Expression
                                                                Right Hand Side Expression
 
-
-
-
            ICN    A    B     C      A.B    Q=(A.B).C
            1      0    0     0      0      0                    ICN   A   B    C    A+B    Q=(A+B)+C
            2      0    0     1      0      0                    1     0   0    0    0      0
@@ -1303,19 +1151,14 @@ ictfromabc.com
            8      1    1     1      1      1                    8     1   1    1    1      1
           P=Q, so A.(B.C)=(A.B).C                              P=Q, so A+(B+C)=(A+B)+C
 
-
-
                                                           26
 ictfromabc.com
-          Distributive law                                 Distributive law
+
+          Distributive law                                 Distributive law
           ú>gk kHdh                                        ú>gk kHdh
           A.(B+C) = A.B + A.C                              A+(B.C) = (A+B).(A+C)
 
-
           Left Hand Side Expression                        Left Hand Side Expression
-
-
-
 
            ICN   A   B    C      (B+C)    P=A.(B+C)         ICN   A       B       C     B.C   P=A+B.C
            1     0   0    0      0        0                 1     0       0       0     0     0
@@ -1327,12 +1170,7 @@ ictfromabc.com
            7     1   1    0      1        1                 7     1       1       0     0     1
            8     1   1    1      1        1                 8     1       1       1     1     1
 
-
-
           Right Hand Side Expression                       Right Hand Side Expression
-
-
-
 
            ICN   A   B   C      (B+C)    Q=(A+B)+C          ICN   A   B       C   A+B   A+C   Q=(A+B).(A+C)
            1     0   0   0      0        0                  1     0   0       0   0     0     0
@@ -1344,19 +1182,14 @@ ictfromabc.com
            7     1   1   0      1        1                  7     1   1       0   1     1     1
            8     1   1   1      1        1                  8     1   1       1   1     1     1
 
-
-
-
                                                       27
 ictfromabc.com
-          De Morgan’s Law                                            De Morgan’s Law
+
+          De Morgan’s Law                                            De Morgan’s Law
           o uqjd¾ m%fïh                                              o uqjd¾ m%fïh
           𝐀. 𝐁 = 𝐀 + 𝐁                                               𝐀 + 𝐁 = 𝐀. 𝐁
 
           Left Hand Side Expression                                  Left Hand Side Expression
-
-
-
 
            ICN     A         B           A.B             A. B         ICN   A           B           A+B         A+B
            1       0         0           0           1                1     0           0           0           1
@@ -1364,24 +1197,18 @@ ictfromabc.com
            3       1         0           0           1                3     1           0           1           0
            4       1         1           1           0                4     1           1           1           0
 
-
           Right Hand Side Expression                                 Right Hand Side Expression
-
-
 
                           A                                                             A
                                                A+B                                                      A. B
 
                              B                                                          B
 
-
            ICN     A     B           A       B       A+B              ICN   A       B           A       B           A. B
            1       0     0       1       1       1                    1     0       0       1       1       1
            2       0     1       1       0       1                    2     0       1       1       0       0
            3       1     0       0       1       1                    3     1       0       0       1       0
            4       1     1       0       0       0                    4     1       1       0       0       0
-
-
 
             SUMMARY
 
@@ -1397,12 +1224,10 @@ ictfromabc.com
             Derived rules used to simplify and manipulate Boolean expressions.
             nQ,shka m%ldYk ir, lsÍug iy yeisrùug Ndú;d lrk jHq;amkak kS;s fõ'
 
-
-
-
                                                                 28
 ictfromabc.com
-          Karnaugh Maps                                            K-maps were primarily designed to
+
+          Karnaugh Maps                                            K-maps were primarily designed to
           ldfkda is;shï                                            simplify the logic behind digital circuits
                                                                    used in circuit switching.
           Maurice Karnaugh developed Karnaugh                      Circuit switching j,§ Ndú;d lrk wxls;
@@ -1456,12 +1281,10 @@ ictfromabc.com
            .e,fmkafka       ks¾udKh                                    kHdhd;aul idOkhka iy .‚;uh ir,
                                                                        lsÍï
 
-
-
-
                                                          29
 ictfromabc.com
-          2 input variable k maps          GREY CODE
+
+          2 input variable k maps          GREY CODE
           wdodk fofla ldfkda is;shï        (REFLECTED BINARY CODE)
 
                                            Frank Gray, a researcher at Bell Labs,
@@ -1470,13 +1293,7 @@ ictfromabc.com
                                            *%Ekala f.%a úiska Grey fla; ixl,amhg
                                            fmagkaÜ n,m;%h ,nd .;af;ah'
 
-
-
-
                                                                           Frank Gray
-
-
-
 
                                            This is a way of ordering binary numbers
                                            where only one-bit changes between any
@@ -1494,20 +1311,16 @@ ictfromabc.com
                                            wjldYh we;af;a tla úp,Hhlg muKla hehs
                                            f.%a fla;fhka lshefõ'
 
-
-
-
                                       30
 ictfromabc.com
-          3 input variable k maps          4 input variable k maps
+
+          3 input variable k maps          4 input variable k maps
           wdodk ;=fka ldfkda is;shï        wdodk y;fra ldfkda is;shï
-
-
-
 
                                       31
 ictfromabc.com
-          K-map grouping rules.                              4. All elements of the selected type
+
+          K-map grouping rules.                              4. All elements of the selected type
           ldfkda is;shï j, ldkav iE§u iïnkao kS;s            should be contained in a group.
                                                              ldKav iE§u i|yd f;dard.kakd j¾.fha
                                                              wjhj ish,a, ldKav iE§u wjidkfha hï
@@ -1516,7 +1329,6 @@ ictfromabc.com
           i;H;d j.=fõ mj;sk 1 iy 0 ish¨u i;H;d
           j.=fõ mj;sk 1 iy 0 ish¨u m%;sodkldfkda
           is;shula ;=, ,l=Kq lr.; hq;=h'
-
 
           2. Only one type of element can be
           used to make groups. 1s or 0s. groups
@@ -1529,9 +1341,6 @@ ictfromabc.com
                                                              ldKavhla yels;dla úYd, úh hq;= w;r
                                                              ldKav .Kk yels;dla wju úh hq;=h'
 
-
-
-
           3. The number of elements in a group
           shouldalways be a power of 2.
           ldKavhl mj;sk wjhj .Kk iEuúgu 2 ys
@@ -1543,23 +1352,15 @@ ictfromabc.com
                                                              fjk;a ldKavhla iu. fnodyod.ekSu isÿ
                                                              l, yelsh.
 
-
-
-
                                                         32
 ictfromabc.com
-          7. Groups cannot be diagonal.
+
+          7. Groups cannot be diagonal.
           úl¾K Èf.a ldKav mej;sh fkdyel'
-
-
-
 
           NOTE
           A K-map is a torus
           ldfkda is;shula hkq fgdaria tlls
-
-
-
 
                                                            NOTE: Subgroups (groups where all their
                                                            elements belong to one other group) may
@@ -1573,12 +1374,9 @@ ictfromabc.com
                                                            jeäù iq¨ lrk ,o nQ,Sh m%ldYh ixlS¾K jk
                                                            neúka tAjd fidhd uld oeñh hq;=h'
 
-
-
           8. Groups can be wrapped around.
           ldKavhla ldfkda is;shula jgd t;S
           mej;sh yel
-
 
                                                            NOT IN SYLLABUS
                                                            Don’t care conditions (where we don’t care
@@ -1592,12 +1390,10 @@ ictfromabc.com
           mej;sh hq;= w;r tys yevh iup;=ri%dldr            tAjd wjYH mßÈ ldKav i|yd 1 fyda 0 f,i
           fyda iDcqfldaKdi%dldr úh hq;=h'                  ie,lsh yelsh'
 
-
-
-
                                                       33
 ictfromabc.com
-          Designs simple digital circuits using                Designing a Boolean expression for a
+
+          Designs simple digital circuits using                Designing a Boolean expression for a
           logic gates                                          given logic circuit.
           ;d¾lsl oajdr Ndú;fhka ir, wxls; mßm:                 § we;s ;d¾lsl mßm:hla i|yd nQ,shdkq
           ks¾udKh lrhs'                                        m%ldYkhla ks¾udKh lsÍu'
@@ -1610,27 +1406,17 @@ ictfromabc.com
           wkq.ukh l< hq;= mshjr idudkHfhka my;
           mßÈ fõ'
 
-
                                                                Let’s derive a Boolean expression for the
                               isoaêh                           output F.
                                                                F m%;sodkh i|yd nQ,shdkq m%ldYkhla jHq;amkak
                                                                lruq'
                            i;H;d j.=j
 
-
-
                          nQ,Shdkq m%ldYkh
-
-
 
                             iq¿ lsÍu
 
-
-
                           ;d¾lsl mßm:h
-
-
-
 
           However, you should be able to,
           flfia fj;;a Tng"
@@ -1651,12 +1437,10 @@ ictfromabc.com
           § we;s ;d¾lsl mßm:hla Ndú;fhka nQ,Shdkq
           m%ldYkh jHq;amkak l< yels úh hq;=h'
 
-
-
-
                                                           34
 ictfromabc.com
-          Designing a logic circuit for a given                Expressions within brackets are treated as
+
+          Designing a logic circuit for a given                Expressions within brackets are treated as
           Boolean expression.                                  atomic until they are isolated; nothing inside
           § we;s nQ,Shdkq m%ldYkhla i|yd ;d¾lsl                the bracket is “touched” until the rest of the
           mßm:hla ks¾udKh lsÍu'                                expression has been derived.
@@ -1719,11 +1503,10 @@ ictfromabc.com
           fkdue;s ´kEu Ok fufyhqula i|yd OR
           oajdrhla Ndú;d flfra'
 
-
-
                                                           35
 ictfromabc.com
-          For instance, consider the expression:                   Notice that the bracketed (A+B) is treated
+
+          For instance, consider the expression:                   Notice that the bracketed (A+B) is treated
           WodyrKhla f,i" my; m%ldYkh i,ld                          as a single entity until it is isolated by the
           n,kak(                                                   AND operation.
                                                                    jryka ;=< w;s (A+B) m%ldYh AND fufyhqu
@@ -1746,16 +1529,10 @@ ictfromabc.com
               ((A + B) . C)          ((A + B) . C)                 m%ldYkfha wNHka;r ;¾lkh iïmQ¾K lsÍu
                                                                    i|yd OR oajdrhla w¢kq ,efí'
 
-
-
           The expression ((A + B) . C) is now treated                           (A + B)     ((A + B) . C)
                                                                    A
           as a new expression.
                                                                     B
-          \
-
-
-
 
           ((A + B) . C) hk m%ldYkh             oeka     kj
           m%ldYkhla f,i i,lkq ,efí'
@@ -1774,35 +1551,23 @@ ictfromabc.com
           yqol,d m%ldYkh jk (A+B) iy C wdodk
           f,i .kq ,nk AND oajdrhla w¢kq ,efí'
 
-
               (A + B)         ((A + B) . C)   ((A + B) . C)
-
 
                C
 
-
-
-
                                                               36
 ictfromabc.com
-          Creating a truth table for a given logic circuit
-          § we;s ;d¾lsl mßm:hla i|yd i;H;d j.=jla ks¾udKh lsÍu
 
+          Creating a truth table for a given logic circuit
+          § we;s ;d¾lsl mßm:hla i|yd i;H;d j.=jla ks¾udKh lsÍu
 
                                                              w;rueÈ m%;sodk
 
-
-
-
            wdodk
-
-
-
 
                                                                       wjidk m%;sodkh
 
           ICN – Input Combination Number
-
 
            ICN     A          B       C        (A + B)      (A + B)      F = C . (A + B)
            1       0          0       0        0            1            0
@@ -1814,13 +1579,7 @@ ictfromabc.com
            7       1          1       0        1            0            0
            8       1          1       1        1            0            0
 
-
-
-
           EX.
-
-
-
 
            ICN     X      Y       Z        Z       (X + Y)        F = (X + Y). Z
            1       0      0       0        1       0              0
@@ -1832,12 +1591,10 @@ ictfromabc.com
            7       1      1       0        1       1              1
            8       1      1       1        0       1              0
 
-
-
-
                                                        37
 ictfromabc.com
-          Minterms and Maxterms                              Design of Combinational Circuits
+
+          Minterms and Maxterms                              Design of Combinational Circuits
           .=‚; mo iy tl;= mo                                 ixhqla; mßm: ks¾udKh
 
           Why do we need Minterms and
@@ -1860,7 +1617,6 @@ ictfromabc.com
           ir, lsÍu iy m%Yia;slrKh i|yd WmldÍ                 Analysis and Verification
           fõ                                                 úYaf,aIKh iy i;Hdmkh
 
-
           Boolean     expressions     often    need          They make it easier to analyze and verify
           simplification to reduce the number of             the correctness of a Boolean function.
           logic gates in a circuit.                          fïjd nQ,shdkq Y%s;hl ksrjoH nj úYaf,aIKh
@@ -1876,7 +1632,6 @@ ictfromabc.com
           is;shï ^K-is;shï& jeks Ys,amSh l%u fhdod .;        wjYH;d imqrd,kafkao hkak ;SrKh lsÍug
           yelsh'                                             Tng yelsh'
 
-
           This results in faster, cheaper, and less          Conversion Between SOP and POS
 
           power-consuming digital circuits.                  SOP iy POS w;r mßj¾;kh
@@ -1890,12 +1645,10 @@ ictfromabc.com
                                                              lsÍug we;s ;d¾lsl oajdr j¾.h fyda ie,iqï
                                                              iSudjka u; mokïj m%fhdackj;a fõ'
 
-
-
-
                                                         38
 ictfromabc.com
-          Minterms                                             Maxterms
+
+          Minterms                                             Maxterms
           .=‚; mo                                              tl;= mo
 
           In a truth table, minterms represent how             In a truth table, Maxterms represent how
@@ -1917,10 +1670,8 @@ ictfromabc.com
           iEu minterm tllau i;H;d j.=fõ Y%s;h                  iEu Wmßu jdrhlau i;H;d j.=fõ Y%s;h
           true (1) jk ;ks fma<shlg wkqrEm fõ'                  false (0) jk ;ks fma<shlg wkqrEm fõ'
 
-
           Minterms of 2 inputs                                 Maxterms of 2 inputs
           wdodk 2 .=‚;mo                                       wdodk 2 tl;=mo
-
 
            ICN     A         B       F                          ICN        A       B       F
            1       0         0       m0 = A
@@ -1928,13 +1679,12 @@ ictfromabc.com
                                              ̅                  1          0       0       M0 = A + B
            2       0         1       m1 = A. B
                                           ̅                     2          0       1       M1 = A + B
-                                                                                                    ̅
+
            3       1         0       m2 = A. B
                                              ̅                  3          1       0       M2 = A
                                                                                                 ̅+B
            4       1         1       m3 = A. B                  4          1       1       M3 = A
                                                                                                 ̅+B ̅
-
 
           Minterms of 3 inputs                                 Maxterms of 3 inputs
           wdodk 3 .=‚;mo                                       wdodk 3 tl;=mo
@@ -1959,12 +1709,10 @@ ictfromabc.com
            8      1      1       1     m7 = A. B. C             8      1       1       1    M7 = A
                                                                                                  ̅+B ̅ + C̅
 
-
-
-
                                                           39
 ictfromabc.com
-          Minterms & Maxterms
+
+          Minterms & Maxterms
 
              ICN               A           B           C         F        Minterms               Maxterms
                  1             0           0           0         0                            M0 = A + B + C
@@ -1980,8 +1728,6 @@ ictfromabc.com
                  7             1           1           0         1       m6 = A. B. C̅
                  8             1           1           1         1       m7 = A. B. C
 
-
-
           For Minterms                                                For Maxterms
 
            Fssop = m3 OR m5 OR m6 OR m7                               Fspos = M0 AND M1 AND M2 AND M4
@@ -1992,18 +1738,13 @@ ictfromabc.com
                                                                                   ̅ + C) . (A
                                                                              (A + B
 
-
-
-
           Logic circuit based on SOP                                  Logic circuit based on POS
           SOP u; mokï jQ ;d¾lsl mßm:h                                 POS u; mokï jQ ;d¾lsl mßm:h
 
-
-
-
                                                                  40
 ictfromabc.com
-          Converting SOP to POS                                   Converting POS to SOP
+
+          Converting SOP to POS                                   Converting POS to SOP
           SOP isg POS njg mßj¾:kh lsÍu                            POS isg SOP njg mßj¾:kh lsÍu
 
           The logic behind converting SOP to POS is               To transform a POS expression into SOP, we
@@ -2063,11 +1804,10 @@ ictfromabc.com
                  ys wkqmQrlh (F =F) kej; kej; ,nd
                  .kak'
 
-
-
                                                              41
 ictfromabc.com
-          SOP to POS conversions
+
+          SOP to POS conversions
 
           Example 1.
 
@@ -2099,16 +1839,13 @@ ictfromabc.com
                  F = A. (B + C)                    De Morgan’s
                  Fpos = A. (B + C)                 De Morgan’s
 
-
           Therefore, [A. B + A. C + A. B. C]sop = [A. (B + C)]pos
           tneúka [A. B + A. C + A. B. C]sop = [A. (B + C)]pos fõ'
 
-
-
-
                                                             42
 ictfromabc.com
-          Example 2.
+
+          Example 2.
 
           1. Find the complement (𝐅) of the given function.
              § we;s Y%s;fha wkqmQrlh (𝐅) fidhd.kak'
@@ -2133,7 +1870,6 @@ ictfromabc.com
                  = (X. Z)                                                            Identity law
                  F = (X. Z)                                                          Identity law
 
-
           3. Take the complement of 𝐅 again (𝐅 =𝐅) to get the original function in POS form.
                  POS wdldrfhka uq,a Y%s;h ,nd .ekSug 𝐅 ys wkqmQrlh (𝐅 =𝐅) kej; kej; ,nd .kak'
 
@@ -2142,12 +1878,10 @@ ictfromabc.com
 
                  [𝐗. 𝐘. 𝐙 + 𝐗. 𝐘 + 𝐘. 𝐙 + 𝐗. 𝐘. 𝐙]sop = [(𝐗 + 𝐙)]pos
 
-
-
-
                                                                43
 ictfromabc.com
-          Example 3.
+
+          Example 3.
 
           1. Find the complement (𝐅) of the given function.
              § we;s Y%s;fha wkqmQrlh (𝐅) fidhd.kak'
@@ -2155,7 +1889,6 @@ ictfromabc.com
                  Fsop = X. Y + X. Z + Y. Z
 
                  F = X. Y + X. Z + Y. Z
-
 
           2. Simplify the obtained expression
              ,nd .;a m%ldYkh iq¿ lrkak'
@@ -2183,8 +1916,6 @@ ictfromabc.com
              =X̅. Z̅. Y
                       ̅+Y   ̅. X + X ̅. Z̅ + Y̅. X. Z̅                                   Idempotent law
 
-
-
           3. Take the complement of 𝐅 again (𝐅 =𝐅) to get the original function in POS form.
                  POS wdldrfhka uq,a Y%s;h ,nd .ekSug 𝐅 ys wkqmQrlh (𝐅 =𝐅) kej; kej; ,nd .kak'
 
@@ -2194,7 +1925,7 @@ ictfromabc.com
                            ̅̅̅̅̅̅̅
                            ̅   ̅ ̅     ̅̅̅̅̅
                                        ̅         ̅̅̅̅̅
-                                                 ̅
+
                  Fpos = (X. Z. Y). (Y. X). (X. Z). (Y̅    ̅̅̅̅̅̅̅
                                                           ̅. X. Z̅)                      De Morgan’s law
                        = (X ̅ + Z̿ + ̅Y̅ ). (Y
@@ -2203,18 +1934,14 @@ ictfromabc.com
                        = (X + Z + Y). (Y + ̅        X). (X + Z). (Y + ̅
                                                                       X + Z)             Double Inverse law
 
-
-
                  [𝐗. 𝐘 + 𝐗. 𝐙 + 𝐘. 𝐙] sop = [(𝐗 + 𝐙 + 𝐘). (𝐘 + 𝐗
                                                                ̅). (𝐗 + 𝐙). (𝐘 + 𝐗
                                                                                  ̅ + 𝐙)]pos
 
-
-
-
                                                                        44
 ictfromabc.com
-          POS to SOP conversions
+
+          POS to SOP conversions
 
           Example 1.
 
@@ -2250,7 +1977,7 @@ ictfromabc.com
                  = (Y. X       ̅ + X. Y + Y)                            Redundancy Law
                  = (Y. X + Z. ̅
                        ̅       X + Y)                                   Redundancy Law
-                       ̅
+
                  = (Z. X + Y)                                           Redundancy Law
                  = Y+X  ̅. Z                                            Commutative Law
 
@@ -2279,12 +2006,10 @@ ictfromabc.com
                             ̅ + 𝐙). (𝐘 + 𝐙)]pos = [𝐗
                  [(𝐗 + 𝐘). (𝐗                      ̅. 𝐘 + 𝐘. 𝐙 + 𝐗. 𝐙]sop
 
-
-
-
                                                                 45
 ictfromabc.com
-          Standard and non-standard expressions                        How to convert a non-standard
+
+          Standard and non-standard expressions                        How to convert a non-standard
           iïu; iy iïu; fkdjk m%ldYk                                    expression into a standard expression
                                                                        iïu; fkdjk m%ldYkhla iïu;
           Standard Expression                                          m%ldYkhla njg mßj¾;kh lrk wdldrh@
@@ -2354,7 +2079,7 @@ ictfromabc.com
                                                  ̅ + A. B      ̅ + A. B
                                                                       ̅. C. D + A. B
                                                                                    ̅. C. D
-                                                                                         ̅+
+
                                                                                                  Distributive law
              A. B. C̅. D
 
@@ -2368,12 +2093,10 @@ ictfromabc.com
                                                                                              ̅ . 𝐂. 𝐃
                                                                                                     ̅ + 𝐀. 𝐁. 𝐂̅. 𝐃
 
-
-
-
                                                                  46
 ictfromabc.com
-          EX. 2
+
+          EX. 2
 
           FSOP = 𝐀. 𝐁 + 𝐀. 𝐂̅ + 𝐁. 𝐂
 
@@ -2403,9 +2126,6 @@ ictfromabc.com
                                           ̅ . 𝐂̅ + 𝐀
                                                    ̅ . 𝐁. 𝐂
 
-
-
-
           EX. 3
 
           FSOP = 𝐗 + 𝐗. 𝐙 + 𝐘. 𝐙
@@ -2417,12 +2137,10 @@ ictfromabc.com
 
           FSSOP = 𝐗. 𝐘. 𝐙 + 𝐗. 𝐘. 𝐙 + 𝐗. 𝐘. 𝐙 + 𝐗. 𝐘. 𝐙
 
-
-
-
                                                                   47
 ictfromabc.com
-          2. Conversion of a non-standard POS statement into a standard POS statement
+
+          2. Conversion of a non-standard POS statement into a standard POS statement
           iïu; fkdjk POS m%ldYkhla iïu; POS m%ldYkhla njg mßj¾:kh
 
           EX. 1
@@ -2430,7 +2148,6 @@ ictfromabc.com
                                 ̅ + 𝐂). (𝐀 + 𝐁 + 𝐂̅ + 𝐃)
                       ̅ ). (𝐀 + 𝐁
           FPOS = (𝐀 + 𝐁
-
 
                            ̅ + C + 0). (A + B + C̅ + D)
                   ̅). (A + B
@@ -2477,12 +2194,9 @@ ictfromabc.com
                        ̅+𝐂+𝐃
                   (𝐀 + 𝐁       ̅ ). (𝐀 + 𝐁 + 𝐂̅ + 𝐃)
 
-
-
           EX. 2
 
           FPOS = (𝐗 + 𝐙). (𝐘 + 𝐙). (𝐗 + 𝐘 + 𝐙)
-
 
            = (X + 0 + Z). (0 + Y + Z). (X + Y + Z)                                       Identity law
 
@@ -2492,16 +2206,12 @@ ictfromabc.com
 
            = (X + Y + Z). (X + Y + Z). (X + Y + Z). (X + Y + Z)                          Idempotent law
 
-
-
           FSSOP = (𝐗 + 𝐘 + 𝐙). (𝐗 + 𝐘 + 𝐙). (𝐗 + 𝐘 + 𝐙). (𝐗 + 𝐘 + 𝐙)
-
-
-
 
                                                            48
 ictfromabc.com
-          Designs simple digital circuits using logic gates for a given scenario
+
+          Designs simple digital circuits using logic gates for a given scenario
           ;d¾lsl oajdr Ndú;fhka ,nd § we;s wjia:djla ioyd ir, äðg,a mßm: ks¾udKh lrhs'
 
           A company has a high-security safe that requires keys K1, K2 and K3. To unlock the safe, at
@@ -2538,7 +2248,6 @@ ictfromabc.com
                                                                         0
                   fiamamqj (S) jid we;
 
-
                  The safe will only open if at least two keys are used. This means that if one key is used, the
                  safe remains locked. If two or three keys are used, the safe opens.
                  fiamamqj újD; jkafka wju jYfhka h;=re follaj;a Ndú;d l<fyd;a mu‚' fuhska woyia
@@ -2555,19 +2264,16 @@ ictfromabc.com
                   1               1             0              1
                   1               1             1              1
 
-
-
-
                                                               49
 ictfromabc.com
-          2. Construct the SOP (Sum of Products) expression using minterms.
+
+          2. Construct the SOP (Sum of Products) expression using minterms.
              Minterms Ndú;fhka SOP tl;=kaf.a .=‚; m%ldYkh ks¾udKh lrkak'
 
                  SOP is a simplified OR (sum) of multiple AND (product) terms. We take the rows where S=1
                  (safe opens) and write each as an AND expression.
                  SOP hkq OR (sum) mo lsym   s hl ir, l< AND ^tl;=j& fõ' S=1 ^wdrlaIs;j újD; jk&
                  fma<s f.k tA iEu tllau AND m%ldYkhla f,i ,súh hq;=h'
-
 
                   K1          K2         K3          S          Minterms
                   0           0          0           0
@@ -2586,8 +2292,6 @@ ictfromabc.com
                         ̅̅̅̅. K2 . K3 + K1. K2
                                             ̅̅̅̅ . K3 + K1. K2 . K3
                                                                  ̅̅̅̅ + K1. K2 . K3
-
-
 
           3. Construct the POS (Product of Sums) expression using maxterms.
              Maxterms Ndú;fhka POS m%ldYkh ks¾udKh lrkak'
@@ -2613,12 +2317,10 @@ ictfromabc.com
                  SPOS = (K1 + K2 + K3). (K1 + K2 + ̅̅̅̅        K2 + K3). ̅̅̅̅̅
                                                     K3). (K1 + ̅̅̅̅      (K1 + K2 + K3)
 
-
-
-
                                                                  50
 ictfromabc.com
-          4. Simplify the SOP and POS expressions using Boolean laws.
+
+          4. Simplify the SOP and POS expressions using Boolean laws.
              nQ,shdkq kS;s Ndú;fhka SOP iy POS m%ldYk ir, lrkak'
 
                  SOP
@@ -2656,8 +2358,6 @@ ictfromabc.com
                  = (K1 + K2 + (0)). (K1 + K3 + (0)). (K2 + K3 + (0))                         Inverse law
                  Spos= (K1 + K2). (K1 + K3). (K2 + K3)                                       Identity law
 
-
-
           5. Simplify the SOP and POS expressions using Karnaugh-maps.
              ldfkda is;shï Ndú;fhka SOP iy POS m%ldYk ir, lrkak'
 
@@ -2668,101 +2368,67 @@ ictfromabc.com
 
                                                               = K1. K2
 
-
-
-
                                 K1. K2. K3             K1. K2. K3
                                 K1. K2. K3             K1. K2. K3
                                  = K2. K3               = K1. K3
 
-
              Ssop = K1. K2 + K2 . K3 + K1 . K3
-
-
-
 
                                                             51
 ictfromabc.com
-                 POS
 
-
-
+                 POS
 
                                                                K1 + K2 + K3
                                                                K1 + K2 + K3
 
                                                                = K2 + K3
 
-
-
-
                     K1 + K2 + K3          K1 + K2 + K3
                     K1 + K2 + K3          K1 + K2 + K3
 
                     = K1 + K2             = K1 + K3
 
-
                  Spos = (K1 + K2). (K1 + K3). (K2 + K3)
-
-
 
           6. Design the circuit diagrams for the simplified SOP and POS expressions using basic
              logic gates.
              uQ,sl ;d¾lsl oajdr Ndú;fhka ir, l< SOP iy POS m%ldYk i|yd mßm: igyka wÈkak'
 
-
                  Ssop = 𝐊𝟏. 𝐊𝟐 + 𝐊𝟐 . 𝐊𝟑 + 𝐊𝟏 . 𝐊𝟑               Spos= (𝐊𝟏 + 𝐊𝟐). (𝐊𝟏 + 𝐊𝟑). (𝐊𝟐 + 𝐊𝟑)
-
-
-
 
                                                           52
 ictfromabc.com
-          7. Design the circuit diagrams for the simplified SOP and POS expressions using
+
+          7. Design the circuit diagrams for the simplified SOP and POS expressions using
              universal gates. (NAND and NOR)
              id¾j;% oajdr Ndú;fhka ir, l< SOP iy POS m%ldYk i|yd mßm: igyka wÈkak'
 
-
                  SOP - NAND
-
-
-
 
                  This circuit can be further simplified by removing the repeating NOT gates as follows
                  mqkrdj¾;kh jk NOT oajdr bj;a lsÍfuka fuu mßm:h my; mßÈ ;jÿrg;a ir, l< yel'
 
-
-
-
                                                         53
 ictfromabc.com
-                 SOP – NOR
 
-
-
+                 SOP – NOR
 
                  POS – NAND
 
-
-
-
                               54
 ictfromabc.com
-                 POS – NAND
 
-
-
+                 POS – NAND
 
                  This circuit can also be further simplified by removing the repeating NOT gates as follows
                  mqkrdj¾;kh jk NOT oajdr bj;a lsÍfuka fuu mßm:h o my; mßÈ ;jÿrg;a ir, l<
                  yel'
 
-
-
-
                                                           55
 ictfromabc.com
-          Building blocks of CPU                                 Functionality
+
+          Building blocks of CPU                                 Functionality
           CPU ys ;ekqï tAll                                      l%shdldÍ;ajh
 
           Adders                                                 The Sum (S) output is generated using an
@@ -2816,12 +2482,10 @@ ictfromabc.com
           ksfhdackh l< yels m%udKhg jvd jeä jQ úg
           /f.k hdula ks¾udKh fõ'
 
-
-
-
                                                             56
 ictfromabc.com
-          Logic Circuit                                  Logic Circuit for Half Adder without XOR
+
+          Logic Circuit                                  Logic Circuit for Half Adder without XOR
           ;d¾lsl mßm:h                                   gate
                                                          XOR oajdrh rys; w¾O wdl,lh ioyd
           A half adder circuit can be implemented        ;d¾lsl mßm:h
@@ -2866,12 +2530,10 @@ ictfromabc.com
                                                          úoHdj yodrk ´kEu flfkl=g th b;d
                                                          jeo.;a fõ'
 
-
-
-
                                                     57
 ictfromabc.com
-          Full Adder                                          Functionality
+
+          Full Adder                                          Functionality
           mQ¾K wdl,lh                                         l%shdldÍ;ajh
 
           Adds two single-bit binary numbers along            The Sum (S) output is generated using two
@@ -2885,7 +2547,6 @@ ictfromabc.com
           i|yd iqÿiq fõ'                                      /f.k hdï (Cout) m%;sodkh ckkh lrkq
                                                               ,nkafka AND oajdr folla iy tla OR
                                                               oajdrhla Ndú;d lrñks'
-
 
                                                               The truth table for a full adder is as
                                                               follows
@@ -2924,15 +2585,13 @@ ictfromabc.com
           the addition.
           tl;= lsÍfuka miq /f.k hk ,o ìgqj'
 
-
-
                                                          58
 ictfromabc.com
-          Logic Circuit                               Obtaining another equation for Cout of a
+
+          Logic Circuit                               Obtaining another equation for Cout of a
           ;d¾lsl mßm:h                                full adder.
                                                       mQ¾K wl,hl Cout i|yd ;j;a iólrKhla
                                                       ,nd .ekSu'
-
 
                                                       First, let’s get the truth table for Cout
                                                       m,uqfjka Cout ioyd i;H;d j.=j ,nd .ksuq
@@ -2955,20 +2614,15 @@ ictfromabc.com
                                                       kuq;a fuys§ th idudkH l%uhg jvd fjkia
                                                       wdldrhlg isÿ flfra'
 
-
-
-
                                                       When grouping this Kmap, it should be
                                                       done as follows.
                                                       fuu ldfkd is;shu ldKav lsÍfïo th my;
                                                       wdldrhg isÿ l< hq;=h'
 
-
-
-
                                                  59
 ictfromabc.com
-          The next step is to obtain the simplified        Implementing a full adder using half
+
+          The next step is to obtain the simplified        Implementing a full adder using half
           expression using the grouped Kmap.               adders.
           ó<Õ mshjr jkafka ldKav.; ldfkd is;shu            w¾O wdl,l Ndú;fhka mQ¾K wl,hla
           Ndú;fhka ir, l< m%ldYkh ,nd .ekSuhs'             l%shd;aul lsÍu'
@@ -2998,12 +2652,10 @@ ictfromabc.com
                                                            wmg w¾O wdl,l folla iy OR oajdrhla
                                                            mQ¾K wdl,lhla l%shd;aul lsÍug wjYH fõ'
 
-
-
-
                                                       60
 ictfromabc.com
-          8-bit adder block diagram                            8-bit adder circuit diagram
+
+          8-bit adder block diagram                            8-bit adder circuit diagram
 
           Each full adder takes two input bits (A and
           B) and a carry-in bit from the previous
@@ -3020,22 +2672,14 @@ ictfromabc.com
           fY%a‚fha m<uq wdl,lh th /f.k hdula
           fkdue;s ksid w¾O wdl,lh fõ
 
-
-
-
           v
-
-
-
 
               B5
 
-
-
-
                                                           61
 ictfromabc.com
-          The circuit diagram of an 8-bit adder shows        The diagram below represents a typical
+
+          The circuit diagram of an 8-bit adder shows        The diagram below represents a typical
           the detailed connections of the eight full         layout for an 8-bit adder.
           adders.                                            my; rEm igyk 8-bit adder i|yd idudkH
           8-bit adder tll mßm: igyk mQ¾K                     msßie,iqula ksfhdackh lrhs'
@@ -3050,16 +2694,12 @@ ictfromabc.com
           j,ska iukaú; fõ'                                   .ekSu i|yd w;HjYH jk w;r mß.Klj,
                                                              wxl .‚; tAll ie,iqï lsÍfï§ uQ,sl fõ'
 
-
-
           Some other 8-bit adder circuit diagrams
-
-
-
 
                                                         62
 ictfromabc.com
-          Storing bits in digital circuits                   Sequential Circuits
+
+          Storing bits in digital circuits                   Sequential Circuits
           äðg,a mßm:j, ìgq .nvd lsÍu                         wkql%ñl mßm:
 
           Combinational Circuits                             Sequential circuits, on the other hand, are
@@ -3086,7 +2726,6 @@ ictfromabc.com
           o;a; ud¾..; lsÍu iy ;d¾lsl fufyhqï
           jeks úfYaIs; fufyhqï isÿ lrhs'
 
-
            Feature                Combinational Circuits                Sequential Circuits
                                   ixhqla; mßm:                          wkql%ñl mßm:
 
@@ -3103,12 +2742,10 @@ ictfromabc.com
            Clock Signal           Not required                          Required
            >áld ix{dj             wjYH fkdfõ                            wjYHhs
 
-
-
-
                                                         63
 ictfromabc.com
-          Feedback loops
+
+          Feedback loops
           m%;sfmdaIK Æm
 
           A feedback loop is a process where a logic
@@ -3136,16 +2773,10 @@ ictfromabc.com
           A iy B f,iska wdodk folla iys; OR
           oajdrhla ilid we;ehs is;uq'
 
-
-
-
           When the thief triggers one of the inputs,
           the alarm turns on.
           fidrd úiska tla wdodkhla l%shd;aul l< úg"
           wk;=re weÕùu l%shd;aul fõ'
-
-
-
 
           The problem here is, when the thief turns
           off the trigger, the alarm also turns off.           But if we wanted to stop the alarm at one
@@ -3155,11 +2786,9 @@ ictfromabc.com
           l%shd úrys; ùuhs'
                                                                lsisÿ úl,amhla fkdue;'
 
-
-
-
 ictfromabc.com                                            64
-          Flip Flops                                            Instance 1 (Set)
+
+          Flip Flops                                            Instance 1 (Set)
           ms<s fmd<                                             When you turn the Set input to 1 OR gate will
                                                                 output 1
           Flip-flops are sequential circuits built using        Tn Set wdodkh 1 g yrjk úg OR oajdrh 1
@@ -3216,15 +2845,13 @@ ictfromabc.com                                            64
                                                                 This is also another memory state
                                                                 fuho ;j;a u;l ;;a;ajhls
 
-
-
-
 ictfromabc.com                                             65
-          Universal Flip Flops                                SR-Latch using NOR gates
+
+          Universal Flip Flops                                SR-Latch using NOR gates
 
           As manufacturers can’t make specific
           circuits for each and every situation they
-                                                                                          ̅
+
                                                                                           Q
                                                                 SET
           make use of the idea of universal circuits.
@@ -3267,11 +2894,9 @@ ictfromabc.com                                             65
           idrj;a;% oajdr Ndú;d lrk úg fuh
           myiqfjka idlaId;a lr.; yelsh'
 
-
-
-
 ictfromabc.com                                           66
-          4 States of a NOR SR-Latch                             Instance 2 (Thief Breaks-In)
+
+          4 States of a NOR SR-Latch                             Instance 2 (Thief Breaks-In)
           There are 4 main stages here, lets analyse
           them using the anti-theft alarm concept.               Now the thief opens the car door. Assume
           fuys m%Odk wÈhr 4la we;" anti-theft alarm              that there is a door sensor as the SET input
@@ -3332,11 +2957,9 @@ ictfromabc.com                                           66
                                                                  Q m%;sodkh oeka 1 jk neúka fuh wk;=re
                                                                  weÕùu wdrïN lrhs
 
-
-
-
 ictfromabc.com                                              67
-          Instance 3 (Thief panics)                          Instance 4 (Thief Busted)
+
+          Instance 3 (Thief panics)                          Instance 4 (Thief Busted)
 
           Thief will now try to turn off the alarm by        Now we come in, deal with the thief and
           closing the door back but will not be              turn off the alarm using the car key, here
@@ -3370,31 +2993,24 @@ ictfromabc.com                                              67
           t,dï tl l%shd úrys; fkdfõ'                               oeka wdodk folu 0 jk neúka Q ̅ m%;sodkh
                                                                    1 fj; yefrkq we;
 
-
                                                                              0                   ̅
                                                                  SET                             Q
                                                                                                      1 0
                                                                        0 1
-
-
-
 
                                                                         0                        Q
                                                                                                      0 1
                                                              RESET
                                                                         1 0
 
-
                                                              The alarm will turn off as the Q output is
                                                              now 0.
                                                              Q m%;sodkh 0 jk neúka wk;=re weÕùu l%shd
                                                              úrys; fõ
 
-
-
-
 ictfromabc.com                                          68
-          4 States of a NAND SR-Latch                            Instance 2
+
+          4 States of a NAND SR-Latch                            Instance 2
           NAND SR mßm:hl wjia:d ^4&
                                                                  Now the SET input is turned to 0.
           Here the functioning is completely the                 oeka SET wdodkh 0 fj; yeÍ we;'
@@ -3410,7 +3026,7 @@ ictfromabc.com                                          68
              ICN             A         B              F              f,i m%;sfmdaIKh lrkq ,efí'
 
                  1           0         0              1          •   When both inputs are 1 the output Q
-                                                                                                       ̅
+
                  2           0         1              1              will turn to 0
                                                                                         ̅ m%;sodkh 0 fj;
                                                                      wdodk folu 1 jk úg Q
@@ -3430,14 +3046,10 @@ ictfromabc.com                                          68
           wdrïNl ;;ajfha§ wdodk folu 1 f,i                           RESET
           ilid we;s w;r Q m%;sodkh 0 fj; yefra                                1
 
-
                          1
              SET                              Q
                                                   0
                      1
-
-
-
 
                      0                        ̅
                                               Q
@@ -3445,11 +3057,9 @@ ictfromabc.com                                          68
            RESET
                      1
 
-
-
-
 ictfromabc.com                                              69
-          Instance 3                                         Truth Table for a NOR SR-Latch
+
+          Instance 3                                         Truth Table for a NOR SR-Latch
 
           When the laser beam disconnects for a                S     R     Q    ̅
                                                                                 Q    Description
@@ -3497,14 +3107,10 @@ ictfromabc.com                                              69
           oeka t,dï tl l%shd úrys; lsÍu i|yd RESET
           wdodkh 0 fj; yrjkq ,nhs'
 
-
                     1
              SET                             Q
                                                  1 0
                     10
-
-
-
 
                  0 1                         ̅
                                              Q
@@ -3512,28 +3118,18 @@ ictfromabc.com                                              69
             RESET
                    0 1
 
-
-
-
 ictfromabc.com                                          70
-          Data Latch using basic logic gates
 
-
-
+          Data Latch using basic logic gates
 
           Data Latch using NAND gates
 
-
-
-
           A Collection of Data Latches
-
-
-
 
                                                71
 ictfromabc.com
-          What are Integrated Circuits (ICs)?                  4000 Series ICs (CMOS Logic Family)
+
+          What are Integrated Circuits (ICs)?                  4000 Series ICs (CMOS Logic Family)
           ix.Dys; mßm: (ICs) hkq l=ulao@
                                                                The 4000 series ICs are based on CMOS
                                                                (Complementary             Metal-Oxide-
@@ -3584,12 +3180,10 @@ ictfromabc.com
           bf,lafg%dksl l¾udka;fha úma,ùh fjkila
           isÿ lr we;'
 
-
-
-
                                                           72
 ictfromabc.com
-          7400 Series ICs (TTL Logic Family)                  However, this speed comes at the cost of
+
+          7400 Series ICs (TTL Logic Family)                  However, this speed comes at the cost of
                                                               higher power consumption and lower noise
           The 7400 series ICs utilize TTL (Transistor-        immunity compared to CMOS ICs.
           Transistor Logic) technology and are                flfia fj;;a" fuu fõ.h CMOS IC j,g
@@ -3609,22 +3203,15 @@ ictfromabc.com
           muKla jk wvq m%pdrK m%udohka olajhs" tAjd
           wêfõ.S äðg,a mßm: i|yd iqÿiq fõ'
 
-
-
-
                                                          73
 ictfromabc.com
-          4000 Series ICs (CMOS Logic Family)
 
-
-
+          4000 Series ICs (CMOS Logic Family)
 
 ictfromabc.com                                  74
-          7400 Series ICs (TTL Logic Family)
 
-
-
+          7400 Series ICs (TTL Logic Family)
 
 ictfromabc.com                                 75
-ictfromabc.com   76
-
+
+ictfromabc.com   76

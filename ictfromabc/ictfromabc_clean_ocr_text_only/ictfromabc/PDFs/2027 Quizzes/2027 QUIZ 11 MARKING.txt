@@ -1,0 +1,677 @@
+1. Which of the following best describes the difference between SaaS and PaaS?
+SaaS සහ PaaS අතර වෙනස පහත සඳහන් ඒවායින් වඩාත් හොඳින් විස්තර කරන්නේ කුමක්ද?
+
+1) SaaS provides virtual machines while PaaS provides storage services.
+SaaS අථත්‍ය යන්ත්‍ර සපයන අතර PaaS ගබඩා සේවා සපයයි.
+
+2) SaaS allows users to develop applications, whereas PaaS only allows application access.
+SaaS පරිශීලකයින්ට යෙදුම් සංවර්ධනය කිරීමට ඉඩ දෙන අතර PaaS යෙදුම් ප්‍රවේශය පමණක් ඉඩ දෙයි.
+
+3) SaaS delivers fully functional applications to end-users, while PaaS offers tools and platforms for
+developers to build and deploy applications.
+SaaS අවසාන පරිශීලකයින්ට පූර්ණ ක්‍රියාකාරී යෙදුම් ලබා දෙන අතර PaaS යෙදුම් ගොඩනැගීමට සහ
+යෙදවීමට සංවර්ධකයින් සඳහා මෙවලම් සහ වේදිකා ලබා දෙයි.
+
+4) SaaS is a type of private cloud, and PaaS is a type of public cloud.
+SaaS යනු පුද්ගලික වලාකුළු වර්ගයක් වන අතර PaaS යනු පොදු වලාකුළු වර්ගයකි.
+
+5) SaaS gives network-level control, while PaaS provides physical hardware access.
+SaaS ජාල මට්ටමේ පාලනයක් ලබා දෙන අතර PaaS භෞතික දෘඩාංග ප්‍රවේශය සපයයි.
+
+Answer : 3 )
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Incorrect – This option mixes up the services. Virtual machines are more aligned with IaaS (Infrastructure
+as a Service), not SaaS. Storage services may be part of PaaS, but that’s not its main purpose. This answer
+confuses the primary functions of each service model.
+වැරදියි – මෙම විකල්පය සේවාවන් මිශ්‍ර කරයි. අථත්‍ය යන්ත්‍ර SaaS සමඟ නොව (IaaS සේවාවක් ලෙස යටිතල
+පහසුකම්) සමඟ වඩාත් පෙළගස්වා ඇත. ගබඩා සේවා PaaS හි කොටසක් විය හැකි නමුත් එය එහි ප්‍රධාන
+අරමුණ නොවේ. මෙම පිළිතුර එක් එක් සේවා ආකෘතියේ ප්‍රාථමික කාර්යයන් ව්‍යාකූල කරයි.
+
+Option / විකල්පය 2)
+Incorrect – This is the reverse of what happens. PaaS is the one designed for application development,
+while SaaS offers ready-to-use applications. This statement misrepresents the core roles of both services.
+වැරදියි – මෙය ඇත්ත වශයෙන්ම සිදුවන දෙයෙහි ප්‍රතිවිරුද්ධයයි. PaaS යනු යෙදුම් සංවර්ධනය සඳහා
+නිර්මාණය කර ඇති අතර SaaS භාවිතයට සූදානම් යෙදුම් පිරිනමයි. මෙම ප්‍රකාශය සේවා දෙකෙහිම මූලික
+භූමිකාවන් වැරදි ලෙස නිරූපණය කරයි.
+
+Option / විකල්පය 3)
+Correct – This is the best answer. SaaS examples include Gmail and Google Docs, where the user gets a
+finished product. PaaS, like Google App Engine or Heroku, provides an environment for developers to
+write and deploy code without managing infrastructure.
+නිවැරදියි – මෙය හොඳම පිළිතුරයි. SaaS උදාහරණ අතර Gmail සහ Google Docs ඇතුළත් වේ, එහිදී
+පරිශීලකයාට නිමි භාණ්ඩයක් ලැබේ. Google App Engine හෝ Heroku වැනි PaaS සංවර්ධකයින්ට යටිතල
+පහසුකම් කළමනාකරණය නොකර කේත ලිවීමට සහ යෙදවීමට පරිසරයක් සපයයි.
+
+2027 QUIZ SERIES
+2027 QUIZ NO 11 MARKING
+2025/09/08
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Option / විකල්පය 4)
+Incorrect – Both SaaS and PaaS can be deployed in private, public, or hybrid clouds. They are not
+inherently limited to one type of cloud deployment model. This statement incorrectly defines them based
+on deployment method rather than service type.
+වැරදියි – SaaS සහ PaaS දෙකම පුද්ගලික, පොදු හෝ දෙමුහුන් වලාකුළු වල යෙදවිය හැක. ඒවා එක්
+වර්ගයක වලාකුළු යෙදවීමේ ආකෘතියකට ආවේණිකව සීමා නොවේ. මෙම ප්‍රකාශය සේවා වර්ගයට වඩා
+යෙදවීමේ ක්‍රමය මත පදනම්ව ඒවා වැරදි ලෙස අර්ථ දක්වයි.
+
+Option / විකල්පය 5)
+Incorrect – SaaS does not give network-level control; it hides infrastructure from the user. Similarly, PaaS
+abstracts physical hardware; it does not give direct hardware access. This option confuses the capabilities
+and abstraction levels of both models.
+වැරදියි – SaaS ජාල මට්ටමේ පාලනයක් ලබා නොදෙයි එය පරිශීලකයාගෙන් යටිතල පහසුකම් සඟවයි. ඒ හා
+සමානව, PaaS භෞතික දෘඩාංග සාරාංශ කරයි එය සෘජු දෘඩාංග ප්‍රවේශය ලබා නොදේ. මෙම විකල්පය
+ආකෘති දෙකෙහිම හැකියාවන් සහ වියුක්ත මට්ටම් ව්‍යාකූල කරයි.
+
+The final answer is option 3.
+අවසාන පිළිතුර වන්නේ විකල්පය 3 ය.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+2. What is the primary function of an NPU?
+NPU එකක මූලික කාර්යය කුමක් ද?
+
+1) Regulating the power supply to the CPU.
+CPU වෙත බල සැපයුම නියාමනය කිරීම.
+
+2) Storing and retrieving data from the hard disk.
+දෘඪ තැටියේ දත්ත ගබඩා කිරීම සහ නැවත ලබා ගැනීම.
+
+3) Accelerating neural network computations.
+ස්නායු ජාල ගණනය කිරීම් වේගවත් කිරීම.
+
+4) Managing network protocols and data transfer.
+ජාල නියමාවලි සහ දත්ත හුවමාරුව කළමනාකරණය කිරීම.
+
+5) Providing graphical output to the display monitor.
+දර්ශන මොනිටරයට චිත්‍රක ප්‍රතිදානය සැපයීම.
+
+Answer : 3 )
+
+Let's explain the statements in the above question.
+ඉහත ප්‍රශ්නයේ ඇති ප්‍රකාශ මෙසේ පැහැදිලි කරමු.
+
+Statement / ප්‍රකාශය 1)
+The power supply regulation to the CPU is managed by power management units, not NPUs. Therefore,
+this function is not performed by NPUs.
+CPU වෙත බල සැපයුම් නියාමනය කළමනාකරණය කරනු ලබන්නේ බල කළමනාකරණ ඒකක මගින් මිස NPU
+වලින් නොවේ. එබැවින්, මෙම කාර්යය NPU මගින් සිදු නොකෙරේ.
+
+Statement / ප්‍රකාශය 2)
+Storage and retrieval of data from the hard disk are handled by the storage controller, not by NPUs. Thus,
+this is not the role of an NPU.
+දෘඪ තැටියෙන් දත්ත ගබඩා කිරීම සහ ලබා ගැනීම NPU මගින් නොව ගබඩා පාලකය විසින් හසුරුවනු
+ලැබේ. මේ අනුව, මෙය NPU එකක කාර්යභාරය නොවේ.
+
+Statement / ප්‍රකාශය 3)
+NPUs are designed to accelerate computations for neural networks, specifically in AI and machine learning
+tasks. This is their primary function, making this option correct.
+NPUs නිර්මාණය කර ඇත්තේ ස්නායුක ජාල සඳහා, විශේෂයෙන් AI සහ යන්ත්‍ර ඉගෙනුම් කාර්යයන් සඳහා
+ගණනය කිරීම් වේගවත් කිරීමටය.මෙය ඔවුන්ගේ මූලික කාර්යය වන අතර,මෙම විකල්පය නිවැරදි කරයි.
+
+Statement / ප්‍රකාශය 4)
+Management of network protocols and data transfer is typically handled by network interface cards (NICs)
+or network controllers, not NPUs.
+ජාල ප්‍රොටෝකෝල කළමනාකරණය සහ දත්ත හුවමාරුව සාමාන්‍යයෙන් හසුරුවන්නේ ජාල අතුරුමුහුණත්
+කාඩ්පත් NIC හෝ ජාල පාලකයන් මිස NPU නොවේ.
+
+Statement / ප්‍රකාශය 5)
+The task of providing graphical output to the display monitor is managed by the GPU (Graphics Processing
+Unit), not the NPU.
+දර්ශන මොනිටරයට චිත්‍රක ප්‍රතිදානය සැපයීමේ කාර්යය කළමනාකරණය කරනු ලබන්නේ (Graphics Processing
+Unit) විසින් මිස NPU නොවේ.
+
+Therefore, the correct answer is option 3).
+එබැවින්, නිවැරදි පිළිතුර විකල්පය 3) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+3. What was the first commercially available microprocessor?
+වාණිජමය වශයෙන් ලබා ගත හැකි ප්‍රථම ක්ෂුද්‍ර සකසනය වනුයේ කුමක්ද?
+
+Answer : 1 )
+
+The Intel 4004 was the world's first commercially available microprocessor, released by Intel in November
+1971.
+Intel 4004 යනු 1971 නොවැම්බර් මාසයේදී ෂබඑැක විසින් නිකුත් කරන ලද ලොව ප්‍රථම වාණිජමය වශයෙන්
+ලබා ගත හැකි මයික්‍රොප්‍රොසෙසරයයි.
+
+The 4004 was developed by Intel engineers Federico Faggin, Ted Hoff, and Stanley Mazor. It was
+originally designed for a Japanese calculator manufacturer, Busicom.
+4004 Intel ඉංජිනේරුවන් වන Federico Faggin Ted Hoff සහ Stanley Mazor විසින් වැඩි දියුණු කරන ලදී.
+එය මුලින් නිර්මාණය කර ඇත්තේ ජපන් කැල්කියුලේටර නිෂ්පාදකයෙකු වන Busicom සඳහා ය.
+
+The Intel 4004 was a 4-bit microprocessor. It could process data in 4-bit chunks and had a clock speed of
+740 kHz.
+Intel 4004 යනු 4-bit microprocessor එකක් විය. එය 4-bit කුට්ටි වලින් දත්ත සැකසිය හැකි අතර 740
+kHz ඔරලෝසු වේගයක් තිබුණි.
+
+It featured an instruction set containing 46 instructions, a 4-bit data bus, and a 12-bit address bus, which
+allowed it to address up to 4 KB of memory.
+එහි උපදෙස් 46 ක්, 4-bit දත්ත බසයක් සහ 12-bit ලිපින බසයක් අඩංගු උපදෙස් මාලාවක් ඇතුළත් වූ අතර
+එමඟින් 4 KB මතකය දක්වා ආමන්ත්‍රණය කිරීමට හැකි විය.
+
+Intel 8080:
+Released in 1974, it was an 8-bit microprocessor used in early computers such as the Altair 8800.
+1974 දී නිකුත් කරන ලද, එය Altair 8800 වැනි මුල් පරිගණකවල භාවිතා කරන ලද 8-bit
+මයික්‍රොප්‍රොසෙසරයකි.
+
+Intel 1080:
+There was no Intel 1080 microprocessor.
+Intel 1080 මයික්‍රොප්‍රොසෙසරයක් නොතිබුණි.
+
+AMD Am2900:
+Released in the mid-1970s, this was a family of 4-bit bit-slice processors.
+1970 ගණන්වල මැද භාගයේදී නිකුත් කරන ලද මෙය 4-bit bit-slice ප්‍රොසෙසර පවුලකි.
+
+AMD Am386:
+Released in 1991, this was a 32-bit microprocessor compatible with Intel's 80386 processor.
+1991 දී නිකුත් කරන ලද මෙය Intel හි 80386 ප්‍රොසෙසරයට අනුකූල වන 32-bit microprocessor එකක්
+විය.
+
+Therefore, the Intel 4004 holds the distinction of being the first commercially available microprocessor.
+එබැවින්, Intel 4004 වාණිජමය වශයෙන් ලබා ගත හැකි ප්‍රථම මයික්‍රොප්‍රොසෙසරය යන විශිෂ්ඨත්වය දරයි.
+
+So, the correct answer number is 1).
+එබැවින්, නිවැරදි පිළිතුරු අංකය 1) වේ.
+
+1) Intel 4004
+2) Intel 8080
+3) Intel 1080
+4) AMD Am2900
+5) AMD Am386
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+4. Which key advantage is generally offered by laser printers compared to inkjet printers?
+තීන්ත විදුම් මුද්‍රණ යන්ත්‍ර හා සසඳන විට, ලේසර් මුද්‍රණ යන්ත්‍ර සාමාන්‍යයෙන් ලබා දෙන ප්‍රධාන වාසිය කුමක්ද?
+
+1) Lower cost per printed page due to more efficient toner usage.
+වඩා කාර්යක්ෂම ටෝනර් භාවිතය හේතුවෙන් මුද්‍රිත පිටුවකට අඩු පිරිවැය.
+
+2) Superior image quality for photographs and detailed graphics.
+ඡායාරූප සහ සවිස්තරාත්මක ග්‍රැෆික්ස් සඳහා උසස් රූපයේ ගුණාත්මකභාවය.
+
+3) Good for the health of humans.
+මිනිස්න්ගේ ශරීර සෞඛ්‍යයට හිතකරයි.
+
+4) Enhanced portability and suitability for smaller workspaces.
+කුඩා වැඩබිම් සඳහා වැඩි දියුණු කළ අතේ ගෙන යා හැකි සහ යෝග්‍යතාවය.
+
+5) Greater versatility in handling different types of printing media.
+විවිධ වර්ගයේ මුද්‍රණ මාධ්‍ය හැසිරවීමේ වැඩි බහුකාර්යතාව.
+
+Answer : 1 )
+
+Let's explain the statements in the above question.
+ඉහත ප්‍රශ්නයේ ඇති ප්‍රකාශ මෙසේ පැහැදිලි කරමු.
+
+1) Lower cost per printed page due to more efficient toner usage.
+වඩා කාර්යක්ෂම ටෝනර් භාවිතය හේතුවෙන් මුද්‍රිත පිටුවකට අඩු පිරිවැය.
+Laser printers use toner, which is typically more efficient and cost-effective over time compared to
+the ink used in inkjet printers. Toner cartridges last longer and produce more pages, leading to a lower
+cost per printed page.
+ලේසර් මුද්‍රණ යන්ත්‍ර ටෝනර් භාවිතා කරයි, එය සාමාන්‍යයෙන් වඩා කාර්යක්ෂම සහ කාලයත් සමඟ ලාභදායී
+වන අතර එය තීන්ත විදුම් මුද්‍රණ යන්ත්‍රවල භාවිතා කරන තීන්තවලට සාපේක්ෂව වේ. ටෝනර් කාට්රිජ්
+දිගු කල් පවතින අතර වැඩි පිටු නිෂ්පාදනය කරයි, මුද්‍රිත පිටුවකට අඩු පිරිවැයක් ඇති කරයි.
+
+2) Superior image quality for photographs and detailed graphics.
+ඡායාරූප සහ සවිස්තරාත්මක ග්‍රැෆික්ස් සඳහා උසස් රූපයේ ගුණාත්මකභාවය.
+Inkjet printers generally offer superior image quality for photographs and detailed graphics due to
+their ability to blend colours more effectively.
+තීන්ත විදුම් මුද්‍රණ යන්ත්‍ර සාමාන්‍යයෙන් ඡායාරූප සහ සවිස්තරාත්මක graphics සඳහා උසස් රූප ගුණාත්මක
+භාවයක් ලබා දෙන්නේ ඒවායේ වර්ණ වඩාත් ඵලදායී ලෙස මිශ්‍ර කිරීමේ හැකියාව හේතුවෙනි.
+
+3) Good for the health of humans.
+මිනිස්න්ගේ ශරීර සෞඛ්‍යයට හිතකරයි.
+Both laser and inkjet printers are safe for use by humans when used correctly. This is not a
+distinguishing advantage of laser printers.
+නිවැරදිව භාවිතා කරන විට ලේසර් සහ තීන්ත විදුම් මුද්‍රණ යන්ත්‍ර දෙකම මිනිසුන්ට භාවිතා කිරීමට
+ආරක්ෂිත වේ. මෙය ලේසර් මුද්‍රණ යන්ත්‍රවල සුවිශේෂී වාසියක් නොවේ.
+
+4) Enhanced portability and suitability for smaller workspaces.
+කුඩා වැඩබිම් සඳහා වැඩි දියුණු කළ අතේ ගෙන යා හැකි සහ යෝග්‍යතාවය.
+Inkjet printers are typically more compact and portable than laser printers, making them more suitable
+for smaller workspaces.
+තීන්ත විදුම් මුද්‍රණ යන්ත්‍ර සාමාන්‍යයෙන් ලේසර් මුද්‍රණ යන්ත්‍රවලට වඩා සංයුක්ත සහ අතේ ගෙන යා හැකි
+බැවින් ඒවා කුඩා වැඩබිම් සඳහා වඩාත් සුදුසු වේ.
+
+5) Greater versatility in handling different types of printing media.
+විවිධ වර්ගයේ මුද්‍රණ මාධ්‍ය හැසිරවීමේ වැඩි බහුකාර්යතාව.
+Inkjet printers are generally more versatile in handling various types of printing media, including
+glossy photo paper and other specialty papers.
+තීන්ත විදුම් මුද්‍රණ යන්ත්‍ර සාමාන්‍යයෙන් දිලිසෙන ඡායාරූප කඩදාසි සහ වෙනත් විශේෂිත පත්‍රිකා ඇතුළුව
+විවිධ වර්ගයේ මුද්‍රණ මාධ්‍ය හැසිරවීමේදී වඩාත් බහුකාර්ය වේ.
+
+So, the correct answer is 1).
+ඒ අනුව, නිවැරදි පිළිතුර වන්නේ 1) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+5. What is the purpose of the spindle motor in a hard disk?
+දෘඪ තැටියක ඇති ස්පින්ඩල් මෝටරයේ අරමුණ කුමක්ද?
+
+1) Controls the movement of the actuator arm. / actuator arm හි චලනය පාලනය කරයි.
+2) Regulates the rotation speed of the platters. / තැටිවල භ්‍රමණ වේගය නියාමනය කරයි.
+3) Stores frequently accessed data. / නිතර ප්‍රවේශ වූ දත්ත ගබඩා කරයි.
+4) Converts digital data into magnetic patterns. / අංකිත දත්ත චුම්බක රටා බවට පරිවර්තනය කරයි.
+5) Controls the cache memory operations. / වාරක මතක මෙහෙයුම් පාලනය කරයි.
+
+Answer : 2 )
+
+Statement 1 (1 වන ප්‍රකාශය)
+This is the function of the actuator motor, not the spindle motor. The actuator arm positions the read/write
+head over the correct track on the platter.
+මෙය ක්‍රියාකාරක මෝටරයේ ක්‍රියාකාරිත්වය මිස ස්පින්ඩල් මෝටරයේ නොවේ. ක්‍රියාකාරී හස්තය තැටියේ නිවැරදි
+ධාවන පථය මත කියවීමේ/ලිවීමේ හිස ස්ථානගත කරයි.
+
+Statement 2 (2 වන ප්‍රකාශය)
+The spindle motor is responsible for spinning the platters at a constant speed, which is crucial for the
+read/write heads to access data accurately. The speed at which the platters spin is measured in RPM
+(Revolutions Per Minute).
+ස්පින්ඩල් මෝටරය ස්ථාවර වේගයකින් ප්ලැටර් කරකැවීම සඳහා වගකිව යුතු අතර, දත්ත නිවැරදිව ප්‍රවේශ
+කිරීම සඳහා read/write heads සඳහා ඉතා වැදගත් වේ. තැටි කැරකෙන වේගය RPM වලින් මනිනු ලැබේ
+(විනාඩියකට වට).
+
+Statement 3 (3 වන ප්‍රකාශය)
+Storage of frequently accessed data is managed by the hard disk’s cache or by the data itself stored on the
+platters, not the spindle motor.
+නිතර ප්‍රවේශ වන දත්ත ගබඩා කිරීම කළමනාකරණය කරනු ලබන්නේ දෘඪ තැටියේ නිහිත හෝ තැටිවල
+ගබඩා කර ඇති දත්ත මගින් නොව ස්පින්ඩල් මෝටරය මගිනි.
+
+Statement 4 (4 වන ප්‍රකාශය)
+The read/write heads are responsible for converting digital data into magnetic patterns on the platters, not
+the spindle motor.
+සංඛ්‍යාංක දත්ත තැටිවල චුම්බක රටා බවට පරිවර්තනය කිරීම සඳහා කියවීමේ/ලිවීමේ හිස් වගකිව යුතු අතර,
+ස්පින්ඩල් මෝටරය වගකිව යුතු නොවේ.
+
+Statement 5 (5 වන ප්‍රකාශය)
+Cache memory operations are managed by the disk controller, not the spindle motor.
+නිහිත මතක මෙහෙයුම් කළමනාකරණය කරනු ලබන්නේ තැටි පාලකය මගින් නොව ස්පින්ඩල් මෝටරය මගිනි.
+
+Accordingly, the purpose of the spindle motor in a hard drive is to regulate the speed of rotation of the
+disks.
+ඒ අනුව දෘඩ තැටියක ඇති ස්පින්ඩල් මෝටරයේ අරමුණ වන්නේ තැටිවල භ්‍රමණ වේගය නියාමනය කරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+6. Which of the following components of a computer is responsible for managing and controlling the flow
+of data between the CPU, memory, and other peripherals, but is often overlooked in discussions about
+computer hardware?
+CPU එක, ප්‍රධාන මතකය සහ අනෙකුත් පර්යන්ත උපාංග අතර දත්ත ගලායාම කළමනාකරණය කිරීම සහ
+පාලනය කිරීම සඳහා වගකිව යුතු නමුත් බොහෝ විට පරිගණක දෘඪාංග පිළිබඳ සාකච්ඡාවලදී නොසලකා
+හරින්නේ පහත සඳහන් කුමන සංරචකයද?
+
+1) Motherboard / මවු පුවරුව
+2) Southbridge
+3) Power supply unit (PSU) / බල සැපයුම් ඒකකය (PSU)
+4) System Management Controller (SMC) / පද්ධති කළමනාකරණ පාලක (SMC)
+5) Expansion card / විස්තාරණ කාඩ්පත්
+
+Answer : 2 )
+
+The correct answer is 2).
+නිවැරදි පිළිතුර 2) වේ.
+
+The Southbridge is a crucial component in a computer's chipset architecture that manages and controls the
+flow of data between the CPU, memory, and other peripherals. It handles the input/output (I/O) functions,
+such as USB, audio, serial ports, and IDE (Integrated Drive Electronics) channels.
+Southbridge යනු පරිගණකයක චිප්සෙට් නිර්මිතයේ තීරණාත්මක අංගයක් වන අතර එය CPU, මතකය සහ
+අනෙකුත් පර්යන්ත අතර දත්ත ගලායාම කළමනාකරණය කරයි. එය USB, ශ්‍රව්‍ය, අනුක්‍රමික කෙවෙනි සහ
+IDE (Integrated Drive Electronics) නාලිකා වැනි ආදාන/ප්‍රතිදාන (I/O) කාර්යයන් හසුරුවයි.
+
+The Southbridge works alongside the Northbridge to provide a complete interface between the CPU and
+the rest of the computer. While the Northbridge handles high-speed communication with the CPU and
+RAM, the Southbridge is responsible for slower, yet essential, connections. Despite its importance, the
+Southbridge is often overlooked in discussions about computer hardware, with more focus typically given
+to the CPU, RAM, and storage.
+CPU සහ පරිගණකයේ ඉතිරි කොටස් අතර සම්පූර්ණ අතුරු මුහුණතක් සැපයීම සඳහා Southbridge,
+Northbridge සමඟ එක්ව ක්‍රියා කරයි. Northbridge, CPU සහ RAM සමඟ අධිවේගී සන්නිවේදනය හසුරුවන
+අතර, Southbridge මන්දගාමී, නමුත් අත්‍යවශ්‍ය සම්බන්ධතා සඳහා වගකිව යුතුය. එහි වැදගත්කම තිබියදීත්,
+පරිගණක දෘඩාංග පිළිබඳ සාකච්ඡාවලදී Southbridge බොහෝ විට නොසලකා හරිනු ලැබේ, සාමාන්‍යයෙන්
+CPU, RAM සහ ගබඩාව කෙරෙහි වැඩි අවධානයක් යොමු කෙරේ.
+
+Other Options / අනෙක් විකල්ප:
+
+1) Motherboard:
+The motherboard is the main circuit board of a computer that holds the CPU, memory, and other
+essential components. It provides the electrical connections that allow the various parts of the
+computer to communicate with each other. While the motherboard is essential for housing and
+connecting the components, it is not specifically responsible for managing and controlling data flow;
+this role is divided among various chipsets on the motherboard, including the Southbridge and
+Northbridge.
+මවු පුවරුව යනු CPU, මතකය සහ අනෙකුත් අත්‍යවශ්‍ය සංරචක රඳවා තබා ගන්නා පරිගණකයක ප්‍රධාන
+පරිපථ පුවරුවයි. එය පරිගණකයේ විවිධ කොටස් එකිනෙකා සමඟ සන්නිවේදනය කිරීමට ඉඩ සලසන
+විදුලි සම්බන්ධතා සපයයි. මවු පුවරුව ආවරණ සහ සංරචක සම්බන්ධ කිරීම සඳහා අත්‍යවශ්‍ය වන අතර,
+දත්ත ප්‍රවාහය කළමනාකරණය කිරීම සහ පාලනය කිරීම සඳහා එය විශේෂයෙන් වගකිව යුතු නොවේ.
+මෙම භූමිකාව සවුත්බ්‍රිජ් සහ නෝත්බ්‍රිජ් ඇතුළු මවු පුවරුවේ විවිධ චිප්සෙට් අතර බෙදී ඇත.
+
+3) Power Supply Unit (PSU):
+The PSU converts electricity from an outlet into usable power for the internal components of the
+computer. It supplies power to the motherboard, CPU, and other peripherals. While it is critical for
+providing the necessary power, it does not manage data flow between components.
+PSU විසින් විදුලිය පිටවන ස්ථානයක සිට පරිගණකයේ අභ්‍යන්තර සංරචක සඳහා භාවිතා කළ හැකි
+බලයක් බවට පරිවර්තනය කරයි. එය මවු පුවරුව, CPU, සහ අනෙකුත් පර්යන්ත උපාංග වෙත බලය
+සපයයි. අවශ්‍ය බලය සැපයීම සඳහා එය තීරනාත්මක වන අතර, එය සංරචක අතර දත්ත ප්‍රවාහය
+කළමනාකරණය නොකරයි.
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+4) System Management Controller (SMC):
+The SMC is a component found in Apple computers that controls power management, battery
+charging, video mode switching, sleep and wake, and other system functions. It plays a role in
+managing system behavior but is not responsible for the overall data flow between the CPU, memory,
+and peripherals in the same way that the Southbridge is.
+SMC යනු බල කළමනාකරණය, බැටරි ආරෝපණය, වීඩියෝ මාදිලි මාරු කිරීම, ක්‍රියාවිරහිත වීම සහ
+ක්‍රියාආරම්භ වීම සහ අනෙකුත් පද්ධති ක්‍රියාකාරකම් පාලනය කරන Apple පරිගණකවල ඇති සංරචකයකි.
+එය පද්ධති හැසිරීම් කළමනාකරණය කිරීමේ කාර්යභාරයක් ඉටු කරන නමුත් සවුත්බ්‍රිජ් මෙන් CPU, මතකය
+සහ පර්යන්ත අතර සමස්ත දත්ත ප්‍රවාහයට වගකිව යුතු නොවේ.
+
+5) Expansion Card:
+Expansion cards are additional hardware components that can be added to a computer to enhance its
+capabilities, such as graphics cards, sound cards, and network cards. They interface with the
+motherboard to provide additional functionality but do not control the primary data flow between the
+CPU, memory, and other peripherals.
+විස්තාරණ කාඩ්පත් යනු ග්‍රැෆික් කාඩ්පත්, ශබ්ද කාඩ්පත් සහ ජාල කාඩ්පත් වැනි එහි හැකියාවන් වැඩිදියුණු
+කිරීම සඳහා පරිගණකයකට එක් කළ හැකි අතිරේක දෘඪාංග සංරචක වේ. අමතර ක්‍රියාකාරීත්වය සැපයීම
+සඳහා ඒවා මවු පුවරුව සමඟ අතුරු මුහුණත් කරන නමුත් CPU, මතකය සහ අනෙකුත් පර්යන්ත අතර
+ප්‍රාථමික දත්ත ප්‍රවාහය පාලනය නොකරයි.
+
+7. What is the primary purpose of consistency checks in data validation?
+දත්ත වලංගුකරණයේදී අනුකූලතා පරීක්ෂා කිරීමේ මූලික අරමුණ කුමක් ද?
+
+1) Ensure data falls within a specified range.
+දත්ත නිශ්චිත පරාසයක් තුළට වැටෙන බව සහතික කිරීම.
+
+2) Verify that data is correctly formatted.
+දත්ත නිවැරදිව හැඩගස්වා ඇති බව තහවුරු කර ගැනීම.
+
+3) Maintain data integrity and coherence.
+දත්ත අඛණ්ඩතාව සහ සුසංයෝගය පවත්වා ගැනීම.
+
+4) Encrypt sensitive data.
+සංවේදී දත්ත කේතනය කිරීම.
+
+5) Detect data redundancy.
+දත්ත අතිරික්තය හඳුනා ගැනීම.
+
+Answer : 3)
+
+Statement 1 (1 වන ප්‍රකාශය)
+Range checks are designed to ensure that data values fall within a predefined range. For example, an age
+field might be constrained to accept values only between 0 and 120. While this is important for data
+validation, it is not specifically about maintaining logical coherence or relationships within the data, which
+is the primary purpose of consistency checks.
+පරාස පරීක්ෂාව සැලසුම් කර ඇත්තේ දත්ත අගයන් පූර්ව නිශ්චිත පරාසයක් තුළට අඩංගු බව සහතික කිරීම
+සඳහා ය. උදාහරණයක් ලෙස,වයස් ක්ෂේත්‍රයක් 0 සහ 120 අතර අගයන් ලබාගැනීමට සීමා විය හැක. දත්ත
+වලංගු කිරීම සඳහා මෙය වැදගත් වන අතර, එය තාර්කික සහසම්බන්ධතාවය හෝ දත්ත තුළ සම්බන්ධතා
+පවත්වා ගැනීම ගැන නොවේ, එය අනුකූලතා පරීක්ෂා කිරීමේ මූලික අරමුණ වේ.
+
+Statement 2 (2 වන ප්‍රකාශය)
+Format checks ensure that data is in the correct format, such as verifying that a phone number follows a
+specific pattern (e.g., (XXX) XXX-XXXX). This helps in ensuring data adheres to a standard format but
+does not check the logical relationships or consistency between different pieces of data.
+දුරකථන අංකයක් නිශ්චිත රටාවක් (උදා: (XXX) XXX-XXXX). අනුගමනය කරන බව තහවුරු කිරීම වැනි
+දත්ත නිවැරදි ආකෘතියේ ඇති බව ආකෘති පරීක්ෂාවන් සහතික කරයි. මෙය දත්ත සම්මත ආකෘතියකට
+අනුගත වීම සහතික කිරීමට උපකාරී වන නමුත් විවිධ දත්ත කොටස් අතර තාර්කික සම්බන්ධතා හෝ
+අනුකූලතාව පරීක්ෂා නොකරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Statement 3 (3 වන ප්‍රකාශය)
+Consistency checks are performed to ensure that the data is logically coherent and consistent across the
+database. This involves making sure that data relationships, rules, and constraints are upheld, which helps
+in maintaining the integrity and coherence of the data.
+දත්ත සමුදාය පුරා තාර්කිකව සහසම්බන්ධ සහ ස්ථාවර බව සහතික කිරීම සඳහා අනුකූලතා පරීක්ෂාවන් සිදු
+කරනු ලැබේ. දත්තවල අඛණ්ඩතාව සහ සුසංයෝගය පවත්වා ගැනීමට උපකාර වන දත්ත සම්බන්ධතා, නීති
+රීති සහ සීමා කිරීම් තහවුරු කර ඇති බවට වග බලා ගැනීම මෙයට ඇතුළත් වේ.
+
+Statement 4 (4 වන ප්‍රකාශය)
+Encryption is the process of converting data into a coded form to prevent unauthorized access. This is a
+security measure to protect data privacy and confidentiality. While encryption is crucial for protecting
+sensitive information, it does’nt relate to checking data for logical consistency or coherence within a
+database. / සංකේතනය යනු අනවසර ප්‍රවේශය වැලැක්වීම සඳහා දත්ත සංකේතාත්මක ආකෘතියක් බවට
+පරිවර්තනය කිරීමේ ක්‍රියාවලියයි. මෙය දත්ත රහස්‍යභාවය සහ රහස්‍යභාවය ආරක්ෂා කිරීම සඳහා වන
+ආරක්ෂක පියවරකි. සංවේදී තොරතුරු ආරක්ෂා කිරීම සඳහා සංකේතනය ඉතා වැදගත් වන අතර, එය දත්ත
+සමුදායක් තුළ තාර්කික අනුකූලතාවක් හෝ සහසම්බන්ධතාවයක් සඳහා දත්ත පරීක්ෂා කිරීමට අදාළ නොවේ.
+
+Statement 5 (5 වන ප්‍රකාශය)
+Redundancy checks aim to identify and eliminate duplicate data entries within a database. For instance,
+ensuring that there are no duplicate records for the same customer. Although important for optimizing
+storage and improving data quality, redundancy checks do not focus on maintaining logical relationships
+or consistency among different data elements.
+අතිරික්ත පරීක්ෂාව දත්ත සමුදායක් තුළ අනුපිටපත් දත්ත ඇතුළත් කිරීම් හඳුනා ගැනීම සහ ඉවත් කිරීම
+අරමුණු කරයි. නිදසුනක් වශයෙන්, එකම පාරිභෝගිකයා සඳහා අනුපිටපත් වාර්තා නොමැති බව සහතික කිරීම.
+ගබඩා කිරීම ප්‍රශස්ත කිරීම සහ දත්තවල ගුණාත්මක භාවය වැඩිදියුණු කිරීම සඳහා වැදගත් වුවද, අතිරික්ත
+පරීක්ෂාවන් විවිධ දත්ත මූලද්‍රව්‍ය අතර තාර්කික සම්බන්ධතා හෝ අනුකූලතාව පවත්වා ගැනීම කෙරෙහි අවධානය
+යොමු නොකරයි.
+
+So, the correct answer number is 3).
+එබැවින්, නිවැරදි පිළිතුරු අංකය 3) වේ.
+
+8. What is the basic principle behind offset printing?
+ඕෆ්සෙට් මුද්‍රකය පසුපස ඇති මූලික මූලධර්මය කුමක්ද?
+
+1) Directly transferring ink from a plate to the paper
+තහඩුවක සිට කඩදාසිය වෙත තීන්ත කෙලින්ම මාරු කිරීම
+
+2) Using heat to transfer toner from a drum to the paper
+බෙරයක සිට කඩදාසිය වෙත ටෝනර් මාරු කිරීම සඳහා තාපය භාවිතා කිරීම
+
+3) Spraying ink onto the paper through nozzles
+නොසලය හරහා කඩදාසිය මත තීන්ත ඉසීම
+
+4) Transferring ink from a plate to a rubber blanket and then to the paper
+තහඩුවක සිට රබර් බ්ලැන්කට්ටුවකට සහ පසුව කඩදාසි වෙත තීන්ත මාරු කිරීම
+
+5) Using static electricity to attract ink to the paper
+කඩදාසිය වෙත තීන්ත ආකර්ෂණය කර ගැනීම සඳහා ස්ථිතික විද්‍යුතය භාවිතා කිරීම
+
+Answer : 4 )
+
+Let's explain the statements in the above question.
+ඉහත ප්‍රශ්නයේ ඇති ප්‍රකාශ මෙසේ පැහැදිලි කරමු.
+
+1) Directly transferring ink from a plate to the paper
+
+Incorrect / වැරදිය
+
+This describes a different printing method known as "direct lithography" or "relief printing." In offset
+printing, the ink is first transferred to a rubber blanket before reaching the paper.
+මෙය "direct lithography" හෝ "relief printing" ලෙස හඳුන්වන වෙනස් මුද්‍රණ ක්‍රමයක් විස්තර කරයි.
+ඕෆ්සෙට් මුද්‍රණයේදී, කඩදාසියට පැමිණීමට පෙර තීන්ත මුලින්ම රබර් බ්ලැන්කට්ටුවකට මාරු කරනු ලැබේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+2) Using heat to transfer toner from a drum to the paper
+
+Incorrect / වැරදියි
+
+This describes the process used in laser printing, where toner is fused onto the paper using heat and
+pressure.
+මෙය ලේසර් මුද්‍රණයේදී භාවිතා කරන ක්‍රියාවලිය විස්තර කරයි, එහිදී තාපය සහ පීඩනය යොදා ගනිමින්
+කඩදාසි මත ටෝනර් විලයනය කරයි.
+
+3) Spraying ink onto the paper through nozzles
+
+Incorrect / වැරදියි
+
+This describes the inkjet printing process, where tiny droplets of ink are sprayed directly onto the
+paper through nozzles.
+මෙය තීන්ත විදුම් මුද්‍රණ ක්‍රියාවලිය විස්තර කරයි, එහිදී කුඩා තීන්ත බිංදු කෙලින්ම තුණ්ඩ හරහා කඩදාසි
+මතට ඉසිනු ලැබේ.
+
+4) Transferring ink from a plate to a rubber blanket and then to the paper
+
+Correct / නිවැරදි
+
+Offset printing works on the principle of transferring ink from a printing plate to a rubber blanket, and
+then the rubber blanket transfers the ink onto the paper. This indirect process helps produce high-
+quality prints and prevents direct contact between the plate and the paper, which increases the lifespan
+of the plates.
+ඕෆ්සෙට් මුද්‍රණය මුද්‍රණ තහඩුවක සිට රබර් බ්ලැන්කට්ටුවකට තීන්ත මාරු කිරීමේ මූලධර්මය මත ක්‍රියා
+කරයි, ඉන්පසු රබර් බ්ලැන්කට්ටුව කඩදාසි මතට තීන්ත මාරු කරයි. මෙම වක්‍ර ක්‍රියාවලිය උසස් තත්ත්වයේ
+මුද්‍රණ නිපදවීමට උපකාරී වන අතර තහඩුව සහ කඩදාසි අතර සෘජු සම්බන්ධතා වළක්වයි, එමඟින් තහඩු
+වල ආයු කාලය වැඩි වේ.
+
+5) Using static electricity to attract ink to the paper
+
+Incorrect / වැරදියි
+
+This describes the electrophotographic process used in laser printers and photocopiers, where static
+electricity attracts toner particles to the paper.
+මෙය ලේසර් මුද්‍රණ යන්ත්‍රවල සහ ඡායා පිටපත් යන්ත්‍රවල භාවිතා වන විද්‍යුත් ඡායාරූප ක්‍රියාවලිය විස්තර
+කරයි, එහිදී ස්ථිතික විදුලිය ටෝනර් අංශු කඩදාසියට ආකර්ෂණය කරයි.
+
+So, the correct answer number is 4).
+එබැවින්, නිවැරදි පිළිතුරු අංකය 4) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+9. Which answer correctly describes the characteristics of laser and LED mouse, two types of optical mouse?
+ප්‍රකාශ මූසික වර්ග දෙකක් වන ලේසර් සහ ආලෝක විමෝචක දියෝඩ මූසිකවල ලක්ෂණ නිවැරදිව දක්වා
+ඇත්තේ කුමන පිළිතුරේද?
+
+1) The movements of the LED mouse are more precise than the laser mouse.
+ලේසර් මූසිකයට වඩා LED මූසිකයේ චලන වඩා නිරවද්‍ය වේ.
+
+2) Laser mouse works on any surface while LED mouse does not.
+ලේසර් මූසිකය ඕනෑම මතුපිටක ක්‍රියාකරන අතර LED මූසිකය එසේ නොවේ.
+
+3) Laser mouse is cheaper than led mouse.
+LED මූසිකයට වඩා ලේසර් මූසිකය වඩා ලාභදායී වේ.
+
+4) Only the technology used by the two types of mouse differs and there is no difference in accuracy.
+මූසික වර්ග දෙක භාවිතා කරන තාක්ෂණය පමණක් වෙනස් වන අතර නිරවද්‍යතාවයේ වෙනසක් නැත.
+
+5) All of the above are false.
+ඉහත සියල්ල අසත්‍ය වේ.
+
+Answer : 2 )
+
+Statement 1 (ප්‍රකාශය 1)
+Incorrect. Laser mouse are generally more precise than LED mouse. This is because laser sensors can
+capture more detailed information about the surface, allowing for higher DPI (dots per inch) and better
+tracking performance. This makes laser mice more suitable for tasks requiring high precision, such as
+gaming and graphic design.
+වැරදියි. ලේසර් මූසික සාමාන්‍යයෙන් LED මූසිකවලට වඩා නිරවද්‍ය වේ. මක්නිසාද යත්, ලේසර් සංවේදක
+මගින් මතුපිට පිළිබඳ වඩාත් සවිස්තරාත්මක තොරතුරු ග්‍රහණය කර ගත හැකි අතර, ඉහළ DPI (අඟලකට
+තිත්) සහ වඩා හොඳ චලන හඳුනාගැනීමේ කාර්ය සාධනය සඳහා ඉඩ සලසයි. මෙම ලේසර් මූසික, ක්‍රීඩා කිරීම
+සහ ග්‍රැෆික් නිර්මාණය වැනි ඉහළ නිරවද්‍යතාවයක් අවශ්‍ය කාර්යයන් සඳහා වඩාත් සුදුසු වේ.
+
+Statement 2 (ප්‍රකාශය 2)
+Correct. Laser mouse can work on a wider variety of surfaces, including glossy and transparent surfaces
+like glass. This is due to the laser's ability to penetrate surface irregularities more effectively than an LED
+light. In contrast, LED mouse often struggle with reflective or transparent surfaces and perform best on
+opaque, non-reflective surfaces like mouse pads.
+නිවැරදි. ලේසර් මූසිකවලට වීදුරු වැනි දිලිසෙන සහ විනිවිද පෙනෙන පෘෂ්ඨ ඇතුළුව විවිධ පෘෂ්ඨ මත වැඩ
+කළ හැක. LED ආලෝකයට වඩා ඵලදායි ලෙස මතුපිට අක්‍රමිකතා විනිවිද යාමට ලේසර් සතු හැකියාව මෙයට
+හේතුවයි. ඊට වෙනස්ව, LED මූසික බොහෝ විට පරාවර්තක හෝ විනිවිද පෙනෙන පෘෂ්ඨ සමඟ ගැටලු වන
+අතර මූසික පෑඩ් වැනි පාරාන්ධ, පරාවර්තක නොවන පෘෂ්ඨ මත නිවැරදිව ක්‍රියා කරයි.
+
+Statement 3 (ප්‍රකාශය 3)
+Incorrect. Typically, laser mouse are more expensive than LED mouse. The advanced technology and
+higher precision sensors used in laser mouse contribute to their higher cost. LED mouse, using simpler
+optical technology, are generally more affordable and are suitable for standard computing tasks.
+වැරදියි. සාමාන්‍යයෙන්, ලේසර් මූසික LED මූසික වලට වඩා මිල අධික වේ. ලේසර් මූසික සඳහා භාවිතා කරන
+උසස් තාක්ෂණය සහ ඉහළ නිරවද්‍යතා සංවේදක ඔවුන්ගේ ඉහළ පිරිවැයට දායක වේ. LED මූසික, සරල
+ප්‍රකාශ තාක්ෂණය භාවිතා කරමින්, සාමාන්‍යයෙන් වඩා ලාභදායී වන අතර සම්මත පරිගණක කාර්යයන් සඳහා
+සුදුසු වේ.
+
+Statement 4 (ප්‍රකාශය 4)
+Incorrect. While it is true that the primary difference lies in the technology used (laser vs. LED light), this
+difference significantly impacts the accuracy and performance of the mouse. Laser mice tend to be more
+accurate and offer higher sensitivity, making them more precise than LED mouse. Therefore, there is
+indeed a difference in accuracy between the two types.
+වැරදියි. මූලික වෙනස පවතින්නේ භාවිතා කරන තාක්ෂණයේ (ලේසර් එදිරිව LED ආලෝකය) බව සත්‍යයක්
+වුවද, මෙම වෙනස මූසිකවල නිරවද්‍යතාවයට සහ ක්‍රියාකාරීත්වයට සැලකිය යුතු ලෙස බලපායි. ලේසර් මූසික
+වඩාත් නිවැරදි වන අතර ඉහළ සංවේදීතාවයක් ලබා දෙයි, ඒවා LED මූසිකවලට වඩා නිරවද්‍ය වේ. එබැවින්,
+වර්ග දෙක අතර ඇත්ත වශයෙන්ම නිරවද්‍යතාවයේ වෙනසක් ඇත.
+
+So, the correct answer number here is 2.
+එමනිසා, මෙහි නිවැරදි පිළිතුරු අංකය 2 වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+10. Which of the following is an example of a CPU socket type?
+CPU කෙවෙනි වර්ගයක් සදහා උදාහරණයක් වන්නේ පහත සඳහන් ඒවායින් කුමක් ද?
+
+Answer : 3 )
+
+Let's explain the statements in the above question.
+ඉහත ප්‍රශ්නයේ ඇති ප්‍රකාශ මෙසේ පැහැදිලි කරමු.
+
+1) USB-C
+This statement is false. USB-C is a type of connector used for data transfer, charging, and video output.
+It is not related to CPU socket types, which are specific to mounting processors on a motherboard.
+මෙම ප්‍රකාශය අසත්‍ය වේ. USB-C යනු දත්ත හුවමාරුව, ආරෝපණය කිරීම සහ වීඩියෝ ප්‍රතිදානය සඳහා
+භාවිතා කරන සම්බන්ධක වර්ගයකි. එය මවු පුවරුවක සකසන සවිකිරීමට විශේෂිත වූ CPU සොකට්
+වර්ගවලට සම්බන්ධ නොවේ.
+
+2) HDMI
+This statement is false. HDMI (High-Definition Multimedia Interface) is a standard for transmitting
+audio and video signals between devices, such as from a computer to a monitor or TV. It is not
+associated with CPU sockets.
+මෙම ප්‍රකාශය අසත්‍ය වේ. HDMI (ඉහළ-විභේදන බහුමාධ්‍ය අතුරුමුහුණත) යනු පරිගණකයක සිට
+මොනිටරය හෝ රූපවාහිනිය වැනි උපාංග අතර ශ්‍රව්‍ය සහ දෘශ්‍ය සංඥා සම්ප්‍රේෂණය කිරීමේ ප්‍රමිතියකි.
+එය CPU සොකට් සමඟ සම්බන්ධ නොවේ.
+
+3) LGA 1151
+This statement is true. LGA 1151 is a CPU socket type used by Intel processors. The term "LGA"
+stands for Land Grid Array, which refers to the physical layout of pins on the socket that make contact
+with the CPU. LGA 1151 is one of the many socket types designed to fit specific generations of Intel
+processors.
+මෙම ප්‍රකාශය සත්‍ය වේ. LGA 1151 යනු Intel සකසන භාවිතා කරන CPU සොකට් වර්ගයකි. "LGA"
+යන්නෙන් අදහස් වන්නේ Land Grid Array යන්නයි, එය CPU සමඟ සම්බන්ධ වන සොකට් එකෙහි ඇති
+භෞතික සැකැස්ම අදහස් කරයි. LGA 1151 යනු Intel සකසනවල නිශ්චිත පරම්පරාවන්ට ගැළපෙන පරිදි
+නිර්මාණය කර ඇති බොහෝ සොකට් වර්ග වලින් එකකි.
+
+4) DDR4
+This statement is false. DDR4 (Double Data Rate 4) is a type of RAM (Random Access Memory) used
+in computers. It refers to a memory standard, not a CPU socket type.
+මෙම ප්‍රකාශය අසත්‍ය වේ. DDR4 (Double Data Rate 4) යනු පරිගණක වල භාවිතා වන RAM වර්ගයකි
+(Random Access Memory) . එය CPU සොකට් වර්ගයක් නොව මතක ප්‍රමිතියකට යොමු කරයි.
+
+5) SATA
+This statement is false. SATA (Serial ATA) is an interface standard used for connecting storage devices
+like hard
+drives and SSDs to a computer's motherboard. It is not related to CPU sockets.
+මෙම ප්‍රකාශය අසත්‍ය වේ. SATA (Serial ATA) යනු දෘඪ තැටි සහ SSD වැනි ගබඩා උපාංග පරිගණකයේ
+මවු පුවරුවට සම්බන්ධ කිරීම සඳහා භාවිතා කරන අතුරු මුහුණත ප්‍රමිතියකි. එය CPU සොකට් වලට
+සම්බන්ධ නොවේ.
+
+Therefore, the correct answer, according to the above explanation, is 3) LGA 1151.
+එබැවින්, ඉහත පැහැදිලි කිරීම අනුව නිවැරදි පිළිතුර 3) LGA 1151 වේ.
+
+1) USB - C
+2) HDMI
+3) LGA 1151
+4) DDR4
+5) SATA
+2027 QUIZ SERIES
+#ictfromabc
+-2-

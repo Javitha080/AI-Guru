@@ -1,62 +1,60 @@
 CONTENT
-Introduction to DMBSs …………………...………………………………….…………………………………           1
-Structured Query Language – SQL …...………………………………………………………………….        4
+Introduction to DMBSs ………………………………………………………….…………………………………           1
+Structured Query Language – SQL ………………………………………………………………………….        4
 
-MySQL and MariaDB …………………...………………………………………………………………………..             6
+MySQL and MariaDB ………………………………………………………………………………………………..             6
 
-SQL interfaces …………………...………………………………………………………………………….………..           7
-Installing MySQL …………………...…………………………..……………………………………………...…..        8
-Installing and setting up WAMP…………………...…………………………………………………..….       12
+SQL interfaces ………………………………………………………………………………………………….………..           7
+Installing MySQL …………………………………………………..……………………………………………………..        8
+Installing and setting up WAMP…………………………………………………………………………..….       12
 
-Creating databases with CLI …………………...……………………………………………………...…….      13
+Creating databases with CLI ……………………………………………………………………………………….      13
 
-Creating databases with GUI …………………...………………………………………………….….…….       14
+Creating databases with GUI ………………………………………………………………………….….…….       14
 
-SQL basics ……………………………….………………...……………………………………………………..…….            16
-SQL data types ……………………………….………………...………………………………….………….……..          17
+SQL basics ……………………………….…………………………………………………………………………..…….            16
+SQL data types ……………………………….……………………………………………………….………….……..          17
 
-Classification of SQL codes ……………….……..……………...…………………….…….…………..……   19
-ALTER TABLE command ……..……………………….………………...…………….…….…………….……          20
-INSERT INTO statement …….………………………….……..………...…………….…….…………………        23
+Classification of SQL codes ……………….……..……………………………………….…….…………..……   19
+ALTER TABLE command ……..……………………….………………………………….…….…………….……          20
+INSERT INTO statement …….………………………….……..………………………….…….…………………        23
 
-UPDATE statement …..…..……………………………………….………………...…….…….….……………..       25
+UPDATE statement …..…..……………………………………….………………………….…….….……………..       25
 
-DELETE statement ………………………………………….………………...………….….……………………..          26
+DELETE statement ………………………………………….……………………………….….……………………..          26
 
-SELECT statement ……..……..…………………………….………………...……….….………………………..       27
+SELECT statement ……..……..…………………………….…………………………….….………………………..       27
 
-Comparison operators ……………………………..………………………….………..………………....…...      28
+Comparison operators ……………………………..………………………….………..……………………………      28
 
-SQL Wildcards……….……………………..…………………………….……………….………...………….…….          31
+SQL Wildcards……….……………………..…………………………….……………….……………………….…….          31
 
-Logical operators ….…………………………..…………………………………...………………...……………        33
-ORDER BY keyword .……………..…………………………….………………...………………….….………...        34
+Logical operators ….…………………………..…………………………………………………………………………        33
+ORDER BY keyword .……………..…………………………….……………………………………….….……………        34
 
-GROUP BY statement ….………..…………………………….………………...……………….…….………..        35
+GROUP BY statement ….………..…………………………….…………………………………….…….………..        35
 
-HAVING clause ……….……………..…………………………….………………...……………….…….………..         36
+HAVING clause ……….……………..…………………………….…………………………………….…….………..         36
 
-DISTINCT statement ……………..…………………………….………………...……………….…….………..        37
+DISTINCT statement ……………..…………………………….…………………………………….…….………..        37
 SQL functions ……….…………………………..…………………………….………………..……..……….…….         37
-Aliases ……….…………………………..…………………………….………………...……………….………………            39
+Aliases ……….…………………………..…………………………….…………………………………….………………            39
 
-SQL Joins ……….…………………………..…………………………….………………...………….……….………           40
+SQL Joins ……….…………………………..…………………………….……………………………….……….………           40
 
-Integrity constraints……………………………….………………...……………….…………….………..……       42
+Integrity constraints……………………………….…………………………………….…………….………..……       42
 
 SQL constraints
        NOT NULL ……………………………………………………………………………….……………….….              43
        UNIQUE ……………………………………………………………………………….………………..……..             45
-       DEFAULT …………………….………………………………………………………….…………..………...           47
-       CHECK ……………………...………………………………………………………….……………..……….            49
+       DEFAULT …………………….………………………………………………………….…………..……………           47
+       CHECK …………………………………………………………………………………….……………..……….            49
        PRIMARY KEY ………………………..……………………………………………….……………..……..          51
-       FOREIGN KEY …………………….………………………………………………….…………….…….....         54
-
-
-
+       FOREIGN KEY …………………….………………………………………………….…………….…………         54
 
                                                                            ictfromabc.com
-Introduction to DBMS                                   Types of Database Management Systems
+
+Introduction to DBMS                                   Types of Database Management Systems
                                                        o;a; iuqod l<ukdlrK moaO;s j¾.
 Database Management Systems (DBMS) are
 software tools that provide an interface for           1. Relational DBMS (RDBMS)
@@ -103,12 +101,10 @@ Further discussed in the database tute.
 o;a; iuqod ksnkaokfha jeäÿr idldÉPd lr
 we;'
 
-
-
-
                                                    1
                                                                                                   ictfromabc.com
-Use cases of DBMSs                                 4. Healthcare
+
+Use cases of DBMSs                                 4. Healthcare
 DBMS Ndú;d lrk wjia:d                              fi!LH i;aldr
 
 1. Data Analysis and Reporting                     •   Storing and retrieving patient information,
@@ -130,12 +126,10 @@ o;a; úYaf,aIKh iy jd¾;d lsÍu                           medical history, and t
 2. Human Resources                                 5. Education
 udkj iïm;a                                         wOHdmk
 
-
 •   Storing employee information, salaries,        •   Managing student records, course
     benefits, and performance data.                    information, and enrollment data.
     fiajl f;dr;=re" jegqma" m%;s,dN iy ld¾h            YsIH jd¾;d l<ukdlrKh" mdGud,dj
     idOk o;a; .nvd lsÍu'                               f;dr;=re" iy ,shdmÈxÑ o;a;'
-
 
 •   Managing job applications, candidate           6. Government
                                                    wdKavqj
@@ -164,12 +158,10 @@ jHdmdr iy uQ,H
     úl=Kïq   ksÍlaIKh lsÍu iy mdßfNda.sl
     yeisÍu úYaf,aIKh lsÍu'
 
-
-
-
                                                2
                                                                                               ictfromabc.com
-Modern Database Management Systems                      5. Azure Cosmos DB
+
+Modern Database Management Systems                      5. Azure Cosmos DB
 kùk o;a; iuqod l<ukdlrK moaO;s                             A globally distributed, multi-model
                                                            database supporting APIs like SQL,
 1. Firebase (Google)                                       MongoDB, and Cassandra.
@@ -214,12 +206,10 @@ kùk o;a; iuqod l<ukdlrK moaO;s                             A globally distribut
                                                         m%ia;dr o;a; i|yd Cypher jeks úfYaIs; NdId
                                                         ^Wod: Neo4j&
 
-
-
-
                                                     3
                                                                                                   ictfromabc.com
-SQL - Structured Query Language                       Different versions of SQL
+
+SQL - Structured Query Language                       Different versions of SQL
                                                       SQL ys úúO ixialrK
 SQL is a standard programming language used
 for managing and manipulating relational              Microsoft SQL Server (Transact-SQL)
@@ -264,12 +254,10 @@ Oracle iud.u SQL Ndú;d lrk jd‚c
 RDBMS(iïnkaOl o;a; iuqod l<uKdlrK
 moaO;s) ,nd ÿka m<uq iud.u njg m;a úh'
 
-
-
-
                                                   4
                                                                                                ictfromabc.com
-Why Use SQL?                                            How SQL Works
+
+Why Use SQL?                                            How SQL Works
 SQL Ndú;d lrkafka wehs@                                 SQL l%shd lrk wdldrh
 
 Data Management
@@ -279,7 +267,6 @@ modifying, and deleting database structures.
 SQL hkq o;a; iuqod jHqyhka ks¾udKh lsÍu"
 fjkia lsÍu iy uld oeóu i|yd jk iïu;
 NdIdjhs'
-
 
 Data Retrieval                                          An SQL query is written
 o;a; ,nd .ekSu                                          SQL úuiqula ,shkq ,efí
@@ -320,12 +307,10 @@ SQL o;a; wkql+,;dj iy ksrjoH;djh mj;ajd                 wjYH o;a; kej; ,nd .kS
                                                         ,nd.kakd ,o o;a; ilid wfmalaIs; m%;sodkh
                                                         njg yev.iajkq ,efí'
 
-
-
-
                                                     5
                                                                                                   ictfromabc.com
-MySQL and MariaDB                                    MariaDB
+
+MySQL and MariaDB                                    MariaDB
 
 MySQL
 
@@ -364,15 +349,11 @@ MySQL
     2010 § Oracle Corporation úiska w;am;a lr        Widenius.
     .kakd ,§'
 
-
-
-
                                                  6
                                                                                                ictfromabc.com
-A Bridge Between Humans and Databases - SQL Interfaces
+
+A Bridge Between Humans and Databases - SQL Interfaces
 ñksiqka iy o;a; iuqodhka w;r iïnkaO;dj SQL w;=reuqyqK;a
-
-
 
 Feature             CLI (Command Line Interface)             GUI (Graphical User Interface)
 
@@ -414,29 +395,20 @@ interfaces          PostgreSQL (psql)                        DBeaver
 ckm%sh SQL          SQL Server (sqlcmd)                      Oracle SQL Developer
 w;=reuqyqK;a                                                 DataGrip
 
-
-
-
                                                 7
 
-
                                                                                                 ictfromabc.com
-Installing MySQL only (optional)
+
+Installing MySQL only (optional)
 
 Download MySQL from the official site:
 ks, fjí wvúfhka MySQL nd.kak
 https://dev.mysql.com/downloads/mysql/
 
-
-
-
 Run the downloaded MSI installer and select
 'Custom Installation'.
 nd.; l< MSI ia:dmlh Odjkh lr 'Custom
 Installation' f;darkak'
-
-
-
 
                                                   Configure the MySQL Server: Choose a root
                                                   password and configure the port (default 3306).
@@ -444,22 +416,16 @@ Installation' f;darkak'
                                                   uqrmohla f;dard port úkHdi lrkak ^fmrksñ
                                                   3306&'
 
-
-
-
 Select the MySQL Server and additional
 components (like MySQL Workbench).
 MySQL fiajdodhlh iy wu;r ixrpl f;darkak
 ^ MySQL Workbench jeks&'
 
-
-
-
                                               8
 
-
                                                                                              ictfromabc.com
-                                                   Confirm the installation via command prompt
+
+                                                   Confirm the installation via command prompt
                                                    by typing:
                                                    my; Wmfoi úOdk fma<Sfhys ghsma lr ia:dmkh
                                                    ;yjqre lrkak(
@@ -494,14 +460,11 @@ the root credentials.
 ia:dmkh iïmQ¾K lr uQ, wla;m;% igyka
 lrkak'                                             Sql fla; ,sùu wdrïN lrkak'
 
-
-
-
                                                9
 
-
                                                                                                ictfromabc.com
-Other ways to Install MYSQL                           LAMP(LINUX)
+
+Other ways to Install MYSQL                           LAMP(LINUX)
 MYSQL ia:dmkh lsÍfï wksl=;a l%u                       (Linux, Apache, MySQL, PHP)
 
 MySQL can be installed on a computer using
@@ -546,19 +509,13 @@ Installation Video guide:
 https://youtu.be/M2at7D-
 lciw?si=lIk5XcS1G1RHVuzV
 
-
-
-
                                                  10
 
-
                                                                                               ictfromabc.com
-MAMP(Mac OS)                                          XAMPP
+
+MAMP(Mac OS)                                          XAMPP
 (macOs, Apache, MySQL, PHP)                           (Cross-Platform, Apache, MySQL, PHP, and
                                                       Perl)
-
-
-
 
 MAMP is a popular software bundle specifically        XAMPP is a popular open-source software
 designed for macOS systems.                           package that provides a comprehensive
@@ -579,7 +536,6 @@ downloads/
                                                       https://www.apachefriends.or
                                                       g/download.html
 
-
 Installation Video guide:
 
 https://youtu.be/NqaZ2yqp                             Installation Video guide:
@@ -587,14 +543,11 @@ A4E?si=hhoDU3gOOx_Ir3QB
                                                       https://youtu.be/VCHXCuslt
                                                       qI?si=1ZN0QAqRINtg-M4G
 
-
-
-
                                                  11
 
-
                                                                                                  ictfromabc.com
-Installing and setting up WAMP                      Click the WAMP icon from the desktop or Start
+
+Installing and setting up WAMP                      Click the WAMP icon from the desktop or Start
 WAMP ia:dmkh lsÍu iy ieliSu                         Menu. A green icon in the system tray confirms
                                                     WAMP is running successfully.
 Download WAMP software from the official            fvialafgdma tflka fyda wdrïNl fukqfjka
@@ -603,12 +556,8 @@ ks, fjí wvúfhka WAMP uDÿldx.h nd.;                  fld< meye ksrEmlh uÕska 
 lr.kak'                                             l%shd;aul jk nj ;yjqre lrhs'
 https://wampserver.aviatechno.net/
 
-
-
-
                                                     Click on the WAMP shortcut.
                                                     WAMP shortcut tl u; la,sla lrkak'
-
 
 While trying to install WAMP software, you
 might encounter an error caused by missing
@@ -622,14 +571,11 @@ from the WAMP official website.
 Tng tu fkdue;s meflac WAMP ks, fjí
 wvúfhka nd.; l< yelsh'
 
-
-
-
                                                12
 
-
                                                                                               ictfromabc.com
-Creating Database Using CLI                      A command prompt (terminal) window will
+
+Creating Database Using CLI                      A command prompt (terminal) window will
 CLI w;=reuqyqK; Ndú;d lrñka o;a; iuqodhla        open, asking for the MySQL root password.
 ks¾udKh lsrsu                                    MySQL root uqrmoh b,a,d úOdk úuiqï
                                                  (command prompt)^m¾hka;& ljq¿jla újD;
@@ -651,14 +597,11 @@ lrkak'                                           entering a password.
                                                  l%shd lsÍu i|yd MySQL úOdk iDcqju
                                                  fldkafida,h fj; ghsma l< yel'
 
-
-
-
                                             13
 
-
                                                                                              ictfromabc.com
-Creating Database Using GUI Interface                 This will open your default web browser and
+
+Creating Database Using GUI Interface                 This will open your default web browser and
 GUI w;=reuqyqK; Ndú;d lrñka o;a; iuqodhla             take you to the phpMyAdmin login page.
 ks¾udKh lsrsu                                         fuh Tnf.a fmrksñ fjí n%õirh újD; lr Tnj
                                                       phpMyAdmin msúiqï msgj q g f.k hkq we;'
@@ -670,15 +613,9 @@ lsÍfuka WAMP fiajdodhlh wdrïN lrkak' th
 l%shd;aul jQ miq" moaO;s ;eáfha we;s WAMP
 ksrEmlh la,sla lrkak'
 
-
-
-
 From the menu that appears, select
 "phpMyAdmin"
 Èiajk fukqfjka" "phpMyAdmin" f;dard .kak'
-
-
-
 
                                                       On the phpMyAdmin login page, enter your
                                                       MySQL username and password. By default, the
@@ -692,14 +629,11 @@ From the menu that appears, select
                                                       uqrmoh idudkHfhka ysiaj mj;S' mqrkh ùug
                                                       "Log in" fnd;a;u la,sla lrkak'
 
-
-
-
                                                  14
 
-
                                                                                                    ictfromabc.com
-Once logged in, you will be on the                    After entering the name, click the "Create"
+
+Once logged in, you will be on the                    After entering the name, click the "Create"
 phpMyAdmin main page. Click on the                    button.
 "Database" tab at the top. In the "Create             ku we;=<;a lsrsfuka miq" "Create" fnd;a;u la,sla
 database" field, enter the desired database           lrkak'
@@ -709,22 +643,16 @@ isákq we;' by<ska we;s "Database" genh u;
 la,sla lrkak' "Create database" lafI%a;%h ;=<"
 wjYH o;a; iuqod kduh we;=<;a lrkak'
 
-
-
-
                                                       New database will now be listed on the left side
                                                       of the phpMyAdmin interface.
                                                       kj     o;a;    iuqodh    oeka    phpMyAdmin
                                                       w;=reuqyqKf;a jï me;af;a ,ehsia;=.; flf¾'
 
-
-
-
                                                  15
 
-
                                                                                                  ictfromabc.com
-1. SHOW DATABASES;                               6. Creating a new table
+
+1. SHOW DATABASES;                               6. Creating a new table
                                                     kj j.=jla iE§u
 Shows available databases.
 mj;sk o;a; iuqodhka fmkajhs'
@@ -732,11 +660,7 @@ mj;sk o;a; iuqodhka fmkajhs'
 SHOW SCHEMAS; can also be used.
 SHOW SCHEMAS; o Ndú;d l< yelsh'
 
-
 2. CREATE DATABASE                      ;
-
-
-
 
 Creates a new database.
 kj o;a; iuqodhla ks¾udKh lrhs'
@@ -757,7 +681,7 @@ mj;sk o;a; iuqodhla f;dard.kS'
 CONNECT database_name; can also be used.                Name VARCHAR(20),
 CONNECT database_name; o Ndú;d l< yelsh'                Address VARCHAR(40),
                                                         age VARCHAR(3)
-                                                 );
+
 4. SHOW TABLES;
                                                  7. DROP TABLE                    ;
 Shows all available tables in a database.
@@ -770,22 +694,17 @@ m%:ufhka o;a; iuqodh f;dard.; hq;=h'
                                                  8. DESCRIBE                  ;
 5. DROP DATABASE                   ;
 
-
-
 Used to delete an existing database.             Describes the structure of an existing table.
 mj;sk o;a; iuqodhla uld oeóug Ndú;d lrhs'        mj;sk j.=jl jHqyh ms<sno úia;r imhhs'
 
 DROP SCHEMA; can also be used.
 DROP SCHEMA; o Ndú;d l< yelsh'
 
-
-
-
                                             16
 
-
                                                                                                  ictfromabc.com
-                                               Is this some kind of key?
+
+                                               Is this some kind of key?
          DESCRIBE Student;                     fuh hï j¾.fha h;=rlao?
              Can an empty value exist?
              ysia w.hla mej;sh yelso?                                 Default value
@@ -800,10 +719,8 @@ DROP SCHEMA; o Ndú;d l< yelsh'
            | age     | VARCHAR(3) | YES |       | NULL    |       |
            +---------+-------------+------+-----+---------+-------+
 
-
                            Data type
                           o;a; j¾.h
-
 
 Data types in SQL language                                  There are 3 main types of data types in SQL
 SQL NdIdfõ o;a; j¾.                                         language.
@@ -852,12 +769,11 @@ concatenation) are valid for the data.                      o;a; l<ukdlrKh lsÍu
 o;a; i|yd j,x.= jkafka l=uk fufyhqï ^wxl                    o;a; j¾. w;HjYH fõ
 .‚;uh" concatenation& o hkak ;SrKh lrhs'
 
-
                                                        17
 
-
                                                                                                              ictfromabc.com
-Data Type     Description                                                                Maximum Length
+
+Data Type     Description                                                                Maximum Length
 
 CHAR          To represent letters, numbers or any character with a specified            n characters
               number of characters
@@ -882,7 +798,6 @@ BINARY        Fixed-length binary data.                                         
 VARBINARY     Variable-length binary data.                                               n bytes
               úp,H È.= oaúuh o;a;'
 
-
 Data Type     Description                                       Storage         Range
 
 INT           Representation of positive or negative integers   4 bytes         -2,147,483,648 to 2,147,483,647
@@ -903,7 +818,6 @@ FLOAT         Representation of positive or negative floating   4 bytes         
 BIT           Binary values (0 or 1)                            Variable        1 or 0
               oaúuh w.hka 0 fyda 1
 
-
 Data Type   Description                                                         Format               Example
 
 DATE        Stores date values                                                  YYYY-MM-DD           2024-07-26
@@ -919,11 +833,10 @@ TIMESTAMP Stores date and time values, includes time zone information YYYY-MM-DD
 YEAR        Stores year values                                                  YYYY                 2024
             wjqreÿ w.hka .nvd lrhs
 
-
-
                                                      18
                                                                                                                 ictfromabc.com
-Classification of SQL codes                       v) Transaction Control Language (TCL)
+
+Classification of SQL codes                       v) Transaction Control Language (TCL)
 SQL fla; j¾.SlrKh                                    .kqfokq md,k NdIdj
 
                                                   Manage transactions within the database.
@@ -931,8 +844,6 @@ SQL fla; j¾.SlrKh                                    .kqfokq md,k NdIdj
 
                                                   COMMIT           ROLLBACK
                                                   SAVEPOINT        SET TRANSACTION
-
-
 
                                                   Naming styles in SQL
                                                   SQL ys kï lsÍfï ú,di
@@ -988,12 +899,11 @@ GRANT          REVOKE
                                                   i)   cannot start with a digit.
                                                        b,lalulska wdrïN l< fkdyel'
 
-
                                              19
 
-
                                                                                                ictfromabc.com
-ALTER TABLE Command                                ALTER TABLE MODIFY
+
+ALTER TABLE Command                                ALTER TABLE MODIFY
 ALTER TABLE úOdkh
                                                    Used to change the definition of an existing
 Used to modify the structure of an existing        column.
@@ -1045,14 +955,11 @@ RENAME COLUMN                                         Ex.
                                                       COLUMN status VARCHAR(20) DEFAULT
                                                       'Active';
 
-
-
-
                                               20
 
-
                                                                                              ictfromabc.com
-   UNIQUE                                           CHECK
+
+   UNIQUE                                           CHECK
    Ensures no two rows have the same value          Adds a logic rule that data must follow.
    in this column.                                  o;a; úiska wkq.ukh l< hq;= ;d¾lsl Í;shla
    wod, ;Srefõ fma<s foll wkqmsgm;a jQ w.hka        tl;= lrhs'
@@ -1073,9 +980,6 @@ RENAME COLUMN                                         Ex.
    COLUMN employee_id INT                           ALTER TABLE Employees MODIFY
    AUTO_INCREMENT;                                  COLUMN employee_id INT PRIMARY
                                                     KEY;
-
-
-
 
 Examples for ALTER TABLE
 ALTER TABLE i|yd WodyrK
@@ -1104,14 +1008,11 @@ Describe student;
 | Phone   | varchar(10) | NO   |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                                21
 
-
                                                                                           ictfromabc.com
-ALTER TABLE student
+
+ALTER TABLE student
 RENAME COLUMN Phone TO Contact;
 
 Describe student;
@@ -1164,14 +1065,11 @@ Describe student;
 | Age     | int         | YES |      | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                        22
 
-
                                                            ictfromabc.com
-INSERT INTO Statement                                   Inserting Multiple Records
+
+INSERT INTO Statement                                   Inserting Multiple Records
                                                         jd¾;d lsysmhlg we;=<;a lsÍu
 Used to add new rows of data to a table.
 j.=jlg kj o;a; fma<s tla lsÍug Ndú;d lrhs'              Can insert multiple records into a table in a
@@ -1203,7 +1101,6 @@ fuys§ j.=fõ iEu ;Srejlgu w.hka fhÈh
 hq;=h'                                                  b) Specific columns
                                                            ksYaÑ; ;Sre
 
-
 INSERT INTO
                                                         INSERT INTO
 VALUES(                                     );
@@ -1219,24 +1116,17 @@ defined.
 fuys§ ;Sre lsysmhlg muKla o;a; w¾: oelaùu                      (                                 );
 isÿ l< yel'
 
-
-
-
 INSERT INTO
-
 
 (                                   )
 
 VALUES(                                     );
 
-
-
-
                                                    23
 
-
                                                                                                  ictfromabc.com
-Examples                                       3) Multiple Records to all columns
+
+Examples                                       3) Multiple Records to all columns
                                                   jd¾;d lsysmhla ish¨u ;Sre j,g
 Reference Table:
                                                INSERT INTO Employee
@@ -1255,7 +1145,6 @@ CREATE TABLE Employee (                        VALUES (3, 'Ckon', 'Kandy',
 INSERT INTO Employee                           |     3 | Ckon | Kandy      | 0733333333 |
 VALUES (1, 'Akon',                             |     4 | Dkon | Kurunagala | 0744444444 |
 'Colombo','0711111111');                       +-------+------+------------+------------+
-
 
 RESULT
 SELECT * FROM Employee;                        4) Multiple Records to specific columns
@@ -1284,14 +1173,11 @@ SELECT * FROM Employee;                        |     6 | Fkon | NULL       | 076
 |     2 | Bkon | Gampaha | NULL       |
 +-------+------+---------+------------+
 
-
-
-
                                           24
 
-
                                                                                        ictfromabc.com
-UPDATE Statement                                      c) Many columns → one record
+
+UPDATE Statement                                      c) Many columns → one record
                                                          lafIa;% lSmhla → tla frfldavhla
 Used to modify existing records in a table.
 j.=jl mj;sk jd¾;d fjkia lsÍug Ndú;d lrhs'             UPDATE Employee
@@ -1357,14 +1243,11 @@ SELECT * FROM Employee;
 |     6 | Fkon | NULL       | 0766666666 |
 +-------+------+------------+------------+
 
-
-
-
                                                  25
 
-
                                                                                                  ictfromabc.com
-DELETE Statement                                      b) Multiple records
+
+DELETE Statement                                      b) Multiple records
                                                          frfldav lSmhla
 Used to remove one or more records from a
                                                       DELETE FROM Employee
@@ -1406,14 +1289,11 @@ SELECT * FROM Employee;                               yelsh'
 |     6 | Fkon | Colombo | 0777777777 |
 +-------+------+---------+------------+
 
-
-
-
                                                  26
 
-
                                                                                             ictfromabc.com
-SELECT Statement                                        b) Multiple columns → all records
+
+SELECT Statement                                        b) Multiple columns → all records
                                                            lafIa;% lSmhla → ish¨u frfldav
 Used to retrieve data from one or more tables
 in a database.                                             SELECT Name, Age FROM Employee;
@@ -1478,9 +1358,9 @@ a) All columns → all records                               RESULT
 
                                                    27
 
-
                                                                                               ictfromabc.com
-f)   Multiple columns → multiple records        Comparison Operators
+
+f)   Multiple columns → multiple records        Comparison Operators
      lafIa;% lSmhla → frfldav lSmhla            ieiÿï ldrl
 
      SELECT Name, Age FROM Employee             Used in the WHERE clause to compare two
@@ -1525,14 +1405,11 @@ h) All columns → multiple records               •   To identify records that
      |     4 | Dkon | Nugegoda | 40   |
      +-------+------+----------+------+
 
-
-
-
                                            28
 
-
                                                                                             ictfromabc.com
-Notation   Operation                                 REFERENCE TABLE
+
+Notation   Operation                                 REFERENCE TABLE
 wxlkh      fufyhjkh                                  Employee
                                                      +------+--------+----------+-----+
 =          equal                                     |RegNo | Name   | Address | Age |
@@ -1564,7 +1441,7 @@ wxlkh      fufyhjkh                                  Employee
 BETWEEN    Between a certain range                   +-------+------+----------+------+
            ksYaÑ; mrdihla w;r
                                                      <> or != Comparison Operator
-           BETWEEN____AND____
+           BETWEEN……AND……
                                                      <> or != ieiÿï ldrlh
 
 IN         Saturate at least one value from a        Employees whose address is not NUGEGODA
@@ -1572,7 +1449,7 @@ IN         Saturate at least one value from a        Employees whose address is 
            § we;s w.hka iuQyhla w;ßka tla
            w.hla fyda ;Dma; lr .;                    SELECT * FROM Employee
                                                      WHERE Address <> "NUGEGODA";
-           IN(___,___,___)
+           IN(……,……,……)
                                                      OR
 
 LIKE       search for a character pattern            SELECT * FROM Employee
@@ -1585,14 +1462,11 @@ LIKE       search for a character pattern            SELECT * FROM Employee
                                                      |     3 | CAMERON| COLOMBO | 35 |
                                                      +-------+--------+---------+-----+
 
-
-
-
                                                 29
 
-
                                                                                            ictfromabc.com
-> Comparison Operator                     <= Comparison Operator
+
+> Comparison Operator                     <= Comparison Operator
 > ieiÿï ldrlh                             <= ieiÿï ldrlh
 
 Employees above 30 years of age           Employees aged 30 years or less
@@ -1648,14 +1522,11 @@ WHERE Age >= 30;
                                           | 004 | DIANA | NUGEGODA | 40 |
                                           +------+--------+---------+------+
 
-
-
-
                                      30
 
-
                                                                                   ictfromabc.com
-SQL Wildcards                                         2. Ending with a specific letter
+
+SQL Wildcards                                         2. Ending with a specific letter
                                                       ksYaÑ; wl=rlska wjika jk
 Used in conjunction with the LIKE operator in
 the WHERE clause to search for patterns within        Details of employees whose name ends with
@@ -1702,14 +1573,11 @@ WHERE Name LIKE "B%";                                 +------+--------+---------
 +-------+--------+---------+-----+                    | 005 | SARAH | MATHARA | 32 |
                                                       +------+--------+---------+-----+
 
-
-
-
                                                  31
 
-
                                                                                              ictfromabc.com
-3. A specific letter or letters present at          5. Starting with a specified letter and
+
+3. A specific letter or letters present at          5. Starting with a specified letter and
 any position                                        ending with a specified letter
 ´kEu ia:dkhl mj;sk ksYaÑ; wl=rla fyda wl=re         ksYaÑ; wl=rlska wdrïN ù ksYaÑ; wl=rlska wjika
                                                     jk
@@ -1750,14 +1618,11 @@ WHERE Name LIKE "_A%";
 | 005 | SARAH | MATHARA | 32 |
 +------+--------+----------+-----+
 
-
-
-
                                                32
 
-
                                                                                              ictfromabc.com
-LOGICAL OPERATORS                                        2) OR OPERATOR
+
+LOGICAL OPERATORS                                        2) OR OPERATOR
 ;d¾lsl fufyhjk                                           Will return TRUE only if at least one of the
                                                          conditions is met.
 Used to combine two or more conditions in SQL            TRUE wdmiq ,nd fokafka wju jYfhka tla
@@ -1783,7 +1648,6 @@ TRUE f,i ,nd fokafka fldkafoais folu imqrd
 we;akï mu‚'                                              |   002 | BKON | GAMPAHA |   40 |
                                                          +-------+------+---------+------+
 
-
                                                          3) NOT OPERATOR
                                                          Used to reverse the result of a condition.
                                                          fldkafoaishl m%;sM,h wdmiq yerùug Ndú;d
@@ -1801,13 +1665,12 @@ RESULT
 |   001 | AKON | KANDY   |   35 |
 |   003 | CKON | KANDY   |   32 |
 +-------+------+---------+------+
-                                                         SELECT column1, column2, ...
+                                                         SELECT column1, column2, ……
                                                          FROM table_name
                                                          WHERE NOT condition;
 
                                                          SELECT * FROM customers
                                                          WHERE NOT Address = 'KANDY';
-
 
                                                          RESULT
                                                          +-------+------+---------+------+
@@ -1816,13 +1679,11 @@ RESULT
                                                          |   002 | BKON | GAMPAHA |   40 |
                                                          +-------+------+---------+------+
 
-
-
                                                     33
 
-
                                                                                                      ictfromabc.com
-ORDER BY keyword                                     2. Descending (DESC)
+
+ORDER BY keyword                                     2. Descending (DESC)
                                                      wjfrdayK
 
 SELECT                                               EXAMPLE
@@ -1878,14 +1739,11 @@ RESULT
 |    1 | HELEN | GALLE    | 33 |                     ms<sfj,g ieliSu
 +-------+--------+---------+----+
 
-
-
-
                                                 34
 
-
                                                                                                 ictfromabc.com
-Employee                                              EXAMPLE
+
+Employee                                              EXAMPLE
 +-------+-------+--------+-------+                    Getting the total cost that the employees had
 | RegNo |Name   | Address| Salary|                    spent.
 +-------+-------+--------+-------+                    fiajlhska úhoï l< uq¿ msßjeh ,nd .ekSu'
@@ -1936,14 +1794,11 @@ GROUP BY            ;                                 | Bkon |       65000 |
                                                       | Ckon |       10000 |
                                                       +------+-------------+
 
-
-
-
                                                  35
 
-
                                                                                                  ictfromabc.com
-HAVING clause                                        With conditions (WHERE)
+
+HAVING clause                                        With conditions (WHERE)
                                                      fldkafoais iys;j (WHERE)
 Was added to SQL because the WHERE
 keyword cannot be used with aggregate                SELECT Name, SUM(Cost)
@@ -1999,14 +1854,11 @@ Expenses
                                                      | Bkon |     65000 |
                                                      +------+-----------+
 
-
-
-
                                                 36
 
-
                                                                                                 ictfromabc.com
-DISTINCT statement                                  SQL FUNCTION
+
+DISTINCT statement                                  SQL FUNCTION
                                                     SQL Y%s;
 Used to return only different values.
 fjkia w.hka muKla wdmiq ,nd §ug Ndú;d               SQL functions are regarded as powerful tools
@@ -2059,14 +1911,11 @@ RESULT                                               fufyhqu            WodyrK
                                                      Èkh iy fõ,dj       j;auka Èkh ,nd .ekSu"
                                                      fufyhqï            fjkialï .Kkh lsÍu
 
-
-
-
                                                37
 
-
                                                                                                  ictfromabc.com
-Below are some commonly used SQL                       3. COUNT()
+
+Below are some commonly used SQL                       3. COUNT()
 functions.
 my; oelafjkafka nyq,j Ndú;d jk SQL Y%;
                                      s                 The COUNT() function counts the number of
@@ -2121,14 +1970,11 @@ FROM employee;
                                                        |       50000 |
                                                        +-------------+
 
-
-
-
                                                   38
 
-
                                                                                                 ictfromabc.com
-Additional functions
+
+Additional functions
 w;sf¾l Y%;
          s
 
@@ -2149,12 +1995,8 @@ LOWER()          Converts a string to lowercase. SELECT LOWER(f_name)
 SUBSTRING()      Extracts a portion of a string.         SELECT SUBSTRING(f_name, 1, 3)
                  string tll fldgila Wmqgd .eksug'        FROM employees;
 
-
 LENGTH()         Returns the length of a string.         SELECT LENGTH(f_name)
                  string tll È. wdmiq ,nd .eksug'         FROM employees;
-
-
-
 
 Aliases                                               Aliases with Functions
 
@@ -2183,22 +2025,17 @@ JOIN departments AS d
 ON e.department_id = d.department_id;
                                                       department_id;
 
-
-
-
                                                  39
 
-
                                                                                               ictfromabc.com
-SQL JOINS                                           Types of Joins
+
+SQL JOINS                                           Types of Joins
 
 Used to combine rows from two or more tables        INNER JOIN
 based on a related column between them.             Selects records that have matching values in
 j.= follska fyda lsysmhlska tu j.= ish,a,g          both tables.
 iïnkaO ;SrEjla Ndú;fhka fma<s tAldnoaO lsÍug        j.= foflysu .e<fmk w.hka we;s jd¾;d f;dard
 Ndú;d lrhs'                                         .kS'
-
-
 
 SELECT
 
@@ -2252,12 +2089,11 @@ Sport
                                                     .e<fmk jd¾;djla yuq fkdjQfha kï" ol=Kq mi
                                                     m%;sM,h NULL f,i ckkh fõ
 
-
                                                40
 
-
                                                                                                ictfromabc.com
-RIGHT JOIN                                               SELECT *
+
+RIGHT JOIN                                               SELECT *
 Returns all records from the right table, and the        FROM Student
 matching records from the left table.                    RIGHT JOIN sport
  ol=Kqmi j.=fõ ish¨u jd¾;d iy jï j.=j yd                 ON Student.SpID = Sport.SportID;
@@ -2271,15 +2107,11 @@ matching records from the left table.                    RIGHT JOIN sport
                                                          | NULL | NULL   | NULL | 103     | Football |
                                                          +------+--------+------+---------+-----------+
 
-
                                                          NOTE
                                                          If there is no matching record found, the result
                                                          will be generated as NULL in left hand side.
                                                          .e<fmk jd¾;djla yuq fkdjQfha kï" jï mi
                                                          m%;sM,h NULL f,i ckkh fõ'
-
-
-
 
 FULL OUTER JOIN                                          It returns all rows when there is a match in
 A FULL OUTER JOIN combines the results of                either left or right table.
@@ -2297,9 +2129,6 @@ tAldnoaO lrhs'                                           SELECT *
                                                          RIGHT JOIN Sport
                                                          ON Student.SpID=Sport.SportID;
 
-
-
-
 RESULT
 +------+--------+------+---------+-----------+
 | StID | StName | SpID | SportID | SportName |
@@ -2310,14 +2139,11 @@ RESULT
 | NULL | NULL   | NULL | 103     | Football |
 +------+--------+------+---------+-----------+
 
-
-
-
                                                     41
 
-
                                                                                                      ictfromabc.com
-Integrity Constraints                                   2. Referential Integrity
+
+Integrity Constraints                                   2. Referential Integrity
 tAldnoaO ixfrdaOl                                          fhduq tAldnoaO;dj
 
 Rules applied to columns in a table to ensure           Ensures links between tables are valid.
@@ -2377,12 +2203,11 @@ PRIMARY KEY (Column_name)                               wdlD;sh iy mrdih oeä f,
                                                         3.   CHECK command
                                                         4.   DEFAULT command
 
-
                                                    42
 
-
                                                                                                        ictfromabc.com
-SQL Constraints                                        NOT NULL
+
+SQL Constraints                                        NOT NULL
 SQL iïndOl                                             Ensures that a column cannot have a null value.
                                                        ;Srejlg Y=kH w.hla ;sìh fkdyels nj iy;sl
 SQL constraints are rules enforced on data             lrhs'
@@ -2424,7 +2249,6 @@ m%Odk SQL iïndOl j¾. my; oelafõ'                            ……………�
                                                            Address VARCHAR(20),
                                                            Gender VARCHAR(10) NOT NULL,
                                                            TelNo VARCHAR(10) NOT NULL
-                                                       );
 
 RESULT
 DESCRIBE Employee;
@@ -2438,14 +2262,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | NO   |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                                   43
 
-
                                                                                                   ictfromabc.com
-2. Applying the NOT NULL constraint to                 3. Removing the NOT NULL constraint
+
+2. Applying the NOT NULL constraint to                 3. Removing the NOT NULL constraint
 an existing table                                      NOT NULL iïndOlh bj;a lsÍu
 mj;sk j.=jlg NOT NULL iïndOlh fh§u
                                                        Here, the code is written in an equivalent
@@ -2471,7 +2292,6 @@ NULL;                                                  iïndOlh bj;a lsÍu'
                                                        ALTER TABLE Employee
                                                        MODIFY COLUMN Address Varchar(20);
 
-
 RESULT (Applying NOT NULL)
 DESCRIBE Employee;
 +---------+-------------+------+-----+---------+-------+
@@ -2483,7 +2303,6 @@ DESCRIBE Employee;
 | Gender | VARCHAR(10) | NO     |     | NULL    |       |
 | TelNo   | VARCHAR(10) | NO    |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
-
 
 RESULT (Removing NOT NULL)
 DESCRIBE Employee;
@@ -2497,19 +2316,16 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | NO    |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                                   44
 
-
                                                                                              ictfromabc.com
-UNIQUE                                                SYNTAX 02
+
+UNIQUE                                                SYNTAX 02
 Ensures that all values in a column or a group
 of columns are unique.
 ;Srejl fyda ;Sre iuQyhl we;s ish¨u w.hka              CREATE TABLE            (
 wkqmsgm;a fkdjk nj iy;sl lrhs'                                                    ,
-                                                                                  ,
+
 1. Applying the UNIQUE constraint
                                                            …………………………………………
 when creating a table
@@ -2517,8 +2333,6 @@ j.=jla iE§fïÈ UNIQUE iïndOlh fh§u                                          
                                                            UNIQUE (           ),
 
 SYNTAX 01                                                  UNIQUE (           )
-                                                      );
-
 
 CREATE TABLE             (
                                                       SYNTAX 03
@@ -2526,10 +2340,9 @@ CREATE TABLE             (
                          UNIQUE,
      …………………………………………                                 CREATE TABLE            (
                          UNIQUE                                                   ,
-);
-                                                                                  ,
+
                                                            …………………………………………
-                                                                                  ,
+
 EXAMPLE                                                    UNIQUE (               ,   ));
 Creating the Employee table below. All fields
 except Gender must be unique.
@@ -2543,9 +2356,6 @@ CREATE TABLE Employee (
        Address VARCHAR(20) UNIQUE,
        Gender VARCHAR(10),
        TelNo VARCHAR(10) UNIQUE
-);
-
-
 
 RESULT
 DESCRIBE Employee;
@@ -2559,13 +2369,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | NO   |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
                                                  45
 
-
                                                                                             ictfromabc.com
-2. Applying the UNIQUE constraint to                 3. Removing the UNIQUE constraint
+
+2. Applying the UNIQUE constraint to                 3. Removing the UNIQUE constraint
 an existing table                                    UNIQUE iïndOlh bj;a lsÍu
 mj;sk j.=jlg UNIQUE iïndOlh fh§u
                                                      To remove a UNIQUE constraint, you need to
@@ -2578,7 +2386,6 @@ ALTER TABLE
 ADD CONSTRAINT                                       j.ka;sh Ndú;d l< hq;=h'
 UNIQUE (           );
                                                      SYNTAX
-
 
                                                      ALTER TABLE
 EXAMPLE
@@ -2597,9 +2404,6 @@ SYNTAX 02                                            iïndOlh bj;a lsÍu'
 ALTER TABLE
                                                      DROP CONSTRAINT uq_TelNo;
 ADD UNIQUE (            );
-
-
-
 
 RESULT (Applying UNIQUE)
 DESCRIBE Employee;
@@ -2624,13 +2428,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | YES |       | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
                                                 46
 
-
                                                                                              ictfromabc.com
-DEFAULT                                                 EXAMPLE
+
+DEFAULT                                                 EXAMPLE
                                                         Creating the Employee table above. Give
 Sets a default value for a column if no value is        Nugegoda as the DEFAULT value for the
 specified.                                              Address field.
@@ -2651,16 +2453,10 @@ SYNTAX                                                         DEFAULT "Nugegoda
                                                                Gender VARCHAR(10),
                                                                TelNo VARCHAR(10)
 CREATE TABLE                 (                          );
-                         ,
+
                              DEFAULT         ,
 
      ……………………………………………………
-
-
-);
-
-
-
 
 RESULT
 DESCRIBE Employee;
@@ -2674,14 +2470,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | YES |      | NULL     |       |
 +---------+-------------+------+-----+----------+-------+
 
-
-
-
                                                    47
 
-
                                                                                                   ictfromabc.com
-2. Applying the DEFAULT constraint to            3. Removing the DEFAULT constraint
+
+2. Applying the DEFAULT constraint to            3. Removing the DEFAULT constraint
 an existing table                                DEFAULT iïndOlh bj;a lsÍu
 mj;sk j.=jlg DEFAULT iïndOlh fh§u
                                                  To remove a DEFAULT constraint from a column,
@@ -2693,7 +2486,6 @@ ALTER TABLE
 ALTER                                            m%ldYh Ndú;d lrhs'
 SET DEFAULT          ;
                                                  SYNTAX
-
 
                                                  ALTER TABLE
 EXAMPLE
@@ -2734,14 +2526,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | YES |        | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                             48
 
-
                                                                                           ictfromabc.com
-CHECK                                                    2. Applying the CHECK constraint to an
+
+CHECK                                                    2. Applying the CHECK constraint to an
                                                          existing table
 Ensures that the values in a column satisfy a            mj;sk j.=jlg CHECK iïndOlh fh§u
 specific condition.
@@ -2762,16 +2551,15 @@ j.=jla iE§fïÈ CHECK iïndOlh fh§u                         Employee j.=fõ id
                                                          ALTER TABLE Employee
                                                          ADD CHECK (Age>=18);
 CREATE TABLE                 (
-                             ,
+
                              ,                           3. Creating a CHECK constraint with a
                                                          name
       ……………………………………………………
                                                          kula iys;j CHECK iïndOlh ks¾udKh lsÍu
 
       CHECK (            )
-);
+
                                                          CREATE TABLE                     (
-                                                                                          ,
 
 EXAMPLE                                                                                   ,
 Creating the Employee table above. Age should                     ……………………………………………………
@@ -2789,16 +2577,12 @@ CREATE TABLE Employee (                                  );
        Gender VARCHAR(10),
        TelNo VARCHAR(10),
        CHECK (Age>=18)
-);
-
-
-
 
                                                     49
 
-
                                                                                                   ictfromabc.com
-EXAMPLE                                             4. Removing the CHECK constraint
+
+EXAMPLE                                             4. Removing the CHECK constraint
 Creating the Employee table above. Age above        CHECK iïndOlh bj;a lsÍu
 18 years or address Nugegoda should be
 checked.                                            To remove a named CHECK constraint, you use
@@ -2826,20 +2610,16 @@ CREATE TABLE Employee (
                                                     ALTER TABLE Employee
                                                     DROP CHECK CHK_EmployeeAge;
 
-
-
-
                                                50
 
-
                                                                                            ictfromabc.com
-PRIMARY KEY                                            SYNTAX 02
 
+PRIMARY KEY                                            SYNTAX 02
 
 A primary key is a field (or combination of
 fields) in a database table that uniquely              CREATE TABLE          (
 identifies each record in that table.
-                                                                             ,
+
 m%d:ñl h;=rla hkq o;a; iuqod j.=jl we;s lafIa;%
 ^fyda lafIa;% tl;=jla& tu j.=fõ we;s iEu                                     ,
 jd¾;djlau wkkH f,i y÷kd .kS'
@@ -2864,12 +2644,11 @@ j.=jla iE§fïÈ PRIMARY KEY iïndOlh fh§u
 
 SYNTAX 01                                                   CONSTRAINT
                                                             PRIMARY KEY (          )
-                                                       );
+
 CREATE TABLE                (
 
                         PRIMARY KEY,
                                                        EXAMPLE (SYNTAX 01)
-                        ,
 
      ……………………………………………………                              CREATE TABLE Employee (
                                                               RegNo INT PRIMARY KEY,
@@ -2877,7 +2656,6 @@ CREATE TABLE                (
 );                                                            Address VARCHAR (20),
                                                               Gender VARCHAR (10),
                                                               TelNo VARCHAR (10)
-                                                       );
 
 RESULT
 DESCRIBE Employee;
@@ -2891,13 +2669,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | YES |      | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
                                                   51
 
-
                                                                                        ictfromabc.com
-2. Applying the PRIMARY KEY                   3. Removing the PRIMARY KEY
+
+2. Applying the PRIMARY KEY                   3. Removing the PRIMARY KEY
 constraint to an existing table               constraint
 mj;sk j.=jlg PRIMARY KEY iïndOlh fh§u         PRIMARY KEY iïndOlh bj;a lsÍu
 
@@ -2915,7 +2691,6 @@ ALTER TABLE Employee                          ALTER TABLE
 ADD PRIMARY KEY (RegNo);
                                               DROP PRIMARY KEY;
 
-
 SYNTAX 02
                                               EXAMPLE
                                               ALTER TABLE Employee
@@ -2925,8 +2700,6 @@ ADD CONSTRAINT                                SYNTAX 02
 PRIMARY KEY (        );
                                               ALTER TABLE
                                               DROP CONSTRAINT           ;
-
-
 
 RESULT (Applying PRIMARY KEY)
 DESCRIBE Employee;
@@ -2940,7 +2713,6 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | YES |        | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
 RESULT (Removing PRIMARY KEY)
 DESCRIBE Employee;
 +---------+-------------+------+-----+---------+-------+
@@ -2953,13 +2725,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | YES |       | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
                                          52
 
-
                                                                                      ictfromabc.com
-Composite Primary Key                                EXAMPLE
+
+Composite Primary Key                                EXAMPLE
 ixhqla; m%d:ñl h;=r                                  Creating the Employee table below. RegNo and
                                                      Name are Composite Primary Key here.
 A composite primary key consists of two or
@@ -2978,18 +2748,10 @@ ixhqla; m%d:ñl h;=rla ks¾udKh lsÍu'                   Name VARCHAR(15),
                                                       Gender VARCHAR(10),
                                                       TelNo VARCHAR(10),
 CREATE TABLE             (                            PRIMARY KEY(RegNo, Name)
-                                                     );
-                          ,
-                          ,
+
      ……………………………………………
 
-
-
      PRIMARY KEY (            ,          )
-);
-
-
-
 
 RESULT
 DESCRIBE Employee;
@@ -3003,14 +2765,11 @@ DESCRIBE Employee;
 | TelNo   | VARCHAR(10) | YES |      | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                                 53
 
-
                                                                                              ictfromabc.com
-FOREIGN KEY                                                  EXAMPLE
+
+FOREIGN KEY                                                  EXAMPLE
 wd.ka;=l h;=r                                                Creating the Employee table above. The
                                                              DepCode field is the FOREIGN KEY. It should be
 A foreign key is a field (or collection of fields) in        related to the DepCode field in the Department
@@ -3019,7 +2778,6 @@ another table.                                               by; Employee j.=j k
 wd.ka;=l h;=rla hkq tla j.=jl we;s lafIa;%hla                lafIa;%h wd.ka;=l h;=r fõ' th Department
 ^fyda lafIa;% tl;=jla& ;j;a j.=jl fma<shla
 wkkH f,i y÷kd .kS'                                           j.=fõ DepCode lafIa;%h yd iïnkaO úh hq;=h'
-
 
 It ensures that the value in the foreign key                 CREATE TABLE Employee (
 column(s) matches a valid, existing value in the              RegNo INT,
@@ -3033,21 +2791,12 @@ nj th iy;sl lrhs'                                             TelNo VARCHAR(10),
 constraint when creating a table                             );
 j.=jla iE§fïÈ FOREIGN KEY iïndOlh fh§u
 
-
-
-
 CREATE TABLE                 (
-                              ,
-                              ,
-       ……………………………………………………
 
+       ……………………………………………………
 
        FOREIGN KEY (                  )
        REFERENCES                 (           )
-);
-
-
-
 
 RESULT
 DESCRIBE Employee;
@@ -3062,24 +2811,18 @@ DESCRIBE Employee;
 | DepCode | VARCHAR(5) | YES | MUL | NULL      |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                                         54
 
-
                                                                                                        ictfromabc.com
-Applying the FOREIGN KEY                      Removing the FOREIGN KEY
+
+Applying the FOREIGN KEY                      Removing the FOREIGN KEY
 constraint to an existing table               constraint
 mj;sk j.=jlg FOREIGN KEY iïndOlh fh§u         FOREIGN KEY iïndOlh bj;a lsÍu
-
-
-
 
 ALTER TABLE                                   ALTER TABLE
 ADD FOREIGN KEY (        )                    DROP FOREIGN KEY            ;
 REFERENCES          (        )
-);
+
                                               EXAMPLE
                                               Remove the existing FOREIGN KEY of the
 ALTER TABLE Employee                          Employee table, DepCode.
@@ -3088,9 +2831,6 @@ REFERENCES Department(DepCode));              DepCode bj;a lrkak'
 
                                               ALTER TABLE Employee
                                               DROP FOREIGN KEY DepCode;
-
-
-
 
 RESULT (Applying FOREIGN KEY)
 DESCRIBE Employee;
@@ -3118,11 +2858,6 @@ DESCRIBE Employee;
 | DepCode | VARCHAR(5) | YES | MUL | NULL       |       |
 +---------+-------------+------+-----+---------+-------+
 
-
-
-
                                          55
 
-
                                                                                    ictfromabc.com
-

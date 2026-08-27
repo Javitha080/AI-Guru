@@ -59,13 +59,22 @@
   border: 1px solid var(--glass-border);
   border-radius: 9999px;
   padding: 0.375rem 1rem;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .glass-capsule:hover {
   background: var(--glass-1);
   border-color: var(--glass-border-highlight);
+  transform: translateY(-1px);
   box-shadow: 0 0 20px var(--glow-primary);
+}
+
+.glass-capsule:active {
+  transform: scale(0.97);
 }
 
 /* ─── Primary Glass Button ─── */
@@ -80,32 +89,46 @@
   font-weight: 600;
   position: relative;
   overflow: hidden;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Inset top highlight */
+  transition:
+    transform var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  cursor: pointer;
+  user-select: none;
 }
 
 .glass-btn-primary::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 55%);
   border-radius: inherit;
   pointer-events: none;
+  transition: opacity var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .glass-btn-primary:hover {
   background: color-mix(in srgb, var(--primary) 70%, transparent);
+  transform: translateY(-1.5px);
+  border-color: color-mix(in srgb, var(--primary) 90%, white);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 0 30px var(--glow-primary);
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px var(--glow-primary),
+    0 0 32px var(--glow-primary);
+}
+
+.glass-btn-primary:hover::before {
+  opacity: 1;
 }
 
 .glass-btn-primary:active {
-  transform: scale(0.97);
+  transform: scale(0.96) translateY(0px);
+  transition-duration: var(--duration-quick, 150ms);
   box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.15),
-    0 0 15px var(--glow-primary);
+    inset 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 2px 8px var(--glow-primary);
 }
 
 .glass-btn-primary:disabled {
@@ -113,7 +136,8 @@
   border-color: transparent;
   color: color-mix(in srgb, var(--foreground) 30%, transparent);
   box-shadow: none;
-  cursor: default;
+  transform: none;
+  cursor: not-allowed;
 }
 
 /* ─── Secondary Glass Button ─── */
@@ -126,17 +150,25 @@
   color: var(--foreground);
   padding: 0.5rem 1.25rem;
   font-weight: 500;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
+  cursor: pointer;
+  user-select: none;
 }
 
 .glass-btn-secondary:hover {
-  background: color-mix(in srgb, var(--primary) 15%, var(--glass-1));
-  transform: translateY(-1px);
-  box-shadow: var(--glass-shadow);
+  background: color-mix(in srgb, var(--primary) 18%, var(--glass-1));
+  transform: translateY(-1.5px);
+  border-color: var(--glass-border-highlight);
+  box-shadow: var(--glass-shadow), 0 4px 16px var(--glow-primary);
 }
 
 .glass-btn-secondary:active {
-  transform: scale(0.97);
+  transform: scale(0.96) translateY(0px);
+  transition-duration: var(--duration-quick, 150ms);
   border-color: var(--glass-border-highlight);
 }
 
@@ -147,7 +179,13 @@
   border-radius: 9999px;
   color: var(--muted-foreground);
   padding: 0.5rem;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition:
+    transform var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
+  cursor: pointer;
 }
 
 .glass-btn-ghost:hover {
@@ -156,11 +194,13 @@
   -webkit-backdrop-filter: blur(8px);
   border-color: var(--glass-border);
   color: var(--foreground);
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .glass-btn-ghost:active {
-  transform: scale(0.95);
+  transform: scale(0.94) translateY(0px);
+  transition-duration: var(--duration-quick, 150ms);
 }
 
 /* ─── Glass Input ─── */
@@ -173,7 +213,10 @@
   padding: 0.625rem 1rem;
   color: var(--foreground);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    border-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
   outline: none;
 }
 
@@ -260,22 +303,23 @@
 
 .bento-cell--hover {
   transition:
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform var(--duration-medium, 350ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-medium, 350ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-medium, 350ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .bento-cell--hover:hover {
   transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--primary) 42%, var(--glass-border));
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--glass-border));
   box-shadow:
     var(--glass-shadow-elevated),
-    0 0 26px var(--glow-primary),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 8px 32px var(--glow-primary),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .bento-cell--hover:active {
-  transform: translateY(-1px) scale(0.995);
+  transform: translateY(-1px) scale(0.985);
+  transition-duration: var(--duration-quick, 150ms);
 }
 
 /* Selected bento cell (student cards, tabs) — ember outline bloom */
@@ -296,10 +340,10 @@
   pointer-events: none;
   z-index: 3;
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity var(--duration-medium, 350ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
   background: radial-gradient(
     440px circle at var(--glare-x, 50%) var(--glare-y, 50%),
-    rgba(255, 255, 255, 0.10),
+    rgba(255, 255, 255, 0.12),
     transparent 58%
   );
 }
@@ -400,17 +444,19 @@
 /* ─── Glow ring hover for icon buttons / chips ─── */
 .glow-ring {
   transition:
-    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform var(--duration-fast, 250ms) var(--ease-smooth-out, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .glow-ring:hover {
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 40%, transparent), 0 0 18px var(--glow-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 50%, transparent), 0 0 20px var(--glow-primary);
 }
 
 .glow-ring:active {
-  transform: scale(0.96);
+  transform: scale(0.95) translateY(0px);
+  transition-duration: var(--duration-quick, 150ms);
 }
 
 /* ─── Live status dot (ember pulse replaces generic green pulse) ─── */

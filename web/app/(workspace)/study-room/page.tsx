@@ -7,7 +7,7 @@
  * is unchanged; this file is presentation-only redesign.
  */
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import {
   Plus, BookOpen, BookOpenCheck, ShieldCheck, Sparkles,
@@ -20,10 +20,13 @@ import PreFlightCheck from "@/components/study/PreFlightCheck";
 import StudyTimer from "@/components/study/StudyTimer";
 import SessionReportView from "@/components/study/SessionReportView";
 import FloatingStudyBar from "@/components/study/FloatingStudyBar";
+import { notify } from "@/lib/notifications";
 import { motionOK, useRevealStagger, useMagneticTilt } from "@/lib/motion/useGsapReveal";
 import type { VisionPipeline } from "@/lib/monitoring/visionPipeline";
+import type { TelemetrySocket } from "@/lib/monitoring/telemetrySocket";
 
 type SessionState = "idle" | "creating" | "pre-flight" | "active" | "completed";
+type MonitorMode = "system" | "browser";
 
 interface LiveWarning {
   warning_id: string;
@@ -46,8 +49,51 @@ interface PastSessionRow {
 
 const STUDENT_ID = "student-primary";
 
+/** Whitelisted-study-behavior chips (mirrors backend WhitelistedAction enum). */
+const WHITELIST_LABELS: Record<string, string> = {
+  READING_DOWNWARDS: "📖 Reading Book",
+  WRITING_NOTES: "✍️ Writing Notes",
+  TURNING_PAGES: "📄 Turning Pages",
+  DRINKING_WATER: "💧 Drinking Water",
+  POSTURE_SHIFT: "🧘 Posture Shift",
+};
+
 /** Inline CSS custom properties without fighting the CSSProperties type. */
 const cssVars = (o: Record<string, string>) => o as unknown as React.CSSProperties;
+
+/** Lightweight Web Audio chime for distraction warnings — no external files. */
+const _audioCtx = typeof AudioContext !== "undefined" ? new AudioContext() : null;
+function playChime(severity: "nudge" | "warning" | "alert"): void {
+  if (!_audioCtx) return;
+  try {
+    // Resume context on user interaction (Chrome autoplay policy)
+    if (_audioCtx.state === "suspended") void _audioCtx.resume();
+    const t = _audioCtx.currentTime;
+    const osc = _audioCtx.createOscillator();
+    const gain = _audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(_audioCtx.destination);
+    osc.type = severity === "alert" ? "triangle" : "sine";
+    // Nudge: gentle rising double-ping; Warning/Alert: descending attention tone
+    if (severity === "nudge") {
+      osc.frequency.setValueAtTime(523, t);        // C5
+      osc.frequency.setValueAtTime(659, t + 0.12); // E5
+      gain.gain.setValueAtTime(0.08, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+      osc.start(t);
+      osc.stop(t + 0.3);
+    } else {
+      const vol = severity === "alert" ? 0.15 : 0.10;
+      osc.frequency.setValueAtTime(880, t);        // A5
+      osc.frequency.setValueAtTime(659, t + 0.08); // E5
+      osc.frequency.setValueAtTime(523, t + 0.16); // C5
+      gain.gain.setValueAtTime(vol, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4);
+      osc.start(t);
+      osc.stop(t + 0.4);
+    }
+  } catch { /* audio unavailable — silent fallback */ }
+}
 
 export default function StudyRoomPage() {
   const [state, setState] = useState<SessionState>("idle");
@@ -66,11 +112,19 @@ export default function StudyRoomPage() {
   // ---- Real monitoring telemetry (WS-backed; no simulated values) ----
   const [focusScore, setFocusScore] = useState<number | null>(null); // null = awaiting real data
   const [engagementScore, setEngagementScore] = useState<number | null>(null);
+  const [focusTrend, setFocusTrend] = useState<string>("STABLE");
+  const [whitelistedAction, setWhitelistedAction] = useState<string | null>(null);
   const [presenceState, setPresenceState] = useState<string>("unknown");
   const [postureLabel, setPostureLabel] = useState<string>("—");
   const [liveWarnings, setLiveWarnings] = useState<LiveWarning[]>([]);
   const [wsConnected, setWsConnected] = useState(false);
+  // null until /camera/status answers; drives <img> MJPEG vs getUserMedia.
+  const [monitorMode, setMonitorMode] = useState<MonitorMode | null>(null);
+  const [feedAttempt, setFeedAttempt] = useState(0);
+  const [telegramBadgeAt, setTelegramBadgeAt] = useState<number | null>(null);
   const pipelineRef = useRef<VisionPipeline | null>(null);
+  const socketRef = useRef<TelemetrySocket | null>(null);
+  const feedRetryRef = useRef(0);
   const streamRef = useRef<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [studyNotes, setStudyNotes] = useState<string>("");
@@ -106,28 +160,100 @@ export default function StudyRoomPage() {
     }
   };
 
-  // Open the local monitoring stream once the session goes active.
-  // MediaPipe runs on-device; landmarks feed the backend geometry engine
-  // over the monitoring WS (same-origin, cookie-authenticated).
+  // Shared telemetry application for both monitor modes (system + browser).
+  const applyRemote = useCallback((msg: Record<string, unknown>) => {
+    if (typeof msg.engagement_score === "number") setEngagementScore(Math.round(msg.engagement_score));
+    if (typeof msg.focus_score === "number") setFocusScore(Math.round(msg.focus_score));
+    if (typeof msg.engagement_trend === "string") setFocusTrend(String(msg.engagement_trend));
+    if (typeof msg.presence === "string") setPresenceState(String(msg.presence));
+    if (typeof msg.posture === "string") {
+      setPostureLabel(String(msg.posture).replace(/_/g, " ").toLowerCase());
+    }
+    setWhitelistedAction(
+      typeof msg.whitelisted_action === "string" ? String(msg.whitelisted_action) : null
+    );
+    const warn = msg.warning as { warning_id?: string; category?: string; message?: string; severity?: string } | undefined;
+    if (warn?.warning_id) {
+      setLiveWarnings((prev) =>
+        [{ ...warn, at: Date.now() } as LiveWarning, ...prev.filter((w) => w.warning_id !== warn.warning_id)].slice(0, 5)
+      );
+      if (warn.severity === "alert") {
+        // High-priority alerts dispatch a real photo to the parent's Telegram.
+        setTelegramBadgeAt(Date.now());
+      }
+      // Backend pre-throttles warnings (cooldown + episode + rate gates),
+      // so toasting every dispatched event stays spam-free. Nudges toast
+      // gently (info tone); real warnings escalate the tone instead.
+      // Audio chime helps when the student is looking away from the screen.
+      const sev = (warn.severity === "alert" || warn.severity === "warning" || warn.severity === "nudge")
+        ? warn.severity as "alert" | "warning" | "nudge"
+        : "nudge";
+      playChime(sev);
+      notify(warn.message || "Stay focused!", {
+        tone:
+          warn.severity === "alert"
+            ? "error"
+            : warn.severity === "warning"
+              ? "warning"
+              : "info",
+      });
+    }
+  }, []);
+
+  // 1. Decide the monitoring mode once per active session: system camera
+  //    (backend Python CV — no browser permission prompt) or browser WASM CV.
   useEffect(() => {
-    if (state !== "active") return;
+    if (state !== "active" || monitorMode !== null) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/v1/monitoring/camera/status");
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        if (!cancelled) setMonitorMode(data.mode === "system" && sessionId ? "system" : "browser");
+      } catch {
+        if (!cancelled) setMonitorMode("browser");
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [state, sessionId, monitorMode]);
+
+  // 2a. SYSTEM MODE: backend owns the webcam and drives analysis ticks; this
+  //     page just renders the MJPEG feed and consumes WS telemetry updates.
+  useEffect(() => {
+    if (state !== "active" || monitorMode !== "system" || !sessionId) return;
+    let cancelled = false;
+    feedRetryRef.current = 0;
+    setFeedAttempt(0);
+
+    (async () => {
+      const { TelemetrySocket } = await import("@/lib/monitoring/telemetrySocket");
+      if (cancelled) return;
+      const socket = new TelemetrySocket({
+        sessionId,
+        onUpdate: applyRemote,
+        onState: setWsConnected,
+      });
+      socketRef.current = socket;
+      socket.start();
+    })();
+
+    return () => {
+      cancelled = true;
+      socketRef.current?.stop();
+      socketRef.current = null;
+      setWsConnected(false);
+    };
+  }, [state, monitorMode, sessionId, applyRemote]);
+
+  // 2b. BROWSER MODE fallback: MediaPipe WASM runs on-device; landmarks feed
+  //     the backend geometry engine over the monitoring WS.
+  useEffect(() => {
+    if (state !== "active" || monitorMode !== "browser") return;
     let cancelled = false;
     const pipelineRefLocal: { current: VisionPipeline | null } = { current: null };
-
-    const applyRemote = (msg: Record<string, unknown>) => {
-      if (typeof msg.engagement_score === "number") setEngagementScore(Math.round(msg.engagement_score));
-      if (typeof msg.focus_score === "number") setFocusScore(Math.round(msg.focus_score));
-      if (typeof msg.presence === "string") setPresenceState(String(msg.presence));
-      if (typeof msg.posture === "string") {
-        setPostureLabel(String(msg.posture).replace(/_/g, " ").toLowerCase());
-      }
-      const warn = msg.warning as { warning_id?: string; category?: string; message?: string; severity?: string } | undefined;
-      if (warn?.warning_id) {
-        setLiveWarnings((prev) =>
-          [{ ...warn, at: Date.now() } as LiveWarning, ...prev.filter((w) => w.warning_id !== warn.warning_id)].slice(0, 5)
-        );
-      }
-    };
 
     (async () => {
       try {
@@ -198,7 +324,7 @@ export default function StudyRoomPage() {
       streamRef.current = null;
       setWsConnected(false);
     };
-  }, [state, sessionId]);
+  }, [state, monitorMode, sessionId, applyRemote]);
 
   const handleStartSession = (title: string, subject: string, duration: number) => {
     setSessionData({ title, subject, duration });
@@ -259,8 +385,12 @@ export default function StudyRoomPage() {
     setLiveWarnings([]);
     setFocusScore(null);
     setEngagementScore(null);
+    setFocusTrend("STABLE");
+    setWhitelistedAction(null);
+    setTelegramBadgeAt(null);
     setPresenceState("unknown");
     setPostureLabel("—");
+    setMonitorMode(null);
     setState("active");
     void fetch(`/api/v1/study-session/${row.id}/resume`, { method: "POST" }).catch(() => {});
   };
@@ -287,8 +417,19 @@ export default function StudyRoomPage() {
     setState("completed");
   }, [sessionId]);
 
+  // Tick the unified session clock; pausing stops the interval so the ring,
+  // floating bar and PiP stay in sync from this single source of truth.
+  useEffect(() => {
+    if (state !== "active" || isPaused) return;
+    const id = setInterval(() => {
+      setTimeLeft((t) => (t === null ? null : Math.max(0, t - 1)));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [state, isPaused]);
+
   useEffect(() => {
     if (state === "active" && timeLeft === 0 && !completingRef.current) {
+      notify("Time is up — study session complete.", { tone: "success" });
       void handleComplete();
     }
     if (state !== "active") completingRef.current = false;
@@ -298,6 +439,15 @@ export default function StudyRoomPage() {
     if (state !== "active") return;
     const next = !isPaused;
     setIsPaused(next);
+    // System-camera mode: the backend engine pauses its ticks + releases the
+    // webcam on this control message (no analysis → no false absence alerts).
+    if (next) {
+      socketRef.current?.sendPause();
+      pipelineRef.current?.setPaused(true);
+    } else {
+      socketRef.current?.sendResume();
+      pipelineRef.current?.setPaused(false);
+    }
     if (!sessionId) return;
     try {
       const res = await fetch(`/api/v1/study-session/${sessionId}/${next ? "pause" : "resume"}`, {
@@ -342,11 +492,15 @@ export default function StudyRoomPage() {
     setReportLoading(false);
     setFocusScore(null);
     setEngagementScore(null);
+    setFocusTrend("STABLE");
+    setWhitelistedAction(null);
+    setTelegramBadgeAt(null);
     setPresenceState("unknown");
     setPostureLabel("—");
     setLiveWarnings([]);
     setStudyNotes("");
     setLiveViewEnabled(false);
+    setMonitorMode(null);
     setSessionData(null);
   }, []);
 
@@ -399,6 +553,18 @@ export default function StudyRoomPage() {
     const id = setTimeout(() => setApiNotice(null), 8000);
     return () => clearTimeout(id);
   }, [apiNotice]);
+
+  // Telegram photo-dispatch badge: visible ~15s after an alert-tier warning.
+  const [telegramBadgeVisible, setTelegramBadgeVisible] = useState(false);
+  useEffect(() => {
+    if (!telegramBadgeAt) {
+      setTelegramBadgeVisible(false);
+      return;
+    }
+    setTelegramBadgeVisible(true);
+    const id = setTimeout(() => setTelegramBadgeVisible(false), 15000);
+    return () => clearTimeout(id);
+  }, [telegramBadgeAt]);
 
   return (
     <div className="flex-1 h-full flex flex-col text-[var(--foreground)] relative overflow-hidden">
@@ -481,7 +647,11 @@ export default function StudyRoomPage() {
                         wsConnected ? "bg-[var(--primary)] ember-dot" : "bg-[var(--muted-foreground)]/50"
                       }`}
                     />
-                    {wsConnected ? "Local AI Active (Zero Egress)" : "Monitoring Standby"}
+                    {wsConnected
+                      ? monitorMode === "system"
+                        ? "System Camera AI Active"
+                        : "Local AI Active"
+                      : "Monitoring Standby"}
                   </span>
                   <span className="opacity-40">·</span>
                   <span>Target: {sessionData?.duration} mins</span>
@@ -514,8 +684,8 @@ export default function StudyRoomPage() {
             </div>
           </div>
 
-          {/* Main Dual-Pane Workspace */}
-          <div className="flex-1 flex overflow-hidden">
+          {/* Main Dual-Pane Workspace — stacks vertically below lg so the clock stays reachable */}
+          <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
             {/* Left Pane: Interactive Document & Past Paper Study Zone */}
             <div className="flex-1 flex flex-col overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between gap-3">
@@ -565,7 +735,7 @@ export default function StudyRoomPage() {
             </div>
 
             {/* Right Pane: Timer & Local AI Supervision HUD — vertical bento */}
-            <aside className="w-[340px] shrink-0 hidden lg:flex flex-col gap-4 p-4 pl-1 pb-28 overflow-y-auto">
+            <aside className="w-full lg:w-[340px] shrink-0 flex flex-col gap-4 p-4 pt-2 lg:pl-1 pb-28 overflow-y-auto max-h-[48vh] lg:max-h-none border-t border-[var(--glass-border)] lg:border-t-0 lg:border-l">
               {/* Timer Clock */}
               <div className="bento-cell p-5 pt-7 flex flex-col items-center shrink-0 liquid-sheen">
                 <StudyTimer
@@ -611,14 +781,42 @@ export default function StudyRoomPage() {
                   <TelemetryRow label="Posture">
                     <span className="font-semibold capitalize">{postureLabel}</span>
                   </TelemetryRow>
-                  <TelemetryRow label="Engagement">
+                  {whitelistedAction && (
+                    <TelemetryRow label="Recognized">
+                      <span className="font-semibold text-[var(--primary)]">
+                        {WHITELIST_LABELS[whitelistedAction] || whitelistedAction.replace(/_/g, " ").toLowerCase()}
+                      </span>
+                    </TelemetryRow>
+                  )}
+                  <TelemetryRow label="Focus">
                     <span className="font-semibold text-[var(--primary)] font-mono">
+                      {focusScore === null ? "—" : `${focusScore}%`}
+                    </span>
+                  </TelemetryRow>
+                  <TelemetryRow label="Engagement">
+                    <span className="flex items-center gap-1.5 font-semibold text-[var(--primary)] font-mono">
+                      <span
+                        title={focusTrend === "RISING" ? "Engagement rising" : focusTrend === "FALLING" ? "Engagement falling" : "Steady"}
+                        className={
+                          focusTrend === "FALLING"
+                            ? "text-red-400"
+                            : focusTrend === "RISING"
+                              ? "text-[var(--primary)]"
+                              : "text-[var(--muted-foreground)]"
+                        }
+                      >
+                        {focusTrend === "RISING" ? "↑" : focusTrend === "FALLING" ? "↓" : "→"}
+                      </span>
                       {engagementScore === null ? "—" : `${engagementScore}%`}
                     </span>
                   </TelemetryRow>
-                  <TelemetryRow label="Device Egress">
-                    <span className={`font-semibold font-mono ${wsConnected ? "text-[var(--amber)]" : "text-[var(--muted-foreground)]"}`}>
-                      {wsConnected ? "0 Bytes (Local)" : "—"}
+                  <TelemetryRow label="Data Privacy">
+                    <span className={`font-semibold ${wsConnected ? "text-[var(--amber)]" : "text-[var(--muted-foreground)]"}`}>
+                      {wsConnected
+                        ? monitorMode === "system"
+                          ? "On-device · photos only on alerts"
+                          : "0 Bytes (Local)"
+                        : "—"}
                     </span>
                   </TelemetryRow>
                   <div className="flex justify-between items-center pt-1.5 border-t border-[var(--glass-border)]">
@@ -643,7 +841,7 @@ export default function StudyRoomPage() {
                   </div>
                 </div>
 
-                {/* Live warnings (dispatched by the local CV pipeline) */}
+                {/* Live warnings — 3-tier: nudge (subtle) / warning / alert */}
                 {liveWarnings.length > 0 && (
                   <div className="pt-2 border-t border-[var(--glass-border)] space-y-1.5">
                     {liveWarnings.slice(0, 3).map((w) => (
@@ -653,8 +851,10 @@ export default function StudyRoomPage() {
                           w.severity === "alert"
                             ? "bg-red-500/10 text-red-300 border-red-500/25"
                             : w.severity === "warning"
-                              ? "bg-[var(--amber-glow)]/60 text-[var(--amber)] border-[var(--amber)]/25"
-                              : "bg-[var(--ember-0)] text-[var(--primary)] border-[var(--ember-line)]/25"
+                              ? "bg-[var(--amber-glow)]/80 text-[var(--amber)] border-[var(--amber)]/35"
+                              : w.severity === "nudge"
+                                ? "bg-[var(--amber-glow)]/30 text-[var(--amber)]/90 border-[var(--amber)]/15"
+                                : "bg-[var(--ember-0)] text-[var(--primary)] border-[var(--ember-line)]/25"
                         }`}
                       >
                         <AlertTriangle size={12} className="mt-0.5 shrink-0" />
@@ -665,20 +865,44 @@ export default function StudyRoomPage() {
                 )}
               </div>
 
-              {/* Camera — real on-device preview feeding the local CV pipeline */}
+              {/* Camera — system MJPEG feed (no permission prompt) or local preview fallback */}
               <div className="bento-cell scanline relative aspect-video overflow-hidden flex items-center justify-center !bg-black/80">
                 {wsConnected && <div className="scanline-bar" />}
-                <video
-                  ref={videoRef}
-                  muted
-                  playsInline
-                  autoPlay
-                  className="absolute inset-0 h-full w-full object-cover opacity-90 -scale-x-100"
-                />
+                {monitorMode === "system" && sessionId && wsConnected ? (
+                  <img
+                    key={sessionId}
+                    src={`/api/v1/monitoring/feed/${encodeURIComponent(sessionId)}${feedAttempt ? `?retry=${feedAttempt}` : ""}`}
+                    alt="Live AI Guru monitoring feed with face mesh overlay"
+                    className="absolute inset-0 h-full w-full object-cover opacity-95"
+                    onError={() => {
+                      // The monitor registers a beat after the WS handshake;
+                      // retry a few times before downgrading to browser mode.
+                      if (feedRetryRef.current < 3) {
+                        feedRetryRef.current += 1;
+                        setFeedAttempt(feedRetryRef.current);
+                      } else {
+                        setMonitorMode("browser");
+                      }
+                    }}
+                  />
+                ) : (
+                  <video
+                    ref={videoRef}
+                    muted
+                    playsInline
+                    autoPlay
+                    className="absolute inset-0 h-full w-full object-cover opacity-90 -scale-x-100"
+                  />
+                )}
                 {!wsConnected && (
                   <div className="relative text-center space-y-1 z-10">
                     <Video size={24} className="mx-auto text-white/40" />
                     <p className="text-[10px] text-white/50 font-medium">Monitoring standby</p>
+                  </div>
+                )}
+                {telegramBadgeVisible && (
+                  <div className="absolute bottom-2 right-2 z-20 flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-bold bg-red-500/25 text-red-200 border border-red-500/40 backdrop-blur-sm animate-pop-in">
+                    📸 Alert sent to parent
                   </div>
                 )}
                 <div
@@ -691,7 +915,13 @@ export default function StudyRoomPage() {
                       wsConnected ? "bg-[var(--primary)] ember-dot" : "bg-white/30"
                     }`}
                   />
-                  <span>{wsConnected ? "LIVE · ON-DEVICE" : "IDLE"}</span>
+                  <span>
+                    {wsConnected
+                      ? monitorMode === "system"
+                        ? "LIVE · SYSTEM AI"
+                        : "LIVE · ON-DEVICE"
+                      : "IDLE"}
+                  </span>
                 </div>
               </div>
             </aside>
@@ -987,13 +1217,30 @@ function IdleLobby({
 }
 
 /**
- * Real past-paper workspace: lists uploaded papers from the Exam Room store
- * and routes to /exam (deep-linked to the chosen paper) for the full upload ->
- * MCQ paper 1 -> essay paper 2 -> AI grading flow. No fabricated questions.
+ * Real past-paper workspace: Paper Bank built-in past papers (English & Sinhala)
+ * + uploaded custom exam papers with 1-click start under study telemetry.
  */
 function PastPaperPanel({ subject }: { subject: string }) {
   const router = useRouter();
-  const [papers, setPapers] = useState<
+  const [bankGrade, setBankGrade] = useState<11 | 12 | 13>(13);
+  const [bankMedium, setBankMedium] = useState<string>("");
+  const [bankPapers, setBankPapers] = useState<
+    Array<{
+      id: string;
+      group_key: string;
+      paper_no: number;
+      grade: number;
+      subject: string;
+      year: number;
+      medium: string;
+      title: string;
+      question_count: number;
+      mcq_count: number;
+      essay_count: number;
+      total_marks: number;
+    }> | null
+  >(null);
+  const [uploadedPapers, setUploadedPapers] = useState<
     Array<{
       id: string;
       title: string;
@@ -1002,24 +1249,40 @@ function PastPaperPanel({ subject }: { subject: string }) {
       question_count: number;
     }> | null
   >(null);
+  const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);
 
-  const loadPapers = useCallback(async () => {
-    setPapers(null);
+  const loadData = useCallback(async () => {
+    setLoading(true);
     setFailed(false);
     try {
-      const res = await fetch("/api/v1/exams/list");
-      if (!res.ok) throw new Error(String(res.status));
-      const rows = await res.json();
-      setPapers(Array.isArray(rows) ? rows : []);
+      const [bankRes, examRes] = await Promise.all([
+        fetch(`/api/v1/paper_bank/catalog?subject=${bankGrade === 11 ? "ict-ol" : "ict"}&grade=${bankGrade}`),
+        fetch("/api/v1/exams/list"),
+      ]);
+      if (bankRes.ok) {
+        const bData = await bankRes.json();
+        setBankPapers(bData.papers || []);
+      }
+      if (examRes.ok) {
+        const eData = await examRes.json();
+        setUploadedPapers(Array.isArray(eData) ? eData : []);
+      }
     } catch {
       setFailed(true);
+    } finally {
+      setLoading(false);
     }
-  }, []);
+  }, [bankGrade]);
 
   useEffect(() => {
-    void loadPapers();
-  }, [loadPapers]);
+    void loadData();
+  }, [loadData]);
+
+  const filteredBank = useMemo(() => {
+    if (!bankPapers) return [];
+    return bankPapers.filter((p) => !bankMedium || p.medium === bankMedium);
+  }, [bankPapers, bankMedium]);
 
   return (
     <div className="flex-1 p-5 pt-4 overflow-y-auto space-y-4">
@@ -1034,17 +1297,17 @@ function PastPaperPanel({ subject }: { subject: string }) {
         <div className="space-y-1.5 relative z-10">
           <h3 className="text-sm font-bold flex items-center gap-2">
             <BookOpenCheck size={15} className="text-[var(--primary)]" />
-            Paper Bank — built-in A/L papers
+            Paper Bank — Official A/L &amp; O/L Papers
           </h3>
           <p className="text-[11px] text-[var(--muted-foreground)] leading-relaxed max-w-md">
-            ICT 2011–2025 with official answer keys: sit Paper 1 timed, double-check, then Paper 2 — graded and reviewed like the real exam.
+            Built-in English &amp; Sinhala medium papers with official answer keys: timed Paper 1 (MCQ) and Paper 2 (Structured Essay) with AI grading.
           </p>
         </div>
         <button
           onClick={() => router.push("/papers")}
           className="shrink-0 relative z-10 px-4 py-2 rounded-xl bg-[var(--primary)] text-white text-xs font-bold transition-all hover:brightness-110 hover:-translate-y-0.5 active:scale-95 shadow-[0_6px_20px_var(--glow-primary)]"
         >
-          Open Paper Bank
+          Open Full Paper Bank
         </button>
       </div>
 
@@ -1072,39 +1335,89 @@ function PastPaperPanel({ subject }: { subject: string }) {
         </button>
       </div>
 
-      {papers === null && !failed && (
-        <div className="flex items-center justify-center py-10 text-[var(--muted-foreground)] text-xs gap-2">
-          <RefreshCw size={14} className="animate-spin" />
-          Loading your papers…
+      {/* Quick Filters */}
+      <div className="space-y-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted-foreground)] flex items-center gap-1.5">
+            <FileText size={13} /> Built-in Past Papers
+          </h4>
+          <div className="flex items-center gap-1">
+            {[11, 12, 13].map((g) => (
+              <button
+                key={g}
+                onClick={() => setBankGrade(g as 11 | 12 | 13)}
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-colors ${
+                  bankGrade === g
+                    ? "bg-[var(--primary)] text-white border-transparent"
+                    : "surface-glass-base border-[var(--glass-border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                }`}
+              >
+                G{g} {g === 11 ? "(O/L)" : "(A/L)"}
+              </button>
+            ))}
+            <span className="w-px h-4 bg-[var(--glass-border)] mx-0.5" />
+            {["", "english", "sinhala"].map((m) => (
+              <button
+                key={m || "all"}
+                onClick={() => setBankMedium(m)}
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-colors ${
+                  bankMedium === m
+                    ? "bg-[var(--primary)] text-white border-transparent"
+                    : "surface-glass-base border-[var(--glass-border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                }`}
+              >
+                {m === "" ? "All" : m === "english" ? "EN" : "සිංහල"}
+              </button>
+            ))}
+          </div>
         </div>
-      )}
 
-      {failed && (
-        <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/10 text-xs text-red-300 flex items-center justify-between gap-3">
-          <span>Couldn&apos;t reach the exam service. Make sure the AI Guru backend is running.</span>
-          <button
-            onClick={() => void loadPapers()}
-            className="shrink-0 px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 text-[11px] font-bold transition-colors border border-red-500/30"
-          >
-            Retry
-          </button>
-        </div>
-      )}
+        {loading && (
+          <div className="flex items-center justify-center py-6 text-[var(--muted-foreground)] text-xs gap-2">
+            <RefreshCw size={14} className="animate-spin" />
+            Loading papers…
+          </div>
+        )}
 
-      {papers !== null && papers.length === 0 && (
-        <div className="p-8 rounded-2xl border border-dashed border-[var(--glass-border-highlight)] text-center space-y-1.5">
-          <FileText size={22} className="mx-auto text-[var(--muted-foreground)] mb-1" />
-          <p className="text-sm font-semibold">No past papers yet</p>
-          <p className="text-xs text-[var(--muted-foreground)]">
-            Click &quot;Upload &amp; Start&quot; above to turn a past-paper PDF into a timed exam.
-          </p>
-        </div>
-      )}
+        {!loading && filteredBank.length === 0 && !failed && (
+          <div className="p-6 rounded-xl border border-dashed border-[var(--glass-border-highlight)] text-center text-xs text-[var(--muted-foreground)]">
+            No built-in papers found for this grade / medium filter.
+          </div>
+        )}
 
-      {papers !== null && papers.length > 0 && (
-        <div className="space-y-2">
-          <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted-foreground)]">Your Papers</h4>
-          {papers.map((p) => (
+        {!loading && filteredBank.length > 0 && (
+          <div className="grid gap-2 sm:grid-cols-2">
+            {filteredBank.slice(0, 8).map((p) => (
+              <button
+                key={p.id}
+                onClick={() => router.push("/papers")}
+                className="p-3 rounded-xl surface-glass-base hover:border-[var(--ember-line)]/50 transition-all duration-200 text-left group flex items-center justify-between gap-2"
+              >
+                <div className="min-w-0">
+                  <p className="text-xs font-bold truncate group-hover:text-[var(--primary)] transition-colors">
+                    {p.title}
+                  </p>
+                  <p className="text-[10px] text-[var(--muted-foreground)] mt-0.5">
+                    {p.question_count}Q · {p.medium === "sinhala" ? "සිංහල" : "English"} · P{p.paper_no}
+                  </p>
+                </div>
+                <ChevronRight
+                  size={14}
+                  className="shrink-0 text-[var(--muted-foreground)] transition-transform duration-200 group-hover:translate-x-1 group-hover:text-[var(--primary)]"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Uploaded custom papers */}
+      {uploadedPapers && uploadedPapers.length > 0 && (
+        <div className="space-y-2 pt-2">
+          <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted-foreground)]">
+            Your Uploaded Papers
+          </h4>
+          {uploadedPapers.map((p) => (
             <button
               key={p.id}
               onClick={() => router.push(`/exam?exam=${encodeURIComponent(p.id)}`)}

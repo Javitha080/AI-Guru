@@ -23,6 +23,15 @@ logger = logging.getLogger(__name__)
 
 # Severity levels that warrant capturing encrypted evidence into the vault.
 _CAPTURE_SEVERITIES = {"alert", "warning"}
+# High-priority alerts carry the camera snapshot to Telegram (warnings remain text-only).
+_PHOTO_SEVERITIES = {"alert"}
+# monitoring_events.severity is CHECK-constrained to info/warning/alert;
+# in-app-only nudges persist as informational episodes.
+_PERSISTENCE_SEVERITY = {"nudge": "info"}
+
+
+def _persist_severity(severity: str) -> str:
+    return _PERSISTENCE_SEVERITY.get(severity, severity if severity in ("info", "warning", "alert") else "warning")
 
 
 def _decode_jpeg(frame_b64: Optional[str]) -> Optional[bytes]:
@@ -39,12 +48,20 @@ async def handle_warning(
     warning: Dict[str, Any],
     current_frame_b64: Optional[str] = None,
     ring_frames_b64: Optional[List[str]] = None,
+    photo_jpeg_b64: Optional[str] = None,
 ) -> None:
-    """Persist + notify + stage evidence for one dispatched warning."""
+    """Persist + notify + stage evidence for one dispatched warning.
+
+    Tiering policy lives here:
+    - ``nudge``  → telemetry only (severity mapped to info), no parent send,
+    - ``warning``/``alert`` → telemetry + Telegram + vault staging; ``alert``
+      additionally carries the live camera snapshot as a Telegram photo.
+    """
     category = str(warning.get("category", "NOTICE"))
     severity = str(warning.get("severity", "warning"))
     confidence = float(warning.get("confidence", 0.0))
     duration = float(warning.get("duration_seconds", 0.0))
+    is_nudge = severity == "nudge"
 
     # 1. Persist to monitoring_events via TelemetryLogger (batched writer).
     try:
@@ -52,8 +69,8 @@ async def handle_warning(
 
         await TelemetryLogger().log_event(
             session_id=session_id,
-            event_type="WARNING_ISSUED",
-            severity=severity if severity in ("info", "warning", "alert") else "warning",
+            event_type="NUDGE_ISSUED" if is_nudge else "WARNING_ISSUED",
+            severity=_persist_severity(severity),
             confidence=confidence,
             duration_seconds=duration,
             metadata={
@@ -65,9 +82,31 @@ async def handle_warning(
     except Exception as exc:  # noqa: BLE001
         logger.warning("Warning persistence failed: %s", exc)
 
-    # 2. Queue parent Telegram notification (survives offline).
+    # Nudges are student-facing only — never leave the machine.
+    if is_nudge:
+        return
+
+    # 2. Queue parent Telegram notification (survives offline). Alerts attach
+    # the actual incident frame so parents see what happened.
+    student_name = "Student"
+    subject = "General"
+    if session_id:
+        try:
+            from deeptutor.api.routers.study_session import _resolve_student_name
+            from deeptutor.services.study.session_manager import StudySessionManager
+
+            sess = await StudySessionManager().get_session(session_id)
+            if sess:
+                subject = str(sess.get("subject") or "General")
+                s_id = str(sess.get("student_id") or "student-primary")
+                student_name = await _resolve_student_name(s_id)
+        except Exception:  # noqa: BLE001
+            pass
+
     payload = {
         "session_id": session_id,
+        "student_name": student_name,
+        "subject": subject,
         "category": category,
         "message": warning.get("message", ""),
         "severity": severity,
@@ -75,6 +114,8 @@ async def handle_warning(
         "duration_seconds": duration,
         "timestamp": time.time(),
     }
+    if severity in _PHOTO_SEVERITIES and photo_jpeg_b64:
+        payload["photo_b64"] = photo_jpeg_b64
     try:
         from deeptutor.services.monitoring.notification_queue import (
             enqueue,
@@ -194,6 +235,17 @@ async def handle_session_completed(
         logger.debug("XP read-back failed for %s: %s", session_id, exc)
 
     # 3. Queue the parent-facing summary.
+    subject = "General"
+    if session:
+        subject = str(session.get("subject") or "General")
+    student_name = student_id
+    try:
+        from deeptutor.api.routers.study_session import _resolve_student_name
+
+        student_name = await _resolve_student_name(student_id)
+    except Exception:  # noqa: BLE001
+        pass
+
     try:
         from deeptutor.services.monitoring.notification_queue import (
             enqueue,
@@ -204,6 +256,8 @@ async def handle_session_completed(
         await enqueue("session_summary", {
             "session_id": session_id,
             "student_id": student_id,
+            "student_name": student_name,
+            "subject": subject,
             "duration_minutes": round(duration_minutes, 1),
             "focus_score": focus_score,
             "engagement_score": engagement_score,
@@ -211,5 +265,13 @@ async def handle_session_completed(
             "summary": summary_text[:600],
             "xp_earned": xp_earned,
         })
+
+        # Best-effort immediate delivery; failures stay queued.
+        try:
+            from deeptutor.services.monitoring.notification_queue import flush_once
+
+            asyncio.get_running_loop().create_task(flush_once(limit=3))
+        except Exception:  # noqa: BLE001
+            pass
     except Exception as exc:  # noqa: BLE001
         logger.warning("Session summary queueing failed: %s", exc)

@@ -25,7 +25,6 @@ Flip-Flops
 
 Integrated Circuits
 
-
 10
 14
 19
@@ -68,7 +67,6 @@ foundation for modern computing.
 නිර්මාණය කිරීම සඳහා බූලියන්‌ වීජ ගණිතය
 භාවිතා කළ අතර, එය නවීන පරිගණකකරණය
 සඳහා අඩිතාලම දැමීය.
-
 
 What is a Boolean event?
 
@@ -160,7 +158,6 @@ two types.
 2. Combinational Logic Gates
 සංයුක්ත තාරිකික ද්වාර
 
-
 Input Combinations
 ආදාන සංයෝජන
 
@@ -249,7 +246,6 @@ inputs.
 අනෙකුත්‌ සියලුම තාරකික ද්වාරචල අවම
 වශයෙන්‌ ආදාන දෙකක්වත්‌ ඇත.
 
-
 Combinational logic gates
 සංයුක්ත තාර්කික ද්වාර
 
@@ -335,7 +331,7 @@ Output Is always the product of the inputs.
 ආදාන දෙකේ AND ද්වාරය
 A —
 F
->
+
 ICN A B F
 1 0 0 0
 2 0 1 0
@@ -346,7 +342,6 @@ Expression for F = A.B (A AND B)
 
 F becomes true when A and B is true.
 A සහ B සත්‍ය වන SO F සත්‍ය GS.
-
 
 3 input AND gate
 
@@ -425,7 +420,6 @@ ICN A B C F
 8 1 1 1 1
 
 F=A+B+C(AORBORC)
-
 
 NAND gate
 NAND ද්වාරය
@@ -518,7 +512,6 @@ positive.
 මෙහිදී ආදාන සියල්ල අසත්‍ය වන විට ප්‍රනිදානය
 සත්‍ය වන අතර ආදාන එකක්‌ හෝ සත්‍ය වන විට
 ප්‍රතිදානය අසත්‍ය GO.
-
 
 2 input NOR gate
 
@@ -642,7 +635,6 @@ ICN A B F
 4 ] ] ]
 F=AQ®@ B
 
-
 3 input XNOR gate
 
 ආදාන තුනේ XNOR ද්වාරය
@@ -692,10 +684,6 @@ oO; | | Oo | Mm
 ~~ | ෴~(ඌ|ඟක |ක්‍-
 -෴!|1ඌ|[ !1ඌ!|ථටටා
 
-]
-]
-]
-
 ~~ | ~1ඌ| කක |
 ය |ඌ [ය |ඌ|[රාෟ
 oO; |. LOLA
@@ -725,7 +713,7 @@ olol1/1lo (0 (0 1 0 0 1
 1/o0lo0]110 1 1 1 1 0 0
 1/1lololo ।0 (0 1 1 1 1
 As we can see K = E Ksop = A.B.C+A.B.C+A.B.C+A.B.C
-පට පෙනෙන පරිදි K = F වේ. ෙ_ _
+පට පෙනෙන පරිදි K = F වේ. _ _
 ° © Kos = (A+B+C).(A+B+C).(A+B+C).
 Note: A® B = AB+ AB (A+ 0240)
 
@@ -737,11 +725,9 @@ By using basic logic gates
 ABC
 
 He le
-}
 
 (A.B.C) + (AB.C) + (AB.C) + (AB.C)
 
->
 ටර
 O
 
@@ -770,7 +756,6 @@ ABC
 Ly (480)
 (_ උන්‌ 2 |
 
-+>;
 c a — J}— (A+ B+C).(A+B4+C). (A+ B40). (A+B+0)
 
 PRN
@@ -778,7 +763,7 @@ py
 
 උ (A+B+C)
 
-ක්‍ෂ ග්‌
+ක්ෂ ග්‌
 
 (& 4 8 4 ලට
 A B C A |B [Cc A+B+C] A+B+C|] A+B+C| A+B+C| F
@@ -815,7 +800,6 @@ A XORB
 ANAND පි
 
 12
-
 
 a ෴
 ව /
@@ -879,7 +863,6 @@ troubleshooting.
 NAND 6a@5 NOR ද්චාර පමණක්‌ සහිත පරිපථ
 මගින්‌ ප්‍රම්තිකරණය HOO, සැලසුමි කිරීම සහ
 දෝශ නිරාකරණය සරල කරයි.
-
 
 13
 
@@ -951,7 +934,6 @@ NOR ද්වාරයකින්‌ AND ද්වාරයක්‌ ස්ථ�
 De morgan’s Law
 Double inverse Law
 
-
 14
 
 Implementing OR gate from NOR gate
@@ -1009,7 +991,6 @@ Distributive Law
 Note
 
 AB+AB=AQ@B
-
 
 15
 
@@ -1086,7 +1067,6 @@ NAND ද්වාරයකින්‌ OR ද්වාරයක්‌ ස්ථ�
 බේ
 «Dt
 
-
 16
 
 Proof:
@@ -1097,7 +1077,7 @@ De Morgan's Law
 Double inverse Law
 
 > S| DI
-+ +
+
 ww ol
 
 Implementing buffer from NAND gate
@@ -1210,15 +1190,10 @@ S2
 1 0 1
 1 1 1
 
-
 3. NOT Gate (Inverter)
 NOT ද්වාරය
 
 Ss
-
-෴෴
-
-~~~
 
 4. NAND Gate
 NAND ද්වාරය
@@ -1308,7 +1283,6 @@ within the algebraic system.
 තුළ වැඩිදුර තර්ක සඳහා ආරම්භක ලක්ෂ්‍යය
 සාදයි.
 
-
 20
 
 Importance of simplifying logic circuits
@@ -1362,7 +1336,6 @@ Boolean Algebraic Laws
 
 1.
 
-
 Double complement law
 ENDO ප්‍රතිලෝම න්‍යාය
 
@@ -1412,7 +1385,7 @@ A.B=A+B
 At
 
 ර
->|
+
 vel ස
 
 Redundancy law
@@ -1518,7 +1491,6 @@ GAD සුළු කරන ලද BOSD වගුවෙන්‌
 අපට පැහැදිලිව දැකගත හැකිය. එමගින්‌
 තදේචභාවී න්‍යාය තහවුරැ GH.
 
-
 22
 
 idempotent law (type 2)
@@ -1616,7 +1588,6 @@ F = A.0 (When B = 0 at ICN 1 and 3)
 
 A —
 F
-|)
 
 ICN A B=0 F
 1 0 0 0
@@ -1632,7 +1603,6 @@ Identity law.
 GAD සුළු කරන ලද BOSD වගුවෙන්‌
 ප්‍රතිදානයේ අගය සෑමව්ටම ට බව පෙනේ එමගින්‌
 සර්වසාම්‍ය HIS තහවුරැ GS.
-
 
 23
 
@@ -1669,8 +1639,6 @@ F
 ICN A
 
 PO
-©
-—
 
 But F = A from the truth table
 
@@ -1705,7 +1673,7 @@ B
 ICN
 
 -)/O;-—;O;o
-෴ |... | |= |O | 7m
+෴ |…… | |= |O | 7m
 
 >= /-|/O/;O!l1>
 
@@ -1735,7 +1703,6 @@ GAD සුළු කරන ලද BOSD වගුවෙන්‌
 It proves the Identity law.
 DOOD s6OenOs න්‍යාය තහවුරැ GH.
 
-
 Identity law (type 4)
 සර්චසාම්‍ය න්‍යාය (හතරවන ආකාරය)
 
@@ -1754,7 +1721,7 @@ ICN
 ~~ | ~~।1||।-
 
 2ය।|-~ ।ඌඑ|ර
-= | .... |= | ඌ | Tm
+= | …… |= | ඌ | Tm
 
 බු | ටට | අට |=
 
@@ -1767,14 +1734,10 @@ addition of 1.
 F=A+B
 F = A+ 1 (When B = 1 at ICN 2 and 4)
 
-||
-©
 0
 
-—
 ක
 —|-—|o
-—
 
 But F = A from the truth table
 
@@ -1830,7 +1793,6 @@ GAD සුළු කරන ලද BOSD) OGD)
 
 It proves the Inverse law.
 චීමගන්‌ ප්‍රතිලෝම න්‍යාය තභවුරැ GH.
-
 
 Inverse law (type 2)
 ප්‍රතිලෝම න්‍යාය (දෙවන ආකාරය)
@@ -1926,7 +1888,6 @@ ICN |A |B |C | AB | Q=(A.B).C
 7 1 1 0 1 0
 8 1 1 1 1 1
 
-
 26
 
 Associative law (type 2)
@@ -1964,8 +1925,6 @@ ICN |A |B | C | B+C | P=A+(B+C)
 
 8 1 1 1 1 1
 Right Hand Side Expression
-
-£
 
 B (A+B)
 
@@ -2061,14 +2020,14 @@ B
 Right Hand Side Expression
 
 ට
-+
+
 Ss
 qt @ qt ටා
 මී
 ක
-x
+
 ෆු
-~~
+
 ෆු රූ
 ක ක
 | | |
@@ -2197,12 +2156,10 @@ Best For Circuit optimization and logic design Theoretical proofs and mathematic
 ගැලපෙන්නේ නිර්මාණය න්‍යායාත්මක සාධනයන්‌ සහ ගණිතමය සරල
 කිරීමි
 
-
 29
 
 2 input variable k maps
 ආදාන දෙකේ කානෝ සිතියමි
-
 
 A A
 0 1
@@ -2269,7 +2226,6 @@ horizontally or vertically in a K-map.
 11 | 4 | 8 11 | 6 8
 10 | 3 7 10 | 5 7
 
-
 31
 
 4 input variable k maps
@@ -2325,13 +2281,10 @@ shouldalways be a power of 2.
 1 1 1 1 < 1) 0 | 0
 0
 
-——"
-
 ෴ ෴ධූ aa
 (1 )0€1 )o 1} 1} ajo
-෴ ෴්‌ ඛඬ෴෴෴ _._..2
+෴ ෴්‌ ඛඬ෴ _._..2
 0।0 Maso o|o}]odo
-
 
 4. All elements of the selected type
 
@@ -2355,7 +2308,7 @@ minimum.
 කාණ්ඩයක්‌ හැකිතාක්‌ විශාල විය යුතු අතර
 කාණ්ඩ ගණන හැකිතාක්‌ අචම ව්ය යුතුය.
 
-෴෴ ge,
+෴ ge,
 
 CLD ආල
 
@@ -2373,7 +2326,7 @@ if needed.
 
 දහ Cag:
 
-~~෴෴෴හ෴උ෴%"්‌
+~~෴හ෴උ෴%"්‌
 
 0 0 0 0 0 0 0 0
 
@@ -2426,7 +2379,7 @@ rectangular. සත්‍යද අසත්‍යද නොසලකන අව�
 ෴ට
 
 0 /1\ 0 0 0}1]a]|o ලං x | 4 y /% 11 1
-ක්‍ෂ = hb To lh
+ක්ෂ = hb To lh
 Gopi 1/11] wl o 0 o molto ශ්‌ 07% 0)
 
 SS
@@ -2455,17 +2408,11 @@ given scenario Is usually as follows.
 
 සන්‍යනා වගුව
 
-/
-
 ~~~ (ලට Boolean Expression ——
 @a බූලීයානු ප්‍රකාශනය
 
-/
-
 © (ලා Simplification
 සුළු GOO
-
-\
 
 — > _ © Logic circuits —~
 
@@ -2493,7 +2440,6 @@ expression.
 given Logic circuit.
 දී ඇති තාර්කික පරිපථයක්‌ භාවිතයෙන්‌ බූලීයානු
 ප්‍රකාශනය ව්‍යුත්පන්න කළ හැකි විය යුතුය,
-
 
 34
 
@@ -2578,7 +2524,6 @@ another bar.
 
 නොමැති ඕනෑම ධන ලමභෙයුමක්‌ සඳහා OR
 ද්වාරයක්‌ භාවිතා කෙරේ.
-
 
 35
 
@@ -2688,7 +2633,6 @@ inputs.
 (A +B)
 
 ((A + B) .C) ((A + B).C)
-
 
 36
 
@@ -2826,7 +2770,6 @@ power-consuming digital circuits.
 පරිභෝජනය කරන අංකිත පරිපථවල නිපදවීමට
 ඉහ්තු එව්‌.
 
-
 38
 
 Design of Combinational Circuits
@@ -2928,7 +2871,6 @@ ICN | & B C F
 7 1 1 0 [116 = A.B.C
 8 1 1 1 m7 = A.B.C
 
-
 39
 
 Maxterms
@@ -2942,7 +2884,7 @@ the inputs must be added to get the output
 
 සත්‍යතා වගුවක යම්‌ ආදානයකට අදාල ප්‍රතිදානය
 0 ලැබීම සදහා ආදාන එකතු කල යුතු ආකාරය
-එකතු පද මගින්‌ නිරෑපනය කරයි.
+එකතු පද මගින්‌ නිරූපණය කරයි.
 
 Maxterms are used to represent a Boolean
 function in its Product of Sums (POS) form.
@@ -3010,7 +2952,6 @@ SOP මත පදනමී වූ mba පරිපථය
 ABC
 
 D>
-
 
 We (/ lly
 
@@ -3089,7 +3030,6 @@ to get the original function in POS form.
 POS ආකාරයෙන්‌ මුල්‌ ශ්‍රිතය ලබා ගැනීමට F
 හි අනුපූරකය (F =F) නැවත නැවත ලබා
 ගන්න.
-
 
 41
 
@@ -3217,7 +3157,6 @@ Fpos = (X + Z)
 Example 3.
 
 1.
-
 
 Find the complement (F) of the given function.
 දී ඇති ශ්‍රිතයේ අනුපූරකය (F) සොයාගන්න.
@@ -3714,8 +3653,6 @@ POS
 ) - 1 +K2+K3
 0 | 60 Di @ |<— L+K24+K3
 
-—
-
 1 \\o /} 1 \1 1 = K2+K3
 K1+K2+ 161 + K2 + K3
 
@@ -3735,7 +3672,6 @@ K1 K2 K3 K1 K2 K3
 
 D> ) >
 ra TH DD
->
 
 _-
 
@@ -3846,7 +3782,6 @@ ADDO තනි බිටුවකින්‌ (චනම්‌, 1 ට වඩා 
 නියෝජනය කළ හැකි ප්‍රමාණයට වඩා වැඩි වූ විට
 රැගෙන යාමක්‌ නිරිීමාණය එව්‌.
 
-
 56
 
 Functionality
@@ -3929,7 +3864,6 @@ HA
 
 B Cout
 
-
 ට්‌ /
 
 Logic Circuit for Half Adder without XOR
@@ -3943,10 +3877,6 @@ Dae
 Carry Out
 
 AB
-
->
-
-~~~
 
 ෂූ
 
@@ -4042,7 +3972,6 @@ The Carry (Cout) ~- The carried-out bit after
 the addition.
 චිකතු කිරීමෙන්‌ පසු රැගෙන යන ලද BAO.
 
-
 58
 
 Functionality
@@ -4106,7 +4035,6 @@ XOR ද්වාරය රහිත පූර්ණ ආකලකය sea
 
 D-
 D:
-
 
 59
 
@@ -4180,9 +4108,9 @@ Cour = A.B + Cin. (A ආ B)
 Block diagram
 
 ආ
-A ෴෴෴෴!
+A ෴!
 HA AB Cin
-ව ~~... [
+ව ~~…… [
 Cin
 
 HA
@@ -4232,14 +4160,11 @@ A.B
 
 ට
 
-|
-
-
 SUM=A@BQ@C,,
 
 Gr. (A ආ B)
 
-Cout = AB + ලූ... (A ආ B)
+Cout = AB + ලූ…… (A ආ B)
 
 SUM - & ඉ 6 ඉ Cp
 
@@ -4271,8 +4196,6 @@ because it does not have a carry-in.
 ශ්‍රේණියේ පළමු ආකලකය එය රැගෙන යාමක්‌
 නොමැති නිසා අර්ධ ආකලකය වේ
 
-~~~
-
 1-bit
 Full
 adder
@@ -4282,9 +4205,6 @@ Sum0
 co
 
 AO BO Cin
-
-—,
-—
 
 Suml
 
@@ -4315,7 +4235,6 @@ Sum4
 
 C4
 
-|
 1-bit
 Full
 adder
@@ -4351,7 +4270,6 @@ L ,.
 
 Cout
 
-
 61
 
 8-bit adder circuit diagram
@@ -4364,16 +4282,12 @@ CONTROL (Add=0 Sub=1)
 
 Input A
 
-॥
-
 76543210
 000
 
 Sat
 
 le
-
-~~
 
 1
 
@@ -4405,10 +4319,6 @@ IN
 තු
 
 001]
-
-|
-
-|
 
 lv __} ly L_]
 
@@ -4466,7 +4376,6 @@ GOO රෑප සටහන්‌ සංඛ්‍යාංක පටිපථව�
 ගැනීම සඳහා අත්‍යවශ්‍ය OM අතර පරිගණකවල
 අංක ගණිත චිකක සැලසුම්‌ කිරීමේදී මූලික චේ.
 
-
 A7 B7 A6 66 A5 B5 A4 684 A3 B3 A2 B2 A1 61 AO BO 0
 | | | | | | | | | cue
 py FA Pe] FA fey FA [|] FA fey FA [5] FA fe FA fe) FA
@@ -4481,7 +4390,7 @@ a
 cot Ey = . _ \_ |}
 HA
 $3 52 54 SO
-:
+
 HA er bs
 57 56 4
 62
@@ -4621,7 +4530,6 @@ off the trigger, the alarm also turns off.
 එක ක්‍රියා විරහිත කළ BO, අනතුරු ඇඟවීම ද
 ක්‍රියා විරහිත වීමයි,
 
-
 64
 
 A
@@ -4642,7 +4550,7 @@ loop.
 || |]
 ප උප
 ධූ
-||
+
 2)
 
 Now, when the thief triggers the alarm, the
@@ -4655,7 +4563,7 @@ A=1
 ~~~ = 1
 B=0 —
 A= 1
-ක්‍ෂ [දිස්‌ =
+ක්ෂ [දිස්‌ =
 807 ~~
 1
 0
@@ -4722,7 +4630,6 @@ ie
 
 Initially, both inputs and the output are 0.
 මුලදී ආදාන දෙකම සහ ප්‍රතිදානය 0 චේ.
-
 
 65
 
@@ -4901,7 +4808,6 @@ Q 6
 RESET
 0
 
-
 6/
 
 Instance 2 (Thief Breaks-|n)
@@ -4980,7 +4886,6 @@ back to the input of the 1 NOR gate.
 
 Awa NOR ද්වාරයට නැවත ලබා ඉදෙන බැවින්‌
 එලාමි එක කියා විරහිත නොවේ.
-
 
 68
 
@@ -5080,7 +4985,6 @@ SET
 
 RESET
 
-
 69
 
 Instance 2
@@ -5130,7 +5034,7 @@ previous output is fed back to the input of
 
 the 1** NAND gate
 
-දැන්‌ කදමිභය නැවත සමිබන්ධ කළද, චලාමය
+දැන්‌ කදමිභය නැවත සම්බන්ධ කළද, චලාමය
 ක්‍රියා විරහිත නොවේ, එයට ඉහ්තුව වන්නේ පෙර
 ප්‍රතිදානය පලමු වන NAND ද්චාරයේ ආදානය
 චෙත නැවත ලබා දෙන බැවිනි.
@@ -5157,7 +5061,6 @@ b ය්‌ NO
 0 අට BD; Qa,
 RESET ~~~
 0 ද
-
 
 70
 
@@ -5217,10 +5120,6 @@ A Collection of
 [ SET
 2
 
-)
-
-~~
-
 Data Latches
 
 } RESET
@@ -5235,12 +5134,11 @@ DATA 3
 
 STORE
 
-
 D LATCH
 | ~~~ඉ
 D LATCH
 D LATCH
-=
+
 D LATCH
 J
 
@@ -5284,7 +5182,6 @@ microprocessors.
 සංකීර්ණ උපාංග නිර්මාණය කිරීමට ICs
 ඉලෙක්ට්‍රොනික කර්මාන්තයේ විප්ලවීය වචෙනසක්‌
 සිදු කර ඇත.
-
 
 72
 
@@ -5364,7 +5261,6 @@ ICs බොහෝ SO නැනෝ තත්පර කිහිපයක්‌
 Robert Noyce is granted a patent for
 an integrated circuit.
 
-
 However, this speed comes at the cost of
 higher power consumption and lower noise
 immunity compared to CMOS ICs.
@@ -5378,7 +5274,7 @@ and other high-speed applications where
 performance Is critical.
 
 7400 ශ්‍රේණිය පරිගණකවල සහ mobos සාධනය
-QD වැදගත්‌ වන අනෙකුත්‌ අධිවේගී යෙදුමිවල
+QD වැදගත්‌ වන අනෙකුත්‌ අධිවේගී යෙදුම්වල
 බහුලව භාවිතා චේ.
 
 4000 Series ICs (CMOS Logic Family)
@@ -5423,7 +5319,6 @@ SSA
 
 [:] [] Pl fe) fio
 
-| ී
 [ව [ a
 
 Le} [5] Woy Le) ee 1] !*]
@@ -5433,14 +5328,12 @@ Sc0vd)
 
 [>] &
 බ්ලු
-[-]
 
 meas
 
 11.
 ele
 
--
 32]
 3]
 c
@@ -5458,13 +5351,9 @@ ill
 
 දී doj4 9114
 
-—
-
 SSA
 
 [:] [.] [.] [:] [:] [:] [;
-
-|.
 
 ] [5] [1 (41 [2] [-] [”]
 
@@ -5525,9 +5414,7 @@ Vcc
 
 [14] fs) [::] Gel fol [9] Ps]
 
->
 it
-
 
 7486 4x2inputXOR
 Vcc
@@ -5557,7 +5444,7 @@ Vcc
 
 [9] [5
 [ D-
-©:
+
 [6]
 
 [1] [2] [|] [2] |!)
@@ -5604,7 +5491,7 @@ Vs | 2 -InA | 2 4 7 Out B -InA | 2 p<] 13 | -inD
 -nB | 6 E 9 -Inc
 OutB | 7 8 | OutC
 J ඝූ
-RA2 ෴෴ #1 18| ~~ RAT
+RA2 ෴ #1 18| ~~ RAT
 RAZ «| 2 17 || = RAO
 RAA/TOCK! | | 3 uv 16 |) ~~ OSC1/CLKIN
 MCLR-——e [| 4 QO  18[)——» OSC2/CLKOUT
@@ -5624,7 +5511,7 @@ VDD_RTC 5 1 ‘20 SD_CMD
 INVERTING INPUT vt rour[ei | ॥ [1915007033
 cHIP_EN | 7 | ! 48] SD_DATA 2
 NON=INVERTING — OUTPUT P| i
-INPUT xpoococ}8) ාම෴෴෴෴෴෴෴෴෴෴෴෴෴෴ම 33 00) ॥17|/00557
+INPUT xpoococ}8) ම෴ම 33 00) ॥17|/00557
 v= Pp OFFSET NULL rs} iS) [51 fay fey [| Tey Tey
 ශ්‍ර 6 6 8 8 8 8 8
 ද ඝ 8 FF 5 8 8

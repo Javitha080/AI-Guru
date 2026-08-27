@@ -1,0 +1,547 @@
+1. Which of the following statements correctly describes a non-positional number system?
+පහත සඳහන් ප්‍රකාශවලින් කුමන ප්‍රකාශය ස්ථානීය නොවන සංඛ්‍යා පද්ධතියක් නිවැරදිව විස්තර කරයිද?
+
+1) The value of a symbol depends on its position in the number.
+සංකේතයක අගය අංකයේ එහි පිහිටීම මත රඳා පවතී.
+
+2) Each symbol represents a fixed value regardless of position.
+සෑම සංකේතයක්ම ස්ථානය නොසලකා ස්ථාවර අගයක් නියෝජනය කරයි.
+
+3) It always uses base 10 for counting.
+එය සෑම විටම ගණන් කිරීම සඳහා 10 පාදය භාවිතා කරයි.
+
+4) It can only represent whole numbers less than 10.
+එයට නිරූපණය කළ හැක්කේ 10 ට අඩු පූර්ණ සංඛ්‍යා පමණි.
+
+5) It requires binary digits (0 and 1) to represent numbers.
+සංඛ්‍යා නිරූපණය කිරීමට එයට ද්විමය සංඛ්‍යා 0 සහ 1 අවශ්‍ය වේ.
+
+Answer: 2)
+
+In non-positional systems (like Roman numerals), symbols have fixed values that do not depend on their
+position. In positional systems (like decimal or binary), a symbol’s value changes based on its position.
+ස්ථානීය නොවන පද්ධතිවල (රෝම ඉලක්කම් වැනි), සංකේතවලට ඒවායේ පිහිටීම මත රඳා නොපවතින
+ස්ථාවර අගයන් ඇත. ස්ථානීය පද්ධතිවල (දශම හෝ ද්විමය වැනි), සංකේතයක අගය එහි පිහිටීම මත
+පදනම්ව වෙනස් වේ.
+
+Therfore the correct answer is option 2).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 2) වේ.
+
+2. Which of the following statements about binary and octal number systems is correct?
+ද්විමය සහ අෂ්ටක සංඛ්‍යා පද්ධති පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි කුමක්ද?
+
+1) The octal system is base 2, and each digit represents two binary bits.
+අෂ්ටක පද්ධතිය 2 පාදය වන අතර, සෑම ඉලක්කමක්ම ද්විමය බිටු දෙකක් නියෝජනය කරයි.
+
+2) Binary numbers use digits 0 to 7 to represent all values.
+ද්විමය සංඛ්‍යා සියලු අගයන් නිරූපණය කිරීම සඳහා 0 සිට 7 දක්වා ඉලක්කම් භාවිතා කරයි.
+
+3) Each octal digit is exactly equal to three binary bits.
+සෑම අෂ්ටක ඉලක්කමක්ම ද්විමය බිටු තුනකට හරියටම සමාන වේ.
+
+4) Binary numbers are easier for humans to read than octal numbers.
+අෂ්ටක සංඛ්‍යා වලට වඩා ද්විමය සංඛ්‍යා මිනිසුන්ට කියවීමට පහසුය.
+
+5) Octal numbers cannot be converted directly into binary numbers.
+අෂ්ටක සංඛ්‍යා සෘජුවම ද්විමය සංඛ්‍යා බවට පරිවර්තනය කළ නොහැක.
+
+Answer: 3)
+
+Binary system → base 2 (digits: 0, 1)
+ද්විමය පද්ධතිය →  පාදය 2 (ඉලක්කම්ථ 0, 1)
+
+Octal system → base 8 (digits: 0 – 7)
+අෂ්ටක පද්ධතිය → පාදය 8 (ඉලක්කම්ථ 0 – 7)
+
+RAVINDU BANDARANAYAKE
+2027 දවසට කොළයක් වැඩසටහන 17
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Each octal digit corresponds to a group of three binary digits (bits), making conversion between the two
+systems direct and simple.
+සෑම අෂ්ටක ඉලක්කමක්ම ද්විමය ඉලක්කම් තුනක (බිටු) කණ්ඩායමකට අනුරූප වන අතර, පද්ධති දෙක
+අතර පරිවර්තනය සෘජු හා සරල කරයි.
+
+Therfore the correct answer is option 3).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 3) වේ.
+
+3. Which of the following conversions are correct? / පහත සඳහන් පරිවර්තනවලින් නිවැරදි වන්නේ කුමක්ද?
+
+A. 561 = 1061₈
+B. 781 = 1415₈
+C. 245 = 365₈
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) B and C only
+B සහ C පමණි
+5) All A,B and C
+සියලුම A,B සහ C
+
+Answer: 5)
+
+Explanation / පැහැදිලි කිරීම:
+
+Let’s get the octal of each number given. / ලබා දී ඇති සෑම සංඛ්‍යාවකම අෂ්ටකය ලබා ගනිමු.
+
+A.
+561 = 1061₈
+
+2
+561
+
+2
+280
+- 1
+2
+140
+- 0
+2
+70
+- 0
+2
+35
+- 0
+2
+17
+- 1
+2
+8
+- 1
+2
+4
+- 0
+2
+2
+- 0
+2
+1
+- 0
+
+ 0
+- 1
+10001100012
+
+B.
+781 = 1415₈
+
+781
+
+2
+390
+- 1
+2
+195
+- 0
+2
+97
+- 1
+2
+48
+- 1
+2
+24
+- 0
+2
+12
+- 0
+2
+6
+- 0
+2
+3
+- 0
+2
+1
+- 1
+
+0
+- 1
+11000011012
+
+10001100012 in octal / අෂ්ටකයෙන්
+1
+0
+0
+0
+1
+1
+0
+0
+0
+1
+20 x 1 22 x 0 21 x 0 20 x 0 22 x 1 21 x 1 20 x 0 22 x 0 21 x 0 20 x 1
+1 = 1
+0 + 0 + 0 = 0
+4 + 2 + 0 = 6
+0 + 0 + 1 = 1
+10618
+781 = 11000011012 in octal / අෂ්ටකයෙන්
+1
+1
+0
+0
+0
+0
+1
+1
+0
+1
+20 x 1 22 x 1 21 x 1 20 x 1 22 x 1 21 x 1 20 x 1 22 x 1 21x 1 20 x 1
+1 = 1
+4 + 0 + 0 = 4
+0 + 0 + 1 = 1
+4 + 0 + 1 = 5
+14158
+561 = 10618,
+Therefore this statement is correct / එබැවින් මෙම ප්‍රකාශය නිවැරදියි.
+781 = 14158,
+Therefore this statement is correct / එබැවින් මෙම ප්‍රකාශය නිවැරදියි.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+C.
+245 = 3658
+2 245
+
+2 122 - 1
+2
+61
+- 0
+2
+ 30
+- 1
+2
+15
+- 0
+2
+7
+- 1
+2
+3
+- 1
+2
+1
+- 1
+
+0
+- 1
+1101111012
+
+As shown above, all the given statements are correct.
+ඉහත දැක්වෙන පරිදි, ලබා දී ඇති සියලුම ප්‍රකාශ නිවැරදියි.
+
+Therefore the answer is option 5).
+එබැවින් පිළිතුර විකල්පය 5) වේ.
+
+4. Which of the following statements about converting a base 10 number to base 2 is true?
+10 පාදයේ සංඛ්‍යාවක් 2 පාදයට පරිවර්තනය කිරීම පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් සත්‍ය කුමක්ද?
+
+1) The decimal number is repeatedly divided by 2, and the remainders are written in reverse order.
+දශම සංඛ්‍යාව නැවත නැවතත් 2න් බෙදන අතර, ඉතිරි කොටස් ප්‍රතිලෝම අනුපිළිවෙලට ලියා ඇත.
+
+2) The decimal number is repeatedly multiplied by 2, and the results are added together.
+දශම සංඛ්‍යාව නැවත නැවතත් 2න් ගුණ කරනු ලබන අතර, ප්‍රතිඵල එකට එකතු කරනු ලැබේ.
+
+3) The binary digits are obtained by dividing the decimal number by 10.
+දශම සංඛ්‍යාව 10න් බෙදීමෙන් ද්විමය ඉලක්කම් ලබා ගනී.
+
+4) Conversion from base 10 to base 2 can only be done using a calculator.
+10 පාදයේ සිට 2 පාදයට පරිවර්තනය කිරීම කැල්කියුලේටරයක් භාවිතයෙන් පමණක් කළ හැකිය.
+
+5) The binary result is always shorter than the decimal number.
+ද්විමය ප්‍රතිඵලය සෑම විටම දශම සංඛ්‍යාවට වඩා කෙටි වේ.
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+To convert a decimal (base 10) number into binary (base 2), divide the number by 2, record each
+remainder, and then read the remainders from bottom to top to get the binary equivalent.
+දශම (පාදය 10) සංඛ්‍යාවක් ද්විමය (පාදය 2) බවට පරිවර්තනය කිරීම සඳහා, එම සංඛ්‍යාව 2න් බෙදන්න,
+එක් එක් ශේෂය සටහන් කර, ඉන්පසු ද්විමය සමානය ලබා ගැනීම සඳහා පහළ සිට ඉහළට ඉතිරි කොටස්
+කියවන්න.
+
+Therfore the correct answer is option 1).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 1) වේ.
+
+5. Which statement about positional value in the decimal and hexadecimal systems is true?
+දශම සහ ෂඩ් දශම පද්ධතිවල ස්ථානීය අගය පිළිබඳ කුමන ප්‍රකාශය සත්‍යද?
+
+1) The value of each digit depends on its position and the system base.
+සෑම ඉලක්කමකම අගය එහි පිහිටීම සහ පද්ධති පාදය මත රඳා පවතී.
+2) The position of digits has no effect on value. / ඉලක්කම්වල පිහිටීම අගයට බලපෑමක් නැත.
+3) Only rightmost digit is positional value /   දකුණු කෙළවරෙහී ඉලක්කම පමණක් ස්ථානීය අගයක් වේ.
+4) Hexadecimal digits don’t follow positional rules. / ෂඩ් දශම සංඛ්‍යා ස්ථානීය නීති අනුගමනය නොකරයි.
+5) Decimal uses non-positional notation. / දශම සංඛ්‍යා ස්ථානීය නොවන අංකනය භාවිතා කරයි.
+
+Answer: 1)
+
+245 = 111101012 in octal / අෂ්ටකයෙන්
+1
+1
+1
+1
+0
+1
+0
+1
+21 x 1 20 x 1 22 x 1 21 x 1 20 x 0 22 x 1 21 x 0 20 x 1
+2 + 1 = 3
+4 + 2 + 0 = 6
+4 + 0 + 1 = 7
+3658
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+245 = 3658,
+So this statement is correct / එබැවින් මෙම ප්‍රකාශය නිවැරදියි.
+
+Explanation / පැහැදිලි කිරීම:
+
+Both decimal (base 10) and hexadecimal (base 16) are positional number systems, meaning that:
+දශම (10යේ පාදය) සහ ෂඩ් දශම (16යේ පාදය) යන දෙකම ස්ථානීය සංඛ්‍යා පද්ධති වන අතර, එහි
+තේරුම:
+
+The value of a digit depends on its position in the number.
+ඉලක්කමක අගය සංඛ්‍යාවේ එහි පිහිටීම මත රඳා පවතී.
+
+Each position represents a power of the base (10 for decimal, 16 for hexadecimal).
+එක් එක් ස්ථානය පාදයේ බලයක් නියෝජනය කරයි (දශම සඳහා 10" ෂඩ් දශම සඳහා 16)
+
+For example / උදාහරණයක් ලෙස:
+
+In decimal, the number 352 means:
+දශමයේ දී, 352 අංකය යන්නෙන් අදහස් වන්නේ:
+3 × 102 + 5 × 101 + 2 × 100 = 300 + 50 + 2
+
+In hexadecimal, the number 2A (where A = 10) means:
+ෂඩ් දශමයෙන්, 2A අංකය (මෙහිදී A = 10) යන්නෙන් අදහස් වන්නේ:
+2 × 161 + 10 × 160 = 32 + 10 = 42.
+
+The correct answer is / නිවැරදි පිළිතුර:
+1) The value of each digit depends on its position and the system base.
+  සෑම ඉලක්කමකම අගය එහි පිහිටීම සහ පද්ධති පාදය මත රඳා පවතී.
+
+Why the other options are incorrect / අනෙක් විකල්ප වැරදි වන්නේ ඇයි:
+
+2. False – The position does affect the value.
+අසත්‍යය – පිහිටීම අගයට බලපායි.
+
+3. False – All digits contribute based on their position, not just the rightmost one.
+අසත්‍යය – සියලුම ඉලක්කම් ඒවායේ පිහිටීම මත පදනම්ව දායක වේ, දකුණු පස ඇති         එක
+පමණක් නොවේ.
+
+4. False – Hexadecimal does follow positional rules, just like decimal.
+අසත්‍යය – ෂඩ් දශම දශම මෙන් ස්ථානීය නීති අනුගමනය කරයි.
+
+5. False – Decimal is a positional system.
+අසත්‍යය – දශම යනු ස්ථානීය පද්ධතියකි.
+
+6. Which statement correctly explains how to convert a decimal number to hexadecimal?
+දශම සංඛ්‍යාවක් ෂඩ් දශම බවට පරිවර්තනය කරන නිවැරදිව පැහැදිලි කරන්නේ කුමන ප්‍රකාශයද ?
+
+1) Divide the decimal number repeatedly by 8 and record the remainders.
+දශම සංඛ්‍යාව නැවත නැවතත් 8න් බෙදන්න සහ ඉතිරි කොටස් සටහන් කරන්න.
+
+2) Multiply the decimal number by 16 until the result is 0.
+ප්‍රතිඵලය 0 වන තෙක් දශම සංඛ්‍යාව 16න් ගුණ කරන්න.
+
+3) Divide the decimal number repeatedly by 16 and convert remainders to hex digits.
+දශම සංඛ්‍යාව නැවත නැවතත් 16න් බෙදන්න සහ ඉතිරි ඒවා ෂඩ් ඉලක්කම් බවට පරිවර්තනය කරන්න.
+
+4) Add 16 to each decimal digit. / සෑම දශම සංඛ්‍යාවකටම 16ක් එකතු කරන්න.
+
+5) Replace all 10s with the letter A. / සියලුම 10යේ ඉලක්කම් A අකුරෙන් ප්‍රතිස්ථාපනය කරන්න.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+To convert a decimal number to hexadecimal:
+දශම සංඛ්‍යාවක් ෂඩ් දශම බවට පරිවර්තනය කිරීම සඳහා:
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+1. Divide the decimal number by 16.
+දශම සංඛ්‍යාව 16න් බෙදන්න.
+
+2. Record the remainder (this becomes a hex digit).
+ඉතිරිය සටහන් කරන්න (මෙය ෂඩ් ඉලක්කමක් බවට පත්වේ).
+
+3. Repeat the division with the quotient until the quotient is 0.
+ලඝු අගය 0 වන තෙක් ලඝු අගය සමඟ බෙදීම නැවත කරන්න.
+
+4. The hexadecimal number is the remainders read from bottom to top.
+ෂඩ් දශම සංඛ්‍යාව යනු පහළ සිට ඉහළට කියවන ඉතිරි කොටස් වේ.
+
+Example / උදාහරණය:
+Convert 156 to hexadecimal / 156 ෂඩ් දශම බවට පරිවර්තනය කරන්න:
+
+156 ÷ 16 = 9 remainder 12 → 12 = C / 156 ÷ 16 = 9 ඉතිරිය 12 → 12 = C
+
+9 ÷ 16 = 0 remainder 9 / 9 ÷ 16 = 0 ඉතිරිය 9
+
+So, 156 (decimal) = 9C (hexadecimal)
+එබැවින් 156 ( දශම) = 9C (ෂඩ් දශම) වේ
+
+The correct answer is / නිවැරදි පිළිතුර:
+3) Divide the decimal number repeatedly by 16 and convert remainders to hex digits.
+දශම සංඛ්‍යාව නැවත නැවතත් 16න් බෙදන්න සහ ඉතිරි ඒවා ෂඩ් ඉලක්කම් බවට පරිවර්තනය කරන්න.
+
+Why the other options are incorrect / අනෙක් විකල්ප වැරදි වන්නේ ඇයි:
+
+1. Wrong base – Dividing by 8 is used for octal, not hexadecimal.
+වැරදි පාදයකි – 8න් බෙදීම ෂඩ් දශමයට නොව අෂ්ටක සඳහා භාවිතා වේ.
+
+2. Incorrect method – Multiplying by 16 won’t help with conversion.
+වැරදි ක්‍රමයකි – 16න් ගුණ කිරීම පරිවර්තනයට උපකාරී නොවේ.
+
+3. Makes no sense – Don’t add 16 to digits; that’s not how conversions work.
+තේරුමක් නැත – ඉලක්කම් වලට 16ක් එකතු නොකරයි; පරිවර්තන ක්‍රියා කරන්නේ එලෙස නොවේ.
+
+4. Not enough – Only replacing 10s with A doesn’t convert a full number properly.
+ප්‍රමාණවත් නොවේ – 10යේ ඉලක්කම් පමණක් A සමඟ ප්‍රතිස්ථාපනය කිරීමෙන් සම්පූර්ණ සංඛ්‍යාවක් නිසි
+ලෙස පරිවර්තනය නොවේ.
+
+7. Which of the following statements is true about binary addition and subtraction?
+ද්විමය එකතු කිරීම සහ අඩු කිරීම සම්බන්ධයෙන් පහත සඳහන් ප්‍රකාශවලින් සත්‍ය වන්නේ කුමක්ද?
+
+1) 1 + 1 = 10 and 10 – 1 = 1 in binary arithmetic / ද්විමය අංක ග”තයේ 1 + 1 = 10  සහ 10 – 1 = 1 වේ
+2) 1 + 1 = 2 and 10 – 1 = 0
+3) 1 + 1 = 1 and 1 – 1 = 10
+4) 10 + 1 = 3 and 11 – 1 = 0
+5) Binary subtraction does not require borrow / ද්විමය අඩු කිරීම සඳහා ණයට ගැනීම අවශ්‍ය නොවේ.
+
+Answer: 1)
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+Explanation / පැහැදිලි කිරීම:
+
+Binary Addition / ද්විමය එකතු කිරීම:
+
+0 + 0 = 0
+
+0 + 1 = 1
+
+1 + 0 = 1
+
+1 + 1 = 10
+(which is 0 with a carry of 1 — just like how 9 + 1 = 10 in decimal)
+(එය 0 වන අතර 1ක රැගෙන යාමක් ඇත — දශමයෙන් 9 + 1 = 10 මෙන්)
+
+Binary Subtraction / ද්විමය අඩු කිරීම:
+
+10 (binary) – 1 = 1
+This is the same as 2 – 1 = 1 in decimal
+මෙය දශමයෙන් 2 – 1 = 1 ට සමාන වේ.
+
+The correct answer is / නිවැරදි පිළිතුර:
+1) 1 + 1 = 10 and 10 – 1 = 1 in binary arithmetic
+ද්විමය අංක ග”තයේ 1 + 1 = 10  සහ 10 – 1 = 1 වේ
+
+Why the other options are incorrect / අනෙකුත් විකල්ප වැරදි වීමට හේතුව:
+
+2. 1 + 1 = 2 —
+Incorrect in binary; 2 doesn't exist as a digit. It's written as 10
+ද්විමය වශයෙන් වැරදියි; 2  ඉලක්කමක් ලෙස නොපවතී. එය 10 ලෙස ලියා ඇත.
+
+3. 1 + 1 = 1 —
+Wrong. It's 10
+වැරදියි. එය 10
+
+1 – 1 = 10 —
+Also wrong. 1 – 1 = 0
+එසේම වැරදියි. 1 – 1 = 0
+
+4. 10 + 1 = 3 —
+10 (binary) is 2; 2 + 1 = 3 → result is correct in decimal, but binary result should be 11
+10 (ද්විමය) යනු 2වේ; 2 + 1 = 3 → ප්‍රතිඵලය දශමයෙන් නිවැරදියි, නමුත් ද්විමය ප්‍රතිඵලය 11 විය
+යුතුය
+
+11 – 1 = 0 —
+Wrong. 11 (binary = 3), 3 – 1 = 2 → binary 10
+වැරදියි. 11  (ද්විමය = 3), 3 – 1 = 2 → ද්විමය 10
+
+5. Binary subtraction does not require borrow —
+ද්විමය අඩු කිරීම සඳහා ණයට ගැනීම අවශ්‍ය නොවේ —
+False. Borrowing is required, just like in decimal subtraction.
+අසත්‍යය වේ. දශම අඩු කිරීමේදී මෙන් ණයට ගැනීම අවශ්‍ය වේ.
+
+8. Which of the following are correct / පහත සඳහන් ඒවායින් නිවැරදි කුමක්ද?
+
+A. A916 = 1010 10012
+B. 5610 = 1110002
+C. 4758 = 10011112
+
+1) A only
+A පමණි
+2) A and B only
+A සහ  B පමණි
+3) A and C only
+A සහ C පමණි
+4) B and C only
+B සහ C පමණි
+5) All A, B and C
+සියලුම A, B සහ C
+
+Answer: 2)
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-
+
+Explanation / පැහැදිලි කිරීම:
+Let’s convert each number into binary / සෑම සංඛ්‍යාවක්ම ද්විමය බවට පරිවර්තනය කරමු,
+
+A916,
+A
+9
+1 0 1 0 1 0 0 1
+1010 10012
+
+5610,
+
+2 56
+
+2 28
+0
+2 14
+0
+2
+7
+0
+2
+3
+-1
+
+1
+-1
+
+1110002
+
+Only I and II are correct / I සහ II පමණක් නිවැරදි වේ.
+
+Therefore, the answer is option 2).
+එබැවින් පිළිතුර විකල්පය 2) වේ.
+
+4758
+4
+7
+5
+1 0 0 1 1 1 1 0 1
+1001111012
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-7-

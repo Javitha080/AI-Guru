@@ -13,10 +13,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   AlarmClockPlus, CheckCircle2, ChevronLeft, ChevronRight, CircleHelp,
-  Clock, Loader2, Send, Sparkles, XCircle,
+  Clock, Code, Eye, FileText, ImagePlus, Loader2, Paperclip, Send, Sparkles,
+  Trash2, XCircle,
 } from "lucide-react";
 import {
-  AnswerMap, BankPaperDetail, papersApi, ResultQuestion, SittingResult, SittingState,
+  AnswerImageItem, AnswerItem, AnswerMap, BankPaperDetail, papersApi,
+  ResultQuestion, SittingResult, SittingState,
 } from "@/lib/papers/paper-api";
 
 type Phase = "loading" | "running" | "submitting" | "results";
@@ -33,6 +35,30 @@ function fmtClock(totalSeconds: number): string {
   return h > 0
     ? `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`
     : `${m}:${String(sec).padStart(2, "0")}`;
+}
+
+const NUM_TO_LETTER: Record<string, string> = { "1": "A", "2": "B", "3": "C", "4": "D", "5": "E" };
+const LETTER_TO_NUM: Record<string, string> = { A: "1", B: "2", C: "3", D: "4", E: "5" };
+
+/** Extract structured sub-questions e.g. (a), (b), (i), (ii), (1), (2). */
+function extractSubParts(text: string): Array<{ label: string; title: string }> {
+  const lines = text.split("\n");
+  const parts: Array<{ label: string; title: string }> = [];
+  const rx = /^\s*(\([a-zA-Z0-9ivxIVX\u0d80-\u0dff]+\))\s+(.*)$/;
+  let curLabel = "";
+  let curBuf: string[] = [];
+  for (const line of lines) {
+    const m = line.match(rx);
+    if (m) {
+      if (curLabel) parts.push({ label: curLabel, title: curBuf.join(" ").trim() });
+      curLabel = m[1];
+      curBuf = [m[2]];
+    } else if (curLabel) {
+      curBuf.push(line);
+    }
+  }
+  if (curLabel) parts.push({ label: curLabel, title: curBuf.join(" ").trim() });
+  return parts;
 }
 
 export default function SittingRunner({
@@ -55,6 +81,9 @@ export default function SittingRunner({
   const [showAddon, setShowAddon] = useState(false);
   const [addonMsg, setAddonMsg] = useState<string>("");
   const [finalResult, setFinalResult] = useState<SittingResult | null>(null);
+  const [codeMode, setCodeMode] = useState(false);
+  const [activeSubPart, setActiveSubPart] = useState<string | null>(null);
+  const imageInputRef = useRef<HTMLInputElement | null>(null);
   const dirtyRef = useRef(false);
 
   const partsById = useMemo(() => new Map(initialParts.map((p) => [p.paper_no, p])), [initialParts]);
@@ -63,6 +92,22 @@ export default function SittingRunner({
   const status = livePart?.status ?? "created";
   const questions = paper?.paper.questions ?? [];
   const current = questions[currentIdx];
+  const isSinhalaMedium = paper?.medium === "sinhala";
+
+  // Sub-parts detected in current question
+  const subParts = useMemo(() => {
+    if (!current || current.question_type === "choice") return [];
+    return extractSubParts(current.text);
+  }, [current]);
+
+  // Sync active sub-part when question changes
+  useEffect(() => {
+    if (subParts.length > 0) {
+      setActiveSubPart(subParts[0].label);
+    } else {
+      setActiveSubPart(null);
+    }
+  }, [subParts]);
 
   // ---- server-clock poll -------------------------------------------------
   useEffect(() => {
@@ -143,17 +188,65 @@ export default function SittingRunner({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
-  const setAnswer = useCallback((qid: string, value: { option_key?: string; answer_text?: string }) => {
-    setAnswers((prev) => ({ ...prev, [qid]: { ...prev[qid], ...value } }));
+  const setAnswer = useCallback((qid: string, patch: Partial<AnswerItem>) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [qid]: {
+        ...prev[qid],
+        ...patch,
+      },
+    }));
     dirtyRef.current = true;
   }, []);
+
+  const handleSubPartChange = (qid: string, partLabel: string, text: string) => {
+    const existing = answers[qid]?.sub_answers ?? {};
+    const updated = { ...existing, [partLabel]: text };
+    // Reconstruct full text from subparts
+    const combined = subParts
+      .map((item) => {
+        const ans = (updated[item.label] ?? "").trim();
+        return ans ? `${item.label} ${ans}` : "";
+      })
+      .filter(Boolean)
+      .join("\n\n");
+    setAnswer(qid, { sub_answers: updated, answer_text: combined || text });
+  };
+
+  const handleImageUpload = (qid: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    const currentImages = answers[qid]?.images ?? [];
+    Array.from(files).forEach((file) => {
+      if (!file.type.startsWith("image/")) return;
+      const reader = new FileReader();
+      reader.onload = (loadEvt) => {
+        const base64Data = loadEvt.target?.result as string;
+        const newImg: AnswerImageItem = {
+          id: Math.random().toString(36).slice(2, 11),
+          base64: base64Data.split(",")[1] ?? base64Data,
+          previewUrl: URL.createObjectURL(file),
+          filename: file.name,
+          mime: file.type,
+        };
+        setAnswer(qid, { images: [...currentImages, newImg] });
+      };
+      reader.readAsDataURL(file);
+    });
+    if (e.target) e.target.value = "";
+  };
+
+  const handleRemoveImage = (qid: string, imgId: string) => {
+    const currentImages = answers[qid]?.images ?? [];
+    setAnswer(qid, { images: currentImages.filter((img) => img.id !== imgId) });
+  };
 
   const handleSubmit = useCallback(async (auto = false) => {
     if (!partMeta) return;
     if (!auto) {
       const unanswered = questions.filter((q) => {
         const a = answers[q.id];
-        return !a || (!a.option_key && !a.answer_text?.trim());
+        return !a || (!a.option_key && !a.answer_text?.trim() && !(a.images && a.images.length > 0));
       }).length;
       if (unanswered > 0 && !window.confirm(`${unanswered} question(s) are blank. Submit anyway?`)) return;
     }
@@ -208,8 +301,9 @@ export default function SittingRunner({
   const isMcq = current?.question_type === "choice";
   const answeredCount = questions.filter((q) => {
     const a = answers[q.id];
-    return a && (a.option_key || a.answer_text?.trim());
+    return a && (a.option_key || a.answer_text?.trim() || (a.images && a.images.length > 0));
   }).length;
+  const currentImages = answers[current?.id]?.images ?? [];
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
@@ -272,22 +366,55 @@ export default function SittingRunner({
       <div className="flex-1 overflow-y-auto p-4 md:p-6">
         {current ? (
           <div className="max-w-3xl mx-auto space-y-5">
-            <div className="flex items-center gap-3">
-              <span className="w-9 h-9 rounded-xl bg-[var(--ember-0)] border border-[var(--glass-border)] flex items-center justify-center text-sm font-bold text-[var(--primary)] shrink-0">
-                {current.number}
-              </span>
-              <span className="text-[11px] px-2 py-0.5 rounded-full surface-glass-base text-[var(--muted-foreground)] uppercase tracking-wide">
-                {isMcq ? `MCQ · ${Object.keys(current.options ?? {}).length} options` : "Written"}
-              </span>
-              <span className="text-[11px] text-[var(--muted-foreground)]">{current.marks} mark{current.marks === 1 ? "" : "s"}</span>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <span className="w-9 h-9 rounded-xl bg-[var(--ember-0)] border border-[var(--glass-border)] flex items-center justify-center text-sm font-bold text-[var(--primary)] shrink-0">
+                  {current.number}
+                </span>
+                <span className="text-[11px] px-2.5 py-0.5 rounded-full surface-glass-base text-[var(--muted-foreground)] uppercase tracking-wide font-semibold">
+                  {isMcq ? `MCQ · ${Object.keys(current.options ?? {}).length} options` : "Structured Essay"}
+                </span>
+                <span className="text-[11px] text-[var(--muted-foreground)] font-mono">{current.marks} mark{current.marks === 1 ? "" : "s"}</span>
+              </div>
+              {!isMcq && (
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => setCodeMode(!codeMode)}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition-colors flex items-center gap-1 ${
+                      codeMode
+                        ? "bg-[var(--primary)] text-white border-transparent"
+                        : "surface-glass-base border-[var(--glass-border)] text-[var(--muted-foreground)]"
+                    }`}
+                    title="Toggle code / monospaced font mode"
+                  >
+                    <Code size={12} /> Code mode
+                  </button>
+                  <button
+                    onClick={() => imageInputRef.current?.click()}
+                    className="px-2.5 py-1 rounded-lg text-[11px] font-semibold surface-glass-base border border-[var(--glass-border)] text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors flex items-center gap-1"
+                    title="Upload photo of handwritten notes or diagram"
+                  >
+                    <ImagePlus size={12} /> Add Photo
+                  </button>
+                  <input
+                    ref={imageInputRef}
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    className="hidden"
+                    onChange={(e) => handleImageUpload(current.id, e)}
+                  />
+                </div>
+              )}
             </div>
 
-            <p className="text-sm leading-relaxed whitespace-pre-wrap">{current.text}</p>
+            <p className="text-sm leading-relaxed whitespace-pre-wrap font-normal">{current.text}</p>
 
             {isMcq ? (
               <div className="space-y-2">
                 {Object.entries(current.options ?? {}).map(([key, val]) => {
-                  const selected = answers[current.id]?.option_key === key;
+                  const numKey = LETTER_TO_NUM[key.toUpperCase()] ?? key;
+                  const selected = answers[current.id]?.option_key === key || answers[current.id]?.option_key === numKey;
                   return (
                     <button
                       key={key}
@@ -298,8 +425,10 @@ export default function SittingRunner({
                           : "border-[var(--glass-border)] surface-glass-base hover:border-[var(--ember-line)]"
                       }`}
                     >
-                      <span className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${selected ? "bg-[var(--primary)] text-white" : "bg-[var(--muted)] text-[var(--muted-foreground)]"}`}>
-                        {key}
+                      <span className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
+                        selected ? "bg-[var(--primary)] text-white" : "bg-[var(--muted)] text-[var(--muted-foreground)]"
+                      }`}>
+                        {isSinhalaMedium && NUM_TO_LETTER[key] ? `(${key})` : isSinhalaMedium && LETTER_TO_NUM[key] ? `(${LETTER_TO_NUM[key]})` : key}
                       </span>
                       <span className="text-sm leading-snug pt-0.5">{val}</span>
                     </button>
@@ -307,19 +436,100 @@ export default function SittingRunner({
                 })}
               </div>
             ) : (
-              <textarea
-                value={answers[current.id]?.answer_text ?? ""}
-                onChange={(e) => setAnswer(current.id, { answer_text: e.target.value })}
-                placeholder="Write your answer here…"
-                rows={10}
-                className="glass-input w-full p-4 text-sm leading-relaxed resize-y"
-              />
+              <div className="space-y-3">
+                {/* Sub-parts tabs if multiple parts detected */}
+                {subParts.length > 1 && (
+                  <div className="flex flex-wrap gap-1.5 p-1 rounded-xl surface-glass-base border border-[var(--glass-border)]">
+                    {subParts.map((sp) => (
+                      <button
+                        key={sp.label}
+                        onClick={() => setActiveSubPart(sp.label)}
+                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                          activeSubPart === sp.label
+                            ? "bg-[var(--primary)] text-white shadow-sm"
+                            : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                        }`}
+                      >
+                        Part {sp.label}
+                      </button>
+                    ))}
+                    <button
+                      onClick={() => setActiveSubPart(null)}
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                        activeSubPart === null
+                          ? "bg-[var(--primary)] text-white shadow-sm"
+                          : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                      }`}
+                    >
+                      All Parts (Full Answer)
+                    </button>
+                  </div>
+                )}
+
+                {/* Text area input */}
+                {subParts.length > 1 && activeSubPart ? (
+                  <div className="space-y-1.5">
+                    <p className="text-xs font-semibold text-[var(--primary)] flex items-center gap-1.5">
+                      <span>Answering {activeSubPart}:</span>
+                      <span className="text-[var(--muted-foreground)] font-normal text-[11px] truncate">
+                        {subParts.find((s) => s.label === activeSubPart)?.title}
+                      </span>
+                    </p>
+                    <textarea
+                      value={answers[current.id]?.sub_answers?.[activeSubPart] ?? ""}
+                      onChange={(e) => handleSubPartChange(current.id, activeSubPart, e.target.value)}
+                      placeholder={`Write your answer for part ${activeSubPart} here…`}
+                      rows={8}
+                      className={`glass-input w-full p-4 text-sm leading-relaxed resize-y ${codeMode ? "font-mono text-xs" : ""}`}
+                    />
+                  </div>
+                ) : (
+                  <textarea
+                    value={answers[current.id]?.answer_text ?? ""}
+                    onChange={(e) => setAnswer(current.id, { answer_text: e.target.value })}
+                    placeholder="Write your answer here — AI Guru will evaluate your steps against the marking guide…"
+                    rows={10}
+                    className={`glass-input w-full p-4 text-sm leading-relaxed resize-y ${codeMode ? "font-mono text-xs" : ""}`}
+                  />
+                )}
+
+                {/* Attached handwritten images thumbnail row */}
+                {currentImages.length > 0 && (
+                  <div className="space-y-1.5 pt-1">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[var(--muted-foreground)] flex items-center gap-1">
+                      <Paperclip size={11} /> Attached Handwritten Work / Diagrams ({currentImages.length})
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {currentImages.map((img) => (
+                        <div key={img.id} className="relative group rounded-xl overflow-hidden border border-[var(--glass-border)] bg-black/20 w-24 h-24">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={img.previewUrl || `data:${img.mime};base64,${img.base64}`}
+                            alt={img.filename}
+                            className="w-full h-full object-cover"
+                          />
+                          <button
+                            onClick={() => handleRemoveImage(current.id, img.id)}
+                            className="absolute top-1 right-1 p-1 rounded-full bg-red-600/80 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                            title="Remove image"
+                          >
+                            <Trash2 size={12} />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             )}
 
             {/* Navigator */}
             <div className="pt-4 flex flex-wrap items-center gap-1.5">
               {questions.map((q, i) => {
-                const done = (() => { const a = answers[q.id]; return !!a && (!!a.option_key || !!a.answer_text?.trim()); })();
+                const done = (() => {
+                  const a = answers[q.id];
+                  return !!a && (!!a.option_key || !!a.answer_text?.trim() || !!(a.images && a.images.length > 0));
+                })();
                 return (
                   <button
                     key={q.id}

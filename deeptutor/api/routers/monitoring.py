@@ -1,4 +1,4 @@
-﻿"""
+"""
 AI Guru Study Monitoring API Router.
 ====================================
 
@@ -12,6 +12,7 @@ Provides endpoints for:
 
 from __future__ import annotations
 
+import asyncio
 import collections
 import json
 import logging
@@ -19,6 +20,7 @@ import time
 from typing import Any, Deque, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, WebSocket, WebSocketDisconnect, status
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from deeptutor.api.routers.auth import require_auth
@@ -30,6 +32,14 @@ from deeptutor.services.monitoring import (
     get_cv_pipeline,
 )
 from deeptutor.services.monitoring.dispatch import handle_warning
+from deeptutor.services.monitoring.system_monitor import (
+    apply_supervision_strictness,
+    get_system_monitor,
+    load_camera_config,
+    save_camera_config,
+    start_system_monitor,
+    stop_system_monitor,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -85,49 +95,6 @@ def _extract_frame(payload: Dict[str, Any]) -> Optional[str]:
         if isinstance(value, str) and len(value) > 32:
             return value
     return None
-
-
-_STRICTNESS_PROFILES = {
-    # strictness -> (per-category cooldown s, min confidence)
-    "gentle": (90.0, 0.85),
-    "balanced": (60.0, 0.80),
-    "strict": (30.0, 0.75),
-}
-
-
-def _apply_supervision_strictness(pipeline: Any) -> None:
-    """Map persisted wizard strictness onto the warning gates for this session."""
-    from deeptutor.services.background import spawn_bg
-
-    spawn_bg(_apply_async(pipeline), name="monitoring-strictness")
-
-
-async def _apply_async(pipeline: Any) -> None:
-    try:
-        import json as _json
-
-        import aiosqlite
-
-        from deeptutor.services.path_service import get_path_service
-
-        db = get_path_service().user_dir / "chat_history.db"
-        async with aiosqlite.connect(db) as conn:
-            from deeptutor.services.remote.kv_settings import ensure_kv_settings
-
-            await ensure_kv_settings(conn)
-            cur = await conn.execute("SELECT value FROM settings WHERE key = 'supervision_rules_default'")
-            row = await cur.fetchone()
-        if not row or not row[0]:
-            return
-        rules = _json.loads(row[0])
-        cooldown, conf = _STRICTNESS_PROFILES.get(rules.get("alert_strictness", "balanced"), (60.0, 0.80))
-        wm = getattr(pipeline, "warning_manager", None)
-        if wm is not None:
-            wm.cooldown_seconds = float(cooldown)
-            wm.min_confidence = float(conf)
-            logger.info("Supervision strictness applied: %s", rules.get("alert_strictness"))
-    except Exception as exc:  # noqa: BLE001
-        logger.debug("Strictness application skipped: %s", exc)
 
 
 # --- Request & Response Models ---
@@ -193,6 +160,12 @@ class MonitoringStatusResponse(BaseModel):
     is_resource_overloaded: bool
     active_sessions_count: int
     zero_cloud_egress: bool = True
+
+
+class CameraConfigRequest(BaseModel):
+    enabled: Optional[bool] = Field(default=None)
+    camera_index: Optional[int] = Field(default=None, ge=0, le=8)
+    target_fps: Optional[int] = Field(default=None, ge=1, le=30)
 
 
 # --- Endpoints ---
@@ -356,10 +329,228 @@ async def get_monitoring_status(_user: Any = Depends(require_auth)) -> Monitorin
     )
 
 
+# --- System-level camera engine endpoints ------------------------------------
+
+
+async def _probe_camera_frame(max_wait: float = 2.5) -> Optional[Dict[str, Any]]:
+    """Grab one frame + inference result, preferring an active session monitor.
+
+    Used by pre-flight checks and enrollment before any monitoring WS exists.
+    Falls back to a short-lived transient capture (auto-released).
+    """
+    from deeptutor.services.monitoring.system_monitor import active_system_monitors
+
+    for monitor in active_system_monitors().values():
+        frame = monitor.camera.get_latest_frame()
+        if frame is not None:
+            result = await asyncio.get_running_loop().run_in_executor(
+                None, monitor.processor.process_frame, frame
+            )
+            return {"frame": frame, "result": result}
+
+    from deeptutor.services.monitoring.python_face_processor import get_python_face_processor
+    from deeptutor.services.monitoring.system_camera import (
+        SystemCameraManager,
+        release_system_camera,
+    )
+
+    processor = get_python_face_processor()
+    if not processor.available:
+        return None
+
+    cfg = await load_camera_config()
+    camera = SystemCameraManager(camera_index=int(cfg.get("camera_index", 0)))
+    try:
+        if not camera.start():
+            return None
+        deadline = time.time() + max_wait
+        frame = None
+        while time.time() < deadline:
+            frame = camera.get_latest_frame()
+            if frame is not None:
+                break
+            await asyncio.sleep(0.1)
+        if frame is None:
+            return None
+        result = await asyncio.get_running_loop().run_in_executor(
+            None, processor.process_frame, frame
+        )
+        return {"frame": frame, "result": result}
+    finally:
+        # Transient grabber: always release the physical device.
+        camera.stop()
+        release_system_camera(int(cfg.get("camera_index", 0)))
+
+
+def _snapshot_payload_b64(frame: Any) -> Optional[str]:
+    import base64
+
+    try:
+        import cv2
+
+        ok, buf = cv2.imencode(".jpg", frame, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
+        return base64.b64encode(buf.tobytes()).decode("ascii") if ok else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+@router.get("/camera/status")
+async def get_camera_status(_user: Any = Depends(require_auth)) -> Dict[str, Any]:
+    """Capability probe driving the study room's system-camera vs browser choice."""
+    from deeptutor.services.monitoring.python_face_processor import get_python_face_processor
+    from deeptutor.services.monitoring.system_monitor import active_system_monitors
+
+    cfg = await load_camera_config()
+    processor = get_python_face_processor()
+    available = processor.available
+    enabled = bool(cfg.get("enabled", True))
+    return {
+        "available": available,
+        "model_available": available,
+        "enabled": enabled,
+        "mode": "system" if (available and enabled) else "browser",
+        "camera_index": int(cfg.get("camera_index", 0)),
+        "target_fps": int(cfg.get("target_fps", 10)),
+        "active_sessions": sorted(active_system_monitors().keys()),
+    }
+
+
+@router.post("/camera/config")
+async def set_camera_config(req: CameraConfigRequest, _user: Any = Depends(require_auth)) -> Dict[str, Any]:
+    updates = {k: v for k, v in req.model_dump().items() if v is not None}
+    saved = await save_camera_config(updates)
+    return {"saved": True, "config": saved}
+
+
+@router.get("/snapshot/{session_id}")
+async def get_camera_snapshot(session_id: str, _user: Any = Depends(require_auth)) -> Any:
+    """Latest raw camera JPEG for one session (parent live view / diagnostics)."""
+    from fastapi import Response
+
+    monitor = get_system_monitor(session_id)
+    if monitor is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active system monitor")
+    jpeg = monitor.get_snapshot_jpeg()
+    if jpeg is None:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Camera warming up")
+    return Response(content=jpeg, media_type="image/jpeg", headers={"Cache-Control": "no-store"})
+
+
+_MJPEG_BOUNDARY = "aiguruframe"
+_FEED_MAX_FPS = 12.0
+_FEED_IDLE_LIMIT = 300  # ~25s without frames before the stream closes
+
+
+@router.get("/feed/{session_id}")
+async def monitoring_feed(session_id: str, _user: Any = Depends(require_auth)) -> StreamingResponse:
+    """Live MJPEG feed of the system camera with face-mesh overlay.
+
+    Consumed directly by an ``<img>`` element — auth rides the session cookie,
+    so the browser never touches getUserMedia or asks for camera permission.
+    """
+    monitor = get_system_monitor(session_id)
+    if monitor is None:
+        # The monitor registers a beat after the WS handshake starts it; give
+        # the engine a short window instead of instantly 404ing the <img>.
+        deadline = time.time() + 4.0
+        while monitor is None and time.time() < deadline:
+            await asyncio.sleep(0.15)
+            monitor = get_system_monitor(session_id)
+    if monitor is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active system camera feed")
+
+    boundary = _MJPEG_BOUNDARY
+    header = f"--{boundary}\r\nContent-Type: image/jpeg\r\nContent-Length: ".encode("ascii")
+
+    async def frame_stream():
+        idle = 0
+        interval = 1.0 / _FEED_MAX_FPS
+        try:
+            while True:
+                jpeg = monitor.get_annotated_jpeg()
+                if jpeg is None:
+                    idle += 1
+                    if idle > _FEED_IDLE_LIMIT:
+                        break
+                    await asyncio.sleep(0.08)
+                    continue
+                idle = 0
+                yield b"".join([header, str(len(jpeg)).encode(), b"\r\n\r\n", jpeg, b"\r\n"])
+                await asyncio.sleep(interval)
+        except (asyncio.CancelledError, GeneratorExit):
+            raise
+
+    return StreamingResponse(
+        frame_stream(),
+        media_type=f"multipart/x-mixed-replace; boundary={boundary}",
+        headers={"Cache-Control": "no-store, no-cache", "X-Accel-Buffering": "no"},
+    )
+
+
+@router.post("/enroll-from-camera")
+async def enroll_from_camera(_user: Any = Depends(require_auth)) -> Dict[str, Any]:
+    """Enroll the identity baseline straight from the system camera.
+
+    Lets the pre-flight check register the student without ANY browser camera
+    involvement: one server-side grab → geometric embedding → enroll.
+    """
+    pipeline = get_cv_pipeline()
+    probe = await _probe_camera_frame()
+    if probe is None:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="System camera unavailable")
+    result = probe["result"]
+    if not result.detected or result.landmarks is None:
+        return {"enrolled": False, "reason": "no_face_detected"}
+
+    embedding = pipeline.face_engine.generate_geometric_embedding(result.landmarks)
+    pipeline.enroll_student_baseline(embedding)
+    return {
+        "enrolled": True,
+        "dimension": len(embedding),
+        "pose": {
+            "yaw": result.pose.yaw,
+            "pitch": result.pose.pitch,
+            "roll": result.pose.roll,
+            "posture": result.pose.posture.value,
+        } if result.pose else None,
+    }
+
+
+@router.post("/camera/probe")
+async def probe_camera(_user: Any = Depends(require_auth)) -> Dict[str, Any]:
+    """One-shot presence probe used by the system-mode pre-flight check."""
+    probe = await _probe_camera_frame()
+    if probe is None:
+        return {"detected": False, "reason": "camera_unavailable"}
+    result = probe["result"]
+    return {
+        "detected": bool(result.detected),
+        "confidence": float(result.confidence),
+        "brightness": round(float(result.brightness), 3),
+        "ear": round(float(result.ear), 3),
+        "phone_detected": bool(result.phone_detected),
+        "pose": {
+            "yaw": result.pose.yaw,
+            "pitch": result.pose.pitch,
+            "roll": result.pose.roll,
+            "posture": result.pose.posture.value,
+        } if result.pose else None,
+        "snapshot_b64": _snapshot_payload_b64(probe["frame"]),
+    }
+
+
 @router.websocket("/session/{session_id}")
 async def monitoring_session_websocket(websocket: WebSocket, session_id: str) -> None:
     """
     Bidirectional WebSocket for live telemetry streaming, alerts, and state synchronization.
+
+    Two modes:
+    - SYSTEM (default when the Python CV engine + webcam are available): the
+      backend owns the camera and drives analysis ticks, broadcasting
+      ``telemetry_update`` to every registered socket; the client only sends
+      control messages (ping / pause / resume).
+    - BROWSER (fallback): the client runs WASM MediaPipe and streams telemetry
+      frames; the server analyzes on receive (legacy behavior, unchanged).
     """
     from deeptutor.api.routers.auth import ws_auth_failed, ws_require_auth
 
@@ -371,7 +562,76 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     _active_monitoring_sessions[session_id] = websocket
     pipeline = get_cv_pipeline()
     pipeline.reset_session()
-    _apply_supervision_strictness(pipeline)
+
+    mode_param = websocket.query_params.get("mode")
+    camera_cfg = await load_camera_config()
+    monitor = None
+    if mode_param != "browser" and camera_cfg.get("enabled", True):
+        monitor = await start_system_monitor(session_id, camera_cfg, pipeline=pipeline)
+
+    if monitor is not None:
+        listener = monitor.register(websocket)
+        try:
+            await websocket.send_json({
+                "type": "session_init",
+                "session_id": session_id,
+                "mode": "system",
+                "target_fps": monitor.target_fps,
+                "zero_cloud_egress": True,
+                "message": "AI Guru System Camera Monitoring Active",
+            })
+            while True:
+                raw_text = await websocket.receive_text()
+                try:
+                    msg = json.loads(raw_text)
+                except Exception:
+                    continue
+                if not isinstance(msg, dict):
+                    continue
+                msg_type = msg.get("type", "")
+                if msg_type == "ping":
+                    await websocket.send_json({"type": "pong", "timestamp": time.time()})
+                elif msg_type == "pause":
+                    monitor.paused = True
+                elif msg_type == "resume":
+                    monitor.paused = False
+                elif msg_type == "telemetry":
+                    # Legacy client chatter is harmless here: the engine reads
+                    # the camera directly and ignores browser payloads.
+                    continue
+        except WebSocketDisconnect:
+            logger.info("Monitoring WebSocket disconnected for session: %s", session_id)
+        except Exception as e:
+            logger.warning("Monitoring WS error for session %s: %s", session_id, e)
+        finally:
+            monitor.unregister(listener)
+            if monitor.listener_count == 0:
+                await stop_system_monitor(session_id)
+            _active_monitoring_sessions.pop(session_id, None)
+            _frame_rings.pop(session_id, None)
+            _purge_session_state(session_id)
+        return
+
+    apply_supervision_strictness_bg(pipeline)
+    await _browser_driven_monitoring_loop(websocket, session_id, pipeline)
+
+
+def apply_supervision_strictness_bg(pipeline: Any) -> None:
+    """Schedule strictness application on the running loop (legacy WS path)."""
+    from deeptutor.services.background import spawn_bg
+
+    spawn_bg(apply_supervision_strictness(pipeline), name="monitoring-strictness")
+
+
+async def _browser_driven_monitoring_loop(
+    websocket: WebSocket,
+    session_id: str,
+    pipeline: Any,
+) -> None:
+    """
+    Legacy browser-driven monitoring loop: the client streams landmark
+    telemetry (+ optional JPEG snapshots); the server analyzes on receive.
+    """
 
     logger.info("Monitoring WebSocket connected for session: %s", session_id)
 
@@ -391,6 +651,7 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     focus_sum = 0.0
     engagement_sum = 0.0
     score_ticks = 0
+    is_paused = False
 
     async def _persist_scores() -> None:
         try:
@@ -429,6 +690,7 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
         await websocket.send_json({
             "type": "session_init",
             "session_id": session_id,
+            "mode": "browser",
             "target_fps": pipeline.get_current_target_fps(),
             "zero_cloud_egress": True,
             "message": "AI Guru Local Study Monitoring Stream Active",
@@ -447,6 +709,15 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
             msg_type = msg.get("type", "telemetry")
             if msg_type == "ping":
                 await websocket.send_json({"type": "pong", "timestamp": time.time()})
+                continue
+            elif msg_type == "pause":
+                is_paused = True
+                continue
+            elif msg_type == "resume":
+                is_paused = False
+                continue
+
+            if is_paused:
                 continue
 
             # A literal ``{"data": null}`` must not poison the pipeline: fall
@@ -511,9 +782,10 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
                 active_distractions.clear()
 
             if analysis.dispatched_warning:
-                # Info-level presence pings (STUDENT_AWAY) are not warnings;
-                # counting them inflated the parent-facing report.
-                if analysis.dispatched_warning.severity != "info":
+                # Info-level presence pings (STUDENT_AWAY) and in-app nudges
+                # are not actionable warnings; counting them inflated the
+                # parent-facing report.
+                if analysis.dispatched_warning.severity not in ("info", "nudge"):
                     warning_count += 1
 
             now_s = time.time()
@@ -529,6 +801,7 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
                 "presence": analysis.presence.state.value,
                 "focus_score": analysis.distraction.focus_score,
                 "engagement_score": analysis.engagement.score,
+                "engagement_trend": analysis.engagement.trend,
                 "posture": analysis.pose.posture.value,
                 "is_distracted": analysis.distraction.is_distracted,
                 "whitelisted_action": analysis.distraction.whitelisted_action.value if analysis.distraction.whitelisted_action else None,
@@ -555,6 +828,7 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
                         warning=warning_dict,
                         current_frame_b64=frame_b64,
                         ring_frames_b64=list(_frame_rings.get(session_id, ())),
+                        photo_jpeg_b64=frame_b64,
                     ),
                     name=f"warning-dispatch-{session_id}",
                 )

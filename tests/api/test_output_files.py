@@ -155,9 +155,13 @@ def test_symlink_outside_user_root_is_rejected(output_app, tmp_path: Path) -> No
     client, _admin_root, users_root = output_app({"alice-token": alice})
     external = tmp_path / "external.pdf"
     external.write_bytes(b"other user's data")
-    link = _write_output(users_root / "u_alice", relative_path, b"placeholder")
     link.unlink()
-    link.symlink_to(external)
+    try:
+        link.symlink_to(external)
+    except OSError as e:
+        if getattr(e, "winerror", None) == 1314:
+            pytest.skip("Symlinks require administrator or developer mode privileges on Windows")
+        raise
 
     with client:
         client.cookies.set("dt_token", "alice-token")
@@ -181,5 +185,10 @@ def test_absolute_parent_and_symlink_escapes_are_rejected(tmp_path: Path) -> Non
 
     link = public_root / "workspace" / "chat" / "chat" / "session-1" / "exec" / "link.pdf"
     link.parent.mkdir(parents=True, exist_ok=True)
-    link.symlink_to(external)
+    try:
+        link.symlink_to(external)
+    except OSError as e:
+        if getattr(e, "winerror", None) == 1314:
+            pytest.skip("Symlinks require administrator or developer mode privileges on Windows")
+        raise
     assert service.resolve_public_output_path(link.absolute()) is None

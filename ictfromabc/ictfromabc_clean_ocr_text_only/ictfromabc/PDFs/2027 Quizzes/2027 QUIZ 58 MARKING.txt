@@ -1,0 +1,365 @@
+1. What type of data access method is used by magnetic tapes?
+චුම්බක පටි භාවිතා කරන්නේ කුමන ආකාරයේ දත්ත ප්‍රවේශ ක්‍රමයක්ද?
+
+1) Random access /සසම්භාවි ප්‍රවේශය
+2) Sequential access / අනුක්‍රමික ප්‍රවේශය
+3) Direct access / සෘජු ප්‍රවේශය
+4) Index access / දර්ශක ප්‍රවේශය
+5) Parallel access / සමාන්තර ප්‍රවේශය
+
+Answer : 2)
+
+Explanation / පැහැදිලි කිරීම
+
+Magnetic tapes use sequential access as their primary data access method. This means that data is read or
+written in a linear order, one piece at a time, starting from the beginning of the tape and moving forward
+until the required data is found. Unlike random access devices, where any location can be directly
+accessed, magnetic tapes require scanning through intermediate data to reach a specific point. Therefore,
+accessing data on tapes is slower when compared to modern storage devices like hard drives and solid-
+state drives that support direct or random access. Sequential access makes magnetic tapes suitable for
+storing large backups and archival data rather than frequent data retrieval.
+චුම්බක පටි ඔවුන්ගේ ප්‍රාථමික දත්ත ප්‍රවේශ ක්‍රමය ලෙස අනුක්‍රමික ප්‍රවේශය භාවිතා කරයි. මෙයින් අදහස්
+කරන්නේ දත්ත රේඛීය අනුපිළිවෙලකට කියවීම හෝ ලිවීම, පටියේ ආරම්භයේ සිට ආරම්භ වී අවශ්‍ය දත්ත
+සොයා ගන්නා තෙක් එකින් එක ඉදිරියට යාමයි. ඕනෑම ස්ථානයකට සෘජුවම ප්‍රවේශ විය හැකි අහඹු ප්‍රවේශ
+උපාංග මෙන් නොව, චුම්බක පටි නිශ්චිත ස්ථානයකට ළඟා වීමට අතරමැදි දත්ත හරහා ස්කෑන් කිරීම අවශ්‍ය
+වේ. එබැවින්, සෘජු හෝ අහඹු ප්‍රවේශයට සහාය වන දෘඪ තැටි සහ ඝන-තත්ව ධාවක වැනි නවීන ගබඩා
+උපාංග හා සසඳන විට පටිවල දත්ත ප්‍රවේශ වීම මන්දගාමී වේ. අනුක්‍රමික ප්‍රවේශය චුම්භක පටි නිතර දත්ත
+ලබා ගැනීමට වඩා විශාල උපස්ථ සහ ලේඛනාගාර දත්ත ගබඩා කිරීම සඳහා සුදුසු කරයි.
+
+Correct Answer / නිවැරදි පිළිතුර:
+Option / විකල්ප 2)  - Sequential access / අනුක්‍රමික ප්‍රවේශය
+
+2. What will be the date after P, Q and R are filled in?
+P, Q සහ R හිස්තැන් සම්පූර්ණ කල පසු දිනය වනුයේ කුමක්ද?
+
+Year
+Month
+Date
+7D416
+10112
+368
+× 2
+-2
+÷5
+P
+Q
+R
+
+1)  4008/09/06
+2)  4008/10/05
+3)  4008/11/05
+4)  4008/08/05
+5)  4008/07/05
+
+Answer: 1)
+Explanation / පැහැදිලි කිරීම:
+Considering the given table, following expressions can be derived for P, Q and R.
+ලබා දී ඇති වගුව සලකා බැලීමේදී, P, Q සහ R සඳහා පහත ප්‍රකාශන ව්‍යුත්පන්න කළ හැක.
+P = 7D416 × 2
+Q = 10112 – 2
+R = 368 ÷ 5
+2027 QUIZ SERIES
+2027 QUIZ NO 58 MARKING
+2025/12/24
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Then, let’s convert non-decimal values in P, Q and t expressions to decimal.
+එසේ නම්, P, Q සහ R ප්‍රකාශනවල දශම නොවන අගයන් දශම බවට පරිවර්තනය කරමු.
+
+Converting Binary to Decimal
+ද්විමය සිට දශමයට පරිවර්තනය කිරීම
+10112
+1
+0
+1
+1
+23
+22
+21
+20
+8
+0
+2
+1
+8 + 2 + 1 = 11
+1110
+
+Now, we can calculate values of P, Q and R.
+දැන්, අපට P, Q සහ R හි අගයන් ගණනය කළ හැකිය.
+P = 2004 × 2 = 4008
+Q = 11 – 2 = 9
+R = 30 ÷ 5 = 6
+So, 4008/09/06 is the date after P, Q and R values are filled in.
+එබැවින්, P, Q සහ R අගයන් පිරවූ විට ඇති දිනය 4008/09/06 වේ.
+The correct answer is option 1).
+නිවැරදි පිළිතුර විකල්පය 1) වේ.
+
+3. Which is NOT a feature of EBCDIC?
+EBCDIC හි විශේෂ අංගයක් නොවන්නේ කුමක්ද?
+
+1) Uses an 8-bit encoding system / 8-බිටු කේතන පද්ධතියක් භාවිතා කරයි.
+2) Primarily used in IBM mainframes.
+ප්‍රධාන වශයෙන් IBM ප්‍රධාන රාමු (mainframe) පරිගණකවල භාවිතා වේ.
+
+3) Characters are arranged non-sequentially / අනුලක්ෂණ අනුක්‍රමික නොවන ආකාරයෙන් සකසා ඇත.
+4) Supports 256 characters / අනුලක්ෂණ 256 ක් සඳහා සහාය දක්වයි.
+5) Compatible with modern web applications / නූතන වෙබ් යෙදුම් සමඟ ගැළපේ.
+
+Answer: 5)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+True. EBCDIC is an 8-bit encoding system, meaning it uses 8 bits to represent each character.
+සත්‍ය වේ. EBCDIC යනු බිටු 8 හි කේතන පද්ධතියකි, එනම් එය එක් එක් අනුලක්ෂණය නිරූපණය කිරීම
+සඳහා බිටු 8 ක් භාවිතා කරයි.
+
+Option / විකල්ප 2)
+True. EBCDIC was developed by IBM and is primarily used in IBM mainframe and midrange systems,
+such as AS/400 and z/OS. It is not widely used outside of these systems.
+සත්‍ය වේ. EBCDIC, IBM විසින් සංවර්ධනය කරන ලද අතර එය ප්‍රධාන වශයෙන් IBM ප්‍රධාන රාමුවේ සහ
+AS/400  සහ z/OS වැනි මධ්‍ය-පරාස පද්ධතිවල භාවිතා වේ. මෙම පද්ධතිවලින් පිටත එය බහුලව භාවිතා
+නොවේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+Converting Hexadecimal to Decimal
+ෂඩ් දශම සිට දශමයට පරිවර්තනය කිරීම
+7D416
+7
+D (13)
+4
+162
+161
+160
+256 × 7
+13 × 16
+4 × 1
+1792 + 208 + 4 = 2004
+200410
+Converting Octal to Decimal
+අෂ්ටක සිට දශමයට පරිවර්තනය කිරීම
+368
+3
+6
+81
+80
+3 × 8
+6 × 1
+24 + 6 = 30
+3010
+
+Option / විකල්ප 3)
+True. One of the notable characteristics of EBCDIC is that its characters are arranged non-sequentially.
+සත්‍ය වේ. EBCDIC හි සුවිශේෂී ලක්ෂණයක් වන්නේ එහි අනුලක්ෂණ අනුක්‍රමිකව සකසා නොමැති වීමයි.
+
+The letters 'A' to 'I' are assigned values 193 to 201, but the next set of letters ('J' to 'R') jumps to 209 to
+217, leaving a gap.
+'A' සිට 'I' දක්වා අක්ෂරවලට 193 සිට 201 දක්වා අගයන් නියම වී ඇති නමුත්, ඊළඟ කාණ්ඩය ('J' සිට 'R')
+දක්වා 209 සිට 217 දක්වා පනින්නේ, හිඩැසක් ඇති කරමින්ය.
+
+Option / විකල්ප 4)
+True. Since EBCDIC is an 8-bit encoding system, it can support 256 unique characters (28 = 256)
+සත්‍ය වේ. EBCDIC යනු බිටු 8 හි කේතන පද්ධතියක් බැවින්, එය අනන්‍ය අක්ෂර 256 ක් (28 = 256) සහාය
+දක්වයි.
+
+This includes letters, numbers, symbols, and control characters.
+මෙයට අක්ෂර, ඉලක්කම්, සංකේත සහ පාලක අනුලක්ෂණ ඇතුළත් වේ.
+
+Option / විකල්ප 5)
+False. This is not a feature of EBCDIC.
+අසත්‍ය වේ. මෙය EBCDIC හි ලක්ෂණයක් නොවේ.
+
+EBCDIC is not compatible with modern web applications, which primarily use ASCII or Unicode (such
+as UTF-8) for text encoding.
+EBCDIC නූතන වෙබ් යෙදුම් සමඟ අනුකූල නොවේ, මන්ද නූතන වෙබ් යෙදුම් ප්‍රධාන වශයෙන් ASCII හෝ
+යුනිකෝඩ් (උදා: UTF-8) භාවිතා කරයි.
+
+EBCDIC is largely limited to legacy IBM systems and is not suitable for modern web development or data
+exchange.
+EBCDIC ප්‍රධාන වශයෙන් පැරණි IBM පද්ධති සඳහා සීමා වී ඇති අතර, නූතන වෙබ් සංවර්ධනය හෝ දත්ත
+හුවමාරුව සඳහා සුදුසු නොවේ.
+
+Therefore, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර 5) වේ.
+
+2026 QUIZ SERIES
+#ictfromabc
+-3-
+
+4. According to the ASCII encoding system, the decimal representation of A is 65, and the decimal
+representation of z is 122. What is the binary representation of the word "dUeLo" in ASCII?
+ASCII කේතන ක්‍රමයට අනුව A හි දශමය නිරූපණය 65 වේ. z හි දශමය නිරූපණය 122 වේ. “dUeLo”
+යන වචනයේ ASCII නිරූපණය ද්වීමය ආකාරයෙන් දැක්වෙන්නේ?
+1) 01100100 01010101 00110001 01001100 01101111
+2) 01100100 01010101 01100101 01001100 01101111
+3) 01100100 01010101 01100101 01001100 00110010
+4) 01100100 01010101 01100101 00110011 01101111
+5) 01100100 00110100 01100101 01001100 01101111
+
+Answer: 2)
+Explanation / පැහැදිලි කිරීම:
+Capital letters / කැපිටල් අක්ෂර:
+
+When A = 6510, / A = 6510 විට,
+U = 8510 = 10101012 = ASCII 01010101
+L = 7610 = 10011002 = ASCII 01001100
+
+Simple letters / සිම්පල් අක්ෂර:
+When z = 12210, / z = 12210 විට,
+d = 10010 = 11001002 ASCII 01100100
+e = 10110 = 11001012 ASCII 01100101
+
+o = 11110 = 11011112 ASCII 01101111
+
+2
+111
+2
+55
+- 1
+2
+27
+- 1
+2
+13
+- 1
+2
+6
+- 1
+2
+3
+- 0
+2
+1
+- 1
+0
+- 1
+
+dUeLo = 01100100 01010101 01100101 01001100 01101111
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+2
+85
+2
+42
+- 1
+2
+21
+- 0
+2
+10
+- 1
+2
+5
+- 0
+2
+2
+- 1
+2
+1
+- 0
+0
+- 1
+2
+76
+2
+38
+- 0
+2
+19
+- 0
+2
+9
+- 1
+2
+4
+- 1
+2
+2
+- 0
+2
+1
+- 0
+0
+- 1
+2
+100
+2
+50
+- 0
+2
+25
+- 0
+2
+12
+- 1
+2
+6
+- 0
+2
+3
+- 0
+2
+1
+- 1
+0
+- 1
+2
+101
+2
+50
+- 1
+2
+25
+- 0
+2
+12
+- 1
+2
+6
+- 0
+2
+3
+- 0
+2
+1
+- 1
+0
+- 1
+
+5. Assume that you need to build a logic circuit for the edge lighting feature when a notification is received
+this effect will only work if the screen is turned off. What’s the best logic gate to the above-mentioned
+scenario? (Consider receiving a notification and the screen being off as 1)
+ඔබට දැනුම්දීමක් (notification) ලැබුණු විට edge lighting පහසුකම ක්‍රියාත්මක වීම සඳහා තාර්කික පරිපථයක්
+නිර්මාණය කිරීමට අවශ්‍ය යැයි උපකල්පනය කරන්න. මෙම පහසුකම ක්‍රියාත්මක වන්නේ තිරය නිවී ඇති විට
+පමණි. මෙම සිදුවීම සඳහා ගැළපෙන තාර්කික ද්වාරය කුමක්ද? (දැනුම්දීමක් ලැබීම සහ තිරය නිවී තිබීම 1
+ලෙස සලකන්න.)
+1)  OR gate
+2)  NOT gate
+3) NOR gate
+4) AND gate
+5) NAND gate
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+Here, we need to check both a notification is received and whether the screen is turned off. Therefore, an
+AND gate is the best option to check these conditions.
+මෙහිදී, අප දැනුම් දීමක් ලැබී තිබේද සහ තිරය ක්‍රියා විරහිත වී ඇත්දැයි යන දෙකම පරීක්ෂා කළ යුතුය.
+එබැවින්, මෙම තත්ත්වයන් පරීක්ෂා කිරීම සඳහා හොඳම විකල්පය වන්නේ AND ද්වාරයකි.
+
+Therefore, the correct answer is 4).
+එබැවින්, නිවැරදි පිළිතුර 4) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-

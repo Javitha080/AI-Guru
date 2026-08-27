@@ -1,0 +1,302 @@
+1. How do IDE and SATA cables differ in terms of data transmission method?
+දත්ත සම්ප්‍රේෂණ ක්‍රමය අනුව IDE සහ SATA කේබල් වෙනස් වන්නේ කෙසේද?
+
+1) IDE uses serial communication, SATA uses parallel
+IDE අනුක්‍රමික සන්නිවේදනය භාවිතා කරන අතර SATA සමාන්තර සන්නිවේදනය භාවිතා කරයි.
+
+2) IDE uses parallel communication, SATA uses serial
+IDE සමාන්තර සන්නිවේදනය භාවිතා කරන අතර SATA අනුක්‍රමික සන්නිවේදනය භාවිතා කරයි.
+
+3) Both IDE and SATA use parallel communication
+IDE සහ SATA දෙකම සමාන්තර සන්නිවේදනය භාවිතා කරයි.
+
+4) Both IDE and SATA use serial communication
+IDE සහ SATA දෙකම අනුක්‍රමික සන්නිවේදනය භාවිතා කරයි.
+
+5) IDE uses wireless transfer, SATA uses wired transfer
+IDE රැහැන් රහිත හුවමාරුව භාවිතා කරයි, SATA  රැහැන්ගත හුවමාරුව භාවිතා කරයි.
+
+Answer : 2)
+
+The correct answer is 2) IDE uses parallel communication, SATA uses serial. IDE, also known as PATA,
+transfers data using parallel communication, where multiple bits are sent at the same time across wide
+ribbon cables. While this method was common in older systems, it had limitations such as bulky cables,
+lower data transfer rates, and issues like crosstalk and signal interference when speeds increased. SATA,
+on the other hand, uses serial communication, where data is transmitted one bit at a time through thinner
+and more flexible cables. This serial method allows SATA to achieve much higher speeds, improved
+reliability, and better airflow inside the computer case.
+නිවැරදි පිළිතුර වන්නේ 2) IDE සමාන්තර සන්නිවේදනය භාවිතා කරන අතර, SATA අනුක්‍රමික සන්නිවේදන
+භාවිතා කරයි. IDE, PATA ලෙසද හැඳින්වේ, සමාන්තර සන්නිවේදනය භාවිතයෙන් දත්ත මාරු කරයි, එහිදී
+පුළුල් රිබන් කේබල් හරහා එකවර බිටු කිහිපයක් යවනු ලැබේ. පැරණී පද්ධතිවල මෙම ක්‍රමය සුලභ වුවද,
+එයට විශාල කේබල්, අඩු දත්ත හුවමාරු අනුපාත සහ වේගය වැඩි වූ විට හරස් කතා සහ සංඥා බාධා වැනි
+ගැටළු තිබුණි. අනෙක් අතට, SATA අනුක්‍රමික සන්නිවේදනය භාවිතා කරයි, එහිදී තුනී සහ වඩාත් නම්‍යශීලී
+කේබල් හරහා දත්ත වරකට බිට් එකකින් සම්ප්‍රේෂණය වේ. මෙම අනුක්‍රමික ක්‍රමය SATA හට පරිගණක නඩුව
+තුළ බොහෝ ඉහළ වේගයන්, වැඩිදියුණු කළ විශ්වසනීයත්වයක් සහ වඩා හොඳ වායු ප්‍රවාහයක් ලබා ගැනීමට
+ඉඩ සලසයි.
+
+The other options are incorrect because they confuse or misstate the communication methods. Option 1
+wrongly switches the roles of IDE and SATA, while Option 3 and 4 incorrectly claim both use the same
+communication type, which is not true. Option 5 is entirely incorrect because neither IDE nor SATA is
+wireless; both are strictly wired technologies. Therefore, the main difference lies in IDE using parallel
+communication and SATA using serial communication, which is why SATA replaced IDE in modern
+systems.
+අනෙකුත් විකල්ප වැරදි වේ, මන්ද ඒවා සන්නිවේදන ක්‍රම ව්‍යාකූල කරයි හෝ වැරදි ලෙස ප්‍රකාශ කරයි. විකල්ප
+1 IDE සහ SATA හි භූමිකාවන් වැරදි ලෙස මාරු කරයි, නමුත් විකල්ප 3 සහ 4 දෙකම එකම සන්නිවේදන
+වර්ගය භාවිතා කරන බව වැරදි ලෙස කියා සිටින අතර එය සත්‍ය නොවේ. විකල්ප 5 සම්පූර්ණයෙන්ම වැරදියි,
+මන්ද IDE හෝ SATA රැහැන් රහිත නොවේ; දෙකම දැඩි ලෙස රැහැන්ගත තාක්ෂණයන් වේ. එමනිසා, ප්‍රධාන
+වෙනස පවතින්නේ සමාන්තර සන්නිවේදනය භාවිතා කරන IDE සහ අනුක්‍රමික සන්නිවේදනය භාවිතා කරන
+SATA තුළ වන අතර, එම නිසා නවීන පද්ධතිවල SATA IDE ප්‍රතිස්ථාපනය කළේය.
+
+RAVINDU BANDARANAYAKE
+2027 දවසට කොළයක් වැඩසටහන 12
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2. Which of the following best describes the main function of the Northbridge?
+Northbridge හි ප්‍රධාන කාර්යය වඩාත් හොඳින් විස්තර කරන්නේ පහත සඳහන් ඒවායින් කවරේද?
+
+1) Managing USB ports and audio controllers
+USB කෙවෙනි සහ ශ්‍රව්‍ය පාලක කළමනාකරණය කිරීම
+
+2) Controlling storage devices and PCI slots
+ගබඩා උපාංග සහ PCI තව් පාලනය කිරීම
+
+3) Providing power to the motherboard
+මවු පුවරුවට බලය සැපයීම
+
+4) Handling BIOS updates
+BIOS  යාවත්කාලීන හැසිරවීම
+
+5) Connecting the CPU to high-speed components like RAM and GPU
+RAM  සහ GPU වැනි අධිවේගී සංරචක සමඟ CPU  සම්බන්ධ කිරීම
+
+Answer : 5)
+
+The correct answer is 5) Connecting the CPU to high-speed components like RAM and GPU. The
+Northbridge is a crucial part of the motherboard chipset that links the CPU with high-speed components
+such as RAM, the graphics card (GPU), and sometimes the Southbridge. Its main role is to ensure fast
+data transfer between the processor and these performance-critical components, which directly affects the
+overall system speed.
+නිවැරදි පිළිතුර වන්නේ 5) RAM සහ GPU වැනි අධිවේගී සංරචක සමඟ CPU සම්බන්ධ කිරීම. නෝර්ත්බ්‍රිජ්
+යනු මවු පුවරු චිප්සෙට් එකේ තීරණාත්මක කොටසක් වන අතර එය CPU එක RAM, ග්‍රැෆික් කාඩ්පත GPU
+සහ සමහර විට සවුත්බ්‍රිජ් වැනි අධිවේගී සංරචක සමඟ සම්බන්ධ කරයි. එහි ප්‍රධාන කාර්යභාරය වන්නේ
+සකසනය සහ මෙම කාර්ය සාධන-තීරණාත්මක සංරචක අතර වේගවත් දත්ත හුවමාරුව සහතික කිරීමයි, එය
+සමස්ත පද්ධති වේගයට සෘජුවම බලපායි.
+
+The other options are incorrect because they describe tasks handled by other components. Option 1 (USB
+and audio controllers) and Option 2 (storage devices and PCI slots) are functions of the Southbridge, not
+the Northbridge. Option 3 is wrong since power is managed by the power supply unit, not the Northbridge.
+Option 4 is also incorrect because BIOS updates are handled by the BIOS chip itself, not the Northbridge.
+So, the Northbridge’s main function is to connect the CPU to fast components like RAM and GPU.
+අනෙකුත් විකල්ප වැරදි වේ, මන්ද ඒවා අනෙකුත් සංරචක මගින් හසුරුවන කාර්යයන් විස්තර කරයි. 1 වන
+විකල්පය USB සහ ශ්‍රව්‍ය පාලක) සහ 2 වන විකල්පය (ගබඩා උපාංග සහ PCI තව්) යනු නෝර්ත්බ්‍රිජ් නොව
+සවුත්බ්‍රිජ් හි කාර්යයන් වේ. බලය කළමනාකරණය කරනු ලබන්නේ නෝර්ත්බ්‍රිජ් නොව බල සැපයුම් ඒකකය
+විසින් බැවින් 3 වන විකල්පය වැරදි වේ. 4 වන විකල්පය ද වැරදි වේ, මන්ද BIOS යාවත්කාලීන කිරීම්
+හසුරුවන්නේ නෝර්ත්බ්‍රිජ් නොව BIOS චිපය විසින්ම ය. එබැවින්, නෝර්ත්බ්‍රිජ් හි ප්‍රධාන කාර්යය වන්නේ CPU
+RAM සහ GPU වැනි වේගවත් සංරචක සමඟ සම්බන්ධ කිරීමයි.
+
+3. Consider the following statements about data communication modes:
+දත්ත සන්නිවේදන ක්‍රම පිළිබඳ පහත ප්‍රකාශ සලකා බලන්න:
+
+A. In Simplex mode, data flows in only one direction.
+ඒකපථ මාදිලියේදී, දත්ත එක් දිශාවකට පමණක් ගලා යයි.
+
+B. In Half-Duplex mode, communication can occur in both directions, but only one side at a time.
+අර්ධ ද්වීපථ මාදිලියේදී, සන්නිවේදනය දෙපැත්තටම සිදුවිය හැකි නමුත්, එකවර එක් පැත්තකට පමණි.
+
+C. In Full-Duplex mode, data flows in both directions simultaneously.
+පූර්ණ ද්වීපථ මාදිලියේදී, දත්ත එකවර දෙපැත්තටම ගලා යයි.
+
+Which of the following is/are correct
+පහත සඳහන් ඒවායින් නිවැරදි කුමක්ද?
+
+1)  A only.
+A පමණි.
+2)  B only.
+B පමණි.
+3) A and B only.
+A හා B පමණි.
+4) B and C only.
+B හා C පමණි.
+5) All of the above.
+ඉහත සියල්ලම.
+-2-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Answer : 5)
+
+The correct answer is 5) All of the above, because all three statements accurately describe the
+modes of data communication. In Simplex mode, data travels in only one direction, such as in a
+keyboard sending input to a computer. In Half-Duplex mode, data can flow both ways but not at
+the same time, like in walkie-talkies where only one person can speak at a time. In Full-Duplex
+mode, data flows in both directions simultaneously, as in phone calls where both parties can talk
+and listen at once. Therefore, statements A, B, and C are all correct.
+නිවැරදි පිළිතුර වන්නේ 5) ඉහත සියල්ලම, ප්‍රකාශ තුනම දත්ත සන්නිවේදන ක්‍රම නිවැරදිව විස්තර
+කරන බැවිනි. සිම්ප්ලෙක්ස් මාදිලියේදී, දත්ත එක් දිශාවකට පමණක් ගමන් කරයි, උදාහරණයක් ලෙස
+පරිගණකයකට ආදානය යවන යතුරුපුවරුවකින්. අර්ධ-ද්විත්ව මාදිලියේදී, දත්ත දෙපැත්තටම ගලා
+යා හැකි නමුත් එකවර නොවේ, වෝකි-ටෝකි වල මෙන්, එක් පුද්ගලයෙකුට එකවර කතා කළ හැකිය.
+පූර්ණ-ද්විත්ව මාදිලියේදී, දත්ත එකවර දෙපැත්තටම ගලා යයි, දෙපාර්ශවයටම එකවර කතා කළ
+හැකි සහ සවන් දිය හැකි දුරකථන ඇමතුම් වලදී මෙන්. එබැවින්, A, B සහ C ප්‍රකාශ සියල්ලම
+නිවැරදි වේ.
+
+4. Consider the following statements about computer networks:
+පරිගණක ජාල පිළිබඳ පහත ප්‍රකාශ සලකා බලන්න:
+
+A. A LAN (Local Area Network) typically covers a small geographical area such as building or campus.
+LAN (ප්‍රාදේශීය ප්‍රදේශ ජාලයක්) සාමාන්‍යයෙන් ගොඩනැගිල්ලක් හෝ විශ්ව විද්‍යාලයක් වැනි කුඩා භූගෝලීය
+
+ප්‍රදේශයක් ආවරණය කරයි.
+
+B. A MAN (Metropolitan Area Network) spans across multiple cities or countries.
+MAN (Metropolitan Area Network) බහු නගර හෝ රටවල් හරහා විහිදේ.
+
+C. A WAN (Wide Area Network) can connect devices across large geographical areas, even worldwide.
+WAN (පුළුල් ප්‍රදේශ ජාලයක්) ලොව පුරා පවා විශාල භූගෝලීය ප්‍රදේශ හරහා උපාංග සම්බන්ධ කළ
+හැකිය.
+
+Which of the following is/are correct
+පහත සඳහන් ඒවායින් නිවැරදි කුමක්ද?
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+A is correct → LAN covers small areas (e.g., office, campus).
+A නිවැරදියි → LAN කුඩා ප්‍රදේශ ආවරණය කරයි (උදා:කාර්යාලය, විශ්ව විද්‍යාලය).
+
+B is incorrect → MAN covers a city or metropolitan area, not multiple countries.
+B වැරදියි → MAN බහු රටවල් නොව නගරයක් හෝ අගනගර ප්‍රදේශයක් ආවරණය කරයි.
+
+C is correct → WAN spans large areas/countries/worldwide (e.g., the Internet).
+C නිවැරදියි → WAN විශාල ප්‍රදේශ/රටවල්/ලොව පුරා විහිදේ (උදා: අන්තර්ජාලය).
+
+Therefore the correct answer is 4) / එබැවින් නිවැරදි පිළිතුර 4) වේ
+
+1)  A only.
+A පමණි.
+2)  B only.
+B පමණි.
+3) B and C only.
+B හා C පමණි.
+4) A and C only.
+A හා C පමණි.
+5) All of the above.
+ඉහත සියල්ලම.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+5. Which of the following best describes a phishing attack?
+පහත සඳහන් ඒවායින් තතුබෑම් ප්‍රහාරයක් වඩාත් හොඳින් විස්තර කරන්නේ කුමක්ද?
+
+1) Unauthorized physical access to a server room
+සේවාදායක කාමරයකට අනවසර භෞතික ප්‍රවේශය
+
+2) Sending fraudulent emails to trick users into revealing personal information
+පරිශීලකයින් රවටා පුද්ගලික තොරතුරු හෙළි කිරීමට වංචනික විද්‍යුත් තැපෑල යැවීම
+
+3) Installing antivirus software to detect malware.
+අනිෂ්ට මෘදුකාංග හඳුනා ගැනීමට ප්‍රති-වයිරස මෘදුකාංග ස්ථාපනය කිරීම
+
+4) Encrypting files to protect them from unauthorized access
+අනවසර ප්‍රවේශයෙන් ආරක්ෂා කිරීමට ගොනු සංකේතනය කිරීම
+
+5) Using biometric data like fingerprints for authentication
+සත්‍යාපනය සඳහා ඇඟිලි සලකුණු වැනි ජෛවමිතික දත්ත භාවිතා කිරීම
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+Option / විකල්පය 1
+Physical access = security risk, but not phishing.
+භෞතික ප්‍රවේශය = ආරක්ෂක අවදානමකි, නමුත් තතුබෑම නොවේ.
+
+Option / විකල්පය 2
+Correct → Phishing = tricking users with fake emails/websites to steal sensitive info (passwords, bank
+details).
+නිවැරදියි → තතුබෑමයි = ව්‍යාජ ඊමේල්/වෙබ් අඩවි සමඟ සංවේදී තොරතුරු (මුරපද, බැංකු විස්තර)
+සොරකම් කිරීමට පරිශීලකයින් රවටා ගැනීම.
+
+Option / විකල්පය 3
+Antivirus = defense measure, not phishing / ප්‍රති-වයිරස = ආරක්ෂක මිනුම, තතුබෑම නොවේ..
+
+Option / විකල්පය 4
+Encryption = protection technique, not an attack / කේතනය = ආරක්ෂණ තාක්ෂණයකි, ප්‍රහාරයක් නොවේ..
+
+Option / විකල්පය 5
+Biometrics = authentication method, not an attack / සත්‍යාපන ක්‍රමයකි, ප්‍රහාරයක් නොවේ..
+So phishing specifically refers to social engineering via fake emails/messages.
+එබැවින් තතුබෑම් විශේෂයෙන් ව්‍යාජ ඊමේල්/පණිවිඩ හරහා සමාජ ඉංජිනේරු විද්‍යාව ගැන සඳහන් කරයි.
+
+Therefore the correct answer is 2) / එබැවින් නිවැරදි පිළිතුර 2) වේ
+
+6. What is the main principle behind memory hierarchy?
+මතක ධූරාවලිය පිටුපස ඇති ප්‍රධාන මූලධර්මය කුමක්ද?
+
+1)  Using only the largest memory available / ලබා ගත හැකි විශාලතම මතකය පමණක් භාවිතා කිරීම
+2)  Balancing cost, speed, and capacity / පිරිවැය, වේගය සහ ධාරිතාව තුලනය කිරීම
+3)  Storing all data permanently in cache / සියලුම දත්ත ස්ථිරවම වාරක මතකයේ ගබඩා කිරීම
+4)  Using hard disk as primary memory / දෘඩ තැටිය ප්‍රාථමික මතකය ලෙස භාවිතා කිරීම
+5)  Removing volatile memory from systems / පද්ධති වලින් නශ්‍ය මතකය ඉවත් කිරීම
+
+Answer : 2)
+
+The correct answer is 2) Balancing cost, speed, and capacity. The main principle of memory hierarchy is
+to organize different types of memory so that the system achieves the best balance between performance,
+storage size, and cost. Faster memories like registers, cache, and RAM are smaller and more expensive,
+while slower ones like hard disks are larger and cheaper. By combining them in layers, the computer can
+use fast memory for immediate tasks and larger, slower memory for long-term storage.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+නිවැරදි පිළිතුර වන්නේ 2) පිරිවැය, වේගය සහ ධාරිතාව තුලනය කිරීම වේ. මතක ධූරාවලියේ ප්‍රධාන
+මූලධර්මය වන්නේ පද්ධතිය කාර්ය සාධනය, ගබඩා ප්‍රමාණය සහ පිරිවැය අතර හොඳම සමතුලිතතාවය ලබා
+ගැනීම සඳහා විවිධ වර්ගයේ මතකයන් සංවිධානය කිරීමයි. රෙජිස්ටර්, වාරක සහ RAM වැනි වේගවත්
+මතකයන් කුඩා හා මිල අධික වන අතර දෘඪ තැටි වැනි මන්දගාමී ඒවා විශාල හා ලාභදායී වේ. ඒවා ස්ථරවලට
+ඒකාබද්ධ කිරීමෙන්, පරිගණකයට ක්ෂණීක කාර්යයන් සඳහා වේගවත් මතකය සහ දිගු කාලීන ගබඩා කිරීම
+සඳහා විශාල, මන්දගාමී මතකය භාවිතා කළ හැකිය.
+
+The other options are incorrect because Option 1 suggests using only the largest memory, which is
+impractical due to high cost and slow speed. Option 3 is wrong since cache cannot hold all data
+permanently. Option 4 is false because hard disks are too slow to act as primary memory. Option 5 is also
+incorrect as volatile memory is essential for fast processing. Therefore, the principle is about balancing
+cost, speed, and capacity.
+අනෙකුත් විකල්ප වැරදි වේ, මන්ද 1 වන විකල්පය මඟින් විශාලතම මතකය පමණක් භාවිතා කිරීමට යෝජනා
+කරන අතර එය අධික පිරිවැය සහ මන්දගාමී වේගය නිසා ප්‍රායෝගික නොවේ. වාරකයට සියලුම දත්ත
+ස්ථිරවම රඳවා ගත නොහැකි බැවින් 3 වන විකල්පය වැරදි වේ. දෘඪ තැටි ප්‍රාථමික මතකය ලෙස ක්‍රියා
+කිරීමට ඉතා මන්දගාමී බැවින් 4 වන විකල්පය අසත්‍ය වේ. වේගවත් සැකසුම් සඳහා නශ්‍ය මතකය අත්‍යවශ්‍ය
+බැවින් විකල්ප 5 ද වැරදි වේ. එබැවින්, මූලධර්මය පිරිවැය, වේගය සහ ධාරිතාව තුලනය කිරීම ගැන ය.
+
+7. Why are registers considered the fastest memory in a computer system?
+පරිගණක පද්ධතියක වේගවත්ම මතකය ලෙස රෙජිස්තර සලකන්නේ ඇයි?
+
+1) They store permanent data / ඒවා ස්ථිර දත්ත ගබඩා කරයි
+2) They are located on the CPU chip itself / ඒවා CPU චිපයේම පිහිටා ඇත
+3) They are larger than RAM / ඒවා RAM වලට වඩා විශාලයි
+4) They work only with cache memory / ඒවා ක්‍රියා කරන්නේ වාරක මතකය සමඟ පම”
+5) They are non-volatile / ඒවා නශ්‍ය නොවේ
+
+Answer : 2)
+
+The correct answer is 2) They are located on the CPU chip itself.
+නිවැරදි පිළිතුර වන්නේ 2) ඒවා CPU චිපයේම පිහිටා ඇත. යන්නයි.
+
+Registers are considered the fastest memory because they are built directly inside the CPU chip. Since
+they are physically closest to the processor’s control unit and arithmetic logic unit (ALU), data can be
+accessed and processed instantly without delays caused by traveling through buses like with cache or
+RAM. This direct placement eliminates latency, making registers the quickest storage medium in a
+computer system.
+රෙජිස්තරය වේගවත්ම මතකය ලෙස සලකනු ලබන්නේ ඒවා CPU චිපය තුළ කෙලින්ම ගොඩනගා ඇති බැවිනි.
+ඒවා සකසනයේ පාලන ඒකකයට සහ අංක ගණීත තාර්කික ඒකකයට ALU භෞතිකව සමීපව පිහිටා ඇති
+බැවින්, වාරකය හෝ RAM වැනි පථ හරහා ගමන් කිරීමෙන් ඇතිවන ප්‍රමාදයකින් තොරව දත්ත වෙත ප්‍රවේශ
+වී ක්ෂණීකව සැකසිය හැකිය. මෙම සෘජු ස්ථානගත කිරීම ප්‍රමාදය ඉවත් කරයි, රෙජිස්තර පරිගණක පද්ධතියක
+වේගවත්ම ගබඩා මාධ්‍යය බවට පත් කරයි.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-

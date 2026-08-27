@@ -1,0 +1,392 @@
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+B
+d
+k
+i tf
+b R
+i d
+
+1. Which of the following best explains how different types of computer memory interact with the CPU
+during processing?
+සැකසුම් ක්‍රියාවලියේදී විවිධ පරිගණක මතක වර්ග CPU සමඟ අන්තර්ක්‍රියා කරන ආකාරය පහත සඳහන්
+ඒවායින් වඩාත් හොඳින් පැහැදිලි කරන්නේ කුමක්ද?
+
+1) The CPU directly executes all instructions from secondary storage, eliminating the need for RAM
+and cache memory.
+RAM සහ නිහිත මතකයේ අවශ්‍යතාවය ඉවත් කරමින්, CPU මඟින් ද්විතීයික ගබඩාවෙන් ලැබෙන
+සියලුම උපදෙස් සෘජුවම ක්‍රියාත්මක කරයි.
+
+2) Cache memory is used to store frequently accessed data, reducing the time required for the CPU to
+fetch instructions from RAM.
+නිතර ප්‍රවේශ වන දත්ත ගබඩා කිරීම සඳහා නිහිත  මතකය භාවිතා කරන අතර, එමඟින් CPU හට
+RAM වෙතින් උපදෙස් ලබා ගැනීමට ගතවන කාලය අඩු කරයි.
+
+3) The Control Unit (CU) manages all data storage operations, while the ALU directly communicates
+with the hard drive for faster processing.
+පාලන ඒකකය (CU) සියලුම දත්ත ගබඩා මෙහෙයුම් කළමනාකරණය කරන අතර, වේගවත් සැකසුම්
+සඳහා ALU දෘඪ තැටිය සමඟ සෘජුවම සන්නිවේදනය කරයි.
+
+4) RAM retains instructions permanently, allowing the CPU to execute them without requiring
+secondary storage access.
+RAM මඟින් උපදෙස් ස්ථිරවම රඳවා තබා ගන්නා අතර, ද්විතියික ගබඩා ප්‍රවේශය අවශ්‍ය නොවී CPU
+හට ඒවා ක්‍රියාත්මක කිරීමට ඉඩ සලසයි.
+
+5) Registers store large amounts of data permanently, ensuring the CPU has immediate access to all
+necessary instructions.
+රෙජිස්තර මඟින් විශාල දත්ත ප්‍රමාණයක් ස්ථිරවම ගබඩා කරයි, එමඟින් CPU හට අවශ්‍ය සියලුම
+උපදෙස් වෙත ක්ෂණික ප්‍රවේශය ඇති බව සහතික කෙරේ.
+
+Answer: 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+CPUs cannot directly execute instructions from secondary storage (like hard drives). Secondary storage
+is too slow. RAM is essential for holding actively used data and instructions.
+CPU වලට ද්විතීයික ගබඩාවෙන් (දෘඪ තැටි වැනි) උපදෙස් සෘජුවම ක්‍රියාත්මක කළ නොහැක. ද්විතීයික
+ගබඩාව ඉතා මන්දගාමී වේ. ක්‍රියාශීලීව භාවිතා කරන දත්ත සහ උපදෙස් රඳවා තබා ගැනීම සඳහා RAM
+අත්‍යවශ්‍ය වේ.
+
+Option / විකල්ප 2)
+This accurately describes the role of cache memory. It acts as a high-speed buffer between the CPU and
+RAM, significantly speeding up data access.
+මෙය නිහිත මතකයේ කාර්යභාරය නිවැරදිව විස්තර කරයි. එය CPU සහ RAM අතර අධිවේගී buffer
+එකක් ලෙස ක්‍රියා කරයි, දත්ත ප්‍රවේශය සැලකිය යුතු ලෙස වේගවත් කරයි.
+
+2027 QUIZ NO 30 MARKING
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+2027 QUIZ SERIES
+2025/11/26
+ictfromabc
+Ravindu Bandaranayake
+
+Option / විකල්ප 3)
+The ALU (Arithmetic and Logic Unit) performs calculations, not data storage operations. The CU
+manages the flow of data and instructions, but it doesn't directly interact with the hard drive for
+processing in the way described.
+ALU (අංක ගණිතමය හා තාර්කික ඒකකය) දත්ත ගබඩා කිරීමේ මෙහෙයුම් නොව ගණනය කිරීම් සිදු
+කරයි. CU දත්ත සහ උපදෙස් ප්‍රවාහය කළමනාකරණය කරයි, නමුත් විස්තර කර ඇති ආකාරයට සැකසීම
+සඳහා දෘඪ තැටිය සමඟ සෘජුවම අන්තර්ක්‍රියා නොකරයි.
+
+Option / විකල්ප 4)
+RAM is volatile memory, meaning it loses its data when the power is turned off. Secondary storage is
+needed for permanent data storage.
+RAM යනු නශ්‍ය මතකයකි, එනම් විදුලිය විසන්ධි කළ විට එහි දත්ත නැති වේ. ස්ථිර දත්ත ගබඩා කිරීම
+සඳහා ද්විතියික ගබඩාව අවශ්‍ය වේ.
+
+Option / විකල්ප 5)
+Registers are very fast, but they have a very limited capacity. They hold data and instructions that the
+CPU is currently working on, not large amounts of data permanently.
+රෙජිස්තර ඉතා වේගවත් නමුත් ඒවාට ඇත්තේ ඉතා සීමිත ධාරිතාවකි. ඒවා සතුව CPU එක දැනට
+ක්‍රියාත්මක වන දත්ත සහ උපදෙස් ඇත, ස්ථිරවම විශාල දත්ත ප්‍රමාණයක් නොවේ.
+
+Therefore, the correct answer is 2). / එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2. Which of the following statements is false regarding computer screens?
+පරිගණක තිර පිලිබදව පහත කවරක් අසත්‍ය වේද?
+
+1) LED and LCD screens are also known as Flat-panel displays.
+LED සහ LCD තිර Flat-panel සන්දර්ශක ලෙසද හැඳින්වේ.
+
+2) Images of CRT screens are produced using an electron beam.
+CRT තිරවල රූප, ඉලෙක්ට්‍රෝන කදම්භයක් භාවිතයෙන් නිපදවේ.
+
+3) Transistors are utilized in screens of CRT monitors.
+CRT සංදර්ශකවල තිරවල ට්‍රාන්සිස්ටර භාවිතා වේ.
+
+4) LED monitors generate low heat compared to CRT monitors.
+LED සංදර්ශක CRT සංදර්ශකවලට සාපේක්ෂව අඩු තාපයක් ජනනය කරයි.
+
+5) None of the above / ඉහත කිසිවක් නොවේ.
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+Correct. LED and LCD screens are categorized as flat-panel displays because they are thin and
+lightweight, unlike bulky CRT monitors.
+සත්‍ය වේ. LED සහ LCD තිර, විශාල CRT මොනිටර මෙන් නොව සිහින් සහ සැහැල්ලු බැවින්, පැතලි
+පැනල් සංදර්ශක ලෙස වර්ගීකරණය කර ඇත.
+
+Option / විකල්ප 2)
+Correct. CRT monitors use an electron beam those scans across a phosphor-coated screen to create
+images. The beam is directed using magnetic fields.
+සත්‍ය වේ. CRT තිරවල රූප නිර්මාණය කිරීම සඳහා පොස්ෆර් ආලේපිත තිරයක් හරහා ස්කෑන් කරන
+ඉලෙක්ට්‍රෝන කදම්භයක් භාවිතා කරයි. කදම්භය, චුම්භක ක්ෂේත්‍ර භාවිතයෙන් යොමු කෙරේ.
+
+Option / විකල්ප 3)
+Incorrect. CRT monitors do not use transistors in their screens. Instead, transistors are commonly
+employed in modern display technologies such as LCD and LED screens to control the individual pixels
+and generate the display.
+අසත්‍ය වේ. CRT තිර, ඔවුන්ගේ තිර සඳහා ට්‍රාන්සිස්ටර භාවිතා නොකරයි. ඒ වෙනුවට, LCD සහ LED තිර
+වැනි නවීන සංදර්ශක තාක්ෂණයන්හි තනි පික්සල් පාලනය කිරීමෙන් සංදර්ශකය ජනනය කිරීම සිදු කරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Option / විකල්ප 4)
+Correct. CRT monitors generate more heat because they use high-voltage electron beams and phosphors
+that produce heat when struck by electrons. LED monitors are much more energy-efficient and produce
+less heat.
+සත්‍ය වේ. CRT තිර වැඩි තාපයක් ජනනය කරන්නේ ඒවා ඉලෙක්ට්‍රෝන සමඟ ගැටෙන විට තාපය නිපදවන
+අධි වෝල්ටීයතා ඉලෙක්ට්‍රෝන කදම්භ සහ පොස්පර භාවිතා කරන බැවිනි. LED මොනිටර බලශක්ති
+කාර්යක්ෂම වන අතර අඩු තාපයක් නිපදවයි.
+
+Option / විකල්ප 5)
+Since one of the statements above is false, this option cannot be selected. There is one false statement in
+the list.
+ප්‍රකාශන වලින් එකක් අසත්‍ය බැවින් මෙම විකල්පය තෝරාගත නොහැක. ලැයිස්තුවේ එක් අසත්‍ය ප්‍රකාශයක්
+තිබේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+3. What is the largest among the followings?
+පහත දැක්වෙන ඒවායින් විශාලතම අගය කුමක්ද?
+1)  1101002
+2)  1000012
+3) 80
+4) 268
+5) 5E16
+
+Answer : 5)
+
+Explanation/ පැහැදිලි කිරීම;
+
+First we have to convert all the given number into decimals so that it is easy to select the biggest number
+because all numbers are in the same base of 10.
+මුලින්ම අපි ලබා දී ඇති සියලුම සංඛ්‍යා දශම බවට පරිවර්තනය කළ යුතු අතර එවිට සියලුම සංඛ්‍යා
+එකම (10) පාදයේ ඇති බැවින් විශාලතම සංඛ්‍යාව තෝරා ගැනීම පහසු වේ.
+
+Option/ විකල්පය 1
+
+1101002
+1
+1
+0
+1
+0
+0
+25
+24
+23
+22
+21
+20
+32
+16
+
+4
+
+32 + 16 + 4 = 52
+
+1101002 in decimal / දශමයෙන් = 52
+
+Option/ විකල්පය 2
+
+100012
+1
+0
+0
+0
+0
+1
+25
+24
+23
+22
+21
+20
+32
+
+1
+32 + 1  = 33
+
+1000012 in decimal / දශමයෙන් = 33
+
+Option/ විකල්පය 3
+
+No conversion is needed as it is already given in decimal.
+එය දැනටමත් දශමයෙන් ලබා දී ඇති බැවින් පරිවර්තනයක් අවශ්‍ය නොවේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+Option/ විකල්පය 4
+
+268
+
+2
+
+6
+
+0
+1
+0
+1
+1
+0
+25
+24
+23
+22
+21
+20
+
+16
+
+4
+2
+
+16 + 4 + 2   = 22
+
+268 in decimal / දශමයෙන් = 22
+
+Option/ විකල්පය 5
+
+5E16
+
+5
+
+E=14
+
+0
+1
+0
+1
+1
+1
+1
+0
+27
+26
+25
+24
+23
+22
+21
+20
+
+64
+
+16
+8
+4
+2
+
+64 + 16+ 8  +  4 + 2 =  94
+
+5E16 in decimal / දශමයෙන් = 94
+
+Every number in ascending order / සෑම අංකයක්ම ආරෝහණ අනුපිළිවෙලෙට= 22 < 33 < 52 < 80 < 94
+
+As the decimal 94 is the largest number, its hexadecimal convertion of 5E16 will be the answer.
+දශම 94 විශාලතම සංඛ්‍යාව වන බැවින්, එහි ෂඩ් දශමය පරිවර්තනය 5E16 පිළිතුර වනු ඇත.
+
+4. What is the 1’s complement of the binary number 1010102?
+ද්විමය අංක 1010102 හි 1 හි අනුපූරකය කුමක්ද?
+1) 0101012
+2) 1101102
+3) 1001002
+4) 1011012
+5) 1111112
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+The 1’s complement of a binary number is obtained by flipping all bits (changing 0 to 1 and 1 to 0).
+ද්විමය අංකයක 1 හි අනුපූරකය සියලු බිටු පෙරලීමෙන් ලබා ගනී. (0 සිට 1 දක්වා සහ 1 සිට 0 දක්වා
+වෙනස් කිරීම.)
+
+Given binary number / ලබා දී ඇති ද්විමය අංකය: 1010102
+
+Step-by-step conversion / පියවරෙන් පියවර පරිවර්තනය:
+
+1 → 0
+0 → 1
+1 → 0
+0 → 1
+1 → 0
+0 → 1
+
+1’s complement / 1හි අනුපූරකය: 0101012
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+-4-
+
+5. What is the sign-magnitude representation of 6 and -6?
+6 හා -6 හි ලකුණු සහිත සංඛ්‍යා නිරූපණ නියෝජනය කුමක්ද?
+1) 00000110 and 10000110
+2) 10100111 and 01101110
+3) 00000110 and 11111001
+4) 01011111 and 01111110
+5) 11001100 and 01011111
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Here, the question asked to get the sign magnitude of 6 and -6. First, get the binary value of 6.
+මෙහිදී, 6 හා -6 හි ලකුණුවත් සංඛ්‍යා නිරූපණය ලබා ගැනීමට ප්‍රශ්නය අසයි. පළමුව, 6 හි ද්විමය අගය
+ලබා ගන්න.
+
+2 6
+
+2 3 - 0
+2 1 - 1
+2 0 - 1
+
+As we are representing the sign-magnitude value in 8 bits we should add 0s in front of the whole value.
+අපි බිටු 8 කින් එකෙහි අනුපූරක අගය නියෝජනය කරන බැවින් සම්පූර්ණ අගය ඉදිරියෙන් 0 එකතු කළ
+යුතුය.
+
+= 000001102
+
+Then, to get the sign-magnitude of 6, the first bit of the binary value should be mentioned as 0 and to get
+the sign-magnitude of -6, the first bit of the binary value should be mentioned as 1.
+එවිට, 6 හි ලකුණුවත් සංඛ්‍යා නිරූපණය ලබා ගැනීම සඳහා, ද්විමය අගයේ පළමු බිටුව 0 ලෙස ද,
+-6 හි ලකුණුවත් විශාලත්වය ලබා ගැනීමට, ද්විමය අගයේ පළමු බිටුව 1 ලෙස ද සඳහන් කළ යුතුය.
+
+ 6  →  00000110
+-6  →  10000110
+
+Therefore, the correct answer is 1)
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-5-

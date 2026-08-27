@@ -1,0 +1,336 @@
+1.  Which of the following best defines a logic gate?
+පහත සඳහන් ඒවායින් තාර්කික ද්වාරයක් වඩාත් හොඳින් අර්ථ දක්වන්නේ කුමක්ද?
+
+1) A device that stores data in binary form
+ද්විමය ආකාරයෙන් දත්ත ගබඩා කරන උපාංගයක්
+2) A device that performs a specific logical operation on one or more inputs to produce an output
+ප්‍රතිදානයක් නිපදවීම සඳහා එක් හෝ වැඩි ආදාන මත නිශ්චිත තාර්කික මෙහෙයුමක් සිදු කරන
+උපාංගයක්
+3) A component used only in power circuits
+බල පරිපථවල පමණක් භාවිතා කරන සංරචකයක්
+4) A device that converts AC to DC
+AC DC බවට පරිවර්තනය කරන උපාංගයක්
+5) A device that generates random numbers
+අහඹු සංඛ්‍යා ජනනය කරන උපාංගයක්
+
+Answer: 2)
+
+A logic gate is an electronic device that performs a specific logical operation (such as AND, OR, NOT)
+on one or more binary inputs and produces a single binary output.
+තාර්කික ද්වාරයක් යනු ද්විමය ආදාන එකක් හෝ කිහිපයක් මත නිශ්චිතතාර්කික මෙහෙයුමක්
+(AND, OR, NOT වැනි) සිදු කරන සහ තනි ද්විමය ප්‍රතිදානයක් නිපදවන  ඉලෙක්ට්‍රොනික උපාංගයකි.
+
+Therefore the correct answer is option 2).  / එබැවින් නිවැරදි පිළිතුර විකල්ප 2 වේ.
+
+2.  A 3-input AND gate with inputs A, B, C produces output 1 only under which condition?
+A, B, C ආදාන සහිත 3-ආදාන AND ද්වාරයක් ප්‍රතිදානය 1 නිපදවන්නේ කුමන කොන්දේසිය යටතේද?
+
+1) Only when any two inputs are 1
+ඕනෑම ආදාන දෙකක් 1 වන විට පමණි
+2) Only when all three inputs are 1
+ආදාන තුනම 1 වන විට පමණි
+3) Only when A = 1, B = 0, C = 1
+A = 1, B = 0, C = 1 වන විට පමණි
+4) When at least one input is 0
+අවම වශයෙන් එක් ආදානයක් 0 වන විට
+5) When at least two inputs are 0
+අවම වශයෙන් ආදාන දෙකක් 0 වන විට
+
+Answer: 2)
+
+An AND gate follows the rule that the output is 1 only if every input is 1.
+සෑම ආදානයක්ම 1 නම් පමණක් ප්‍රතිදානය 1 වන බව AND ද්වාර රීතිය අනුගමනය කරයි.
+
+For a 3-input AND gate, inputs A, B, and C must all be 1 at the same time to produce output 1.
+ආදාන 3 AND ද්වාරයක් සඳහා, ප්‍රතිදානය 1 නිපදවීමට A, B සහ C ආදාන එකවර 1 විය යුතුය.
+
+If any one of the inputs is 0, the output will be 0.
+ආදාන වලින් එකක් 0 නම්, ප්‍රතිදානය 0 වනු ඇත.
+
+Therefore the correct answer is option 2). / එබැවින් නිවැරදි පිළිතුර විකල්ප 2 වේ.
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 25
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+3.  Consider a logic circuit:
+තාර්කික පරිපථයක් සලකා බලන්න:
+
+Gate1: 2-input OR (A, B) → output X
+
+Gate2: 3-input OR (X, C, D) → output Y
+
+Which input combination will produce Y = 1?
+Y = 1 නිපදවන ආදාන සංයෝජනය කුමක්ද?
+
+1) A=0, B=0, C=0, D=0
+2) A=1, B=0, C=0, D=0
+3) A=0, B=0, C=0, D=1
+4) A=0, B=1, C=0, D=0
+5) All of the above except option 1 / විකල්පය 1 හැර ඉහත සියල්ල
+
+Answer: 5)
+
+Gate 1 (OR gate):
+ද්වාරය 1 (OR ද්වාරය):
+X = A OR B → X becomes 1 if either A or B is 1.
+A හෝ B 1 නම් X → A OR B → X 1 වේ.
+
+Gate 2 (OR gate):
+ද්වාරය 2 (OR ද්වාරය):
+Y = X OR C OR D → Y becomes 1 if any one of X, C, or D is 1.
+X, C හෝ D වලින් ඕනෑම එකක් 1 නම් Y=X OR C OR D → Y 1 වේ.
+
+Now check the options:
+දැන් විකල්ප පරීක්ෂා කරන්න:
+
+Option 1: All inputs are 0 → X = 0, Y = 0
+විකල්ප 1: සියලුම ආදාන 0 → X = 0, Y = 0 වේ
+Options 2, 3, 4: At least one input is 1 → X or C or D becomes 1 → Y = 1
+විකල්ප 2, 3, 4: අවම වශයෙන් එක් ආදානයක් 1 → X හෝ C හෝ D 1 → Y  = 1 වේ
+
+Therefore the correct answer is option 5).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 5 වේ.
+
+      4.   Which of the following boolean expressions equals to the logic circuit?
+පහත සඳහන් බූලියන් ප්‍රකාශන අතුරෙන් තාර්කික පරිපථයට සමාන වන්නේ කුමක්ද?
+
+1) A.B + ((B+C).(B.C))
+2) A.B + (B+C).(B.C)
+3) (A+B).(B.C)(B+C)
+4) A.B + B + C.(B.C)
+5) (A.B) + ((B+C) + (B.C))
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+Answer: 1)
+
+Top gate: AND with A and B → A·B
+ඉහළ දොරටුව: AND A සහ B සමඟ → A·B
+
+Middle gate: OR with B and C → (B + C)
+මැද දොරටුව: OR B සහ C සමඟ → (B + C)
+
+Bottom gate: AND with B and C → (B·C)
+පහළ දොරටුව: AND B සහ C සමඟ → (B·C)
+
+These two go into an AND gate → (B + C)(B·C)
+මේ දෙක AND දොරටුවකට යයි → (B + C)(B·C)
+
+Final OR with A.B → A·B + (B + C)(B·C)
+අවසාන OR A.B සමඟ → A·B + (B + C)(B·C)
+
+Therefore the correct answer is option 1).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 1 වේ.
+
+       5.   This truth table shows output Y = 1 for input combinations:
+මෙම සත්‍යතා වගුවේ ආදාන සංයෝජන සඳහා ප්‍රතිදානය Y = 1 පෙන්වයි:
+
+A B C F
+0
+0
+1
+1
+0
+1
+0
+1
+1
+0
+0
+1
+
+Which Boolean expression is equivalent?
+කුමන බූලියන් ප්‍රකාශනය සමානවේ ද?
+
+1) A.B.C
+2) A.B.C
+3) A.B.C + A.B.C + A.B.C
+4) A + B + C
+5) (A + B + C)
+
+Answer: 3)
+
+Each row where Y = 1 is written as a minterm:
+Y = 1 ලෙස  ඇති සෑම පේළියකම ගුණිතපද:
+
+0 0 1 → A.B.C
+0 1 0 → A.B.C
+1 0 0 → A.B.C
+
+OR-ing all minterms gives:
+සියලුම ගුණිතපද OR කර්මය සමඟ:
+
+Y = A.B.C + A.B.C + A.B.C
+
+Therefore the correct answer is option 3).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 3 වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+     6.  A room has two switches (A and B) controlling a single bulb. The bulb should turn ON when exactly
+
+one switch is flipped and OFF when both are the same.
+කාමරයක තනි බල්බයක් පාලනය කරන ස්විච දෙකක් (A සහ B) ඇත. හරියටම එක් ස්විචයක් පෙරළන විට
+බල්බය ක්‍රියාත්මක විය යුතු අතර දෙකම සමාන වන විට නිවා දැමිය යුතුය.
+
+Which logic gate is used for this circuit?
+මෙම පරිපථය සඳහා භාවිතා කරන තාර්කික ද්වාරය කුමක්ද?
+
+1)  AND
+2)  NAND
+3)  XOR
+4)  NOR
+5)  OR
+
+Answer : 3)
+
+Explanation / පැහැදිලි කිරීම
+
+A
+
+Switch off / ක්‍රියා විරහිත කර ඇත
+Switch on / ක්‍රියාත්මක කර ඇත
+B
+Switch off / ක්‍රියා විරහිත කර ඇත
+Switch on / ක්‍රියාත්මක කර ඇත
+
+Bulb off / බල්බය ක්‍රියා විරහිත කර ඇත
+Bulb on / බල්බය ක්‍රියාත්මක කර ඇත
+
+Constructing the truth table / සත්‍යතා වගුව ගොඩනැගීම.
+
+A
+B
+L
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+0
+
+1) AND
+
+A
+B
+L
+0
+0
+0
+0
+1
+0
+1
+0
+0
+1
+1
+1
+
+Incorrect. This would turn the bulb ON only when both A and B are 1.
+වැරදි වේ. මෙය බල්බය ක්‍රියාත්මක කරන්නේ A සහ B දෙකම 1 වූ විට පමණී.
+
+2) NAND
+
+Incorrect. This produces 0 only when both switches are ON.
+වැරදි වේ. මෙය ස්විච දෙකම ක්‍රියාත්මක වූ විට පමණක් 0 නිපදවයි.
+
+A
+B
+L
+0
+0
+1
+0
+1
+1
+1
+0
+1
+1
+1
+0
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+3) XOR
+
+Correct. XOR gate outputs 1 when the inputs are different and 0 when they are the same.
+නිවැරදි වේ. XOR ද්වාරය ආදාන වෙනස් වූ විට 1 සහ ඒවා සමාන වූ විට 0 ප්‍රතිදානය කරයි.
+
+4) NOR
+
+A
+B
+L
+0
+0
+1
+0
+1
+0
+1
+0
+0
+1
+1
+0
+
+Incorrect. This outputs 1 only when both switches are OFF.
+වැරදි වේ. මෙය ස්විච දෙකම ක්‍රියා විරහිත වූ විට පමණක් 1 ප්‍රතිදානය කරයි.
+
+5) OR
+
+Incorrect. Outputs 1 when at least one switch is ON, meaning when both switches are ON it would also
+turn the bulb ON.
+වැරදි වේ. අවම වශයෙන් එක් ස්විචයක් ක්‍රියාත්මක වූ විට ප්‍රතිදාන 1 එනම් ස්විච දෙකම ක්‍රියාත්මක වූ විට
+එය බල්බය ද ක්‍රියාත්මක කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+A
+B
+L
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+0
+A
+B
+L
+0
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+1
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5 -

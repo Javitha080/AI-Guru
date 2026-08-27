@@ -149,17 +149,20 @@ export function useCountUp(value: number | null, decimals = 0, suffix = "") {
   return ref;
 }
 
-/** One-shot shake — wrong PIN, failed action feedback. */
+/** One-shot error shake (Transitions.dev P12) — wrong PIN, invalid form feedback. */
 export function shakeEl(el: HTMLElement | null) {
   if (!el || !motionOK()) return;
   gsap.fromTo(
     el,
     { x: 0 },
     {
-      x: 0,
-      keyframes: [{ x: -9 }, { x: 8 }, { x: -6 }, { x: 4 }, { x: 0 }],
-      duration: 0.45,
-      ease: "power1.inOut",
+      keyframes: [
+        { x: -6, duration: 0.08, ease: "power2.out" },
+        { x: 6, duration: 0.08, ease: "power2.inOut" },
+        { x: -4, duration: 0.06, ease: "power2.inOut" },
+        { x: 0, duration: 0.06, ease: "power2.out" },
+      ],
+      clearProps: "transform",
     }
   );
 }

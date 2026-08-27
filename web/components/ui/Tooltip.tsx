@@ -28,7 +28,7 @@ export function Tooltip({
 
   const showTooltip = useCallback(() => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => setVisible(true), 300);
+    timeoutRef.current = setTimeout(() => setVisible(true), 80);
   }, []);
 
   const showNow = useCallback(() => {

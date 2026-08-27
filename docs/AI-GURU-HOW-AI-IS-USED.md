@@ -1,9 +1,3 @@
-# How AI Is Used in AI Guru
-
-> Technical document — explains every place artificial intelligence is used in AI Guru,
-> which models/techniques power it, where inference runs, and what data (if any) leaves
-> the device. Companion to `AI-GURU-AI-MODELS.md` (provider setup) and `SYSTEM_DESIGN.md`.
-
 ---
 
 ## 1. Executive Summary

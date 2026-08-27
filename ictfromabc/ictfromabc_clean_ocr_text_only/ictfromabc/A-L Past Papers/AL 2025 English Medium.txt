@@ -51,9 +51,6 @@ manner and can be read from in a random manner?
 (1) CD-R (2) CD-ROM (3) Magnetic Tape
 (4) Solid State Drive (5) USB flash drive
 
-/
-
-( ‘
 6. Which of the following communication buses are involved in reading a data word from Main
 Memory?
 A — Address Bus B — Control Bus C — Data Bus
@@ -121,8 +118,6 @@ Z _ _
 11,01|1 (S) y2 + xy
 ද 7
 
-( ‘
-
 15. Consider the following two statements P and Q:
 P — Data is represented as a sequence of discrete values in a digital signal.
 Q — Even with some corruption, a digital signal is easier to correctly interpret than an analog signal.
@@ -180,8 +175,6 @@ end-to-end reliable connection?
 තූ 7
 
 ඒ
-
-෴
 
 22. Which of the following is true about open systems?
 (1) They operate independently without external software or hardware.
@@ -242,7 +235,6 @@ What is the correctly matched phase-description pair?
 
 y,
 
-( ‘
 26. Assume that a project is to be done to computerise the administration of all government schools. The
 system developers in the project have been advised to use the Structured System Analysis and Design
 Methodology (SSADM) for it.
@@ -368,13 +360,7 @@ Which of the following gives the correct data types of A, B, C and D respectivel
 
 (5) float, str, tuple, bool
 
-෴
-
 _2
-
-r
-
-~
 
 36. What is the execution output of the following Python expression?
 (1,2,3)[-1]+ 3 * 4
@@ -436,10 +422,6 @@ opening hours
 
 S y,
 
-r
-
-~
-
 40. Nithya saves the following HTML code as beach.html on her desktop computer:
 
 <!DOCTYPE html>
@@ -482,7 +464,6 @@ Figure 41.2 with five tags labelled from A to E.
 
 <A>Zero trash!</A>
 
-[
 Zero trash! <B>This is a low cost way to compost kitchen
 
 This is a low cost way to compost kitchen waste: waste:</B>
@@ -571,7 +552,7 @@ R (5 , HIGH);
 
 else
 R (5 , Low);
-}
+
 45. Which of the following contains the correct replacements for the labels?
 (1) P— INPUT, Q-— analogRead, R-—digitalwrite, S—motorPin
 (2) P— INPUT, Q-digitalwrite, R-analogRead, S—motorPin
@@ -604,7 +585,7 @@ B — Once added to the Arduino board, an Ethernet Shield facilitates the board 
 (4) B and C only (5) All A, B and C
 
 48. What is the suitable replacement for the blank in the following statement?
-By analyzing historical data of a person’ previous hotel visits and his/her ................... . submitted to social
+By analyzing historical data of a person’ previous hotel visits and his/her …… . submitted to social
 media of the same, an Al-based hotel recommendation system should be successfully able to suggest hotels
 that the person would like.
 (1) email addresses (2) payment records (3) phone numbers
@@ -637,7 +618,7 @@ el hree hours Additional Reading Time - 10 minutes J
 Use additional reading time to go through the question paper, select the questions you will answer
 and decide which of them you will prioritise.
 SS 7,
-| 1110ලාැ 10: ......................................................... |
+| 1110ලාැ 10: …… |
 Important: For Examiner’s Use Only
 % This question paper consists of 16 pages.
 * This question paper comprises of two parts, For the Second Paper
@@ -723,7 +704,7 @@ Figure 1.1: The output
 
 y,
 
-AL/2025/20/E-II -3- Index Nou: ............................
+AL/2025/20/E-II -3- Index Nou: ……
 
 ‘a ‘
 Do not
@@ -734,7 +715,7 @@ column
 $conn = new mysqli (‘'localhost', ‘devi’, 'C6a#@Q!H', ‘Books _database');
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error) ;
-)
+
 ssat 5[ |
 $result = $conn->query($sq1) ;
 echo"<ul>";
@@ -746,7 +727,7 @@ echo"<1li>
 <img src='Images/{$row[ 'image']}.jpg'>
 <p>{$row[ 'publisher' ]}</p>
 <p>Rs.{$row[ ‘price’ ]}</p>";
->>
+
 <form method="POST" action=" ">
 <input type="hidden"
 name="product_id"
@@ -806,11 +787,11 @@ Finding D: The proposed system is expected to achieve the company’s goals of h
 increased demand and competing with other agencies.
 
 (1) Write down the type of feasibility that resulted in each of the findings A, B, C and D.
-FInding At ........ .......෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴..
-FINdINg 1; .................෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴
-1111011115 ට: ................෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴
+FInding At …… ……෴..
+FINdINg 1; ……෴
+1111011115 ට: ……෴
 
-1111011116 1: ........... . ......෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴෴.........෴෴
+1111011116 1: …… . ……෴……෴
 (01 mark)
 
 (ii) Based on these feasibility results, would you recommend proceeding with the
@@ -850,7 +831,7 @@ Stu_id
 Figure 2.1
 
 Map this ER diagram into a set of relations using only the
-Relation name — (Attributel, Attribute2, ...) format for each relation. Underline the
+Relation name — (Attributel, Attribute2, ……) format for each relation. Underline the
 primary key of each relation.
 
 (04 marks) | |
@@ -888,7 +869,7 @@ written to read integers?
 4, (4) On the processor of a computer, the following sequence of execution occurs with respect to
 two processes Po, Pi, and the operating system (OS):
 
-OS — Po > OS — P; — OS - Po — OS - 0; ...
+OS — Po > OS — P; — OS - Po — OS - 0; ……
 
 (1) Running, Blocked and Ready are three states of a process. When a context switch occurs
 from Po to Pi, what is the state transition that occurs in the 17] process?
@@ -909,8 +890,6 @@ Do not
 write
 in this
 column
-
-෴
 
 2
 
@@ -965,7 +944,7 @@ above FAT portion.
 (ii) The file allocation block size (e.g., 4 KB) must be carefully chosen. Give one
 disadvantage each of selecting a small block size and a large block size.
 
-Small DIOCKSIZE : .......................................................................................
+Small DIOCKSIZE : ……
 
 1,416 010(1:3176_ ee | |
 (02 marks)
@@ -977,11 +956,9 @@ QOD MICH HL LAF L.6F Sy, Gl 60) CVT S 5 61110
 අධ්‍යයන cae සහතික om (උසස්‌ පෙළ) විභාගය, 2025
 Seen Gungs ඉඅ1/1151)1] usAy wy spl ufLeng, 2025
 
-
 තොරතුරැ හා සන්නිවේදන තාක්ෂණය 11
 
 HSA, QHTL FUT 2151101601!!! 160 11 [20 11, ॥ 11 |
-
 
 Part B
 %* Answer any four questions only.
@@ -1008,8 +985,8 @@ in the absence of the officer-in-charge. Justify your answer. (03 marks)
 
 User Datagram Protocol (UDP) is a transport layer protocol used by several well-known
 
-application layer protocols. ....A..... and ....B..... are two such application layer protocols that
-use the services of the UDP. Although UDP is simple it does not guarantee ....C.... delivery of
+application layer protocols. ……A…… and ……B…… are two such application layer protocols that
+use the services of the UDP. Although UDP is simple it does not guarantee ……C…… delivery of
 data. (1.5 marks)
 
 (b) Other than viruses, a number of different types of malware can be accompanying the files downloaded
@@ -1081,7 +1058,6 @@ S 7
 
 ඒ
 
-෴
 (0) Saman has a future plan to include three software agents in this online shop as follows:
 Help Agent — interacts with the customer and answers questions about products and delivery
 times
@@ -1143,8 +1119,6 @@ index number. (04 marks)
 'ම
 
 Va
-
-෴
 
 9. (a) Your school needs an Event Management System to manage the events of different school clubs such as
 
@@ -1244,8 +1218,7 @@ else { ?>
 C
 <?php
 if (D) echo "E"; else echo " F";
-X
->
+
 </tr>
 <table>
 <!The 'submit' code (not shown)-->

@@ -41,6 +41,10 @@ class TestParseCommand:
         assert parse_command("/help") == "help"
         assert parse_command("/start") == "help"
 
+    def test_status_command(self):
+        assert parse_command("/status") == "status"
+        assert parse_command("/status@my_guru_bot") == "status"
+
     def test_unknown_returns_none(self):
         assert parse_command("/tunnel reboot") is None
         assert parse_command("hello") is None

@@ -13,7 +13,7 @@
  * styling. New code should call `notify()` rather than start a fourth.
  */
 
-export type NotificationTone = "info" | "success" | "error";
+export type NotificationTone = "info" | "success" | "warning" | "error";
 
 export interface Notification {
   id: number;

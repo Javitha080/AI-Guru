@@ -1,137 +1,3 @@
-11. The directory entry of a file contains the block number of the
-
-first block of the file.
-
-ලගොනුවකට අදාළ නාමාවලි තොරතුර (directory entry) ගොනුවේ පළමු කාණ්ඩයේ කාණ්ඩ අංකය
-
-දක්වයි.
-Which of the following gives the directory entry for the average.py file and the disk space allocated for
-the average.py file respectively?
-aVerage.py ගොනුවේ නාමාවලි තොරතුර සහ average.py ගොනුව සඳහා ඩිස්කයේ වෙන්‌ කර ඇති Of) ප්‍රමාණය
-පිළිවෙළින්‌ දැක්වෙන්නේ පහන කවරක ද?
-
-1) 200, 12KB 2) 200, 16KB 3) 200, 20KB 4) 203, 16KB 5) 203, 20KB
-(2022 - 14)
-
-31. Which of the following will cause the CPU to execute a different set of instructions?
-මධ්‍ය සැකසුම්‌ ඒකකයට (CPU) වෙනත්‌ උපදෙස්‌ (instructions) සමූහයක්‌ ක්‍රියාත්මක කිරීම සඳහා පහත කවරක්‌ හේතු වේද ?
-
-A ~ context switch සන්ධර්භ ස්විචයක්‌
-B- 31] interrupt අතුරැබිඳුමක්‌
-
-C - user selecting the shutdown option in the computer
-පරිශීලකයා පරිගණකයේ ක්‍රියාවිරහිත කිරීමේ විකල්පය ක්‍රියාත්මක කිරීමක්‌
-
-1) A only. 2) B only. 3) C only. 4) B and C only. 5) All of the above
-A පමණි. B පමණි. C පමණි. Bem C පමණි. හන සියල්ලම.
-( 2023 - 05 )
-
-32. A program in execution in a computer is called a process. Which of the following is a possible state
-transition sequence of such a process?
-පරිගණකයක ඛ්‍රියාත්මක වන ක්‍රමලේඛයක්‌, ක්‍රියායනයක්‌ (process) ලෙස හැඳින්වේ. ක්‍රියායනයකට අදාළ තත්ත්ව
-සංඛ්‍රාන්නි පිළිවෙළක්‌ (state transition sequence) විය හැක්කේ පහත කවරක්‌ ද?
-1) New — Ready — Running — Terminated
-නව —- සූදානම්‌ —- ක්‍රියාත්මක - අවසන්‌
-2) New - Blocked — Terminated
-නව - අවහිර කළ - අවසන්‌
-3) New ~~ Ready ~- Blocked — Running ~* Terminated
-නව —- සූදානම්‌ —- අවහිර කළ - ක්‍රියාත්මක —- අවසන්‌
-4) New ~* Running ~* Ready > Running ~* Terminated
-නව - ක්‍රියාත්මක - සූදානම්‌ - ක්‍රියාත්මක - අවසන්‌
-5) New - Blocked > Ready ~~ Running — Terminated
-නව - අවහිර කළු —- සූදානමි - ක්‍රියාත්මක -- අවසන්‌
-( 2023 - 14)
-
-33. Amara powers on the computer and starts a spreadsheet application. Then he also opens a web browser.
-Which of the following are possible execution sequences on the processor of his computer?
-අමර පටරගණකය පණගන්වා පැනතුරැම්පත්‌ යෙදුමක්‌ ආරම්භ කරයි. නන්පසු ඔහු වෙබි අතරික්සුවක්ද විවෘත කරයි. ඔහුගේ
-පටගණකයේ සකසනය මත ධාවනය වන්නන්ගේ නිවැරදි අනුපිළිවෙළක්‌ විය හැක්කේ පහත කවරක්‌ ද?
-1) BIOS > OS - spreadsheet process > OS -- web browser process > OS -- ……
-BIOS — spreadsheet process - OS — web browser process > OS — spreadsheet — process — ……
-BIOS — spreadsheet process — web browser process > OS -- ……
-BIOS — OS — spreadsheet process > web browser process - OS - ……
-
-BIOS — OS = spreadsheet process — web browser process — spreadsheet process — web browser
-process — ……
-
-wm BW අට
-෴.* ee ee
-
-(2023 - 15)
-
-34. Which of the following are correct regarding the Process Control Block (PCB)?
-BHD පාලන ඛණ්ඩය (PCB) සම්බන්ධයෙන්‌ පහත කවරක්‌ නිවැරදි වේ දු?
-
-A- Itis a data structure used by the operating system to manage information about a process.
-
-As ක්‍රියායනයක (process) තොරතුරු කළමණාකරණය කිරීම සදහා මෙහෙයුමි පද්ධතිය විසින්‌ භාවිතා කරනු
-ලබන දත්ත ව්‍යුහයකි.
-
-B- Itis created during the compilation of a program.
-එය ක්‍රමලේඛයක්‌ සම්පාදනයේ (compilation) දී සෑදේ.
-
-C- The Program Counter values of two PCBs can be the same.
-PCB දෙකක Program Counter ead එක සමාන විය හැකි ය.
-
-1) A only. 2) A and B only. 3) A and C only. 4) B and C only. 5) All of the above
-A පමණි. A හා 6 පමණි. A හා ( පමණි. B හා ( පමණි. හන සියල්ලම.
-( 2024 - 15)
-
-35. Amara switches on a multi-user computer system. After it has booted, Sama logs on to the computer from
-a terminal and starts a web browser. After sometime, Sama Starts a text editor also to work on her Python
-program. Then Rani also logs on to the computer from another terminal and starts a web browser.
-අමර බහු-පරිශීලක පරිගණකයක්‌ පණගන්වයි. එය ආරම්භ වූ විට සාමා එම පරට්ගණකයට ටරමිනයලයකින්‌ පූරන (login)
-වී වෙබ්‌ අතරික්සුවක්‌ අරඹයි. මද වේලාවකට පසුව සාමා තම පයිතන්‌ කේතයේ වැඩකටයුතු කිරීම සදහා පාඨ
-සංස්කාරකයක්‌ දු (text editor) අරඹයි. නේපසු රාණි දු GOO පරිගණකයට චෙනත්‌ ටරිමිනලයකින්‌ පුරන 5 වෙබ්‌
-අතරික්සුවක්‌ අරඹයි.
-
-Which of the following are possible execution sequences on the processor of this computer?
-එම SOOAWGS සකසනය OM ධාවනය වන්නන්ගේ නිවැරදි අනුපිළිවෙළක්‌ විය හැක්කේ පහත කවරක්‌ ද?
-
-1)
-
-5)
-
-BIOS - OS — Sama's web browser process ~ OS — Sama's text editor process - OS - Rani's web
-browser process — OS — Sama's text editor process — ……
-
-BIOS — OS — සාමාගේ GOO අතරික්සු ක්‍රියායනය — OS — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය —- OS - රාණිගේ
-වෙබ්‌ අතරික්සු ක්‍රියායනය —- OS > සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය — ……
-
-BIOS — OS — Sama's web browser process — Sama's text editor process - OS - Rani's web browser
-process > OS — Sama's web browser process — ……
-
-BIOS — OS > සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය - OS — රාණිගේ වෙබ්‌
-අතරික්සු ක්‍රියායනය —- OS — සාමාගේ වෙබි අතරක්සු ක්‍රියායනය - ……
-
-BIOS — Sama's web browser process — Sama's text editor process > OS — Rani's web browser process
-— OS — Sama's text editor process — ……
-
-BIOS - සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය -- සාමාගේ පාඨ සංස්කාරක Gana - OS - රාණිගේ වෙබි
-අතරික්සු ක්‍රියායනය - OS — සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය - ……
-
-OS — BIOS = Sama's web browser process - OS — Sama's text editor process - OS - Rani's web
-browser process —~ OS — Sama's web browser process — ……
-
-OS - BIOS > සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය — OS - සාමාගේ පාඨ සංස්කාරක ක්‍රියායනය — OS — රාණිගේ
-වෙබ්‌ අතරික්සු ක්‍රියායනය —- OS -- සාමාගේ වෙබ්‌ අතරික්සු ක්‍රියායනය - ……
-
-OS - BIOS — Sama's web browser process — Sama's text editor process - OS — Rani's web browser
-process > OS — Sama's web browser process — ……
-
-OS — BIOS > සාමාගේ වෙබ්‌ අතරක්සු ක්‍රියායනය - සාමාගේ end සංස්කාරක Banas — OS —- රාණිගේ වෙබ්‌
-අතරික්සු ක්‍රියායනය —- OS — සාමාගේ වෙබි අතරක්සු ක්‍රියායනය - ……
-
-( 2024 - 16)
-
-36. Each block of a disk is 512 bytes. When a file of size 1959 bytes is stored on that disk, how many bytes
-allocated to the file would be wasted?
-ඩිස්කයක කට්ටියක්‌ (block) @BO 512 ක්‌ වේ. @BO 1959 ක විශාලත්වයකින්‌ යුත්‌ ගොනුවක්‌ එම ඩිස්කයේ ආචය කළ
-
-විට,
-
-එම ගොනුවට චෙන්‌ කරන ලද බයිට කොපමණ සංඛ්‍යාවක්‌ අපතේ යනු ඇති ද?
-
 1) 89 2) 423 3) 512 4) 601 5) 1447
 
 (2024 - 17)
@@ -406,7 +272,7 @@ Choose and write down the correct terms from the list given below for labels A, 
 A, B, Cm D යන ලේබලවලට අදාළ නිවැරදි පද පහන ලැයිස්තුවෙන්‌ තෝරා ලියන්න.
 
 List: (compiler, computer hardware, live-ware, operating system, system/application programs}
-ලැයිස්තුච : [සම්පාදකය, පරගණක දෘඞාංග, BOI, මෙහෙයුම්‌ පද්ධතිය, පද්ධනි/ යෙදුම්‌ ක්‍රමලේඛ |
+ලැයිස්තුච : [සම්පාදකය, පරගණක දෘඩාංග, BOI, මෙහෙයුම්‌ පද්ධතිය, පද්ධනි/ යෙදුම්‌ ක්‍රමලේඛ |
 
 Order four of the following statements in the correct sequence to describe the operations that take
 place when a computer Is switched on.
@@ -508,12 +374,12 @@ information.
 රාණි විසින්‌ තනි සකසනයක්‌ (single procesor) සහිත පට්ගණකයක ගණනය කිරීම්‌ යෙදුමක්‌ (computational
 
 application) ආරම්භ කරනු ලබයි. අදාළ ගණනය කිරීම්‌ සිදුවන අතරතුර ඇය තොරතුරක්‌ සොයා ගැනීම සඳහා
-වෙබ්‌ අතරික්සුවක්‌ ද අරඹයි.
+වෙබ්‌ අතිරික්සුවක්‌ ද අරඹයි.
 
 Write down the content that will be stored in the following PCB fields of the computing process when
 the "computing process — web browser process" context switch is made.
 
-“ගණනය කිරීමේ ක්‍රියායනය —- වෙබි අතරික්සු Gane” යන සන්දරභ ස්චිචනය (context switch) සිදුවූ විට
+“ගණනය කිරීමේ ක්‍රියායනය —- වෙබි අතිරික්සු Gane” යන සන්දරභ ස්චිචනය (context switch) සිදුවූ විට
 ගණනය කිරීමේ ක්‍රියායනයේ පහත දැක්වෙන PCB ක්ෂේත්‍රවල අඩංගු වන්නේ මොනවාදැයි ලියා දක්වන්න.
 
 (i) Program counter
@@ -602,7 +468,7 @@ saved the day before. He also is running a web browser that he uses to check his
 පියල්‌ විසින්‌ තනි සකසනයක්‌ (single processor) සහින පට්ගණකයක පෙරදා තමා විසින්‌ ගබඩා කළ budget.xls
 
 ගොනුව භාවිත කිරීමට පැතුරැමිපන්‌ ක්‍රමලේඛයක්‌ අරඹයි. තමාගේ 65-තැපෑල පරීක්ෂා කිරීම සඳහා ඔහු වෙබි
-අතරික්සුවක්‌ ද ධාවනය කරයි.
+අතිරික්සුවක්‌ ද ධාවනය කරයි.
 
 At a particular time, the operating system changes the process state field in the PCB of the
 spreadsheet process from “Running” to “Blocked”. Give one likely reason for that transition.
@@ -627,7 +493,7 @@ file as well: 300 303
 ඩිස්කයක එක්‌ කාණ්ඩයක (block) විශාලත්වය 4 KB Gd. එම ඩිස්කයේ ගොනු විභාජන වගුවේ 301 300
 (File Allocation Table [FAT]), කාණ්ඩ 300 න්‌ පටන්ගැනන කොටසක තත්ත්වය චක්තරා
 
-අවස්ථාවක දී පහත රෑපයේ දැක්වේ. නේ maximum.py ගොනුවට අදාළ කාණ්ඩ ද ලබාගන 302
+අවස්ථාවක දී පහත රූපයේ දැක්වේ. නේ maximum.py ගොනුවට අදාළ කාණ්ඩ ද ලබාගන 302
 
 හැකි ය. 303 | 304
 
@@ -796,9 +662,9 @@ to work on her Python program.
 
 පරශීලකයෙක්‌ පයිතන්‌ නිබන්ධ අධ්‍යයනය සඳහා Pr
 ඇයගේ OS සකසනයකින්‌ යුත්‌ පටිගණකයේ cds
-අතරික්සුවක්‌ ආරම්භ කරයි. ඇයගේ පයිතන්‌ කේතයේ
+අතිරික්සුවක්‌ ආරම්භ කරයි. ඇයගේ පයිතන්‌ කේතයේ
 
-කටයුතු කිරීමට ඇය පාඨ සංස්කාරකයක්‌ ද ආරමිභ "අස — ! ක්‍ෂ
+කටයුතු කිරීමට ඇය පාඨ සංස්කාරකයක්‌ ද ආරමිභ "අස — ! ක්ෂ
 කරයි. |
 _
 Q Q “ Q
@@ -814,7 +680,7 @@ O
 The diagram shows how the web browser (Pw) and the text editor (Pr) processes run on the processor
 along with the operating system (Pos) since the time the user started the web browser.
 
-ඇය GOD අතරික්සුව ආරම්භ කළ මොහොතේ සිට, සකසනය මත, වෙබ්‌ අතරික්සු ක්‍රියායනය (Pw), sad සංස්කාරක
+ඇය GOD අතිරික්සුව ආරම්භ කළ මොහොතේ සිට, සකසනය මත, වෙබ්‌ අතිරික්සු ක්‍රියායනය (Pw), sad සංස්කාරක
 ක්‍රියායනය (Pr), සහ මෙහෙයුම්‌ පද්ධතිය (Pos), කියාත්මක වන ආකාරය යාබද ප්‍රස්තාරයෙන්‌ දැක්වේ.
 
 What important work related to Pw, and Py will be performed by the operating system during the time
@@ -931,13 +797,13 @@ print(line) average = total / 10000 pa
 f1.close() print (average) Srp
 
 Memory / මතකය
-Figure 10.1 රෑපය 10.1
+Figure 10.1 රූපය 10.1
 
 The computer's memory at a particular time is shown in the figure 10.1. The memory frames occupied
 by the operating system, the fileReader process and the average process are indicated on it by OS, FP
 and AP respectively.
 
-යම්‌ GOQEODWeZ පරිගණකයේ මතකය රෑපය 10.1 හි පෙන්නුම්‌ කෙරෙයි. එහි OS, FP සහ AP යන්නෙන්‌ පිළිවෙළින්‌
+යම්‌ GOQEODWeZ පරිගණකයේ මතකය රූපය 10.1 හි පෙන්නුම්‌ කෙරෙයි. එහි OS, FP සහ AP යන්නෙන්‌ පිළිවෙළින්‌
 ලමහෙයුමි පද්ධතිය, fileReader ක්‍රියයනය සහ average ක්‍රියායනය මගින්‌ භාවිත කරන මනක රාමු (memory
 frames) නිරූපණය කෙෂපේ.
 
@@ -1057,18 +923,18 @@ run on the processor, to which of the above three states will the web browser pr
 
 සූදානම්‌, ක්‍රියාත්මක සහ අවහිර කළ යනු ක්‍රියායනයක තත්ත්ව තුනකි. පටගණකයේ මෙහෙයුම්‌ පද්ධතිය, ena
 පැතනුරැම්පත්‌ ක්‍රියයනයට සකසනය මත ධාවනය වීමට ඉඩ සැලසීම සදහා වෙබි අතරක්සු ක්‍රියායනය
-තාවකාලිකව නතර කරයි. චීවිට වෙබි අතරික්සු ක්‍රියනය හෙත තත්ත්ව තුනෙන්‌ කුමන තත්ත්වයට
+තාවකාලිකව නතර කරයි. චීවිට වෙබි අතිරික්සු ක්‍රියනය හෙත තත්ත්ව තුනෙන්‌ කුමන තත්ත්වයට
 
 සංඛ්‍රාන්ති වේ ද?
 
 (ii) Write down the state transition that the web browser process will undergo, when it has to
 wait for some data from the web server.
-වෙබ්‌ සේවාදායකයාගෙන්‌ (web server) දත්ත සමහරක්‌ ලැබෙන තුරැ බලා සිටීමට සිදුවන විට වෙබි අතරික්සු
+වෙබ්‌ සේවාදායකයාගෙන්‌ (web server) දත්ත සමහරක්‌ ලැබෙන තුරැ බලා සිටීමට සිදුවන විට වෙබි අතිරික්සු
 ක්‍රියායනයේ සිදුවන අවස්ථා සංක්‍රාන්තිය (state transition) කුමක්දැයි ලියා දක්වන්න.
 
 (111) Explain the use of ‘Program counter’ of the Process Control Blocks during a web browser
 process — spreadsheet process context switch.
-වෙබ්‌ අතරික්සු ක්‍රියායනය - පැතුරැමිපත්‌ ක්‍රියායනය යන සන්දර්භ ස්විචයේදී (context switch), ක්‍රියායන
+වෙබ්‌ අතිරික්සු ක්‍රියායනය - පැතුරැමිපත්‌ ක්‍රියායනය යන සන්දර්භ ස්විචයේදී (context switch), ක්‍රියායන
 පාලන ඛණ්ඩවල (process control block) *වැඩසටහන්‌ @goecs (program counter)’ භාවිතය පැහැදිලි
 කරන්න.
 

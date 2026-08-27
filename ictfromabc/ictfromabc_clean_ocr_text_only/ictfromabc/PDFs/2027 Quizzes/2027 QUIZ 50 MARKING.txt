@@ -1,0 +1,384 @@
+1. A teacher creates a program to calculate the total marks of a student. If a student enters "ten" instead of
+10, an error is shown by the program.
+ගුරුවරයෙක්, ශිෂ්‍යයෙකුගේ මුළු ලකුණු ගණනය කිරීම සඳහා වැඩසටහනක් නිර්මාණය කරයි. ශිෂ්‍යයෙකු 10
+වෙනුවට “දහය” ඇතුළත් කළහොත්, වැඩසටහන මඟින් දෝෂයක් පෙන්වයි.
+
+Which type of data validation would detect this error?
+මෙම දෝෂය හඳුනාගන්නේ කුමන ආකාරයේ දත්ත වලංගුකරණයකින්ද?
+
+1) Range check / පරාස පරීක්ෂාව
+2) Presence check / තථ්‍යතා පරීක්ෂාව
+3) Uniqueness check / අනන්‍යතා පරීක්ෂාව
+4) Length check / දිග පරීක්ෂාව
+5) Type check / වර්ග පරීක්ෂාව
+
+Answer: 5)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම
+
+Option / විකල්පය 1)
+
+Incorrect. This validation ensures that the input is within a specified range and verifies that the entered
+
+value falls within those bounds.
+
+වැරදියි. මෙම වලංගුකරණය මඟින් ආදානය නිශ්චිත පරාසයක් තුළ ඇති බව සහතික කරන අතර ඇතුළත්
+
+කළ අගය එම සීමාවන් තුළට වැටෙන බව තහවුරු කරයි.
+
+Option / විකල්පය 2)
+
+Incorrect. This validation checks if the input field has been filled and ensures no field is left blank.
+
+වැරදියි. මෙම වලංගුකරණය ආදාන ක්ෂේත්‍රය පුරවා ඇත්දැයි පරීක්ෂා කරන අතර කිසිදු ක්ෂේත්‍රයක් හිස්ව
+
+නොතිබෙන බව සහතික කරයි.
+
+Option / විකල්පය 3)
+
+Incorrect. This validation ensures that the entered data is unique, typically used for fields like usernames,
+
+email addresses, or student IDs.
+
+වැරදියි. මෙම වලංගුකරණය පරිශීලක නාම, ඊමේල් ලිපින, හෝ ශිෂ්‍ය හැඳුනුම්පත් වැනි ක්ෂේත්‍ර සඳහා
+
+සාමාන්‍යයෙන් භාවිතා කරන අතර, ඇතුළත් කළ දත්තවල අද්විතීය බව සහතික කරයි.
+
+Option / විකල්පය 4)
+
+Incorrect. This validation checks whether the length of the input meets certain requirements. It can
+
+ensure that a string or number contains a certain number of characters or digits.
+
+වැරදියි. මෙම වලංගුකරණය මගින් ආදානයේ දිග නිශ්චිත අවශ්‍යතා සපුරාලන්නේ දැයි පරීක්ෂා කරයි.
+
+මෙමගින් string එකක හෝ අංකයක නිශ්චිත අක්ෂර හෝ ඉලක්කම් සංඛ්‍යාවක් අඩංගු ද යන්න සහතික
+
+කරයි.
+
+Option / විකල්පය 5)
+
+Correct. This validation ensures that the input is of the correct data type. For example, it checks if the
+
+input is a number, string, or other expected type.
+
+නිවැරදියි. මෙම වලංගුකරණය මගින් ආදානය නිවැරදි දත්ත වර්ගයට අයත් බව සහතික කරයි.
+
+උදාහරණයක් ලෙස, එම ආදානය අංකයක්, string එකක් හෝ වෙනත් අපේක්ෂිත වර්ගයක් දැයි පරීක්ෂා
+
+කරයි.
+
+2027 QUIZ SERIES
+2027 QUIZ NO 50 MARKING
+2025/12/16
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+The correct answer is 5).
+
+නිවැරදි පිළිතුර වන්නේ 5) වේ.
+
+2. Through which of the followings, decode the instructions according to the fetch execute cycle?
+පහත සඳහන් කවරක් හරහා, fetch execute චක්‍රයට අනුව උපදෙස් විකේතනය කරන්නේද?
+
+1) Arithmetic Logical Unit / අංක ගණිත තාර්කික ඒකකය
+2) Control Unit / පාලන ඒකකය
+3) Cache Memory / වාරක මතකය
+4) Main Memory / ප්‍රධාන මතකය
+5) Accumulator / ඇකියුමුලේටරය
+
+Answer : 2)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+
+Arithmetic Logical Unit executes arithmetic and logical operations.
+
+අංක ගණිත තාර්කික ඒකකය විසින් අංක ගණිතමය සහ තාර්කික මෙහෙයුම් ක්‍රියාත්මක කරයි.
+
+Option / විකල්පය 2)
+
+Control Unit (CU) is responsible for decoding instructions during the Fetch-Execute cycle. It fetches
+
+instructions from memory, decodes them to understand what needs to be done, and then controls other
+
+CPU components to execute them.
+
+සෙවුම් ඉෂ්ට චක්‍රය තුළ විකේතන උපදෙස් සඳහා පාලන ඒකකය (CU) වගකිව යුතුය. එය මතකයෙන්
+
+උපදෙස් ලබා ගනී, කළ යුතු දේ තේරුම් ගැනීමට ඒවා විකේතනය කරයි, පසුව ඒවා ක්‍රියාත්මක කිරීමට
+
+අනෙකුත් CPU සංරචක පාලනය කරයි.
+
+Option / විකල්පය 3)
+
+Cache Memory stores frequently used data to speed up processing.
+
+වාරක මතකය විසින් සැකසීම වේගවත් කිරීම සඳහා නිතර භාවිතා කරන දත්ත ගබඩා කරයි.
+
+Option / විකල්පය 4)
+
+Accumulator is a special register inside the CPU that holds intermediate results of calculations.
+
+ඇකියුමුලේටරය යනු CPU ඇතුළත තිබෙන, ගණනය කිරීම් වල ප්‍රතිඵල දරන විශේෂ රෙජිස්තරයකි.
+
+Option / විකල්පය 5)
+
+Main Memory (RAM) stores programs and data.
+
+ප්‍රධාන මතකය (RAM) වැඩසටහන් සහ දත්ත ගබඩා කරයි.
+
+So, the correct answer is the Control Unit (CU) because it is responsible for decoding instructions during
+
+the Fetch-Execute cycle.
+
+එබැවින්, සෙවුම් ඉෂ්ට චක්‍රය තුළ උපදෙස් විකේතනය කිරීම සඳහා එය වගකිව යුතු බැවින් පාලන ඒකකය
+(CU) නිවැරදි පිළිතුර වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+3. What is the answer when two's complement of -1568 and one's complement of 3A16 are added?
+-1568 හි දෙකෙහි අනුපූරකය සහ 3A16 හි එකෙහි අනුපූරකය එකතු කළවිට පිළිතුර කුමක්ද?
+1)  1011011112
+2)  110011002
+3) 1000111012
+4) 1010110002
+5) 011000112
+Answer: 2)
+
+First, let's get the binary values of these two numbers.
+පළමුව මෙම සංඛ්‍යා දෙකෙහි ද්විමය අගයන් ලබා ගනිමු.
+
+1568
+1
+5
+6
+0
+0
+1
+1
+0
+1
+1
+1
+0
+0011011102
+
+3A16
+3
+A = 10
+0
+0
+1
+1
+1
+0
+1
+0
+001110102
+
+-1568 = -011011102
+3A16 = 001110102
+
+Now let's calculate the two's complement of -1568.
+දැන් -1568 හි දෙකෙහි අනුපූරකය ගණනය කරමු.
+
+First, all the bits must be inverted to make it one's complement.
+පළමුව එකෙහි අනුපූරකය බවට පත් කිරීමට බිටු සියල්ල ප්‍රතිලෝම කළ යුතුය.
+
+011011102 → 100100012
+
+Now when we add 1 to it, we get the two's complement.
+දැන් එයට 1ක් එකතු කළ විට දෙකෙහි අනුපූරකය ලැබේ.
+
+1 0 0 1 0 0 0 12
+
++ 12
+1 0 0 1 0 0 1 02
+
+Now let's calculate the one's complement of 3A16. The one's complement of a positive number is the
+binary representation of that number. Accordingly, its one's complement is 001110102.
+දැන් 3A16 හි එකෙහි අනුපූරකය ගණනය කරමු. යම්කිසි ධන සංඛ්‍යාවක එකෙහි අනුපූරකය යනු එම
+සංඛ්‍යාවේ ද්විමය නිරූපණයම වේ. ඒ අනුව එහි එකෙහි අනුපූරකය වන්නේ 001110102 වේ.
+
+Now let's add these two numbers.
+දැන් මෙම සංඛ්‍යා දෙක එකතු කරමු.
+
+1 0 0 1 0 0 1 02
++ 0 0 1 1 1 0 1 02
+
+1 1 0 0 1 1 0 02
+
+So, the correct answer number is 2.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 2 වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+4. What is the result of 1100100₂ – 628 in binary?
+1100100₂ – 628 හි ප්‍රතිඵලයෙහි ද්විමය ආකාරය වනුයේ කුමක්ද?
+1)  011000102
+2)  001100102
+3) 001100112
+4) 011001002
+5) 001100002
+Answer : 2)
+
+Explanation / පැහැදිලි කිරිම:
+
+Step 1: Convert 1100100₂ (Binary) to Decimal / 1100100₂ (ද්විමය) දශමය බවට පරිවර්තනය කිරිම
+
+Convert Binary to Decimal
+ද්විමය දශමය බවට පරිවර්තනය කිරිම
+01100100₂
+27
+26
+25
+24
+23
+22
+21
+20
+0
+1
+1
+0
+0
+1
+0
+0
+0
+64
+32
+0
+0
+4
+0
+0
+64+32+4= 100
+1002
+
+Step 2: Convert 62₈ (Octal) to Decimal / 62₈ (අෂ්ඨමය) දශමය බවට පරිවර්තනය කිරිම
+
+Convert Octal to Decimal
+අෂ්ඨමය දශමය බවට පරිවර්තනය කිරිම
+62₈
+6
+2
+81
+80
+6 x 8
+1 x 2
+48 + 2 = 5010
+
+Step 3: Perform Subtraction in Decimal / දශමයෙන් අඩු කිරීම සිදු කිරිම
+
+10010 − 5010 = 5010
+
+Step 4: Convert 50₁₀ to Binary / 50₁₀ ද්විමය බවට පරිවර්තනය කිරිම
+
+2 50
+
+2 25 - 0
+
+2 12 - 1
+2 6
+- 0
+2 3
+- 0
+2 1
+- 1
+
+0
+- 1
+
+Correct Answer / නිවැරදි පිළිතුර : Option / විකල්ප 2 (00110010₂)
+
+5. This calculation is done in 8-bit two’s complement form X-46110=111010112. What is the value of     X?
+X-46110=111010112 බිටු 8හි දෙකෙහි අනුපූරක ආකාරයෙන් මෙම ගණනය කිරීම සිදු කර ඇත. එසේනම්
+මෙහි X හී අගය කුමක්ද?
+1)  2110
+2)  1210
+3) 258
+4) 318
+5) 2010
+Answer : 4)
+
+This is a negative number as the MSB of the obtained answer is 1. So first, this number should be converted
+into decimal.
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+
+ලබා ගෙන ඇති පිළිතුරේ MSB අගය 1 වන බැවින් මෙය සෘණ සංඛ්‍යාවකි. එබැවින් පළමුව, මෙම අංකය
+දශම බවට පරිවර්තනය කළ යුතුය.
+
+1 1 1 0 1 0 1 1
+
+1
+1 1 1 0 1 0 1 0
+
+1’s complement – 111010102
+0
+0
+0
+1
+0
+1
+0
+1
+
+Positive binary value - 000101012
+0
+0
+0
+1
+0
+1
+0
+1
+27
+26
+25
+24
+23
+22
+21
+20
+128
+64
+32
+16
+8
+4
+2
+1
+16+4+1=21
+
+Accordingly, the answer to this calculation can be identified as -21. Accordingly, the decimal value of X
+can be identified in the following way.
+ඒ අනුව, මෙම ගණනය කිරීමේ පිළිතුර -21 ලෙස හඳුනාගත හැකිය. ඒ අනුව, X හි දශම අගය පහත පරිදි
+හඳුනාගත හැකිය.
+
+X-46=-21
+X=-21+46
+X=2510
+
+Since the obtained answer is not available, it must be converted into octal form.
+ලබාගත් පිළිතුර නොමැති නිසා එය අෂ්ඨමය ස්වරූපයට පරිවර්තනය කළ යුතුය.
+
+2510
+011 001
+3
+1
+318
+2027 QUIZ SERIES
+#ictfromabc
+-5-

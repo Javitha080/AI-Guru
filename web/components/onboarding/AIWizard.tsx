@@ -13,6 +13,7 @@ import {
   Server,
   ShieldCheck,
   Sparkles,
+  User,
   X,
   XCircle,
   Zap,
@@ -102,6 +103,7 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
   const [step, setStep] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
   const [hardware, setHardware] = useState<HardwareProfile | null>(null);
+  const [studentName, setStudentName] = useState<string>("Student");
 
   const [selectedMode, setSelectedMode] = useState<WizardMode>("auto");
   const [providerId, setProviderId] = useState<CloudProviderId>("openai");
@@ -127,6 +129,18 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
       .then((data) => setHardware(data))
       .catch((err) => console.error("Hardware probe failed:", err))
       .finally(() => setLoading(false));
+
+    // Load initial student name
+    const cachedName = typeof window !== "undefined" ? window.localStorage.getItem("aiguru.student_name") : null;
+    if (cachedName) setStudentName(cachedName);
+    fetch("/api/v1/study-session/student/name")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.student_name && data.student_name !== "Student") {
+          setStudentName(data.student_name);
+        }
+      })
+      .catch(() => {});
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -218,18 +232,31 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
 
   const requestClose = () => {
     if (verified || step >= 4) {
-      handleClose();
+      onClose();
       return;
     }
     setConfirmingClose(true);
   };
 
-  const handleClose = () => {
-    setConfirmingClose(false);
-    onClose();
+  const saveStudentName = async () => {
+    const trimmed = studentName.trim();
+    if (!trimmed) return;
+    try {
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("aiguru.student_name", trimmed);
+      }
+      await fetch("/api/v1/study-session/student/name", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ student_name: trimmed, student_id: "student-primary" }),
+      });
+    } catch {
+      /* best effort */
+    }
   };
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
+    await saveStudentName();
     // Exactly one dismissal path: verified completions report onComplete,
     // everything else reports onClose.
     if (onComplete) {
@@ -336,9 +363,30 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
               </div>
             ) : null}
 
+            {/* Student Profile Input */}
+            <div className="p-4 rounded-2xl border border-[var(--border)] bg-[var(--background)]/70 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-semibold text-[var(--foreground)]">
+                <User className="w-3.5 h-3.5 text-[var(--primary)]" /> Student Name
+              </div>
+              <p className="text-[11px] text-[var(--muted-foreground)]">
+                What should AI Guru call you during tutoring and in study reports?
+              </p>
+              <input
+                type="text"
+                maxLength={60}
+                placeholder="e.g. Alex"
+                value={studentName}
+                onChange={(e) => setStudentName(e.target.value)}
+                className="w-full px-3.5 py-2 text-xs rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--glow-primary)]"
+              />
+            </div>
+
             <div className="flex justify-end pt-2">
               <button
-                onClick={() => setStep(2)}
+                onClick={() => {
+                  void saveStudentName();
+                  setStep(2);
+                }}
                 className="px-6 py-2.5 rounded-xl bg-[var(--primary)] text-white text-xs font-semibold hover:brightness-110 transition-colors flex items-center gap-2"
               >
                 Choose Tutoring Mode <ArrowRight className="w-4 h-4" />
@@ -622,7 +670,9 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
 
             <div className="space-y-2">
               <h2 className="text-2xl font-bold tracking-tight text-[var(--foreground)]">
-                AI Guru is Configured &amp; Ready!
+                {studentName.trim() && studentName.trim() !== "Student"
+                  ? `Welcome, ${studentName.trim()}! AI Guru is Ready.`
+                  : "AI Guru is Configured & Ready!"}
               </h2>
               <p className="text-sm text-[var(--muted-foreground)] max-w-md mx-auto leading-relaxed">
                 Verified and saved: tutoring runs in <strong>{selectedMode.toUpperCase()}</strong> mode.
@@ -658,7 +708,7 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
                   Keep setting up
                 </button>
                 <button
-                  onClick={handleClose}
+                  onClick={onClose}
                   className="px-4 py-2 rounded-xl bg-[var(--foreground)] text-[var(--background)] text-xs font-semibold hover:opacity-90 transition-opacity"
                 >
                   Skip for now

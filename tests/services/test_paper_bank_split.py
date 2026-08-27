@@ -12,6 +12,7 @@ from __future__ import annotations
 import pytest
 
 from deeptutor.services.exams.cleaned_pipeline import _grade_for
+from deeptutor.services.exams.engine import split_options
 from deeptutor.services.exams.question_segmenter import (
     merge_keys,
     segment_mcqs,
@@ -140,3 +141,34 @@ def test_merge_keys_official_wins_and_conflicts_reported() -> None:
 def test_merge_keys_empty_sources() -> None:
     merged, conflicts = merge_keys()
     assert merged == {} and conflicts == []
+
+
+# --------------------------------------------------- fused next-question cut
+
+
+def test_split_options_truncates_fused_next_question() -> None:
+    raw = (
+        "Which of the following best describes a pointing device? "
+        "A) Mouse B) Keyboard C) Monitor D) Printer "
+        "E) All of the above 2. Which of the following is open-source?"
+    )
+    stem, opts = split_options(raw)
+    assert stem.startswith("Which of the following")
+    assert opts is not None and opts["E"] == "All of the above"
+
+
+def test_split_options_truncates_fused_next_question_sinhala() -> None:
+    raw = (
+        "පහත කවරක් සඳහා? A) A පමණි B) B පමණි C) C පමණි D) A සහ B පමණි "
+        "E) A, B සහ C යන සියල්ල ම 3. පහත ජෙදයේ හිස්තැන්"
+    )
+    _, opts = split_options(raw)
+    assert opts is not None and opts["E"] == "A, B සහ C යන සියල්ල ම"
+
+
+def test_split_options_keeps_decimal_values() -> None:
+    raw = "Pick the value A) 2.5 GHz B) 3.2 GHz C) 4 GHz D) 1 GHz E) None 9. junk tail"
+    _, opts = split_options(raw)
+    assert opts is not None
+    assert opts["A"] == "2.5 GHz" and opts["B"] == "3.2 GHz"
+    assert opts["E"] == "None"

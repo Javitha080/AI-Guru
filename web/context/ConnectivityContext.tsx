@@ -138,9 +138,12 @@ export function ConnectivityProvider({
 
   // Initial check + periodic heartbeat
   useEffect(() => {
-    void checkHealth();
+    const timer = setTimeout(() => {
+      void checkHealth();
+    }, 0);
     intervalRef.current = setInterval(checkHealth, HEALTH_CHECK_INTERVAL);
     return () => {
+      clearTimeout(timer);
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (reconnectRef.current) clearInterval(reconnectRef.current);
     };

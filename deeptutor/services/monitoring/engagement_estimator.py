@@ -14,9 +14,9 @@ Uses Exponential Moving Average (EMA) smoothing for stability.
 from __future__ import annotations
 
 import collections
-import logging
 from dataclasses import dataclass
-from typing import Deque, Optional, Tuple
+import logging
+from typing import Deque, Tuple
 
 from deeptutor.services.monitoring.pose_gaze import HeadPoseResult, PostureCategory
 from deeptutor.services.monitoring.presence_state_machine import PresenceState
@@ -37,10 +37,13 @@ class EngagementSnapshot:
 
 class EngagementEstimator:
     """
-    Continuous student engagement estimator with exponential moving average smoothing.
+    Continuous student engagement estimator with dual-rate EMA smoothing:
+    attention drops are reacted to fast (α=0.25), recovery is gradual (α=0.10).
     """
 
-    EMA_ALPHA: float = 0.15  # Smoothing factor (0.15 = smooth ~2-3 second response)
+    EMA_ALPHA: float = 0.15        # Neutral smoothing (~2-3s response)
+    FAST_DECAY_ALPHA: float = 0.25  # Focus dropping — react quickly
+    SLOW_RECOVERY_ALPHA: float = 0.10  # Focus returning — gradual rebuild
 
     def __init__(self, ema_alpha: float = EMA_ALPHA) -> None:
         self.ema_alpha = ema_alpha
@@ -115,10 +118,15 @@ class EngagementEstimator:
             if is_distracted:
                 instant_score = max(0.0, instant_score - 40.0)
 
-        # Apply EMA smoothing
+        # Dual-rate EMA smoothing: fast decay on drops, gradual recovery.
+        alpha = self.ema_alpha
+        if instant_score < self._smoothed_score - 5.0:
+            alpha = self.FAST_DECAY_ALPHA
+        elif instant_score > self._smoothed_score + 2.0:
+            alpha = self.SLOW_RECOVERY_ALPHA
         self._smoothed_score = (
-            self.ema_alpha * instant_score +
-            (1.0 - self.ema_alpha) * self._smoothed_score
+            alpha * instant_score +
+            (1.0 - alpha) * self._smoothed_score
         )
         self._smoothed_score = max(0.0, min(100.0, self._smoothed_score))
 
@@ -142,12 +150,18 @@ class EngagementEstimator:
         )
 
     def _compute_stability(self) -> float:
-        """Compute head pose stability factor from recent history."""
+        """Compute head pose stability factor from recent history (all axes)."""
         if len(self._pose_history) < 3:
             return 1.0
 
-        yaw_deltas = [abs(self._pose_history[i][0] - self._pose_history[i-1][0]) for i in range(1, len(self._pose_history))]
-        avg_motion = sum(yaw_deltas) / len(yaw_deltas)
+        h = list(self._pose_history)
+        # Combined RMS of yaw + pitch + roll inter-frame deltas so vertical
+        # head-bobbing and lateral fidgeting are properly penalised.
+        yaw_deltas = [abs(h[i][0] - h[i-1][0]) for i in range(1, len(h))]
+        pitch_deltas = [abs(h[i][1] - h[i-1][1]) for i in range(1, len(h))]
+        roll_deltas = [abs(h[i][2] - h[i-1][2]) for i in range(1, len(h))]
+        combined = [(y + p + r) / 3.0 for y, p, r in zip(yaw_deltas, pitch_deltas, roll_deltas)]
+        avg_motion = sum(combined) / len(combined)
 
         # Steady study micro-movements: < 2.5 degrees/frame = high stability (1.0)
         # Erratic fast turning (> 10 deg/frame) = lower stability

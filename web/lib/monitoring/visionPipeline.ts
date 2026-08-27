@@ -102,6 +102,7 @@ export class VisionPipeline {
   private lastTick = 0;
   private tickCount = 0;
   private running = false;
+  private paused = false;
   private grayCanvas: HTMLCanvasElement | null = null;
   private snapCanvas: HTMLCanvasElement | null = null;
 
@@ -119,6 +120,7 @@ export class VisionPipeline {
 
   async start(): Promise<void> {
     this.running = true;
+    this.paused = false;
     this.opts.onState?.("loading");
     try {
       let wasmPath = LOCAL_WASM;
@@ -162,6 +164,7 @@ export class VisionPipeline {
 
   stop(): void {
     this.running = false;
+    this.paused = false;
     cancelAnimationFrame(this.rafId);
     if (this.wsReconnectTimer) {
       clearTimeout(this.wsReconnectTimer);
@@ -183,6 +186,14 @@ export class VisionPipeline {
     this.landmarker = null;
   }
 
+  setPaused(paused: boolean): void {
+    if (this.paused === paused) return;
+    this.paused = paused;
+    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+      this.ws.send(JSON.stringify({ type: paused ? "pause" : "resume" }));
+    }
+  }
+
   setTargetFps(fps: number): void {
     this.targetFps = Math.max(1, Math.min(15, fps));
   }
@@ -200,10 +211,13 @@ export class VisionPipeline {
 
   private openSocket(sessionId: string): void {
     const proto = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const ws = new WebSocket(`${proto}//${window.location.host}/api/v1/monitoring/session/${sessionId}`);
+    const ws = new WebSocket(`${proto}//${window.location.host}/api/v1/monitoring/session/${sessionId}?mode=browser`);
     ws.onopen = () => {
       // Healthy connection: reset the backoff so a later drop retries fast.
       if (this.ws === ws) this.wsBackoffMs = 1000;
+      if (this.paused && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type: "pause" }));
+      }
     };
     ws.onmessage = (evt) => {
       try {
@@ -239,6 +253,7 @@ export class VisionPipeline {
   private loop = (): void => {
     if (!this.running) return;
     this.rafId = requestAnimationFrame(this.loop);
+    if (this.paused) return;
     const video = this.opts.video;
     if (!video || video.readyState < 2 || !this.landmarker) return;
 
@@ -276,7 +291,15 @@ export class VisionPipeline {
           timestamp: Date.now() / 1000,
         };
       } else {
-        frame = { detected: false, confidence: 0.0, brightness };
+        // No face detected — still grab a snapshot so absent-student evidence
+        // frames flow to the parent live view and the encrypted evidence ring.
+        frame = {
+          detected: false,
+          confidence: 0.0,
+          brightness,
+          jpeg_b64: this.snapshotJpeg(video),
+          timestamp: Date.now() / 1000,
+        };
       }
     } catch (err) {
       console.warn("[vision] tick failed", err);

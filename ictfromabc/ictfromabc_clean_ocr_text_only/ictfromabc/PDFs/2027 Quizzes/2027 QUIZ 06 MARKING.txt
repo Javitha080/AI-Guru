@@ -1,0 +1,523 @@
+1. In the context of data processing, what is the mode that involves immediate processing?
+දත්ත සැකසීමේ සන්දර්භය තුළ, ක්ෂණික සැකසුම් ඇතුළත් වන මාදිලිය කුමක්ද?
+
+1) Offline Processing / මාර්ගඅපගත සැකසුම
+2) Real-time Processing / තථ්‍ය කාල සැකසුම
+3) Batch Processing / කාණ්ඩ සැකසුම
+4) Direct Processing / සෘජු සැකසුම
+5) Indirect Processing / වක්‍ර සැකසුම
+
+Answer: 2)
+
+Real-time Processing / තත්‍ය කාල සැකසුම:
+In real-time processing, data is processed immediately as it is inputted or received, allowing for instant
+results or actions based on the data. This is typically used in systems where delays cannot be tolerated,
+such as in financial transactions or live monitoring systems.
+තත්‍ය කාලීන සැකසීමේදී, දත්ත ආදානය කළ හෝ ලැබුණු විට ක්ෂණිකව සකසනු ලබන අතර, ක්ෂණික ප්‍රතිඵල
+හෝ දත්ත මත පදනම් වූ ක්‍රියා සඳහා ඉඩ ලබා දේ. මෙය සාමාන්‍යයෙන් මූල්‍ය ගනුදෙනු හෝ සජීවී නිරීක්ෂණ
+පද්ධති වැනි ප්‍රමාදයන් දරාගත නොහැකි පද්ධතිවල භාවිතා වේ.
+
+Explanation of the other statements. / අනෙකුත් ප්‍රකාශවල පැහැදිලි කිරීම.
+
+1) Offline Processing: / මාර්ගඅපගත සැකසුම:
+In this mode, data is processed at a later time, not immediately.
+මෙහිදී, දත්ත ක්ෂණිකව නොව පසු කාලයකදී සකසනු ලැබේ.
+
+3) Batch Processing: / කාණ්ඩ සැකසීම:
+Data is collected and processed in large batches at scheduled times, not in real-time.
+දත්ත රැස් කර සකසනු ලබන්නේ තත්‍ය කාලීනව නොව, නියමිත වේලාවට විශාල කණ්ඩායම් වලිනි.
+
+4) Direct Processing: / සෘජු සැකසුම:
+This refers to the direct use of data without intermediate steps, but it's not specifically tied to
+immediate processing.
+මෙය අතරමැදි පියවරකින් තොරව දත්ත සෘජුවම භාවිතා කිරීම අදහස් කරයි, නමුත් එය ක්ෂණිකව
+සැකසීමට විශේෂයෙන් බැඳී නැත.
+
+5) Indirect Processing: / වක්‍ර සැකසුම:
+This involves processing data through intermediary steps, and it's not related to real-time processing
+either.
+මෙය අතරමැදි පියවර හරහා දත්ත සැකසීම ඇතුළත් වන අතර, එය තත්‍ය කාලීන සැකසීමට සම්බන්ධ
+නොවේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2027 QUIZ SERIES
+2027 QUIZ NO 06 MARKING
+2025/08/04
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+2. Which of the following is LEAST affected by using manual methods for data analysis?
+දත්ත විශ්ලේෂණය සඳහා අත්යුරු ක්‍රම භාවිතා කිරීමෙන් අඩුවෙන්ම බලපාන්නේ පහත සඳහන් දේවලින්
+කුමක් ද?
+
+1) Processing speed / සැකසුම් වේගය
+2) Data accuracy / දත්ත නිරවද්‍යතාව
+3) Data security / දත්ත ආරක්ෂාව
+4) Scalability for large datasets / විශාල දත්ත කට්ටල සඳහා පරිමාණය
+5) Data automation capability / දත්ත ස්වයංක්‍රීය කිරීමේ හැකියාව
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+Incorrect. Manual data analysis is significantly slower than automated methods since humans take more
+time to process and interpret data compared to computers.
+වැරදියි. පරිගණකයට සාපේක්ෂව දත්ත සැකසීමට සහ අර්ථ නිරූපණය කිරීමට මිනිසුන්ට වැඩි කාලයක්
+ගත වන බැවින් අතින් දත්ත විශ්ලේෂණය ස්වයංක්‍රීය ක්‍රමවලට වඩා සැලකිය යුතු ලෙස මන්දගාමී වේ.
+
+Option / විකල්ප 2)
+Incorrect. Manual methods are prone to human errors, such as miscalculations and data entry mistakes,
+reducing overall accuracy.
+වැරදියි. අත්යුරු ක්‍රම වැරදි ගණනය කිරීම් සහ දත්ත ඇතුළත් කිරීමේ වැරදි වැනි මානව දෝෂ වලට
+ගොදුරු වේ, සමස්ත නිරවද්‍යතාවය අඩු කරයි.
+
+Option / විකල්ප 3)
+Correct. Manual methods do not inherently affect data security as much as digital systems. While digital
+systems can be hacked or exposed to cyber threats, manually stored and processed data is less vulnerable
+to such attacks, making security the least affected.
+නිවැරදියි. ඩිජිටල් පද්ධති මෙන් දත්ත ආරක්ෂාවට අත්යුරු ක්‍රම සහජයෙන්ම බලපාන්නේ නැත. ඩිජිටල් පද්ධති
+අනවසරයෙන් ඇතුළුවීමට හෝ සයිබර් තර්ජනවලට නිරාවරණය විය හැකි අතර, අතින් ගබඩා කර සැකසූ
+දත්ත එවැනි ප්‍රහාරවලට ගොදුරු වීමේ අවදානම අඩු බැවින් ආරක්ෂාවට අවම බලපෑමක් ඇති කරයි.
+
+Option / විකල්ප 4)
+Incorrect. Manual methods struggle with scalability since processing large volumes of data by hand is
+time-consuming and impractical.
+වැරදියි. අතින් විශාල දත්ත ප්‍රමාණයක් සැකසීම කාලය ගතවන සහ ප්‍රායෝගික නොවන බැවින් අත්යුරු ක්‍රම
+පරිමාණය සමඟ අරගල කරයි.
+
+Option / විකල්ප 5)
+Incorrect. Manual data analysis lacks automation, requiring human intervention for every step, making it
+highly inefficient compared to automated tools.
+වැරදියි. අතින් දත්ත විශ්ලේෂණයට ස්වයංක්‍රීයකරණයක් නොමැති අතර, සෑම පියවරක් සඳහාම මානව
+මැදිහත්වීමක් අවශ්‍ය වන අතර, එය ස්වයංක්‍රීය මෙවලම් හා සසඳන විට ඉතා අකාර්යක්ෂම වේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+3. What is a major threat to businesses when managing privacy through ICT systems?
+ICT පද්ධති හරහා පුද්ගලිකත්වය කළමනාකරණය කිරීමේදී ව්‍යාපාරවලට ඇති ප්‍රධාන තර්ජනය කුමක්ද?
+
+1) Increased customer feedback / පාරිභෝගික ප්‍රතිපෝෂණ වැඩි වීම.
+2) Enhanced product innovation / වැඩිදියුණු කළ නිෂ්පාදන නවෝත්පාදනය.
+3) Higher risk of unauthorized data access and privacy breaches
+අනවසර දත්ත ප්‍රවේශය සහ රහස්‍යතා කඩකිරීමේ වැඩි අවදානමක්.
+
+4) Improved market analysis / වැඩිදියුණු කළ වෙළඳපල විශ්ලේෂණය.
+5) Streamlined supply chain management / විධිමත් සැපයුම් දාම කළමනාකරණය.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+The major threat to businesses when managing privacy through ICT systems is 3) Higher risk of
+unauthorized data access and privacy breaches.
+තොරතුරු හා සන්නිවේදන තාක්ෂණ පද්ධති හරහා පුද්ගලිකත්වය කළමනාකරණය කිරීමේදී ව්‍යාපාරවලට ඇති
+ප්‍රධාන තර්ජනය වන්නේ 3) අනවසර දත්ත ප්‍රවේශය සහ රහස්‍යතා කඩකිරීමේ වැඩි අවදානමයි.
+
+Unauthorized access to sensitive customer or business data, often referred to as data breaches, poses a
+significant risk.
+බොහෝ විට දත්ත සෝරාගැනිම (data breach) ලෙස හඳුන්වන සංවේදී පාරිභෝගික හෝ ව්‍යාපාරික දත්ත වෙත
+අනවසරයෙන් ප්‍රවේශ වීම සැලකිය යුතු අවදානමක් ඇති කරයි.
+
+This can result in exposure of private information, leading to legal liabilities, loss of customer trust, and
+financial penalties. In the digital age, businesses rely heavily on ICT systems, and safeguarding privacy is
+critical to prevent data breaches that can compromise customer confidentiality.
+මෙය පුද්ගලික තොරතුරු හෙළිදරව් කිරීම, නීතිමය වගකීම්, පාරිභෝගික විශ්වාසය නැතිවීම සහ මූල්‍ය දඩුවම්
+වලට තුඩු දිය හැකිය. ඩිජිටල් යුගයේ දී, ව්‍යාපාර ICT පද්ධති මත දැඩි ලෙස රඳා පවතින අතර, පාරිභෝගික
+රහස්‍යභාවයට හානි කළ හැකි දත්ත කඩකිරීම් වැළැක්වීම සඳහා පුද්ගලිකත්වය ආරක්ෂා කිරීම ඉතා වැදගත්
+වේ.
+
+Therefore, the correct answer is, 3).
+එබැවින් නිවැරදි පිළිතුර, 3) වේ.
+
+4. Which generation of computers is characterized by electronic components?
+ඉලෙක්ට්‍රොනික උපාංග මගින් සංලක්ෂිත පරිගණක පරම්පරාව කුමක්ද?
+
+1) 1st Generation / 1 වන පරම්පරාව
+2) 2nd Generation / 2 වන පරම්පරාව
+3) 3rd Generation / 3 වන පරම්පරාව
+4) 4th Generation / 4 වන පරම්පරාව
+5) Future / අනාගතය
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+2nd Generation / 2 වන පරම්පරාව (1950-1960):
+Components: Transistors.
+සංරචක: ට්‍රාන්සිස්ටර.
+
+Characteristics: Smaller, faster, more reliable, and more energy-efficient than vacuum tubes.
+ලක්ෂණ: රික්තක නල වලට වඩා කුඩා, වේගවත්, වඩා විශ්වාසදායක සහ බලශක්ති කාර්යක්ෂම වේ.
+
+Therefore, the correct answer is 2).
+එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+Explanation of the other statements. / අනෙකුත් ප්‍රකාශවල පැහැදිලි කිරීම.
+
+1) 1st Generation / 1 වන පරම්පරාව (1940s-1950s):
+Components: Vacuum tubes.
+සංරචක: රික්ත නල.
+
+3) 3rd Generation / 3 වන පරම්පරාව (1960s-1970s):
+Components: Integrated Circuits (ICs).
+සංරචක: අනුකලිත පරිපථ (ICs).
+
+4) 4th Generation / 4 වන පරම්පරාව (1970s-Present):
+Components: Microprocessors.
+සංරචක: ක්ෂුද්‍ර සකසන.
+
+5) Future / අනාගතය:
+Potential Components: Quantum computing, advanced AI, etc.
+විභව සංරචක: ක්වොන්ටම් පරිගණනය, උසස් AI ආදිය.
+
+5. Charles Babbage is often referred to as the "father of the computer" due to his work on which unfinished
+invention that introduced many concepts of modern computing?
+චාල්ස් බැබේජ් බොහෝ විට ""පරිගණකයේ පියා" ලෙස හඳුන්වනු ලබන්නේ නවීන පරිගණකකරණයේ බොහෝ
+සංකල්ප හඳුන්වා දුන් ඔහුගේ කුමන නිම නොකළ නව නිපැයුම පිළිබඳ කෘතිය නිසාද?
+1)  ENIAC
+2)  Analytical
+Engine
+3) Difference Engine
+4) IBM 701
+5) UNIVAC
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+The Analytical Engine, designed by Charles Babbage in the 1830s, was a proposed mechanical general-
+purpose computer.
+1830 ගණන්වල චාල්ස් බැබේජ් විසින් නිර්මාණය කරන ලද විශ්ලේෂණ එන්ජිම, යෝජිත යාන්ත්‍රික පොදු
+කාර්ය පරිගණකයකි.
+
+Although never completed, it introduced critical ideas like the control unit, memory, input/output, and
+programming using punched cards.
+කිසිදා නිම නොකළද, එය පාලන ඒකකය, මතකය, ආදානය/ප්‍රතිදානය සහ සිදුරු කාඩ්පත් භාවිතයෙන්
+ක්‍රමලේඛනය වැනි තීරණාත්මක අදහස් හඳුන්වා දුන්නේය.
+
+This design influenced future computers and programmers like Ada Lovelace.
+මෙම නිර්මාණය අනාගත පරිගණක සහ ඇඩා ලව්ලේස් වැනි ක්‍රමලේඛකයින්ට බලපෑම් කළේය.
+
+Therefore, the answer is 2).
+එබැවින් පිළිතුර 2) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+
+6. Which of the following is a characteristic of special purpose computers?
+විශේෂ කාර්ය පරිගණකවල ලක්ෂණයක් වන්නේ පහත ඒවායින් කුමක්ද?
+
+1) The most powerful type of computer / බලවත්ම පරිගණක වර්ගයයි.
+2) A large amount of data can be handled simultaneously
+දත්ත විශාල ප්‍රමාණයක් එකවර හැසිරවීමට හැකිය.
+
+3) 10-15 terminals can be served simultaneously / එකවර පර්යන්ත 10-15කට සේවා සැපයිය හැකිය.
+4) Cannot be reprogrammed / ප්‍රතික්‍රමලේඛණය කළ නොහැක.
+5) It can perform any task that a computer can perform.
+පරිගණකයකට සිදුකළ හැකි ඕනෑම කාර්යයක් සිදුකිරීමට හැකිය.
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+Special-purpose computers are designed to perform a specific task or set of tasks. Unlike general-
+purpose computers, they are optimized for a single function and often cannot perform unrelated tasks.
+විශේෂ කාර්ය පරිගණක නිශ්චිත කාර්යයක් හෝ කාර්යයන් සමූහයක් ඉටු කිරීම සඳහා නිර්මාණය කර ඇත.
+සාමාන්‍ය කාර්ය පරිගණක මෙන් නොව, ඒවා තනි කාර්යයක් සඳහා ප්‍රශස්තකරණය කර ඇති අතර බොහෝ
+විට පොදු කාර්යයන් ඉටු කළ නොහැක.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This is not correct for special-purpose computers. They are not necessarily the most powerful, as their
+design focuses on a specific task rather than raw power.
+විශේෂ කාර්ය පරිගණක සඳහා මෙය නිවැරදි නොවේ. ඒවායේ සැලසුම බලයට වඩා නිශ්චිත කාර්යයක්
+කෙරෙහි අවධානය යොමු කරන බැවින් ඒවා අනිවාර්යයෙන්ම වඩාත්ම බලවත් නොවේ.
+
+Option / විකල්පය 2)
+This is possible, but not a defining characteristic of special-purpose computers. This characteristic
+applies more to high-performance computing or mainframes.
+මෙය කළ හැකි නමුත් විශේෂ කාර්ය පරිගණකවල නිර්වචන ලක්ෂණයක් නොවේ. මෙම ලක්ෂණය ඉහළ
+කාර්යසාධනයක් සහිත පරිගණක හෝ ප්‍රධාන රාමු පරිගණක සඳහා වඩාත් අදාළ වේ.
+
+Option / විකල්පය 3)
+This is not typical of special-purpose computers. This characteristic applies to general-purpose servers or
+mainframe computers that handle multiple users or terminals.
+මෙය විශේෂ කාර්ය පරිගණක සඳහා අදාළ නොවේ. මෙම ලක්ෂණය බහු පරිශීලකයින් හෝ පර්යන්ත
+හසුරුවන සාමාන්‍ය කාර්ය සේවාදායකයන් හෝ ප්‍රධාන රාමු පරිගණක සඳහා අදාළ වේ.
+
+Option / විකල්පය 4)
+This is true. Special-purpose computers are usually hardwired for specific tasks and cannot be easily
+reprogrammed to perform different functions.
+මෙය සත්‍යයකි. විශේෂ කාර්ය පරිගණක සාමාන්‍යයෙන් නිශ්චිත කාර්යයන් සඳහා සකසා ඇති අතර විවිධ
+කාර්යයන් ඉටු කිරීම සඳහා පහසුවෙන් නැවත වැඩසටහන්ගත කළ නොහැක.
+
+Option / විකල්පය 5)
+This is not true for special-purpose computers. They are limited to the specific tasks they are designed
+for.
+විශේෂ කාර්ය පරිගණක සඳහා මෙය සත්‍ය නොවේ. ඒවා නිර්මාණය කර ඇති නිශ්චිත කාර්යයන් සඳහා
+සීමා වේ.
+
+So, the correct answer number is 4.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 4 වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-5-
+
+7. If teacher wants to check MCQ answers of papers. What is the device can be used to fulfill that need?
+ගුරුවරයාට ප්‍රශ්න පත්‍රවල MCQ පිළිතුරු පරීක්ෂා කිරීමට අවශ්‍ය නම්, එම අවශ්‍යතාවය සපුරාලීම සඳහා
+භාවිතා කළ හැකි උපකරණය වනුයේ කුමක්ද?
+1)  MICR
+2)  NFC Reader
+3) OCR
+4) Digitizer
+5) OMR
+Answer: 5)
+
+Explanation / පැහැදිලි කිරීම:
+
+The suitable device can be used to fulfill that need is OMR.
+එම අවශ්‍යතාවය සපුරාලීම සඳහා සුදුසු උපාංගය OMR වේ.
+
+Device /
+උපාංගය
+Purpose / අරමුණ
+
+MICR
+Used to check validity of a cheques which are printed using special magnetic ink.
+විශේෂ චුම්බක තීන්ත භාවිතයෙන් මුද්‍රණය කරන ලද චෙක්පතක වලංගුභාවය පරීක්ෂා
+කිරීමට භාවිතා කරයි.
+
+NFC Reader
+device that can wirelessly communicate with NFC-enabled devices or tags within
+close proximity.
+NFC සක්‍රීය උපාංග හෝ ආසන්නයේ ඇති උසුලනයක් සමඟ රැහැන් රහිතව
+සන්නිවේදනය කළ හැකි උපාංගයකි.
+
+OCR
+Converts printed or hand written text document into digital text document.
+මුද්‍රිත හෝ අත්යුරු පාඨ ලේඛන සංඛ්‍යාංක පාඨ ලේඛනයක් බවට පරිවර්තනය කරයි.
+
+Digitizer
+Hand written characters and drawn shapes are converted into a digital image file.
+අත්යුරු අනුලක්ෂණ සහ අඳින ලද හැඩතල සංඛ්‍යාංක රූප ගොනුවක් බවට
+පරිවර්තනය වේ.
+
+So, the correct answer is 5).
+එබැවින්, නිවැරදි පිළිතුර 5) වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-6-
+
+8. Which of the following statements best describes a key difference between LCD, LED, and CRT display
+technologies?
+LCD, LED සහ CRT සංදර්ශක තාක්ෂණයන් අතර ප්‍රධාන වෙනසක් වඩාත් හොඳින් විස්තර කරන පහත
+සඳහන් ප්‍රකාශවලින් කවරේද?
+
+1) LCD monitors use cathode ray tubes, unlike CRT which uses liquid crystals.
+LCD මොනිටර වල කැතෝඩ කිරණ නල භාවිතා කරන අතර, CRT වල ද්‍රව ස්ඵටික භාවිතා නොකරයි.
+
+2) CRT displays consume less power than both LCD and LED technologies due to efficient tube design.
+කාර්යක්ෂම නල නිර්මාණය හේතුවෙන් CRT සංදර්ශක LCD  සහ LED තාක්ෂණයන්ට වඩා අඩු බලයක්
+පරිභෝජනය කරයි.
+
+3) LED displays are simply LCDs that use light-emitting diodes for backlighting instead of cold cathode
+tubes.
+LED සංදර්ශක යනු cold කැතෝඩ නල වෙනුවට පසුතල ආලෝකය සඳහා ආලෝක විමෝචක ඩයෝඩ
+භාවිතා කරන LCD වේ
+
+4) LCD displays emit light directly from the screen surface, whereas CRT and LED use internal bulbs.
+LCD සංදර්ශක තිර මතුපිටින් සෘජුවම ආලෝකය විමෝචනය කරන අතර CRT සහ LED අභ්‍යන්තර
+බල්බ භාවිතා කරයි.
+
+5) All three technologies use pixel-based digital rendering and flat panel structures.
+මෙම තාක්ෂණයන් තුනම පික්සල් මත පදනම් වූ ඩිජිටල් විදැහුම්කරණය සහ පැතලි පැනල් ව්‍යුහයන්
+භාවිතා කරයි.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+A monitor is an essential output device that displays information from a computer in visual form, such as
+text, images, and videos. It allows users to interact with the system by showing what’s happening in real
+time. Modern monitors are flat, energy-efficient, and offer high-resolution displays, making them
+suitable for a wide range of tasks
+මොනිටරයක් යනු පරිගණකයකින් ලැබෙන තොරතුරු පාඨ, රූප සහ වීඩියෝ වැනි දෘශ්‍ය ආකාරයෙන්
+පෙන්වන අත්‍යවශ්‍ය ප්‍රතිදාන උපාංගයකි. එය පරිශීලකයින්ට තථ්‍ය කාලය තුළ සිදුවන දේ පෙන්වීමෙන්
+පද්ධතිය සමඟ අන්තර් ක්‍රියා කිරීමට ඉඩ සලසයි. නවීන මොනිටර පැතලි, බලශක්ති කාර්යක්ෂම වන අතර
+ඉහළ විභේදන සංදර්ශක ලබා දෙන අතර ඒවා පුළුල් පරාසයක කාර්යයන් සඳහා සුදුසු වේ.
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+CRT (Cathode Ray Tube) monitors do use cathode ray tubes, large, heavy, and based on electron beam
+scanning.
+CRT (කැතෝඩ කිරණ නල) මොනිටර වල කැතෝඩ කිරණ නල භාවිතා කරයි, විශාල, බර සහ ඉලෙක්ට්‍රෝන
+කදම්භ පරිලෝකනය මත පදනම් වේ
+
+LCD (Liquid Crystal Display) uses liquid crystals and does not contain any cathode ray tubes.
+So this option is factually wrong and mixes up the definitions.
+LCD (ද්‍රව ස්ඵටික සංදර්ශකය) ද්‍රව ස්ඵටික භාවිතා කරන අතර කිසිදු කැතෝඩ කිරණ නලයක් අඩංගු
+නොවේ.
+එබැවින් මෙම විකල්පය සත්‍ය වශයෙන්ම වැරදි වන අතර අර්ථ දැක්වීම් මිශ්‍ර වී ඇත
+
+Option / විකල්ප 2)
+CRT monitors are very power-hungry because they use high-voltage electron guns and magnetic
+deflection systems.
+CRT මොනිටර වල අධි වෝල්ටීයතා ඉලෙක්ට්‍රෝන තුවක්කු සහ චුම්භක අපගමන පද්ධති භාවිතා කරන නිසා
+ඒවා ඉතා බලගතුයි
+
+In contrast, LCD and LED monitors are far more power-efficient, especially LED-backlit LCDs. So the
+claim about CRTs consuming less power is the opposite of the truth.
+ඊට වෙනස්ව, LCD සහ LED මොනිටර, විශේෂයෙන් LED-backlit LCDsබොහෝ දුරට බලශක්ති කාර්යක්ෂම
+වේ. එබැවින් CRT අඩු බලයක් පරිභෝජනය කරන බවට කරන ප්‍රකාශය අසත්‍යය වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-7-
+
+Option / විකල්ප 3)
+Many people confuse LED monitors with a separate technology, but they are LCDs that use LED
+backlighting.
+බොහෝ අය LED මොනිටර වෙනම තාක්ෂණයක් සමඟ පටලවා ගනී, නමුත් ඒවා LCD පසුබිම් ආලෝකය
+භාවිතා කරන LED වේ.
+
+Option / විකල්ප 4)
+LCD panels do not emit light by themselves; they need a backlight to shine through the liquid ජරහිඒකිග
+LCD පැනල් තනිවම ආලෝකය විමෝචනය නොකරයි; ද්‍රව ස්ඵටික හරහා බැබළීමට ඒවාට පසුබිම් ආලෝකයක්
+අවශ්‍ය වේ.
+
+CRTs use an electron beam, not bulbs. LED-backlit LCDs do use internal LEDs for lighting, but calling
+them “bulbs” is misleading. So, this option is both confusing and factually wrong.
+CRTs භාවිතා කරන්නේ බල්බ නොව ඉලෙක්ට්‍රෝන කදම්භයකි. LED-backlit LCD  ආලෝකකරණය සඳහා
+අභ්‍යන්තර LED භාවිතා කරයි, නමුත් ඒවා “බල්බ” ලෙස හැඳින්වීම නොමඟ යවන සුළුය. එබැවින් මෙම
+විකල්පය ව්‍යාකූල සහ සත්‍ය වශයෙන්ම වැරදිය.
+
+Option / විකල්ප 5)
+LCD and LED monitors are indeed flat panels and use pixel-based digital rendering.
+LCD සහ LED මොනිටර සැබවින්ම පැතලි පැනල් වන අතර පික්සල් මත පදනම් වූ ඩිජිටල් විදැහුම්කරණය
+භාවිතා කරයි.
+
+CRT monitors, however, are not flat by default (though some newer CRTs were flatter) and they use analog
+signals, not digital.
+කෙසේ වෙතත් CRT මොනිටර පැතලි නොවේ (සමහර නව CRT පැතලි වුවත්) ඒවා ඩිජිටල් නොව ඇනලොග්
+සංඥා භාවිතා කරයි.
+
+So, grouping CRT with LCD and LED under digital flat panels is misleading
+එබැවින්, ඩිජිටල් පැතලි පැනල් යටතෙ LCD සහ LED සමඟ CRT කාණ්ඩගත කිරීම වැරදිය,
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+9. Which of the following best explains how a laser printer produces high-quality text and images on paper?
+ලේසර් මුද්‍රණ යන්ත්‍රයක් කඩදාසි මත උසස් තත්ත්වයේ පාඨ සහ රූප නිපදවන ආකාරය පහත සඳහන් ඒවායින්
+වඩාත් හොඳින් පැහැදිලි කරන්නේ කුමක්ද?
+
+1) It sprays tiny droplets of ink directly onto the paper/එය කුඩා තීන්ත බිංදු කෙලින්ම කඩදාසි මතට ඉසිනවා.
+2) It burns characters into paper using heat / එය තාපය භාවිතයෙන් අක්ෂර කඩදාසි බවට පත් කරයි.
+3) It uses a laser beam to form an image on a drum, then applies toner.
+එය බෙරයක් මත රූපයක් සෑදීමට ලේසර් කදම්භයක් භාවිතා කරයි, පසුව ටෝනර් යොදයි.
+
+4) It presses pre-formed characters through an inked ribbon.
+එය තීන්ත ආලේපිත පීත්ත පටියක් හරහා පෙර-සාදන ලද අක්ෂර ඔබයි.
+
+5) It magnetically charges paper to attract toner particles.
+එය ටෝනර් අංශු ආකර්ෂණය කර ගැනීම සඳහා කඩදාසි චුම්භකව ආරෝපණය කරයි.
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Laser printers work by using a laser beam to draw an image on a rotating drum. This drum is
+electrostatically charged, and where the laser hits, it removes the charge.
+ලේසර් මුද්‍රණ යන්ත්‍ර ක්‍රියා කරන්නේ භ්‍රමණය වන බෙරයක් මත රූපයක් ඇඳීම සඳහා ලේසර් කදම්භයක්
+භාවිතා කිරීමෙනි. මෙම බෙරය විද්‍යුත් ස්ථිතිකව ආරෝපණය කර ඇති අතර, ලේසර් වැදුණු විට එය ආරෝපණය
+ඉවත් කරයි.
+
+2027 QUIZ SERIES
+#ictfromabc
+-8-
+
+Then, toner (powder ink) sticks to the parts of the drum where the laser hit. Finally, the toner is transferred
+to the paper and fused using heat.
+ඉන්පසුව, ටෝනර් (කුඩු තීන්ත) ලේසර් වැදුණු බෙරයේ කොටස්වලට ඇලී යයි. අවසානයේදී, ටෝනරය කඩදාසියට
+මාරු කර තාපය භාවිතයෙන් විලයනය කරනු ලැබේ.
+
+This process makes laser printers fast and good for sharp text and graphics.
+මෙම ක්‍රියාවලිය ලේසර් මුද්‍රණ යන්ත්‍ර වේගවත් කරන අතර තියුණු පෙළ සහ ග්‍රැෆික්ස් සඳහා හොඳ වේ.
+
+Therefore, the answer is 3) / එබැවින්, පිළිතුර 3) වේ.
+
+10. A company is developing prosthetic limbs for patients using a special technology. This technology allows
+precise, customized, and rapid production of limb parts based on the patient's measurements. It also helps
+reduce material waste and costs.
+සමාගමක් විසින් විශේෂ තාක්ෂණයක් භාවිතා කරමින් රෝගීන් සඳහා කෘත්‍රීම අත් පා සංවර්ධනය කරයි. මෙම
+තාක්ෂණය මගින් රෝගියාගේ මිනුම් මත පදනම්ව අත් පා කොටස් නිවැරදිව, අභිරුචිකරණය කළ සහ වේගවත්
+නිෂ්පාදනය කිරීමට ඉඩ සලසයි. ද්‍රව්‍යමය නාස්තිය සහ පිරිවැය අඩු කිරීමට ද එය උපකාරී වේ.
+
+What could this special technology be / මෙම විශේෂ තාක්ෂණය කුමක් විය හැකිද?
+
+1) A barcode scanner / තීරු කේත ස්කෑනරය
+2) A large 3D printer / විශාල ත්‍රිමාණ මුද්‍රණ යන්ත්‍රය
+3) A projector / ප්‍රක්ෂේපණය
+4) A joystick / මෙහෙයුම් යටිය
+5) A keyboard / යතුරු පුවරුව
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+This question describes a technology that creates customized parts based on individual measurements, is
+precise, allows rapid production and reduces material waste and cost.
+මෙම ප්‍රශ්නය තනි මිනුම් මත පදනම්ව අභිරුචි කළ කොටස් නිර්මාණය කරන, නිරවද්‍ය වන, වේගවත්
+නිෂ්පාදනයට ඉඩ සලසන, ද්‍රව්‍යමය නාස්තිය සහ පිරිවැය අඩු කරන තාක්ෂණය විස්තර කරයි.
+
+These are all key features of 3D printing, especially in medical applications like prosthetics.
+මේ සියල්ල ත්‍රිමාණ මුද්‍රණයේ ප්‍රධාන ලක්ෂණ වේ, විශේෂයෙන්ම ශරීරාබාධ ප්‍රකෘතිමත් කිරීමට යොදා ගන්නා
+උපකරණ වැනි වෛද්‍ය යෙදුම්වල.
+
+So, the correct answer is 2) / එබැවින්, නිවැරදි පිළිතුර 2) වේ.
+
+Why the other options are incorrect / වෙනත් විකල්ප වැරදි ඇයි:
+
+1) Barcode scanner / තීරු කේත ස්කෑනරය
+Used for reading product codes; doesn’t produce or manufacture anything.
+නිෂ්පාදන කේත කියවීම සඳහා භාවිතා කරයි; කිසිවක් නිෂ්පාදනය නොකරයි.
+
+3) Projector / ප්‍රක්ෂේපණය
+Displays images or videos; unrelated to physical production.
+රූප හෝ වීඩියෝ පෙන්වයි; භෞතික නිෂ්පාදනයට සම්බන්ධ නැත.
+
+4) Joystick / මෙහෙයුම් යටිය
+Used for input in gaming or machinery control; not used for manufacturing.
+ක්‍රීඩා හෝ යන්ත්‍ර සූත්‍ර පාලනයේ යෙදවුම් සඳහා භාවිතා කරයි; නිෂ්පාදනය සඳහා භාවිතා නොවේ.
+
+5) Keyboard / යතුරු පුවරුව
+Standard input device; no role in producing physical objects.
+සම්මත ආදාන උපාංගයකි. භෞතික වස්තූන් නිෂ්පාදනය කිරීමේ කාර්යභාරයක් නොමැත.
+
+2027 QUIZ SERIES
+#ictfromabc
+-9-
+
+3D printing enables creating customized prosthetic limbs efficiently, with minimal waste, making it the
+ideal match for the described technology.
+ත්‍රිමාණ මුද්‍රණය මඟින් අවම අපද්‍රව්‍ය සමඟ කාර්යක්ෂමව අභිරුචිකරණය කරන ලද කෘත්‍රිම අත් පා නිර්මාණය
+කිරීමට හැකි වන අතර, එය විස්තර කරන ලද තාක්ෂණය සඳහා වඩාත් සුදුසු වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-10-

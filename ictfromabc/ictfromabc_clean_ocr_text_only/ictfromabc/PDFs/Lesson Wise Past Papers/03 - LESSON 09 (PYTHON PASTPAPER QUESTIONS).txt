@@ -11,7 +11,7 @@ SOOLND ක්‍රමලේඛයේදී ක්‍රමලේඛ පරි�
 Give two main features for each of the First-Generation and Second-Generation
 programming languages.
 
-පළමුචන පරමීපරාඥ්‌ි (First-Generation) සහ දෙවන පරමිපරාඥචේ (Second-Generation) ක්‍රමලේඛ
+පළමුචන පරමීපරාඥ්‌ි (First-Generation) සහ දෙවන පරම්පරාඥචේ (Second-Generation) ක්‍රමලේඛ
 භාෂා එක චකක්‌ සඳහා ප්‍රධාන ලක්ෂණ දෙකක්‌ බැගින්‌ දක්චන්න.
 
 Give three main flow control structures used in a structured programming language. Show
@@ -197,8 +197,8 @@ You should state the types of the variables involved.
 (i) infile = open("myfile.txt","r")
 (ili)a = "a,b,c".split(","
 
-Factorial of a positive integer n is defined as n x (n-1) x (n-2) x....... X3x2x 1.
-NDS ධන නිබිලයක ක්‍රමාරෝපිතය (factorial) අර්ථ දක්වනු ලබන්නේ n x (N-1) X (N-2) X ww... Xx 3x
+Factorial of a positive integer n is defined as n x (n-1) x (n-2) x…… X3x2x 1.
+NDS ධන නිබිලයක ක්‍රමාරෝපිතය (factorial) අර්ථ දක්වනු ලබන්නේ n x (N-1) X (N-2) X ww…… Xx 3x
 2X 1 ලෙස ය.
 
 (i) Propose an algorithm by using a flowchart to print the factorial of a given
@@ -238,8 +238,8 @@ Index_no_2,mark_21,mark_22,mark_23
 
 Where මෙහි
 
-Index_no_X : Index number of the X" student; X = 1, ................. on
-Index_no_X  :X වැනි සිසුවාගේ සුචි අංකය X = 1, ........... in
+Index_no_X : Index number of the X" student; X = 1, …… on
+Index_no_X  :X වැනි සිසුවාගේ සුචි අංකය X = 1, …… in
 
 mark_XY : Marks obtained by the Xth student for the Yth paper: Y = 1,2,3
 mark_XY -X චැනි සිසුවා Y ප්‍රශ්න පත්‍රයට ගත්‌ ලකුණු සංඛ්‍යාව Y = 1, 2, 3
@@ -437,9 +437,6 @@ flowchart. False
 10. Consider the following Python program:
 පහත දැක්චෙන පයිතන්‌ ක්‍රමලේඛය සලකන්න.
 
-ද
-[]
-
 6
 int (input ())
 
@@ -527,7 +524,6 @@ L3
 
 [int(x) for x in input().split() ]
 [int(x) for x in input().split() ]
-[ ]
 
 for i in Lt:
 
@@ -647,11 +643,10 @@ SSO දක්වා ඇති සංරචක හතර සඳහා
 । Start |
 
 at.
-|
 
-(0) Complete the four (4) blanks (indicated by ......) in the following Python program to
+(0) Complete the four (4) blanks (indicated by ……) in the following Python program to
 calculate the factorial of an integer.
-නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට අදාළ පහත පයිතන්‌ කේතයෙේ හිස්තැන්‌ හතර (......
+නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට අදාළ පහත පයිතන්‌ කේතයෙේ හිස්තැන්‌ හතර (……
 වලින්‌ දැක්වෙන) සම්පූර්ණ කරන්න.
 
 Note: The factorial of a positive integer is defined as the product of that integer and
@@ -669,7 +664,7 @@ factorial of 0 is defined as 1.
 factorial =
 if num ද 0:
 print( "Factorial is not defined for negative numbers!")
-65117 ........................෴෴෴෴෴෴෴෴..
+65117 ……෴..
 print( ' ] [16 factorial of @ is 1")
 else:
 for i in range(1,num + 1):
@@ -716,7 +711,7 @@ elements (no duplicates). But there can be J Input lists 11,229
 elements that are in both L1 and [ 2. The දී!
 notation L[x] denotes the element at Index N1 = number of
 x of a list L. If there are N elements in list L, items in L1
-then the indices are from 0, 1, 2, ... to (N-1). N2 = number of
+then the indices are from 0, 1, 2, …… to (N-1). N2 = number of
 පහත දැක්වෙන ගැලීම සටහනෙන්‌ ඉදිරිපත්‌ items in L2
 කෙරෙන ඇල්ගොරිතමය සලකන්න. L1 සහ L2 count = 0
 යනු ශුන්‍ය නොචන නිඛිල ලැයිස්තු වේ. එම චක්‌ i=0
@@ -726,7 +721,7 @@ L2 ලැයිස්තු දෙකේම යම්‌ නිඛිලයන�
 L[x] සංකේතනය මගින්‌ |! ලැයිස්තුවේ x නම්‌ වූ ෆ්‌
 දර්ශකයේ (index) ඇති අයිතමය දක්වයි. L No
 ලැයිස්තුවේ අයිතම N ගණනක්‌ ඇතිනමි,
-දර්ශකයන්‌ 0, 1, 2, ... සිට (N-1) තෙක්‌ චේ.
+දර්ශකයන්‌ 0, 1, 2, …… සිට (N-1) තෙක්‌ චේ.
 Yes
 (i) What would be the output if L1 = 2, 4, count = count + 1
 7,9, 3,5 and L2=1, 3, 8, 9, 6, 5, 7?
@@ -734,7 +729,7 @@ L1=2, 4, 7, 9, 3, 5 සහ L2=1, 3, 8, 9, 6, 5, ₹
 7 වේ නම්‌, ප්‍රතිදානය කුමක්‌ චේ ද? 12 ~ 12 4: 1
 (ii) What is the purpose of this algorithm? Yes
 මම ඇල්ගොරතමයෙහි අරමුණ කුමක්‌ ද? ඤඌ ෂණ
-... No
+…… No
 (111) Develop a Python program to —_——
 implement the algorithm expressed by i=il +1
 the flowchart.
@@ -801,16 +796,16 @@ code is to copy the content of a text file (A) to another text file (B).
 A = input("Enter the name of text file A")
 B = input("Enter the name of text file 8")
 
-11 = ..................- (4, ................... )
+11 = ……- (4, …… )
 
-412 = ,.................- (By ................... )
+412 = ,……- (By …… )
 
-for line in ..................- :
-f2.write (................... )
+for line in ……- :
+f2.write (…… )
 
-11. .........෴෴-:
+11. ……෴-:
 
-12. .........෴෴-:
+12. ……෴-:
 
 ( 2022 — S.Essay 3 )
 
@@ -899,8 +894,6 @@ is drawn to calculate the factorial of a given positive Integer.
 GED ලද ධන නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට ඇඳ ඇති පහත දැක්වෙන ගැලීමි
 සටහනේ (A) සිට (H) EO) ඇති ලේබල සඳහා වඩාත්ම ගැළපෙන ප්‍රකාශන ලියා දක්වන්න.
 
-©
-
 t ® VA © 7
 
 The factorial of a positive integer is defined as the product of that integer and all the
@@ -929,15 +922,14 @@ BOO සඳහා ඇඳ ඇති පහත ගැලීම්‌ සටහන�
 Write down the most suitable replacements for labels
 
 count = 0
-(&): ..................෴෴්‌ "ස..." )
-([(අ෴෴෴෴~෴෴෴~෴~~යී
-්‌ඡඇ෴෴෴෴෴෴෴~෴෴ී Is count
+(&): ……෴්‌ "ස……" )
+([(අ෴~෴~෴~~යී ‌ඡඇ෴~෴ී Is count
 (D): even?
-1ඇ෴෴෴෴෴~෴ධධ෴ධයඌය෴ය෴ය~ය ය. දී
+1ඇ෴~෴ධධ෴ධයඌය෴ය෴ය~ය ය. දී
 
-(CE): ......... ..... ©
-CF): ....... ..- .-. > <
-(ලු); _.........- --... [1
+(CE): …… …… ©
+CF): …… ..- .-. > <
+(ලු); _……- --…… [1
 
 count = count +1
 
@@ -972,12 +964,12 @@ BBO සමූහයක විශාලතම BAEG සෙවීමට ලිය�
 
 def findlargest(myList):
 
-(A): ෴෴බා
-largest = (A) (8); ....................෴෴  ්‌“..............
-for i in (8) : (ලූ: .....................෴෴ී...෴෴෴..........
+(A): ෴බා
+largest = (A) (8); ……෴  ‌“……
+for i in (8) : (ලූ: ……෴ී……෴……
 if i> (C) ()
-largest = (D) 3 .............--.. .:-
-print("largest value is", (E) ) ((මආ෴෴෴෴෴~~෴“෴_෴ධ෴
+largest = (D) 3 ……--.. .:-
+print("largest value is", (E) ) ((මආ෴~~෴“෴_෴ධ෴
 
 list1=[4,6,24,12,8,94,22]
 findlargest ( (F) )
@@ -1006,7 +998,7 @@ The function in Figure 8.2 uses the bubblesort algorithm to sort a given list of
 into ascending order. Write down the suitable replacements for the labels P-U to
 complete the code.
 
-රෑපය 8.2 හි දැක්වෙන පහත පයිතන්‌ ශ්‍රිතය, GED ලද අංක ලැයිස්තුවක්‌ ආරෝහණ ක්‍රමයට
+රූපය 8.2 හි දැක්වෙන පහත පයිතන්‌ ශ්‍රිතය, GED ලද අංක ලැයිස්තුවක්‌ ආරෝහණ ක්‍රමයට
 සැකසීමට බුබුළඵ ඉතේ්රීමි (bubble sort) ඇල්‌ගොරතමය භාවිත කරයි. කේතය සමිපූරිණ කිරීම
 සඳහා P-U ලේබලවලට සුදුසු ආදේශක ලියා දක්වන්න,
 
@@ -1033,13 +1025,13 @@ employees.txt file and the program's output for that file are shown in Figure 8.
 නෝට්ටු අටකින්‌ මිස රැ. සියයේ නෝට්ටු 400 කින්‌ enc.) සියලු සස්වකයන්‌ සඳහා මුදල්‌ අවශ්‍යතාවය
 ද ක්‍රමලේඛය ප්‍රතිදානය කළ යුතු ය. ක්‍රමලේඛය, සේවකයන්ගේ ශුද්ධ වැටුප්‌ (net pay) විස්තර අඩංගු
 employees.txt ගොනුව භාවිත aE QQ ය. එහි එක්‌ චක්‌ පේළියේ සේවකයකුගේ නම සහ ශද්ධ
-වැටුප අඩංගු GO. ඉහත අවශ්‍යතාවය සඳහා ලියවුනු පයිතන්‌ ක්‍රමලේඛය රෑපය 8.3 හි දැක්වේ. සාම්පල
+වැටුප අඩංගු GO. ඉහත අවශ්‍යතාවය සඳහා ලියවුනු පයිතන්‌ ක්‍රමලේඛය රූපය 8.3 හි දැක්වේ. සාම්පල
 
-employees.txt ගොනුවකුත්‌, ටම ගොනුවට අදාළ QHD ක්‍රමලේඛයේ ප්‍රතිදානයත්‌ රෑපය 8.4 හි
+employees.txt ගොනුවකුත්‌, ටම ගොනුවට අදාළ QHD ක්‍රමලේඛයේ ප්‍රතිදානයත්‌ රූපය 8.4 හි
 දැක්වේ.
 
 (1) Write down the suitable replacements for the ten labels A-J in program given in Figure 8.3.
-රෑපය 8.3 8 දැක්වෙන පයිතන්‌ ක්‍රමලේඛයේ &, -- ] ලල්බල BEM සුදුසු ආදේශක ලියා දක්වන්න.
+රූපය 8.3 8 දැක්වෙන පයිතන්‌ ක්‍රමලේඛයේ &, -- ] ලල්බල BEM සුදුසු ආදේශක ලියා දක්වන්න.
 
 #currency notes used in Sri Lanka
 notes = | 50606, 10006, 5006, 166, 50, 26]
@@ -1166,7 +1158,7 @@ the value -1. ලෲ)
 2) ॥ 50005 when the user enters Let X=5
 the value 5.
 
-න්‌ 2 ක්‍ෂ ඇතුළු කළ J have a positive mee /
+න්‌ 2 ක්ෂ ඇතුළු කළ J have a positive mee /
 
 Can you guess it?
 
@@ -1307,7 +1299,7 @@ if data[i] > data[k]
 NO
 
 KR ටට
-෴෴. ee ee ee
+෴. ee ee ee
 
 ටෟ
 
@@ -1402,7 +1394,7 @@ What is the output of the above pseudo code?
 ( 2012 -20)
 Consider the following flow chart to C suit)
 answer the questions 12 and 13.
-අංක 12 සහ 13 ප්‍රශ්නවලට පිළිතුරැ
+අංක 12 සහ 13 ප්‍රශ්නවලට පිළිතුරු
 සැපයීම SEM) පහත දක්චෙන ගැලීමි Input a positive
 සටහන සලකන්න. integer x
 
@@ -1446,7 +1438,6 @@ correct if the user inputs the value 6?
 
 It stops when the value of | is equal to 6.1 හි අගය 6 ට සමාන OD විට එය නවතියි.
 
-)
 2) It prints the value 4 as one of its outputs. Os ප්‍රතිදානයක්‌ ලෙස අගය 4 මුද්‍රණය කරයි.
 3) It prints the value 2 as one of its outputs. එය ප්‍රතිදානයක්‌ ලෙස අගය 2 මුද්‍රණය කරයි.
 4) It prints all the integers from 1 to 6. එය 1 සිට 6 තෙක්‌ සියලු BBE මුද්‍රණය කරයි.
@@ -1477,7 +1468,7 @@ Am C පමණි. B හා [0 පමණි. &, ල හා [[ පමණි. 6,19
 පයිතන්‌ දත්ත 9025 පිළිබඳ පහත දැක්වෙන ප්‍රකාශ සලකන්න:
 
 A ~ A tuple consists of ordered number of values separated by commas.
-tuple ප්‍රරෑපයෙහි දත්තයක්‌ කොමාවලින්‌ චෙන්‌ කරනු ලබන පටිපාටිගත අගයන්ගෙන්‌ සමන්චිත Gd.
+tuple ප්‍රරූපයෙහි දත්තයක්‌ කොමාවලින්‌ චෙන්‌ කරනු ලබන පටිපාටිගත අගයන්ගෙන්‌ සමන්චිත Gd.
 
 B - A dictionary comprises of an unordered set of key : value pairs separated by commas
 and enclosed in “{", “}" brackets.
@@ -1675,7 +1666,7 @@ open = infile ("output.txt","a")
 infile = open ("output.txt", "w")
 
 RW ට
-෴. ෴෴ (_෴.. eee
+෴. ෴ (_෴.. eee
 
 ටෟ
 
@@ -1786,12 +1777,6 @@ flowchart? Yes ~
 
 KW [ට
 
-)
-)
-)
-)
-)
-
 ම අ ෆෟ
 
 ටෟ
@@ -1824,7 +1809,7 @@ Which of the following statements is true with respect to programming languages?
 ඇසෙමිබිලි භාෂා ක්‍රමලේඛන ඕනෑම පරිගණකයක සෘජුව © ධාවනය කළ හැකි ය.
 
 3) Assembly languages belong to the first generation programming languages.
-ඇසෙමිබිලි භාෂා අයත්‌ වන්නේ පළමුවන පරමිපරාවේ ක්‍රමලේඛන භාෂාවලට ය,
+ඇසෙමිබිලි භාෂා අයත්‌ වන්නේ පළමුවන පරම්පරාවේ ක්‍රමලේඛන භාෂාවලට ය,
 
 4) Assembly language is more human readable form of machine language.
 ඇසෙමිබිලි භාෂාව යනු මිනිසාට වඩා පහසුවෙන්‌ Bada හැකි යන්ත්‍ර භාෂාවේ © ආකාරයකි,
@@ -2039,18 +2024,6 @@ A:
 B:
 C:
 
-))
-))
-))
-
-))
-))
-))
-
-))
-))
-))
-
 36. What will be the output when the following Python code Is executed?
 පහත EMO) ඇති පයිතන්‌ කේතය ක්‍රියාත්මක we SO ප්‍රතිදානය කුමක්‌ ද?
 
@@ -2082,8 +2055,6 @@ Python expression 10-4*3/2-5?
 ය.
 
 (((16 - 4) * 3)/2) - 5
-
-)
 
 2) ((10 - (4 * 3))/2) - 5
 3) 16 - (4 * ((3/2) - 5))
@@ -2249,12 +2220,6 @@ Ad පියවර අනුක්‍රමයකින්‌ සමන්වි
 
 1)
 
-"))
-
-"))
-
-"))
-
 X = int(input("Enter a value : "))
 n=
 t= 6
@@ -2367,7 +2332,7 @@ Asm B පමණි. Am C පමණි. 5 හා C පමණි. 5 හා D ප�
 ( 2015 ~ 44)
 
 What is the data type of the variable temp in this Python code?
-ලමම පයිතන්‌ කේතයේ temp නමැති චිචල්‍යයෙහි දත්ත ප්‍රරෑපය චන්නේ කුමක්‌ ද?
+ලමම පයිතන්‌ කේතයේ temp නමැති චිචල්‍යයෙහි දත්ත ප්‍රරූපය චන්නේ කුමක්‌ ද?
 
 1) Integer 2) Float 3) Boolean 4) Tuple 5) List
 (2015 - 45 )
@@ -2381,7 +2346,7 @@ What is the data type of the variable temp in this Python code?
 51.
 
 What Is the return data type of the function named " 1 '?
-“1” නමැබ්‌ ශිතයේ, ප්‍රත්‍යාගමන (return) දුත්ත ප්‍රරෑපය වන්නේ කුමක්‌ ද්‍ර?
+“1” නමැබ්‌ ශිතයේ, ප්‍රත්‍යාගමන (return) දුත්ත ප්‍රරූපය වන්නේ කුමක්‌ ද්‍ර?
 
 1) Integer 2) Float 3) Boolean 4) Tuple 5) List
 (2015 ~ 46 )
@@ -2474,8 +2439,6 @@ QOD HES සටහන නිවැරදිච කියාත්මක
 5) i = 13011 25
 
 A
-
-:
 
 tot = 0
 
@@ -2594,7 +2557,7 @@ d3 = [1,2,(1,2)]
 What would be the types of variables dl, d2 and d3 respectively after the execution of the
 program segment?
 
-QNMD ක්‍රමලේඛ බණ්ඩය ක්‍රියාත්මක කිරීමෙන්‌ පසු d1, d2 සහ d3 යන විචල්‍යයන්ගේ ප්‍රරෑපයන්‌
+QNMD ක්‍රමලේඛ බණ්ඩය ක්‍රියාත්මක කිරීමෙන්‌ පසු d1, d2 සහ d3 යන විචල්‍යයන්ගේ ප්‍රරූපයන්‌
 පිළිවෙළින්‌ කුමක්‌ චේ ද?
 
 1) tuple, tuple, tuple 2) string, tuple, tuple 3) char, tuple, list
@@ -2641,7 +2604,6 @@ return 5 return y,x
 Consider the following flow chart.
 පහත ගැලීම්‌ සටහන සලකන්න: ( start )
 What is the error with the above flow chart?
-?
 
 QOD ගැලීමි සටහනේ ඇති දෝෂය කුමක්‌ ද? Ve da value for of
 
@@ -2663,7 +2625,7 @@ QOD ගැලීමි සටහනේ ඇති දෝෂය කුමක්‌
 (2017-25)
 
 Which of the following statements is true about algorithms?
-ඇල්ගොරිතම සමිබන්ධයෙන්‌ පහත දැක්වෙන කුමන වගන්තිය සත්‍ය වේ ද?
+ඇල්ගොරිතම සම්බන්ධයෙන්‌ පහත දැක්වෙන කුමන වගන්තිය සත්‍ය වේ ද?
 
 1) A set of steps used to solve a problem is called an algorithm.
 ගැටලුවක්‌ විසඳීමට යොදා ගන්නා පියචරවල සමූහයක්‌ ඇල්ගොරතමයක්‌ ලෙස හැඳින්වේ.
@@ -2686,10 +2648,10 @@ Which of the following statements is true about algorithms?
 පහත දැක්චෙන කුමන වගන්තිය නිවැරදි චේ ද?
 
 1) String is a mutable data type.
-‘String’, යනු mutable දත්ත ප්‍රරෑපයකි.
+‘String’, යනු mutable දත්ත ප්‍රරූපයකි.
 
 2) List is an immutable data type.
-‘List’ යනු immutable දත්ත ප්‍රරෑපයකි.
+‘List’ යනු immutable දත්ත ප්‍රරූපයකි.
 
 3) [1, 2, 3] is a tuple.
 [1, 2, 3] යනු tuple යකි.
@@ -2698,7 +2660,7 @@ Which of the following statements is true about algorithms?
 (1, 2, 3] [1] ප්‍රකාශනය ක්‍රියාත්මක කළ SO [2] ලබා දේ.
 
 5) The type of {'a':, 1:(1, 2)} is a Dictionary.
-{'a':1, 1:(1, 2)} ප්‍රරෑපය Dictionary යකි.
+{'a':1, 1:(1, 2)} ප්‍රරූපය Dictionary යකි.
 (2017 - 41 )
 
 63. Consider the following values:
@@ -3531,7 +3493,7 @@ f1.close()
 f2.close()
 
 Which of the following statements are correct about the above program?
-QOD ක්‍රමලේඛය සමිබන්ධයෙන්‌ පහත කවර ප්‍රකාශ සත්‍ය වේ ද?
+QOD ක්‍රමලේඛය සම්බන්ධයෙන්‌ පහත කවර ප්‍රකාශ සත්‍ය වේ ද?
 
 A ~ The content of the input file (inFile.txt) is checked in a loop, one line at a time.
 ආදාන ගොනුවේ (inFile.txt) අන්තර්ගතය, වරකට එක පේළිය බැගින්‌, ලූපයක්‌ තුළ පර්ක්ෂාවකට
@@ -3555,8 +3517,6 @@ A පමණි. B පමණි. Am B පමණි. & හා C පමණි. ඉ�
 පහත දැක්චෙන පයිතන්‌ කේතයේ ප්‍රතිදානය කුමක්‌ ද?
 
 100) :
-
-ද
 
 4
 
@@ -3613,7 +3573,7 @@ A - ප්‍රභහච කේතය, B - සම්පාදකය, C - වස
 
 Which of the following statements is/are correct with respect to Object Oriented
 Programming?
-වස්තු නැඹුරු MOcG@acs(Object Oriented Programming) සමිබන්ධයෙන්‌ පහත කවරක්‌ නිවැරදි
+වස්තු නැඹුරු MOcG@acs(Object Oriented Programming) සම්බන්ධයෙන්‌ පහත කවරක්‌ නිවැරදි
 ද?
 A ~ System output is determined by the object behaviour and their interactions.
 
@@ -3647,7 +3607,6 @@ of n inputs. Z input x 2
 ගණන ප්‍රනිදානය කිරීම ඇල්ගොරිතමය මගින්‌ අපේක්ෂා
 
 කෙරේ. Yes
-®
 
 For the algorithm to function correctly as fe
 
@@ -3662,7 +3621,6 @@ count = count + 1
 
 ය.
 
-)
 2) count = count + | Yes
 3) count = count + x O
 utput count
@@ -3788,8 +3746,6 @@ T=
 
 ( 2021 ~ 44)
 
-¥
-
 WA Input n /
 
 No
@@ -3805,7 +3761,7 @@ A and B only. A සහ 8 පමණි
 B and C only. B සහ C පමණි
 
 RW [ට
-෴. ee ..." "෴* ෴.
+෴. ee ……" "෴* ෴.
 
 ටෟ
 
@@ -3856,7 +3812,7 @@ Nimal Kandy 18
 Nimal 18 Kandy
 
 RW [ට
-෴~ ee ....෴ ee ෴.
+෴~ ee ……෴ ee ෴.
 
 ටෟ
 
@@ -3880,7 +3836,6 @@ print(numbers )
 
 [10, 59, 60]
 
-)
 2) [10, 20, 40, 60]
 3) [10, 30, 50, 60]
 4) [20, 30, 40, 56]
@@ -4023,7 +3978,6 @@ List සහ Tuple දත්ත ව්‍යහ අතුරින්‌ කු�
 
 Dictionary only
 
-)
 2) List only
 3) Tuple only
 4) Dictionary and List only

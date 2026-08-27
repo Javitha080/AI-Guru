@@ -8,19 +8,19 @@ includes sensor, controller and microcontroller
 
 (Arduino Board) with a communication module. 22> ම්‌ යු
 හරිතාගාරයක ඇති පැළයකට පලය යෙදිය හැකි IoT Y ©
-ඇටවුමක්‌ රෑපය 1 හි දැක්වේ. පලය නිකුත්‌ කරන M []
+ඇටවුමක්‌ රූපය 1 හි දැක්වේ. පලය නිකුත්‌ කරන M []
 කරාමය ක්‍රියාකරවීමට පංගම යෙදුමක්‌ (mobile
 
 application) භාවිත චේ. රැපයේ es) ඇති පරිදි 8 |
 ඇටවුම, සංවේදකයකින්‌ (sensor), පාලකයකින්‌
 
-(controller) සහ සන්නිවේදන මොඩියුලයක්‌ සහිත ක්ෂුදු රෑපය 1
+(controller) සහ සන්නිවේදන මොඩියුලයක්‌ සහිත ක්ෂුදු රූපය 1
 පාලකයකින්‌ (ආඩියුනෝ පුවරැචකින්‌) සමන්විත ය.
 
 First, let's examine what the mobile application, sensor, controller and communication module shown
 in Figure | of part 7. (a) are,
 
-පළමුව 7. (4) කොටසෙහි 1 රෑපයෙහි EO) ඇති ජංගම යෙදුම, සංවේදූකය,.පාලකය සහ සංනිවේදන මොඩියුලය
+පළමුව 7. (4) කොටසෙහි 1 රූපයෙහි EO) ඇති ජංගම යෙදුම, සංවේදූකය,.පාලකය සහ සංනිවේදන මොඩියුලය
 (communication module) යනු කුමක්දැයි විමසා බලමු,
 
 e Mobile application / ජංගම යෙදුම
@@ -31,7 +31,7 @@ releasing tap remotely. This application interfaces with the entire IoT setup, e
 and manage the watering schedule of the plant directly from their mobile devices.
 
 SOO යෙදුමක්‌ යනු ස්මාර්ට්‌ ෆෝන්‌ සහ ටැබිලටි වැනි පංගම උපාංග මත ධාවනය කිරීමට නිර්මාණය කර
-ඇති මෘදුකාංග වැඩසටහනකි. | රෑපයට අනුව, පංගම යෙදුම දුරස්ථව පලය මුදා හරින කරාමය ක්‍රියාත්මක
+ඇති මෘදුකාංග වැඩසටහනකි. | රූපයට අනුව, පංගම යෙදුම දුරස්ථව පලය මුදා හරින කරාමය ක්‍රියාත්මක
 කිරීමට භාවිතා කරයි. මෙම යෙදුම සමස්ත ]09] සැකසුම සමඟ අතුරැමුහුණත්‌ කරයි, පරිගිලකයින්ට
 ඔවුන්ගේ SOO උපාංගවලින්‌ සෘපුවම බලාගාරයේ පලය දැමිමේ කාලසටහන නිරීක්ෂණය කිරීමට සහ
 කළමනාකරණය කිරීමට හැකි වේ.
@@ -44,9 +44,9 @@ moisture level. This sensor plays a crucial role in the 10 1 setup by providing 
 data about the soil's current moisture state.
 
 සංවේදකයක්‌ යනු පාරිසරික තත්ත්වයන්හි වෙනස්කමි හඳුනාගෙන SO අනුරෑප ප්‍රතිදානය සපයන
-උපකරණයකි. ] රෑපයේ, C සංරචකය ලෙස ලේබල්‌ කර ඇති සංවෙදකය, පසෙහි තෙතමන මටිටම මනිනු
+උපකරණයකි. ] රූපයේ, C සංරචකය ලෙස ලේබල්‌ කර ඇති සංවෙදකය, පසෙහි තෙතමන මටිටම මනිනු
 ලබන තෙතමන සංචවේදකයකි. මෙම සංවේදකය පසෙහි වත්මන්‌ තෙතමන තත්ත්වය පිළිබඳ නිවැරදි සහ
-අඛණ්ඞ දත්ත සැපයිම මගින්‌ IoT සැකසුමෙහි තීරණාත්මක කාර්යභාරයක්‌ ඉටු කරයි.
+අඛණ්ඩ දත්ත සැපයිම මගින්‌ IoT සැකසුමෙහි තීරණාත්මක කාර්යභාරයක්‌ ඉටු කරයි.
 
 e Controller / පාලකය
 A controller is a device or set of devices that manages, commands, directs, or regulates the behavior
@@ -67,7 +67,7 @@ updates and send instructions remotely, ensuring the entire IoT setup functions 
 effectively.
 
 සන්නිවේදන CAGES යනු පද්ධතියක විවිධ සංරචක අතර හෝ විවිධ පද්ධති අතර සන්නිවේදනය
-සක්‍රීය කරන උපකරණයකි. | රෑපයේ, B සංරචකය ලෙස ලේබල්‌ කර ඇති සන්නිවේදන මොඩියුලය
+සක්‍රීය කරන උපකරණයකි. | රූපයේ, B සංරචකය ලෙස ලේබල්‌ කර ඇති සන්නිවේදන මොඩියුලය
 Arduino පුවරැවකින්‌ නියෝපනය වේ එය සංවේදකය, පාලකය සහ පංගම යෙදුම ඇතුඑව පද්ධතියේ
 විවිධ සංරචක අතර සන්නිවෙදනය සඳහා පහසුකමි සපයයි. මෙම පාලකය තෙතමනය සංවේදකයෙන්‌
 ලැබෙන දුත්ත සකසන අතර පුර්ව නිශ්චිත ඇල්ගොරිතම මත පදුනමිව තීරණ ගනී. එය පද්ධතියේ මධ්‍යම
@@ -123,7 +123,6 @@ If Not Tap Closed If කරාමය වසා නැත
 Then | 7] Then | 7]
 End if End if
 End if End if
-} }
 
 According to the above (b) part explanation, the system will open the tap to water the soil when the
 moisture level drops below 8 and close the tap when the moisture level reaches or exceeds 8.
@@ -146,7 +145,7 @@ If Not Tap Closed If කරාමය වසා නැත
 Then Close Tap Then කරාමය වසන්න
 End if End if
 End if End if
-} }
+
 X-ML < 8
 
 Y—Open Tap / කරාමය විවෘත කරන්න
@@ -194,7 +193,7 @@ By monitoring brightness levels, an LDR sensor allows precise control over light
 plants with specific light needs at different growth stages.
 
 දිප්තියේ මට්ටම්‌ නිරීක්ෂණය කිරීමෙන්‌ LDR සංවෙදකය ආලෝකය මත නිග්චිත පාලනයක්‌ ලබා දෙයි, විවිධ
-වර්ධන අවයධින්හිදි Adda ආලෝක අවග්‍යතා ඇති MEO සඳුහා මෙය අත්‍යවග්‍ය වේ.
+වර්ධන අවයධින්හිදි Adda ආලෝක අවශ්‍යතා ඇති MEO සඳුහා මෙය අත්‍යවග්‍ය වේ.
 
 Light Intensity / ආලෝක තිවතාව
 
@@ -216,10 +215,10 @@ sensitive plants.
 2023 INTERNET OF THINGS ESSAY MARKING
 
 1.(a) Assume that you are given an Arduino UNO board (Figure 7.1) along with the following items:
-ඔබට mages} UNO පුචරැවක්‌ (රෑපය 7.1) පහත අයිතම ද සමගින්‌ ලැබී ඇතැයි සලකන්න.
+ඔබට mages} UNO පුචරැවක්‌ (රූපය 7.1) පහත අයිතම ද සමගින්‌ ලැබී ඇතැයි සලකන්න.
 
 6 Passive Infrared Sensor (PIR) for motion detection (Figure 7.2)
-චලනය හදුනාගැනීම සඳහා විඳින අධෝරක්ත සංවේදකයක්‌ (Passive Infrared Sensor [PIR]) (රෑපය 7.2)
+චලනය හදුනාගැනීම සඳහා විඳින අධෝරක්ත සංවේදකයක්‌ (Passive Infrared Sensor [PIR]) (රූපය 7.2)
 
 6 Sensor for ambient light detection
 SOAS ආලෝකය (ambient light) හඳුනාගැනම සඳුහා සංවේදකයක්‌
@@ -237,7 +236,7 @@ B
 Figure 7.1 Figure 7.2
 
 (1) Identify the parts marked as A, B, C, and D in Figure 7.1 and briefly explain each of their functionalities.
-රෑපය 7.1 හි A,B,C සහ D ලෙස ලකුණු කර ඇති කොටස්‌ හඳුනාගෙන 5 එකිනෙකෙහි කාර්යභාරය
+රූපය 7.1 හි A,B,C සහ D ලෙස ලකුණු කර ඇති කොටස්‌ හඳුනාගෙන 5 එකිනෙකෙහි කාර්යභාරය
 සැකෙවින්‌ පහදන්න.
 
 Let's describe A, B, C and D shown on the Arduino UNO board as follows.
@@ -249,7 +248,7 @@ The USB port on an UNO board connects it to a computer, supplying power and tran
 allows for programming via Arduino software and facilitates communication between the
 microcontroller and the computer, enabling code uploads and output monitoring.
 
-UNO පුවරුවක ඇති USB කෙවෙනිය එය පරිගණකයකට සමිබන්ධ කරයි, බලය සැපයීම සහ eso
+UNO පුවරුවක ඇති USB කෙවෙනිය එය පරිගණකයකට සම්බන්ධ කරයි, බලය සැපයීම සහ eso
 මාරැ කිරීම සිදු කරයි. එය Arduino මෘදුකාංගය හරහා ක්‍රමලේඛනය කිරීමට ඉඩ සලසන අතර ක්ෂුද්‍ර
 පාලකය සහ පරිගණකය අතර සන්නිවේදනය පහසු කරයි, කේත උඩුගත කිරීමි සහ ප්‍රතිදාන අධික්ෂණය
 සක්‍රීය කරයි.
@@ -269,7 +268,7 @@ on the program logic, coordinating all board activities.
 
 ක්ෂුද්‍ර පාලකය UNO පුවරැවේ මධ්‍ය සැකසුමි ඒකකය ලෙස Ga) කරයි. එය CHAM කරන EC කේතය
 ක්‍රියාත්මක කරයි, මෙහෙයුමි කළමනාකරණය කරයි, ප්‍රතිසම සහ අංකිත පර්යන්ත වලින්‌ ලැබෙන ආදාන
-සකසයි, සහ සියලුම පුවරැ ක්‍රියාකාරකමි සමිබන්ධිකරණය කරමින්‌ වැඩසටහන්‌ තර්කනය මත පදනම්ව
+සකසයි, සහ සියලුම පුවරැ ක්‍රියාකාරකමි සම්බන්ධිකරණය කරමින්‌ වැඩසටහන්‌ තර්කනය මත පදනම්ව
 ප්‍රතිදානයන්‌ පනනය කරයි.
 
 1) -- 1)191121] input/output terminal \ අංකිත (සංඛ්‍යාංක) ආදාන/ප්‍රතිදාන තුඩු
@@ -283,9 +282,9 @@ interactive electronic projects.
 (11) Assume that you want to build a loT setup that switches an LED light on when motion is detected. It
 is further required to switch on this LED only during night time. Draw schematic diagram connecting
 the Arduino board and the items given above as necessary in order to build this setup.
-චලනයක්‌ හඳුනාගත්‌ SO ආලෝක විමෝචන ඩයෝඩයක්‌ (LED) දුල්වන (switch on) සාර්ව ද්‍රව්‍ය අන්තටපාල
-(loT) ඇටවුමක්‌ සැෑඳිමට ඔබට අවග්‍ය යැයි සිතන්න. තවද මෙම LED ය දැල්විය යුත්තේ රාත්‍රි කාලයේදි
-පමණි. මෙම ඇටවුම ගොඩනැගීමට ඔබ ආඞියුනෝ පුවරුව සමග ඉහත දෙන ලද අයිනම නිසි පරිදි
+චලනයක්‌ හඳුනාගත්‌ SO ආලෝක විමෝචන ඩයෝඩයක්‌ (LED) දුල්වන (switch on) සාර්ව ද්‍රව්‍ය අන්තර්ජාල
+(loT) ඇටවුමක්‌ සැෑඳිමට ඔබට අවශ්‍ය යැයි සිතන්න. තවද මෙම LED ය දැල්විය යුත්තේ රාත්‍රි කාලයේදි
+පමණි. මෙම ඇටවුම ගොඩනැගීමට ඔබ ආඩියුනෝ පුවරුව සමග ඉහත දෙන ලද අයිනම නිසි පරිදි
 සම්බන්ධ කරන අයුරැ දැක්වීමට දළ රැපසටහනක්‌ අඳින්න.
 
 RESET < ශී ප්‍ර DO/RX
@@ -341,14 +340,14 @@ its decision. The Dispatch Officer can override Dispatch Handler decisions if ne
 confirmed packages to the postal division.
 ඉ-වාණිප්‍යය බඩු ගබඩාවක ස්වයං යන්ත්‍රන (automation) පද්ධතියක, adam කිරීමි ආරමිභ කිරීම සඳුහා
 ඇනවුමි කළ භාණ්ඩ SOO අදාළ පිටත්කරන ස්ටානවලට ගෙන යන රොබෝ කාරක (agents) සමුහයක්‌
-ඇතුළත්‌ ය. පද්ධතියේ අවසාන කොටස රෑපය 7.3 හි දැක්වේ. තත්ව පාලන (quality control) නිලධාරියා
+ඇතුළත්‌ ය. පද්ධතියේ අවසාන කොටස රූපය 7.3 හි දැක්වේ. තත්ව පාලන (quality control) නිලධාරියා
 සැම ඇණවුමකම ga වාහක පටියක (conveyor belt) යන විට පරීක්ෂා කර, ඇණවුම තත්ව පාලනයෙන්‌
 සමත්‌ Q බවට මෘදුකාංග පද්ධතියකට (බෙදිමි හසුරුැවන කාරකයට [Delivery Handler Agent]) තහවුරැ කරයි.
 බෙදිමි හසුරුවන කාරකය බඩු පැටවිමි ප්‍රදේශයේදි GMO රොබෝවකට පැකේජය යොමුකරයි. රොබෝ කාරකය
 පැකේජයේ තීරැ කේතය (barcode) කියවා අදාළ පිටත්කරන ස්ටානය සොයාගනියි. එය එවිට මඟ පිරික්සමින්‌,
 අවහිර මගහරීමන්‌ අදාළ, පිටත්කරන ස්ථානයට රොබෝව යොමු කරවයි. තවත්‌ මෘඅදුකාංගයක්‌ වන පිටත්විමි
 හසුරැවන කාරකය (Dispatch Handler Agent) පිටත්කරන ස්ටානවලදි සෑම පැකේපයකම වලංගුභාවය
-පිරික්සා, පිටත්කරන නිලධාරියාට තමාගේ තීරණය තහවුරැ කරන ලෙස C806. පිටත්කරනු නිලධාරියාට අවග්‍ය
+පිරික්සා, පිටත්කරන නිලධාරියාට තමාගේ තීරණය තහවුරැ කරන ලෙස C806. පිටත්කරනු නිලධාරියාට අවශ්‍ය
 නමි පිටත්වීිමි හසුරුවන කාරකගේ තරණ නොසැලකිය හැක. පිටත්කරන නිලධාරියා, තහවුරු කළ පැකේප
 තැපැල්‌ අංශයට යොමුකරයි.
 
@@ -404,7 +403,7 @@ goals, enabling agents to coordinate their actions effectively within a system
 මෘදුකාංග නියෝපිතයන්‌ සහයෝගි ලෙස සලකනු ලැබේ. ක්‍රියාවලි සහ ප්‍රතිවල ප්‍රශස්ත කිරීම සඳහා
 නියෝපිතයන්‌ අතර තොරතුරු සහ කාර්යයන්‌ බෙදා ගනු ලැබේ. මෙම සහයෝගිතාවය සන්නිවේදන
 නියමාවලි සහ අනෙක්‍රන්න්‍ය අරමුණු හරහා පහසුකමි සපයනු ලබන අතර, නියෝපිතයින්ට පද්ධතියක්‌ තුළ
-ඔවුන්ගේ ක්‍රියාවන්‌ ඵලදායී ලෙස සමිඛන්ධිකරණය කිරීමට හැකි වේ.
+ඔවුන්ගේ ක්‍රියාවන්‌ ඵලදායී ලෙස සම්බන්ධිකරණය කිරීමට හැකි වේ.
 
 (11) Name a self-autonomous agent and a user agent in the given example.
 ඉහත උදාහරණයේ ස්වයං ස්වාධින (self-autonomous) කාරකයක්‌ සහ පරිගීලක කාරකයක්‌ (user-agent)
@@ -477,7 +476,7 @@ and arrow diagram) අඳින්න.
 
 connections between those components )
 
-( සටහන: කොටු සහ ඊතල රැපයක කොටුවලින්‌ පද්ධති සංරචකත්‌, ඊතලවලින්‌ සංරචක අතර සමිබන්ධතාත්‌
+( සටහන: කොටු සහ ඊතල රැපයක කොටුවලින්‌ පද්ධති සංරචකත්‌, ඊතලවලින්‌ සංරචක අතර සම්බන්ධතාත්‌
 
 දැක්වේ. )
 
@@ -489,8 +488,6 @@ Agent
 
 Robot 1
 
-|
-
 Robot 2
 
 Robot N
@@ -499,11 +496,10 @@ Robot N
 
 Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
 
-
 2024 INTERNET OF THINGS ESSAY MARKING
 
 1.(a) Figure 7.1 shows the Arduino circuit that Saman implemented to detect a door opening.
-රෑපය 7.18 පෙන්වන්නේ දොරක විවෘත විමක්‌ අනාවරණය කරගැනිමට සමන්‌ සෑදූ ආඩුයිනෝ Goda.
+රූපය 7.18 පෙන්වන්නේ දොරක විවෘත විමක්‌ අනාවරණය කරගැනිමට සමන්‌ සෑදූ ආඩුයිනෝ Goda.
 
 AtSvu
 [!!][[|[|] || | | | | a |
@@ -519,7 +515,7 @@ Pid | | | | | :
 v Vv Vv Vv
 
 (1) Explain the behaviour and operation of the sensor used in this circuit.
-පරිපටයේ භාවිත කරන සන්වේදකයේ (sensor) හැසිරීම සහා ක්‍රියාකාරිත්වය පහදන්න.
+පරිපථයේ භාවිත කරන සන්වේදකයේ (sensor) හැසිරීම සහා ක්‍රියාකාරිත්වය පහදන්න.
 
 The sensor used in the circuit appears to be a magnetic reed switch. This sensor operates based on the
 presence or absence of a magnetic field. When the door 15 closed, the magnet remains close to the sensor,
@@ -527,16 +523,16 @@ keeping the circuit inactive. However, when the door opens, the magnet moves awa
 to send a HIGH signal to the microcontroller (ATmega328P). The microcontroller detects this state change
 and activates the buzzer to produce a sound, signaling that the door has been opened.
 
-පරිපටයේ භාවිතා කරන සංවේදකය චුමිඛක reed ස්විචයක්‌ ලෙස පෙනේ. මෙම සංවේදකය චුමිභක ක්ෂේත්‍රයක්‌
+පරිපථයේ භාවිතා කරන සංවේදකය චුමිඛක reed ස්විචයක්‌ ලෙස පෙනේ. මෙම සංවේදකය චුමිභක ක්ෂේත්‍රයක්‌
 තිබිම හෝ නොමැති SO මත ක්‍රියාත්මක වේ. දොර වසා ඇති විට, චුමිබඛය සංවේෙදුකයට සමීපව පවති,
-පරිපටය අක්‍රියව තබා ගනී. කෙසේ වෙතත්‌, දොර විවෘත වන විට, චුම්බකඛකය ඉවතට ගමන්‌ කරයි, එමගින්‌
+පරිපථය අක්‍රියව තබා ගනී. කෙසේ වෙතත්‌, දොර විවෘත වන විට, චුම්බකඛකය ඉවතට ගමන්‌ කරයි, එමගින්‌
 සංවේදකය see පාලකය ATmega328P වෙත ඉහළ සංඥාවක්‌ යැවීමට හේතු වේ. SSE පාලකය මෙම
 තත්වය වෙනස්‌ විම හඳුනාගෙන ගශබිදුයක්‌ නිපදවීමට බසරය සක්‍රිය කර දොර විවෘත කර ඇති බවට සංඥා
 කරයි.
 
 (11) To operate this setup Saman wrote the firmware code shown in Figure 7.2. However, the setup failed to
 operate as expected due to defects in the code. Write down the corrections that you would do to the code.
-මෙම පරිපටය ක්‍රියාකරවීමට සමන්‌ රෑපය 7.2 හි දැක්වෙන ස්ටිරාංග (firmware) කේතය ලිවිවේය. එහෙත්‌
+මෙම පරිපථය ක්‍රියාකරවීමට සමන්‌ රූපය 7.2 හි දැක්වෙන ස්ටිරාංග (firmware) කේතය ලිවිවේය. එහෙත්‌
 කේතයේ දෝෂ නිසා ඇටවුම අපේක්ෂිත ආකාරයට ක්‍රියා කළේ නැත. ඔබ එම කේතයට කරන නිවැරදි HOO
 
 ලියා දක්වන්න.
@@ -546,7 +542,6 @@ const int BuzzerP = 8;
 void setup() {
 pinMode(SensorP, INPUT);
 pinMode(BuzzerP, OUTPUT) ;
-}
 
 void loop() {
 int senState = digitalRead(SensorP) ;
@@ -555,7 +550,7 @@ tone(SensorP, 262);
 else
 noTone(BuzzerP,@) ;
 
-Figure / රෑපය 7.2
+Figure / රූපය 7.2
 
 The provided code has two key issues preventing proper operation.
 සපයා ඇති කේතය නිසි ලෙස ක්‍රියාත්මක SO වැළැක්වීමේ ප්‍රධාන ගැටළු දෙකක්‌ ඇත.
@@ -569,7 +564,7 @@ modes නිපදවිය යුත්තේ සංවේදකය නොව �
 e The noTone() function has an extra argument 0 that 15 unnecessary and invalid. The correct syntax
 requires only the pin number where the tone needs to stop.
 noTone() ග්‍රිතයට අමතරව 0 ලෙසින්‌ තර්කයක්‌ ඇත එය FHOOSB සහ වලංගු නොවේ. නිවැරදි කාරක
-රිතියට අවග්‍ය වන්නේ tone නැවැත්වීමට අවග්‍ය වන පින්‌ අංකය පමණී.
+රිතියට අවශ්‍ය වන්නේ tone නැවැත්වීමට අවශ්‍ය වන පින්‌ අංකය පමණී.
 
 The corrected code is as follows / නිවැරදි කරන ලද කේතය පහත SOE වේ:
 
@@ -582,7 +577,6 @@ const int BuzzerP
 void setup() {
 pinMode(SensorP, INPUT) ;
 pinMode(BuzzerP, OUTPUT) ;
-}
 
 void loop() {
 int senState = digitalRead(SensorP) ;
@@ -594,15 +588,15 @@ noTone(BuzzerP) ; //Corrected to stop the tone on the buzzer pin (BuzzerP)
 (111) Saman hopes to extend this circuit to indicate the door openings only at night time. What does he need to
 modify in this circuit to add that feature? If any item(s) must be connected to the ATmega328P, indicate
 the relevant pin(s).
-රාත්‍රී කාලයේ පමණක්‌ සිදුවන දොර විවෘත විමි දැක්වීමට GOO පරිපටය දියුණු කිරීමට සමන්‌ අදහස්‌ කරයි.
-එම විශේෂාංගය එක්‌ කිරීමට ඔහු පරිපටයේ කුමක්‌ වෙනස්‌ කළ ane ? යමි අයිතම(යක්‌) ATmega328PO
-සමිබන්ධ කලයුතු නමි, අදාළ තුඩු(ව) දක්වන්න.
+රාත්‍රී කාලයේ පමණක්‌ සිදුවන දොර විවෘත විමි දැක්වීමට GOO පරිපථය දියුණු කිරීමට සමන්‌ අදහස්‌ කරයි.
+එම විශේෂාංගය එක්‌ කිරීමට ඔහු පරිපථයේ කුමක්‌ වෙනස්‌ කළ ane ? යමි අයිතම(යක්‌) ATmega328PO
+සම්බන්ධ කලයුතු නමි, අදාළ තුඩු(ව) දක්වන්න.
 
 To modify the circuit to detect door openings only at night, a Light Dependent Resistor (LDR) can be
 added to the setup. The LDR will detect the surrounding light levels, and the microcontroller can use its
 analog input pin (e.g., AO) to monitor the voltage from the LDR.
 
-රාත්‍රියේදි පමණක්‌ දොර විවෘත විමි හඳුනා ගැනීම සඳුහා පරිපටය වෙනස්‌ කිරීම සඳහා, ආලෝකය Oe)
+රාත්‍රියේදි පමණක්‌ දොර විවෘත විමි හඳුනා ගැනීම සඳුහා පරිපථය වෙනස්‌ කිරීම සඳහා, ආලෝකය Oe)
 පවතින ප්‍රතිරෝධකයක්‌ LDR සැකසුමට එක්‌ කළ හැකිය. ].])]1& විසින්‌ අවට ආලෝක මටිටමි හදුනාගනු ඇති
 අතර, සහ LDR වෙතින්‌ වෝල්ටියතාව නිරික්ෂණය කිරීමට siege පාලකයට එහි ප්‍රතිසම ආදාන පින්‌ (ez,
 AO) භාවිතා කළ හැක.

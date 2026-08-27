@@ -1,0 +1,162 @@
+1. Which CPU socket type is considered more durable because it reduces the risk of bent pins on the CPU?
+CPU pins නැවීමේ අවදානම අඩු කරන CPU සොකට් වර්ගය හා වඩාත් කල් පවතින එකක් ලෙස
+සැලකෙන්නේ?
+
+1) PGA
+2) LGA
+3) BGA
+4) DIP
+5) ZIF
+
+2. Which statement best describes the relationship between L1, L2, and L3 caches?
+L1, L2 සහ L3 caches අතර සම්බන්ධතාවය වඩාත් හොඳින් විස්තර කරන ප්‍රකාශය කුමක්ද?
+
+1) L1 is smallest and slowest, L3 is largest and fastest
+L1 කුඩාම සහ මන්දගාමී වේ, L3 විශාලතම සහ වේගවත්ම වේ
+
+2) L1 is largest, L3 is smallest
+L1 විශාලතම වේ, L3 කුඩාම වේ
+
+3) L1 is fastest and smallest, L3 is slowest and largest
+L1 වේගවත්ම සහ කුඩාම වේ, L3 මන්දගාමී සහ විශාලතම වේ
+
+4) All three have equal size and speed
+තුනටම සමාන ප්‍රමාණය සහ වේගය ඇත
+
+5) L2 is faster than L1 but slower than L3
+L2 L1 ට වඩා වේගවත් නමුත් L3 ට වඩා මන්දගාමී වේ
+
+3. Which type of software is designed to control specific functions inside devices like washing machines,
+printers, and cars?
+රෙදි සෝදන යන්ත්‍ර, මුද්‍රණ යන්ත්‍ර සහ මෝටර් රථ වැනි උපාංග තුළ නිශ්චිත කාර්යයන් පාලනය කිරීම සඳහා
+නිර්මාණය කර ඇති මෘදුකාංග වර්ගය කුමක්ද?
+
+1) System software / පද්ධති මෘදුකාංග
+2) Embedded software / Embedded මෘදුකාංග
+3) Application software / යෙදුම් මෘදුකාංග
+4) Liveware / සජීවී මෘදුකාංග
+5) Utility software / උපයෝගිතා මෘදුකාංග
+
+4. Which of the following correctly lists the memory hierarchy from fastest to slowest ?
+පහත සඳහන් ඒවායින් වේගවත්ම සිට මන්දගාමී දක්වා මතක ධූරාවලිය නිවැරදිව ලැයිස්තුගත කරන්නේ
+කුමක්ද?
+
+1) Cache → Registers → RAM → Hard Disk
+2) Registers → Cache → RAM → Hard Disk
+3) RAM → Registers → Cache → Hard Disk
+4) Registers → RAM → Cache → Hard Disk
+5) Cache → RAM → Registers → Hard Disk
+
+A tech company is designing a smart home thermostat. The firmware memory goes through several
+upgrades:
+තාක්ෂණික සමාගමක් smart නිවාස තාප ස්ථායයක් (Smart home thermostat) නිර්මාණය කරමින් සිටී.
+ස්ථිරාංග මතකය වැඩිදියුණු කිරීම් කිහිපයක් හරහා ගමන් කරයි:
+
+First, they use a memory that can only be programmed once.
+පළමුව, ඔවුන් එක් වරක් පමණක් වැඩසටහන්ගත කළ හැකි මතකයක් භාවිතා කරයි.
+
+Then, during testing, they switch to a memory that can be erased using UV light and reprogrammed.
+පසුව, පරීක්ෂා කිරීමේදී, ඔවුන් UV ආලෝකය භාවිතයෙන් මකා දමා නැවත වැඩසටහන්ගත කළ හැකි
+මතකයකට මාරු වේ.
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 13
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Finally, they want a memory that can be erased and reprogrammed electrically without removing it
+from the device.
+අවසාන වශයෙන්, ඔවුන්ට අවශ්‍ය වන්නේ උපාංගයෙන් ඉවත් නොකර විද්‍යුත් වශයෙන් මකා දමා නැවත
+වැඩසටහන්ගත කළ හැකි මතකයක්.
+
+5. Which memory type is used in the final upgrade?
+අවසාන වැඩිදියුණු  කිරීමේදී භාවිතා කරන මතක වර්ගය කුමක්ද?
+
+1) PROM
+2) EPROM
+3) EEPROM
+4) Flash memory
+5) Mask ROM
+
+6. Which of the following statements about CPU registers is correct?
+CPU රෙජිස්ටර් පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් නිවැරදි කුමක්ද?
+
+1) Registers are part of main memory and are slower than RAM.
+රෙජිස්ටර් ප්‍රධාන මතකයේ කොටසක් වන අතර RAM වලට වඩා මන්දගාමී වේ.
+
+2) Registers temporarily store data and instructions inside the CPU for faster access.
+රෙජිස්ටර් වේගවත් ප්‍රවේශය සඳහා CPU තුළ දත්ත සහ උපදෙස් තාවකාලිකව ගබඩා කරයි.
+
+3) Registers are located in the hard disk and used for permanent storage.
+රෙජිස්ටර් දෘඪ තැටියේ පිහිටා ඇති අතර ස්ථිර ගබඩා කිරීම සඳහා භාවිතා කරයි.
+
+4) Registers are used exclusively for storing the operating system.
+රෙජිස්ටර් මෙහෙයුම් පද්ධතිය ගබඩා කිරීම සඳහා පමණක් භාවිතා කරයි.
+
+5) Registers are non-volatile memory and retain data when the computer is turned off.
+රෙජිස්ටර් යනු නශ්‍ය නොවන මතකය වන අතර පරිගණකය ක්‍රියා විරහිත කළ විට දත්ත රඳවා ගනී.
+
+7. In a computer system, memory hierarchy is organized to balance speed, cost, and capacity. Which of the
+following correctly represents the typical order from fastest and most expensive per bit to slowest and
+cheapest per bit?
+පරිගණක පද්ධතියක, වේගය, පිරිවැය සහ ධාරිතාව සමතුලිත කිරීම සඳහා මතක ධූරාවලිය සංවිධානය කර
+ඇත. බිට් එකකට වේගවත්ම සහ මිල අධිකම සිට බිට් එකකට මන්දගාමී සහ ලාභම අනුපිළිවෙල දක්වා
+පහත සඳහන් ඒවායින් නිවැරදිව නියෝජනය කරන්නේ කුමක්ද?
+
+1) Hard Disk → SSD → RAM → CPU Cache
+දෘඪ තැටිය → SSD → RAM → CPU  වාරකය
+
+2) CPU Cache → RAM → SSD → Hard Disk
+CPU වාරකය→ RAM → SSD → දෘඪ තැටිය
+
+3) RAM → CPU Cache → Hard Disk → SSD
+RAM → CPU  වාරකය→ දෘඪ තැටිය → SSD
+
+4) SSD → RAM → CPU Cache → Hard Disk
+SSD → RAM → CPU  වාරකය→ දෘඪ තැටිය
+
+5) CPU Cache → SSD → RAM → Hard Disk
+CPU  වාරකය→ SSD → RAM → දෘඪ තැටිය
+
+8. Imagine you are designing a registration form for a game. You want to make sure players don’t cheat by
+entering unrealistic ages (like 500 years old). Which data validation method would help you catch this?
+ඔබ ක්‍රීඩාවක් සඳහා ලියාපදිංචි කිරීමේ පෝරමයක් නිර්මාණය කරනවා යැයි සිතන්න. ක්‍රීඩකයින් යථාර්ථවාදී
+නොවන වයස් (අවුරුදු 500ක් වැනි) ඇතුළත් කිරීමෙන් වංචා නොකරන බවට ඔබට සහතික වීමට අවශ්‍ය වේ.
+මෙය සොයා ගැනීමට ඔබට උපකාර වන දත්ත වලංගුකරණ ක්‍රමය කුමක්ද?
+
+1) Format check / ආකෘති පරීක්ෂාව
+
+2) Range check / පරාස පරීක්ෂාව
+3) Length check / දිග පරීක්ෂාව
+4) Presence check / ඇති/නැති බව පරීක්ෂාව
+5) Type check / වර්ග පරීක්ෂාව
+
+Answers:
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+1.
+2
+2.
+3
+3.
+2
+4.
+2
+5.
+3
+6.
+2
+7.
+2
+8.
+2
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-

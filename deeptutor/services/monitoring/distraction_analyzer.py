@@ -27,7 +27,7 @@ import logging
 from typing import Optional
 
 from deeptutor.services.monitoring.liveness_detector import LivenessResult
-from deeptutor.services.monitoring.pose_gaze import HeadPoseResult, PostureCategory
+from deeptutor.services.monitoring.pose_gaze import GazeResult, HeadPoseResult, PostureCategory
 from deeptutor.services.monitoring.presence_state_machine import PresenceState
 
 logger = logging.getLogger(__name__)
@@ -60,6 +60,10 @@ class DistractionAnalysisResult:
     duration_seconds: float
     whitelisted_action: Optional[WhitelistedAction] = None
     reason: str = ""
+    # A distraction still BUILDING below its alert threshold (e.g. looking
+    # away for 4s). Lets the nudge tier act early without flipping
+    # ``is_distracted`` (whose contract many consumers depend on).
+    pending_distraction_type: Optional[DistractionType] = None
 
 
 class DistractionAnalyzer:
@@ -77,6 +81,15 @@ class DistractionAnalyzer:
     MAX_DRINKING_DURATION: float = 6.0
     MAX_PAGE_TURN_DURATION: float = 4.0
     MAX_POSTURE_SHIFT_DURATION: float = 4.0
+
+    # Continuous (quadratic) focus normalization angles — focus degrades
+    # smoothly as the head drifts instead of dropping off a binary cliff.
+    # Inside the neutral band (natural seated micro-movement) focus stays 100.
+    YAW_FULL_RANGE: float = 45.0
+    PITCH_FULL_RANGE: float = 35.0
+    YAW_NEUTRAL_BAND: float = 12.0
+    PITCH_NEUTRAL_BAND: float = 10.0
+    MIN_GAZE_FACTOR: float = 0.35
 
     def __init__(self) -> None:
         self._looking_away_start: Optional[float] = None
@@ -110,9 +123,11 @@ class DistractionAnalyzer:
         hand_to_mouth_gesture: bool = False,
         page_turn_gesture: bool = False,
         writing_gesture: bool = False,
+        gaze: Optional[GazeResult] = None,
     ) -> DistractionAnalysisResult:
         """
         Analyze current frame and state for distractions, applying the false-positive whitelist.
+        ``gaze`` is optional; when provided it modulates the continuous focus score.
         """
         # 1. State: AWAY -> Flagged (duration grows for the whole absence so
         # warnings and reports can tell a 20s bathroom trip from a 10-min walkaway)
@@ -203,6 +218,14 @@ class DistractionAnalyzer:
 
         # 3. Evaluate Flagged Distractions
 
+        # Continuous quadratic focus: Focus = 100·(1−(|yaw|/45)²)·(1−(|pitch|/35)²)·GazeFactor.
+        # Sub-threshold head drift degrades the score smoothly instead of
+        # sitting at a flat 100 until a binary threshold trips.
+        gaze_factor = self._gaze_factor(gaze)
+        yaw_term = self._quadratic_term(pose.yaw, self.YAW_NEUTRAL_BAND, self.YAW_FULL_RANGE)
+        pitch_term = self._quadratic_term(pose.pitch, self.PITCH_NEUTRAL_BAND, self.PITCH_FULL_RANGE)
+        continuous_focus = round(max(0.0, min(100.0, 100.0 * yaw_term * pitch_term * gaze_factor)), 1)
+
         # A: Smartphone Interaction (> 4s)
         if phone_object_detected:
             if self._phone_start is None:
@@ -218,6 +241,16 @@ class DistractionAnalyzer:
                     whitelisted_action=None,
                     reason=f"Smartphone detected for {phone_dur:.1f}s",
                 )
+            return DistractionAnalysisResult(
+                is_distracted=False,
+                distraction_type=DistractionType.NONE,
+                focus_score=continuous_focus,
+                confidence=0.80,
+                duration_seconds=round(phone_dur, 1),
+                whitelisted_action=None,
+                reason=f"Phone visible ({phone_dur:.1f}s / {self.PHONE_DETECTED_THRESHOLD}s threshold)",
+                pending_distraction_type=DistractionType.PHONE_DETECTED,
+            )
         else:
             self._phone_start = None
 
@@ -254,6 +287,16 @@ class DistractionAnalyzer:
                     whitelisted_action=None,
                     reason=f"Student eyes closed for {drowsy_dur:.1f}s (drowsiness)",
                 )
+            return DistractionAnalysisResult(
+                is_distracted=False,
+                distraction_type=DistractionType.NONE,
+                focus_score=continuous_focus,
+                confidence=0.80,
+                duration_seconds=round(drowsy_dur, 1),
+                whitelisted_action=None,
+                reason=f"Eyes closing ({drowsy_dur:.1f}s / {self.DROWSINESS_THRESHOLD}s threshold)",
+                pending_distraction_type=DistractionType.DROWSINESS,
+            )
         else:
             self._drowsiness_start = None
 
@@ -267,33 +310,59 @@ class DistractionAnalyzer:
                 return DistractionAnalysisResult(
                     is_distracted=True,
                     distraction_type=DistractionType.LOOKING_AWAY,
-                    focus_score=max(30.0, 100.0 - away_dur * 5.0),
+                    focus_score=max(10.0, min(float(continuous_focus), 100.0 - away_dur * 5.0)),
                     confidence=0.88,
                     duration_seconds=round(away_dur, 1),
                     whitelisted_action=None,
                     reason=f"Looking away from study area for {away_dur:.1f}s",
                 )
             else:
-                # Still within threshold: slightly reduce focus score without flagging alert
+                # Still within threshold: smooth quadratic degradation, no alert yet
                 return DistractionAnalysisResult(
                     is_distracted=False,
                     distraction_type=DistractionType.NONE,
-                    focus_score=max(70.0, 100.0 - away_dur * 3.0),
+                    focus_score=max(30.0, continuous_focus),
                     confidence=0.80,
                     duration_seconds=round(away_dur, 1),
                     whitelisted_action=None,
                     reason=f"Looking away ({away_dur:.1f}s / {self.LOOKING_AWAY_THRESHOLD}s threshold)",
+                    pending_distraction_type=DistractionType.LOOKING_AWAY,
                 )
         else:
             self._looking_away_start = None
 
-        # 4. Default: Focused on study
+        # 4. Default: Focused on study (continuous score reflects micro-drift)
         return DistractionAnalysisResult(
             is_distracted=False,
             distraction_type=DistractionType.NONE,
-            focus_score=100.0,
+            focus_score=continuous_focus,
             confidence=0.95,
             duration_seconds=0.0,
             whitelisted_action=None,
             reason="Focused on study",
         )
+
+    @classmethod
+    def _gaze_factor(cls, gaze: Optional[GazeResult]) -> float:
+        """Gaze modulation of the continuous score (1.0 when no gaze signal)."""
+        if gaze is None:
+            return 1.0
+        if gaze.is_focused:
+            return 1.0
+        deviation = max(abs(gaze.gaze_x), abs(gaze.gaze_y))
+        return max(cls.MIN_GAZE_FACTOR, 1.0 - deviation)
+
+    @staticmethod
+    def _quadratic_term(angle: float, neutral_band: float, full_range: float) -> float:
+        """Smooth dead-banded quadratic falloff for one axis.
+
+        1.0 inside the neutral band, decaying quadratically to 0.0 at
+        ``full_range`` — continuous at the band edge.
+        """
+        magnitude = abs(angle)
+        if magnitude <= neutral_band:
+            return 1.0
+        if magnitude >= full_range:
+            return 0.0
+        effective = (magnitude - neutral_band) / (full_range - neutral_band)
+        return 1.0 - effective * effective

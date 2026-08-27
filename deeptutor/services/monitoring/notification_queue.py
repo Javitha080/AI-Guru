@@ -11,6 +11,7 @@ created lazily by this module (additive; does not touch schema.py).
 from __future__ import annotations
 
 import asyncio
+import base64
 import json
 import logging
 import time
@@ -34,6 +35,8 @@ _CLAIM_LEASE_SECONDS = 300.0
 # notifications disabled) all flushed the moment a token was saved — stale
 # "Study Session Started"/warning messages arriving hours later as if live.
 _STALE_AFTER_SECONDS = 3600.0
+# Base64 length cap for an optional alert photo (~400 KB decoded JPEG).
+_MAX_PHOTO_B64_LEN = 550_000
 
 _worker_task: Optional[asyncio.Task] = None
 _worker_task_loop: Optional[asyncio.AbstractEventLoop] = None
@@ -89,6 +92,8 @@ def _compose_message(kind: str, payload: Dict[str, Any]) -> str:
             return "\n".join(lines)
         return TelegramNotifier.compose_distraction_alert(
             event_type=category,
+            student_name=str(payload.get("student_name") or "Student"),
+            subject=str(payload.get("subject") or "General"),
             details=message,
             tunnel_url=portal,
             confidence=payload.get("confidence"),
@@ -134,6 +139,9 @@ _OUTBOX_DDL = (
 
 async def _ensure_outbox(db: aiosqlite.Connection) -> None:
     await db.execute(_OUTBOX_DDL)
+    await db.execute(
+        "CREATE INDEX IF NOT EXISTS idx_notification_outbox_due ON notification_outbox (status, next_attempt_at)"
+    )
 
 
 async def enqueue(kind: str, payload: Dict[str, Any]) -> int:
@@ -251,23 +259,53 @@ async def flush_once(limit: int = 20) -> int:
         row = await _load_row(row_id)
         if row is None:
             continue
-        payload = json.loads(row["payload_json"])
-        text = _compose_message(row["kind"], payload)
-        ok = await TelegramNotifier.send_message(
-            bot_token=config["bot_token"], chat_id=config["chat_id"], text=text
-        )
-        if ok:
-            sent += 1
-            await _mark(row_id, sent=True)
-        else:
-            retries = int(row["retries"]) + 1
-            if retries >= _MAX_RETRIES:
-                await _mark(row_id, dead=True, error="max retries exceeded")
-                logger.warning("Dropped notification #%d after %d retries", row_id, retries)
+        try:
+            payload = json.loads(row["payload_json"])
+            text = _compose_message(row["kind"], payload)
+
+            # Alert rows may carry the incident snapshot: deliver via sendPhoto with
+            # the composed text as caption; fall back to a plain message when the
+            # photo is absent or undecodable so the alert itself never drops.
+            photo_b64 = payload.get("photo_b64")
+            photo_bytes = None
+            if isinstance(photo_b64, str) and 0 < len(photo_b64) <= _MAX_PHOTO_B64_LEN:
+                try:
+                    photo_bytes = base64.b64decode(photo_b64)
+                except Exception:  # noqa: BLE001
+                    photo_bytes = None
+
+            if photo_bytes:
+                ok = await TelegramNotifier.send_photo(
+                    bot_token=config["bot_token"],
+                    chat_id=config["chat_id"],
+                    photo_bytes=photo_bytes,
+                    caption=text,
+                )
+                if not ok:
+                    # Fall back to text if photo delivery failed (e.g. format, size, or caption issue)
+                    logger.info("Photo send failed for notification #%d; falling back to text", row_id)
+                    ok = await TelegramNotifier.send_message(
+                        bot_token=config["bot_token"], chat_id=config["chat_id"], text=text
+                    )
             else:
-                delay = _backoff_for(retries)
-                await _mark(row_id, error="send failed", retries=retries,
-                            next_attempt=time.time() + delay, back_to_pending=True)
+                ok = await TelegramNotifier.send_message(
+                    bot_token=config["bot_token"], chat_id=config["chat_id"], text=text
+                )
+            if ok:
+                sent += 1
+                await _mark(row_id, sent=True)
+            else:
+                retries = int(row["retries"]) + 1
+                if retries >= _MAX_RETRIES:
+                    await _mark(row_id, dead=True, error="max retries exceeded")
+                    logger.warning("Dropped notification #%d after %d retries", row_id, retries)
+                else:
+                    delay = _backoff_for(retries)
+                    await _mark(row_id, error="send failed", retries=retries,
+                                next_attempt=time.time() + delay, back_to_pending=True)
+        except Exception as exc:  # noqa: BLE001 - isolate corrupted or failing item
+            logger.warning("Error processing notification #%d: %s", row_id, exc)
+            await _mark(row_id, dead=True, error=f"processing failed: {exc}")
     if claimed:
         logger.info("Outbox flush: %d/%d delivered", sent, len(claimed))
     return sent

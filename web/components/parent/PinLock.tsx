@@ -93,7 +93,7 @@ export default function PinLock({ parentId, onUnlocked, onOpenWizard }: PinLockP
           <button
             type="submit"
             disabled={busy || !pin}
-            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] hover:brightness-110 disabled:opacity-50 disabled:saturate-50 text-white font-bold transition-all shadow-[0_8px_28px_var(--glow-primary)] disabled:shadow-none flex items-center justify-center gap-2 active:scale-[0.98]"
+            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] hover:brightness-110 disabled:opacity-50 disabled:saturate-50 text-white font-bold transition-all duration-[var(--duration-fast,250ms)] ease-[var(--ease-smooth-out)] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_var(--glow-primary)] shadow-[0_8px_28px_var(--glow-primary)] disabled:shadow-none disabled:hover:translate-y-0 flex items-center justify-center gap-2 active:scale-[0.96] active:translate-y-0"
           >
             {busy ? <Loader2 size={17} className="animate-spin" /> : <KeyRound size={17} />}
             <span>{busy ? "Verifying…" : "Unlock Parent Portal"}</span>

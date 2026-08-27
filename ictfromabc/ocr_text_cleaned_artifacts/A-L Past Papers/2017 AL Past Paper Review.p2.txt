@@ -1,0 +1,1558 @@
+1) A and B only
+A සහ B පමණි
+2) A and C only
+A සහ C පමණි
+3) A and D only
+A සහ D පමණි
+4) B and C only
+B සහ C පමණී
+5) C and D only
+C සහ D පමණි
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම
+The question asks about properties of a software agent system.
+ප්‍රශ්නය මෘදුකාංග ඒජන්ත පද්ධතියක ගුණාංග පිළිබඳව අසයි.
+
+Statement / ප්‍රකාශය A)
+This is a fundamental property of a software agent. Agents are designed to perceive their environment
+and respond appropriately.
+මෙය මෘදුකාංග ඒජන්තවරයකුගේ මූලික ගුණාංගයකි. ඒජන්තවරයන් නිර්මාණය කර ඇත්තේ ඔවුන්ගේ
+පරිසරය වටහාගෙන සුදුසු පරිදි ප්‍රතිචාර දැක්වීමට ය.
+
+Statement / ප්‍රකාශය B)
+This contradicts the autonomy of a software agent. Agents are typically designed to operate with some
+level of independence, not strictly following predefined user instructions.
+මෙය මෘදුකාංග ඒජන්තවරයකුගේ ස්වාධීනත්වයට පටහැනි ය. ඒජන්තවරයන් සාමාන්‍යයෙන් නිර්මාණය කර
+ඇත්තේ යම් මට්ටමක ස්වාධීනත්වයක් සමඟ ක්‍රියා කිරීමට ය, පූර්ව නිශ්චිත පරිශීලක උපදෙස් දැඩි ලෙස
+අනුගමනය නොකරයි.
+
+Statement / ප්‍රකාශය C)
+This does not align with the flexibility of software agents. Agents often adapt and make decisions
+beyond predefined tasks.
+මෙය මෘදුකාංග ඒජන්තවරයකුගේ නම්‍යශීලීභාවය සමඟ නොගැලපේ. ඒජන්තවරයන් බොහෝ විට පූර්ව
+නිශ්චිත කාර්යයන් ඉක්මවා අනුවර්තනය වී තීරණ ගනී.
+
+Statement / ප්‍රකාශය D)
+This is another key property of software agents. They are expected to act rationally even when they lack
+full information about the environment.
+මෙය මෘදුකාංග ඒජන්තවරයකුගේ තවත් ප්‍රධාන ගුණාංගයකි. පරිසරය පිළිබඳ සම්පූර්ණ තොරතුරු නොමැති
+විට පවා ඔවුන් තාර්කිකව ක්‍රියා කරනු ඇතැයි අපේක්ෂා කෙරේ.
+
+Properties A and D capture the essence of a software agent, focusing on responsiveness and decision-
+making in dynamic or uncertain environments. Options B and C restrict the autonomy and adaptability
+of agents, which are key features of such systems.
+ගුණාංග A සහ D මෘදුකාංග ඒජන්තවරයකුගේ සාරය ග්‍රහණය කර ගන්නා අතර, ගතික හෝ අවිනිශ්චිත
+පරිසරයන්හි ප්‍රතිචාරාත්මක බව සහ තීරණ ගැනීම කෙරෙහි අවධානය යොමු කරයි. විකල්ප B සහ C එවැනි
+පද්ධතිවල ප්‍රධාන ලක්ෂණ වන ඒජන්තවරයකුගේ ස්වාධීනත්වය සහ අනුවර්තනය වීමේ හැකියාව සීමා කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+-55-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+1. Fill in the blanks in the following Data Flow Diagram (Figure 1.1) of the sales information system
+of a company called Bookland, only by using the words in Boldface in the description given below.
+Bookland ආයතනයේ වෙළඳ තොරතුරු පද්ධතියේ දත්ත ගැලීම් රූපසටහනෙහි (රූපය 1.1) හිස්තැන් පහත  ඡ්දයේ සඳහන් තද පැහැති අකුරින් දක්වා ඇති වචන පමණක් භාවිතයෙන් පුරවන්න.
+
+Bookland is a book store that specializes in selling rare books, which are usually not available from
+other sources. As a practice, Bookland maintains just a one copy of any book at a time due to the
+higher price of rare books.
+Bookland යනු වෙනත් මූලාශ්‍ර මගින් සාමාන්‍යයෙන් ලබාගත නොහැකි දුර්ලභ පොත් වෙළඳාම සම්බන්ධයෙන්
+විශේෂත්වයක් දක්වන පොත්හලකි. දුර්ලභ පොත්වල ඉහළ මිළ නිසා, Bookland ආයතනය පුරුද්දක් වශයෙන්
+ඕනෑම පොතකින් එක් පිටපතක් පමණක් වරකට රඳවාගනී.
+
+Typically, a customer makes a book enquiry over the phone from the Sales Assistant at Bookland.
+She then goes through book details in the Inventory file to check whether such a book is in their
+stock. If the details of the book is found in the Inventory file, the Sales Assistant then refers to the
+Hold-on Requests tray to make sure that the book status is ‘available’ and makes a reply to the
+enquiry. If the book status is ‘available’ and the customer wishes to reserve the book, she then takes
+customer's personal details and places a hold-on request against that book in the Hold-on Requests
+tray making the book no longer available.
+සාමාන්‍යයෙන් පාරිභෝගිකයෙක් පොතක් ගැන විමසීමක් දුරකථනයෙන් කරනුයේ Bookland හි විකුණුම් සහායක
+ගෙනි. ඇය එවිට ඔවුන්ගේ තොගයේ එවැනි පොතක් ඇත්දැයි පිරික්සීමට භාණ්ඩ ලේඛන ගොනුව තුළ පොතෙහි
+විස්තර පරීක්ෂා කරයි. භාණ්ඩ ලේඛන ගොනුව තුළ එම පොතෙහි විස්තර හමු වුවහොත්, වෙළඳ සහායක
+රැඳවුම් ඉල්ලීම් බන්දේසිය පරීක්ෂා කර බලා පොතෙහි තත්ත්වය 'ලබාගත හැකි' බවට තහවුරු කර ගෙන
+විමසීමට පිළිතුර සපයයි. පොතෙහි තත්ත්වය 'ලබාගත හැකි' බව නම් සහ පාරිභෝගිකයා පොත වෙන් කර
+තැබීමට අදහස් කරයි නම්, විකුණුම් සහායක විසින් පාරිභෝගිකයාගේ පෞද්ගලික තොරතුරු ලබාගෙන එම
+පොත තවදුරටත් ලබාගත නොහැකි වන සේ රැඳවුම් ඉල්ලීමක් රැඳවුම් ඉල්ලීම් බන්දේසියට බහාලනු ලබයි.
+
+When the customer comes to make the payment and collect the book, the Cashier at Bookland refers
+to the Hold-on Requests tray and finds the relevant hold-on request made by the customer. If there
+is a valid hold-on request, she then accepts the payment from the customer, issues a payment receipt
+to the customer and finalizes the sale. The customer is then allowed to take away the book. The
+Cashier also files the copy of the payment receipt in the Sales file, uses it at the end of the day to
+compile a sales report and sends it to the Owner of the Bookland. After every sale, the Cashier
+updates the book details in the Inventory file and keeps the stock up to date. When the            Owner
+supplies books to Bookland, he sends details of books to Cashier and the Cashier adds them one by
+one to the Inventory file.
+එම පාරිභෝගිකයා ගෙවීම කර පොත ගෙන යාමට පැමිණි විට Bookland හි අයකැමි රැඳවුම් ඉල්ලීම්
+බන්දේසිය පරීක්ෂා කර, පාරිභෝගිකයා විසින් කරන ලද අදාළ රැඳවුම් ඉල්ලීම සොයා ගනී. එම රැඳවුම්
+ඉල්ලීම වලංගු  නම්, පාරිභෝගිකයා විසින් කරන ලද ගෙවිම පිළිගෙන ගෙවීම් ලදුපතක් පාරිභෝගිකයාට ලබා
+දී විකිණීම අවසන් කරයි. එවිට පොත ඉවතට රැගෙන යාමට පාරිභෝගිකයාට අවසර ලැබේ. අයකැමි ගෙවීම්
+ලදුපතේ පිටපතක් විකුණුම් ගොනුව තුළ ගොනුගත කරන අතර, දිනය අවසානයේ එය භාවිතයෙන් විකුණුම්
+වාර්තාවක් සකස් කර Bookland හි අයිතිකරු වෙත යවනු ලැබේ. සෑම විකිණීමකින් ම පසුව, අයකැමි භාණ්ඩ
+ලේඛන ගොනුව තුළ   ඇති පොත්වල විස්තර නවීකරණය කර තොගය යාවත්කාලීනව පවත්වා ගනී. අයිතිකරු
+විසින් Bookland වෙත පොත් සපයන විට, ඔහු විසින් අයකැමි වෙත පොත්වල විස්තර යවන අතර, අයකැමි
+විසින් ඒවා එකින් එක භාණ්ඩ ලේඛන ගොනුවට එකතු කරනු ලබයි.
+
+RAVINDU BANDARANAYAKE
+2017 AL S.ESSAY REVIEW
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+A DFD (Data Flow Diagram) is a graphical representation of how data moves within a system. It is
+commonly used in system analysis and design to visualize the flow of information between processes, data
+stores, and external entities.
+DFD දත්ත ප්‍රවාහ රූප සටහන යනු පද්ධතියක් තුළ දත්ත චලනය වන ආකාරය පිළිබඳ චිත්‍රක නිරූපණයකි.
+එය පද්ධති විශ්ලේෂණය සහ සැලසුම් කිරීමේදී ක්‍රියාවලීන්, දත්ත ගබඩා සහ බාහිර භූතාර්ත අතර තොරතුරු
+ප්‍රවාහය දෘශ්‍යමාන කිරීමට බහුලව භාවිතා වේ.
+
+Key Components of a DFD
+
+External Entities – Represent sources or destinations of data.
+බාහිර භූතාර්ත - දත්තවල මූලාශ්‍ර හෝ ගමනාන්ත නියෝජනය කරයි.
+
+Processes – Show actions or operations performed on data.
+ක්‍රියාවලි - දත්ත මත සිදු කරන ලද ක්‍රියා හෝ මෙහෙයුම් පෙන්වයි.
+
+Data Stores – Represent storage locations where data is kept.
+දත්ත ගබඩා - දත්ත තබා ඇති ගබඩා ස්ථාන නියෝජනය කරයි.
+
+Data Flows – Indicate how data moves between entities, processes, and stores
+දත්ත ප්‍රවාහ - දත්ත භූතාර්ත, ක්‍රියාවලි සහ ගබඩා අතර චලනය වන ආකාරය දක්වයි.
+
+A – Customer / පාරිභෝගිකයා
+B – Personal details / පෞද්ගලික තොරතුරු
+C – Book status / පොතෙහි තත්ත්වය
+D – Hold-on request / රැඳවුම් ඉල්ලීම
+E – Hold-on requests / රැඳවුම් ඉල්ලීම්
+F – Payment receipt / ගෙවීම් ලදුපත
+G – Cashier / අයකැමි
+H – Sales report / විකුණුම් වාර්තාව
+I – Sales / විකුණුම්
+J – Owner / අයිතිකරු
+
+1 Sales Assistant
+Handle
+enquiries
+& hold-on
+requests
+2
+……G……
+Handle
+payments &
+Inventory
+
+……A……
+M1 Inventory
+T1
+(M)
+……E……
+
+M2
+……I ……
+
+Customer
+……B………
+reply to
+the enquiry
+book enquiry
+hold-on request
+book
+details
+book
+details
+payment
+……F……
+……H……
+
+……C……
+……D……
+copy of the
+payment receipt
+……J……
+details of
+books
+-57-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+2.(a) In an operating system, what are the events that change the state of a process in the ‘running’ state?
+මෙහෙයුම් පද්ධතියක 'ධාවන' තත්ත්වයේ පවතින ක්‍රියායනයක තත්ත්වය වෙනස් කරන සිදුවීම් මොනවා ද?
+
+Interrupt (Timer Interrupt or Preemption) / බාධා කිරීම (ටයිමර බාධා කිරීම හෝ පූර්ව නිගමන).
+
+I/O or Event Wait / ආදාන/ප්‍රතිදාන හෝ සිදුවීම් සඳහා රැඳී සිටීම.
+
+Process Termination / ක්‍රියාවලිය අවසන් කිරීම.
+
+(b) Explain the main actions performed by an operating system during context switching.
+සන්දර්භ ස්විචයනය සිදු වන විට මෙහෙයුම් පද්ධතිය විසින් සිදු කරන ප්‍රධාන ක්‍රියාවන් පැහැදිලි කරන්න.
+Context switching is the process by which an operating system saves the state of a currently running
+process and loads the state of another process to resume or start its execution.
+සන්දර්භ ස්විචයනය යනු මෙහෙයුම් පද්ධතියක් දැනට ක්‍රියාත්මක වන ක්‍රියාවලියක තත්ත්වය සුරැක වෙනත්
+ක්‍රියාවලියක තත්ත්වය පූරණය කර නැවත ක්‍රියාත්මක කිරීම හෝ  ආරම්භ කිරීම සිදු කරන ක්‍රියාවලියයි.
+
+The following processes can occur when context switching occurs.
+සන්දර්භ ස්විචයනය සිදුවන විට පහත ක්‍රියාවලීන් සිදුවිය හැක.
+
+Store the current state of the running process in PCB
+PCB තුළ ක්‍රියාත්මක වන ක්‍රියාවලියේ වත්මන් තත්ත්වය ගබඩා කිරීම.
+
+Load the state of the process to be continued to the CPU from the PCB
+PCB වෙතින් CPU වෙත ඉදිරියට ගෙන යා යුතු ක්‍රියාවලියේ තත්ත්වය පූරණය කිරීම.
+
+Transfer the control to the process to be continued
+පාලනය ඉදිරියට ගෙන යා යුතු ක්‍රියාවලියට මාරු කිරීම.
+
+(c) Explain what will happen during the booting process of a computer.
+පරිගණකයක් බලගැන්වීමේ (booting) ක්‍රියාවලියේ දී සිදුවන්නේ කුමක් දැයි පැහැදිලි කරන්න.
+
+Power on self Test (POST)/ Executing or running BIOS
+ස්වයං පරීක්ෂාව (POST) ක්‍රියාත්මක කිරීම/ BIOS ක්‍රියාත්මක කිරීම.
+
+Run the bootstrap program to load the OS to the main memory
+මූලික මතකයට මෙහෙයුම් පද්ධතිය පූරණය කිරීම සඳහා bootstrap වැඩසටහන ක්‍රියාත්මක කිරීම.
+
+Transfer the control to the OS
+පාලනය මෙහෙයුම් පද්ධතියට මාරු කිරීම.
+
+-58-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+3.(a)(i)Write three key conditions to be satisfied in order to classify a transaction/service between two
+persons as B2B in e-commerce.
+පුද්ගලයින් දෙදෙනකු අතර සිදු වන ගනුදෙනුවක්/සේවාවක් e-වාණිජ්‍යය තුළ (e-commerce) B2B ලෙස
+වර්ගීකරණය කිරීම සඳහා තෘප්තිමත් විය යුතු ප්‍රධාන කොන්දේසි තුනක් ලියන්න.
+
+1
+It should be an online service/transaction
+එය මාර්ගගත සේවාවක්/ගනුදෙනුවක් විය යුතුය
+
+This means the transaction must be conducted through electronic means, typically over the internet.
+The entire process including placing orders, invoicing, payment, delivery tracking or customer support
+should be digitized.
+මෙයින් අදහස් කරන්නේ ගනුදෙනුව ඉලෙක්ට්‍රොනික ක්‍රම හරහා, සාමාන්‍යයෙන් අන්තර්ජාලය හරහා සිදු
+කළ යුතු බවයි. ඇණවුම් කිරීම, ඉන්වොයිසි කිරීම, ගෙවීම, බෙදාහැරීම ලුහුබැඳීම හෝ පාරිභෝගික සහාය
+ඇතුළුව සම්පූර්ණ ක්‍රියාවලිය ඩිජිටල්කරණය කළ යුතුය.
+
+2
+The buyer should be a business user
+ගැනුම්කරු ව්‍යාපාරික පරිශීලකයෙකු විය යුතුය
+
+The purchaser in the transaction must be acting on behalf of a business or organization, not as an
+individual consumer. The products or services are intended to support business operations such as
+production, administration, or resale.
+ගනුදෙනුවේ ගැනුම්කරු තනි පාරිභෝගිකයෙකු ලෙස නොව ව්‍යාපාරයක් හෝ සංවිධානයක් වෙනුවෙන් ක්‍රියා
+කළ යුතුය. නිෂ්පාදන හෝ සේවා නිෂ්පාදනය, පරිපාලනය හෝ නැවත විකිණීම වැනි ව්‍යාපාරික මෙහෙයුම්
+සඳහා සහාය වීමට අදහස් කෙරේ.
+
+3
+The seller should be a business user
+විකුණුම්කරු ව්‍යාපාරික පරිශීලකයෙකු විය යුතුය
+
+The seller must also be a business entity or a person operating in a professional or commercial capacity,
+offering goods or services for commercial purposes.
+විකුණන්නා ද ව්‍යාපාරික ආයතනයක් හෝ වෘත්තීයමය හෝ වාණීජ ධාරිතාවයකින් ක්‍රියාත්මක වන, වාණීජ
+අරමුණු සඳහා භාණ්ඩ හෝ සේවා පිරිනමන පුද්ගලයෙකු විය යුතුය.
+
+For a transaction to be classified as B2B e-commerce, it must
+ගනුදෙනුවක් B2B ඊ-වාණීජ්‍යය ලෙස වර්ගීකරණය කිරීමට නම් එය,
+
+1) be conducted online / මාර්ගගතව පැවැත්විය යුතුය.
+2) involve a buyer who is a business / ව්‍යාපාරයක් වන ගැණුම්කරුවෙකු සම්බන්ධ කර ගත යුතුය.
+3) involve a seller who is also a business / ව්‍යාපාරයක් ද වන විකුණුම්කරුවෙකු සම්බන්ධ කර ගත යුතුය.
+
+All three conditions must be satisfied to fit within the B2B model in e-commerce.
+ඊ-වාණීජ්‍යය තුළ B2B ආකෘතියට ගැලපෙන පරිදි කොන්දේසි තුනම සපුරාලිය යුතුය.
+
+-59-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(ii) If the seller in the above transaction is replaced by a software agent, state the key proactive behaviour
+that software agent shall have.
+ඉහත ගනුදෙනුවේ විකුණුම්කරු වෙනුවට මෘදුකාංග ඒජන්තවරයකු යොදා ගතහොත්, එම මෘදුකාංග
+ඒජන්තවරයාට තිබිය යුතු ප්‍රධානතම පෙරක්‍රියාකාරි (proactive) හැසිරීම සඳහන් කරන්න.
+
+The core proactive behavior of the software agent is to intelligently and independently perform actions
+that lead to higher business profitability, such as optimizing pricing, identifying customer needs and
+executing business strategies automatically. This transforms the agent from a passive tool into a smart
+business representative in the digital environment.
+මෘදුකාංග නියෝජිතයාගේ මූලික පෙරක්‍රියාකාරීී හැසිරීම වන්නේ මිලකරණය ප්‍රශස්ත කිරීම, පාරිභෝගික අවශ්‍යතා
+හඳුනා ගැනීම සහ ව්‍යාපාර උපාය මාර්ග ස්වයංක්‍රීයව ක්‍රියාත්මක කිරීම වැනි ඉහළ ව්‍යාපාරික ලාභදායිතාවයකට
+තුඩු දෙන ක්‍රියා බුද්ධිමත්ව සහ ස්වාධීනව සිදු කිරීමයි. මෙය නියෝජිතයා නිෂ්ක්‍රීය මෙවලමක සිට ඩිජිටල්
+පරිසරය තුළ ස්මාර්ට් ව්‍යාපාරික නියෝජිතයෙකු බවට පරිවර්තනය කරයි.
+
+Since the software agent represents a business, its main objective is to increase business profit. To do this
+proactively, the agent should be capable of,
+මෘදුකාංග නියෝජිතයා ව්‍යාපාරයක් නියෝජනය කරන බැවින් එහි ප්‍රධාන අරමුණ වන්නේ ව්‍යාපාර ලාභය වැඩි
+කිරීමයි. මෙය ක්‍රියාකාරීව සිදු කිරීමට,
+
+1
+Monitoring Market Trends and Customer Behavior
+වෙළඳපල ප්‍රවණතා සහ පාරිභෝගික හැසිරීම නිරීක්ෂණය කිරීම
+
+The agent should analyze real-time data to identify patterns in customer orders, seasonal demand or
+competitor pricing and act accordingly.
+පාරිභෝගික ඇණවුම්, සෘතුමය ඉල්ලුම හෝ තරඟකරුවන්ගේ මිලකරණයේ රටා හඳුනා ගැනීමට සහ ඒ
+අනුව ක්‍රියා කිරීමට නියෝජිතයා තත්‍ය කාලීන දත්ත විශ්ලේෂණය කළ යුතුය.
+
+2
+Dynamic Pricing and Offer Adjustment
+ගතික මිලකරණය සහ පිරිනැමීම ගැලපීම
+
+It can automatically adjust prices based on supply, demand or buyer type to optimize profit.
+ලාභය ප්‍රශස්ත කිරීම සඳහා සැපයුම, ඉල්ලුම හෝ ගැනුම්කරු වර්ගය මත පදනම්ව එය ස්වයංක්‍රීයව මිල
+ගණන් සකස් කළ හැකිය.
+
+3
+Negotiating Deals or Terms Automatically
+ගනුදෙනු හෝ කොන්දේසි ස්වයංක්‍රීයව සාකච්ඡා කිරීම
+
+The agent can communicate with buyer agents or platforms to negotiate delivery times, payment terms
+or volume discounts just as a human seller would.
+මිනිස් විකුණුම්කරුවෙකු මෙන් බෙදා හැරීමේ වේලාවන්, ගෙවීම් නියමයන් හෝ පරිමාව වට්ටම් ගැන සාකච්ඡා
+කිරීමට නියෝජිතයාට ගැනුම්කරු නියෝජිතයන් සමඟ සන්නිවේදනය කළ හැකිය.
+
+4
+Inventory Management Integration
+ඉන්වෙන්ටරි කළමනාකරණ ඒකාබද්ධ කිරීම
+
+It may initiate promotions or limit sales depending on stock levels for example, pushing slow-moving
+products or holding back on scarce items.
+එය ප්‍රවර්ධන ආරම්භ කිරීමට හෝ කොටස් මට්ටම් මත පදනම්ව විකුණුම් සීමා කිරීමට ඉඩ ඇත,
+උදාහරණයක් ලෙස මන්දගාමී නිෂ්පාදන තල්ලු කිරීම හෝ හිඟ අයිතම රඳවා තබා ගැනීම.
+
+5
+Making Autonomous Decisions
+ස්වාධීන තීරණ ගැනීම
+
+Based on rules or machine learning models, the agent can decide when to initiate a sale, whom to
+target and what communication to send  without waiting for human input.
+නීති හෝ යන්ත්‍ර ඉගෙනුම් ආකෘති මත පදනම්ව, නියෝජිතයාට විකිණීමක් ආරම්භ කළ යුත්තේ කවදාද,
+කවුරුන් ඉලක්ක කළ යුතුද සහ කුමන සන්නිවේදනය යැවිය යුතුද යන්න තීරණය කළ හැකිය.
+
+-60-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(b) The following SQL statement has been used to create a table in a database.
+දත්ත සමුදායක් තුළ පහත දී ඇති SQL වගන්තිය භාවිත කර වගුවක් නිර්මාණය කර ඇත.
+
+create table student(
+student_no char(5),
+name char(30),
+address char(100),
+primary key (student_no)
+
+(i) Write a query in SQL to add the following data to the student table.
+පහත දත්තය student වගුවට ඇතුළත් කිරීමට SQL විමසුමක් (query) ලියන්න.
+
+Student number  – 10001
+Name –  Saman Kumara
+Address –  78, Mahara road, Maharagama
+
+INSERT into student (student_no, name, address)
+values ('10001', 'Saman Kumara', '78, Mahara road, Maharagama');
+
+Or / හෝ
+
+INSERT into student
+values ('10001', 'Saman Kumara', '78, Mahara road, Maharagama');
+
+Explanation / පැහැදිලි කිරීම
+
+The INSERT INTO statement is used to add a new row. Column names are specified (student_no, name,
+address) to clarify the data mapping. Text values are enclosed in single quotes.
+නව පේළියක් එක් කිරීමට INSERT INTO ප්‍රකාශය භාවිතා කරයි. දත්ත සිතියම්ගත කිරීම පැහැදිලි කිරීම
+සඳහා තීරු නාම (student_no, name, address) දක්වා ඇත. පාඨ අගයන් තනි උද්ධෘතවලට මැදි කර ඇත.
+
+(ii) If the address of the student entered in the (i) above should be changed to 13, School Lane, Jaffna,
+write a query in SQL to update the relevant record in the student table.
+ඉහත (i) හි ඇතුළත් කළ ශිෂ්‍යයාගේ ලිපිනය 13, School Lane, Jaffna ලෙස වෙනස් විය යුතු නම්, student
+වගුවෙහි ඇති අදාළ උපලැකිය (record) යාවත්කාල කිරීමට SQL විමසුමක් ලියන්න.
+
+UPDATE student
+SET address = '13, School Lane, Jaffna'
+WHERE student_no = '10001';
+
+Or / හෝ
+
+UPDATE student
+SET address = '13, School Lane, Jaffna'
+WHERE student_no like '10001';
+
+Or / හෝ
+
+UPDATE student
+SET address = '13, School Lane, Jaffna'
+WHERE student_no like '10001%';
+
+Or / හෝ
+
+-61-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Assumption: Only one student record in the database.
+උපකල්පනය: දත්ත සමුදායේ ඇත්තේ එක් ශිෂ්‍ය වාර්තාවක් පමණි.
+
+UPDATE student
+SET address = '13, School Lane, Jaffna'
+
+Explanation / පැහැදිලි කිරීම
+
+UPDATE student indicates that we're modifying the student table. SET address = '……' specifies the new
+value for the address column. WHERE student_no = '10001'` ensures that only the correct student's address
+is changed (based on the primary key). Always use a WHERE clause when updating data to avoid changing
+all rows in the table.
+UPDATE student මගින් පෙන්නුම් කරන්නේ student වගුව වෙනස් කරන බවයි. SET address = '……' ලිපින
+තීරුව සඳහා නව අගය නියම කරයි. WHERE student_no = '10001' නිවැරදි ශිෂ්‍යයාගේ ලිපිනය පමණක්
+වෙනස් වන බව සහතික කරයි (ප්‍රාථමික යතුර මත පදනම්ව). වගුවේ ඇති සියලුම පේළි වෙනස් නොකිරීමට
+දත්ත යාවත්කාලීන කිරීමේදී සෑම විටම WHERE වගන්තිය භාවිතා කළ යුතුය.
+
+LIKE condition filters the rows. Only the rows where the student_no starts with 10001 will be updated.
+The % is a wildcard meaning “any characters after this”. the % is not compulsory because here we
+matching one exact value. It depends on what you're trying to match in the LIKE condition.
+LIKE කොන්දේසිය පේළි තෝරයි. student_no 10001 න් ආරම්භ වන පේළි පමණක් යාවත්කාලීන වේ. % යනු
+“මෙයින් පසු ඕනෑම අක්ෂරයක්” යන අර්ථය ඇති wildcard එකකි. % අනිවාර්ය නොවේ, මන්ද මෙහිදී අපි
+එක් නිශ්චිත අගයක් සොයන බැවිනි. එය LIKE කොන්දේසිය තුළ ඔබ ගැලපීමට උත්සාහ කරන දේ මත රඳා
+පවතී.
+
+-62-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+4.(a)(i)The Figure 4.1 represents an open system. Using the basic components: input, process, output and
+system boundary as given in the figure, draw a diagram to represent a closed system.
+රූපය 4.1 මගින් විවෘත පද්ධතියක් නිරූපණය කරයි. එම රූපයේ දක්වා ඇති පරිදි ආදානය, සැකසීම,
+ප්‍රතිදානය සහ පද්ධති සීමාව යන මූලික කොටස් භාවිත කරමින්, සංවෘත පද්ධතියක් නිරූපණය කිරීමැසඳහා
+රූපසටහනක් අඳින්න.
+
+Figure 4.1 : An open system
+
+Explanation/ පැහැදිලි කිරීම:
+
+What is a closed system/ සංවෘත පද්ධතියක් යනු කුමක්ද?
+
+A closed system allows energy to enter or leave, but not matter. In contrast, an open system allows both
+energy and matter to flow in and out.
+සංවෘත පද්ධතියක් ශක්තියට ඇතුළු වීමට හෝ පිටවීමට ඉඩ සලසයි, නමුත් පදාර්ථයට නොවේ. ඊට වෙනස්ව,
+විවෘත පද්ධතියක් ශක්තිය සහ පදාර්ථය යන දෙකම ඇතුළට සහ පිටතට ගලා යාමට ඉඩ සලසයි.
+
+In the closed system/ සංවෘත පද්ධතිය තුළ,
+
+The system is isolated from exchanging matter with the environment.
+පද්ධතිය පරිසරය සමඟ පදාර්ථ හුවමාරු කිරීමෙන් හුදකලා වේ.
+
+Energy can enter or leave, which means you’ll have arrows showing energy input/output (like heat,
+light, electricity). / ශක්තියට ඇතුළු වීමට හෝ පිටවීමට හැකිය, එයින් අදහස් වන්නේ ඔබට ශක්ති
+ආදානය/ප්‍රතිදානය (තාපය, ආලෝකය, විදුලිය වැනි) පෙන්වන ඊතල ඇති බවයි.
+
+The process occurs inside the boundary without material inflow/outflow.
+ක්‍රියාවලිය ද්‍රව්‍ය ආදානය/ප්‍රවාහයකින් තොරව සීමාව තුළ සිදු වේ.
+
+Here you need to redraw the diagram to represent a closed system, using the basic components.
+මෙහිදී ඔබට මූලික සංරචක භාවිතා කරමින් සංවෘත පද්ධතියක් නිරූපණය කිරීම සඳහා රූප සටහන නැවත
+ඇඳීමට අවශ්‍ය වේ.
+
+Input/ ආදානය
+
+Process/ ක්‍රියාවලිය
+
+Output/ ප්‍රතිදානය
+
+System Boundary/ පද්ධති සීමාව
+
+Both inputs and outputs should be drawn within the system boundary.
+ආදාන සහ ප්‍රතිදාන දෙකම පද්ධති සීමාව තුළ ඇඳිය යුතුය.
+
+process
+Input
+Output
+System boundary
+-63-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(ii) Explain the reason for drawing the diagram which you drew for (i) above.
+ඉහත (i) කොටස සඳහා ඇඳි රූපසටහන එසේ ඇඳීමට හේතු වූ කරුණ පැහැදිලි කරන්න.
+
+In closed systems both input and output are available within the same system.
+සංවෘත පද්ධතිවල ආදානය සහ ප්‍රතිදානය යන දෙකම එකම පද්ධතිය තුළ පවතී.
+
+Explanation/ පැහැදිලි කිරීම:
+
+Closed System/ සංවෘත පද්ධතිය
+
+All inputs and outputs are contained within the system.
+සියලුම ආදාන සහ ප්‍රතිදාන පද්ධතිය තුළ අන්තර්ගත වේ.
+
+No interaction with the environment
+පරිසරය සමඟ අන්තර්ක්‍රියාවක් නොමැත.
+
+So the inputs ant outputs should be drawn inside the system boundary.
+එබැවින් ආදාන සහ ප්‍රතිදාන පද්ධති සීමාව තුළ ඇද තිබිය යුතුය.
+
+Example: A sealed pressure cooker - energy may pass (heat), but no mass enters or leaves.
+මුද්‍රා තැබූ පීඩන උදුනක් - ශක්තිය (තාපය) පසුකර යා හැකි නමුත්, කිසිදු ස්කන්ධයක් ඇතුළු හෝ පිට නොවේ.
+
+Open System/ විවෘත පද්ධතිය
+
+A system that interacts with its environment
+එහි පරිසරය සමඟ අන්තර්ක්‍රියා කරන පද්ධතියකි.
+
+It receives inputs from outside and produces outputs to the outside
+එය පිටතින් ආදාන ලබා ගන්නා අතර පිටතට ප්‍රතිදාන නිපදවයි.
+
+Characteristics/ ලක්ෂණ:
+
+Exchange of both matter and energy with the surroundings.
+පරිසරය සමඟ පදාර්ථ හා ශක්තිය යන දෙකම හුවමාරු කිරීම.
+
+Highly dynamic and influenced by external conditions.
+ඉතා ගතික සහ බාහිර තත්වයන්ගෙන් බලපෑමට ලක් වේ.
+
+-64-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+belongs
+to
+Mobile Phone
+Person
+m
+1
+Telephone No
+NIC No
+
+(b) A person can own one or more mobile phones. One mobile phone belongs to a single person
+only. Assume that a mobile phone can be uniquely identified by its telephone number. National
+Identity Card number (NIC No) is used to identify a person uniquely. Above statements are
+represented by the ER diagram in Figure 4.2.
+එක් පුද්ගලයකුට ජංගම දුරකථන එකක් හෝ කිහිපයක් හෝ අයිති විය හැකි ය. එක් ජංගම දුරකථනයක්
+අයත් වන්නේ එක් පුද්ගලයකුට පමණි. දුරකථන අංකයෙන් ජංගම දුරකථනයක් අනන්‍යව හඳුනාගත හැකි බව
+උපකල්පනය කරන්න. ජාතික හැඳුනුම්පත් අංකය (ජා.හැ. අංකය) පුද්ගලයකු අනන්‍යව හඳුනාගැනීමට යොදා
+ගනී. රූපය 4.2 හි දැක්වෙන ER සටහන මගින් ඉහත ප්‍රකාශ නිරූපණය කරයි.
+
+Convert the above ER diagram into 3rd Normal Form relations to be implemented in relational
+database.
+මෙම ER සටහන සම්බන්ධක දත්ත සමුදායක් තුළ ස්ථාපිත කළ හැකි 3 වන ප්‍රමත ආකාරයේ සම්බන්ධකවලට
+පත් කරන්න.
+
+person(NICNo)
+mobilePhone(TelephoneNo, NICNo)
+
+Explanation/ පැහැදිලි කිරීම:
+
+To convert the ER diagram into 3rd NF it should already be in 2nd NF
+ER රූප සටහන තෙවන ප්‍රමත ආකාරය බවට පරිවර්තනය කිරීම සඳහා එය දැනටමත් දෙවන ප්‍රමත
+ආකාරයෙහි තිබිය යුතුය.
+
+person         PK
+NICNo
+
+   FK
+mobilePhone
+TelephoneNo NICNo
+
+-65-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+Figure 4.2 : ER diagram
+
+1. A switch (A), a temperature sensor (B) and a timer (C) of an air-conditioner determine turned on and
+turned off states of the air-conditioner. Turned on and turned off states of the air-conditioner as well
+as the ‘ON’ and ‘OFF’ states of the switch, temperature sensor and the timer are represented by the
+logical values 1 and 0, respectively.
+ස්විචයක් (A), උෂ්ණත්ව සංවේදකයක් (B) සහ කාලගණකයක් (C) මගින් වායුසමීකරණ යන්ත්‍රයක ක්‍රියාත්මක
+සහ ක්‍රියා විරහිත අවස්ථා තීරණය කරයි. වායුසමීකරණ යන්ත්‍රයේ ක්‍රියාත්මක සහ ක්‍රියා විරහිත අවස්ථා ද,
+ස්විචයේ, උෂ්ණත්ව සංවේදකයේ සහ කාලගණකයේ, ‘ON’ සහ ‘OFF’ අවස්ථා ද පිළිවෙළින් තාර්කික අගයන්
+1 සහ 0 මගින් නිරූපණය කරනු ලැබේ.
+
+The air-conditioner can be turned on or off manually by setting the switch to its ‘ON’ or ‘OFF’ states,
+respectively.
+The temperature sensor detects the temperature in the room. The temperature sensor sets its state as
+‘ON’ or ‘OFF’ when the detected temperature is respectively higher or lower than a pre-defined
+temperature value. The air-conditioner is automatically turned on or off when the detected
+temperature is respectively higher or lower than the pre-defined temperature value.
+The timer sets its state as ‘OFF’ until it reaches a preset time value and sets the state as ‘ON’ once it
+reached. The air-conditioner is automatically turned off when the timer reaches the preset time value.
+පිළිවෙළින් ස්විචය එහි ‘ON’ හෝ ‘OFF’ හෝ අවස්ථාවලට පිහිටුවීම මගින් වායුසමීකරණ යන්ත්‍රය අත්යුරුව
+ක්‍රියාත්මක හෝ ක්‍රියා විරහිත හෝ කළ හැකි ය. උෂ්ණත්ව සංවේදකය කාමරයේ උෂ්ණත්වය අනාවරණය කරනු
+ලබන අතර එම උෂ්ණත්වය පෙර අර්ථ දක්වන ලද උෂ්ණත්ව අගයකට වඩා ඉහළ හෝ පහළ හෝ විට
+උෂ්ණත්ව සංවේදකය එහි අවස්ථාව පිළිවෙළින් ‘ON’ හෝ ‘OFF’ හෝ ලෙස පිහිටුවයි. අනාවරණය කරනු
+ලැබූ උෂ්ණත්වය පෙර අර්ථ දක්වන ලද උෂ්ණත්ව අගයට වඩා ඉහළ හෝ පහළ හෝ විට වායුසමීකරණ
+යන්ත්‍රය පිළිවෙළින් ස්වයංක්‍රීයව ක්‍රියාත්මක හෝ ක්‍රියාවිරහිත හෝ  වේ. කාලගණකය පෙර තීරණය කළ කාල
+අගයකට පැමිණෙන තෙක් එහි අවස්ථාව ‘OFF’ ලෙස ද පැමිණි විට එහි අවස්ථාව ‘ON’ ලෙස ද පිහිටුවයි.
+කාලගණකය පෙර තීරණය කළ කාල අගයට පැමිණි විට වායුසමීකරණ යන්ත්‍රය ස්වයංක්‍රීයව ක්‍රියා විරහිත වේ.
+
+(a) Construct a logic circuit using only NOR gates to control the air-conditioner. Clearly show truth
+table, Boolean expression and Boolean algebraic rules used for simplification. Assume that the
+electricity is always supplied to the air-conditioner.
+වායුසමීකරණ යන්ත්‍රය පාලනය කිරීමට NOR ද්වාර පමණක් යොදා ගනිමින් තාර්කික පරිපථයක් ගොඩනගන්න.
+සත්‍යාතා වගුව, බූලියානු ප්‍රකාශනය සහ සරල කිරීමට යොදාගත් බූලියානු වීජ ගණිත නීති පැහැදිලි ව
+දක්වන්න. සැමවිට ම වායුසමීකරණ යන්ත්‍රයට විදුලි සැපයුම ලබා දී ඇති බව උපකල්පනය කරන්න.
+
+Identify the Input Variables / ආදාන විචල්‍ය හඳුනා ගන්න
+We are given three inputs / අපට ආදාන තුනක් ලබා දී ඇත
+
+A = Switch / ස්විචය (1 = ON, 0 = OFF)
+
+B = Temperature Sensor / උෂ්ණත්ව සංවේදකය (1 = High temperature / ඉහළ උෂ්ණත්වය, 0 = Low
+temperature / අඩු උෂ්ණත්වය)
+
+C = Timer / ටයිමරය (1 = Time limit reached / කාල සීමාව ළඟා වී ඇත, 0 = Time not yet reached /
+තවමත් කාලය ළඟා වී නොමැත)
+
+So, the inputs are A, B, C — each can be 0 or 1.
+එබැවින්, A, B, C ආදාන - එක් එක් 0 හෝ 1 විය හැකිය.
+
+RAVINDU BANDARANAYAKE
+2017 AL ESSAY REVIEW
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Identify the Output Variable / ප්‍රතිදාන විචල්‍යය හඳුනා ගන්න
+
+Q = Air-conditioner state / වායු සමීකරණ තත්ත්වය
+o
+Q = 1 → Air-conditioner is ON / වායු සමීකරණ යන්ත්‍රය ක්‍රියාත්මකය
+o
+Q = 0 → Air-conditioner is OFF / වායු සමීකරණ යන්ත්‍රය අක්‍රියයි
+
+List All Input Combinations / සියලුම ආදාන සංයෝජන ලැයිස්තුගත කරන්න
+Since there are 3 inputs, total combinations = 2³ = 8.
+ආදාන 3ක් ඇති බැවින්, මුළු සංයෝජන = 2³ = 8.
+
+A B C Q
+0
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+1
+0
+1
+1
+0
+1
+0
+0
+0
+1
+0
+1
+0
+1
+1
+0
+1
+1
+1
+1
+0
+
+Find the Minterms / Minterms සොයන්න (Rows where Q = 1)
+
+From the table, Q = 1 only when / Q = 1 අවස්ථා වලදී පමණක් වගුවෙන්,
+
+A=0, B=1, C=0 → m2
+
+A=1, B=1, C=0 → m6
+
+So, the Sum of Minterms is / එබැවින් Minterms හි එකතුව වන්නේ,
+
+Q = A̅BC̅ + ABC̅
+
+Simplify the Boolean Expression / බූලියානු ප්‍රකාශනය සරල කරන්න
+= A̅BC̅ + ABC̅
+= BC̅(A̅ + A)
+
+Distributive Law / විඝටන න්‍යාය
+= BC̅(1)
+
+Inverse Law /  ප්‍රතිලෝම න්‍යාය
+= BC̅
+
+Identity Law / සර්වසාම්‍ය න්‍යාය
+
+Step-by-Step NOR gate Implementation / පියවරෙන් පියවර NOR ද්වාර ක්‍රියාත්මක කිරීම
+
+= BC̅̿̿̿̿
+
+Double complement Law / ද්විත්ව ප්‍රතිලෝම න්‍යාය
+= B̅ + C̿̅̅̅̅̅̅̅
+
+De morgan’s Law / ඩි මෝගන් න්‍යාය
+
+-67-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+above diagram can be further simplified / ඉහත රූප සටහන තවදුරටත් සරල කළ හැකිය.
+
+(b) The user of the air-conditioner says that the switch is not required for the operation of the air-
+conditioner.  Do you agree with this statement? Justify your answer.
+ස්විචය වායුසමීකරණ යන්ත්‍රයේ ක්‍රියාකාරිත්වයට අවශ්‍ය නොවන බව වායුසමීකරණ යන්ත්‍රයේ පරිශීලකයා කියයි.
+මෙම කියමනට ඔබ එකග වන්නේ ද? ඔබේ පිළිතුර සාධාරණීකරණය කරන්න.
+
+Yes / ඔව්.
+Input that represents Switch (A) is not in the Boolean expression/circuit.
+ස්විචය (A)  නියෝජනය කරන ආදානය, බූලියානු ප්‍රකාශනය/පරිපථය තුළ නොමැත.
+
+Therefore, it is not required for the operation of the air-conditioner.
+එබැවින්, වායු සමීකරණ යන්ත්‍රයේ ක්‍රියාකාරිත්වය සඳහා එය අවශ්‍ය නොවේ.
+
+2. A “Demilitarized Zone (DMZ)” is a subnet that contains and exposes an organization’s external-
+facing services such as web servers (public IP addresses) to the Internet while hiding away the rest of
+the network behind a firewall (using local IP addresses).
+"යුධ මුක්ත කලාපයක් (DMZ)" යනු ආයතනයක වෙබ් සේවාදායකයින් වැනි බාහිරට මුහුණලා ඇති සේවා
+(පොදු IP   ලිපින) අන්තර්ජාලයට විවෘත කරන අතරතුර ජාලයේ ඉතිරිය ගිනිපවුරක් (firewall) පසුපස සඟවනු
+ලබන (පෞද්ගලික IP ලිපින භාවිතයෙන්) උපජාලයකි.
+
+A network with a DMZ belonging to an organization has been assigned the public IP address range
+123.45.67.0 with subnet mask 255.255.255.224. The DMZ contains the web server and the mail
+server. It has 4 additional subnets for internal use having the private IP address range 10.0.0.0 with
+the subnet mask 255.0.0.0. Computers in each subnet can access resources in all other subnets. The
+organization decided to connect the 4 subnets to the Internet through a proxy server. There is also an
+application server for its internal clients.
+ආයතනයකට අයත් DMZ සහිත ජාලයක් සඳහා 255.255.255.224 උපජාල ආවරණය සහිත 123.45.67.0
+යන පොදු IP ලිපින පරාසය ලබා දී ඇත. මෙම DMZ හි වෙබ් සේවාදායකය හා තැපැල් සේවාදායකය
+අඩංගු වේ. එයට අභ්‍යන්තර භාවිතය සඳහා අමතර උපජාල 4ක් ඇති අතර, ඒවාට උපජාල ආවරණය 255.0.0.0
+සහිත 10.0.0.0 යන පුද්ගලික IP ලිපින පරාසය භාවිත කරයි. එක් එක් උපජාලයේ ඇති පරිගණකවලට
+අනෙකුත් සියලු ම උපජාලවල ඇති සම්පත් වෙත ප්‍රවේශ විය හැකි ය. මෙම උපජාල 4 නියෝජන සේවාදායකය
+(proxy server) හරහා අන්තර්ජාලයට සම්බන්ධ කිරීමට ආයතනය තීරණය කළේ ය. එහි අභ්‍යන්තර
+සේවාග්‍රාහකයින් සඳහා යෙදුම් සේවාදායකයක් ද ඇත.
+
+Identify the devices required to establish this network and draw a network diagram to show the
+logical arrangement of the organization’s computer network. Show all the elements of the network
+with appropriate IP addresses. Clearly show all calculations stating assumptions you made.
+Further, it is also required to explain the changes done to an IP packet released by a computer to a
+subnet by the proxy server when it travels to the Internet.
+මෙම ජාලය ස්ථාපිත කිරීම සඳහා අවශ්‍ය උපාංග හඳුනාගෙන ආයතනයේ පරිගණක ජාලයේ තාර්කික සැලැස්ම
+පෙන්වීම සඳහා ජාල සටහනක් අඳින්න. ජාලයේ සියලු කොටස් සුදුසු IP ලිපින සමග දක්වන්න. ඔබ විසින් සිදු
+කරන ලද උපකල්පන පැහැදිලි ව ප්‍රකාශ කරමින්, සියලු ගණනය කිරීම් ද පැහැදිලි ව දක්වන්න.
+තව ද, පරිගණකයක් උපජාලයක් තුළට මුදාහරින IP පැකැට්ටුවක් අන්තර්ජාලය වෙත ගමන් කිරීමේ දී,
+නියෝජන සේවාදායක මගින් එම පැකට්ටුවට සිදු කරන වෙනස්කම් විස්තර කිරීම ද අවශ්‍ය වේ.
+
+-68-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+A Demilitarized Zone (DMZ) in networking is a special subnet that acts as a buffer zone between an
+organization’s internal network and the public Internet. It contains services that need to be accessible
+from outside the organization, such as web servers, mail servers, and FTP servers. These servers are
+assigned public IP addresses so users on the Internet can access them, but they are placed in a separate
+network segment to reduce the risk to the internal network.
+ජාලකරණයේ යුධ මුක්ත කලාපයක් (DMZ) යනු සංවිධානයක අභ්‍යන්තර ජාලය සහ පොදු අන්තර්ජාලය
+අතර බෆර් කලාපයක් ලෙස ක්‍රියා කරන විශේෂ උප ජාලයකි. වෙබ් සේවාදායකයන්, තැපැල් සේවාදායකයන්
+සහ FTP සේවාදායකයන් වැනි සංවිධානයෙන් පිටත සිට ප්‍රවේශ විය යුතු සේවාවන් එහි අඩංගු වේ.
+අන්තර්ජාලයේ පරිශීලකයින්ට ඒවාට ප්‍රවේශ විය හැකි වන පරිදි මෙම සේවාදායකයන්ට පොදු IP ලිපින
+පවරා ඇත, නමුත් අභ්‍යන්තර ජාලයට ඇති අවදානම අඩු කිරීම සඳහා ඒවා වෙනම ජාල කොටසක තබා
+ඇත.
+
+Public IP Block / පොදු IP කොටස (DMZ)
+
+Given IP block / ලබා දී ඇති IP කොටස : 123.45.67.0
+Subnet Mask / උපජාල ආවරණය : 255.255.255.224 → 11111111.11111111.11111111.11100000 → /27
+So, public IP block is 123.45.67.0/17
+එමනිසා, පොදු IP කොටස වන්නේ 123.45.67.0/17
+
+Private IP Block (Internal) / පුද්ගලික IP කොටස (අභ්‍යන්තර)
+
+Given IP block / ලබා දී ඇති IP කොටස : 10.0.0.0
+Subnet Mask / උපජාල ආවරණය : 255.0.0.0 → 11111111.00000000.00000000.00000000 → /8
+So, private IP block is 10.0.0.0/8
+එමනිසා, පුද්ගලික IP කොටස වන්නේ 10.0.0.0/8
+
+We should borrow 2 bits from host portion to divide into 4 subnets.
+මෙහිදී උපජාල 4 කට බෙදීමට ධාරක කොටසෙන් බිටු 2 ක් ලබාගත යුතුයි.
+
+22 = 4 subnets (උපජාල)
+
+Then the subnet mask becomes 255.192.0.0
+එවිට උපජාල ආවරණය 255.192.0.0 වේ.
+
+00001010.00000000.00000000.00000000 = 10.0.0.0/10
+00001010.01000000.00000000.00000000 = 10.64.0.0/10
+00001010.10000000.00000000.00000000 = 10.128.0.0/10
+00001010.11000000.00000000.00000000 = 10.192.0.0/10
+
+Subnet
+Network ID
+IP range
+Subnet 1
+10.0.0.0
+10.0.0.1 - 10.63.255.254
+Subnet 2
+10.64.0.0
+10.64.0.1 - 10.127.255.254
+Subnet 3
+10.128.0.0
+10.128.0.1 - 10.191.255.254
+Subnet 4
+10.192.0.0
+10.192.0.1 - 10.255.255.254
+
+-69-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Since any computer in any subnetwork can access resources in all subnetworks, the application server can
+be established in any subnetwork. Since it is for internal clients, it should not be located in the DMZ.
+ඕනෑම උප ජාලයක ඕනෑම පරිගණකයකට සියලුම උප ජාලයන්හි සම්පත් වෙත ප්‍රවේශ විය හැකි බැවින්,
+යෙදුම් සේවාදායකය ඕනෑම උප ජාලයක ස්ථාපිත කළ හැකිය. එය අභ්‍යන්තර සේවාදායකයින් සඳහා වන
+බැවින්, එය DMZ හි පිහිටා නොතිබිය යුතුය.
+
+When a computer in the internal network sends a packet to the Internet, the proxy server changes the
+source IP address from the internal private IP (e.g. 10.0.0.20) to its own public IP (e.g. 123.45.67.10). The
+destination IP remains the same. This makes it appear as if the request is coming from the proxy server,
+not the internal computer. When the response comes back from the Internet, the proxy server receives it
+and forwards it to the correct internal computer.
+අභ්‍යන්තර ජාලයේ පරිගණකයක් අන්තර්ජාලයට පැකට්ටුවක් යවන විට, නියෝජන සේවාදායකය අභ්‍යන්තර
+පුද්ගලික IP ලිපිනයෙන් (උදා: 10.0.0.20) තමන්ගේම පොදු IP ලිපිනයට (උදා: 123.45.67.10) මූලාශ්‍ර IP
+ලිපිනය වෙනස් කරයි. ගමනාන්ත IP ලිපිනය එලෙසම පවතී. මෙමඟින් ඉල්ලීම අභ්‍යන්තර පරිගණකයෙන් නොව
+නියෝජන සේවාදායකයෙන් පැමිණෙන බව පෙනේ. ප්‍රතිචාරය අන්තර්ජාලයෙන් ආපසු පැමිණි විට,  නියෝජන
+සේවාදායකය එය ලබාගෙන නිවැරදි අභ්‍යන්තර පරිගණකයට යොමු කරයි.
+
+-70-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+3. A state health authority decided to conduct an awareness program as an online service through
+Internet to reduce dengue infection by transmission of the virus through the mosquitoes. This service
+provides information on how to adopt dengue control approaches, such as cleaning the environment,
+destroying non-essential containers that provide larva habitats etc., in order to minimize mosquitoes’
+propagation.
+මදුරුවන් මගින් වයිරසය සම්ප්‍රේෂණය වීමෙන් සිදුවන ඩෙංගු ආසාදනය අඩු කිරීම සඳහා දැනුවත් කිරීමේ
+වැඩසටහනක් අන්තර්ජාලය ඔස්සේ මාර්ගගත සේවාවක් ලෙස පවත්වාගෙන යාමට රාජ්‍ය සෞඛ්‍ය අධිකාරියක්
+තීරණය කළේ ය. මදුරුවන්ගේ බෝවීම අවම කිරීම සඳහා පරිසරය පිරිසිදු කිරීම, කීට වාසස්ථාන සපයන
+අනවශ්‍ය බඳුන් විනාශ කිරීම වැනි ඩෙංගු පාලනය කිරීමේ ප්‍රවේශ යොදා ගන්නා ආකාරය පිළිබඳ තොරතුරු
+මෙම සේවාව මගින් සපයයි.
+
+(a) To which e-commerce type does this service belong?
+මෙම සේවාව අයත් වන්නේ කුමන e-වාණිජ්‍ය (e-commerce) වර්ගයට ද?
+
+G2C or Government to Consumer / Citizen
+රජයෙන් පාරිභෝගිකයාට
+
+The state health authority (a government entity) is providing a service (an awareness program on
+dengue control) directly to the citizens (the public) through the internet. This interaction, where the
+government is the seller of information or services and the public is the consumer, defines G2C
+e-commerce.
+රාජ්‍ය සෞඛ්‍ය අධිකාරිය (රජයේ ආයතනයක්) අන්තර්ජාලය හරහා පුරවැසියන්ට (මහජනතාවට) සෘජුවම
+සේවාවක් (ඩෙංගු පාලනය පිළිබඳ දැනුවත් කිරීමේ වැඩසටහනක්) සපයයි. රජය තොරතුරු හෝ
+සේවාවන් විකුණන්නා වන අතර මහජනතාව පාරිභෝගිකයා වන මෙම අන්තර්ක්‍රියාව, G2C ඊ-වාණිජ්‍යය
+අර්ථ දක්වයි.
+
+(b) If the service is extended by allowing organizations to register their services targeting minimizing
+the spread, what is the e-commerce type of this extended service? Justify your answer.
+මදුරු ව්‍යාප්තිය අවම කිරීම ඉලක්කකොට ගත් තම සේවා ලියාපදිංචි කිරිමට ආයතනවලට ඉඩ සලසා
+දෙන පරිදි මෙම සේවාව පුළුල් කළහොත් මෙම පුළුල් කළ සේවාවේ e-වාණිජ්‍ය වර්ගය කුමක් ද? ඔබේ
+පිළිතුර සාධාරණීකරණය කරන්න.
+
+When organizations are allowed to register their services online with the government (such as pest
+control, cleaning services, etc.), it becomes an interaction between the government and businesses or
+employees. The purpose is to facilitate collaboration or compliance, hence it fits the G2B or G2E
+model of e-commerce. The government enables these businesses or employees to contribute to dengue
+control efforts through a digital platform.
+සංවිධානවලට රජය සමඟ ඔවුන්ගේ සේවාවන් මාර්ගගතව ලියාපදිංචි කිරීමට අවසර දුන් විට (පළිබෝධ
+පාලනය, පිරිසිදු කිරීමේ සේවා ආදිය), එය රජය සහ ව්‍යාපාර හෝ සේවකයින් අතර අන්තර්ක්‍රියාවක් බවට
+පත්වේ. අරමුණ වන්නේ සහයෝගීතාවය හෝ අනුකූලතාවයට පහසුකම් සැලසීමයි, එබැවින් එය ඊ-
+වාණිජ්‍යයේ G2B හෝ G2E ආකෘතියට ගැලපේ. රජය මෙම ව්‍යාපාර හෝ සේවකයින්ට ඩිජිටල් වේදිකාවක්
+හරහා ඩෙංගු මර්දන උත්සාහයන් සඳහා දායක වීමට හැකියාව ලබා දෙයි.
+
+(c) Assume that a registered organization provides a service for itself to submit the details of the
+identified dengue breeding places to the state authority online. Why is this service not rightly
+considered as B2B? What is the correct e-commerce type of this service?
+හඳුනාගනු ලැබූ ඩෙංගු මදුරුවන් බෝවන ස්ථාන පිළිබඳ තොරතුරු, රාජ්‍ය අධිකාරියට මාර්ගගතව ලබා
+දීමට ලියාපදිංචි සංවිධානයක් තමන් සඳහාම සේවාවක් සපයා ගන්නා බව උපකල්පනය කරන්න. මෙම
+සේවාව B2B සේවාවක් ලෙස නිවැරදිව සැලකිය නොහැක්කේ ඇයි? මෙම සේවාව සඳහා නිවැරදි e-
+වාණිජ්‍ය වර්ගය කුමක් ද?
+
+This service is not rightly considered B2B because there is no commercial transaction or service
+being offered to another business. The organization is using the online platform to fulfill a civic duty
+or a requirement related to the broader dengue control effort. They are not selling a service to the state
+authority.
+වෙනත් ව්‍යාපාරයකට වාණිජ ගනුදෙනුවක් හෝ සේවාවක් පිරිනමනු නොලබන බැවින් මෙම සේවාව B2B ලෙස
+නිවැරදිව නොසැලකේ. පුළුල් ඩෙංගු මර්දන ප්‍රයත්නයට අදාළ සිවිල් යුතුකමක් හෝ අවශ්‍යතාවයක් ඉටු
+කිරීම සඳහා සංවිධානය මාර්ගගත වේදිකාව භාවිතා කරයි. ඔවුන් රාජ්‍ය අධිකාරියට සේවාවක් විකුණන්නේ
+නැත.
+-71-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+The correct e-commerce type for this service is Business-to-Government (B2G) e-commerce.
+මෙම සේවාව සඳහා නිවැරදි ඊ-වාණිජ්‍ය වර්ගය ව්‍යාපාරයෙන් රජයට (B2G) ඊ-වාණිජ්‍යයයි.
+
+Even though the organization is acting for its own benefit (e.g., complying with regulations or
+contributing to a healthier environment), the interaction is still between a business/organization and a
+government entity. The organization is providing information (details of breeding places) through a
+government platform. This flow of information or data from a business to the government for
+administrative or regulatory purposes falls under the B2G category.
+සංවිධානය තමන්ගේම ප්‍රයෝජනය සඳහා ක්‍රියා කළත් (උදා: රෙගුලාසි වලට අනුකූල වීම හෝ සෞඛ්‍ය
+සම්පන්න පරිසරයකට දායක වීම), අන්තර්ක්‍රියාව තවමත් ව්‍යාපාරයක්/සංවිධානයක් සහ රජයේ ආයතනයක්
+අතර වේ. සංවිධානය රජයේ වේදිකාවක් හරහා තොරතුරු (බෝවන ස්ථාන පිළිබඳ විස්තර) සපයයි.
+පරිපාලන හෝ නියාමන අරමුණු සඳහා ව්‍යාපාරයකින් රජයට මෙම තොරතුරු හෝ දත්ත ප්‍රවාහය B2G
+කාණ්ඩයට අයත් වේ.
+
+(d) An expert system is proposed to develop policies to fine the owners of the locations where dengue
+mosquitoes have been detected. Accordingly, experts in Attorney General’s Department and
+epidemiology units are consulted. State key contributions that are expected from each expert to
+develop the Knowledge base of the expert system. (Hint: The contribution of one expert should
+be an input to the decision making process of the other expert).
+ඩෙංගු මදුරුවන් සිටින බවට අනාවරණය කර ගත් ස්ථානවල අයිතිකරුවන්ට දඩ අය කිරීම සඳහා
+ප්‍රතිපත්ති සකස් කිරීමට විශේෂඥ පද්ධතියක් යෝජනා කෙරේ. ඒ අනුව, නීතිපති දෙපාර්තමේන්තුවේ සහ
+වසංගත රෝග විද්‍යා ඒකකයේ විශේෂඥවරුන්ගේ උපදෙස් ලබා ගනී.
+විශේෂඥ පද්ධතියේ දැනුම් සමුදාය ගොඩනැගීම සඳහා එක් එක් විශේෂඥයාගෙන් අපේක්ෂා කෙරෙන
+ප්‍රධාන දායකත්වය සඳහන් කරන්න. (ඉඟිය: එක් විශේෂඥයකුගේ දායකත්වය අනෙක් විශේෂඥයාගේ
+තීරණ ගැනීමේ ක්‍රියාවලියට ආදානයක් විය යුතු ය.)
+
+Attorney General’s Department / නීතිපති දෙපාර්තමේන්තුව :
+
+Prepare fine calculation mechanism according to the criticality of the identified place.
+හඳුනාගත් ස්ථානයේ තීරණාත්මක බව අනුව සියුම් ගණනය කිරීමේ යාන්ත්‍රණයක් සකස් කරයි.
+
+Provides legal frameworks and penalty structures related to public health violations.
+මහජන සෞඛ්‍ය උල්ලංඝනයන්ට අදාළ නීතිමය රාමු සහ දඩුවම් ව්‍යුහයන් සපයයි.
+
+Defines the rules for imposing fines, legal procedures, and compliance enforcement
+mechanisms.
+දඩ පැනවීම, නීතිමය ක්‍රියා පටිපාටි සහ අනුකූලතා බලාත්මක කිරීමේ යාන්ත්‍රණයන් සඳහා වන නීති
+රීති නිර්වචනය කරයි.
+
+Uses input from the epidemiologist (e.g., severity of breeding, risk factors) to determine the
+legality and severity of penalties.
+දඩුවම්වල නීත්‍යානුකූලභාවය සහ බරපතලකම තීරණය කිරීම සඳහා වසංගත රෝග විද්‍යාඥයාගේ
+ආදානය (උදා: බෝවීමේ බරපතලකම, අවදානම් සාධක) භාවිතා කරයි.
+
+Helps codify the decision-making rules in the system based on law.
+නීතිය මත පදනම්ව පද්ධතියේ තීරණ ගැනීමේ නීති සංග්‍රහ කිරීමට උපකාරී වේ.
+
+Epidemiology Unit / වසංගත රෝග විද්‍යා ඒකකය :
+
+Develop formula to measure the criticality of the identified place related to dengue breeding.
+ඩෙංගු බෝවීම හා සම්බන්ධ හඳුනාගත් ස්ථානයේ තීරණාත්මක බව මැනීම සඳහා සූත්‍රයක් සකස්
+කිරීම.
+
+Provides data on dengue case patterns, mosquito breeding trends, infection zones, and
+environmental factors.
+ඩෙංගු රෝගීන්ගේ රටා, මදුරුවන් බෝවීමේ ප්‍රවණතා, ආසාදන කලාප සහ පාරිසරික සාධක පිළිබඳ
+දත්ත සපයයි.
+
+-72-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Identifies risk areas and criteria for evaluating the severity of mosquito breeding grounds.
+මදුරුවන් බෝවන ස්ථාන වල බරපතලකම තක්සේරු කිරීම සඳහා අවදානම් ප්‍රදේශ සහ නිර්ණායක
+හඳුනා ගනී.
+
+Supplies scientific and medical guidelines for effective mosquito control.
+ඵලදායී මදුරු පාලනය සඳහා විද්‍යාත්මක හා වෛද්‍ය මාර්ගෝපදේශ සපයයි.
+
+This information forms the input data and evaluation criteria for the expert system.
+මෙම තොරතුරු විශේෂඥ පද්ධතිය සඳහා ආදාන දත්ත සහ ඇගයීම් නිර්ණායක සාදයි.
+
+The epidemiologist’s input (scientific evidence) helps the legal expert establish which situations are
+legally actionable. The Attorney General’s input (legal policies) is then used to formulate decision
+rules for issuing fines. Together, they build a comprehensive knowledge base for the expert system
+that balances science and law.
+වසංගත රෝග විද්‍යාඥයාගේ ආදානය (විද්‍යාත්මක සාක්ෂි) නීති විශේෂඥයාට නීත්‍යානුකූලව ක්‍රියා කළ
+හැකි තත්වයන් තීරණය කිරීමට උපකාරී වේ. නීතිපතිවරයාගේ ආදානය (නීතිමය ප්‍රතිපත්ති) පසුව දඩ
+නිකුත් කිරීම සඳහා තීරණ නීති සකස් කිරීමට යොදා ගනී. එක්ව, ඔවුන් විද්‍යාව සහ නීතිය සමතුලිත
+කරන විශේෂඥ පද්ධතිය සඳහා පුළුල් දැනුම පදනමක් ගොඩනඟයි.
+
+4. The consumption of electricity at houses is charged based on the number of units consumed. The
+first 64 units are charged at Rs.5.00 per unit, and the rest at Rs.10.00 per unit.
+ගෘහස්ථ විදුලි පරිභෝජනය සඳහා ගෙවිය යුතු මුදල පරිභෝජනය කරන ලද විදුලි ඒකක ගණන මත පදනම්
+වේ. පළමු ඒකක 64 සඳහා ඒකකයකට රු. 5.00 බැගින් ද, ඉතිරි ඒකක සඳහා ඒකකයකට රු. 10.00 බැගින්
+ද අයකරනු ලැබේ.
+
+(a) Draw a flowchart to represent an algorithm that can be used to compute the total amount to be
+charged from a householder when the household number and present and the previous readings
+of the electricity meter are given.
+ගෘහස්ථයේ අංකය, පෙර හා වර්තමාන විදුලි මනු කියවීම් දුන් විට ගෘහස්ථ, හිමිකරුගෙන් අයවිය යුතු
+මුළු මුදල ගණනය කිරීමට භාවිත කළ හැකි ඇල්ගොරිතමයක් නිරූපණය කිරීම සඳහා ගැලීම් සටහනක්
+අඳින්න.
+
+-73-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(b) Encode the algorithm given in the (a) above in Python programming language. State all valid
+assumptions, if any.
+ඉහත (a) හි ඉදිරිපත් කරන ලද ඇල්ගොරිතමය Python ක්‍රමලේඛන භාෂාවෙන් කේතනය කරන්න. වලංගු
+උපකල්පන ඇත්නම්, ඒවා සියල්ල සඳහන් කරන්න.
+
+def calculate_bill(household_no, previous_reading, present_reading):
+    # Assumption: present_reading >= previous_reading
+    units_consumed = present_reading - previous_reading
+
+    if units_consumed <= 64:
+        amount = units_consumed * 5.0
+    else:
+        amount = (64 * 5.0) + ((units_consumed - 64) * 10.0)
+
+    print(f"Household No: {household_no}")
+    print(f"Units Consumed: {units_consumed}")
+    print(f"Total Amount: Rs.{amount:.2f}")
+
+    return units_consumed, amount
+
+Valid Assumptions / වලංගු උපකල්පන:
+
+1. Present reading is greater than or equal to previous reading
+වර්තමාන කියවීම පෙර කියවීමට වඩා වැඩි හෝ සමාන වේ.
+
+o
+You assume present_reading ≥ previous_reading to avoid negative unit consumption.
+සෘණ ඒකක පරිභෝජනය වළක්වා ගැනීම සඳහා ඔබ present_reading ≥ previous_reading
+උපකල්පනය කරයි.
+
+o
+If not, you should handle errors or invalid input.
+එසේ නොවේ නම්, ඔබ දෝෂ හෝ වලංගු නොවන ආදානය හැසිරවිය යුතුය.
+
+2. Readings are non-negative integers
+කියවීම් සෘණ නොවන පූර්ණ සංඛ්‍යාවක් වේ.
+
+o
+Electricity meter readings can’t be negative / විදුලි මීටර කියවීම් සෘණ විය නොහැක.
+
+o
+The function assumes both readings are valid integers.
+ශ්‍රිතය කියවීම් දෙකම වලංගු පූර්ණ සංඛ්‍යා බව උපකල්පනය කරයි.
+
+3. Unit rate is fixed
+ඒකක අනුපාතය ස්ථාවර වේ
+
+o
+The rate for the first 64 units is Rs.5.00/unit.
+පළමු ඒකක 64 සඳහා අනුපාතය ඒකකයකට රු.5.00 කි.
+
+o
+Any unit beyond 64 is Rs.10.00/unit.
+64 න් ඔබ්බට ඇති ඕනෑම ඒකකයක් ඒකකයකට රු.10.00 කි.
+
+o
+These rates are constant and do not change dynamically.
+මෙම අනුපාත නියත වන අතර ගතිකව වෙනස් නොවේ.
+
+4. There is no minimum fixed charge or tax
+අවම ස්ථාවර ගාස්තුවක් හෝ බද්දක් නොමැත.
+
+o
+The bill is calculated only based on units consumed, without any base fee, surcharge, or tax.
+පරිභෝජනය කරන ඒකක මත පදනම්ව පමණක් බිල්පත ගණනය කරනු ලබන අතර, කිසිදු මූලික
+ගාස්තුවක්, අධිභාරයක් හෝ බද්දක් අය නොකෙරේ.
+
+-74-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+5. Household number is treated as a string or identifier
+ගෘහ අංකය අනුලකුණු වැලක් හෝ හඳුනාගැනීමක් ලෙස සලකනු ලැබේ.
+
+o
+The household number can be alphanumeric, so it is taken as a string.
+ගෘහ අංකය අක්ෂරාංක විය හැකි බැවින් එය නූලක් ලෙස ගනු ලැබේ.
+
+o
+It’s not used in calculations - only for identification.
+එය ගණනය කිරීම් වලදී භාවිතා නොවේ - හඳුනා ගැනීම සඳහා පම”.
+
+6. No error handling for invalid input types
+අවලංගු ආදාන වර්ග සඳහා දෝෂ හැසිරවීමක් නොමැත.
+
+o
+The program expects the user to enter correct input types (e.g., integers for readings).
+වැඩසටහන මඟින් පරිශීලකයා නිවැරදි ආදාන වර්ග (උදා: කියවීම් සඳහා පූර්ණ සංඛ්‍යා) ඇතුළත්
+කිරීම අපේක්ෂා කරයි.
+
+o
+Additional validation would be required for robust production code.
+ශක්තිමත් නිෂ්පාදන කේතයක් සඳහා අමතර වලංගුකරණයක් අවශ්‍ය වනු ඇත.
+
+7. No time-based or slab-wise billing beyond the 64-unit threshold
+ඒකක 64 සීමාවෙන් ඔබ්බට කාලය මත පදනම් වූ හෝ ස්ලැබ් අනුව බිල්පත් නොමැත.
+
+o
+The billing logic assumes a single break at 64 units and not more complex slabs (e.g., 0–100, 100–
+200, etc.).
+බිල්පත් තර්කනය ඒකක 64 කදී තනි බිඳීමක් උපකල්පනය කරන අතර වඩාත් සංකීර්ණ slabs  නොවේ
+(උදා: 0–100, 100–200, ආදිය).
+
+(c) Develop a function in Python to write household number, meter readings and the total amount
+to be charged at the end of an existing text file named “deb.txt”.
+ගෘහස්ථ අංකය, විදුලි මනු කියවීම් සහ අය කළ යුතු මුළු මුදල, පවතින "deb.txt" නම් වූ පාඨ ගොනුවක
+අගට ලිවීමට අවශ්‍ය Python ශ්‍රිතයක් ගොඩනගන්න.
+
+def append_to_file(household_no, previous_reading, present_reading,
+amount):
+f = open("deb.txt","a")
+print(household_no, previous_reading, present_reading, amount,
+file=f,sep=",")
+f.close()
+
+Or / හෝ
+
+f.write(str(household_no) +" "+ str(previous_reading) +" "+
+str(present_reading) +" "+ str(c amount))
+
+f.write ("%s %s %s %s" %(household_no, previous_reading, present_reading,
+amount))
+
+Assumptions / උපකල්පන:
+
+present_reading ≥ previous_reading.
+
+File deb.txt exists or will be created in the same directory.
+deb.txt ගොනුව එකම නාමාවලියෙහි පවතී හෝ නිර්මාණය වනු ඇත.
+
+All readings are integers, and bill is computed in float (Rs.XX.XX).
+සියලුම කියවීම් පූර්ණ සංඛ්‍යා වන අතර බිල්පත (Rs.XX.XX) වලින් ගණනය කෙරේ.
+
+-75-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+5. The candidates who have been selected for university entrance should register for the given academic
+year with the university given to them. Candidates who do not register before the ‘Last date’
+announced by each university will lose their university entrance. Once a candidate registers with the
+given university, the candidate becomes a registered student of that university. Registered students
+can apply for financial support, such as Mahapola scholarships and Bursary, separately. These
+financial supports could be either full or partial. All registered students will receive a laptop.
+However, its ownership cannot be transferred to another student. The user requirements of the above
+system are listed below.
+විශ්වවිද්‍යාල ප්‍රවේශයට තෝරාගන්නා ලද අපේක්ෂකයන් එම අධ්‍යයන වර්ෂය සඳහා ඔවුන්ට ලබා දුන්
+විශ්වවිද්‍යාලයෙහි ලියාපදිංචි විය යුතු ය. එක් එක් විශ්වවිද්‍යාලය විසින් ප්‍රකාශයට පත් කරන 'අවසන් දිනයට'
+පෙර ලියාපදිංචි නොවන අපේක්ෂකයන්ට විශ්වවිද්‍යාල ප්‍රවේශය අහිමි වනු ඇත. යම් අපේක්ෂකයකු ලබා දුන්
+විශ්වවිද්‍යාලයේ ලියාපදිංචි වූ විට එම අපේක්ෂකයා එම විශ්වවිද්‍යාලයේ ලියාපදිංචි ශිෂ්‍යයකු බවට පත් වේ.
+ලියාපදිංචි වූ ශිෂ්‍යයන්ට මහපොළ ශිෂ්‍යත්ව හා ශිෂ්‍යාධාර වැනි මූල්‍යමය ආධාර සඳහා වෙන වෙන ම අයදුම්
+කළ හැකි ය. මෙම මූල්‍යමය ආධාර පූර්ණ හෝ අර්ධ හෝ විය හැකි ය. ලියාපදිංචි වූ සෑම ශිෂ්‍යයෙකුට ම
+ලැප්ටොප් පරිගණකයක් ලැබෙයි. එහෙත් එහි අයිතිය වෙනත් ශිෂ්‍යයකුට පැවරිය නොහැකි ය.
+
+A user shall be able to obtain / ඉහත පද්ධතියෙහි පරිශීලක අවශ්‍යතා පහත දැක්වේ. පරිශීලකයකුට,
+(a) a list of students registered for a given academic year with a given university.
+දෙන ලද විශ්වවිද්‍යාලයක දෙන ලද අධ්‍යයන වර්ෂයක් සඳහා ලියාපදිංචි වූ ශිෂ්‍යයන්ගේ ලැයිස්තුවක්
+ලබා ගැනීමට හැකි විය යුතු ම ය.
+
+(b) information (such as model, serial number and warranty period) about the laptops given to each
+student.
+එක් එක් ශිෂ්‍යයාට ලබා දුන් ලැප්ටොප් පරිගණකයේ විස්තර (මාදිලිය, අනුක්‍රමික අංකය සහ වගකීම්
+කාලය වැනි) ලබා ගත හැකි විය යුතු ම ය.
+
+(c) list of students who applied for financial support.
+මූල්‍යමය ආධාර සඳහා අයදුම් කළ ශිෂ්‍යයන්ගේ ලැයිස්තුවක් ලබා ගත හැකි විය යුතු ම ය.
+
+Draw an Entity Relationship (ER) diagram required to design a database to represent the above
+system description and to satisfy the user requirements. State all your assumptions clearly.
+ඉහත පද්ධති විස්තරය නිරූපණය වන හා පරිශීලක අවශ්‍යතා ඉටු කරගත හැකි දත්ත සමුදායක් නිර්මාණය
+කිරීමට අවශ්‍ය භූතාර්ථ සම්බන්ධතා (ER) සටහනක් අඳින්න. ඔබගේ උපකල්පන පැහැදිලිව සඳහන් කරන්න.
+
+Entities and Attributes / භූතාර්ථ හා උපලක්ෂණ
+
+1. Student
+
+Attributes / උපලක්ෂණ:
+None directly shown here / මෙහි සෘජුවම පෙන්වා ඇති කිසිවක් නැත.
+
+Relationships / සබඳතා:
+Registers with a University/ විශ්ව විද්‍යාලයක ලියාපදිංචි වීම
+Owns a Laptop/ උකුල් පරිගණකයක් අයිතියි
+Applies for Financial Support/ මූල්‍ය ආධාර සඳහා අයදුම් කරයි.
+
+2. University
+
+Attributes:/ උපලක්ෂණ :
+academic_year
+
+Relationship:/ සබඳතා:
+Registered by Students/ සිසුන් විසින් ලියාපදිංචි කර ඇත
+
+3. Laptop
+
+Attributes:/ උපලක්ෂණ :
+model
+serial_no
+warranty_period
+-76-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+4. Financial support
+
+Attributes:/ උපලක්ෂණ :
+payment_type
+name
+
+5. Candidate (weak entity, shown with a dashed ellipse)
+(දුර්වල භූතාර්ථ, ඉරි සහිත ඉලිප්සයක් සහිතව පෙන්වා ඇත)
+
+Exists in the context of an "apply for" relationship.
+"apply for" සම්බන්ධතාවයක සන්දර්භය තුළ පවතී.
+
+Not fully detailed; likely a specialization/generalization with Student or an external applicant.
+සම්පූර්ණයෙන් විස්තර කර නැත. බොහෝ විට ශිෂ්‍යයෙකු හෝ බාහිර අයදුම්කරුවෙකු සමඟ
+විශේෂීකරණය/සාමාන්‍යකරණයක් විය හැකිය.
+
+Relationships and Cardinality / සම්බන්ධතාවයන් සහ ගණීයතාවය:
+
+register with (Student - University)
+Cardinality / ගණීයතාවය:
+Many students (m) register with one university (1)
+බොහෝ සිසුන් (දළ වශයෙන්) එක් විශ්ව විද්‍යාලයක ලියාපදිංචි වේ (1)
+
+Attributes / උපලක්ෂණ:
+last_date, academic_year
+
+owns (Student - Laptop)
+Cardinality / ගණීයතාවය:
+One student (1) owns one laptop (1)
+එක් සිසුවෙකුට (1) එක් ලැප්ටොප් පරිගණකයක් තිබේ (1)
+
+apply for (Student - Financial support)
+Cardinality / ගණීයතාවය:
+One student can apply for many financial support programs (m), and one financial support can be
+applied by many students (n)
+එක් සිසුවෙකුට බොහෝ මූල්‍ය ආධාර වැඩසටහන් සඳහා අයදුම් කළ හැකි අතර, එක් ශිෂ්‍යයෙකුට බොහෝ
+දෙනෙකුට මූල්‍ය ආධාර සඳහා අයදුම් කළ හැකිය (n)
+
+apply for (Candidate - University) (dashed part)
+Indicates a weak relationship, possibly for candidates applying to universities before becoming
+students.
+දුර්වල සම්බන්ධතාවයක් පෙන්නුම් කරයි, බොහෝ විට සිසුන් වීමට පෙර විශ්ව විද්‍යාලවලට අයදුම් කරන
+අපේක්ෂකයින් සඳහා.
+
+Special Notes:
+
+Dashed ellipse and double rectangle (Candidate & apply for) suggest:
+ඉරි සහිත ඉලිප්සය සහ ද්විත්ව සෘජුකෝණාස්‍රය ( Candidate සහ apply for) යෝජනා කරන්නේ:
+
+Weak entity: Candidate depends on another entity (likely University) for its identification.
+දුර්වල භූතාර්තය: අපේක්ෂකයා හඳුනා ගැනීම සඳහා වෙනත් ආයතනයක් (බොහෝ විට විශ්ව විද්‍යාලයක්)
+මත යැපේ.
+
+Candidate is probably an applicant before becoming a Student.
+අපේක්ෂකයා ශිෂ්‍යයෙකු වීමට පෙර අයදුම්කරුවෙකු විය හැකිය.
+
+-77-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Summary:
+
+This ER diagram models a university enrollment system:
+මෙම ER රූප සටහන විශ්ව විද්‍යාල ඇතුළත් වීමේ පද්ධතියක් ආදර්ශනය කරයි:
+
+Students register at universities and can apply for financial support. / සිසුන්ට විශ්ව විද්‍යාලවල ලියාපදිංචි
+වන අතර මූල්‍ය ආධාර සඳහා ඉල්ලුම් කළ හැකිය.
+
+Each student owns one laptop with detailed attributes. / සෑම සිසුවෙකුටම සවිස්තරාත්මක ගුණාංග සහිත
+එක් ලැප්ටොප් පරිගණකයක් හිමි වේ.
+
+The system also accounts for non-student candidates applying to universities. / විශ්වවිද්‍යාලවලට අයදුම්
+කරන ශිෂ්‍ය නොවන අපේක්ෂකයින් සඳහා ද මෙම පද්ධතිය ගිණුම්ගත කෙරේ.
+
+Now let's draw the ER diagram for the question.
+දැන් අපි ප්‍රශ්නයට අදාළ ER රූප සටහන අදිමු.
+
+-78-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+6. Environmental Institute of Colombo intends to develop a website to provide information on an art
+competition for students. A web page from this website and another web page with the entry form to
+register for the competition are shown in the Figure 6.1 and Figure 6.2 respectively.
+සිසුන් සඳහා පවත්වන චිත්‍ර තරගයක් පිළිබඳ තොරතුරු ලබා දීම සඳහා කොළඹ පාරිසරික ආයතනය වෙබ්
+අඩවියක් නිර්මාණය කිරීමට අදහස් කරයි. එහි එක් වෙබ් පිටුවක් හා තරගාවලියට ලියාපදිංචි වීම සඳහා
+ඇතුළත් වීමේ පෝරමය සහිත තවත් වෙබ් පිටුවක් රූපය 6.1 හා රූපය 6.2 මගින් පිළිවෙළින් දැක්වෙයි.
+
+(a) Using appropriate HTML tags, create an HTML file required to render the web page as shown in
+Figure 6.1. Your code should satisfy the following requirements.
+It is required to format the text of the list in ‘Calibri’ font, 14 points high, in red color. The list should
+be bulleted with squares. Format the list by using internal or external style sheets only.
+සුදුසු HTML උසුලන භාවිත කර, රූපය 6.1 හි දැක්වෙන වෙබ් පිටුව විදැහු කිරීමට අවශ්‍ය HTML
+ගොනුවක් නිර්මාණය කරන්න. ඔබගේ කේතය පහත දැක්වෙන අවශ්‍යතා තෘප්ත කළ යුතු ය.
+ලැයිස්තුවේ (list) ඇති පාඨ මුද්‍රණ අකුරු වර්ගය (font) 'Calibri' , ලක්ෂ්‍ය (point) 14 ක් උස හා රතු
+වර්ණයෙන් ආකෘති කිරීමට අවශ්‍ය වේ. ලැයිස්තුවේ පෙරනිමිය (bullet) හතරැස් විය යුතු ය. අභ්‍යන්තර හෝ
+බාහිර රටා පත්‍ර පමණක් භාවිතයෙන් ලැයිස්තුව ආකෘති කළ යුතු ය.
+
+Further, when a user clicks on the hypertext ‘online entry form’ on the web page, the entry form
+given in Figure 6.2 should be rendered on a new tab/page. Assume that the name of the HTML file
+of the web page with the entry form is ‘form.html’.
+තව ද, පරිශීලකයකු වෙබ් පිටුවේ ඇති 'online entry form' අධිපෙළ (hypertext) ක්ලික් කළ විට රූපය
+6.2 හි දැක්වෙන ඇතුළත් වීමේ පෝරමය අලු ත් පටිත්තක/පිටුවක විදැහු කළ යුතු ය. ඇතුළත් වීමේ පෝරමය
+සහිත වෙබ් පිටුවේ HTML ගොනුවේ නම 'form.html' යැයි උපකල්පනය කරන්න.
+
+Figure 6.1 : A web page of the website
+Figure 6.2 : Entry form
+-79-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+There are three main ways to connect CSS (Cascading Style Sheets) to HTML. They are,
+CSS (Cascading Style Sheets) HTML වෙත සම්බන්ධ කිරීමට ප්‍රධාන ක්‍රම තුනක් තිබේ. ඒවා නම්,
+
+1. Inline CSS/ පේළිගත CSS
+Inline CSS is a method of applying styles directly to individual HTML elements using the style attribute.
+It is useful for quick, one-off changes, such as changing the color or size of a single element.
+පේළිගත CSS යනු style ගුණාංගය භාවිතයෙන් තනි HTML මූලාංග වලට සෘජුවම මෝස්තර යෙදීමේ
+ක්‍රමයකි. එය තනි මූලාංගයක වර්ණය හෝ ප්‍රමාණය වෙනස් කිරීම වැනි ඉක්මන්, එකවර වෙනස්කම් සඳහා
+ප්‍රයෝජනවත් වේ.
+
+However, it's not ideal for larger projects because it makes the HTML code harder to maintain and does
+not separate content from presentation.
+කෙසේ වෙතත්, එය විශාල ව්‍යාපෘති සඳහා සුදුසු නොවේ, මන්ද එය HTML කේතය නඩත්තු කිරීමට අපහසු
+කරයි.
+
+2. Internal CSS/ අභ්‍යන්තර CSS
+Internal CSS is used when you want to apply styles within the same HTML file. This is done by placing
+the CSS rules inside a <style> tag within the <head> section of the HTML document. Internal CSS is
+useful for small websites or single-page designs, where all the styling is relevant only to that page.
+එකම HTML ගොනුව තුළ විලාස යෙදීමට අවශ්‍ය විට අභ්‍යන්තර CSS භාවිතා වේ. මෙය සිදු කරනු
+ලබන්නේ HTML ලේඛනයේ <head> කොටස තුළ <style> උසුලනයක් තුළ CSS නීති තැබීමෙනි. අභ්‍යන්තර
+CSS කුඩා වෙබ් අඩවි හෝ තනි පිටු සැලසුම් සඳහා ප්‍රයෝජනවත් වේ, එහිදී සියලුම මෝස්තර අදාළ වන්නේ
+එම පිටුවට පමණි.
+
+3. External CSS/ බාහිර CSS
+External CSS, on the other hand, involves writing all the style rules in a separate .css file. That file is
+then linked to the HTML page using a <link> tag in the <head>. This method is highly efficient for
+larger websites, especially when multiple pages need to share the same style.
+අනෙක් අතට, බාහිර CSS යනු සියලුම විලාස නීති වෙනම .css ගොනුවක ලිවීමයි. ඉන්පසු එම ගොනුව
+<head> හි <link> උසුලනයක් භාවිතයෙන් HTML පිටුවට සම්බන්ධ කෙරේ. මෙම ක්‍රමය විශාල වෙබ් අඩවි
+සඳහා ඉතා කාර්යක්ෂම වේ, විශේෂයෙන් බොහෝ පිටු සදහා එකම විලාසය බෙදා ගැනීමට අවශ්‍ය වූ විට.
+
+In the given question, answers should be provided using either internal or external CSS only. Let’s see
+how list formatting can be applied using internal and external CSS.
+දී ඇති ප්‍රශ්නයේදී, පිළිතුරු අභ්‍යන්තර හෝ බාහිර CSS භාවිතයෙන් පමණක් සැපයිය යුතුය. අභ්‍යන්තර සහ
+බාහිර CSS භාවිතයෙන් ලැයිස්තු විලාස ගැන්වීම යෙදිය හැකි ආකාරය බලමු.
+
+Using internal CSS / අභ්‍යන්තර CSS භාවිතා කිරීම
+
+<html>
+<head>
+     <meta charset="utf-8">
+     <title>Information</title>
+     <style type="text/css">
+          li{font-family: calibri;
+ font-size: 14pt;
+ color: red;
+ list-style: square;}
+     </style>
+</head>
+
+-80-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+• Using external CSS/ බාහිර CSS භාවිතා කිරීම
+To apply external styling, first we need to link the CSS file to the HTML document using the <link> tag
+within the <head> section. This connects the HTML structure with the external style definitions
+provided in the CSS file.
+බාහිර විලාස ගැන්වීම යෙදීම සඳහා, පළමුව CSS ගොනුව <head> කොටසේ ඇති <link> උසුලනය
+භාවිතයෙන් HTML ලේඛනයට සම්බන්ධ කළ යුතුය. මෙය HTML ව්‍යුහය CSS ගොනුවේ සපයා ඇති බාහිර
+මෝස්තර අර්ථ දැක්වීම් සමඟ සම්බන්ධ කරයි.
+
+The beginning HTML codes should be written as follows,
+ආරම්භක HTML කේත පහත පරිදි ලිවිය යුතුය,
+
+<html>
+<head>
+     <meta charset="utf-8">
+     <title>Information</title>
+     <link rel="stylesheet" type="text/css" href="external.css">
+</head>
+
+CSS file should be written as follows,
+CSS ගොනුව පහත පරිදි ලිවිය යුතුය,
+
+li{font-family: calibri;
+   font-size: 14pt;
+   color: red;
+   list-style: square;}
+
+Regardless of whether you use external or internal CSS for the initial styling, the remaining part of the
+HTML content should be structured as demonstrated in the following code.
+ආරම්භක විලාස ගැන්වීම සඳහා බාහිර හෝ අභ්‍යන්තර CSS යන කිනම් ආකාරය භාවිතා කළත්, HTML
+අන්තර්ගතයේ ඉතිරි කොටස පහත කේතයේ දැක්වෙන පරිදි ව්‍යුහගත කළ යුතුය.
+
+<body>
+     <h1>Student Art Competition</h1>
+     <h2>Theme:Litter on the environment</h2>
+     <h3>PRIZES</h3>
+     <ul>
+          <li>1st place Rs. 10,000/=</li>
+          <li>2nd place Rs. 7,500/=</li>
+          <li>3rd place Rs. 5,000/=</li>
+     </ul>
+     <h3>ENTRY FORM</h3>
+     <p>Please fill and submit this
+  <a href="form.html" target="_blank">online entry form</a>to enter
+  The competition</p>
+</body>
+</html>
+
+-81-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+(b) Using appropriate HTML tags, create an HTML file to render the entry form given in Figure 6.2. The
+options for ‘Grade Category’ are given in the Figure 6.3. Your code should satisfy the following
+requirements. When the ‘Clear your Entries’ button is clicked, all the entries of the form should be
+cleared. Similarly, when the ‘Submit’ button is clicked, the form should be submitted to the server.
+සුදුසු HTML උසුලන භාවිත කර, රූපය 6.2 හි ඇතුළත් වීමේ පෝරමය විදැහු කිරීමට HTML ගොනුවක්
+නිර්මාණය කරන්න. රූපය 6.3 හි 'Grade Category' සඳහා විකල්ප දී ඇත. ඔබගේ කේතය පහත දැක්වෙන
+අවශ්‍යතා තෘප්ත කළ යුතු ය. 'Clear your Entities' බොත්තම ක්ලික් කළ විට, පෝරමයෙහි ඇති සියලු ම
+නිවේශික (entries) මැකී යා (Clear) යුතුයි. එලෙස ම 'Submit' බොත්තම ක්ලික් කළ විට, පෝරමය
+සේවාදායකට යොමු විය (Submit) යුතුයි.
+
+PHP forms are a fundamental part of web development used to collect user input and process it on the
+server. When the form is submitted, the data is sent to a PHP script via the GET or POST method.
+PHP පෝරම යනු වෙබ් සංවර්ධනයේ මූලික අංගයක් වන අතර එය පරිශීලක ආදාන එකතු කර
+සේවාදායකයේ සැකසීමට භාවිතා කරයි. පෝරමය ඉදිරිපත් කළ විට, දත්ත GET හෝ POST ක්‍රමය හරහා
+PHP ස්ක්‍රිප්ට් එකකට යවනු ලැබේ.
+
+In PHP, the GET and POST methods are two common ways to send form data from the client (browser)
+to the server.
+PHP හි, GET සහ POST ක්‍රම යනු සේවාග්‍රාහකයාගෙන් (බ්‍රවුසරයෙන්) සේවාදායකයට පෝරම දත්ත යැවීමට
+පොදු ක්‍රම දෙකකි.
+
+GET method
+POST method
+Sends data through the URL
+URL එක හරහා දත්ත යවයි
+Sends data in the HTTP request body
+HTTP ඉල්ලීම් අන්තර්ගතයේ දත්ත යවයි
+Suitable for simple queries or data that doesn’t need
+to be hidden.
+සරල විමසුම් හෝ රහස්‍ය නොවන දත්ත සඳහා
+සුදුසුය.
+More secure and suitable for sensitive or large
+data
+සංවේදී හෝ විශාල දත්ත සඳහා වඩාත්
+ආරක්ෂිත සහ සුදුසුයි
+Has a size limit
+ප්‍රමාණ සීමාවක් ඇත
+No size limit
+ප්‍රමාණ සීමාවක් නැත
+Can be bookmarked
+පිටු සලකුණු කළ හැක
+Cannot be bookmarked
+පිටු සලකුණු කළ නොහැක
+Repeated requests with same URL have same effect.
+එකම URL එක සහිත නැවත නැවත ඉල්ලීම් එකම
+බලපෑමක් ඇති කරයි.
+Repeated requests can have different effects.
+නැවත නැවත ඉල්ලීම් විවිධ බලපෑම් ඇති කළ
+හැකිය.
+Figure 6.3 : Options for Grade Category
+-82-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Now, let's see how to implement the given form using HTML,
+දැන්, දී ඇති පෝරමය HTML භාවිතයෙන් ක්‍රියාත්මක කරන්නේ කෙසේදැයි බලමු,
+
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Entry Form</title>
+</head>
+<body>
+   <h1>Art Competition Online Entry Form 2017</h1>
+   <h3>Theme: Litter on the environment</h3>
+   <form method="get" action="script.php">
+       Name: <input type="text" name="name">
+       <p>
+       Gender:
+       <input type="radio" name="sex" value="male">Male
+       <input type="radio" name="sex" value="female">Female
+       </p>
+
+       <p>Grade Category
+       <select name="ageGroup">
+           <option value="g1">Grade 1-2</option>
+           <option value="g2">Grade 3-6</option>
+           <option value="g3">Grade 7-10</option>
+           <option value="g4">Grade 11-13</option>
+       </select></p>
+
+       <p>Art media:</p>
+       <input type="checkbox" name="media1" value="Colour">Water Colours<br>
+       <input type="checkbox" name="media2" value="Pencil">Colour
+pencils<br>
+       <input type="checkbox" name="media3" value="Crayon">Crayon<br>
+       <input type="checkbox" name="media4" value="Chalk">Chalk
+
+       <p><input type="reset" value="Clear your entries"></p>
+       <p><input type="submit" name="Submit"></p>
+   </form>
+</body>
+</html>
+
+The relevant input fields should be included in the form as shown in the HTML code above, ensuring
+each field aligns with the required structure and purpose.
+ඉහත HTML කේතයේ පෙන්වා ඇති පරිදි අදාළ ආදාන ක්ෂේත්‍ර පෝරමයට ඇතුළත් කළ යුතු අතර, එක්
+එක් ක්ෂේත්‍රය අවශ්‍ය ව්‍යුහය සහ අරමුණ සමඟ පෙළගැසී ඇත.
+
+The main difference between checkbox and radio input types in HTML lies in how they allow users to
+make selections:
+HTML හි checkbox සහ radio ආදාන වර්ග අතර ප්‍රධාන වෙනස ඇත්තේ පරිශීලකයින්ට තේරීම් කිරීමට
+ඉඩ දෙන ආකාරය තුළ ය:
+
+Checkbox allows users to select multiple options independently. It’s commonly used when more than
+one choice is acceptable.
+Checkbox පරිශීලකයින්ට ස්වාධීනව බහු විකල්ප තෝරා ගැනීමට ඉඩ සලසයි. එක් තේරීමකට වඩා පිළිගත
+හැකි විට එය බහුලව භාවිතා වේ.
+
+-83-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Radio buttons allow users to select only one option from a group. All radio buttons with the same name
+attribute are grouped together, and selecting one will automatically deselect the others. This is ideal for
+single-choice scenarios like choosing gender or selecting a payment method.
+Radio button පරිශීලකයින්ට කණ්ඩායමකින් එක් විකල්පයක් පමණක් තෝරා ගැනීමට ඉඩ සලසයි. එකම
+name ගුණාංගය සහිත සියලුම radio button එකට කාණ්ඩගත කර ඇති අතර, එකක් තේරීමෙන් අනෙක්
+ඒවා ස්වයංක්‍රීයව තේරීම ඉවත් කරනු ලැබේ. මෙය ස්ත්‍රී පුරුෂ භාවය තෝරා ගැනීම හෝ ගෙවීම් ක්‍රමයක්
+තෝරා ගැනීම වැනි තනි තේරීම් අවස්ථා සඳහා වඩාත් සුදුසුය.
+
+The select input type in HTML is used to create a drop-down menu that allows users to choose one or
+multiple options from a list.
+HTML හි select ආදාන වර්ගය භාවිතා කරනුයේ ලැයිස්තුවකින් විකල්ප එකක් හෝ කිහිපයක් තෝරා
+ගැනීමට පරිශීලකයින්ට ඉඩ සලසන පහලට වැටෙන ලැයිස්තුවක් නිර්මාණය කිරීමට ය.
+
+The submit button is used to send the filled form data to a server for processing. When a user clicks on
+the submit button, it triggers the form’s action attribute, typically pointing to a server-side script, and
+sends the data using the specified method.
+පුරවන ලද පෝරම දත්ත සැකසීම සඳහා සේවාදායකයකට යැවීමට submit button භාවිතා කරයි.
+පරිශීලකයෙකු submit ක්ලික් කළ විට, එය පෝරමයේ action ගුණාංගය ක්‍රියාරම්භ කරයි, සාමාන්‍යයෙන්
+server-side script එකකට යොමු කර, නිශ්චිත ක්‍රමය භාවිතයෙන් දත්ත යවයි.
+
+On the other hand, the reset button is used to clear all input fields in the form, returning them to their
+original default values. This is useful if a user wants to start over without manually deleting each field’s
+content. It doesn’t interact with the server or send any data.
+අනෙක් අතට, reset බොත්තම පෝරමයේ ඇති සියලුම ආදාන ක්ෂේත්‍ර ඉවත් කිරීමට භාවිතා කරයි, ඒවා
+ඒවායේ මුල් පෙරනිමි අගයන් වෙත ආපසු යවයි. පරිශීලකයෙකුට එක් එක් ක්ෂේත්‍රයේ අන්තර්ගතය අතින්
+මකා දැමීමකින් තොරව නැවත ආරම්භ කිරීමට අවශ්‍ය නම් මෙය ප්‍රයෝජනවත් වේ. එය සේවාදායකය සමඟ
+අන්තර් ක්‍රියා නොකරයි.
+
+-84-
+RAVINDU BANDARANAYAKE
+#ictfromabc

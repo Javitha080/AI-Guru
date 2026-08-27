@@ -1,0 +1,684 @@
+1. Consider the following conversions of base 10 floating-point numbers:
+10 පාදයෙහි ඉපිලෙන ලක්ෂ්‍ය සංක්‍යා පිලිබද පහත පරිවර්තන සලකා බලන්න:
+
+A. 25.625₁₀ = 11001.101₂
+B. 18.25₁₀ = 22.1₈
+C. 32.5₁₀ = 20.5₁₆
+
+Which of the above statements are correct / ඉහත ප්‍රකාශවලින් නිවැරදි වන්නේ කුමක්ද?
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A and C only
+A සහ C පමණි
+5) None of these
+මේ කිසිවක් නැත
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Statement / ප්‍රකාශය A: 25.625₁₀ → Binary / ද්විමය
+Step 1: Convert the integer part  / පූර්ණ සංඛ්‍යා කොටස පරිවර්තනය කරන්න (25):
+
+25₁₀ ÷ 2
+2
+25
+
+2
+12
+- 1
+2
+6
+- 0
+2
+3
+- 0
+2
+1
+- 1
+
+0
+- 1
+
+Now write remainders upward → 11001₂ / දැන් ඉතිරි → 11001₂ ඉහළට ලියන්න
+
+Step 2: Convert the fractional part / භාගික කොටස පරිවර්තනය කරන්න (0.625):
+
+0.625 × 2 = 1.25 → take 1 / 1 ගන්න
+0.25 × 2 = 0.5 → take 0 / 0 ගන්න
+0.5 × 2 = 1.0 → take 1 / 1 ගන්න
+
+Fraction part / භාගික කොටස = .101₂
+
+Final binary / අවසාන ද්විමය: 25.625₁₀ = 11001.101₂ → Correct / නිවැරදියි
+
+Statement / ප්‍රකාශය B: 18.25₁₀ → Octal / අෂ්ටමය
+Step 1: Integer part / නිඛිල කොටස (18₁₀) → divide by 8 / 8 න් බෙදන්න:
+
+8
+18
+
+8
+2
+- 2
+
+0
+- 2
+
+18 ÷ 8 = 2 remainder / ඉතිරි 2 → 22₈
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 18
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Step 2: Fractional part / භාගික කොටස (0.25):
+0.25 × 8 = 2.0 → take 2
+
+Fraction / භාගය = .2₈
+
+Final octal / අවසාන අෂ්ටකය: 18.25₁₀ = 22.2₈
+
+B says “22.1₈” — So the statement is incorrect / B පවසන්නේ “22.1₈” එබැවින් ප්‍රකාශය වැරදියි.
+
+Statement / ප්‍රකාශය C:
+Step 1: Integer part / පූර්ණ සංඛ්‍යා කොටස (32):
+
+16
+32
+
+2
+- 0
+
+3210 = 2016
+
+Step 2: Fractional part / භාගික කොටස (0.5):
+0.5 × 16 = 8.0 → take 8
+
+Fraction / භාගය = .8₁₆
+
+Final hexadecimal / අවසාන ෂඩ් දශමය: 32.5₁₀ = 20.8₁₆ → Incorrect / වැරදියි
+
+Therefore, only the statement A is correct.
+එබැවින් A ප්‍රකාශය පමණක් නිවැරදි වේ.
+
+2. Consider the following conversions into decimal / පහත දශම පරිවර්තන සලකා බලන්න (base 10):
+
+A. 1011₂ = 11₁₀
+B. 27₈ = 23₁₀
+C. 1F₁₆ = 31₁₀
+
+Which of the above statements are correct / ඉහත ප්‍රකාශවලින් නිවැරදි වන්නේ කුමක්ද?
+
+1) A only
+A පමණි
+2) B only
+B පමණි
+3) A and B only
+A සහ B පමණි
+4) A,B and C only
+A,B සහ C පමණි
+5) None of these
+මේ කිසිවක් නැත
+
+Answer: 4)
+
+Explanation / පැහැදිලි කිරීම:
+
+A.
+10112 to decimal / දශමයට
+1
+0
+1
+1
+23
+22
+21
+20
+8 x 1 = 8 4 x 0 = 0 2 x 1 = 2 1 x 1 = 1
+8 + 2 + 1 = 11
+1110
+
+B.
+278 to decimal / දශමයට
+2
+7
+0
+1
+0
+1
+1
+1
+25
+24
+23
+22
+21
+20
+32 x 0 = 0 16 x 1 = 16 8 x 0 = 0 4 x 1 = 4 2 x 1 = 2 1 x 1 = 1
+16 + 4 + 2 + 1
+2310
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+C.
+1F16 to decimal / දශමයට
+1
+F = 15
+0
+0
+0
+1
+1
+1
+1
+1
+27
+26
+25
+24
+23
+22
+21
+20
+128 x 0 = 0 64 x 0 = 0 32 x 0 = 0 16 x 1 = 16 8 x 1 = 8 4 x 1 = 4 2 x 1 = 2 1 x 1 = 1
+16 + 8 + 4 + 2 + 1
+3110
+
+All three conversions are correct, so the answer is option 4).
+පරිවර්තන තුනම නිවැරදියි, එබැවින් පිළිතුර විකල්ප 4) වේ.
+
+3. Convert 2A.F₁₆ to its base 10 equivalent / 2A.F₁₆ එහි 10 පාදයට සමාන කරන්න.
+
+1) 42.93
+2) 43.75
+3) 42.25
+4) 43.5
+5) 41.9375
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+2A.F in decimal
+2
+A = 10
+
+F = 15
+161 x 2 = 32 160 x 10 = 10 . 16-1 x 15 = 0.93
+32 + 10
+
+93
+42.9310
+
+Therefore the answer is the option 1).
+එබැවින් පිළිතුර විකල්ප 1) වේ.
+
+4. If you add 1010₂ + 0101₂ and then subtract 0101₂ from the result, what is the final answer?
+ඔබ 1010₂ + 0101₂ ට  එකතු කර ප්‍රතිඵලයෙන් 0101₂ අඩු කළහොත්, අවසාන පිළිතුර කුමක්ද?
+
+1) 0111₂
+2) 1011₂
+3) 1010₂
+4) 1111₂
+5) 1100₂
+
+Answer: 3)
+
+Step / පියවර 1: Add 𝟏𝟎𝟏𝟎𝟐and 𝟎𝟏𝟎𝟏𝟐 /𝟏𝟎𝟏𝟎𝟐 සහ 𝟎𝟏𝟎𝟏𝟐 එකතු කරන්න
+
+Start by adding these two binary numbers:
+මෙම ද්විමය සංඛ්‍යා දෙක එකතු කිරීමෙන් ආරම්භ කරන්න:
+
+  1010
++ 0101
+  -------
+
+Now, perform binary addition: / දැන්, ද්විමය එකතු කිරීම සිදු කරන්න:
+
+0 + 1 = 1 (no carry / රැගෙන යාමක් නැත)
+
+1 + 0 = 1 (no carry / රැගෙන යාමක් නැත)
+
+0 + 1 = 1 (no carry / රැගෙන යාමක් නැත)
+
+1 + 0 = 1 (no carry / රැගෙන යාමක් නැත)
+
+So, 10102 + 01012 = 11112.
+එබැවින් 10102 + 01012 = 11112.
+
+Step / පියවර 2: Subtract 𝟎𝟏𝟎𝟏𝟐from the result / ප්‍රතිඵලයෙන් 𝟎𝟏𝟎𝟏𝟐 අඩු කරන්න
+
+Now, subtract 01012 from 11112:
+දැන්, 01012 න් 11112 අඩු කරන්න:
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+  1111
+- 0101
+  -------
+
+Perform binary subtraction / ද්විමය අඩු කිරීම සිදු කරන්න:
+
+1 −1 = 0
+
+1 −0 = 1
+
+1 −1 = 0
+
+1 −0 = 1
+
+So, 11112 −01012 = 10102.
+එබැවින්, 11112 −01012 = 10102.
+
+5. Which of the following correctly represents the range of values that can be represented by a single digit
+in each number system?
+එක් එක් සංඛ්‍යා පද්ධතියේ තනි ඉලක්කමකින් නිරූපණය කළ හැකි අගයන් පරාසය නිවැරදිව නිරූපණය
+කරන්නේ පහත සඳහන් ඒවායින් කුමක් ද?
+
+1) Binary / ද්විමය (0–1), Octal / අෂ්ටක (0–7), Decimal / දශම :0–9), Hexadecimal / ෂඩ්දශම (0–F)
+2) Binary / ද්විමය (0–2), Octal / අෂ්ටක (0–8), Decimal / දශම (0–9), Hexadecimal / ෂඩ්දශම (0–E)
+3) Binary / ද්විමය (0–1), Octal / අෂ්ටක (0–8), Decimal / දශම (0–10), Hexadecimal / ෂඩ්දශම (0–F)
+4) Binary / ද්විමය (0–1), Octal / අෂ්ටක (0–7), Decimal / දශම (0–9), Hexadecimal / ෂඩ්දශම (0–G)
+5) Binary / ද්විමය (0–1), Octal / අෂ්ටක (0–6), Decimal / දශම (0–9), Hexadecimal / ෂඩ්දශම (0–F)
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Binary (Base 2): Digits 0 and 1
+ද්විමය (පාදය 2): ඉලක්කම් 0 සහ 1
+
+Octal (Base 8): Digits 0–7
+අෂ්ටක (පාදය 8): ඉලක්කම් 0–7
+
+Decimal (Base 10): Digits 0–9
+දශම (පාදය 10): ඉලක්කම් 0–9
+
+Hexadecimal (Base 16): Digits 0–9 and letters A–F (representing 10–15)
+ෂඩ්දශම (පාදය 16): ඉලක්කම් 0–9 සහ අකුරු A–F (10–15 නියෝජනය කරයි)
+
+Therefore the correct answer is option 1).
+එබැවින් නිවැරදි පිළිතුර විකල්පය 1) වේ.
+
+6. Convert the octal number 17.258 to its binary equivalent.
+17.258 අෂ්ටක සංඛ්‍යාව එහි ද්විමය සමාන බවට පරිවර්තනය කරන්න.
+
+1) 1111.0102
+2) 1111.1012
+3) 111.01012
+4) 1111.0012
+5) 111.0112
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Converting numbers from octal (base 8) to binary (base 2) involves converting each octal digit directly
+into its 3-bit binary equivalent. The integer and fractional parts are converted separately and then
+combined to get the final binary number.
+සංඛ්‍යා අෂ්ටක (පාදය 8) සිට ද්විමය (පාදය 2) දක්වා පරිවර්තනය කිරීමේදී, එක් එක් අෂ්ටක ඉලක්කම්
+සෘජුවම එහි 3-බිට් ද්විමය සමාන බවට පරිවර්තනය කිරීම ඇතුළත් වේ. නිඛිල සහ භාගික කොටස් වෙන
+වෙනම පරිවර්තනය කර පසුව ඒකාබද්ධ කර අවසාන ද්විමය අංකය ලබා ගනී.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+1
+7
+.2
+5
+001
+111
+010
+101
+
+Therefore: 17.258 = 1111.0102
+
+7. Compute the result of the following binary operation:
+පහත ද්විමය ක්‍රියාවෙහි ප්‍රතිඵලය ගණනය කරන්න:
+
+1011012 + 1100112 – 1011102
+
+1) 1011002
+2) 1110102
+3) 1100102
+4) 1100002
+5) 1010102
+
+Answer: 3)
+
+    1 0 1 1 0 1
+ + 1 1 0 0 1 1
+ 1 1 0 0 0 0 0
+
+   1 1 0 0 0 0 0
+ -    1 0 1 1 1 0
+      1 1 0 0 1 0
+
+Therefore, the correct answer is 1100102.
+එබැවින්, නිවැරදි පිළිතුර විකල්පය 1100102 වේ.
+
+8. If 31₈ is first converted to binary, and then to hexadecimal, what is the result?
+31₈ පළමුව ද්විමය බවටත්, පසුව ෂඩ් දශම බවටත් පරිවර්තනය කළහොත්, ප්‍රතිඵලය කුමක්ද?
+
+1) Binary = 11001₂, Hex = 19₁₆
+ද්විමය = 11001₂,  ෂඩ් = 19₁₆
+
+2) Binary = 11001₂, Hex = 1A₁₆
+ද්විමය = 11001₂,  ෂඩ් = 1A₁₆
+
+3) Binary = 110001₂, Hex = 21₁₆
+ද්විමය = 110001₂,  ෂඩ් = 21₁₆
+
+4) Binary = 11001₂, Hex = 19₁₆
+ද්විමය = 11001₂,  ෂඩ් = 19₁₆
+
+5) Binary = 11000₂, Hex = 18₁₆
+ද්විමය = 11000₂,  ෂඩ් = 18₁₆
+
+Answer: 1)
+
+Step / පියවර 1:
+Convert octal (31₈) to binary / අෂ්ටක (31₈) ද්විමය බවට පරිවර්තනය කරන්න
+Each octal digit corresponds to a 3-bit binary equivalent. So, let's convert each digit:
+සෑම අෂ්ටක ඉලක්කමක්ම 3-බිට් ද්විමය සමානතාවයකට අනුරූප වේ. එබැවින්, අපි සෑම ඉලක්කමක්ම
+පරිවර්තනය කරමු:
+
+3₈ in binary: 3 = 0112 / 3₈ ද්විමය තුළ: 3 = 0112
+
+1₈ in binary: 1 = 0012 / 1₈ ද්විමය තුළ: 1 = 0012
+So, 31₈ in binary is: /  එබැවින්, ද්විමය තුළ 31₈ යනු:
+318 = 011 0012 = 110012
+
+Step / පියවර 2:
+Convert binary (11001₂) to hexadecimal / ද්විමය (11001₂) ෂඩ් දශම බවට පරිවර්තනය කරන්න
+Now, group the binary number into 4-bit chunks, starting from the right:
+දැන්, ද්විමය අංකය දකුණේ සිට ආරම්භ කර බිට්-4 ක කොටස් වලට කාණ්ඩ කරන්න:
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+110012 ⇒0001 10012
+
+0001₂ = 116
+
+1001₂ = 916
+
+So, 11001₂ in hexadecimal is: / එබැවින්, ෂඩ් දශමයෙන් 11001₂ යනු:
+110012 = 1916
+
+Final answer / අවසාන පිළිතුර:
+Binary = 11001₂ / ද්විමය = 11001₂
+Hexadecimal = 19₁₆ / ෂඩ් දශම = 19₁₆
+
+So, the correct answer is option 1).
+මේ අනුව, නිවැරදි පිළිතුර වන්නේ විකල්ප 1).
+Binary = 11001₂, Hex = 19₁₆. / ද්විමය = 11001₂,  ෂඩ් = 19₁₆
+
+9. Which of the following statements correctly compares positional and non-positional number systems?
+පහත සඳහන් ප්‍රකාශවලින් ස්ථානීය සහ ස්ථානීය නොවන සංඛ්‍යා පද්ධති නිවැරදිව සංසන්දනය කරන්නේ
+කුමක්ද?
+
+1) Both use the same rule for digit position.
+ඉලක්කම් පිහිටීම සඳහා දෙකම එකම රීතිය භාවිතා කරයි.
+
+2) Positional systems depend on base; non-positional systems do not.
+ස්ථානීය පද්ධති පාදය මත රඳා පවතී;  ස්ථානීය නොවන පද්ධති එසේ නොවේ.
+
+3) Non-positional systems are faster for arithmetic operations.
+ස්ථානීය නොවන පද්ධති අංක ග”තමය මෙහෙයුම් සඳහා වේගවත් වේ.
+
+4) Positional systems cannot represent large numbers.
+ස්ථානීය පද්ධතිවලට විශාල සංඛ්‍යා නිරූපණය කළ නොහැක.
+
+5) Non-positional systems use binary digits.
+ස්ථානීය නොවන පද්ධති ද්විමය සංඛ්‍යා භාවිතා කරයි.
+
+Answer: 2)
+
+The correct answer is option 2).
+නිවැරදි පිළිතුර විකල්පය 2) වේ.
+
+Let's break down each statement to see why option 2 is the correct answer.
+විකල්ප 2 නිවැරදි පිළිතුර වන්නේ මන්දැයි බැලීමට එක් එක් ප්‍රකාශය වෙන් කර බලමු.
+
+1) Both use the same rule for digit position.
+ඉලක්කම් පිහිටීම සඳහා දෙකම එකම රීතිය භාවිතා කරයි.
+
+Incorrect. / වැරදි.
+Positional systems rely on the position of digits to determine their value (i.e., each position has a
+different power of the base, such as in the decimal system where the rightmost digit is 100, the
+next one is 101, and so on). Non-positional systems, on the other hand, do not depend on the
+position of digits to determine their value. For example, in Roman numerals, "V" is always 5,
+regardless of its position.
+ස්ථානීය පද්ධති ඒවායේ අගය තීරණය කිරීම සඳහා ඉලක්කම්වල පිහිටීම මත රඳා පවතී (එනම්,
+සෑම ස්ථානයකටම පාදයේ වෙනස් බලයක් ඇත, උදාහරණයක් ලෙස දශම පද්ධතියේ දකුණු
+කෙළවරේ ඉලක්කම් 100වන අතර ඊළඟ එක 101 වේ, යනාදිය) අනෙක් අතට, ස්ථානීය නොවන
+පද්ධති ඒවායේ අගය තීරණය කිරීම සඳහා ඉලක්කම්වල පිහිටීම මත රඳා නොපවතී. උදාහරණයක්
+ලෙස, රෝම ඉලක්කම්වල, "V" එහි පිහිටීම නොසලකා සැමවිටම 5 වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-
+
+2) Positional systems depend on base; non-positional systems do not.
+ස්ථානීය පද්ධති පාදය මත රඳා පවතී;  ස්ථානීය නොවන පද්ධති එසේ නොවේ.
+
+Correct. / නිවැරදි.
+Positional number systems (like decimal, binary, hexadecimal) depend on a base (e.g., base 10
+for decimal, base 2 for binary). In these systems, the value of a digit depends on both the digit
+itself and its position. Non-positional systems (like Roman numerals or tally marks) do not
+depend on a base or the position of digits. For example, "V" is always 5 in Roman numerals,
+regardless of where it appears.
+ස්ථානීය සංඛ්‍යා පද්ධති (දශම, ද්විමය, ෂඩ් දශම වැනි) පාදයක් මත රඳා පවතී (උදා: දශම සඳහා
+10 පාදය, ද්විමය සඳහා 2 පාදය). මෙම පද්ධතිවල, ඉලක්කමක අගය ඉලක්කම් සහ එහි පිහිටීම
+යන දෙකම මත රඳා පවතී. ස්ථානීය නොවන පද්ධති (රෝම ඉලක්කම් හෝ ගණන් කිරීමේ ලකුණු
+වැනි) පාදයක් හෝ ඉලක්කම්වල පිහිටීම මත රඳා නොපවතී. උදාහරණයක් ලෙස, "V" එය දිස්වන
+ස්ථානය කුමක් වුවත්, රෝම ඉලක්කම්වල සෑම විටම 5 වේ.
+
+3) Non-positional systems are faster for arithmetic operations.
+ස්ථානීය නොවන පද්ධති අංක ග”තමය මෙහෙයුම් සඳහා වේගවත් වේ.
+
+Incorrect. / වැරදි.
+In general, positional number systems are more efficient for arithmetic operations. The lack of a
+base or positional structure in non-positional systems means arithmetic operations can be much
+more cumbersome and require memorizing values or using more complex methods to perform
+calculations.
+සාමාන්‍යයෙන්, ස්ථානීය සංඛ්‍යා පද්ධති අංක ග”තමය මෙහෙයුම් සඳහා වඩාත් කාර්යක්ෂම වේ.
+ස්ථානීය නොවන පද්ධතිවල පාදක හෝ ස්ථානීය ව්‍යුහයක් නොමැතිකම යනු අංක ග”තමය
+මෙහෙයුම් වඩාත් අපහසු විය හැකි අතර අගයන් කටපාඩම් කිරීම හෝ ගණනය කිරීම් සිදු කිරීම
+සඳහා වඩාත් සංකීර්ණ ක්‍රම භාවිතා කිරීම අවශ්‍ය වේ.
+
+4) Positional systems cannot represent large numbers.
+ස්ථානීය පද්ධතිවලට විශාල සංඛ්‍යා නිරූපණය කළ නොහැක.
+
+Incorrect. / වැරදි.
+Positional systems are well-suited for representing large numbers efficiently, especially with the
+use of higher bases (like hexadecimal for computing). The position of the digits allows
+positional systems to handle very large numbers easily by using more digits.
+ස්ථානීය පද්ධති විශාල සංඛ්‍යා කාර්යක්ෂමව නිරූපණය කිරීම සඳහා හොඳින් ගැලපේ, විශේෂයෙන්
+ඉහළ පාද (පරිගණක සඳහා ෂඩාස්‍ර දශම වැනි) භාවිතා කරන විට. ඉලක්කම්වල පිහිටීම ස්ථානීය
+පද්ධතිවලට වැඩි ඉලක්කම් භාවිතා කිරීමෙන් ඉතා විශාල සංඛ්‍යා පහසුවෙන් හැසිරවීමට ඉඩ සලසයි.
+
+5) Non-positional systems use binary digits.
+ස්ථානීය නොවන පද්ධති ද්විමය සංඛ්‍යා භාවිතා කරයි.
+
+Incorrect. / වැරදි.
+Non-positional systems do not inherently use binary digits. For example, Roman numerals or
+tally marks use different symbols to represent numbers. Binary digits (0 and 1) are used in
+positional systems like binary, which is a base-2 positional system.
+ස්ථානීය නොවන පද්ධති ආවේ”කව ද්විමය ඉලක්කම් භාවිතා නොකරයි. උදාහරණයක් ලෙස, රෝම
+ඉලක්කම් හෝ ගණන් කිරීමේ ලකුණු සංඛ්‍යා නිරූපණය කිරීමට විවිධ සංකේත භාවිතා කරයි. ද්විමය
+වැනි ස්ථානීය පද්ධතිවල ද්විමය ඉලක්කම් (0 සහ 1) භාවිතා වේ, එය පාදම-2 ස්ථානීය පද්ධතියකි.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-7-
+
+10. Consider the following three numbers in decimal, binary and hexadecimal form respectively.
+පිළිවෙලින් දශමය, ද්විමය හා ෂඩ්දශමය ආකාරයෙන් ඇති පහත දැක්වෙන සංඛ්‍යා තුන සලකන්න.
+
+A. 260.37510
+B. 100000100.0112
+C. 104.616
+
+Which of the above is equivalent to 404.38?
+ඉහත කවරක් 404.38 ට තුල්‍ය වේද?
+
+Answer: 5)
+
+A: 260.37510
+Step 1: Integer part / පූර්ණ සංඛ්‍යා කොටස (32):
+
+8
+260
+
+8
+32
+- 4
+8
+4
+- 0
+
+0
+- 4
+
+26010 = 4048
+
+Step 2: Fractional part / භාගික කොටස (0.5):
+0.375 × 8 = 3.0 → take 3
+
+Fraction / භාගය = .38
+
+260.37510 = 404.38 → Correct / නිවැරදියි
+
+B: 100000100.0112
+
+1
+0
+0
+0
+0
+0
+1
+0
+0
+
+0
+1
+1
+28
+27
+26
+25
+24
+23
+22
+21
+20
+
+2-1
+2-2
+2-3
+256
+0
+0
+0
+0
+0
+4
+0
+0
+
+0
+0.25 0.125
+260
+
+0.375
+260.37510
+
+100000100.0112 = 260.37510 = 404.38 → Correct / නිවැරදියි
+
+C: 104.616
+
+1
+0
+4
+
+6
+162
+161
+160
+
+16-1
+256
+0
+1 x 4
+
+6 x 0.0625
+256 + 0 + 4 + 0.375
+260.37510
+
+104.616 = 260.37510 = 404.38 → Correct / නිවැරදියි
+
+The correct answer is option 5) All of the above.
+නිවැරදි පිළිතුර විකල්පය 5) ඉහත සියල්ලම වේ.
+
+1)  A only.
+A පමණි.
+2)  B only.
+B පමණි.
+3) A and C only.
+A හා C පමණි.
+4) B and C only.
+B හා C පමණි.
+5) All of the above.
+ඉහත සියල්ලම.
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-8-
+
+11. What is the decimal representation of 3BF16?
+3BF16 සංඛ්‍යාවේ දශමය නිරූපණය කුමක්ද?
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+3
+B
+F
+162
+161
+160
+256 x 3
+11 x 16
+15 x 1
+768 + 176 + 15
+95910
+
+3BF16 = 95910
+
+The correct answer is option 2).
+නිවැරදි පිළිතුර විකල්පය 2) වේ.
+
+1)  894
+2)  959
+3) 595
+4) 1453
+
+5) 814
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-9-

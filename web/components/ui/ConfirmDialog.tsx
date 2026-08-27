@@ -54,7 +54,7 @@ export function ConfirmDialog({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--overlay)] px-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--overlay)] px-4 backdrop-blur-sm transition-opacity duration-200"
       role="alertdialog"
       aria-modal="true"
       aria-label={title}
@@ -64,7 +64,7 @@ export function ConfirmDialog({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-sm rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-xl"
+        className="w-full max-w-sm rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-2xl animate-pop-in"
       >
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-base font-semibold text-[var(--foreground)]">

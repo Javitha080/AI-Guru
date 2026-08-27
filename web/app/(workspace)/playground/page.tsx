@@ -29,6 +29,7 @@ import AssistantResponse from "@/components/common/AssistantResponse";
 import MarkdownRenderer from "@/components/common/MarkdownRenderer";
 import ProcessLogs from "@/components/common/ProcessLogs";
 import ResearchConfigPanel from "@/components/research/ResearchConfigPanel";
+import ThinkingOrbsShowcase from "@/components/ui/ThinkingOrbsShowcase";
 import {
   extractBase64FromDataUrl,
   readFileAsDataUrl,
@@ -1658,7 +1659,7 @@ export default function PlaygroundPage() {
   const [knowledgeBases, setKnowledgeBases] = useState<KnowledgeBase[]>([]);
   const [capabilityConfigs, setCapabilityConfigs] =
     useState<CapabilityPlaygroundConfigMap>({});
-  const [activeKind, setActiveKind] = useState<"tool" | "capability">("tool");
+  const [activeKind, setActiveKind] = useState<"tool" | "capability" | "orbs">("tool");
   const [activeName, setActiveName] = useState<string>("");
   const [loading, setLoading] = useState(true);
 
@@ -1839,9 +1840,20 @@ export default function PlaygroundPage() {
               >
                 {t("Capabilities")}
               </button>
+              <button
+                onClick={() => setActiveKind("orbs")}
+                className={`rounded-md px-3.5 py-1.5 text-[13px] font-medium transition-all ${activeKind === "orbs" ? "bg-[var(--card)] text-[#E06D44] font-semibold shadow-sm" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"}`}
+              >
+                {t("Thinking Orbs")}
+              </button>
             </div>
 
-            {/* Two-column layout */}
+            {activeKind === "orbs" ? (
+              <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-sm overflow-hidden">
+                <ThinkingOrbsShowcase />
+              </div>
+            ) : (
+            /* Two-column layout */
             <div className="grid gap-5 lg:grid-cols-[280px_1fr]">
               {/* Left: Item list */}
               <section className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-sm">
@@ -2069,6 +2081,7 @@ export default function PlaygroundPage() {
                     : null}
               </section>
             </div>
+            )}
           </div>
         )}
       </div>

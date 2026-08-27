@@ -308,7 +308,6 @@ Server's filesystem
 
 i, —
 ‘Data ~~
-——
 
 MySQL Database
 
@@ -338,7 +337,7 @@ understood by web browsers.
 
 PHP sSOaGe~aa විසින්‌, සැකසූ PHP කේතය [111]!
 ප්‍රතිදානයක්‌ බවට පථිවරිතනය කරයි, එය වෙබ්‌
-අතරික්සුව විසින්‌ තේරැම්‌ ගන්නා භාෂාව වේ.
+අතිරික්සුව විසින්‌ තේරැම්‌ ගන්නා භාෂාව වේ.
 
 Server Response
 
@@ -351,14 +350,14 @@ to the client's browser.
 වෙබි සේවාදායකය PHP පරිවරිතකයෙන්‌ ජනනය කරන
 
 ලද HTML ප්‍රතිදානය ලබාගෙන එය ඉස්වාදායකයාගේ
-අතරික්සුව වෙත යවයි.
+අතිරික්සුව වෙත යවයි.
 
 Client Display
 ස්වාලාභී සංදුර්ශකය
 The client's browser renders the received HTML
 
 output, displaying the final web page to the user.
-සේවාදායකයාගේ අතරික්සුව ලැබුණු sOSA ප්‍රතිදානය
+සේවාදායකයාගේ අතිරික්සුව ලැබුණු sOSA ප්‍රතිදානය
 ලබා දෙන අතර අවසාන වෙබි පිටුව පරෛිශීලකයාට
 පෙන්වයි.
 
@@ -377,7 +376,7 @@ client's computer, utilizing the browser to parse
 and render the content.
 
 HTML සහ CSS කේත aeaiantbans විග්‍රහ කිරීමට සහ
-විදැහුම්‌ කිරීමට අතරික්සුව භාවිතා කරමින්‌ සෘජුවම
+විදැහුම්‌ කිරීමට අතිරික්සුව භාවිතා කරමින්‌ සෘජුවම
 සේවාලාභියාගේ පරිගණකය මත ක්‍රියාත්මක 6d.
 
 This process leverages the client's CPU and
@@ -406,7 +405,7 @@ memory, and power) are used during the PHP
 execution, causing the server to consume power
 and generate heat.
 
-මෙයින්‌ අදහස්‌ කරන්නේ සේවාදායකයේ සමිපත්‌ (එහි
+මෙයින්‌ අදහස්‌ කරන්නේ සේවාදායකයේ සම්පත්‌ (එහි
 සකසනය, මතකය සභ බලය) PHP ක්‍රියාත්මක කිරීමේදී
 mam වන අතර චය සේවාදායකයෙහි බලය
 පරිභෝජනය වීමට සහ තාපය ජනනය වීමට හේතු od.
@@ -629,7 +628,7 @@ Open start page
 
 ක්ම MySQL Server
 
-Preferences...
+Preferences……
 
 VY '. WY NMA
 
@@ -646,7 +645,7 @@ MAMP නිර්මාණය කර ඇත්තේ MacOS සඳහා වන
 ව්ශේෂාංගීව Apple පරිගණකවල ස්ථානීය සේවාදායක
 
 පරිසරයන්‌ නිරිමාණය කිරීමට පහසුකමි සැලසීමට, PHP
-යෙදුම්‌ සංවර්ධනය කිරීම සහ පරීක්‍ෂා කිරීම සඳහා
+යෙදුම්‌ සංවර්ධනය කිරීම සහ පරීක්ෂා කිරීම සඳහා
 වඩාත්‌ සුදුසුය.
 
 LAMP (Linux, Apache, MySQL, PHP)
@@ -732,8 +731,6 @@ Open Source Software Business Software Resources
 
 \ y A Windows Web development environment for Apache, MySQL, PHP databases
 Brought to you by: ’
-
-.$
 
 Download Share This
 
@@ -885,8 +882,6 @@ Type the following code
 
 echo "Hello, world!";
 
->>
-
 Launch your preferred web browser and
 in the address bar, type
 http://localhost/my_project/index.php and
@@ -918,8 +913,6 @@ _ ඒ Config _ 009 |
 
 | Config || Logs | | fl Shell _ 90) |
 [Config | {Logs} | (2 Explorer |
-
-|
 
 a |
 | © Services |
@@ -989,8 +982,6 @@ index.php නමින්‌ ගොනුවක්‌ සාදන්න
 
 echo "Hello, World!";
 
->>
-
 Save this file in the myFirstProject folder you
 
 created earlier.
@@ -1038,8 +1029,6 @@ PHP කේත <?php සහ 25 යන උසුලන අතර ලිවිය �
 
 // PHP code goes here
 
->>
-
 PHP code is embedded within HTML using PHP tags.
 PHP 6aien PHP උසුළන භාවිතයෙන්‌ HTML ne අන්තර්ගත කර ඇන.
 
@@ -1054,8 +1043,6 @@ PHP 6aien PHP උසුළන භාවිතයෙන්‌ HTML ne අන්�
 <?php
 
 echo "Hello World!";
-
->>
 
 </body>
 
@@ -1190,7 +1177,6 @@ echo "<br>"; echo "<br>";
 print "Area is $a";
 print "<br>";
 print "Perimeter is $p";
->>
 
 Area is 60
 Perimeter is 34
@@ -1220,8 +1206,6 @@ as a comment.
 
 echo "Hello, World!";
 
->>
-
 e = Hash (17)
 Similar to //, everything on the right of #
 
@@ -1235,12 +1219,10 @@ will be treated as a comment.
 
 echo "Hello, World!";
 
->>
-
 Multi-line comments
 පේළි කිහිපයක විවරණ
 
-e Slash-Asterisk (/* ... */)
+e Slash-Asterisk (/* …… */)
 Encloses a block of text, allowing for multi-
 
 line comments.
@@ -1249,17 +1231,11 @@ line comments.
 
 <?php
 
-/*
-
 This is a multi-line comment
 
 that spans multiple lines.
 
-*/
-
 echo "Hello, World!";
-
->>
 
 12
 
@@ -1273,8 +1249,6 @@ comment a part of a single-line comment.
 $x = 10 + /* 50 */ + 20;
 
 echo $x; # 30
-
->>
 
 Here, /* 56 */ is a comment. Therefore, only
 10 and 20 will be added.
@@ -1381,8 +1355,6 @@ $a += 5;
 
 echo $a; # 15
 
->>
-
 NOTE: Augmented assignment can be used for
 
 other arithmetic operators.
@@ -1410,7 +1382,6 @@ echo 16; #1
 
 echo 16 > 5 xor 5 < 4; #1
 
->>
 Operators Calculation Description
 මෙහෙයවන ගණනය කිරීම්‌ ව්ස්තරය
 And (&& or 20>5&&10>4=1 Returns true if both operands are true.
@@ -1441,8 +1412,6 @@ echo 16 ද 5;
 echo 16 > 5; #1
 echo 10 <= 10; #1
 echo 10 >= 11;
-
-?>
 
 14
 
@@ -1510,8 +1479,6 @@ echo ++$number; // Outputs: 6
 
 echo $number; // Outputs: 6
 
-?>
-
 2. Post-increment
 
 In post-increment, the current value of the
@@ -1558,8 +1525,6 @@ echo --$number; // Outputs: 4
 
 echo $number; // Outputs: 4
 
->>
-
 2. Post-decrement
 
 In post-decrement, the current value of the
@@ -1577,8 +1542,6 @@ $number = 5;
 echo $number--; // Outputs: 5
 
 echo $number; // Outputs: 4
-
->>
 
 16
 
@@ -1606,8 +1569,6 @@ Syntax
 var_dump($variable1, $variable2,
 -)3
 
->>
-
 EX.
 
 <?php
@@ -1624,8 +1585,6 @@ var_dump($string) ;
 var_dump($float) ;
 
 var_dump($boolean) ;
-
->>
 
 int (42)
 
@@ -1654,7 +1613,6 @@ $name = "John";
 3. Multi-dimensional arrays
 
 var_dump( $name) ;
->>
 
 string "John" (length=4) 1. Indexed arrays
 These are arrays with numeric indices.
@@ -1701,7 +1659,6 @@ $bool1 = true; "c' => float 3.14
 ¢bool2 = false; ‘d' => boolean true
 
 var_dump($bool1, $boo12) ;
->>
 
 boolean true
 boolean false
@@ -1742,8 +1699,6 @@ array (size=3) if (condition) {
 
 array (size=3)
 
->>
-
 @ => string ‘a’ (length=1)
 
 1 => string 'b' (length=1) Ex
@@ -1755,8 +1710,6 @@ $age = 20;
 if ($age >= 18) {
 
 echo "You are eligible to vote.";
-
->>
 
 You are eligible to vote.
 
@@ -1782,7 +1735,6 @@ echo "You passed the exam.";
 } else { You can drive the car.
 echo "You failed the exam.";
 1 if inside else
->>
 
 <?php
 
@@ -1798,7 +1750,7 @@ Ex. echo "You passed the exam.";
 } else {
 <?php echo "You failed the exam.";
 $score = 85; }
-}
+
 if ($score >= 90) { >>
 echo "Grade: A";
 } elseif ($score >= 80) { You failed the exam.
@@ -1810,10 +1762,6 @@ echo "Grade: C";
 
 } else {
 echo "Grade: F";
-
-}
-
->>
 
 Grade: B
 
@@ -1922,7 +1870,7 @@ cases break;
 වන විකල්ප අවස්ථාවකි echo "Number is not 1, 2,
 or 3";
 Ex. }
->>
+
 <?php
 $day = "Wednesday"; Number is 2
 
@@ -1974,8 +1922,6 @@ break; :
 default: blue, or green.";
 echo "Invalid day."; [1
 මං
-}
->>
 
 Color is not red, blue, or green.
 
@@ -2021,8 +1967,6 @@ increment) {
 
 // code to be executed
 
->>
-
 Ex.
 
 <?php
@@ -2058,7 +2002,6 @@ The
 WON A ටා 4 ටං [ට [.. ගල
 
 pa
-©
 
 22
 
@@ -2076,10 +2019,6 @@ Syntax
 while (condition) {
 
 // code to be executed
-
-}
-
->>
 
 We can control the number of times that a while
 loop executes in three ways.
@@ -2159,15 +2098,11 @@ $Xx++;
 
 <?php
 
->>
-
 do {
 
 // code to be executed
 
 } while (condition);
-
-?>
 
 EX.
 
@@ -2180,8 +2115,6 @@ echo "The number is: $x <br>";
 $x++;
 
 } while ($x <= 5);
-
-?>
 
 The number is:
 The number is:
@@ -2258,8 +2191,6 @@ foreach ($array as $value) {
 
 // code to be executed
 
->>
-
 Here, each element in the g$array variable is
 assigned to the $value variable in each
 
@@ -2302,10 +2233,6 @@ echo "$name is $age years
 
 old.<br>";
 
-}
-
->>
-
 Peter is 35 years old.
 Ben is 37 years old.
 Joe is 43 years old.
@@ -2337,10 +2264,8 @@ for ($j = 1; $j <= 3; $j++) {
 
 echo "- Inner iteration
 $j}<br>";
-}
+
 echo "<br>";
-}
->>
 
 Outer Loop iteration 1
 - Inner iteration 1
@@ -2375,9 +2300,8 @@ continue;
 
 echo "The number is: $x <br>";
 
-}
 >> echo "The number is: $x <br>";
-}
+
 The number is: @ >>
 The number is: 1
 The number is: 2 The number is: 0
@@ -2465,10 +2389,6 @@ function functionName() {
 
 // code to be executed
 
-}
-
->>
-
 Ex.
 
 <?php
@@ -2479,13 +2399,9 @@ function greet() {
 
 echo "Hello, world!";
 
-}
-
 // Calling the function
 
 greet();
-
->>
 
 Hello, world!
 
@@ -2522,11 +2438,7 @@ function greet($name) {
 
 echo "Hello, g$name!";
 
-}
-
 greet("Alice");
-
->>
 
 Hello, Alice!
 
@@ -2548,11 +2460,7 @@ function getGreeting() {
 
 return "Hello, world!";
 
-}
-
 echo getGreeting();
-
->>
 
 Hello, world!
 
@@ -2577,12 +2485,9 @@ function add($a, $b) {
 
 return $a + $b;
 
-}
-
 $result = add(3, 4);
 
 echo "Result is $result.";
->>
 
 Result is 7.
 
@@ -2611,11 +2516,7 @@ function greet() {
 
 echo "Hello, world!";
 
-}
-
 greet();
-
->>
 
 Hello, world!
 
@@ -2675,7 +2576,7 @@ echo "<br>";
 // echo $globalVar;
 
 // Error: Undefined variable
-}
+
 testScope();
 
 echo $globalVar; // Accessible
@@ -2683,8 +2584,6 @@ echo $globalVar; // Accessible
 // echo $localVar;
 
 // Error: Undefined variable
-
->>
 
 I'm a local variable
 I'm a global variable
@@ -2709,11 +2608,7 @@ global $globalVar;
 
 echo $globalVar; // Accessible
 
-}
-
 testScope();
-
->>
 
 I'm a global variable
 
@@ -2768,11 +2663,7 @@ function testGlobalAccess() {
 
 echo $GLOBALS[ 'globalVar' | ;
 
-}
-
 testGlobalAccess();
-
->>
 
 I'm a global variable
 
@@ -2802,13 +2693,9 @@ $GLOBALS['globalVar'] = "I've
 
 been modified!";
 
-}
-
 modifyGlobal();
 
 echo $globalVar;
-
->>
 
 I'm a global variable
 I've been modified!
@@ -2834,11 +2721,7 @@ echo "<br>";
 
 echo $GLOBALS[ 'var2' ] ;
 
-}
-
 showGlobals();
-
->>
 
 First variable
 Second variable
@@ -2874,11 +2757,7 @@ echo $var; echo "<br>";
 
 echo $GLOBALS[ 'var' ];
 
-}
-
 testConflict();
-
->>
 
 Local variable
 Global variable
@@ -2921,13 +2800,9 @@ EX.
 function greet($name = "Guest") {
 echo "Hello, g$name!";
 
-}
-
 greet();
 
 greet("Alice");
-
->>
 
 Hello, Guest!
 Hello, Alice!
@@ -2957,8 +2832,6 @@ echo strlen("Hello");
 $fullName = "John";
 $fullName .= " Hamilton";
 
-?>
-
 echo "Full Name is $fullName";
 
 str_replace()
@@ -2968,8 +2841,6 @@ Replaces all occurrences of a search string with a
 replacement string.
 සෙවුම්‌ තන්තුවක සියලුම සිදුවීම්‌ ප්‍රනිස්ථාපන
 තන්තුවකින්‌ ප්‍රතිස්ථාපනය කරයි.
-
-?>
 
 <?php
 
@@ -2992,8 +2863,6 @@ $txt) 5
 
 garr = array(1, 2, 3);
 
-?>
-
 echo count($arr);
 
 Hi world!
@@ -3002,8 +2871,6 @@ substr()
 Returns a portion of a string.
 තන්තුවක කොටසක්‌ OQ) දෙයි.
 
-?>
-
 <?php
 
 array_merge()
@@ -3011,8 +2878,6 @@ Merges one or more arrays.
 අරා එකක්‌ භෝ කිහිපයක්‌ චකාබද්ධ කරයි.
 
 echo 5110 5112( "[]61109 world!", 6, 5);
-
-?>
 
 world
 
@@ -3045,8 +2910,6 @@ $fullName = $firstName . $lastName;
 
 echo "Full Name is $fullName";
 
-?>
-
 Full Name is JohnHamilton
 
 array (size=6)
@@ -3073,8 +2936,6 @@ array_push(g$arr, "orange", "grape");
 
 var_dump($arr) ;
 
-?>
-
 array (size=4)
 
 6 => string ‘apple’ (length=5)
@@ -3100,8 +2961,6 @@ $arr = array("a" => "apple",
 
 var_dump(array_keys($arr) );
 
-?>
-
 array (size=2)
 6 => string ‘a’ (length=1)
 1 => string ‘'b' (length=1)
@@ -3120,8 +2979,6 @@ $arr = array( "a" => "apple",
 sort(garr);
 
 var_dump($arr) ;
-
-?>
 
 array (size=2)
 6 => string ‘apple’ (length=5)
@@ -3191,8 +3048,6 @@ ksort($arr) ;
 
 var_dump($arr) ;
 
-?>
-
 array (size=2)
 
 a' => string ‘apple’ (length=5)
@@ -3214,8 +3069,6 @@ $arr = array( "a" => "apple",
 arsort($arr);
 
 var_dump($arr) ;
-
-?>
 
 array (size=2)
 ‘b' => string ‘banana’ (length=6)
@@ -3239,8 +3092,6 @@ krsort(garr) ;
 
 var_dump($arr) ;
 
-?>
-
 array (size=2)
 ‘b' => string ‘banana’ (length=6)
 
@@ -3255,8 +3106,6 @@ Returns the absolute value of a number.
 
 echo abs(-4.2);
 
-?>
-
 4.2
 
 round()
@@ -3267,8 +3116,6 @@ Rounds a floating point number.
 <?php
 
 echo round(3.6);
-
-?>
 
 4
 
@@ -3360,8 +3207,6 @@ $arr = array("apple", "“banana");
 
 print_r(garr);
 
-?>
-
 Array ([@] => apple [1] => banana)
 
 die() or exit()
@@ -3375,8 +3220,6 @@ script.
 <?php
 
 die("Script terminated") ;
-
-?>
 
 Script terminated
 
@@ -3404,8 +3247,6 @@ $array = ['apple', ‘banana’ ];
 $string = implode(", ", $array);
 
 echo $string;
-
-?>
 
 explode()
 The explode() function is used to split a string by
@@ -3462,8 +3303,6 @@ static $count = @;
 $count++;
 
 echo $count;
-
-}
 
 counter();
 
@@ -3758,8 +3597,6 @@ before submitting the form.
 
 First Name:
 
-( |
-
 ද Please fill out this field.
 
 | J
@@ -3818,7 +3655,7 @@ Attribute
 When a form is submitted, the browser sends the
 form data as key-value pairs to the server.
 
-පෝරමයක්‌ submit කළ විට, අතරික්සුව මගින්‌ පෝරම
+පෝරමයක්‌ submit කළ විට, අතිරික්සුව මගින්‌ පෝරම
 දත්ත යතුරැ-අගය යුගල ලෙස සේවාදායකයට යවයි.
 
 The name attribute of each form element acts as
@@ -3965,14 +3802,12 @@ group of form elements.
 Personal Information
 
 Name: legend
-ක්‍ෂ fieldset
+ක්ෂ fieldset
 Account Details
 Label
 Username: .
 | | Input
 Password:
-
-| |
 
 Input Types
 
@@ -4177,8 +4012,6 @@ $gender = $ POST['gender'] ?? "Not selected"; // $gender contains the selected v
 
 echo "Selected gender: . htmlspecialchars($gender) ;
 
-?>
-
 Only the selected value will be submitted and accessible.
 තෝරාගත්‌ අගය පමණක්‌ submit OD අතර එයට පමණක්‌ ප්‍රවේශ විය හැකිය.
 
@@ -4208,11 +4041,7 @@ Used for submitting the form data.
 
 Name:
 
-| |
-
 Age:
-
-| |
 
 12. Reset (<input type="reset”>)
 
@@ -4250,8 +4079,6 @@ provides a slider.
 වේ, ස්ලයිඩරයක්‌ සපයයි.
 
 Select Range:
-
-==
 
 15. URL (<input type="url">)
 
@@ -4508,7 +4335,7 @@ URL හි දිග සීමිත වේ, එබැවින්‌ GET ලේ
 GET requests can be cached by browsers and
 intermediary devices.
 
-GET ඉල්ලීමි අතරික්සු සහ අතරමැදි උපාංග මගින්‌
+GET ඉල්ලීමි අතිරික්සු සහ අතරමැදි උපාංග මගින්‌
 නිහිත කළ හැක.
 
 Repeated requests (Ex. refreshing the page)
@@ -4887,8 +4714,6 @@ $ SERVER තුළ ඇති දේ බැලීමට අපට var_dump() භ�
 <?php
 var_dump($_SERVER);
 
->>
-
 C: \wamp64\www\2026\1.php: 2:
 array (size=42)
 "HTTP_HOST* => string ‘localhost’ (Length=9)
@@ -5109,8 +4934,6 @@ echo "You have not checked the agreed button";
 
 }3
 
->>
-
 When the show data button is pressed, the user will be redirected to the process.php file and displayed as
 
 follows:
@@ -5194,7 +5017,7 @@ Prepared statements are often used in this step
 to enhance security and prevent SQL injection
 attacks.
 
-මෙම පියවරේදී ආරක්‍ෂාව වැඩි දියුණු කිරීමට සහ SQL
+මෙම පියවරේදී ආරක්ෂාව වැඩි දියුණු කිරීමට සහ SQL
 
 injection attacks වැලැක්වීමට පෙර සූදානම්‌ කළ
 ප්‍රකාශ බොහෝ විට භාවිතා වේ.
@@ -5274,15 +5097,12 @@ die("Connection failed:
 
 . mysqli_connect_error());
 
-}
-
 echo "Connected successfully";
 
 //Close the connection
 
 mysqli_close($conn) ;
 
-?>
 Explanation $username
 
 This is the username used to authenticate with the
@@ -5430,13 +5250,9 @@ die("Connection failed:
 
 . $conn->connect_error) ;
 
-}
-
 echo "Connected successfully";
 
 $conn->close();
-
->>
 
 Explanation
 
@@ -5803,8 +5619,6 @@ die("Connection failed:
 
 . mysgli_connect_error());
 
-}
-
 // Collect and sanitize form data
 
 $uname = mysqli _real_escape_ string($conn, $ POST[ ‘uname’ ] ) ;
@@ -5835,13 +5649,9 @@ echo "Error: " . $sql . "<br>"
 
 . mysqli_error($conn) ;
 
-}
-
 // Close connection
 
 mysqli_close($conn);
-
->>
 
 This is how the database table will look like after inserting the data entered by the user
 SOBOWGA) ආදානය WE දත්ත ඇතුළත්‌ කිරීමෙන්‌ පසු දත්ත HOC) වගුව මෙලෙස පෙනෙනු ඇත.
@@ -5875,8 +5685,6 @@ if ($conn->connect_error) {
 
 die("Connection failed: . $conn->connect_error) ;
 
-}
-
 // Collect and sanitize form data
 
 $uname = mysqli_real_escape string($conn, $ POST['uname']);
@@ -5903,13 +5711,10 @@ echo "New record created successfully";
 } else {
 
 echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 // Close the connection
 
 $conn->close();
-
->>
 
 OOP approach executes the SQL query using the query() method.
 OOP ප්‍රවේශය query() යන method Am භාවිතයෙනෘ SQL විමසුම ක්‍රියාත්මක කරයි.
@@ -6014,8 +5819,6 @@ if (!$conn) {
 
 die("Connection failed: . mysgli_connect_error());
 
-}
-
 // SQL query to fetch data
 
 $sql = "SELECT * FROM users";
@@ -6041,17 +5844,14 @@ echo "ID: " . $row["id"] .
 "- Gender: " . $row["gender"] .
 
 " - Agreement: " . $row["agreement"] . "<br>";
-}
+
 } else {
 
 echo "@ results";
-}
 
 // Close connection
 
 mysqli_close($conn);
-
->>
 
 60
 
@@ -6076,8 +5876,6 @@ if ($conn->connect_error) {
 
 die("Connection failed: . $conn->connect_error) ;
 
-}
-
 // SQL query to fetch data
 
 $sql = "SELECT * FROM users";
@@ -6098,18 +5896,14 @@ echo "ID: " . $row["id"] .
 " ~ Age: " . $row["age"]
 "- Gender: " . $row["gender"] .
 " ~ Agreement: " . $row["agreement"] . "<br>";
-}
+
 } else {
 
 echo "@ results";
 
-}
-
 // Close connection
 
 $conn->close();
-
->>
 
 61
 
@@ -6272,8 +6066,6 @@ if ($conn->connect_error) {
 
 die("Connection failed: . $conn->connect_error) ;
 
-}
-
 // SQL query to create table
 
 $sql = "CREATE TABLE employees (
@@ -6298,13 +6090,9 @@ echo "Table employees created successfully";
 
 echo "Error creating table: . $conn->error;
 
-}
-
 // Close the connection
 
 $conn->close();
-
->>
 
 63
 
@@ -6348,8 +6136,6 @@ echo "Error: " . $sql . "<br>" . $conn->error;
 
 $conn->close();
 
-?>
-
 Using alter table
 alter table භාවිතා කිරීම
 
@@ -6372,8 +6158,6 @@ if ($conn->connect_error) {
 
 die("Connection failed: . $conn->connect_error);
 
-}
-
 // SQL query to alter table
 
 $sql = "ALTER TABLE employees ADD salary DECIMAL(10,2)";
@@ -6389,8 +6173,6 @@ echo "Error altering table: . $conn->error; }
 // Close connection
 
 $conn->close();
-
-?>
 
 64
 
@@ -6425,8 +6207,6 @@ die("Connection failed:
 
 - $conn->connect_error) ;
 
-}
-
 // SQL query to delete data
 
 $sql = "DELETE FROM employees WHERE id=3";
@@ -6441,13 +6221,9 @@ echo "Error: " . $sql .
 
 "<br>". $conn->error;
 
-}
-
 // Close connection
 
 $conn->close();
-
-?>
 
 Real world example 07:
 
@@ -6468,8 +6244,7 @@ e Retrieve data from a database
 
 e Put that data into a form
 එම ED පෝරමයක්‌ වෙන ඇතුළත්‌ කිරීම
-
-ේ &ර0:// the user to edit it
+  &ර0:// the user to edit it
 SSBOMO එම දුන්න සංස්කරණය කිරීමට ඉඩ
 හැරීම
 
@@ -6531,8 +6306,6 @@ $sql = "SELECT * FROM students WHERE id
 $result = mysqli_query($conn, $sql);
 
 grow = mysqli fetch_assoc($result) ;
-
-?>
 
 Now $row contains:
 e §=6$row[ ‘name ' |

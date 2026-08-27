@@ -7,7 +7,7 @@ and efficiently.
 පරිවර්තනයක්‌ හෝ පරිවර්තනයක්‌ qOas නොවන බැවින්‌ යන්ත්‍රය උපදෙස්‌ ක්ෂණිකව හා කාර්යක්ෂමව
 ක්‍රියාත්මක කරයි.
 
-3 Hardware-Dependent / දෘඞාංග මත යැපෙයි
+3 Hardware-Dependent / දෘඩාංග මත යැපෙයි
 Each machine has its own unique machine language. A program written for one type of computer will
 not run on another without major modifications.
 සැම යන්ත්‍රයකටම ආවේණික යන්ත්‍ර භාෂාවක්‌ ඇත. එක්‌ පරිගණක ObMasd සඳහා ලියා ඇති වැඩසටහනක්‌
@@ -20,7 +20,7 @@ No Translator Needed / පරිවටිතකයෙකු අවශ්‍ය �
 As the code 15 already in the computer’s native language, 1t can be executed directly without using any
 compiler, interpreter, or assembler.
 
-කේතය දැනටමත්‌ පරිගණකයේ මවි භාෂාවෙන්‌ ඇති බැවින්‌, එය කිසිදු සමිපාදකයක්‌, පරිවරිතකයක්‌ හෝ
+කේතය දැනටමත්‌ පරිගණකයේ මවි භාෂාවෙන්‌ ඇති බැවින්‌, එය කිසිදු සම්පාදකයක්‌, පරිවරිතකයක්‌ හෝ
 assembler එකක්‌ භාවිතා නොකර කෙලින්ම ක්‍රියාන්මක කළ හැක.
 
 Difficult to Write and Understand / ලිවිමට සහ නේරැමි ගැනීමට අපහසුය
@@ -28,7 +28,7 @@ Difficult to Write and Understand / ලිවිමට සහ නේරැමි
 Binary code is not human-friendly. Writing or fixing programs in first-generation languages is very
 difficult and easy to make mistakes in.
 
-ද්විමය කේතය මානව හිතකාමි නොවේ. පළමු පරමිපරාවේ භාෂාවලින්‌ වැඩසටහන්‌ ලිවීම හෝ නිවැරදළි
+ද්විමය කේතය මානව හිතකාමි නොවේ. පළමු පරම්පරාවේ භාෂාවලින්‌ වැඩසටහන්‌ ලිවීම හෝ නිවැරදළි
 කිරීම ඉතා අපහසූ වන අතර වැරදි වීමට වැඩි ඉඩක්‌ ඇත
 
 Not Portable
@@ -37,7 +37,7 @@ Programs are specific to the architecture of a given machine and cannot be used 
 processors. / වැඩසටහන්‌ ලබා දි ඇති යන්ත්‍රයක ආකෘතියට SedSm වන අතර විවිධ ප්‍රොසෙසර මත
 භාවිතා කළ නොහැක.
 
-Second-Generation Languages / දෙවන පරමිපරාවේ ක්‍රමලේඛ භාෂාව (2GL)
+Second-Generation Languages / දෙවන පරම්පරාවේ ක්‍රමලේඛ භාෂාව (2GL)
 
 1
 
@@ -49,7 +49,7 @@ Uses mnemonic codes like MOV, ADD, SUB etc., which are easier to remember than b
 Most assembly instructions have a direct one-to-one correspondence with machine code instructions.
 බොහෝ assembly උපදෙස්‌ යන්ත්‍ර කේත උපදෙස්‌ සමඟ සෘපුව එකින්‌ එක ලිපි හුවමාරැවක්‌ ඇත.
 
-Requires an Assembler / Assembler එකක්‌ අවග්‍ය වේ
+Requires an Assembler / Assembler එකක්‌ අවශ්‍ය වේ
 
 An assembler is a translator that converts the assembly language into machine code so it can be
 executed by the CPU.
@@ -57,12 +57,12 @@ executed by the CPU.
 Assembler යනු Assembly භාෂාව යන්ත්‍ර කේතයක්‌ බවට පරිවරිතනය කරන පරිවර්තකයකි, එබැවින්‌ එය
 CPU මඟින්‌ ක්‍රියාත්මක කළ හැකිය.
 
-Hardware-Dependent / දෘඞාංග මත යැපෙයි
+Hardware-Dependent / දෘඩාංග මත යැපෙයි
 
 Like 1GL, assembly language is still closely tied to the specific architecture of the hardware. Each
 processor family has its own instruction set.
 
-1GL මෙන්‌, Assembly භාෂාව තවමත්‌ දෘඞාංගයේ නිග්චිත ආකෘතියට සමිපව බැඳි ඇත. සෑම ප්‍රොසෙසර
+1GL මෙන්‌, Assembly භාෂාව තවමත්‌ දෘඩාංගයේ නිග්චිත ආකෘතියට සමිපව බැඳි ඇත. සෑම ප්‍රොසෙසර
 වට්ගයකටම තමන්ගේම උපදෙස්‌ මාලාවක්‌ ඇත.
 
 Faster than High-Level Languages / ඉහළ මට්ටමේ භාෂාවලට O8) වේගවත්‌
@@ -86,7 +86,7 @@ Used in System-Level Programming / පද්ධති මට්ටමේ ක්�
 Often used in embedded systems, device drivers, and real-time applications where direct hardware
 control is necessary.
 
-සෘපු දෘඞාංග පාලනය අවග්‍ය වන කාවැද්දූු පද්ධති, උපාංග ධාවක සහ තත්‍ය කාලීන යෙදුමිවල බොහෝ
+සෘපු දෘඩාංග පාලනය අවශ්‍ය වන කාවැද්දූු පද්ධති, උපාංග ධාවක සහ තත්‍ය කාලීන යෙදුම්වල බොහෝ
 විට භාවිතා වේ.
 
 උපදෙස්‌ එකින්‌ එක ඒවා දිස්වන පිළිවෙලට ක්‍රියාත්මක කරයි.
@@ -143,7 +143,7 @@ Semicolon at the end is unnecessary.
 
 Line 8:
 Misaligned indentation.Should be indented with the previous line.
-නොගැලපෙන ඉන්ඞඩෙන්ටේෂන්‌. පෙර පේළිය සමඟ ඉන්ඩෙන්ටි කළ යුතුය.
+නොගැලපෙන ඉන්ඩඩෙන්ටේෂන්‌. පෙර පේළිය සමඟ ඉන්ඩෙන්ටි කළ යුතුය.
 
 Line 11:
 Unclosed string and Unclosed bracket
@@ -244,9 +244,6 @@ False
 
 / Even number /
 
-<
-<
-
 (iii) Convert the flowchart you have obtained for the above (11) into a pseudo code.
 ඉහත (11) කොටසෙහි යෝපිත ගැලීමි සටහන Ome කේතයකට (pseudo code) හරවන්න.
 
@@ -327,7 +324,7 @@ before writing to the output file.
 (c)
 
 above program.
-ඉහත ක්‍රමලේඛය ආරමිභයෙහි, එහි HO, සටහනක්‌ (comment) ලෙස ඇතුළඑකිරිම සඳුහා පයිතන්‌ ප්‍රකාගයක්‌
+ඉහත ක්‍රමලේඛය ආරමිභයෙහි, එහි HO, සටහනක්‌ (comment) ලෙස ඇතුළඑකිරිම සඳුහා පයිතන්‌ ප්‍රකාශයක්‌
 ලියන්න.
 
 To add the program name as a comment at the top of the code, you should use the # symbol. The correct
@@ -352,7 +349,7 @@ the file. If the file exists, Python allows the program to read its contents lin
 exist, the program will crash with a "FileNotFoundError".
 
 මෙම පේළීය input.txt නමින්‌ ගොනුවක්‌ කියවීමේ ආකාරයෙන්‌ විවෘත කරයි. ‘7’ මඟින්‌ ඔබට ගොනුවේ
-අන්තර්ගතය කියවිමට අවග්‍ය බව පයිතන්‌ හට කියයි. ගොනුව තිබේ නමි, පයිතන්‌ වැඩසටහනට එහි
+අන්තර්ගතය කියවිමට අවශ්‍ය බව පයිතන්‌ හට කියයි. ගොනුව තිබේ නමි, පයිතන්‌ වැඩසටහනට එහි
 අන්තර්ගතය පේළියෙන්‌ පේළිය කියවිමට ඉඩ දෙයි. ගොනුව නොපවතී නමි, වැඩසටහන ”/*7/67/0/7*07/77/7/*77707*”
 එකක්‌ මතු කරයි.
 
@@ -378,8 +375,6 @@ datakeys list, finds its count from datasummary, and writes a line in the format
 
 printdatal) අවසාන ප්‍රතිදානය output.txt HS HO ගොනුවකට ලියයි. එය අනුපිළිවෙළට සකසන ලද, datakeys
 ලැයිස්තුවේ එක්‌ එක්‌ අයිතමය Hom ගොස්‌, datasummary එකෙන්‌ එහි ගණන්‌ සොයා, item-count ආකෘති
-
--~
 
 යට ප්‍රතිදානයක්‌ ලියයි.
 
@@ -458,7 +453,7 @@ conversion, it adds 4.0 and 4.7, resulting in 8.7. The result of this addition i
 assigned the value 8.7 with a data type of float.
 
 තුන්වන පේළියේ, c=atb edddnne) දුකුණු පස ඇති ප්‍රකාශනය ඇගයීමට ලක්‌ කරයි. එයට පුරණ
-සංඛ්‍යාවක්‌ (a) සහ float (b) එකතු කිරීම අවග්‍ය වේ. මෙම මෙහෙයුම සිදු කිරීම oes), Python ස්වයංක්‍රීයව
+සංඛ්‍යාවක්‌ (a) සහ float (b) එකතු කිරීම අවශ්‍ය වේ. මෙම මෙහෙයුම සිදු කිරීම oes), Python ස්වයංක්‍රීයව
 ව්‍යංග ආකාරයේ පරිවර්තනයක්‌ සිදු කරයි, එය පුරණ HOMO a float (4.0) බවට පරිවරතනය කරයි, එවිට
 මෙහෙයුමි දෙකම එකම වර්ගයේ වේ. පරිවරතනයෙන්‌ පසුව, එය 4.0 සහ 4.7 එකතු කරයි, ප්‍රතිඵලයක්‌ ලෙස
 8.7 මෙම එකතු කිරීමේ ප්‍රතිවලය float වේ, එබැවින්‌ c විචලඅයට දුන්ත වර්ගයක්‌ සමඟ 8.7 අගය පවරනු
@@ -487,7 +482,7 @@ The program initializes a variable called total and sets its value to 0.0, which
 number. This variable will be used to store cumulative sum of all positive numbers entered by the user.
 මෙම වැඩසටහන මගින්‌ total නමින්‌ විචල්‍යයක්‌ ආරමිභ කර එහි අගය 0.0 ලෙස සකසයි, එය පාවෙන
 ලක්ෂ්‍ය අංකයකි. මෙම විචල්‍යය පරිගිලකයා විසින්‌ ඇතුලත්‌ කරන ලදු සියලම ධන සංඛ්‍යා වල සමුච්චිත
-එකතුව ගබඞා කිරීමට භාවිතා කරනු ඇත.
+එකතුව ගබඩා කිරීමට භාවිතා කරනු ඇත.
 
 e x = float(input("Enter a number:"))
 The program displays the prompt “Enter a number:” and waits for the user to input a value. The input()
@@ -501,7 +496,7 @@ e while x > 6:
 This line starts a while loop, which checks if the value of x is greater than 0. If this condition is true,
 the loop will execute the indented block of code below it. If the condition is false (e.g., x 16 zero or
 negative), the loop ends, and the program moves to the print(total) statement.
-මෙම පේළිය x හි අගය 0 ට වඞඩා වැඩි දැයි පරික්ශා කරන while ලපයක්‌ ආරමිභ කරයි. මෙම
+මෙම පේළිය x හි අගය 0 ට වඩඩා වැඩි දැයි පරික්ශා කරන while ලපයක්‌ ආරමිභ කරයි. මෙම
 කොන්දේසිය සත්‍ය නමි, eno ඊට පහළින්‌ ඇති කේත කොටස ක්‍රියාත්මක කරයි. කොන්දේසිය අසත්‍ය නමි
 (උදා: x ශුන්‍ය හෝ සෘණ), ලපය අවසන්‌ වන අතර වැඩසටහන print(total) ප්‍රකාශය වෙත යයි
 
@@ -517,8 +512,7 @@ float, and assigns it to x. This new value is then used in the next iteration of
 total යාවත්කාලීන කිරීමෙන්‌ පසුව, වැඩසටහන නැවතත්‌ පරිගීිලකයාගෙන්‌ අගයක්‌ ඇතුළත්‌ කරන තෙක්‌
 බලා සිටී. එය පාවෙන ලක්ෂ්‍යක්‌ බවට පරිවරිතනය කර එය x වෙත පවරයි. මෙම නව අගය පසුව
 ened ඊළඟ පුනරාවර්නනයේදී භාවිනා වේ.
-
-ේ print(total)
+  print(total)
 Once the user enters a value of () or a negative number, the while loop stops. The program then
 executes this statement, which displays the final sum of all positive numbers that were entered.
 පරිශීලකයා 0 හෝ සෘණ අංකයක්‌ ඇතුළඑ කළ පසු, while loop එක නතර වේ. වැඩසටහන පසුව මෙම
@@ -585,7 +579,7 @@ i=it+]
 A
 
 (11) Write a Python program to implement your flow chart proposed in section c (1).
-ඉහත C(i) මගින්‌ යෝපනා කරනු ලැබු ඔබගේ ගැලීමි සටහන ADS කිරීමට පයිතන්‌ ක්‍රමලේඛනයක්‌ ලියන්න.
+ඉහත C(i) මගින්‌ යෝජනා කරනු ලැබු ඔබගේ ගැලීමි සටහන ADS කිරීමට පයිතන්‌ ක්‍රමලේඛනයක්‌ ලියන්න.
 
 ~ 1000
 for i in range(@,10):
@@ -701,7 +695,7 @@ for ලුපයක්‌ භාවිතා කරමින්‌, එය ව�
 1.(a) Explain what is done by the Python interpreter when executing the following statements. You should
 state the types of the variables involved.
 පයිතන්‌ අර්ථට්වින්‍යාසකයක්‌ (interpreter) මගින්‌ පහත වගන්ති ක්‍රියාත්මක කරවන SO (execute) සිදුවන්නේ
-කුමක්දැයි පැහැදිලි කරන්න. මේ සඳුහා සමිබන්ධ වන විචල්‍යන්හි ප්‍රරෑප (variable types) දැක්විය යුතු වේ.
+කුමක්දැයි පැහැදිලි කරන්න. මේ සඳුහා සම්බන්ධ වන විචල්‍යන්හි ප්‍රරෑප (variable types) දැක්විය යුතු වේ.
 
 (1) x = input("Enter a number")
 
@@ -750,8 +744,8 @@ element within the list is of type str. This technique 15 commonly used to proce
 ෂ්‌ කොමාවෙන්‌ වෙන්‌ කළ අගයන්‌ (CSV) හෝ වෙනත්‌ සීමා කළ eso ආකෘති සැකසීමට බහුලව භාවිතා
 වේ.
 
-(0) Factorial of a positive integer n is defined as n x (n-1) X (n-2) X ....... X3x2x Il.
-NDS ධන නිබිලයක ක්‍රමාරෝපිතය අර්ථ දක්වනු ලබන්නේ n x (n-1) xX (n-2) X........ X3xX2Xx1 ලෙසය.
+(0) Factorial of a positive integer n is defined as n x (n-1) X (n-2) X …… X3x2x Il.
+NDS ධන නිබිලයක ක්‍රමාරෝපිතය අර්ථ දක්වනු ලබන්නේ n x (n-1) xX (n-2) X…… X3xX2Xx1 ලෙසය.
 
 (1) Propose an algorithm by using a flowchart to print the factorial of a given positive_integer n.
 දි ඇති n නමි ධන නිබිලයක ක්‍රමාරෝපිතය මුදුණය කිරීම සඳුහා සුදුසු ඇල්ගොරිතමයක්‌ DOG සටහනක්‌
@@ -762,7 +756,6 @@ NDS ධන නිබිලයක ක්‍රමාරෝපිතය අර්�
 / Input n /
 
 fact = |
-—
 
 No
 print fact
@@ -827,7 +820,7 @@ factorial(n) Gnas නිටරවචනය කරයි. ධනාත්මක �
 ලබන අතර, ආදානය 0 ට වඩා වැඩි නමි, වැඩසටහන විසින්‌ factorial Goo කැඳුවා ප්‍රතිඵලය මුද්‍රණය
 
 කරයි. ආදානය ධන නිඛිලයක්‌ නොවේ නමි, එය පරිගීලකයාට වලංගු අංකයක්‌ ඇතුළත්‌ කරන ලෙස ඉල්ලා
-පණිවිඞයක්‌ පෙන්වයි.
+පණිවිඩයක්‌ පෙන්වයි.
 
 instructions (Os and Is).
 
@@ -839,7 +832,7 @@ instructions (Os and Is).
 Therefore, compilers or interpreters are necessary to translate programs written in high-level
 languages into machine language, which the computer can execute. එබැවින්‌, ඉහළ මට්ටමේ භාෂාවලින්‌
 ලියා ඇති වැඩසටහන්‌ පරිගණකයට ක්‍රියාත්මක කළ හැකි යන්ත්‍ර භාෂාවට පටරිවරිතනය කිරීම ae)
-සම්පාදක හෝ පරිවර්තක අවග්‍ය වේ.
+සම්පාදක හෝ පරිවර්තක අවශ්‍ය වේ.
 
 e A compiler translates the entire high-level program into machine code before execution. This
 machine code is then run by the computer.
@@ -855,7 +848,7 @@ In summary, without a compiler or interpreter, the computer cannot execute high-
 they must first be converted into machine language, which is the only language the processor can
 understand.
 
-සාරාංශයක්‌ ලෙස, සමිපාදකයෙකු හෝ පරිවටතකයෙකු නොමැතිව, SOMOPANGO ඉහළ මටිටමේ වැඩසටහන්‌
+සාරාංශයක්‌ ලෙස, සම්පාදකයෙකු හෝ පරිවටතකයෙකු නොමැතිව, SOMOPANGO ඉහළ මටිටමේ වැඩසටහන්‌
 ක්‍රියාත්මක කළ නොහැක, මන්ද එවා පළමුව යන්ත්‍ර භාෂාවට පරිවටතනය කළ යුතු අතර, එය සකසනයට
 තේරැමි ගත හැකි එකම භාෂාවයි.
 
@@ -879,7 +872,7 @@ Index_no_1,mark_11,mark_12,mark_13
 Index_no_2,mark_21,mark_22,mark_23
 
 Where
-Index_no_X : Index number of the X™ student; X = 1, .................. Jn
+Index_no_X : Index number of the X™ student; X = 1, …… Jn
 mark XY : Marks obtained by the X® student for the Y™ paper: Y = 1,2,3
 
 Index numbers and marks of the students should be entered through the keyboard, one item at a time
@@ -906,7 +899,6 @@ Vv
 
 Yes
 
->»
 P|
 
 Start
@@ -1062,7 +1054,7 @@ Here, three marks (x, y, and z) are read from the user as strings.
 මෙහි, ලකුණු තුනක්‌ (x, y, and z) පරිගිලකයාගෙන්‌ string ලෙස කියවනු ලැබේ.
 
 (They could be kept as strings or converted to numbers if needed. )
-(අවග්‍ය නමි ඒවා string ලෙස DA) ගත හැකිය හෝ අංක බවට පරිවරිතනය කළ හැකිය.)
+(අවශ්‍ය නමි ඒවා string ලෙස DA) ගත හැකිය හෝ අංක බවට පරිවරිතනය කළ හැකිය.)
 
 5. Creating the Output Line / ප්‍රතිදාන පේළිය නිටමාණය කිරීම
 
@@ -1093,7 +1085,7 @@ Will exit the loop if the user enters - ]
 f.close()
 
 After the loop finishes, the file is closed to save changes and release resources.
-ලුපය අවසන්‌ © පසු, වෙනස්කමි සුරැකීමට සහ සමිපත්‌ මුදා හැරීමට ගොනුව වසා දමනු ලැබේ.
+ලුපය අවසන්‌ © පසු, වෙනස්කමි සුරැකීමට සහ සම්පත්‌ මුදා හැරීමට ගොනුව වසා දමනු ලැබේ.
 
 Differences Between Python 2.0 and 3.0 Python 2.0 3.0 Emo වෙනස්කමි
 
@@ -1186,7 +1178,7 @@ the food tray for the payment.
 
 පාසලක ආපනගාලාවක්‌ විවිධ ආහාර වර්ග 10ක්‌ අලෙවි කරයි. මෙම MMO වර්ග රාක්කයක අසුරා ඇත.
 සිසුන්ට රාක්කය අසලින්‌ ඇවිදින ගමන්‌ ආහාර වර්ග තෝරාගෙන බන්දේසියක තබා ගත හැකි ය. මෙම
-බන්දේසි ආපනගාලාවට ඇතුලවන ස්ටානයේ තබා ඇත. ආහාර තෝරා ගැනීමෙන්‌ පසු සිසුවකු මුදුල්‌ ගෙවිම
+බන්දේසි ආපනගාලාවට ඇතුලවන ස්ථානයේ තබා ඇත. ආහාර තෝරා ගැනීමෙන්‌ පසු සිසුවකු මුදුල්‌ ගෙවිම
 සඳුහා ආහාර බන්දේසියද රැගෙන මුදුල්‌ අයකැමි වෙත ළඟා විය යුතු ය.
 
 You are asked to develop a computer program to calculate the payment due for a food tray. For this
@@ -1210,7 +1202,7 @@ Unit price (Rs) 12.00 | 15.00 | 10.00 | 25.00 | 45.00 | 50.00 | 25.00
 ( 2016 — Essay 4 )
 
 State all the inputs required for the computer program and its expected output.
-පටිගණක ක්‍රමලේඛයකට අවග්‍ය වන ආදාන හා එයින්‌ බලාපොරොත්තු වන ප්‍රතිදානයන්‌ HEM කරන්න.
+පටිගණක ක්‍රමලේඛයකට අවශ්‍ය වන ආදාන හා එයින්‌ බලාපොරොත්තු වන ප්‍රතිදානයන්‌ HEM කරන්න.
 
 Inputs ආදාන
 1. Food Type and Price (FT) / ආහාර වටගය සහ මිල (FT)
@@ -1228,7 +1220,7 @@ Inputs ආදාන
 අයිතම ප්‍රමාණය (10) / ආහාර වර්ගයේ අයිතම ගණන
 
 ॥ How many units of the selected food item the student wants.
-ගිෂ්‍යයාට අවග්‍ය තෝරාගත්‌ ආහාර අයිතමයේ ඒකක කීයක්‌ Sede.
+ගිෂ්‍යයාට අවශ්‍ය තෝරාගත්‌ ආහාර අයිතමයේ ඒකක කීයක්‌ Sede.
 
 3. End of Input Check / Input to indicate end of iteration
 ආදාන පරීකක්‍්ෂාවේ අවසානය / පුනරාවටතනයේ අවසානය දැක්වීමට ආදානය
@@ -1313,7 +1305,7 @@ price_due = 6.0
 Initializes the total cost to 0.0 rupees.
 QO පිරිවැය රැපියල්‌ 0.0 දක්වා ආරමිභ කරයි.
 
-IP = [...]
+IP = [……]
 
 A list of prices for each food item.
 
@@ -1366,7 +1358,7 @@ Explanation of the Python code (Python 2)
 price due = 0.6
 Same as Python 3 initialize total. / Python 3 සේම මුළ එකතුවට සමානයි.
 
-IP = [...]
+IP = [……]
 List of item prices (same logic) අයිතම මිල ලැයිස්තුව (CMO තර්කනය.)
 
 FT = int(raw_input( "Enter food type : "))
@@ -1401,7 +1393,6 @@ Print statement print value print(value) (function)
 
 Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
 
-
 2017 AL PYTHON ESSAY MARKING
 
 1. The consumption of electricity at houses is charged based on the number of units consumed. The
@@ -1421,8 +1412,6 @@ V
 
 Input household number, previous
 reading and present reading
-
-!
 
 Compute Units _comsumed =
 present - previous
@@ -1522,21 +1511,21 @@ o The program expects the user to enter correct input types (e.g., integers for 
 කිරීම අපේක්ෂා කරයි.
 
 o Additional validation would be required for robust production code.
-ගක්තිමත්‌ නිෂ්පාදන කේතයක්‌ සඳහා අමතර වලංගුකරණයක්‌ අවග්‍ය වනු ඇත.
+ගක්තිමත්‌ නිෂ්පාදන කේතයක්‌ සඳහා අමතර වලංගුකරණයක්‌ අවශ්‍ය වනු ඇත.
 
 7. No time-based or slab-wise billing beyond the 64-unit threshold
 ඒකක 64 සීමාවෙන්‌ ඔබ්බට කාලය මත o6Hd වු හෝ ස්ලැබි අනුව බිල්පත්‌ නොමැත.
 
 o The billing logic assumes a single break at 64 units and not more complex slabs (e.g., 0--100, 100—
 200, etc.).
-බිල්පත්‌ තරකනය ඒකක 64 කදි තනි බිඳීමක්‌ උපකල්පනය කරන අතර වඞඩාන්‌ සංකීරණ slabs නොවේ
+බිල්පත්‌ තරකනය ඒකක 64 කදි තනි බිඳීමක්‌ උපකල්පනය කරන අතර වඩඩාන්‌ සංකීරණ slabs නොවේ
 (උදා: 0-100, 100-200, ආදිය).
 
 Develop a function in Python to write household number, meter readings and the total amount
 to be charged at the end of an existing text file named “deb.txt”.
 
 ගෘහස්ථ අංකය, විදුලි මනු HSS an අය කළ an මුඑ Qcee, පවතින "deb.txt" නමි ව HD ගොනුවක
-අගට ලිවිමට අවග්‍ය Python ගිතයක්‌ ගොඩනගන්න.
+අගට ලිවිමට අවශ්‍ය Python ගිතයක්‌ ගොඩනගන්න.
 
 def append (09 _file(household_no, previous_reading, present_reading,
 amount) :
@@ -1615,8 +1604,6 @@ Vv
 max = -1
 n= 100
 
-!
-
 —/ Input num /
 
 Yes
@@ -1632,8 +1619,6 @@ O
 Yes
 
 max = num max = num
-
-| !
 
 _> n=n+] > n=n-1
 
@@ -1745,7 +1730,7 @@ Flowchart in the left side is the easiest to follow and understand because incre
 people than decrements.
 
 OO පැත්තේ ඇති ගැලීමි සටහන අනුගමනය කිරීමට සහ නේරැමි ගැනීමට පහසුම වේ, මන්ද ඉහල යාම
-බොහෝ දෙනෙකුට පහල යාමට වඞා හුරැපුරැදු බැවිනි.
+බොහෝ දෙනෙකුට පහල යාමට වඩා හුරැපුරැදු බැවිනි.
 
 If the condition, increment or decrement and the initial value causes the algorithm to get and compare 100
 inputs if there weren’t any interruptions, and the core functionality 1s same as the above flowcharts then
@@ -1871,7 +1856,7 @@ Else, 1 will increase by one and the loop will restart until there’s a match o
 loop becomes false.
 
 1 යනු while ලපයේ පාලන විචල්‍යය වේ. while ලූපය Ha) කරන්නේ 1. ॥ ට වඩා අඩු නමි පමණි. i<n
-සත්‍ය නමි, if ප්‍රකාශය Lili], K ට සමානද නැද්ද යන්න පරික්‍ෂා කරයි. K,L[i] ට සමාන නමි, ඵය ‘True’
+සත්‍ය නමි, if ප්‍රකාශය Lili], K ට සමානද නැද්ද යන්න පරික්ෂා කරයි. K,L[i] ට සමාන නමි, ඵය ‘True’
 මුද්‍රණය කර නතර වේ. එසේ නොමැතිනමි, i එකකින්‌ වැඩි වන අතර while ලපයේ ගැලපීමක්‌ හෝ
 තත්ත්වය අසත්‍ය වන තෙක්‌ ලපය නැවත ක්‍රියාත්මක වේ.
 
@@ -2047,7 +2032,7 @@ value, the if becomes true and the return function will give 'True' as output.
 If x is not equal to any of the values inside L, then x sends to the main if statement will be an empty
 list. Hence, the return function will output 'False’.
 
-x,L තුළ ඇති කිසිදු අගයකට සමාන නොවේ නම, x ප්‍රධාන if ප්‍රකාගයට යවන අතර එය හිස්‌
+x,L තුළ ඇති කිසිදු අගයකට සමාන නොවේ නම, x ප්‍රධාන if ප්‍රකාශයට යවන අතර එය හිස්‌
 ලැයිස්තුවක්‌ වනු ඇත. එබැවින්‌, return Gwe ‘False’ ලෙස ප්‍රතිදානය කරයි.
 
 The main if statement won’t get any inputs unless there’s a match or the for loop ends.
@@ -2057,13 +2042,13 @@ Why x is a list?
 X ලැයිස්තුවක්‌ වන්නේ ඇයි?
 
 In list comprehension, there’s a standard syntax.
-list comprehension තුළ, සමිමත syntax එකක්‌ වේ.
+list comprehension තුළ, සම්මත syntax එකක්‌ වේ.
 
 if [x for x in iterable if condition]
 x— variable name / විචල්‍ය නාමය
 
 iterable — list, range, string or the object you need to iterate on.
-ලැයිස්තුව, range, string හෝ ඔබට පුනරාවටරතනය විමට අවග්‍ය වස්තුව.
+ලැයිස්තුව, range, string හෝ ඔබට පුනරාවටරතනය විමට අවශ්‍ය වස්තුව.
 
 condition — The condition for inner if statement. / ඇතුළත if ප්‍රකාශය සඳුහා කොන්දේසිය.
 
@@ -2177,7 +2162,7 @@ e The program finds the largest positive number entered by the user.
 වැඩසටහන, පරිගිලකයා විසින්‌ ඇතුළත්‌ කරන ලදු SHEMO ධන සංඛ්‍යාව සොයා ගනි.
 
 e It continuously accepts user input and updates maximum value until a non-positive number is entered.
-එය අඛණ්ඩඞව පරිගිලක ආදාන ලබාගන්නා අතර, ධන නොවන අංකයක්‌ ඇතුළත්‌ කරන තෙක්‌ උපරිම අගය
+එය අඛණ්ඩඩව පරිගිලක ආදාන ලබාගන්නා අතර, ධන නොවන අංකයක්‌ ඇතුළත්‌ කරන තෙක්‌ උපරිම අගය
 යාවන්කාලීන කරයි.
 
 ( 2019 — S.Essay 2[b] )
@@ -2187,8 +2172,8 @@ ICT subject and compute the average mark for the class. Construct a flow chart t
 algorithm for this purpose. Assume that the first input is the number of students in the class, n. Next,
 the marks of n students will be input one-by-one.
 පාසලක තොරතුරැ හා සන්නිවේදූන තාක්ෂණය (ICT) MO ආචාර්යවර්යාට පංතියෙහි සියලු ම සිසුන්‌ ICT
-විෂයය සඳුහා ලබාගත්‌ ලකුණු සැකසීමට අවග්‍යව ඇති අතර පංතියෙහි සාමාන්‍ය ලකුණු ගණනය කළ යුතුව
-ඇත. මෙම MHGGO අදාළ ඇල්ගොරිතමයක්‌ ප්‍රකාග වන ගැලීමි සටහනක්‌ ගොඩනගන්න. පළමු ආදානය
+විෂයය සඳුහා ලබාගත්‌ ලකුණු සැකසීමට අවශ්‍යව ඇති අතර පංතියෙහි සාමාන්‍ය ලකුණු ගණනය කළ යුතුව
+ඇත. මෙම MHGGO අදාළ ඇල්ගොරිතමයක්‌ ප්‍රකාශ වන ගැලීමි සටහනක්‌ ගොඩනගන්න. පළමු ආදානය
 පංතියෙහි සිටින මුඑ සිසුන්‌ සංඛ්‍යාව n යැයි උපකල්පනය කරන්න. ඉන්පසු ॥ සිසුන්ගේ ලකුණු එකින්‌ එක
 ආදානය කරන ලැබේ.
 
@@ -2199,7 +2184,7 @@ students and calculates the average mark for the class.
 හා සන්නිවෙදුන තාක්ෂණ ලකුණු ලබා ගැනීමට සහ පන්තියේ සාමාන්‍ය ලකුණ ගණනය කිරිමට වේ.
 
 Then, identify the requirements mentioned in the question.
-ඉන්පසු, ප්‍රශ්නයේ සඳහන්‌ අවග්‍යතා හඳුනාගත යුතුයි.
+ඉන්පසු, ප්‍රශ්නයේ සඳහන්‌ අවශ්‍යතා හඳුනාගත යුතුයි.
 
 1 Must get the value for 1]. the number
 
@@ -2227,8 +2212,6 @@ total /n
 
 y
 
-~
-
 av
 
 Vv
@@ -2239,7 +2222,6 @@ Vv
 
 Output avg
 / Input mark /
-(
 
 mark of student 1)
 
@@ -2310,11 +2292,7 @@ Turn n 1 (i>n)? | mark total avg
 
 යී = JL
 
-<>
-
 input x
-
-<>
 
 a=atl
 y
@@ -2363,7 +2341,7 @@ times data should be entered to x, variable x becomes the main input.
 ගණන පාලනය කිරීමට යොදාගන්නා බැවින්‌ x විචලඅය ප්‍රධාන ආදානය බවට පත්වේ.
 
 x % 2 = 0 decision is the only relation between the main input and output.
-ප්‍රධාන ආදානය සහ ප්‍රතිදානය අතර පවතින එකම සමිඛන්ධතාවය x %2=0 තරණය වේ.
+ප්‍රධාන ආදානය සහ ප්‍රතිදානය අතර පවතින එකම සම්බන්ධතාවය x %2=0 තරණය වේ.
 
 If the decision is true, the algorithm adds | to the variable a. Else it does not modify the variable at all.
 
@@ -2610,8 +2588,6 @@ End
 
 NI =N1+2
 
-*
-
 / Output N1
 
 Method 03:
@@ -2651,7 +2627,6 @@ is a list of positive integers, K is a positive integer
 and every element in L is less than M, which 1s a
 
 large integer. J input L, K WA
-¥
 
 පහත දැක්වෙන ගැලීමි සටහන සලකන්න. L යනු ධන
 HVE ලැයිස්තුවක්‌ බවත්‌, K යනු ධන නිබඩිලයක්‌ බවත්‌, L
@@ -2821,7 +2796,7 @@ L ලැයිස්තුව සහ K හි අගය HED) ආදානය ල
 
 e 8For each element, it checks if it is greater than K, and if it is smaller than the current X value.
 එක්‌ එක්‌ මුලාංගය Hem), එය K ට වඩා වැඩි නමි සහ එය වත්මන්‌ X අගයට වඩා කුඩාද යන OO
-එය පරික්‍ෂා කරයි.
+එය පරික්ෂා කරයි.
 
 e The smallest value greater than K 15 stored in X and printed at the end.
 K ට වඩා වැඩි කුඩාම අගය X හි ගබඩා කර අවසානයේ මුද්‍රණය කෙරේ.
@@ -2902,11 +2877,10 @@ inputs.
 
 ත්‍රිකෝණවල වට්ගවල ගණනය කර ප්‍රතිඳානය කරන 4 Input base and WA
 
-, |
 කු
 
 ඇල්ගොරිතමයක්‌ සඳහා ගැලීමි සටහනක්‌ ඇඳිමට heicht
-අවග්‍ය ය. එක්‌ එක්‌ Heaigved ආධාරකයේ දිග සහ
+අවශ්‍ය ය. එක්‌ එක්‌ Heaigved ආධාරකයේ දිග සහ
 උස ආදාන ලෙස ලැබේ.
 
 1 4 Output area WA
@@ -2922,18 +2896,16 @@ than or equal to zero.
 යම්‌ ආදානයක්‌ 0 ට සමාන හෝ අඩු © විට හෝ
 ඇල්ගොරිතමය නතර විය යුතු ය.
 
-.
-
 Complete the flowchart by writing the required
 content for the four components left blank.
 
-හිස්ව දක්වා ඇති සංරචක හතර HCH) අවග්‍ය
+හිස්ව දක්වා ඇති සංරචක හතර HCH) අවශ්‍ය
 අන්තර්ගතයන්‌ ලියා, ගැලීමි සටහන සමපුථඊණ
 කරන්න.
 
-(0) Complete the four (4) blanks (indicated by ...... ) in the following Python program to calculate the
+(0) Complete the four (4) blanks (indicated by …… ) in the following Python program to calculate the
 factorial of an integer.
-නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට අදාළ පහත පයිතන්‌ කේතයේ හිස්තැන්‌ හතර (......
+නිබිලයක ක්‍රමාරෝපිතය (factorial) ගණනය කිරීමට අදාළ පහත පයිතන්‌ කේතයේ හිස්තැන්‌ හතර (……
 වලින්‌ දැක්වෙන) සමිපුර්ණ කරන්න.
 
 Note: The factorial of a positive integer is defined as the product of that integer and all the integers
@@ -3075,8 +3047,6 @@ count = 0
 
 i=0
 
-<
-
 No
 
 Yes
@@ -3095,7 +3065,7 @@ integers. Each of L1 and L2 has unique elements
 in both L1 and L2. The notation L[x] denotes the
 element at Index x of a list L. If there are N
 elements in list L, then the indices are from 0, 1,
-2, ... to (N-1).
+2, …… to (N-1).
 පහන දැක්වෙන ගැලීම සටහනෙන්‌ ඉදිරිපන්‌ කෙරෙන
 ඇල්ගොරිතමය සලකන්න. 1,1 සහ L2 යනු ශුන්‍ය
 නොවන නිඛිල ලැයිස්තු වේ. එම එක්‌ එක්‌ ලැයිස්තුවේ
@@ -3104,7 +3074,7 @@ elements in list L, then the indices are from 0, 1,
 නිඛිලයන්‌ තිබිය හැක. ],[] සංකේතනය මගින්‌ L
 ලැයිස්තුවේ x නමි වු දූර්ශකයේ (index) ඇති
 අයිතමය දක්වයි. ], ලැයිස්තුවේ අයිතම N ගණනක්‌
-ඇතිනමි, දර්ශකයන්‌ 0, 1, 2, ... සිට (N-1) තෙක්‌ වේ.
+ඇතිනමි, දර්ශකයන්‌ 0, 1, 2, …… සිට (N-1) තෙක්‌ වේ.
 
 Pseudo code
 
@@ -3145,9 +3115,7 @@ output average
 
 No
 
-$
 J Input lists 11,279
-¥
 
 NI = number of
 
@@ -3165,8 +3133,6 @@ i=0
 Yes
 
 count = count + 1
-
-¥
 
 i2=12+1
 
@@ -3333,8 +3299,8 @@ count, 1 කින්‌ වැඩි වේ.
 
 e The break statement exits the inner loop, as there's no need to check the remaining elements in L2
 for the current element of L1.
-L1 හි වත්මන්‌ මලාංග sem L2 හි ඉතිරි මුලාංග පරික්ෂා කිරීමට අවග්‍ය නොවන බැවින්‌ break
-ප්‍රකාගය මගින්‌ අභ්‍යන්තර ලපයෙන්‌ පිටවෙයි.
+L1 හි වත්මන්‌ මලාංග sem L2 හි ඉතිරි මුලාංග පරික්ෂා කිරීමට අවශ්‍ය නොවන බැවින්‌ break
+ප්‍රකාශය මගින්‌ අභ්‍යන්තර ලපයෙන්‌ පිටවෙයි.
 
 Incrementing Indexes / ed@e වැඩි කිරීම
 
@@ -3569,7 +3535,7 @@ What code line(s) in part (b) is/are to be removed to get ‘aeee’ as the outp
 Answer:
 
 Here aeee is the few characters that were omitted from the if statement.
-මෙහි aeee යනුවෙන්‌ පවතින්නේ if ප්‍රකාගය මගහැර යන ලද අකුරැ කිහිපය වේ.
+මෙහි aeee යනුවෙන්‌ පවතින්නේ if ප්‍රකාශය මගහැර යන ලද අකුරැ කිහිපය වේ.
 
 If the if statement returns false, the previous output is obtained because the string is concatenated from the
 else section. Accordingly, if the string is concatenated with the true part of the if statement, the output
@@ -3593,13 +3559,13 @@ ll
 input( "Enter the name of text file A")
 B = input("Enter the name of text file 8")
 
-11 පස ................... (, ................... )
-12 ස ................... (By ................... )
-for line in ...................
+11 පස …… (, …… )
+12 ස …… (By …… )
+for line in ……
 
-Ff2.write (................... )
-11. ...................
-12, ...................
+Ff2.write (…… )
+11. ……
+12, ……
 Answer :
 
 What is required here is to write all the contents of one file in another file.
@@ -3716,7 +3682,7 @@ There are 2 types of loops in python:
 
 While loops execute the loop as long as the condition of the loop is true or until the loop hits a break
 statement
-ලුපයේ තත්ත්වය සත්‍ය වන තාක්‌ හෝ ලපයට break ප්‍රකාගය හමුවන තෙක්‌ While ලපය ක්‍රියාත්මක වේ.
+ලුපයේ තත්ත්වය සත්‍ය වන තාක්‌ හෝ ලපයට break ප්‍රකාශය හමුවන තෙක්‌ While ලපය ක්‍රියාත්මක වේ.
 
 In while loops we should manually add a control variable / condition to stop infinite looping
 EO තුළදි අනන්ත EO විම නැවැත්වීමට පාලන SOEzas / කොන්දේසියක්‌ එකතු කළ යුතුය.
@@ -3830,8 +3796,8 @@ C වලින්‌ ගබඩා කර ඇති බව අපට දැකග
 To get the B to output the reverse order we should make the number 7654 which means 7 should be in
 1000’s place 6 should be 100’s place should be in 10’s place and 4 should be in units place
 
-ප්‍රතිලෝම අනුපිළිවෙලට [3 ලබා ගැනීම සඳහා අපි 7654 අංකය සෑදිය යුතුය, එනමි 7, 1000 ස්ටානයේද
-6, 100 ස්ටානයේදු 5, 10 ස්ටානයේදු සහ 4, 1 ස්ථානයේද තිබිය යුතුය.
+ප්‍රතිලෝම අනුපිළිවෙලට [3 ලබා ගැනීම සඳහා අපි 7654 අංකය සෑදිය යුතුය, එනමි 7, 1000 ස්ථානයේද
+6, 100 ස්ථානයේදු 5, 10 ස්ථානයේදු සහ 4, 1 ස්ථානයේද තිබිය යුතුය.
 
 This means to make 7654 we should add 7000 + 600 + 50 + 4
 මෙයින්‌ අදහස්‌ කරන්නේ 7654 සෑදීමට අපි 7000+ 600+ 50+4 dag කළ යුතු බවයි.
@@ -3985,7 +3951,7 @@ of 5 is 5x4x3x2x1 = 120. The
 
 factorial of 0 is defined as 1. Ad
 ධන නිබිලයක ක්‍රමාරෝපිතය යනු ©
-එම නිබිලයේ හා ඊට අඞු BoE
+එම නිබිලයේ හා ඊට අඩු BoE
 
 නිබිලවල ගුණිතයයි. උදා: 5 හි
 ක්‍රමාරෝපිතය 5x4x3x2x1 = 120
@@ -4001,8 +3967,6 @@ statements.
 කොටුවක (process box) ප්‍රකාගන ( ආ )
 එකක්‌ හෝ ඊට වැඩි ගණනක්‌ හෝ
 තිබිය හැකි ය.
-
-©
 
 In this type of flow charts, we should analyse it and start filling it out with obvious points to gain much
 marks as possible
@@ -4111,7 +4075,6 @@ D—No
 (©) E— count >20 / count >=21
 
 ® F — Yes
-®
 
 7 9 72
 
@@ -4219,12 +4182,12 @@ HIE සමූහයක විශාලතම නිඛිලය සෙවිම�
 
 def findlargest(myList):
 
-largest = ..A...
+largest = ..A……
 for 1 in ..B.. :
-if i> .C...
-largest = ..D...
+if i> .C……
+largest = ..D……
 
-print( "largest value is”,..E...)
+print( "largest value is”,..E……)
 list1=[4,6,24,12,8,94,22]
 findlargest (_ )
 
@@ -4240,7 +4203,7 @@ so, that number is substituted for the largest. Outputs the largest at the end.
 සංඛ්‍යාව ප්‍රතිදානය කරයි.
 
 Accordingly, the answers matching the blanks from A to F are given below.
-ඒ අනුව A සිට F es) හිස්තැන්‌ වලට ගැලපෙන පිළිතුරැ පහතින්‌ වේ.
+ඒ අනුව A සිට F es) හිස්තැන්‌ වලට ගැලපෙන පිළිතුරු පහතින්‌ වේ.
 
 A-@/1/2 / 3/ 4 / myList[0] / 01 any negative number
 B-myList
@@ -4256,7 +4219,7 @@ F-listi1
 ( 2023 —S.Essay 3 )
 
 8.(a) Write the output of the Python code given in Figure 8.1.
-රෑපය 8.1 හි දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
+රූපය 8.1 හි දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
 
 def functioni(str):
 newstr= ""
@@ -4348,7 +4311,7 @@ L*br*ry
 
 (b) The function in Figure 8.2 uses the bubblesort algorithm to sort a given list of numbers into ascending
 order. Write down the suitable replacements for the labels P-U to complete the code.
-රෑපය 8.2 හි දැක්වෙන පහත පයිතන්‌ GMa, දෙන ලද, අංක ලැයිස්තුවක්‌ ආරෝහණ ක්‍රමයට සැකසීමට QAcCO
+රූපය 8.2 හි දැක්වෙන පහත පයිතන්‌ GMa, දෙන ලද, අංක ලැයිස්තුවක්‌ ආරෝහණ ක්‍රමයට සැකසීමට QAcCO
 තේරීමි (bubble sort) ඇල්ගොරිතමය භාවිත කරයි. කේතය සමිපුර්ණ කිරීම සඳුහා P-U ලේඛබලවලට සුදුසු
 ආදෝේගක ලියා දක්වන්න.
 
@@ -4420,7 +4383,7 @@ swaps to sort the list in ascending order.
 
 සපයා ඇති ආදේශනය bubble sort ඇල්ගොරිතම නිවැරදිව ක්‍රියාත්මක කරයි. SOM ලපය OS ගණන පාලනය
 කරයි, අභ්‍යන්තර ලුපය යාබද මුලාංග සංසන්දනය කරයි, සහ T සහ U රේඛා ලැයිස්තුව ආරෝහණ
-අනුපිළිවෙලට වර්ග කිරීමට අවග්‍ය හුවමාරැ කිරීමි සිදු කරයි.
+අනුපිළිවෙලට වර්ග කිරීමට අවශ්‍ය හුවමාරැ කිරීමි සිදු කරයි.
 
 def bubbleSort(nList):
 for pNumber in range(@, len(nList)-1, 1):
@@ -4436,16 +4399,16 @@ hundred notes of Rs. 100). The program should also output the currency requireme
 The program should use the employees.txt file which contains employee pay details. Each line in it contains
 an employee's name and net pay. A Python program written for this purpose is shown in Figure 8.3. A
 sample employees.txt file and the program's output for that file are shown in Figure 8.4.
-එක්‌ එක්‌ සේවකයාගේ වැටුප සැදිමට අවග්‍ය අවම OEE නෝට්ටු එකතුව නිරණය කිරීමට ක්‍රමලේඛයක්‌ වතු
-හිමිකරුවෙකුට අවග්‍ය වේ. (උදා. රැ. 40,000 ක මාසික වැටුප ගෙවිය යුත්තේ රැ. පන්දහසේ නෝටිටු අටකින්‌
+එක්‌ එක්‌ සේවකයාගේ වැටුප සැදිමට අවශ්‍ය අවම OEE නෝට්ටු එකතුව නිරණය කිරීමට ක්‍රමලේඛයක්‌ වතු
+හිමිකරුවෙකුට අවශ්‍ය වේ. (උදා. රැ. 40,000 ක මාසික වැටුප ගෙවිය යුත්තේ රැ. පන්දහසේ නෝටිටු අටකින්‌
 මිස රැ. සියයේ නෝට්ටු 400 කින්‌ නොවේ.) සියලු සේවකයන්‌ සඳුහා මුදුල්‌ අවශ්‍යතාවය දු ක්‍රමලේඛය ප්‍රතිදානය
 කළ QD ය. ක්‍රමලේඛය, සේවකයන්ගේ ශුද්ධ වැටුප්‌ (net pay) විස්තර අඩංගු employees.txt ගොනුව භාවිත
 කළ යුතු ය. එහි එක්‌ එක්‌ පේළියේ සේවකයකුගේ නම සහ ශුද්ධ වැටුප අඩංගු වේ. ඉහත අවශ්‍යතාවය සඳුහා
-ලියවුනු පයිතන්‌ ක්‍රමලේඛය රෑපය 8.3 හි දැක්වේ. සාමිපල employees.txt ගොනුවකුත්‌, එම ගොනුවට අදාළ
+ලියවුනු පයිතන්‌ ක්‍රමලේඛය රූපය 8.3 හි දැක්වේ. සාමිපල employees.txt ගොනුවකුත්‌, එම ගොනුවට අදාළ
 ඉහත ක්‍රමලේඛයේ ප්‍රතිදානයත්‌ රැපය 8.4 හි දැක්වේ.
 
 (1) Write down the suitable replacements for the ten labels A-J in the program given in Figure 8.3.
-රෑපය 8.3 හි දැක්වෙන පයිතන්‌ ක්‍රමලේඛයේ A-J ලේඛල HED සුදුසු ආදේශක ලියා දුක්වන්න.
+රූපය 8.3 හි දැක්වෙන පයිතන්‌ ක්‍රමලේඛයේ A-J ලේඛල HED සුදුසු ආදේශක ලියා දුක්වන්න.
 
 #currency notes used in Sri Lanka Example 'employees.txt' file:
 notes = [5000,1000,500,100, 50, 26]
@@ -4483,7 +4446,7 @@ print("Rs.",notes[i],":",totals[i])
 
 Figure 8.3 Figure 8.4
 
-Import Necessary Data - අවග්‍ය ese Import කිටීම
+Import Necessary Data - අවශ්‍ය ese Import කිටීම
 
 # currency notes used in Sri Lanka
 
@@ -4495,7 +4458,7 @@ totals = [0,0,0,0,0,0]
 Defines the available currency notes and initializes a list to track the total number of each note required
 
 for all employees.
-පවතින මුදුල්‌ නෝටිටු නිටරවචනය කර සියලුම සේවකයින්‌ සඳහා අවග්‍ය එක්‌ එක්‌ නෝටිටුවේ QO සංඛ්‍යාව
+පවතින මුදුල්‌ නෝටිටු නිටරවචනය කර සියලුම සේවකයින්‌ සඳහා අවශ්‍ය එක්‌ එක්‌ නෝටිටුවේ QO සංඛ්‍යාව
 නිරීක්‍ෂණය කිරීමට ලැයිස්තුවක්‌ ආරමිභ කරයි.
 
 Open Employee Data File— Employee දත්ත ගොනුව විවෘත කිටීම
@@ -4515,7 +4478,7 @@ if not line:
 break
 
 e Initializes a list required to track the number of notes required for the current employee.
-වත්මන්‌ සේවකයාට අවශ්‍ය සටහන්‌ ගණන නිරීක්ෂණය කිරීමට අවග්‍ය ලැයිස්තුවක්‌ ආරමිභ කරයි.
+වත්මන්‌ සේවකයාට අවශ්‍ය සටහන්‌ ගණන නිරීක්ෂණය කිරීමට අවශ්‍ය ලැයිස්තුවක්‌ ආරමිභ කරයි.
 
 e Reads a line from the file.
 ගොනුවෙන්‌ පේළියක්‌ කියවයි.
@@ -4539,7 +4502,7 @@ e Converts the net pay to an integer.
 e Ifthe net pay is negative, skips the employee.
 ශුද්ධ වැටුප සෘණාත්මක නමි, සේවකයා මඟ හරියි (skip).
 
-Calculate Note Requirements — නොටිටු අවග්‍යතාවය ගණනය කිරීම
+Calculate Note Requirements — නොටිටු අවශ්‍යතාවය ගණනය කිරීම
 
 print("\n")
 
@@ -4564,7 +4527,7 @@ e Initializes topay with the net pay to track the remaining amount.
 Iterates over the available notes - පවතින සටහන්‌ මත පුනරාවටිතනය කරයි
 
 e Calculates the number of notes of the current denomination required (required|1]).
-අවග්‍ය වත්මන්‌ වටනාකමේ සටහන්‌ ගණන ගණනය කරයි (required).
+අවශ්‍ය වත්මන්‌ වටනාකමේ සටහන්‌ ගණන ගණනය කරයි (required).
 
 e Adds the required number of notes to the total for that denomination (totals[1]).
 එම අගය HED) GOs නෝට්ටු ගණන එකතු කරයි Totalli].
@@ -4591,7 +4554,7 @@ for i in range(@, len(totals)):
 print("Rs.",notes[i],":",totals[i])
 
 Prints the total number of each note required for all employees.
-සියලම සේවකයින්‌ සඳහා අවග්‍ය එක්‌ එක්‌ නෝටිටුවේ මුළ සංඛ්‍යාව මුද්‍රණය කරයි.
+සියලම සේවකයින්‌ සඳහා අවශ්‍ය එක්‌ එක්‌ නෝටිටුවේ මුළ සංඛ්‍යාව මුද්‍රණය කරයි.
 
 Code with blanks field _ හිස්‌ ක්ෂේත්‍ර සමඟ කේතය
 
@@ -4663,7 +4626,7 @@ file.close()
 
 respect to the net pay inputs exists in this code? What modifications will you do to fix that problem?
 මෙම වතුයායේ සේවකයන්ගේ ශුද්ධ වැටුප්වල ශත ගණන්‌ GAD නොවේ. එහෙත්‌ ශුද්ධ වැටුප්‌ ආදාන
-සමිබන්ධයෙන්‌ කුමන ප්‍රායෝගික ගැටලවක්‌ මෙම කේතයේ පවතී ද? එම ගැටලුව විසඳිමට ඔබ කේතයට
+සම්බන්ධයෙන්‌ කුමන ප්‍රායෝගික ගැටලවක්‌ මෙම කේතයේ පවතී ද? එම ගැටලුව විසඳිමට ඔබ කේතයට
 කරන වෙනස්කමි ලියා දක්වන්න.
 
 This code can only handle net payments with the notes provided in the notes array, payments that does
@@ -4684,7 +4647,7 @@ Another way to fix this is use lower valued notes (coins) to handle those paymen
 
 notes array as given below.
 මෙය නිවැරදි කිරීමට තවත්‌ ක්‍රමයක්‌ නමි පහත දක්වා ඇති COE නෝටිටු GOO දිගු කිරීමෙන්‌ එම ගෙවිමි
-හැසිරවීමට අඞු වටිනාකමක්‌ ඇති නෝටිටු (කාසි) භාවිතා කිරීමයි.
+හැසිරවීමට අඩු වටිනාකමක්‌ ඇති නෝටිටු (කාසි) භාවිතා කිරීමයි.
 
 notes = | 50006, 10096, 5909, 106, 59, 29, 19, 5, 2, 1]
 totals = [9,9,9,9,9,9,9,9,9,0]
@@ -4717,8 +4680,6 @@ character " J
 
 Space or
 newlin?
-
-/
 
 Print count /
 
@@ -4788,8 +4749,8 @@ e range(1,n+ 1) means the loop will run for values from | to n (which is 12), so
 පරාසය range(l,n+1) යන්නෙන්‌ අදහස්‌ කරන්නේ ලුපය 1 සිට n 68) අගයන්‌ සඳුහා ක්‍රියාත්මක වන
 බවයි (එය 12) එබැවින්‌:
 
-1 will take values / 1 ලබා අගයන්‌. ]. 2. 3. .... 12
-Check Condition / තත්වය පරික්‍ෂා කිරීම:
+1 will take values / 1 ලබා අගයන්‌. ]. 2. 3. …… 12
+Check Condition / තත්වය පරික්ෂා කිරීම:
 
 if 1 % 2 == 6 andi % 3 ==
 
@@ -4853,12 +4814,12 @@ NS හමු නොවන්නේ නමි — එසේ නොමැතින
 Notes/ සටහන්‌:
 
 1. Ignore space defects/ හිස්තැන්‌ දෝෂ නොසලකා හරින්න.
-2. Exact spelling, case needed./ නිවැරදි අක්ෂර වින්‍යාසය, case අවග්‍යයි.
+2. Exact spelling, case needed./ නිවැරදි අක්ෂර වින්‍යාසය, case අවශ්‍යයි.
 
 ( 2024 —S.Essay 3 )
 
 Write the output of the Python code given in Figure 8.1.
-රෑපය 8.1 හි දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
+රූපය 8.1 හි දැක්වෙන පයිතන්‌ කේතයේ ප්‍රතිදානය ලියා දක්වන්න.
 
 def calculate(n):
 result = @
@@ -4868,7 +4829,7 @@ result += i*j
 return result
 
 print(calculate(A4) )
-Figure / රෑපය 8.1
+Figure / රූපය 8.1
 
 Answer / පිළිතුර: 35
 
@@ -4904,7 +4865,7 @@ result += 4 * 3 = 12 — result = 35
 
 (b) Figure 8.2 contains a labeled Python code to print the binary equivalent of an input decimal whole number.
 Write down the suitable replacements for the labels P-U to complete the code.
-රෑපය 8.2 හි දැක්වෙන ලේබල සහිත පයිතන්‌ කේතය ආදානය කළ දගමය පුරණ සංඛ්‍යාවකට -es ද්විමය
+රූපය 8.2 හි දැක්වෙන ලේබල සහිත පයිතන්‌ කේතය ආදානය කළ දගමය පුරණ සංඛ්‍යාවකට -es ද්විමය
 
 සංඛ්‍යාව මුද්‍රණය කරයි කේතය
 
@@ -4933,8 +4894,8 @@ reversed binary + R (5)
 n= 1
 binary = U[::-1]
 print(binary)
-Figure / රෑපය 8.2
-Answers / පිළිතුරැ:
+Figure / රූපය 8.2
+Answers / පිළිතුරු:
 P: 0 Q: int R: str
 Sin % 2 T:n // 2 U: reversed_binary
 
@@ -5089,7 +5050,7 @@ airline's capacity limit for a bag which is 50 Kg. The weights, values and the n
 in the relevant arrays. The output of the code is given in Figure 8.4.
 
 පුද්ගලයකුට, අයිතම තුනක්‌ අතුරෙන්‌ බාගයකට තනෝරාගත යුතු වටිනාකම (value) 'වැඩිම අයිතම තිරණය
-කිරීමට උදුව්‌ දෙන ලේබල සහිත පයිතන්‌ කේතයක්‌ රෑපය 8.3 හි දැක්වේ. බෑගයේ මුළු බර, ගුවන්‌ සේවය
+කිරීමට උදුව්‌ දෙන ලේබල සහිත පයිතන්‌ කේතයක්‌ රූපය 8.3 හි දැක්වේ. බෑගයේ මුළු බර, ගුවන්‌ සේවය
 බෑගයකට පනවා ඇති ධාරිතා (capacity) සීමාව වන 50 kez තුළ විය යුතු ය. අයිතම තුනෙහි බර (weights),
 වටිනාකමි (values) සහ නමි (names) අදාළ ආරවන්‌ තුළ ඇත. කේතයේ ප්‍රතිදානය රැපය (8.4) හි දැක්වේ.
 
@@ -5120,7 +5081,7 @@ names = ["Laptop", "Book", "Clothes" ]
 selected = H(bag capacity, weights, values, names)
 print( "Selected items:", I)
 
-Figure / රෑපය 8.3
+Figure / රූපය 8.3
 
 Merged: [(60, 49, ‘Laptop’, 6), (166, 16, ‘Book’, 1), (120, 35, ‘Clothes’, 2) ]
 Sorted records: | (126, 35, 'Clothes', 2), (100, 10, ‘Book', 1), (60, 49,
@@ -5128,10 +5089,10 @@ Sorted records: | (126, 35, 'Clothes', 2), (100, 10, ‘Book', 1), (60, 49,
 
 Selected items: Clothes Book
 
-Figure / රෑපය 8.4
+Figure / රූපය 8.4
 
 (1) Write down the suitable replacements for the nine labels (A-I) in the Python code given in Figure 8.3.
-රෑපය හි දැක්වෙන පයිතන්‌ කේතයේ ලේබල නවය (A-I) සඳහා සුදුසු ආදේගක ලියා දුක්වන්න
+රූපය හි දැක්වෙන පයිතන්‌ කේතයේ ලේබල නවය (A-I) සඳහා සුදුසු ආදේගක ලියා දුක්වන්න
 
 Notes / සටහන්‌:
 
@@ -5153,7 +5114,7 @@ numbers in the 'values' array.
 උදා. ඉහත කේතයේ 'key=lambda x: x[0]'  දැනුමි දෙන්නේ 'values' අරාවේ අගයන්‌ මත අනුපිළිවෙළට
 සැකසීම සිදු කළ යුතු බවයි
 
-Answers / පිළිතුරැ;
+Answers / පිළිතුරු;
 A in F  : remainder
 13 : weights ල්‌ : weight
 ලඋ ;: res 11 : item_ selector
@@ -5235,7 +5196,7 @@ A list of weights (sizes) for each item.
 
 e values:
 A list of values associated with each item.
-එක්‌ එක්‌ අයිතමයට සමිබන්ධ අගයන්‌ ලැයිස්තුවක්‌.
+එක්‌ එක්‌ අයිතමයට සම්බන්ධ අගයන්‌ ලැයිස්තුවක්‌.
 
 ® names:
 A list of ttem names corresponding to the weights and values.
@@ -5256,7 +5217,7 @@ e Each tuple (values[i], weights[i], 11411155[ 1]. 1) represents one item
 =» weights[i] — weight of the item / භාණ්ඩයේ බර
 =" namesfli] — name of the item / අයිතමයේ නම
 =] => original index (to maintain item identity, if needed)
-මුල්‌ දර්ශකය (අවග්‍ය නමි, අයිතම අනන්‍යතාවය පවත්වා ගැනීමට).
+මුල්‌ දර්ශකය (අවශ්‍ය නමි, අයිතම අනන්‍යතාවය පවත්වා ගැනීමට).
 Example / උදාහරණය:
 
 e values = [60, 100, 120]
@@ -5351,7 +5312,7 @@ Selected items: Clothes Book
 Answer / පිළිතුර :
 
 Update the input arrays to include weights, values, and names of additional items needed
-අවග්‍ය අමතර FSMOOE බර, අගයන්‌ සහ නමි ( weights, values, and names ) ඇතුළත්‌ කිරීමට ආදාන
+අවශ්‍ය අමතර FSMOOE බර, අගයන්‌ සහ නමි ( weights, values, and names ) ඇතුළත්‌ කිරීමට ආදාන
 අරා යාවත්කාලින කරන්න
 
 Explanation / පැහැදිලි කිරීම :
@@ -5359,7 +5320,7 @@ Explanation / පැහැදිලි කිරීම :
 No further changes to the function are required since the code already generalizes to handle any number
 of items based on the length of the arrays. The logic dynamically loops through all provided items.
 අරාවේ දිග මත පදුනමිව ඕනැම අයිතම ගණනක්‌ හැසිරවීමට කේතය දැනටමත්‌ සාමාන්‍යකරණය කර ඇති
-බැවින්‌ ශ්‍රිතයට තවත්‌ වෙනස්‌ HOO අවග්‍ය නොවේ. ලබා & ඇති සියලුම අයිතම හරහා තර්කනය ගතිකව
+බැවින්‌ ශ්‍රිතයට තවත්‌ වෙනස්‌ HOO අවශ්‍ය නොවේ. ලබා & ඇති සියලුම අයිතම හරහා තර්කනය ගතිකව
 ලප්‌ වේ.
 
 weights = [49, 10, 35, 26, 25]

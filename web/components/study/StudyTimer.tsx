@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react";
 import { Pause, Play } from "lucide-react";
 import gsap from "gsap";
 import { motionOK } from "@/lib/motion/useGsapReveal";
+import AnimatedNumber from "@/components/ui/AnimatedNumber";
 
 interface StudyTimerProps {
   /** Seconds remaining; null = clock not started yet. */
@@ -55,6 +56,9 @@ export default function StudyTimer({
     );
     return () => {
       tween.kill();
+      // Restore visibility/opacity so a killed-mid-flight tween never
+      // leaves the clock stuck at autoAlpha: 0 (visibility: hidden).
+      gsap.set(el, { clearProps: "all" });
     };
   }, []);
 
@@ -130,7 +134,7 @@ export default function StudyTimer({
             className="font-display text-[52px] leading-none font-extrabold tabular-nums tracking-tight transition-colors duration-500"
             style={{ color: accent }}
           >
-            {formatTime(remaining)}
+            <AnimatedNumber value={formatTime(remaining)} />
           </span>
           <span className="text-[10px] uppercase tracking-[0.24em] text-[var(--muted-foreground)] font-bold">
             {isPaused ? "Paused" : "Remaining"}

@@ -72,6 +72,8 @@ function toneClass(tone: Notification["tone"]): string {
   switch (tone) {
     case "error":
       return "border-[var(--destructive)]/30 bg-[var(--destructive)]/10 text-[var(--destructive)]";
+    case "warning":
+      return "border-[var(--amber)]/40 bg-[var(--amber-glow)]/60 text-[var(--amber)]";
     case "success":
       return "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300";
     default:

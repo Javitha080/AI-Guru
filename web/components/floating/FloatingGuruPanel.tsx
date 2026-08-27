@@ -21,6 +21,7 @@ import {
   Trash2,
   X,
 } from "lucide-react";
+import GuruThinkingOrb from "@/components/ui/GuruThinkingOrb";
 
 import type {
   FloatingChatMessage,
@@ -325,22 +326,44 @@ export default function FloatingGuruPanel({
         }`}
       >
         <div className="flex min-w-0 flex-1 items-center gap-2.5">
-          <div className="rounded-lg bg-[var(--accent)] p-1.5 text-[var(--primary)]">
-            <Sparkles size={15} />
+          <div className="flex items-center justify-center rounded-lg bg-[var(--accent)] p-1 text-[var(--primary)]">
+            {snapshot.status === "streaming" ? (
+              <GuruThinkingOrb state="working" size={20} variant="orb-only" />
+            ) : snapshot.status === "connecting" ? (
+              <GuruThinkingOrb state="connecting" size={20} variant="orb-only" />
+            ) : (
+              <Sparkles size={15} />
+            )}
           </div>
           <div className="min-w-0">
             <p className="truncate text-xs font-bold">AI Guru</p>
-            <p className="flex items-center gap-1.5 text-[10px] text-[var(--muted-foreground)]">
-              <span
-                className={`inline-block h-1.5 w-1.5 rounded-full ${
-                  streaming
-                    ? "animate-pulse bg-[var(--primary)]"
-                    : "bg-emerald-400"
-                }`}
-              />
-              {statusLabel}
-              {pipMode ? " · Pop-out" : ""}
-            </p>
+            <div className="flex items-center gap-1.5 text-[10px] text-[var(--muted-foreground)]">
+              {snapshot.status === "streaming" ? (
+                <GuruThinkingOrb
+                  state="working"
+                  label="Generating…"
+                  size={20}
+                  variant="inline"
+                  shimmer
+                  className="text-[10px]"
+                />
+              ) : snapshot.status === "connecting" ? (
+                <GuruThinkingOrb
+                  state="connecting"
+                  label="Connecting…"
+                  size={20}
+                  variant="inline"
+                  shimmer
+                  className="text-[10px]"
+                />
+              ) : (
+                <p className="flex items-center gap-1.5 text-[10px] text-[var(--muted-foreground)]">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Ready
+                  {pipMode ? " · Pop-out" : ""}
+                </p>
+              )}
+            </div>
           </div>
         </div>
 

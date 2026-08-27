@@ -144,21 +144,22 @@ def extract_questions_with_llm(
 
     system_prompt = """You are a professional exam paper analysis assistant. Your task is to extract all question information from the provided exam paper content.
 
+Papers may be in English, Sinhala (සිංහල), or Tamil. Preserve the original language, wording, and script verbatim — never translate, summarize, or alter question text.
+
 Please carefully analyze the exam paper content and extract the following information for each question:
-1. Question number (e.g., "1.", "Question 1", etc.)
-2. Complete question text content (if multiple choice, include all options)
+1. Question number (e.g., "1.", "1", "Question 1", etc.)
+2. Complete question text content (for multiple choice, include stem AND all options (1)-(5) or (A)-(E))
 3. Question type — classify into EXACTLY ONE of the canonical types below
 4. Difficulty — your best estimate: "easy", "medium", or "hard"
-5. Reference answer — if the paper includes an answer key / solution for this
-   question, copy it; otherwise use an empty string ""
+5. Reference answer — if the paper includes an answer key / solution for this question, copy it; otherwise use ""
 6. Related image file names (if the question references images)
 
 Canonical question types (the "question_type" field MUST be one of these exact strings):
-- "choice": multiple-choice with discrete options (A/B/C/D). Merge stem + all options into question_text.
+- "choice": multiple-choice with discrete options (A/B/C/D/E or 1/2/3/4/5 or Sinhala options). Merge stem + all options into question_text.
 - "concept": a true/false proposition the learner judges (statement, not "which of the following...").
 - "fill_in_blank": the stem has a blank to fill in with a word or short phrase.
 - "short_answer": a conceptual question whose expected answer is a few sentences.
-- "written": a longer essay, proof, or multi-step derivation.
+- "written": a longer essay, structured question (including multi-part questions like a, b, c), proof, or derivation.
 - "coding": a programming / algorithm question expecting code or pseudocode.
 
 Please return results in JSON format as follows:
@@ -167,7 +168,7 @@ Please return results in JSON format as follows:
     "questions": [
         {
             "question_number": "1",
-            "question_text": "Complete question content (including options)...",
+            "question_text": "Complete question content (including all options)...",
             "question_type": "choice",
             "difficulty": "medium",
             "answer": "B",
@@ -176,7 +177,7 @@ Please return results in JSON format as follows:
         {
             "question_number": "2",
             "question_text": "Complete content of another question...",
-            "question_type": "short_answer",
+            "question_type": "written",
             "difficulty": "hard",
             "answer": "",
             "images": []
@@ -186,9 +187,9 @@ Please return results in JSON format as follows:
 ```
 
 Important Notes:
-1. Ensure all questions are extracted, do not miss any
-2. Keep the original question text, do not modify or summarize
-3. For multiple choice questions, must merge stem and options in question_text
+1. Ensure all questions from 1 to the end of the paper are extracted, do not miss any
+2. Keep the original question text in its original language (Sinhala / English / Tamil), do not modify
+3. For multiple choice questions, must merge stem and all options in question_text
 4. "question_type" MUST be exactly one of: choice, concept, fill_in_blank, short_answer, written, coding
 5. "difficulty" MUST be exactly one of: easy, medium, hard
 6. If no answer key is present in the paper, set "answer" to ""
@@ -199,7 +200,7 @@ Important Notes:
 
     user_prompt = f"""Exam paper content (Markdown format):
 
-{markdown_content[:15000]}
+{markdown_content[:120000]}
 
 Available image files:
 {json.dumps(image_list, ensure_ascii=False, indent=2)}

@@ -268,45 +268,14 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
     try:
         pct = result["total_score"] / max(1.0, result["total_marks"])
         xp = int(20 + 80 * pct)
-        await _award_exam_xp(req.student_id, xp, paper.exam_id)
         from deeptutor.services.gamification.gamification_service import GamificationService
 
-        await GamificationService().check_and_award(req.student_id)
+        await GamificationService.award_xp(req.student_id, xp, f"exam_completed:{paper.exam_id}")
+        await GamificationService.check_and_award(req.student_id)
     except Exception as exc:  # noqa: BLE001 - gamification is best-effort
         logger.debug("Gamification award skipped: %s", exc)
 
     return result
-
-
-async def _award_exam_xp(student_id: str, xp: int, exam_id: str) -> None:
-    """Persist an XP reward row for a graded exam (FK-safe: seeds the student)."""
-    import uuid as _uuid
-
-    import aiosqlite as _aiosqlite
-
-    from deeptutor.services.path_service import get_path_service
-
-    db_path = get_path_service().user_dir / "chat_history.db"
-    now = time.time()
-    async with _aiosqlite.connect(db_path) as db:
-        await db.execute("PRAGMA foreign_keys = ON;")
-        user_id = f"user-{student_id}"
-        await db.execute(
-            "INSERT OR IGNORE INTO users (id, username, password_hash, role, display_name, avatar_url, created_at, updated_at)"
-            " VALUES (?, ?, '', 'student', ?, '', ?, ?)",
-            (user_id, f"student:{student_id}", student_id, now, now),
-        )
-        await db.execute(
-            "INSERT OR IGNORE INTO students (id, user_id, created_at, updated_at) VALUES (?, ?, ?, ?)",
-            (student_id, user_id, now, now),
-        )
-        await db.execute(
-            "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp, badge_id,"
-            " badge_name, badge_icon, reason, unlocked_at)"
-            " VALUES (?, ?, NULL, 'xp', ?, '', '', '', ?, ?)",
-            (f"reward-{_uuid.uuid4().hex[:12]}", student_id, int(xp), f"exam_completed:{exam_id}", now),
-        )
-        await db.commit()
 
 
 @router.get("/{exam_id}/result")

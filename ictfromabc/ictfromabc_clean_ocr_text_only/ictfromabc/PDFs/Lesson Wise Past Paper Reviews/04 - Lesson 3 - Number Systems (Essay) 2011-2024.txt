@@ -82,7 +82,6 @@ me | ටර | -ූ | Re
 (-5) in 8 bit two’s complement / (-5) හි බිටු 8 හි (8 bit) දෙකේ අනුපුරකය (two’s complement),
 1 1 1 1 1 0 [ 0
 
-+ |
 11 1 1 1 0 [ |[
 
 15+(-5)
@@ -90,8 +89,6 @@ me | ටර | -ූ | Re
 00001111
 +1 11 11011
 (100 00 |] 010
-
-|
 
 Ignore the carry bit / ආනිතය නොසලකා හරින්න.
 
@@ -136,7 +133,6 @@ two's complement arithmetic wraps naturally within the fixed bit width (like 8-b
 Ose, දෙකේ අනුපුරක අංක ගණිතය SOOO බිටු පළල (8-බිටි වැනි) තුළ ස්වභාවිකව පැවතීම නිසාය.
 
 Sandannayale -sctinmabe Ravin Sancarene AO RMAHON and’ Communication Technology. oes ssncasaavaie -cuimave Ravin
-
 
 2013 NUMBER SYSTEM S.ESSAY MARKING
 
@@ -319,7 +315,7 @@ AS we are representing the 2’s complement value in 8 bits we should add 0 in f
 ඉහත උපක්‍රමයෙහි -251॥ නිරැපණය කරන ආකාරය දක්වන්න.
 
 Here the question asked to get the 2’s complement of -25. Firstly, we want to get the binary value of 25.
-මෙහිදී -25 හි 2 හි අනුපුරකය ලබා ගැනීමට ප්‍රග්නය අසයි. පළමුව, අපට 25 හි ද්විමය අගය ලබා ගත
+මෙහිදී -25 හි 2 හි අනුපුරකය ලබා ගැනීමට ප්‍රශ්නය අසයි. පළමුව, අපට 25 හි ද්විමය අගය ලබා ගත
 යුතුයි.
 
 2/25 A
@@ -347,7 +343,7 @@ Finally, add 1 to the inverted binary value.
 1 1 1 0 0 |
 
 1 0
-+ ]
+
 1 1 1 00 1 1 1
 
 So, the answer 15
@@ -373,7 +369,7 @@ the 2's complement of 25.
 (iv) List the steps necessary to transform the result Obtained in section (111) above into decimal form in
 order to print the answer.
 ඉහත (ill) කොටසින්‌ ලබාගත්‌ ප්‍රතිඵලය මුද්‍රණය කර ගැනීම HEH) දශමය ආකාරයට පරිවර්තනය කර
-ගැනීමට අවග්‍ය පියවර ලියා දක්චන්න.
+ගැනීමට අවශ්‍ය පියවර ලියා දක්චන්න.
 
 This is a negative number since the most significant bit is 1. Therefore, this must be converted to binary
 using two's complement.
@@ -387,7 +383,7 @@ using two's complement.
 Core
 me ©
 me ©
-©
+
 ෆ්‌ ඌ| ඔයා ධධ
 
 After obtaining this answer as above, convert it to decimal.
@@ -457,7 +453,7 @@ Now add a binary 1 to the end of this number.
 දැන්‌ මෙම සංඛ්‍යාවේ අගට ද්විමය led එකතු කරන්න.
 
 10111011
-+]
+
 10111100
 
 Now, this is the two’s complement of -6810 . Therefore, -68 in two’s complement = 10111100z.

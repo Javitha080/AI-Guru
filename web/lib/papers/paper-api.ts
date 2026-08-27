@@ -185,6 +185,8 @@ export const papersApi = {
       question_id,
       option_key: a.option_key ?? "",
       answer_text: a.answer_text ?? "",
+      images: a.images ?? [],
+      sub_answers: a.sub_answers ?? {},
     }));
     return fetch(`/api/v1/paper_bank/sittings/${encodeURIComponent(sittingId)}/draft`, {
       method: "PUT",
@@ -210,6 +212,8 @@ export const papersApi = {
       question_id,
       option_key: a.option_key ?? "",
       answer_text: a.answer_text ?? "",
+      images: a.images ?? [],
+      sub_answers: a.sub_answers ?? {},
     }));
     return fetch(`/api/v1/paper_bank/sittings/${encodeURIComponent(sittingId)}/submit`, {
       method: "POST",
@@ -236,7 +240,23 @@ export const papersApi = {
     ).then((r) => jsonOrThrow<MySessionsResponse>(r)),
 };
 
-export type AnswerMap = Record<string, { option_key?: string; answer_text?: string }>;
+export interface AnswerImageItem {
+  id: string;
+  base64?: string | null;
+  url?: string | null;
+  filename: string;
+  mime: string;
+  previewUrl?: string | null;
+}
+
+export type AnswerItem = {
+  option_key?: string;
+  answer_text?: string;
+  images?: AnswerImageItem[];
+  sub_answers?: Record<string, string>;
+};
+
+export type AnswerMap = Record<string, AnswerItem>;
 
 export interface SubmitResponse {
   total_score: number;

@@ -56,6 +56,17 @@ class RewardHistoryResponse(BaseModel):
     items: List[Dict[str, Any]]
 
 
+class StudentNameRequest(BaseModel):
+    student_name: str
+    student_id: Optional[str] = "student-primary"
+
+
+class StudentNameResponse(BaseModel):
+    student_id: str
+    student_name: str
+    success: bool = True
+
+
 def _mgr():
     from deeptutor.services.study.session_manager import StudySessionManager
 
@@ -67,8 +78,8 @@ def _not_found(session_id: str) -> HTTPException:
 
 
 async def _resolve_student_name(student_id: str, db_path=None) -> str:
-    """Display name for parent notifications: the wizard's supervision-rules
-    entry when present, else a capitalized tail of the student id."""
+    """Display name for parent notifications & reports: the wizard's supervision-rules
+    entry when present, else users.display_name, else a capitalized tail of student id."""
     try:
         import json as _json
 
@@ -86,11 +97,23 @@ async def _resolve_student_name(student_id: str, db_path=None) -> str:
                 "SELECT value FROM settings WHERE key = ?", ("supervision_rules_default",)
             )
             row = await cursor.fetchone()
-        if row and row[0]:
-            rules = _json.loads(row[0])
-            name = str(rules.get("student_name") or "").strip()
-            if name:
-                return name
+            if row and row[0]:
+                rules = _json.loads(row[0])
+                name = str(rules.get("student_name") or "").strip()
+                if name:
+                    return name
+
+            # Fallback to users table display_name
+            user_id = f"user-{student_id}"
+            cursor2 = await db.execute(
+                "SELECT display_name FROM users WHERE id = ? OR username = ?",
+                (user_id, f"student:{student_id}"),
+            )
+            user_row = await cursor2.fetchone()
+            if user_row and user_row[0]:
+                u_name = str(user_row[0]).strip()
+                if u_name and u_name != student_id and not u_name.startswith("student:"):
+                    return u_name
     except Exception:  # noqa: BLE001 - notification naming is best-effort
         pass
     return (student_id or "Student").split("-")[-1].capitalize() or "Student"
@@ -158,6 +181,81 @@ async def get_rewards(student_id: str):
         return await GamificationService.get_rewards(student_id)
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Failed to load rewards: {exc}") from exc
+
+
+@router.get('/student/name', response_model=StudentNameResponse)
+async def get_student_name(student_id: str = "student-primary"):
+    """Get the configured display name for the student."""
+    name = await _resolve_student_name(student_id)
+    return StudentNameResponse(student_id=student_id, student_name=name)
+
+
+@router.post('/student/name', response_model=StudentNameResponse)
+async def set_student_name(req: StudentNameRequest):
+    """Set the display name for the student, updating settings and users table."""
+    raw_name = req.student_name.strip()
+    name = raw_name if raw_name else "Student"
+    student_id = (req.student_id or "student-primary").strip() or "student-primary"
+
+    try:
+        import json as _json
+        import time as _time
+
+        import aiosqlite
+
+        from deeptutor.services.path_service import get_path_service
+        from deeptutor.services.remote.kv_settings import ensure_kv_settings
+
+        db_path = get_path_service().user_dir / "chat_history.db"
+        now = _time.time()
+        user_id = f"user-{student_id}"
+
+        async with aiosqlite.connect(db_path) as db:
+            await ensure_kv_settings(db)
+
+            # 1. Update supervision_rules_default in settings table
+            cursor = await db.execute(
+                "SELECT value FROM settings WHERE key = ?", ("supervision_rules_default",)
+            )
+            row = await cursor.fetchone()
+            rules = {}
+            if row and row[0]:
+                try:
+                    rules = _json.loads(row[0])
+                except Exception:
+                    rules = {}
+            rules["student_name"] = name
+            rules["updated_at"] = now
+            if "daily_goal_minutes" not in rules:
+                rules["daily_goal_minutes"] = 60
+            if "alert_strictness" not in rules:
+                rules["alert_strictness"] = "balanced"
+
+            await db.execute(
+                "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'supervision', ?)",
+                ("supervision_rules_default", _json.dumps(rules), now),
+            )
+
+            # 2. Update users table and students table (FK safe)
+            await db.execute("PRAGMA foreign_keys = ON;")
+            await db.execute(
+                "INSERT OR IGNORE INTO users (id, username, password_hash, role, display_name, avatar_url, created_at, updated_at)"
+                " VALUES (?, ?, '', 'student', ?, '', ?, ?)",
+                (user_id, f"student:{student_id}", name, now, now),
+            )
+            await db.execute(
+                "UPDATE users SET display_name = ?, updated_at = ? WHERE id = ? OR username = ?",
+                (name, now, user_id, f"student:{student_id}"),
+            )
+            await db.execute(
+                "INSERT OR IGNORE INTO students (id, user_id, created_at, updated_at) VALUES (?, ?, ?, ?)",
+                (student_id, user_id, now, now),
+            )
+            await db.commit()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to save student name: {exc}") from exc
+
+    return StudentNameResponse(student_id=student_id, student_name=name)
 
 
 @router.get('/{session_id}', response_model=Dict[str, Any])

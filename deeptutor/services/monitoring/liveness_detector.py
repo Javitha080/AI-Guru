@@ -13,9 +13,9 @@ Guarantees 100% local execution.
 from __future__ import annotations
 
 import collections
+from dataclasses import dataclass
 import logging
 import math
-from dataclasses import dataclass
 from typing import Deque, List, Optional, Tuple
 
 from deeptutor.services.monitoring.face_engine import FaceLandmarks, Point3D
@@ -98,6 +98,7 @@ class LivenessDetector:
         landmarks: Optional[FaceLandmarks],
         timestamp: float = 0.0,
         texture_laplacian_var: Optional[float] = None,
+        ear_override: Optional[float] = None,
     ) -> LivenessResult:
         """
         Evaluate single incoming frame for liveness.
@@ -114,10 +115,15 @@ class LivenessDetector:
                 reason="No face landmarks detected",
             )
 
-        # 1. Compute EAR for both eyes
-        left_ear = self.calculate_eye_aspect_ratio(landmarks.left_eye)
-        right_ear = self.calculate_eye_aspect_ratio(landmarks.right_eye)
-        avg_ear = (left_ear + right_ear) / 2.0
+        # 1. Compute EAR for both eyes (use override from system-mode processor
+        # when available — it derives EAR from the full 478-point mesh which is
+        # more accurate than the 6-point landmark subset).
+        if ear_override is not None and ear_override > 0:
+            avg_ear = float(ear_override)
+        else:
+            left_ear = self.calculate_eye_aspect_ratio(landmarks.left_eye)
+            right_ear = self.calculate_eye_aspect_ratio(landmarks.right_eye)
+            avg_ear = (left_ear + right_ear) / 2.0
 
         # Update EAR history
         self._ear_history.append(avg_ear)

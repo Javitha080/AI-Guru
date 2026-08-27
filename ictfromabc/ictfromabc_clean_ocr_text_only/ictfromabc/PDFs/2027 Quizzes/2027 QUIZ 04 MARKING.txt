@@ -1,0 +1,574 @@
+1. Which of the following is true about structured and unstructured data?
+ව්‍යුහගත සහ ව්‍යුහගත නොවන දත්ත සම්බන්ධයෙන් පහත සඳහන් දේවලින් සත්‍ය කුමක්ද?
+
+1) Structured data refers only to numerical data, while unstructured data includes text and images.
+ව්‍යුහගත දත්ත යනු සංඛ්‍යාත්මක දත්ත පමණක් වන අතර ව්‍යුහගත නොවන දත්තවලට පාඨ සහ රූප
+ඇතුළත් වේ.
+
+2) Unstructured data can be easily stored in relational databases, unlike structured data.
+ව්‍යුහගත දත්ත මෙන් නොව ව්‍යුහගත නොවන දත්ත පහසුවෙන් සම්බන්ධතා දත්ත ගබඩාවල ගබඩා කළ
+හැක.
+
+3) Structured data is highly organized and easily searchable, while unstructured data lacks predefined
+organization.
+ව්‍යුහගත දත්ත ඉතා සංවිධානාත්මක වන අතර පහසුවෙන් සෙවිය හැකි අතර, ව්‍යුහගත නොවන දත්තවල
+පූර්ව නිශ්චිත සංවිධානයක් නොමැත.
+
+4) Both structured and unstructured data must be stored in the same format for analysis.
+විශ්ලේෂණය සඳහා ව්‍යුහගත සහ ව්‍යුහගත නොවන දත්ත දෙකම එකම ආකෘතියකින් ගබඩා කළ යුතුය.
+
+5) Structured data contains no metadata, unlike unstructured data.
+ව්‍යුහගත නොවන දත්ත මෙන් නොව ව්‍යුහගත දත්තවල පාරදත්ත අඩංගු නොවේ.
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+Incorrect. Structured data is not limited to numerical data, it can include text as long as it fits into a
+predefined schema. Unstructured data, however, often includes text and multimedia formats.
+වැරදියි. ව්‍යුහගත දත්ත සංඛ්‍යාත්මක දත්තවලට පමණක් සීමා නොවේ, එය පූර්ව නිර්වචනය කළ යෝජනා
+ක්‍රමයකට ගැලපෙන තාක් කල් එයට පාඨ ඇතුළත් කළ හැක. කෙසේ වෙතත්, ව්‍යුහගත නොවන දත්ත, බොහෝ
+විට පාඨ සහ බහුමාධ්‍ය ආකෘති ඇතුළත් වේ.
+
+Option / විකල්ප 2)
+Incorrect. Structured data is stored in relational databases because of its fixed schema. Unstructured data,
+on the other hand, cannot be easily stored in relational databases and often requires NoSQL databases or
+object storage.
+වැරදියි. ව්‍යුහගත දත්ත එහි ස්ථාවර ක්‍රමය නිසා සම්බන්ධතා දත්ත සමුදායන් තුළ ගබඩා වේ. අනෙක් අතට,
+ව්‍යුහගත නොකළ දත්ත පහසුවෙන් සම්බන්ධක දත්ත ගබඩාවල ගබඩා කළ නොහැකි අතර බොහෝ විට
+NoSQL දත්ත සමුදායන් හෝ වස්තු ගබඩා කිරීම අවශ්‍ය වේ.
+
+Option / විකල්ප 3)
+Correct. Structured data is highly organized (with rows, columns, and defined relationships) and easily
+searchable. Unstructured data lacks this organization and requires more complex processing for analysis.
+නිවැරදියි. ව්‍යුහගත දත්ත ඉතා සංවිධිත (පේළි, තීරු සහ අර්ථ දක්වා ඇති සම්බන්ධතා සහිත) සහ පහසුවෙන්
+සෙවිය හැක. ව්‍යුහගත නොවන දත්තවල මෙම සංවිධානය නොමැති අතර විශ්ලේෂණය සඳහා වඩාත් සංකීර්ණ
+සැකසුම් අවශ්‍ය වේ.
+
+2027 QUIZ SERIES
+2027 QUIZ NO 04 MARKING
+2025/07/21
+ictfromabc
+Ravindu Bandaranayake
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+Option / විකල්ප 4)
+Incorrect. Structured and unstructured data do not need to be stored in the same format. In fact, they are
+typically stored in different ways structured data in relational databases and unstructured data in file
+systems or NoSQL databases.
+වැරදියි. ව්‍යුහගත සහ ව්‍යුහගත නොවන දත්ත එකම ආකෘතියකින් ගබඩා කිරීම අවශ්‍ය නොවේ. ඇත්ත
+වශයෙන්ම, ඒවා සාමාන්‍යයෙන් විවිධ ආකාරවලින් ව්‍යුහගත දත්ත සම්බන්ධතා දත්ත සමුදායන් සහ ව්‍යුහගත
+නොවන දත්ත ගොනු පද්ධති හෝ NoSQL දත්ත සමුදායන් තුළ ගබඩා කර ඇත.
+
+Option / විකල්ප 5)
+Incorrect. Both structured and unstructured data can include metadata. Metadata describes the attributes
+of the data, such as file creation date, author, or format, and it is not exclusive to unstructured data.
+වැරදියි. ව්‍යුහගත සහ ව්‍යුහගත නොවන දත්ත දෙකටම පාරදත්ත ඇතුළත් විය හැක. පාරදත්ත ගොනු
+නිර්මාණය කරන දිනය, කර්තෘ, හෝ ආකෘතිය වැනි දත්තවල ගුණාංග විස්තර කරන අතර එය ව්‍යුහගත
+නොකළ දත්තවලට පමණක් සීමා නොවේ.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+2. Which of the following scenarios represents real-time data processing?
+පහත සඳහන් අවස්ථා අතරින් තත්‍ය කාලීන දත්ත සැකසීම නියෝජනය කරන්නේ කුමක්ද?
+
+1) A hospital monitoring patient heart rate and triggering alerts instantly.
+රෝහලක් රෝගියාගේ හෘද ස්පන්දන වේගය නිරීක්ෂණය කර ක්ෂණිකව ඇඟවීම් අවුලුවයි.
+
+2) A weather department publishes daily forecasts every morning.
+කාලගුණ දෙපාර්තමේන්තුවක් සෑම උදෑසනකම දිනපතා අනාවැකි ප්‍රකාශයට පත් කරයි.
+
+3) A bank processes customer loan applications overnight.
+බැංකුවක් පාරිභෝගික ණය අයදුම්පත් එක රැයකින් සකසයි.
+
+4) A school printing all student report cards in one batch.
+පාසලක් සියලුම ශිෂ්‍ය වාර්තා කාඩ්පත් එක් කණ්ඩායමකින් මුද්‍රණය කරයි.
+
+5) A supermarket updates stock levels at the end of each day.
+සුපිරි වෙළඳසැලක් සෑම දිනකම අවසානයේ තොග මට්ටම් යාවත්කාලීන කරයි.
+
+Answer: 1)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්ප 1)
+This is the correct option. The system continuously receives data from patient monitors and analyzes it
+immediately. If an abnormal heart rate is detected, it triggers an alert right away. There's no delay or batch
+processing involved, the processing happens the moment data is available.
+මෙය නිවැරදි විකල්පයයි. පද්ධතිය අඛණ්ඩව රෝගියා නිරීක්ෂණය කර දත්ත ලබාගෙන එය වහාම විශ්ලේෂණය
+කරයි. අසාමාන්‍ය හෘද ස්පන්දන වේගයක් අනාවරණය වුවහොත්, එය වහාම අනතුරු ඇඟවීමක් ක්‍රියාත්මක
+කරයි. ප්‍රමාදයක් හෝ කණ්ඩායමක් සැකසීමක් සම්බන්ධ නොවේ, දත්ත ලබා ගත හැකි මොහොතේ සැකසීම සිදු
+වේ.
+
+Option / විකල්ප 2)
+This option is incorrect. Although weather data may be collected throughout the day, it's typically analyzed
+and processed in batches and the forecast is released at a scheduled time. There’s a delay between data
+collection and its use, which means it’s a batch process, not real-time.
+මෙම විකල්පය වැරදියි. කාලගුණ දත්ත දවස පුරා රැස් කළ හැකි වුවද, එය සාමාන්‍යයෙන් කණ්ඩායම් වශයෙන්
+විශ්ලේෂණය කර සකසනු ලබන අතර පුරෝකථනය නියමිත වේලාවට නිකුත් කරනු ලැබේ. දත්ත රැස් කිරීම
+සහ එහි භාවිතය අතර ප්‍රමාදයක් ඇත, එයින් අදහස් වන්නේ එය තත්‍ය කාලීනව නොව කණ්ඩායම් ක්‍රියාවලියක්
+බවයි.
+
+Option / විකල්ප 3)
+This option is incorrect. Applications are likely gathered during the day and processed together overnight.
+This delayed, grouped processing is the definition of batch processing.
+මෙම විකල්පය වැරදියි. අයදුම්පත් දිවා කාලයේදී රැස් කර එක රැයකින් එකට සකසනු ලැබේ. මෙම ප්‍රමාද
+වූ, කණ්ඩායම්ගත සැකසීම කණ්ඩායම් සැකසීමේ අර්ථ දැක්වීමයි.
+2027 QUIZ SERIES
+#ictfromabc
+-2-
+
+Option / විකල්ප 4)
+This option is also incorrect. This is another example of batch processing. The school collects data over a
+term and processes all of it together at the end to generate report cards. There's no real-time need or
+response.
+මෙම විකල්පය ද වැරදියි. මෙය කණ්ඩායම් සැකසීමේ තවත් උදාහරණයකි. පාසල යම් කාලයක් පුරා දත්ත
+රැස් කර අවසානයේ ඒ සියල්ල එකට සකසයි, වාර්තා කාඩ්පත් ජනනය කරයි. තත්‍ය කාලීන අවශ්‍යතාවයක්
+හෝ ප්‍රතිචාරයක් නොමැත.
+
+Option / විකල්ප 5)
+This option is incorrect. Here, stock data is probably stored throughout the day and then processed in one
+go, possibly after store closure. Since updates aren’t done instantly after each sale, this is also batch
+processing rather than real-time.
+මෙම විකල්පය වැරදියි. මෙහිදී, තොග දත්ත බොහෝ විට දවස පුරා ගබඩා කර, පසුව එකවර සකසනු ලැබේ,
+සමහර විට ගබඩාව වසා දැමීමෙන් පසුව. සෑම අලෙවියකින් පසු යාවත්කාලීන කිරීම් ක්ෂණිකව සිදු නොවන
+බැවින්, මෙය තත්‍ය කාලීනව නොව කණ්ඩායම් සැකසීමකි.
+
+Therefore, the answer is 1).
+එබැවින්, පිළිතුර 1) වේ.
+
+3. Which of the following methods is most effective in helping to avoid plagiarism?
+පහත සඳහන් ක්‍රමවලින් රචනා චෞරත්වය වළක්වා ගැනීමට වඩාත් ඵලදායී ලෙස උපකාරී වන්නේ කුමක්ද?
+
+1) Copying from multiple sources / බහු මූලාශ්‍රවලින් පිටපත් කිරීම
+2) Using synonyms to change a few words from the source.
+මූලාශ්‍රයෙන් වචන කිහිපයක් වෙනස් කිරීමට සමාන පද භාවිතා කිරීම
+
+3) Using proper citations and quotation marks / නිසි උපුටා දැක්වීම් සහ උද්ධෘත ලකුණු භාවිතා කිරීම
+4) Copying and pasting from websites / වෙබ් අඩවිවලින් පිටපත් කර ගැනීම
+5) Submitting someone else’s work / වෙනත් කෙනෙකුගේ කෘති ඉදිරිපත් කිරීම
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම:
+
+Plagiarism is the act of presenting someone else’s work, ideas, or words as your own without proper
+acknowledgment. Among the options, the most effective way to avoid plagiarism is by citing the sources
+properly and using quotation marks when including someone else’s exact words. This not only gives credit
+to the original author but also maintains academic honesty.
+වෙනත් කෙනෙකුගේ කෘති, අදහස් හෝ වචන නිසි පිළිගැනීමකින් තොරව ඉදිරිපත් කිරීමේ ක්‍රියාව රචනා
+චෞරත්වයයි. විකල්ප අතර, රචනා චෞරත්වය වළක්වා ගැනීමට ඇති ඵලදායීම ක්‍රමය වන්නේ මූලාශ්‍ර නිසි
+ලෙස උපුටා දැක්වීම සහ වෙනත් කෙනෙකුගේ නිශ්චිත වචන ඇතුළත් කිරීමේදී උද්ධෘත ලකුණු භාවිතා කිරීමයි.
+මෙය මුල් කතුවරයාට ගෞරවය ලබා දෙනවා පමණක් නොව, අවංකභාවය ද පවත්වා ගනී.
+
+Therefore, the answer is 3).
+එබැවින්, පිළිතුර 3) වේ.
+
+Let’s see why the other options are incorrect / අනෙක් විකල්ප වැරදි වන්නේ ඇයිදැයි බලමු.
+
+Option / විකල්ප 1)
+Copying from multiple sources is still plagiarism, even if content comes from more than one place. It
+doesn’t change the fact that it's unoriginal work.
+අන්තර්ගතය එක් ස්ථානයකට වඩා පැමිණියද, බහු මූලාශ්‍රවලින් පිටපත් කිරීම තවමත් රචනා චෞරත්වයයි. එය
+මුල් නොවන කෘතියක් යන කාරණය වෙනස් නොකරයි.
+
+Option / විකල්ප 2)
+Using synonyms to change a few words is known as “patchwriting” and is still considered plagiarism, as
+the structure and ideas are copied.
+වචන කිහිපයක් වෙනස් කිරීමට සමාන පද භාවිතා කිරීම “පැච් ලිවීම” ලෙස හඳුන්වන අතර ව්‍යුහය සහ
+අදහස් පිටපත් කර ඇති බැවින් එය තවමත් රචනා චෞරත්වය ලෙස සැලකේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-3-
+
+Option / විකල්ප 4)
+This is considered plagiarism, it involves taking someone else's content directly and using it without
+permission or proper citation. Even if the content is publicly accessible, copying it without credit is
+unethical.
+මෙය රචනා චෞරත්වය ලෙස සැලකේ, එයට වෙනත් කෙනෙකුගේ අන්තර්ගතය සෘජුවම ලබා ගැනීම සහ
+අවසරයකින් හෝ නිසි උපුටා දැක්වීමකින් තොරව එය භාවිතා කිරීම ඇතුළත් වේ. අන්තර්ගතය ප්‍රසිද්ධියේ
+ප්‍රවේශ විය හැකි වුවද, ගෞරවය නොමැතිව එය පිටපත් කිරීම සදාචාර විරෝධී වේ.
+
+Option / විකල්ප 5)
+Submitting someone else’s work is a serious academic offense, often leading to severe penalties.
+වෙනත් කෙනෙකුගේ කෘති ඉදිරිපත් කිරීම බරපතල අධ්‍යයන වරදකි, බොහෝ විට දැඩි දඩුවම් වලට තුඩු
+දෙයි.
+
+4. According to the Golden Rule of Information, when is the value of information typically the highest?
+තොරතුරු පිළිබඳ ස්වර්ණමය න්‍යායට අනුව, තොරතුරු වල වටිනාකම සාමාන්‍යයෙන් උපරිම වන්නේ කුමන
+විටද?
+
+1) Just before it is processed/ එය සැකසීමට පෙර
+2) After it has been reused/ එය නැවත භාවිතා කළ පසු
+3) When it is first created/ එය මුලින්ම නිර්මාණය කළ විට
+4) After being stored for a long time/ දිගු කාලයක් ගබඩා කිරීමෙන් පසු
+5) When shared over a network/ ජාලයක් හරහා බෙදා ගත් විට
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Incorrect. The value begins to decline after creation, not just before processing. Timeliness is more critical
+at the point of creation.
+වැරදියි. වටිනාකම පහත වැටීමට පටන් ගන්නේ නිර්මාණය කිරීමෙන් පසුව මිස සැකසීමට පෙර නොවේ.
+නිර්මාණය කරන අවස්ථාවේදී කාලෝචිතභාවය වඩාත් තීරණාත්මක වේ.
+
+Option / විකල්පය 2)
+Incorrect. While some value may return during reuse, it does not exceed the original value at creation.
+Reuse may improve relevance but not restore peak value.
+වැරදියි. නැවත භාවිතා කිරීමේදී යම් අගයක් ආපසු ලබා දිය හැකි වුවද, එය නිර්මාණය කිරීමේදී මුල් අගය
+ඉක්මවා නොයයි. නැවත භාවිතා කිරීම අදාළත්වය වැඩි කළ හැකි නමුත් උපරිම අගය ප්‍රතිස්ථාපනය නොකරයි.
+
+Option / විකල්පය 3)
+Correct. The value of information is highest at the moment it is created, as this is when it is most relevant
+and timely.
+නිවැරදියි. තොරතුරු නිර්මාණය කරන මොහොතේ එහි වටිනාකම ඉහළම වේ, මන්ද එය වඩාත් අදාළ සහ
+කාලෝචිත වන්නේ මෙම අවස්ථාවේදීය.
+
+Option / විකල්පය 4)
+Incorrect. Information stored for a long time typically loses value due to reduced relevance.
+වැරදියි. දිගු කාලයක් ගබඩා කර ඇති තොරතුරු වල අදාළත්වය අඩු වීම නිසා සාමාන්‍යයෙන් වටිනාකම නැති
+වේ.
+
+Option / විකල්පය 5)
+Incorrect. Sharing over a network does not inherently increase value unless the information is timely. Value
+is tied to context, not distribution method.
+වැරදියි. තොරතුරු කාලෝචිත නොවේ නම්, ජාලයක් හරහා බෙදා ගැනීමෙන් වටිනාකම වැඩි නොවේ. වටිනාකම
+බැඳී ඇත්තේ බෙදා හැරීමේ ක්‍රමයට නොව සන්දර්භයට ය.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-4-
+
+5. Which of the following correctly matches a computing generation with its major technology?
+පරිගණක පරම්පරාවක් එහි ප්‍රධාන තාක්ෂණය සමඟ නිවැරදිව ගැලපෙන්නේ පහත සඳහන් ඒවායින් කුමක්ද?
+
+1) First Generation – Transistors / ට්‍රාන්සිස්ටර
+2) Second Generation – Vacuum Tubes / රික්තක නල
+3) Third Generation – Integrated Circuits / අනුකලිත පරිපථ
+4) Fourth Generation – Mechanical Gears / යාන්ත්‍රික ගියර්
+5) Fifth Generation – Punch Cards / පන්ච් කාඩ්පත
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+1) First Generation
+Incorrect. The first generation of computers (1951–1958) used vacuum tubes, not transistors. These
+machines were large, slow, and generated a lot of heat.
+වැරදියි. පළමු පරම්පරාවේ පරිගණක (1951–1958) ට්‍රාන්සිස්ටර නොව රික්තක නල භාවිතා කළේය. මෙම
+යන්ත්‍ර විශාල, මන්දගාමී වූ අතර විශාල තාපයක් ජනනය කළේය.
+
+2) Second Generation
+Incorrect. Second-generation computers (1959–1963) used transistors, which replaced vacuum tubes.
+Transistors were smaller, faster, and more reliable.
+වැරදියි. දෙවන පරම්පරාවේ පරිගණක (1959–1963) රික්තක නල වෙනුවට ට්‍රාන්සිස්ටර භාවිතා කළේය.
+ට්‍රාන්සිස්ටර කුඩා, වේගවත් සහ වඩා විශ්වාසදායක විය.
+
+3) Third Generation
+Correct. The third generation (1964–1978) introduced Integrated Circuits, which allowed multiple
+transistors to be placed on a single chip. This made computers faster, smaller, and more efficient.
+නිවැරදියි. තුන්වන පරම්පරාව (1964–1978) අනුකලිත පරිපථ හඳුන්වා දුන් අතර එමඟින් බහු ට්‍රාන්සිස්ටර
+තනි චිපයක් මත තැබීමට ඉඩ සැලසුනි. මෙය පරිගණක වේගවත්, කුඩා සහ වඩාත් කාර්යක්ෂම කළේය.
+
+4) Fourth Generation
+Incorrect. Mechanical gears were used in early mechanical calculators, even before the first
+generation. Fourth-generation computers (1979–present) use microprocessors, not gears.
+වැරදියි. පළමු පරම්පරාවට පෙර මුල් යාන්ත්‍රික කැල්කියුලේටරවල යාන්ත්‍රික ගියර් භාවිතා කරන ලදී.
+හතරවන පරම්පරාවේ පරිගණක (1979–වර්තමානය) ගියර් නොව ක්ෂුද්‍ර සකසන භාවිතා කරයි.
+
+5) Fifth Generation
+Incorrect. Punch cards were used in the first and second generations for input/output. Fifth-generation
+computing focuses on AI, parallel processing, and advanced architectures.
+වැරදියි. පළමු සහ දෙවන පරම්පරාවල පන්ච් කාඩ්පත් ආදාන/ප්‍රතිදානය සඳහා භාවිතා කරන ලදී. පස්වන
+පරම්පරාවේ පරිගණකකරණය AI, සමාන්තර සැකසුම් සහ උසස් නිර්මාණ ශිල්පය කෙරෙහි අවධානය
+යොමු කරයි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-5-
+
+6. Which of the following advancements is most likely to define sixth-generation computers?
+පහත සඳහන් දියුණුව අතුරින් හයවන පරම්පරාවේ පරිගණක නිර්වචනය කිරීමට වඩාත්ම ඉඩ ඇත්තේ
+කුමක්ද?
+
+1) Full integration of quantum computing and artificial intelligence
+quantum පරිගණනය සහ කෘතිම බුද්ධිය පූර්ණ ලෙස ඒකාබද්ධ කිරීම
+
+2) Use of nanotechnology for ultra-fast processing
+අතිශය වේගවත් සැකසුම් සඳහා නැනෝ තාක්ෂණය භාවිතය
+
+3) Development of bio-computing and DNA-based storage
+ජෛව පරිගණකකරණය සහ DNA පාදක ගබඩා කිරීම සංවර්ධනය කිරීම
+
+4) Enhanced neural networks mimicking human brain functionality
+මිනිස් මොළයේ ක්‍රියාකාරිත්වය අනුකරණය කරන වැඩිදියුණු කළ ස්නායුක ජාල
+
+5) Complete elimination of cloud computing in favor of local processing
+ස්ථානීය සැකසුම් සඳහා පක්ෂව වලාකුළු පරිගණකකරණය සම්පූර්ණයෙන්ම ඉවත් කිරීම.
+
+Answer: 1)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+This is correct. The sixth generation is expected to be dominated by quantum computing and AI
+advancements. Current trends indicate that this combination is the most probable direction for the next
+generation of computers.
+මෙය නිවැරදියි. හයවන පරම්පරාව quantum පරිගණකකරණය සහ AI දියුණුවෙන් ආධිපත්‍යය දරනු ඇතැයි
+අපේක්ෂා කෙරේ. වත්මන් ප්‍රවණතා පෙන්නුම් කරන්නේ මෙම සංයෝජනය ඊළඟ පරම්පරාවේ පරිගණක සඳහා
+වඩාත්ම සම්භාවිතාවක් ඇති දිශාව බවයි.
+
+Option / විකල්පය 2)
+This is possible, but not primary. Nanotechnology will likely play a role in enhancing hardware
+performance and reducing power consumption. But it is not the defining feature of the sixth generation.
+මෙය විය හැකිය, නමුත් ප්‍රධාන නොවේ. දෘඩාංග කාර්ය සාධනය වැඩි දියුණු කිරීම සහ බලශක්ති පරිභෝජනය
+අඩු කිරීම සඳහා නැනෝ තාක්ෂණය බොහෝ විට කාර්යභාරයක් ඉටු කරනු ඇත. නමුත් එය හයවන පරම්පරාවේ
+නිර්වචන ලක්ෂණය නොවේ.
+
+Option / විකල්පය 3)
+This is possible future development, but not exclusive to sixth generation. Bio-computing uses biological
+molecules for computing instead of traditional silicon-based chips. DNA storage has massive potential for
+long-term, high-density data storage. However, this field is still in early research stages and may take
+longer to become a mainstream technology.
+මෙය අනාගත සංවර්ධනයක් සිදුවිය හැකි නමුත් හයවන පරම්පරාවට සීමා නොවේ. ජෛව පරිගණකකරණයේදී
+සාම්ප්‍රදායික සිලිකන් පාදක චිප්ස් වෙනුවට ජීව විද්‍යාත්මක අණු පරිගණකකරණය සඳහා භාවිතා කරයි. DNA
+ගබඩා කිරීම තුළ දිගු කාලීන, ඉහළ ඝනත්ව දත්ත ගබඩා කිරීම සඳහා දැවැන්ත විභවයක් ඇත. කෙසේ
+වෙතත්, මෙම ක්ෂේත්‍රය තවමත් මුල් පර්යේෂණ අවධියේ පවතින අතර ප්‍රධාන ධාරාවේ තාක්ෂණයක් බවට
+පත්වීමට වැඩි කාලයක් ගතවනු ඇත.
+
+Option / විකල්පය 4)
+This is not the defining feature. Neural networks and brain-inspired computing (neuromorphic computing)
+will continue to evolve. However, this is a subset of AI advancements, making it an important but not
+exclusive characteristic of the sixth generation.
+මෙය නිර්වචන ලක්ෂණය නොවේ. ස්නායුක ජාල සහ මොළයේ ආභාෂය ලත් පරිගණකකරණය (ස්නායුරූපී
+පරිගණකකරණය) අඛණ්ඩව පරිණාමය වනු ඇත. කෙසේ වෙතත්, මෙය AI දියුණුවේ උප කුලකයකි, එය
+හයවන පරම්පරාවේ වැදගත් නමුත් සුවිශේෂී නොවන ලක්ෂණයක් බවට පත් කරයි.
+
+Option / විකල්පය 5)
+Cloud computing is evolving, not disappearing.
+වලාකුළු පරිගණකකරණය පවතින්නේ පරිණාමය වෙමිනි, අතුරුදහන් වෙමින් නොවේ.
+
+Therefore, the correct answer is 1).
+එබැවින්, නිවැරදි පිළිතුර 1) වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-6-
+
+7. Which programming development became more widespread during the third generation of computers?
+තුන්වන පරම්පරාවේ පරිගණක අතරතුර වඩාත් පුළුල් ලෙස ව්‍යාප්ත වූ ක්‍රමලේඛන සංවර්ධනය කුමක්ද?
+
+1) Machine code only/ යන්ත්‍ර කේතය පමණි
+2) Assembly language exclusively/ Assembly භාෂාව පමණක්
+3) High level languages like FORTRAN and COBOL/FORTRAN සහ COBOL වැනි ඉහළ මට්ටමේ භාෂා
+4) Neural network programming/ ස්නායුක ජාල ක්‍රමලේඛනය
+5) Visual programming environments/ දෘශ්‍ය ක්‍රමලේඛන පරිසරයන්
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Incorrect. Machine code was used earlier but was not the main approach by the third generation. It is hard
+to maintain and less user-friendly.
+වැරදියි. යන්ත්‍ර කේතය කලින් භාවිතා කරන ලද නමුත් තුන්වන පරම්පරාවේ ප්‍රධාන ප්‍රවේශය නොවීය. එය
+නඩත්තු කිරීමට අපහසු අතර අඩු පරිශීලක-හිතකාමී ය
+
+Option / විකල්පය 2)
+Incorrect. Assembly language was common in the second generation but was gradually supplemented by
+more abstract high-level languages. It remained in use, but not exclusively.
+වැරදියි. දෙවන පරම්පරාවේ එසෙම්බ්ලි භාෂාව සුලභ වූ නමුත් වඩාත් වියුක්ත ඉහළ මට්ටමේ භාෂා මගින් එය
+ක්‍රමයෙන් අතිරේකයක් කරන ලදී. එය භාවිතයේ පැවතුනි, නමුත් සම්පූර්ණයෙන්ම නොවේ.
+
+Option / විකල්පය 3)
+Correct. The third generation saw the growing use of high-level languages like FORTRAN and COBOL,
+improving programming efficiency. These languages made software development more accessible and
+scalable.
+නිවැරදියි. තුන්වන පරම්පරාව FORTRAN සහ COBOL වැනි ඉහළ මට්ටමේ භාෂා භාවිතයේ වැඩි වීම
+දර්ශනය විය, එමඟින් ක්‍රමලේඛන කාර්යක්ෂමතාව වැඩි දියුණු විය. මෙම භාෂා මෘදුකාංග සංවර්ධනය වඩාත්
+ප්‍රවේශ විය හැකි සහ පරිමාණය කළ හැකි විය.
+
+Option / විකල්පය 4)
+Incorrect. Neural networks were theoretical at the time and not used in mainstream computing. They are
+associated with much later generations.
+වැරදියි. එකල ස්නායුක ජාල න්‍යායාත්මක වූ අතර ප්‍රධාන ධාරාවේ පරිගණකකරණයේ භාවිතා නොවීය. ඒවා
+බොහෝ පසු පරම්පරාවන් සමඟ සම්බන්ධ වේ.
+
+Option / විකල්පය 5)
+Incorrect. Visual programming environments emerged much later with personal computing. They did not
+exist during the third generation.
+වැරදියි. පුද්ගලික පරිගණකකරණය සමඟ දෘශ්‍ය ක්‍රමලේඛන පරිසරයන් බොහෝ කලකට පසුව මතු විය.
+තුන්වන පරම්පරාව තුළ ඒවා නොතිබුණි.
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+2027 QUIZ SERIES
+#ictfromabc
+-7-
+
+8. Which of the following devices can function as both input and output?
+පහත සඳහන් උපාංගවලින් කුමන උපාංගය ආදානය සහ ප්‍රතිදානය යන දෙකම ලෙස ක්‍රියා කළ හැකිද?
+1) Barcode scanner / තීරු කේත ස්කෑනරය
+2) Touchscreen / ස්පර්ශ තිරය
+3) Projector / ප්‍රක්ෂේපන යන්ත
+4) Printer / මුද්‍රණ යන්ත්‍රය
+5)  Mouse / මූසිකය
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+A touchscreen is a versatile device that serves as both an input and output device depending on how it is
+used:
+ස්පර්ශ තිරයක් යනු එය භාවිතා කරන ආකාරය අනුව ආදාන සහ ප්‍රතිදාන උපාංගයක් ලෙස ක්‍රියා කරන
+බහුකාර්ය උපාංගයකි:
+
+As an output device, the touchscreen displays visual information like any regular monitor or screen.
+It shows images, text, videos, and user interfaces.
+ප්‍රතිදාන උපාංගයක් ලෙස, ස්පර්ශ තිරය ඕනෑම සාමාන්‍ය මොනිටරයක් හෝ තිරයක් මෙන් දෘශ්‍ය තොරතුරු
+පෙන්වයි. එය රූප, පාඨ, වීඩියෝ සහ පරිශීලක අතුරුමුහුණත් පෙන්වයි.
+
+As an input device, it allows users to interact directly by touching the screen with fingers or a stylus.
+It detects the location and movement of the touch and sends this data to the computer for processing.
+ආදාන උපාංගයක් ලෙස, එය පරිශීලකයින්ට ඇඟිලි හෝ ස්ටයිලස් එකකින් තිරය ස්පර්ශ කිරීමෙන් සෘජුවම
+අන්තර් ක්‍රියා කිරීමට ඉඩ සලසයි. එය ස්පර්ශයේ පිහිටීම සහ චලනය හඳුනාගෙන සැකසීම සඳහා මෙම
+දත්ත පරිගණකයට යවයි
+
+Let’s see why the other options are incorrect / අනෙක් විකල්ප වැරදි වන්නේ ඇයිදැයි බලමු.
+
+Option/ විකල්ප 1)
+This device is only an input device. It reads barcode information from products or items and sends the
+data to a computer system for processing.
+මෙම උපාංගය ආදාන උපාංගයක් පමණි. එය නිෂ්පාදන හෝ අයිතම වලින් තීරු කේත තොරතුරු කියවා දත්ත
+සැකසීම සඳහා පරිගණක පද්ධතියකට යවයි.
+
+Option/ විකල්ප 3)
+A projector is an output device. It takes visual data from a computer or media player and projects it onto
+a screen or wall. It does not accept any input from the user.
+ප්‍රක්ෂේපන යන්ත්‍ර යනු ප්‍රතිදාන උපාංගයකි. එය පරිගණකයකින් හෝ මාධ්‍ය වාදකයකින් දෘශ්‍ය දත්ත ලබාගෙන
+තිරයක් හෝ බිත්තියක් මත ප්‍රක්ෂේපණය කරයි. එය පරිශීලකයාගෙන් කිසිදු ආදානයක් පිළිගන්නේ නැත.
+
+Option/ විකල්ප 4)
+Printers are also output devices. They produce a physical, printed copy of documents or images. They do
+not provide any input back to the computer or system.
+මුද්‍රණ යන්ත්‍ර ද ප්‍රතිදාන උපාංග වේ. ඒවා ලේඛන හෝ රූපවල භෞතික, මුද්‍රිත පිටපතක් නිෂ්පාදනය කරයි.
+ඒවා පරිගණකයට හෝ පද්ධතියට කිසිදු ආදානයක් ආපසු ලබා නොදේ.
+
+Option/ විකල්ප 5)
+A mouse is purely an input device. It allows the user to control the cursor on the screen and input
+commands by clicking or moving. It does not output any data or display information.
+මූසිකයක් යනු තනිකරම ආදාන උපාංගයකි. එය පරිශීලකයාට තිරයේ කර්සරය පාලනය කිරීමට සහ ක්ලික්
+කිරීමෙන් හෝ චලනය කිරීමෙන් විධාන ආදානය කිරීමට ඉඩ සලසයි. එය කිසිදු දත්තයක් ප්‍රතිදානය නොකරයි
+හෝ තොරතුරු ප්‍රදර්ශනය නොකරයි.
+
+Therefore, the answer is 2).
+එබැවින්, පිළිතුර 2) වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-8-
+
+9. What is a characteristic of a cathode ray tube (CRT) display?
+කැතෝඩ කිරණ නල (CRT) සංදර්ශකයක ලක්ෂණය කුමක් ද?
+
+1) Thin and lightweight design / සිහින් සහ සැහැල්ලු නිර්මාණය
+2) Low power consumption / අඩු බලශක්ති පරිභෝජනය
+3) Limited viewing angles / සීමිත දෘෂ්ටි කෝණ
+4) High refresh rates / ඉහළ නැවුම් අනුපාත
+5) Energy-efficient operation / බලශක්ති කාර්යක්ෂම මෙහෙයුම
+
+Answer: 3)
+
+Explanation / පැහැදිලි කිරීම
+
+A characteristic of a cathode ray tube (CRT) display is 3) Limited viewing angles.
+කැතෝඩ කිරණ නල (CRT) සංදර්ශකයේ ලක්ෂණයක් වන්නේ 3) සීමිත දර්ශන කෝණ වේ.
+
+CRT displays typically have limited viewing angles compared to modern display technologies like LCD
+or OLED. The image quality and color accuracy can degrade significantly when viewed from an angle.
+LCD හෝ OLED වැනි නවීන සංදර්ශක තාක්ෂණයන්ට සාපේක්ෂව CRT සංදර්ශක සාමාන්‍යයෙන් සීමිත දර්ශන
+කෝණ ඇත. කෝණයකින් බලන විට රූපයේ ගුණාත්මකභාවය සහ වර්ණ නිරවද්‍යතාව සැලකිය යුතු ලෙස
+පිරිහීමට ලක් විය හැක.
+
+Options 1), 2), 4) and 5) are incorrect because they do not accurately describe the characteristics of a
+cathode ray tube (CRT) display.
+විකල්ප 1), 2), 4) සහ 5) වැරදි වන්නේ කැතෝඩ කිරණ නලයක (CRT) සංදර්ශකයේ ලක්ෂණ නිවැරදිව
+විස්තර නොකරන බැවිනි.
+
+Option 1) is not typical for CRTs, which are generally bulky and heavy due to their glass tubes and electron
+gun assembly. Option 2) is also incorrect because CRTs are known for their relatively high-power
+consumption compared to modern displays. Option 4) are not unique to CRTs; while CRTs can support
+high refresh rates, modern LCD and OLED screens can also achieve high refresh rates with better energy
+efficiency. Lastly, option 5) does not apply to CRTs, as they are less energy-efficient compared to newer
+display technologies. CRTs are known for their high-power usage, especially when compared to modern,
+more energy-efficient displays.
+විකල්ප 1) CRT සඳහා සාමාන්‍ය නොවේ, ඒවායේ වීදුරු නල සහ ඉලෙක්ට්‍රෝන තුවක්කු එකලස් කිරීම නිසා
+සාමාන්‍යයෙන් විශාල හා බර වේ. CRT නවීන සංදර්ශක හා සසඳන විට සාපේක්ෂ ඉහළ බලශක්ති පරිභෝජනය
+සඳහා ප්‍රසිද්ධ බැවින් විකල්ප 2) ද වැරදිය. විකල්ප 4) CRT වලට අනන්‍ය නොවේ. CRT වලට ඉහළ නැවුම්
+අනුපාත සඳහා සහය විය හැකි අතර, නවීන LCD සහ OLED තිර ද වඩා හොඳ බලශක්ති
+කාර්යක්ෂමතාවයකින් ඉහළ නැවුම් අනුපාත ලබා ගත හැක. අවසාන වශයෙන්, විකල්ප 5) CRT සඳහා අදාළ
+නොවේ, මන්ද ඒවා නව සංදර්ශක තාක්ෂණයන්ට සාපේක්ෂව අඩු බලශක්ති කාර්යක්ෂම වේ. විශේෂයෙන්ම
+නවීන, වඩා බලශක්ති කාර්යක්ෂම සංදර්ශක හා සසඳන විට, CRT ඒවායේ අධි බල භාවිතය සඳහා ප්‍රසිද්ධය.
+2027 QUIZ SERIES
+#ictfromabc
+-9-
+
+10. What is a characteristic of direct data entry methods as compared to keyboard entry?
+යතුරු පුවරුව මගින් දත්ත ආදානය කිරීම සමඟ සැසඳීමේදී සෘජුව දත්ත ආදානය කිරීමේ ක්‍රමවල පවතින
+ලක්ෂණයක් වන්නේ කුමක්ද?
+
+1) Less speed / වේගය අඩුය.
+2) Less efficiency / අකාර්යක්ෂමයි.
+3) High reliability / ඉහළ විශ්වසනීයත්වය.
+4) Takes more time / වැඩි කාලයක් ගතවේ.
+5) Fully automatic / පූර්ණ ස්වයංක්‍රීය වේ.
+
+Answer: 3)
+
+Explanation of each option / එක් එක් විකල්පය පැහැදිලි කිරීම:
+
+Option / විකල්පය 1)
+Direct data entry methods, such as barcode scanning or RFID, are typically faster than keyboard entry, not
+slower.
+තීරු කේත කියවීම හෝ RFID වැනි සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම සාමාන්‍යයෙන් යතුරුපුවරු ඇතුළත්
+කිරීමට වඩා වේගවත් වේ, මන්දගාමී නොවේ.
+
+Option / විකල්පය 2)
+Direct data entry methods are designed for high efficiency, reducing errors and time compared to manual
+keyboard input.
+සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම නිර්මාණය කර ඇත්තේ අතින් යතුරුපුවරු ආදානයට සාපේක්ෂව ඉහළ
+කාර්යක්ෂමතාව, දෝෂ සහ කාලය අඩු කිරීම සඳහාය.
+
+Option / විකල්පය 3)
+Correct. Direct data entry methods minimize human error by automating the input process, making them
+more reliable than manual keyboard entry.
+නිවැරදියි. සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම මඟින් ආදාන ක්‍රියාවලිය ස්වයංක්‍රීය කිරීම මගින් මානව දෝෂ අවම
+කරයි, ඒවා අතින් යතුරුපුවරු ප්‍රවේශයට වඩා විශ්වාසදායක වේ.
+
+Option / විකල්පය 4)
+Direct data entry methods are usually quicker, as they eliminate the need for manual typing.
+සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම සාමාන්‍යයෙන් ඉක්මන් වේ, ඒවා අතින් යතුරුකරණයේ අවශ්‍යතාවය ඉවත්
+කරයි.
+
+Option / විකල්පය 5)
+While many direct data entry methods are semi-automatic or automated, not all of them are fully
+automatic.
+බොහෝ සෘජු දත්ත ඇතුළත් කිරීමේ ක්‍රම අර්ධ ස්වයංක්‍රීය හෝ ස්වයංක්‍රීය වන අතර, ඒවා සියල්ලම පූර්ණ
+ස්වයංක්‍රීය නොවේ.
+
+So, the correct answer number is 3.
+එමනිසා, නිවැරදි පිළිතුරු අංකය 3 වේ.
+
+2027 QUIZ SERIES
+#ictfromabc
+-10-

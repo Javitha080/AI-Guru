@@ -56,10 +56,12 @@ export default function FloatingDock({ onNewChat, onShowHistory }: FloatingDockP
     router.push("/home");
   };
 
-  // Close the mobile More sheet on route change or Escape.
-  useEffect(() => {
+  // Close the mobile More sheet on route change.
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMoreOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     if (!moreOpen) return;
@@ -99,7 +101,7 @@ export default function FloatingDock({ onNewChat, onShowHistory }: FloatingDockP
             <button
               type="button"
               onClick={onShowHistory}
-              className="relative flex h-9 w-9 items-center justify-center rounded-full text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
+              className="relative flex h-9 w-9 items-center justify-center rounded-full text-[var(--muted-foreground)] transition-all hover:text-[var(--foreground)] hover:scale-110 active:scale-95 duration-200"
             >
               <History size={17} strokeWidth={1.6} />
             </button>
@@ -132,7 +134,7 @@ export default function FloatingDock({ onNewChat, onShowHistory }: FloatingDockP
                 href={item.href}
                 onClick={item.href === "/home" ? handleHomeClick : undefined}
                 data-active={active}
-                className={`relative flex h-9 w-9 items-center justify-center rounded-full transition-colors z-10 ${
+                className={`relative flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 z-10 hover:scale-110 active:scale-95 ${
                   active
                     ? "text-[var(--primary)]"
                     : "text-[var(--foreground)]/70 hover:text-[var(--foreground)]"

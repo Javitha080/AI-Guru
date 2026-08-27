@@ -1,0 +1,466 @@
+1.
+ In 1’s complement representation, which of the following statements is TRUE about negative binary
+numbers? 1 හි අනුපූරක නිරූපණයෙහි, සෘණ ද්විමය සංඛ්‍යා පිළිබඳ පහත සඳහන් කුමන ප්‍රකාශය සත්‍ය ද?
+
+1) They are obtained by adding 1 to every bit of the positive number
+  ධන අංකයේ සෑම බිටුවකටම 1ක් එකතු කිරීමෙන් ඒවා ලබා ගණි
+
+2) They are obtained by inverting all bits of the positive number
+  ධන අංකයේ සියලුම බිටු පෙරළීමෙන් ඒවා ලබා ගනී
+
+3) They are obtained by subtracting 1 from every bit of the positive number
+     ධන අංකයේ සෑම බිට් එකකින්ම 1ක් අඩු කිරීමෙන් ඒවා ලබා ගනී
+
+4) They are represented using two extra sign bits
+  අමතර සලකුණු බිටු දෙකක් භාවිතයෙන් ඒවා නිරූපණය කෙරේ
+
+5) They always end with a 1
+    ඒවා සෑම විටම 1කින් අවසන් වේ
+
+Answer :2)
+
+Explanation / පැහැදිලි කිරීම:
+
+1’s complement representation is a method to represent signed binary numbers.
+1 හි අනුපූරක නිරූපණය යනු ලකුණුවත් ද්විමය සංඛ්‍යා නියෝජනය කිරීමේ ක්‍රමයකි.
+For a negative number, you take the positive number in binary and invert each bit (change 0 → 1 and 1
+→ 0).
+සෘණ සංඛ්‍යාවක ලබාගැනීම සඳහා, ඔබ ධන සංඛ්‍යාව ද්විමය වශයෙන් ගෙන එක් එක් බිටු පෙරළන්න (0 →
+1 සහ 1 → 0 වෙනස් කරන්න).
+
+Example/ උදාහරණය
+
+Positive 5 in 4-bit binary: 0101 / ධන 5 හි 4-බිට් ද්විමය: 0101
+Negative 5 in 1’s complement: 1010 (all bits inverted) / 1 හි අනුපූරකයෙන් සෘණ 5: 1010 (සියලු බිටු
+ප්‍රතිලෝම)
+
+Important points about 1’s complement / 1 හි අනුපූරකය පිළිබඳ වැදගත් කරුණු
+
+Adding 1 to a number is not how 1’s complement works (that’s 2’s complement).
+අංකයකට 1ක් එකතු කිරීම 1 හි අනුපූරකය ක්‍රියා කරන ආකාරය නොවේ (එය 2 හි අනුපූරකයයි).
+
+It does not use extra sign bits; the sign is determined by the leftmost bit.
+එය අමතර ලකුණුවත් බිටු භාවිතා නොකරයි ලකුණ වම් කෙළවරෙන් තීරණය වේ.
+
+It does not always end with 1; the ending bit depends on the number itself.
+එය සෑම විටම 1 න් අවසන් නොවේ; අවසාන බිටු අංකය මතම රඳා පවතී.
+
+So, in short, inverting all bits of the positive number is the defining property of 1’s complement for
+negatives.
+එබැවින්, කෙටියෙන් කිවහොත්, ධන අංකයේ සියලුම බිටු ප්‍රතිලෝම කිරීම 1 හි අනුපූරකයේ සෘණ සංඛ්‍යා
+සඳහා නිර්වචනයයි.
+
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 23
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+ 2.    Perform 1’s complement addition:
+       1හි අනුපූරක එකතු කිරීම සිදු කරන්න:
+
+101110 + 011011
+
+1) 001001          2) 000101        3) 001010       4) 100010        5) 010000
+
+Answer: 1)
+
+Explanation / පැහැදිලි කිරීම:
+
+Step 1: Add the numbers as normal binary / සාමාන්‍ය ද්විමය ලෙස සංඛ්‍යා එකතු කරන්න
+
+1 0 1 1 1 0
++ 0 1 1 0 1 1
+1 0 0 1 0 0 1
+
+          Ignore the overflow value and get the answer as a 6-bit number
+     පිටාර අගය නොසලකා හැර පිළිතුර 6-bit අංකයක් ලෙස ලබා ගන්න.
+
+Step 2: Final Result / අවසාන ප්‍රතිඵලය = 001001
+
+3.   Which statement is TRUE about representing negative numbers in 2’s complement?
+2 හි අනුපූරකයේ සෘණ සංඛ්‍යා නිරූපණය කිරීම සම්බන්ධයෙන් සත්‍ය ප්‍රකාශය කුමක්ද?
+
+1) We invert all bits of the number  අපි අංකයේ සියලුම බිටු පෙරළන්නෙමු.
+
+2) We invert all bits and then add 1 to the result.
+  අපි සියලු බිටු ප්‍රතිලෝම කර පසුව ප්‍රතිඵලයට 1ක් එකතු කරන්නෙමු.
+
+3) We subtract 1 from the inverted bits of the number.
+  අපි අංකයේ ප්‍රතිලෝම බිටු වලින් 1ක් අඩු කරන්නෙමු.
+
+4) We invert only the most significant bit (MSB).
+  අපි උපරීම වෙසෙසි බිටුව (MSB) පමණක් පෙරළන්නෙමු.
+
+5) We add 2 to the positive number.
+  අපි ධන සංඛ්‍යාවට 2ක් එකතු කරමු.
+
+Answer: 2)
+
+Explanation / පැහැදිලි කිරීම:
+
+2’s complement representation is a standard way to represent negative binary numbers.
+2 හි අනුපූරක නිරූපණය යනු සෘණ ද්විමය සංඛ්‍යා නියෝජනය කිරීමට සම්මත ක්‍රමයකි.
+
+To get the negative of a number / අංකයක සෘණ අගය ලබා ගැනීමට:
+
+Take the binary of the positive number / ධන අංකයේ ද්විමය අගය ගන්න.
+
+Invert all bits / සියලුම බිටු පෙරළන්න (0 → 1, 1 → 0).
+
+Add 1 to the inverted result / ප්‍රතිලෝම ප්‍රතිඵලයට 1 එකතු කරන්න.
+
+Example (4-bit numbers) / උදාහරණය (බිට් 4 ඉලක්කම්)::
+
+Positive / ධන 5: 0101
+
+Invert bits / ප්‍රතිලෝම බිටු: 1010
+
+Add 1 / 1 එකතු කරන්න: 1010 + 1 = 1011 → This is -5 in 2’s complement / මෙය 2 හි
+අනුපූරකයේ -5 වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
+
+Other options are incorrect / අනෙක් විකල්ප වැරදියි:
+
+Option 1 → only inverts bits / බිටු පමණක් ප්‍රතිලෝම කරයි (that’s 1’s complement).
+Option 3 → subtracting 1 is not correct / 1 අඩු කිරීම නිවැරදි නොවේ.
+Option 4 → inverting only MSB is wrong / MSB පමණක් ප්‍රතිලෝම කිරීම වැරදියි.
+Option 5 → adding 2 makes no sense in this context / 2 එකතු කිරීම මෙම සන්දර්භය තුළ තේරුමක්
+නැත.
+
+So the defining rule of 2’s complement is: invert all bits and add 1.
+එබැවින් 2 හි අනුපූරකයේ නිර්වචනය කිරීමේ රීතිය වනුයේ: සියලු බිටු පෙරළා 1 එකතු කිරීමයි.
+
+4.   In 8-bit 2’s complement, which of the following is TRUE?
+බිටු අටෙහි 2 හි අනුපූරකයේ, පහත සඳහන් දේවලින් සත්‍ය වන්නේ කුමක්ද?
+
+N₁ = 11110101
+N₂ = 00001011
+
+        Which statement is correct / කුමන ප්‍රකාශය නිවැරදිද?
+
+1) N₁ > N₂
+2) N₁ < N₂
+3) N₁ = N₂
+4) Both represent positive numbers  දෙකම ධන සංඛ්‍යා නියෝජනය කරයි
+5) Both represent negative numbers  දෙකම සෘණ සංඛ්‍යා නියෝජනය කරයි
+
+Answer: 2)
+
+We are given / අපට ලබා දී ඇත:
+N₁ = 11110101
+N₂ = 00001011
+
+Step 1: Identify the sign / ලකුණ හඳුනා ගන්න
+
+In 2’s complement, the MSB (most significant bit) determines the sign:
+2 හි අනුපූරකයේදී, MSB (වඩා වෙසෙසි බිටුව) ලකුණ තීරණය කරයි:
+
+0 → positive / ධන
+1 → negative / සෘණ
+
+For N₁: 11110101 → MSB = 1 → negative / සෘණ
+For N₂: 00001011 → MSB = 0 → positive / ධන
+
+Step 2: Find the decimal values / දශමය අගයන් සොයන්න
+
+N₁ = 11110101 (negative)
+
+To find the value of a negative 2’s complement number / සෘණ 2 අනුපූරක අංකයක අගය සොයා ගැනීමට:
+
+Invert all bits / සියලුම බිටු පෙරළන්න: 00001010
+
+Add 1/ 1 ක් එකතු කරන්න: 00001010 + 1 = 00001011 → decimal 11
+
+So N₁ = -11
+
+N₂ = 00001011 (positive)
+Already positive → decimal = 11 / දැනටමත් ධන → දශමය = 11
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-3-
+
+Step 3: Compare / සසඳන්න
+
+N₁ = -11
+N₂ = 11
+Clearly:
+N₁ < N₂
+
+Step 4: Answer
+2) N₁ < N₂
+
+Explanation / පැහැදිලි කිරීම:
+
+MSB indicates sign in 2’s complement / MSB මඟින් 2 හි අනුපූරකයේ ලකුණ දක්වයි.
+Convert negative numbers using invert + add 1. / invert + add 1 භාවිතයෙන් සෘණ සංඛ්‍යා පරිවර්තනය
+කරන්න.
+Then compare decimal values / ඉන්පසු දශම අගයන් සංසන්දනය කරන්න.
+
+5.   Perform the addition using 8-bit 2’s complement
+          බිටු අටෙහි 2 හි අනුපූරකය භාවිතයෙන් එකතු කිරීම සිදු කරන්න:
+
+N1 = 25, N2 = -12
+
+What is the result
+ප්‍රතිඵලය කුමක්ද?
+
+1) 00001101        2) 00010001      3) 00001111      4) 11110101      5) 11110011
+
+Answer: 1)
+
+Given: N1 = 25, N2 = -12
+
+Convert to 8-bit binary / ද්විමය බවට පරිවර්තනය කරන්න:
+
+25 → 00011001
+-12 → invert 12 (00001100) → 11110011, add 1 → 11110100
+
+Add binaries / ද්විමය එකතු කරන්න:
+
+0 0 0 1 1 0 0 1
++ 1 1 1 1 0 1 0 0
+
+0 0 0 0 1 1 0 1
+
+Result / ප්‍රතිඵලය → 00001101 (decimal 13)
+
+    6.   002768.00751
+The maximum significant digit and the least significant digit of the above decimal conversion
+respectively,
+ඉහත සදහන් දශමය සංඛ්‍යාවේ වැඩිම වෙසෙසි බිටුව හා අඩුම වෙසෙසි බිටුව පිළිවෙලින්,
+
+1) 0,0                     2) 2,1                   3) 2,7                   4) 8,1                   5) 8,7
+
+Answer :2)
+
+The most significant digit is the transition with the maximum positional value.
+වැඩිම වෙසෙසි බිටුව යනු වැඩිම ස්ථානීය වටිනාකමක් සහිත සංඛ්‍යාව වේ.
+
+The least significant digit is the transition with the lowest positional value.
+අඩුම වෙසෙසි බිටුව යනු අඩුම ස්ථානීය වටිනාකමක් සහිත සංඛ්‍යාව වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-4-
+
+7. What is the 2’s complement of the eight bits of -20?
+-20 හි බිටු අටෙහි දෙවන අනුපූරකය(2’s complement) කුමක්ද?
+
+1) 000100102          2) 001010102       3) 111011002       4) 000101112      5) 000101002
+
+Answer :3)
+
+The 2's complement of the eight bits of -20 can be calculated as follows:
+-20  බිටු අටේ 2 හි අනුපූරකය පහත පියවර පරිදි ගණනය කළ හැක:
+
+1.   Convert the absolute value of -20 (which is 20) into binary representation using 8 bits: 000101002.
+20 එය 20 හි නිරපේක්ෂ අගය බිටු 8 භාවිතා කරමින් ද්විමය නිරූපණය බවට පරිවර්තනය කරන්න:
+000101002.
+
+2.   Invert all the bits of the binary representation obtained in step 1 to get the 1's complement:
+111010112.
+1 හි අනුපූරකය ලබා ගැනීම සඳහා 1 පියවරේදී ලබාගත් ද්විමය නිරූපණයේ සියලුම බිටු ප්‍රතිවිරුද්ධ
+බවට පත් කරන්න : 111010112
+
+3,   Add 1 to the 1's complement obtained in step 2 to get
+the 2's complement: 111010112 +12 =111011002. Therefore, the 2's complement of the eight bits of -20 is
+11101100.
+2 හි අනුපූරකය ලබා ගැනීම සඳහා පියවර 2 හි ලබාගත් 1 හි අනුපූරකයට 1ක් එකතු කරන්න:
+111010112 + 12 = 111011002 එබැවින් -20 බිටු අටේ 2 හි අනුපූරකය 111011002 වේ.
+
+The above explanation is based on the concept of 2's complement, which is a mathematical operation
+used to represent negative numbers in binary form. The 2's complement representation allows for easy
+addition and subtraction of signed numbers in computer systems.
+ඉහත පැහැදිලි කිරීම පදනම් වී ඇත්තේ 2 හි අනුපූරකයේ සංකල්පය මත වන අතර එය ද්විමය
+ආකාරයෙන් සෘණ සංඛ්‍යා නිරූපණය කිරීමට භාවිතා කරන ගණිතමය මෙහෙයුමකි. 2 හි අනුපූරක නියෝජන
+ය පරිගණක පද්ධතිවල ලකුණුවත් සංඛ්‍යා පහසුවෙන් එකතු කිරීමට සහ අඩු කිරීමට ඉඩ සලසයි.
+
+8. What is the one's complement of decimal -12 ?
+ දශම -12 හි එකෙහි අනුපූරකය කුමක්ද?
+
+1) 000011002
+2) 111100112
+3) 001100112
+4) 111101002
+5) 111100002
+
+Answer:2)
+
+Step 1 : Convert  -12 to binary. In binary form -12 is represented as 000011002.
+Step 1: -12 ද්විමය බවට පරිවර්තනය කරන්න. ද්විමය ආකාරයෙන්
+-12 නිරූපණය කරන්නේ 000011002  ලෙසිනි.
+
+Step 2: Apply 1's complement to the binary representation. Complement means flipping all the bits
+(changing 0 to 1 and 1 to 0). So the complement of 000011002 is 111100112.
+Step 2: ද්විමය නිරූපණයට 1හි අනුපූරකය යොදන්න. අනුපූරකය යන්නෙන් අදහස් කරන්නේ සියලුම බිටු
+පෙරලීමයි ( 0, 1 බවටත් 1,0 බවටත් දක්වා වෙනස් කිරීම). එබැවින් 000011002 හි අනුපූරකය වන්නේ  1111
+00112 වේ.
+
+So the correct answer is 2) 111100112. / එම නිසා නිවැරදි පිළිතුර 2) 111100112 වේ.
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-5-
+
+9. The ages of a father and a son are 2C16 and 10002 years, respectively. In how many years will the father be
+4 times as old as his son?
+පියෙකුගේ සහ පුතෙකුගේ වයස පිළිවෙලින් අවුරුදු 2C16 සහ 10002 කි. අවුරුදු කීයකින් පියාගේ වයස
+ඔහුගේ පුතා මෙන් 4 ගුණයක් වනු ඇත් ද?
+1) 1                      2) 2                    3) 4                     4) 4                     5) 5
+
+Answer : 4 )
+
+Let's first convert the given values from their respective bases into decimal form.
+මුලින්ම දී ඇති අගයන් ඒ ඒ පාදවලින් දශම ආකාරයෙන් පරිවර්තනය කරමු.
+
+The father's age is given as 2C16, and the son's age is given as 10002.
+පියාගේ වයස 2C16 ලෙසත්, පුතාගේ වයස 10002 ලෙසත් දක්වා ඇත.
+
+2C16
+2
+C
+161
+160
+2×16
+12×1
+32
+12
+32+12 = 44
+44
+
+So, the father's age is 44 years and the son's age is 8 years.
+එමනිසා, පියාගේ වයස අවුරුදු 44 සහ පුතාගේ වයස අවුරුදු 8 වේ.
+
+After x years / වසර x කට පසු:
+
+The father's age will be 44 + x.
+පියාගේ වයස අවුරුදු 44 + x වනු ඇත.
+
+The son's age will be 8 + x.
+පුතාගේ වයස අවුරුදු 8 + x වනු ඇත.
+
+We need the father to be four times as old as his son. So,
+පියා තම පුතා මෙන් හතර ගුණයක් විය යුතුය. එමනිසා,
+
+44 + x = 4(8 + x)
+
+Let’s solve for x / x සඳහා විසඳා ගනිමු:
+
+44 + x = 4(8 + x)
+44 + x = 32 + 4x
+44 – 32 = 4x − x
+12 = 3x
+x = 4
+
+So, in 4 years, the father will be four times as old as his son. The correct answer is 3) 4 / 4) 4.
+එමනිසා, තව අවුරුදු 4 කින් තාත්තා පුතාගේ වයස වගේ හතර ගුණයක් වේ. නිවැරදි පිළිතුර 3) 4 / 4) 4
+වේ.
+
+10. What is the 2’s complement representation of -54?
+-54 හි දෙකෙහි අනුපූරක නියෝජනය වනුයේ කුමක්ද?
+
+ 1) 001001012
+2) 100110012
+3) 110010102
+4) 111000112
+5) 110010012
+
+Answer: 3)
+
+10002
+1
+0
+0
+0
+23
+22
+21
+20
+1×8
+0×4
+0×2
+0×1
+8+0+0+0 = 8
+8
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-6-
+RAVINDU BANDARANAYAKE
+#ictfromabc
+
+Explanation / පැහැදිලි කිරීම:
+
+To get the 2’s complement of -54. Firstly, we want to get the binary value of 54.
+-54 හි දෙකෙහි අනුපූරකය ලබා ගැනීමට පළමුව, අප 54 හි ද්විමය අගය ලබා ගත යුතුයි
+
+2
+54
+2
+27 -
+0
+2
+13 -
+1
+2
+6
+
+1
+2
+3
+
+0
+2
+1
+
+1
+
+0
+
+1
+
+= 01101102
+
+As we represent the 2’s complement value in 8 bits we should add 0s before the whole value.
+අපි බිටු 8 කින් දෙකෙහි අනුපූරක අගය නියෝජනය කරන බැවින් සම්පූර්ණ අගයට පෙර 0 එකතු කළ
+යුතුය.
+
+= 001101102
+
+After this, the binary value should be inverted.
+මෙයින් පසු, ද්විමය අගය ප්‍රතිලෝම කළ යුතුය.
+
+001101102          110010012
+
+Finally, add 1 to the inverted binary value.
+අවසාන වශයෙන්, ප්‍රතිලෝම ද්විමය අගයට 1 ක් එකතු කරන්න.
+
+1
+1
+0
+0
+1
+0
+0
+1
+
++ 1
+1
+1
+0
+0
+1
+0
+1
+0
+
+Therefore, the correct answer is 3).
+එබැවින්, නිවැරදි පිළිතුර 3) වේ.
+
+-7-
+RAVINDU BANDARANAYAKE
+#ictfromabc

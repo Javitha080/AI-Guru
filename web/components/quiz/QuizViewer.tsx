@@ -1249,7 +1249,7 @@ export default function QuizViewer({
                 if (!isGradable && ans.images.length > 0) return false;
                 return true;
               })()}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[var(--primary)] px-3 py-1.5 text-[12px] font-medium text-white transition-opacity disabled:opacity-30"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[var(--primary)] px-3 py-1.5 text-[12px] font-medium text-white transition-all duration-150 ease-[var(--ease-smooth-out)] hover:-translate-y-0.5 hover:shadow-md active:scale-95 active:translate-y-0 disabled:opacity-30 disabled:hover:translate-y-0 disabled:hover:shadow-none"
             >
               <Eye size={13} />
               {t("Check Answer")}

@@ -1,0 +1,164 @@
+1. Which of the following statements about Binary Coded Decimal (BCD) is correct?
+ද්විමය කේත දශම (BCD) පිළිබඳ පහත සඳහන් කුමන ප්‍රකාශය නිවැරදි ද?
+
+1) In BCD, each decimal digit is represented using 8 bits.
+BCD හි, සෑම දශම ඉලක්කමක්ම බිටු 8 ක් භාවිතයෙන් නිරූපණය කෙරේ.
+
+2) BCD represents the entire decimal number as one binary value.
+BCD මඟින් සම්පූර්ණ දශම සංඛ්‍යාව එක් ද්විමය අගයක් ලෙස නිරූපණය කරයි.
+
+3) In BCD, each decimal digit is represented separately using 4 binary bits.
+BCD හි, සෑම දශම ඉලක්කමක්ම ද්විමය බිටු 4ක් භාවිතයෙන් වෙන වෙනම නිරූපණය කෙරේ.
+
+4) BCD is more efficient in storage than pure binary representation.
+BCD ගබඩා කිරීමේදී ද්විමය නිරූපණයට වඩා කාර්යක්ෂම වේ.
+
+5) BCD can represent digits from 0 to 15 using 4 bits.
+BCD වලට බිටු 4ක් භාවිතා කරමින් 0 සිට 15 දක්වා ඉලක්කම් නියෝජනය කළ හැක.
+
+2. Read the following statements about converting octal floating-point numbers to hexadecimal and select
+the correct option.
+අෂ්ටක පාවෙන ලක්ෂ්‍ය සංඛ්‍යා ෂඩ් දශම බවට පරිවර්තනය කිරීම පිළිබඳ
+පහත ප්‍රකාශ කියවා නිවැරදි විකල්පය තෝරන්න.
+
+A. The octal number 65.4₈ is first converted to binary before grouping bits into 4s to obtain its
+hexadecimal form.
+අෂ්ටක අංකය 65.4₈ ප්‍රථමයෙන් එහි ෂඩාස්‍ර ආකෘතිය ලබා ගැනීම සඳහා බිටු 4ට කාණ්ඩ කිරීමට පෙර
+ද්විමයබවට පරිවර්තනය වේ.
+
+B. During conversion, each octal digit is replaced by its 3-bit binary equivalent, and each
+hexadecimal digit by 4 bits.
+පරිවර්තනය අතරතුර, සෑම අෂ්ටක ඉලක්කමක්ම එහි 3-
+bit ද්විමය සමාන වන අතර, එක් එක් ෂඩ් දශමය ඉලක්කම් බිටු 4කින් ප්‍රතිස්ථාපනය වේ.
+
+C. The correct hexadecimal equivalent of 65.4₈ is 35.9₁₆.
+65.4₈ හි නිවැරදි ෂඩ් දශමය අගය 35.9₁₆  වේ.
+
+1) Only statement A is correct / A ප්‍රකාශය පමණක් නිවැරදි වේ
+2) Only statement B is correct / B ප්‍රකාශය පමණක් නිවැරදි වේ
+3) Statements A and B are correct / A සහ B ප්‍රකාශය පමණක් නිවැරදි වේ
+4) Statements B and C are correct / B සහ C ප්‍රකාශය පමණක් නිවැරදි වේ
+5) All three statements are correct / ප්‍රකාශ තුනම නිවැරදි වේ
+
+3. Find the BCD (Binary Coded Decimal) representation of the decimal number 347.
+දශම අංක 347 හි BCD (ද්විමය කේත දශම) නියෝජනය සොයන්න.
+
+1) 110101011₂
+2) 00110100 0111₂  3) 1010110₂
+4) 0110100001₂
+5) 110000011₂
+
+4. A document contains 2048 characters including spaces and line-breaks. How many bits are needed to
+encode this document in ASCII also using the parity bits?
+ඉඩ (space) සහ පේළි යැවුම් (line break) ද සමග ලේඛනයක් අනුලක්ෂණ 2048 කින් සමන්විත වේ. සමතා
+(parity) බිටු ද භාවිත කරමින් මෙම ලේඛනය ASCII වලින් ආකේතනය කිරීමට බිටු කොපමණ අවශ්‍ය
+වේද?
+
+1) 2048
+2) 2048 x 2
+3) 2048 x 7
+4) 2048 x 8
+5) 2048 / 8
+RAVINDU BANDARANAYAKE
+2027  දවසට කොළයක් වැඩසටහන 20
+Information and Communication Technology
+ තොරතුරු හා සන්නිවේදන තාක්ෂණය
+#ictfromabc
+
+5. Consider the name “Ravindu”. Which of the following is the correct ASCII code in 8-bit binary for each
+character?
+“Ravindu” යන නම සලකා බලන්න. එක් එක් අක්ෂරය සඳහා 8-බිට් ද්විමය ආකාරයෙන් නිවැරදි ASCII
+කේතය පහත සඳහන් ඒවායින් කුමක් ද?
+
+A = 65
+a = 97
+
+1) 01010010, 01100001, 01110110, 01101001, 01101110, 01100100, 01110101
+2) 01010010, 01100010, 01110110, 01101001, 01101110, 01100100, 01110101
+3) 01010011, 01100001, 01110110, 01101001, 01101110, 01100100, 01110101
+4) 01010010, 01100001, 01110111, 01101001, 01101110, 01100100, 01110101
+5) 01010010, 01100001, 01110110, 01101010, 01101110, 01100100, 01110101
+
+6. What is the main purpose of ASCII in computing?
+පරිගණකකරණයේදී ASCII හි ප්‍රධාන අරමුණ කුමක්ද?
+
+1) To compress large files for storage efficiency
+ගබඩා කාර්යක්ෂමතාව සඳහා විශාල ගොනු සම්පීඩනය කිරීමට
+
+2) To represent text characters as numerical codes for computer processing
+පරිගණක සැකසුම් සඳහා සංඛ්‍යාත්මක කේත ලෙස පෙළ අක්ෂර නිරූපණය කිරීමට
+
+3) To encode images and videos for display
+ප්‍රදර්ශනය සඳහා රූප සහ වීඩියෝ කේතනය කිරීමට
+
+4) To encrypt data for secure communication
+ආරක්ෂිත සන්නිවේදනය සඳහා දත්ත සංකේතනය කිරීමට
+
+5) To convert binary numbers into decimal numbers
+ද්විමය සංඛ්‍යා දශම සංඛ්‍යා බවට පරිවර්තනය කිරීමට
+
+7. Which of the following statements about Binary Coded Decimal (BCD) is TRUE?
+ද්විමය කේතනය කළ දශම (BCD) පිළිබඳ පහත සඳහන් ප්‍රකාශවලින් සත්‍ය වන්නේ කුමක්ද?
+
+1) Each decimal digit is stored as a 4-bit binary number
+සෑම දශම සංඛ්‍යාංකයක්ම බිටු 4 ද්විමය සංඛ්‍යාවක් ලෙස ගබඩා කර ඇ;
+
+2) BCD can represent any number using only 3 bits per digit
+BCD හට ඉලක්කමකට බිටු 3ක් පමණක් භාවිතා කරමින් ඕනෑම සංඛ්‍යාවක් නිරූපණය කළ හැකිය
+
+3) It is more memory-efficient than pure binary representation
+එය පිරිසිදු ද්විමය නිරූපණයට වඩා මතක-කාර්යක්ෂම වේ
+
+4) BCD is used for storing letters in computers
+පරිගණකවල අකුරු ගබඩා කිරීම සඳහා BCD භාවිතා කරයි
+
+5) Each BCD digit is stored as 8 bits
+සෑම BCD ඉලක්කමක්ම බිටු 8ක් ලෙස ගබඩා කර ඇත
+
+8. Which of the following are equivalent to octal 6748?
+පහත කවරක් අෂ්ඨමය 6748 ට තුල්‍ය වේද?
+
+A – 110 111 1002
+B – 44410
+C – 2BC16
+
+1) A only
+A පමණි
+2) A and B only
+A සහ B පමණි
+3) A and C only
+A සහ C පමණි
+4) B and C only
+B සහ C පමණි
+5) All of A, B , C
+A,B,C යන සියල්ලම
+
+Answers:
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+Q.No
+Answer
+1.
+3
+2.
+3
+3.
+2
+4.
+4
+5.
+1
+6.
+2
+7.
+1
+8.
+2
+
+RAVINDU BANDARANAYAKE
+#ictfromabc
+-2-
