@@ -1,243 +1,379 @@
 <div align="center">
 
-<p><img src="assets/figs/logo/logo.png" alt="AI Guru logo" height="56" style="vertical-align: middle;">&nbsp;<img src="assets/figs/logo/banner.png" alt="AI Guru" height="48" style="vertical-align: middle;"></p>
+<br/>
 
-# AI Guru — Local-First AI Tutoring & Study Supervision
+<a href="#readme">
+  <img src="assets/figs/logo/logo.png" alt="AI Guru Logo" height="72" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/figs/logo/banner.png" alt="AI Guru Banner" height="58" />
+</a>
 
-**AI Guru** is a local-first, privacy-focused tutoring and study-supervision platform
-built on the [DeepTutor](https://github.com/HKUDS/DeepTutor) v1.5.11 fork.
-The full agent-native tutor core (chat agent loop, RAG, capabilities) is unchanged
-upstream DeepTutor — this distribution adds **on-device study monitoring**, a
-**past-paper Exam Room**, and a **passcode-gated Parent Portal** with Telegram alerts,
-an outbound access tunnel, and an encrypted incident vault.
+<h3>Local-First AI Tutoring, Computer Vision Study Supervision & Exam Room</h3>
 
-<p>
-  <a href="#-quick-start"><img alt="Install — from source" src="https://img.shields.io/badge/Run-deeptutor%20start-0A0A0A?style=for-the-badge&labelColor=F5F5F4" height="32"></a>
-  <a href="docs/AI-GURU-RUN-GUIDE.md"><img alt="Run guide" src="https://img.shields.io/badge/Docs-Run%20Guide-2563EB?style=for-the-badge&labelColor=F5F5F4" height="32"></a>
-  <a href="docs/AI-GURU-PARENT-ACCESS.md"><img alt="Parent guide" src="https://img.shields.io/badge/Docs-Parent%20Portal-059669?style=for-the-badge&labelColor=F5F5F4" height="32"></a>
+<p align="center">
+  <b>Private by Design</b> • <b>100% On-Device CV</b> • <b>Passcode-Gated Parent Portal</b> • <b>Verbatim Exam Room</b>
 </p>
 
-[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Next.js 16](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=flat-square)](LICENSE)
+<p align="center">
+  <a href="#-quick-start"><img src="https://img.shields.io/badge/⚡_Quick_Start-Run_in_60s-0A0A0A?style=for-the-badge&logo=rocket&logoColor=white" alt="Quick Start" /></a>
+  <a href="docs/AI-GURU-RUN-GUIDE.md"><img src="https://img.shields.io/badge/📖_Run_Guide-Full_Manual-2563EB?style=for-the-badge&logo=readme&logoColor=white" alt="Run Guide" /></a>
+  <a href="docs/AI-GURU-PARENT-ACCESS.md"><img src="https://img.shields.io/badge/🛡️_Parent_Portal-Setup_Guide-059669?style=for-the-badge&logo=shield&logoColor=white" alt="Parent Guide" /></a>
+  <a href="docs/AI-GURU-CODEBASE-MAP.md"><img src="https://img.shields.io/badge/🗺️_Codebase_Map-Architecture-7C3AED?style=for-the-badge&logo=diagram-next&logoColor=white" alt="Codebase Map" /></a>
+</p>
 
-[Features](#-features) · [Architecture](#-architecture) · [Quick Start](#-quick-start) · [Project Layout](#-project-layout) · [Documentation](#-documentation) · [Testing](#-testing)
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11%20|%203.12%20|%203.13-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python Version" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/Next.js-16_App_Router-000000?style=flat-square&logo=next.js&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/SQLite-WAL_Mode-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" />
+  <img src="https://img.shields.io/badge/MediaPipe-On--Device_WASM-FF6F00?style=flat-square&logo=google&logoColor=white" alt="MediaPipe" />
+  <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square" alt="License" />
+</p>
+
+<p align="center">
+  <a href="#-overview">Overview</a> •
+  <a href="#-key-features">Key Features</a> •
+  <a href="#-system-architecture">Architecture</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-web-interface--visuals">Screenshots</a> •
+  <a href="#-configuration">Configuration</a> •
+  <a href="#-repository-structure">Project Layout</a> •
+  <a href="#-documentation-hub">Docs</a> •
+  <a href="#-test-suite">Testing</a> •
+  <a href="#-privacy--zero-trust-security">Privacy & Security</a>
+</p>
 
 </div>
 
 ---
 
-## What is AI Guru?
+## 🌟 Overview
 
-AI Guru turns a student's laptop into a self-contained tutoring and study-supervision
-station. Everything sensitive stays on the machine: the camera pipeline runs entirely
-in the browser via MediaPipe, all records live in a local SQLite database, and the
-backend binds to `127.0.0.1` unless you explicitly opt in to LAN access.
+**AI Guru** transforms any consumer laptop or desktop into an autonomous, privacy-first tutoring workstation and intelligent study supervisor. Built on top of the battle-tested [DeepTutor](https://github.com/HKUDS/DeepTutor) v1.5.11 agent-core, AI Guru augments state-of-the-art interactive LLM pedagogy with **local real-time computer vision study monitoring**, a **past-paper Exam Room with verbatim extraction & AI judging**, and a **PIN-gated Parent Portal** featuring encrypted incident vaults and secure Telegram alerts.
 
-> **Dual branding is intentional.** User-visible copy says "AI Guru"; internal
-> identifiers (package name `deeptutor`, env vars `DEEPTUTOR_*`, DB names, imports)
-> keep the upstream namespace so the tutor core stays drop-in compatible with
-> `pip install deeptutor`.
+### 🛡️ Why AI Guru?
 
-## Features
+1. **Zero Biometrics in the Cloud:** Face detection, gaze estimation, head pose tracking, and study posture analysis run **100% in the client browser** via MediaPipe WASM. No video feeds or face landmarks ever leave your hardware.
+2. **Local-First Persistence:** All session telemetry, notebooks, past papers, and gamification metrics are committed to local SQLite databases with write-ahead logging (WAL).
+3. **Zero-Config Remote Supervision:** Parents can monitor focus metrics, receive alert notifications on Telegram, or securely connect via Cloudflare/ngrok tunnels with strict PBKDF2-derived token auth.
+4. **Resilient AI Execution:** Integrates cloud models (OpenAI, Anthropic, Gemini, DeepSeek, Groq) or local LLMs (Ollama) with intelligent fallback chains for fully offline study sessions.
 
-### Inherited from DeepTutor (tutor core)
+> ℹ️ **Dual-Branding Architecture:** User-facing interfaces and notifications display **AI Guru**. Internal modules, CLI commands, environment variables (`DEEPTUTOR_*`), and package namespaces retain `deeptutor` for full drop-in compatibility with the upstream ecosystem.
 
-| Area | What you get |
-|------|--------------|
-| Chat | Single agent loop with tool calling, knowledge-base grounding, attachments, image generation, subagent consults |
-| Capabilities | Quiz (with AI answer judging), Research, Visualize, Solve, Mastery Path, Math Animator |
-| Knowledge | Multi-engine RAG libraries: LlamaIndex, PageIndex, GraphRAG, LightRAG, linked Obsidian vaults; versioned re-indexing |
-| Book & Co-Writer | "Living book" compiler with typed interactive blocks; selection-aware Markdown drafting with accept/reject diffs |
-| Memory | Three-layer inspectable memory (L1 traces / L2 facts / L3 synthesis) with a traceable Memory Graph |
-| Agents & Partners | Consult local coding CLIs (Claude Code, Codex, Gemini CLI, ...) or persistent IM partners mid-turn |
+---
 
-### Added by AI Guru
+## 🚀 Key Features
 
-| Feature | Description |
-|---------|-------------|
-| **Study Monitoring** | 100% on-device computer vision (MediaPipe FaceLandmarker in the browser): face detection, liveness verification, head pose / gaze tracking, engagement scoring, distraction analysis with a study-gesture whitelist (reading, writing, drinking water). Warning gates require confidence >= 0.8 with 60s cooldown, max 5 warnings per 10 minutes. |
-| **Study Room** | Pomodoro-style sessions with pre-flight camera/lighting checks, real-time focus gauge, batched telemetry logging, and AI-generated session reports |
-| **Exam Room** | Upload past papers -> verbatim question extraction -> timed exam. MCQs are graded server-side mirroring QuizViewer semantics; essays are judged by an LLM against reference answers that stay hidden until grading completes |
-| **Parent Portal** | Passcode-gated dashboard (PBKDF2 PIN + lockout, 15-min JWT access tokens with 7-day refresh). Pairing via `GURU-XXXX` codes. Live status, analytics trends, incident timeline, opt-in live video supervision |
-| **Telegram Alerts** | Outbound notification queue with atomic claim semantics, exponential retry backoff (30s * 2^n, cap 600s, max 8 attempts), and dead-letter handling |
-| **Remote Access Tunnel** | Zero-config outbound tunnel (cloudflared / ngrok watchdog) for parent access without port forwarding — statuses are honest (`local_only` never pretends to be active), every parent route audited |
-| **Encrypted Incident Vault** | Monitoring incidents are sealed into an encrypted vault (`GURUVAULT02` envelope: random per-item content key wrapped by a PBKDF2-600k key derived from the parent PIN); wrong-PIN attempts are HMAC-detected |
-| **Gamification** | XP with focus multipliers, daily streaks, achievement badges, and level progression persisted in SQLite |
-| **Floating Assistant** | Draggable floating tutor bubble with drag/PiP modes, text-selection chip, `Alt+Space` hotkey, and cross-window sync via BroadcastChannel |
-| **Offline Resilient** | Cloud API -> local Ollama -> offline fallback chain; monitoring and timers keep running without internet |
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>👁️ On-Device Study Monitoring</h3>
+      <ul>
+        <li><b>MediaPipe WASM Engine:</b> Real-time 468-point face mesh tracking directly in browser.</li>
+        <li><b>Intelligent Distraction Filter:</b> Whitelists natural study actions (reading notebook, writing, drinking water).</li>
+        <li><b>Warning Rate-Limiter:</b> Confidence threshold (&ge; 0.8), 60s cooldown, max 5 warnings per 10 min window.</li>
+        <li><b>Pomodoro Study Room:</b> Pre-flight lighting/camera calibration, live focus dials, and AI session summaries.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3>📝 Verbatim Exam Room</h3>
+      <ul>
+        <li><b>Past-Paper Ingestion:</b> Extracts full exams preserving question numbering, diagrams, and options.</li>
+        <li><b>Server-Side MCQ Evaluation:</b> Instant deterministic auto-grading matching QuizViewer semantics.</li>
+        <li><b>AI Essay Judge:</b> Multi-criteria evaluation against hidden reference keys revealed only after submission.</li>
+        <li><b>XP & Rewards:</b> Automatic mastery updates, streak tracking, and XP awards.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>👨‍👩‍👧 Passcode-Gated Parent Portal</h3>
+      <ul>
+        <li><b>PBKDF2 PIN Gate:</b> Rate-limited lockout protection with 15-minute access JWTs and 7-day refresh.</li>
+        <li><b>Encrypted Incident Vault:</b> <code>GURUVAULT02</code> envelope (random key wrapped with PBKDF2-600k HMAC verification).</li>
+        <li><b>Zero-Config Tunnels:</b> Built-in Cloudflared / ngrok watchdog for secure remote access without port forwarding.</li>
+        <li><b>Telegram Bot Dispatch:</b> Outbound queue with exponential retry backoff (30s &times; 2<sup>n</sup>, cap 600s, max 8 tries).</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🎓 Complete Tutor Core (DeepTutor)</h3>
+      <ul>
+        <li><b>Multi-Agent Chat Loop:</b> Grounded tool execution, web research, file attachments, and subagent delegation.</li>
+        <li><b>Living Book & Co-Writer:</b> Interactive interactive block compiler & selection-aware markdown drafting with visual diffs.</li>
+        <li><b>Multi-Engine RAG:</b> Hybrid knowledge indexing (LlamaIndex, PageIndex, GraphRAG, LightRAG, Obsidian).</li>
+        <li><b>Floating Assistant:</b> Draggable PiP bubble with text-selection chips, <code>Alt+Space</code> quick launch, and cross-tab sync.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-## Architecture
+---
+
+## 🏛️ System Architecture
 
 ```
-                +-------------------------------------------+
-                |        Next.js 16 (React 19) UI           |
-                |   Student workspace + Parent portal       |
-                +---------------------+---------------------+
-                                      | HTTP / WebSocket (cookie/JWT auth)
-                                      v
-+--------------------------------------------------------------------------+
-|                     AI GURU LOCAL RUNTIME (FastAPI :8001)                |
-|                                                                          |
-|  Tutor core (upstream DeepTutor):     AI Guru additions:                 |
-|    agents/  - chat/question/research/   services/monitoring/  CV glue    |
-|               visualize/math_animator   services/exams/       Exam Room  |
-|    capabilities/ - solve/mastery/...    services/gamification/ XP/badges |
-|    services/llm/factory - providers    services/remote/ tunnel+vault+JWT |
-|                                                                          |
-|  37 routers under /api/v1  |  WS auth before accept  |  health endpoint  |
-+------------------------------------+-------------------------------------+
-                                     v
-                    SQLite (per-user chat_history.db, WAL)
-                    versioned migrations applied at startup
-                                     ^
-      Browser-side CV (MediaPipe FaceLandmarker, throttled JPEG frames)
-      runs fully on-device - camera frames never leave the machine
++─────────────────────────────────────────────────────────────────────────────+
+│                           CLIENT BROWSER (UI & CV)                          │
+│                                                                             │
+│   Next.js 16 (React 19) App Router        MediaPipe FaceLandmarker (WASM)   │
+│   ├── Student Workspace (Study/Exam/Book)  ├── 468-Point Realtime Mesh       │
+│   ├── Floating Guru (Draggable / PiP)      ├── Head Pose & Gaze Estimation   │
+│   └── Parent Portal Dashboard              └── Study Action Whitelist Filter │
++──────────────────────────────────────┬──────────────────────────────────────+
+                                       │ HTTP / Secure WebSocket (JWT/Cookie)
+                                       v
++─────────────────────────────────────────────────────────────────────────────+
+│                    AI GURU LOCAL BACKEND ENGINE (FastAPI :8001)             │
+│                                                                             │
+│   Tutor Core (Upstream DeepTutor)           AI Guru Supercharged Services   │
+│   ├── AgentLoop & Reasoning Orchestrator   ├── services/monitoring/ (CV FSM)│
+│   ├── capabilities/ (Quiz, Solve, Math)    ├── services/exams/ (AI Grading) │
+│   ├── services/llm/ (Cloud / Ollama)       ├── services/gamification/ (XP)  │
+│   └── services/rag/ (GraphRAG / LightRAG)  └── services/remote/             │
+│                                                ├── Tunnel Gateway           │
+│                                                ├── Telegram Notification Q  │
+│                                                └── GURUVAULT02 Encrypted DB │
++──────────────────────────────────────┬──────────────────────────────────────+
+                                       │ aiosqlite (WAL Mode)
+                                       v
++─────────────────────────────────────────────────────────────────────────────+
+│                       LOCAL DATABASE (chat_history.db)                      │
+│                                                                             │
+│   11 Core Tables + Exam Registry • PRAGMA Foreign Keys • Schema Migrations  │
++─────────────────────────────────────────────────────────────────────────────+
 ```
 
-**Stack:** Python 3.11-3.13 · FastAPI + aiosqlite · Next.js 16 App Router · React 19 · TypeScript · Tailwind CSS · MediaPipe (vendored WASM, CDN fallback) · optional cloudflared/ngrok + Telegram Bot API.
+---
 
-## Quick Start
+## ⚡ Quick Start
 
-### Prerequisites
+### 📋 Prerequisites
 
-- **Python 3.11–3.13**
-- **Node.js 20+** (22 LTS recommended for development)
+| Requirement | Supported Versions | Notes |
+|:---|:---|:---|
+| **Python** | `3.11`, `3.12`, `3.13` | Tested on 3.12 (standard venv) |
+| **Node.js** | `20.x` or `22.x LTS` | Required for Next.js web application |
+| **Operating System** | Windows 10/11, macOS, Linux | PowerShell 5.1+ / bash / zsh |
 
-### From source
+---
+
+### 💻 Installation & Startup
+
+#### 1. Clone & Set Up Python Environment
 
 ```bash
+# Clone the repository
 git clone https://github.com/Javitha080/AI-Guru.git
 cd AI-Guru
 
-# Backend
+# Create & activate Python virtual environment
+# Windows (PowerShell):
 python -m venv .venv
-# Windows PowerShell:
-#   .\.venv\Scripts\Activate.ps1
-source .venv/bin/activate            # macOS / Linux
+.\.venv\Scripts\Activate.ps1
+
+# Linux / macOS:
+# python3 -m venv .venv
+# source .venv/bin/activate
+
+# Upgrade pip and install package in editable mode
 python -m pip install --upgrade pip
 python -m pip install -e .
+```
 
-# Frontend deps
-cd web && npm ci --legacy-peer-deps && cd ..
+#### 2. Install Frontend Dependencies
 
-# Configure once (ports + LLM provider), then run
-deeptutor init
+```bash
+cd web
+npm ci --legacy-peer-deps
+cd ..
+```
+
+#### 3. Launch AI Guru
+
+```bash
+# Start backend (8001) and frontend (3782) together:
 deeptutor start
+
+# Or in development mode with Next.js HMR:
+deeptutor start --dev
 ```
 
-Open **http://localhost:3782** (frontend). The FastAPI backend listens on
-**http://127.0.0.1:8001** (`/api/v1/health` for a status check, `/docs` for the API).
-Stop both with `Ctrl+C`. The first-run wizard appears when no model provider is
-configured yet.
+> 💡 **Windows Direct Launch:** You can also run `.venv\Scripts\python.exe -m deeptutor_cli.main start` directly from PowerShell.
 
-Development mode with hot reload:
+---
+
+### 🌐 Access Endpoints
+
+| Service | Address | Description |
+|:---|:---|:---|
+| **Student & Parent Web UI** | `http://localhost:3782` | Main unified Next.js web application |
+| **Backend REST API** | `http://127.0.0.1:8001` | FastAPI local server |
+| **Interactive API Docs** | `http://127.0.0.1:8001/docs` | Swagger UI documentation |
+| **System Health Check** | `http://127.0.0.1:8001/api/v1/health` | Service status JSON payload |
+
+---
+
+### 🐳 Docker Container Deployment
+
+AI Guru is fully containerized. Run the official image with a single port exposed (the frontend internally proxies API and WebSocket requests):
 
 ```bash
-deeptutor start --dev                 # Next.js HMR instead of a production build
-```
-
-Windows shortcut used during development of this repo:
-
-```powershell
-.venv\Scripts\python.exe -m deeptutor_cli.main start
-```
-
-### Docker
-
-```bash
-docker run --rm --name ai-guru \
+docker run -d \
+  --name ai-guru \
   -p 127.0.0.1:3782:3782 \
-  -v aiguru-data:/app/data \
+  -v aiguru_data:/app/data \
+  --restart unless-stopped \
   ghcr.io/hkuds/deeptutor:latest
 ```
 
-Only port `3782` needs publishing — the frontend proxies `/api/*` and `/ws/*`
-to the backend internally. See [CONTAINERIZATION.md](CONTAINERIZATION.md) for
-Compose, rootless Podman, and split deployments.
+*For multi-container setups, GPU pass-through, or rootless Podman, see [CONTAINERIZATION.md](CONTAINERIZATION.md).*
 
-### Configuration
+---
 
-Runtime settings live in plain JSON under `data/user/settings/` (edit via the web
-Settings page). Project-root `.env` files are intentionally ignored as app config.
+## 🖼️ Web Interface & Visuals
 
-| File | Purpose |
-|:---|:---|
-| `model_catalog.json` | LLM / embedding / search provider profiles, API keys, active models |
-| `system.json` | Ports, public API base, CORS, LAN-access flag (`lan_access_enabled`) |
-| `auth.json` | Optional multi-user auth toggle and credentials |
-| `interface.json` | Theme, language, UI preferences |
-| `main.yaml` / `agents.yaml` | Runtime behavior and capability parameters |
+<div align="center">
 
-## Project Layout
+| 📚 Interactive Knowledge & RAG | 💬 Multi-Agent Chat & Reasoning |
+|:---:|:---:|
+| <img src="assets/figs/webui/knowledge.png" width="400" alt="Knowledge Base"/> | <img src="assets/figs/webui/chat.png" width="400" alt="Chat Assistant"/> |
+
+| ✍️ Co-Writer & Living Book | 🧠 Traceable Memory Graph |
+|:---:|:---:|
+| <img src="assets/figs/webui/cowriter.png" width="400" alt="Co-Writer"/> | <img src="assets/figs/webui/memory02.png" width="400" alt="Memory Graph"/> |
+
+</div>
+
+---
+
+## ⚙️ Configuration
+
+Runtime settings are persisted as formatted JSON inside `data/user/settings/` (editable via the web Settings UI or directly):
 
 ```
-deeptutor/                  Python package (internal namespace kept from upstream)
-  api/routers/              37 routers mounted at /api/v1 (parent.py, monitoring.py, exams.py, ...)
-  agents/                   tutor-core pipelines (chat AgentLoop, question, research, ...)
-  capabilities/             LoopCapabilities (solve, mastery, obsidian, subagent, ...)
-  services/
-    monitoring/             CV dispatch, presence FSM, warning gates, Telegram outbox
-    exams/                  paper extraction engine + exam store
-    gamification/           XP, badges, streaks over rewards/study_sessions
-    remote/                 JWT auth, tunnel gateway, encrypted video vault
-    database/migrations.py  versioned SQLite schema migrations
-deeptutor_cli/              CLI entry point (deeptutor start/init/chat/...)
-web/                        Next.js 16 frontend
-  app/(workspace)/          home, study-room, exam, parent, achievements, book, co-writer...
-  components/monitoring/    camera preview, HUD, frame sampler, CV worker
-  lib/monitoring/           visionPipeline.ts (MediaPipe FaceLandmarker, vendored WASM)
-  lib/parent/               parent-api.ts (Bearer attach + auto token refresh)
-tests/                      pytest suites incl. e2e tiers + adversarial CV tests
-docs/                       AI Guru documentation set (see below)
+data/user/settings/
+├── model_catalog.json    # Provider API keys, endpoint URLs & active LLM/embeddings
+├── system.json           # Host ports, CORS rules, and LAN-access toggle (lan_access_enabled)
+├── auth.json             # Multi-user login switches and access privileges
+└── interface.json        # Theme options, dark mode, locale, and floating bubble preferences
 ```
 
-## Documentation
+### 🤖 LLM & Provider Support
 
-| Document | Contents |
+AI Guru supports standard OpenAI-compatible endpoints, Anthropic Claude, Google Gemini, DeepSeek, Groq, Mistral, and **Local Ollama** models.
+
+```json
+// Example: data/user/settings/model_catalog.json
+{
+  "active_chat_provider": "ollama",
+  "providers": {
+    "ollama": {
+      "base_url": "http://localhost:11434/v1",
+      "model": "llama3.2:latest"
+    }
+  }
+}
+```
+
+---
+
+## 📁 Repository Structure
+
+```
+AI-Guru/
+├── deeptutor/                  # Core Python backend package (FastAPI)
+│   ├── agents/                 # Agent loop, question solver, research, math animator
+│   ├── api/routers/            # 37 REST API routers (parent.py, monitoring.py, exams.py, ...)
+│   ├── capabilities/           # Capabilities: Quiz, Solve, Mastery, Obsidian
+│   ├── services/
+│   │   ├── monitoring/         # CV presence FSM, warning rate-limiter, Telegram outbox
+│   │   ├── exams/              # Past-paper extractor, MCQ & AI essay judging engine
+│   │   ├── gamification/       # XP calculation, badges, streak tracking
+│   │   ├── remote/             # PBKDF2 PIN auth, tunnel manager, GURUVAULT02 vault
+│   │   └── database/           # Versioned SQLite migrations (001, 002)
+│   └── runtime/                # Orchestration engine & loop dispatchers
+├── deeptutor_cli/              # CLI executable (`deeptutor start`, `init`, `chat`)
+├── web/                        # Modern Next.js 16 + React 19 Frontend
+│   ├── app/(workspace)/        # Routes: home, study-room, exam, parent, book, co-writer
+│   ├── components/floating/    # FloatingGuru assistant (bubble, PiP, Alt+Space)
+│   ├── components/monitoring/  # Real-time camera preview, HUD gauges, calibration
+│   └── lib/monitoring/         # Browser-side MediaPipe WASM vision pipeline
+├── tests/                      # Pytest verification suites (e2e, CV adversarial, security)
+├── docs/                       # Comprehensive documentation library
+└── assets/                     # Logos, architecture schematics, and screenshots
+```
+
+---
+
+## 📚 Documentation Hub
+
+Explore in-depth documentation in the [`docs/`](docs/) directory:
+
+| Document | Description |
 |:---|:---|
-| [AI-GURU-CODEBASE-MAP.md](docs/AI-GURU-CODEBASE-MAP.md) | Full router/service/page inventory and data flows |
-| [AI-GURU-RUN-GUIDE.md](docs/AI-GURU-RUN-GUIDE.md) | Run, deploy, Docker, and troubleshooting |
-| [AI-GURU-PARENT-ACCESS.md](docs/AI-GURU-PARENT-ACCESS.md) | Non-technical parent portal setup guide |
-| [AI-GURU-SECURITY.md](docs/AI-GURU-SECURITY.md) | Privacy architecture and threat model |
-| [AI-GURU-AI-MODELS.md](docs/AI-GURU-AI-MODELS.md) | Provider configuration, Ollama setup, fallback chain |
-| [AI-GURU-TROUBLESHOOTING.md](docs/AI-GURU-TROUBLESHOOTING.md) | Common issues and fixes |
-| [AI-GURU-ARCHITECTURE-AUDIT.md](docs/AI-GURU-ARCHITECTURE-AUDIT.md) / [AI-GURU-IMPLEMENTATION-PLAN.md](docs/AI-GURU-IMPLEMENTATION-PLAN.md) | Design audit and phased build plan |
+| 🗺️ [AI-GURU-CODEBASE-MAP.md](docs/AI-GURU-CODEBASE-MAP.md) | Comprehensive router, service, database schema, and component inventory |
+| 🚀 [AI-GURU-RUN-GUIDE.md](docs/AI-GURU-RUN-GUIDE.md) | In-depth deployment, local setup, Docker, and system troubleshooting |
+| 🛡️ [AI-GURU-PARENT-ACCESS.md](docs/AI-GURU-PARENT-ACCESS.md) | Parent Portal setup guide, PIN configuration, and remote tunnel pairing |
+| 🔒 [AI-GURU-SECURITY.md](docs/AI-GURU-SECURITY.md) | Threat model, zero-knowledge vault, PBKDF2 parameters, and audit logging |
+| 🧠 [AI-GURU-HOW-AI-IS-USED.md](docs/AI-GURU-HOW-AI-IS-USED.md) | Deep dive into multi-agent loops, reasoning chains, and AI essay scoring |
+| 🤖 [AI-GURU-AI-MODELS.md](docs/AI-GURU-AI-MODELS.md) | Model provider setup (OpenAI, Gemini, Anthropic, Ollama, DeepSeek) |
+| 🔧 [AI-GURU-TROUBLESHOOTING.md](docs/AI-GURU-TROUBLESHOOTING.md) | Quick diagnostics for ports, camera permissions, and database sync |
 
-## Testing
+---
+
+## 🧪 Test Suite
+
+AI Guru maintains a rigorous automated testing battery covering backend APIs, CV pipeline edge cases, encryption security, and frontend type integrity.
 
 ```bash
-# Backend battery (e2e tiers, monitoring, adversarial CV, remote security, smoke)
-.venv\Scripts\python.exe -m pytest tests/e2e tests/test_study_monitoring.py \
-  tests/test_study_monitoring_stress.py tests/test_cv_adversarial.py \
-  tests/services/test_remote_security.py tests/test_fresh_install_smoke.py -q
+# 1. Run Python Backend Test Suite (93+ tests)
+.venv\Scripts\python.exe -m pytest \
+  tests/e2e \
+  tests/test_study_monitoring.py \
+  tests/test_study_monitoring_stress.py \
+  tests/test_cv_adversarial.py \
+  tests/services/test_remote_security.py \
+  tests/test_fresh_install_smoke.py -q
 
-# Frontend typecheck + node tests
-cd web && npx tsc --noEmit && npm run test:node
+# 2. Run Frontend TypeCheck & Node Tests (396+ tests)
+cd web
+npx tsc --noEmit
+npm run test:node
+cd ..
 ```
 
-## Privacy & Security
+---
 
-- Camera frames, face landmarks, and embeddings are processed **in the browser only**;
-  no biometric data is ever transmitted or stored outside your machine.
-- All records persist in a local SQLite file; nothing is synced to any cloud service.
-- The backend binds to `127.0.0.1` by default; LAN exposure requires an explicit
-  settings toggle.
-- Parent Portal access is gated behind a PBKDF2-hardened passcode with lockout,
-  short-lived JWTs, device revocation, and full audit logging of logins and live views.
-- Incident media lives in an encrypted vault whose keys are wrapped by the parent PIN;
-  legacy plaintext fallbacks have been removed.
+## 🔒 Privacy & Zero-Trust Security
 
-## Credits & License
+- 🚫 **No Cloud Biometrics:** MediaPipe FaceLandmarker runs strictly inside the user's browser sandbox. No camera frames or face meshes are transmitted across the network or saved unencrypted.
+- 🔐 **Encrypted Incident Vault:** Monitoring flags and snapshots are encrypted with the `GURUVAULT02` scheme using a per-item key derived with PBKDF2 (600,000 rounds) from the parent PIN.
+- 🛑 **Rate-Limited PIN Gate:** Parent portal implements progressive lockout backoffs to prevent brute-force attacks.
+- 📡 **Loopback by Default:** Backend binds strictly to `127.0.0.1`. Network exposure is disabled unless explicitly enabled via `lan_access_enabled`.
+- 📝 **Cryptographic Audit Logs:** All parent authentications, live video streams, and vault unlocks generate tamper-evident audit records.
 
-Built on [DeepTutor](https://github.com/HKUDS/DeepTutor) v1.5.11 by HKUDS
-(the upstream tutor core, agents, and capabilities are used unchanged — see their
-[repo](https://github.com/HKUDS/DeepTutor) and
-[paper](https://arxiv.org/abs/2604.26962)). AI Guru additions (study monitoring,
-Exam Room, Parent Portal, vault, tunnel, gamification wiring) are original work in
-this repository.
+---
 
-Licensed under [Apache License 2.0](LICENSE).
+## 🤝 Credits & Acknowledgements
+
+AI Guru is built on top of [DeepTutor](https://github.com/HKUDS/DeepTutor) v1.5.11 by **HKUDS**.
+- **DeepTutor Core:** Agent loops, RAG architectures, knowledge compilers, and living book features are preserved from upstream DeepTutor ([Paper](https://arxiv.org/abs/2604.26962)).
+- **AI Guru Additions:** On-device computer vision study monitoring, verbatim past-paper Exam Room, PIN-gated Parent Portal, encrypted vault, zero-config tunnels, and gamification pipeline are developed in this repository.
+
+---
+
+<div align="center">
+
+### 📄 License
+
+AI Guru is licensed under the **[Apache License 2.0](LICENSE)**.
+
+<br/>
+
+**Built with ❤️ for focused, private, and empowered learning.**
+
+</div>
