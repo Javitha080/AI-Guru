@@ -1,0 +1,34 @@
+/* ─── Motion tokens ──────────────────────────────────────────────────────
+   Durations and easings the rest of the design system already refers to.
+
+   glass-surfaces.css guards every use with an inline fallback
+   (`var(--duration-fast, 250ms)`), but a few rules do not — most visibly
+   `.dt-tooltip-content`, whose `animation` shorthand resolves to an invalid
+   value while `--duration-quick` / `--ease-out` are undefined, so the
+   tooltip fade never plays. Declaring them once at :root fixes those rules
+   and gives CSS and the GSAP hooks a single source of truth.
+
+   Imported after globals.css and before glass-surfaces.css in app/layout.tsx.
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Durations
+     quick  → state flips (press, toggle, checkbox)
+     fast   → hover, focus rings, chips, buttons
+     medium → cards, bento cells, layout shifts
+     slow   → page-level and hero entrances */
+  --duration-quick: 150ms;
+  --duration-fast: 250ms;
+  --duration-medium: 350ms;
+  --duration-slow: 550ms;
+
+  /* Easings
+     `--ease-smooth-out` is the house curve and matches GSAP's power3.out,
+     so a CSS transition and a GSAP tween on the same element stay in step.
+     `--ease-spring` overshoots slightly — use it for playful, non-critical
+     motion only (never for anything the user is waiting on). */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+}

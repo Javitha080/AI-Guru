@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Urbanist, Onest } from "next/font/google";
 import "./globals.css";
+import "./motion-tokens.css";
 import "./glass-surfaces.css";
 import ThemeScript from "@/components/ThemeScript";
 import ToastViewport from "@/components/common/ToastViewport";
