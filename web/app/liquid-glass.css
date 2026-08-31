@@ -1,0 +1,245 @@
+/* ─── Liquid Glass ────────────────────────────────────────────────────────
+   A refractive surface tier that sits one step above `.surface-glass-*`.
+
+   `backdrop-filter: blur()` on its own reads as frosted paper. Real glass
+   needs four stacked layers:
+
+     1. frost      — backdrop blur + saturation lift
+     2. rim        — 1px gradient border via mask-composite (specular edge)
+     3. thickness  — inset highlight + outer drop shadow
+     4. refraction — SVG feDisplacementMap applied to the backdrop
+
+   Layer 4 is progressive enhancement. It is declared as a *second*
+   `backdrop-filter` on `.liquid-glass--refract`, so a browser that rejects
+   `url()` inside backdrop-filter simply drops that declaration and keeps
+   the plain frost from `.liquid-glass`. It is also gated behind a desktop
+   media query so low-end mobile GPUs never pay for it.
+
+   The cursor spotlight consumes `--glare-x` / `--glare-y`, which
+   `useMagneticTilt` (lib/motion/useGsapReveal.ts) already writes — no extra
+   JS is required to drive it.
+
+   IMPORTANT: nothing here animates `transform`. GSAP owns transform on
+   these cards (tilt / reveal); a competing CSS transition would fight it.
+
+   Requires <LiquidGlassDefs /> to be mounted once (see app/layout.tsx) for
+   the `#lg-refraction` filter to resolve.
+
+   Do not combine `.liquid-glass` with `.liquid-sheen` — both own ::before.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* ─── Tokens — dark (default) ─── */
+:root,
+.dark {
+  --lg-blur: 20px;
+  --lg-blur-strong: 28px;
+  --lg-saturate: 180%;
+
+  --lg-tint: rgba(16, 21, 30, 0.55);
+  --lg-tint-strong: rgba(18, 24, 34, 0.72);
+
+  /* Specular rim: bright at the light source (top-left), warm ember on the
+     opposite face, so the edge reads as a lit bevel rather than a stroke. */
+  --lg-rim: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.06) 34%,
+    rgba(224, 109, 68, 0.32) 64%,
+    rgba(255, 255, 255, 0.38) 100%
+  );
+
+  /* Thickness: a top inset highlight plus a bottom inset shade. This is the
+     cheap trick that makes a panel read as a slab with depth. */
+  --lg-inner:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.38);
+  --lg-drop: 0 18px 50px rgba(0, 0, 0, 0.55);
+  --lg-drop-hover: 0 24px 64px rgba(0, 0, 0, 0.62);
+
+  --lg-spotlight: rgba(255, 255, 255, 0.14);
+}
+
+/* ─── Tokens — light porcelain ─── */
+.theme-light {
+  --lg-blur: 16px;
+  --lg-blur-strong: 22px;
+  --lg-saturate: 150%;
+
+  --lg-tint: rgba(255, 255, 255, 0.58);
+  --lg-tint-strong: rgba(255, 255, 255, 0.80);
+
+  --lg-rim: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.45) 36%,
+    rgba(200, 97, 60, 0.26) 66%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+
+  --lg-inner:
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 0 -1px 0 rgba(28, 31, 38, 0.06);
+  --lg-drop: 0 12px 40px rgba(28, 31, 38, 0.10);
+  --lg-drop-hover: 0 18px 52px rgba(28, 31, 38, 0.14);
+
+  --lg-spotlight: rgba(255, 255, 255, 0.55);
+}
+
+/* ─── Layer 1 + 3: frost, tint, thickness ─── */
+.liquid-glass {
+  position: relative;
+  /* Contains the rim/spotlight pseudo-layers' stacking so they can never
+     paint over sibling cards. */
+  isolation: isolate;
+  border: 0;
+  border-radius: 1.25rem;
+  background: var(--lg-tint);
+  backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+  box-shadow: var(--lg-inner), var(--lg-drop);
+}
+
+.liquid-glass--strong {
+  background: var(--lg-tint-strong);
+  backdrop-filter: blur(var(--lg-blur-strong)) saturate(var(--lg-saturate));
+  -webkit-backdrop-filter: blur(var(--lg-blur-strong)) saturate(var(--lg-saturate));
+}
+
+/* ─── Layer 2: specular rim ───
+   A 1px gradient border. `mask-composite` punches the middle out of a
+   padding-box/border-box mask pair, leaving only the hairline — which a
+   plain `border-image` cannot do while also following `border-radius`. */
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 1px;
+  border-radius: inherit;
+  background: var(--lg-rim);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Layer 4: refraction (desktop-only progressive enhancement) ───
+   Chromium accepts an SVG filter reference inside backdrop-filter, which
+   displaces the *backdrop* and gives real edge distortion. Browsers that
+   reject it discard this declaration and inherit the frost above.
+   -webkit- stays url()-free so Safari keeps its blur. */
+@media (min-width: 1024px) {
+  .liquid-glass--refract {
+    backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate))
+      url("#lg-refraction");
+  }
+
+  .liquid-glass--refract.liquid-glass--strong {
+    backdrop-filter: blur(var(--lg-blur-strong)) saturate(var(--lg-saturate))
+      url("#lg-refraction");
+  }
+}
+
+/* ─── Cursor-tracked spotlight ───
+   Reads the vars written by useMagneticTilt. Falls back to a centred
+   highlight when the pointer has never entered (or on touch). */
+.liquid-glass--spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-medium) var(--ease-smooth-out);
+  background: radial-gradient(
+    420px circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    var(--lg-spotlight),
+    transparent 62%
+  );
+}
+
+.liquid-glass--spotlight:hover::after,
+.liquid-glass--spotlight:focus-within::after {
+  opacity: 1;
+}
+
+/* ─── Interactive states ───
+   Shadow and rim only — transform is GSAP's. */
+.liquid-glass--interactive {
+  transition:
+    box-shadow var(--duration-medium) var(--ease-smooth-out),
+    background-color var(--duration-medium) var(--ease-smooth-out);
+}
+
+.liquid-glass--interactive:hover {
+  background: var(--lg-tint-strong);
+  box-shadow:
+    var(--lg-inner),
+    var(--lg-drop-hover),
+    0 0 34px var(--glow-primary);
+}
+
+/* Keyboard users get the same affordance as the pointer hover. */
+.liquid-glass--interactive:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* ─── Ember hairline (matches .bento-cell::before, usable standalone) ─── */
+.liquid-glass--ember-line > .lg-ember-line {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--ember-line), transparent);
+  opacity: 0.55;
+}
+
+/* ─── Fallback: no backdrop-filter (e.g. Firefox with the pref off) ───
+   Without this, transparent tint over a busy canvas gradient makes body
+   text fail contrast. */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .liquid-glass,
+  .liquid-glass--strong {
+    background: var(--card);
+  }
+}
+
+/* ─── Reduced transparency: solid surfaces, no blur, no glare ─── */
+@media (prefers-reduced-transparency: reduce) {
+  .liquid-glass,
+  .liquid-glass--strong,
+  .liquid-glass--refract {
+    background: var(--card);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .liquid-glass--spotlight::after {
+    display: none;
+  }
+
+  .liquid-glass--interactive:hover {
+    background: var(--card);
+  }
+}
+
+/* ─── Reduced motion: keep the surface, drop the moving light ─── */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass--spotlight::after {
+    display: none;
+  }
+
+  .liquid-glass--interactive {
+    transition: none;
+  }
+}
