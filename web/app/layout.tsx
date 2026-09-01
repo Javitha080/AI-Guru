@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Urbanist, Onest } from "next/font/google";
 import "./globals.css";
+import "./motion-tokens.css";
 import "./glass-surfaces.css";
+import "./liquid-glass.css";
 import ThemeScript from "@/components/ThemeScript";
 import ToastViewport from "@/components/common/ToastViewport";
 import CommandPalette from "@/components/common/CommandPalette";
+import LiquidGlassDefs from "@/components/ui/LiquidGlassDefs";
 import { AppShellProvider } from "@/context/AppShellContext";
 import { I18nClientBridge } from "@/i18n/I18nClientBridge";
 
@@ -55,6 +58,8 @@ export default function RootLayout({
         className="font-body bg-[var(--background)] text-[var(--foreground)]"
         suppressHydrationWarning
       >
+        {/* SVG filter defs for the liquid-glass tier. Renders nothing. */}
+        <LiquidGlassDefs />
         <AppShellProvider>
           <I18nClientBridge>{children}</I18nClientBridge>
           <ToastViewport />
