@@ -22,6 +22,13 @@ interface UseStudyTelemetryOptions {
   sessionId: string | null;
   isActive: boolean;
   liveViewEnabled: boolean;
+  /**
+   * Pauses MONITORING, not just the timer: stops the browser vision loop and
+   * tells the system engine to release the camera. Without this, a legitimate
+   * break still ran the camera, tripped AWAY/Distraction alerts and sent the
+   * parent a "child left" notification.
+   */
+  isPaused?: boolean;
   onNotice?: (notice: { kind: "error" | "warn"; text: string } | null) => void;
 }
 
@@ -29,6 +36,7 @@ export function useStudyTelemetry({
   sessionId,
   isActive,
   liveViewEnabled,
+  isPaused,
   onNotice,
 }: UseStudyTelemetryOptions) {
   const [focusScore, setFocusScore] = useState<number | null>(null);
@@ -58,6 +66,11 @@ export function useStudyTelemetry({
 
   const liveViewRef = useRef(liveViewEnabled);
   liveViewRef.current = liveViewEnabled;
+
+  // Latest pause state for async startup paths (pipeline/socket may finish
+  // starting AFTER the pause effect ran).
+  const isPausedRef = useRef<boolean>(Boolean(isPaused));
+  isPausedRef.current = Boolean(isPaused);
 
   // Shared telemetry message handler for both system and browser paths
   const applyRemote = useCallback(
@@ -93,6 +106,20 @@ export function useStudyTelemetry({
     [pushWarning]
   );
 
+  // C4: propagating pause/resume to BOTH engines. The backend WS already
+  // supported pause/resume (monitor.paused releases the camera) and the
+  // browser pipeline had setPaused() — neither was ever called.
+  useEffect(() => {
+    if (!isActive) return;
+    const socket = socketRef.current;
+    const pipeline = pipelineRef.current;
+    if (socket) {
+      if (isPaused) socket.sendPause();
+      else socket.sendResume();
+    }
+    if (pipeline) pipeline.setPaused(Boolean(isPaused));
+  }, [isActive, isPaused, monitorMode]);
+
   // 2a. System mode: backend webcam + MJPEG feed + WS telemetry
   useEffect(() => {
     if (!isActive || monitorMode !== "system" || !sessionId) return;
@@ -112,6 +139,8 @@ export function useStudyTelemetry({
       });
       socketRef.current = socket;
       socket.start();
+      // The session may already be paused (startup raced the pause effect).
+      if (isPausedRef.current) socket.sendPause();
     })();
 
     return () => {
@@ -177,6 +206,8 @@ export function useStudyTelemetry({
         pipelineRefLocal.current = pipeline;
         pipelineRef.current = pipeline;
         await pipeline.start();
+        // start() resets paused=false — re-apply the current pause state.
+        if (isPausedRef.current) pipeline.setPaused(true);
       } catch (err) {
         console.warn("Monitoring unavailable:", err);
         setWsConnected(false);

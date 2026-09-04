@@ -18,6 +18,8 @@ import enum
 import logging
 from typing import List, Optional
 
+from deeptutor.services.monitoring.monitoring_config import DEFAULT_THRESHOLDS
+
 logger = logging.getLogger(__name__)
 
 
@@ -56,10 +58,13 @@ class PresenceStateMachine:
     Temporal hysteresis state machine for student presence tracking.
     """
 
-    DEFAULT_TEMP_ABSENT_THRESHOLD: float = 5.0  # Seconds absent before TEMPORARILY_NOT_VISIBLE
-    DEFAULT_AWAY_THRESHOLD: float = 20.0  # Seconds absent before AWAY
+    # Defaults mirror monitoring_config.DEFAULT_THRESHOLDS (single source of truth).
+    DEFAULT_TEMP_ABSENT_THRESHOLD: float = (
+        DEFAULT_THRESHOLDS.temp_absent_seconds
+    )  # Seconds absent before TEMPORARILY_NOT_VISIBLE
+    DEFAULT_AWAY_THRESHOLD: float = DEFAULT_THRESHOLDS.away_seconds  # Seconds absent before AWAY
     MIN_LUMINANCE_THRESHOLD: float = (
-        20.0  # Luminance (0-255 scale) or 0.08 (0-1) below which is UNKNOWN
+        DEFAULT_THRESHOLDS.min_luminance  # Luminance (0-255 scale) or 0.08 (0-1) below which is UNKNOWN
     )
 
     def __init__(

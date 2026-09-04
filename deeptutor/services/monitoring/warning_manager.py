@@ -22,6 +22,7 @@ from deeptutor.services.monitoring.distraction_analyzer import (
     DistractionAnalysisResult,
     DistractionType,
 )
+from deeptutor.services.monitoring.monitoring_config import DEFAULT_THRESHOLDS
 from deeptutor.services.monitoring.warning_gates import EpisodeGate, RateLimiter
 
 logger = logging.getLogger(__name__)
@@ -46,16 +47,21 @@ class WarningManager:
     Manages alert throttling, confidence gating, and category cooldowns.
     """
 
-    DEFAULT_COOLDOWN_SECONDS: float = 60.0
-    MIN_CONFIDENCE_THRESHOLD: float = 0.80
-    MAX_ALERTS_PER_WINDOW: int = 5
-    WINDOW_SECONDS: float = 600.0  # 10 minutes
+    DEFAULT_COOLDOWN_SECONDS: float = DEFAULT_THRESHOLDS.warn_cooldown_seconds
+    MIN_CONFIDENCE_THRESHOLD: float = DEFAULT_THRESHOLDS.warn_min_confidence
+    MAX_ALERTS_PER_WINDOW: int = DEFAULT_THRESHOLDS.warn_max_per_window
+    WINDOW_SECONDS: float = DEFAULT_THRESHOLDS.warn_window_seconds
 
     # Tier-1 "nudge" gate: gentle in-app prompt early in a distraction episode,
     # BEFORE the real warning tier fires at 7-10s. Never sent to parents.
-    NUDGE_COOLDOWN_SECONDS: float = 40.0
-    NUDGE_MIN_DURATION: float = 3.0
-    NUDGE_MAX_DURATION: float = 6.0
+    NUDGE_COOLDOWN_SECONDS: float = DEFAULT_THRESHOLDS.nudge_cooldown_seconds
+    NUDGE_MIN_DURATION: float = DEFAULT_THRESHOLDS.nudge_min_seconds
+    NUDGE_MAX_DURATION: float = DEFAULT_THRESHOLDS.nudge_max_seconds
+    # Nudges carry their OWN (lower) confidence gate: pending distractions are
+    # emitted at confidence 0.80, so a strictness profile with min_confidence
+    # 0.85 ("gentle") silently disabled EVERY nudge when it reused the main
+    # warning gate.
+    NUDGE_MIN_CONFIDENCE: float = DEFAULT_THRESHOLDS.nudge_min_confidence
     NUDGE_TYPES = frozenset(
         {
             DistractionType.LOOKING_AWAY,
@@ -204,9 +210,11 @@ class WarningManager:
         [3s, 6s) window — before the real warning tier escalates at 7-10s.
         Accepts both flagged distractions and BUILDING ones (pre-threshold
         ``pending_distraction_type``), which is what makes an early nudge
-        possible at all. Subject to the same confidence gate and a 40s
-        per-category cooldown. Never consumes the main warning gates; skipped
-        entirely when the episode already escalated (episode gate below).
+        possible at all. Gated by NUDGE_MIN_CONFIDENCE (NOT the parent-profile
+        warning gate, whose 0.85 "gentle" setting used to silently disable all
+        nudges) and a 40s per-category cooldown. Never consumes the main
+        warning gates; skipped entirely when the episode already escalated
+        (episode gate below).
         """
         dtype = distraction.distraction_type
         if dtype == DistractionType.NONE or not distraction.is_distracted:
@@ -217,7 +225,7 @@ class WarningManager:
         duration = float(distraction.duration_seconds)
         if not (self.NUDGE_MIN_DURATION <= duration < self.NUDGE_MAX_DURATION):
             return None
-        if distraction.confidence < self.min_confidence:
+        if distraction.confidence < self.NUDGE_MIN_CONFIDENCE:
             return None
 
         category = dtype.value

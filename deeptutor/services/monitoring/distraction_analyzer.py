@@ -2,31 +2,32 @@
 AI Guru Distraction Analyzer with False-Positive Whitelist Filter.
 ==================================================================
 
-Detects study distractions while strictly whitelisting valid study behaviors:
-- Whitelisted (NO alert, Focus = 100%):
-  * Reading downwards in textbook
-  * Writing and taking notes
-  * Turning book pages
-  * Drinking water / beverage
-  * Normal posture shifts and stretches
-- Flagged Distractions:
-  * Prolonged looking away (> 10s)
-  * Smartphone / device interaction (> 3-5s)
-  * Leaving desk (AWAY state)
-  * Face identity mismatch
-  * Drowsiness / sleeping (eyes closed > 4s)
+Detects study distractions while strictly whitelisting valid study behaviors.
+
+Priority order (hard signals BEFORE the whitelist — a phone on the desk IS
+the reading pose, an impostor looking down must never be whitelisted, and a
+student asleep face-down classifies as READING_DOWNWARDS):
+
+1. AWAY (student absent)
+2. PHONE_DETECTED   (smartphone visible > 4s)
+3. IDENTITY_MISMATCH (face != enrolled student > 15s)
+4. DROWSINESS       (PERCLOS > 15% / eyes closed > 2.5s / yawn > 2s)
+5. Whitelist: reading downwards, writing, page turns, drinking, stretches
+6. LOOKING_AWAY     (> 10s)
 
 Guarantees 100% local execution.
 """
 
 from __future__ import annotations
 
+import collections
 from dataclasses import dataclass
 import enum
 import logging
-from typing import Dict, Optional
+from typing import Deque, Dict, List, Optional, Tuple
 
 from deeptutor.services.monitoring.liveness_detector import LivenessResult
+from deeptutor.services.monitoring.monitoring_config import DEFAULT_THRESHOLDS
 from deeptutor.services.monitoring.pose_gaze import GazeResult, HeadPoseResult
 from deeptutor.services.monitoring.presence_state_machine import PresenceState
 
@@ -72,25 +73,47 @@ class DistractionAnalyzer:
     Distraction detection engine with rigorous false-positive study gesture filter.
     """
 
-    # Time thresholds for flagging distractions (seconds)
-    LOOKING_AWAY_THRESHOLD: float = 10.0
-    PHONE_DETECTED_THRESHOLD: float = 4.0
-    IDENTITY_MISMATCH_THRESHOLD: float = 15.0
-    DROWSINESS_THRESHOLD: float = 4.0
+    # Time thresholds for flagging distractions (seconds) — defaults mirror
+    # monitoring_config.DEFAULT_THRESHOLDS (single source of truth).
+    LOOKING_AWAY_THRESHOLD: float = DEFAULT_THRESHOLDS.looking_away_seconds
+    PHONE_DETECTED_THRESHOLD: float = DEFAULT_THRESHOLDS.phone_seconds
+    IDENTITY_MISMATCH_THRESHOLD: float = DEFAULT_THRESHOLDS.identity_mismatch_seconds
+    DROWSINESS_THRESHOLD: float = DEFAULT_THRESHOLDS.drowsiness_seconds
 
     # Whitelist duration tolerances
-    MAX_DRINKING_DURATION: float = 6.0
-    MAX_PAGE_TURN_DURATION: float = 4.0
-    MAX_POSTURE_SHIFT_DURATION: float = 4.0
+    MAX_DRINKING_DURATION: float = DEFAULT_THRESHOLDS.max_drinking_seconds
+    MAX_PAGE_TURN_DURATION: float = DEFAULT_THRESHOLDS.max_page_turn_seconds
+    MAX_POSTURE_SHIFT_DURATION: float = DEFAULT_THRESHOLDS.max_posture_shift_seconds
 
     # Continuous (quadratic) focus normalization angles — focus degrades
     # smoothly as the head drifts instead of dropping off a binary cliff.
     # Inside the neutral band (natural seated micro-movement) focus stays 100.
-    YAW_FULL_RANGE: float = 45.0
-    PITCH_FULL_RANGE: float = 35.0
-    YAW_NEUTRAL_BAND: float = 12.0
-    PITCH_NEUTRAL_BAND: float = 10.0
-    MIN_GAZE_FACTOR: float = 0.35
+    YAW_FULL_RANGE: float = DEFAULT_THRESHOLDS.yaw_full_range
+    PITCH_FULL_RANGE: float = DEFAULT_THRESHOLDS.pitch_full_range
+    YAW_NEUTRAL_BAND: float = DEFAULT_THRESHOLDS.yaw_neutral_band
+    PITCH_NEUTRAL_BAND: float = DEFAULT_THRESHOLDS.pitch_neutral_band
+    MIN_GAZE_FACTOR: float = DEFAULT_THRESHOLDS.min_gaze_factor
+    YAW_AWAY_DEG: float = DEFAULT_THRESHOLDS.yaw_away_deg
+    PITCH_UP_DEG: float = DEFAULT_THRESHOLDS.pitch_up_deg
+
+    # --- PERCLOS drowsiness (replaces the fixed EAR<0.18 rule) -----------
+    # PERCLOS: fraction of eye-closed samples over a sliding window. A
+    # reader's spontaneous blinks contribute ~3-6%; drowsy hovering near
+    # ~15%+; sustained closure is the immediate cue.
+    PERCLOS_WINDOW_S: float = DEFAULT_THRESHOLDS.perclos_window_seconds
+    PERCLOS_THRESHOLD: float = DEFAULT_THRESHOLDS.perclos_threshold
+    CLOSED_LEVEL: float = DEFAULT_THRESHOLDS.eye_closure_closed_level
+    SUSTAINED_CLOSED_S: float = DEFAULT_THRESHOLDS.drowsiness_sustained_closed_seconds
+    YAWN_LEVEL: float = DEFAULT_THRESHOLDS.yawn_open_level
+    YAWN_SUSTAINED_S: float = DEFAULT_THRESHOLDS.yawn_sustained_seconds
+    PERSONAL_EAR_BASELINE_S: float = DEFAULT_THRESHOLDS.personal_ear_baseline_seconds
+    PERSONAL_EAR_CLOSED_RATIO: float = DEFAULT_THRESHOLDS.personal_ear_closed_ratio
+    # EAR above which a sample can contribute to the personal open-eye
+    # baseline (excludes fully-closed/blinking frames from the median).
+    EAR_OPEN_FLOOR: float = 0.10
+    # Absolute fallback when no personal baseline exists yet (pre-baseline
+    # frames only; the fixed-cut era is over for established baselines).
+    EAR_CLOSED_THRESHOLD: float = DEFAULT_THRESHOLDS.ear_closed
 
     def __init__(self) -> None:
         self._timers: Dict[str, Optional[float]] = {
@@ -103,6 +126,12 @@ class DistractionAnalyzer:
             "posture_shift": None,
             "away": None,
         }
+        # (timestamp, eyes_closed) samples feeding the PERCLOS window.
+        self._closure_hist: Deque[Tuple[float, bool]] = collections.deque()
+        # (timestamp, ear) samples used to lock the personal open-eye baseline.
+        self._ear_baseline_hist: Deque[Tuple[float, float]] = collections.deque()
+        self._ear_baseline: Optional[float] = None
+        self._last_yawn_start: Optional[float] = None
 
     # Backward-compat shims (pre-refactor attribute names).
     @property
@@ -169,6 +198,69 @@ class DistractionAnalyzer:
     def _away_start(self, v: Optional[float]) -> None:
         self._timers["away"] = v
 
+    # ------------------------------------------------------------ PERCLOS
+
+    def _observe_eyes(
+        self, timestamp: float, liveness: LivenessResult, eye_closure: Optional[float]
+    ) -> bool:
+        """Feed one frame's eye state; returns True when eyes are closed.
+
+        Prefers the MediaPipe blendshape closure (per-person normalized by the
+        model); falls back to EAR against the student's PERSONAL open-eye
+        baseline — a fixed 0.18 cut flagged squinting readers as drowsy.
+        """
+        ear = float(liveness.ear or 0.0)
+        self._maintain_ear_baseline(timestamp, ear)
+
+        if eye_closure is not None:
+            closed = eye_closure >= self.CLOSED_LEVEL
+        elif self._ear_baseline is not None and ear > 0.0:
+            closed = ear < self._ear_baseline * self.PERSONAL_EAR_CLOSED_RATIO
+        elif ear > 0.0:
+            closed = ear < self.EAR_CLOSED_THRESHOLD
+        else:
+            return False
+
+        self._closure_hist.append((timestamp, closed))
+        while self._closure_hist and timestamp - self._closure_hist[0][0] > self.PERCLOS_WINDOW_S:
+            self._closure_hist.popleft()
+        return closed
+
+    def _maintain_ear_baseline(self, timestamp: float, ear: float) -> None:
+        """Lock a personal open-eye EAR baseline from the first seconds of data."""
+        if self._ear_baseline is not None:
+            return
+        if ear <= self.EAR_OPEN_FLOOR:
+            return
+        self._ear_baseline_hist.append((timestamp, ear))
+        # Enough samples AND enough wall time before we trust the median.
+        if len(self._ear_baseline_hist) < 10:
+            return
+        span = timestamp - self._ear_baseline_hist[0][0]
+        if span < self.PERSONAL_EAR_BASELINE_S:
+            return
+        self._ear_baseline = _median([e for _, e in self._ear_baseline_hist])
+
+    def _perclos(self, now: float) -> float:
+        """Fraction of eye-closed samples inside the sliding window."""
+        while self._closure_hist and now - self._closure_hist[0][0] > self.PERCLOS_WINDOW_S:
+            self._closure_hist.popleft()
+        if len(self._closure_hist) < 10:
+            return 0.0
+        return sum(1 for _, c in self._closure_hist if c) / len(self._closure_hist)
+
+    def _yawn_sustained(self, timestamp: float, jaw_open: Optional[float]) -> bool:
+        """True once jawOpen has stayed high for YAWN_SUSTAINED_S."""
+        if jaw_open is None:
+            self._last_yawn_start = None
+            return False
+        if jaw_open >= self.YAWN_LEVEL:
+            if self._last_yawn_start is None:
+                self._last_yawn_start = timestamp
+            return timestamp - self._last_yawn_start >= self.YAWN_SUSTAINED_S
+        self._last_yawn_start = None
+        return False
+
     def _since(self, key: str, timestamp: float) -> float:
         """Start timer on first sight, return elapsed seconds."""
         started = self._timers.get(key)
@@ -184,6 +276,10 @@ class DistractionAnalyzer:
         """Reset all tracking timers."""
         for key in self._timers:
             self._timers[key] = None
+        self._closure_hist.clear()
+        self._ear_baseline_hist.clear()
+        self._ear_baseline = None
+        self._last_yawn_start = None
 
     def check_whitelist(
         self,
@@ -268,10 +364,20 @@ class DistractionAnalyzer:
         page_turn_gesture: bool = False,
         writing_gesture: bool = False,
         gaze: Optional[GazeResult] = None,
+        eye_closure: Optional[float] = None,
+        jaw_open: Optional[float] = None,
     ) -> DistractionAnalysisResult:
         """
         Analyze current frame and state for distractions, applying the false-positive whitelist.
         ``gaze`` is optional; when provided it modulates the continuous focus score.
+        ``eye_closure`` / ``jaw_open`` are MediaPipe blendshape signals (0-1);
+        when absent the drowsiness stage falls back to personal-baseline EAR.
+
+        Priority order: AWAY → PHONE → IDENTITY → DROWSINESS → whitelist →
+        LOOKING_AWAY → focused. Hard signals run BEFORE the whitelist because
+        a phone on the desk *is* the reading pose, an impostor looking down
+        must never be whitelisted, and a student asleep face-down on the desk
+        classifies as READING_DOWNWARDS.
         """
         # 1. State: AWAY -> Flagged (duration grows for the whole absence so
         # warnings and reports can tell a 20s bathroom trip from a 10-min walkaway)
@@ -288,16 +394,7 @@ class DistractionAnalyzer:
             )
         self._clear("away")
 
-        # 2. Check Whitelisted Study Gestures FIRST (Priority 1)
-        whitelisted = self.check_whitelist(
-            timestamp, pose, writing_gesture, hand_to_mouth_gesture, page_turn_gesture
-        )
-        if whitelisted is not None:
-            return whitelisted
-
-        # 3. Evaluate Flagged Distractions
-
-        # Continuous quadratic focus: Focus = 100·(1−(|yaw|/45)²)·(1−(|pitch|/35)²)·GazeFactor.
+        # 2. Continuous quadratic focus: Focus = 100·(1−(|yaw|/45)²)·(1−(|pitch|/35)²)·GazeFactor.
         # Sub-threshold head drift degrades the score smoothly instead of
         # sitting at a flat 100 until a binary threshold trips.
         gaze_factor = self._gaze_factor(gaze)
@@ -309,7 +406,9 @@ class DistractionAnalyzer:
             max(0.0, min(100.0, 100.0 * yaw_term * pitch_term * gaze_factor)), 1
         )
 
-        # A: Smartphone Interaction (> 4s)
+        # 3. Hard signal A: Smartphone Interaction (> 4s) — BEFORE the
+        # whitelist: the phone-on-desk pose equals the reading pose, so
+        # whitelisting first made phone alerts impossible while reading.
         if phone_object_detected:
             phone_dur = self._since("phone", timestamp)
             if phone_dur >= self.PHONE_DETECTED_THRESHOLD:
@@ -322,20 +421,11 @@ class DistractionAnalyzer:
                     whitelisted_action=None,
                     reason=f"Smartphone detected for {phone_dur:.1f}s",
                 )
-            return DistractionAnalysisResult(
-                is_distracted=False,
-                distraction_type=DistractionType.NONE,
-                focus_score=continuous_focus,
-                confidence=0.80,
-                duration_seconds=round(phone_dur, 1),
-                whitelisted_action=None,
-                reason=f"Phone visible ({phone_dur:.1f}s / {self.PHONE_DETECTED_THRESHOLD}s threshold)",
-                pending_distraction_type=DistractionType.PHONE_DETECTED,
-            )
         else:
             self._clear("phone")
 
-        # B: Identity Mismatch (> 15s)
+        # 4. Hard signal B: Identity Mismatch (> 15s) — an impostor looking
+        # down must not ride the whitelist either.
         if not identity_match:
             mismatch_dur = self._since("mismatch", timestamp)
             if mismatch_dur >= self.IDENTITY_MISMATCH_THRESHOLD:
@@ -351,34 +441,70 @@ class DistractionAnalyzer:
         else:
             self._clear("mismatch")
 
-        # C: Drowsiness / Eyes Closed (> 4s)
-        if liveness.ear > 0.0 and liveness.ear < 0.18:
-            drowsy_dur = self._since("drowsiness", timestamp)
-            if drowsy_dur >= self.DROWSINESS_THRESHOLD:
-                return DistractionAnalysisResult(
-                    is_distracted=True,
-                    distraction_type=DistractionType.DROWSINESS,
-                    focus_score=15.0,
-                    confidence=0.90,
-                    duration_seconds=round(drowsy_dur, 1),
-                    whitelisted_action=None,
-                    reason=f"Student eyes closed for {drowsy_dur:.1f}s (drowsiness)",
-                )
+        # 5. Drowsiness (PERCLOS + sustained closure + yawn). Blendshape-based
+        # closure is safe to run before the whitelist — unlike raw EAR, it
+        # does not drop just because the student looks down to read.
+        eyes_closed = self._observe_eyes(timestamp, liveness, eye_closure)
+        perclos = self._perclos(timestamp)
+        closed_continuously = 0.0
+        if eyes_closed and self._closure_hist:
+            first_closed_ts = self._closure_hist[-1][0]
+            for ts, closed in reversed(self._closure_hist):
+                if not closed:
+                    break
+                first_closed_ts = ts
+            closed_continuously = timestamp - first_closed_ts
+        drowsy_dur = self._since("drowsiness", timestamp) if (eyes_closed or perclos > 0.0) else 0.0
+        if (
+            perclos >= self.PERCLOS_THRESHOLD
+            or closed_continuously >= self.SUSTAINED_CLOSED_S
+            or self._yawn_sustained(timestamp, jaw_open)
+        ):
+            return DistractionAnalysisResult(
+                is_distracted=True,
+                distraction_type=DistractionType.DROWSINESS,
+                focus_score=15.0,
+                confidence=0.90,
+                duration_seconds=round(max(drowsy_dur, closed_continuously), 1),
+                whitelisted_action=None,
+                reason=(
+                    f"Drowsiness detected (PERCLOS {perclos:.0%}, "
+                    f"eyes closed {closed_continuously:.1f}s)"
+                ),
+            )
+        if not eyes_closed and perclos < self.PERCLOS_THRESHOLD:
+            self._clear("drowsiness")
+
+        # 6. Whitelisted Study Gestures. A pending phone keeps its marker so
+        # the nudge tier can still fire during a whitelisted action.
+        whitelisted = self.check_whitelist(
+            timestamp, pose, writing_gesture, hand_to_mouth_gesture, page_turn_gesture
+        )
+        if whitelisted is not None:
+            if phone_object_detected:
+                whitelisted.pending_distraction_type = DistractionType.PHONE_DETECTED
+                whitelisted.duration_seconds = round(self._since("phone", timestamp), 1)
+            return whitelisted
+
+        # 7. Flagged: Looking Away / Daydreaming (> 10s)
+        if phone_object_detected:
+            # Below alert threshold but the phone is visible: surface a
+            # pending marker (non-whitelisted case) so the nudge tier acts.
             return DistractionAnalysisResult(
                 is_distracted=False,
                 distraction_type=DistractionType.NONE,
                 focus_score=continuous_focus,
                 confidence=0.80,
-                duration_seconds=round(drowsy_dur, 1),
+                duration_seconds=round(self._since("phone", timestamp), 1),
                 whitelisted_action=None,
-                reason=f"Eyes closing ({drowsy_dur:.1f}s / {self.DROWSINESS_THRESHOLD}s threshold)",
-                pending_distraction_type=DistractionType.DROWSINESS,
+                reason=(
+                    f"Phone visible ({self._since('phone', timestamp):.1f}s / "
+                    f"{self.PHONE_DETECTED_THRESHOLD}s threshold)"
+                ),
+                pending_distraction_type=DistractionType.PHONE_DETECTED,
             )
-        else:
-            self._clear("drowsiness")
 
-        # D: Looking Away / Daydreaming (> 10s)
-        is_looking_away = (abs(pose.yaw) > 35.0) or (pose.pitch < -20.0)
+        is_looking_away = (abs(pose.yaw) > self.YAW_AWAY_DEG) or (pose.pitch < self.PITCH_UP_DEG)
         if is_looking_away:
             away_dur = self._since("looking_away", timestamp)
             if away_dur >= self.LOOKING_AWAY_THRESHOLD:
@@ -406,7 +532,7 @@ class DistractionAnalyzer:
         else:
             self._clear("looking_away")
 
-        # 4. Default: Focused on study (continuous score reflects micro-drift)
+        # 8. Default: Focused on study (continuous score reflects micro-drift)
         return DistractionAnalysisResult(
             is_distracted=False,
             distraction_type=DistractionType.NONE,
@@ -441,3 +567,15 @@ class DistractionAnalyzer:
             return 0.0
         effective = (magnitude - neutral_band) / (full_range - neutral_band)
         return 1.0 - effective * effective
+
+
+def _median(values: List[float]) -> float:
+    """Median of a non-empty float list (no numpy dependency)."""
+    ordered = sorted(values)
+    n = len(ordered)
+    if n == 0:
+        return 0.0
+    mid = n // 2
+    if n % 2 == 1:
+        return float(ordered[mid])
+    return (float(ordered[mid - 1]) + float(ordered[mid])) / 2.0

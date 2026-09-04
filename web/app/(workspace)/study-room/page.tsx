@@ -126,6 +126,7 @@ export default function StudyRoomPage() {
     sessionId,
     isActive: state === "active",
     liveViewEnabled,
+    isPaused,
     onNotice: setApiNotice,
   });
 

@@ -46,10 +46,32 @@ class MonitoringThresholds:
     # Liveness
     ear_closed: float = 0.18
     ear_open: float = 0.25
-    min_ear_variance: float = 0.0003
-    min_motion_variance: float = 0.00005
+    # Above MediaPipe landmark jitter on a printed photo (measured jitter
+    # variance ~2e-6; old value 0.0003 was near it and could only flag
+    # synthetic input). 0.001 stays ~450x above photo jitter while keeping a
+    # genuinely live, still-reading student (EAR oscillation variance
+    # ~1.2e-3) firmly on the live side.
+    min_ear_variance: float = 0.001
+    min_motion_variance: float = 0.0004
     texture_flat: float = 30.0
     texture_moire: float = 800.0
+    # A blink within the last N seconds counts as liveness evidence —
+    # concentrated readers drop to ~4 blinks/min, and an un-decayed
+    # "ever blinked" flag made the static-photo branch dead after minute one.
+    blink_recency_seconds: float = 30.0
+    # Minimum observation seconds before the static-image (spoof) branch may
+    # fire, so a brief still moment can never be judged a photograph.
+    static_spoof_min_history_seconds: float = 10.0
+
+    # Drowsiness (PERCLOS — percentage of eyelid closure over a window)
+    perclos_window_seconds: float = 60.0
+    perclos_threshold: float = 0.15
+    eye_closure_closed_level: float = 0.6
+    drowsiness_sustained_closed_seconds: float = 2.5
+    yawn_open_level: float = 0.5
+    yawn_sustained_seconds: float = 2.0
+    personal_ear_baseline_seconds: float = 5.0
+    personal_ear_closed_ratio: float = 0.6
 
     # Warnings
     warn_cooldown_seconds: float = 60.0
@@ -59,6 +81,10 @@ class MonitoringThresholds:
     nudge_cooldown_seconds: float = 40.0
     nudge_min_seconds: float = 3.0
     nudge_max_seconds: float = 6.0
+    # Nudges carry their own (lower) confidence gate: pending distractions
+    # are emitted at confidence 0.80, so a strictness profile with
+    # min_confidence 0.85 ("gentle") must not silently disable every nudge.
+    nudge_min_confidence: float = 0.75
 
     # Evidence / outbox
     ring_size: int = 30

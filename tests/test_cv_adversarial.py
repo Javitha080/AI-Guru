@@ -174,12 +174,17 @@ class TestCosineSimilarityAdversarialBoundaries:
     def test_dimension_mismatch_handling(self):
         """
         Adversarial test: Different vector lengths (128D vs 64D or 256D)
-        must truncate cleanly to min length without IndexError.
+        must be treated as a MISMATCH (similarity 0.0), never silently
+        truncated to the overlapping prefix — comparing vectors from
+        different embedding spaces by their prefix produced confident
+        garbage similarities.
         """
         vec_128 = [1.0] * 128
         vec_64 = [1.0] * 64
         sim = FaceEngine.compute_cosine_similarity(vec_128, vec_64)
-        assert pytest.approx(sim, 1e-4) == 1.0
+        assert sim == 0.0
+        is_match, scored = FaceEngine().verify_identity(vec_64, vec_128)
+        assert is_match is False and scored == 0.0
 
     def test_empty_embedding_enrollment_raises_value_error(self):
         """
@@ -220,14 +225,18 @@ class TestAntiSpoofLivenessAdversarialAttacks:
     def test_static_printed_photo_zero_ear_zero_motion(self):
         """
         Adversarial Attack: Static printed photo held in front of webcam.
-        - Exactly 0 EAR variance across 30 frames
+        - Exactly 0 EAR variance across the observation window
         - Exactly 0 nose/landmark micro-movement
-        Invariant: Spoof detected (is_live == False, reason mentions static image).
+        Invariant: Spoof detected (is_live == False, reason mentions static
+        image) once the detector has enough observation history — the static
+        branch is deliberately gated on STATIC_SPOOF_MIN_HISTORY_S (10s) so a
+        brief still moment can never be judged a photograph.
         """
         detector = LivenessDetector(window_size=30)
         engine = FaceEngine()
 
-        # Generate completely static identical frames
+        # Generate completely static identical frames (0.1s cadence → the
+        # 10s gate opens at frame 100).
         static_landmark = engine.create_synthetic_landmarks(
             yaw=0.0,
             pitch=0.0,
@@ -235,13 +244,13 @@ class TestAntiSpoofLivenessAdversarialAttacks:
             eye_open_ratio=0.30,
         )
 
-        for frame_idx in range(30):
+        for frame_idx in range(110):
             res = detector.evaluate_frame(
                 landmarks=static_landmark,
                 timestamp=frame_idx * 0.1,
                 texture_laplacian_var=25.0,  # Low texture for paper
             )
-            if frame_idx >= 5:
+            if frame_idx >= 100:
                 assert res.is_live is False, f"Frame {frame_idx} accepted static photo attack!"
                 assert "static" in res.reason.lower() or "zero" in res.reason.lower()
                 assert res.ear_variance < 1e-6

@@ -21,6 +21,7 @@ from typing import Any, Deque, Dict, Optional
 
 from fastapi import WebSocket, WebSocketDisconnect
 
+from deeptutor.services.background import spawn_bg
 from deeptutor.services.monitoring.dispatch import handle_warning
 from deeptutor.services.monitoring.monitoring_config import DEFAULT_THRESHOLDS
 from deeptutor.services.monitoring.schemas import TelemetryUpdate
@@ -192,12 +193,15 @@ async def browser_driven_monitoring_loop(
                     last_presence_state is not None
                     and analysis.presence.state != last_presence_state
                 ):
-                    await _log_episode(
-                        "PRESENCE_CHANGE",
-                        "info",
-                        float(analysis.gaze.confidence or 0),
-                        float(analysis.presence.state_duration_seconds or 0),
-                        f"presence -> {analysis.presence.state}",
+                    spawn_bg(
+                        _log_episode(
+                            "PRESENCE_CHANGE",
+                            "info",
+                            float(analysis.gaze.confidence or 0),
+                            float(analysis.presence.state_duration_seconds or 0),
+                            f"presence -> {analysis.presence.state}",
+                        ),
+                        name=f"episode-{session_id}",
                     )
                 last_presence_state = analysis.presence.state
 
@@ -208,13 +212,21 @@ async def browser_driven_monitoring_loop(
             )
             if episodes.on_frame(analysis.distraction.is_distracted, dtype):
                 assert dtype is not None
-                event_type = "PHONE_DETECTED" if "PHONE" in dtype.upper() else "LOOKING_AWAY"
-                await _log_episode(
-                    event_type,
-                    "warning",
-                    float(analysis.distraction.confidence or 0),
-                    float(analysis.distraction.duration_seconds or 0),
-                    str(analysis.distraction.reason or dtype),
+                # Log the REAL episode type — every non-phone episode used to
+                # be collapsed into LOOKING_AWAY, corrupting reports/dashboards.
+                event_type = dtype
+                # DB write runs in a background task: blocking the WS receive
+                # loop here stalled telemetry to the client (the system path
+                # already used spawn_bg).
+                spawn_bg(
+                    _log_episode(
+                        event_type,
+                        "warning",
+                        float(analysis.distraction.confidence or 0),
+                        float(analysis.distraction.duration_seconds or 0),
+                        str(analysis.distraction.reason or dtype),
+                    ),
+                    name=f"episode-{session_id}",
                 )
 
             if analysis.dispatched_warning:
@@ -258,8 +270,6 @@ async def browser_driven_monitoring_loop(
                     "confidence": analysis.distraction.confidence,
                     "duration_seconds": analysis.distraction.duration_seconds,
                 }
-                from deeptutor.services.background import spawn_bg
-
                 spawn_bg(
                     handle_warning(
                         session_id=session_id,
