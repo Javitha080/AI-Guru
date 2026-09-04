@@ -117,6 +117,7 @@ async def enroll_face(
     """
     pipeline = get_cv_pipeline()
     embedding: Optional[List[float]] = req.face_embedding
+    identity_mode = "geometric"
 
     if not embedding and req.landmarks:
         detection = pipeline.face_engine.extract_landmarks_from_telemetry(
@@ -130,14 +131,34 @@ async def enroll_face(
             detail="Provide either face_embedding (>=16 dims) or landmarks to derive it.",
         )
 
-    pipeline.enroll_student_baseline(embedding)
+    pipeline.enroll_student_baseline(embedding, identity_mode=identity_mode)
+    persisted = await _persist_baseline(pipeline, embedding, identity_mode)
 
-    logger.info("Enrolled student face baseline (dim=%d) locally", len(embedding))
+    logger.info(
+        "Enrolled student face baseline (dim=%d, mode=%s, persisted=%s)",
+        len(embedding),
+        identity_mode,
+        persisted,
+    )
     return EnrollFaceResponse(
         success=True,
         dimension=len(embedding),
-        message="Student facial baseline enrolled successfully in local memory.",
+        message="Student facial baseline enrolled successfully"
+        + (" (persisted)" if persisted else " in local memory."),
     )
+
+
+async def _persist_baseline(pipeline: Any, embedding: List[float], identity_mode: str) -> bool:
+    """Best-effort encrypted persistence of the enrolled baseline."""
+    try:
+        from deeptutor.services.monitoring.identity_store import save_baseline
+        from deeptutor.services.path_service import get_path_service
+
+        db_path = str(get_path_service().user_dir / "chat_history.db")
+        return await save_baseline(db_path, embedding, identity_mode)
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Baseline persistence skipped: %s", exc)
+        return False
 
 
 @router.post("/verify-liveness", response_model=VerifyLivenessResponse)
@@ -180,6 +201,11 @@ async def analyze_frame(
 ) -> Dict[str, Any]:
     """
     Analyze a single frame / telemetry payload and return comprehensive study monitoring metrics.
+
+    DIAGNOSTIC ONLY: this runs on the process-global singleton pipeline, so
+    calls MUTATE its presence FSM, distraction timers and liveness history —
+    they are shared with (and can perturb) whatever the pre-flight endpoints
+    last touched. Real sessions always use a per-session LocalCVPipeline.
     """
     pipeline = get_cv_pipeline()
     payload = req.model_dump()

@@ -46,6 +46,17 @@ export interface TelemetryFrame {
   jpeg_b64?: string;
   /** Laplacian variance of the grayscale frame — in-session anti-spoof texture cue. */
   texture_laplacian_var?: number;
+  /**
+   * MediaPipe facial-transformation matrix, 16 floats ROW-MAJOR (transposed
+   * from the column-major data MediaPipe emits). The backend derives true
+   * model-fitted yaw/pitch/roll from it — the browser's 2D-ratio pose
+   * estimator is biased and uncalibrated.
+   */
+  head_matrix?: number[];
+  /** Avg eyeBlink blendshape (0=open, 1=closed) — PERCLOS drowsiness input. */
+  eye_closure?: number;
+  /** jawOpen blendshape (0-1) — yawn cue for drowsiness. */
+  jaw_open?: number;
   timestamp?: number;
 }
 
@@ -137,19 +148,27 @@ export class VisionPipeline {
       }
 
       const fileset = await FilesetResolver.forVisionTasks(wasmPath);
+      // Blendshapes (eye closure → PERCLOS drowsiness) and the facial
+      // transformation matrix (true 3D head pose) ride on both delegates;
+      // combined cost is negligible next to the mesh itself.
+      const landmarkerOptions = (delegate: "GPU" | "CPU") => ({
+        baseOptions: { modelAssetPath: modelPath, delegate },
+        runningMode: "VIDEO" as const,
+        numFaces: 1,
+        outputFaceBlendshapes: true,
+        outputFacialTransformationMatrixes: true,
+      });
       try {
-        this.landmarker = await FaceLandmarker.createFromOptions(fileset, {
-          baseOptions: { modelAssetPath: modelPath, delegate: "GPU" },
-          runningMode: "VIDEO",
-          numFaces: 1,
-        });
+        this.landmarker = await FaceLandmarker.createFromOptions(
+          fileset,
+          landmarkerOptions("GPU")
+        );
       } catch {
         // GPU delegate unavailable (common on low-end iGPUs) → CPU.
-        this.landmarker = await FaceLandmarker.createFromOptions(fileset, {
-          baseOptions: { modelAssetPath: modelPath, delegate: "CPU" },
-          runningMode: "VIDEO",
-          numFaces: 1,
-        });
+        this.landmarker = await FaceLandmarker.createFromOptions(
+          fileset,
+          landmarkerOptions("CPU")
+        );
       }
 
       if (this.opts.sessionId) this.openSocket(this.opts.sessionId);
@@ -262,6 +281,18 @@ export class VisionPipeline {
         if (this.tickCount % 3 === 1 && pixels) {
           textureVar = textureVarianceFromGray(pixels.gray, pixels.w, pixels.h);
         }
+        // True model-fitted head pose (16 floats, transposed to row-major)
+        // and blendshape eye/jaw closure for the backend's calibrated pose
+        // path and PERCLOS drowsiness.
+        const headMatrix = result.facialTransformationMatrixes?.[0]?.data;
+        const blend = result.faceBlendshapes?.[0]?.categories;
+        const bsScore = (name: string): number | undefined => {
+          if (!blend) return undefined;
+          const cat = blend.find((c) => c.categoryName === name);
+          return cat ? cat.score : undefined;
+        };
+        const blinkL = bsScore("eyeBlinkLeft");
+        const blinkR = bsScore("eyeBlinkRight");
         frame = {
           detected: true,
           confidence: 0.95,
@@ -270,6 +301,12 @@ export class VisionPipeline {
           landmarks: groups,
           jpeg_b64: this.maybeSnapshot(video),
           texture_laplacian_var: textureVar,
+          head_matrix: headMatrix ? transpose4x4ToRowMajor(headMatrix) : undefined,
+          eye_closure:
+            blinkL !== undefined && blinkR !== undefined
+              ? (blinkL + blinkR) / 2
+              : undefined,
+          jaw_open: bsScore("jawOpen"),
           timestamp: Date.now() / 1000,
         };
       } else {
@@ -367,6 +404,17 @@ export class VisionPipeline {
       return undefined;
     }
   }
+}
+
+/** MediaPipe ships the 4x4 transform column-major; the backend expects row-major. */
+function transpose4x4ToRowMajor(data: Float32Array | number[]): number[] {
+  const out = new Array<number>(16);
+  for (let c = 0; c < 4; c++) {
+    for (let r = 0; r < 4; r++) {
+      out[r * 4 + c] = data[c * 4 + r];
+    }
+  }
+  return out;
 }
 
 function textureVarianceFromGray(gray: Float32Array, w: number, h: number): number {

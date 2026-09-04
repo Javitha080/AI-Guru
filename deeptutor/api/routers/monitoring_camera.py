@@ -214,35 +214,116 @@ async def monitoring_feed(session_id: str, _user: Any = Depends(require_auth)) -
 
 
 @router.post("/enroll-from-camera")
-async def enroll_from_camera(_user: Any = Depends(require_auth)) -> Dict[str, Any]:
+async def enroll_from_camera(
+    force: bool = False, _user: Any = Depends(require_auth)
+) -> Dict[str, Any]:
     """Enroll the identity baseline straight from the system camera.
 
     Lets the pre-flight check register the student without ANY browser camera
-    involvement: one server-side grab → geometric embedding → enroll.
+    involvement. Hardened on two axes:
+
+    - **Already-enrolled gate**: without ``force=true`` the endpoint is a
+      no-op when a baseline exists. The old behavior re-enrolled WHOEVER was
+      sitting in front of the camera on every system-mode pre-flight — the
+      sibling who pressed start became the "enrolled student".
+    - **SFace neural enrollment**: when the SFace model is present, the
+      template is the per-dimension MEDIAN of ~10 frontal grabs over ~3s
+      (a single frame is a pose/expression snapshot); the geometric vector
+      is the clearly-labelled fallback.
     """
     pipeline = get_cv_pipeline()
-    probe = await _probe_camera_frame()
-    if probe is None:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="System camera unavailable"
-        )
-    result = probe["result"]
-    if not result.detected or result.landmarks is None:
+
+    # --- already-enrolled gate (in-memory OR persisted) -------------------
+    if not force and pipeline.face_engine.get_enrolled_face() is not None:
+        return {
+            "enrolled": False,
+            "already_enrolled": True,
+            "reason": "identity_baseline_exists",
+            "identity_mode": pipeline.enrolled_identity_mode,
+        }
+
+    loop = asyncio.get_running_loop()
+    pose_info = None
+    sface_samples: list = []
+    geo_embedding = None
+
+    # Burst of frontal grabs over ~3.5s for a stable median template.
+    deadline = time.time() + 3.5
+    grabs = 0
+    while grabs < 12 and time.time() < deadline:
+        probe = await _probe_camera_frame()
+        if probe is None:
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail="System camera unavailable",
+            )
+        result = probe["result"]
+        if not result.detected or result.landmarks is None:
+            await asyncio.sleep(0.25)
+            continue
+        angles = getattr(result, "head_angles_raw", None)
+        frontal = angles is None or (abs(angles[0]) <= 25.0 and abs(angles[1]) <= 25.0)
+        if not frontal:
+            await asyncio.sleep(0.25)
+            continue
+        grabs += 1
+        if pose_info is None and result.pose is not None:
+            pose_info = {
+                "yaw": result.pose.yaw,
+                "pitch": result.pose.pitch,
+                "roll": result.pose.roll,
+                "posture": result.pose.posture.value,
+            }
+        frame = probe["frame"]
+        if pipeline.sface_available and result.raw_landmarks:
+            emb = await loop.run_in_executor(
+                None, pipeline.sface_enroll_vector, frame, result.raw_landmarks
+            )
+            if emb is not None:
+                sface_samples.append(emb)
+        if geo_embedding is None:
+            geo_embedding = pipeline.face_engine.generate_geometric_embedding(result.landmarks)
+        await asyncio.sleep(0.2)
+
+    if grabs == 0 or geo_embedding is None:
         return {"enrolled": False, "reason": "no_face_detected"}
 
-    embedding = pipeline.face_engine.generate_geometric_embedding(result.landmarks)
-    pipeline.enroll_student_baseline(embedding)
+    identity_mode = "geometric"
+    embedding = geo_embedding
+    if len(sface_samples) >= 5:
+        try:
+            from deeptutor.services.monitoring.face_identity import enroll_sface_from_engine
+
+            sface_engine = getattr(pipeline, "_sface", None)
+            vector = (
+                enroll_sface_from_engine(sface_engine, sface_samples) if sface_engine else None
+            )
+            if vector is not None:
+                embedding = vector
+                identity_mode = "sface"
+        except Exception as exc:  # noqa: BLE001 - geometric fallback stays
+            logger.warning("SFace enrollment fell back to geometric: %s", exc)
+
+    pipeline.enroll_student_baseline(embedding, identity_mode=identity_mode)
+
+    # --- encrypted persistence so restarts stay enrolled -------------------
+    persisted = False
+    try:
+        from deeptutor.services.monitoring.identity_store import save_baseline
+        from deeptutor.services.path_service import get_path_service
+
+        db_path = str(get_path_service().user_dir / "chat_history.db")
+        persisted = await save_baseline(db_path, embedding, identity_mode)
+    except Exception as exc:  # noqa: BLE001 - persistence best-effort
+        logger.debug("Baseline persistence skipped: %s", exc)
+
     return {
         "enrolled": True,
         "dimension": len(embedding),
-        "pose": {
-            "yaw": result.pose.yaw,
-            "pitch": result.pose.pitch,
-            "roll": result.pose.roll,
-            "posture": result.pose.posture.value,
-        }
-        if result.pose
-        else None,
+        "identity_mode": identity_mode,
+        "persisted": persisted,
+        "samples": len(sface_samples) if identity_mode == "sface" else grabs,
+        "pose": pose_info,
     }
 
 

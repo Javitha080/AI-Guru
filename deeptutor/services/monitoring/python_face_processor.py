@@ -24,12 +24,14 @@ boots normally and monitoring falls back to browser-side WASM CV.
 
 from __future__ import annotations
 
+import collections
 from dataclasses import dataclass, field
 import logging
 import os
 from pathlib import Path
+import threading
 import time
-from typing import List, Optional, Tuple
+from typing import Deque, List, Optional, Tuple
 
 import numpy as np
 
@@ -42,6 +44,15 @@ from deeptutor.services.monitoring.face_solvers import (
 )
 from deeptutor.services.monitoring.face_solvers import (
     compute_ear as _compute_ear_solver,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    euler_from_face_matrix as _euler_from_face_matrix,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    eye_closure_from_blendshapes as _eye_closure_from_blendshapes,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    jaw_open_from_blendshapes as _jaw_open_from_blendshapes,
 )
 from deeptutor.services.monitoring.face_solvers import (
     solve_pnp_angles as _solve_pnp_angles,
@@ -98,6 +109,17 @@ _PITCH_SIGN = -1.0
 
 _PHONE_LABELS = {"cell phone", "mobile phone", "phone"}
 _PHONE_SCORE_THRESHOLD = 0.45
+# Time-based phone-detection cadence with majority voting (Patch B). The old
+# every-5th-tick + 1.5s-TTL scheme broke under governor throttling: at ≤3 fps
+# the detector ran every ≥1.7s, the TTL expired in between, and the 4s
+# distraction timer kept resetting — phone alerts became impossible exactly
+# when the machine was under load.
+PHONE_DETECT_INTERVAL_S = 0.5
+PHONE_VOTE_WINDOW = 6  # ~3s of verdicts at 0.5s cadence
+PHONE_VOTES_REQUIRED = 3
+# Phone/hands/desk live in the lower ~65% of the frame; a tighter crop lifts
+# Lite0's small-object recall and cuts detector latency.
+_PHONE_CROP_TOP = 0.35
 
 _FLIP_X = np.array(
     [[1.0, 0.0, 0.0], [0.0, -1.0, 0.0], [0.0, 0.0, -1.0]],
@@ -139,6 +161,14 @@ class FaceFrameResult:
     phone_detected: bool = False
     frame_width: int = 0
     frame_height: int = 0
+    # RAW (uncalibrated) head angles — neutral calibration happens per-session
+    # in LocalCVPipeline.NeutralCalibrator, NOT here (this object is a
+    # process-wide singleton shared with pre-flight probes).
+    head_angles_raw: Optional[Tuple[float, float, float]] = None
+    head_matrix: Optional[List[float]] = None  # 16 floats, row-major
+    # MediaPipe blendshape signals (0-1), None when blendshapes are off.
+    eye_closure: Optional[float] = None
+    jaw_open: Optional[float] = None
 
 
 class PythonFaceProcessor:
@@ -164,13 +194,20 @@ class PythonFaceProcessor:
         self._loaded = False
         self._last_ts_ms = 0
         self._tick = 0
-        self._last_phone_detected = False
-        self._last_phone_ts = 0.0
 
-        # Neutral head-pose baseline captured from the first stable detections
-        # of a session so absolute camera placement cancels out.
-        self._neutral: Optional[Tuple[float, float, float]] = None
-        self._neutral_samples: List[Tuple[float, float, float]] = []
+        # Serializes all MediaPipe inference: FaceLandmarker (VIDEO mode) is
+        # NOT thread-safe, and this processor is a process-wide singleton also
+        # used by pre-flight probes / enrollment while a session tick runs.
+        # Without the lock, detect_for_video raises intermittently, the tick
+        # swallows it as `detected=False`, and the student is marked AWAY.
+        self._infer_lock = threading.Lock()
+
+        # Time-based phone detection with majority voting (independent of the
+        # governor-driven fps).
+        self._phone_votes: Deque[bool] = collections.deque(maxlen=PHONE_VOTE_WINDOW)
+        self._phone_last_run = 0.0
+        # Deprecated n-tick cadence kept for constructor compat (unused).
+        self._phone_detect_every_n = max(1, int(phone_detect_every_n))
 
     # -------------------------------------------------------------- lifecycle
 
@@ -200,6 +237,10 @@ class PythonFaceProcessor:
                 base_options=mp.tasks.BaseOptions(model_asset_path=str(face_model)),
                 running_mode=mp.tasks.vision.RunningMode.VIDEO,
                 num_faces=1,
+                # Model-fitted pose + normalized eye/jaw signals for both the
+                # pose path (matrix beats 2D solvePnP) and PERCLOS drowsiness.
+                output_face_blendshapes=True,
+                output_facial_transformation_matrixes=True,
             )
             self._landmarker = mp.tasks.vision.FaceLandmarker.create_from_options(options)
 
@@ -242,9 +283,14 @@ class PythonFaceProcessor:
         self._loaded = False
 
     def reset_session(self) -> None:
-        """Clear neutral-pose calibration for a fresh study session."""
-        self._neutral = None
-        self._neutral_samples.clear()
+        """Reset per-frame heuristics for a fresh study session.
+
+        Neutral head-pose calibration moved to LocalCVPipeline's
+        NeutralCalibrator (per-session object); only the phone vote history
+        still lives here.
+        """
+        self._phone_votes.clear()
+        self._phone_last_run = 0.0
 
     # ------------------------------------------------------------ inference
 
@@ -253,6 +299,12 @@ class PythonFaceProcessor:
         if frame is None or cv2 is None or not self._ensure_loaded():
             return result
 
+        # One inference at a time: pre-flight probes and enrollment share this
+        # singleton with the session tick (thread-safety: H2).
+        with self._infer_lock:
+            return self._process_frame_locked(frame, result)
+
+    def _process_frame_locked(self, frame: "np.ndarray", result: FaceFrameResult) -> FaceFrameResult:
         h, w = frame.shape[:2]
         result.frame_width = w
         result.frame_height = h
@@ -261,6 +313,10 @@ class PythonFaceProcessor:
 
         self._tick += 1
         if self._tick % self._texture_every_n == 1:
+            # KNOWN LIMIT (review M2): Laplacian variance at 64x48 separates
+            # "blurry/flat" from "textured" but cannot reliably distinguish
+            # screen moiré from skin — treat the texture cue as weak evidence
+            # only (it modulates liveness confidence, never decides alone).
             small = cv2.resize(gray, (64, 48))
             result.texture_laplacian_var = float(cv2.Laplacian(small, cv2.CV_64F).var())
 
@@ -276,7 +332,6 @@ class PythonFaceProcessor:
 
         faces = getattr(lm_result, "face_landmarks", []) or []
         if not faces:
-            self._neutral_samples.clear()
             return result
 
         face = faces[0]
@@ -288,21 +343,44 @@ class PythonFaceProcessor:
         result.landmarks = self._build_landmark_groups(raw)
         result.ear = self._compute_ear(raw)
 
-        yaw, pitch, roll = self._head_pose_from_pnp(raw, w, h)
+        # --- Head pose: MediaPipe's canonical→camera matrix first (model-
+        # fitted, jitter-free), solvePnP as fallback. Angles stay RAW here —
+        # the per-session pipeline applies neutral calibration.
+        head_matrices = getattr(lm_result, "facial_transformation_matrixes", None) or []
+        if head_matrices:
+            try:
+                mat = np.asarray(head_matrices[0], dtype=np.float64)
+                yaw, pitch, roll = _euler_from_face_matrix(mat)
+                result.head_matrix = [float(v) for v in mat.reshape(-1)]
+            except Exception as exc:  # noqa: BLE001
+                logger.debug("Matrix euler extraction failed: %s", exc)
+                yaw, pitch, roll = self._head_pose_from_pnp(raw, w, h)
+        else:
+            yaw, pitch, roll = self._head_pose_from_pnp(raw, w, h)
+        result.head_angles_raw = (yaw, pitch, roll)
         result.pose = self._build_head_pose(yaw, pitch, roll)
         result.gaze = self._build_gaze(raw, result.pose)
 
+        # --- Blendshape eye/jaw signals for PERCLOS drowsiness ------------
+        blendshapes = getattr(lm_result, "face_blendshapes", None) or []
+        if blendshapes:
+            result.eye_closure = _eye_closure_from_blendshapes(blendshapes[0])
+            result.jaw_open = _jaw_open_from_blendshapes(blendshapes[0])
+
+        # --- Time-based phone detection with majority voting --------------
         now = time.time()
-        if self._object_detector is not None and self._tick % self._phone_detect_every_n == 1:
-            self._last_phone_detected = self._detect_phone(mp_image)
-            self._last_phone_ts = now
-        elif now - self._last_phone_ts <= 1.5:
-            # Between detector runs keep the last verdict sticky (with TTL) so
-            # a held phone still accumulates distraction duration across frames.
-            pass
-        else:
-            self._last_phone_detected = False
-        result.phone_detected = self._last_phone_detected
+        if self._object_detector is not None and (now - self._phone_last_run) >= PHONE_DETECT_INTERVAL_S:
+            self._phone_last_run = now
+            crop = rgb[int(h * _PHONE_CROP_TOP):, :]
+            if crop.size > 0:
+                crop_img = self._mp.Image(
+                    image_format=self._mp.ImageFormat.SRGB,
+                    data=np.ascontiguousarray(crop),
+                )
+                self._phone_votes.append(self._detect_phone(crop_img))
+        result.phone_detected = (
+            sum(self._phone_votes) >= PHONE_VOTES_REQUIRED and len(self._phone_votes) > 0
+        )
 
         return result
 
@@ -353,24 +431,7 @@ class PythonFaceProcessor:
             # Ambiguous with a true frontal pose, but callers treat (0,0,0)
             # as neutral either way.
             return 0.0, 0.0, 0.0
-        return self._apply_neutral(yaw, pitch, roll)
-
-    def _apply_neutral(self, yaw: float, pitch: float, roll: float) -> Tuple[float, float, float]:
-        if self._neutral is None:
-            # Only accumulate neutral baseline samples when the raw detection
-            # is roughly frontal — prevents desk-looking or turned-around
-            # startup from poisoning the zero-point.
-            if abs(yaw) < 20.0 and abs(pitch) < 25.0 and abs(roll) < 15.0:
-                self._neutral_samples.append((yaw, pitch, roll))
-            # First stable frontal detections define the student's natural seat pose.
-            if len(self._neutral_samples) >= 12:
-                arr = np.array(self._neutral_samples)
-                med = np.median(arr, axis=0)
-                self._neutral = (float(med[0]), float(med[1]), float(med[2]))
-                logger.info("Head-pose neutral calibrated: %s", self._neutral)
-            return yaw, pitch, roll
-        ny, np_, nr = self._neutral
-        return yaw - ny, pitch - np_, roll - nr
+        return yaw, pitch, roll
 
     def _build_head_pose(self, yaw: float, pitch: float, roll: float) -> HeadPoseResult:
         return _build_head_pose_solver(yaw, pitch, roll)

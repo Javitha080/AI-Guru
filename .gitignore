@@ -317,3 +317,6 @@ celerybeat.pid
 *.wav
 *.ogg
 !demo/*.mp4
+
+# Runtime CV models fetched by scripts/fetch_sface_model.py (37 MB, not source)
+deeptutor/models/

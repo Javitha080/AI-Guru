@@ -76,10 +76,23 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
             setCameraStatus("passed");
             setFaceStatus("passed");
             setLivenessStatus("checking");
-            // Identity enrollment straight from the system camera (best-effort).
+            // Identity enrollment straight from the system camera
+            // (best-effort, ONCE per device). Re-enrolling on every
+            // pre-flight captured whoever was sitting there — the backend
+            // now also refuses when a baseline exists (force=true overrides).
             try {
-              await fetch(monitoringApi.enrollFromCamera, { method: "POST" });
-              if (typeof window !== "undefined") window.localStorage.setItem(FACE_ENROLLED_KEY, "1");
+              const alreadyEnrolled =
+                typeof window !== "undefined" &&
+                window.localStorage.getItem(FACE_ENROLLED_KEY) === "1";
+              if (!alreadyEnrolled) {
+                const enrollRes = await fetch(monitoringApi.enrollFromCamera, { method: "POST" });
+                if (enrollRes.ok) {
+                  const ej = await enrollRes.json().catch(() => ({}));
+                  if (ej?.enrolled) {
+                    window.localStorage.setItem(FACE_ENROLLED_KEY, "1");
+                  }
+                }
+              }
             } catch {
               /* enrollment is best-effort */
             }
@@ -164,7 +177,10 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         }
 
         const brightnessOk = await new Promise<boolean>((resolve) => {
-          setTimeout(() => resolve(pipeline.hasFaceModel ? true : brightnessProbe(video)), 50);
+          // Lighting is checked for real in BOTH paths — short-circuiting to
+          // `true` whenever the model loaded made "Face & Lighting" never
+          // check lighting in browser mode.
+          setTimeout(() => resolve(brightnessProbe(video)), 50);
         });
 
         function brightnessProbe(v: HTMLVideoElement): boolean {

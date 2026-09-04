@@ -340,8 +340,33 @@ class SystemMonitorSession:
         self.last_result = result
 
         now = time.time()
-        snapshot_b64 = self._maybe_ring_snapshot(frame, now)
+        # JPEG ring encoding runs off the event loop (cv2.imencode is CPU work).
+        snapshot_b64 = await loop.run_in_executor(
+            None, self._ring_snapshot_locked, frame, now
+        )
         payload = self._build_payload(result, now)
+
+        # Neural identity (SFace): when the engine is enrolled, the face is
+        # frontal and the cadence window is open, embed the current frame
+        # off-loop and inject it into the payload.
+        angles = getattr(result, "head_angles_raw", None)
+        if (
+            result.detected
+            and result.raw_landmarks
+            and angles is not None
+            and abs(angles[0]) <= 25.0
+            and abs(angles[1]) <= 25.0
+            and self.pipeline.sface_due(now, frame_is_frontal=True)
+        ):
+            try:
+                emb = await loop.run_in_executor(
+                    None, self.pipeline.embed_sface_sync, frame, result.raw_landmarks
+                )
+                if emb is not None:
+                    payload["sface_embedding"] = emb
+            except Exception as exc:  # noqa: BLE001 - identity never breaks the tick
+                logger.debug("SFrame SFace embed skipped: %s", exc)
+
         analysis = self.pipeline.process_telemetry_payload(payload, current_time=now)
         telemetry = self._handle_analysis(analysis, result, snapshot_b64, now)
         await self.broadcast(telemetry)
@@ -375,7 +400,12 @@ class SystemMonitorSession:
             "confidence": result.confidence,
             "brightness": result.brightness,
             "texture_laplacian_var": result.texture_laplacian_var,
-            "landmarks": landmarks_to_payload(result.landmarks),
+            # Pass the CONSTRUCTED landmark object through (in-process, never
+            # serialized): serializing 478 points to dicts and re-parsing them
+            # in extract_landmarks_from_telemetry cost ~10k dict allocations/s
+            # at 10 fps on the event loop.
+            "_landmarks_obj": result.landmarks,
+            "landmarks": None,
             "embedding": embedding,
             "pose": pose_dict,
             "gaze": gaze_dict,
@@ -385,6 +415,18 @@ class SystemMonitorSession:
             # higher-quality value from the full 478-point mesh rather than
             # re-deriving from the 6-point landmark subset.
             "ear_override": round(result.ear, 4) if result.ear > 0 else None,
+            # RAW angles + blendshape signals: neutral calibration now lives in
+            # the per-session pipeline (applied uniformly to both engines), and
+            # PERCLOS drowsiness consumes the blendshape closure/jaw signals.
+            "head_angles_raw": list(result.head_angles_raw)
+            if getattr(result, "head_angles_raw", None)
+            else None,
+            "eye_closure": round(float(result.eye_closure), 4)
+            if getattr(result, "eye_closure", None) is not None
+            else None,
+            "jaw_open": round(float(result.jaw_open), 4)
+            if getattr(result, "jaw_open", None) is not None
+            else None,
         }
 
     def _handle_analysis(
@@ -405,7 +447,9 @@ class SystemMonitorSession:
         )
         if self._episodes.on_frame(analysis.distraction.is_distracted, dtype):
             assert dtype is not None
-            event_type = "PHONE_DETECTED" if "PHONE" in dtype.upper() else "LOOKING_AWAY"
+            # Log the REAL episode type — every non-phone episode used to be
+            # collapsed into LOOKING_AWAY, corrupting reports/dashboards.
+            event_type = dtype
             from deeptutor.services.background import spawn_bg as _spawn_log
 
             _spawn_log(
@@ -491,8 +535,8 @@ class SystemMonitorSession:
             name=f"system-warning-{self.session_id}",
         )
 
-    def _maybe_ring_snapshot(self, frame: Any, now: float) -> Optional[str]:
-        """Append a throttled JPEG snapshot to the evidence ring; returns it."""
+    def _ring_snapshot_locked(self, frame: Any, now: float) -> Optional[str]:
+        """Throttled JPEG evidence-ring append (runs in the executor thread)."""
         if now - self._last_ring_ts < _RING_MIN_INTERVAL:
             return None
         encoded = _encode_jpeg_b64(frame, quality=_SNAPSHOT_JPEG_QUALITY)
@@ -501,6 +545,10 @@ class SystemMonitorSession:
         self._last_ring_ts = now
         self._ring.append(encoded)
         return encoded
+
+    def _maybe_ring_snapshot(self, frame: Any, now: float) -> Optional[str]:
+        """Deprecated sync alias for _ring_snapshot_locked."""
+        return self._ring_snapshot_locked(frame, now)
 
     def _paint_overlay(self, frame: Any) -> Any:
         result = self.last_result
@@ -519,7 +567,11 @@ class SystemMonitorSession:
                 else ("drifting" if (score is not None and score < 70) else "focused")
             )
         else:
-            state = "distracted" if self.last_telemetry.get("presence") == "away" else "drifting"
+            state = (
+                "distracted"
+                if str(self.last_telemetry.get("presence") or "").upper() == "AWAY"
+                else "drifting"
+            )
         return self.processor.draw_overlay(frame, result, focus_state=state, focus_score=score)
 
     # ----------------------------------------------------------- feed helpers
@@ -575,14 +627,13 @@ async def start_system_monitor(
 
     if pipeline is None:
         pipe = LocalCVPipeline()
-        # Inherit the enrolled identity baseline (if any) so /enroll-face
-        # and /enroll-from-camera keep working with per-session pipelines.
+        # Inherit the enrolled identity baseline (in-memory or the encrypted
+        # persisted store) so /enroll-face and /enroll-from-camera keep working
+        # with per-session pipelines.
         try:
-            from deeptutor.services.monitoring.cv_pipeline import get_cv_pipeline
+            from deeptutor.services.monitoring.cv_pipeline import hydrate_identity_baseline
 
-            baseline = get_cv_pipeline().face_engine.get_enrolled_face()
-            if baseline is not None:
-                pipe.enroll_student_baseline(list(baseline))
+            await hydrate_identity_baseline(pipe)
         except Exception:  # noqa: BLE001 - enrollment inheritance is best-effort
             pass
     else:

@@ -19,6 +19,7 @@ import math
 from typing import Deque, List, Optional, Tuple
 
 from deeptutor.services.monitoring.face_engine import FaceLandmarks, Point3D
+from deeptutor.services.monitoring.monitoring_config import DEFAULT_THRESHOLDS
 
 logger = logging.getLogger(__name__)
 
@@ -43,13 +44,24 @@ class LivenessDetector:
     Combines Eye Aspect Ratio (EAR) blink dynamics, facial micro-motion, and texture cues.
     """
 
-    # EAR Thresholds
-    EAR_CLOSED_THRESHOLD: float = 0.18  # Below this, eye is considered closed
-    EAR_OPEN_THRESHOLD: float = 0.25  # Above this, eye is open
-    MIN_EAR_VARIANCE_FOR_LIVE: float = 0.0003  # Static photos have near-zero variance
+    # EAR Thresholds (defaults mirror monitoring_config.DEFAULT_THRESHOLDS —
+    # the single source of truth; class attrs remain for backward compat).
+    EAR_CLOSED_THRESHOLD: float = DEFAULT_THRESHOLDS.ear_closed  # Below this, eye is considered closed
+    EAR_OPEN_THRESHOLD: float = DEFAULT_THRESHOLDS.ear_open  # Above this, eye is open
+    MIN_EAR_VARIANCE_FOR_LIVE: float = DEFAULT_THRESHOLDS.min_ear_variance
 
     # Micro-motion threshold
-    MIN_MOTION_VARIANCE_FOR_LIVE: float = 0.00005  # Static images have near-zero motion
+    MIN_MOTION_VARIANCE_FOR_LIVE: float = DEFAULT_THRESHOLDS.min_motion_variance
+
+    # A blink only counts as liveness evidence when it happened recently —
+    # concentrated readers drop to ~4 blinks/min, so an un-decayed
+    # "has blinked at least once" flag kept a swapped-in photograph
+    # un-flaggable for the rest of the session.
+    BLINK_RECENCY_S: float = DEFAULT_THRESHOLDS.blink_recency_seconds
+
+    # The static-image branch needs this much observation before it may fire
+    # (a brief still moment must never be judged a photograph).
+    STATIC_SPOOF_MIN_HISTORY_S: float = DEFAULT_THRESHOLDS.static_spoof_min_history_seconds
 
     def __init__(self, window_size: int = 30) -> None:
         """
@@ -61,6 +73,7 @@ class LivenessDetector:
         self._blink_count: int = 0
         self._was_closed: bool = False
         self._last_blink_time: float = 0.0
+        self._first_frame_time: float = 0.0
 
     def reset(self) -> None:
         """Reset historical buffers for a new session or check."""
@@ -69,6 +82,7 @@ class LivenessDetector:
         self._blink_count = 0
         self._was_closed = False
         self._last_blink_time = 0.0
+        self._first_frame_time = 0.0
 
     @staticmethod
     def calculate_eye_aspect_ratio(eye_points: List[Point3D]) -> float:
@@ -142,6 +156,8 @@ class LivenessDetector:
             self._blink_count += 1
             self._last_blink_time = timestamp
             blink_just_occurred = True
+        if self._first_frame_time <= 0.0:
+            self._first_frame_time = timestamp
 
         # 3. Calculate historical variance metrics
         ear_var = self._compute_variance(list(self._ear_history))
@@ -174,14 +190,25 @@ class LivenessDetector:
             )
 
         # Evaluate liveness cues:
-        # Live if: (1) blinks recorded OR non-trivial EAR variance OR micro-motion variance
-        # AND texture is acceptable
-        has_blink = self._blink_count > 0 or blink_just_occurred
+        # Live if: (1) a RECENT blink OR non-trivial EAR variance OR
+        # micro-motion variance, AND texture is acceptable.
+        has_blink = blink_just_occurred or (
+            self._last_blink_time > 0.0
+            and (timestamp - self._last_blink_time) <= self.BLINK_RECENCY_S
+        )
         has_ear_dynamics = ear_var >= self.MIN_EAR_VARIANCE_FOR_LIVE
         has_motion = motion_var >= self.MIN_MOTION_VARIANCE_FOR_LIVE
 
-        # Static spoof detection: EAR is dead static AND nose coordinate is perfectly frozen
-        if not has_blink and not has_ear_dynamics and not has_motion:
+        # Static spoof detection: EAR is dead static AND nose coordinate is
+        # perfectly frozen. Gated on enough observation history so a short
+        # still moment cannot be judged a photograph.
+        observed_s = timestamp - self._first_frame_time if self._first_frame_time > 0.0 else 0.0
+        if (
+            not has_blink
+            and not has_ear_dynamics
+            and not has_motion
+            and observed_s >= self.STATIC_SPOOF_MIN_HISTORY_S
+        ):
             return LivenessResult(
                 is_live=False,
                 confidence=0.92,

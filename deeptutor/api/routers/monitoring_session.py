@@ -131,14 +131,13 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     await websocket.accept()
     _active_monitoring_sessions[session_id] = websocket
     # Per-connection pipeline: never share/reset the process-global singleton
-    # across concurrent sessions. Inherit the enrolled baseline (if any).
+    # across concurrent sessions. Inherit the enrolled baseline (if any),
+    # else restore the persisted (encrypted) one.
     pipeline = LocalCVPipeline()
     try:
-        from deeptutor.services.monitoring.cv_pipeline import get_cv_pipeline
+        from deeptutor.services.monitoring.cv_pipeline import hydrate_identity_baseline
 
-        baseline = get_cv_pipeline().face_engine.get_enrolled_face()
-        if baseline is not None:
-            pipeline.enroll_student_baseline(list(baseline))
+        await hydrate_identity_baseline(pipeline)
     except Exception:  # noqa: BLE001 - inheritance best-effort
         pass
     pipeline.reset_session()

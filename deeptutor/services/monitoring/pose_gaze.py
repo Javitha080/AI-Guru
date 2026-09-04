@@ -17,6 +17,7 @@ import math
 from typing import Optional, Tuple
 
 from deeptutor.services.monitoring.face_engine import FaceLandmarks
+from deeptutor.services.monitoring.monitoring_config import DEFAULT_THRESHOLDS
 
 logger = logging.getLogger(__name__)
 
@@ -67,13 +68,15 @@ class PoseGazeEstimator:
     Local Head Pose and Visual Gaze Estimator.
     """
 
-    # Pitch angles for reading/writing on desk: 20 degrees to 55 degrees downward
-    PITCH_READING_MIN: float = 18.0
-    PITCH_READING_MAX: float = 55.0
+    # Shared classification thresholds — defaults come from
+    # monitoring_config.DEFAULT_THRESHOLDS (single source of truth).
+    # Pitch angles for reading/writing on desk: 18 to 55 degrees downward
+    PITCH_READING_MIN: float = DEFAULT_THRESHOLDS.pitch_reading_min
+    PITCH_READING_MAX: float = DEFAULT_THRESHOLDS.pitch_reading_max
 
     # Yaw thresholds for looking away
-    YAW_SCREEN_THRESHOLD: float = 25.0
-    YAW_AWAY_THRESHOLD: float = 35.0
+    YAW_SCREEN_THRESHOLD: float = DEFAULT_THRESHOLDS.yaw_screen_deg
+    YAW_AWAY_THRESHOLD: float = DEFAULT_THRESHOLDS.yaw_away_deg
 
     @classmethod
     def classify(

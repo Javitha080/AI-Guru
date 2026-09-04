@@ -46,16 +46,24 @@ class EngagementEstimator:
     FAST_DECAY_ALPHA: float = 0.25  # Focus dropping — react quickly
     SLOW_RECOVERY_ALPHA: float = 0.10  # Focus returning — gradual rebuild
 
+    # Head-stability thresholds in degrees PER SECOND (not per frame): the
+    # old per-frame constants meant different angular velocities at 10 fps
+    # vs 5 fps vs throttled 3 fps.
+    STABLE_RATE_DEG_S: float = 25.0  # below: steady micro-movement → 1.0
+    ERRATIC_RATE_DEG_S: float = 80.0  # above: erratic turning → 0.3
+
     def __init__(self, ema_alpha: float = EMA_ALPHA) -> None:
         self.ema_alpha = ema_alpha
         self._smoothed_score: float = 100.0
         self._pose_history: Deque[Tuple[float, float, float]] = collections.deque(maxlen=20)
+        self._pose_times: Deque[float] = collections.deque(maxlen=20)
         self._score_history: Deque[float] = collections.deque(maxlen=10)
 
     def reset(self) -> None:
         """Reset engagement state to baseline 100.0."""
         self._smoothed_score = 100.0
         self._pose_history.clear()
+        self._pose_times.clear()
         self._score_history.clear()
 
     def update(
@@ -64,9 +72,12 @@ class EngagementEstimator:
         pose: HeadPoseResult,
         gaze_focused: bool,
         is_distracted: bool = False,
+        timestamp: float = -1.0,
     ) -> EngagementSnapshot:
         """
         Calculate and return updated engagement metrics for the current frame.
+        ``timestamp`` enables rate-normalized stability (deg/s); omitting it
+        falls back to the legacy 10 fps per-frame assumption.
         """
         if presence_state == PresenceState.AWAY:
             instant_score = 0.0
@@ -106,6 +117,7 @@ class EngagementEstimator:
 
             # 3. Stability Factor (0.0 to 1.0)
             self._pose_history.append((pose.yaw, pose.pitch, pose.roll))
+            self._pose_times.append(float(timestamp))
             stability_factor = self._compute_stability()
 
             # Base instantaneous score
@@ -144,24 +156,31 @@ class EngagementEstimator:
         )
 
     def _compute_stability(self) -> float:
-        """Compute head pose stability factor from recent history (all axes)."""
+        """Compute head pose stability from recent history (all axes).
+
+        Rates are degrees PER SECOND: inter-frame deltas are divided by the
+        actual inter-frame dt, so 5 fps and 10 fps (and governor-throttled
+        3 fps) measure the same angular velocity.
+        """
         if len(self._pose_history) < 3:
             return 1.0
 
         h = list(self._pose_history)
-        # Combined RMS of yaw + pitch + roll inter-frame deltas so vertical
-        # head-bobbing and lateral fidgeting are properly penalised.
-        yaw_deltas = [abs(h[i][0] - h[i - 1][0]) for i in range(1, len(h))]
-        pitch_deltas = [abs(h[i][1] - h[i - 1][1]) for i in range(1, len(h))]
-        roll_deltas = [abs(h[i][2] - h[i - 1][2]) for i in range(1, len(h))]
-        combined = [(y + p + r) / 3.0 for y, p, r in zip(yaw_deltas, pitch_deltas, roll_deltas)]
-        avg_motion = sum(combined) / len(combined)
+        t = list(self._pose_times)
+        # Combined yaw + pitch + roll angular rates so vertical head-bobbing
+        # and lateral fidgeting are properly penalised.
+        rates = []
+        for i in range(1, len(h)):
+            delta = (abs(h[i][0] - h[i - 1][0]) + abs(h[i][1] - h[i - 1][1]) + abs(h[i][2] - h[i - 1][2])) / 3.0
+            # Legacy callers pass no timestamps: assume the historical 10 fps.
+            dt = t[i] - t[i - 1] if (t[i] >= 0 and t[i - 1] >= 0) else 0.1
+            rates.append(delta / max(0.001, dt))
+        avg_rate = sum(rates) / len(rates)
 
-        # Steady study micro-movements: < 2.5 degrees/frame = high stability (1.0)
-        # Erratic fast turning (> 10 deg/frame) = lower stability
-        if avg_motion < 2.5:
+        if avg_rate < self.STABLE_RATE_DEG_S:
             return 1.0
-        elif avg_motion < 8.0:
-            return max(0.5, 1.0 - (avg_motion - 2.5) / 10.0)
+        elif avg_rate < self.ERRATIC_RATE_DEG_S:
+            span = self.ERRATIC_RATE_DEG_S - self.STABLE_RATE_DEG_S
+            return max(0.5, 1.0 - (avg_rate - self.STABLE_RATE_DEG_S) / (span * 1.25))
         else:
             return 0.3

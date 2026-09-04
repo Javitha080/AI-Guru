@@ -18,6 +18,15 @@ from typing import Any, List, Optional, Tuple
 logger = logging.getLogger(__name__)
 
 
+def _coerce_float(value: Any, default: float) -> float:
+    """Finite-float coercion shared by the telemetry fast path."""
+    try:
+        v = float(value)
+    except (TypeError, ValueError):
+        return default
+    return v if math.isfinite(v) else default
+
+
 @dataclass
 class Point3D:
     x: float
@@ -99,9 +108,10 @@ class FaceEngine:
         if not vec_a or not vec_b:
             return 0.0
         if len(vec_a) != len(vec_b):
-            min_len = min(len(vec_a), len(vec_b))
-            vec_a = vec_a[:min_len]
-            vec_b = vec_b[:min_len]
+            # Never silently truncate: comparing vectors from DIFFERENT
+            # embedding spaces by their overlapping prefix produced confident
+            # garbage. A dimension mismatch is a mismatch.
+            return 0.0
 
         dot_product = sum(a * b for a, b in zip(vec_a, vec_b))
         norm_a = math.sqrt(sum(a * a for a in vec_a))
@@ -140,6 +150,29 @@ class FaceEngine:
         yield detected=True with landmarks=None (downstream estimators then
         report UNKNOWN / not-focused rather than crashing).
         """
+        # Fast path: the system engine passes its ALREADY-CONSTRUCTED
+        # FaceLandmarks object inline (no dict round-trip — serializing 478
+        # points to dicts and re-parsing them every tick cost ~10k dict
+        # allocations/s on the event loop).
+        if isinstance(raw_data, dict) and isinstance(
+            raw_data.get("_landmarks_obj"), FaceLandmarks
+        ):
+            obj: FaceLandmarks = raw_data["_landmarks_obj"]
+            embedding = raw_data.get("embedding")
+            if not isinstance(embedding, list) or not embedding:
+                try:
+                    embedding = self.generate_geometric_embedding(obj)
+                except Exception:  # noqa: BLE001
+                    embedding = None
+            return FaceDetectionResult(
+                detected=True,
+                confidence=max(0.0, min(1.0, _coerce_float(raw_data.get("confidence", 0.95), 0.95))),
+                bounding_box=(0.2, 0.2, 0.6, 0.6),
+                landmarks=obj,
+                embedding=embedding,
+                brightness=_coerce_float(raw_data.get("brightness", 0.5), 0.5),
+            )
+
         if not isinstance(raw_data, dict) or not raw_data.get("detected", False):
             brightness = 0.5
             try:
