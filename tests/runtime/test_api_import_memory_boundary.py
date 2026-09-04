@@ -14,6 +14,9 @@ import sys
 
 import deeptutor.api.main  # noqa: F401
 
+# numpy is a core dependency (pyproject.toml) and is legitimately imported by
+# the server-side monitoring stack at startup, so it is intentionally NOT in
+# this list. Everything below must remain lazily imported.
 heavy_roots = {
     "anthropic",
     "docx",
@@ -22,7 +25,6 @@ heavy_roots = {
     "llama_index",
     "matplotlib",
     "networkx",
-    "numpy",
     "openpyxl",
     "pandas",
     "pptx",

@@ -86,6 +86,7 @@ def _purge_session_state(session_id: str) -> None:
     _live_consent.discard(session_id)
     _live_frames.pop(session_id, None)
 
+
 _FRAME_KEYS = ("jpeg_b64", "jpeg", "frame_b64", "frame", "image_b64", "image")
 
 
@@ -98,6 +99,7 @@ def _extract_frame(payload: Dict[str, Any]) -> Optional[str]:
 
 
 # --- Request & Response Models ---
+
 
 class EnrollFaceRequest(BaseModel):
     student_id: Optional[str] = Field(default=None, description="Optional student identifier")
@@ -124,7 +126,9 @@ class EnrollFaceResponse(BaseModel):
 
 
 class VerifyLivenessRequest(BaseModel):
-    frames_landmarks: List[Dict[str, Any]] = Field(..., description="Sequence of landmark frames from client")
+    frames_landmarks: List[Dict[str, Any]] = Field(
+        ..., description="Sequence of landmark frames from client"
+    )
     timestamps: Optional[List[float]] = Field(default=None, description="Sequence timestamps")
 
 
@@ -170,8 +174,11 @@ class CameraConfigRequest(BaseModel):
 
 # --- Endpoints ---
 
+
 @router.post("/enroll-face", response_model=EnrollFaceResponse)
-async def enroll_face(req: EnrollFaceRequest, _user: Any = Depends(require_auth)) -> EnrollFaceResponse:
+async def enroll_face(
+    req: EnrollFaceRequest, _user: Any = Depends(require_auth)
+) -> EnrollFaceResponse:
     """
     Enroll student baseline for local identity verification.
 
@@ -206,7 +213,9 @@ async def enroll_face(req: EnrollFaceRequest, _user: Any = Depends(require_auth)
 
 
 @router.post("/verify-liveness", response_model=VerifyLivenessResponse)
-async def verify_liveness(req: VerifyLivenessRequest, _user: Any = Depends(require_auth)) -> VerifyLivenessResponse:
+async def verify_liveness(
+    req: VerifyLivenessRequest, _user: Any = Depends(require_auth)
+) -> VerifyLivenessResponse:
     """
     Evaluate multi-frame landmark sequence for pre-flight anti-spoof liveness check.
     """
@@ -238,13 +247,17 @@ async def verify_liveness(req: VerifyLivenessRequest, _user: Any = Depends(requi
 
 
 @router.post("/analyze-frame")
-async def analyze_frame(req: AnalyzeFrameRequest, _user: Any = Depends(require_auth)) -> Dict[str, Any]:
+async def analyze_frame(
+    req: AnalyzeFrameRequest, _user: Any = Depends(require_auth)
+) -> Dict[str, Any]:
     """
     Analyze a single frame / telemetry payload and return comprehensive study monitoring metrics.
     """
     pipeline = get_cv_pipeline()
     payload = req.model_dump()
-    result: FrameAnalysisResult = pipeline.process_telemetry_payload(payload, current_time=req.timestamp)
+    result: FrameAnalysisResult = pipeline.process_telemetry_payload(
+        payload, current_time=req.timestamp
+    )
 
     # Format structured response
     resp = {
@@ -290,7 +303,9 @@ async def analyze_frame(req: AnalyzeFrameRequest, _user: Any = Depends(require_a
             "focus_score": result.distraction.focus_score,
             "confidence": result.distraction.confidence,
             "duration_seconds": result.distraction.duration_seconds,
-            "whitelisted_action": result.distraction.whitelisted_action.value if result.distraction.whitelisted_action else None,
+            "whitelisted_action": result.distraction.whitelisted_action.value
+            if result.distraction.whitelisted_action
+            else None,
             "reason": result.distraction.reason,
         },
         "identity": {
@@ -302,7 +317,9 @@ async def analyze_frame(req: AnalyzeFrameRequest, _user: Any = Depends(require_a
             "category": result.dispatched_warning.category,
             "message": result.dispatched_warning.message,
             "severity": result.dispatched_warning.severity,
-        } if result.dispatched_warning else None,
+        }
+        if result.dispatched_warning
+        else None,
         "cloud_egress_bytes": result.cloud_egress_bytes,
     }
     return resp
@@ -416,7 +433,9 @@ async def get_camera_status(_user: Any = Depends(require_auth)) -> Dict[str, Any
 
 
 @router.post("/camera/config")
-async def set_camera_config(req: CameraConfigRequest, _user: Any = Depends(require_auth)) -> Dict[str, Any]:
+async def set_camera_config(
+    req: CameraConfigRequest, _user: Any = Depends(require_auth)
+) -> Dict[str, Any]:
     updates = {k: v for k, v in req.model_dump().items() if v is not None}
     saved = await save_camera_config(updates)
     return {"saved": True, "config": saved}
@@ -429,10 +448,14 @@ async def get_camera_snapshot(session_id: str, _user: Any = Depends(require_auth
 
     monitor = get_system_monitor(session_id)
     if monitor is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active system monitor")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No active system monitor"
+        )
     jpeg = monitor.get_snapshot_jpeg()
     if jpeg is None:
-        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Camera warming up")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Camera warming up"
+        )
     return Response(content=jpeg, media_type="image/jpeg", headers={"Cache-Control": "no-store"})
 
 
@@ -457,7 +480,9 @@ async def monitoring_feed(session_id: str, _user: Any = Depends(require_auth)) -
             await asyncio.sleep(0.15)
             monitor = get_system_monitor(session_id)
     if monitor is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active system camera feed")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No active system camera feed"
+        )
 
     boundary = _MJPEG_BOUNDARY
     header = f"--{boundary}\r\nContent-Type: image/jpeg\r\nContent-Length: ".encode("ascii")
@@ -497,7 +522,9 @@ async def enroll_from_camera(_user: Any = Depends(require_auth)) -> Dict[str, An
     pipeline = get_cv_pipeline()
     probe = await _probe_camera_frame()
     if probe is None:
-        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="System camera unavailable")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="System camera unavailable"
+        )
     result = probe["result"]
     if not result.detected or result.landmarks is None:
         return {"enrolled": False, "reason": "no_face_detected"}
@@ -512,7 +539,9 @@ async def enroll_from_camera(_user: Any = Depends(require_auth)) -> Dict[str, An
             "pitch": result.pose.pitch,
             "roll": result.pose.roll,
             "posture": result.pose.posture.value,
-        } if result.pose else None,
+        }
+        if result.pose
+        else None,
     }
 
 
@@ -534,7 +563,9 @@ async def probe_camera(_user: Any = Depends(require_auth)) -> Dict[str, Any]:
             "pitch": result.pose.pitch,
             "roll": result.pose.roll,
             "posture": result.pose.posture.value,
-        } if result.pose else None,
+        }
+        if result.pose
+        else None,
         "snapshot_b64": _snapshot_payload_b64(probe["frame"]),
     }
 
@@ -572,14 +603,16 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     if monitor is not None:
         listener = monitor.register(websocket)
         try:
-            await websocket.send_json({
-                "type": "session_init",
-                "session_id": session_id,
-                "mode": "system",
-                "target_fps": monitor.target_fps,
-                "zero_cloud_egress": True,
-                "message": "AI Guru System Camera Monitoring Active",
-            })
+            await websocket.send_json(
+                {
+                    "type": "session_init",
+                    "session_id": session_id,
+                    "mode": "system",
+                    "target_fps": monitor.target_fps,
+                    "zero_cloud_egress": True,
+                    "message": "AI Guru System Camera Monitoring Active",
+                }
+            )
             while True:
                 raw_text = await websocket.receive_text()
                 try:
@@ -669,8 +702,9 @@ async def _browser_driven_monitoring_loop(
         except Exception as exc:  # noqa: BLE001
             logger.debug("Score persistence skipped for %s: %s", session_id, exc)
 
-    async def _log_episode(event_type: str, severity: str, confidence: float,
-                           duration_seconds: float, message: str) -> None:
+    async def _log_episode(
+        event_type: str, severity: str, confidence: float, duration_seconds: float, message: str
+    ) -> None:
         try:
             from deeptutor.services.study.telemetry_logger import TelemetryLogger
 
@@ -687,14 +721,16 @@ async def _browser_driven_monitoring_loop(
 
     try:
         # Initial greeting with target FPS
-        await websocket.send_json({
-            "type": "session_init",
-            "session_id": session_id,
-            "mode": "browser",
-            "target_fps": pipeline.get_current_target_fps(),
-            "zero_cloud_egress": True,
-            "message": "AI Guru Local Study Monitoring Stream Active",
-        })
+        await websocket.send_json(
+            {
+                "type": "session_init",
+                "session_id": session_id,
+                "mode": "browser",
+                "target_fps": pipeline.get_current_target_fps(),
+                "zero_cloud_egress": True,
+                "message": "AI Guru Local Study Monitoring Stream Active",
+            }
+        )
 
         while True:
             # Receive telemetry payload from client
@@ -737,10 +773,9 @@ async def _browser_driven_monitoring_loop(
             # Bounded acceptance rejects grossly skewed clocks.
             wall_now = time.time()
             frame_ts = payload.get("timestamp")
-            if (
-                isinstance(frame_ts, (int, float))
-                and (wall_now - _FRAME_TIMESTAMP_MAX_LAG) <= float(frame_ts) <= (wall_now + _FRAME_TIMESTAMP_MAX_AHEAD)
-            ):
+            if isinstance(frame_ts, (int, float)) and (
+                wall_now - _FRAME_TIMESTAMP_MAX_LAG
+            ) <= float(frame_ts) <= (wall_now + _FRAME_TIMESTAMP_MAX_AHEAD):
                 analysis_ts = float(frame_ts)
             else:
                 analysis_ts = wall_now
@@ -755,7 +790,10 @@ async def _browser_driven_monitoring_loop(
 
             # --- edge-triggered telemetry persistence (real episodes) -------
             if analysis.presence.state_changed or analysis.presence.state != last_presence_state:
-                if last_presence_state is not None and analysis.presence.state != last_presence_state:
+                if (
+                    last_presence_state is not None
+                    and analysis.presence.state != last_presence_state
+                ):
                     await _log_episode(
                         "PRESENCE_CHANGE",
                         "info",
@@ -804,7 +842,9 @@ async def _browser_driven_monitoring_loop(
                 "engagement_trend": analysis.engagement.trend,
                 "posture": analysis.pose.posture.value,
                 "is_distracted": analysis.distraction.is_distracted,
-                "whitelisted_action": analysis.distraction.whitelisted_action.value if analysis.distraction.whitelisted_action else None,
+                "whitelisted_action": analysis.distraction.whitelisted_action.value
+                if analysis.distraction.whitelisted_action
+                else None,
                 "fps": analysis.fps,
             }
 
@@ -861,7 +901,9 @@ async def set_live_consent(
     """Student-side opt-in/out for the current session's live view."""
     if req.enabled:
         if session_id not in _active_monitoring_sessions:
-            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="No active monitoring session")
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT, detail="No active monitoring session"
+            )
         _live_consent.add(session_id)
     else:
         _live_consent.discard(session_id)
@@ -905,7 +947,7 @@ async def get_session_monitoring_events(
         events = []
 
     sanitized = []
-    for e in (events or []):
+    for e in events or []:
         message = None
         raw_meta = e.get("metadata_json")
         if isinstance(raw_meta, str) and raw_meta:
@@ -926,4 +968,8 @@ async def get_session_monitoring_events(
                 "message": message,
             }
         )
-    return {"session_id": session_id, "items": sanitized[: max(0, min(limit, 500))], "total": len(sanitized)}
+    return {
+        "session_id": session_id,
+        "items": sanitized[: max(0, min(limit, 500))],
+        "total": len(sanitized),
+    }

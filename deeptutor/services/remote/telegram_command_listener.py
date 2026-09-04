@@ -123,9 +123,7 @@ async def _status_reply() -> str:
     if url and TunnelGateway.is_url_public():
         return f"Tunnel is <b>active</b>.\nPortal: {url}"
     if url:
-        return (
-            f"Tunnel is <b>starting</b> (no public URL yet).\nLocal-only address: {url}"
-        )
+        return f"Tunnel is <b>starting</b> (no public URL yet).\nLocal-only address: {url}"
     return "Tunnel is <b>not running</b>. Send /tunnel on to start it."
 
 
@@ -137,8 +135,13 @@ async def _run_tunnel_action(action: str, chat_id: str) -> str:
     async def _audit(command_action: str, details: Dict[str, Any]) -> None:
         try:
             await AuditLogger.log_event(
-                "parent-telegram", "parent", command_action,
-                "parent_portal", "", details, "",
+                "parent-telegram",
+                "parent",
+                command_action,
+                "parent_portal",
+                "",
+                details,
+                "",
             )
         except Exception as exc:  # noqa: BLE001 - audit must never break reply
             logger.debug("audit log skipped for %s: %s", command_action, exc)
@@ -151,7 +154,8 @@ async def _run_tunnel_action(action: str, chat_id: str) -> str:
         public = bool(result.get("url_is_public"))
         if status == "active" and public:
             spawn_bg(
-                _notify_started(chat_id, url), name="tg-tunnel-started-notice",
+                _notify_started(chat_id, url),
+                name="tg-tunnel-started-notice",
             )
             return f"Tunnel started.\nPortal: {url}"
         if status == "active":
@@ -180,7 +184,8 @@ async def _notify_started(chat_id: str, url: str) -> None:
                 cfg = await _read_config()
                 token = cfg["bot_token"] if cfg else ""
                 await TelegramNotifier.send_message(
-                    token, chat_id,
+                    token,
+                    chat_id,
                     f"Portal is now publicly reachable:\n{live}",
                 )
             return
@@ -200,7 +205,8 @@ async def _read_config() -> Optional[Dict[str, Any]]:
         async with aiosqlite.connect(db_path) as db:
             await ensure_kv_settings(db)
             cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", ("telegram_default",),
+                "SELECT value FROM settings WHERE key = ?",
+                ("telegram_default",),
             )
             row = await cursor.fetchone()
             return load_parent_telegram_config(row[0] if row else None)
@@ -262,16 +268,16 @@ class TelegramCommandListener:
                 if consecutive_errors <= 3 or (consecutive_errors & (consecutive_errors - 1)) == 0:
                     logger.warning(
                         "Telegram command poll failed (attempt %d, retry in %.0fs): %s",
-                        consecutive_errors, backoff, exc,
+                        consecutive_errors,
+                        backoff,
+                        exc,
                     )
                 await asyncio.sleep(backoff)
                 # Exponential backoff: 8 → 16 → 32 → … → 300s cap.
                 backoff = min(backoff * 2, _MAX_BACKOFF_S)
 
     async def _poll_once(self, cfg: Dict[str, Any]) -> None:
-        url = (
-            "https://api.telegram.org/bot{token}/getUpdates".format(token=cfg["bot_token"])
-        )
+        url = "https://api.telegram.org/bot{token}/getUpdates".format(token=cfg["bot_token"])
         params = {
             "timeout": int(_POLL_TIMEOUT_S),
             "offset": self._offset,
@@ -300,7 +306,9 @@ class TelegramCommandListener:
                         token=cfg["bot_token"]
                     )
                     try:
-                        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10.0)) as del_session:
+                        async with aiohttp.ClientSession(
+                            timeout=aiohttp.ClientTimeout(total=10.0)
+                        ) as del_session:
                             async with del_session.post(del_url) as del_resp:
                                 logger.info("deleteWebhook status: %d", del_resp.status)
                     except Exception as del_exc:  # noqa: BLE001
@@ -329,14 +337,19 @@ class TelegramCommandListener:
         if not is_authorized_chat(chat_id, cfg):
             # Never reveal existence/reasoning to strangers; log locally only.
             logger.debug(
-                "Telegram command from unauthorized chat %s ignored", chat_id,
+                "Telegram command from unauthorized chat %s ignored",
+                chat_id,
             )
             return
 
         # Skip stale updates on cold start (older than 5 minutes)
         msg_date = message.get("date")
         if msg_date and (time.time() - float(msg_date)) > 300.0:
-            logger.info("Ignoring stale Telegram command from %s (sent %ds ago)", chat_id, int(time.time() - float(msg_date)))
+            logger.info(
+                "Ignoring stale Telegram command from %s (sent %ds ago)",
+                chat_id,
+                int(time.time() - float(msg_date)),
+            )
             return
 
         if not action:
@@ -352,7 +365,9 @@ class TelegramCommandListener:
             logger.error("Tunnel command %s failed: %s", action, exc)
             reply = f"Command failed: {exc}"
         await TelegramNotifier.send_message(
-            cfg["bot_token"], str(chat_id), reply,
+            cfg["bot_token"],
+            str(chat_id),
+            reply,
         )
 
 
@@ -398,7 +413,9 @@ async def _composite_status_reply() -> str:
         url = TunnelGateway.get_tunnel_url()
         public = TunnelGateway.is_url_public()
         if url and public:
-            lines.append(f"🌐 <b>Tunnel:</b> Active (Public)\n🔗 <a href=\"{url}/parent\">{url}/parent</a>\n")
+            lines.append(
+                f'🌐 <b>Tunnel:</b> Active (Public)\n🔗 <a href="{url}/parent">{url}/parent</a>\n'
+            )
         elif url:
             lines.append(f"🌐 <b>Tunnel:</b> Starting (Local: {url})\n")
         else:
@@ -510,8 +527,13 @@ async def _run_live_action(action: str, chat_id: str) -> str:
     async def _audit(command_action: str, details: Dict[str, Any]) -> None:
         try:
             await AuditLogger.log_event(
-                "parent-telegram", "parent", command_action,
-                "parent_portal", "", details, "",
+                "parent-telegram",
+                "parent",
+                command_action,
+                "parent_portal",
+                "",
+                details,
+                "",
             )
         except Exception as exc:  # noqa: BLE001
             logger.debug("audit log skipped for %s: %s", command_action, exc)
@@ -585,12 +607,15 @@ async def _run_live_action(action: str, chat_id: str) -> str:
             reply += "\n\n⏳ <i>Encrypted tunnel is establishing; you will receive a follow-up message when the public link is ready.</i>"
 
         # 6. Audit
-        await _audit("telegram.live_stream_started", {
-            "chat_id": chat_id,
-            "session_id": session_id,
-            "tunnel_url": tunnel_url or "",
-            "lan_url": lan_url or "",
-        })
+        await _audit(
+            "telegram.live_stream_started",
+            {
+                "chat_id": chat_id,
+                "session_id": session_id,
+                "tunnel_url": tunnel_url or "",
+                "lan_url": lan_url or "",
+            },
+        )
 
         return reply
 
@@ -615,13 +640,10 @@ async def _run_live_action(action: str, chat_id: str) -> str:
             _live_consent,
         )
 
-        active_live = [
-            s for s in _live_consent if s in _active_monitoring_sessions
-        ]
+        active_live = [s for s in _live_consent if s in _active_monitoring_sessions]
         if active_live:
             return (
-                f"📹 Live stream is <b>active</b> for session "
-                f"<code>{active_live[0][:12]}…</code>"
+                f"📹 Live stream is <b>active</b> for session <code>{active_live[0][:12]}…</code>"
             )
         if _active_monitoring_sessions:
             return (
@@ -640,4 +662,3 @@ def start_telegram_command_listener() -> Optional[asyncio.Task]:
 
 async def stop_telegram_command_listener() -> None:
     await _listener.stop()
-

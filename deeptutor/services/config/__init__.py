@@ -2,6 +2,7 @@
 
 import importlib
 
+from .key_vault import KeyVaultService, get_key_vault, mask_api_key
 from .knowledge_base_config import (
     KnowledgeBaseConfigService,
     get_kb_config_service,
@@ -19,7 +20,6 @@ from .loader import (
     resolve_config_path,
 )
 from .model_catalog import ModelCatalogService, get_model_catalog_service
-from .key_vault import KeyVaultService, get_key_vault, mask_api_key
 from .runtime_settings import (
     HTTP_KEEP_ALIVE_TIMEOUT,
     ChatAttachmentLimits,

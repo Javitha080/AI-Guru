@@ -43,11 +43,21 @@ def register(papers_app: typer.Typer) -> None:
 
     @papers_app.command("import")
     def papers_import(
-        folder: str = typer.Argument(..., help="Folder containing past-paper PDFs (searched recursively)."),
-        subject: str = typer.Option("ict", "--subject", help="Default subject when the filename lacks one."),
-        grade: Optional[int] = typer.Option(None, "--grade", min=11, max=13, help="Default grade when filename/folder lack one."),
-        medium: str = typer.Option("english", "--medium", help="Default medium: english|sinhala|tamil."),
-        solve: bool = typer.Option(True, "--solve/--no-solve", help="LLM-solve answers missing from marking schemes."),
+        folder: str = typer.Argument(
+            ..., help="Folder containing past-paper PDFs (searched recursively)."
+        ),
+        subject: str = typer.Option(
+            "ict", "--subject", help="Default subject when the filename lacks one."
+        ),
+        grade: Optional[int] = typer.Option(
+            None, "--grade", min=11, max=13, help="Default grade when filename/folder lack one."
+        ),
+        medium: str = typer.Option(
+            "english", "--medium", help="Default medium: english|sinhala|tamil."
+        ),
+        solve: bool = typer.Option(
+            True, "--solve/--no-solve", help="LLM-solve answers missing from marking schemes."
+        ),
     ) -> None:
         """Import all past-paper PDFs in FOLDER into the paper bank."""
         from deeptutor.services.exams.bank_import import BankImportJob
@@ -86,9 +96,7 @@ def register(papers_app: typer.Typer) -> None:
 
         from deeptutor.services.exams.bank_store import BankStore
 
-        rows = asyncio.run(
-            BankStore.catalog(subject=subject, grade=grade, year=year)
-        )
+        rows = asyncio.run(BankStore.catalog(subject=subject, grade=grade, year=year))
         if fmt == "json":
             console.print(_json.dumps(rows, indent=1))
             return
@@ -107,9 +115,15 @@ def register(papers_app: typer.Typer) -> None:
         table.add_column("Essay", justify="right")
         for r in rows:
             table.add_row(
-                r["group_key"], str(r["paper_no"]), str(r["grade"]), str(r["year"]),
-                r["paper_type"], r["medium"],
-                str(r["question_count"]), str(r["mcq_count"]), str(r["essay_count"]),
+                r["group_key"],
+                str(r["paper_no"]),
+                str(r["grade"]),
+                str(r["year"]),
+                r["paper_type"],
+                r["medium"],
+                str(r["question_count"]),
+                str(r["mcq_count"]),
+                str(r["essay_count"]),
             )
         console.print(table)
 
@@ -117,7 +131,11 @@ def register(papers_app: typer.Typer) -> None:
     def papers_clean(
         source: str = typer.Argument(..., help="Cleaned OCR-text folder (mirrors the PDF tree)."),
         out: str = typer.Argument(..., help="Output folder for segmentation artifacts."),
-        raw_books: Optional[str] = typer.Option(None, "--raw-books", help="Folder with RAW review-book txt files (answer/keypoint source)."),
+        raw_books: Optional[str] = typer.Option(
+            None,
+            "--raw-books",
+            help="Folder with RAW review-book txt files (answer/keypoint source).",
+        ),
     ) -> None:
         """Normalize + segment OCR text into inspectable artifacts (JSON/txt)."""
         import json as _json
@@ -136,16 +154,23 @@ def register(papers_app: typer.Typer) -> None:
         table.add_column("OK", no_wrap=True)
         for f in report["files"]:
             table.add_row(
-                f["file"], str(f["year"] or "—"), str(f["grade"] or "—"),
-                str(f["mcq_found"]), str(f["mcq_full_options"]), str(f["essay_found"]),
-                str(f["answers"]), "[green]yes[/]" if f["quality_ok"] else "[red]no[/]",
+                f["file"],
+                str(f["year"] or "—"),
+                str(f["grade"] or "—"),
+                str(f["mcq_found"]),
+                str(f["mcq_full_options"]),
+                str(f["essay_found"]),
+                str(f["answers"]),
+                "[green]yes[/]" if f["quality_ok"] else "[red]no[/]",
             )
         console.print(table)
         console.print(f"[bold]Summary[/] — books processed: {report['books']} · artifacts in {out}")
-        console.print(_json.dumps({k: v for k, v in report.items() if k != 'files'}, indent=1))
+        console.print(_json.dumps({k: v for k, v in report.items() if k != "files"}, indent=1))
 
     @papers_app.command("import-cleaned")
-    def papers_import_cleaned(artifacts: str = typer.Argument(..., help="Artifacts folder produced by `papers clean`.")) -> None:
+    def papers_import_cleaned(
+        artifacts: str = typer.Argument(..., help="Artifacts folder produced by `papers clean`."),
+    ) -> None:
         """Import cleaned artifacts into the paper_bank catalog."""
         from deeptutor.services.exams.cleaned_pipeline import import_artifacts
 

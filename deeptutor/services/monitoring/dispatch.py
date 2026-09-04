@@ -31,7 +31,9 @@ _PERSISTENCE_SEVERITY = {"nudge": "info"}
 
 
 def _persist_severity(severity: str) -> str:
-    return _PERSISTENCE_SEVERITY.get(severity, severity if severity in ("info", "warning", "alert") else "warning")
+    return _PERSISTENCE_SEVERITY.get(
+        severity, severity if severity in ("info", "warning", "alert") else "warning"
+    )
 
 
 def _decode_jpeg(frame_b64: Optional[str]) -> Optional[bytes]:
@@ -253,18 +255,21 @@ async def handle_session_completed(
         )
 
         start_notification_worker()
-        await enqueue("session_summary", {
-            "session_id": session_id,
-            "student_id": student_id,
-            "student_name": student_name,
-            "subject": subject,
-            "duration_minutes": round(duration_minutes, 1),
-            "focus_score": focus_score,
-            "engagement_score": engagement_score,
-            "warning_count": warning_count,
-            "summary": summary_text[:600],
-            "xp_earned": xp_earned,
-        })
+        await enqueue(
+            "session_summary",
+            {
+                "session_id": session_id,
+                "student_id": student_id,
+                "student_name": student_name,
+                "subject": subject,
+                "duration_minutes": round(duration_minutes, 1),
+                "focus_score": focus_score,
+                "engagement_score": engagement_score,
+                "warning_count": warning_count,
+                "summary": summary_text[:600],
+                "xp_earned": xp_earned,
+            },
+        )
 
         # Best-effort immediate delivery; failures stay queued.
         try:

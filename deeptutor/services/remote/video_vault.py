@@ -40,6 +40,7 @@ from typing import Any, Dict, List, Optional
 
 try:
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
     HAS_CRYPTOGRAPHY = True
 except ImportError:  # pragma: no cover - exercised via guard below
     HAS_CRYPTOGRAPHY = False
@@ -173,9 +174,15 @@ class VideoVaultManager:
         base = cls.get_pending_dir() / stem
         base.with_suffix(".jpg").write_bytes(jpeg_bytes)
         base.with_suffix(".meta.json").write_text(
-            json.dumps({"kind": "snapshot", "session_id": session_id,
-                        "event_type": event_type, "created_at": ts,
-                        "metadata": metadata or {}}),
+            json.dumps(
+                {
+                    "kind": "snapshot",
+                    "session_id": session_id,
+                    "event_type": event_type,
+                    "created_at": ts,
+                    "metadata": metadata or {},
+                }
+            ),
             encoding="utf-8",
         )
         return stem
@@ -202,10 +209,17 @@ class VideoVaultManager:
         base = cls.get_pending_dir() / stem
         base.with_suffix(".framesbin").write_bytes(bytes(buf))
         base.with_suffix(".meta.json").write_text(
-            json.dumps({"kind": "clip", "session_id": session_id,
-                        "event_type": event_type, "created_at": ts,
-                        "fps": fps, "frame_count": len(frames),
-                        "metadata": metadata or {}}),
+            json.dumps(
+                {
+                    "kind": "clip",
+                    "session_id": session_id,
+                    "event_type": event_type,
+                    "created_at": ts,
+                    "fps": fps,
+                    "frame_count": len(frames),
+                    "metadata": metadata or {},
+                }
+            ),
             encoding="utf-8",
         )
         return stem
@@ -281,8 +295,8 @@ class VideoVaultManager:
             return None
         payload, kind = parsed
         meta_len = int.from_bytes(payload[:4], "big")
-        meta = json.loads(payload[4:4 + meta_len].decode("utf-8"))
-        body = payload[4 + meta_len:]
+        meta = json.loads(payload[4 : 4 + meta_len].decode("utf-8"))
+        body = payload[4 + meta_len :]
 
         result: Dict[str, Any] = {
             "clip_id": clip_id,
@@ -304,19 +318,19 @@ class VideoVaultManager:
         if len(blob) < header_len + 12 + 16:
             return None
         offset = len(_MAGIC_V2)
-        salt = blob[offset:offset + 16]
+        salt = blob[offset : offset + 16]
         offset += 16
-        iterations = struct.unpack(">I", blob[offset:offset + 4])[0]
+        iterations = struct.unpack(">I", blob[offset : offset + 4])[0]
         offset += 4
-        wrap_nonce = blob[offset:offset + 12]
+        wrap_nonce = blob[offset : offset + 12]
         offset += 12
-        wrapped_len = struct.unpack(">I", blob[offset:offset + 4])[0]
+        wrapped_len = struct.unpack(">I", blob[offset : offset + 4])[0]
         offset += 4
-        stored_verifier = blob[offset:offset + 16]
+        stored_verifier = blob[offset : offset + 16]
         offset += 16
-        wrapped_key = blob[offset:offset + wrapped_len]
+        wrapped_key = blob[offset : offset + wrapped_len]
         offset += wrapped_len
-        data_nonce = blob[offset:offset + 12]
+        data_nonce = blob[offset : offset + 12]
         offset += 12
         ciphertext = blob[offset:]
 
@@ -325,16 +339,20 @@ class VideoVaultManager:
             raise PermissionError("Invalid parent PIN")
         content_key = AESGCM(kek).decrypt(wrap_nonce, wrapped_key, None)
         payload = AESGCM(content_key).decrypt(data_nonce, ciphertext, None)
-        kind = "clip" if b'"kind": "clip"' in payload[:200] or b'"kind":"clip"' in payload[:200] else "snapshot"
+        kind = (
+            "clip"
+            if b'"kind": "clip"' in payload[:200] or b'"kind":"clip"' in payload[:200]
+            else "snapshot"
+        )
         return payload, kind
 
     @classmethod
     def _decrypt_v1(cls, blob: bytes, parent_pin: str):
         cls._require_crypto()
         offset = len(b"GURUVAULT01")
-        salt = blob[offset:offset + 16]
-        nonce = blob[offset + 16:offset + 28]
-        ciphertext = blob[offset + 28:]
+        salt = blob[offset : offset + 16]
+        nonce = blob[offset + 16 : offset + 28]
+        ciphertext = blob[offset + 28 :]
         key = hashlib.pbkdf2_hmac("sha256", parent_pin.encode("utf-8"), salt, 100_000, 32)
         payload = AESGCM(key).decrypt(nonce, ciphertext, None)
         return payload, "snapshot"
@@ -342,23 +360,25 @@ class VideoVaultManager:
     @staticmethod
     def _unpack_frames(body: bytes) -> List[str]:
         frames: List[str] = []
-        if body[:len(_FRAMES_MAGIC)] != _FRAMES_MAGIC:
+        if body[: len(_FRAMES_MAGIC)] != _FRAMES_MAGIC:
             # single legacy image payload inside a clip container
             return [base64.b64encode(body).decode("utf-8")]
         offset = len(_FRAMES_MAGIC)
-        count = struct.unpack(">I", body[offset:offset + 4])[0]
+        count = struct.unpack(">I", body[offset : offset + 4])[0]
         offset += 4
         for _ in range(count):
-            flen = struct.unpack(">I", body[offset:offset + 4])[0]
+            flen = struct.unpack(">I", body[offset : offset + 4])[0]
             offset += 4
-            frames.append(base64.b64encode(body[offset:offset + flen]).decode("utf-8"))
+            frames.append(base64.b64encode(body[offset : offset + flen]).decode("utf-8"))
             offset += flen
         return frames
 
     # ---------------------------------------------------------------- listing
 
     @classmethod
-    async def list_encrypted_snapshots(cls, session_id: Optional[str] = None) -> List[Dict[str, Any]]:
+    async def list_encrypted_snapshots(
+        cls, session_id: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
         """List sealed snapshots/clips (metadata only, never decrypted here)."""
         snapshots: List[Dict[str, Any]] = []
         for file in cls.get_vault_dir().glob("*.vault"):
@@ -380,14 +400,18 @@ class VideoVaultManager:
                 magic = file.open("rb").read(len(_MAGIC_V2))
             except OSError:
                 magic = b""
-            snapshots.append({
-                "clip_id": name,
-                "session_id": sess,
-                "timestamp": ts,
-                "event_type": evt,
-                "size_bytes": file.stat().st_size,
-                "is_encrypted": True,
-                "format": "v2" if magic == _MAGIC_V2 else ("v1" if magic.startswith(b"GURUVAULT01") else "unknown"),
-            })
+            snapshots.append(
+                {
+                    "clip_id": name,
+                    "session_id": sess,
+                    "timestamp": ts,
+                    "event_type": evt,
+                    "size_bytes": file.stat().st_size,
+                    "is_encrypted": True,
+                    "format": "v2"
+                    if magic == _MAGIC_V2
+                    else ("v1" if magic.startswith(b"GURUVAULT01") else "unknown"),
+                }
+            )
         snapshots.sort(key=lambda s: s["timestamp"], reverse=True)
         return snapshots

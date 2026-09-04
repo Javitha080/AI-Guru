@@ -29,8 +29,14 @@ logger = logging.getLogger(__name__)
 MCQ_TYPES = ("choice",)
 AUTO_GRADABLE = ("choice", "concept", "fill_in_blank")
 # Ordering: MCQ-style questions first (exam convention), written last.
-_TYPE_ORDER = {"choice": 0, "concept": 1, "fill_in_blank": 2, "short_answer": 3,
-               "written": 4, "coding": 5}
+_TYPE_ORDER = {
+    "choice": 0,
+    "concept": 1,
+    "fill_in_blank": 2,
+    "short_answer": 3,
+    "written": 4,
+    "coding": 5,
+}
 _ESSAY_TYPES = ("short_answer", "written", "coding")
 
 _OPTION_BLOCK_RE = re.compile(r"(?:^|\s)(?:\(([A-Ea-e])\)|([A-Ea-e])[\)\].])(?:\s+)")
@@ -90,6 +96,7 @@ class ExamPaper:
     submitted_at: Optional[float] = None
     graded_at: Optional[float] = None
     total_score: Optional[float] = None
+
     @property
     def total_marks(self) -> float:
         return round(sum(q.marks for q in self.questions), 2)
@@ -106,7 +113,9 @@ class ExamPaper:
     def public_dict(self, *, include_answers: bool = False) -> Dict[str, Any]:
         """Serialized paper for API responses."""
         ordered = self.order_questions()
-        section_boundary = next((i for i, q in enumerate(ordered) if q.question_type not in AUTO_GRADABLE), len(ordered))
+        section_boundary = next(
+            (i for i, q in enumerate(ordered) if q.question_type not in AUTO_GRADABLE), len(ordered)
+        )
         out_questions = []
         for idx, q in enumerate(ordered):
             entry = q.to_dict(include_answers=include_answers)
@@ -149,7 +158,9 @@ class ExamPaper:
 
     def order_questions(self) -> List[ExamQuestion]:
         """Order questions: choice/concept first (Paper 1), written/coding after."""
-        return sorted(self.questions, key=lambda q: (_TYPE_ORDER.get(q.question_type, 99), q.number))
+        return sorted(
+            self.questions, key=lambda q: (_TYPE_ORDER.get(q.question_type, 99), q.number)
+        )
 
     def reindex_sections(self) -> None:
         """Assign section labels and 1-based section_number to each question in-place."""
@@ -179,16 +190,18 @@ class ExamPaper:
                 section_boundary += 1
             else:
                 essay_seq += 1
-            client_questions.append({
-                "id": q.id,
-                "number": q.number,
-                "question_type": q.question_type,
-                "text": q.text,
-                "options": q.options,
-                "marks": q.marks,
-                "section": sec,
-                "section_number": sec_num,
-            })
+            client_questions.append(
+                {
+                    "id": q.id,
+                    "number": q.number,
+                    "question_type": q.question_type,
+                    "text": q.text,
+                    "options": q.options,
+                    "marks": q.marks,
+                    "section": sec,
+                    "section_number": sec_num,
+                }
+            )
         return {
             "exam_id": self.exam_id,
             "title": self.title,
@@ -205,6 +218,7 @@ class ExamPaper:
 
 
 # --------------------------------------------------------------- option split
+
 
 def split_options(text: str) -> Tuple[str, Optional[Dict[str, str]]]:
     """Split a merged stem like ``What is 2+2? A) 3 B) 4`` or ``(1) 3 (2) 4`` into stem + options.
@@ -224,8 +238,13 @@ def split_options(text: str) -> Tuple[str, Optional[Dict[str, str]]]:
 
         # Check numeric (1)-(5) options (A/L 5 options or O/L 4 options)
         num_matches = list(_NUMERIC_OPTION_RE.finditer(text))
-        if len(num_matches) >= 2 and (num_matches[0].group(1) or num_matches[0].group(2) or "") == "1":
-            return _extract_from_matches(text, num_matches, key_map=lambda k: _NUM_TO_LETTER.get(k, k))
+        if (
+            len(num_matches) >= 2
+            and (num_matches[0].group(1) or num_matches[0].group(2) or "") == "1"
+        ):
+            return _extract_from_matches(
+                text, num_matches, key_map=lambda k: _NUM_TO_LETTER.get(k, k)
+            )
 
         # Check Sinhala letter (අ)-(ඉ) options
         si_matches = list(_SINHALA_OPTION_RE.finditer(text))
@@ -261,6 +280,7 @@ def _extract_from_matches(
 
 
 # ------------------------------------------------------------------ conversion
+
 
 def templates_to_paper(
     templates: Sequence[Any],
@@ -334,7 +354,7 @@ def grade_mcq(question: ExamQuestion, *, option_key: str = "", answer_text: str 
     if qtype == "choice":
         if not expected:
             return False
-        
+
         # Normalize expected (e.g. "(3)" -> "3" -> "C", "B" -> "B")
         exp_clean = expected.strip("().,[]- ")
         exp_letter = _NUM_TO_LETTER.get(exp_clean, exp_clean.upper())
@@ -364,7 +384,9 @@ def grade_mcq(question: ExamQuestion, *, option_key: str = "", answer_text: str 
 
         # Fall through to text comparison
         user_raw = (option_key or answer_text or "").strip()
-        user_val = question.options.get(user_raw.upper(), user_raw) if question.options else user_raw
+        user_val = (
+            question.options.get(user_raw.upper(), user_raw) if question.options else user_raw
+        )
         return user_val.strip().lower() == expected.lower()
 
     if qtype == "concept":
@@ -397,9 +419,21 @@ async def grade_essay(
     timeout_seconds: float = 120.0,
 ) -> Dict[str, Any]:
     """LLM-judge one essay answer. Returns {'verdict','score','feedback','graded'}."""
-    result: Dict[str, Any] = {"verdict": "", "score": None, "feedback": "grading_unavailable", "graded": False}
+    result: Dict[str, Any] = {
+        "verdict": "",
+        "score": None,
+        "feedback": "grading_unavailable",
+        "graded": False,
+    }
     if not (answer_text or "").strip():
-        result.update({"verdict": "incorrect", "score": 0.0, "feedback": "No answer provided.", "graded": True})
+        result.update(
+            {
+                "verdict": "incorrect",
+                "score": 0.0,
+                "feedback": "No answer provided.",
+                "graded": True,
+            }
+        )
         return result
     prompt = (
         f"QUESTION:\n{question.text[:4000]}\n\n"
@@ -422,12 +456,14 @@ async def grade_essay(
                 score = max(0.0, min(1.0, float(parsed.get("score", 0))))
             except (TypeError, ValueError):
                 score = {"correct": 1.0, "partial": 0.5, "incorrect": 0.0}.get(verdict, 0.5)
-            result.update({
-                "verdict": verdict,
-                "score": score,
-                "feedback": str(parsed.get("feedback", ""))[:1000],
-                "graded": True,
-            })
+            result.update(
+                {
+                    "verdict": verdict,
+                    "score": score,
+                    "feedback": str(parsed.get("feedback", ""))[:1000],
+                    "graded": True,
+                }
+            )
     except Exception as exc:  # noqa: BLE001
         logger.warning("Essay grading failed for %s: %s", question.id, exc)
     return result
@@ -449,7 +485,7 @@ def _extract_json_object(raw: str) -> Optional[Dict[str, Any]]:
             depth -= 1
             if depth == 0:
                 try:
-                    return json.loads(raw[start:i + 1])
+                    return json.loads(raw[start : i + 1])
                 except json.JSONDecodeError:
                     return None
     return None
@@ -462,7 +498,7 @@ _SOLVE_SYSTEM = (
     "the correct answer (as it would appear in an official marking scheme) and a "
     "brief explanation. For multiple-choice questions the answer MUST be just the "
     "option letter (A, B, C, D or E). Respond with ONLY a JSON object mapping each "
-    "question id to {\"correct_answer\": ..., \"explanation\": ...}.\n"
+    'question id to {"correct_answer": ..., "explanation": ...}.\n'
     'Example: {"q_1": {"correct_answer": "B", "explanation": "..."}, "q_2": {...}}'
 )
 
@@ -477,10 +513,7 @@ async def solve_missing_answers(
     Returns ``{question_id: {"correct_answer","explanation"}}`` for the items
     it managed to solve; unsolved items stay untouched (tolerated).
     """
-    pending = [
-        q for q in paper.questions
-        if not (q.reference_answer or "").strip()
-    ]
+    pending = [q for q in paper.questions if not (q.reference_answer or "").strip()]
     if not pending:
         return {}
 
@@ -555,13 +588,19 @@ async def submit_and_grade(
                 essays_graded += 1
                 awarded = round(q.marks * float(judgment["score"]), 2)
                 total_score += awarded
-                results.append(_result_row(q, awarded, judgment["feedback"], judgment["verdict"], True))
+                results.append(
+                    _result_row(q, awarded, judgment["feedback"], judgment["verdict"], True)
+                )
             else:
                 results.append(_result_row(q, 0.0, judgment["feedback"], "", False))
 
     return {
         "exam_id": paper.exam_id,
-        "mcq": {"correct": mcq_correct, "awarded": round(mcq_awarded, 2), "total": round(mcq_total_marks, 2)},
+        "mcq": {
+            "correct": mcq_correct,
+            "awarded": round(mcq_awarded, 2),
+            "total": round(mcq_total_marks, 2),
+        },
         "essays_graded": essays_graded,
         "essays_total": essays_total,
         "total_score": round(total_score, 2),
@@ -570,7 +609,9 @@ async def submit_and_grade(
     }
 
 
-def _result_row(q: ExamQuestion, awarded: float, feedback: str, verdict: str, graded: bool) -> Dict[str, Any]:
+def _result_row(
+    q: ExamQuestion, awarded: float, feedback: str, verdict: str, graded: bool
+) -> Dict[str, Any]:
     return {
         "question_id": q.id,
         "number": q.number,

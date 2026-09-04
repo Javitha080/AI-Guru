@@ -42,7 +42,7 @@ from deeptutor.services.monitoring.system_camera import (
 logger = logging.getLogger(__name__)
 
 _RING_SIZE = 30
-_RING_MIN_INTERVAL = 0.5          # seconds between evidence-ring frame updates
+_RING_MIN_INTERVAL = 0.5  # seconds between evidence-ring frame updates
 _SNAPSHOT_JPEG_QUALITY = 70
 
 CAMERA_SETTINGS_KEY = "monitoring_camera"
@@ -208,7 +208,9 @@ class SystemMonitorSession:
         self.processor.reset_session()
         self.camera.set_annotator(self._paint_overlay)
         if not self.camera.start():
-            logger.warning("Monitor %s: camera start failed (%s)", self.session_id, self.camera.last_error)
+            logger.warning(
+                "Monitor %s: camera start failed (%s)", self.session_id, self.camera.last_error
+            )
         loop = asyncio.get_running_loop()
         loop.create_task(apply_supervision_strictness(self.pipeline))
         self._task = loop.create_task(self._run_loop())
@@ -242,15 +244,22 @@ class SystemMonitorSession:
                 focus = float(self.last_focus_score or 0)
                 engagement = float((self.last_telemetry or {}).get("engagement_score", 0))
             await StudySessionManager().update_scores(
-                self.session_id, focus, engagement,
-                self._distraction_count, self._warning_count,
+                self.session_id,
+                focus,
+                engagement,
+                self._distraction_count,
+                self._warning_count,
             )
         except Exception as exc:  # noqa: BLE001
             logger.debug("Score persistence skipped for %s: %s", self.session_id, exc)
 
     async def _log_episode(
-        self, event_type: str, severity: str,
-        confidence: float, duration_seconds: float, message: str,
+        self,
+        event_type: str,
+        severity: str,
+        confidence: float,
+        duration_seconds: float,
+        message: str,
     ) -> None:
         """Persist a distraction/presence episode to monitoring_events."""
         try:
@@ -282,7 +291,9 @@ class SystemMonitorSession:
             logger.info("Monitor %s paused — camera released", self.session_id)
         else:
             if not self.camera.start() and self.camera.last_error:
-                logger.warning("Monitor %s resume failed: %s", self.session_id, self.camera.last_error)
+                logger.warning(
+                    "Monitor %s resume failed: %s", self.session_id, self.camera.last_error
+                )
             logger.info("Monitor %s resumed", self.session_id)
 
     # ------------------------------------------------------------------- loop
@@ -293,7 +304,9 @@ class SystemMonitorSession:
             if self._paused:
                 await asyncio.sleep(0.1)
                 continue
-            interval = 1.0 / float(max(1, min(self.target_fps, self.pipeline.get_current_target_fps())))
+            interval = 1.0 / float(
+                max(1, min(self.target_fps, self.pipeline.get_current_target_fps()))
+            )
             started = time.perf_counter()
             try:
                 await self._tick(loop)
@@ -374,7 +387,8 @@ class SystemMonitorSession:
 
                 _spawn_log(
                     self._log_episode(
-                        event_type, "warning",
+                        event_type,
+                        "warning",
                         float(analysis.distraction.confidence or 0),
                         float(analysis.distraction.duration_seconds or 0),
                         str(analysis.distraction.reason or dtype),
@@ -466,9 +480,14 @@ class SystemMonitorSession:
         if getattr(result, "detected", False):
             distracted = bool(
                 self.last_telemetry.get("is_distracted")
-                or (self.last_telemetry.get("warning") or {}).get("severity") in ("alert", "warning")
+                or (self.last_telemetry.get("warning") or {}).get("severity")
+                in ("alert", "warning")
             )
-            state = "distracted" if distracted else ("drifting" if (score is not None and score < 70) else "focused")
+            state = (
+                "distracted"
+                if distracted
+                else ("drifting" if (score is not None and score < 70) else "focused")
+            )
         else:
             state = "distracted" if self.last_telemetry.get("presence") == "away" else "drifting"
         return self.processor.draw_overlay(frame, result, focus_state=state, focus_score=score)
@@ -579,9 +598,25 @@ def _landmarks_to_payload(landmarks: Any) -> Optional[Dict[str, Any]]:
         "right_eye": _pts(landmarks.right_eye),
         "mouth": _pts(landmarks.mouth),
         "all_points": _pts(landmarks.all_points),
-        "nose_tip": {"x": landmarks.nose_tip.x, "y": landmarks.nose_tip.y, "z": landmarks.nose_tip.z},
+        "nose_tip": {
+            "x": landmarks.nose_tip.x,
+            "y": landmarks.nose_tip.y,
+            "z": landmarks.nose_tip.z,
+        },
         "chin": {"x": landmarks.chin.x, "y": landmarks.chin.y, "z": landmarks.chin.z},
-        "forehead": {"x": landmarks.forehead.x, "y": landmarks.forehead.y, "z": landmarks.forehead.z},
-        "left_cheek": {"x": landmarks.left_cheek.x, "y": landmarks.left_cheek.y, "z": landmarks.left_cheek.z},
-        "right_cheek": {"x": landmarks.right_cheek.x, "y": landmarks.right_cheek.y, "z": landmarks.right_cheek.z},
+        "forehead": {
+            "x": landmarks.forehead.x,
+            "y": landmarks.forehead.y,
+            "z": landmarks.forehead.z,
+        },
+        "left_cheek": {
+            "x": landmarks.left_cheek.x,
+            "y": landmarks.left_cheek.y,
+            "z": landmarks.left_cheek.z,
+        },
+        "right_cheek": {
+            "x": landmarks.right_cheek.x,
+            "y": landmarks.right_cheek.y,
+            "z": landmarks.right_cheek.z,
+        },
     }

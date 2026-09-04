@@ -57,6 +57,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class FrameAnalysisResult:
     """Consolidated telemetry and monitoring inference output."""
+
     timestamp: float
     fps: float
     face_detected: bool
@@ -205,7 +206,9 @@ class LocalCVPipeline:
         phone_detected = bool(payload.get("phone_detected", False))
         hand_to_mouth = bool(payload.get("hand_to_mouth_gesture", False))
         page_turn = bool(payload.get("page_turn_gesture", False))
-        writing_gesture = bool(payload.get("writing_gesture", False)) or pose_res.is_reading_writing_pose
+        writing_gesture = (
+            bool(payload.get("writing_gesture", False)) or pose_res.is_reading_writing_pose
+        )
 
         distraction_res = self.distraction_analyzer.analyze(
             timestamp=now,
@@ -241,7 +244,9 @@ class LocalCVPipeline:
             distraction=distraction_res,
         )
         if warning_event is None:
-            warning_event = self.warning_manager.evaluate_nudge(timestamp=now, distraction=distraction_res)
+            warning_event = self.warning_manager.evaluate_nudge(
+                timestamp=now, distraction=distraction_res
+            )
 
         return FrameAnalysisResult(
             timestamp=now,
@@ -331,7 +336,9 @@ class LocalCVPipeline:
 
         elif scenario == "static_photo":
             # Fixed landmarks without any motion or blink variance
-            landmarks = self.face_engine.create_synthetic_landmarks(yaw=0.0, pitch=0.0, roll=0.0, eye_open_ratio=0.30)
+            landmarks = self.face_engine.create_synthetic_landmarks(
+                yaw=0.0, pitch=0.0, roll=0.0, eye_open_ratio=0.30
+            )
             return {
                 "detected": True,
                 "confidence": 0.99,
@@ -375,18 +382,35 @@ class LocalCVPipeline:
     @staticmethod
     def _landmarks_to_dict(landmarks: FaceLandmarks) -> Dict[str, Any]:
         """Convert FaceLandmarks dataclass to serialized telemetry dict."""
+
         def _pts(pts: List[Point3D]) -> List[Dict[str, float]]:
             return [{"x": p.x, "y": p.y, "z": p.z} for p in pts]
 
         return {
             "left_eye": _pts(landmarks.left_eye),
             "right_eye": _pts(landmarks.right_eye),
-            "nose_tip": {"x": landmarks.nose_tip.x, "y": landmarks.nose_tip.y, "z": landmarks.nose_tip.z},
+            "nose_tip": {
+                "x": landmarks.nose_tip.x,
+                "y": landmarks.nose_tip.y,
+                "z": landmarks.nose_tip.z,
+            },
             "mouth": _pts(landmarks.mouth),
             "chin": {"x": landmarks.chin.x, "y": landmarks.chin.y, "z": landmarks.chin.z},
-            "forehead": {"x": landmarks.forehead.x, "y": landmarks.forehead.y, "z": landmarks.forehead.z},
-            "left_cheek": {"x": landmarks.left_cheek.x, "y": landmarks.left_cheek.y, "z": landmarks.left_cheek.z},
-            "right_cheek": {"x": landmarks.right_cheek.x, "y": landmarks.right_cheek.y, "z": landmarks.right_cheek.z},
+            "forehead": {
+                "x": landmarks.forehead.x,
+                "y": landmarks.forehead.y,
+                "z": landmarks.forehead.z,
+            },
+            "left_cheek": {
+                "x": landmarks.left_cheek.x,
+                "y": landmarks.left_cheek.y,
+                "z": landmarks.left_cheek.z,
+            },
+            "right_cheek": {
+                "x": landmarks.right_cheek.x,
+                "y": landmarks.right_cheek.y,
+                "z": landmarks.right_cheek.z,
+            },
         }
 
 

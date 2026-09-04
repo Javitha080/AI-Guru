@@ -28,6 +28,7 @@ class Point3D:
 @dataclass
 class FaceLandmarks:
     """Standardized facial landmarks structure."""
+
     left_eye: List[Point3D] = field(default_factory=list)
     right_eye: List[Point3D] = field(default_factory=list)
     nose_tip: Point3D = field(default_factory=lambda: Point3D(0.5, 0.5, 0.0))
@@ -42,9 +43,15 @@ class FaceLandmarks:
 @dataclass
 class FaceDetectionResult:
     """Result of local face detection and landmark extraction."""
+
     detected: bool
     confidence: float = 0.0
-    bounding_box: Tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0)  # x, y, width, height (normalized 0-1)
+    bounding_box: Tuple[float, float, float, float] = (
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+    )  # x, y, width, height (normalized 0-1)
     landmarks: Optional[FaceLandmarks] = None
     embedding: Optional[List[float]] = None  # 128D or normalized feature vector
     brightness: float = 0.5  # Mean image luminance (0-255 or 0-1 normalized)
@@ -67,7 +74,9 @@ class FaceEngine:
         if not embedding or len(embedding) == 0:
             raise ValueError("Face embedding must not be empty.")
         self._enrolled_embedding = self._normalize_vector(embedding)
-        logger.info("Enrolled baseline face embedding (dimension=%d)", len(self._enrolled_embedding))
+        logger.info(
+            "Enrolled baseline face embedding (dimension=%d)", len(self._enrolled_embedding)
+        )
 
     def get_enrolled_face(self) -> Optional[List[float]]:
         """Return the enrolled baseline feature vector."""
@@ -141,6 +150,7 @@ class FaceEngine:
         raw_landmarks = raw_data.get("landmarks", {})
         landmarks = None
         if raw_landmarks:
+
             def _parse_pts(pts_list: list) -> list[Point3D]:
                 return [Point3D(p.get("x", 0), p.get("y", 0), p.get("z", 0)) for p in pts_list]
 
@@ -217,7 +227,9 @@ class FaceEngine:
         for i in range(len(anchors)):
             for j in range(i + 1, len(anchors)):
                 p1, p2 = anchors[i], anchors[j]
-                dist = math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2 + (p1.z - p2.z)**2) / scale
+                dist = (
+                    math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2 + (p1.z - p2.z) ** 2) / scale
+                )
                 features.append(dist)
                 angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
                 features.append(angle / math.pi)

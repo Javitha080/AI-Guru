@@ -50,6 +50,7 @@ def client(workspace):
 # 1. XP System & Gamification Tests
 # ===========================================================================
 
+
 @pytest.mark.asyncio
 async def test_xp_award_and_profile_progression(workspace):
     """Test XP accumulation, level progression, and level title thresholds."""
@@ -148,6 +149,7 @@ async def test_rewards_history_endpoint(workspace, client):
 # 2. Student Name Setup & Resolution Tests
 # ===========================================================================
 
+
 def test_get_and_set_student_name_api(workspace, client):
     """Test GET and POST /api/v1/study-session/student/name endpoints."""
     # 1. Default name on fresh DB
@@ -192,7 +194,11 @@ def test_get_and_set_student_name_api(workspace, client):
 @pytest.mark.asyncio
 async def test_resolve_student_name_integration(workspace):
     """Verify _resolve_student_name helper reads configured student name."""
-    from deeptutor.api.routers.study_session import _resolve_student_name, set_student_name, StudentNameRequest
+    from deeptutor.api.routers.study_session import (
+        StudentNameRequest,
+        _resolve_student_name,
+        set_student_name,
+    )
 
     # Set name to Marcus
     await set_student_name(StudentNameRequest(student_name="Marcus", student_id="student-primary"))
@@ -205,6 +211,7 @@ async def test_resolve_student_name_integration(workspace):
 # ===========================================================================
 # 3. Preflight & Setup Subsystems Tests
 # ===========================================================================
+
 
 def test_hardware_profiler_preflight():
     """Verify hardware profiler returns valid system capabilities."""

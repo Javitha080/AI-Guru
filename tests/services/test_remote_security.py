@@ -34,7 +34,9 @@ def isolated_env(tmp_path: Path, monkeypatch):
     monkeypatch.setattr(JWTAuthService, "_get_db_path", staticmethod(lambda: db_path))
     monkeypatch.setattr(PairingService, "_get_db_path", staticmethod(lambda: db_path))
     monkeypatch.setattr(AuditLogger, "_get_db_path", staticmethod(lambda: db_path))
-    monkeypatch.setattr(VideoVaultManager, "get_vault_dir", classmethod(lambda cls: _ensure(vault_dir)))
+    monkeypatch.setattr(
+        VideoVaultManager, "get_vault_dir", classmethod(lambda cls: _ensure(vault_dir))
+    )
     monkeypatch.setattr(
         VideoVaultManager,
         "get_pending_dir",
@@ -61,8 +63,12 @@ async def test_vault_snapshot_roundtrip_and_wrong_pin(isolated_env):
     jpeg = b"\xff\xd8FAKEJPEG" + os.urandom(64)
 
     clip_id = await VideoVaultManager.save_encrypted_snapshot(
-        session_id="sess_x", student_id="s1", parent_pin=pin,
-        image_bytes=jpeg, event_type="PHONE_DETECTED", metadata={"confidence": 0.9},
+        session_id="sess_x",
+        student_id="s1",
+        parent_pin=pin,
+        image_bytes=jpeg,
+        event_type="PHONE_DETECTED",
+        metadata={"confidence": 0.9},
     )
     assert clip_id.endswith(".vault")
 
@@ -81,8 +87,9 @@ async def test_vault_pending_clip_seal_flow(isolated_env):
     pin = "998877"
     frames = [os.urandom(32) for _ in range(4)]
 
-    await VideoVaultManager.save_pending_clip("sess_y", "LOOKING_AWAY", frames, fps=5.0,
-                                              metadata={"confidence": 0.85})
+    await VideoVaultManager.save_pending_clip(
+        "sess_y", "LOOKING_AWAY", frames, fps=5.0, metadata={"confidence": 0.85}
+    )
     assert VideoVaultManager.count_pending() == 1
 
     sealed = await VideoVaultManager.seal_pending(pin)
@@ -101,8 +108,11 @@ async def test_vault_refuses_without_cryptography(isolated_env, monkeypatch):
     monkeypatch.setattr(vv_mod, "HAS_CRYPTOGRAPHY", False)
     with pytest.raises(RuntimeError):
         await VideoVaultManager.save_encrypted_snapshot(
-            session_id="s", student_id="st", parent_pin="1111",
-            image_bytes=b"x", event_type="E",
+            session_id="s",
+            student_id="st",
+            parent_pin="1111",
+            image_bytes=b"x",
+            event_type="E",
         )
 
 
@@ -335,9 +345,16 @@ def test_require_parent_http_gate(isolated_env, monkeypatch):
     secret = asyncio.run(JWTAuthService.get_secret_key())
     now = int(time.time())
     forged_student = pyjwt.encode(
-        {"sub": "student-primary", "role": "user", "type": "access",
-         "iat": now, "exp": now + 300, "jti": uuid.uuid4().hex},
-        secret, algorithm="HS256",
+        {
+            "sub": "student-primary",
+            "role": "user",
+            "type": "access",
+            "iat": now,
+            "exp": now + 300,
+            "jti": uuid.uuid4().hex,
+        },
+        secret,
+        algorithm="HS256",
     )
     res = client.get("/guarded", headers={"Authorization": f"Bearer {forged_student}"})
     assert res.status_code == 401

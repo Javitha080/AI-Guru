@@ -182,8 +182,17 @@ and system info. Parent-specific settings live inside the portal instead.""",
 }
 
 _SECTION_ALIASES = {
-    "monitor": ("monitor", "study room", "vision", "camera", "focus",
-                "distraction", "warning", "liveness", "presence"),
+    "monitor": (
+        "monitor",
+        "study room",
+        "vision",
+        "camera",
+        "focus",
+        "distraction",
+        "warning",
+        "liveness",
+        "presence",
+    ),
     "chat": ("chat", "assistant", "floating", "tools", "agent"),
     "parent": ("parent", "portal", "pin", "passcode", "dashboard"),
     "tunnel": ("tunnel", "remote", "cloudflare", "ngrok", "gateway"),
@@ -192,12 +201,30 @@ _SECTION_ALIASES = {
     "exam": ("exam", "paper", "mcq", "grade"),
     "gamification": ("xp", "badge", "streak", "achievement", "gamification", "level"),
     "memory": ("memory", "workbench", "digest", "preference"),
-    "knowledge": ("knowledge", "rag", "retrieval", "embedding", "graphrag",
-                  "lightrag", "pageindex", "llamaindex", "ima"),
+    "knowledge": (
+        "knowledge",
+        "rag",
+        "retrieval",
+        "embedding",
+        "graphrag",
+        "lightrag",
+        "pageindex",
+        "llamaindex",
+        "ima",
+    ),
     "space": ("space", "source", "attachment", "notebook record"),
     "settings": ("setting", "provider", "model", "mcp", "theme", "language"),
-    "troubleshoot": ("error", "fail", "quota", "429", "problem", "broken",
-                     "not working", "fix", "troubleshoot"),
+    "troubleshoot": (
+        "error",
+        "fail",
+        "quota",
+        "429",
+        "problem",
+        "broken",
+        "not working",
+        "fix",
+        "troubleshoot",
+    ),
 }
 
 
@@ -210,13 +237,10 @@ def search_product_info(topic: str | None = None) -> str:
     header = f"# {PRODUCT_NAME} — Product Guide\n\n"
     query = (topic or "").strip().lower()
     if not query:
-        index = "\n".join(f"- {title.splitlines()[0].strip('* ')}" for title in _TOPIC_SECTIONS.values())
-        return (
-            header
-            + PRODUCT_OVERVIEW
-            + "\n## Detail sections (ask about any of these)\n"
-            + index
+        index = "\n".join(
+            f"- {title.splitlines()[0].strip('* ')}" for title in _TOPIC_SECTIONS.values()
         )
+        return header + PRODUCT_OVERVIEW + "\n## Detail sections (ask about any of these)\n" + index
 
     scored: list[tuple[int, str]] = []
     for key, body in _TOPIC_SECTIONS.items():
@@ -232,7 +256,7 @@ def search_product_info(topic: str | None = None) -> str:
             header
             + PRODUCT_OVERVIEW
             + f"\n(no dedicated section matched {topic!r} — answer from the "
-              "overview above; suggest the closest area)"
+            "overview above; suggest the closest area)"
         )
     scored.sort(key=lambda pair: -pair[0])
     top = scored[0][1]

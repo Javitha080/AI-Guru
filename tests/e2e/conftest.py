@@ -221,7 +221,9 @@ class AIGuruTestDB:
                 users.add(t)
             elif low.startswith("p_"):
                 parents.add(t)
-            elif low.startswith("s_") or (low.startswith("s") and len(t) <= 12 and any(c.isdigit() for c in t)):
+            elif low.startswith("s_") or (
+                low.startswith("s") and len(t) <= 12 and any(c.isdigit() for c in t)
+            ):
                 students.add(t)
         return {"students": students, "users": users, "parents": parents}
 
@@ -304,6 +306,7 @@ class AIGuruTestDB:
 # Computer Vision & Study Monitoring Simulator
 # ---------------------------------------------------------------------------
 
+
 class PresenceState(str, Enum):
     PRESENT = "PRESENT"
     TEMPORARILY_NOT_VISIBLE = "TEMPORARILY_NOT_VISIBLE"
@@ -330,9 +333,9 @@ class CVFrameTelemetry:
     landmarks_3d_count: int = 478
     ear_left: float = 0.30
     ear_right: float = 0.30
-    pitch: float = 0.0      # degrees (-90 to +90)
-    yaw: float = 0.0        # degrees (-90 to +90)
-    roll: float = 0.0       # degrees (-90 to +90)
+    pitch: float = 0.0  # degrees (-90 to +90)
+    yaw: float = 0.0  # degrees (-90 to +90)
+    roll: float = 0.0  # degrees (-90 to +90)
     phone_detected: bool = False
     hand_at_desk: bool = False
     drinking_detected: bool = False
@@ -428,9 +431,15 @@ class MockCVPipeline:
 
         return PostureActivity.ATTENTIVE
 
-    def calculate_engagement_score(self, activity: PostureActivity, frame: CVFrameTelemetry) -> float:
+    def calculate_engagement_score(
+        self, activity: PostureActivity, frame: CVFrameTelemetry
+    ) -> float:
         """Computes 0-100 continuous engagement score."""
-        if activity in (PostureActivity.ATTENTIVE, PostureActivity.WRITING, PostureActivity.READING):
+        if activity in (
+            PostureActivity.ATTENTIVE,
+            PostureActivity.WRITING,
+            PostureActivity.READING,
+        ):
             return 95.0 - abs(frame.yaw) * 0.2
         elif activity in (PostureActivity.DRINKING_WATER, PostureActivity.TURNING_PAGES):
             return 90.0
@@ -485,6 +494,7 @@ class MockCVPipeline:
 # ---------------------------------------------------------------------------
 # AI Tutor Provider & Fallback Simulator
 # ---------------------------------------------------------------------------
+
 
 class HardwareTier(str, Enum):
     LOW = "LOW"
@@ -574,6 +584,7 @@ class MockTutorProvider:
 # Parent Remote Gateway & Outbound Tunnel Simulator
 # ---------------------------------------------------------------------------
 
+
 class MockParentRemoteGateway:
     """
     Simulates 6-digit PIN pairing, short-lived JWT token management,
@@ -582,9 +593,13 @@ class MockParentRemoteGateway:
 
     def __init__(self, db: AIGuruTestDB):
         self.db = db
-        self.active_pairing_codes: Dict[str, Tuple[str, float]] = {}  # code -> (student_id, expires_at)
-        self.active_parent_tokens: Dict[str, Tuple[str, float]] = {}  # token -> (parent_id, expires_at)
-        self.live_video_sessions: Dict[str, bool] = {}               # session_id -> is_live_active
+        self.active_pairing_codes: Dict[
+            str, Tuple[str, float]
+        ] = {}  # code -> (student_id, expires_at)
+        self.active_parent_tokens: Dict[
+            str, Tuple[str, float]
+        ] = {}  # token -> (parent_id, expires_at)
+        self.live_video_sessions: Dict[str, bool] = {}  # session_id -> is_live_active
 
     def generate_pairing_code(self, student_id: str, ttl_seconds: float = 900.0) -> str:
         # Cryptographic 6-digit pairing code
@@ -639,19 +654,36 @@ class MockParentRemoteGateway:
     def is_live_supervision_active(self, session_id: str) -> bool:
         return self.live_video_sessions.get(session_id, False)
 
-    def log_audit(self, actor_id: str, role: str, action: str, resource_type: str, resource_id: str, details: dict = None) -> None:
+    def log_audit(
+        self,
+        actor_id: str,
+        role: str,
+        action: str,
+        resource_type: str,
+        resource_id: str,
+        details: dict = None,
+    ) -> None:
         self.db.execute(
             """
             INSERT INTO audit_logs (timestamp, actor_id, actor_role, ip_address, action, resource_type, resource_id, details_json)
             VALUES (?, ?, ?, '127.0.0.1', ?, ?, ?, ?)
             """,
-            (time.time(), actor_id, role, action, resource_type, resource_id, json.dumps(details or {})),
+            (
+                time.time(),
+                actor_id,
+                role,
+                action,
+                resource_type,
+                resource_id,
+                json.dumps(details or {}),
+            ),
         )
 
 
 # ---------------------------------------------------------------------------
 # Connectivity & Offline Resilience Simulator
 # ---------------------------------------------------------------------------
+
 
 class ConnectivityState(str, Enum):
     ONLINE = "ONLINE"
@@ -704,11 +736,14 @@ class MockConnectivityManager:
 # Gamification & Rewards Evaluator
 # ---------------------------------------------------------------------------
 
+
 class GamificationEngine:
     """Evaluates XP points, focus multipliers, streaks, badges, and level progression."""
 
     @staticmethod
-    def calculate_earned_xp(duration_minutes: float, focus_score: float, goal_met: bool = True) -> int:
+    def calculate_earned_xp(
+        duration_minutes: float, focus_score: float, goal_met: bool = True
+    ) -> int:
         # Base XP: 1 XP per minute
         base_xp = duration_minutes
         # Focus multiplier: 0.8x (<70%), 1.0x (70-85%), 1.2x (85-95%), 1.5x (>95%)
@@ -735,7 +770,7 @@ class GamificationEngine:
         while level < 50 and total_xp >= (accumulated + xp_required):
             accumulated += xp_required
             level += 1
-            xp_required = int(100 * (level ** 1.3))
+            xp_required = int(100 * (level**1.3))
         xp_in_level = total_xp - accumulated
         return level, xp_in_level, xp_required
 
@@ -743,32 +778,42 @@ class GamificationEngine:
     def evaluate_badges(student_stats: Dict[str, Any]) -> List[Dict[str, str]]:
         unlocked = []
         if student_stats.get("streak_count", 0) >= 7:
-            unlocked.append({
-                "badge_id": "badge_streak_7",
-                "badge_name": "7-Day Streak Master",
-                "badge_icon": "flame",
-                "reason": "Studied 7 consecutive days",
-            })
-        if student_stats.get("focus_score", 0.0) >= 95.0 and student_stats.get("duration_minutes", 0) >= 25:
-            unlocked.append({
-                "badge_id": "badge_laser_focus",
-                "badge_name": "Laser Focus",
-                "badge_icon": "target",
-                "reason": "Completed a 25+ min study session with >=95% focus score",
-            })
+            unlocked.append(
+                {
+                    "badge_id": "badge_streak_7",
+                    "badge_name": "7-Day Streak Master",
+                    "badge_icon": "flame",
+                    "reason": "Studied 7 consecutive days",
+                }
+            )
+        if (
+            student_stats.get("focus_score", 0.0) >= 95.0
+            and student_stats.get("duration_minutes", 0) >= 25
+        ):
+            unlocked.append(
+                {
+                    "badge_id": "badge_laser_focus",
+                    "badge_name": "Laser Focus",
+                    "badge_icon": "target",
+                    "reason": "Completed a 25+ min study session with >=95% focus score",
+                }
+            )
         if student_stats.get("total_sessions", 0) >= 1:
-            unlocked.append({
-                "badge_id": "badge_first_step",
-                "badge_name": "First Step",
-                "badge_icon": "footsteps",
-                "reason": "Completed your first AI Guru study session",
-            })
+            unlocked.append(
+                {
+                    "badge_id": "badge_first_step",
+                    "badge_name": "First Step",
+                    "badge_icon": "footsteps",
+                    "reason": "Completed your first AI Guru study session",
+                }
+            )
         return unlocked
 
 
 # ---------------------------------------------------------------------------
 # Pytest Fixtures
 # ---------------------------------------------------------------------------
+
 
 @pytest.fixture
 def isolated_db() -> AIGuruTestDB:

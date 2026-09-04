@@ -1,11 +1,7 @@
 version: "1"
 rules:
-  - base: main
+  - base: master
     upstream: HKUDS:main
-    mergeMethod: hardreset
-    mergeUnstable: true
-  - base: dev
-    upstream: HKUDS:dev
     mergeMethod: hardreset
     mergeUnstable: true
 label: ":arrow_heading_down: pull"

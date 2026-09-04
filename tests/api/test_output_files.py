@@ -155,6 +155,9 @@ def test_symlink_outside_user_root_is_rejected(output_app, tmp_path: Path) -> No
     client, _admin_root, users_root = output_app({"alice-token": alice})
     external = tmp_path / "external.pdf"
     external.write_bytes(b"other user's data")
+    # Create the public-output path first, then swap the file for a symlink
+    # that points outside the user's public outputs root.
+    link = _write_output(users_root / "u_alice", relative_path, b"placeholder")
     link.unlink()
     try:
         link.symlink_to(external)

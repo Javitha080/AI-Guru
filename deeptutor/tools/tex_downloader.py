@@ -154,20 +154,27 @@ class TexDownloader:
         except Exception:
             return False
 
+    def _is_within_directory(self, directory: Path, target: Path) -> bool:
+        """Return True when ``target`` stays inside ``directory`` (ZipSlip/TarSlip guard)."""
+        try:
+            resolved_target = target.resolve(strict=False)
+            resolved_directory = directory.resolve(strict=False)
+            # ``os.path.commonpath`` raises when paths sit on different drives
+            # (Windows); treat that as unsafe.
+            return os.path.commonpath([str(resolved_directory), str(resolved_target)]) == str(
+                resolved_directory
+            )
+        except ValueError:
+            return False
+
     def _extract_tar(self, tar_path: Path, extract_dir: Path):
         """Extract tar file safely (prevent ZipSlip/TarSlip)"""
         with tarfile.open(tar_path, "r:*") as tar:
             # Safe extraction filter
-            def is_within_directory(directory, target):
-                abs_directory = os.path.abspath(directory)
-                abs_target = os.path.abspath(target)
-                prefix = os.path.commonprefix([abs_directory, abs_target])
-                return prefix == abs_directory
-
             def safe_members(members):
                 for member in members:
-                    member_path = os.path.join(extract_dir, member.name)
-                    if not is_within_directory(extract_dir, member_path):
+                    member_path = extract_dir / member.name
+                    if not self._is_within_directory(extract_dir, member_path):
                         print(f"Suspicious file path in tar: {member.name}. Skipping.")
                         continue
                     yield member
@@ -175,9 +182,14 @@ class TexDownloader:
             tar.extractall(extract_dir, members=safe_members(tar))
 
     def _extract_zip(self, zip_path: Path, extract_dir: Path):
-        """Extract zip file"""
+        """Extract zip file safely (prevent ZipSlip)"""
         with zipfile.ZipFile(zip_path, "r") as zip_file:
-            zip_file.extractall(extract_dir)
+            for member in zip_file.infolist():
+                member_path = extract_dir / member.filename
+                if not self._is_within_directory(extract_dir, member_path):
+                    print(f"Suspicious file path in zip: {member.filename}. Skipping.")
+                    continue
+                zip_file.extract(member, extract_dir)
 
     def _find_main_tex(self, directory: Path) -> Path | None:
         """

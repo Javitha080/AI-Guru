@@ -35,9 +35,10 @@ class PostureCategory(str, enum.Enum):
 @dataclass
 class HeadPoseResult:
     """Calculated 3D head pose angles in degrees."""
-    yaw: float    # Negative = turning left, Positive = turning right
+
+    yaw: float  # Negative = turning left, Positive = turning right
     pitch: float  # Positive = looking down (desk), Negative = looking up
-    roll: float   # Negative = tilting left, Positive = tilting right
+    roll: float  # Negative = tilting left, Positive = tilting right
     posture: PostureCategory
     is_facing_screen: bool
     is_reading_writing_pose: bool
@@ -46,6 +47,7 @@ class HeadPoseResult:
 @dataclass
 class GazeResult:
     """Estimated visual gaze direction vector and screen focus status."""
+
     gaze_x: float  # -1.0 (far left) to 1.0 (far right), 0 = center
     gaze_y: float  # -1.0 (far up) to 1.0 (far down / desk), 0 = center
     is_focused: bool
@@ -55,6 +57,7 @@ class GazeResult:
 @dataclass
 class PoseAndGazeEstimation:
     """Combined posture, head pose, and visual attention output."""
+
     pose: HeadPoseResult
     gaze: GazeResult
 
@@ -91,8 +94,7 @@ class PoseGazeEstimator:
         )
 
         is_facing_screen = (
-            abs(yaw_deg) <= cls.YAW_SCREEN_THRESHOLD
-            and -15.0 <= pitch_deg < cls.PITCH_READING_MIN
+            abs(yaw_deg) <= cls.YAW_SCREEN_THRESHOLD and -15.0 <= pitch_deg < cls.PITCH_READING_MIN
         )
 
         if is_reading_writing:
@@ -157,13 +159,17 @@ class PoseGazeEstimator:
         roll_deg = math.degrees(math.atan2(dy_eyes, dx_eyes))
 
         # 2. Face dimensions for normalization
-        face_width = max(0.01, math.sqrt((r_cheek.x - l_cheek.x)**2 + (r_cheek.y - l_cheek.y)**2))
-        face_height = max(0.01, math.sqrt((chin.x - forehead.x)**2 + (chin.y - forehead.y)**2))
+        face_width = max(
+            0.01, math.sqrt((r_cheek.x - l_cheek.x) ** 2 + (r_cheek.y - l_cheek.y) ** 2)
+        )
+        face_height = max(0.01, math.sqrt((chin.x - forehead.x) ** 2 + (chin.y - forehead.y) ** 2))
 
         # 3. Yaw: asymmetry of nose relative to eye center
         # Rotate coordinates relative to roll first
         rad_roll = -math.radians(roll_deg)
-        rot_nose_x = (nose.x - mid_eye_x) * math.cos(rad_roll) - (nose.y - mid_eye_y) * math.sin(rad_roll)
+        rot_nose_x = (nose.x - mid_eye_x) * math.cos(rad_roll) - (nose.y - mid_eye_y) * math.sin(
+            rad_roll
+        )
         rot_cheek_width = face_width
 
         yaw_ratio = rot_nose_x / (rot_cheek_width * 0.5)
@@ -171,7 +177,9 @@ class PoseGazeEstimator:
         yaw_deg = math.degrees(math.asin(yaw_ratio)) * 1.3  # Calibration factor
 
         # 4. Pitch: vertical position of nose between eyes and chin
-        rot_nose_y = (nose.x - mid_eye_x) * math.sin(rad_roll) + (nose.y - mid_eye_y) * math.cos(rad_roll)
+        rot_nose_y = (nose.x - mid_eye_x) * math.sin(rad_roll) + (nose.y - mid_eye_y) * math.cos(
+            rad_roll
+        )
         # In a neutral frontal pose, eye-to-nose vertical distance is ~0.35 * face_height
         neutral_offset = 0.30 * face_height
         pitch_delta = (rot_nose_y - neutral_offset) / (face_height * 0.4)
@@ -183,9 +191,7 @@ class PoseGazeEstimator:
         roll_deg = round(roll_deg, 1)
 
         # 5. Classify posture (shared thresholds with the solvePnP path)
-        posture, is_facing_screen, is_reading_writing = self.classify(
-            yaw_deg, pitch_deg, roll_deg
-        )
+        posture, is_facing_screen, is_reading_writing = self.classify(yaw_deg, pitch_deg, roll_deg)
 
         return HeadPoseResult(
             yaw=yaw_deg,

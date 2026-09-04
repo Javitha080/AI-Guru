@@ -230,7 +230,7 @@ docker run -d \
   ghcr.io/hkuds/deeptutor:latest
 ```
 
-*For multi-container setups, GPU pass-through, or rootless Podman, see [CONTAINERIZATION.md](CONTAINERIZATION.md).*
+*For multi-container setups, GPU pass-through, rootless Podman, or the [temporary local Codex OAuth bridge](CONTAINERIZATION.md#temporary-local-codex-oauth-bridge), see [CONTAINERIZATION.md](CONTAINERIZATION.md).*
 
 ---
 
@@ -266,6 +266,13 @@ data/user/settings/
 
 AI Guru supports standard OpenAI-compatible endpoints, Anthropic Claude, Google Gemini, DeepSeek, Groq, Mistral, and **Local Ollama** models.
 
+Provider auth (`openai-codex` OAuth login; `github-copilot` validates an existing Copilot auth session) is managed from the CLI:
+
+```bash
+deeptutor provider login openai-codex     # 执行 OpenAI Codex OAuth 登录
+deeptutor provider login github-copilot   # 校验现有 GitHub Copilot 认证是否可用
+```
+
 ```json
 // Example: data/user/settings/model_catalog.json
 {
@@ -287,7 +294,7 @@ AI Guru supports standard OpenAI-compatible endpoints, Anthropic Claude, Google 
 AI-Guru/
 ├── deeptutor/                  # Core Python backend package (FastAPI)
 │   ├── agents/                 # Agent loop, question solver, research, math animator
-│   ├── api/routers/            # 37 REST API routers (parent.py, monitoring.py, exams.py, ...)
+│   ├── api/routers/            # 40 REST & WebSocket routers (parent.py, monitoring.py, exams.py, ... + multi_user/router.py)
 │   ├── capabilities/           # Capabilities: Quiz, Solve, Mastery, Obsidian
 │   ├── services/
 │   │   ├── monitoring/         # CV presence FSM, warning rate-limiter, Telegram outbox
@@ -330,7 +337,7 @@ Explore in-depth documentation in the [`docs/`](docs/) directory:
 AI Guru maintains a rigorous automated testing battery covering backend APIs, CV pipeline edge cases, encryption security, and frontend type integrity.
 
 ```bash
-# 1. Run Python Backend Test Suite (93+ tests)
+# 1. Run Python Backend Test Suite (100+ milestone tests; full suite: `pytest tests/ -q`)
 .venv\Scripts\python.exe -m pytest \
   tests/e2e \
   tests/test_study_monitoring.py \
@@ -339,7 +346,7 @@ AI Guru maintains a rigorous automated testing battery covering backend APIs, CV
   tests/services/test_remote_security.py \
   tests/test_fresh_install_smoke.py -q
 
-# 2. Run Frontend TypeCheck & Node Tests (396+ tests)
+# 2. Run Frontend TypeCheck & Node Tests (420 tests)
 cd web
 npx tsc --noEmit
 npm run test:node

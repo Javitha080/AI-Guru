@@ -36,7 +36,9 @@ class PairingService:
     # ------------------------------------------------------------- internals
 
     @classmethod
-    async def _ensure_identity_rows(cls, db: aiosqlite.Connection, *, parent_id: str, student_id: str) -> None:
+    async def _ensure_identity_rows(
+        cls, db: aiosqlite.Connection, *, parent_id: str, student_id: str
+    ) -> None:
         now = time.time()
         await db.execute(
             """
@@ -135,8 +137,15 @@ class PairingService:
                     "INSERT INTO parent_student_links (id, parent_id, student_id, pairing_code,"
                     " pairing_code_expires_at, status, permissions_json, created_at)"
                     " VALUES (?, ?, ?, ?, ?, 'pending', ?, ?)",
-                    (link_id, parent_id, student_id, code, expires_at,
-                     json.dumps(DEFAULT_PERMISSIONS), time.time()),
+                    (
+                        link_id,
+                        parent_id,
+                        student_id,
+                        code,
+                        expires_at,
+                        json.dumps(DEFAULT_PERMISSIONS),
+                        time.time(),
+                    ),
                 )
             await db.commit()
 
@@ -163,7 +172,9 @@ class PairingService:
             )
             await db.commit()
 
-            cursor = await db.execute("SELECT * FROM parent_student_links WHERE id = ?", (link["id"],))
+            cursor = await db.execute(
+                "SELECT * FROM parent_student_links WHERE id = ?", (link["id"],)
+            )
             return dict(await cursor.fetchone())
 
     @classmethod

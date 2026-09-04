@@ -8,11 +8,9 @@ remote_access, cpu, ram, gpu.
 
 from __future__ import annotations
 
-import asyncio
 from datetime import datetime, timezone
 import logging
 import os
-from pathlib import Path
 import platform
 import shutil
 import sqlite3
@@ -64,6 +62,11 @@ def check_database_health() -> dict[str, Any]:
                 health["journal_mode"] = str(jm[0]).upper()
                 health["wal_enabled"] = health["journal_mode"] == "WAL"
 
+            # ``PRAGMA foreign_keys`` is a per-connection setting; SQLite
+            # defaults it OFF, so a raw probe always reported false. Enable it
+            # first so this metric reflects the configuration every connection
+            # in the app sets (see sqlite_store._connect / migrations).
+            conn.execute("PRAGMA foreign_keys = ON")
             fk = conn.execute("PRAGMA foreign_keys").fetchone()
             if fk:
                 health["foreign_keys"] = bool(fk[0])
@@ -430,10 +433,7 @@ def get_full_system_health() -> dict[str, Any]:
     # Determine overall status
     if db_health.get("status") == "unhealthy" or backend_health.get("status") != "online":
         overall_status = "unhealthy"
-    elif (
-        ai_health.get("status") != "configured"
-        and ollama_health.get("status") != "online"
-    ):
+    elif ai_health.get("status") != "configured" and ollama_health.get("status") != "online":
         overall_status = "degraded"
     else:
         overall_status = "healthy"

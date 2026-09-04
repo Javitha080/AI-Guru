@@ -1,4 +1,5 @@
 """Probe webcam frame delivery: DSHOW vs MSMF, warm-up latency, read failures."""
+
 import sys
 import time
 
@@ -25,8 +26,7 @@ def probe(name: str, backend: int, index: int = 0, reads: int = 60) -> None:
             ok += 1
             if first_frame is None:
                 first_frame = time.perf_counter() - t_open
-                print(f"first frame after {first_frame:.2f}s "
-                      f"({frame.shape[1]}x{frame.shape[0]})")
+                print(f"first frame after {first_frame:.2f}s ({frame.shape[1]}x{frame.shape[0]})")
         else:
             fails += 1
         time.sleep(1.0 / 15)

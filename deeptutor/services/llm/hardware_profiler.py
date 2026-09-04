@@ -14,11 +14,10 @@ from dataclasses import asdict, dataclass, field
 from enum import Enum
 import logging
 import os
-from pathlib import Path
 import platform
 import shutil
 import sys
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -134,7 +133,9 @@ class HardwareProfiler:
         )
 
         # 4. Generate recommendations
-        recommended_models = RECOMMENDED_MODELS_BY_TIER.get(tier, RECOMMENDED_MODELS_BY_TIER[HardwareTier.LOW])
+        recommended_models = RECOMMENDED_MODELS_BY_TIER.get(
+            tier, RECOMMENDED_MODELS_BY_TIER[HardwareTier.LOW]
+        )
         quantization = TIER_QUANTIZATIONS.get(tier, "q4_k_m")
         context_window = TIER_CONTEXT_WINDOWS.get(tier, 8192)
         cv_fps = TIER_CV_FPS.get(tier, 5)
@@ -243,7 +244,9 @@ class HardwareProfiler:
                     check=False,
                 )
                 if res.returncode == 0 and res.stdout.strip():
-                    lines = [l.strip() for l in res.stdout.strip().splitlines() if l.strip()]
+                    lines = [
+                        line.strip() for line in res.stdout.strip().splitlines() if line.strip()
+                    ]
                     if lines:
                         parts = [p.strip() for p in lines[0].split(",")]
                         if len(parts) >= 2:

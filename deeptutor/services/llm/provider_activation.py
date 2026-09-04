@@ -162,14 +162,20 @@ async def _probe_cloud(
             params["model"],
         )
     try:
-        ok, error = await probe(params["model"], api_key, params["binding"], params["base_url"] or None)
+        ok, error = await probe(
+            params["model"], api_key, params["binding"], params["base_url"] or None
+        )
     except Exception as exc:  # noqa: BLE001 — surface any provider error verbatim
         logger.info("Cloud activation probe failed for %s: %s", params["provider"], exc)
         return False, f"Cloud API test failed: {exc}", params["model"]
     if not ok:
         message = error or "Connection test failed. Check the key, base URL, and model."
         return False, message, params["model"]
-    return True, f"{params['provider'].capitalize()} connection verified ({params['model']}).", params["model"]
+    return (
+        True,
+        f"{params['provider'].capitalize()} connection verified ({params['model']}).",
+        params["model"],
+    )
 
 
 async def probe_ollama(base_url: str) -> tuple[bool, str, list[str]]:
@@ -183,7 +189,9 @@ async def probe_ollama(base_url: str) -> tuple[bool, str, list[str]]:
             async with session.get(f"{host}/api/tags") as resp:
                 if resp.status == 200:
                     data = await resp.json()
-                    models = [m.get("name") for m in (data or {}).get("models", []) if m.get("name")]
+                    models = [
+                        m.get("name") for m in (data or {}).get("models", []) if m.get("name")
+                    ]
                     message = (
                         f"Ollama reachable at {host} ({len(models)} models available)"
                         if models
@@ -225,9 +233,7 @@ def _upsert_catalog_llm_profile(
                 "api_key": api_key,
                 "api_version": "",
                 "extra_headers": {},
-                "models": [
-                    {"id": model_id, "name": params["model"], "model": params["model"]}
-                ],
+                "models": [{"id": model_id, "name": params["model"], "model": params["model"]}],
             }
         )
         llm["active_profile_id"] = profile_id
@@ -298,9 +304,7 @@ async def activate_tutor_provider(
             _ollama_base_url(request.ollama_base_url)
         )
         if not ok:
-            return ActivationResult(
-                success=False, message=message, mode=mode, provider="ollama"
-            )
+            return ActivationResult(success=False, message=message, mode=mode, provider="ollama")
     else:  # cloud / auto
         ok, message, model = await _probe_cloud(request, tester, vault)
         if not ok:
@@ -316,7 +320,9 @@ async def activate_tutor_provider(
     masked_key = ""
     if mode in {"cloud", "auto"}:
         params = resolve_cloud_params(request)
-        api_key = (request.api_key or "").strip() or _existing_api_key(vault, params["provider"]) or ""
+        api_key = (
+            (request.api_key or "").strip() or _existing_api_key(vault, params["provider"]) or ""
+        )
         if api_key and vault is not None:
             vault.set_key(params["provider"], api_key)
             masked_key = mask_api_key(api_key)

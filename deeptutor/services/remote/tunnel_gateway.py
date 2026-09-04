@@ -1,4 +1,4 @@
-﻿"""
+"""
 AI Guru Outbound Encrypted Tunnel Gateway.
 ==========================================
 
@@ -282,14 +282,19 @@ class TunnelGateway:
                 try:
                     if ngrok_token:
                         proc = await asyncio.create_subprocess_exec(
-                            "ngrok", "config", "add-authtoken", ngrok_token,
+                            "ngrok",
+                            "config",
+                            "add-authtoken",
+                            ngrok_token,
                             stdout=asyncio.subprocess.DEVNULL,
                             stderr=asyncio.subprocess.DEVNULL,
                         )
                         await proc.wait()
 
                     cls._process = await asyncio.create_subprocess_exec(
-                        "ngrok", "http", str(local_port),
+                        "ngrok",
+                        "http",
+                        str(local_port),
                         stdout=asyncio.subprocess.DEVNULL,
                         stderr=asyncio.subprocess.DEVNULL,
                     )
@@ -338,8 +343,7 @@ class TunnelGateway:
         cls._tunnel_url = f"http://127.0.0.1:{local_port}"
         cls._url_is_public = False
         cls._last_message = (
-            "Tunnel gateway not available on this machine. "
-            "Accessible via local network only."
+            "Tunnel gateway not available on this machine. Accessible via local network only."
         )
         return {
             "status": "local_only",
@@ -433,9 +437,7 @@ class TunnelGateway:
             "restart_attempts": cls._restart_attempts,
             "local_port": cls.get_local_port(),
             "portal_hint": (
-                f"{cls._tunnel_url}/parent"
-                if cls._tunnel_url and cls._url_is_public
-                else None
+                f"{cls._tunnel_url}/parent" if cls._tunnel_url and cls._url_is_public else None
             ),
         }
 

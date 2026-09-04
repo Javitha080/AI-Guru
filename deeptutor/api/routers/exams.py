@@ -47,6 +47,7 @@ class SubmitAnswersRequest(BaseModel):
 
 def _workspace_dir() -> Path:
     from deeptutor.services.path_service import get_path_service
+
     d = get_path_service().user_dir / "workspace" / "exams"
     d.mkdir(parents=True, exist_ok=True)
     return d
@@ -144,7 +145,9 @@ async def upload_exam(
         raise HTTPException(status_code=422, detail=f"extraction_failed: {exc}")
 
     if not templates:
-        raise HTTPException(status_code=422, detail="No questions could be extracted from this PDF.")
+        raise HTTPException(
+            status_code=422, detail="No questions could be extracted from this PDF."
+        )
 
     paper = templates_to_paper(
         templates,
@@ -203,6 +206,7 @@ async def get_exam(exam_id: str):
 
 def _dumps(data: Dict[str, Any]) -> str:
     import json as _json
+
     return _json.dumps(data)
 
 
@@ -242,16 +246,30 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
 
     now = time.time()
     for row in result["results"]:
-        graded = bool(row["verdict"]) or row["question_type"] in ("choice", "concept", "fill_in_blank")
+        graded = bool(row["verdict"]) or row["question_type"] in (
+            "choice",
+            "concept",
+            "fill_in_blank",
+        )
         await ExamStore.upsert_answer(
             exam_id,
             {
                 "question_id": row["question_id"],
                 "option_key": next(
-                    (a.get("option_key", "") for a in req.answers if a.get("question_id") == row["question_id"]), ""
+                    (
+                        a.get("option_key", "")
+                        for a in req.answers
+                        if a.get("question_id") == row["question_id"]
+                    ),
+                    "",
                 ),
                 "answer_text": next(
-                    (a.get("answer_text", "") for a in req.answers if a.get("question_id") == row["question_id"]), ""
+                    (
+                        a.get("answer_text", "")
+                        for a in req.answers
+                        if a.get("question_id") == row["question_id"]
+                    ),
+                    "",
                 ),
                 **{k: v for k, v in row.items() if k in ("awarded", "feedback", "verdict")},
                 "graded": graded,
@@ -299,22 +317,24 @@ async def exam_result(exam_id: str):
         ans = by_qid.get(q.id, {})
         awarded = float(ans.get("awarded", 0) or 0)
         total_awarded += awarded
-        results.append({
-            "question_id": q.id,
-            "number": q.number,
-            "question_type": q.question_type,
-            "text": q.text,
-            "options": q.options,
-            "answer_text": ans.get("answer_text", ""),
-            "option_key": ans.get("option_key", ""),
-            "reference_answer": q.reference_answer if reveal_answers else None,
-            "explanation": q.explanation if reveal_answers else None,
-            "awarded": round(awarded, 2),
-            "max_marks": q.marks,
-            "verdict": ans.get("verdict", ""),
-            "feedback": ans.get("feedback", "") if reveal_answers else "",
-            "graded": bool(ans.get("graded")),
-        })
+        results.append(
+            {
+                "question_id": q.id,
+                "number": q.number,
+                "question_type": q.question_type,
+                "text": q.text,
+                "options": q.options,
+                "answer_text": ans.get("answer_text", ""),
+                "option_key": ans.get("option_key", ""),
+                "reference_answer": q.reference_answer if reveal_answers else None,
+                "explanation": q.explanation if reveal_answers else None,
+                "awarded": round(awarded, 2),
+                "max_marks": q.marks,
+                "verdict": ans.get("verdict", ""),
+                "feedback": ans.get("feedback", "") if reveal_answers else "",
+                "graded": bool(ans.get("graded")),
+            }
+        )
 
     return {
         "exam_id": exam_id,

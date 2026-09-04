@@ -12,6 +12,8 @@ from typing import Any
 
 import pytest
 
+pytest.importorskip("mcp")  # MCP SDK — optional `partners` extra
+
 from deeptutor.services.mcp.manager import (
     MCPConnectionManager,
     MCPToolAdapter,

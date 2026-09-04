@@ -30,8 +30,14 @@ def _pose(yaw=0.0, pitch=0.0, roll=0.0, posture=PostureCategory.HEAD_CENTER):
 
 def _live():
     return LivenessResult(
-        is_live=True, confidence=0.95, blink_detected=False, ear=0.30,
-        ear_variance=0.01, motion_score=0.05, texture_score=1.0, reason="Live",
+        is_live=True,
+        confidence=0.95,
+        blink_detected=False,
+        ear=0.30,
+        ear_variance=0.01,
+        motion_score=0.05,
+        texture_score=1.0,
+        reason="Live",
     )
 
 
@@ -82,9 +88,12 @@ class TestQuadraticContinuousFocus:
     def test_whitelist_still_exactly_100(self):
         analyzer = DistractionAnalyzer()
         reading = HeadPoseResult(
-            yaw=5.0, pitch=40.0, roll=0.0,
+            yaw=5.0,
+            pitch=40.0,
+            roll=0.0,
             posture=PostureCategory.LOOKING_DOWN,
-            is_facing_screen=False, is_reading_writing_pose=True,
+            is_facing_screen=False,
+            is_reading_writing_pose=True,
         )
         res = analyzer.analyze(
             timestamp=100.0,
@@ -116,13 +125,17 @@ class TestDualRateEMA:
         est = EngagementEstimator()
         before = None
         for step in drop:
-            snap = est.update(PresenceState.PRESENT, _pose(step["yaw"]), False, step.get("distracted", False))
+            snap = est.update(
+                PresenceState.PRESENT, _pose(step["yaw"]), False, step.get("distracted", False)
+            )
             before = snap.score
         after_drop = before
 
         est2 = EngagementEstimator()
         for step in drop:
-            est2.update(PresenceState.PRESENT, _pose(step["yaw"]), False, step.get("distracted", False))
+            est2.update(
+                PresenceState.PRESENT, _pose(step["yaw"]), False, step.get("distracted", False)
+            )
 
         # Recovery ticks: same neutral frames, score should climb back slowly.
         recovered = []
@@ -172,7 +185,10 @@ class TestNudgeTier:
 
     def test_nudge_not_for_student_away(self):
         wm = WarningManager()
-        assert wm.evaluate_nudge(100.0, self._distraction(4.0, dtype=DistractionType.STUDENT_AWAY)) is None
+        assert (
+            wm.evaluate_nudge(100.0, self._distraction(4.0, dtype=DistractionType.STUDENT_AWAY))
+            is None
+        )
 
     def test_nudge_cooldown_across_episodes(self):
         wm = WarningManager()
@@ -216,8 +232,16 @@ class TestNudgeTier:
                     "nose_tip": {"x": lm.nose_tip.x, "y": lm.nose_tip.y, "z": lm.nose_tip.z},
                     "chin": {"x": lm.chin.x, "y": lm.chin.y, "z": lm.chin.z},
                     "forehead": {"x": lm.forehead.x, "y": lm.forehead.y, "z": lm.forehead.z},
-                    "left_cheek": {"x": lm.left_cheek.x, "y": lm.left_cheek.y, "z": lm.left_cheek.z},
-                    "right_cheek": {"x": lm.right_cheek.x, "y": lm.right_cheek.y, "z": lm.right_cheek.z},
+                    "left_cheek": {
+                        "x": lm.left_cheek.x,
+                        "y": lm.left_cheek.y,
+                        "z": lm.left_cheek.z,
+                    },
+                    "right_cheek": {
+                        "x": lm.right_cheek.x,
+                        "y": lm.right_cheek.y,
+                        "z": lm.right_cheek.z,
+                    },
                 },
                 "embedding": pipeline.face_engine.generate_geometric_embedding(lm),
                 "timestamp": base_ts + i * 0.1,
@@ -229,9 +253,7 @@ class TestNudgeTier:
         assert "nudge" in kinds, f"expected an early nudge, got {severities}"
         assert "warning" in kinds, f"expected escalation to warning, got {severities}"
         first_nudge = kinds.index("nudge")
-        first_warning_idx = min(
-            (i for i, k in enumerate(kinds) if k == "warning"), default=-1
-        )
+        first_warning_idx = min((i for i, k in enumerate(kinds) if k == "warning"), default=-1)
         assert first_warning_idx >= first_nudge
         # Nudge arrives inside [3s, 6s) of episode start; warning later.
         nudge_time = severities[first_nudge][0]

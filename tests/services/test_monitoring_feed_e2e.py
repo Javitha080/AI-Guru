@@ -14,20 +14,20 @@ import asyncio
 import json
 from unittest.mock import patch
 
+from fastapi.testclient import TestClient
 import numpy as np
 import pytest
-from fastapi.testclient import TestClient
 
 from deeptutor.api.main import app
 from deeptutor.services.monitoring import system_monitor as sm_module
-from deeptutor.services.monitoring.python_face_processor import (
-    FaceFrameResult,
-    PythonFaceProcessor,
-)
 from deeptutor.services.monitoring.pose_gaze import (
     GazeResult,
     HeadPoseResult,
     PostureCategory,
+)
+from deeptutor.services.monitoring.python_face_processor import (
+    FaceFrameResult,
+    PythonFaceProcessor,
 )
 from deeptutor.services.monitoring.system_camera import SystemCameraManager
 
@@ -81,11 +81,16 @@ class _StubProcessor(PythonFaceProcessor):
 
 @pytest.fixture()
 def system_env():
+    # These E2E feeds serve JPEG bytes, which OpenCV encodes; without it the
+    # camera manager can still grab frames but the feed/snapshot cannot.
+    pytest.importorskip("cv2")
     processor = _StubProcessor()
     camera = SystemCameraManager(camera_index=0, frame_source=_fake_frame)
 
-    with patch.object(sm_module, "get_python_face_processor", lambda: processor), \
-         patch.object(sm_module, "get_system_camera", lambda index=0, **kw: camera):
+    with (
+        patch.object(sm_module, "get_python_face_processor", lambda: processor),
+        patch.object(sm_module, "get_system_camera", lambda index=0, **kw: camera),
+    ):
         yield camera
 
     # Force-clean any monitors the test created (sync registry).
@@ -113,9 +118,7 @@ class TestSystemModeRoutes:
         assert data["available"] is True
 
     def test_ws_handshake_telemetry_and_pause(self, client):
-        with client.websocket_connect(
-            "/api/v1/monitoring/session/s-feed-e2e"
-        ) as ws:
+        with client.websocket_connect("/api/v1/monitoring/session/s-feed-e2e") as ws:
             init = json.loads(ws.receive_text())
             assert init["type"] == "session_init"
             assert init["mode"] == "system"
@@ -167,10 +170,12 @@ class TestSystemModeRoutes:
 
             iterator = response.body_iterator.__aiter__()
             chunk = await asyncio.wait_for(iterator.__anext__(), timeout=10.0)
-            assert chunk.startswith(b"--aiguruframe\r\nContent-Type: image/jpeg\r\nContent-Length: ")
+            assert chunk.startswith(
+                b"--aiguruframe\r\nContent-Type: image/jpeg\r\nContent-Length: "
+            )
             header_end = chunk.index(b"\r\n\r\n")
             jpeg_start = header_end + 4
-            assert chunk[jpeg_start:jpeg_start + 2] == b"\xff\xd8"
+            assert chunk[jpeg_start : jpeg_start + 2] == b"\xff\xd8"
 
             await response.body_iterator.aclose()
             await sm_module.stop_system_monitor("s-gen-e2e")

@@ -74,20 +74,22 @@ _MEDIUM_TOKENS = {
     "english": "english",
 }
 
-_P1_RE = re.compile(r"\b(p\s*-?\s*1|paper\s*[- ]?\s*(i\b|1)|mcq|part\s*[- ]?\s*i\b|1\s*පත්‍රය|ප්‍රශ්න\s*පත්‍රය\s*I)\b", re.I)
-_P2_RE = re.compile(r"\b(p\s*-?\s*2|paper\s*[- ]?\s*(ii\b|2)|part\s*[- ]?\s*ii\b|structured|essay|2\s*පත්‍රය|ප්‍රශ්න\s*පත්‍රය\s*II)\b", re.I)
+_P1_RE = re.compile(
+    r"\b(p\s*-?\s*1|paper\s*[- ]?\s*(i\b|1)|mcq|part\s*[- ]?\s*i\b|1\s*පත්‍රය|ප්‍රශ්න\s*පත්‍රය\s*I)\b",
+    re.I,
+)
+_P2_RE = re.compile(
+    r"\b(p\s*-?\s*2|paper\s*[- ]?\s*(ii\b|2)|part\s*[- ]?\s*ii\b|structured|essay|2\s*පත්‍රය|ප්‍රශ්න\s*පත්‍රය\s*II)\b",
+    re.I,
+)
 _SCHEME_RE = re.compile(r"marking|scheme|answer[\s_-]*key|answers|ලකුණු\s*දීමේ|උත්තර\b", re.I)
 _YEAR_RE = re.compile(r"\b(19|20)\d{2}\b")
 _GRADE_RE = re.compile(r"\b(?:g|grade)[\s._-]*(12|13)\b", re.I)
 _LEADING_NUM_RE = re.compile(r"^\s*\(?\s*(\d{1,3})\s*[\.\)]")
 
 # Marking-scheme key capture: "1 B", "(2) C", "03 - A", tables of pairs.
-_KEY_PAIR_RE = re.compile(
-    r"(?<![\w.])(\d{1,3})\s*[\.\):\]\-–]?\s*\(?([A-Ea-e])\)?(?![\w])"
-)
-_NUM_KEY_PAIR_RE = re.compile(
-    r"(?<![\w.])(\d{1,3})\s*[\.\):\]\-–]\s*\(?([1-5])\)?(?![\w])"
-)
+_KEY_PAIR_RE = re.compile(r"(?<![\w.])(\d{1,3})\s*[\.\):\]\-–]?\s*\(?([A-Ea-e])\)?(?![\w])")
+_NUM_KEY_PAIR_RE = re.compile(r"(?<![\w.])(\d{1,3})\s*[\.\):\]\-–]\s*\(?([1-5])\)?(?![\w])")
 _GRID_KEY_RE = re.compile(r"(\d{1,2})\s*\.\s*\n\s*(All|all|[1-5]|[A-Ea-e])\b")
 _NUM_TO_LETTER = {"1": "A", "2": "B", "3": "C", "4": "D", "5": "E"}
 
@@ -160,7 +162,7 @@ def classify_filename(name: str) -> PaperMeta:
 
 def parse_mcq_keys(scheme_text: str) -> Dict[int, str]:
     """Extract an answer-key map {question_number: 'A'..'E'} from scheme text.
-    
+
     Supports letter keys ("1 B", "(2) C", "03 - A") and numeric keys ("1 - 2", "2. (4)", "3: 1").
     """
     keys: Dict[int, str] = {}
@@ -391,9 +393,7 @@ class BankImportJob:
                 continue
 
             missing_bits = [
-                label
-                for label, val in (("grade", meta.grade), ("year", meta.year))
-                if val is None
+                label for label, val in (("grade", meta.grade), ("year", meta.year)) if val is None
             ]
             if missing_bits:
                 item.status = "needs_review"
@@ -456,9 +456,7 @@ class BankImportJob:
             counts = paper.counts()
             joined = " ".join(q.text for q in paper.questions)
             quality = _text_quality(joined)
-            min_expected = (
-                _MIN_MCQ_QUESTIONS if meta.paper_type == "mcq" else _MIN_OTHER_QUESTIONS
-            )
+            min_expected = _MIN_MCQ_QUESTIONS if meta.paper_type == "mcq" else _MIN_OTHER_QUESTIONS
             problems: List[str] = []
             if counts["question_count"] < min_expected:
                 problems.append(

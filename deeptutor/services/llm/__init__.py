@@ -92,7 +92,6 @@ from .factory import (
     get_provider_presets,
     stream,
 )
-from .multimodal import MultimodalResult, prepare_multimodal_messages
 from .hardware_profiler import (
     HardwareProfile,
     HardwareProfiler,
@@ -101,6 +100,7 @@ from .hardware_profiler import (
     get_hardware_profiler,
     get_hardware_tier,
 )
+from .multimodal import MultimodalResult, prepare_multimodal_messages
 from .tutor_provider import (
     CircuitBreaker,
     CircuitState,
@@ -113,9 +113,9 @@ from .tutor_provider import (
     OllamaTutorProvider,
     ProviderHealth,
     StreamChunk,
+    TutoringMode,
     TutorProvider,
     TutorProviderManager,
-    TutoringMode,
     get_tutor_provider_manager,
     mask_api_key,
 )

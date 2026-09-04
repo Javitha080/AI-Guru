@@ -87,9 +87,13 @@ def test_legacy_chat_agent_system_prompt_uses_selected_language() -> None:
         history=[],
     )
 
-    assert ("你是 DeepTutor" in zh_messages[0]["content"]) or ("Ai Guru" in zh_messages[0]["content"])
+    assert ("你是 DeepTutor" in zh_messages[0]["content"]) or (
+        "Ai Guru" in zh_messages[0]["content"]
+    )
     assert "请严格使用中文" in zh_messages[0]["content"]
-    assert ("You are DeepTutor" in en_messages[0]["content"]) or ("Ai Guru" in en_messages[0]["content"])
+    assert ("You are DeepTutor" in en_messages[0]["content"]) or (
+        "Ai Guru" in en_messages[0]["content"]
+    )
     assert "Write ALL reader-facing text" in en_messages[0]["content"]
 
 

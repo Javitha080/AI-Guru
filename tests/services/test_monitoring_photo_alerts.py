@@ -48,9 +48,7 @@ class _FakeSession:
 @pytest.fixture()
 def fake_session():
     _FakeSession.calls = []
-    with patch(
-        "deeptutor.services.remote.telegram_notifier.aiohttp.ClientSession", _FakeSession
-    ):
+    with patch("deeptutor.services.remote.telegram_notifier.aiohttp.ClientSession", _FakeSession):
         yield _FakeSession.calls
 
 
@@ -103,6 +101,7 @@ class TestDispatchTierPolicy:
             "deeptutor.services.monitoring.notification_queue.start_notification_worker",
             lambda: None,
         )
+
         # TelemetryLogger writes to the real user DB — stub it out.
         class _FakeLogger:
             async def log_event(self, **kwargs):

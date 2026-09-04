@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import asyncio
 import logging
-import os
 import time
 from typing import Any, Optional
 
@@ -100,8 +99,12 @@ class ResourceGovernor:
         Calculate throttle intensity factor from 0.0 (healthy) to 1.0 (critical overload).
         """
         cpu_pct, ram_pct = self._sample_resources()
-        cpu_excess = max(0.0, cpu_pct - self.cpu_threshold_percent) / max(1.0, 100.0 - self.cpu_threshold_percent)
-        ram_excess = max(0.0, ram_pct - self.ram_threshold_percent) / max(1.0, 100.0 - self.ram_threshold_percent)
+        cpu_excess = max(0.0, cpu_pct - self.cpu_threshold_percent) / max(
+            1.0, 100.0 - self.cpu_threshold_percent
+        )
+        ram_excess = max(0.0, ram_pct - self.ram_threshold_percent) / max(
+            1.0, 100.0 - self.ram_threshold_percent
+        )
         return min(1.0, max(cpu_excess, ram_excess))
 
     async def throttle_if_needed(self, task_name: str = "task") -> float:
@@ -111,7 +114,9 @@ class ResourceGovernor:
         """
         factor = self.get_throttle_factor()
         if factor > 0.0:
-            sleep_duration = self.min_throttle_sleep + factor * (self.max_throttle_sleep - self.min_throttle_sleep)
+            sleep_duration = self.min_throttle_sleep + factor * (
+                self.max_throttle_sleep - self.min_throttle_sleep
+            )
             logger.debug(
                 "ResourceGovernor: Throttling %s for %.3fs (factor=%.2f, CPU=%.1f%%, RAM=%.1f%%)",
                 task_name,

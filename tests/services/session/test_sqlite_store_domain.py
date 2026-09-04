@@ -60,12 +60,8 @@ def test_user_crud(store: SQLiteSessionStore) -> None:
 
 def test_student_and_parent_crud(store: SQLiteSessionStore) -> None:
     # Create user accounts
-    u_student = asyncio.run(
-        store.create_user("s1", "pass", "student", "Student One")
-    )
-    u_parent = asyncio.run(
-        store.create_user("p1", "pass", "parent", "Parent One")
-    )
+    u_student = asyncio.run(store.create_user("s1", "pass", "student", "Student One"))
+    u_parent = asyncio.run(store.create_user("p1", "pass", "parent", "Parent One"))
 
     # Student CRUD
     student = asyncio.run(

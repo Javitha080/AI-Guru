@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import asyncio
 from unittest.mock import MagicMock, patch
+
 import pytest
 
 from deeptutor.services.governor import (
@@ -21,10 +22,10 @@ from deeptutor.services.llm.hardware_profiler import (
     get_hardware_tier,
 )
 
-
 # ---------------------------------------------------------------------------
 # Hardware Profiler Tier Classification Tests
 # ---------------------------------------------------------------------------
+
 
 def test_hardware_profiler_high_tier_dedicated_gpu():
     """Verify system with >= 8GB VRAM is categorized as HIGH tier."""
@@ -106,6 +107,7 @@ def test_hardware_profile_recommendations_populated():
 # ---------------------------------------------------------------------------
 # Resource Governor Tests
 # ---------------------------------------------------------------------------
+
 
 def test_governor_normal_state():
     """Verify governor reports not overloaded under normal load."""

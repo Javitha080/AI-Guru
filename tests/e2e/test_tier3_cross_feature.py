@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import time
+
 import pytest
 
 from tests.e2e.conftest import (
@@ -103,7 +104,11 @@ class TestTier3CrossFeatureCombinations:
                 INSERT INTO monitoring_events (session_id, timestamp, event_type, confidence, duration_seconds, metadata_json)
                 VALUES (?, ?, 'POSTURE_SHIFT', 0.98, 10.0, ?)
                 """,
-                (session_id, frame_time, json.dumps({"activity": activity.value, "engagement": score})),
+                (
+                    session_id,
+                    frame_time,
+                    json.dumps({"activity": activity.value, "engagement": score}),
+                ),
             )
 
         # 4. Finish Session & Generate Report
@@ -127,7 +132,9 @@ class TestTier3CrossFeatureCombinations:
         )
 
         # Award Gamification XP & Badge
-        earned_xp = gamification_engine.calculate_earned_xp(duration_minutes=30.0, focus_score=98.0, goal_met=True)
+        earned_xp = gamification_engine.calculate_earned_xp(
+            duration_minutes=30.0, focus_score=98.0, goal_met=True
+        )
         assert earned_xp == 95
 
         # Update student streak (6 -> 7) and total XP (450 + 95 = 545)
@@ -157,7 +164,9 @@ class TestTier3CrossFeatureCombinations:
         assert parent_student["streak_count"] == 7
         assert parent_student["total_xp"] == 545
 
-        parent_reports = isolated_db.fetchall("SELECT * FROM session_reports WHERE student_id = 's_01';")
+        parent_reports = isolated_db.fetchall(
+            "SELECT * FROM session_reports WHERE student_id = 's_01';"
+        )
         assert len(parent_reports) == 1
         assert parent_reports[0]["focus_score"] == 98.0
 
@@ -287,7 +296,9 @@ class TestTier3CrossFeatureCombinations:
         assert parent_gateway.is_live_supervision_active(session_id) is False
 
         # 4. Audit Trail Verification
-        logs = isolated_db.fetchall("SELECT action FROM audit_logs WHERE actor_id = ? ORDER BY id ASC;", (parent_id,))
+        logs = isolated_db.fetchall(
+            "SELECT action FROM audit_logs WHERE actor_id = ? ORDER BY id ASC;", (parent_id,)
+        )
         actions = [log["action"] for log in logs]
         assert "PARENT_LOGIN" in actions
         assert "LIVE_FEED_START" in actions
@@ -306,7 +317,15 @@ class TestTier3CrossFeatureCombinations:
         5. Verify full restoration.
         """
         # 1. Snapshot database records
-        tables = ["users", "students", "parents", "study_sessions", "monitoring_events", "session_reports", "rewards"]
+        tables = [
+            "users",
+            "students",
+            "parents",
+            "study_sessions",
+            "monitoring_events",
+            "session_reports",
+            "rewards",
+        ]
         backup_archive = {"version": 1, "timestamp": time.time(), "tables": {}}
         for table in tables:
             rows = isolated_db.fetchall(f"SELECT * FROM {table};")

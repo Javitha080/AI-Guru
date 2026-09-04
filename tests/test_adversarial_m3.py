@@ -17,6 +17,7 @@ from __future__ import annotations
 import asyncio
 import time
 from unittest.mock import AsyncMock, MagicMock, patch
+
 import pytest
 
 from deeptutor.services.governor import (
@@ -39,17 +40,17 @@ from deeptutor.services.llm.tutor_provider import (
     OllamaProviderAdapter,
     ProviderHealth,
     StreamChunk,
+    TutoringMode,
     TutorProvider,
     TutorProviderManager,
-    TutoringMode,
     get_tutor_provider_manager,
     mask_api_key,
 )
 
-
 # ===========================================================================
 # 1. Adversarial CircuitBreaker Stress & Lifecycle Tests
 # ===========================================================================
+
 
 def test_circuit_breaker_rapid_failure_burst():
     """Stress test: 100 rapid failure bursts transition cleanly to OPEN."""
@@ -131,6 +132,7 @@ def test_circuit_breaker_half_open_failure_re_trips_to_open():
 # 2. Adversarial Fallback Chain & Cascading Outage Tests
 # ===========================================================================
 
+
 @pytest.mark.asyncio
 async def test_cascading_outage_simultaneous_network_key_and_ollama_down():
     """
@@ -146,7 +148,9 @@ async def test_cascading_outage_simultaneous_network_key_and_ollama_down():
 
     mock_ollama = MagicMock(spec=OllamaProviderAdapter)
     mock_ollama.provider_name = "ollama"
-    mock_ollama.complete = AsyncMock(side_effect=ConnectionRefusedError("Ollama daemon 127.0.0.1:11434 offline"))
+    mock_ollama.complete = AsyncMock(
+        side_effect=ConnectionRefusedError("Ollama daemon 127.0.0.1:11434 offline")
+    )
 
     offline = OfflineRuleAdapter()
 
@@ -203,7 +207,9 @@ async def test_cascading_outage_streaming_fallback():
     )
 
     chunks: list[StreamChunk] = []
-    async for chunk in manager.stream([{"role": "user", "content": "Explain python list comprehension"}]):
+    async for chunk in manager.stream(
+        [{"role": "user", "content": "Explain python list comprehension"}]
+    ):
         assert isinstance(chunk, StreamChunk)
         chunks.append(chunk)
 
@@ -258,10 +264,12 @@ async def test_fast_fail_when_circuit_open():
 
     mock_ollama = MagicMock(spec=OllamaProviderAdapter)
     mock_ollama.provider_name = "ollama"
-    mock_ollama.complete = AsyncMock(return_value=CompletionResponse(
-        content="Instant Ollama reply",
-        provider="ollama",
-    ))
+    mock_ollama.complete = AsyncMock(
+        return_value=CompletionResponse(
+            content="Instant Ollama reply",
+            provider="ollama",
+        )
+    )
 
     manager = TutorProviderManager(
         mode=TutoringMode.AUTO,
@@ -283,6 +291,7 @@ async def test_fast_fail_when_circuit_open():
 # ===========================================================================
 # 3. Adversarial Prompts & Boundary Input Tests
 # ===========================================================================
+
 
 @pytest.mark.asyncio
 async def test_adversarial_prompts_handling():
@@ -319,6 +328,7 @@ async def test_adversarial_prompts_handling():
 # ===========================================================================
 # 4. Resource Governor Load Spikes & Boundary Conditions
 # ===========================================================================
+
 
 def test_governor_rapid_oscillating_spikes():
     """
@@ -428,6 +438,7 @@ async def test_governor_throttle_scaling_and_concurrency():
 # 5. Security: Key Masking Edge-Case & Leakage Protection
 # ===========================================================================
 
+
 def test_key_masking_comprehensive_edge_cases():
     """
     Test key masking against various inputs to guarantee credentials
@@ -463,21 +474,26 @@ def test_key_masking_comprehensive_edge_cases():
 # 6. Hardware Profiler Resilience & Diagnostics
 # ===========================================================================
 
+
 def test_hardware_profiler_fallback_on_zero_detection():
     """
     Verify HardwareProfiler defaults gracefully to LOW tier with valid recommendations
     even when system hardware detection returns zero resources.
     """
     profiler = HardwareProfiler()
-    with patch.object(profiler, "_detect_system_ram", return_value=(0, 0.0)), \
-         patch.object(profiler, "_detect_cpu", return_value=(1, 1, "Mock CPU")), \
-         patch.object(profiler, "_detect_gpu", return_value=("CPU Fallback", None, 0, 0, 0.0)):
-
+    with (
+        patch.object(profiler, "_detect_system_ram", return_value=(0, 0.0)),
+        patch.object(profiler, "_detect_cpu", return_value=(1, 1, "Mock CPU")),
+        patch.object(profiler, "_detect_gpu", return_value=("CPU Fallback", None, 0, 0, 0.0)),
+    ):
         profile = profiler.detect_hardware()
         assert profile.tier == HardwareTier.LOW
         assert profile.cv_recommended_fps == 5
         assert len(profile.recommended_models) > 0
-        assert "qwen2.5:1.5b" in profile.recommended_models or "llama3.2:1b" in profile.recommended_models
+        assert (
+            "qwen2.5:1.5b" in profile.recommended_models
+            or "llama3.2:1b" in profile.recommended_models
+        )
         assert profile.max_context_window == 8192
 
         # Verify JSON serializability

@@ -79,12 +79,7 @@ def test_split_papers_en_heading() -> None:
 
 
 def test_split_papers_numbering_restart_fallback() -> None:
-    text = "\n".join(
-        [
-            f"{i}. Q{i}?\n(1) x\n(2) y\n(3) z\n(4) w\n(5) v\n"
-            for i in range(1, 51)
-        ]
-    )
+    text = "\n".join([f"{i}. Q{i}?\n(1) x\n(2) y\n(3) z\n(4) w\n(5) v\n" for i in range(1, 51)])
     text += "\n1. First essay question\n(a) part\n[10 marks]\n"
     sp = split_papers(normalize(text))
     assert sp.marker.startswith("numbering-restart")

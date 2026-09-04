@@ -53,10 +53,11 @@ class WhitelistedAction(str, enum.Enum):
 @dataclass
 class DistractionAnalysisResult:
     """Detailed distraction analysis and false-positive evaluation result."""
+
     is_distracted: bool
     distraction_type: DistractionType
-    focus_score: float                # 0.0 to 100.0
-    confidence: float                 # 0.0 to 1.0
+    focus_score: float  # 0.0 to 100.0
+    confidence: float  # 0.0 to 1.0
     duration_seconds: float
     whitelisted_action: Optional[WhitelistedAction] = None
     reason: str = ""
@@ -149,8 +150,16 @@ class DistractionAnalyzer:
         # 2. Check Whitelisted Study Gestures FIRST (Priority 1)
 
         # A: Reading downwards or writing on desk
-        if pose.is_reading_writing_pose or writing_gesture or pose.posture == PostureCategory.LOOKING_DOWN:
-            action = WhitelistedAction.WRITING_NOTES if writing_gesture else WhitelistedAction.READING_DOWNWARDS
+        if (
+            pose.is_reading_writing_pose
+            or writing_gesture
+            or pose.posture == PostureCategory.LOOKING_DOWN
+        ):
+            action = (
+                WhitelistedAction.WRITING_NOTES
+                if writing_gesture
+                else WhitelistedAction.READING_DOWNWARDS
+            )
             self._looking_away_start = None  # Reset looking away timer
             return DistractionAnalysisResult(
                 is_distracted=False,
@@ -223,8 +232,12 @@ class DistractionAnalyzer:
         # sitting at a flat 100 until a binary threshold trips.
         gaze_factor = self._gaze_factor(gaze)
         yaw_term = self._quadratic_term(pose.yaw, self.YAW_NEUTRAL_BAND, self.YAW_FULL_RANGE)
-        pitch_term = self._quadratic_term(pose.pitch, self.PITCH_NEUTRAL_BAND, self.PITCH_FULL_RANGE)
-        continuous_focus = round(max(0.0, min(100.0, 100.0 * yaw_term * pitch_term * gaze_factor)), 1)
+        pitch_term = self._quadratic_term(
+            pose.pitch, self.PITCH_NEUTRAL_BAND, self.PITCH_FULL_RANGE
+        )
+        continuous_focus = round(
+            max(0.0, min(100.0, 100.0 * yaw_term * pitch_term * gaze_factor)), 1
+        )
 
         # A: Smartphone Interaction (> 4s)
         if phone_object_detected:

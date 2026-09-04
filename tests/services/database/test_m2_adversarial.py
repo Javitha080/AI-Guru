@@ -38,7 +38,6 @@ from deeptutor.services.platform.windows_startup import (
 )
 from deeptutor.services.session.sqlite_store import SQLiteSessionStore
 
-
 # ============================================================================
 # 1. FOREIGN KEY INTEGRITY, CONSTRAINTS & CASCADING DELETES
 # ============================================================================
@@ -67,7 +66,9 @@ class TestForeignKeyIntegrityAndCascadingDeletes:
             fk_status = conn.execute("PRAGMA foreign_keys").fetchone()[0]
             assert fk_status == 1, "PRAGMA foreign_keys must be 1 (ON)"
             journal_mode = conn.execute("PRAGMA journal_mode").fetchone()[0].lower()
-            assert journal_mode in ("wal", "memory"), f"Journal mode should be WAL, got {journal_mode}"
+            assert journal_mode in ("wal", "memory"), (
+                f"Journal mode should be WAL, got {journal_mode}"
+            )
 
     def test_fk_rejection_on_orphan_student(self, raw_db: sqlite3.Connection) -> None:
         """Attempting to insert a student with a non-existent user_id must fail."""
@@ -280,17 +281,29 @@ class TestForeignKeyIntegrityAndCascadingDeletes:
         # Check cascading effects
         with store._connect() as conn:
             # 1. Monitoring events must be 0
-            ev_count = conn.execute("SELECT COUNT(*) FROM monitoring_events WHERE session_id = ?", (sess["id"],)).fetchone()[0]
-            assert ev_count == 0, f"Expected 0 monitoring_events after session delete, found {ev_count}"
+            ev_count = conn.execute(
+                "SELECT COUNT(*) FROM monitoring_events WHERE session_id = ?", (sess["id"],)
+            ).fetchone()[0]
+            assert ev_count == 0, (
+                f"Expected 0 monitoring_events after session delete, found {ev_count}"
+            )
 
             # 2. Session report must be 0
-            rep_count = conn.execute("SELECT COUNT(*) FROM session_reports WHERE session_id = ?", (sess["id"],)).fetchone()[0]
-            assert rep_count == 0, f"Expected 0 session_reports after session delete, found {rep_count}"
+            rep_count = conn.execute(
+                "SELECT COUNT(*) FROM session_reports WHERE session_id = ?", (sess["id"],)
+            ).fetchone()[0]
+            assert rep_count == 0, (
+                f"Expected 0 session_reports after session delete, found {rep_count}"
+            )
 
             # 3. Rewards row must survive with session_id SET NULL
-            rew_row = conn.execute("SELECT * FROM rewards WHERE id = ?", (r_session["id"],)).fetchone()
+            rew_row = conn.execute(
+                "SELECT * FROM rewards WHERE id = ?", (r_session["id"],)
+            ).fetchone()
             assert rew_row is not None, "Reward record should survive session deletion"
-            assert rew_row["session_id"] is None, f"Expected reward session_id to be NULL, got {rew_row['session_id']}"
+            assert rew_row["session_id"] is None, (
+                f"Expected reward session_id to be NULL, got {rew_row['session_id']}"
+            )
             assert rew_row["amount_xp"] == 50
 
             # 4. Student and User must remain intact
@@ -323,7 +336,9 @@ class TestForeignKeyIntegrityAndCascadingDeletes:
 
         # Verify link is automatically deleted via foreign key cascade
         with store._connect() as conn:
-            links_count = conn.execute("SELECT COUNT(*) FROM parent_student_links WHERE parent_id = ?", (p["id"],)).fetchone()[0]
+            links_count = conn.execute(
+                "SELECT COUNT(*) FROM parent_student_links WHERE parent_id = ?", (p["id"],)
+            ).fetchone()[0]
             assert links_count == 0, f"Expected 0 links for deleted parent, found {links_count}"
 
             # Student still exists
@@ -369,13 +384,44 @@ class TestForeignKeyIntegrityAndCascadingDeletes:
         assert deleted is True
 
         with store._connect() as conn:
-            assert conn.execute("SELECT COUNT(*) FROM users WHERE id = ?", (u["id"],)).fetchone()[0] == 0
-            assert conn.execute("SELECT COUNT(*) FROM students WHERE id = ?", (s["id"],)).fetchone()[0] == 0
-            assert conn.execute("SELECT COUNT(*) FROM study_sessions WHERE student_id = ?", (s["id"],)).fetchone()[0] == 0
-            assert conn.execute("SELECT COUNT(*) FROM monitoring_events WHERE session_id = ?", (sess["id"],)).fetchone()[0] == 0
-            assert conn.execute("SELECT COUNT(*) FROM session_reports WHERE student_id = ?", (s["id"],)).fetchone()[0] == 0
-            assert conn.execute("SELECT COUNT(*) FROM rewards WHERE student_id = ?", (s["id"],)).fetchone()[0] == 0
-            assert conn.execute("SELECT COUNT(*) FROM study_goals WHERE student_id = ?", (s["id"],)).fetchone()[0] == 0
+            assert (
+                conn.execute("SELECT COUNT(*) FROM users WHERE id = ?", (u["id"],)).fetchone()[0]
+                == 0
+            )
+            assert (
+                conn.execute("SELECT COUNT(*) FROM students WHERE id = ?", (s["id"],)).fetchone()[0]
+                == 0
+            )
+            assert (
+                conn.execute(
+                    "SELECT COUNT(*) FROM study_sessions WHERE student_id = ?", (s["id"],)
+                ).fetchone()[0]
+                == 0
+            )
+            assert (
+                conn.execute(
+                    "SELECT COUNT(*) FROM monitoring_events WHERE session_id = ?", (sess["id"],)
+                ).fetchone()[0]
+                == 0
+            )
+            assert (
+                conn.execute(
+                    "SELECT COUNT(*) FROM session_reports WHERE student_id = ?", (s["id"],)
+                ).fetchone()[0]
+                == 0
+            )
+            assert (
+                conn.execute(
+                    "SELECT COUNT(*) FROM rewards WHERE student_id = ?", (s["id"],)
+                ).fetchone()[0]
+                == 0
+            )
+            assert (
+                conn.execute(
+                    "SELECT COUNT(*) FROM study_goals WHERE student_id = ?", (s["id"],)
+                ).fetchone()[0]
+                == 0
+            )
 
 
 # ============================================================================
@@ -404,7 +450,9 @@ class TestWindowsAutoStartupAdversarial:
             assert status["enabled"] is False
             assert "Windows OS only" in status["message"]
 
-    @pytest.mark.skipif(not is_windows(), reason="Requires live Windows platform for real registry probe")
+    @pytest.mark.skipif(
+        not is_windows(), reason="Requires live Windows platform for real registry probe"
+    )
     def test_windows_real_registry_lifecycle(self) -> None:
         """
         On live Windows systems, test real registry enable, query, duplicate enable, disable, duplicate disable.
@@ -484,7 +532,9 @@ class TestSupervisorRecoveryLogic:
             else:
                 exit_code = 1
                 shutdown_requested = True
-                restarts_executed.append((service_name, recovery_counts[service_name], "terminated"))
+                restarts_executed.append(
+                    (service_name, recovery_counts[service_name], "terminated")
+                )
 
         # Crash 1
         simulate_child_crash("backend", 1)

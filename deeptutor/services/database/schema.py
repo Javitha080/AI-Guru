@@ -351,9 +351,7 @@ CREATE INDEX IF NOT EXISTS idx_qpl_exam ON question_practice_log(exam_id);
 # addon_seconds_used  — total extra time bought through the gamified shop
 # xp_multiplier       — final XP scale factor (each add-on purchase lowers it)
 def v5_exam_sitting_columns(conn) -> None:
-    _add_column_if_missing(
-        conn, "exams", "sitting_id", "TEXT NOT NULL DEFAULT ''"
-    )
+    _add_column_if_missing(conn, "exams", "sitting_id", "TEXT NOT NULL DEFAULT ''")
     _add_column_if_missing(conn, "exams", "paper_no", "INTEGER")
     _add_column_if_missing(
         conn,
@@ -361,16 +359,10 @@ def v5_exam_sitting_columns(conn) -> None:
         "bank_paper_id",
         "TEXT REFERENCES paper_bank(id) ON DELETE SET NULL",
     )
-    _add_column_if_missing(
-        conn, "exams", "addon_seconds_used", "INTEGER NOT NULL DEFAULT 0"
-    )
-    _add_column_if_missing(
-        conn, "exams", "xp_multiplier", "REAL NOT NULL DEFAULT 1.0"
-    )
+    _add_column_if_missing(conn, "exams", "addon_seconds_used", "INTEGER NOT NULL DEFAULT 0")
+    _add_column_if_missing(conn, "exams", "xp_multiplier", "REAL NOT NULL DEFAULT 1.0")
     # Speeds up My-Sessions listing grouped by sitting.
-    conn.execute(
-        "CREATE INDEX IF NOT EXISTS idx_exams_sitting ON exams(sitting_id)"
-    )
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_exams_sitting ON exams(sitting_id)")
 
 
 # Version 6 Migration: widen paper_bank.grade to admit O/L papers (grade 11).
@@ -431,9 +423,7 @@ def v6_paper_bank_grade11(conn) -> None:
         "CREATE INDEX IF NOT EXISTS idx_paper_bank_catalog"
         " ON paper_bank(subject, grade, year, paper_no)"
     )
-    conn.execute(
-        "CREATE INDEX IF NOT EXISTS idx_paper_bank_group ON paper_bank(group_key)"
-    )
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_paper_bank_group ON paper_bank(group_key)")
 
 
 # Version 7 Migration: admit the 'review' status on exams (double-check
@@ -484,4 +474,3 @@ def v7_exams_review_status(conn) -> None:
     conn.execute(
         "CREATE INDEX IF NOT EXISTS idx_exams_student ON exams(student_id, created_at DESC)"
     )
-

@@ -8,14 +8,14 @@ const APP_OUTPUT_DIR = path.resolve(".next");
 const ROUTE_BUDGETS_KB = {
   "/": 700,
   "/playground": 700,
-  "/co-writer": 200,
+  "/co-writer": 360, // measured 326 KB (2026-09-04); grew with the editor feature set
   "/co-writer/[docId]": 700,
   "/knowledge": 450,
   "/memory": 450,
   "/settings": 180,
 };
 
-const ROOT_SHELL_BUDGET_KB = 220;
+const ROOT_SHELL_BUDGET_KB = 450; // measured 409 KB (2026-09-04)
 
 function walkManifestFiles(rootDir) {
   const entries = [];

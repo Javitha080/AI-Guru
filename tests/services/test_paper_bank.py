@@ -37,9 +37,15 @@ def isolated_home(tmp_path: Path, monkeypatch):
 
 def test_classify_full_convention() -> None:
     meta = classify_filename("2021-ICT-P1-G12-EN.pdf")
-    assert (meta.subject, meta.year, meta.paper_no, meta.paper_type,
-            meta.grade, meta.medium, meta.is_scheme) == (
-        "ict", 2021, 1, "mcq", 12, "english", False)
+    assert (
+        meta.subject,
+        meta.year,
+        meta.paper_no,
+        meta.paper_type,
+        meta.grade,
+        meta.medium,
+        meta.is_scheme,
+    ) == ("ict", 2021, 1, "mcq", 12, "english", False)
     assert meta.group_key == "ict-2021-g12"
 
 
@@ -106,7 +112,9 @@ def test_split_options_sinhala_and_numeric() -> None:
 def test_grade_mcq_interchangeable() -> None:
     from deeptutor.services.exams.engine import ExamQuestion, grade_mcq
 
-    q = ExamQuestion(id="q1", number=1, question_type="choice", text="Q1", reference_answer="3", marks=1.0)
+    q = ExamQuestion(
+        id="q1", number=1, question_type="choice", text="Q1", reference_answer="3", marks=1.0
+    )
     # Student answered letter 'C' (3rd option)
     assert grade_mcq(q, option_key="C") is True
 
@@ -121,10 +129,20 @@ def test_attach_keys_leading_number_then_positional_fallback() -> None:
     from deeptutor.services.exams.engine import ExamQuestion
 
     qs = [
-        ExamQuestion(id="q_1", number=1, question_type="choice",
-                     text="1. Pick A) x B) y C) z D) w", options={"A": "x"}),
-        ExamQuestion(id="q_2", number=2, question_type="choice",
-                     text="Pick two A) x B) y C) z D) w", options={"A": "x"}),
+        ExamQuestion(
+            id="q_1",
+            number=1,
+            question_type="choice",
+            text="1. Pick A) x B) y C) z D) w",
+            options={"A": "x"},
+        ),
+        ExamQuestion(
+            id="q_2",
+            number=2,
+            question_type="choice",
+            text="Pick two A) x B) y C) z D) w",
+            options={"A": "x"},
+        ),
     ]
     assert attach_mcq_keys(qs, {1: "C", 2: "B"}) == 2
     assert qs[0].reference_answer == "C" and qs[1].reference_answer == "B"
@@ -155,13 +173,24 @@ async def test_bank_store_roundtrip(isolated_home) -> None:
     from deeptutor.services.exams.bank_store import BankStore
 
     row = {
-        "id": "ict-2021-g12-p1", "group_key": "ict-2021-g12", "paper_no": 1,
-        "grade": 12, "subject": "ict", "year": 2021, "medium": "english",
-        "paper_type": "mcq", "title": "ICT 2021 P1", "file_hash": "h1",
-        "question_count": 50, "mcq_count": 50, "essay_count": 0,
-        "total_marks": 50, "default_duration_seconds": 7200,
+        "id": "ict-2021-g12-p1",
+        "group_key": "ict-2021-g12",
+        "paper_no": 1,
+        "grade": 12,
+        "subject": "ict",
+        "year": 2021,
+        "medium": "english",
+        "paper_type": "mcq",
+        "title": "ICT 2021 P1",
+        "file_hash": "h1",
+        "question_count": 50,
+        "mcq_count": 50,
+        "essay_count": 0,
+        "total_marks": 50,
+        "default_duration_seconds": 7200,
         "paper_json": {"exam_id": "x", "questions": []},
-        "scheme_answers": {"1": "B"}, "topic_tags": [],
+        "scheme_answers": {"1": "B"},
+        "topic_tags": [],
     }
     rid = await BankStore.upsert_paper(row)
     assert rid == row["id"]
@@ -206,7 +235,7 @@ def _questions_payload(count: int, *, kind: str = "choice") -> dict:
         questions = [
             {
                 "question_text": f"{i}. Two's complement is used for? "
-                                 f"A) signs B) negatives C) floats D) none",
+                f"A) signs B) negatives C) floats D) none",
                 "question_type": "choice",
             }
             for i in range(1, count + 1)
@@ -240,9 +269,7 @@ def fake_extraction(monkeypatch):
         def _fake_extract(paper_dir, output_dir=None):
             out = Path(output_dir or paper_dir)
             out.mkdir(parents=True, exist_ok=True)
-            (out / "exam_questions.json").write_text(
-                json.dumps(payload), encoding="utf-8"
-            )
+            (out / "exam_questions.json").write_text(json.dumps(payload), encoding="utf-8")
             return True
 
         monkeypatch.setattr(mimic_source, "extract_questions_from_paper", _fake_extract)
@@ -309,9 +336,7 @@ async def test_import_job_quality_gate_routes_to_review(
 
 
 @pytest.mark.asyncio
-async def test_import_job_is_resumable_via_state(
-    isolated_home, tmp_path, fake_extraction
-) -> None:
+async def test_import_job_is_resumable_via_state(isolated_home, tmp_path, fake_extraction) -> None:
     folder = tmp_path / "alpapers"
     folder.mkdir()
     (folder / "2018-ICT-P1-G12-EN.pdf").write_bytes(b"%PDF-fake")

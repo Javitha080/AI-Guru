@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 import json
 import logging
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Optional
 
 from deeptutor.services.file_io import atomic_write_json
 from deeptutor.services.path_service import get_path_service
@@ -115,6 +115,7 @@ class KeyVaultService:
         }
         env_var = env_map.get(provider_key)
         import os
+
         if env_var and os.environ.get(env_var):
             return os.environ[env_var]
 
@@ -122,6 +123,7 @@ class KeyVaultService:
         if provider_key in {"default", "global", ""}:
             try:
                 from deeptutor.services.llm.config import get_llm_config
+
                 cfg = get_llm_config()
                 if cfg.api_key and cfg.api_key != "sk-no-key-required":
                     return cfg.api_key
@@ -149,6 +151,7 @@ class KeyVaultService:
 
         # Sync to environment variable for immediate provider readiness
         import os
+
         if provider_key in {"openai", "default"}:
             os.environ["OPENAI_API_KEY"] = clean_key
         elif provider_key == "anthropic":

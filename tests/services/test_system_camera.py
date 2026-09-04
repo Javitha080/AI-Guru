@@ -6,6 +6,7 @@ Uses injected synthetic frame sources so no physical webcam is required.
 import time
 
 import numpy as np
+import pytest
 
 from deeptutor.services.monitoring.system_camera import (
     SystemCameraManager,
@@ -52,6 +53,7 @@ class TestSystemCameraLifecycle:
         assert cam.get_raw_jpeg() is None
 
     def test_raw_and_annotated_jpeg_encoding(self):
+        pytest.importorskip("cv2")  # JPEG encoding is provided by OpenCV
         cam = SystemCameraManager(frame_source=lambda: _make_frame(90))
         cam.start()
         try:
@@ -73,8 +75,13 @@ class TestSystemCameraLifecycle:
             cam.stop()
 
     def test_failing_source_reports_error_and_stops(self):
+        frames = iter([_make_frame(), None])
+
         def bad_source():
-            return None
+            # Deliver exactly one frame so the camera is "warmed up", then fail
+            # forever. A never-arriving first frame is deliberately covered by
+            # the 10s first-frame grace period instead of the failure cap.
+            return next(frames, None)
 
         cam = SystemCameraManager(frame_source=bad_source)
         cam._MAX_CONSECUTIVE_FAILURES = 5  # shrink for a fast test

@@ -68,12 +68,12 @@ RIGHT_IRIS_IDX = 473
 # paired with image landmarks: nose, chin, eye outer corners, mouth corners.
 _PNP_MODEL_POINTS = np.array(
     [
-        (0.0, 0.0, 0.0),          # nose tip            ↔ idx 1
-        (0.0, -330.0, -65.0),     # chin                ↔ idx 152
+        (0.0, 0.0, 0.0),  # nose tip            ↔ idx 1
+        (0.0, -330.0, -65.0),  # chin                ↔ idx 152
         (-225.0, 170.0, -135.0),  # eye outer corner A  ↔ idx 33
-        (225.0, 170.0, -135.0),   # eye outer corner B  ↔ idx 263
+        (225.0, 170.0, -135.0),  # eye outer corner B  ↔ idx 263
         (-150.0, -150.0, -125.0),  # mouth corner A     ↔ idx 61
-        (150.0, -150.0, -125.0),   # mouth corner B     ↔ idx 291
+        (150.0, -150.0, -125.0),  # mouth corner B     ↔ idx 291
     ],
     dtype=np.float64,
 )
@@ -196,7 +196,9 @@ class PythonFaceProcessor:
             if self._enable_object_detection:
                 obj_model = resolve_model_path(
                     "DEEPTUTOR_OBJECT_MODEL_PATH",
-                    Path(self._object_model_path) if self._object_model_path else _DEFAULT_OBJECT_MODEL,
+                    Path(self._object_model_path)
+                    if self._object_model_path
+                    else _DEFAULT_OBJECT_MODEL,
                 )
                 if obj_model is not None:
                     det_options = mp.tasks.vision.ObjectDetectorOptions(
@@ -205,7 +207,9 @@ class PythonFaceProcessor:
                         max_results=5,
                         score_threshold=_PHONE_SCORE_THRESHOLD,
                     )
-                    self._object_detector = mp.tasks.vision.ObjectDetector.create_from_options(det_options)
+                    self._object_detector = mp.tasks.vision.ObjectDetector.create_from_options(
+                        det_options
+                    )
                 else:
                     logger.info("Phone-detection model missing; phone alerts stay inactive")
             self._mp = mp
@@ -324,7 +328,15 @@ class PythonFaceProcessor:
     @staticmethod
     def _compute_ear(raw: List[Tuple[float, float, float]]) -> float:
         """Eye aspect ratio from eyelid geometry (mean of both eyes)."""
-        def eye_ratio(corner_a: int, corner_b: int, lid_top_a: int, lid_bot_a: int, lid_top_b: int, lid_bot_b: int) -> float:
+
+        def eye_ratio(
+            corner_a: int,
+            corner_b: int,
+            lid_top_a: int,
+            lid_bot_a: int,
+            lid_top_b: int,
+            lid_bot_b: int,
+        ) -> float:
             pa, pb = raw[corner_a], raw[corner_b]
             width = math.dist(pa[:2], pb[:2])
             if width < 1e-9:
@@ -342,7 +354,9 @@ class PythonFaceProcessor:
 
     # ------------------------------------------------------------- head pose
 
-    def _head_pose_from_pnp(self, raw: List[Tuple[float, float, float]], w: int, h: int) -> Tuple[float, float, float]:
+    def _head_pose_from_pnp(
+        self, raw: List[Tuple[float, float, float]], w: int, h: int
+    ) -> Tuple[float, float, float]:
         image_pts = np.array(
             [(raw[i][0] * w, raw[i][1] * h) for i in _PNP_IMAGE_IDX],
             dtype=np.float64,
@@ -355,7 +369,10 @@ class PythonFaceProcessor:
         dist_coeffs = np.zeros((4, 1), dtype=np.float64)
 
         ok, rvec, _ = cv2.solvePnP(
-            _PNP_MODEL_POINTS, image_pts, cam_matrix, dist_coeffs,
+            _PNP_MODEL_POINTS,
+            image_pts,
+            cam_matrix,
+            dist_coeffs,
             flags=cv2.SOLVEPNP_ITERATIVE,
         )
         if not ok:
@@ -401,7 +418,9 @@ class PythonFaceProcessor:
 
     # ----------------------------------------------------------------- gaze
 
-    def _build_gaze(self, raw: List[Tuple[float, float, float]], pose: HeadPoseResult) -> GazeResult:
+    def _build_gaze(
+        self, raw: List[Tuple[float, float, float]], pose: HeadPoseResult
+    ) -> GazeResult:
         iris_dx = iris_dy = 0.0
         try:
             # Iris center offset between the eye-corner midpoint, normalized by
@@ -411,11 +430,10 @@ class PythonFaceProcessor:
             l_w = max(1e-6, abs(raw[133][0] - raw[33][0]))
             r_w = max(1e-6, abs(raw[362][0] - raw[263][0]))
             iris_dx = (
-                (raw[LEFT_IRIS_IDX][0] - l_mid[0]) / l_w
-                + (raw[RIGHT_IRIS_IDX][0] - r_mid[0]) / r_w
+                (raw[LEFT_IRIS_IDX][0] - l_mid[0]) / l_w + (raw[RIGHT_IRIS_IDX][0] - r_mid[0]) / r_w
             ) / 2.0
             l_h = max(1e-6, abs(raw[159][1] - raw[145][1]) + abs(raw[158][1] - raw[153][1]))
-            iris_dy = ((raw[LEFT_IRIS_IDX][1] - l_mid[1]) / l_h)
+            iris_dy = (raw[LEFT_IRIS_IDX][1] - l_mid[1]) / l_h
         except IndexError:
             iris_dx = iris_dy = 0.0
 
@@ -438,7 +456,10 @@ class PythonFaceProcessor:
             det = self._object_detector.detect(mp_image)
             for detection in getattr(det, "detections", []) or []:
                 for category in detection.categories:
-                    if category.category_name.lower() in _PHONE_LABELS and category.score >= _PHONE_SCORE_THRESHOLD:
+                    if (
+                        category.category_name.lower() in _PHONE_LABELS
+                        and category.score >= _PHONE_SCORE_THRESHOLD
+                    ):
                         return True
         except Exception as exc:  # noqa: BLE001
             logger.debug("Object detector tick failed: %s", exc)
@@ -447,9 +468,9 @@ class PythonFaceProcessor:
     # -------------------------------------------------------------- overlay
 
     _STATE_COLORS = {
-        "focused": (90, 200, 90),      # BGR green
-        "drifting": (60, 165, 255),    # BGR amber
-        "distracted": (60, 60, 230),   # BGR red
+        "focused": (90, 200, 90),  # BGR green
+        "drifting": (60, 165, 255),  # BGR amber
+        "distracted": (60, 60, 230),  # BGR red
     }
 
     def draw_overlay(
@@ -469,15 +490,20 @@ class PythonFaceProcessor:
 
         if result.detected and result.raw_landmarks:
             overlay = annotated.copy()
-            for (x, y, _z) in result.raw_landmarks:
+            for x, y, _z in result.raw_landmarks:
                 cv2.circle(overlay, (int(x * w), int(y * h)), 1, (255, 235, 160), -1)
             annotated = cv2.addWeighted(overlay, 0.35, annotated, 0.65, 0)
 
-            nx, ny = int(result.raw_landmarks[NOSE_TIP_IDX][0] * w), int(result.raw_landmarks[NOSE_TIP_IDX][1] * h)
+            nx, ny = (
+                int(result.raw_landmarks[NOSE_TIP_IDX][0] * w),
+                int(result.raw_landmarks[NOSE_TIP_IDX][1] * h),
+            )
             if result.gaze is not None:
                 dx = int(result.gaze.gaze_x * 110)
                 dy = int(result.gaze.gaze_y * 110)
-                cv2.arrowedLine(annotated, (nx, ny), (nx + dx, ny + dy), (255, 255, 120), 2, tipLength=0.28)
+                cv2.arrowedLine(
+                    annotated, (nx, ny), (nx + dx, ny + dy), (255, 255, 120), 2, tipLength=0.28
+                )
             for iris_idx in (LEFT_IRIS_IDX, RIGHT_IRIS_IDX):
                 if len(result.raw_landmarks) > iris_idx:
                     ix, iy = result.raw_landmarks[iris_idx][:2]
@@ -491,9 +517,13 @@ class PythonFaceProcessor:
         if result.pose is not None:
             hud_bits.append(result.pose.posture.value.replace("_", " ").title())
         cv2.rectangle(annotated, (10, 10), (250, 52), (20, 20, 20), -1)
-        cv2.putText(annotated, hud_bits[0], (18, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.72, (255, 255, 255), 2)
+        cv2.putText(
+            annotated, hud_bits[0], (18, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.72, (255, 255, 255), 2
+        )
         if len(hud_bits) > 1:
-            cv2.putText(annotated, hud_bits[1][:34], (18, 48), cv2.FONT_HERSHEY_SIMPLEX, 0.42, color, 1)
+            cv2.putText(
+                annotated, hud_bits[1][:34], (18, 48), cv2.FONT_HERSHEY_SIMPLEX, 0.42, color, 1
+            )
         return annotated
 
 

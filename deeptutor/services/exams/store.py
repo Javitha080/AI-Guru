@@ -295,9 +295,7 @@ class ExamStore:
         out = []
         for r in rows:
             try:
-                paper = json.loads(
-                    (await cls._paper_json_raw(r["id"])) or "{}"
-                )
+                paper = json.loads((await cls._paper_json_raw(r["id"])) or "{}")
                 r["question_count"] = len(paper.get("questions", []))
             except Exception:  # noqa: BLE001
                 r["question_count"] = 0

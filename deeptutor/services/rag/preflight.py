@@ -265,7 +265,9 @@ def _generic_preflight() -> dict:
                 "chat",
                 "Active chat model",
                 bool(chat_model),
-                f"{chat_model} · {binding}" if chat_model else "Configure one in the model catalog.",
+                f"{chat_model} · {binding}"
+                if chat_model
+                else "Configure one in the model catalog.",
             ),
             _check(
                 "embedding",

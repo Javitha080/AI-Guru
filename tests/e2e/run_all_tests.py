@@ -13,12 +13,10 @@ Usage:
 
 from __future__ import annotations
 
-import os
 import sys
 import time
+from typing import List, Tuple
 import unittest
-from pathlib import Path
-from typing import Dict, List, Tuple
 
 # ANSI terminal styling
 GREEN = "\033[92m"
@@ -36,7 +34,9 @@ class StructuredE2ETestResult(unittest.TestResult):
     def __init__(self, tier_name: str):
         super().__init__()
         self.tier_name = tier_name
-        self.test_details: List[Tuple[str, str, float, str]] = []  # (test_id, status, elapsed, err_msg)
+        self.test_details: List[
+            Tuple[str, str, float, str]
+        ] = []  # (test_id, status, elapsed, err_msg)
         self._current_start_time: float = 0.0
 
     def startTest(self, test: unittest.TestCase):
@@ -53,7 +53,9 @@ class StructuredE2ETestResult(unittest.TestResult):
         super().addFailure(test, err)
         elapsed = time.perf_counter() - self._current_start_time
         test_name = test.id().split(".")[-1]
-        self.test_details.append((test_name, "FAILED", elapsed, self._exc_info_to_string(err, test)))
+        self.test_details.append(
+            (test_name, "FAILED", elapsed, self._exc_info_to_string(err, test))
+        )
 
     def addError(self, test: unittest.TestCase, err):
         super().addError(test, err)
@@ -65,8 +67,10 @@ class StructuredE2ETestResult(unittest.TestResult):
 def run_tier(tier_name: str, test_class_or_module) -> StructuredE2ETestResult:
     """Executes a single test tier and returns structured results."""
     suite = unittest.TestSuite()
-    
-    if isinstance(test_class_or_module, type) and issubclass(test_class_or_module, unittest.TestCase):
+
+    if isinstance(test_class_or_module, type) and issubclass(
+        test_class_or_module, unittest.TestCase
+    ):
         tests = unittest.TestLoader().loadTestsFromTestCase(test_class_or_module)
         suite.addTests(tests)
     else:
@@ -76,19 +80,21 @@ def run_tier(tier_name: str, test_class_or_module) -> StructuredE2ETestResult:
             if attr.startswith("test_") and callable(getattr(instance, attr)):
                 # Wrap pytest test function in a TestCase
                 method = getattr(instance, attr)
-                
+
                 class DynamicTestCase(unittest.TestCase):
                     def runTest(self, m=method):
                         # Instantiate fixtures
+                        import inspect
+
                         from tests.e2e.conftest import (
                             AIGuruTestDB,
-                            MockCVPipeline,
-                            MockTutorProvider,
-                            MockParentRemoteGateway,
-                            MockConnectivityManager,
                             GamificationEngine,
+                            MockConnectivityManager,
+                            MockCVPipeline,
+                            MockParentRemoteGateway,
+                            MockTutorProvider,
                         )
-                        import inspect
+
                         sig = inspect.signature(m)
                         kwargs = {}
                         db_instance = None
@@ -107,7 +113,7 @@ def run_tier(tier_name: str, test_class_or_module) -> StructuredE2ETestResult:
                             kwargs["connectivity_manager"] = MockConnectivityManager()
                         if "gamification_engine" in sig.parameters:
                             kwargs["gamification_engine"] = GamificationEngine()
-                        
+
                         try:
                             m(**kwargs)
                         finally:
@@ -124,9 +130,15 @@ def run_tier(tier_name: str, test_class_or_module) -> StructuredE2ETestResult:
 
 def main() -> int:
     """Main CLI test runner entry point."""
-    print(f"\n{BOLD}{CYAN}==============================================================================={RESET}")
-    print(f"{BOLD}{CYAN}                  AI GURU — MASTER E2E TEST SUITE RUNNER                      {RESET}")
-    print(f"{BOLD}{CYAN}==============================================================================={RESET}")
+    print(
+        f"\n{BOLD}{CYAN}==============================================================================={RESET}"
+    )
+    print(
+        f"{BOLD}{CYAN}                  AI GURU — MASTER E2E TEST SUITE RUNNER                      {RESET}"
+    )
+    print(
+        f"{BOLD}{CYAN}==============================================================================={RESET}"
+    )
     print(f"{DIM}Timestamp: {time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}{RESET}\n")
 
     # Import test classes
@@ -150,8 +162,10 @@ def main() -> int:
         res = run_tier(tier_name, test_class)
         tier_results.append(res)
         for test_name, status, elapsed, err in res.test_details:
-            status_badge = f"{GREEN}[PASS]{RESET}" if status == "PASSED" else f"{RED}[{status}]{RESET}"
-            print(f"    {status_badge} {test_name:<55} {DIM}({elapsed*1000:6.1f}ms){RESET}")
+            status_badge = (
+                f"{GREEN}[PASS]{RESET}" if status == "PASSED" else f"{RED}[{status}]{RESET}"
+            )
+            print(f"    {status_badge} {test_name:<55} {DIM}({elapsed * 1000:6.1f}ms){RESET}")
             if err:
                 print(f"{RED}{err}{RESET}")
         print()
@@ -159,9 +173,15 @@ def main() -> int:
     total_elapsed = time.perf_counter() - total_start_time
 
     # Summary table
-    print(f"{BOLD}{CYAN}==============================================================================={RESET}")
-    print(f"{BOLD}{CYAN}                          TEST EXECUTION SUMMARY                               {RESET}")
-    print(f"{BOLD}{CYAN}==============================================================================={RESET}")
+    print(
+        f"{BOLD}{CYAN}==============================================================================={RESET}"
+    )
+    print(
+        f"{BOLD}{CYAN}                          TEST EXECUTION SUMMARY                               {RESET}"
+    )
+    print(
+        f"{BOLD}{CYAN}==============================================================================={RESET}"
+    )
     print(f"{'Tier Name':<45} | {'Tests':<6} | {'Passed':<6} | {'Failed':<6} | {'Status'}")
     print("-" * 79)
 
@@ -184,11 +204,15 @@ def main() -> int:
         print(f"{res.tier_name:<45} | {total:<6} | {passed:<6} | {failed:<6} | {tier_status}")
 
     print("-" * 79)
-    print(f"{'TOTALS':<45} | {grand_total:<6} | {grand_passed:<6} | {grand_failed:<6} | {'ALL PASSED' if all_passed else 'FAILED'}")
+    print(
+        f"{'TOTALS':<45} | {grand_total:<6} | {grand_passed:<6} | {grand_failed:<6} | {'ALL PASSED' if all_passed else 'FAILED'}"
+    )
     print(f"{BOLD}Total Execution Time:{RESET} {total_elapsed:.2f} seconds\n")
 
     if all_passed:
-        print(f"{BOLD}{GREEN}✓ VERIFICATION SUCCESSFUL: 100% of E2E Tests Passed ({grand_passed}/{grand_total}).{RESET}\n")
+        print(
+            f"{BOLD}{GREEN}✓ VERIFICATION SUCCESSFUL: 100% of E2E Tests Passed ({grand_passed}/{grand_total}).{RESET}\n"
+        )
         return 0
     else:
         print(f"{BOLD}{RED}✗ VERIFICATION FAILED: {grand_failed} test(s) failed.{RESET}\n")

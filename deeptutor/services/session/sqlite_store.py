@@ -280,6 +280,7 @@ class SQLiteSessionStore:
             self._migrate_notebook_entries_add_ai_judgment(conn)
             # Run AI Guru core relational migrations
             from deeptutor.services.database.migrations import apply_migrations
+
             apply_migrations(conn)
             conn.commit()
 
@@ -3073,9 +3074,7 @@ class SQLiteSessionStore:
         current_value: float | None = None,
         is_completed: bool | None = None,
     ) -> bool:
-        return await self._run(
-            self._update_study_goal_sync, goal_id, current_value, is_completed
-        )
+        return await self._run(self._update_study_goal_sync, goal_id, current_value, is_completed)
 
     # ── Settings ──────────────────────────────────────────────────────
 

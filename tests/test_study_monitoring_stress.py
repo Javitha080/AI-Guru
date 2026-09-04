@@ -14,6 +14,7 @@ import gc
 import math
 import time
 import tracemalloc
+
 import pytest
 
 from deeptutor.services.monitoring.cv_pipeline import (
@@ -42,10 +43,10 @@ from deeptutor.services.monitoring.warning_manager import (
     WarningManager,
 )
 
-
 # ============================================================================
 # 1. Presence State Machine Adversarial Oscillation & Hysteresis
 # ============================================================================
+
 
 class TestPresenceStateMachineStress:
     """Stress test presence state machine under rapid visibility flapping and boundary times."""
@@ -69,7 +70,7 @@ class TestPresenceStateMachineStress:
         current_time = 0.0
         for i in range(1, 201):
             current_time += 0.1
-            face_visible = (i % 2 == 0)  # Alternating True/False
+            face_visible = i % 2 == 0  # Alternating True/False
             res = sm.update(
                 face_detected=face_visible,
                 confidence=0.95 if face_visible else 0.0,
@@ -101,8 +102,10 @@ class TestPresenceStateMachineStress:
             t += 0.1  # 10 FPS
             # Burst pattern: 2 frames visible, 1 frame dropped, 1 frame visible, 2 dropped...
             # Max dropped in a row = 4 frames = 0.4s (< 5.0s)
-            is_visible = not (frame % 5 in (3, 4))
-            res = sm.update(face_detected=is_visible, confidence=0.90 if is_visible else 0.0, timestamp=t)
+            is_visible = frame % 5 not in (3, 4)
+            res = sm.update(
+                face_detected=is_visible, confidence=0.90 if is_visible else 0.0, timestamp=t
+            )
             assert res.state == PresenceState.PRESENT
             assert res.is_present is True
 
@@ -163,6 +166,7 @@ class TestPresenceStateMachineStress:
 # ============================================================================
 # 2. Distraction Analyzer Robustness on Edge Study Gestures
 # ============================================================================
+
 
 class TestDistractionAnalyzerEdgeGestures:
     """Stress test distraction analyzer against realistic and edge study actions."""
@@ -247,7 +251,14 @@ class TestDistractionAnalyzerEdgeGestures:
         Invariants: Whitelisted as DRINKING_WATER, is_distracted == False, 0 false alerts.
         """
         analyzer = DistractionAnalyzer()
-        pose_center = HeadPoseResult(yaw=0.0, pitch=5.0, roll=0.0, posture=PostureCategory.HEAD_CENTER, is_facing_screen=True, is_reading_writing_pose=False)
+        pose_center = HeadPoseResult(
+            yaw=0.0,
+            pitch=5.0,
+            roll=0.0,
+            posture=PostureCategory.HEAD_CENTER,
+            is_facing_screen=True,
+            is_reading_writing_pose=False,
+        )
         t = 0.0
 
         for episode in range(5):
@@ -296,7 +307,14 @@ class TestDistractionAnalyzerEdgeGestures:
         t = 0.0
 
         # 1. Reading
-        pose_reading = HeadPoseResult(yaw=0.0, pitch=30.0, roll=0.0, posture=PostureCategory.LOOKING_DOWN, is_facing_screen=False, is_reading_writing_pose=True)
+        pose_reading = HeadPoseResult(
+            yaw=0.0,
+            pitch=30.0,
+            roll=0.0,
+            posture=PostureCategory.LOOKING_DOWN,
+            is_facing_screen=False,
+            is_reading_writing_pose=True,
+        )
         for _ in range(200):
             t += 0.1
             res = analyzer.analyze(t, PresenceState.PRESENT, pose_reading, live_sample, True)
@@ -306,27 +324,47 @@ class TestDistractionAnalyzerEdgeGestures:
         # 2. Writing
         for _ in range(300):
             t += 0.1
-            res = analyzer.analyze(t, PresenceState.PRESENT, pose_reading, live_sample, True, writing_gesture=True)
+            res = analyzer.analyze(
+                t, PresenceState.PRESENT, pose_reading, live_sample, True, writing_gesture=True
+            )
             assert not res.is_distracted
             assert res.focus_score == 100.0
 
         # 3. Turning page
         for _ in range(20):
             t += 0.1
-            res = analyzer.analyze(t, PresenceState.PRESENT, pose_reading, live_sample, True, page_turn_gesture=True)
+            res = analyzer.analyze(
+                t, PresenceState.PRESENT, pose_reading, live_sample, True, page_turn_gesture=True
+            )
             assert not res.is_distracted
             assert res.focus_score == 100.0
 
         # 4. Drinking water
-        pose_center = HeadPoseResult(yaw=0.0, pitch=0.0, roll=0.0, posture=PostureCategory.HEAD_CENTER, is_facing_screen=True, is_reading_writing_pose=False)
+        pose_center = HeadPoseResult(
+            yaw=0.0,
+            pitch=0.0,
+            roll=0.0,
+            posture=PostureCategory.HEAD_CENTER,
+            is_facing_screen=True,
+            is_reading_writing_pose=False,
+        )
         for _ in range(30):
             t += 0.1
-            res = analyzer.analyze(t, PresenceState.PRESENT, pose_center, live_sample, True, hand_to_mouth_gesture=True)
+            res = analyzer.analyze(
+                t, PresenceState.PRESENT, pose_center, live_sample, True, hand_to_mouth_gesture=True
+            )
             assert not res.is_distracted
             assert res.focus_score == 100.0
 
         # 5. Neck stretch
-        pose_tilt = HeadPoseResult(yaw=0.0, pitch=0.0, roll=25.0, posture=PostureCategory.HEAD_TILT, is_facing_screen=True, is_reading_writing_pose=False)
+        pose_tilt = HeadPoseResult(
+            yaw=0.0,
+            pitch=0.0,
+            roll=25.0,
+            posture=PostureCategory.HEAD_TILT,
+            is_facing_screen=True,
+            is_reading_writing_pose=False,
+        )
         for _ in range(20):
             t += 0.1
             res = analyzer.analyze(t, PresenceState.PRESENT, pose_tilt, live_sample, True)
@@ -344,6 +382,7 @@ class TestDistractionAnalyzerEdgeGestures:
 # ============================================================================
 # 3. Warning Manager Stress: 100 Distraction Events under 60s
 # ============================================================================
+
 
 class TestWarningManagerCooldownStress:
     """Stress test warning manager cooldown under high-frequency alert spamming."""
@@ -464,12 +503,15 @@ class TestWarningManagerCooldownStress:
                 suppressed += 1
 
         assert emitted == 5, f"Expected exactly 5 alerts allowed in 10-min window, got {emitted}"
-        assert suppressed == 5, f"Expected 5 alerts suppressed by rate limit window, got {suppressed}"
+        assert suppressed == 5, (
+            f"Expected 5 alerts suppressed by rate limit window, got {suppressed}"
+        )
 
 
 # ============================================================================
 # 4. High Telemetry Volume: 1,000 Frames Memory & Performance Bounds
 # ============================================================================
+
 
 class TestHighTelemetryVolumeAndMemoryLeak:
     """Stress test LocalCVPipeline across 1,000 continuous frames."""
@@ -491,7 +533,9 @@ class TestHighTelemetryVolumeAndMemoryLeak:
         pipeline.reset_session()
 
         # Enroll baseline face
-        baseline_landmarks = pipeline.face_engine.create_synthetic_landmarks(yaw=0.0, pitch=0.0, roll=0.0)
+        baseline_landmarks = pipeline.face_engine.create_synthetic_landmarks(
+            yaw=0.0, pitch=0.0, roll=0.0
+        )
         baseline_embedding = pipeline.face_engine.generate_geometric_embedding(baseline_landmarks)
         pipeline.enroll_student_baseline(baseline_embedding)
 

@@ -16,6 +16,8 @@ import pytest
 
 from deeptutor.services.mcp import oauth
 
+pytest.importorskip("mcp")  # MCP SDK — optional `partners` extra
+
 
 @pytest.fixture(autouse=True)
 def roots(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:

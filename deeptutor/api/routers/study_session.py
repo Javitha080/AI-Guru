@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 router = APIRouter(tags=["study-session"])
 
+
 # Pydantic models for Study Sessions
 class CreateSessionRequest(BaseModel):
     student_id: Optional[str] = "student-primary"
@@ -12,6 +13,7 @@ class CreateSessionRequest(BaseModel):
     subject: Optional[str] = "General"
     duration: Optional[int] = None
     target_duration_seconds: Optional[int] = None
+
 
 class SessionResponse(BaseModel):
     id: str
@@ -23,17 +25,20 @@ class SessionResponse(BaseModel):
     start_time: Optional[float] = None
     end_time: Optional[float] = None
 
+
 class PaginatedSessionHistory(BaseModel):
     items: List[Dict[str, Any]]
     total: int
     limit: int
     offset: int
 
+
 class SessionReportResponse(BaseModel):
     session_id: str
     summary: str
     xp_earned: Optional[int] = None
     metrics: Dict[str, Any]
+
 
 # Pydantic models for Gamification
 class ProfileResponse(BaseModel):
@@ -44,6 +49,7 @@ class ProfileResponse(BaseModel):
     streak: int
     total_sessions: int
 
+
 class BadgeResponse(BaseModel):
     id: str
     name: str
@@ -51,6 +57,7 @@ class BadgeResponse(BaseModel):
     icon_url: str
     earned: bool
     earned_at: Optional[float] = None
+
 
 class RewardHistoryResponse(BaseModel):
     items: List[Dict[str, Any]]
@@ -119,8 +126,8 @@ async def _resolve_student_name(student_id: str, db_path=None) -> str:
     return (student_id or "Student").split("-")[-1].capitalize() or "Student"
 
 
-@router.post('/', response_model=Dict[str, Any])
-@router.post('', response_model=Dict[str, Any])
+@router.post("/", response_model=Dict[str, Any])
+@router.post("", response_model=Dict[str, Any])
 async def create_session(req: CreateSessionRequest):
     """Create a new study session."""
     student_id = req.student_id or "student-primary"
@@ -138,11 +145,15 @@ async def create_session(req: CreateSessionRequest):
     except HTTPException:
         raise
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=500, detail=f"Failed to create study session: {exc}") from exc
+        raise HTTPException(
+            status_code=500, detail=f"Failed to create study session: {exc}"
+        ) from exc
 
 
-@router.get('/history/{student_id}', response_model=PaginatedSessionHistory)
-async def list_past_sessions(student_id: str, limit: int = Query(20, ge=1), offset: int = Query(0, ge=0)):
+@router.get("/history/{student_id}", response_model=PaginatedSessionHistory)
+async def list_past_sessions(
+    student_id: str, limit: int = Query(20, ge=1), offset: int = Query(0, ge=0)
+):
     """List past sessions with pagination."""
     try:
         return await _mgr().list_sessions(student_id, limit, offset)
@@ -150,7 +161,7 @@ async def list_past_sessions(student_id: str, limit: int = Query(20, ge=1), offs
         raise HTTPException(status_code=500, detail=f"Failed to list sessions: {exc}") from exc
 
 
-@router.get('/gamification/{student_id}/profile', response_model=ProfileResponse)
+@router.get("/gamification/{student_id}/profile", response_model=ProfileResponse)
 async def get_profile(student_id: str):
     """Get gamification profile."""
     from deeptutor.services.gamification.gamification_service import GamificationService
@@ -161,7 +172,7 @@ async def get_profile(student_id: str):
         raise HTTPException(status_code=500, detail=f"Failed to load profile: {exc}") from exc
 
 
-@router.get('/gamification/{student_id}/badges', response_model=List[BadgeResponse])
+@router.get("/gamification/{student_id}/badges", response_model=List[BadgeResponse])
 async def get_badges(student_id: str):
     """Get all badges with earned/locked status."""
     from deeptutor.services.gamification.gamification_service import GamificationService
@@ -172,7 +183,7 @@ async def get_badges(student_id: str):
         raise HTTPException(status_code=500, detail=f"Failed to load badges: {exc}") from exc
 
 
-@router.get('/gamification/{student_id}/rewards', response_model=RewardHistoryResponse)
+@router.get("/gamification/{student_id}/rewards", response_model=RewardHistoryResponse)
 async def get_rewards(student_id: str):
     """Get recent reward history."""
     from deeptutor.services.gamification.gamification_service import GamificationService
@@ -183,14 +194,14 @@ async def get_rewards(student_id: str):
         raise HTTPException(status_code=500, detail=f"Failed to load rewards: {exc}") from exc
 
 
-@router.get('/student/name', response_model=StudentNameResponse)
+@router.get("/student/name", response_model=StudentNameResponse)
 async def get_student_name(student_id: str = "student-primary"):
     """Get the configured display name for the student."""
     name = await _resolve_student_name(student_id)
     return StudentNameResponse(student_id=student_id, student_name=name)
 
 
-@router.post('/student/name', response_model=StudentNameResponse)
+@router.post("/student/name", response_model=StudentNameResponse)
 async def set_student_name(req: StudentNameRequest):
     """Set the display name for the student, updating settings and users table."""
     raw_name = req.student_name.strip()
@@ -258,7 +269,7 @@ async def set_student_name(req: StudentNameRequest):
     return StudentNameResponse(student_id=student_id, student_name=name)
 
 
-@router.get('/{session_id}', response_model=Dict[str, Any])
+@router.get("/{session_id}", response_model=Dict[str, Any])
 async def get_session(session_id: str):
     """Get session details."""
     session = await _mgr().get_session(session_id)
@@ -267,7 +278,7 @@ async def get_session(session_id: str):
     return session
 
 
-@router.post('/{session_id}/start', response_model=Dict[str, Any])
+@router.post("/{session_id}/start", response_model=Dict[str, Any])
 async def start_session(session_id: str):
     """Start session timer + notify parent (queued, survives offline)."""
 
@@ -289,12 +300,15 @@ async def start_session(session_id: str):
             str(result.get("student_id") or "student-primary")
         )
         start_notification_worker()
-        await enqueue("session_start", {
-            "session_id": session_id,
-            "student_name": student_name,
-            "subject": result.get("subject", "General"),
-            "target_minutes": round((result.get("target_duration_seconds") or 1500) / 60),
-        })
+        await enqueue(
+            "session_start",
+            {
+                "session_id": session_id,
+                "student_name": student_name,
+                "subject": result.get("subject", "General"),
+                "target_minutes": round((result.get("target_duration_seconds") or 1500) / 60),
+            },
+        )
         from deeptutor.services.background import spawn_bg
 
         spawn_bg(flush_once(limit=1), name=f"session-start-flush-{session_id}")
@@ -303,7 +317,7 @@ async def start_session(session_id: str):
     return result
 
 
-@router.post('/{session_id}/pause', response_model=Dict[str, Any])
+@router.post("/{session_id}/pause", response_model=Dict[str, Any])
 async def pause_session(session_id: str):
     """Pause session."""
     try:
@@ -316,7 +330,7 @@ async def pause_session(session_id: str):
     return result
 
 
-@router.post('/{session_id}/resume', response_model=Dict[str, Any])
+@router.post("/{session_id}/resume", response_model=Dict[str, Any])
 async def resume_session(session_id: str):
     """Resume session."""
     try:
@@ -329,7 +343,7 @@ async def resume_session(session_id: str):
     return result
 
 
-@router.post('/{session_id}/stop', response_model=Dict[str, Any])
+@router.post("/{session_id}/stop", response_model=Dict[str, Any])
 async def stop_session(session_id: str):
     """Stop session, then await report generation + XP award (bounded).
 
@@ -362,7 +376,7 @@ async def stop_session(session_id: str):
     return result
 
 
-@router.post('/{session_id}/abandon', response_model=Dict[str, Any])
+@router.post("/{session_id}/abandon", response_model=Dict[str, Any])
 async def abandon_session(session_id: str):
     """Abandon session (no XP)."""
     try:
@@ -373,7 +387,7 @@ async def abandon_session(session_id: str):
         raise HTTPException(status_code=500, detail=f"Failed to abandon session: {exc}") from exc
 
 
-@router.get('/{session_id}/report', response_model=SessionReportResponse)
+@router.get("/{session_id}/report", response_model=SessionReportResponse)
 async def get_session_report(session_id: str):
     """Get session report."""
     try:

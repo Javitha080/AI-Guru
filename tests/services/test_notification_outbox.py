@@ -54,6 +54,7 @@ async def test_flush_marks_sent_and_drains_queue(isolated_outbox, monkeypatch):
 @pytest.mark.asyncio
 async def test_foreign_claim_is_never_adopted(isolated_outbox, monkeypatch):
     """A row sitting in 'sending' under ANOTHER flush's token stays untouched."""
+
     async def _ok(**kwargs):
         return True
 
@@ -126,7 +127,10 @@ async def test_flush_expires_stale_backlog_but_delivers_fresh(isolated_outbox, m
         await db.execute(
             "INSERT INTO notification_outbox (created_at, kind, payload_json)"
             " VALUES (?, 'warning', ?)",
-            (stale_created, '{"session_id": "old", "category": "STUDENT_AWAY", "severity": "info"}'),
+            (
+                stale_created,
+                '{"session_id": "old", "category": "STUDENT_AWAY", "severity": "info"}',
+            ),
         )
         await db.execute(
             "INSERT INTO notification_outbox (created_at, kind, payload_json)"
@@ -162,9 +166,7 @@ async def test_flush_expires_stale_backlog_but_delivers_fresh(isolated_outbox, m
 
 
 @pytest.mark.asyncio
-async def test_flush_without_config_keeps_recent_rows_deliverable(
-    isolated_outbox, monkeypatch
-):
+async def test_flush_without_config_keeps_recent_rows_deliverable(isolated_outbox, monkeypatch):
     """Recent rows stay pending through a transient unconfigured window —
     only AGE expires them, so brief config hiccups don't lose live alerts."""
     import sqlite3
@@ -178,9 +180,7 @@ async def test_flush_without_config_keeps_recent_rows_deliverable(
     assert row_id > 0
 
     # ...then the config disappears (stub removed) before the flush.
-    monkeypatch.setattr(
-        nq, "_load_telegram_config", lambda parent_id="default": _none_async()
-    )
+    monkeypatch.setattr(nq, "_load_telegram_config", lambda parent_id="default": _none_async())
     sent = await nq.flush_once()
     assert sent == 0
 

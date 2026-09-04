@@ -70,6 +70,7 @@ def _write_text(path: Path, content: str) -> None:
         path.write_text(content, encoding="utf-8")
     except OSError:
         import time
+
         time.sleep(0.1)
         path.write_text(content, encoding="utf-8")
 
@@ -104,7 +105,11 @@ def build_artifacts(
     """Clean + segment every past-paper txt under source_dir into out_dir."""
     src = Path(source_dir)
     dst = Path(out_dir)
-    books_dir = Path(raw_books_dir) if raw_books_dir else src.parent / "ictfromabc_ocr_text" / "PDFs" / "Past Paper Books"
+    books_dir = (
+        Path(raw_books_dir)
+        if raw_books_dir
+        else src.parent / "ictfromabc_ocr_text" / "PDFs" / "Past Paper Books"
+    )
     sheet_search: List[Path] = [Path(p) for p in (sheet_dirs or [])]
     sheet_search.insert(0, src)
     sheet_search.append(src.parent)
@@ -190,17 +195,19 @@ def build_artifacts(
             json.dumps(answers_payload, ensure_ascii=False, indent=1),
         )
 
-        report["files"].append({
-            "file": str(rel),
-            "year": year,
-            "grade": grade,
-            "mcq_found": len(mcq.questions),
-            "mcq_full_options": full,
-            "essay_found": len(essays),
-            "answers": len(answers_payload.get("keys") or {}),
-            "quality_ok": bool(quality_ok),
-            "split_marker": sp.marker[:48],
-        })
+        report["files"].append(
+            {
+                "file": str(rel),
+                "year": year,
+                "grade": grade,
+                "mcq_found": len(mcq.questions),
+                "mcq_full_options": full,
+                "essay_found": len(essays),
+                "answers": len(answers_payload.get("keys") or {}),
+                "quality_ok": bool(quality_ok),
+                "split_marker": sp.marker[:48],
+            }
+        )
 
     unused_pdfs = len(pdf_files)
     report["pdfs_present"] = unused_pdfs
@@ -210,6 +217,7 @@ def build_artifacts(
 # ---------------------------------------------------------------------------
 # Stage 2: artifacts → paper_bank rows
 # ---------------------------------------------------------------------------
+
 
 def import_artifacts(artifacts_dir: str | Path) -> Dict[str, Any]:
     """Upsert paper_bank rows from a build_artifacts output tree."""
@@ -234,8 +242,11 @@ def import_artifacts(artifacts_dir: str | Path) -> Dict[str, Any]:
             year_m = _YEAR_RE.search(orig_name)
             year = int(year_m.group(0)) if year_m else None
             grade = _grade_for(year, orig_name)
-            medium = "sinhala" if "sinhala" in orig_name.lower() else (
-                "tamil" if "tamil" in orig_name.lower() else "english")
+            medium = (
+                "sinhala"
+                if "sinhala" in orig_name.lower()
+                else ("tamil" if "tamil" in orig_name.lower() else "english")
+            )
             level = "ol" if "OL" in orig_name else "al"
             subject = f"ict-{level}" if level == "ol" else "ict"
 
@@ -256,8 +267,13 @@ def import_artifacts(artifacts_dir: str | Path) -> Dict[str, Any]:
             if medium != "english":
                 group_key += f"-{medium[:2]}"
 
-            def make_row(paper_no: int, title: str, questions: List[Dict[str, Any]],
-                         qtype: str, duration: int) -> Dict[str, Any]:
+            def make_row(
+                paper_no: int,
+                title: str,
+                questions: List[Dict[str, Any]],
+                qtype: str,
+                duration: int,
+            ) -> Dict[str, Any]:
                 is_mcq = qtype == "choice"
                 paper_type = "mcq" if is_mcq else "structured"
                 qs_out = []
@@ -323,11 +339,21 @@ def import_artifacts(artifacts_dir: str | Path) -> Dict[str, Any]:
             label = f"ICT {year} G{grade} ({medium.title()})"
             rows = []
             if mcqs:
-                rows.append(make_row(1, f"{label} Paper 1 (MCQ)", mcqs, "choice",
-                                     DEFAULT_DURATION_BY_TYPE["mcq"]))
+                rows.append(
+                    make_row(
+                        1, f"{label} Paper 1 (MCQ)", mcqs, "choice", DEFAULT_DURATION_BY_TYPE["mcq"]
+                    )
+                )
             if essays:
-                rows.append(make_row(2, f"{label} Paper 2 (Structured)", essays, "structured",
-                                     DEFAULT_DURATION_BY_TYPE["structured"]))
+                rows.append(
+                    make_row(
+                        2,
+                        f"{label} Paper 2 (Structured)",
+                        essays,
+                        "structured",
+                        DEFAULT_DURATION_BY_TYPE["structured"],
+                    )
+                )
             for row in rows:
                 await BankStore.upsert_paper(row)
                 rows_written += 1

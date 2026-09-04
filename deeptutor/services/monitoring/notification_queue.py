@@ -205,7 +205,10 @@ async def flush_once(limit: int = 20) -> int:
         await db.execute(
             "UPDATE notification_outbox SET status='dead', last_error=?"
             " WHERE status='pending' AND created_at < ?",
-            (f"expired: pending longer than {_STALE_AFTER_SECONDS:.0f}s", now - _STALE_AFTER_SECONDS),
+            (
+                f"expired: pending longer than {_STALE_AFTER_SECONDS:.0f}s",
+                now - _STALE_AFTER_SECONDS,
+            ),
         )
         await db.commit()
 
@@ -283,7 +286,9 @@ async def flush_once(limit: int = 20) -> int:
                 )
                 if not ok:
                     # Fall back to text if photo delivery failed (e.g. format, size, or caption issue)
-                    logger.info("Photo send failed for notification #%d; falling back to text", row_id)
+                    logger.info(
+                        "Photo send failed for notification #%d; falling back to text", row_id
+                    )
                     ok = await TelegramNotifier.send_message(
                         bot_token=config["bot_token"], chat_id=config["chat_id"], text=text
                     )
@@ -301,8 +306,13 @@ async def flush_once(limit: int = 20) -> int:
                     logger.warning("Dropped notification #%d after %d retries", row_id, retries)
                 else:
                     delay = _backoff_for(retries)
-                    await _mark(row_id, error="send failed", retries=retries,
-                                next_attempt=time.time() + delay, back_to_pending=True)
+                    await _mark(
+                        row_id,
+                        error="send failed",
+                        retries=retries,
+                        next_attempt=time.time() + delay,
+                        back_to_pending=True,
+                    )
         except Exception as exc:  # noqa: BLE001 - isolate corrupted or failing item
             logger.warning("Error processing notification #%d: %s", row_id, exc)
             await _mark(row_id, dead=True, error=f"processing failed: {exc}")
@@ -321,9 +331,16 @@ async def _load_row(row_id: int):
         return await cursor.fetchone()
 
 
-async def _mark(row_id: int, *, sent: bool = False, dead: bool = False,
-                error: Optional[str] = None, retries: int = 0,
-                next_attempt: float = 0.0, back_to_pending: bool = False) -> None:
+async def _mark(
+    row_id: int,
+    *,
+    sent: bool = False,
+    dead: bool = False,
+    error: Optional[str] = None,
+    retries: int = 0,
+    next_attempt: float = 0.0,
+    back_to_pending: bool = False,
+) -> None:
     async with aiosqlite.connect(_db_path()) as db:
         if sent:
             await db.execute(
@@ -366,11 +383,7 @@ def start_notification_worker() -> None:
         loop = asyncio.get_running_loop()
     except RuntimeError:
         return
-    if (
-        _worker_task is not None
-        and not _worker_task.done()
-        and _worker_task_loop is loop
-    ):
+    if _worker_task is not None and not _worker_task.done() and _worker_task_loop is loop:
         return
     if _worker_task is not None and not _worker_task.done():
         # Task belongs to a different (likely closed) loop — drop it.

@@ -30,6 +30,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class WarningEvent:
     """Dispatched student warning event."""
+
     warning_id: str
     category: str
     message: str
@@ -55,11 +56,13 @@ class WarningManager:
     NUDGE_COOLDOWN_SECONDS: float = 40.0
     NUDGE_MIN_DURATION: float = 3.0
     NUDGE_MAX_DURATION: float = 6.0
-    NUDGE_TYPES = frozenset({
-        DistractionType.LOOKING_AWAY,
-        DistractionType.PHONE_DETECTED,
-        DistractionType.DROWSINESS,
-    })
+    NUDGE_TYPES = frozenset(
+        {
+            DistractionType.LOOKING_AWAY,
+            DistractionType.PHONE_DETECTED,
+            DistractionType.DROWSINESS,
+        }
+    )
 
     NUDGE_MESSAGES: Dict[DistractionType, str] = {
         DistractionType.LOOKING_AWAY: "Quick focus check — bring your eyes back to your work ✨",

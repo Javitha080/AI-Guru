@@ -57,6 +57,7 @@ router = APIRouter(tags=["parent"])
 
 def _get_db_path():
     from deeptutor.services.path_service import get_path_service
+
     return get_path_service().user_dir / "chat_history.db"
 
 
@@ -128,14 +129,21 @@ async def parent_context(
     _install_current_user(payload)
 
 
-def _audit(action: str, actor: str = "local", details: Optional[Dict[str, Any]] = None,
-           resource_id: str = "", resource_type: str = "parent_portal", ip: str = "") -> None:
+def _audit(
+    action: str,
+    actor: str = "local",
+    details: Optional[Dict[str, Any]] = None,
+    resource_id: str = "",
+    resource_type: str = "parent_portal",
+    ip: str = "",
+) -> None:
     """Fire-and-forget audit logging; never raises into the request path."""
 
     async def _run() -> None:
         try:
-            await AuditLogger.log_event(actor, "parent", action, resource_type,
-                                        resource_id, details or {}, ip)
+            await AuditLogger.log_event(
+                actor, "parent", action, resource_type, resource_id, details or {}, ip
+            )
         except Exception as exc:  # noqa: BLE001
             logger.debug("audit log skipped for %s: %s", action, exc)
 
@@ -248,8 +256,9 @@ async def set_parent_pin(req: SetPinRequest):
 
 
 @router.post("/auth/change-pin")
-async def change_parent_pin(req: ChangePinRequest,
-                            _parent: Dict[str, Any] = Depends(require_parent)):
+async def change_parent_pin(
+    req: ChangePinRequest, _parent: Dict[str, Any] = Depends(require_parent)
+):
     """Change the parent passcode (requires current PIN)."""
     try:
         await JWTAuthService.change_parent_pin(req.pin, req.current_pin, req.parent_id or "default")
@@ -274,8 +283,12 @@ async def verify_parent_pin(req: VerifyPinRequest, request: Request):
         return result
     except ValueError as e:
         locked = "Locked out" in str(e) or "Too many" in str(e)
-        _audit("pin.verify_failed" if not locked else "pin.lockout",
-               actor=req.parent_id or "default", details={"reason": str(e)}, ip=ip)
+        _audit(
+            "pin.verify_failed" if not locked else "pin.lockout",
+            actor=req.parent_id or "default",
+            details={"reason": str(e)},
+            ip=ip,
+        )
         raise HTTPException(status_code=401, detail=str(e))
 
 
@@ -294,9 +307,11 @@ class LogoutRequest(BaseModel):
 
 
 @router.post("/auth/logout")
-async def logout_parent(request: Request,
-                        req: Optional[LogoutRequest] = None,
-                        _parent: Dict[str, Any] = Depends(require_parent)):
+async def logout_parent(
+    request: Request,
+    req: Optional[LogoutRequest] = None,
+    _parent: Dict[str, Any] = Depends(require_parent),
+):
     """Revoke the presented parent access token and (when supplied) refresh token."""
     token = getattr(request.state, "parent_token", None)
     payload = getattr(request.state, "parent_payload", {}) or {}
@@ -318,7 +333,9 @@ async def get_telegram_config(parent_id: str = "default"):
     try:
         async with aiosqlite.connect(db_path) as db:
             await ensure_kv_settings(db)
-            cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
+            cursor = await db.execute(
+                "SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",)
+            )
             row = await cursor.fetchone()
             if row and row[0]:
                 data = json.loads(row[0])
@@ -350,7 +367,8 @@ async def save_telegram_config(req: TelegramConfigRequest):
         await ensure_kv_settings(db)
         if not bot_token:
             cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", (f"telegram_{req.parent_id or 'default'}",)
+                "SELECT value FROM settings WHERE key = ?",
+                (f"telegram_{req.parent_id or 'default'}",),
             )
             row = await cursor.fetchone()
             existing: Dict[str, Any] = {}
@@ -365,12 +383,14 @@ async def save_telegram_config(req: TelegramConfigRequest):
                     status_code=400,
                     detail="Bot Token is required for first-time setup.",
                 )
-        payload = json.dumps({
-            "bot_token": bot_token,
-            "chat_id": req.chat_id,
-            "enabled": req.enabled,
-            "updated_at": time.time(),
-        })
+        payload = json.dumps(
+            {
+                "bot_token": bot_token,
+                "chat_id": req.chat_id,
+                "enabled": req.enabled,
+                "updated_at": time.time(),
+            }
+        )
         await db.execute(
             "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'telegram', ?)",
             (f"telegram_{req.parent_id or 'default'}", payload, time.time()),
@@ -415,7 +435,9 @@ async def test_telegram_notification(parent_id: str = "default"):
     db_path = _get_db_path()
     async with aiosqlite.connect(db_path) as db:
         await ensure_kv_settings(db)
-        cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
+        cursor = await db.execute(
+            "SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",)
+        )
         row = await cursor.fetchone()
 
     if not row or not row[0]:
@@ -481,7 +503,9 @@ async def send_tunnel_link_to_telegram(parent_id: str = "default", student_name:
     db_path = _get_db_path()
     async with aiosqlite.connect(db_path) as db:
         await ensure_kv_settings(db)
-        cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
+        cursor = await db.execute(
+            "SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",)
+        )
         row = await cursor.fetchone()
 
     if not row or not row[0]:
@@ -497,9 +521,9 @@ async def send_tunnel_link_to_telegram(parent_id: str = "default", student_name:
         bot_token=data.get("bot_token"),
         chat_id=data.get("chat_id"),
         text=(
-            f"\U0001F517 <b>AI Guru \u2014 Parent Live Portal Link</b>\n\n"
-            f"\U0001F464 <b>Student:</b> {student_name}\n"
-            f"\U0001F310 <b>Portal URL:</b> <a href=\"{portal_url}/parent\">{portal_url}/parent</a>\n\n"
+            f"\U0001f517 <b>AI Guru \u2014 Parent Live Portal Link</b>\n\n"
+            f"\U0001f464 <b>Student:</b> {student_name}\n"
+            f'\U0001f310 <b>Portal URL:</b> <a href="{portal_url}/parent">{portal_url}/parent</a>\n\n'
             f"<i>{access_line} Access is protected by your Parent Passcode PIN.</i>"
         ),
     )
@@ -524,10 +548,15 @@ async def start_tunnel(req: StartTunnelRequest = StartTunnelRequest()):
         provider=req.provider,
         ngrok_token=req.ngrok_token,
     )
-    _audit("tunnel.start", actor="default", details={
-        "provider": req.provider, "status": result.get("status"),
-        "public": result.get("url_is_public"),
-    })
+    _audit(
+        "tunnel.start",
+        actor="default",
+        details={
+            "provider": req.provider,
+            "status": result.get("status"),
+            "public": result.get("url_is_public"),
+        },
+    )
     return result
 
 
@@ -650,7 +679,10 @@ async def live_snapshot(
     if sys_monitor is not None:
         jpeg = sys_monitor.get_snapshot_jpeg()
         if jpeg is not None:
-            _audit("live.snapshot_accessed", details={"session_id": session_id, "source": "system_camera"})
+            _audit(
+                "live.snapshot_accessed",
+                details={"session_id": session_id, "source": "system_camera"},
+            )
             from fastapi import Response as _Response
 
             return _Response(
@@ -667,7 +699,11 @@ async def live_snapshot(
         links = await PairingService.get_linked_students(str(_parent.get("sub", "default")))
         if links:
             perms = next(
-                (link.get("permissions", {}) for link in links if str(link.get("student_id")) == session_id),
+                (
+                    link.get("permissions", {})
+                    for link in links
+                    if str(link.get("student_id")) == session_id
+                ),
                 {},
             )
             if perms and not perms.get("can_view_live", True):
@@ -732,6 +768,7 @@ async def parent_start_live_stream(
     # LAN URL with fallback
     try:
         from deeptutor.services.setup import get_frontend_port
+
         fe_port = get_frontend_port()
     except Exception:  # noqa: BLE001
         fe_port = 3782
@@ -744,10 +781,13 @@ async def parent_start_live_stream(
     lan_url = f"http://{lan_ip}:{fe_port}/parent"
     tunnel_portal = f"{tunnel_url}/parent" if tunnel_url else None
 
-    _audit("live.parent_initiated_start", details={
-        "session_id": session_id,
-        "tunnel_url": tunnel_url or "",
-    })
+    _audit(
+        "live.parent_initiated_start",
+        details={
+            "session_id": session_id,
+            "tunnel_url": tunnel_url or "",
+        },
+    )
     return {
         "session_id": session_id,
         "enabled": True,
@@ -857,6 +897,7 @@ async def parent_live_ws_stream(
             jpeg_bytes = None
             try:
                 from deeptutor.services.monitoring.system_monitor import get_system_monitor
+
                 sys_mon = get_system_monitor(session_id)
                 if sys_mon is not None:
                     jpeg_bytes = sys_mon.get_snapshot_jpeg()
@@ -918,12 +959,14 @@ async def get_supervision_rules(parent_id: str = "default"):
 @router.put("/supervision-rules", dependencies=[Depends(require_parent)])
 async def save_supervision_rules(req: SupervisionRulesRequest):
     db_path = _get_db_path()
-    payload = json.dumps({
-        "student_name": req.student_name.strip() or "Student",
-        "daily_goal_minutes": int(req.daily_goal_minutes),
-        "alert_strictness": req.alert_strictness,
-        "updated_at": time.time(),
-    })
+    payload = json.dumps(
+        {
+            "student_name": req.student_name.strip() or "Student",
+            "daily_goal_minutes": int(req.daily_goal_minutes),
+            "alert_strictness": req.alert_strictness,
+            "updated_at": time.time(),
+        }
+    )
     async with aiosqlite.connect(db_path) as db:
         await ensure_kv_settings(db)
         await db.execute(
@@ -931,8 +974,11 @@ async def save_supervision_rules(req: SupervisionRulesRequest):
             (f"supervision_rules_{req.parent_id or 'default'}", payload, time.time()),
         )
         await db.commit()
-    _audit("rules.updated", actor=req.parent_id or "default",
-           details={"strictness": req.alert_strictness})
+    _audit(
+        "rules.updated",
+        actor=req.parent_id or "default",
+        details={"strictness": req.alert_strictness},
+    )
     return {"success": True, **json.loads(payload)}
 
 
@@ -942,8 +988,13 @@ async def save_supervision_rules(req: SupervisionRulesRequest):
 @router.post("/pair/generate", dependencies=[Depends(require_parent)])
 async def generate_pairing_code(req: GeneratePairingRequest):
     result = await PairingService.generate_pairing_code(req.student_id, req.parent_id)
-    _audit("pair.generated", actor=req.parent_id, details={"student_id": req.student_id},
-           resource_type="pairing_link", resource_id=result.get("code", ""))
+    _audit(
+        "pair.generated",
+        actor=req.parent_id,
+        details={"student_id": req.student_id},
+        resource_type="pairing_link",
+        resource_id=result.get("code", ""),
+    )
     return result
 
 
@@ -953,7 +1004,12 @@ async def verify_pairing_code(req: VerifyPairingRequest):
     if not link:
         _audit("pair.verify_failed", actor=req.parent_id, details={"code_prefix": req.code[:5]})
         raise HTTPException(status_code=400, detail="Invalid or expired code")
-    _audit("pair.verified", actor=req.parent_id, resource_type="pairing_link", resource_id=str(link.get("id")))
+    _audit(
+        "pair.verified",
+        actor=req.parent_id,
+        resource_type="pairing_link",
+        resource_id=str(link.get("id")),
+    )
     return link
 
 
@@ -1033,6 +1089,7 @@ async def get_parent_dashboard(parent_id: str):
     # WebSocket and an in-progress session; otherwise honest 'offline'.
     try:
         from deeptutor.api.routers.monitoring import _active_monitoring_sessions
+
         live_sessions = set(_active_monitoring_sessions.keys())
     except Exception:  # noqa: BLE001
         live_sessions = set()
@@ -1058,8 +1115,9 @@ async def get_parent_dashboard(parent_id: str):
 
     manager = StudySessionManager()
 
-    async def _build_row(student_id: str, name: str,
-                         permissions: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    async def _build_row(
+        student_id: str, name: str, permissions: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         rows: List[Dict[str, Any]] = []
         try:
             rows = _coerce_session_rows(await manager.list_sessions(student_id, limit=30))
@@ -1102,9 +1160,7 @@ async def get_parent_dashboard(parent_id: str):
         for link in students:
             student_id = link.get("student_id", "student")
             name = link.get("student_name") or fallback_name
-            dashboard_data.append(
-                await _build_row(student_id, name, link.get("permissions", {}))
-            )
+            dashboard_data.append(await _build_row(student_id, name, link.get("permissions", {})))
 
     return dashboard_data
 
@@ -1149,7 +1205,8 @@ async def get_student_sessions(student_id: str):
                 pass
 
     session_count_month = sum(
-        1 for s in (history or [])
+        1
+        for s in (history or [])
         if float(s.get("start_time") or s.get("created_at") or 0) >= month_ago
     )
 
@@ -1176,16 +1233,18 @@ async def get_student_sessions(student_id: str):
                     meta = json.loads(r["metadata_json"] or "{}")
                 except Exception:  # noqa: BLE001
                     pass
-                incidents.append({
-                    "time": time.strftime("%H:%M", time.localtime(float(r["timestamp"]))),
-                    "timestamp": float(r["timestamp"]),
-                    "session_id": r["session_id"],
-                    "event": str(meta.get("category") or "Warning").replace("_", " ").title(),
-                    "message": str(meta.get("message") or ""),
-                    "severity": r["severity"] or "warning",
-                    "confidence": float(r["confidence"] or 0),
-                    "duration_seconds": float(r["duration_seconds"] or 0),
-                })
+                incidents.append(
+                    {
+                        "time": time.strftime("%H:%M", time.localtime(float(r["timestamp"]))),
+                        "timestamp": float(r["timestamp"]),
+                        "session_id": r["session_id"],
+                        "event": str(meta.get("category") or "Warning").replace("_", " ").title(),
+                        "message": str(meta.get("message") or ""),
+                        "severity": r["severity"] or "warning",
+                        "confidence": float(r["confidence"] or 0),
+                        "duration_seconds": float(r["duration_seconds"] or 0),
+                    }
+                )
     except Exception as exc:  # noqa: BLE001
         logger.debug("Incident feed unavailable: %s", exc)
 

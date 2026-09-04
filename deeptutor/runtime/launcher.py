@@ -1188,7 +1188,9 @@ def start(home: str | Path | None = None, *, dev: bool = False) -> None:
                     )
                     try:
                         _terminate(backend)
-                        backend = _spawn(backend_cmd, cwd=runtime_home, env=common_env, name="backend")
+                        backend = _spawn(
+                            backend_cmd, cwd=runtime_home, env=common_env, name="backend"
+                        )
                         _wait_for_http(
                             name=_t("start.backend"),
                             url=f"http://127.0.0.1:{backend_port}/",
@@ -1219,7 +1221,9 @@ def start(home: str | Path | None = None, *, dev: bool = False) -> None:
                     )
                     try:
                         _terminate(web)
-                        web = _spawn(frontend.command, cwd=frontend.cwd, env=common_env, name="frontend")
+                        web = _spawn(
+                            frontend.command, cwd=frontend.cwd, env=common_env, name="frontend"
+                        )
                         _wait_for_http(
                             name=_t("start.frontend"),
                             url=f"http://127.0.0.1:{frontend_port}/",

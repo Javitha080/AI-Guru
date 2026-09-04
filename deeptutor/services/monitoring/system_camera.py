@@ -95,9 +95,7 @@ class SystemCameraManager:
         if self._frame_source is None:
             cap = self._open_capture()
             if cap is None:
-                self.last_error = (
-                    f"No camera device available at index {self.camera_index}"
-                )
+                self.last_error = f"No camera device available at index {self.camera_index}"
                 logger.warning("System camera unavailable: %s", self.last_error)
                 return False
             self._capture = cap
