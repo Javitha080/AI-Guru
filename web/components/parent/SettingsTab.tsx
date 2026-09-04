@@ -11,7 +11,14 @@ import React, { useCallback, useEffect, useState } from "react";
 import { KeyRound, Loader2, Send, ShieldAlert } from "lucide-react";
 import AuditLogPanel from "./AuditLogPanel";
 import PairingCard from "./PairingCard";
-import { pFetch, pJson } from "@/lib/parent/parent-api";
+import { lockParentPortal, pFetch, pJson } from "@/lib/parent/parent-api";
+import {
+  STRICTNESS_LABEL,
+  toBackendStrictness,
+  toUiStrictness,
+  UI_STRICTNESS,
+  type UiStrictness,
+} from "@/lib/parent/strictness";
 
 interface SettingsTabProps {
   parentId: string;
@@ -32,7 +39,7 @@ interface RulesPayload {
   alert_strictness?: string; // gentle | balanced | strict
 }
 
-type Strictness = "lenient" | "normal" | "strict";
+type Strictness = UiStrictness;
 
 const inputCls =
   "glass-input w-full text-sm";
@@ -43,6 +50,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
   const [tgMasked, setTgMasked] = useState("");
   const [tgToken, setTgToken] = useState("");
   const [tgChatId, setTgChatId] = useState("");
+  const [tgEnabled, setTgEnabled] = useState(true);
   const [tgBusy, setTgBusy] = useState(false);
   const [tgStatus, setTgStatus] = useState<{ ok: boolean; text: string } | null>(null);
 
@@ -61,8 +69,6 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
   const [rulesStatus, setRulesStatus] = useState<{ ok: boolean; text: string } | null>(null);
 
   const digitsOnly = (v: string) => v.replace(/\D/g, "");
-  const toUiStrictness = (s?: string): Strictness =>
-    s === "gentle" ? "lenient" : s === "strict" ? "strict" : "normal";
 
   useEffect(() => {
     (async () => {
@@ -74,6 +80,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
           setTgConfigured(true);
           setTgMasked(data.bot_token_masked || "");
           setTgChatId(data.chat_id || "");
+          setTgEnabled(data.enabled !== false);
         }
       } catch {
         /* leave defaults */
@@ -113,7 +120,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
       body: JSON.stringify({
         bot_token: tgToken.trim(),
         chat_id: tgChatId.trim(),
-        enabled: true,
+        enabled: tgEnabled,
         parent_id: parentId,
       }),
     });
@@ -138,6 +145,11 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
   const handleTestTelegram = async () => {
     setTgBusy(true);
     setTgStatus(null);
+    if (!tgEnabled) {
+      setTgStatus({ ok: false, text: "Enable Telegram alerts first, then send a test." });
+      setTgBusy(false);
+      return;
+    }
     if (!(await saveTelegram())) {
       setTgBusy(false);
       return;
@@ -172,15 +184,20 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
     }
     setPinBusy(true);
     try {
-      const { ok, status, data } = await pJson<{ detail?: string }>("/api/v1/parent/auth/change-pin", {
+      const { ok, status, data } = await pJson<{ detail?: string; reauth_required?: boolean }>("/api/v1/parent/auth/change-pin", {
         method: "POST",
         body: JSON.stringify({ pin: newPin, current_pin: currentPin, parent_id: parentId }),
       });
       if (ok) {
-        setPinStatus({ ok: true, text: "Passcode updated." });
+        setPinStatus({ ok: true, text: "Passcode updated. Unlock again with the new PIN." });
         setCurrentPin("");
         setNewPin("");
         setConfirmPin("");
+        if (data?.reauth_required) {
+          // The PIN epoch invalidates this session by design — re-lock now
+          // with an explanation instead of failing the next call opaquely.
+          setTimeout(() => lockParentPortal(), 1200);
+        }
       } else {
         const detail = String(data?.detail || `Update failed (${status}).`);
         setPinStatus({
@@ -196,9 +213,6 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
   };
 
   // ----------------------------------------------------------------- rules
-  const backendStrictness = (s: Strictness) =>
-    s === "lenient" ? "gentle" : s === "strict" ? "strict" : "balanced";
-
   const handleSaveRules = async () => {
     setRulesBusy(true);
     setRulesStatus(null);
@@ -209,7 +223,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
         body: JSON.stringify({
           student_name: studentName.trim() || "Student",
           daily_goal_minutes: Math.min(600, Math.max(10, Number(dailyGoalMinutes) || 60)),
-          alert_strictness: backendStrictness(strictness),
+          alert_strictness: toBackendStrictness(strictness),
           parent_id: parentId,
         }),
       });
@@ -263,6 +277,20 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
             <span className="block text-xs font-medium text-[var(--muted-foreground)] mb-1">Chat ID</span>
             <input type="text" placeholder="e.g. 987654321" value={tgChatId} onChange={(e) => setTgChatId(e.target.value)} className={`${inputCls} font-mono text-xs`} />
           </label>
+          <label className="flex items-center gap-2.5 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={tgEnabled}
+              onChange={(e) => setTgEnabled(e.target.checked)}
+              className="w-4 h-4 rounded accent-[var(--primary)]"
+            />
+            <span className="text-xs font-medium">Enable Telegram alerts for this parent</span>
+          </label>
+          {!tgEnabled && (
+            <p className="text-[11px] text-[var(--muted-foreground)]">
+              Disabled: warnings and session reports stay on this computer and nothing is queued for delivery.
+            </p>
+          )}
           {tgStatus && statusBanner(tgStatus)}
           <div className="flex flex-wrap gap-2 pt-1">
             <button
@@ -349,7 +377,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
         <div className="relative z-[2]">
           <span className="block text-xs font-medium text-[var(--muted-foreground)] mb-1.5">Alert Strictness</span>
           <div className="flex gap-2">
-            {(["lenient", "normal", "strict"] as const).map((lvl) => (
+            {(UI_STRICTNESS).map((lvl) => (
               <button
                 key={lvl}
                 onClick={() => setStrictness(lvl)}
@@ -360,7 +388,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
                     : "surface-glass-base text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
                 }`}
               >
-                {lvl === "lenient" ? "Gentle" : lvl === "normal" ? "Balanced" : "Strict"}
+                {STRICTNESS_LABEL[lvl]}
               </button>
             ))}
           </div>

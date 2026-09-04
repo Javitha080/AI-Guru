@@ -15,6 +15,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Activity, AlertTriangle, Radio, RefreshCw, ShieldAlert, StopCircle, Video, XCircle } from "lucide-react";
 import {
+  getParentLiveSnapshotUrl,
+  getParentLiveWsProtocols,
   getParentLiveWsUrl,
   pFetch,
   startParentLiveStream,
@@ -25,12 +27,14 @@ interface LiveVideoViewProps {
   studentName?: string;
   /** Explicit monitoring session id; omit for "any active session". */
   sessionId?: string | null;
+  /** Explicit student id: resolved server-side to that student's session. */
+  studentId?: string | null;
   onClose: () => void;
 }
 
 type LivePhase = "connecting" | "live" | "waiting" | "denied" | "ended" | "error";
 
-export default function LiveVideoView({ studentName, sessionId, onClose }: LiveVideoViewProps) {
+export default function LiveVideoView({ studentName, sessionId, studentId, onClose }: LiveVideoViewProps) {
   const [phase, setPhase] = useState<LivePhase>("connecting");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [frameUrl, setFrameUrl] = useState<string | null>(null);
@@ -50,6 +54,9 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
   const lastFrameTimeRef = useRef(Date.now());
 
   const targetSessionId = sessionId || "current";
+  // Student targeting only applies when no explicit monitoring session was
+  // given; the backend resolves it to that student's in-progress session.
+  const targetStudentId = !sessionId ? (studentId ?? null) : null;
 
   const stopHttpPoll = useCallback(() => {
     if (pollTimerRef.current) {
@@ -92,9 +99,7 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
   const pollSnapshot = useCallback(async () => {
     if (hiddenRef.current) return;
     try {
-      const res = await pFetch(
-        `/api/v1/parent/live/snapshot?session_id=${encodeURIComponent(targetSessionId)}`
-      );
+      const res = await pFetch(getParentLiveSnapshotUrl(targetSessionId, targetStudentId));
       if (res.ok) {
         const blob = await res.blob();
         handleNewFrameBlob(blob, res.headers.get("X-Frame-Timestamp"));
@@ -114,20 +119,20 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
       setPhase((p) => (p === "live" ? p : "error"));
       setErrorMessage(err instanceof Error ? err.message : "Connection dropped");
     }
-  }, [targetSessionId, handleNewFrameBlob, stopHttpPoll]);
+  }, [targetSessionId, targetStudentId, handleNewFrameBlob, stopHttpPoll]);
 
-  // Connect WebSocket stream
+  // Connect WebSocket stream (token via subprotocol, not URL)
   const connectWs = useCallback(() => {
     cleanupWs();
-    const wsUrl = getParentLiveWsUrl(targetSessionId);
-    if (!wsUrl) {
+    const wsUrl = getParentLiveWsUrl(targetSessionId, targetStudentId);
+    if (!wsUrl || getParentLiveWsProtocols().length === 0) {
       // No token yet or SSR — fall back to polling
       pollTimerRef.current = setInterval(() => void pollSnapshot(), 400);
       return;
     }
 
     try {
-      const ws = new WebSocket(wsUrl);
+      const ws = new WebSocket(wsUrl, getParentLiveWsProtocols());
       ws.binaryType = "blob";
       wsRef.current = ws;
 
@@ -171,6 +176,14 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
         if (ev.code === 4001) {
           setPhase("denied");
           setErrorMessage("Parent authentication failed. Re-enter your PIN.");
+        } else if (ev.code === 4003) {
+          setPhase("denied");
+          setErrorMessage(
+            typeof ev.reason === "string" && ev.reason
+              ? ev.reason
+              : "Live view is not permitted for this student."
+          );
+          stopHttpPoll();
         }
       };
     } catch (err) {
@@ -178,7 +191,7 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
       setErrorMessage(err instanceof Error ? err.message : "Could not open stream");
       pollTimerRef.current = setInterval(() => void pollSnapshot(), 400);
     }
-  }, [targetSessionId, handleNewFrameBlob, pollSnapshot, stopHttpPoll, cleanupWs]);
+  }, [targetSessionId, targetStudentId, handleNewFrameBlob, pollSnapshot, stopHttpPoll, cleanupWs]);
 
   const startStreamPipeline = useCallback(() => {
     setPhase("connecting");
@@ -197,10 +210,13 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
     }, 14000);
 
     // Auto-start parent live stream on backend (overrides student toggle, starts tunnel)
-    void startParentLiveStream(targetSessionId)
+    void startParentLiveStream(targetSessionId, targetStudentId)
       .then((res) => {
         if (res.ok) {
           connectWs();
+        } else if (res.status === 403) {
+          setPhase("denied");
+          setErrorMessage("Live view is not permitted for this student.");
         } else {
           // If 404, student isn't studying
           if (res.status === 404) {
@@ -219,11 +235,25 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
         void pollSnapshot();
         pollTimerRef.current = setInterval(() => void pollSnapshot(), 600);
       });
-  }, [targetSessionId, connectWs, pollSnapshot]);
+  }, [targetSessionId, targetStudentId, connectWs, pollSnapshot]);
 
-  // Main lifecycle
+  // Reconnect-loop guard: the connect pipeline must run ONLY on mount /
+  // target change / manual retry. Phase flips (connecting→live→waiting) and
+  // transport flips (WS↔poll) must never re-trigger it — previously they
+  // did via effect deps, re-POSTing /live/start (and re-starting the
+  // tunnel) in a loop. Refs always call the latest closures.
+  const pipelineRef = useRef(startStreamPipeline);
+  pipelineRef.current = startStreamPipeline;
+  const pollRef = useRef(pollSnapshot);
+  pollRef.current = pollSnapshot;
+  const phaseRef = useRef(phase);
+  phaseRef.current = phase;
+  const wsModeRef = useRef(isWsMode);
+  wsModeRef.current = isWsMode;
+
+  // Main lifecycle — runs once per target/retry.
   useEffect(() => {
-    startStreamPipeline();
+    pipelineRef.current();
 
     // FPS measurement timer (evaluates every 1 second)
     fpsTimerRef.current = setInterval(() => {
@@ -231,15 +261,15 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
       frameCountRef.current = 0;
 
       // Check if frames stalled (> 4 seconds since last frame)
-      if (Date.now() - lastFrameTimeRef.current > 4000 && phase === "live") {
+      if (Date.now() - lastFrameTimeRef.current > 4000 && phaseRef.current === "live") {
         setPhase("waiting");
       }
     }, 1000);
 
     const onVisibility = () => {
       hiddenRef.current = document.hidden;
-      if (!document.hidden && !isWsMode && phase === "live") {
-        void pollSnapshot();
+      if (!document.hidden && !wsModeRef.current && phaseRef.current === "live") {
+        void pollRef.current();
       }
     };
     document.addEventListener("visibilitychange", onVisibility);
@@ -255,7 +285,9 @@ export default function LiveVideoView({ studentName, sessionId, onClose }: LiveV
         objectUrlRef.current = null;
       }
     };
-  }, [startStreamPipeline, retryCount, stopHttpPoll, cleanupWs, isWsMode, phase, pollSnapshot]);
+    // Intentionally minimal deps: phase/transport flips must not reconnect.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [retryCount, targetSessionId, targetStudentId]);
 
   const handleRetry = () => {
     stopHttpPoll();

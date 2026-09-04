@@ -21,6 +21,7 @@ from deeptutor.services.database.schema import (
     v5_exam_sitting_columns,
     v6_paper_bank_grade11,
     v7_exams_review_status,
+    v8_monitoring_nudge_event,
 )
 
 logger = logging.getLogger(__name__)
@@ -37,6 +38,7 @@ MIGRATIONS: list[tuple[int, str, str | Callable[[sqlite3.Connection], None]]] = 
     (5, "005_exam_sitting_columns", v5_exam_sitting_columns),
     (6, "006_paper_bank_grade11", v6_paper_bank_grade11),
     (7, "007_exams_review_status", v7_exams_review_status),
+    (8, "008_monitoring_nudge_event", v8_monitoring_nudge_event),
 ]
 
 

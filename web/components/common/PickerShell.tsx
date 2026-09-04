@@ -205,7 +205,9 @@ export default function PickerShell({
   );
 
   const alignmentClass =
-    align === "center" ? "items-center justify-center" : "items-start";
+    align === "center"
+      ? "items-center justify-center"
+      : "items-start justify-center";
 
   // Motion. When we captured the trigger rect, the card *expands outward from
   // it* — it starts small, centered on the clicked row, and grows + glides to
@@ -216,7 +218,7 @@ export default function PickerShell({
   // reduced-motion keeps presence (AnimatePresence still gates mount) but drops
   // transforms to a plain fade.
   const originExpand =
-    !reduceMotion && originRect && typeof window !== "undefined"
+    !reduceMotion && align === "center" && originRect && typeof window !== "undefined"
       ? {
           x: originRect.x + originRect.width / 2 - window.innerWidth / 2,
           y: originRect.y + originRect.height / 2 - window.innerHeight / 2,
@@ -228,34 +230,50 @@ export default function PickerShell({
     : { duration: 0.2, ease: [0.22, 1, 0.36, 1] as const };
   const cardInitial = reduceMotion
     ? { opacity: 0 }
-    : originExpand
-      ? { opacity: 0, scale: 0.5, x: originExpand.x, y: originExpand.y }
-      : { opacity: 0, y: 10, scale: 0.97, x: 0 };
+    : align === "start"
+      ? { opacity: 0, y: -16, scale: 0.98, x: 0 }
+      : originExpand
+        ? { opacity: 0, scale: 0.5, x: originExpand.x, y: originExpand.y }
+        : { opacity: 0, y: 10, scale: 0.97, x: 0 };
   const cardAnimate = reduceMotion
     ? { opacity: 1 }
     : { opacity: 1, y: 0, scale: 1, x: 0 };
   const cardExit = reduceMotion
     ? { opacity: 0 }
-    : {
-        opacity: 0,
-        y: 6,
-        scale: 0.985,
-        x: 0,
-        // Closing stays a quick, clean collapse — no bounce on the way out.
-        transition: { duration: 0.16, ease: [0.4, 0, 1, 1] as const },
-      };
+    : align === "start"
+      ? {
+          opacity: 0,
+          y: -10,
+          scale: 0.98,
+          x: 0,
+          transition: { duration: 0.14, ease: [0.4, 0, 1, 1] as const },
+        }
+      : {
+          opacity: 0,
+          y: 6,
+          scale: 0.985,
+          x: 0,
+          // Closing stays a quick, clean collapse — no bounce on the way out.
+          transition: { duration: 0.16, ease: [0.4, 0, 1, 1] as const },
+        };
   const cardTransition = reduceMotion
     ? { duration: 0 }
-    : {
-        // A gently under-damped spring gives the expand some life: it eases out
-        // and settles with a barely-there overshoot, instead of the flat,
-        // mechanical glide a fixed cubic-bezier produces. Opacity rides a quick
-        // separate fade so only the size/position carry the spring.
-        type: "spring" as const,
-        bounce: 0.28,
-        duration: 0.44,
-        opacity: { duration: 0.2, ease: [0.22, 1, 0.36, 1] as const },
-      };
+    : align === "start"
+      ? {
+          duration: 0.22,
+          ease: [0.22, 1, 0.36, 1] as const,
+          opacity: { duration: 0.18, ease: [0.22, 1, 0.36, 1] as const },
+        }
+      : {
+          // A gently under-damped spring gives the expand some life: it eases out
+          // and settles with a barely-there overshoot, instead of the flat,
+          // mechanical glide a fixed cubic-bezier produces. Opacity rides a quick
+          // separate fade so only the size/position carry the spring.
+          type: "spring" as const,
+          bounce: 0.28,
+          duration: 0.44,
+          opacity: { duration: 0.2, ease: [0.22, 1, 0.36, 1] as const },
+        };
 
   return (
     <AnimatePresence>

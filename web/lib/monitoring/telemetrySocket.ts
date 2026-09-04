@@ -4,9 +4,11 @@
  * When the backend owns the webcam (Python CV engine), the study room has NO
  * local vision pipeline — it only opens this socket to receive
  * ``telemetry_update`` broadcasts and to send control messages
- * (ping keepalive, pause/resume). Reconnect logic mirrors VisionPipeline's
- * capped-exponential-backoff so a dropped socket never freezes the HUD.
+ * (ping keepalive, pause/resume). Reconnect uses the shared WsReconnect
+ * helper so a dropped socket never freezes the HUD.
  */
+
+import { WsReconnect, monitoringWsUrl } from "./wsReconnect";
 
 export interface TelemetrySocketOptions {
   sessionId: string;
@@ -17,10 +19,8 @@ export interface TelemetrySocketOptions {
 }
 
 export class TelemetrySocket {
-  private ws: WebSocket | null = null;
-  private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+  private conn: WsReconnect | null = null;
   private pingTimer: ReturnType<typeof setInterval> | null = null;
-  private backoffMs = 1000;
   private running = false;
 
   constructor(private opts: TelemetrySocketOptions) {}
@@ -28,28 +28,31 @@ export class TelemetrySocket {
   start(): void {
     if (this.running) return;
     this.running = true;
-    this.open();
+    const sessionId = this.opts.sessionId;
+    this.conn = new WsReconnect({
+      create: () => new WebSocket(monitoringWsUrl(sessionId)),
+      onState: (ok) => this.opts.onState?.(ok),
+      onMessage: (evt) => {
+        try {
+          const msg = JSON.parse((evt as MessageEvent).data);
+          if (msg.type === "telemetry_update") this.opts.onUpdate(msg);
+        } catch {
+          /* ignore malformed frames */
+        }
+      },
+    });
+    this.conn.start();
     this.pingTimer = setInterval(() => this.send({ type: "ping" }), 25_000);
   }
 
   stop(): void {
     this.running = false;
-    if (this.reconnectTimer) {
-      clearTimeout(this.reconnectTimer);
-      this.reconnectTimer = null;
-    }
     if (this.pingTimer) {
       clearInterval(this.pingTimer);
       this.pingTimer = null;
     }
-    if (this.ws) {
-      try {
-        this.ws.close();
-      } catch {
-        /* ignore */
-      }
-      this.ws = null;
-    }
+    this.conn?.stop();
+    this.conn = null;
     this.opts.onState?.(false);
   }
 
@@ -62,40 +65,6 @@ export class TelemetrySocket {
   }
 
   private send(payload: Record<string, unknown>): void {
-    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify(payload));
-    }
-  }
-
-  private open(): void {
-    const proto = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const ws = new WebSocket(
-      `${proto}//${window.location.host}/api/v1/monitoring/session/${this.opts.sessionId}`
-    );
-    ws.onopen = () => {
-      if (this.ws === ws) this.backoffMs = 1000;
-      this.opts.onState?.(true);
-    };
-    ws.onmessage = (evt) => {
-      try {
-        const msg = JSON.parse(evt.data);
-        if (msg.type === "telemetry_update") this.opts.onUpdate(msg);
-      } catch {
-        /* ignore malformed frames */
-      }
-    };
-    ws.onclose = () => {
-      if (this.ws !== ws) return; // superseded by a newer socket
-      this.ws = null;
-      this.opts.onState?.(false);
-      if (!this.running) return;
-      const delay = this.backoffMs;
-      this.backoffMs = Math.min(this.backoffMs * 2, 15000);
-      this.reconnectTimer = setTimeout(() => {
-        this.reconnectTimer = null;
-        if (this.running && !this.ws) this.open();
-      }, delay);
-    };
-    this.ws = ws;
+    this.conn?.send(payload);
   }
 }

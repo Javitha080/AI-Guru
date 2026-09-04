@@ -71,7 +71,7 @@ export function BentoGrid({
   );
 }
 
-interface BentoCardProps {
+interface BentoCardProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode;
   className?: string;
   /**
@@ -97,6 +97,7 @@ interface BentoCardProps {
   /** Drop the default padding (for cards that own their own layout). */
   bare?: boolean;
   as?: ElementType;
+  disabled?: boolean;
 }
 
 export function BentoCard({
@@ -111,6 +112,7 @@ export function BentoCard({
   reveal = false,
   bare = false,
   as: Tag = "div",
+  ...rest
 }: BentoCardProps) {
   /* Called unconditionally to keep hook order stable; the hook no-ops when
      its ref is never attached, on touch devices, and under reduced motion. */
@@ -145,6 +147,7 @@ export function BentoCard({
       ref={tilt ? tiltRef : undefined}
       className={classes}
       {...(reveal ? { "data-scroll-reveal": "" } : {})}
+      {...rest}
     >
       {children}
     </Tag>

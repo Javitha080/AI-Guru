@@ -45,6 +45,11 @@ class TunnelGateway:
     _last_ngrok_token: Optional[str] = None
     _restart_attempts: int = 0
     _last_message: Optional[str] = None
+    # Serializes concurrent start_tunnel calls (user click + watchdog +
+    # Telegram command racing previously spawned duplicate cloudflared
+    # processes, orphaning all but the last). Lazily created; on 3.10+
+    # locks are not bound to the creating loop.
+    _start_lock: Optional[asyncio.Lock] = None
 
     @staticmethod
     def _default_local_port() -> int:
@@ -156,6 +161,26 @@ class TunnelGateway:
         provider: str = "cloudflare",
         ngrok_token: Optional[str] = None,
     ) -> Dict[str, Any]:
+        """Start the selected outbound tunnel gateway (serialized).
+
+        Concurrent callers (portal button, watchdog restart, Telegram
+        command) queue on the start lock and share the single outcome
+        instead of spawning duplicate tunnel processes.
+        """
+        if cls._start_lock is None:
+            cls._start_lock = asyncio.Lock()
+        async with cls._start_lock:
+            return await cls._do_start_tunnel(
+                local_port=local_port, provider=provider, ngrok_token=ngrok_token
+            )
+
+    @classmethod
+    async def _do_start_tunnel(
+        cls,
+        local_port: Optional[int] = None,
+        provider: str = "cloudflare",
+        ngrok_token: Optional[str] = None,
+    ) -> Dict[str, Any]:
         """Start the selected outbound tunnel gateway.
 
         ``local_port`` defaults to the configured FRONTEND port — never the
@@ -247,9 +272,11 @@ class TunnelGateway:
                             break
 
                     if not cls._tunnel_url:
-                        # URL not captured yet: report honest state, never fake a
-                        # public tunnel with the localhost address.
-                        cls._tunnel_url = f"http://127.0.0.1:{local_port}"
+                        # URL not captured yet: stay honest — no URL until
+                        # cloudflared actually reports one. Callers fall back
+                        # to the LAN address via portal_urls; never present a
+                        # loopback address as if it were a public tunnel.
+                        cls._tunnel_url = None
                         cls._status = "starting"
 
                     cls._url_is_public = bool(
@@ -286,7 +313,7 @@ class TunnelGateway:
                             stdout=asyncio.subprocess.DEVNULL,
                             stderr=asyncio.subprocess.DEVNULL,
                         )
-                        await proc.wait()
+                        await asyncio.wait_for(proc.wait(), timeout=15.0)
 
                     cls._process = await asyncio.create_subprocess_exec(
                         "ngrok", "http", str(local_port),
@@ -296,9 +323,10 @@ class TunnelGateway:
                     cls._provider = "ngrok"
                     await asyncio.sleep(2.0)
 
-                    # Query local ngrok API
+                    # Query local ngrok API (bounded: never hang the start).
                     public_url: Optional[str] = None
-                    async with aiohttp.ClientSession() as session:
+                    ngrok_timeout = aiohttp.ClientTimeout(total=5.0)
+                    async with aiohttp.ClientSession(timeout=ngrok_timeout) as session:
                         async with session.get("http://127.0.0.1:4040/api/tunnels") as resp:
                             if resp.status == 200:
                                 data = await resp.json()

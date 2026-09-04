@@ -21,7 +21,7 @@ interface LinkedStudent {
 
 interface GeneratePayload {
   code?: string;
-  expires_at?: number;
+  expires_in?: number;
   detail?: string;
 }
 
@@ -59,7 +59,9 @@ export default function PairingCard({ parentId, onLinkedChanged }: PairingCardPr
         body: JSON.stringify({ student_id: "student-primary", parent_id: parentId }),
       });
       if (ok && data?.code) {
-        setCode({ code: data.code, expiresAt: data.expires_at ?? null });
+        // Backend returns a TTL (expires_in seconds), not a timestamp.
+        const ttl = typeof data.expires_in === "number" ? data.expires_in : 900;
+        setCode({ code: data.code, expiresAt: Date.now() / 1000 + ttl });
         await refreshLinked();
         onLinkedChanged?.();
       } else {
