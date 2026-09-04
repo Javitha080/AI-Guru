@@ -36,7 +36,7 @@ flowchart LR
 
 | File | Trigger | Purpose |
 |------|---------|---------|
-| `ci.yml` | push / PR on `master`, `main`, `dev`, `multi-user`; manual dispatch | Full verification gate: lint, types, security, tests, web build, Docker smoke test, summary. |
+| `ci.yml` | every PR targeting `master`, `main`, `dev`, `multi-user`; push to those branches (path-filtered); manual dispatch | Full verification gate: lint, types, security, tests, web build, Docker smoke test, summary. |
 | `docker-latest.yml` | push to `master`/`main`; manual dispatch | Continuous CD: multi-arch (amd64 + arm64) image → `ghcr.io/<owner>/<repo>` with `latest`, `main`, `sha-<sha>` tags (+ optional extra tag via dispatch). |
 | `release.yml` | push tag `v*` | Gate (tag on default branch + `deeptutor/__version__.py` match) → create the GitHub Release with auto-generated notes. |
 | `docker-release.yml` | GitHub Release published | Multi-arch image → repo GHCR with `X.Y.Z` (semver) + `latest` tags, SBOM + provenance. |
@@ -70,7 +70,17 @@ Notes on deliberate choices:
   baseline in place**, so CI uses `detect-secrets-hook` over
   `git ls-files` instead — the hook only fails on **new** secrets (exit 1)
   and merely warns (exit 3) when baseline line numbers are stale.
-- **Path filtering** keeps docs-only changes from burning CI minutes.
+- **Path filtering** is applied to the `push` trigger only, so docs-only
+  commits on long-lived branches do not burn CI minutes. The
+  `pull_request` trigger is deliberately **unfiltered**: a required status
+  check that never runs can never be satisfied, and GitHub does not
+  back-fill a run for a PR head commit that predates the workflow. A
+  filtered PR touching only `.github/**`, `docs/**`, `.secrets.baseline`
+  or `README.md` would therefore sit in
+  *"Expected — Waiting for status to be reported"* and could never merge.
+- **Existing PRs keep their old checks** when a new workflow lands on the
+  base branch. Push a commit to the PR branch, use *Update branch*, or
+  close and reopen the PR to make the new workflow report.
 
 ## Known backlog (wired in, not yet blocking)
 

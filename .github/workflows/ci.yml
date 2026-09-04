@@ -14,13 +14,29 @@
 #   docker     → build production image + run a real container smoke test
 #   summary    → per-job result table + hard failure when any gate fails
 #
-# Triggered on push/PR against the default branches and via manual dispatch.
-# Paths are filtered so docs-only changes do not burn CI minutes.
+# Triggered on every pull request, on push to the default/release branches,
+# and via manual dispatch. Only `push` is path-filtered — see the note at the
+# `on:` block for why `pull_request` must never be.
 # ============================================================
 
 name: CI
 
 on:
+  # ----------------------------------------------------------
+  # NOTE ON PATH FILTERS — do NOT re-add a `paths:` block here.
+  #
+  # A required status check can only ever be satisfied if the workflow
+  # actually runs, and GitHub does not back-fill a run for a PR head
+  # commit that predates the workflow. Filtering `pull_request` therefore
+  # strands any PR whose changed files all fall outside the filter
+  # (`.github/**`, `docs/**`, `.secrets.baseline`, `README.md`, …) in a
+  # permanent "Expected — Waiting for status to be reported" state: the
+  # required checks never report, so the PR can never be merged.
+  #
+  # Every PR gets the full gate; only the target-branch list narrows it.
+  # `push` keeps a path filter, because that only affects long-lived
+  # branches where burning a full pipeline on a docs-only commit is waste.
+  # ----------------------------------------------------------
   push:
     branches:
       - master
@@ -44,31 +60,18 @@ on:
       - ".dockerignore"
       - "compose*.yaml"
       - "docker-compose*.yml"
-      - ".github/workflows/ci.yml"
+      - ".github/**"
+      - ".pre-commit-config.yaml"
+      - ".secrets.baseline"
+      - "docs/**"
+      - "README.md"
+      - "CONTRIBUTING.md"
   pull_request:
     branches:
       - master
       - main
       - dev
       - multi-user
-    paths:
-      - "deeptutor/**"
-      - "deeptutor_cli/**"
-      - "deeptutor_web/**"
-      - "tests/**"
-      - "requirements/**"
-      - "requirements.txt"
-      - "pyproject.toml"
-      - "uv.lock"
-      - "packaging/**"
-      - "scripts/**"
-      - "web/**"
-      - "Dockerfile"
-      - "Dockerfile.runner"
-      - ".dockerignore"
-      - "compose*.yaml"
-      - "docker-compose*.yml"
-      - ".github/workflows/ci.yml"
   workflow_dispatch:
 
 concurrency:
