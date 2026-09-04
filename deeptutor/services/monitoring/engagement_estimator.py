@@ -171,7 +171,9 @@ class EngagementEstimator:
         # and lateral fidgeting are properly penalised.
         rates = []
         for i in range(1, len(h)):
-            delta = (abs(h[i][0] - h[i - 1][0]) + abs(h[i][1] - h[i - 1][1]) + abs(h[i][2] - h[i - 1][2])) / 3.0
+            delta = (
+                abs(h[i][0] - h[i - 1][0]) + abs(h[i][1] - h[i - 1][1]) + abs(h[i][2] - h[i - 1][2])
+            ) / 3.0
             # Legacy callers pass no timestamps: assume the historical 10 fps.
             dt = t[i] - t[i - 1] if (t[i] >= 0 and t[i - 1] >= 0) else 0.1
             rates.append(delta / max(0.001, dt))

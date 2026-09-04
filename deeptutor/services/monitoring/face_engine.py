@@ -154,9 +154,7 @@ class FaceEngine:
         # FaceLandmarks object inline (no dict round-trip — serializing 478
         # points to dicts and re-parsing them every tick cost ~10k dict
         # allocations/s on the event loop).
-        if isinstance(raw_data, dict) and isinstance(
-            raw_data.get("_landmarks_obj"), FaceLandmarks
-        ):
+        if isinstance(raw_data, dict) and isinstance(raw_data.get("_landmarks_obj"), FaceLandmarks):
             obj: FaceLandmarks = raw_data["_landmarks_obj"]
             embedding = raw_data.get("embedding")
             if not isinstance(embedding, list) or not embedding:
@@ -166,7 +164,9 @@ class FaceEngine:
                     embedding = None
             return FaceDetectionResult(
                 detected=True,
-                confidence=max(0.0, min(1.0, _coerce_float(raw_data.get("confidence", 0.95), 0.95))),
+                confidence=max(
+                    0.0, min(1.0, _coerce_float(raw_data.get("confidence", 0.95), 0.95))
+                ),
                 bounding_box=(0.2, 0.2, 0.6, 0.6),
                 landmarks=obj,
                 embedding=embedding,

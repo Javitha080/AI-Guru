@@ -55,13 +55,14 @@ def _project(yaw: float, pitch: float, roll: float, w: int = 640):
 
 
 def _recover(processor: PythonFaceProcessor, raw_landmarks, w=640):
-    """Run the production solvePnP path with neutral calibration bypassed.
+    """Run the production solvePnP path.
 
+    Neutral-pose calibration moved OFF the processor into the per-session
+    pipeline's NeutralCalibrator, so the processor is now calibration-free —
+    exactly the raw solver behavior these round-trip tests assert.
     A square frame keeps the synthetic rig's principal point identical to the
     production reconstruction (cy = h/2 must equal the projection's w/2).
     """
-    processor._neutral = None
-    processor._neutral_samples.clear()
     return processor._head_pose_from_pnp(raw_landmarks, w, w)
 
 

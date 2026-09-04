@@ -295,9 +295,7 @@ async def enroll_from_camera(
             from deeptutor.services.monitoring.face_identity import enroll_sface_from_engine
 
             sface_engine = getattr(pipeline, "_sface", None)
-            vector = (
-                enroll_sface_from_engine(sface_engine, sface_samples) if sface_engine else None
-            )
+            vector = enroll_sface_from_engine(sface_engine, sface_samples) if sface_engine else None
             if vector is not None:
                 embedding = vector
                 identity_mode = "sface"

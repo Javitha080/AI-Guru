@@ -145,15 +145,10 @@ def build_gaze(raw: List[Tuple[float, float, float]], pose: HeadPoseResult) -> G
         # EACH eye's vertical iris offset normalized by THAT eye's lid height,
         # then averaged — the old version used only the left iris divided by
         # the SUM of both lid gaps (~2x eye height), halving the signal.
-        l_h = max(
-            1e-6, (abs(raw[159][1] - raw[145][1]) + abs(raw[158][1] - raw[153][1])) / 2.0
-        )
-        r_h = max(
-            1e-6, (abs(raw[386][1] - raw[374][1]) + abs(raw[385][1] - raw[380][1])) / 2.0
-        )
+        l_h = max(1e-6, (abs(raw[159][1] - raw[145][1]) + abs(raw[158][1] - raw[153][1])) / 2.0)
+        r_h = max(1e-6, (abs(raw[386][1] - raw[374][1]) + abs(raw[385][1] - raw[380][1])) / 2.0)
         iris_dy = (
-            (raw[LEFT_IRIS_IDX][1] - l_mid[1]) / l_h
-            + (raw[RIGHT_IRIS_IDX][1] - r_mid[1]) / r_h
+            (raw[LEFT_IRIS_IDX][1] - l_mid[1]) / l_h + (raw[RIGHT_IRIS_IDX][1] - r_mid[1]) / r_h
         ) / 2.0
     except IndexError:
         iris_dx = iris_dy = 0.0

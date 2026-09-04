@@ -304,7 +304,9 @@ class PythonFaceProcessor:
         with self._infer_lock:
             return self._process_frame_locked(frame, result)
 
-    def _process_frame_locked(self, frame: "np.ndarray", result: FaceFrameResult) -> FaceFrameResult:
+    def _process_frame_locked(
+        self, frame: "np.ndarray", result: FaceFrameResult
+    ) -> FaceFrameResult:
         h, w = frame.shape[:2]
         result.frame_width = w
         result.frame_height = h
@@ -369,9 +371,12 @@ class PythonFaceProcessor:
 
         # --- Time-based phone detection with majority voting --------------
         now = time.time()
-        if self._object_detector is not None and (now - self._phone_last_run) >= PHONE_DETECT_INTERVAL_S:
+        if (
+            self._object_detector is not None
+            and (now - self._phone_last_run) >= PHONE_DETECT_INTERVAL_S
+        ):
             self._phone_last_run = now
-            crop = rgb[int(h * _PHONE_CROP_TOP):, :]
+            crop = rgb[int(h * _PHONE_CROP_TOP) :, :]
             if crop.size > 0:
                 crop_img = self._mp.Image(
                     image_format=self._mp.ImageFormat.SRGB,

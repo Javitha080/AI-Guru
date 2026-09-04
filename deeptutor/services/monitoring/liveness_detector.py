@@ -46,7 +46,9 @@ class LivenessDetector:
 
     # EAR Thresholds (defaults mirror monitoring_config.DEFAULT_THRESHOLDS —
     # the single source of truth; class attrs remain for backward compat).
-    EAR_CLOSED_THRESHOLD: float = DEFAULT_THRESHOLDS.ear_closed  # Below this, eye is considered closed
+    EAR_CLOSED_THRESHOLD: float = (
+        DEFAULT_THRESHOLDS.ear_closed
+    )  # Below this, eye is considered closed
     EAR_OPEN_THRESHOLD: float = DEFAULT_THRESHOLDS.ear_open  # Above this, eye is open
     MIN_EAR_VARIANCE_FOR_LIVE: float = DEFAULT_THRESHOLDS.min_ear_variance
 
@@ -73,7 +75,8 @@ class LivenessDetector:
         self._blink_count: int = 0
         self._was_closed: bool = False
         self._last_blink_time: float = 0.0
-        self._first_frame_time: float = 0.0
+        # -1 = no frame observed yet (0.0 is a VALID timestamp).
+        self._first_frame_time: float = -1.0
 
     def reset(self) -> None:
         """Reset historical buffers for a new session or check."""
@@ -82,7 +85,7 @@ class LivenessDetector:
         self._blink_count = 0
         self._was_closed = False
         self._last_blink_time = 0.0
-        self._first_frame_time = 0.0
+        self._first_frame_time = -1.0
 
     @staticmethod
     def calculate_eye_aspect_ratio(eye_points: List[Point3D]) -> float:
@@ -119,6 +122,14 @@ class LivenessDetector:
         Evaluate single incoming frame for liveness.
         """
         if landmarks is None:
+            # A reappearance is a FRESH liveness subject: dynamics observed
+            # from the previous face (or a long-gone one) must never vouch
+            # for whoever shows up next. Clear the windows outright.
+            self._ear_history.clear()
+            self._landmark_history.clear()
+            self._was_closed = False
+            self._last_blink_time = 0.0
+            self._first_frame_time = -1.0
             return LivenessResult(
                 is_live=False,
                 confidence=0.0,
@@ -156,7 +167,7 @@ class LivenessDetector:
             self._blink_count += 1
             self._last_blink_time = timestamp
             blink_just_occurred = True
-        if self._first_frame_time <= 0.0:
+        if self._first_frame_time < 0.0:
             self._first_frame_time = timestamp
 
         # 3. Calculate historical variance metrics
@@ -202,7 +213,9 @@ class LivenessDetector:
         # Static spoof detection: EAR is dead static AND nose coordinate is
         # perfectly frozen. Gated on enough observation history so a short
         # still moment cannot be judged a photograph.
-        observed_s = timestamp - self._first_frame_time if self._first_frame_time > 0.0 else 0.0
+        observed_s = (
+            max(0.0, timestamp - self._first_frame_time) if self._first_frame_time >= 0.0 else 0.0
+        )
         if (
             not has_blink
             and not has_ear_dynamics

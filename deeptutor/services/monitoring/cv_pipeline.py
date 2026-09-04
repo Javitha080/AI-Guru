@@ -47,7 +47,6 @@ from deeptutor.services.monitoring.presence_state_machine import (
 )
 from deeptutor.services.monitoring.schemas import (
     build_gaze_result,
-    build_pose_result,
     parse_pose_gaze,
 )
 from deeptutor.services.monitoring.warning_manager import (
@@ -66,6 +65,11 @@ SFACE_ENROLL_WINDOW_S = 3.0
 # Liveness confidence at/above which a not-live verdict is treated as an
 # active spoof attempt (rides the IDENTITY_MISMATCH alert path).
 SPOOF_CONFIDENCE_GATE = 0.90
+# The static verdict must hold this long before it forces the identity
+# mismatch path: the variance window dilutes for a handful of frames whenever
+# the observed face changes, and those transient readings must not flag a
+# genuine returning student.
+STATIC_SPOOF_SUSTAIN_S = 3.0
 
 
 def _load_sface_identity():
@@ -167,6 +171,11 @@ class LocalCVPipeline:
         # SFace neural identity (Patch F) — None when the model is absent.
         self._sface = _load_sface_identity()
         self._sface_last_run = 0.0
+        # Sustained static-spoof tracking + last frame's identity verdict
+        # (transition detection: a face that flips mismatch→match is a NEW
+        # subject and must prove liveness from scratch).
+        self._static_since: Optional[float] = None
+        self._prev_identity_match: Optional[bool] = None
 
     def reset_session(self) -> None:
         """Reset all stateful detectors for a fresh study session."""
@@ -180,6 +189,8 @@ class LocalCVPipeline:
         self.warning_manager.reset()
         self.neutral_calibrator.reset()
         self._sface_last_run = 0.0
+        self._static_since = None
+        self._prev_identity_match = None
 
     def enroll_student_baseline(
         self, embedding: List[float], identity_mode: str = "geometric"
@@ -225,7 +236,9 @@ class LocalCVPipeline:
             return None
         return [float(v) for v in emb] if emb is not None else None
 
-    def sface_enroll_vector(self, frame_bgr: Any, normalized_landmarks: List[Tuple[float, float, float]]) -> Optional[List[float]]:
+    def sface_enroll_vector(
+        self, frame_bgr: Any, normalized_landmarks: List[Tuple[float, float, float]]
+    ) -> Optional[List[float]]:
         """One-shot SFace embedding for enrollment (no cadence gate)."""
         if self._sface is None:
             return None
@@ -338,12 +351,43 @@ class LocalCVPipeline:
         # Consume the liveness verdict: a sustained static image / replay with
         # high confidence rides the existing IDENTITY_MISMATCH alert path so a
         # photo swap actually alerts the parent (proper SPOOF_SUSPECTED enum
-        # later). Without this, is_live was computed and never read.
-        spoof_suspect = (
+        # later). The verdict must be SUSTAINED — the variance window dilutes
+        # for a few frames whenever the observed face changes, and a transient
+        # "static" reading during that handover must never flag identity.
+        static_condition = (
             face_res.detected
             and not liveness_res.is_live
             and liveness_res.confidence >= SPOOF_CONFIDENCE_GATE
         )
+        if static_condition:
+            if self._static_since is None:
+                self._static_since = now
+            sustained_static = (now - self._static_since) >= STATIC_SPOOF_SUSTAIN_S
+        else:
+            self._static_since = None
+            sustained_static = False
+
+        # A face whose verdict flips mismatch→match is someone NEW sitting
+        # down (the genuine student returning). Their liveness proof must
+        # start fresh — re-evaluate this frame on a clean window.
+        if is_identity_match and self._prev_identity_match is False and face_res.detected:
+            self.liveness_detector.reset()
+            liveness_res = self.liveness_detector.evaluate_frame(
+                landmarks=face_res.landmarks,
+                timestamp=now,
+                texture_laplacian_var=laplacian_val,
+                ear_override=ear_override,
+            )
+            static_condition = (
+                not liveness_res.is_live and liveness_res.confidence >= SPOOF_CONFIDENCE_GATE
+            )
+            if not static_condition:
+                self._static_since = None
+                sustained_static = False
+        if face_res.detected:
+            self._prev_identity_match = is_identity_match
+
+        spoof_suspect = sustained_static
         if spoof_suspect and self._enrolled_face_vector is not None:
             # Consume the liveness verdict: the photo/replay rides the
             # IDENTITY_MISMATCH alert path. Un-enrolled sessions have no
@@ -362,9 +406,7 @@ class LocalCVPipeline:
             try:
                 from deeptutor.services.monitoring.face_solvers import euler_from_face_matrix
 
-                raw_angles = euler_from_face_matrix(
-                    [float(v) for v in head_matrix]
-                )
+                raw_angles = euler_from_face_matrix([float(v) for v in head_matrix])
             except (TypeError, ValueError):
                 raw_angles = None
         if raw_angles is None and isinstance(payload.get("head_angles_raw"), (list, tuple)):
@@ -404,11 +446,7 @@ class LocalCVPipeline:
             try:
                 from deeptutor.services.monitoring.face_solvers import build_gaze as _build_gaze
 
-                raw_list = [
-                    (p.x, p.y, p.z)
-                    for p in face_res.landmarks.all_points
-                    if p is not None
-                ]
+                raw_list = [(p.x, p.y, p.z) for p in face_res.landmarks.all_points if p is not None]
                 if len(raw_list) > 473:
                     gaze_res = _build_gaze(raw_list, pose_res)
             except Exception:  # noqa: BLE001 - gaze is a soft signal
@@ -530,7 +568,10 @@ class LocalCVPipeline:
                     raw_angles = None
         if raw_angles is None:
             return None
-        if abs(raw_angles[0]) > SFACE_FRONTAL_GATE_DEG or abs(raw_angles[1]) > SFACE_FRONTAL_GATE_DEG:
+        if (
+            abs(raw_angles[0]) > SFACE_FRONTAL_GATE_DEG
+            or abs(raw_angles[1]) > SFACE_FRONTAL_GATE_DEG
+        ):
             return None
         if now - self._sface_last_run < SFACE_INTERVAL_S:
             return None

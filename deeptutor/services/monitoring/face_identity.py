@@ -137,21 +137,15 @@ class SFaceIdentity:
         if self._rec is None or self._cv2 is None:
             return 0.0
         try:
-            return float(
-                self._rec.match(emb_a, emb_b, self._cv2.FaceRecognizerSF_FR_COSINE)
-            )
+            return float(self._rec.match(emb_a, emb_b, self._cv2.FaceRecognizerSF_FR_COSINE))
         except Exception:  # noqa: BLE001
             return 0.0
 
-    def verify(
-        self, current: np.ndarray, baseline: np.ndarray
-    ) -> Tuple[bool, float]:
+    def verify(self, current: np.ndarray, baseline: np.ndarray) -> Tuple[bool, float]:
         sim = self.similarity(current, baseline)
         return sim >= self.threshold, sim
 
-    def enroll_median(
-        self, embeddings: Sequence[np.ndarray]
-    ) -> Optional[np.ndarray]:
+    def enroll_median(self, embeddings: Sequence[np.ndarray]) -> Optional[np.ndarray]:
         """Robust enrollment template: per-dimension median of ≥N samples.
 
         One frame is a pose/expression snapshot; the median over a short

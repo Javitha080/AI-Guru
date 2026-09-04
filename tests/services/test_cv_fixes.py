@@ -423,13 +423,9 @@ class TestEngagementStabilityRate:
         est_slow = EngagementEstimator()  # 5 fps, same physical motion
         # 30 deg/s sweep: 3 deg/tick at 10fps, 6 deg/tick at 5fps.
         for i in range(10):
-            est_fast.update(
-                PresenceState.PRESENT, _pose(yaw=i * 3.0), True, timestamp=i * 0.1
-            )
+            est_fast.update(PresenceState.PRESENT, _pose(yaw=i * 3.0), True, timestamp=i * 0.1)
         for i in range(10):
-            est_slow.update(
-                PresenceState.PRESENT, _pose(yaw=i * 6.0), True, timestamp=i * 0.2
-            )
+            est_slow.update(PresenceState.PRESENT, _pose(yaw=i * 6.0), True, timestamp=i * 0.2)
         fast = est_fast._compute_stability()
         slow = est_slow._compute_stability()
         assert fast == pytest.approx(slow)
@@ -524,8 +520,8 @@ class TestIdentityStore:
     @pytest.mark.asyncio  # type: ignore[misc]
     async def test_baseline_survives_restart_simulation(self, isolated_db):
         """The exact regression: baseline lived in process memory only."""
-        from deeptutor.services.monitoring.cv_pipeline import LocalCVPipeline
         from deeptutor.services.monitoring import identity_store
+        from deeptutor.services.monitoring.cv_pipeline import LocalCVPipeline
 
         pipeline = LocalCVPipeline()
         emb = [0.02 * (i % 13) for i in range(128)]

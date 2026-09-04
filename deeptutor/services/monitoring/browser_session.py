@@ -270,8 +270,6 @@ async def browser_driven_monitoring_loop(
                     "confidence": analysis.distraction.confidence,
                     "duration_seconds": analysis.distraction.duration_seconds,
                 }
-                from deeptutor.services.background import spawn_bg
-
                 spawn_bg(
                     handle_warning(
                         session_id=session_id,

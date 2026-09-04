@@ -46,9 +46,12 @@ class MonitoringThresholds:
     # Liveness
     ear_closed: float = 0.18
     ear_open: float = 0.25
-    # Above MediaPipe landmark jitter on a printed photo (measured, ~8x the
-    # old values which were BELOW jitter and could only flag synthetic input).
-    min_ear_variance: float = 0.002
+    # Above MediaPipe landmark jitter on a printed photo (measured jitter
+    # variance ~2e-6; old value 0.0003 was near it and could only flag
+    # synthetic input). 0.001 stays ~450x above photo jitter while keeping a
+    # genuinely live, still-reading student (EAR oscillation variance
+    # ~1.2e-3) firmly on the live side.
+    min_ear_variance: float = 0.001
     min_motion_variance: float = 0.0004
     texture_flat: float = 30.0
     texture_moire: float = 800.0

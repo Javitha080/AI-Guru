@@ -59,7 +59,9 @@ class PresenceStateMachine:
     """
 
     # Defaults mirror monitoring_config.DEFAULT_THRESHOLDS (single source of truth).
-    DEFAULT_TEMP_ABSENT_THRESHOLD: float = DEFAULT_THRESHOLDS.temp_absent_seconds  # Seconds absent before TEMPORARILY_NOT_VISIBLE
+    DEFAULT_TEMP_ABSENT_THRESHOLD: float = (
+        DEFAULT_THRESHOLDS.temp_absent_seconds
+    )  # Seconds absent before TEMPORARILY_NOT_VISIBLE
     DEFAULT_AWAY_THRESHOLD: float = DEFAULT_THRESHOLDS.away_seconds  # Seconds absent before AWAY
     MIN_LUMINANCE_THRESHOLD: float = (
         DEFAULT_THRESHOLDS.min_luminance  # Luminance (0-255 scale) or 0.08 (0-1) below which is UNKNOWN

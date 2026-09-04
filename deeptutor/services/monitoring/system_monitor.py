@@ -341,9 +341,7 @@ class SystemMonitorSession:
 
         now = time.time()
         # JPEG ring encoding runs off the event loop (cv2.imencode is CPU work).
-        snapshot_b64 = await loop.run_in_executor(
-            None, self._ring_snapshot_locked, frame, now
-        )
+        snapshot_b64 = await loop.run_in_executor(None, self._ring_snapshot_locked, frame, now)
         payload = self._build_payload(result, now)
 
         # Neural identity (SFace): when the engine is enrolled, the face is
