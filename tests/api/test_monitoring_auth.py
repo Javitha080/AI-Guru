@@ -33,9 +33,7 @@ def test_engine_endpoints_reject_anonymous_callers(app):
 
     assert client.post("/api/v1/monitoring/enroll-face", json={}).status_code == 401
     assert (
-        client.post(
-            "/api/v1/monitoring/verify-liveness", json={"frames_landmarks": []}
-        ).status_code
+        client.post("/api/v1/monitoring/verify-liveness", json={"frames_landmarks": []}).status_code
         == 401
     )
     assert client.post("/api/v1/monitoring/analyze-frame", json={}).status_code == 401

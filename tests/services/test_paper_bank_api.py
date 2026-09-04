@@ -63,7 +63,9 @@ def _bank_paper(group: str, paper_no: int, paper_type: str, n_questions: int) ->
         if paper_type == "mcq":
             questions.append(
                 ExamQuestion(
-                    id=f"q{i}", number=i, question_type="choice",
+                    id=f"q{i}",
+                    number=i,
+                    question_type="choice",
                     text=f"{i}. 2+2? A) 3 B) 4 C) 5 D) 6",
                     options={"A": "3", "B": "4", "C": "5", "D": "6"},
                     reference_answer="B" if i % 2 else "C",
@@ -71,31 +73,59 @@ def _bank_paper(group: str, paper_no: int, paper_type: str, n_questions: int) ->
             )
         else:
             questions.append(
-                ExamQuestion(id=f"q{i}", number=i, question_type="written",
-                             text=f"{i}. Explain DNS.", marks=5.0)
+                ExamQuestion(
+                    id=f"q{i}",
+                    number=i,
+                    question_type="written",
+                    text=f"{i}. Explain DNS.",
+                    marks=5.0,
+                )
             )
     paper = ExamPaper(
-        exam_id=f"src-{group}-p{paper_no}", title=f"ICT Paper {paper_no}",
+        exam_id=f"src-{group}-p{paper_no}",
+        title=f"ICT Paper {paper_no}",
         questions=questions,
         mcq_duration_seconds=7200 if paper_type == "mcq" else 10800,
     )
     return {
-        "id": f"{group}-p{paper_no}", "group_key": group, "paper_no": paper_no,
-        "grade": 12, "subject": "ict", "year": 2021, "medium": "english",
-        "paper_type": paper_type, "title": paper.title, "file_hash": f"h-{group}-{paper_no}",
+        "id": f"{group}-p{paper_no}",
+        "group_key": group,
+        "paper_no": paper_no,
+        "grade": 12,
+        "subject": "ict",
+        "year": 2021,
+        "medium": "english",
+        "paper_type": paper_type,
+        "title": paper.title,
+        "file_hash": f"h-{group}-{paper_no}",
         "question_count": n_questions,
         "mcq_count": n_questions if paper_type == "mcq" else 0,
         "essay_count": 0 if paper_type == "mcq" else n_questions,
         "total_marks": n_questions if paper_type == "mcq" else 5 * n_questions,
         "default_duration_seconds": 7200 if paper_type == "mcq" else 10800,
-        "paper_json": {"exam_id": paper.exam_id, "title": paper.title, "questions": [
-            {"id": q.id, "number": q.number, "question_type": q.question_type,
-             "text": q.text, "options": q.options, "marks": q.marks,
-             "reference_answer": q.reference_answer, "explanation": None}
-            for q in questions
-        ], "mcq_duration_seconds": paper.mcq_duration_seconds,
-           "source_filename": "", "status": "created", "student_id": "student-primary"},
-        "scheme_answers": {}, "topic_tags": [],
+        "paper_json": {
+            "exam_id": paper.exam_id,
+            "title": paper.title,
+            "questions": [
+                {
+                    "id": q.id,
+                    "number": q.number,
+                    "question_type": q.question_type,
+                    "text": q.text,
+                    "options": q.options,
+                    "marks": q.marks,
+                    "reference_answer": q.reference_answer,
+                    "explanation": None,
+                }
+                for q in questions
+            ],
+            "mcq_duration_seconds": paper.mcq_duration_seconds,
+            "source_filename": "",
+            "status": "created",
+            "student_id": "student-primary",
+        },
+        "scheme_answers": {},
+        "topic_tags": [],
     }
 
 
@@ -138,7 +168,10 @@ def test_addon_menu_rules(client) -> None:
     sid = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={}).json()["sitting_id"]
 
     # Invalid menu option rejected.
-    assert client.post(f"/api/v1/paper_bank/sittings/{sid}/addon", json={"minutes": 7}).status_code == 422
+    assert (
+        client.post(f"/api/v1/paper_bank/sittings/{sid}/addon", json={"minutes": 7}).status_code
+        == 422
+    )
 
     # First purchase: +30 min at x0.75.
     ok = client.post(f"/api/v1/paper_bank/sittings/{sid}/addon", json={"minutes": 30}).json()
@@ -155,19 +188,28 @@ def test_addon_menu_rules(client) -> None:
     assert "purchase_cap" in capped.json()["detail"]
 
     # Unknown sitting → 404.
-    assert client.post("/api/v1/paper_bank/sittings/sit-nope/addon", json={"minutes": 15}).status_code == 404
+    assert (
+        client.post("/api/v1/paper_bank/sittings/sit-nope/addon", json={"minutes": 15}).status_code
+        == 404
+    )
 
 
 def test_full_sitting_submit_chain_and_xp_once(client) -> None:
     ids = _seed_sitting_pair()
-    started = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s1"}).json()
+    started = client.post(
+        f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s1"}
+    ).json()
     sid, parts = started["sitting_id"], {p["paper_no"]: p for p in started["parts"]}
     exam_p1, exam_p2 = parts[1]["exam_id"], parts[2]["exam_id"]
 
     # ---- Submit Paper 1: all correct ------------------------------------
-    answers = [{"question_id": f"q{i}", "option_key": ("B" if i % 2 else "C")} for i in range(1, 11)]
-    r1 = client.post(f"/api/v1/paper_bank/sittings/{sid}/submit",
-                     json={"exam_id": exam_p1, "student_id": "s1", "answers": answers})
+    answers = [
+        {"question_id": f"q{i}", "option_key": ("B" if i % 2 else "C")} for i in range(1, 11)
+    ]
+    r1 = client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/submit",
+        json={"exam_id": exam_p1, "student_id": "s1", "answers": answers},
+    )
     assert r1.status_code == 200, r1.text
     b1 = r1.json()
     assert b1["total_score"] == 10.0 and b1["part"]["status"] == "graded"
@@ -175,13 +217,22 @@ def test_full_sitting_submit_chain_and_xp_once(client) -> None:
     assert b1["xp_awarded"] is None and b1["next_part_started"]["paper_no"] == 2
 
     # Double-submit guarded by the graded claim.
-    assert client.post(f"/api/v1/paper_bank/sittings/{sid}/submit",
-                       json={"exam_id": exam_p1, "answers": []}).status_code == 409
+    assert (
+        client.post(
+            f"/api/v1/paper_bank/sittings/{sid}/submit", json={"exam_id": exam_p1, "answers": []}
+        ).status_code
+        == 409
+    )
 
     # ---- Submit Paper 2: essays grade fail-soft offline -------------------
-    r2 = client.post(f"/api/v1/paper_bank/sittings/{sid}/submit",
-                     json={"exam_id": exam_p2, "student_id": "s1",
-                           "answers": [{"question_id": "q1", "answer_text": "DNS maps names to IPs."}]})
+    r2 = client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/submit",
+        json={
+            "exam_id": exam_p2,
+            "student_id": "s1",
+            "answers": [{"question_id": "q1", "answer_text": "DNS maps names to IPs."}],
+        },
+    )
     assert r2.status_code == 200, r2.text
     b2 = r2.json()
     assert b2["sitting_complete"] is True
@@ -193,9 +244,11 @@ def test_full_sitting_submit_chain_and_xp_once(client) -> None:
     from deeptutor.services.path_service import get_path_service
 
     db = get_path_service().user_dir / "chat_history.db"
-    rows = sqlite3.connect(db).execute(
-        "SELECT amount_xp FROM rewards WHERE reason = ?", (f"sitting_completed:{sid}",)
-    ).fetchall()
+    rows = (
+        sqlite3.connect(db)
+        .execute("SELECT amount_xp FROM rewards WHERE reason = ?", (f"sitting_completed:{sid}",))
+        .fetchall()
+    )
     assert len(rows) == 1
     # Multiplier respected: base would be ≥100 for perfect MCQ half; with the
     # untouched P2 multiplier of 1.0 this stays the un-multiplied value here.
@@ -204,7 +257,9 @@ def test_full_sitting_submit_chain_and_xp_once(client) -> None:
 
 def test_result_review_reveals_answers_only_after_grading(client) -> None:
     ids = _seed_sitting_pair()
-    started = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s1"}).json()
+    started = client.post(
+        f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s1"}
+    ).json()
     sid = started["sitting_id"]
     exam_p1 = next(p["exam_id"] for p in started["parts"] if p["paper_no"] == 1)
 
@@ -213,8 +268,9 @@ def test_result_review_reveals_answers_only_after_grading(client) -> None:
     p1_pre = next(p for p in pre["parts"] if p["paper_no"] == 1)
     assert p1_pre["questions"][0]["reference_answer"] is None
 
-    client.post(f"/api/v1/paper_bank/sittings/{sid}/submit",
-                json={"exam_id": exam_p1, "answers": []})
+    client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/submit", json={"exam_id": exam_p1, "answers": []}
+    )
 
     post = client.get(f"/api/v1/paper_bank/sittings/{sid}/result").json()
     p1_post = next(p for p in post["parts"] if p["paper_no"] == 1)
@@ -229,14 +285,23 @@ def test_promote_upload_into_bank(client) -> None:
     from deeptutor.services.exams.store import ExamStore
 
     paper = ExamPaper(exam_id="exam-upload1", title="Uploaded ICT 2018 P1")
-    asyncio_run(ExamStore.save_paper({
-        "exam_id": paper.exam_id, "title": paper.title, "source_filename": "",
-        "status": "graded", "mcq_duration_seconds": 7200,
-        "questions": [],
-    }))
+    asyncio_run(
+        ExamStore.save_paper(
+            {
+                "exam_id": paper.exam_id,
+                "title": paper.title,
+                "source_filename": "",
+                "status": "graded",
+                "mcq_duration_seconds": 7200,
+                "questions": [],
+            }
+        )
+    )
 
-    res = client.post("/api/v1/paper_bank/promote",
-                      json={"exam_id": "exam-upload1", "subject": "ict", "grade": 13, "year": 2018})
+    res = client.post(
+        "/api/v1/paper_bank/promote",
+        json={"exam_id": "exam-upload1", "subject": "ict", "grade": 13, "year": 2018},
+    )
     assert res.status_code == 200, res.text
     bank_id = res.json()["bank_paper_id"]
     fetched = client.get(f"/api/v1/paper_bank/{bank_id}").json()
@@ -278,7 +343,9 @@ def _backdate(client_exam: str, *, ends_at: float, review_ends_at: float | None 
 
 def test_review_window_then_forced_submit(client) -> None:
     ids = _seed_sitting_pair()
-    started = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s2"}).json()
+    started = client.post(
+        f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s2"}
+    ).json()
     sid = started["sitting_id"]
     exam_p1 = next(p["exam_id"] for p in started["parts"] if p["paper_no"] == 1)
 
@@ -290,11 +357,16 @@ def test_review_window_then_forced_submit(client) -> None:
     assert p1["review_ends_at"] and p1["remaining_seconds"] <= 600
 
     # Double-check window: drafts still editable.
-    draft = client.put(f"/api/v1/paper_bank/sittings/{sid}/draft", json={
-        "exam_id": exam_p1,
-        "answers": [{"question_id": "q1", "option_key": "B"},
-                    {"question_id": "q2", "option_key": "C"}],
-    })
+    draft = client.put(
+        f"/api/v1/paper_bank/sittings/{sid}/draft",
+        json={
+            "exam_id": exam_p1,
+            "answers": [
+                {"question_id": "q1", "option_key": "B"},
+                {"question_id": "q2", "option_key": "C"},
+            ],
+        },
+    )
     assert draft.status_code == 200 and draft.json()["saved"] == 2
 
     # Review window also expires -> server force-submits the stored drafts.
@@ -316,17 +388,24 @@ def test_draft_rejected_after_grading(client) -> None:
     sid = started["sitting_id"]
     exam_p1 = next(p["exam_id"] for p in started["parts"] if p["paper_no"] == 1)
 
-    client.post(f"/api/v1/paper_bank/sittings/{sid}/submit",
-                json={"exam_id": exam_p1, "answers": []})
-    res = client.put(f"/api/v1/paper_bank/sittings/{sid}/draft", json={
-        "exam_id": exam_p1, "answers": [{"question_id": "q1", "option_key": "B"}],
-    })
+    client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/submit", json={"exam_id": exam_p1, "answers": []}
+    )
+    res = client.put(
+        f"/api/v1/paper_bank/sittings/{sid}/draft",
+        json={
+            "exam_id": exam_p1,
+            "answers": [{"question_id": "q1", "option_key": "B"}],
+        },
+    )
     assert res.status_code == 409
 
 
 def test_addon_requires_minimum_xp_balance(client) -> None:
     ids = _seed_sitting_pair()
-    started = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s3"}).json()
+    started = client.post(
+        f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s3"}
+    ).json()
     sid = started["sitting_id"]
 
     # Start seeded the one-time welcome grant.
@@ -370,27 +449,34 @@ def test_addon_requires_minimum_xp_balance(client) -> None:
 
 def test_explain_gated_until_part_graded(client) -> None:
     ids = _seed_sitting_pair()
-    started = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s4"}).json()
+    started = client.post(
+        f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s4"}
+    ).json()
     sid = started["sitting_id"]
     exam_p1 = next(p["exam_id"] for p in started["parts"] if p["paper_no"] == 1)
 
-    early = client.post(f"/api/v1/paper_bank/sittings/{sid}/explain",
-                        json={"exam_id": exam_p1, "question_id": "q1"})
+    early = client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/explain", json={"exam_id": exam_p1, "question_id": "q1"}
+    )
     assert early.status_code == 403
 
-    client.post(f"/api/v1/paper_bank/sittings/{sid}/submit",
-                json={"exam_id": exam_p1, "answers": []})
+    client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/submit", json={"exam_id": exam_p1, "answers": []}
+    )
 
     # After grading, the endpoint is reachable; offline LLM fails honest (502).
-    late = client.post(f"/api/v1/paper_bank/sittings/{sid}/explain",
-                       json={"exam_id": exam_p1, "question_id": "q1"})
+    late = client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/explain", json={"exam_id": exam_p1, "question_id": "q1"}
+    )
     assert late.status_code in (200, 502)
 
 
 def test_submit_from_review_window_allowed(client) -> None:
     """A student may manually submit during the double-check window."""
     ids = _seed_sitting_pair()
-    started = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s5"}).json()
+    started = client.post(
+        f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s5"}
+    ).json()
     sid = started["sitting_id"]
     exam_p1 = next(p["exam_id"] for p in started["parts"] if p["paper_no"] == 1)
 
@@ -398,10 +484,16 @@ def test_submit_from_review_window_allowed(client) -> None:
     state = client.get(f"/api/v1/paper_bank/sittings/{sid}").json()
     assert next(p for p in state["parts"] if p["paper_no"] == 1)["status"] == "review"
 
-    ok = client.post(f"/api/v1/paper_bank/sittings/{sid}/submit", json={
-        "exam_id": exam_p1,
-        "answers": [{"question_id": f"q{i}", "option_key": ("B" if i % 2 else "C")} for i in range(1, 11)],
-    })
+    ok = client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/submit",
+        json={
+            "exam_id": exam_p1,
+            "answers": [
+                {"question_id": f"q{i}", "option_key": ("B" if i % 2 else "C")}
+                for i in range(1, 11)
+            ],
+        },
+    )
     assert ok.status_code == 200, ok.text
     assert ok.json()["part"]["status"] == "graded"
 
@@ -410,7 +502,9 @@ def test_clock_forced_last_part_still_awards_xp_once(client) -> None:
     """When the FINAL part is force-submitted by the sitting clock (not the
     submit endpoint), sitting XP must still be awarded exactly once."""
     ids = _seed_sitting_pair()
-    started = client.post(f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s6"}).json()
+    started = client.post(
+        f"/api/v1/paper_bank/{ids['p1_id']}/start", json={"student_id": "s6"}
+    ).json()
     sid = started["sitting_id"]
     exam_p1 = next(p["exam_id"] for p in started["parts"] if p["paper_no"] == 1)
     exam_p2 = next(p["exam_id"] for p in started["parts"] if p["paper_no"] == 2)
@@ -418,10 +512,16 @@ def test_clock_forced_last_part_still_awards_xp_once(client) -> None:
     # P1 expires -> student manually submits during review.
     _backdate(exam_p1, ends_at=time.time() - 10)
     client.get(f"/api/v1/paper_bank/sittings/{sid}")
-    client.post(f"/api/v1/paper_bank/sittings/{sid}/submit",
-                json={"exam_id": exam_p1,
-                      "answers": [{"question_id": f"q{i}",
-                                   "option_key": ("B" if i % 2 else "C")} for i in range(1, 11)]})
+    client.post(
+        f"/api/v1/paper_bank/sittings/{sid}/submit",
+        json={
+            "exam_id": exam_p1,
+            "answers": [
+                {"question_id": f"q{i}", "option_key": ("B" if i % 2 else "C")}
+                for i in range(1, 11)
+            ],
+        },
+    )
 
     # P2 expires through its whole review window with drafts present.
     _backdate(exam_p2, ends_at=time.time() - 20)

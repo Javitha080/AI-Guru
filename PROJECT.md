@@ -11,7 +11,7 @@ AI Guru is a local-first AI tutoring platform built on the DeepTutor 1.5.11 arch
    - Unified WebSocket transport (`lib/unified-ws.ts`), single-flight Parent Portal API client (`lib/parent/parent-api.ts`), MediaPipe WebAssembly FaceLandmarker pipeline (`lib/monitoring/visionPipeline.ts`).
    - Workspace Views: Study Room (`/study-room`), Exam Room (`/exam`, `/papers`), Parent Portal (`/parent`), Unified Chat (`/home`), Floating PiP Guru, Achievements (`/achievements`), Book Creator (`/book`), Co-Writer (`/co-writer`), Settings (`/settings/*`).
 2. **Backend API & Service Layer (`deeptutor/`)**:
-   - FastAPI application (`deeptutor/api/main.py`) mounting 38 router modules (`deeptutor/api/routers/` + `multi_user/router.py`).
+   - FastAPI application (`deeptutor/api/main.py`) mounting 40 router modules (`deeptutor/api/routers/` + `multi_user/router.py`).
    - Services:
      - `services/monitoring/`: 8-stage CV pipeline, presence FSM (5s/20s thresholds), distraction whitelist, telemetry dispatcher.
      - `services/exams/`: Verbatim paper extraction (MinerU/Docling/MarkItDown), MCQ deterministic grader, LLM essay judge, paper bank sitting runner.
@@ -29,7 +29,7 @@ AI Guru is a local-first AI tutoring platform built on the DeepTutor 1.5.11 arch
 
 | # | Feature | Description | Milestone | Source |
 |---|---------|-------------|-----------|--------|
-| F01 | Backend Router Mounting & Wiring | 38 router modules in `deeptutor/api/routers/` fully wired with live endpoints | M1 (Backend Hardening) | Survey Backend |
+| F01 | Backend Router Mounting & Wiring | 40 router modules in `deeptutor/api/routers/` fully wired with live endpoints | M1 (Backend Hardening) | Survey Backend |
 | F02 | Payload Validation & Path Traversal Guards | Typed Pydantic models, strict path traversal checks, raster magic-byte validation | M1 (Backend Hardening) | Survey Backend |
 | F03 | Database Schema & Migration Integrity | Strict adherence to migrations 001–007, `metadata_json`, `study_sessions` CHECK, `ensure_kv_settings` | M1 (Backend Hardening) | Survey Backend |
 | F04 | Mock Elimination in Backend Services | Real CV pipeline, PBKDF2/AES-GCM vault, verbatim exam engine, real gamification | M1 (Backend Hardening) | Survey Backend |
@@ -50,7 +50,7 @@ AI Guru is a local-first AI tutoring platform built on the DeepTutor 1.5.11 arch
 | M1 | Backend Routers & API Wiring Audit | Audit all 38 backend routers, eliminate mock stubs, verify DB schema adherence, harden error handling | None | DONE |
 | M2 | Frontend Workspace Real-Data Wiring & Fallbacks | Audit workspace routes, eliminate fake metrics, verify honest fallback/loading states, ensure TS 0 errors | M1 | DONE |
 | M3 | UI/UX Motion Tokens & Transitions Polish | Apply transitions-dev and transitions-polish tokens across modals, tabs, dropdowns, thinking states | M2 | DONE |
-| M4 | E2E Multi-Tier Test Suite Verification | Run & verify full test suite (Tiers 1–5, 100 pytest tests, 413 frontend tests) | M1, M2, M3 | IN_PROGRESS |
+| M4 | E2E Multi-Tier Test Suite Verification | Run & verify full test suite (Tiers 1–5, 100 milestone pytest tests + 420 frontend tests) | M1, M2, M3 | IN_PROGRESS |
 | M5 | Comprehensive Diagnostic & Polish Report | Compile system-wide diagnostic, bug resolution, wiring inventory, and verification logs | M4 | PLANNED |
 
 ---
@@ -76,7 +76,7 @@ AI Guru is a local-first AI tutoring platform built on the DeepTutor 1.5.11 arch
 
 ## Code Layout
 
-- `deeptutor/api/routers/`: 37 REST & WebSocket routers.
+- `deeptutor/api/routers/`: 40 REST & WebSocket routers (incl. `multi_user/router.py`).
 - `deeptutor/services/`: Core business logic (monitoring, exams, remote/security, gamification, study, config).
 - `deeptutor/agents/`: LLM tutoring pipelines (chat, question, research, visualize, math_animator).
 - `web/app/(workspace)/`: User workspace routes (study-room, exam, papers, achievements, book, co-writer).

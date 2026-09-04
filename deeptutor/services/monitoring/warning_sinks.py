@@ -66,7 +66,8 @@ def fit_photo_b64(frame_b64: Optional[str]) -> Optional[str]:
             if img.size[0] * img.size[1] > 12_000_000:
                 logger.warning(
                     "Snapshot dimensions %sx%s exceed 12MP; sending text-only",
-                    img.size[0], img.size[1],
+                    img.size[0],
+                    img.size[1],
                 )
                 return None
             img = img.convert("RGB")
@@ -82,7 +83,8 @@ def fit_photo_b64(frame_b64: Optional[str]) -> Optional[str]:
             return None
         logger.info(
             "Downscaled oversized snapshot %d -> %d chars for Telegram photo",
-            len(frame_b64), len(shrunk),
+            len(frame_b64),
+            len(shrunk),
         )
         return shrunk
     except Exception as exc:  # noqa: BLE001 - photo is best-effort
@@ -159,7 +161,8 @@ async def queue_telegram_notification(
         elif len(photo_jpeg_b64 or "") > _MAX_PHOTO_B64_LEN:
             logger.warning(
                 "Dropped oversized Telegram photo for session %s (%d chars); alert sent text-only",
-                session_id, len(photo_jpeg_b64 or ""),
+                session_id,
+                len(photo_jpeg_b64 or ""),
             )
     try:
         from deeptutor.services.monitoring.notification_queue import (
@@ -206,16 +209,16 @@ async def stage_vault_evidence(
             # No visual evidence available (empty ring, no current frame):
             # the warning is still persisted + notified, but say so loudly
             # instead of silently staging nothing.
-            logger.warning(
-                "No vault evidence for %s (%s): frame ring empty", session_id, category
-            )
+            logger.warning("No vault evidence for %s (%s): frame ring empty", session_id, category)
             return
         if frames:
             decoded_frames = [f for f in (decode_jpeg(x) for x in frames[-30:]) if f]
             if not decoded_frames:
                 logger.warning(
                     "No vault evidence for %s (%s): %d ring frame(s) undecodable",
-                    session_id, category, len(frames),
+                    session_id,
+                    category,
+                    len(frames),
                 )
                 return
             fps = 5.0

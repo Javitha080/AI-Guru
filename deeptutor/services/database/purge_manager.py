@@ -29,13 +29,9 @@ class PurgeManager:
     def _verify_confirmation(self, confirmation: str) -> None:
         """Raises ValueError if confirmation doesn't match."""
         if confirmation != self.CONFIRMATION_PHRASE:
-            raise ValueError(
-                f"Confirmation phrase must be exactly '{self.CONFIRMATION_PHRASE}'"
-            )
+            raise ValueError(f"Confirmation phrase must be exactly '{self.CONFIRMATION_PHRASE}'")
 
-    async def purge_monitoring_history(
-        self, student_id: str, confirmation: str
-    ) -> Dict[str, Any]:
+    async def purge_monitoring_history(self, student_id: str, confirmation: str) -> Dict[str, Any]:
         """Delete all monitoring_events for a student's sessions."""
         self._verify_confirmation(confirmation)
 
@@ -50,14 +46,10 @@ class PurgeManager:
             deleted_count = cursor.rowcount
             await db.commit()
 
-        logger.info(
-            "Purged %d monitoring events for student %s", deleted_count, student_id
-        )
+        logger.info("Purged %d monitoring events for student %s", deleted_count, student_id)
         return {"deleted_count": deleted_count, "tables_affected": ["monitoring_events"]}
 
-    async def purge_session_history(
-        self, student_id: str, confirmation: str
-    ) -> Dict[str, Any]:
+    async def purge_session_history(self, student_id: str, confirmation: str) -> Dict[str, Any]:
         """Delete all study_sessions, session_reports, and monitoring_events for a student."""
         self._verify_confirmation(confirmation)
 
@@ -67,35 +59,30 @@ class PurgeManager:
         async with aiosqlite.connect(self.db_path) as db:
             # Order matters due to foreign keys: events → reports → sessions
             for table, where in [
-                ("monitoring_events", "session_id IN (SELECT id FROM study_sessions WHERE student_id = ?)"),
+                (
+                    "monitoring_events",
+                    "session_id IN (SELECT id FROM study_sessions WHERE student_id = ?)",
+                ),
                 ("session_reports", "student_id = ?"),
                 ("study_sessions", "student_id = ?"),
             ]:
-                cursor = await db.execute(
-                    f"DELETE FROM {table} WHERE {where}", (student_id,)
-                )
+                cursor = await db.execute(f"DELETE FROM {table} WHERE {where}", (student_id,))
                 if cursor.rowcount > 0:
                     total_deleted += cursor.rowcount
                     tables_affected.append(table)
             await db.commit()
 
-        logger.info(
-            "Purged %d session records for student %s", total_deleted, student_id
-        )
+        logger.info("Purged %d session records for student %s", total_deleted, student_id)
         return {"deleted_count": total_deleted, "tables_affected": tables_affected}
 
-    async def purge_rewards(
-        self, student_id: str, confirmation: str
-    ) -> Dict[str, Any]:
+    async def purge_rewards(self, student_id: str, confirmation: str) -> Dict[str, Any]:
         """Delete all rewards and reset XP/streak for a student."""
         self._verify_confirmation(confirmation)
 
         total_deleted = 0
 
         async with aiosqlite.connect(self.db_path) as db:
-            cursor = await db.execute(
-                "DELETE FROM rewards WHERE student_id = ?", (student_id,)
-            )
+            cursor = await db.execute("DELETE FROM rewards WHERE student_id = ?", (student_id,))
             total_deleted += cursor.rowcount
 
             # Reset XP and streak in students table
@@ -115,9 +102,7 @@ class PurgeManager:
             "tables_affected": ["rewards", "students"],
         }
 
-    async def purge_student_data(
-        self, student_id: str, confirmation: str
-    ) -> Dict[str, Any]:
+    async def purge_student_data(self, student_id: str, confirmation: str) -> Dict[str, Any]:
         """Delete ALL data for a student (sessions, events, reports, rewards, goals, the student record)."""
         self._verify_confirmation(confirmation)
 
@@ -126,7 +111,10 @@ class PurgeManager:
 
         # Delete in dependency order (children first)
         delete_specs = [
-            ("monitoring_events", "session_id IN (SELECT id FROM study_sessions WHERE student_id = ?)"),
+            (
+                "monitoring_events",
+                "session_id IN (SELECT id FROM study_sessions WHERE student_id = ?)",
+            ),
             ("session_reports", "student_id = ?"),
             ("rewards", "student_id = ?"),
             ("study_goals", "student_id = ?"),
@@ -138,9 +126,7 @@ class PurgeManager:
         async with aiosqlite.connect(self.db_path) as db:
             for table, where in delete_specs:
                 try:
-                    cursor = await db.execute(
-                        f"DELETE FROM {table} WHERE {where}", (student_id,)
-                    )
+                    cursor = await db.execute(f"DELETE FROM {table} WHERE {where}", (student_id,))
                     if cursor.rowcount > 0:
                         total_deleted += cursor.rowcount
                         tables_affected.append(table)

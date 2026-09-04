@@ -17,7 +17,7 @@
   ```powershell
   cd web ; npm.cmd run test:node
   ```
-  Expected: 63 test files passed, 413 tests passed, 0 failed.
+  Expected: 63 test files passed, 420 tests passed, 0 failed.
 
 ## Coverage Summary
 | Tier | Count | Description |
@@ -28,5 +28,5 @@
 | Tier 4. Real-World Application Workloads | 20+ | Multi-part exam sitting runners, study session lifecycle with pause/resume durations, paper bank catalog |
 | Tier 5. Adversarial & Security Stress | 25+ | CV face spoofing, brightness degradation, wrong-PIN HMAC attacks, tunnel status tampering, concurrent DB locks |
 | **Total Backend Pytest Tests** | **100** | **100% Passing** |
-| **Total Frontend Node Tests** | **413** | **100% Passing** |
+| **Total Frontend Node Tests** | **420** | **100% Passing** |
 | **TypeScript Diagnostics** | **0** | **Clean Compilation** |

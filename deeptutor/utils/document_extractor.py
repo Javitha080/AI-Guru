@@ -215,10 +215,21 @@ def extract_text_from_path(
 
 def _is_sinhala_legacy_font(font_name: str) -> bool:
     low = font_name.lower()
-    return any(tag in low for tag in [
-        "4u", "fm", "chami", "sawana", "milith", "malithi",
-        "abhaya", "bindumathi", "kaputa", "dl"
-    ])
+    return any(
+        tag in low
+        for tag in [
+            "4u",
+            "fm",
+            "chami",
+            "sawana",
+            "milith",
+            "malithi",
+            "abhaya",
+            "bindumathi",
+            "kaputa",
+            "dl",
+        ]
+    )
 
 
 def _extract_page_text_font_aware(page: Any) -> str:
@@ -244,6 +255,7 @@ def _extract_page_text_font_aware(page: Any) -> str:
 
     try:
         from pandukabhaya import Converter
+
         converter = Converter("fm_abhaya")
     except Exception:
         return page.get_text() or ""

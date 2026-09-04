@@ -25,12 +25,12 @@ from __future__ import annotations
 import http.client
 import math
 import socket
-import urllib.request
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 from unittest.mock import patch
+import urllib.request
 
-import pytest
 from fastapi.testclient import TestClient
+import pytest
 
 from deeptutor.api.main import app
 from deeptutor.services.monitoring import (
@@ -47,10 +47,10 @@ from deeptutor.services.monitoring import (
 from deeptutor.services.monitoring.distraction_analyzer import DistractionType, WhitelistedAction
 from deeptutor.services.monitoring.presence_state_machine import PresenceState
 
-
 # ============================================================================
 # 1. Cosine Similarity Adversarial Mathematical Boundaries
 # ============================================================================
+
 
 class TestCosineSimilarityAdversarialBoundaries:
     """Adversarial stress-testing of geometric embeddings and cosine similarity math."""
@@ -201,18 +201,18 @@ class TestCosineSimilarityAdversarialBoundaries:
 
         last_sim = 1.0
         for noise_scale in [0.05, 0.1, 0.2, 0.5, 1.0, 2.0]:
-            perturbed = [
-                b + noise_scale * math.sin(idx * 1.7)
-                for idx, b in enumerate(baseline)
-            ]
+            perturbed = [b + noise_scale * math.sin(idx * 1.7) for idx, b in enumerate(baseline)]
             sim = engine.compute_cosine_similarity(baseline, perturbed)
-            assert sim <= last_sim + 0.05, f"Similarity did not degrade as expected at scale {noise_scale}"
+            assert sim <= last_sim + 0.05, (
+                f"Similarity did not degrade as expected at scale {noise_scale}"
+            )
             last_sim = sim
 
 
 # ============================================================================
 # 2. Anti-Spoof Liveness Detector Adversarial Attacks
 # ============================================================================
+
 
 class TestAntiSpoofLivenessAdversarialAttacks:
     """Stress-testing liveness detection against photos, screens, and attacks."""
@@ -242,9 +242,7 @@ class TestAntiSpoofLivenessAdversarialAttacks:
                 texture_laplacian_var=25.0,  # Low texture for paper
             )
             if frame_idx >= 5:
-                assert res.is_live is False, (
-                    f"Frame {frame_idx} accepted static photo attack!"
-                )
+                assert res.is_live is False, f"Frame {frame_idx} accepted static photo attack!"
                 assert "static" in res.reason.lower() or "zero" in res.reason.lower()
                 assert res.ear_variance < 1e-6
                 assert res.motion_score < 1e-6
@@ -316,7 +314,7 @@ class TestAntiSpoofLivenessAdversarialAttacks:
         blink_seen = False
         for frame_idx in range(25):
             t = frame_idx * 0.1
-            is_blink_frame = (frame_idx in (10, 11))
+            is_blink_frame = frame_idx in (10, 11)
             eye_ratio = 0.08 if is_blink_frame else (0.30 + 0.01 * math.sin(frame_idx))
 
             # Natural nose micro-jitter
@@ -360,6 +358,7 @@ class TestAntiSpoofLivenessAdversarialAttacks:
 # ============================================================================
 # 3. Zero-Cloud Egress Invariant & Socket Interception
 # ============================================================================
+
 
 class TestZeroCloudEgressAdversarialSocketInterception:
     """
@@ -406,12 +405,23 @@ class TestZeroCloudEgressAdversarialSocketInterception:
         embedding = pipeline.face_engine.generate_geometric_embedding(landmarks)
         pipeline.enroll_student_baseline(embedding)
 
-        scenarios = ["normal_study", "writing_reading", "drinking_water", "looking_away", "phone_usage", "absent", "static_photo", "identity_mismatch"]
+        scenarios = [
+            "normal_study",
+            "writing_reading",
+            "drinking_water",
+            "looking_away",
+            "phone_usage",
+            "absent",
+            "static_photo",
+            "identity_mismatch",
+        ]
 
         for i in range(100):
             scenario = scenarios[i % len(scenarios)]
             payload = pipeline.generate_mock_telemetry(scenario=scenario, timestamp=i * 0.1)
-            result: FrameAnalysisResult = pipeline.process_telemetry_payload(payload, current_time=i * 0.1)
+            result: FrameAnalysisResult = pipeline.process_telemetry_payload(
+                payload, current_time=i * 0.1
+            )
 
             # Invariant: cloud_egress_bytes == 0
             assert result.cloud_egress_bytes == 0, f"Cloud egress breach at frame {i}"
@@ -469,6 +479,7 @@ class TestZeroCloudEgressAdversarialSocketInterception:
 # 4. Full End-to-End Adversarial Telemetry Lifecycle
 # ============================================================================
 
+
 class TestFullAdversarialTelemetryLifecycle:
     """End-to-end multi-phase student session simulation under adversarial conditions."""
 
@@ -495,7 +506,9 @@ class TestFullAdversarialTelemetryLifecycle:
 
         # Phase 2: Attacker photo spoof during preflight
         static_photo_seq = [student_lm] * 20
-        is_live_atk, conf_atk, _ = pipeline.liveness_detector.verify_preflight_sequence(static_photo_seq)
+        is_live_atk, conf_atk, _ = pipeline.liveness_detector.verify_preflight_sequence(
+            static_photo_seq
+        )
         assert is_live_atk is False, "Static photo spoof bypass succeeded!"
 
         # Phase 3: Genuine student blinking preflight

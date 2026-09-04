@@ -126,9 +126,7 @@ class BankStore:
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
             db.row_factory = aiosqlite.Row
-            cur = await db.execute(
-                "SELECT * FROM paper_bank WHERE file_hash = ?", (file_hash,)
-            )
+            cur = await db.execute("SELECT * FROM paper_bank WHERE file_hash = ?", (file_hash,))
             row = await cur.fetchone()
         return _deserialize(dict(row)) if row else None
 
@@ -149,9 +147,7 @@ class BankStore:
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
             db.row_factory = aiosqlite.Row
-            cur = await db.execute(
-                "SELECT * FROM paper_bank WHERE id = ?", (bank_paper_id,)
-            )
+            cur = await db.execute("SELECT * FROM paper_bank WHERE id = ?", (bank_paper_id,))
             row = await cur.fetchone()
         return _deserialize(dict(row)) if row else None
 
@@ -227,9 +223,7 @@ class BankStore:
     async def delete_paper(cls, bank_paper_id: str) -> bool:
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
-            cur = await db.execute(
-                "DELETE FROM paper_bank WHERE id = ?", (bank_paper_id,)
-            )
+            cur = await db.execute("DELETE FROM paper_bank WHERE id = ?", (bank_paper_id,))
             await db.commit()
             return cur.rowcount > 0
 

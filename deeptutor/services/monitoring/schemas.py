@@ -25,7 +25,9 @@ def canonical_brightness(value: Any, default: float = 0.5) -> float:
     return max(0.0, min(1.0, v))
 
 
-def parse_pose_gaze(payload: Dict[str, Any]) -> Tuple[Optional[Dict[str, Any]], Optional[Dict[str, Any]]]:
+def parse_pose_gaze(
+    payload: Dict[str, Any],
+) -> Tuple[Optional[Dict[str, Any]], Optional[Dict[str, Any]]]:
     """Return (pose_dict, gaze_dict) when both are present, else (None, None)."""
     pose = payload.get("pose")
     gaze = payload.get("gaze")
@@ -49,6 +51,7 @@ def build_pose_result(raw_p: Dict[str, Any]) -> Any:
         posture = PostureCategory(posture_raw)
     except ValueError:
         posture = PostureCategory.UNKNOWN
+
     def _f(key: str, default: float) -> float:
         try:
             v = float(raw_p.get(key, default))
@@ -74,6 +77,7 @@ def build_gaze_result(raw_g: Dict[str, Any]) -> Any:
 
     if not isinstance(raw_g, dict):
         raw_g = {}
+
     def _f(key: str, default: float) -> float:
         try:
             v = float(raw_g.get(key, default))

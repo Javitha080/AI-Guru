@@ -31,6 +31,7 @@ class PresenceState(str, enum.Enum):
 @dataclass
 class PresenceTransitionEvent:
     """Record of a presence state transition."""
+
     from_state: PresenceState
     to_state: PresenceState
     timestamp: float
@@ -41,6 +42,7 @@ class PresenceTransitionEvent:
 @dataclass
 class PresenceStateResult:
     """Current presence state snapshot."""
+
     state: PresenceState
     state_duration_seconds: float
     unobserved_duration_seconds: float
@@ -54,9 +56,11 @@ class PresenceStateMachine:
     Temporal hysteresis state machine for student presence tracking.
     """
 
-    DEFAULT_TEMP_ABSENT_THRESHOLD: float = 5.0   # Seconds absent before TEMPORARILY_NOT_VISIBLE
-    DEFAULT_AWAY_THRESHOLD: float = 20.0          # Seconds absent before AWAY
-    MIN_LUMINANCE_THRESHOLD: float = 20.0        # Luminance (0-255 scale) or 0.08 (0-1) below which is UNKNOWN
+    DEFAULT_TEMP_ABSENT_THRESHOLD: float = 5.0  # Seconds absent before TEMPORARILY_NOT_VISIBLE
+    DEFAULT_AWAY_THRESHOLD: float = 20.0  # Seconds absent before AWAY
+    MIN_LUMINANCE_THRESHOLD: float = (
+        20.0  # Luminance (0-255 scale) or 0.08 (0-1) below which is UNKNOWN
+    )
 
     def __init__(
         self,
@@ -104,7 +108,11 @@ class PresenceStateMachine:
             self._initialized = True
             self._last_transition_timestamp = timestamp
             self._last_seen_timestamp = timestamp if face_detected else (timestamp - 1.0)
-            self._current_state = PresenceState.PRESENT if (face_detected and confidence >= 0.5) else PresenceState.UNKNOWN
+            self._current_state = (
+                PresenceState.PRESENT
+                if (face_detected and confidence >= 0.5)
+                else PresenceState.UNKNOWN
+            )
 
         # Normalize brightness to 0-255 scale
         lum = brightness if brightness > 1.0 else (brightness * 255.0)
@@ -132,7 +140,11 @@ class PresenceStateMachine:
                 reason = f"Student temporarily unobserved for {unobserved_sec:.1f}s (>= {self.temp_absent_seconds}s)"
             else:
                 # Still within grace window: keep prior state (or PRESENT)
-                target_state = prev_state if prev_state != PresenceState.UNKNOWN else PresenceState.TEMPORARILY_NOT_VISIBLE
+                target_state = (
+                    prev_state
+                    if prev_state != PresenceState.UNKNOWN
+                    else PresenceState.TEMPORARILY_NOT_VISIBLE
+                )
                 reason = f"Within grace period ({unobserved_sec:.1f}s unobserved)"
 
         if target_state != prev_state:
@@ -148,10 +160,14 @@ class PresenceStateMachine:
             self._current_state = target_state
             self._last_transition_timestamp = timestamp
             state_changed = True
-            logger.info("Presence transition: %s -> %s (%s)", prev_state.value, target_state.value, reason)
+            logger.info(
+                "Presence transition: %s -> %s (%s)", prev_state.value, target_state.value, reason
+            )
 
         state_duration = max(0.0, timestamp - self._last_transition_timestamp)
-        unobserved_duration = 0.0 if face_detected else max(0.0, timestamp - self._last_seen_timestamp)
+        unobserved_duration = (
+            0.0 if face_detected else max(0.0, timestamp - self._last_seen_timestamp)
+        )
 
         return PresenceStateResult(
             state=self._current_state,

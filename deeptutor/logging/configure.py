@@ -36,6 +36,7 @@ class _SafeRotatingFileHandler(RotatingFileHandler):
             # threshold is hit.
             pass
 
+
 _CONFIGURED = False
 _MANAGED_ATTR = "_deeptutor_managed"
 

@@ -74,7 +74,7 @@ def _extract_grade_json(full_text: str) -> dict | None:
             depth -= 1
             if depth == 0:
                 try:
-                    parsed = _json.loads(full_text[start:i + 1])
+                    parsed = _json.loads(full_text[start : i + 1])
                 except _json.JSONDecodeError:
                     return None
                 grade = parsed.get("grade")

@@ -57,8 +57,12 @@ async def ensure_outbox(db: aiosqlite.Connection) -> None:
                 pass
 
 
-async def load_row(row_id: int):
-    async with aiosqlite.connect(db_path()) as db:
+async def load_row(row_id: int, *, path: Optional[str] = None):
+    # `path` lets the caller (notification_queue) route every operation through
+    # the SAME db_path indirection it exposes/publishes — enqueue, flush and
+    # mark must never read different databases (tests rely on it too).
+    db_file = path or db_path()
+    async with aiosqlite.connect(db_file) as db:
         db.row_factory = aiosqlite.Row
         cursor = await db.execute(
             "SELECT id, kind, payload_json, parent_id, retries FROM notification_outbox WHERE id = ?",
@@ -70,6 +74,7 @@ async def load_row(row_id: int):
 async def mark(
     row_id: int,
     *,
+    path: Optional[str] = None,
     sent: bool = False,
     dead: bool = False,
     error: Optional[str] = None,
@@ -77,7 +82,8 @@ async def mark(
     next_attempt: float = 0.0,
     back_to_pending: bool = False,
 ) -> None:
-    async with aiosqlite.connect(db_path()) as db:
+    db_file = path or db_path()
+    async with aiosqlite.connect(db_file) as db:
         if sent:
             await db.execute(
                 "UPDATE notification_outbox SET status='sent', sent_at=?, last_error=NULL WHERE id=?",

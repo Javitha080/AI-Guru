@@ -86,9 +86,7 @@ class ExamStore:
         for column, ddl in ExamStore._SITTING_COLUMNS:
             if column not in existing:
                 await db.execute(f"ALTER TABLE exams ADD COLUMN {column} {ddl}")
-        await db.execute(
-            "CREATE INDEX IF NOT EXISTS idx_exams_sitting ON exams(sitting_id)"
-        )
+        await db.execute("CREATE INDEX IF NOT EXISTS idx_exams_sitting ON exams(sitting_id)")
 
     @classmethod
     async def save_paper(
@@ -324,9 +322,7 @@ class ExamStore:
         out = []
         for r in rows:
             try:
-                paper = json.loads(
-                    (await cls._paper_json_raw(r["id"])) or "{}"
-                )
+                paper = json.loads((await cls._paper_json_raw(r["id"])) or "{}")
                 r["question_count"] = len(paper.get("questions", []))
             except Exception:  # noqa: BLE001
                 r["question_count"] = 0

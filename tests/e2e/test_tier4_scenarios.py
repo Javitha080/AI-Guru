@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import time
+
 import pytest
 
 from tests.e2e.conftest import (
@@ -98,10 +99,15 @@ class TestTier4RealWorldScenarios:
         )
 
         # Simulate 45 minutes of diligent studying (writing down notes on desk)
-        writing_frame = CVFrameTelemetry(timestamp=now + 600, face_detected=True, pitch=35.0, hand_at_desk=True)
+        writing_frame = CVFrameTelemetry(
+            timestamp=now + 600, face_detected=True, pitch=35.0, hand_at_desk=True
+        )
         activity = cv_pipeline.classify_activity(writing_frame)
         assert activity == PostureActivity.WRITING
-        assert cv_pipeline.evaluate_warning(activity, duration_seconds=600.0, timestamp=now + 600) is None
+        assert (
+            cv_pipeline.evaluate_warning(activity, duration_seconds=600.0, timestamp=now + 600)
+            is None
+        )
 
         # AI Tutor Turn 1
         tutor_resp1 = tutor_provider.complete("How do I choose u and dv in integration by parts?")
@@ -133,15 +139,22 @@ class TestTier4RealWorldScenarios:
         )
 
         # 5. Gamification Rewards: 45 min * 1.5 + 50 goal bonus = 67 + 50 = 117 XP
-        earned_xp = gamification_engine.calculate_earned_xp(duration_minutes=45.0, focus_score=98.5, goal_met=True)
+        earned_xp = gamification_engine.calculate_earned_xp(
+            duration_minutes=45.0, focus_score=98.5, goal_met=True
+        )
         assert earned_xp == 117
 
-        isolated_db.execute("UPDATE students SET streak_count = 5, total_xp = total_xp + ? WHERE id = 's_hs'", (earned_xp,))
+        isolated_db.execute(
+            "UPDATE students SET streak_count = 5, total_xp = total_xp + ? WHERE id = 's_hs'",
+            (earned_xp,),
+        )
         isolated_db.execute(
             "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp, badge_id, badge_name, unlocked_at) VALUES ('r_hs_1', 's_hs', ?, 'badge', ?, 'badge_laser_focus', 'Laser Focus', ?)",
             (session_id, earned_xp, end_time),
         )
-        isolated_db.execute("UPDATE study_goals SET is_completed = 1, current_value = 45 WHERE id = ?", (goal_id,))
+        isolated_db.execute(
+            "UPDATE study_goals SET is_completed = 1, current_value = 45 WHERE id = ?", (goal_id,)
+        )
 
         # Verify final student state
         student = isolated_db.fetchone("SELECT * FROM students WHERE id = 's_hs';")
@@ -169,10 +182,22 @@ class TestTier4RealWorldScenarios:
         """
         now = time.time()
         # Setup Student & Parent
-        isolated_db.execute("INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_ms', 'leo', 'pw', 'student', 'Leo Miller', ?, ?)", (now, now))
-        isolated_db.execute("INSERT INTO students (id, user_id, grade_level, created_at, updated_at) VALUES ('s_ms', 'u_ms', '7th', ?, ?)", (now, now))
-        isolated_db.execute("INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_pm', 'parent_miller', 'pw', 'parent', 'Mrs. Miller', ?, ?)", (now, now))
-        isolated_db.execute("INSERT INTO parents (id, user_id, email, created_at, updated_at) VALUES ('p_ms', 'u_pm', 'miller@example.com', ?, ?)", (now, now))
+        isolated_db.execute(
+            "INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_ms', 'leo', 'pw', 'student', 'Leo Miller', ?, ?)",
+            (now, now),
+        )
+        isolated_db.execute(
+            "INSERT INTO students (id, user_id, grade_level, created_at, updated_at) VALUES ('s_ms', 'u_ms', '7th', ?, ?)",
+            (now, now),
+        )
+        isolated_db.execute(
+            "INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_pm', 'parent_miller', 'pw', 'parent', 'Mrs. Miller', ?, ?)",
+            (now, now),
+        )
+        isolated_db.execute(
+            "INSERT INTO parents (id, user_id, email, created_at, updated_at) VALUES ('p_ms', 'u_pm', 'miller@example.com', ?, ?)",
+            (now, now),
+        )
 
         session_id = "sess_ms_science"
         isolated_db.execute(
@@ -274,10 +299,14 @@ class TestTier4RealWorldScenarios:
             (end_time, session_id),
         )
 
-        earned_xp = gamification_engine.calculate_earned_xp(duration_minutes=40.0, focus_score=94.0, goal_met=False)
+        earned_xp = gamification_engine.calculate_earned_xp(
+            duration_minutes=40.0, focus_score=94.0, goal_met=False
+        )
         assert earned_xp == int(40 * 1.2)  # 48 XP
 
-        isolated_db.execute("UPDATE students SET total_xp = total_xp + ? WHERE id = 's_hs'", (earned_xp,))
+        isolated_db.execute(
+            "UPDATE students SET total_xp = total_xp + ? WHERE id = 's_hs'", (earned_xp,)
+        )
 
         # Verify offline persistence
         sess = isolated_db.fetchone("SELECT * FROM study_sessions WHERE id = ?", (session_id,))
@@ -307,10 +336,22 @@ class TestTier4RealWorldScenarios:
         # Function-scoped DB: this scenario seeds its own identities/session
         # instead of depending on Scenario 2's data.
         now = time.time()
-        isolated_db.execute("INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_ms', 'leo', 'pw', 'student', 'Leo Miller', ?, ?)", (now, now))
-        isolated_db.execute("INSERT INTO students (id, user_id, grade_level, created_at, updated_at) VALUES ('s_ms', 'u_ms', '7th', ?, ?)", (now, now))
-        isolated_db.execute("INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_pm', 'parent_miller', 'pw', 'parent', 'Mrs. Miller', ?, ?)", (now, now))
-        isolated_db.execute("INSERT INTO parents (id, user_id, email, created_at, updated_at) VALUES ('p_ms', 'u_pm', 'miller@example.com', ?, ?)", (now, now))
+        isolated_db.execute(
+            "INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_ms', 'leo', 'pw', 'student', 'Leo Miller', ?, ?)",
+            (now, now),
+        )
+        isolated_db.execute(
+            "INSERT INTO students (id, user_id, grade_level, created_at, updated_at) VALUES ('s_ms', 'u_ms', '7th', ?, ?)",
+            (now, now),
+        )
+        isolated_db.execute(
+            "INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('u_pm', 'parent_miller', 'pw', 'parent', 'Mrs. Miller', ?, ?)",
+            (now, now),
+        )
+        isolated_db.execute(
+            "INSERT INTO parents (id, user_id, email, created_at, updated_at) VALUES ('p_ms', 'u_pm', 'miller@example.com', ?, ?)",
+            (now, now),
+        )
         isolated_db.execute(
             "INSERT INTO study_sessions (id, student_id, title, subject, target_duration_seconds, start_time, status, focus_score, created_at)"
             " VALUES (?, 's_ms', 'Cell Biology', 'Science', 1800, ?, 'in_progress', 94.0, ?)",
@@ -331,11 +372,15 @@ class TestTier4RealWorldScenarios:
         parent_gateway.stop_live_supervision(parent_id, session_id)
 
         # 4. Download Report
-        parent_gateway.log_audit(parent_id, "parent", "REPORT_DOWNLOAD_PDF", "session_report", "rep_ms_science")
+        parent_gateway.log_audit(
+            parent_id, "parent", "REPORT_DOWNLOAD_PDF", "session_report", "rep_ms_science"
+        )
 
         # 5. Security Audit Log Verification
-        logs = isolated_db.fetchall("SELECT * FROM audit_logs WHERE actor_id = ? ORDER BY id ASC;", (parent_id,))
-        actions = [l["action"] for l in logs]
+        logs = isolated_db.fetchall(
+            "SELECT * FROM audit_logs WHERE actor_id = ? ORDER BY id ASC;", (parent_id,)
+        )
+        actions = [entry["action"] for entry in logs]
         assert "PARENT_LOGIN" in actions
         assert "LIVE_FEED_START" in actions
         assert "LIVE_FEED_STOP" in actions

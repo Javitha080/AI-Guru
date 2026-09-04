@@ -99,8 +99,9 @@ async def browser_driven_monitoring_loop(
         except Exception as exc:  # noqa: BLE001
             logger.debug("Score persistence skipped for %s: %s", session_id, exc)
 
-    async def _log_episode(event_type: str, severity: str, confidence: float,
-                           duration_seconds: float, message: str) -> None:
+    async def _log_episode(
+        event_type: str, severity: str, confidence: float, duration_seconds: float, message: str
+    ) -> None:
         try:
             from deeptutor.services.study.telemetry_logger import TelemetryLogger
 
@@ -117,14 +118,16 @@ async def browser_driven_monitoring_loop(
 
     try:
         # Initial greeting with target FPS
-        await websocket.send_json({
-            "type": "session_init",
-            "session_id": session_id,
-            "mode": "browser",
-            "target_fps": pipeline.get_current_target_fps(),
-            "zero_cloud_egress": True,
-            "message": "AI Guru Local Study Monitoring Stream Active",
-        })
+        await websocket.send_json(
+            {
+                "type": "session_init",
+                "session_id": session_id,
+                "mode": "browser",
+                "target_fps": pipeline.get_current_target_fps(),
+                "zero_cloud_egress": True,
+                "message": "AI Guru Local Study Monitoring Stream Active",
+            }
+        )
 
         while True:
             # Receive telemetry payload from client
@@ -167,10 +170,9 @@ async def browser_driven_monitoring_loop(
             # Bounded acceptance rejects grossly skewed clocks.
             wall_now = time.time()
             frame_ts = payload.get("timestamp")
-            if (
-                isinstance(frame_ts, (int, float))
-                and (wall_now - _FRAME_TIMESTAMP_MAX_LAG) <= float(frame_ts) <= (wall_now + _FRAME_TIMESTAMP_MAX_AHEAD)
-            ):
+            if isinstance(frame_ts, (int, float)) and (
+                wall_now - _FRAME_TIMESTAMP_MAX_LAG
+            ) <= float(frame_ts) <= (wall_now + _FRAME_TIMESTAMP_MAX_AHEAD):
                 analysis_ts = float(frame_ts)
             else:
                 analysis_ts = wall_now
@@ -186,7 +188,10 @@ async def browser_driven_monitoring_loop(
 
             # --- edge-triggered telemetry persistence (real episodes) -------
             if analysis.presence.state_changed or analysis.presence.state != last_presence_state:
-                if last_presence_state is not None and analysis.presence.state != last_presence_state:
+                if (
+                    last_presence_state is not None
+                    and analysis.presence.state != last_presence_state
+                ):
                     await _log_episode(
                         "PRESENCE_CHANGE",
                         "info",
@@ -196,7 +201,11 @@ async def browser_driven_monitoring_loop(
                     )
                 last_presence_state = analysis.presence.state
 
-            dtype = analysis.distraction.distraction_type.value if analysis.distraction.is_distracted else None
+            dtype = (
+                analysis.distraction.distraction_type.value
+                if analysis.distraction.is_distracted
+                else None
+            )
             if episodes.on_frame(analysis.distraction.is_distracted, dtype):
                 assert dtype is not None
                 event_type = "PHONE_DETECTED" if "PHONE" in dtype.upper() else "LOOKING_AWAY"
@@ -230,7 +239,9 @@ async def browser_driven_monitoring_loop(
                 engagement_trend=analysis.engagement.trend,
                 posture=analysis.pose.posture.value,
                 is_distracted=analysis.distraction.is_distracted,
-                whitelisted_action=analysis.distraction.whitelisted_action.value if analysis.distraction.whitelisted_action else None,
+                whitelisted_action=analysis.distraction.whitelisted_action.value
+                if analysis.distraction.whitelisted_action
+                else None,
                 fps=analysis.fps,
             )
             response_data = telemetry_msg.to_dict()

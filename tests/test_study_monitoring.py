@@ -13,9 +13,11 @@ Covers Requirement R4:
 
 import math
 import time
-import pytest
-from fastapi.testclient import TestClient
 
+from fastapi.testclient import TestClient
+import pytest
+
+from deeptutor.api.main import app
 from deeptutor.services.monitoring.cv_pipeline import (
     FrameAnalysisResult,
     LocalCVPipeline,
@@ -56,12 +58,11 @@ from deeptutor.services.monitoring.warning_manager import (
     WarningEvent,
     WarningManager,
 )
-from deeptutor.api.main import app
-
 
 # ============================================================================
 # 1. Presence State Machine Tests (Temporal Hysteresis)
 # ============================================================================
+
 
 class TestPresenceStateMachine:
     """Test 4-state presence machine and hysteresis transitions."""
@@ -126,6 +127,7 @@ class TestPresenceStateMachine:
 # 2. Face Verification & Cosine Similarity Tests
 # ============================================================================
 
+
 class TestFaceEngineVerification:
     """Test cosine similarity math, vector normalization, and 0.65 threshold."""
 
@@ -176,6 +178,7 @@ class TestFaceEngineVerification:
 # ============================================================================
 # 3. Anti-Spoof Liveness Detector Tests
 # ============================================================================
+
 
 class TestAntiSpoofLivenessDetector:
     """Test passive/active liveness detection, EAR blinks, and static photo rejection."""
@@ -244,6 +247,7 @@ class TestAntiSpoofLivenessDetector:
 # 4. False-Positive Distraction Filter Tests
 # ============================================================================
 
+
 class TestDistractionAnalyzerWhitelist:
     """Test study whitelist (reading/writing/drinking) and flagged distractions."""
 
@@ -257,7 +261,16 @@ class TestDistractionAnalyzerWhitelist:
             is_facing_screen=False,
             is_reading_writing_pose=True,
         )
-        liveness = LivenessResult(is_live=True, confidence=0.95, blink_detected=False, ear=0.28, ear_variance=0.001, motion_score=0.001, texture_score=1.0, reason="Live")
+        liveness = LivenessResult(
+            is_live=True,
+            confidence=0.95,
+            blink_detected=False,
+            ear=0.28,
+            ear_variance=0.001,
+            motion_score=0.001,
+            texture_score=1.0,
+            reason="Live",
+        )
 
         res = analyzer.analyze(
             timestamp=100.0,
@@ -281,7 +294,16 @@ class TestDistractionAnalyzerWhitelist:
             is_facing_screen=False,
             is_reading_writing_pose=True,
         )
-        liveness = LivenessResult(is_live=True, confidence=0.95, blink_detected=False, ear=0.28, ear_variance=0.001, motion_score=0.001, texture_score=1.0, reason="Live")
+        liveness = LivenessResult(
+            is_live=True,
+            confidence=0.95,
+            blink_detected=False,
+            ear=0.28,
+            ear_variance=0.001,
+            motion_score=0.001,
+            texture_score=1.0,
+            reason="Live",
+        )
 
         res = analyzer.analyze(
             timestamp=100.0,
@@ -297,8 +319,24 @@ class TestDistractionAnalyzerWhitelist:
 
     def test_drinking_water_is_whitelisted(self):
         analyzer = DistractionAnalyzer()
-        pose = HeadPoseResult(yaw=0.0, pitch=5.0, roll=0.0, posture=PostureCategory.HEAD_CENTER, is_facing_screen=True, is_reading_writing_pose=False)
-        liveness = LivenessResult(is_live=True, confidence=0.95, blink_detected=False, ear=0.28, ear_variance=0.001, motion_score=0.001, texture_score=1.0, reason="Live")
+        pose = HeadPoseResult(
+            yaw=0.0,
+            pitch=5.0,
+            roll=0.0,
+            posture=PostureCategory.HEAD_CENTER,
+            is_facing_screen=True,
+            is_reading_writing_pose=False,
+        )
+        liveness = LivenessResult(
+            is_live=True,
+            confidence=0.95,
+            blink_detected=False,
+            ear=0.28,
+            ear_variance=0.001,
+            motion_score=0.001,
+            texture_score=1.0,
+            reason="Live",
+        )
 
         # Initial sip (duration 3s < 6s max)
         res = analyzer.analyze(
@@ -323,28 +361,79 @@ class TestDistractionAnalyzerWhitelist:
             is_facing_screen=False,
             is_reading_writing_pose=False,
         )
-        liveness = LivenessResult(is_live=True, confidence=0.95, blink_detected=False, ear=0.28, ear_variance=0.001, motion_score=0.001, texture_score=1.0, reason="Live")
+        liveness = LivenessResult(
+            is_live=True,
+            confidence=0.95,
+            blink_detected=False,
+            ear=0.28,
+            ear_variance=0.001,
+            motion_score=0.001,
+            texture_score=1.0,
+            reason="Live",
+        )
 
         # At t=100.0: first looking away frame
-        res1 = analyzer.analyze(timestamp=100.0, presence_state=PresenceState.PRESENT, pose=pose, liveness=liveness, identity_match=True)
+        res1 = analyzer.analyze(
+            timestamp=100.0,
+            presence_state=PresenceState.PRESENT,
+            pose=pose,
+            liveness=liveness,
+            identity_match=True,
+        )
         assert res1.is_distracted is False  # Within threshold grace
 
         # At t=112.0: 12 seconds looking away (> 10s threshold) -> Flagged
-        res2 = analyzer.analyze(timestamp=112.0, presence_state=PresenceState.PRESENT, pose=pose, liveness=liveness, identity_match=True)
+        res2 = analyzer.analyze(
+            timestamp=112.0,
+            presence_state=PresenceState.PRESENT,
+            pose=pose,
+            liveness=liveness,
+            identity_match=True,
+        )
         assert res2.is_distracted is True
         assert res2.distraction_type == DistractionType.LOOKING_AWAY
         assert res2.duration_seconds >= 10.0
 
     def test_phone_detected_is_flagged(self):
         analyzer = DistractionAnalyzer()
-        pose = HeadPoseResult(yaw=0.0, pitch=10.0, roll=0.0, posture=PostureCategory.HEAD_CENTER, is_facing_screen=True, is_reading_writing_pose=False)
-        liveness = LivenessResult(is_live=True, confidence=0.95, blink_detected=False, ear=0.28, ear_variance=0.001, motion_score=0.001, texture_score=1.0, reason="Live")
+        pose = HeadPoseResult(
+            yaw=0.0,
+            pitch=10.0,
+            roll=0.0,
+            posture=PostureCategory.HEAD_CENTER,
+            is_facing_screen=True,
+            is_reading_writing_pose=False,
+        )
+        liveness = LivenessResult(
+            is_live=True,
+            confidence=0.95,
+            blink_detected=False,
+            ear=0.28,
+            ear_variance=0.001,
+            motion_score=0.001,
+            texture_score=1.0,
+            reason="Live",
+        )
 
         # First frame phone seen
-        analyzer.analyze(timestamp=100.0, presence_state=PresenceState.PRESENT, pose=pose, liveness=liveness, identity_match=True, phone_object_detected=True)
+        analyzer.analyze(
+            timestamp=100.0,
+            presence_state=PresenceState.PRESENT,
+            pose=pose,
+            liveness=liveness,
+            identity_match=True,
+            phone_object_detected=True,
+        )
 
         # 5 seconds phone interaction (> 4s threshold)
-        res = analyzer.analyze(timestamp=105.0, presence_state=PresenceState.PRESENT, pose=pose, liveness=liveness, identity_match=True, phone_object_detected=True)
+        res = analyzer.analyze(
+            timestamp=105.0,
+            presence_state=PresenceState.PRESENT,
+            pose=pose,
+            liveness=liveness,
+            identity_match=True,
+            phone_object_detected=True,
+        )
         assert res.is_distracted is True
         assert res.distraction_type == DistractionType.PHONE_DETECTED
 
@@ -352,6 +441,7 @@ class TestDistractionAnalyzerWhitelist:
 # ============================================================================
 # 5. Warning Manager & 60-Second Cooldown Tests
 # ============================================================================
+
 
 class TestWarningManagerCooldown:
     """Test 60-second cooldown per category and confidence filtering."""
@@ -423,6 +513,7 @@ class TestWarningManagerCooldown:
 # ============================================================================
 # 6. Local Pipeline & Zero-Cloud Invariant Tests
 # ============================================================================
+
 
 class TestLocalCVPipelineAndAPI:
     """Test LocalCVPipeline execution and zero-cloud data leak invariant."""

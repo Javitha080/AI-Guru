@@ -15,8 +15,8 @@ An exhaustive, system-wide architectural audit, code review, API wiring analysis
 - **Backend Test Battery (`pytest`)**: **100 Passed, 0 Failed, 100% Success**  
   Covering: `tests/e2e/`, `tests/test_study_monitoring.py`, `tests/test_study_monitoring_stress.py`, `tests/test_cv_adversarial.py`, `tests/services/test_remote_security.py`, `tests/test_fresh_install_smoke.py`.
 - **Frontend TypeScript Compilation (`tsc --noEmit`)**: **0 Errors, 0 Warnings, 100% Clean**.
-- **Frontend Unit & Integration Tests (`npm run test:node`)**: **413 Passed, 0 Failed, 100% Success**.
-- **Backend Import & Router Integrity**: Verified clean startup of all 38 router modules (`deeptutor.api.main`).
+- **Frontend Unit & Integration Tests (`npm run test:node`)**: **420 Passed, 0 Failed, 100% Success**.
+- **Backend Import & Router Integrity**: Verified clean startup of all 40 router modules (`deeptutor.api.main`).
 
 ---
 
@@ -132,7 +132,7 @@ The database layer (`data/user/chat_history.db`) strictly adheres to versioned m
 | **Tier 4: Real-World Workloads** | Exam sitting runners & study sessions | **PASS** | Verbatim question parsing, multi-part sittings, pause-aware durations |
 | **Tier 5: Adversarial & Security** | Face spoof, PIN brute-force, auth gates | **PASS** | Anti-spoof liveness, PBKDF2 salt, HMAC tag validation |
 | **Backend Test Battery** | `pytest tests/e2e tests/...` | **PASS** | **100 passed**, 0 failed |
-| **Frontend Node Tests** | `npm run test:node` | **PASS** | **413 passed**, 0 failed |
+| **Frontend Node Tests** | `npm run test:node` | **PASS** | **420 passed**, 0 failed |
 | **Frontend TypeScript** | `npx tsc --noEmit` | **PASS** | **0 diagnostics**, 100% clean |
 | **Backend Module Import** | `deeptutor.api.main` | **PASS** | Clean startup, zero import errors |
 

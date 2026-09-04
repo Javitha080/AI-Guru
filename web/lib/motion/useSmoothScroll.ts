@@ -22,16 +22,10 @@
 import { useEffect, type RefObject } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type Lenis from "lenis";
 import { motionOK } from "./useGsapReveal";
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface LenisInstance {
-  raf: (time: number) => void;
-  on: (event: string, callback: () => void) => void;
-  off: (event: string, callback: () => void) => void;
-  destroy: () => void;
-}
 
 interface SmoothScrollOptions {
   /**
@@ -65,12 +59,13 @@ export function useSmoothScroll(
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     let disposed = false;
-    let instance: LenisInstance | null = null;
+    let instance: Lenis | null = null;
     let tick: ((time: number) => void) | null = null;
     const onScroll = () => ScrollTrigger.update();
 
     void (async () => {
-      // @ts-expect-error Lenis is loaded dynamically
+      // The bundler still tree-shakes the dynamic import, so Lenis never lands
+      // in the initial bundle; failing to load is tolerated below.
       const lenisModule = await import("lenis").catch(() => null);
       if (!lenisModule || disposed || !wrapperRef.current) return;
       const LenisCtor = lenisModule.default || lenisModule;

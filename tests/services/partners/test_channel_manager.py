@@ -7,6 +7,12 @@ from unittest.mock import AsyncMock
 
 import pytest
 
+# The registry-discovery test asserts that the built-in SDK-backed channels are
+# discovered; without the partner channel SDKs installed there is nothing to
+# discover, so skip rather than fail (CI installs the `partners` extra).
+pytest.importorskip("slack_sdk")
+pytest.importorskip("telegram")
+
 from deeptutor.partners.bus.events import OutboundMessage
 from deeptutor.partners.channels.manager import ChannelManager
 from deeptutor.partners.config.schema import ChannelsConfig

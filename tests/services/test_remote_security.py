@@ -36,7 +36,9 @@ def isolated_env(tmp_path: Path, monkeypatch):
     monkeypatch.setattr(JWTAuthService, "_get_db_path", staticmethod(lambda: db_path))
     monkeypatch.setattr(PairingService, "_get_db_path", staticmethod(lambda: db_path))
     monkeypatch.setattr(AuditLogger, "_get_db_path", staticmethod(lambda: db_path))
-    monkeypatch.setattr(VideoVaultManager, "get_vault_dir", classmethod(lambda cls: _ensure(vault_dir)))
+    monkeypatch.setattr(
+        VideoVaultManager, "get_vault_dir", classmethod(lambda cls: _ensure(vault_dir))
+    )
     monkeypatch.setattr(
         VideoVaultManager,
         "get_pending_dir",
@@ -63,8 +65,12 @@ async def test_vault_snapshot_roundtrip_and_wrong_pin(isolated_env):
     jpeg = b"\xff\xd8FAKEJPEG" + os.urandom(64)
 
     clip_id = await VideoVaultManager.save_encrypted_snapshot(
-        session_id="sess_x", student_id="s1", parent_pin=pin,
-        image_bytes=jpeg, event_type="PHONE_DETECTED", metadata={"confidence": 0.9},
+        session_id="sess_x",
+        student_id="s1",
+        parent_pin=pin,
+        image_bytes=jpeg,
+        event_type="PHONE_DETECTED",
+        metadata={"confidence": 0.9},
     )
     assert clip_id.endswith(".vault")
 
@@ -83,8 +89,9 @@ async def test_vault_pending_clip_seal_flow(isolated_env):
     pin = "998877"
     frames = [os.urandom(32) for _ in range(4)]
 
-    await VideoVaultManager.save_pending_clip("sess_y", "LOOKING_AWAY", frames, fps=5.0,
-                                              metadata={"confidence": 0.85})
+    await VideoVaultManager.save_pending_clip(
+        "sess_y", "LOOKING_AWAY", frames, fps=5.0, metadata={"confidence": 0.85}
+    )
     assert VideoVaultManager.count_pending() == 1
 
     sealed = await VideoVaultManager.seal_pending(pin)
@@ -103,8 +110,11 @@ async def test_vault_refuses_without_cryptography(isolated_env, monkeypatch):
     monkeypatch.setattr(vv_mod, "HAS_CRYPTOGRAPHY", False)
     with pytest.raises(RuntimeError):
         await VideoVaultManager.save_encrypted_snapshot(
-            session_id="s", student_id="st", parent_pin="1111",
-            image_bytes=b"x", event_type="E",
+            session_id="s",
+            student_id="st",
+            parent_pin="1111",
+            image_bytes=b"x",
+            event_type="E",
         )
 
 
@@ -337,9 +347,16 @@ def test_require_parent_http_gate(isolated_env, monkeypatch):
     secret = asyncio.run(JWTAuthService.get_secret_key())
     now = int(time.time())
     forged_student = pyjwt.encode(
-        {"sub": "student-primary", "role": "user", "type": "access",
-         "iat": now, "exp": now + 300, "jti": uuid.uuid4().hex},
-        secret, algorithm="HS256",
+        {
+            "sub": "student-primary",
+            "role": "user",
+            "type": "access",
+            "iat": now,
+            "exp": now + 300,
+            "jti": uuid.uuid4().hex,
+        },
+        secret,
+        algorithm="HS256",
     )
     # A *student*-role token must be rejected even if cryptographically valid.
     from deeptutor.services.remote import auth_jwt as aj
@@ -348,9 +365,16 @@ def test_require_parent_http_gate(isolated_env, monkeypatch):
     secret = asyncio.run(JWTAuthService.get_secret_key())
     now = int(time.time())
     forged_student = pyjwt.encode(
-        {"sub": "student-primary", "role": "user", "type": "access",
-         "iat": now, "exp": now + 300, "jti": uuid.uuid4().hex},
-        secret, algorithm="HS256",
+        {
+            "sub": "student-primary",
+            "role": "user",
+            "type": "access",
+            "iat": now,
+            "exp": now + 300,
+            "jti": uuid.uuid4().hex,
+        },
+        secret,
+        algorithm="HS256",
     )
     res = client.get("/guarded", headers={"Authorization": f"Bearer {forged_student}"})
     assert res.status_code == 401
@@ -417,12 +441,18 @@ async def test_vault_same_second_staging_never_collides(isolated_env):
 async def test_vault_session_filter_is_exact(isolated_env):
     pin = "7531"
     await VideoVaultManager.save_encrypted_snapshot(
-        session_id="abc", student_id="s", parent_pin=pin,
-        image_bytes=b"\xff\xd8a", event_type="E",
+        session_id="abc",
+        student_id="s",
+        parent_pin=pin,
+        image_bytes=b"\xff\xd8a",
+        event_type="E",
     )
     await VideoVaultManager.save_encrypted_snapshot(
-        session_id="abc123", student_id="s", parent_pin=pin,
-        image_bytes=b"\xff\xd8b", event_type="E",
+        session_id="abc123",
+        student_id="s",
+        parent_pin=pin,
+        image_bytes=b"\xff\xd8b",
+        event_type="E",
     )
     items = await VideoVaultManager.list_encrypted_snapshots(session_id="abc")
     assert {i["session_id"] for i in items} == {"abc"}
@@ -469,8 +499,13 @@ async def test_outbox_enqueue_flush_per_parent(alert_env, monkeypatch):
     monkeypatch.setattr(tn.TelegramNotifier, "send_message", fake_send)
 
     await TelegramConfigStore.save("default", bot_token="t", chat_id="1", enabled=True)
-    payload = {"category": "NOTICE", "message": "m", "severity": "warning",
-               "confidence": 0.9, "duration_seconds": 5}
+    payload = {
+        "category": "NOTICE",
+        "message": "m",
+        "severity": "warning",
+        "confidence": 0.9,
+        "duration_seconds": 5,
+    }
     assert await nq.enqueue("warning", payload) > 0
     assert await nq.flush_once(limit=5) == 1
     assert len(sent) == 1 and sent[0]["chat_id"] == "1"
@@ -494,9 +529,16 @@ async def test_outbox_concurrent_flush_delivers_once(alert_env, monkeypatch):
     monkeypatch.setattr(tn.TelegramNotifier, "send_message", slow_send)
 
     await TelegramConfigStore.save("default", bot_token="t", chat_id="1", enabled=True)
-    await nq.enqueue("warning", {"category": "NOTICE", "message": "m",
-                                 "severity": "warning", "confidence": 0.9,
-                                 "duration_seconds": 5})
+    await nq.enqueue(
+        "warning",
+        {
+            "category": "NOTICE",
+            "message": "m",
+            "severity": "warning",
+            "confidence": 0.9,
+            "duration_seconds": 5,
+        },
+    )
     results = await asyncio.gather(nq.flush_once(limit=5), nq.flush_once(limit=5))
     assert sum(results) == 1
     assert len(delivered) == 1
@@ -522,9 +564,17 @@ async def test_outbox_fans_out_to_linked_parents(alert_env, monkeypatch):
     gen2 = await PairingService.generate_pairing_code("kid1", "dad")
     await PairingService.verify_pairing_code("dad", gen2["code"])
 
-    rows = await nq.enqueue_for_student("warning", {"category": "NOTICE", "message": "m",
-                                                    "severity": "warning", "confidence": 0.9,
-                                                    "duration_seconds": 5}, "kid1")
+    rows = await nq.enqueue_for_student(
+        "warning",
+        {
+            "category": "NOTICE",
+            "message": "m",
+            "severity": "warning",
+            "confidence": 0.9,
+            "duration_seconds": 5,
+        },
+        "kid1",
+    )
     assert len(rows) == 2
     assert await nq.flush_once(limit=10) == 2
     assert sorted(chats) == ["100", "200"]
@@ -581,9 +631,7 @@ async def test_live_permission_denied_without_can_view_live(isolated_env, monkey
     async def fake_get_session(self, session_id):
         return {"student_id": "s1"}
 
-    monkeypatch.setattr(
-        PairingService, "get_linked_students", classmethod(fake_links)
-    )
+    monkeypatch.setattr(PairingService, "get_linked_students", classmethod(fake_links))
     from deeptutor.services.study import session_manager as sm
 
     monkeypatch.setattr(sm.StudySessionManager, "get_session", fake_get_session)

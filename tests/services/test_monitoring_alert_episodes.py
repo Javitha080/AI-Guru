@@ -133,9 +133,7 @@ class TestAwayEpisodeEdgeTriggering:
         # second absence must notify again despite no cooldown reset.
         t_second_absence = 420.0
         wm.observe_distraction_state(True, DistractionType.STUDENT_AWAY)
-        event = wm.evaluate_and_dispatch(
-            timestamp=t_second_absence, distraction=_away_result(0.0)
-        )
+        event = wm.evaluate_and_dispatch(timestamp=t_second_absence, distraction=_away_result(0.0))
         assert event is not None, "a NEW absence episode must notify again"
 
     def test_bare_evaluate_callers_keep_legacy_cooldown_semantics(self):
@@ -189,9 +187,7 @@ class TestSeverityAwareWarningCounts:
     """Info-level presence pings must not count as session warnings."""
 
     @pytest.mark.asyncio
-    async def test_summary_splits_actionable_warnings_from_info_pings(
-        self, isolated_telemetry_db
-    ):
+    async def test_summary_splits_actionable_warnings_from_info_pings(self, isolated_telemetry_db):
         logger = TelemetryLogger()
 
         events = [

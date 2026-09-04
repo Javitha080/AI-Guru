@@ -25,7 +25,12 @@ _PROVIDER_REASONING_PATTERNS = {
 # Models that ship with thinking enabled by default and burn the entire
 # `max_tokens` budget on reasoning unless we explicitly turn it off via the
 # top-level ``reasoning_effort`` field. Substring match — also catches the
-_PROVIDER_DEFAULT_OFF_PATTERNS: dict[str, tuple[str, ...]] = {}
+# ``models/``-prefixed Gemini aliases and is case-insensitive (see
+# :func:`_matches`). Legacy Gemini 1.5/2.0 models (which do not think by
+# default) intentionally do not match these patterns.
+_PROVIDER_DEFAULT_OFF_PATTERNS: dict[str, tuple[str, ...]] = {
+    "gemini": ("gemini-2.5", "gemini-3.0"),
+}
 _CUSTOM_MODEL_THINKING_STYLES: tuple[tuple[tuple[str, ...], str], ...] = (
     (("qwen3", "qwen-3", "qwq", "qwen-plus"), "enable_thinking"),
     (("deepseek-v4-pro", "deepseek-reasoner"), "thinking_type"),

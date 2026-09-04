@@ -193,7 +193,9 @@ async def promote(req: PromoteRequest):
     if req.year:
         meta.year = req.year
     if meta.year is None:
-        raise HTTPException(status_code=422, detail="year could not be determined — pass year explicitly")
+        raise HTTPException(
+            status_code=422, detail="year could not be determined — pass year explicitly"
+        )
 
     # Answers already on the paper become the stored scheme.
     scheme: Dict[str, str] = {}
@@ -203,27 +205,31 @@ async def promote(req: PromoteRequest):
 
     counts = paper.counts()
     row_id = f"{meta.group_key}-p{meta.paper_no}"
-    await BankStore.upsert_paper({
-        "id": row_id,
-        "group_key": meta.group_key,
-        "paper_no": meta.paper_no,
-        "grade": meta.grade,
-        "subject": meta.subject,
-        "year": meta.year,
-        "medium": meta.medium,
-        "paper_type": meta.paper_type if meta.paper_type != "mixed" else ("mcq" if counts["mcq_count"] > counts["essay_count"] else "structured"),
-        "title": paper.title,
-        "source_filename": data.get("source_filename", ""),
-        # Stable content hash (no original file bytes available here).
-        "file_hash": "promoted-" + hashlib.sha256(_dumps(data).encode()).hexdigest()[:16],
-        **counts,
-        "total_marks": counts["question_count"],
-        "default_duration_seconds": paper.mcq_duration_seconds,
-        "paper_json": json.loads(_dumps(data)),
-        "scheme_answers": scheme,
-        "topic_tags": [],
-        "created_at": time.time(),
-    })
+    await BankStore.upsert_paper(
+        {
+            "id": row_id,
+            "group_key": meta.group_key,
+            "paper_no": meta.paper_no,
+            "grade": meta.grade,
+            "subject": meta.subject,
+            "year": meta.year,
+            "medium": meta.medium,
+            "paper_type": meta.paper_type
+            if meta.paper_type != "mixed"
+            else ("mcq" if counts["mcq_count"] > counts["essay_count"] else "structured"),
+            "title": paper.title,
+            "source_filename": data.get("source_filename", ""),
+            # Stable content hash (no original file bytes available here).
+            "file_hash": "promoted-" + hashlib.sha256(_dumps(data).encode()).hexdigest()[:16],
+            **counts,
+            "total_marks": counts["question_count"],
+            "default_duration_seconds": paper.mcq_duration_seconds,
+            "paper_json": json.loads(_dumps(data)),
+            "scheme_answers": scheme,
+            "topic_tags": [],
+            "created_at": time.time(),
+        }
+    )
     return {"bank_paper_id": row_id, "group_key": meta.group_key}
 
 
@@ -326,20 +332,21 @@ async def sitting_state(sitting_id: str):
             remaining = max(0, int((r["ends_at"] or 0) - now))
         elif r["status"] == "review":
             remaining = max(0, int((review_ends_at or now) - now))
-        parts.append({
-            "exam_id": r["id"],
-            "paper_no": r["paper_no"],
-            "title": r["title"],
-            "status": r["status"],
-            "phase": phase,
-            "time_up": bool(r["status"] in ("active", "review") and
-                            (r["ends_at"] or 0) <= now),
-            "remaining_seconds": remaining,
-            "review_ends_at": review_ends_at,
-            "addon_seconds_used": r["addon_seconds_used"],
-            "xp_multiplier": r["xp_multiplier"],
-            "duration_seconds": r["mcq_duration_seconds"],
-        })
+        parts.append(
+            {
+                "exam_id": r["id"],
+                "paper_no": r["paper_no"],
+                "title": r["title"],
+                "status": r["status"],
+                "phase": phase,
+                "time_up": bool(r["status"] in ("active", "review") and (r["ends_at"] or 0) <= now),
+                "remaining_seconds": remaining,
+                "review_ends_at": review_ends_at,
+                "addon_seconds_used": r["addon_seconds_used"],
+                "xp_multiplier": r["xp_multiplier"],
+                "duration_seconds": r["mcq_duration_seconds"],
+            }
+        )
     return {
         "sitting_id": sitting_id,
         "server_now": now,
@@ -373,10 +380,12 @@ async def _enter_review(exam_id: str, ends_at: float) -> bool:
     meta = data.get("bank_meta") or {}
     # Never shorten a window that was already set (e.g. restored sessions).
     existing = float(meta.get("review_ends_at") or 0)
-    meta.update({
-        "review_ends_at": existing or (ends_at + REVIEW_WINDOW_SECONDS),
-        "review_window_seconds": REVIEW_WINDOW_SECONDS,
-    })
+    meta.update(
+        {
+            "review_ends_at": existing or (ends_at + REVIEW_WINDOW_SECONDS),
+            "review_window_seconds": REVIEW_WINDOW_SECONDS,
+        }
+    )
     data["bank_meta"] = meta
     await ExamStore.update_fields(exam_id, paper_json=_dumps(data))
     return True
@@ -399,14 +408,21 @@ async def _advance_sitting_clock(sitting_id: str) -> None:
         if review_end and now >= review_end:
             drafts = await ExamStore.get_answers(r["id"])
             answers = [
-                {"question_id": a["question_id"], "option_key": a.get("option_key", ""),
-                 "answer_text": a.get("answer_text", "")}
+                {
+                    "question_id": a["question_id"],
+                    "option_key": a.get("option_key", ""),
+                    "answer_text": a.get("answer_text", ""),
+                }
                 for a in drafts
             ]
             try:
-                await _finalize_part(sitting_id, r, answers,
-                                     student_id=str(r.get("student_id") or "student-primary"),
-                                     auto_submitted=True)
+                await _finalize_part(
+                    sitting_id,
+                    r,
+                    answers,
+                    student_id=str(r.get("student_id") or "student-primary"),
+                    auto_submitted=True,
+                )
             except Exception as exc:  # noqa: BLE001 - state endpoint must survive
                 logger.warning("Forced submit failed for %s: %s", r["id"], exc)
 
@@ -453,7 +469,11 @@ async def _finalize_part(
     now = time.time()
     answer_by_qid = {a.get("question_id"): a for a in answers}
     for row in result["results"]:
-        graded = bool(row["verdict"]) or row["question_type"] in ("choice", "concept", "fill_in_blank")
+        graded = bool(row["verdict"]) or row["question_type"] in (
+            "choice",
+            "concept",
+            "fill_in_blank",
+        )
         await ExamStore.upsert_answer(
             exam_id,
             {
@@ -470,28 +490,29 @@ async def _finalize_part(
         meta = data.get("bank_meta") or {}
         meta["auto_submitted"] = True
         data["bank_meta"] = meta
-    await ExamStore.update_fields(exam_id, submitted_at=now, status="graded",
-                                  student_id=student_id)
+    await ExamStore.update_fields(exam_id, submitted_at=now, status="graded", student_id=student_id)
     data["submitted_at"] = now
     await ExamStore.update_fields(exam_id, paper_json=_dumps(data))
 
     # ---- practice log (best effort analytics) ---------------------------
     try:
-        await BankStore.log_practice([
-            {
-                "student_id": student_id,
-                "bank_paper_id": target["bank_paper_id"],
-                "exam_id": exam_id,
-                "question_id": row["question_id"],
-                "topic": "",
-                "question_type": row["question_type"],
-                "verdict": row["verdict"],
-                "awarded": row["awarded"],
-                "max_marks": row["max_marks"],
-                "practiced_at": now,
-            }
-            for row in result["results"]
-        ])
+        await BankStore.log_practice(
+            [
+                {
+                    "student_id": student_id,
+                    "bank_paper_id": target["bank_paper_id"],
+                    "exam_id": exam_id,
+                    "question_id": row["question_id"],
+                    "topic": "",
+                    "question_type": row["question_type"],
+                    "verdict": row["verdict"],
+                    "awarded": row["awarded"],
+                    "max_marks": row["max_marks"],
+                    "practiced_at": now,
+                }
+                for row in result["results"]
+            ]
+        )
     except Exception as exc:  # noqa: BLE001
         logger.debug("practice log failed: %s", exc)
 
@@ -504,8 +525,12 @@ async def _finalize_part(
         nxt = ordered[idx + 1]
         ends_at = now + int(nxt["mcq_duration_seconds"] or 7200)
         await ExamStore.update_fields(nxt["id"], status="active", started_at=now, ends_at=ends_at)
-        next_part = {"exam_id": nxt["id"], "paper_no": nxt["paper_no"],
-                     "duration_seconds": nxt["mcq_duration_seconds"], "ends_at": ends_at}
+        next_part = {
+            "exam_id": nxt["id"],
+            "paper_no": nxt["paper_no"],
+            "duration_seconds": nxt["mcq_duration_seconds"],
+            "ends_at": ends_at,
+        }
 
     return {
         **result,
@@ -526,13 +551,15 @@ async def submit_part(sitting_id: str, req: SubmitAnswersRequest):
         raise HTTPException(status_code=409, detail="Part already submitted")
 
     result = await _finalize_part(
-        sitting_id, target, req.answers,
-        student_id=req.student_id, auto_submitted=False,
+        sitting_id,
+        target,
+        req.answers,
+        student_id=req.student_id,
+        auto_submitted=False,
     )
 
     # ---- final XP once the WHOLE sitting is graded ------------------------
-    ordered = sorted(await ExamStore.get_sitting(sitting_id),
-                     key=lambda r: r["paper_no"] or 1)
+    ordered = sorted(await ExamStore.get_sitting(sitting_id), key=lambda r: r["paper_no"] or 1)
     xp_awarded = await _maybe_complete_sitting(sitting_id, ordered, req.student_id)
 
     return {
@@ -616,7 +643,9 @@ async def addon_time(sitting_id: str, req: AddonRequest):
     if not active:
         raise HTTPException(status_code=409, detail="No active part — nothing to extend")
     if len(active) > 1:  # pragma: no cover - invariant guard
-        raise HTTPException(status_code=500, detail="Sitting invariant violated: multiple active parts")
+        raise HTTPException(
+            status_code=500, detail="Sitting invariant violated: multiple active parts"
+        )
 
     student_id = str(active[0].get("student_id") or "student-primary")
     balance = await _xp_balance(student_id)
@@ -627,7 +656,9 @@ async def addon_time(sitting_id: str, req: AddonRequest):
         )
 
     result = await ExamStore.grant_addon(
-        active[0]["id"], seconds=req.minutes * 60, multiplier_factor=factor,
+        active[0]["id"],
+        seconds=req.minutes * 60,
+        multiplier_factor=factor,
         max_purchases=MAX_ADDON_PURCHASES,
     )
     if not result.get("ok"):
@@ -758,15 +789,21 @@ async def _maybe_complete_sitting(
             part_awarded = sum(float(a.get("awarded") or 0) for a in part_answers)
             part_pct = round(100 * part_awarded / max(1.0, float(part_paper.total_marks)))
             parts_bits.append(f"P{r['paper_no']}: {part_pct}%")
-        await enqueue_for_student("session_summary", {
-            "student_id": student_id,
-            "student_name": student_id,
-            "subject": "Past-Paper Sitting",
-            "duration_minutes": int(sum((r.get("mcq_duration_seconds") or 0) for r in ordered) // 60),
-            "focus_score": round(pct * 100),
-            "xp_earned": xp_awarded,
-            "summary": "Sitting complete — " + " · ".join(parts_bits),
-        }, student_id)
+        await enqueue_for_student(
+            "session_summary",
+            {
+                "student_id": student_id,
+                "student_name": student_id,
+                "subject": "Past-Paper Sitting",
+                "duration_minutes": int(
+                    sum((r.get("mcq_duration_seconds") or 0) for r in ordered) // 60
+                ),
+                "focus_score": round(pct * 100),
+                "xp_earned": xp_awarded,
+                "summary": "Sitting complete — " + " · ".join(parts_bits),
+            },
+            student_id,
+        )
     except Exception as exc:  # noqa: BLE001 - notifications are optional
         logger.debug("Parent sitting notification skipped: %s", exc)
     return xp_awarded
@@ -796,7 +833,13 @@ async def _award_sitting_xp(student_id: str, xp: int, sitting_id: str) -> None:
             "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp, badge_id,"
             " badge_name, badge_icon, reason, unlocked_at)"
             " VALUES (?, ?, NULL, 'xp', ?, '', '', '', ?, ?)",
-            (f"reward-{uuid.uuid4().hex[:12]}", student_id, int(xp), f"sitting_completed:{sitting_id}", now),
+            (
+                f"reward-{uuid.uuid4().hex[:12]}",
+                student_id,
+                int(xp),
+                f"sitting_completed:{sitting_id}",
+                now,
+            ),
         )
         await db.commit()
 
@@ -824,38 +867,42 @@ async def sitting_result(sitting_id: str):
             ans = by_qid.get(q.id, {})
             awarded = float(ans.get("awarded", 0) or 0)
             part_score += awarded
-            results.append({
-                "question_id": q.id,
-                "number": q.number,
-                "question_type": q.question_type,
-                "text": q.text,
-                "options": q.options,
-                "answer_text": ans.get("answer_text", ""),
-                "option_key": ans.get("option_key", ""),
-                "reference_answer": q.reference_answer if reveal else None,
-                "explanation": q.explanation if reveal else None,
-                "awarded": round(awarded, 2),
-                "max_marks": q.marks,
-                "verdict": ans.get("verdict", ""),
-                "feedback": ans.get("feedback", "") if reveal else "",
-                "graded": bool(ans.get("graded")),
-            })
+            results.append(
+                {
+                    "question_id": q.id,
+                    "number": q.number,
+                    "question_type": q.question_type,
+                    "text": q.text,
+                    "options": q.options,
+                    "answer_text": ans.get("answer_text", ""),
+                    "option_key": ans.get("option_key", ""),
+                    "reference_answer": q.reference_answer if reveal else None,
+                    "explanation": q.explanation if reveal else None,
+                    "awarded": round(awarded, 2),
+                    "max_marks": q.marks,
+                    "verdict": ans.get("verdict", ""),
+                    "feedback": ans.get("feedback", "") if reveal else "",
+                    "graded": bool(ans.get("graded")),
+                }
+            )
 
         duration_taken = None
         if r["started_at"] and r["submitted_at"]:
             duration_taken = int(max(0, r["submitted_at"] - r["started_at"]))
-        parts_out.append({
-            "exam_id": r["id"],
-            "paper_no": r["paper_no"],
-            "title": r["title"],
-            "status": r["status"],
-            "score": round(part_score, 2),
-            "max_marks": float(paper.total_marks or 0),
-            "duration_taken_seconds": duration_taken,
-            "addon_seconds_used": r["addon_seconds_used"],
-            "xp_multiplier": r["xp_multiplier"],
-            "questions": results,
-        })
+        parts_out.append(
+            {
+                "exam_id": r["id"],
+                "paper_no": r["paper_no"],
+                "title": r["title"],
+                "status": r["status"],
+                "score": round(part_score, 2),
+                "max_marks": float(paper.total_marks or 0),
+                "duration_taken_seconds": duration_taken,
+                "addon_seconds_used": r["addon_seconds_used"],
+                "xp_multiplier": r["xp_multiplier"],
+                "questions": results,
+            }
+        )
         totals["score"] += part_score
         totals["marks"] += float(paper.total_marks or 0)
 

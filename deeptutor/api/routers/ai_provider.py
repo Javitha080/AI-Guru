@@ -45,7 +45,9 @@ class ActivatePayload(BaseModel):
     """One-shot first-run / settings wizard submission."""
 
     mode: Literal["auto", "cloud", "ollama", "offline"]
-    provider: str = Field(default="openai", description="openai | deepseek | anthropic | dashscope | custom")
+    provider: str = Field(
+        default="openai", description="openai | deepseek | anthropic | dashscope | custom"
+    )
     api_key: Optional[str] = None
     base_url: Optional[str] = None
     model: Optional[str] = None
@@ -54,7 +56,10 @@ class ActivatePayload(BaseModel):
 
 
 class KeySavePayload(BaseModel):
-    provider: str = Field(default="openai", description="Provider identifier, e.g. 'openai', 'deepseek', 'anthropic', 'dashscope'")
+    provider: str = Field(
+        default="openai",
+        description="Provider identifier, e.g. 'openai', 'deepseek', 'anthropic', 'dashscope'",
+    )
     api_key: str = Field(..., description="API key to store in local vault")
 
 
@@ -208,6 +213,7 @@ async def test_provider_connection(payload: ProviderTestPayload) -> dict[str, An
         api_key = payload.api_key
         if not api_key:
             from deeptutor.services.llm.config import get_llm_config
+
             api_key = get_llm_config().api_key
 
         if not api_key or api_key == "sk-no-key-required":
@@ -258,7 +264,9 @@ async def get_ollama_models(host: str = "http://127.0.0.1:11434") -> dict[str, A
             async with session.get(f"{host_clean}/api/tags") as resp:
                 if resp.status == 200:
                     data = await resp.json()
-                    installed_models = [m.get("name") for m in data.get("models", []) if m.get("name")]
+                    installed_models = [
+                        m.get("name") for m in data.get("models", []) if m.get("name")
+                    ]
                     ollama_online = True
     except Exception:
         ollama_online = False
@@ -274,7 +282,9 @@ async def get_ollama_models(host: str = "http://127.0.0.1:11434") -> dict[str, A
 
 
 @router.post("/ollama/pull", summary="Pull / Download Ollama Model")
-async def pull_ollama_model(payload: OllamaPullPayload, host: str = "http://127.0.0.1:11434") -> dict[str, Any]:
+async def pull_ollama_model(
+    payload: OllamaPullPayload, host: str = "http://127.0.0.1:11434"
+) -> dict[str, Any]:
     """
     Trigger download of a model in local Ollama daemon.
     """
@@ -283,7 +293,9 @@ async def pull_ollama_model(payload: OllamaPullPayload, host: str = "http://127.
     timeout = aiohttp.ClientTimeout(total=10)
     try:
         async with aiohttp.ClientSession(timeout=timeout) as session:
-            async with session.post(url, json={"name": payload.model, "stream": False, "insecure": payload.insecure}) as resp:
+            async with session.post(
+                url, json={"name": payload.model, "stream": False, "insecure": payload.insecure}
+            ) as resp:
                 if resp.status == 200:
                     return {
                         "status": "success",
@@ -371,4 +383,3 @@ async def delete_vault_key(provider: str) -> dict[str, Any]:
         "provider": provider,
         "message": f"Key for provider '{provider}' deleted from vault",
     }
-

@@ -129,7 +129,9 @@ async def lifespan(app: FastAPI):
             conn.row_factory = sqlite3.Row
             newly_applied = apply_migrations(conn)
             if newly_applied:
-                logger.info("AI Guru database schema migrated successfully (version %s)", newly_applied)
+                logger.info(
+                    "AI Guru database schema migrated successfully (version %s)", newly_applied
+                )
     except Exception as e:
         logger.warning("Failed to auto-migrate database on startup: %s", e)
 
@@ -555,7 +557,9 @@ app.include_router(quiz_judge.router, prefix="/api/v1", tags=["quiz-judge"])
 
 # Local Study Monitoring Engine (REST + WebSocket)
 app.include_router(monitoring.router, prefix="/api/v1/monitoring", tags=["monitoring"])
-app.include_router(study_session.router, prefix='/api/v1/study-session', tags=['study-session'], dependencies=_auth)
+app.include_router(
+    study_session.router, prefix="/api/v1/study-session", tags=["study-session"], dependencies=_auth
+)
 
 from deeptutor.api.routers import parent
 
@@ -565,8 +569,8 @@ from deeptutor.api.routers import parent
 # route still demands the parent PIN-JWT server-side via require_parent.
 app.include_router(
     parent.router,
-    prefix='/api/v1/parent',
-    tags=['parent'],
+    prefix="/api/v1/parent",
+    tags=["parent"],
     dependencies=[Depends(parent.parent_context)],
 )
 

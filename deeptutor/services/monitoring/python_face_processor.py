@@ -78,12 +78,12 @@ RIGHT_IRIS_IDX = 473
 # paired with image landmarks: nose, chin, eye outer corners, mouth corners.
 _PNP_MODEL_POINTS = np.array(
     [
-        (0.0, 0.0, 0.0),          # nose tip            ↔ idx 1
-        (0.0, -330.0, -65.0),     # chin                ↔ idx 152
+        (0.0, 0.0, 0.0),  # nose tip            ↔ idx 1
+        (0.0, -330.0, -65.0),  # chin                ↔ idx 152
         (-225.0, 170.0, -135.0),  # eye outer corner A  ↔ idx 33
-        (225.0, 170.0, -135.0),   # eye outer corner B  ↔ idx 263
+        (225.0, 170.0, -135.0),  # eye outer corner B  ↔ idx 263
         (-150.0, -150.0, -125.0),  # mouth corner A     ↔ idx 61
-        (150.0, -150.0, -125.0),   # mouth corner B     ↔ idx 291
+        (150.0, -150.0, -125.0),  # mouth corner B     ↔ idx 291
     ],
     dtype=np.float64,
 )
@@ -206,7 +206,9 @@ class PythonFaceProcessor:
             if self._enable_object_detection:
                 obj_model = resolve_model_path(
                     "DEEPTUTOR_OBJECT_MODEL_PATH",
-                    Path(self._object_model_path) if self._object_model_path else _DEFAULT_OBJECT_MODEL,
+                    Path(self._object_model_path)
+                    if self._object_model_path
+                    else _DEFAULT_OBJECT_MODEL,
                 )
                 if obj_model is not None:
                     det_options = mp.tasks.vision.ObjectDetectorOptions(
@@ -215,7 +217,9 @@ class PythonFaceProcessor:
                         max_results=5,
                         score_threshold=_PHONE_SCORE_THRESHOLD,
                     )
-                    self._object_detector = mp.tasks.vision.ObjectDetector.create_from_options(det_options)
+                    self._object_detector = mp.tasks.vision.ObjectDetector.create_from_options(
+                        det_options
+                    )
                 else:
                     logger.info("Phone-detection model missing; phone alerts stay inactive")
             self._mp = mp
@@ -338,7 +342,9 @@ class PythonFaceProcessor:
 
     # ------------------------------------------------------------- head pose
 
-    def _head_pose_from_pnp(self, raw: List[Tuple[float, float, float]], w: int, h: int) -> Tuple[float, float, float]:
+    def _head_pose_from_pnp(
+        self, raw: List[Tuple[float, float, float]], w: int, h: int
+    ) -> Tuple[float, float, float]:
         yaw, pitch, roll = _solve_pnp_angles(
             raw, w, h, _PNP_MODEL_POINTS, _PNP_IMAGE_IDX, _FLIP_X, _PITCH_SIGN
         )
@@ -371,7 +377,9 @@ class PythonFaceProcessor:
 
     # ----------------------------------------------------------------- gaze
 
-    def _build_gaze(self, raw: List[Tuple[float, float, float]], pose: HeadPoseResult) -> GazeResult:
+    def _build_gaze(
+        self, raw: List[Tuple[float, float, float]], pose: HeadPoseResult
+    ) -> GazeResult:
         return _build_gaze_solver(raw, pose)
 
     # ------------------------------------------------------- phone detector
@@ -381,7 +389,10 @@ class PythonFaceProcessor:
             det = self._object_detector.detect(mp_image)
             for detection in getattr(det, "detections", []) or []:
                 for category in detection.categories:
-                    if category.category_name.lower() in _PHONE_LABELS and category.score >= _PHONE_SCORE_THRESHOLD:
+                    if (
+                        category.category_name.lower() in _PHONE_LABELS
+                        and category.score >= _PHONE_SCORE_THRESHOLD
+                    ):
                         return True
         except Exception as exc:  # noqa: BLE001
             logger.debug("Object detector tick failed: %s", exc)
@@ -390,9 +401,9 @@ class PythonFaceProcessor:
     # -------------------------------------------------------------- overlay
 
     _STATE_COLORS = {
-        "focused": (90, 200, 90),      # BGR green
-        "drifting": (60, 165, 255),    # BGR amber
-        "distracted": (60, 60, 230),   # BGR red
+        "focused": (90, 200, 90),  # BGR green
+        "drifting": (60, 165, 255),  # BGR amber
+        "distracted": (60, 60, 230),  # BGR red
     }
 
     def draw_overlay(
@@ -412,15 +423,20 @@ class PythonFaceProcessor:
 
         if result.detected and result.raw_landmarks:
             overlay = annotated.copy()
-            for (x, y, _z) in result.raw_landmarks:
+            for x, y, _z in result.raw_landmarks:
                 cv2.circle(overlay, (int(x * w), int(y * h)), 1, (255, 235, 160), -1)
             annotated = cv2.addWeighted(overlay, 0.35, annotated, 0.65, 0)
 
-            nx, ny = int(result.raw_landmarks[NOSE_TIP_IDX][0] * w), int(result.raw_landmarks[NOSE_TIP_IDX][1] * h)
+            nx, ny = (
+                int(result.raw_landmarks[NOSE_TIP_IDX][0] * w),
+                int(result.raw_landmarks[NOSE_TIP_IDX][1] * h),
+            )
             if result.gaze is not None:
                 dx = int(result.gaze.gaze_x * 110)
                 dy = int(result.gaze.gaze_y * 110)
-                cv2.arrowedLine(annotated, (nx, ny), (nx + dx, ny + dy), (255, 255, 120), 2, tipLength=0.28)
+                cv2.arrowedLine(
+                    annotated, (nx, ny), (nx + dx, ny + dy), (255, 255, 120), 2, tipLength=0.28
+                )
             for iris_idx in (LEFT_IRIS_IDX, RIGHT_IRIS_IDX):
                 if len(result.raw_landmarks) > iris_idx:
                     ix, iy = result.raw_landmarks[iris_idx][:2]
@@ -434,9 +450,13 @@ class PythonFaceProcessor:
         if result.pose is not None:
             hud_bits.append(result.pose.posture.value.replace("_", " ").title())
         cv2.rectangle(annotated, (10, 10), (250, 52), (20, 20, 20), -1)
-        cv2.putText(annotated, hud_bits[0], (18, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.72, (255, 255, 255), 2)
+        cv2.putText(
+            annotated, hud_bits[0], (18, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.72, (255, 255, 255), 2
+        )
         if len(hud_bits) > 1:
-            cv2.putText(annotated, hud_bits[1][:34], (18, 48), cv2.FONT_HERSHEY_SIMPLEX, 0.42, color, 1)
+            cv2.putText(
+                annotated, hud_bits[1][:34], (18, 48), cv2.FONT_HERSHEY_SIMPLEX, 0.42, color, 1
+            )
         return annotated
 
 

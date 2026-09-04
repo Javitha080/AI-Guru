@@ -1,23 +1,25 @@
 import asyncio
 import time
-from deeptutor.services.config.model_catalog import get_model_catalog_service
+
 from deeptutor.core.agentic.client import LLMClientConfig, build_openai_client
+from deeptutor.services.config.model_catalog import get_model_catalog_service
+
 
 async def main():
     catalog_svc = get_model_catalog_service()
     catalog = catalog_svc.load()
-    profile = catalog_svc.get_active_profile(catalog, 'llm')
-    model_entry = catalog_svc.get_active_model(catalog, 'llm')
-    
+    profile = catalog_svc.get_active_profile(catalog, "llm")
+    model_entry = catalog_svc.get_active_model(catalog, "llm")
+
     provider_name = profile.get("name") if profile else "None"
     base_url = profile.get("base_url") if profile else "None"
     model_name = model_entry.get("model") if model_entry else "None"
     api_key = profile.get("api_key") if profile else ""
-    
+
     print(f"Testing Configured Provider: {provider_name}")
     print(f"Base URL: {base_url}")
     print(f"Model: {model_name}")
-    
+
     cfg = LLMClientConfig(
         binding=profile.get("binding", "gemini") if profile else "gemini",
         model=model_name,
@@ -25,7 +27,7 @@ async def main():
         base_url=base_url,
     )
     client = build_openai_client(cfg)
-    
+
     print("\n1. Measuring Non-Streaming Latency...")
     t0 = time.perf_counter()
     try:
@@ -63,6 +65,7 @@ async def main():
         print(f"  Content: {''.join(chunks)}")
     except Exception as e:
         print(f"  [FAILED]: {e}")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

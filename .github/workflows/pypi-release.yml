@@ -40,15 +40,16 @@ jobs:
           ref: ${{ github.event.release.tag_name }}
           fetch-depth: 0
 
-      - name: Verify release tag is on main
+      - name: Verify release tag is on the default branch
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin main:refs/remotes/origin/main --no-tags
+          git fetch origin master:refs/remotes/origin/master --no-tags
+          git fetch origin main:refs/remotes/origin/main --no-tags || true
           tag="${{ github.event.release.tag_name }}"
           tag_commit="$(git rev-list -n 1 "$tag")"
-          if ! git merge-base --is-ancestor "$tag_commit" origin/main; then
-            echo "Release tag $tag ($tag_commit) is not on origin/main; refusing to publish to PyPI." >&2
+          if ! git merge-base --is-ancestor "$tag_commit" origin/master && ! git merge-base --is-ancestor "$tag_commit" origin/main; then
+            echo "Release tag $tag ($tag_commit) is not on origin/master or origin/main; refusing to publish to PyPI." >&2
             exit 1
           fi
 

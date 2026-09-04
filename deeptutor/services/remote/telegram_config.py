@@ -85,12 +85,21 @@ class TelegramConfigStore:
             data = json.loads(row[0])
         except Exception:  # noqa: BLE001
             logger.debug("Telegram config row for %s is corrupt", parent_id)
-            return {"configured": False, "bot_token_masked": "", "chat_id": "",
-                    "enabled": False, "corrupt": True}
+            return {
+                "configured": False,
+                "bot_token_masked": "",
+                "chat_id": "",
+                "enabled": False,
+                "corrupt": True,
+            }
         token = str(data.get("bot_token") or "")
         if not token or not str(data.get("chat_id") or ""):
-            return {"configured": False, "bot_token_masked": "", "chat_id": "",
-                    "enabled": bool(data.get("enabled", False))}
+            return {
+                "configured": False,
+                "bot_token_masked": "",
+                "chat_id": "",
+                "enabled": bool(data.get("enabled", False)),
+            }
         masked = f"{token[:6]}...{token[-4:]}" if len(token) > 10 else "****"
         return {
             "configured": True,
@@ -137,12 +146,14 @@ class TelegramConfigStore:
                 token = existing["bot_token"]
             if not token:
                 raise ValueError("Bot Token is required for first-time setup.")
-        payload = json.dumps({
-            "bot_token": token,
-            "chat_id": (chat_id or "").strip(),
-            "enabled": bool(enabled),
-            "updated_at": time.time(),
-        })
+        payload = json.dumps(
+            {
+                "bot_token": token,
+                "chat_id": (chat_id or "").strip(),
+                "enabled": bool(enabled),
+                "updated_at": time.time(),
+            }
+        )
         async with aiosqlite.connect(_db_path()) as db:
             await ensure_kv_settings(db)
             await db.execute(
@@ -168,7 +179,7 @@ class TelegramConfigStore:
             rows = await cursor.fetchall()
         enabled: List[Tuple[str, Dict[str, str]]] = []
         for key, value in rows:
-            parent_id = str(key)[len("telegram_"):]
+            parent_id = str(key)[len("telegram_") :]
             if not parent_id:
                 continue
             parsed = cls.parse(value)

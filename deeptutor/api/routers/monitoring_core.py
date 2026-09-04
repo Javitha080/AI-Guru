@@ -34,6 +34,7 @@ router = APIRouter(tags=["monitoring"])
 
 # --- Request & Response Models ---
 
+
 class EnrollFaceRequest(BaseModel):
     student_id: Optional[str] = Field(default=None, description="Optional student identifier")
     face_embedding: Optional[List[float]] = Field(
@@ -59,7 +60,9 @@ class EnrollFaceResponse(BaseModel):
 
 
 class VerifyLivenessRequest(BaseModel):
-    frames_landmarks: List[Dict[str, Any]] = Field(..., description="Sequence of landmark frames from client")
+    frames_landmarks: List[Dict[str, Any]] = Field(
+        ..., description="Sequence of landmark frames from client"
+    )
     timestamps: Optional[List[float]] = Field(default=None, description="Sequence timestamps")
 
 
@@ -99,8 +102,11 @@ class MonitoringStatusResponse(BaseModel):
 
 # --- Endpoints ---
 
+
 @router.post("/enroll-face", response_model=EnrollFaceResponse)
-async def enroll_face(req: EnrollFaceRequest, _user: Any = Depends(require_auth)) -> EnrollFaceResponse:
+async def enroll_face(
+    req: EnrollFaceRequest, _user: Any = Depends(require_auth)
+) -> EnrollFaceResponse:
     """
     Enroll student baseline for local identity verification.
 
@@ -135,7 +141,9 @@ async def enroll_face(req: EnrollFaceRequest, _user: Any = Depends(require_auth)
 
 
 @router.post("/verify-liveness", response_model=VerifyLivenessResponse)
-async def verify_liveness(req: VerifyLivenessRequest, _user: Any = Depends(require_auth)) -> VerifyLivenessResponse:
+async def verify_liveness(
+    req: VerifyLivenessRequest, _user: Any = Depends(require_auth)
+) -> VerifyLivenessResponse:
     """
     Evaluate multi-frame landmark sequence for pre-flight anti-spoof liveness check.
     """
@@ -167,13 +175,17 @@ async def verify_liveness(req: VerifyLivenessRequest, _user: Any = Depends(requi
 
 
 @router.post("/analyze-frame")
-async def analyze_frame(req: AnalyzeFrameRequest, _user: Any = Depends(require_auth)) -> Dict[str, Any]:
+async def analyze_frame(
+    req: AnalyzeFrameRequest, _user: Any = Depends(require_auth)
+) -> Dict[str, Any]:
     """
     Analyze a single frame / telemetry payload and return comprehensive study monitoring metrics.
     """
     pipeline = get_cv_pipeline()
     payload = req.model_dump()
-    result: FrameAnalysisResult = pipeline.process_telemetry_payload(payload, current_time=req.timestamp)
+    result: FrameAnalysisResult = pipeline.process_telemetry_payload(
+        payload, current_time=req.timestamp
+    )
 
     # Format structured response
     resp = {
@@ -219,7 +231,9 @@ async def analyze_frame(req: AnalyzeFrameRequest, _user: Any = Depends(require_a
             "focus_score": result.distraction.focus_score,
             "confidence": result.distraction.confidence,
             "duration_seconds": result.distraction.duration_seconds,
-            "whitelisted_action": result.distraction.whitelisted_action.value if result.distraction.whitelisted_action else None,
+            "whitelisted_action": result.distraction.whitelisted_action.value
+            if result.distraction.whitelisted_action
+            else None,
             "reason": result.distraction.reason,
         },
         "identity": {
@@ -231,7 +245,9 @@ async def analyze_frame(req: AnalyzeFrameRequest, _user: Any = Depends(require_a
             "category": result.dispatched_warning.category,
             "message": result.dispatched_warning.message,
             "severity": result.dispatched_warning.severity,
-        } if result.dispatched_warning else None,
+        }
+        if result.dispatched_warning
+        else None,
         "cloud_egress_bytes": result.cloud_egress_bytes,
     }
     return resp

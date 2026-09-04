@@ -73,6 +73,7 @@ _FRAME_KEYS = ("jpeg_b64", "jpeg", "frame_b64", "frame", "image_b64", "image")
 
 # --- Request models ---
 
+
 class LiveConsentRequest(BaseModel):
     enabled: bool
 
@@ -82,6 +83,7 @@ class LiveFrameRequest(BaseModel):
 
 
 # --- Shared helpers ---
+
 
 def _purge_stale_frames() -> None:
     now = time.time()
@@ -105,6 +107,7 @@ def _extract_frame(payload: Dict[str, Any]) -> Optional[str]:
 
 
 # --- WebSocket session endpoint ---
+
 
 @router.websocket("/session/{session_id}")
 async def monitoring_session_websocket(websocket: WebSocket, session_id: str) -> None:
@@ -149,14 +152,16 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     if monitor is not None:
         listener = monitor.register(websocket)
         try:
-            await websocket.send_json({
-                "type": "session_init",
-                "session_id": session_id,
-                "mode": "system",
-                "target_fps": monitor.target_fps,
-                "zero_cloud_egress": True,
-                "message": "AI Guru System Camera Monitoring Active",
-            })
+            await websocket.send_json(
+                {
+                    "type": "session_init",
+                    "session_id": session_id,
+                    "mode": "system",
+                    "target_fps": monitor.target_fps,
+                    "zero_cloud_egress": True,
+                    "message": "AI Guru System Camera Monitoring Active",
+                }
+            )
             while True:
                 raw_text = await websocket.receive_text()
                 try:
@@ -213,6 +218,7 @@ def _apply_supervision_strictness_bg(pipeline: Any) -> None:
 
 # --- Live supervision endpoints ----------------------------------------------
 
+
 @router.post("/live/consent")
 async def set_live_consent(
     req: LiveConsentRequest,
@@ -222,7 +228,9 @@ async def set_live_consent(
     """Student-side opt-in/out for the current session's live view."""
     if req.enabled:
         if session_id not in _active_monitoring_sessions:
-            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="No active monitoring session")
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT, detail="No active monitoring session"
+            )
         _live_consent.add(session_id)
     else:
         _live_consent.discard(session_id)
@@ -245,7 +253,9 @@ async def upload_live_frame(
     if len(req.jpeg_b64) > _MAX_LIVE_FRAME_B64_LEN:
         logger.warning(
             "Live frame rejected for %s: %d chars exceeds %d cap",
-            session_id, len(req.jpeg_b64), _MAX_LIVE_FRAME_B64_LEN,
+            session_id,
+            len(req.jpeg_b64),
+            _MAX_LIVE_FRAME_B64_LEN,
         )
         return {"accepted": False, "reason": "frame_too_large"}
     if session_id not in _live_frames and len(_live_frames) >= _MAX_LIVE_SESSIONS:
@@ -278,7 +288,7 @@ async def get_session_monitoring_events(
         events = []
 
     sanitized = []
-    for e in (events or []):
+    for e in events or []:
         message = None
         raw_meta = e.get("metadata_json")
         if isinstance(raw_meta, str) and raw_meta:
@@ -299,4 +309,8 @@ async def get_session_monitoring_events(
                 "message": message,
             }
         )
-    return {"session_id": session_id, "items": sanitized[: max(0, min(limit, 500))], "total": len(sanitized)}
+    return {
+        "session_id": session_id,
+        "items": sanitized[: max(0, min(limit, 500))],
+        "total": len(sanitized),
+    }

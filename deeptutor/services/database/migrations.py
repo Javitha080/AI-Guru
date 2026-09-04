@@ -134,9 +134,7 @@ def apply_migrations(conn: sqlite3.Connection) -> list[int]:
 def verify_tables_exist(conn: sqlite3.Connection) -> dict[str, bool]:
     """Verify presence of all 11 core tables."""
     rows = conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
-    existing_tables = {
-        row[0] if isinstance(row, (tuple, list)) else row["name"] for row in rows
-    }
+    existing_tables = {row[0] if isinstance(row, (tuple, list)) else row["name"] for row in rows}
     return {table: (table in existing_tables) for table in CORE_TABLE_NAMES}
 
 

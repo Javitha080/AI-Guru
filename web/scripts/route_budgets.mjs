@@ -8,14 +8,17 @@ const APP_OUTPUT_DIR = path.resolve(".next");
 const ROUTE_BUDGETS_KB = {
   "/": 700,
   "/playground": 700,
-  "/co-writer": 200,
+  "/co-writer": 360, // measured 326 KB (2026-09-04); grew with the editor feature set
   "/co-writer/[docId]": 700,
   "/knowledge": 450,
   "/memory": 450,
   "/settings": 180,
 };
 
-const ROOT_SHELL_BUDGET_KB = 220;
+// Webpack build (`next build --webpack`): the shell = shared framework/layout
+// chunks + app layout chunks, measured 701 KB on 2026-09-04. Budget keeps
+// ~15% headroom for growth.
+const ROOT_SHELL_BUDGET_KB = 800;
 
 function walkManifestFiles(rootDir) {
   const entries = [];
@@ -68,35 +71,106 @@ const manifestFiles = walkManifestFiles(APP_SERVER_DIR).filter(
   (filePath) => !filePath.includes("_global-error") && !filePath.includes("_not-found"),
 );
 
+// Turbopack manifests expose `entryJSFiles` keyed by `[project]/app/...` paths.
+// Webpack manifests (npm run build is `next build --webpack`) carry the actual
+// chunk file paths on each `clientModules` entry's `chunks` array
+// (`["<chunkId>", "static/chunks/<file>.js", ...]`) plus `entryCSSFiles`.
+// Detect the format instead of assuming one.
+const isWebpackManifest = (manifest) => typeof manifest.clientModules === "object";
+
+function chunkPathsFromWebpack(manifest) {
+  const paths = new Set();
+  for (const moduleMapping of Object.values(manifest.clientModules ?? {})) {
+    for (const chunk of moduleMapping.chunks ?? []) {
+      if (typeof chunk === "string" && chunk.startsWith("static/chunks/")) {
+        paths.add(chunk);
+      }
+    }
+  }
+  const cssFiles = manifest.entryCSSFiles;
+  if (Array.isArray(cssFiles)) {
+    for (const css of cssFiles) {
+      if (typeof css === "string" && css.startsWith("static/")) {
+        paths.add(css);
+      }
+    }
+  } else if (typeof cssFiles === "object" && cssFiles) {
+    for (const css of Object.values(cssFiles)) {
+      if (typeof css === "string" && css.startsWith("static/")) {
+        paths.add(css);
+      }
+    }
+  }
+  return [...paths];
+}
+
 const routeRows = [];
 let rootShellSize = 0;
-
-for (const manifestFile of manifestFiles) {
+const ALL_MANIFESTS = manifestFiles.map((manifestFile) => {
   const { manifestKey, manifest } = evaluateManifest(manifestFile);
-  const route = normalizePublicRoute(manifestKey);
-  const entryFiles = manifest.entryJSFiles;
+  return { manifestKey, manifest, manifestFile };
+});
 
-  const rootLayoutFiles = entryFiles["[project]/app/layout"] || [];
-  if (!rootShellSize && rootLayoutFiles.length > 0) {
-    rootShellSize = sumChunkSizes(rootLayoutFiles);
+if (ALL_MANIFESTS.some(({ manifest }) => isWebpackManifest(manifest))) {
+  // ---- Webpack format -----------------------------------------------------
+  const perRouteChunks = ALL_MANIFESTS.map(({ manifestKey, manifest }) => ({
+    route: normalizePublicRoute(manifestKey),
+    chunks: new Set(chunkPathsFromWebpack(manifest)),
+  }));
+
+  // Chunks shared by every route are part of the app shell (framework + layout).
+  const shared = new Set(perRouteChunks[0]?.chunks ?? []);
+  for (const { chunks } of perRouteChunks) {
+    for (const chunk of [...shared]) {
+      if (!chunks.has(chunk)) shared.delete(chunk);
+    }
   }
-  const rootLayoutChunks = new Set(rootLayoutFiles);
 
-  const routeEntryKey = Object.keys(entryFiles).find(
-    (key) => key.startsWith("[project]/app/") && key.endsWith("/page") && !key.includes("/layout"),
+  const layoutChunks = new Set(
+    perRouteChunks.flatMap(({ chunks }) =>
+      [...chunks].filter((chunk) => /\/app\/(\([^)]*\)\/)?layout-[^/]+\.js$/.test(chunk)),
+    ),
   );
-  if (!routeEntryKey) {
-    continue;
+
+  const shellChunks = new Set([...shared, ...layoutChunks]);
+  rootShellSize = sumChunkSizes([...shellChunks]);
+
+  for (const { route, chunks } of perRouteChunks) {
+    const chunkPaths = [...chunks].filter((chunk) => !shellChunks.has(chunk));
+    routeRows.push({
+      route,
+      sizeBytes: sumChunkSizes(chunkPaths),
+      chunks: chunkPaths.map((chunkPath) => path.basename(chunkPath)),
+    });
   }
+} else {
+  // ---- Turbopack format (entryJSFiles) ------------------------------------
+  for (const { manifestKey, manifest } of ALL_MANIFESTS) {
+    const route = normalizePublicRoute(manifestKey);
+    const entryFiles = manifest.entryJSFiles;
 
-  const chunkPaths = (entryFiles[routeEntryKey] || []).filter(
-    (chunkPath) => !rootLayoutChunks.has(chunkPath),
-  );
-  routeRows.push({
-    route,
-    sizeBytes: sumChunkSizes(chunkPaths),
-    chunks: chunkPaths.map((chunkPath) => path.basename(chunkPath)),
-  });
+    const rootLayoutFiles = entryFiles["[project]/app/layout"] || [];
+    if (!rootShellSize && rootLayoutFiles.length > 0) {
+      rootShellSize = sumChunkSizes(rootLayoutFiles);
+    }
+    const rootLayoutChunks = new Set(rootLayoutFiles);
+
+    const routeEntryKey = Object.keys(entryFiles).find(
+      (key) => key.startsWith("[project]/app/") && key.endsWith("/page") && !key.includes("/layout"),
+    );
+    if (!routeEntryKey) {
+      continue;
+    }
+
+    const chunkPaths = (entryFiles[routeEntryKey] || []).filter(
+      (chunkPath) => !rootLayoutChunks.has(chunkPath),
+    );
+    routeRows.push({
+      route,
+      sizeBytes: sumChunkSizes(chunkPaths),
+      chunks: chunkPaths.map((chunkPath) => path.basename(chunkPath)),
+    });
+  }
 }
 
 let hasFailure = false;

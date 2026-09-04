@@ -69,11 +69,20 @@ class TelegramNotifier:
                         desc = body
 
                     if resp.status == 401:
-                        return False, "Invalid Bot Token. Please check the token provided by @BotFather."
+                        return (
+                            False,
+                            "Invalid Bot Token. Please check the token provided by @BotFather.",
+                        )
                     if "chat not found" in desc.lower():
-                        return False, "Chat not found. Have you started the bot in Telegram? Search for your bot and send /start."
+                        return (
+                            False,
+                            "Chat not found. Have you started the bot in Telegram? Search for your bot and send /start.",
+                        )
                     if "bot was blocked" in desc.lower():
-                        return False, "The bot was blocked by the user in Telegram. Unblock the bot to receive alerts."
+                        return (
+                            False,
+                            "The bot was blocked by the user in Telegram. Unblock the bot to receive alerts.",
+                        )
                     return False, f"Telegram API error ({resp.status}): {desc}"
         except Exception as e:
             return False, f"Connection failed: {e}"
@@ -113,6 +122,7 @@ class TelegramNotifier:
                     if resp.status == 400 and parse_mode == "HTML":
                         logger.info("Retrying Telegram notification as plain text without HTML")
                         import re
+
                         plain_text = re.sub(r"<[^>]+>", "", text)
                         fallback_payload = {
                             "chat_id": chat_id,
@@ -155,6 +165,7 @@ class TelegramNotifier:
             if caption:
                 if len(caption) > 1024:
                     import re
+
                     plain = re.sub(r"<[^>]+>", "", caption)
                     form.add_field("caption", plain[:1020] + "...")
                 else:
@@ -173,7 +184,9 @@ class TelegramNotifier:
             async with aiohttp.ClientSession(timeout=timeout) as session:
                 async with session.post(url, data=form) as resp:
                     if resp.status == 200:
-                        logger.info("Telegram photo delivered to %s (%d bytes)", chat_id, len(photo_bytes))
+                        logger.info(
+                            "Telegram photo delivered to %s (%d bytes)", chat_id, len(photo_bytes)
+                        )
                         return True
                     body = await resp.text()
                     logger.warning("Telegram sendPhoto error (status %d): %s", resp.status, body)
@@ -285,7 +298,9 @@ class TelegramNotifier:
         """Final study-session report-card text."""
         badges_text = ""
         if badges_unlocked:
-            badges_text = f"\n🏆 <b>Badges Unlocked:</b> {', '.join(cls._esc(b) for b in badges_unlocked)}"
+            badges_text = (
+                f"\n🏆 <b>Badges Unlocked:</b> {', '.join(cls._esc(b) for b in badges_unlocked)}"
+            )
 
         extra_metrics = ""
         if engagement_score is not None:
@@ -325,7 +340,8 @@ class TelegramNotifier:
     ) -> bool:
         """Send notification when student begins a study session."""
         return await cls.send_message(
-            bot_token, chat_id,
+            bot_token,
+            chat_id,
             cls.compose_session_start(student_name, subject, target_minutes, tunnel_url),
         )
 
@@ -342,10 +358,14 @@ class TelegramNotifier:
     ) -> bool:
         """Send urgent distraction or absence notification."""
         return await cls.send_message(
-            bot_token, chat_id,
+            bot_token,
+            chat_id,
             cls.compose_distraction_alert(
-                event_type, student_name=student_name, subject=subject,
-                details=details, tunnel_url=tunnel_url,
+                event_type,
+                student_name=student_name,
+                subject=subject,
+                details=details,
+                tunnel_url=tunnel_url,
             ),
         )
 
@@ -364,9 +384,15 @@ class TelegramNotifier:
     ) -> bool:
         """Send final study session summary report card."""
         return await cls.send_message(
-            bot_token, chat_id,
+            bot_token,
+            chat_id,
             cls.compose_session_summary(
-                student_name, subject, duration_minutes, focus_score,
-                xp_earned, badges_unlocked, ai_summary,
+                student_name,
+                subject,
+                duration_minutes,
+                focus_score,
+                xp_earned,
+                badges_unlocked,
+                ai_summary,
             ),
         )

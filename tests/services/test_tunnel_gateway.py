@@ -176,17 +176,13 @@ class TestEnsureCloudflared:
 
 class TestStartTunnelHonesty:
     @pytest.mark.asyncio
-    async def test_explicit_cloudflare_provision_failure_returns_error(
-        self, gateway, monkeypatch
-    ):
+    async def test_explicit_cloudflare_provision_failure_returns_error(self, gateway, monkeypatch):
         """A requested tunnel must never masquerade as healthy LAN-only mode."""
 
         async def _boom(progress=None):
             raise RuntimeError("Could not provision the cloudflared tunnel engine: offline")
 
-        monkeypatch.setattr(
-            tg_mod.TunnelGateway, "_ensure_cloudflared", classmethod(_boom)
-        )
+        monkeypatch.setattr(tg_mod.TunnelGateway, "_ensure_cloudflared", classmethod(_boom))
         result = await gateway.start_tunnel(provider="cloudflare")
 
         assert result["status"] == "error"
@@ -205,9 +201,7 @@ class TestStartTunnelHonesty:
         assert gateway._last_message == result["message"]
 
     @pytest.mark.asyncio
-    async def test_auto_provisions_then_launches_cloudflare(
-        self, gateway, monkeypatch
-    ):
+    async def test_auto_provisions_then_launches_cloudflare(self, gateway, monkeypatch):
         """Happy path: provisioning resolves a path, process spawns, URL captured."""
         exe = gateway._managed_bin_dir() / "cloudflared.exe"
         exe.write_bytes(b"MZ" + b"\x00" * (6 * 1024 * 1024))
@@ -239,9 +233,7 @@ class TestStartTunnelHonesty:
         monkeypatch.setattr(
             tg_mod.TunnelGateway, "_read_cloudflared_output", classmethod(lambda cls: _seed_url())
         )
-        monkeypatch.setattr(
-            tg_mod.TunnelGateway, "_persist_provider", classmethod(_noop)
-        )
+        monkeypatch.setattr(tg_mod.TunnelGateway, "_persist_provider", classmethod(_noop))
         monkeypatch.setattr(tg_mod.TunnelGateway, "_ensure_watchdog", classmethod(lambda cls: None))
 
         result = await gateway.start_tunnel(provider="cloudflare")

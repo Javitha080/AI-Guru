@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import asyncio
 from unittest.mock import AsyncMock, MagicMock, patch
+
 import pytest
 
 from deeptutor.services.config.key_vault import KeyVaultService, get_key_vault
@@ -22,17 +23,17 @@ from deeptutor.services.llm.tutor_provider import (
     OllamaTutorProvider,
     ProviderHealth,
     StreamChunk,
+    TutoringMode,
     TutorProvider,
     TutorProviderManager,
-    TutoringMode,
     get_tutor_provider_manager,
     mask_api_key,
 )
 
-
 # ---------------------------------------------------------------------------
 # Key Masking Vault Tests
 # ---------------------------------------------------------------------------
+
 
 def test_mask_api_key_security():
     """Verify API keys are safely masked and never exposed in full."""
@@ -40,7 +41,7 @@ def test_mask_api_key_security():
     assert mask_api_key("") == ""
     assert mask_api_key("sk-no-key-required") == ""
     assert mask_api_key("12345") == "****"
-    
+
     masked = mask_api_key("sk-proj-1234567890abcdef1234567890")
     assert masked.startswith("sk-pro")
     assert masked.endswith("7890")
@@ -67,10 +68,10 @@ def test_key_vault_service_crud(tmp_path):
     assert vault.delete_key("custom_test_provider") is False
 
 
-
 # ---------------------------------------------------------------------------
 # OfflineRuleAdapter Tests
 # ---------------------------------------------------------------------------
+
 
 @pytest.mark.asyncio
 async def test_offline_rule_adapter_math_completion():
@@ -126,11 +127,23 @@ async def test_offline_rule_adapter_health():
 # CloudProviderAdapter Tests
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.asyncio
 async def test_cloud_adapter_missing_api_key_raises():
     """Verify CloudProviderAdapter raises error when API key is missing."""
     adapter = CloudProviderAdapter(api_key="")
-    with patch.object(adapter, "_resolve_config", return_value={"model": "gpt-4o", "api_key": "", "base_url": "", "binding": "openai", "temperature": 0.7, "max_tokens": 4096}):
+    with patch.object(
+        adapter,
+        "_resolve_config",
+        return_value={
+            "model": "gpt-4o",
+            "api_key": "",
+            "base_url": "",
+            "binding": "openai",
+            "temperature": 0.7,
+            "max_tokens": 4096,
+        },
+    ):
         with pytest.raises(ValueError, match="API key is missing"):
             await adapter.complete([{"role": "user", "content": "Hello"}])
 
@@ -140,7 +153,9 @@ async def test_cloud_adapter_complete_success():
     """Test CloudProviderAdapter completion with mocked LLM factory."""
     adapter = CloudProviderAdapter(api_key="sk-test-key", model="gpt-4o")
     with patch("deeptutor.services.llm.factory.complete", new_callable=AsyncMock) as mock_complete:
-        mock_complete.return_value = "<think>Analyzing student question</think>Here is the solution."
+        mock_complete.return_value = (
+            "<think>Analyzing student question</think>Here is the solution."
+        )
         resp = await adapter.complete([{"role": "user", "content": "Help me with homework"}])
 
         assert resp.content == "Here is the solution."
@@ -173,6 +188,7 @@ async def test_cloud_adapter_stream_success():
 # OllamaProviderAdapter Tests
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.asyncio
 async def test_ollama_adapter_fetch_models():
     """Test OllamaProviderAdapter model catalog fetching."""
@@ -180,7 +196,9 @@ async def test_ollama_adapter_fetch_models():
 
     mock_resp = MagicMock()
     mock_resp.status = 200
-    mock_resp.json = AsyncMock(return_value={"models": [{"name": "qwen2.5:7b"}, {"name": "llama3.1:8b"}]})
+    mock_resp.json = AsyncMock(
+        return_value={"models": [{"name": "qwen2.5:7b"}, {"name": "llama3.1:8b"}]}
+    )
 
     mock_session = MagicMock()
     mock_session.get.return_value.__aenter__ = AsyncMock(return_value=mock_resp)
@@ -228,6 +246,7 @@ async def test_ollama_adapter_complete_stream():
 # CircuitBreaker Tests
 # ---------------------------------------------------------------------------
 
+
 def test_circuit_breaker_lifecycle():
     """Test CircuitBreaker state transitions: CLOSED -> OPEN -> HALF_OPEN -> CLOSED."""
     breaker = CircuitBreaker(failure_threshold=2, recovery_timeout_seconds=0.3)
@@ -246,6 +265,7 @@ def test_circuit_breaker_lifecycle():
 
     # Wait for cooldown to expire
     import time
+
     time.sleep(0.4)
 
     # Cooldown passed -> HALF_OPEN (allows probe request)
@@ -262,6 +282,7 @@ def test_circuit_breaker_lifecycle():
 # TutorProviderManager & Fallback Chain Tests
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.asyncio
 async def test_fallback_chain_cloud_to_ollama():
     """Verify TutorProviderManager falls back from Cloud to Ollama when Cloud fails."""
@@ -271,11 +292,11 @@ async def test_fallback_chain_cloud_to_ollama():
 
     mock_ollama = MagicMock(spec=OllamaProviderAdapter)
     mock_ollama.provider_name = "ollama"
-    mock_ollama.complete = AsyncMock(return_value=CompletionResponse(
-        content="Response from Local Ollama",
-        provider="ollama",
-        model="qwen2.5:7b"
-    ))
+    mock_ollama.complete = AsyncMock(
+        return_value=CompletionResponse(
+            content="Response from Local Ollama", provider="ollama", model="qwen2.5:7b"
+        )
+    )
 
     offline = OfflineRuleAdapter()
 
@@ -424,4 +445,3 @@ async def test_tutor_provider_manager_mode_switching():
     assert manager.mode == TutoringMode.CLOUD
     active = await manager.get_active_provider()
     assert active.provider_name == "cloud"
-

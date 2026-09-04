@@ -59,6 +59,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class FrameAnalysisResult:
     """Consolidated telemetry and monitoring inference output."""
+
     timestamp: float
     fps: float
     face_detected: bool
@@ -213,7 +214,9 @@ class LocalCVPipeline:
         phone_detected = bool(payload.get("phone_detected", False))
         hand_to_mouth = bool(payload.get("hand_to_mouth_gesture", False))
         page_turn = bool(payload.get("page_turn_gesture", False))
-        writing_gesture = bool(payload.get("writing_gesture", False)) or pose_res.is_reading_writing_pose
+        writing_gesture = (
+            bool(payload.get("writing_gesture", False)) or pose_res.is_reading_writing_pose
+        )
 
         distraction_res = self.distraction_analyzer.analyze(
             timestamp=now,

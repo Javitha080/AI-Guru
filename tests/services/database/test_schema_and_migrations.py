@@ -10,6 +10,7 @@ import sqlite3
 import pytest
 
 from deeptutor.services.database.migrations import (
+    MIGRATIONS,
     apply_migrations,
     get_applied_migrations,
     get_db_version,
@@ -18,14 +19,18 @@ from deeptutor.services.database.migrations import (
 from deeptutor.services.database.schema import CORE_TABLE_NAMES
 from deeptutor.services.session.sqlite_store import SQLiteSessionStore
 
+# Single source of truth: every migration registered in migrations.py must be
+# applied on a fresh database (currently 001-007).
+EXPECTED_VERSIONS = [version for version, _name, _migration in MIGRATIONS]
+
 
 def test_migrations_create_all_core_tables(tmp_path: Path) -> None:
     db_path = tmp_path / "test_mig.db"
     conn = sqlite3.connect(str(db_path))
     try:
         applied = apply_migrations(conn)
-        assert 1 in applied
-        assert get_db_version(conn) == 1
+        assert applied == EXPECTED_VERSIONS
+        assert get_db_version(conn) == EXPECTED_VERSIONS[-1]
 
         tables = verify_tables_exist(conn)
         for table_name in CORE_TABLE_NAMES:
@@ -39,17 +44,19 @@ def test_migrations_are_idempotent(tmp_path: Path) -> None:
     conn = sqlite3.connect(str(db_path))
     try:
         first_run = apply_migrations(conn)
-        assert len(first_run) == 1
+        assert first_run == EXPECTED_VERSIONS
 
         # Second run should be a no-op
         second_run = apply_migrations(conn)
         assert len(second_run) == 0
-        assert get_db_version(conn) == 1
+        assert get_db_version(conn) == EXPECTED_VERSIONS[-1]
 
         applied_list = get_applied_migrations(conn)
-        assert len(applied_list) == 1
-        assert applied_list[0]["version"] == 1
+        assert len(applied_list) == len(EXPECTED_VERSIONS)
+        assert applied_list[0]["version"] == EXPECTED_VERSIONS[0]
         assert applied_list[0]["name"] == "001_core_relational_tables"
+        assert applied_list[-1]["version"] == EXPECTED_VERSIONS[-1]
+        assert applied_list[-1]["name"] == MIGRATIONS[-1][1]
     finally:
         conn.close()
 

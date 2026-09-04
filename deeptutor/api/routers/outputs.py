@@ -38,7 +38,9 @@ def _resolve_output(path_service: PathService, relative_path: str) -> Path:
 
 
 @router.get("/{output_path:path}", operation_id="read_output_artifact_get")
-@router.head("/{output_path:path}", operation_id="read_output_artifact_head", include_in_schema=False)
+@router.head(
+    "/{output_path:path}", operation_id="read_output_artifact_head", include_in_schema=False
+)
 async def read_output(
     output_path: str,
     _auth: TokenPayload | None = Depends(require_auth),

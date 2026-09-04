@@ -57,6 +57,5 @@ async def get_single_agent_config(agent_type: str):
     if agent_type in AGENT_REGISTRY:
         return AGENT_REGISTRY[agent_type]
     raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=f"Agent type '{agent_type}' not found"
+        status_code=status.HTTP_404_NOT_FOUND, detail=f"Agent type '{agent_type}' not found"
     )

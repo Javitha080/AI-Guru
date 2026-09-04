@@ -81,9 +81,8 @@ class TestTransientProbeSafety:
         assert "active_system_monitors" in src
         # After fix the unconditional release_system_camera in the transient
         # finally must be guarded (only when no active monitors).
-        has_guard = (
-            "release_system_camera" in src
-            and ("if not active_system_monitors()" in src or "if len(active_system_monitors()" in src)
+        has_guard = "release_system_camera" in src and (
+            "if not active_system_monitors()" in src or "if len(active_system_monitors()" in src
         )
         assert has_guard, "transient probe must guard release when monitors active"
 
@@ -94,10 +93,18 @@ class TestFailClosedParsing:
 
         eng = FaceEngine()
         payloads = [
-            {"detected": True, "confidence": 0.95, "brightness": 0.5,
-             "landmarks": {"nose_tip": {}, "chin": None, "left_eye": [{}]}},
-            {"detected": True, "confidence": "high", "brightness": "bright",
-             "landmarks": {"nose_tip": {"x": "a"}, "left_eye": "notalist"}},
+            {
+                "detected": True,
+                "confidence": 0.95,
+                "brightness": 0.5,
+                "landmarks": {"nose_tip": {}, "chin": None, "left_eye": [{}]},
+            },
+            {
+                "detected": True,
+                "confidence": "high",
+                "brightness": "bright",
+                "landmarks": {"nose_tip": {"x": "a"}, "left_eye": "notalist"},
+            },
             {"detected": True, "bbox": [0.1], "landmarks": {}},
             {"detected": True, "confidence": float("inf"), "brightness": float("nan")},
         ]
@@ -164,7 +171,9 @@ class TestNonBlockingStopAndBroadcast:
                 pass
 
         sess = SystemMonitorSession(
-            session_id="s-stop-test", camera=SlowCamera(), processor=NoopProcessor()  # type: ignore[arg-type]
+            session_id="s-stop-test",
+            camera=SlowCamera(),
+            processor=NoopProcessor(),  # type: ignore[arg-type]
         )
         sess._running = True
         # Loop must stay responsive while camera.stop() (3s join) runs:
@@ -201,7 +210,9 @@ class TestNonBlockingStopAndBroadcast:
             pass
 
         sess = SystemMonitorSession(
-            session_id="s-bcast", camera=SlowCamera(), processor=NoopProcessor()  # type: ignore[arg-type]
+            session_id="s-bcast",
+            camera=SlowCamera(),
+            processor=NoopProcessor(),  # type: ignore[arg-type]
         )
 
         received = []

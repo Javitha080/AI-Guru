@@ -53,14 +53,14 @@ async def flush() -> None:
         batch_to_insert = _batch[:]
         _batch.clear()
 
-    db_path = get_path_service().user_dir / 'chat_history.db'
+    db_path = get_path_service().user_dir / "chat_history.db"
     try:
         async with aiosqlite.connect(db_path) as db:
             await db.executemany(
                 """INSERT INTO monitoring_events
                    (session_id, event_type, severity, confidence, duration_seconds, metadata_json, timestamp)
                    VALUES (?, ?, ?, ?, ?, ?, ?)""",
-                batch_to_insert
+                batch_to_insert,
             )
             await db.commit()
     except Exception as e:
@@ -71,17 +71,32 @@ class TelemetryLogger:
     """Logs telemetry events for study sessions with batching support."""
 
     VALID_EVENT_TYPES = {
-        'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED',
-        'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK',
-        'WARNING_ISSUED', 'NUDGE_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'
+        "PRESENCE_CHANGE",
+        "LOOKING_AWAY",
+        "PHONE_DETECTED",
+        "POSTURE_SHIFT",
+        "IDENTITY_VERIFIED",
+        "LIVENESS_CHECK",
+        "WARNING_ISSUED",
+        "NUDGE_ISSUED",
+        "SESSION_PAUSED",
+        "SESSION_RESUMED",
     }
-    VALID_SEVERITIES = {'info', 'warning', 'alert'}
+    VALID_SEVERITIES = {"info", "warning", "alert"}
 
     def __init__(self) -> None:
-        self.db_path = get_path_service().user_dir / 'chat_history.db'
+        self.db_path = get_path_service().user_dir / "chat_history.db"
         _ensure_flusher()
 
-    async def log_event(self, session_id: str, event_type: str, severity: str, confidence: float, duration_seconds: float, metadata: Dict[str, Any]) -> None:
+    async def log_event(
+        self,
+        session_id: str,
+        event_type: str,
+        severity: str,
+        confidence: float,
+        duration_seconds: float,
+        metadata: Dict[str, Any],
+    ) -> None:
         """Logs a single telemetry event."""
         if event_type not in self.VALID_EVENT_TYPES:
             logger.warning(f"Invalid event_type: {event_type}")
@@ -95,9 +110,13 @@ class TelemetryLogger:
 
         _ensure_flusher()
         async with _get_lock():
-            _batch.append((session_id, event_type, severity, confidence, duration_seconds, metadata_str, now))
+            _batch.append(
+                (session_id, event_type, severity, confidence, duration_seconds, metadata_str, now)
+            )
 
-    async def get_session_events(self, session_id: str, event_type: Optional[str] = None) -> List[Dict[str, Any]]:
+    async def get_session_events(
+        self, session_id: str, event_type: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
         """Retrieves events for a session, optionally filtered by type."""
         await flush()  # Ensure recent events are available
         events = []
@@ -120,12 +139,12 @@ class TelemetryLogger:
     async def get_session_summary(self, session_id: str) -> Dict[str, Any]:
         """Gets an aggregated summary of events for a session."""
         events = await self.get_session_events(session_id)
-        
+
         summary = {
-            'total_events': len(events),
-            'by_type': {},
-            'by_severity': {},
-            'avg_confidence': 0.0
+            "total_events": len(events),
+            "by_type": {},
+            "by_severity": {},
+            "avg_confidence": 0.0,
         }
 
         if not events:
@@ -133,16 +152,16 @@ class TelemetryLogger:
 
         total_conf = 0.0
         for event in events:
-            etype = event['event_type']
-            summary['by_type'][etype] = summary['by_type'].get(etype, 0) + 1
-            sev = event['severity'] if event['severity'] in ('info', 'warning', 'alert') else 'info'
-            summary['by_severity'][sev] = summary['by_severity'].get(sev, 0) + 1
-            total_conf += event['confidence']
+            etype = event["event_type"]
+            summary["by_type"][etype] = summary["by_type"].get(etype, 0) + 1
+            sev = event["severity"] if event["severity"] in ("info", "warning", "alert") else "info"
+            summary["by_severity"][sev] = summary["by_severity"].get(sev, 0) + 1
+            total_conf += event["confidence"]
 
         # Warnings that actually count against the student (info-level
         # presence pings like STUDENT_AWAY are deliberately excluded).
-        summary['actionable_warnings'] = (
-            summary['by_severity'].get('warning', 0) + summary['by_severity'].get('alert', 0)
-        )
-        summary['avg_confidence'] = total_conf / len(events)
+        summary["actionable_warnings"] = summary["by_severity"].get("warning", 0) + summary[
+            "by_severity"
+        ].get("alert", 0)
+        summary["avg_confidence"] = total_conf / len(events)
         return summary

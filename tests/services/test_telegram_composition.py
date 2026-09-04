@@ -49,14 +49,17 @@ def _set_public(state, url="https://demo.trycloudflare.com"):
 class TestPortalLinksInComposedMessages:
     def test_warning_includes_link_when_tunnel_public(self, _gateway):
         _set_public(_gateway)
-        msg = nq._compose_message("warning", {
-            "session_id": "sess-1",
-            "category": "PHONE_DETECTED",
-            "message": "Please put your phone aside to maintain deep focus! 📱",
-            "severity": "alert",
-            "confidence": 0.91,
-            "duration_seconds": 4.2,
-        })
+        msg = nq._compose_message(
+            "warning",
+            {
+                "session_id": "sess-1",
+                "category": "PHONE_DETECTED",
+                "message": "Please put your phone aside to maintain deep focus! 📱",
+                "severity": "alert",
+                "confidence": 0.91,
+                "duration_seconds": 4.2,
+            },
+        )
         assert "https://demo.trycloudflare.com/parent" in msg
         assert "Open Parent Portal" in msg
         assert "Confidence 91%" in msg
@@ -65,52 +68,64 @@ class TestPortalLinksInComposedMessages:
 
     def test_warning_has_no_link_when_local_only(self, _gateway):
         """LAN-only mode must never fabricate a public link."""
-        msg = nq._compose_message("warning", {
-            "session_id": "sess-2",
-            "category": "LOOKING_AWAY",
-            "message": "refocus",
-            "severity": "warning",
-        })
+        msg = nq._compose_message(
+            "warning",
+            {
+                "session_id": "sess-2",
+                "category": "LOOKING_AWAY",
+                "message": "refocus",
+                "severity": "warning",
+            },
+        )
         assert "trycloudflare.com" not in msg
         assert "/parent" not in msg
 
     def test_notice_category_keeps_legacy_framing_plus_link(self, _gateway):
         _set_public(_gateway)
-        msg = nq._compose_message("warning", {
-            "session_id": "sess-3",
-            "category": "NOTICE",
-            "message": "Session paused by student.",
-            "severity": "info",
-            "confidence": 0.5,
-            "duration_seconds": 0,
-        })
+        msg = nq._compose_message(
+            "warning",
+            {
+                "session_id": "sess-3",
+                "category": "NOTICE",
+                "message": "Session paused by student.",
+                "severity": "info",
+                "confidence": 0.5,
+                "duration_seconds": 0,
+            },
+        )
         assert "AI Guru — Notice" in msg
         assert "Open Parent Portal" in msg
 
     def test_session_start_includes_link(self, _gateway):
         _set_public(_gateway)
-        msg = nq._compose_message("session_start", {
-            "session_id": "sess-4",
-            "student_name": "Aisha",
-            "subject": "Mathematics",
-            "target_minutes": 25,
-        })
+        msg = nq._compose_message(
+            "session_start",
+            {
+                "session_id": "sess-4",
+                "student_name": "Aisha",
+                "subject": "Mathematics",
+                "target_minutes": 25,
+            },
+        )
         assert "Study Session Started" in msg
         assert "Aisha" in msg
         assert "https://demo.trycloudflare.com/parent" in msg
 
     def test_session_summary_includes_metrics_and_link(self, _gateway):
         _set_public(_gateway)
-        msg = nq._compose_message("session_summary", {
-            "session_id": "sess-5",
-            "student_id": "student-primary",
-            "duration_minutes": 42.0,
-            "focus_score": 87.3,
-            "engagement_score": 81.0,
-            "warning_count": 2,
-            "summary": "Great persistence today.",
-            "xp_earned": 95,
-        })
+        msg = nq._compose_message(
+            "session_summary",
+            {
+                "session_id": "sess-5",
+                "student_id": "student-primary",
+                "duration_minutes": 42.0,
+                "focus_score": 87.3,
+                "engagement_score": 81.0,
+                "warning_count": 2,
+                "summary": "Great persistence today.",
+                "xp_earned": 95,
+            },
+        )
         assert "Study Session Completed" in msg
         assert "+95 XP" in msg
         assert "Engagement" in msg
@@ -119,12 +134,15 @@ class TestPortalLinksInComposedMessages:
 
     def test_hostile_details_are_escaped(self, _gateway):
         _set_public(_gateway)
-        msg = nq._compose_message("warning", {
-            "session_id": "sess-6",
-            "category": "PHONE_DETECTED",
-            "message": "<script>alert(1)</script>",
-            "severity": "alert",
-        })
+        msg = nq._compose_message(
+            "warning",
+            {
+                "session_id": "sess-6",
+                "category": "PHONE_DETECTED",
+                "message": "<script>alert(1)</script>",
+                "severity": "alert",
+            },
+        )
         assert "<script>" not in msg
         assert "&lt;script&gt;" in msg
 
@@ -134,16 +152,19 @@ class TestPortalLinksInComposedMessages:
 
 class TestComposerUnits:
     def test_alert_title_map_covers_dispatch_categories(self):
-        for category in ("PHONE_DETECTED", "STUDENT_AWAY", "LOOKING_AWAY",
-                         "IDENTITY_MISMATCH", "DROWSINESS"):
+        for category in (
+            "PHONE_DETECTED",
+            "STUDENT_AWAY",
+            "LOOKING_AWAY",
+            "IDENTITY_MISMATCH",
+            "DROWSINESS",
+        ):
             title = TelegramNotifier._alert_title(category)
             assert "Study Alert:" not in title, f"{category} should map to a friendly title"
 
     def test_severity_picks_emoji(self):
-        loud = TelegramNotifier.compose_distraction_alert(
-            "PHONE_DETECTED", severity="alert")
-        soft = TelegramNotifier.compose_distraction_alert(
-            "STUDENT_AWAY", severity="info")
+        loud = TelegramNotifier.compose_distraction_alert("PHONE_DETECTED", severity="alert")
+        soft = TelegramNotifier.compose_distraction_alert("STUDENT_AWAY", severity="info")
         assert loud.startswith("🚨")
         assert soft.startswith("ℹ️")
 
@@ -158,14 +179,15 @@ class TestComposerUnits:
             captured["text"] = text
             return True
 
-        monkeypatch.setattr(
-            TelegramNotifier, "send_message", classmethod(_fake_send)
-        )
+        monkeypatch.setattr(TelegramNotifier, "send_message", classmethod(_fake_send))
 
         import asyncio
 
-        ok = asyncio.run(TelegramNotifier.send_session_start(
-            "tok", "chat", "Aisha", "Physics", 30, "https://t.example"))
+        ok = asyncio.run(
+            TelegramNotifier.send_session_start(
+                "tok", "chat", "Aisha", "Physics", 30, "https://t.example"
+            )
+        )
         assert ok is True
         assert "Study Session Started" in captured["text"]
         assert "https://t.example/parent" in captured["text"]

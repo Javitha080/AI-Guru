@@ -87,7 +87,9 @@ async def _run(tmp: Path) -> dict:
     await GamificationService.check_and_award("student-primary")
     prof = await GamificationService.get_profile("student-primary")
     assert prof["xp"] >= 60 and prof["total_sessions"] == 1
-    badges = [b["id"] for b in await GamificationService.get_badges("student-primary") if b["earned"]]
+    badges = [
+        b["id"] for b in await GamificationService.get_badges("student-primary") if b["earned"]
+    ]
     assert "first_session" in badges
     results["xp"] = prof["xp"]
     results["badges"] = badges

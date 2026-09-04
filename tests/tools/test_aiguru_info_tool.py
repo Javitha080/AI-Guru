@@ -86,4 +86,6 @@ def test_all_sections_have_alias_coverage():
     from deeptutor.tools.product_info_data import _TOPIC_SECTIONS
 
     for key in _TOPIC_SECTIONS:
-        assert key in search_product_info(key).lower() or _TOPIC_SECTIONS[key].split()[0] in search_product_info(key)
+        assert key in search_product_info(key).lower() or _TOPIC_SECTIONS[key].split()[
+            0
+        ] in search_product_info(key)

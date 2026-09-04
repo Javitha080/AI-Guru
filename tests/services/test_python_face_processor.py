@@ -126,7 +126,9 @@ class TestOverlayPainter:
     def test_draw_overlay_with_mesh_points(self, processor):
         frame = np.full((480, 640, 3), 120, np.uint8)
         result = FaceFrameResult(detected=True, raw_landmarks=[(0.5, 0.5, 0.0)] * 478)
-        annotated = processor.draw_overlay(frame, result, focus_state="distracted", focus_score=12.0)
+        annotated = processor.draw_overlay(
+            frame, result, focus_state="distracted", focus_score=12.0
+        )
         assert annotated.shape == frame.shape
         assert not np.array_equal(annotated, frame)
 

@@ -51,7 +51,9 @@ class McqSegmentation:
     short_option_units: List[int]
 
 
-def _find_option_groups(lines: List[str], max_option: int, min_distinct: int) -> List[Tuple[int, int]]:
+def _find_option_groups(
+    lines: List[str], max_option: int, min_distinct: int
+) -> List[Tuple[int, int]]:
     """Return [start_line, end_line] spans of option blocks.
 
     Clusters consecutive/adjacent option-token lines, then merges clusters
@@ -146,7 +148,7 @@ def _options_from_span(lines: List[str], start: int, end: int, max_option: int) 
             flush()
             buf_key = _NUMERIC_TO_LETTER[str(k)]
             seg_end = matches[idx_m + 1].start() if idx_m + 1 < len(matches) else len(line)
-            buf_val.append(line[m.end():seg_end].strip())
+            buf_val.append(line[m.end() : seg_end].strip())
     flush()
     return {k: v for k, v in options.items() if v}
 
@@ -196,9 +198,7 @@ def segment_mcqs(
         prev_end = end
 
     short = [q.number for q in questions if len(q.options) < options_per_question]
-    return McqSegmentation(
-        questions=questions, groups_found=len(spans), short_option_units=short
-    )
+    return McqSegmentation(questions=questions, groups_found=len(spans), short_option_units=short)
 
 
 def _strip_instructions_preamble(lines: List[str]) -> List[str]:
@@ -214,11 +214,20 @@ def _strip_instructions_preamble(lines: List[str]) -> List[str]:
     # If no explicit '1.' in the first 35 lines, look for end of instructions
     for i, line in enumerate(lines[:35]):
         s = line.strip()
-        if any(marker in s for marker in [
-            "කතිරයක්", "කවය තුළ", "නොලැබේ", "කියවා පිළිපදින්න", "උපදෙස් පරිදි",
-            "not allowed", "Follow those carefully", "answer sheet with a cross",
-        ]):
-            return lines[i + 1:]
+        if any(
+            marker in s
+            for marker in [
+                "කතිරයක්",
+                "කවය තුළ",
+                "නොලැබේ",
+                "කියවා පිළිපදින්න",
+                "උපදෙස් පරිදි",
+                "not allowed",
+                "Follow those carefully",
+                "answer sheet with a cross",
+            ]
+        ):
+            return lines[i + 1 :]
     return lines
 
 
@@ -244,7 +253,9 @@ def segment_essays(p2_text: str, *, part_label: str = "B") -> List[EssayQuestion
         block = "\n".join(lines[i:j]).strip()
         marks_list = [float(mv) for mv in _MARKS_RE.findall(block)]
         total = sum(marks_list) if marks_list else None
-        out.append(EssayQuestion(number=n or idx + 1, part=part_label, text=block, marks_total=total))
+        out.append(
+            EssayQuestion(number=n or idx + 1, part=part_label, text=block, marks_total=total)
+        )
     return out
 
 
@@ -272,6 +283,7 @@ def extract_sheet_keys(pdf_path: Path, *, read_pdf_text=None) -> Dict[int, str]:
     """Numeric answer grid from an official MCQ-SHEET PDF (fitz embedded text)."""
     if read_pdf_text is None:
         from deeptutor.services.exams.bank_import import read_pdf_text as read_pdf_text_fn
+
         read_pdf_text = read_pdf_text_fn
     text = read_pdf_text(Path(pdf_path), max_pages=60) or ""
     keys: Dict[int, str] = {}
@@ -282,7 +294,9 @@ def extract_sheet_keys(pdf_path: Path, *, read_pdf_text=None) -> Dict[int, str]:
     return keys
 
 
-def merge_keys(*sources: Tuple[Dict[int, str], str]) -> Tuple[Dict[int, str], List[Dict[str, object]]]:
+def merge_keys(
+    *sources: Tuple[Dict[int, str], str],
+) -> Tuple[Dict[int, str], List[Dict[str, object]]]:
     """Merge keyed sources in priority order; report conflicts.
 
     Each source is ``(keys, label)``; earlier labels win. Returns
@@ -297,13 +311,15 @@ def merge_keys(*sources: Tuple[Dict[int, str], str]) -> Tuple[Dict[int, str], Li
                 continue
             if n in merged:
                 if merged[n] != v:
-                    conflicts.append({
-                        "question": n,
-                        "kept": merged[n],
-                        "dropped": v,
-                        "kept_from": owner[n],
-                        "dropped_from": label,
-                    })
+                    conflicts.append(
+                        {
+                            "question": n,
+                            "kept": merged[n],
+                            "dropped": v,
+                            "kept_from": owner[n],
+                            "dropped_from": label,
+                        }
+                    )
                 continue
             merged[n] = v
             owner[n] = label

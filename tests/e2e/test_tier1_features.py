@@ -17,8 +17,8 @@ from __future__ import annotations
 
 import json
 import os
-import time
 from pathlib import Path
+import time
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -54,6 +54,7 @@ class TestTier1FeatureCoverage:
         # 1. Verify internal package imports are preserved without breaking
         import deeptutor
         import deeptutor_cli
+
         assert deeptutor is not None
         assert deeptutor_cli is not None
 
@@ -64,6 +65,7 @@ class TestTier1FeatureCoverage:
 
         # 3. Check CLI help output contract
         from deeptutor_cli.main import app as cli_app
+
         assert cli_app is not None
         assert cli_app.info.name in ("deeptutor", "aiguru", None)
 
@@ -134,20 +136,26 @@ class TestTier1FeatureCoverage:
         seamless fallback chain, hardware profiler, and resource governor.
         """
         # 1. Mode A: Cloud Provider
-        res_cloud = tutor_provider.complete("Explain Pythagoras theorem", active_mode=AIProviderMode.EXTERNAL_API)
+        res_cloud = tutor_provider.complete(
+            "Explain Pythagoras theorem", active_mode=AIProviderMode.EXTERNAL_API
+        )
         assert res_cloud["mode"] == "EXTERNAL_API"
         assert "AI Guru Cloud Tutor" in res_cloud["response"]
         assert "<think>" in res_cloud["thinking_trace"]
 
         # 2. Fallback to Local Ollama when cloud fails
         tutor_provider.cloud_api_healthy = False
-        res_fallback = tutor_provider.complete("Explain Pythagoras theorem", active_mode=AIProviderMode.EXTERNAL_API)
+        res_fallback = tutor_provider.complete(
+            "Explain Pythagoras theorem", active_mode=AIProviderMode.EXTERNAL_API
+        )
         assert res_fallback["mode"] == "LOCAL_OLLAMA"
         assert "AI Guru Local Tutor (Ollama)" in res_fallback["response"]
 
         # 3. Fallback to Offline Mode when both cloud and Ollama fail
         tutor_provider.ollama_healthy = False
-        res_offline = tutor_provider.complete("Explain Pythagoras theorem", active_mode=AIProviderMode.EXTERNAL_API)
+        res_offline = tutor_provider.complete(
+            "Explain Pythagoras theorem", active_mode=AIProviderMode.EXTERNAL_API
+        )
         assert res_offline["mode"] == "OFFLINE_LIMITED"
         assert "offline mode" in res_offline["response"]
 
@@ -189,17 +197,28 @@ class TestTier1FeatureCoverage:
         assert is_live is True
         assert reason == "live_human_confirmed"
 
-        static_photo_samples = [0.30, 0.30, 0.30, 0.30, 0.30]       # static photo
+        static_photo_samples = [0.30, 0.30, 0.30, 0.30, 0.30]  # static photo
         is_live, reason = cv_pipeline.check_liveness(static_photo_samples)
         assert is_live is False
         assert reason == "static_image_spoof_detected"
 
         # 3. Presence State Machine Hysteresis
         t0 = time.time()
-        assert cv_pipeline.update_presence(face_detected=True, timestamp=t0) == PresenceState.PRESENT
-        assert cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 4.0) == PresenceState.TEMPORARILY_NOT_VISIBLE
-        assert cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 15.0) == PresenceState.AWAY
-        assert cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 16.0) == PresenceState.PRESENT
+        assert (
+            cv_pipeline.update_presence(face_detected=True, timestamp=t0) == PresenceState.PRESENT
+        )
+        assert (
+            cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 4.0)
+            == PresenceState.TEMPORARILY_NOT_VISIBLE
+        )
+        assert (
+            cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 15.0)
+            == PresenceState.AWAY
+        )
+        assert (
+            cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 16.0)
+            == PresenceState.PRESENT
+        )
 
         # 4. Distraction Whitelisting (Writing & Reading must NOT be flagged as distraction)
         writing_frame = CVFrameTelemetry(
@@ -224,11 +243,15 @@ class TestTier1FeatureCoverage:
         assert warning1["event_type"] == "WARNING_ISSUED"
 
         # Duplicate warning within 60s cooldown is suppressed
-        warning2 = cv_pipeline.evaluate_warning(activity_phone, duration_seconds=30.0, timestamp=t0 + 20.0)
+        warning2 = cv_pipeline.evaluate_warning(
+            activity_phone, duration_seconds=30.0, timestamp=t0 + 20.0
+        )
         assert warning2 is None
 
         # Warning re-triggered after 60s cooldown window
-        warning3 = cv_pipeline.evaluate_warning(activity_phone, duration_seconds=80.0, timestamp=t0 + 65.0)
+        warning3 = cv_pipeline.evaluate_warning(
+            activity_phone, duration_seconds=80.0, timestamp=t0 + 65.0
+        )
         assert warning3 is not None
 
     # -----------------------------------------------------------------------
@@ -309,7 +332,9 @@ class TestTier1FeatureCoverage:
     # -----------------------------------------------------------------------
     # Requirement R6: Rewards & Gamification Engine
     # -----------------------------------------------------------------------
-    def test_r6_gamification_rewards_and_streaks(self, isolated_db: AIGuruTestDB, gamification_engine: GamificationEngine):
+    def test_r6_gamification_rewards_and_streaks(
+        self, isolated_db: AIGuruTestDB, gamification_engine: GamificationEngine
+    ):
         """
         REQ-R6-01 through REQ-R6-05:
         Verify XP points calculation (duration * focus multiplier + bonuses),
@@ -317,7 +342,9 @@ class TestTier1FeatureCoverage:
         """
         # 1. Verify XP formula
         # 30 mins * 1.5 (focus >= 95%) + 50 bonus = 45 + 50 = 95 XP
-        xp_earned = gamification_engine.calculate_earned_xp(duration_minutes=30.0, focus_score=98.0, goal_met=True)
+        xp_earned = gamification_engine.calculate_earned_xp(
+            duration_minutes=30.0, focus_score=98.0, goal_met=True
+        )
         assert xp_earned == 95
 
         # 2. Verify Level Progression
@@ -329,12 +356,14 @@ class TestTier1FeatureCoverage:
         assert level_up >= 2
 
         # 3. Verify Badge Unlocks
-        unlocked_badges = gamification_engine.evaluate_badges({
-            "streak_count": 7,
-            "focus_score": 96.0,
-            "duration_minutes": 30,
-            "total_sessions": 5,
-        })
+        unlocked_badges = gamification_engine.evaluate_badges(
+            {
+                "streak_count": 7,
+                "focus_score": 96.0,
+                "duration_minutes": 30,
+                "total_sessions": 5,
+            }
+        )
         badge_ids = {b["badge_id"] for b in unlocked_badges}
         assert "badge_streak_7" in badge_ids
         assert "badge_laser_focus" in badge_ids
@@ -358,7 +387,9 @@ class TestTier1FeatureCoverage:
     # -----------------------------------------------------------------------
     # Requirement R7: Parent Dashboard & Secure Remote Access
     # -----------------------------------------------------------------------
-    def test_r7_parent_dashboard_and_remote_access(self, isolated_db: AIGuruTestDB, parent_gateway: MockParentRemoteGateway):
+    def test_r7_parent_dashboard_and_remote_access(
+        self, isolated_db: AIGuruTestDB, parent_gateway: MockParentRemoteGateway
+    ):
         """
         REQ-R7-01 through REQ-R7-08:
         Verify 6-digit secure pairing PIN handshake, parent overview queries,
@@ -367,8 +398,14 @@ class TestTier1FeatureCoverage:
         """
         now = time.time()
         # Setup Student & Parent records
-        isolated_db.execute("INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('up1', 'parent_dan', 'pw', 'parent', 'Dan W', ?, ?)", (now, now))
-        isolated_db.execute("INSERT INTO parents (id, user_id, email, created_at, updated_at) VALUES ('p1', 'up1', 'dan@example.com', ?, ?)", (now, now))
+        isolated_db.execute(
+            "INSERT INTO users (id, username, password_hash, role, display_name, created_at, updated_at) VALUES ('up1', 'parent_dan', 'pw', 'parent', 'Dan W', ?, ?)",
+            (now, now),
+        )
+        isolated_db.execute(
+            "INSERT INTO parents (id, user_id, email, created_at, updated_at) VALUES ('p1', 'up1', 'dan@example.com', ?, ?)",
+            (now, now),
+        )
 
         # 1. Pairing handshake: Student generates 6-digit PIN, Parent inputs PIN
         pairing_code = parent_gateway.generate_pairing_code(student_id="s2", ttl_seconds=900.0)
@@ -402,7 +439,9 @@ class TestTier1FeatureCoverage:
     # -----------------------------------------------------------------------
     # Requirement R8: Offline Mode & Error Handling
     # -----------------------------------------------------------------------
-    def test_r8_offline_mode_and_error_handling(self, connectivity_manager: MockConnectivityManager):
+    def test_r8_offline_mode_and_error_handling(
+        self, connectivity_manager: MockConnectivityManager
+    ):
         """
         REQ-R8-01 through REQ-R8-05:
         Verify ConnectivityManager state transitions (ONLINE, OFFLINE, LIMITED, RECONNECTING),
@@ -414,7 +453,9 @@ class TestTier1FeatureCoverage:
         assert connectivity_manager.state == ConnectivityState.OFFLINE
 
         # 2. Offline Action Queueing
-        connectivity_manager.queue_action_for_sync({"action": "LOG_TELEMETRY", "session_id": "sess_001"})
+        connectivity_manager.queue_action_for_sync(
+            {"action": "LOG_TELEMETRY", "session_id": "sess_001"}
+        )
         assert len(connectivity_manager.sync_queue) == 1
 
         # 3. Reconnection and sync flush
@@ -473,14 +514,28 @@ class TestTier1FeatureCoverage:
             assert "base64_image" not in data
 
         # 2. Privacy Data Purge: Granular deletion of session and monitoring history
-        session_count_before = len(isolated_db.fetchall("SELECT * FROM study_sessions WHERE id = 'sess_001';"))
+        session_count_before = len(
+            isolated_db.fetchall("SELECT * FROM study_sessions WHERE id = 'sess_001';")
+        )
         assert session_count_before == 1
 
         # Delete session -> Cascades to monitoring_events and session_reports via FK
         isolated_db.execute("DELETE FROM study_sessions WHERE id = 'sess_001';")
         assert len(isolated_db.fetchall("SELECT * FROM study_sessions WHERE id = 'sess_001';")) == 0
-        assert len(isolated_db.fetchall("SELECT * FROM monitoring_events WHERE session_id = 'sess_001';")) == 0
-        assert len(isolated_db.fetchall("SELECT * FROM session_reports WHERE session_id = 'sess_001';")) == 0
+        assert (
+            len(
+                isolated_db.fetchall(
+                    "SELECT * FROM monitoring_events WHERE session_id = 'sess_001';"
+                )
+            )
+            == 0
+        )
+        assert (
+            len(
+                isolated_db.fetchall("SELECT * FROM session_reports WHERE session_id = 'sess_001';")
+            )
+            == 0
+        )
 
         # 3. Documentation suite contract
         required_docs = [

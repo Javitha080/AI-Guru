@@ -14,6 +14,8 @@ from pathlib import Path
 
 import pytest
 
+pytest.importorskip("mcp")  # MCP SDK — optional `partners` extra
+
 from deeptutor.runtime.registry.tool_registry import ToolRegistry
 from deeptutor.services.mcp.config import MCPServerConfig
 from deeptutor.services.mcp.manager import (

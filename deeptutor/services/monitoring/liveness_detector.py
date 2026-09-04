@@ -26,6 +26,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class LivenessResult:
     """Detailed anti-spoof liveness evaluation result."""
+
     is_live: bool
     confidence: float
     blink_detected: bool
@@ -44,7 +45,7 @@ class LivenessDetector:
 
     # EAR Thresholds
     EAR_CLOSED_THRESHOLD: float = 0.18  # Below this, eye is considered closed
-    EAR_OPEN_THRESHOLD: float = 0.25    # Above this, eye is open
+    EAR_OPEN_THRESHOLD: float = 0.25  # Above this, eye is open
     MIN_EAR_VARIANCE_FOR_LIVE: float = 0.0003  # Static photos have near-zero variance
 
     # Micro-motion threshold
@@ -81,11 +82,11 @@ class LivenessDetector:
         p1, p2, p3, p4, p5, p6 = eye_points[:6]
 
         # Vertical distances
-        v1 = math.sqrt((p2.x - p6.x)**2 + (p2.y - p6.y)**2 + (p2.z - p6.z)**2)
-        v2 = math.sqrt((p3.x - p5.x)**2 + (p3.y - p5.y)**2 + (p3.z - p5.z)**2)
+        v1 = math.sqrt((p2.x - p6.x) ** 2 + (p2.y - p6.y) ** 2 + (p2.z - p6.z) ** 2)
+        v2 = math.sqrt((p3.x - p5.x) ** 2 + (p3.y - p5.y) ** 2 + (p3.z - p5.z) ** 2)
 
         # Horizontal distance
-        h = math.sqrt((p1.x - p4.x)**2 + (p1.y - p4.y)**2 + (p1.z - p4.z)**2)
+        h = math.sqrt((p1.x - p4.x) ** 2 + (p1.y - p4.y) ** 2 + (p1.z - p4.z) ** 2)
 
         if h < 1e-6:
             return 0.0
@@ -237,7 +238,11 @@ class LivenessDetector:
 
         # Check total blink count and overall variance across sequence
         if self._blink_count > 0 or last_res.ear_variance >= self.MIN_EAR_VARIANCE_FOR_LIVE:
-            return True, max(0.85, last_res.confidence), f"Live presence verified ({self._blink_count} blinks detected)"
+            return (
+                True,
+                max(0.85, last_res.confidence),
+                f"Live presence verified ({self._blink_count} blinks detected)",
+            )
 
         if last_res.motion_score >= self.MIN_MOTION_VARIANCE_FOR_LIVE:
             return True, 0.80, "Live micro-movement verified"
@@ -251,7 +256,7 @@ class LivenessDetector:
         if n < 2:
             return 0.0
         mean_val = sum(values) / n
-        var_val = sum((x - mean_val)**2 for x in values) / (n - 1)
+        var_val = sum((x - mean_val) ** 2 for x in values) / (n - 1)
         return var_val
 
     @staticmethod
@@ -262,6 +267,6 @@ class LivenessDetector:
             return 0.0
         mean_x = sum(c[0] for c in coords) / n
         mean_y = sum(c[1] for c in coords) / n
-        var_x = sum((c[0] - mean_x)**2 for c in coords) / (n - 1)
-        var_y = sum((c[1] - mean_y)**2 for c in coords) / (n - 1)
+        var_x = sum((c[0] - mean_x) ** 2 for c in coords) / (n - 1)
+        var_y = sum((c[1] - mean_y) ** 2 for c in coords) / (n - 1)
         return (var_x + var_y) / 2.0

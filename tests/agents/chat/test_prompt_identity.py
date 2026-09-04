@@ -79,7 +79,9 @@ def test_blank_identity_falls_back_to_product():
 
 def test_shipped_yaml_carries_partner_templates():
     root = Path(__file__).resolve().parents[3] / "deeptutor/agents/chat/prompts"
-    for lang_dir in [p for p in root.iterdir() if p.is_dir() and (p / "agentic_chat.yaml").exists()]:
+    for lang_dir in [
+        p for p in root.iterdir() if p.is_dir() and (p / "agentic_chat.yaml").exists()
+    ]:
         data = yaml.safe_load((lang_dir / "agentic_chat.yaml").read_text(encoding="utf-8"))
         assert "{name}" in data["general_partner"]
         assert "{description}" in data["general_partner_description"]

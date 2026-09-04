@@ -16,12 +16,14 @@ from deeptutor.services.remote.telegram_command_listener import (
     parse_command,
 )
 
-CFG_JSON = json.dumps({
-    "bot_token": "123:ABC",
-    "chat_id": "555000111",
-    "enabled": True,
-    "updated_at": 0.0,
-})
+CFG_JSON = json.dumps(
+    {
+        "bot_token": "123:ABC",
+        "chat_id": "555000111",
+        "enabled": True,
+        "updated_at": 0.0,
+    }
+)
 
 
 class TestParseCommand:

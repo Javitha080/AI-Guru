@@ -133,9 +133,7 @@ async def enqueue(kind: str, payload: Dict[str, Any], parent_id: str = "default"
     *network* loss, not to replay everything that happened before the
     parent finished setup as if it were live.
     """
-    from deeptutor.services.remote.telegram_config import TelegramConfigStore
-
-    if await TelegramConfigStore.get(parent_id) is None:
+    if await _load_telegram_config(parent_id) is None:
         logger.debug("Dropped %s notification for %s: Telegram not configured", kind, parent_id)
         return 0
     async with aiosqlite.connect(_db_path()) as db:
@@ -158,8 +156,6 @@ async def enqueue_for_parents(
 
     Returns the queued row ids (empty when nobody could receive it).
     """
-    from deeptutor.services.remote.telegram_config import TelegramConfigStore
-
     row_ids: List[int] = []
     seen: set[str] = set()
     for parent_id in parent_ids or ["default"]:
@@ -167,10 +163,8 @@ async def enqueue_for_parents(
         if parent_id in seen:
             continue
         seen.add(parent_id)
-        if await TelegramConfigStore.get(parent_id) is None:
-            logger.debug(
-                "Dropped %s notification for %s: Telegram not configured", kind, parent_id
-            )
+        if await _load_telegram_config(parent_id) is None:
+            logger.debug("Dropped %s notification for %s: Telegram not configured", kind, parent_id)
             continue
         async with aiosqlite.connect(_db_path()) as db:
             await _ensure_outbox(db)
@@ -186,9 +180,7 @@ async def enqueue_for_parents(
     return row_ids
 
 
-async def enqueue_for_student(
-    kind: str, payload: Dict[str, Any], student_id: str
-) -> List[int]:
+async def enqueue_for_student(kind: str, payload: Dict[str, Any], student_id: str) -> List[int]:
     """Fan one event out to every parent linked to a student.
 
     Falls back to the default parent when nobody linked the student yet
@@ -198,7 +190,9 @@ async def enqueue_for_student(
     try:
         from deeptutor.services.remote.pairing import PairingService
 
-        parent_ids = await PairingService.get_parent_ids_for_student(student_id or "student-primary")
+        parent_ids = await PairingService.get_parent_ids_for_student(
+            student_id or "student-primary"
+        )
     except Exception as exc:  # noqa: BLE001
         logger.debug("Parent fan-out degraded to default: %s", exc)
         parent_ids = ["default"]
@@ -231,11 +225,13 @@ async def flush_once(limit: int = 20) -> int:
         await db.execute(
             "UPDATE notification_outbox SET status='dead', last_error=?"
             " WHERE status='pending' AND created_at < ?",
-            (f"expired: pending longer than {_STALE_AFTER_SECONDS:.0f}s", now - _STALE_AFTER_SECONDS),
+            (
+                f"expired: pending longer than {_STALE_AFTER_SECONDS:.0f}s",
+                now - _STALE_AFTER_SECONDS,
+            ),
         )
         await db.commit()
 
-    from deeptutor.services.remote.telegram_config import TelegramConfigStore
     from deeptutor.services.remote.telegram_notifier import TelegramNotifier
 
     sent = 0
@@ -280,7 +276,7 @@ async def flush_once(limit: int = 20) -> int:
             claimed = [r[0] for r in await cur3.fetchall()]
 
     for row_id in claimed:
-        row = await _load_row(row_id)
+        row = await _load_row(row_id, path=_db_path())
         if row is None:
             continue
         try:
@@ -288,13 +284,24 @@ async def flush_once(limit: int = 20) -> int:
                 row_parent = str(row["parent_id"] or "default")
             except (KeyError, IndexError):
                 row_parent = "default"
-            config = await TelegramConfigStore.get(row_parent)
+            config = await _load_telegram_config(row_parent)
             if not config:
-                # Parent disabled/revoked Telegram after enqueue: retire the
-                # row instead of retrying forever against a dead config.
-                await _mark(row_id, dead=True, error="telegram config removed/disabled")
+                # Transient config gap (setup in progress, token rotated):
+                # keep the row pending so it delivers as soon as Telegram is
+                # configured again. Only AGE expiry above drops queued
+                # notifications — never a momentary unconfigured window.
+                await _mark(
+                    row_id,
+                    path=_db_path(),
+                    error="telegram config unavailable; kept pending",
+                    retries=int(row["retries"]),
+                    next_attempt=0.0,
+                    back_to_pending=True,
+                )
                 logger.info(
-                    "Retired notification #%d: telegram unconfigured for %s", row_id, row_parent
+                    "Deferred notification #%d: telegram unconfigured for %s",
+                    row_id,
+                    row_parent,
                 )
                 continue
             payload = json.loads(row["payload_json"])
@@ -309,7 +316,9 @@ async def flush_once(limit: int = 20) -> int:
                 if len(photo_b64) > _MAX_PHOTO_B64_LEN:
                     logger.warning(
                         "Notification #%d photo %d chars exceeds %d cap; sending text-only",
-                        row_id, len(photo_b64), _MAX_PHOTO_B64_LEN,
+                        row_id,
+                        len(photo_b64),
+                        _MAX_PHOTO_B64_LEN,
                     )
                 else:
                     try:
@@ -326,7 +335,9 @@ async def flush_once(limit: int = 20) -> int:
                 )
                 if not ok:
                     # Fall back to text if photo delivery failed (e.g. format, size, or caption issue)
-                    logger.info("Photo send failed for notification #%d; falling back to text", row_id)
+                    logger.info(
+                        "Photo send failed for notification #%d; falling back to text", row_id
+                    )
                     ok = await TelegramNotifier.send_message(
                         bot_token=config["bot_token"], chat_id=config["chat_id"], text=text
                     )
@@ -336,19 +347,25 @@ async def flush_once(limit: int = 20) -> int:
                 )
             if ok:
                 sent += 1
-                await _mark(row_id, sent=True)
+                await _mark(row_id, sent=True, path=_db_path())
             else:
                 retries = int(row["retries"]) + 1
                 if retries >= _MAX_RETRIES:
-                    await _mark(row_id, dead=True, error="max retries exceeded")
+                    await _mark(row_id, dead=True, path=_db_path(), error="max retries exceeded")
                     logger.warning("Dropped notification #%d after %d retries", row_id, retries)
                 else:
                     delay = _backoff_for(retries)
-                    await _mark(row_id, error="send failed", retries=retries,
-                                next_attempt=time.time() + delay, back_to_pending=True)
+                    await _mark(
+                        row_id,
+                        path=_db_path(),
+                        error="send failed",
+                        retries=retries,
+                        next_attempt=time.time() + delay,
+                        back_to_pending=True,
+                    )
         except Exception as exc:  # noqa: BLE001 - isolate corrupted or failing item
             logger.warning("Error processing notification #%d: %s", row_id, exc)
-            await _mark(row_id, dead=True, error=f"processing failed: {exc}")
+            await _mark(row_id, dead=True, path=_db_path(), error=f"processing failed: {exc}")
     if claimed:
         logger.info("Outbox flush: %d/%d delivered", sent, len(claimed))
     return sent
@@ -372,11 +389,7 @@ def start_notification_worker() -> None:
         loop = asyncio.get_running_loop()
     except RuntimeError:
         return
-    if (
-        _worker_task is not None
-        and not _worker_task.done()
-        and _worker_task_loop is loop
-    ):
+    if _worker_task is not None and not _worker_task.done() and _worker_task_loop is loop:
         return
     if _worker_task is not None and not _worker_task.done():
         # Task belongs to a different (likely closed) loop — drop it.

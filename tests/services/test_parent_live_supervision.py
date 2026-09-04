@@ -77,8 +77,9 @@ def audit_tape(monkeypatch):
 
     calls: List[tuple] = []
 
-    def record(action: str, actor: str = "local",
-               details: Dict[str, Any] | None = None, **kwargs: Any) -> None:
+    def record(
+        action: str, actor: str = "local", details: Dict[str, Any] | None = None, **kwargs: Any
+    ) -> None:
         calls.append((action, actor, details or {}))
 
     monkeypatch.setattr(parent_router, "_audit", record)
@@ -112,8 +113,11 @@ def _register_live(ms, session_id: str, with_frame: bool = True) -> None:
         )
 
 
-def _mock_study_session(monkeypatch, session: Dict[str, Any] | None,
-                        listing: Dict[str, List[Dict[str, Any]]] | None = None):
+def _mock_study_session(
+    monkeypatch,
+    session: Dict[str, Any] | None,
+    listing: Dict[str, List[Dict[str, Any]]] | None = None,
+):
     from deeptutor.services.study import session_manager as sm
 
     async def fake_get_session(self, session_id: str):
@@ -139,14 +143,18 @@ def _mock_tunnel(monkeypatch, public: bool = True):
     from deeptutor.services.remote.tunnel_gateway import TunnelGateway
 
     async def fake_start(cls, local_port=None, provider="cloudflare", ngrok_token=None):
-        return {"status": "active" if public else "starting",
-                "url": "https://demo.trycloudflare.com" if public else None,
-                "provider": "cloudflare", "url_is_public": public}
+        return {
+            "status": "active" if public else "starting",
+            "url": "https://demo.trycloudflare.com" if public else None,
+            "provider": "cloudflare",
+            "url_is_public": public,
+        }
 
     monkeypatch.setattr(TunnelGateway, "start_tunnel", classmethod(fake_start))
     monkeypatch.setattr(TunnelGateway, "is_url_public", classmethod(lambda cls: public))
     monkeypatch.setattr(
-        TunnelGateway, "get_tunnel_url",
+        TunnelGateway,
+        "get_tunnel_url",
         classmethod(lambda cls: "https://demo.trycloudflare.com" if public else None),
     )
 
@@ -175,13 +183,17 @@ async def test_resolve_current_picks_consented_active(live_env, registry_state):
 async def test_resolve_student_prefers_in_progress(live_env, registry_state, monkeypatch):
     from deeptutor.api.routers.parent import _resolve_live_session
 
-    _mock_study_session(monkeypatch, {"student_id": "kid1"}, {
-        "kid1": [
-            {"id": "old-done", "status": "completed"},
-            {"id": "live-now", "status": "in_progress"},
-        ],
-        "kid2": [{"id": "done", "status": "completed"}],
-    })
+    _mock_study_session(
+        monkeypatch,
+        {"student_id": "kid1"},
+        {
+            "kid1": [
+                {"id": "old-done", "status": "completed"},
+                {"id": "live-now", "status": "in_progress"},
+            ],
+            "kid2": [{"id": "done", "status": "completed"}],
+        },
+    )
     assert await _resolve_live_session("current", "kid1") == "live-now"
     assert await _resolve_live_session("sess-ignored", "kid2") is None
     assert await _resolve_live_session("current", "ghost") is None
@@ -201,7 +213,9 @@ async def test_permission_allows_linked_student(live_env, registry_state, monkey
 
 
 @pytest.mark.asyncio
-async def test_permission_denies_unlinked_student(live_env, registry_state, monkeypatch, audit_tape):
+async def test_permission_denies_unlinked_student(
+    live_env, registry_state, monkeypatch, audit_tape
+):
     from fastapi import HTTPException
 
     from deeptutor.api.routers.parent import _require_live_permission
@@ -246,9 +260,7 @@ async def test_snapshot_serves_frame(live_env, registry_state, audit_tape):
 
 
 @pytest.mark.asyncio
-async def test_snapshot_denied_before_frames(
-    live_env, registry_state, monkeypatch, audit_tape
-):
+async def test_snapshot_denied_before_frames(live_env, registry_state, monkeypatch, audit_tape):
     """A frame IS staged, yet a can_view_live=False link yields 403, not JPEG."""
     client, _ = _make_client()
     access, _ = await _parent_tokens()
@@ -269,9 +281,13 @@ async def test_snapshot_student_targeting(live_env, registry_state, monkeypatch,
     client, _ = _make_client()
     access, _ = await _parent_tokens()
     _register_live(registry_state, "sess-live")
-    _mock_study_session(monkeypatch, {"student_id": "kid1"}, {
-        "kid1": [{"id": "sess-live", "status": "in_progress"}],
-    })
+    _mock_study_session(
+        monkeypatch,
+        {"student_id": "kid1"},
+        {
+            "kid1": [{"id": "sess-live", "status": "in_progress"}],
+        },
+    )
 
     res = client.get(
         "/api/v1/parent/live/snapshot?student_id=kid1",
@@ -297,9 +313,13 @@ async def test_live_start_grants_consent_and_reports_urls(
     access, _ = await _parent_tokens()
     _mock_tunnel(monkeypatch, public=True)
     registry_state._active_monitoring_sessions["sess-9"] = object()
-    _mock_study_session(monkeypatch, {"student_id": "kid1"}, {
-        "kid1": [{"id": "sess-9", "status": "in_progress"}],
-    })
+    _mock_study_session(
+        monkeypatch,
+        {"student_id": "kid1"},
+        {
+            "kid1": [{"id": "sess-9", "status": "in_progress"}],
+        },
+    )
 
     res = client.post(
         "/api/v1/parent/live/start?student_id=kid1",
@@ -325,9 +345,13 @@ async def test_live_start_denied_for_unlinked_student(
     _mock_tunnel(monkeypatch, public=True)
     registry_state._active_monitoring_sessions["sess-9"] = object()
     _mock_links(monkeypatch, [{"student_id": "s1", "permissions": {"can_view_live": True}}])
-    _mock_study_session(monkeypatch, {"student_id": "kidX"}, {
-        "kidX": [{"id": "sess-9", "status": "in_progress"}],
-    })
+    _mock_study_session(
+        monkeypatch,
+        {"student_id": "kidX"},
+        {
+            "kidX": [{"id": "sess-9", "status": "in_progress"}],
+        },
+    )
 
     res = client.post(
         "/api/v1/parent/live/start?student_id=kidX",
@@ -407,9 +431,7 @@ async def test_ws_waiting_state_without_frames(live_env, registry_state, audit_t
 
 
 @pytest.mark.asyncio
-async def test_ws_permission_denied_closes_4003(
-    live_env, registry_state, monkeypatch, audit_tape
-):
+async def test_ws_permission_denied_closes_4003(live_env, registry_state, monkeypatch, audit_tape):
     from starlette.websockets import WebSocketDisconnect
 
     client, _ = _make_client()
@@ -434,9 +456,13 @@ async def test_ws_student_targeting(live_env, registry_state, monkeypatch, audit
     client, _ = _make_client()
     access, _ = await _parent_tokens()
     _register_live(registry_state, "sess-live")
-    _mock_study_session(monkeypatch, {"student_id": "kid1"}, {
-        "kid1": [{"id": "sess-live", "status": "in_progress"}],
-    })
+    _mock_study_session(
+        monkeypatch,
+        {"student_id": "kid1"},
+        {
+            "kid1": [{"id": "sess-live", "status": "in_progress"}],
+        },
+    )
 
     with client.websocket_connect(
         "/api/v1/parent/live/stream?session_id=current&student_id=kid1",

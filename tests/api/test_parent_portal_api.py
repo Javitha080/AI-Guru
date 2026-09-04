@@ -96,10 +96,21 @@ async def test_sessions_weekly_uses_actual_duration_column(portal_env):
     """Regression: weekly buckets must read actual_duration_seconds (the old
     code read a nonexistent ``duration_seconds`` and always rendered zeros)."""
     now = time.time()
-    _seed_session(portal_env, id="sess_today", actual_duration_seconds=1500,
-                  start_time=now - 1800, created_at=now - 1800, status="completed")
-    _seed_session(portal_env, id="_sess_old", actual_duration_seconds=9999,
-                  start_time=now - 40 * 86400, created_at=now - 40 * 86400)
+    _seed_session(
+        portal_env,
+        id="sess_today",
+        actual_duration_seconds=1500,
+        start_time=now - 1800,
+        created_at=now - 1800,
+        status="completed",
+    )
+    _seed_session(
+        portal_env,
+        id="_sess_old",
+        actual_duration_seconds=9999,
+        start_time=now - 40 * 86400,
+        created_at=now - 40 * 86400,
+    )
 
     data = await parent_router.get_student_sessions("student-primary")
 
@@ -114,9 +125,16 @@ async def test_sessions_weekday_buckets_match_labels(portal_env):
     now = time.time()
     # Find the epoch instant of this week's Monday 12:00 local.
     lt = time.localtime(now)
-    monday = time.mktime((lt.tm_year, lt.tm_mon, lt.tm_mday, 12, 0, 0, 0, 0, -1)) - lt.tm_wday * 86400
-    _seed_session(portal_env, id="sess_mon", start_time=monday,
-                  created_at=monday, actual_duration_seconds=1200)
+    monday = (
+        time.mktime((lt.tm_year, lt.tm_mon, lt.tm_mday, 12, 0, 0, 0, 0, -1)) - lt.tm_wday * 86400
+    )
+    _seed_session(
+        portal_env,
+        id="sess_mon",
+        start_time=monday,
+        created_at=monday,
+        actual_duration_seconds=1200,
+    )
 
     data = await parent_router.get_student_sessions("student-primary")
 
@@ -131,8 +149,15 @@ async def test_sessions_weekday_buckets_match_labels(portal_env):
 async def test_dashboard_reports_real_focus_score_not_zero(portal_env):
     """Regression: focus_score used to be hardcoded to 0."""
     now = time.time()
-    _seed_session(portal_env, id="done1", status="completed", focus_score=87.3,
-                  actual_duration_seconds=900, start_time=now - 7200, created_at=now - 7200)
+    _seed_session(
+        portal_env,
+        id="done1",
+        status="completed",
+        focus_score=87.3,
+        actual_duration_seconds=900,
+        start_time=now - 7200,
+        created_at=now - 7200,
+    )
 
     rows = await parent_router.get_parent_dashboard("default")
     assert isinstance(rows, list) and len(rows) >= 1
@@ -144,8 +169,9 @@ async def test_dashboard_reports_real_focus_score_not_zero(portal_env):
 
 @pytest.mark.asyncio
 async def test_dashboard_focus_null_when_never_measured(portal_env):
-    _seed_session(portal_env, id="raw1", status="in_progress",
-                  focus_score=None, actual_duration_seconds=0)
+    _seed_session(
+        portal_env, id="raw1", status="in_progress", focus_score=None, actual_duration_seconds=0
+    )
     rows = await parent_router.get_parent_dashboard("default")
     assert rows[0]["focus_score"] is None  # frontend renders honest —
 
@@ -155,15 +181,30 @@ async def test_dashboard_sums_all_of_todays_sessions(portal_env):
     now = time.time()
     lt = time.localtime(now)
     midnight = time.mktime((lt.tm_year, lt.tm_mon, lt.tm_mday, 0, 0, 0, 0, 0, -1))
-    _seed_session(portal_env, id="morn", status="completed",
-                  actual_duration_seconds=1200, start_time=midnight + 3600,
-                  created_at=midnight + 3600)
-    _seed_session(portal_env, id="live", status="in_progress",
-                  actual_duration_seconds=300, start_time=now - 600,
-                  created_at=now - 600)
-    _seed_session(portal_env, id="yest", status="completed",
-                  actual_duration_seconds=5000, start_time=now - 30 * 86400,
-                  created_at=now - 30 * 86400)
+    _seed_session(
+        portal_env,
+        id="morn",
+        status="completed",
+        actual_duration_seconds=1200,
+        start_time=midnight + 3600,
+        created_at=midnight + 3600,
+    )
+    _seed_session(
+        portal_env,
+        id="live",
+        status="in_progress",
+        actual_duration_seconds=300,
+        start_time=now - 600,
+        created_at=now - 600,
+    )
+    _seed_session(
+        portal_env,
+        id="yest",
+        status="completed",
+        actual_duration_seconds=5000,
+        start_time=now - 30 * 86400,
+        created_at=now - 30 * 86400,
+    )
 
     rows = await parent_router.get_parent_dashboard("default")
     today_min = rows[0]["today_study_time"]
@@ -182,7 +223,11 @@ async def test_dashboard_fallback_name_from_supervision_rules(portal_env):
         await db.execute(
             "INSERT OR REPLACE INTO settings (key, value, category, updated_at)"
             " VALUES (?, ?, 'supervision', ?)",
-            ("supervision_rules_default", '{"student_name": "Riya", "daily_goal_minutes": 90, "alert_strictness": "strict"}', time.time()),
+            (
+                "supervision_rules_default",
+                '{"student_name": "Riya", "daily_goal_minutes": 90, "alert_strictness": "strict"}',
+                time.time(),
+            ),
         )
         await db.commit()
 
@@ -237,7 +282,9 @@ async def test_tunnel_defaults_to_frontend_port():
 async def test_portal_base_url_prefers_public_tunnel(monkeypatch):
     from deeptutor.services.remote import tunnel_gateway as tg
 
-    monkeypatch.setattr(tg.TunnelGateway, "get_tunnel_url", classmethod(lambda cls: "https://abc.trycloudflare.com"))
+    monkeypatch.setattr(
+        tg.TunnelGateway, "get_tunnel_url", classmethod(lambda cls: "https://abc.trycloudflare.com")
+    )
     monkeypatch.setattr(tg.TunnelGateway, "is_url_public", classmethod(lambda cls: True))
 
     url, mode = parent_router._portal_base_url()

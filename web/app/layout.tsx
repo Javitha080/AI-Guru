@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Urbanist, Onest } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import "./motion-tokens.css";
 import "./glass-surfaces.css";
@@ -11,20 +11,23 @@ import LiquidGlassDefs from "@/components/ui/LiquidGlassDefs";
 import { AppShellProvider } from "@/context/AppShellContext";
 import { I18nClientBridge } from "@/i18n/I18nClientBridge";
 
-// Urbanist (geometric display) for clean modern headers and accents
-const fontDisplay = Urbanist({
-  subsets: ["latin"],
+// Urbanist (geometric display) for clean modern headers and accents.
+// Self-hosted via @fontsource-variable so builds work with no network egress
+// (next/font/google requires fonts.googleapis.com at build time, which breaks
+// the offline/local-first story and offline CI).
+const fontDisplay = localFont({
+  src: "../node_modules/@fontsource-variable/urbanist/files/urbanist-latin-wght-normal.woff2",
   display: "swap",
   variable: "--font-display",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: "100 900",
 });
 
-// Onest (legible body) for readable UI elements and content
-const fontBody = Onest({
-  subsets: ["latin"],
+// Onest (legible body) for readable UI elements and content.
+const fontBody = localFont({
+  src: "../node_modules/@fontsource-variable/onest/files/onest-latin-wght-normal.woff2",
   display: "swap",
   variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {

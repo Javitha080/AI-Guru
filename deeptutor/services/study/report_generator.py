@@ -26,7 +26,7 @@ class ReportGenerator:
     """
 
     def __init__(self) -> None:
-        self.db_path = get_path_service().user_dir / 'chat_history.db'
+        self.db_path = get_path_service().user_dir / "chat_history.db"
         self.session_manager = StudySessionManager()
         self.telemetry_logger = TelemetryLogger()
 
@@ -38,26 +38,27 @@ class ReportGenerator:
 
         events = await self.telemetry_logger.get_session_events(session_id)
 
-        actual_duration = int(session.get('actual_duration_seconds') or 0)
+        actual_duration = int(session.get("actual_duration_seconds") or 0)
 
         distracted_seconds = 0.0
         for event in events:
-            if event['event_type'] in ('LOOKING_AWAY', 'PHONE_DETECTED'):
-                distracted_seconds += float(event.get('duration_seconds') or 0.0)
+            if event["event_type"] in ("LOOKING_AWAY", "PHONE_DETECTED"):
+                distracted_seconds += float(event.get("duration_seconds") or 0.0)
         distracted_seconds = min(distracted_seconds, float(actual_duration))
 
         productive_seconds = max(0.0, float(actual_duration) - distracted_seconds)
         # Info-level presence pings (STUDENT_AWAY etc.) are not warnings.
         warning_count = sum(
-            1 for e in events
-            if e['event_type'] == 'WARNING_ISSUED' and e.get('severity') in ('warning', 'alert')
+            1
+            for e in events
+            if e["event_type"] == "WARNING_ISSUED" and e.get("severity") in ("warning", "alert")
         )
 
         focus_score = float(
-            session.get('focus_score')
+            session.get("focus_score")
             or max(0.0, 100.0 - 5.0 * warning_count - distracted_seconds / 60.0 * 2.0)
         )
-        engagement_score = float(session.get('engagement_score') or focus_score)
+        engagement_score = float(session.get("engagement_score") or focus_score)
 
         # AI summary is best-effort: a real LLM call when configured (bounded
         # so session completion stays snappy), an honest deterministic
@@ -102,7 +103,7 @@ class ReportGenerator:
                     actual_duration,
                     int(productive_seconds),
                     int(distracted_seconds),
-                    json.dumps([session.get('subject', 'General')]),
+                    json.dumps([session.get("subject", "General")]),
                     "",
                     "",
                     ai_summary,
@@ -124,10 +125,10 @@ class ReportGenerator:
                 if row:
                     data = dict(row)
                     try:
-                        data['topics'] = json.loads(data.pop('topics_covered_json') or "[]")
+                        data["topics"] = json.loads(data.pop("topics_covered_json") or "[]")
                     except Exception:  # noqa: BLE001
-                        data['topics'] = []
-                        data.pop('topics_covered_json', None)
+                        data["topics"] = []
+                        data.pop("topics_covered_json", None)
                     return data
         return {}
 
@@ -143,8 +144,8 @@ class ReportGenerator:
                 async for row in cursor:
                     data = dict(row)
                     try:
-                        data['topics'] = json.loads(data.pop('topics_covered_json') or "[]")
+                        data["topics"] = json.loads(data.pop("topics_covered_json") or "[]")
                     except Exception:  # noqa: BLE001
-                        data['topics'] = []
+                        data["topics"] = []
                     reports.append(data)
         return reports

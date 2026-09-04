@@ -12,7 +12,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import re
-
 import unicodedata
 
 _JUNK_LINE_RE = re.compile(r"^(?:[^\w\u0d80-\u0dff]{1,3}|[ද෴r%*|xX]{1,4})$")
@@ -103,7 +102,10 @@ _ENGLISH_WORD_REPLACEMENTS = [
     (r"\bIntergrated\b", "Integrated"),
     (r"\bIntergration\b", "Integration"),
     (r"\bofa\b", "of a"),
-    (r"\bSOL\b(?=\s+(?:statement|query|command|server|database|SELECT|INSERT|UPDATE|DELETE))", "SQL"),
+    (
+        r"\bSOL\b(?=\s+(?:statement|query|command|server|database|SELECT|INSERT|UPDATE|DELETE))",
+        "SQL",
+    ),
     (r"\bcornputer\b", "computer"),
     (r"\bcornputing\b", "computing"),
     (r"\bprograrn\b", "program"),
@@ -151,9 +153,9 @@ def normalize(text: str) -> str:
     """Normalize whitespace/noise, Unicode hygiene and common OCR substitutions."""
     text = unicodedata.normalize("NFC", text)
     # Replace ඞ (U+0D9E, Kantaja Na) with ඩ (U+0DA9, Murdhaja Da) in Sinhala words
-    text = text.replace("\u0D9E", "\u0DA9")
+    text = text.replace("\u0d9e", "\u0da9")
     # Collapse multiple viramas (al-lakuna)
-    text = re.sub(r"\u0DCA{2,}", "\u0DCA", text)
+    text = re.sub(r"\u0DCA{2,}", "\u0dca", text)
     # Remove isolated combining marks at start of line or after whitespace
     text = re.sub(r"(?:^|\s)[\u0DCA-\u0DDF]+", " ", text)
 
@@ -200,9 +202,9 @@ def _validated_heading(hits: list[tuple[int, str]], lines: list[str]) -> tuple[i
             if m and int(m.group(1)) <= 6:
                 return i, text
         # Strong marker in the latter half of document
-        if i >= len(lines) * 0.35 and any(w in text for w in [
-            "Structured", "ව්‍යුහගත", "ව්‍යහගන", "II පත්‍රය", "දෙවන පත්‍රය", "A කොටස"
-        ]):
+        if i >= len(lines) * 0.35 and any(
+            w in text for w in ["Structured", "ව්‍යුහගත", "ව්‍යහගන", "II පත්‍රය", "දෙවන පත්‍රය", "A කොටස"]
+        ):
             return i, text
     return -1, ""
 

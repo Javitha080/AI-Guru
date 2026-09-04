@@ -27,12 +27,13 @@ logger = logging.getLogger(__name__)
 @dataclass
 class EngagementSnapshot:
     """Engagement metrics snapshot."""
-    score: float                # 0.0 to 100.0 smoothed engagement score
+
+    score: float  # 0.0 to 100.0 smoothed engagement score
     instantaneous_score: float  # Unsmoothed frame score
-    gaze_factor: float          # 0.0 to 1.0
-    posture_factor: float       # 0.0 to 1.0
-    stability_factor: float     # 0.0 to 1.0
-    trend: str                  # "STABLE", "RISING", "FALLING"
+    gaze_factor: float  # 0.0 to 1.0
+    posture_factor: float  # 0.0 to 1.0
+    stability_factor: float  # 0.0 to 1.0
+    trend: str  # "STABLE", "RISING", "FALLING"
 
 
 class EngagementEstimator:
@@ -41,7 +42,7 @@ class EngagementEstimator:
     attention drops are reacted to fast (α=0.25), recovery is gradual (α=0.10).
     """
 
-    EMA_ALPHA: float = 0.15        # Neutral smoothing (~2-3s response)
+    EMA_ALPHA: float = 0.15  # Neutral smoothing (~2-3s response)
     FAST_DECAY_ALPHA: float = 0.25  # Focus dropping — react quickly
     SLOW_RECOVERY_ALPHA: float = 0.10  # Focus returning — gradual rebuild
 
@@ -109,11 +110,7 @@ class EngagementEstimator:
 
             # Base instantaneous score
             # Weights: Gaze (45%), Posture (35%), Stability (20%)
-            instant_score = (
-                gaze_factor * 45.0 +
-                posture_factor * 35.0 +
-                stability_factor * 20.0
-            )
+            instant_score = gaze_factor * 45.0 + posture_factor * 35.0 + stability_factor * 20.0
 
             if is_distracted:
                 instant_score = max(0.0, instant_score - 40.0)
@@ -124,10 +121,7 @@ class EngagementEstimator:
             alpha = self.FAST_DECAY_ALPHA
         elif instant_score > self._smoothed_score + 2.0:
             alpha = self.SLOW_RECOVERY_ALPHA
-        self._smoothed_score = (
-            alpha * instant_score +
-            (1.0 - alpha) * self._smoothed_score
-        )
+        self._smoothed_score = alpha * instant_score + (1.0 - alpha) * self._smoothed_score
         self._smoothed_score = max(0.0, min(100.0, self._smoothed_score))
 
         # Determine trend
@@ -157,9 +151,9 @@ class EngagementEstimator:
         h = list(self._pose_history)
         # Combined RMS of yaw + pitch + roll inter-frame deltas so vertical
         # head-bobbing and lateral fidgeting are properly penalised.
-        yaw_deltas = [abs(h[i][0] - h[i-1][0]) for i in range(1, len(h))]
-        pitch_deltas = [abs(h[i][1] - h[i-1][1]) for i in range(1, len(h))]
-        roll_deltas = [abs(h[i][2] - h[i-1][2]) for i in range(1, len(h))]
+        yaw_deltas = [abs(h[i][0] - h[i - 1][0]) for i in range(1, len(h))]
+        pitch_deltas = [abs(h[i][1] - h[i - 1][1]) for i in range(1, len(h))]
+        roll_deltas = [abs(h[i][2] - h[i - 1][2]) for i in range(1, len(h))]
         combined = [(y + p + r) / 3.0 for y, p, r in zip(yaw_deltas, pitch_deltas, roll_deltas)]
         avg_motion = sum(combined) / len(combined)
 

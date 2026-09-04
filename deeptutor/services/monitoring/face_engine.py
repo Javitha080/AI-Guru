@@ -28,6 +28,7 @@ class Point3D:
 @dataclass
 class FaceLandmarks:
     """Standardized facial landmarks structure."""
+
     left_eye: List[Point3D] = field(default_factory=list)
     right_eye: List[Point3D] = field(default_factory=list)
     nose_tip: Point3D = field(default_factory=lambda: Point3D(0.5, 0.5, 0.0))
@@ -42,9 +43,15 @@ class FaceLandmarks:
 @dataclass
 class FaceDetectionResult:
     """Result of local face detection and landmark extraction."""
+
     detected: bool
     confidence: float = 0.0
-    bounding_box: Tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0)  # x, y, width, height (normalized 0-1)
+    bounding_box: Tuple[float, float, float, float] = (
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+    )  # x, y, width, height (normalized 0-1)
     landmarks: Optional[FaceLandmarks] = None
     embedding: Optional[List[float]] = None  # 128D or normalized feature vector
     brightness: float = 0.5  # Mean image luminance (0-255 or 0-1 normalized)
@@ -67,7 +74,9 @@ class FaceEngine:
         if not embedding or len(embedding) == 0:
             raise ValueError("Face embedding must not be empty.")
         self._enrolled_embedding = self._normalize_vector(embedding)
-        logger.info("Enrolled baseline face embedding (dimension=%d)", len(self._enrolled_embedding))
+        logger.info(
+            "Enrolled baseline face embedding (dimension=%d)", len(self._enrolled_embedding)
+        )
 
     def get_enrolled_face(self) -> Optional[List[float]]:
         """Return the enrolled baseline feature vector."""
@@ -166,11 +175,18 @@ class FaceEngine:
 
         raw_bbox = raw_data.get("bbox", [0.2, 0.2, 0.6, 0.6])
         try:
-            bbox_list = list(raw_bbox) if isinstance(raw_bbox, (list, tuple)) else [0.2, 0.2, 0.6, 0.6]
+            bbox_list = (
+                list(raw_bbox) if isinstance(raw_bbox, (list, tuple)) else [0.2, 0.2, 0.6, 0.6]
+            )
             if len(bbox_list) != 4:
                 raise ValueError("bbox must have 4 elements")
             bbox_vals = tuple(max(0.0, min(1.0, _safe_float(v, 0.0))) for v in bbox_list)
-            bbox: Tuple[float, float, float, float] = (bbox_vals[0], bbox_vals[1], bbox_vals[2], bbox_vals[3])
+            bbox: Tuple[float, float, float, float] = (
+                bbox_vals[0],
+                bbox_vals[1],
+                bbox_vals[2],
+                bbox_vals[3],
+            )
         except (TypeError, ValueError):
             bbox = (0.2, 0.2, 0.6, 0.6)
         confidence = max(0.0, min(1.0, _safe_float(raw_data.get("confidence", 0.95), 0.0)))
@@ -182,6 +198,7 @@ class FaceEngine:
             raw_landmarks = {}
         landmarks = None
         if raw_landmarks:
+
             def _parse_pts(pts_list: Any) -> list[Point3D]:
                 if not isinstance(pts_list, list):
                     return []
@@ -290,7 +307,9 @@ class FaceEngine:
         for i in range(len(anchors)):
             for j in range(i + 1, len(anchors)):
                 p1, p2 = anchors[i], anchors[j]
-                dist = math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2 + (p1.z - p2.z)**2) / scale
+                dist = (
+                    math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2 + (p1.z - p2.z) ** 2) / scale
+                )
                 features.append(dist)
                 angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
                 features.append(angle / math.pi)

@@ -1,4 +1,4 @@
-﻿"""
+"""
 AI Guru Remote JWT Authentication and Parent PIN ('Ask Pass') Security Service.
 ================================================================================
 
@@ -26,9 +26,11 @@ import aiosqlite
 
 try:
     import jwt
+
     _JWT_DECODE_ERRORS: tuple = (jwt.PyJWTError,)
 except ImportError:
     from jose import jwt
+
     _JWT_DECODE_ERRORS = (jwt.JWTError,)
 
 from deeptutor.services.path_service import get_path_service
@@ -60,8 +62,21 @@ class JWTAuthService:
     # Trivially guessable codes rejected at setup: pure runs, repeated digits,
     # and a small blocklist of the most common real-world PINs.
     _COMMON_PINS = {
-        "1234", "4321", "0000", "2580", "1212", "1122", "1004", "2000",
-        "6969", "1010", "12345", "123456", "654321", "111111", "123123",
+        "1234",
+        "4321",
+        "0000",
+        "2580",
+        "1212",
+        "1122",
+        "1004",
+        "2000",
+        "6969",
+        "1010",
+        "12345",
+        "123456",
+        "654321",
+        "111111",
+        "123123",
     }
 
     @classmethod
@@ -77,7 +92,6 @@ class JWTAuthService:
             raise ValueError("PIN is too predictable: avoid sequential digits.")
         if pin in cls._COMMON_PINS:
             raise ValueError("PIN is too common: choose something less obvious.")
-
 
     @staticmethod
     def _get_db_path():
@@ -99,7 +113,7 @@ class JWTAuthService:
             await db.execute(
                 "INSERT INTO settings (key, value, category, updated_at) VALUES ('jwt_secret', ?, 'security', ?)"
                 " ON CONFLICT(key) DO NOTHING",
-                (new_secret, time.time())
+                (new_secret, time.time()),
             )
             await db.commit()
             cursor = await db.execute("SELECT value FROM settings WHERE key = 'jwt_secret'")
@@ -219,7 +233,7 @@ class JWTAuthService:
             await ensure_kv_settings(db)
             await db.execute(
                 "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'parent_security', ?)",
-                (key, hashed, time.time())
+                (key, hashed, time.time()),
             )
             # Bump the PIN epoch: every outstanding access/refresh token for
             # this parent was minted under the old secret and is now invalid
@@ -227,11 +241,9 @@ class JWTAuthService:
             epoch = await cls._get_pin_epoch(db, parent_id)
             await db.execute(
                 "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'security', ?)",
-                (f"pin_epoch_{parent_id}", str(epoch + 1), time.time())
+                (f"pin_epoch_{parent_id}", str(epoch + 1), time.time()),
             )
-            await db.execute(
-                "DELETE FROM settings WHERE key = ?", (f"lockout_{parent_id}",)
-            )
+            await db.execute("DELETE FROM settings WHERE key = ?", (f"lockout_{parent_id}",))
             await db.commit()
 
         # Reset any failed attempts
@@ -274,10 +286,7 @@ class JWTAuthService:
 
     @classmethod
     async def verify_parent_pin(
-        cls,
-        pin: str,
-        parent_id: str = "default",
-        device_info: Optional[str] = None
+        cls, pin: str, parent_id: str = "default", device_info: Optional[str] = None
     ) -> Dict[str, Any]:
         """Verify Parent PIN with anti-brute-force rate limiting. Returns access token on success."""
         now = time.time()
@@ -328,7 +337,9 @@ class JWTAuthService:
         }
 
     @classmethod
-    async def change_parent_pin(cls, pin: str, current_pin: str, parent_id: str = "default") -> bool:
+    async def change_parent_pin(
+        cls, pin: str, current_pin: str, parent_id: str = "default"
+    ) -> bool:
         """Change the Parent PIN only after verifying the current one.
 
         Wrong-current-PIN attempts count toward the same brute-force budget
@@ -413,7 +424,9 @@ class JWTAuthService:
         db_path = cls._get_db_path()
         async with aiosqlite.connect(db_path) as db:
             await ensure_kv_settings(db)
-            cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"revoked_{payload['jti']}",))
+            cursor = await db.execute(
+                "SELECT value FROM settings WHERE key = ?", (f"revoked_{payload['jti']}",)
+            )
             if await cursor.fetchone():
                 raise ValueError("Token revoked")
         return payload
@@ -481,7 +494,7 @@ class JWTAuthService:
             await ensure_kv_settings(db)
             await db.execute(
                 "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'security', ?)",
-                (f"revoked_{token_id}", str(int(time.time())), time.time())
+                (f"revoked_{token_id}", str(int(time.time())), time.time()),
             )
             # Lazy purge: revocation rows past any possible token lifetime are
             # dead weight — without this the settings table grows forever.

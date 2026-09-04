@@ -4,8 +4,8 @@ Tests for AI Guru Health API Router.
 
 from __future__ import annotations
 
-import pytest
 from fastapi.testclient import TestClient
+import pytest
 
 from deeptutor.api.main import app
 

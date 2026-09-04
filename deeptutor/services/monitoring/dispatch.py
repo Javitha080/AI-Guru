@@ -171,18 +171,22 @@ async def _queue_session_summary(
         )
 
         start_notification_worker()
-        await enqueue_for_student("session_summary", {
-            "session_id": session_id,
-            "student_id": student_id,
-            "student_name": student_name,
-            "subject": str(metrics.get("subject") or "General"),
-            "duration_minutes": round(float(metrics.get("duration_minutes") or 0), 1),
-            "focus_score": metrics.get("focus_score") or 0,
-            "engagement_score": metrics.get("engagement_score") or 0,
-            "warning_count": metrics.get("warning_count") or 0,
-            "summary": summary_text[:600],
-            "xp_earned": xp_earned,
-        }, student_id)
+        await enqueue_for_student(
+            "session_summary",
+            {
+                "session_id": session_id,
+                "student_id": student_id,
+                "student_name": student_name,
+                "subject": str(metrics.get("subject") or "General"),
+                "duration_minutes": round(float(metrics.get("duration_minutes") or 0), 1),
+                "focus_score": metrics.get("focus_score") or 0,
+                "engagement_score": metrics.get("engagement_score") or 0,
+                "warning_count": metrics.get("warning_count") or 0,
+                "summary": summary_text[:600],
+                "xp_earned": xp_earned,
+            },
+            student_id,
+        )
 
         # Best-effort immediate delivery; failures stay queued.
         try:

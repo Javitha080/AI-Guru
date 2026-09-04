@@ -138,9 +138,7 @@ async def test_cloud_activation_success_commits_every_layer(tmp_path: Path):
     assert profile["base_url"] == "https://api.deepseek.com/v1"
     assert profile["api_key"] == "sk-test-deepseek-key"
     llm = store.load_catalog()["services"]["llm"]
-    active_model = next(
-        m for m in profile["models"] if m["id"] == llm.get("active_model_id")
-    )
+    active_model = next(m for m in profile["models"] if m["id"] == llm.get("active_model_id"))
     assert active_model["model"] == "deepseek-chat"
 
     # 3. Tutoring mode persisted for restart survival.
@@ -164,9 +162,9 @@ async def test_failed_verification_mutates_nothing(tmp_path: Path):
     assert "401" in result.message
     assert store.active_llm_profile() is None, "failed probe must not write the catalog"
     assert store.vault.get_key("openai") is None, "failed probe must not write the vault"
-    assert (
-        store.load_system().get("tutoring_mode") == "offline"
-    ), "failed probe must not flip the persisted mode"
+    assert store.load_system().get("tutoring_mode") == "offline", (
+        "failed probe must not flip the persisted mode"
+    )
 
 
 @pytest.mark.asyncio

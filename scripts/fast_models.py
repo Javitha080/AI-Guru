@@ -1,15 +1,23 @@
+"""Manual live-model latency smoke script (NOT a pytest test).
+
+Run directly:  python scripts/fast_models.py
+It streams real LLM responses and requires a configured provider API key.
+"""
+
 import asyncio
 import time
-from deeptutor.services.config.model_catalog import get_model_catalog_service
+
 from deeptutor.core.agentic.client import LLMClientConfig, build_openai_client
+from deeptutor.services.config.model_catalog import get_model_catalog_service
+
 
 async def test_model(model_name):
     catalog_svc = get_model_catalog_service()
     catalog = catalog_svc.load()
-    profile = catalog_svc.get_active_profile(catalog, 'llm')
+    profile = catalog_svc.get_active_profile(catalog, "llm")
     api_key = profile.get("api_key") if profile else ""
     base_url = profile.get("base_url") if profile else ""
-    
+
     cfg = LLMClientConfig(
         binding="gemini",
         model=model_name,
@@ -17,7 +25,7 @@ async def test_model(model_name):
         base_url=base_url,
     )
     client = build_openai_client(cfg)
-    
+
     print(f"\n--- Testing Model: {model_name} ---")
     t0 = time.perf_counter()
     first_token_time = None
@@ -43,6 +51,7 @@ async def test_model(model_name):
         print(f"  [FAILED]: {e}")
         return False
 
+
 async def main():
     models_to_test = [
         "gemini-3.6-flash",
@@ -51,6 +60,7 @@ async def main():
     ]
     for m in models_to_test:
         await test_model(m)
+
 
 if __name__ == "__main__":
     asyncio.run(main())

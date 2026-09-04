@@ -150,7 +150,14 @@ class GamificationService:
                 "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,"
                 " badge_id, badge_name, badge_icon, reason, unlocked_at)"
                 " VALUES (?, ?, ?, 'xp', ?, '', '', '', ?, ?)",
-                (f"reward-{uuid.uuid4().hex[:12]}", student_id, session_id, int(xp), reason, time.time()),
+                (
+                    f"reward-{uuid.uuid4().hex[:12]}",
+                    student_id,
+                    session_id,
+                    int(xp),
+                    reason,
+                    time.time(),
+                ),
             )
             conn.commit()
             return True
@@ -186,7 +193,9 @@ class GamificationService:
             for badge_id, achieved in conditions.items():
                 if not achieved or badge_id in earned:
                     continue
-                description = BadgeEngine.BADGE_CATALOG.get(badge_id, badge_id.replace("_", " ").title())
+                description = BadgeEngine.BADGE_CATALOG.get(
+                    badge_id, badge_id.replace("_", " ").title()
+                )
                 conn.execute(
                     "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,"
                     " badge_id, badge_name, badge_icon, reason, unlocked_at)"
@@ -243,14 +252,16 @@ class GamificationService:
         out: List[Dict[str, Any]] = []
         for badge_id, description in catalog.items():
             is_earned = badge_id in earned
-            out.append({
-                "id": badge_id,
-                "name": badge_id.replace("_", " ").title(),
-                "description": description,
-                "icon_url": "",
-                "earned": is_earned,
-                "earned_at": earned_at.get(badge_id),
-            })
+            out.append(
+                {
+                    "id": badge_id,
+                    "name": badge_id.replace("_", " ").title(),
+                    "description": description,
+                    "icon_url": "",
+                    "earned": is_earned,
+                    "earned_at": earned_at.get(badge_id),
+                }
+            )
         return out
 
     @staticmethod
@@ -266,11 +277,13 @@ class GamificationService:
                 (student_id, int(limit)),
             )
             for r in await cur.fetchall():
-                items.append({
-                    "type": r["reward_type"],
-                    "amount_xp": int(r["amount_xp"] or 0),
-                    "badge_name": r["badge_name"] or "",
-                    "reason": r["reason"] or "",
-                    "unlocked_at": float(r["unlocked_at"] or 0),
-                })
+                items.append(
+                    {
+                        "type": r["reward_type"],
+                        "amount_xp": int(r["amount_xp"] or 0),
+                        "badge_name": r["badge_name"] or "",
+                        "reason": r["reason"] or "",
+                        "unlocked_at": float(r["unlocked_at"] or 0),
+                    }
+                )
         return {"items": items}

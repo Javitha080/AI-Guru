@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import logging
 import os
-from pathlib import Path
 import sys
 from typing import Any
 
@@ -32,9 +31,7 @@ def is_windows_startup_enabled(app_name: str = DEFAULT_APP_NAME) -> bool:
     try:
         import winreg
 
-        with winreg.OpenKey(
-            winreg.HKEY_CURRENT_USER, REGISTRY_KEY_PATH, 0, winreg.KEY_READ
-        ) as key:
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, REGISTRY_KEY_PATH, 0, winreg.KEY_READ) as key:
             try:
                 value, _ = winreg.QueryValueEx(key, app_name)
                 return bool(value and str(value).strip())

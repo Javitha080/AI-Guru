@@ -41,6 +41,7 @@ logger = logging.getLogger(__name__)
 # Data Structures & Protocols
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class StreamChunk:
     """A streamed output increment from a TutorProvider."""
@@ -91,15 +92,16 @@ class ProviderHealth:
 class TutoringMode(str, Enum):
     """Supported tutoring execution modes."""
 
-    AUTO = "auto"        # Cloud API -> Ollama -> Offline
-    CLOUD = "cloud"      # External Cloud LLM only
-    OLLAMA = "ollama"    # Local Ollama only
+    AUTO = "auto"  # Cloud API -> Ollama -> Offline
+    CLOUD = "cloud"  # External Cloud LLM only
+    OLLAMA = "ollama"  # Local Ollama only
     OFFLINE = "offline"  # Rule-based offline engine only
 
 
 # ---------------------------------------------------------------------------
 # Security: Key Masking Utility
 # ---------------------------------------------------------------------------
+
 
 def mask_api_key(key: Optional[str]) -> str:
     """
@@ -121,6 +123,7 @@ def mask_api_key(key: Optional[str]) -> str:
 # ---------------------------------------------------------------------------
 # Base Interface: TutorProvider
 # ---------------------------------------------------------------------------
+
 
 class TutorProvider(ABC):
     """
@@ -167,6 +170,7 @@ class TutorProvider(ABC):
 # Adapter 1: CloudTutorProvider (CloudProviderAdapter)
 # ---------------------------------------------------------------------------
 
+
 class CloudTutorProvider(TutorProvider):
     """
     Adapter wrapping external cloud LLM providers (OpenAI, DashScope, DeepSeek, Anthropic, etc.).
@@ -198,6 +202,7 @@ class CloudTutorProvider(TutorProvider):
         if not api_key:
             try:
                 from deeptutor.services.config.key_vault import get_key_vault
+
                 vault_key = get_key_vault().get_key(binding)
                 if vault_key:
                     api_key = vault_key
@@ -377,6 +382,7 @@ CloudProviderAdapter = CloudTutorProvider
 # Adapter 2: OllamaTutorProvider (OllamaProviderAdapter)
 # ---------------------------------------------------------------------------
 
+
 class OllamaTutorProvider(TutorProvider):
     """
     Adapter connecting to local Ollama daemon (http://127.0.0.1:11434).
@@ -466,13 +472,23 @@ class OllamaTutorProvider(TutorProvider):
                                 in_think_block = True
                                 parts = content.split("<think>", 1)
                                 if parts[0]:
-                                    yield StreamChunk(content=parts[0], provider=self.provider_name, model=model)
+                                    yield StreamChunk(
+                                        content=parts[0], provider=self.provider_name, model=model
+                                    )
                                 thinking_buf = parts[1]
                                 if "</think>" in thinking_buf:
                                     t_parts = thinking_buf.split("</think>", 1)
-                                    yield StreamChunk(reasoning_content=t_parts[0], provider=self.provider_name, model=model)
+                                    yield StreamChunk(
+                                        reasoning_content=t_parts[0],
+                                        provider=self.provider_name,
+                                        model=model,
+                                    )
                                     if t_parts[1]:
-                                        yield StreamChunk(content=t_parts[1], provider=self.provider_name, model=model)
+                                        yield StreamChunk(
+                                            content=t_parts[1],
+                                            provider=self.provider_name,
+                                            model=model,
+                                        )
                                     in_think_block = False
                                     thinking_buf = ""
                                 continue
@@ -481,25 +497,43 @@ class OllamaTutorProvider(TutorProvider):
                                 thinking_buf += content
                                 if "</think>" in thinking_buf:
                                     t_parts = thinking_buf.split("</think>", 1)
-                                    yield StreamChunk(reasoning_content=t_parts[0], provider=self.provider_name, model=model)
+                                    yield StreamChunk(
+                                        reasoning_content=t_parts[0],
+                                        provider=self.provider_name,
+                                        model=model,
+                                    )
                                     if t_parts[1]:
-                                        yield StreamChunk(content=t_parts[1], provider=self.provider_name, model=model)
+                                        yield StreamChunk(
+                                            content=t_parts[1],
+                                            provider=self.provider_name,
+                                            model=model,
+                                        )
                                     in_think_block = False
                                     thinking_buf = ""
                                 else:
-                                    yield StreamChunk(reasoning_content=content, provider=self.provider_name, model=model)
+                                    yield StreamChunk(
+                                        reasoning_content=content,
+                                        provider=self.provider_name,
+                                        model=model,
+                                    )
                                 continue
 
                             if content:
-                                yield StreamChunk(content=content, provider=self.provider_name, model=model)
+                                yield StreamChunk(
+                                    content=content, provider=self.provider_name, model=model
+                                )
 
                             if chunk_json.get("done", False):
-                                yield StreamChunk(finish_reason="stop", provider=self.provider_name, model=model)
+                                yield StreamChunk(
+                                    finish_reason="stop", provider=self.provider_name, model=model
+                                )
                                 break
                         except json.JSONDecodeError:
                             continue
         except Exception as exc:
-            raise RuntimeError(f"Failed connecting to local Ollama at {self.base_url}: {exc}") from exc
+            raise RuntimeError(
+                f"Failed connecting to local Ollama at {self.base_url}: {exc}"
+            ) from exc
 
     async def complete(
         self,
@@ -568,6 +602,7 @@ OllamaProviderAdapter = OllamaTutorProvider
 # Adapter 3: OfflineRuleTutorProvider (OfflineRuleAdapter)
 # ---------------------------------------------------------------------------
 
+
 class OfflineRuleTutorProvider(TutorProvider):
     """
     Deterministic educational fallback engine providing rich Socratic tutoring,
@@ -582,7 +617,19 @@ class OfflineRuleTutorProvider(TutorProvider):
         q = user_query.strip().lower()
 
         # Math / Equations
-        if any(w in q for w in ["solve", "equation", "formula", "derivative", "integral", "x^", "calculate", "math"]):
+        if any(
+            w in q
+            for w in [
+                "solve",
+                "equation",
+                "formula",
+                "derivative",
+                "integral",
+                "x^",
+                "calculate",
+                "math",
+            ]
+        ):
             return (
                 "### 📐 AI Guru Offline Math Tutor\n\n"
                 "**Step-by-Step Problem Solving Method:**\n"
@@ -598,7 +645,19 @@ class OfflineRuleTutorProvider(TutorProvider):
             )
 
         # Programming / Coding / Algorithms
-        if any(w in q for w in ["code", "python", "javascript", "function", "bug", "algorithm", "loop", "array"]):
+        if any(
+            w in q
+            for w in [
+                "code",
+                "python",
+                "javascript",
+                "function",
+                "bug",
+                "algorithm",
+                "loop",
+                "array",
+            ]
+        ):
             return (
                 "### 💻 AI Guru Offline Coding Tutor\n\n"
                 "**Structured Problem Decomposition:**\n"
@@ -623,7 +682,19 @@ class OfflineRuleTutorProvider(TutorProvider):
             )
 
         # Physics / Science
-        if any(w in q for w in ["physics", "force", "velocity", "gravity", "energy", "chemistry", "biology", "atom"]):
+        if any(
+            w in q
+            for w in [
+                "physics",
+                "force",
+                "velocity",
+                "gravity",
+                "energy",
+                "chemistry",
+                "biology",
+                "atom",
+            ]
+        ):
             return (
                 "### 🔬 AI Guru Offline Science & Physics Tutor\n\n"
                 "**Fundamental Physical Laws & Concepts:**\n"
@@ -642,7 +713,7 @@ class OfflineRuleTutorProvider(TutorProvider):
             "### 🎓 AI Guru Offline Learning Companion\n\n"
             "You are currently in **Offline Tutoring Mode**. Here is a structured breakdown for your topic:\n\n"
             "**1. Core Concept Definition:**\n"
-            f"Regarding *\"{user_query}\"*: Break down complex ideas into first principles and fundamental definitions.\n\n"
+            f'Regarding *"{user_query}"*: Break down complex ideas into first principles and fundamental definitions.\n\n'
             "**2. Active Recall & Guided Questions:**\n"
             "- What is the primary objective or mechanism behind this concept?\n"
             "- How does this connect with prerequisites you've previously mastered?\n"
@@ -725,10 +796,11 @@ OfflineRuleAdapter = OfflineRuleTutorProvider
 # Circuit Breaker Pattern
 # ---------------------------------------------------------------------------
 
+
 class CircuitState(str, Enum):
-    CLOSED = "CLOSED"      # Normal healthy operation
-    OPEN = "OPEN"          # Failed, requests blocked/diverted
-    HALF_OPEN = "HALF_OPEN"# Trialing recovery
+    CLOSED = "CLOSED"  # Normal healthy operation
+    OPEN = "OPEN"  # Failed, requests blocked/diverted
+    HALF_OPEN = "HALF_OPEN"  # Trialing recovery
 
 
 class CircuitBreaker:
@@ -785,6 +857,7 @@ class CircuitBreaker:
 # Provider Manager & Auto-Fallback Chain
 # ---------------------------------------------------------------------------
 
+
 class TutorProviderManager:
     """
     Manages provider selection, dual-mode tutoring, and the auto-fallback chain.
@@ -837,6 +910,7 @@ class TutorProviderManager:
             # Quick check if Cloud is configured
             try:
                 from deeptutor.services.llm.config import get_llm_config
+
                 cfg = get_llm_config()
                 if cfg.api_key and cfg.api_key != "sk-no-key-required":
                     return self.cloud_adapter
@@ -906,7 +980,9 @@ class TutorProviderManager:
 
                 # If we already yielded chunks to the consumer, we cannot seamlessly restart
                 if yielded_any:
-                    logger.error("Provider %s failed mid-stream after emitting chunks: %s", name, exc)
+                    logger.error(
+                        "Provider %s failed mid-stream after emitting chunks: %s", name, exc
+                    )
                     raise exc
 
         # All candidates failed
@@ -980,6 +1056,7 @@ class TutorProviderManager:
         masked_vault_keys: dict[str, str] = {}
         try:
             from deeptutor.services.config.key_vault import get_key_vault
+
             vault = get_key_vault()
             masked_vault_keys = vault.get_masked_keys()
             masked_key = masked_vault_keys.get("default") or masked_vault_keys.get("openai", "")
@@ -989,6 +1066,7 @@ class TutorProviderManager:
         if not masked_key:
             try:
                 from deeptutor.services.llm.config import get_llm_config
+
                 cfg = get_llm_config()
                 masked_key = mask_api_key(cfg.api_key)
             except Exception:

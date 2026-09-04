@@ -94,8 +94,7 @@ def build_gaze(raw: List[Tuple[float, float, float]], pose: HeadPoseResult) -> G
         l_w = max(1e-6, abs(raw[133][0] - raw[33][0]))
         r_w = max(1e-6, abs(raw[362][0] - raw[263][0]))
         iris_dx = (
-            (raw[LEFT_IRIS_IDX][0] - l_mid[0]) / l_w
-            + (raw[RIGHT_IRIS_IDX][0] - r_mid[0]) / r_w
+            (raw[LEFT_IRIS_IDX][0] - l_mid[0]) / l_w + (raw[RIGHT_IRIS_IDX][0] - r_mid[0]) / r_w
         ) / 2.0
         l_h = max(1e-6, abs(raw[159][1] - raw[145][1]) + abs(raw[158][1] - raw[153][1]))
         iris_dy = (raw[LEFT_IRIS_IDX][1] - l_mid[1]) / l_h

@@ -20,6 +20,7 @@ from __future__ import annotations
 import concurrent.futures
 import json
 import time
+
 import pytest
 
 from tests.e2e.conftest import (
@@ -45,16 +46,22 @@ class TestTier2BoundariesAndCornerCases:
     def test_boundary_session_durations(self, gamification_engine: GamificationEngine):
         """Test zero duration, sub-minute, and extreme 12-hour session boundaries."""
         # Zero duration session
-        xp_zero = gamification_engine.calculate_earned_xp(duration_minutes=0.0, focus_score=100.0, goal_met=False)
+        xp_zero = gamification_engine.calculate_earned_xp(
+            duration_minutes=0.0, focus_score=100.0, goal_met=False
+        )
         assert xp_zero == 10  # Minimum floor XP
 
         # Sub-minute session (30 seconds)
-        xp_short = gamification_engine.calculate_earned_xp(duration_minutes=0.5, focus_score=80.0, goal_met=False)
+        xp_short = gamification_engine.calculate_earned_xp(
+            duration_minutes=0.5, focus_score=80.0, goal_met=False
+        )
         assert xp_short >= 10
 
         # Long marathon session: 12 hours (720 minutes) with 95% focus + goal
         # 720 * 1.5 + 50 = 1080 + 50 = 1130 XP
-        xp_marathon = gamification_engine.calculate_earned_xp(duration_minutes=720.0, focus_score=96.0, goal_met=True)
+        xp_marathon = gamification_engine.calculate_earned_xp(
+            duration_minutes=720.0, focus_score=96.0, goal_met=True
+        )
         assert xp_marathon == 1130
 
     # -----------------------------------------------------------------------
@@ -69,19 +76,33 @@ class TestTier2BoundariesAndCornerCases:
         """
         t0 = 1000.0
         # Face present
-        assert cv_pipeline.update_presence(face_detected=True, timestamp=t0) == PresenceState.PRESENT
+        assert (
+            cv_pipeline.update_presence(face_detected=True, timestamp=t0) == PresenceState.PRESENT
+        )
 
         # Missing for 2s (transient head scratch/blink) -> TEMPORARILY_NOT_VISIBLE
-        assert cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 2.0) == PresenceState.TEMPORARILY_NOT_VISIBLE
+        assert (
+            cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 2.0)
+            == PresenceState.TEMPORARILY_NOT_VISIBLE
+        )
 
         # Missing for 8s (still under 10s threshold) -> TEMPORARILY_NOT_VISIBLE
-        assert cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 8.0) == PresenceState.TEMPORARILY_NOT_VISIBLE
+        assert (
+            cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 8.0)
+            == PresenceState.TEMPORARILY_NOT_VISIBLE
+        )
 
         # Missing for 12s (exceeded 10s threshold) -> AWAY
-        assert cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 12.0) == PresenceState.AWAY
+        assert (
+            cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 12.0)
+            == PresenceState.AWAY
+        )
 
         # Face reappears -> Immediately PRESENT
-        assert cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 13.0) == PresenceState.PRESENT
+        assert (
+            cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 13.0)
+            == PresenceState.PRESENT
+        )
 
     # -----------------------------------------------------------------------
     # 3. Distraction Whitelist False-Positive Rejection
@@ -113,13 +134,20 @@ class TestTier2BoundariesAndCornerCases:
         )
         activity_water = cv_pipeline.classify_activity(water_frame)
         assert activity_water == PostureActivity.DRINKING_WATER
-        assert cv_pipeline.evaluate_warning(activity_water, duration_seconds=4.0, timestamp=t0 + 129.0) is None
+        assert (
+            cv_pipeline.evaluate_warning(activity_water, duration_seconds=4.0, timestamp=t0 + 129.0)
+            is None
+        )
 
         # 3. Phone usage sustained for 20 seconds MUST be flagged
-        phone_frame = CVFrameTelemetry(timestamp=t0 + 140.0, face_detected=True, phone_detected=True)
+        phone_frame = CVFrameTelemetry(
+            timestamp=t0 + 140.0, face_detected=True, phone_detected=True
+        )
         activity_phone = cv_pipeline.classify_activity(phone_frame)
         assert activity_phone == PostureActivity.PHONE_USAGE
-        warn_phone = cv_pipeline.evaluate_warning(activity_phone, duration_seconds=20.0, timestamp=t0 + 160.0)
+        warn_phone = cv_pipeline.evaluate_warning(
+            activity_phone, duration_seconds=20.0, timestamp=t0 + 160.0
+        )
         assert warn_phone is not None
         assert warn_phone["warning_type"] == "PHONE_USAGE"
 
@@ -138,7 +166,9 @@ class TestTier2BoundariesAndCornerCases:
         # Simulate frame check every 5 seconds for 300 seconds
         for elapsed in range(0, 305, 5):
             curr_time = t_start + elapsed
-            warn = cv_pipeline.evaluate_warning(activity, duration_seconds=float(elapsed), timestamp=curr_time)
+            warn = cv_pipeline.evaluate_warning(
+                activity, duration_seconds=float(elapsed), timestamp=curr_time
+            )
             if warn:
                 warnings_emitted.append((elapsed, warn))
 
@@ -205,18 +235,24 @@ class TestTier2BoundariesAndCornerCases:
     # -----------------------------------------------------------------------
     # 7. Parent Pairing TTL & JWT Expiry
     # -----------------------------------------------------------------------
-    def test_boundary_parent_pairing_and_token_expiry(self, parent_gateway: MockParentRemoteGateway):
+    def test_boundary_parent_pairing_and_token_expiry(
+        self, parent_gateway: MockParentRemoteGateway
+    ):
         """
         Verify that expired pairing codes (past 15 mins) and expired JWT tokens are rejected.
         """
         # 1. Pairing code with 1-second TTL
-        code = parent_gateway.generate_pairing_code(student_id="s_test", ttl_seconds=-1.0)  # already expired
+        code = parent_gateway.generate_pairing_code(
+            student_id="s_test", ttl_seconds=-1.0
+        )  # already expired
         success, reason = parent_gateway.verify_and_pair(parent_id="p_test", pairing_code=code)
         assert success is False
         assert reason == "pairing_code_expired"
 
         # 2. Invalid pairing code
-        success_inv, reason_inv = parent_gateway.verify_and_pair(parent_id="p_test", pairing_code="INVALID")
+        success_inv, reason_inv = parent_gateway.verify_and_pair(
+            parent_id="p_test", pairing_code="INVALID"
+        )
         assert success_inv is False
         assert reason_inv == "invalid_pairing_code"
 
@@ -269,7 +305,9 @@ class TestTier2BoundariesAndCornerCases:
             results = [f.result() for f in concurrent.futures.as_completed(futures)]
 
         assert len(results) == 50
-        count = isolated_db.fetchone("SELECT COUNT(*) as cnt FROM monitoring_events WHERE session_id = 'sess_stress';")
+        count = isolated_db.fetchone(
+            "SELECT COUNT(*) as cnt FROM monitoring_events WHERE session_id = 'sess_stress';"
+        )
         assert count["cnt"] == 50
 
     # -----------------------------------------------------------------------

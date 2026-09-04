@@ -43,6 +43,7 @@ class CameraConfigRequest(BaseModel):
 
 # --- Helpers ---
 
+
 async def _probe_camera_frame(max_wait: float = 2.5) -> Optional[Dict[str, Any]]:
     """Grab one frame + inference result, preferring an active session monitor.
 
@@ -110,6 +111,7 @@ def _snapshot_payload_b64(frame: Any) -> Optional[str]:
 
 # --- Endpoints ---
 
+
 @router.get("/camera/status")
 async def get_camera_status(_user: Any = Depends(require_auth)) -> Dict[str, Any]:
     """Capability probe driving the study room's system-camera vs browser choice."""
@@ -132,7 +134,9 @@ async def get_camera_status(_user: Any = Depends(require_auth)) -> Dict[str, Any
 
 
 @router.post("/camera/config")
-async def set_camera_config(req: CameraConfigRequest, _user: Any = Depends(require_auth)) -> Dict[str, Any]:
+async def set_camera_config(
+    req: CameraConfigRequest, _user: Any = Depends(require_auth)
+) -> Dict[str, Any]:
     updates = {k: v for k, v in req.model_dump().items() if v is not None}
     saved = await save_camera_config(updates)
     return {"saved": True, "config": saved}
@@ -145,10 +149,14 @@ async def get_camera_snapshot(session_id: str, _user: Any = Depends(require_auth
 
     monitor = get_system_monitor(session_id)
     if monitor is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active system monitor")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No active system monitor"
+        )
     jpeg = monitor.get_snapshot_jpeg()
     if jpeg is None:
-        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Camera warming up")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Camera warming up"
+        )
     return Response(content=jpeg, media_type="image/jpeg", headers={"Cache-Control": "no-store"})
 
 
@@ -173,7 +181,9 @@ async def monitoring_feed(session_id: str, _user: Any = Depends(require_auth)) -
             await asyncio.sleep(0.15)
             monitor = get_system_monitor(session_id)
     if monitor is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active system camera feed")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No active system camera feed"
+        )
 
     boundary = _MJPEG_BOUNDARY
     header = f"--{boundary}\r\nContent-Type: image/jpeg\r\nContent-Length: ".encode("ascii")
@@ -213,7 +223,9 @@ async def enroll_from_camera(_user: Any = Depends(require_auth)) -> Dict[str, An
     pipeline = get_cv_pipeline()
     probe = await _probe_camera_frame()
     if probe is None:
-        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="System camera unavailable")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="System camera unavailable"
+        )
     result = probe["result"]
     if not result.detected or result.landmarks is None:
         return {"enrolled": False, "reason": "no_face_detected"}
@@ -228,7 +240,9 @@ async def enroll_from_camera(_user: Any = Depends(require_auth)) -> Dict[str, An
             "pitch": result.pose.pitch,
             "roll": result.pose.roll,
             "posture": result.pose.posture.value,
-        } if result.pose else None,
+        }
+        if result.pose
+        else None,
     }
 
 
@@ -250,6 +264,8 @@ async def probe_camera(_user: Any = Depends(require_auth)) -> Dict[str, Any]:
             "pitch": result.pose.pitch,
             "roll": result.pose.roll,
             "posture": result.pose.posture.value,
-        } if result.pose else None,
+        }
+        if result.pose
+        else None,
         "snapshot_b64": _snapshot_payload_b64(probe["frame"]),
     }
