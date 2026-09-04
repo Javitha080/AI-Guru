@@ -1,0 +1,101 @@
+# ============================================================
+# Release pipeline — tag vX.Y.Z on the default branch.
+#
+# Flow:
+#   1. Verify the tag points to a commit on master/main.
+#   2. Verify the tag matches deeptutor/__version__.py.
+#   3. Create the GitHub Release (published → triggers the release chain):
+#        - docker-release.yml → ghcr.io/<owner>/<repo>:X.Y.Z + latest
+#        - pypi-release.yml  → PyPI trusted publishing (configure the
+#                              `deeptutor` project's trusted publisher for
+#                              this workflow file, then no token is needed)
+#
+# Expected tag format: vMAJOR.MINOR.PATCH (PEP 440 suffixes allowed).
+# ============================================================
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  verify-and-release:
+    name: Verify Tag and Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout release tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Verify release tag is on the default branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin master:refs/remotes/origin/master --no-tags
+          git fetch origin main:refs/remotes/origin/main --no-tags || true
+          tag="${{ github.ref_name }}"
+          tag_commit="$(git rev-list -n 1 "$tag")"
+          if ! git merge-base --is-ancestor "$tag_commit" origin/master && \
+             ! git merge-base --is-ancestor "$tag_commit" origin/main; then
+            echo "Release tag $tag ($tag_commit) is not on origin/master or origin/main; refusing to release." >&2
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify tag matches deeptutor/__version__.py
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet --upgrade pip
+          python -m pip install --quiet packaging
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+          from packaging.version import Version
+
+          tag = os.environ["RELEASE_TAG"]
+          tag_raw = tag[1:] if tag.startswith("v") else tag
+          tag_version = str(Version(tag_raw))
+
+          src = Path("deeptutor/__version__.py").read_text(encoding="utf-8")
+          match = re.search(r'^__version__\s*=\s*"([^"]+)"', src, re.MULTILINE)
+          if not match:
+              raise SystemExit("Could not find __version__ in deeptutor/__version__.py")
+          code_version = str(Version(match.group(1)))
+
+          if code_version != tag_version:
+              raise SystemExit(
+                  f"Release tag {tag!r} (normalized {tag_version!r}) does not "
+                  f"match deeptutor/__version__.py value {code_version!r}. "
+                  "Bump __version__ before tagging."
+              )
+          PY
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          draft: false
+          # Mark pre-releases (e.g. v1.2.3-rc.1) automatically
+          prerelease: ${{ contains(github.ref_name, '-') }}

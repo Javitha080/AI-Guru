@@ -1,0 +1,41 @@
+# ============================================================
+# Dependabot — automated dependency updates for the CI/CD pipeline.
+#   - GitHub Actions versions (weekly, grouped into one PR)
+#   - npm dependencies for web/ (weekly, grouped)
+#   - Python dependencies from pyproject.toml / requirements.txt (monthly)
+# ============================================================
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Asia/Colombo
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns: ["*"]
+
+  - package-ecosystem: npm
+    directory: /web
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Asia/Colombo
+    open-pull-requests-limit: 10
+    groups:
+      npm:
+        patterns: ["*"]
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+      day: 1
+      time: "06:00"
+      timezone: Asia/Colombo
+    open-pull-requests-limit: 10
