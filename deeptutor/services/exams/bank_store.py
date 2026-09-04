@@ -163,7 +163,8 @@ class BankStore:
         limit: int = 500,
     ) -> List[Dict[str, Any]]:
         """Filtered catalog listing WITHOUT the heavy paper_json blob."""
-        where, vals = [], []
+        where: List[str] = []
+        vals: List[Any] = []
         if subject:
             where.append("subject = ?")
             vals.append(subject.lower())

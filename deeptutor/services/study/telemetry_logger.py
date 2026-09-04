@@ -140,7 +140,7 @@ class TelemetryLogger:
         """Gets an aggregated summary of events for a session."""
         events = await self.get_session_events(session_id)
 
-        summary = {
+        summary: Dict[str, Any] = {
             "total_events": len(events),
             "by_type": {},
             "by_severity": {},

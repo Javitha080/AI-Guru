@@ -48,7 +48,7 @@ flowchart LR
 | Job | Command (essentially) | Blocks merge? |
 |-----|-----------------------|:-------------:|
 | `lint` | `ruff check .` + `ruff format --check .` | ✅ |
-| `typecheck` | `mypy --ignore-missing-imports --no-strict-optional` (pre-commit profile, same excludes) — **non-blocking** today | ⚠️ see backlog below |
+| `typecheck` | `mypy --ignore-missing-imports --no-strict-optional` (pre-commit profile, same excludes) | ✅ |
 | `security` | `detect-secrets-hook` over all tracked files vs `.secrets.baseline` (no NEW secrets) + `bandit -lll` (hard fail on HIGH) | ✅ |
 | `web` | `npm ci && npm run lint && npx tsc --noEmit && npm run test:node && npm run build` + informational `npm audit` | ✅ |
 | `python-tests` | `pytest -q tests deeptutor/learning/tests` on Python 3.11/3.12/3.13; 3.14 best-effort; coverage on 3.11 | ✅ (3.14 non-blocking) |
@@ -59,7 +59,9 @@ Notes on deliberate choices:
 
 - **Bandit** blocks on `HIGH` severity only; medium findings are reported to
   the log because the project's `[tool.bandit]` skips keep them intentional.
-- **npm audit** is informational (`continue-on-error: true`): the lockfile
+- **npm audit** is informational (`continue-on-error: true` at the *step*
+  level — unlike the job level, this correctly turns the step into a warning
+  without leaving the job/check conclusion at FAILURE): the lockfile
   contains legacy transitive deps whose advisories are not actionable in this
   repo yet. Address them, then flip the step to required.
 - **ESLint** blocks on **errors** (warnings allowed). Two adjustments were
@@ -68,8 +70,10 @@ Notes on deliberate choices:
   (bulk OCR corpus), `data/` (runtime), lock files and binaries/PDFs are
   excluded from the scan. `detect-secrets scan --baseline` **rewrites the
   baseline in place**, so CI uses `detect-secrets-hook` over
-  `git ls-files` instead — the hook only fails on **new** secrets (exit 1)
-  and merely warns (exit 3) when baseline line numbers are stale.
+  `git ls-files` instead — the hook fails only on **new** secrets (exit 1)
+  and merely warns (exit 3) when baseline line numbers are stale. The scan
+  list is passed in a single invocation (not `xargs`, which would collapse
+  exit 1 and 3 into 123), so the two outcomes stay distinguishable.
 - **Path filtering** is applied to the `push` trigger only, so docs-only
   commits on long-lived branches do not burn CI minutes. The
   `pull_request` trigger is deliberately **unfiltered**: a required status
@@ -81,28 +85,23 @@ Notes on deliberate choices:
 - **Existing PRs keep their old checks** when a new workflow lands on the
   base branch. Push a commit to the PR branch, use *Update branch*, or
   close and reopen the PR to make the new workflow report.
+- **mypy runs in a minimal environment.** The `typecheck` job installs only
+  `mypy` + the three `types-*` packages, so with `--ignore-missing-imports`
+  every first-party import whose dependency isn't installed (openai, anthropic,
+  aiohttp, numpy, …) is treated as `Any`. That is why the gate reports clean
+  today: the CI-visible debt is cleared, but a *full* environment (i.e. the
+  `pre-commit` mypy hook with all deps installed) surfaces additional
+  findings that are mostly third-party stub mismatches (`httpx` vs the openai
+  SDK's `httpx2`, pydantic model-construction returns, a couple of genuine
+  `Literal`/`int|str` nits). Aligning the gate with the full environment is a
+  deliberate follow-up, not a prerequisite for a green check.
 
 ## Known backlog (wired in, not yet blocking)
 
 These gates run on every change and report their findings, but do not block
 the pipeline until the debt below is cleared:
 
-1. **mypy** (`continue-on-error: true`). Current errors (a subset):
-   - `deeptutor/services/platform/windows_startup.py` — `winreg` has no
-     attributes on Linux CI (needs a platform-aware stub or `# type: ignore`).
-   - `deeptutor/services/exams/bank_store.py` — list `append` int vs str.
-   - `deeptutor/services/monitoring/python_face_processor.py` — optional
-     OpenCV imports need narrowing.
-   - `deeptutor/services/study/telemetry_logger.py` — `object` indices.
-   - `deeptutor/services/llm/tutor_provider.py` — `async def stream`
-     signature vs. `TutorProvider` supertype.
-   - The project already documents type checking as
-     "relaxed due to gradual type adoption" (see the TODO in
-     `.pre-commit-config.yaml`).
-   To make this gate blocking: fix the errors, then set `continue-on-error`
-   to `false` in `ci.yml` and add `Type Check (mypy)` to branch protection.
-
-2. **React Compiler ESLint family** (`react-hooks/set-state-in-effect`,
+1. **React Compiler ESLint family** (`react-hooks/set-state-in-effect`,
    `purity`, `refs`, `immutability`, `static-components`, `use-memo`,
    `preserve-manual-memoization`, `globals`, `error-boundaries`, `config`,
    `gating`). `eslint-config-next` enables them as errors; the app's existing
@@ -141,6 +140,57 @@ The repository already had `tests.yml`, `pypi-release.yml` and
    scanned) and `.secrets.baseline` was regenerated against the current tree —
    it had drifted (e.g. entries for the long-deleted `.env.example_CN`).
 
+7. **mypy type debt cleared → `Type Check` is now a real gate.** The
+   33 pre-existing errors ("Found 33 errors in 5 files … exit 1") are gone:
+   - `deeptutor/services/platform/windows_startup.py` — `winreg` now imports
+     defensively and is accessed through an `Any` alias (`_WINREG`), so the
+     Linux CI no longer trips on typeshed's platform-gated winreg stub.
+   - `deeptutor/services/exams/bank_store.py` — `catalog()`'s `where`/`vals`
+     are now annotated (`List[str]` / `List[Any]`).
+   - `deeptutor/services/study/telemetry_logger.py` — `get_session_summary()`
+     dict is now `Dict[str, Any]`.
+   - `deeptutor/services/monitoring/python_face_processor.py` — lazy
+     MediaPipe handles (`_mp`, `_landmarker`, `_object_detector`) are
+     `Optional[Any]`.
+   - `deeptutor/services/llm/tutor_provider.py` — the abstract
+     `TutorProvider.stream` is now declared *without* `async` (matching the
+     existing `base_provider` pattern): an `async def` generator's return
+     type is the iterator itself, not a coroutine, so the previous
+     `async def … -> AsyncIterator` base never matched the async-generator
+     subclasses and `async for` over the base reference errored.
+
+8. **The "non-blocking" trap** (`continue-on-error` at *job* level). The old
+   `typecheck` job set `continue-on-error: true` on the job, intending
+   "don't fail the run". That only softens the **workflow run** — the **check
+   conclusion** reported to the commit stays `FAILURE`, so every PR showed a
+   red `Type Check (mypy — non-blocking)` X while the run itself passed.
+   Branch protection evaluates check *conclusions*, not run results, so a
+   check marked "non-blocking" this way can still block merges if it is ever
+   added to a required list. With the debt cleared the job is now a real
+   gate (no `continue-on-error`). If mypy regresses, fix the findings instead
+   of re-adding `continue-on-error`.
+
+9. **Duplicate `Python Tests (3.11)` job + coverage never uploading.** The
+   old matrix listed `3.11` in the base list *and* re-added it via
+   `include:` with `coverage: true`, so the 3.11 battery ran twice and
+   reported two check runs under the same name. Worse, the upload step's
+   condition `matrix.coverage == 'true'` compared a YAML *boolean* against
+   the *string* `'true'`, which never matches — coverage was generated but
+   never uploaded. The matrix is now one explicit entry per Python version,
+   and coverage is keyed off `matrix.python-version == '3.11'` (string
+   comparison), so the XML actually lands as the `coverage-python-3.11`
+   artifact.
+
+10. **detect-secrets: stale baselines failed the gate.** The step piped the
+    scan list through `xargs`, which aggregates any hook exit code in 1–125
+    into `123`. Both "new secret" (hook exit 1) and "baseline line numbers
+    stale, refreshed in place" (hook exit 3) therefore arrived as `123`, so
+    the `case` arms for 1 and 3 were dead code and *any* line-number drift
+    in a baseline-tracked file (e.g. adding a docstring above a secret)
+    failed the whole security job. The step now passes the file list in one
+    invocation so the hook's genuine exit code is preserved: new secrets
+    still fail, stale line numbers warn and pass.
+
 ## Required repository configuration
 
 ### 1. Branch protection (recommended)
@@ -149,11 +199,11 @@ Settings → Branches → Add rule (for `master`/`main`):
 
 - Require status checks to pass before merging:
   - `Lint (Ruff)`
+  - `Type Check (mypy)`
   - `Security Scan`
   - `Web (lint, types, tests, build)`
   - `Python Tests (3.11)`, `Python Tests (3.12)`, `Python Tests (3.13)`
   - `Docker Build & Smoke Test`
-  - (`Type Check (mypy)` only after the backlog below is cleared)
 - Require pull request reviews before merging.
 - Require branches to be up to date before merging.
 
