@@ -24,10 +24,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 import enum
 import logging
-from typing import Optional
+from typing import Dict, Optional
 
 from deeptutor.services.monitoring.liveness_detector import LivenessResult
-from deeptutor.services.monitoring.pose_gaze import GazeResult, HeadPoseResult, PostureCategory
+from deeptutor.services.monitoring.pose_gaze import GazeResult, HeadPoseResult
 from deeptutor.services.monitoring.presence_state_machine import PresenceState
 
 logger = logging.getLogger(__name__)
@@ -92,25 +92,164 @@ class DistractionAnalyzer:
     MIN_GAZE_FACTOR: float = 0.35
 
     def __init__(self) -> None:
-        self._looking_away_start: Optional[float] = None
-        self._phone_start: Optional[float] = None
-        self._mismatch_start: Optional[float] = None
-        self._drowsiness_start: Optional[float] = None
-        self._drinking_start: Optional[float] = None
-        self._page_turn_start: Optional[float] = None
-        self._posture_shift_start: Optional[float] = None
-        self._away_start: Optional[float] = None
+        self._timers: Dict[str, Optional[float]] = {
+            "looking_away": None,
+            "phone": None,
+            "mismatch": None,
+            "drowsiness": None,
+            "drinking": None,
+            "page_turn": None,
+            "posture_shift": None,
+            "away": None,
+        }
+
+    # Backward-compat shims (pre-refactor attribute names).
+    @property
+    def _looking_away_start(self) -> Optional[float]:
+        return self._timers["looking_away"]
+
+    @_looking_away_start.setter
+    def _looking_away_start(self, v: Optional[float]) -> None:
+        self._timers["looking_away"] = v
+
+    @property
+    def _phone_start(self) -> Optional[float]:
+        return self._timers["phone"]
+
+    @_phone_start.setter
+    def _phone_start(self, v: Optional[float]) -> None:
+        self._timers["phone"] = v
+
+    @property
+    def _mismatch_start(self) -> Optional[float]:
+        return self._timers["mismatch"]
+
+    @_mismatch_start.setter
+    def _mismatch_start(self, v: Optional[float]) -> None:
+        self._timers["mismatch"] = v
+
+    @property
+    def _drowsiness_start(self) -> Optional[float]:
+        return self._timers["drowsiness"]
+
+    @_drowsiness_start.setter
+    def _drowsiness_start(self, v: Optional[float]) -> None:
+        self._timers["drowsiness"] = v
+
+    @property
+    def _drinking_start(self) -> Optional[float]:
+        return self._timers["drinking"]
+
+    @_drinking_start.setter
+    def _drinking_start(self, v: Optional[float]) -> None:
+        self._timers["drinking"] = v
+
+    @property
+    def _page_turn_start(self) -> Optional[float]:
+        return self._timers["page_turn"]
+
+    @_page_turn_start.setter
+    def _page_turn_start(self, v: Optional[float]) -> None:
+        self._timers["page_turn"] = v
+
+    @property
+    def _posture_shift_start(self) -> Optional[float]:
+        return self._timers["posture_shift"]
+
+    @_posture_shift_start.setter
+    def _posture_shift_start(self, v: Optional[float]) -> None:
+        self._timers["posture_shift"] = v
+
+    @property
+    def _away_start(self) -> Optional[float]:
+        return self._timers["away"]
+
+    @_away_start.setter
+    def _away_start(self, v: Optional[float]) -> None:
+        self._timers["away"] = v
+
+    def _since(self, key: str, timestamp: float) -> float:
+        """Start timer on first sight, return elapsed seconds."""
+        started = self._timers.get(key)
+        if started is None:
+            self._timers[key] = timestamp
+            return 0.0
+        return max(0.0, timestamp - started)
+
+    def _clear(self, key: str) -> None:
+        self._timers[key] = None
 
     def reset(self) -> None:
         """Reset all tracking timers."""
-        self._looking_away_start = None
-        self._phone_start = None
-        self._mismatch_start = None
-        self._drowsiness_start = None
-        self._drinking_start = None
-        self._page_turn_start = None
-        self._posture_shift_start = None
-        self._away_start = None
+        for key in self._timers:
+            self._timers[key] = None
+
+    def check_whitelist(
+        self,
+        timestamp: float,
+        pose: HeadPoseResult,
+        writing_gesture: bool,
+        hand_to_mouth_gesture: bool,
+        page_turn_gesture: bool,
+    ) -> Optional[DistractionAnalysisResult]:
+        """Return whitelisted-study result when matched, else None."""
+        from deeptutor.services.monitoring.pose_gaze import PostureCategory as _Posture
+
+        if pose.is_reading_writing_pose or writing_gesture or pose.posture == _Posture.LOOKING_DOWN:
+            action = WhitelistedAction.WRITING_NOTES if writing_gesture else WhitelistedAction.READING_DOWNWARDS
+            self._clear("looking_away")
+            return DistractionAnalysisResult(
+                is_distracted=False,
+                distraction_type=DistractionType.NONE,
+                focus_score=100.0,
+                confidence=0.95,
+                duration_seconds=0.0,
+                whitelisted_action=action,
+                reason=f"Valid study behavior: {action.value.replace('_', ' ').title()}",
+            )
+        if hand_to_mouth_gesture:
+            drink_dur = self._since("drinking", timestamp)
+            if drink_dur <= self.MAX_DRINKING_DURATION:
+                return DistractionAnalysisResult(
+                    is_distracted=False,
+                    distraction_type=DistractionType.NONE,
+                    focus_score=100.0,
+                    confidence=0.90,
+                    duration_seconds=drink_dur,
+                    whitelisted_action=WhitelistedAction.DRINKING_WATER,
+                    reason="Student taking a sip of water (Whitelisted)",
+                )
+        else:
+            self._clear("drinking")
+        if page_turn_gesture:
+            pt_dur = self._since("page_turn", timestamp)
+            if pt_dur <= self.MAX_PAGE_TURN_DURATION:
+                return DistractionAnalysisResult(
+                    is_distracted=False,
+                    distraction_type=DistractionType.NONE,
+                    focus_score=100.0,
+                    confidence=0.90,
+                    duration_seconds=pt_dur,
+                    whitelisted_action=WhitelistedAction.TURNING_PAGES,
+                    reason="Turning textbook page (Whitelisted)",
+                )
+        else:
+            self._clear("page_turn")
+        if pose.posture == _Posture.HEAD_TILT or abs(pose.roll) > 20.0:
+            shift_dur = self._since("posture_shift", timestamp)
+            if shift_dur <= self.MAX_POSTURE_SHIFT_DURATION:
+                return DistractionAnalysisResult(
+                    is_distracted=False,
+                    distraction_type=DistractionType.NONE,
+                    focus_score=95.0,
+                    confidence=0.85,
+                    duration_seconds=shift_dur,
+                    whitelisted_action=WhitelistedAction.POSTURE_SHIFT,
+                    reason="Normal posture shift / stretch (Whitelisted)",
+                )
+        else:
+            self._clear("posture_shift")
+        return None
 
     def analyze(
         self,
@@ -132,9 +271,7 @@ class DistractionAnalyzer:
         # 1. State: AWAY -> Flagged (duration grows for the whole absence so
         # warnings and reports can tell a 20s bathroom trip from a 10-min walkaway)
         if presence_state == PresenceState.AWAY:
-            if self._away_start is None:
-                self._away_start = timestamp
-            away_dur = timestamp - self._away_start
+            away_dur = self._since("away", timestamp)
             return DistractionAnalysisResult(
                 is_distracted=True,
                 distraction_type=DistractionType.STUDENT_AWAY,
@@ -144,77 +281,14 @@ class DistractionAnalyzer:
                 whitelisted_action=None,
                 reason="Student is away from study desk",
             )
-        self._away_start = None
+        self._clear("away")
 
         # 2. Check Whitelisted Study Gestures FIRST (Priority 1)
-
-        # A: Reading downwards or writing on desk
-        if pose.is_reading_writing_pose or writing_gesture or pose.posture == PostureCategory.LOOKING_DOWN:
-            action = WhitelistedAction.WRITING_NOTES if writing_gesture else WhitelistedAction.READING_DOWNWARDS
-            self._looking_away_start = None  # Reset looking away timer
-            return DistractionAnalysisResult(
-                is_distracted=False,
-                distraction_type=DistractionType.NONE,
-                focus_score=100.0,
-                confidence=0.95,
-                duration_seconds=0.0,
-                whitelisted_action=action,
-                reason=f"Valid study behavior: {action.value.replace('_', ' ').title()}",
-            )
-
-        # B: Drinking water / beverage (< 6 seconds)
-        if hand_to_mouth_gesture:
-            if self._drinking_start is None:
-                self._drinking_start = timestamp
-            drink_dur = timestamp - self._drinking_start
-            if drink_dur <= self.MAX_DRINKING_DURATION:
-                return DistractionAnalysisResult(
-                    is_distracted=False,
-                    distraction_type=DistractionType.NONE,
-                    focus_score=100.0,
-                    confidence=0.90,
-                    duration_seconds=drink_dur,
-                    whitelisted_action=WhitelistedAction.DRINKING_WATER,
-                    reason="Student taking a sip of water (Whitelisted)",
-                )
-        else:
-            self._drinking_start = None
-
-        # C: Page turning gesture (< 4 seconds)
-        if page_turn_gesture:
-            if self._page_turn_start is None:
-                self._page_turn_start = timestamp
-            pt_dur = timestamp - self._page_turn_start
-            if pt_dur <= self.MAX_PAGE_TURN_DURATION:
-                return DistractionAnalysisResult(
-                    is_distracted=False,
-                    distraction_type=DistractionType.NONE,
-                    focus_score=100.0,
-                    confidence=0.90,
-                    duration_seconds=pt_dur,
-                    whitelisted_action=WhitelistedAction.TURNING_PAGES,
-                    reason="Turning textbook page (Whitelisted)",
-                )
-        else:
-            self._page_turn_start = None
-
-        # D: Brief posture shift or stretch (< 4 seconds)
-        if pose.posture == PostureCategory.HEAD_TILT or abs(pose.roll) > 20.0:
-            if self._posture_shift_start is None:
-                self._posture_shift_start = timestamp
-            shift_dur = timestamp - self._posture_shift_start
-            if shift_dur <= self.MAX_POSTURE_SHIFT_DURATION:
-                return DistractionAnalysisResult(
-                    is_distracted=False,
-                    distraction_type=DistractionType.NONE,
-                    focus_score=95.0,
-                    confidence=0.85,
-                    duration_seconds=shift_dur,
-                    whitelisted_action=WhitelistedAction.POSTURE_SHIFT,
-                    reason="Normal posture shift / stretch (Whitelisted)",
-                )
-        else:
-            self._posture_shift_start = None
+        whitelisted = self.check_whitelist(
+            timestamp, pose, writing_gesture, hand_to_mouth_gesture, page_turn_gesture
+        )
+        if whitelisted is not None:
+            return whitelisted
 
         # 3. Evaluate Flagged Distractions
 
@@ -228,9 +302,7 @@ class DistractionAnalyzer:
 
         # A: Smartphone Interaction (> 4s)
         if phone_object_detected:
-            if self._phone_start is None:
-                self._phone_start = timestamp
-            phone_dur = timestamp - self._phone_start
+            phone_dur = self._since("phone", timestamp)
             if phone_dur >= self.PHONE_DETECTED_THRESHOLD:
                 return DistractionAnalysisResult(
                     is_distracted=True,
@@ -252,13 +324,11 @@ class DistractionAnalyzer:
                 pending_distraction_type=DistractionType.PHONE_DETECTED,
             )
         else:
-            self._phone_start = None
+            self._clear("phone")
 
         # B: Identity Mismatch (> 15s)
         if not identity_match:
-            if self._mismatch_start is None:
-                self._mismatch_start = timestamp
-            mismatch_dur = timestamp - self._mismatch_start
+            mismatch_dur = self._since("mismatch", timestamp)
             if mismatch_dur >= self.IDENTITY_MISMATCH_THRESHOLD:
                 return DistractionAnalysisResult(
                     is_distracted=True,
@@ -270,13 +340,11 @@ class DistractionAnalyzer:
                     reason=f"Face identity does not match enrolled student ({mismatch_dur:.1f}s)",
                 )
         else:
-            self._mismatch_start = None
+            self._clear("mismatch")
 
         # C: Drowsiness / Eyes Closed (> 4s)
         if liveness.ear > 0.0 and liveness.ear < 0.18:
-            if self._drowsiness_start is None:
-                self._drowsiness_start = timestamp
-            drowsy_dur = timestamp - self._drowsiness_start
+            drowsy_dur = self._since("drowsiness", timestamp)
             if drowsy_dur >= self.DROWSINESS_THRESHOLD:
                 return DistractionAnalysisResult(
                     is_distracted=True,
@@ -298,14 +366,12 @@ class DistractionAnalyzer:
                 pending_distraction_type=DistractionType.DROWSINESS,
             )
         else:
-            self._drowsiness_start = None
+            self._clear("drowsiness")
 
         # D: Looking Away / Daydreaming (> 10s)
         is_looking_away = (abs(pose.yaw) > 35.0) or (pose.pitch < -20.0)
         if is_looking_away:
-            if self._looking_away_start is None:
-                self._looking_away_start = timestamp
-            away_dur = timestamp - self._looking_away_start
+            away_dur = self._since("looking_away", timestamp)
             if away_dur >= self.LOOKING_AWAY_THRESHOLD:
                 return DistractionAnalysisResult(
                     is_distracted=True,
@@ -329,7 +395,7 @@ class DistractionAnalyzer:
                     pending_distraction_type=DistractionType.LOOKING_AWAY,
                 )
         else:
-            self._looking_away_start = None
+            self._clear("looking_away")
 
         # 4. Default: Focused on study (continuous score reflects micro-drift)
         return DistractionAnalysisResult(

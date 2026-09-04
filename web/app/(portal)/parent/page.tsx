@@ -64,7 +64,10 @@ export default function ParentPortalPage() {
   const [tunnelBusy, setTunnelBusy] = useState(false);
 
   const [activeTab, setActiveTab] = useState<Tab>("overview");
-  const tabBusyRef = useRef(false);
+  // Dedicated in-flight guard for the send-link action (previously reused a
+  // misnamed shared ref and reported neither success nor failure).
+  const sendLinkBusyRef = useRef(false);
+  const [sendLinkStatus, setSendLinkStatus] = useState<{ ok: boolean; text: string } | null>(null);
 
   // Sliding tab capsule (GSAP)
   const tabRefs = useRef<Partial<Record<Tab, HTMLButtonElement | null>>>({});
@@ -118,14 +121,19 @@ export default function ParentPortalPage() {
 
   const refreshDashboard = useCallback(async () => {
     if (!isAuthenticated()) return;
-    const { ok, data } = await pJson<StudentRow[]>(`/api/v1/parent/dashboard/${parentId}`);
-    if (ok && Array.isArray(data)) {
-      setStudents(data);
-      setSelectedStudentId((prev) =>
-        prev && data.some((s) => s.student_id === prev)
-          ? prev
-          : data[0]?.student_id ?? null
-      );
+    try {
+      const { ok, data } = await pJson<StudentRow[]>(`/api/v1/parent/dashboard/${parentId}`);
+      if (ok && Array.isArray(data)) {
+        setStudents(data);
+        setSelectedStudentId((prev) =>
+          prev && data.some((s) => s.student_id === prev)
+            ? prev
+            : data[0]?.student_id ?? null
+        );
+      }
+    } catch {
+      // ParentAuthError (exhausted refresh) is surfaced globally via
+      // PARENT_AUTH_LOST_EVENT; network blips keep the last good board.
     }
   }, [parentId]);
 
@@ -237,16 +245,24 @@ export default function ParentPortalPage() {
   };
 
   const handleSendLink = async () => {
-    if (tabBusyRef.current) return;
-    tabBusyRef.current = true;
+    if (sendLinkBusyRef.current) return;
+    sendLinkBusyRef.current = true;
+    setSendLinkStatus(null);
     try {
       const name = students.find((s) => s.student_id === selectedStudentId)?.name ?? "Student";
-      await pFetch(
+      const { ok, data } = await pJson<{ detail?: string; mode?: string }>(
         `/api/v1/parent/telegram/send-link?parent_id=${parentId}&student_name=${encodeURIComponent(name)}`,
         { method: "POST" }
       );
+      setSendLinkStatus(
+        ok
+          ? { ok: true, text: `Portal link sent via Telegram${data?.mode === "lan" ? " (home Wi-Fi only — tunnel not active)" : ""}.` }
+          : { ok: false, text: String(data?.detail || "Could not send the link — check Telegram setup.") }
+      );
+    } catch {
+      setSendLinkStatus({ ok: false, text: "Network error sending the link." });
     } finally {
-      tabBusyRef.current = false;
+      sendLinkBusyRef.current = false;
     }
   };
 
@@ -372,6 +388,7 @@ export default function ParentPortalPage() {
             }}
             onLiveView={(s) => setLiveViewStudent(s)}
             onSendTunnelLink={() => void handleSendLink()}
+            sendLinkStatus={sendLinkStatus}
             tunnel={tunnel}
             tunnelBusy={tunnelBusy}
             onToggleTunnel={() => void handleToggleTunnel()}
@@ -393,6 +410,7 @@ export default function ParentPortalPage() {
         <LiveVideoView
           studentName={liveViewStudent.name}
           sessionId={null}
+          studentId={liveViewStudent.student_id}
           onClose={() => setLiveViewStudent(null)}
         />
       )}

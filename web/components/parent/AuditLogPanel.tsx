@@ -32,6 +32,15 @@ const ACTION_LABELS: Record<string, string> = {
   "pair.verified": "Pairing verified",
   "pair.revoked": "Pairing revoked",
   "live.snapshot_accessed": "Live snapshot viewed",
+  "live.parent_initiated_start": "Live stream started (portal)",
+  "live.parent_initiated_stop": "Live stream stopped (portal)",
+  "live.denied_no_permission": "Live view denied (permissions)",
+  "live.denied_not_linked": "Live view denied (not linked)",
+  "live.unattributed_session": "Live session unattributed",
+  "telegram.command_tunnel_start": "Tunnel started (Telegram)",
+  "telegram.command_tunnel_stop": "Tunnel stopped (Telegram)",
+  "telegram.live_stream_started": "Live stream started (Telegram)",
+  "telegram.live_stream_stopped": "Live stream stopped (Telegram)",
 };
 
 interface AuditLogPanelProps {

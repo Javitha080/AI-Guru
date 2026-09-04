@@ -83,6 +83,13 @@ dispatch.handle_warning ⇒ telemetry_logger(batched INSERT metadata_json)
 WS close ⇒ _purge_session_state + update_scores(session row)
 ```
 Strictness mapping (supervision_rules_default): gentle 90s/.85 · balanced 60s/.80 · strict 30s/.75.
+Shared kernel (refactor): monitoring_config (all thresholds) · schemas (TelemetryUpdate/brightness/pose-gaze)
+ · session_scores (ScoreAccumulator/EpisodeTracker) · landmarks_codec · synthetic (mock telemetry)
+ · camera_settings · warning_gates (EpisodeGate/RateLimiter) · warning_sinks · outbox_repo
+ · face_solvers (EAR/PnP/gaze) · session_registry (preferred over direct _active_* globals).
+Frontend: lib/monitoring/wsReconnect (shared backoff) + monitoringApi (central URLs)
+ · hooks/useMonitorMode + useWarningFeed composed by useStudyTelemetry.
+Migration 008 adds NUDGE_ISSUED to monitoring_events (was silently dropped).
 
 ## 4. Parent portal flow
 

@@ -14,7 +14,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import logging
-import math
 import time
 from typing import Any, Dict, List, Optional
 
@@ -30,7 +29,6 @@ from deeptutor.services.monitoring.engagement_estimator import (
 from deeptutor.services.monitoring.face_engine import (
     FaceEngine,
     FaceLandmarks,
-    Point3D,
 )
 from deeptutor.services.monitoring.liveness_detector import (
     LivenessDetector,
@@ -40,11 +38,15 @@ from deeptutor.services.monitoring.pose_gaze import (
     GazeResult,
     HeadPoseResult,
     PoseGazeEstimator,
-    PostureCategory,
 )
 from deeptutor.services.monitoring.presence_state_machine import (
     PresenceStateMachine,
     PresenceStateResult,
+)
+from deeptutor.services.monitoring.schemas import (
+    build_gaze_result,
+    build_pose_result,
+    parse_pose_gaze,
 )
 from deeptutor.services.monitoring.warning_manager import (
     WarningEvent,
@@ -138,7 +140,17 @@ class LocalCVPipeline:
         """
         Process structured frame telemetry received from client-side WebWorker / MediaPipe.
         """
+        if not isinstance(payload, dict):
+            payload = {"detected": False, "confidence": 0.0, "brightness": 0.5}
         now = current_time if current_time is not None else time.time()
+        try:
+            now_f = float(now)
+            if not (now_f == now_f and abs(now_f) != float("inf")):
+                now = time.time()
+            else:
+                now = now_f
+        except (TypeError, ValueError):
+            now = time.time()
         self._frame_count += 1
 
         # Calculate FPS
@@ -151,7 +163,8 @@ class LocalCVPipeline:
         # 1. Extract Face Detection and Landmarks
         face_res = self.face_engine.extract_landmarks_from_telemetry(payload)
 
-        # 2. Identity Verification
+        # 2. Identity Verification (fail-closed: face claimed but no usable
+        # embedding must NOT verify as the enrolled student).
         is_identity_match = True
         identity_sim = 1.0
         if face_res.detected and face_res.embedding:
@@ -159,6 +172,14 @@ class LocalCVPipeline:
                 face_res.embedding,
                 self._enrolled_face_vector,
             )
+        elif face_res.detected:
+            # No embedding and no landmarks-derived vector: cannot verify.
+            # When a baseline is enrolled this is a mismatch; in un-enrolled
+            # mode (no baseline) keep the legacy pass so pre-enrollment
+            # sessions are not flagged.
+            if self._enrolled_face_vector is not None:
+                is_identity_match = False
+                identity_sim = 0.0
 
         # 3. Liveness Analysis
         laplacian_val = payload.get("texture_laplacian_var")
@@ -170,24 +191,11 @@ class LocalCVPipeline:
             ear_override=ear_override,
         )
 
-        # 4. Head Pose and Gaze Estimation
-        if payload.get("pose") is not None and payload.get("gaze") is not None:
-            raw_p = payload["pose"] or {}
-            raw_g = payload["gaze"] or {}
-            pose_res = HeadPoseResult(
-                yaw=float(raw_p.get("yaw", 0.0)),
-                pitch=float(raw_p.get("pitch", 0.0)),
-                roll=float(raw_p.get("roll", 0.0)),
-                posture=PostureCategory(raw_p.get("posture", PostureCategory.HEAD_CENTER.value)),
-                is_facing_screen=bool(raw_p.get("is_facing_screen", True)),
-                is_reading_writing_pose=bool(raw_p.get("is_reading_writing_pose", False)),
-            )
-            gaze_res = GazeResult(
-                gaze_x=float(raw_g.get("gaze_x", 0.0)),
-                gaze_y=float(raw_g.get("gaze_y", 0.0)),
-                is_focused=bool(raw_g.get("is_focused", True)),
-                confidence=float(raw_g.get("confidence", 0.9)),
-            )
+        # 4. Head Pose and Gaze Estimation (shared schema helpers)
+        raw_p, raw_g = parse_pose_gaze(payload)
+        if raw_p is not None and raw_g is not None:
+            pose_res = build_pose_result(raw_p)
+            gaze_res = build_gaze_result(raw_g)
         else:
             pose_gaze = self.pose_estimator.process(face_res.landmarks)
             pose_res = pose_gaze.pose
@@ -232,16 +240,11 @@ class LocalCVPipeline:
         # state that stays true frame-after-frame notifies once, not per cooldown).
         # Tiered: a gentle nudge may fire early in the episode ([3s,6s) window);
         # the real warning/alert tier keeps its classic gates untouched.
-        self.warning_manager.observe_distraction_state(
-            distraction_res.is_distracted,
-            distraction_res.distraction_type if distraction_res.is_distracted else None,
-        )
-        warning_event = self.warning_manager.evaluate_and_dispatch(
+        # evaluate() does observe+dispatch atomically (no ordering bugs).
+        warning_event = self.warning_manager.evaluate(
             timestamp=now,
             distraction=distraction_res,
         )
-        if warning_event is None:
-            warning_event = self.warning_manager.evaluate_nudge(timestamp=now, distraction=distraction_res)
 
         return FrameAnalysisResult(
             timestamp=now,
@@ -266,128 +269,18 @@ class LocalCVPipeline:
     ) -> Dict[str, Any]:
         """
         Generate synthetic telemetry payloads for headless CI/CD and unit testing.
-        Scenarios:
-        - "normal_study": Seated, looking at screen, normal blinks
-        - "writing_reading": Pitch down 30 deg, writing on desk (whitelisted)
-        - "drinking_water": Hand to mouth gesture (whitelisted)
-        - "looking_away": Yaw turned 45 deg left/right
-        - "phone_usage": Smartphone detected in frame
-        - "absent": No face detected
-        - "static_photo": Zero EAR variance and zero micro-movement
-        - "identity_mismatch": Alternate face embedding
+        Delegates to monitoring.synthetic (kept as shim for backward-compat).
         """
-        ts = timestamp if timestamp is not None else time.time()
+        from deeptutor.services.monitoring.synthetic import generate_mock_telemetry as _gen
 
-        if scenario == "absent":
-            return {
-                "detected": False,
-                "confidence": 0.0,
-                "brightness": 120.0,
-            }
-
-        # Base synthetic face
-        if scenario == "writing_reading":
-            landmarks = self.face_engine.create_synthetic_landmarks(yaw=5.0, pitch=35.0, roll=0.0)
-            return {
-                "detected": True,
-                "confidence": 0.96,
-                "brightness": 130.0,
-                "writing_gesture": True,
-                "landmarks": self._landmarks_to_dict(landmarks),
-                "embedding": self.face_engine.generate_geometric_embedding(landmarks),
-            }
-
-        elif scenario == "drinking_water":
-            landmarks = self.face_engine.create_synthetic_landmarks(yaw=0.0, pitch=5.0, roll=0.0)
-            return {
-                "detected": True,
-                "confidence": 0.95,
-                "brightness": 125.0,
-                "hand_to_mouth_gesture": True,
-                "landmarks": self._landmarks_to_dict(landmarks),
-                "embedding": self.face_engine.generate_geometric_embedding(landmarks),
-            }
-
-        elif scenario == "looking_away":
-            landmarks = self.face_engine.create_synthetic_landmarks(yaw=45.0, pitch=0.0, roll=0.0)
-            return {
-                "detected": True,
-                "confidence": 0.92,
-                "brightness": 120.0,
-                "landmarks": self._landmarks_to_dict(landmarks),
-                "embedding": self.face_engine.generate_geometric_embedding(landmarks),
-            }
-
-        elif scenario == "phone_usage":
-            landmarks = self.face_engine.create_synthetic_landmarks(yaw=0.0, pitch=15.0, roll=0.0)
-            return {
-                "detected": True,
-                "confidence": 0.95,
-                "brightness": 120.0,
-                "phone_detected": True,
-                "landmarks": self._landmarks_to_dict(landmarks),
-                "embedding": self.face_engine.generate_geometric_embedding(landmarks),
-            }
-
-        elif scenario == "static_photo":
-            # Fixed landmarks without any motion or blink variance
-            landmarks = self.face_engine.create_synthetic_landmarks(yaw=0.0, pitch=0.0, roll=0.0, eye_open_ratio=0.30)
-            return {
-                "detected": True,
-                "confidence": 0.99,
-                "brightness": 120.0,
-                "texture_laplacian_var": 25.0,  # Low flat print texture
-                "landmarks": self._landmarks_to_dict(landmarks),
-                "embedding": self.face_engine.generate_geometric_embedding(landmarks),
-            }
-
-        elif scenario == "identity_mismatch":
-            # Generate different landmarks
-            landmarks = self.face_engine.create_synthetic_landmarks(yaw=-10.0, pitch=5.0, roll=15.0)
-            # Invert or alter embedding vector
-            alt_emb = [-(i % 7 - 3) * 0.1 for i in range(128)]
-            return {
-                "detected": True,
-                "confidence": 0.95,
-                "brightness": 120.0,
-                "landmarks": self._landmarks_to_dict(landmarks),
-                "embedding": alt_emb,
-            }
-
-        else:  # "normal_study"
-            # Natural micro-variations
-            sin_var = 0.05 * math.sin(ts * 3.0)
-            landmarks = self.face_engine.create_synthetic_landmarks(
-                yaw=sin_var * 5.0,
-                pitch=5.0 + sin_var * 2.0,
-                roll=0.0,
-                eye_open_ratio=0.30 + 0.05 * math.sin(ts * 5.0),
-            )
-            return {
-                "detected": True,
-                "confidence": 0.97,
-                "brightness": 135.0,
-                "texture_laplacian_var": 180.0,
-                "landmarks": self._landmarks_to_dict(landmarks),
-                "embedding": self.face_engine.generate_geometric_embedding(landmarks),
-            }
+        return _gen(self.face_engine, scenario=scenario, timestamp=timestamp)
 
     @staticmethod
     def _landmarks_to_dict(landmarks: FaceLandmarks) -> Dict[str, Any]:
         """Convert FaceLandmarks dataclass to serialized telemetry dict."""
-        def _pts(pts: List[Point3D]) -> List[Dict[str, float]]:
-            return [{"x": p.x, "y": p.y, "z": p.z} for p in pts]
+        from deeptutor.services.monitoring.landmarks_codec import landmarks_to_payload
 
-        return {
-            "left_eye": _pts(landmarks.left_eye),
-            "right_eye": _pts(landmarks.right_eye),
-            "nose_tip": {"x": landmarks.nose_tip.x, "y": landmarks.nose_tip.y, "z": landmarks.nose_tip.z},
-            "mouth": _pts(landmarks.mouth),
-            "chin": {"x": landmarks.chin.x, "y": landmarks.chin.y, "z": landmarks.chin.z},
-            "forehead": {"x": landmarks.forehead.x, "y": landmarks.forehead.y, "z": landmarks.forehead.z},
-            "left_cheek": {"x": landmarks.left_cheek.x, "y": landmarks.left_cheek.y, "z": landmarks.left_cheek.z},
-            "right_cheek": {"x": landmarks.right_cheek.x, "y": landmarks.right_cheek.y, "z": landmarks.right_cheek.z},
-        }
+        return landmarks_to_payload(landmarks) or {}
 
 
 _global_pipeline_instance: Optional[LocalCVPipeline] = None

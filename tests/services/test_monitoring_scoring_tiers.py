@@ -167,8 +167,11 @@ class TestNudgeTier:
 
     def test_nudge_skipped_when_episode_escalated(self):
         wm = WarningManager()
-        wm._episode_notified[DistractionType.LOOKING_AWAY.value] = True
-        assert wm.evaluate_nudge(100.0, self._distraction(4.0)) is None
+        # Arm the episode gate via the public API: observe an active episode
+        # then dispatch its warning so the gate records it as notified.
+        wm.observe_distraction_state(True, DistractionType.LOOKING_AWAY)
+        assert wm.evaluate_and_dispatch(timestamp=100.0, distraction=self._distraction(12.0)) is not None
+        assert wm.evaluate_nudge(101.0, self._distraction(4.0)) is None
 
     def test_nudge_not_for_student_away(self):
         wm = WarningManager()

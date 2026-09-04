@@ -36,7 +36,8 @@ class PairingService:
     # ------------------------------------------------------------- internals
 
     @classmethod
-    async def _ensure_identity_rows(cls, db: aiosqlite.Connection, *, parent_id: str, student_id: str) -> None:
+    async def _ensure_tables(cls, db: aiosqlite.Connection) -> None:
+        """DDL only — safe to run before any lookup."""
         now = time.time()
         await db.execute(
             """
@@ -84,6 +85,11 @@ class PairingService:
             """
         )
 
+    @classmethod
+    async def _ensure_identity_rows(cls, db: aiosqlite.Connection, *, parent_id: str, student_id: str) -> None:
+        await cls._ensure_tables(db)
+        now = time.time()
+
         student_user = f"user-{student_id}"
         parent_user = f"user-{parent_id}"
         await db.execute(
@@ -124,8 +130,11 @@ class PairingService:
             )
             row = await cursor.fetchone()
             if row:
+                # Rotate the code but KEEP status/paired_at: regenerating for
+                # an already-active pair (e.g. second device) must not demote
+                # supervision back to pending.
                 await db.execute(
-                    "UPDATE parent_student_links SET pairing_code = ?, pairing_code_expires_at = ?, status = 'pending'"
+                    "UPDATE parent_student_links SET pairing_code = ?, pairing_code_expires_at = ?"
                     " WHERE id = ?",
                     (code, expires_at, row[0]),
                 )
@@ -146,7 +155,9 @@ class PairingService:
     async def verify_pairing_code(cls, parent_id: str, code: str) -> Optional[Dict[str, Any]]:
         now = time.time()
         async with aiosqlite.connect(cls._get_db_path()) as db:
-            await cls._ensure_identity_rows(db, parent_id=parent_id, student_id="student-primary")
+            # Tables first (lookup needs them); identity rows for the ACTUAL
+            # pair afterwards — the code names the student, not a hardcoded id.
+            await cls._ensure_tables(db)
             db.row_factory = aiosqlite.Row
             cursor = await db.execute(
                 "SELECT * FROM parent_student_links WHERE pairing_code = ? AND status IN ('pending','active')"
@@ -157,14 +168,37 @@ class PairingService:
             if not link:
                 return None
 
-            await db.execute(
-                "UPDATE parent_student_links SET parent_id = ?, status = 'active', paired_at = ? WHERE id = ?",
-                (parent_id, now, link["id"]),
+            student_id = str(link["student_id"])
+            await cls._ensure_identity_rows(db, parent_id=parent_id, student_id=student_id)
+
+            # UNIQUE(parent_id, student_id): adopting this link must not
+            # collide with a row this parent already holds for the student.
+            cursor = await db.execute(
+                "SELECT id FROM parent_student_links WHERE parent_id = ? AND student_id = ?",
+                (parent_id, student_id),
             )
+            existing = await cursor.fetchone()
+            if existing and existing["id"] != link["id"]:
+                # Pair already linked: activate that row, consume the code row.
+                await db.execute(
+                    "UPDATE parent_student_links SET status = 'active', paired_at = ? WHERE id = ?",
+                    (now, existing["id"]),
+                )
+                await db.execute(
+                    "DELETE FROM parent_student_links WHERE id = ?", (link["id"],)
+                )
+                link_id = existing["id"]
+            else:
+                await db.execute(
+                    "UPDATE parent_student_links SET parent_id = ?, status = 'active', paired_at = ? WHERE id = ?",
+                    (parent_id, now, link["id"]),
+                )
+                link_id = link["id"]
             await db.commit()
 
-            cursor = await db.execute("SELECT * FROM parent_student_links WHERE id = ?", (link["id"],))
-            return dict(await cursor.fetchone())
+            cursor = await db.execute("SELECT * FROM parent_student_links WHERE id = ?", (link_id,))
+            row = await cursor.fetchone()
+            return dict(row) if row else None
 
     @classmethod
     async def get_linked_students(cls, parent_id: str) -> List[Dict[str, Any]]:
@@ -188,6 +222,26 @@ class PairingService:
             except Exception:
                 r["permissions"] = dict(DEFAULT_PERMISSIONS)
         return rows
+
+    @classmethod
+    async def get_parent_ids_for_student(cls, student_id: str) -> List[str]:
+        """Active parent ids linked to one student (for alert fan-out).
+
+        Returns ``["default"]`` when nobody linked this student yet, so the
+        single-home setup keeps delivering to the default parent portal.
+        """
+        try:
+            async with aiosqlite.connect(cls._get_db_path()) as db:
+                db.row_factory = aiosqlite.Row
+                cursor = await db.execute(
+                    "SELECT parent_id FROM parent_student_links"
+                    " WHERE student_id = ? AND status = 'active'",
+                    (student_id,),
+                )
+                ids = [str(r["parent_id"]) for r in await cursor.fetchall() if r["parent_id"]]
+        except Exception:
+            ids = []
+        return ids or ["default"]
 
     @classmethod
     async def revoke_link(cls, link_id: str) -> bool:

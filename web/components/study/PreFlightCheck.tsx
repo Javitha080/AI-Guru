@@ -11,6 +11,7 @@ import {
   Camera, Shield, UserCheck, CheckCircle2, XCircle,
   Loader2, RefreshCw, AlertTriangle, VideoOff, Sparkles, BookOpen
 } from "lucide-react";
+import { monitoringApi, FACE_ENROLLED_KEY } from "@/lib/monitoring/monitoringApi";
 
 interface PreFlightCheckProps {
   onReady: () => void;
@@ -43,7 +44,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
     /** System-camera pre-flight: zero browser getUserMedia involvement. */
     const runSystemPreflight = async (): Promise<boolean> => {
       try {
-        const st = await fetch("/api/v1/monitoring/camera/status");
+        const st = await fetch(monitoringApi.cameraStatus);
         if (!st.ok) return false;
         const s = await st.json();
         if (s.mode !== "system") return false;
@@ -59,7 +60,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
       for (let i = 0; i < 24; i++) {
         if (!active) return true;
         try {
-          const res = await fetch("/api/v1/monitoring/camera/probe", { method: "POST" });
+          const res = await fetch(monitoringApi.cameraProbe, { method: "POST" });
           if (!res.ok) return false; // endpoint missing → legacy flow
           const d = await res.json();
           if (typeof d.snapshot_b64 === "string" && d.snapshot_b64.length > 32) {
@@ -77,8 +78,8 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
             setLivenessStatus("checking");
             // Identity enrollment straight from the system camera (best-effort).
             try {
-              await fetch("/api/v1/monitoring/enroll-from-camera", { method: "POST" });
-              if (typeof window !== "undefined") window.localStorage.setItem("aiguru.face.enrolled", "1");
+              await fetch(monitoringApi.enrollFromCamera, { method: "POST" });
+              if (typeof window !== "undefined") window.localStorage.setItem(FACE_ENROLLED_KEY, "1");
             } catch {
               /* enrollment is best-effort */
             }
@@ -206,7 +207,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         let livenessPassed = false;
         let livenessReachable = false;
         try {
-          const res = await fetch("/api/v1/monitoring/verify-liveness", {
+          const res = await fetch(monitoringApi.verifyLiveness, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ frames_landmarks: seq }),
@@ -224,13 +225,13 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
 
         // Enroll once per device so in-session identity checks work.
         try {
-          if (typeof window !== "undefined" && !window.localStorage.getItem("aiguru.face.enrolled") && seq.length > 0) {
-            const enrollRes = await fetch("/api/v1/monitoring/enroll-face", {
+          if (typeof window !== "undefined" && !window.localStorage.getItem(FACE_ENROLLED_KEY) && seq.length > 0) {
+            const enrollRes = await fetch(monitoringApi.enrollFace, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ landmarks: seq[seq.length - 1], student_id: "student-primary" }),
             });
-            if (enrollRes.ok) window.localStorage.setItem("aiguru.face.enrolled", "1");
+            if (enrollRes.ok) window.localStorage.setItem(FACE_ENROLLED_KEY, "1");
           }
         } catch {
           /* enrollment is best-effort */

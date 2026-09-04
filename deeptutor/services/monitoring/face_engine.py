@@ -125,51 +125,124 @@ class FaceEngine:
     def extract_landmarks_from_telemetry(self, raw_data: dict[str, Any]) -> FaceDetectionResult:
         """
         Construct FaceDetectionResult from client-side WebWorker / MediaPipe telemetry.
+
+        Fail-closed: malformed payloads never raise and never look focused.
+        Missing/invalid numbers fall back to safe defaults; invalid landmarks
+        yield detected=True with landmarks=None (downstream estimators then
+        report UNKNOWN / not-focused rather than crashing).
         """
-        if not raw_data.get("detected", False):
+        if not isinstance(raw_data, dict) or not raw_data.get("detected", False):
+            brightness = 0.5
+            try:
+                if isinstance(raw_data, dict):
+                    brightness = float(raw_data.get("brightness", 0.5))
+                    if not math.isfinite(brightness):
+                        brightness = 0.5
+            except (TypeError, ValueError):
+                brightness = 0.5
             return FaceDetectionResult(
                 detected=False,
                 confidence=0.0,
-                brightness=raw_data.get("brightness", 0.5),
+                brightness=brightness,
             )
 
-        bbox = tuple(raw_data.get("bbox", [0.2, 0.2, 0.6, 0.6]))
-        confidence = float(raw_data.get("confidence", 0.95))
-        brightness = float(raw_data.get("brightness", 0.5))
+        def _safe_float(value: Any, default: float) -> float:
+            try:
+                v = float(value)
+            except (TypeError, ValueError):
+                return default
+            if not math.isfinite(v):
+                return default
+            return v
+
+        def _safe_point(value: Any, default: Point3D) -> Point3D:
+            if not isinstance(value, dict):
+                return default
+            return Point3D(
+                x=_safe_float(value.get("x", default.x), default.x),
+                y=_safe_float(value.get("y", default.y), default.y),
+                z=_safe_float(value.get("z", default.z), default.z),
+            )
+
+        raw_bbox = raw_data.get("bbox", [0.2, 0.2, 0.6, 0.6])
+        try:
+            bbox_list = list(raw_bbox) if isinstance(raw_bbox, (list, tuple)) else [0.2, 0.2, 0.6, 0.6]
+            if len(bbox_list) != 4:
+                raise ValueError("bbox must have 4 elements")
+            bbox_vals = tuple(max(0.0, min(1.0, _safe_float(v, 0.0))) for v in bbox_list)
+            bbox: Tuple[float, float, float, float] = (bbox_vals[0], bbox_vals[1], bbox_vals[2], bbox_vals[3])
+        except (TypeError, ValueError):
+            bbox = (0.2, 0.2, 0.6, 0.6)
+        confidence = max(0.0, min(1.0, _safe_float(raw_data.get("confidence", 0.95), 0.0)))
+        brightness = _safe_float(raw_data.get("brightness", 0.5), 0.5)
 
         # Extract landmarks if provided
         raw_landmarks = raw_data.get("landmarks", {})
+        if not isinstance(raw_landmarks, dict):
+            raw_landmarks = {}
         landmarks = None
         if raw_landmarks:
-            def _parse_pts(pts_list: list) -> list[Point3D]:
-                return [Point3D(p.get("x", 0), p.get("y", 0), p.get("z", 0)) for p in pts_list]
+            def _parse_pts(pts_list: Any) -> list[Point3D]:
+                if not isinstance(pts_list, list):
+                    return []
+                out: list[Point3D] = []
+                for p in pts_list:
+                    if not isinstance(p, dict):
+                        continue
+                    out.append(
+                        Point3D(
+                            x=_safe_float(p.get("x", 0.0), 0.0),
+                            y=_safe_float(p.get("y", 0.0), 0.0),
+                            z=_safe_float(p.get("z", 0.0), 0.0),
+                        )
+                    )
+                return out
 
             left_eye = _parse_pts(raw_landmarks.get("left_eye", []))
             right_eye = _parse_pts(raw_landmarks.get("right_eye", []))
             mouth = _parse_pts(raw_landmarks.get("mouth", []))
             all_pts = _parse_pts(raw_landmarks.get("all_points", []))
 
-            nose = raw_landmarks.get("nose_tip", {"x": 0.5, "y": 0.5, "z": 0.0})
-            chin = raw_landmarks.get("chin", {"x": 0.5, "y": 0.8, "z": 0.0})
-            forehead = raw_landmarks.get("forehead", {"x": 0.5, "y": 0.2, "z": 0.0})
-            left_cheek = raw_landmarks.get("left_cheek", {"x": 0.3, "y": 0.5, "z": 0.0})
-            right_cheek = raw_landmarks.get("right_cheek", {"x": 0.7, "y": 0.5, "z": 0.0})
+            nose = _safe_point(raw_landmarks.get("nose_tip"), Point3D(0.5, 0.5, 0.0))
+            chin = _safe_point(raw_landmarks.get("chin"), Point3D(0.5, 0.8, 0.0))
+            forehead = _safe_point(raw_landmarks.get("forehead"), Point3D(0.5, 0.2, 0.0))
+            left_cheek = _safe_point(raw_landmarks.get("left_cheek"), Point3D(0.3, 0.5, 0.0))
+            right_cheek = _safe_point(raw_landmarks.get("right_cheek"), Point3D(0.7, 0.5, 0.0))
 
             landmarks = FaceLandmarks(
                 left_eye=left_eye,
                 right_eye=right_eye,
-                nose_tip=Point3D(nose["x"], nose["y"], nose.get("z", 0)),
+                nose_tip=nose,
                 mouth=mouth,
-                chin=Point3D(chin["x"], chin["y"], chin.get("z", 0)),
-                forehead=Point3D(forehead["x"], forehead["y"], forehead.get("z", 0)),
-                left_cheek=Point3D(left_cheek["x"], left_cheek["y"], left_cheek.get("z", 0)),
-                right_cheek=Point3D(right_cheek["x"], right_cheek["y"], right_cheek.get("z", 0)),
+                chin=chin,
+                forehead=forehead,
+                left_cheek=left_cheek,
+                right_cheek=right_cheek,
                 all_points=all_pts,
             )
 
         embedding = raw_data.get("embedding")
+        if not isinstance(embedding, list) or len(embedding) == 0:
+            embedding = None
+        else:
+            # Keep only finite numbers; drop garbage vectors entirely.
+            clean: List[float] = []
+            for v in embedding:
+                try:
+                    f = float(v)
+                except (TypeError, ValueError):
+                    clean = []
+                    break
+                if not math.isfinite(f):
+                    clean = []
+                    break
+                clean.append(f)
+            embedding = clean if len(clean) >= 2 else None
         if embedding is None and landmarks:
-            embedding = self.generate_geometric_embedding(landmarks)
+            try:
+                embedding = self.generate_geometric_embedding(landmarks)
+            except Exception:  # noqa: BLE001 - geometric fallback must not crash
+                embedding = None
 
         return FaceDetectionResult(
             detected=True,
@@ -243,53 +316,8 @@ class FaceEngine:
     ) -> FaceLandmarks:
         """
         Generate realistic synthetic 3D landmarks for headless/test simulation.
-        Angles are in degrees.
+        Angles are in degrees. (Delegates to monitoring.synthetic.)
         """
-        rad_yaw = math.radians(yaw)
-        rad_pitch = math.radians(pitch)
-        rad_roll = math.radians(roll)
+        from deeptutor.services.monitoring.synthetic import create_synthetic_landmarks as _make
 
-        # Base centers
-        cx, cy = 0.5 + 0.1 * math.sin(rad_yaw), 0.5 + 0.1 * math.sin(rad_pitch)
-
-        # Eyes: 6 points per eye for EAR calculation
-        # p1 (outer), p2 (top-outer), p3 (top-inner), p4 (inner), p5 (bottom-inner), p6 (bottom-outer)
-        ear_h = 0.02 * (eye_open_ratio / 0.3)
-        lx, ly = cx - 0.1, cy - 0.08
-        rx, ry = cx + 0.1, cy - 0.08
-
-        left_eye = [
-            Point3D(lx - 0.03, ly, 0.0),
-            Point3D(lx - 0.015, ly - ear_h, 0.0),
-            Point3D(lx + 0.015, ly - ear_h, 0.0),
-            Point3D(lx + 0.03, ly, 0.0),
-            Point3D(lx + 0.015, ly + ear_h, 0.0),
-            Point3D(lx - 0.015, ly + ear_h, 0.0),
-        ]
-
-        right_eye = [
-            Point3D(rx - 0.03, ry, 0.0),
-            Point3D(rx - 0.015, ry - ear_h, 0.0),
-            Point3D(rx + 0.015, ry - ear_h, 0.0),
-            Point3D(rx + 0.03, ry, 0.0),
-            Point3D(rx + 0.015, ry + ear_h, 0.0),
-            Point3D(rx - 0.015, ry + ear_h, 0.0),
-        ]
-
-        mouth = [
-            Point3D(cx - 0.04, cy + 0.15, 0.0),
-            Point3D(cx, cy + 0.13, 0.0),
-            Point3D(cx + 0.04, cy + 0.15, 0.0),
-            Point3D(cx, cy + 0.17, 0.0),
-        ]
-
-        return FaceLandmarks(
-            left_eye=left_eye,
-            right_eye=right_eye,
-            nose_tip=Point3D(cx, cy, -0.05 * math.cos(rad_yaw)),
-            mouth=mouth,
-            chin=Point3D(cx, cy + 0.25, 0.0),
-            forehead=Point3D(cx, cy - 0.25, 0.0),
-            left_cheek=Point3D(cx - 0.2, cy, 0.05 * math.sin(rad_yaw)),
-            right_cheek=Point3D(cx + 0.2, cy, -0.05 * math.sin(rad_yaw)),
-        )
+        return _make(yaw=yaw, pitch=pitch, roll=roll, eye_open_ratio=eye_open_ratio)

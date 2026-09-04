@@ -16,10 +16,19 @@ import {
   ParentAuthError,
   clearParentTokens,
   getParentAccessToken,
+  getParentLiveSnapshotUrl,
+  getParentLiveWsProtocols,
+  getParentLiveWsUrl,
   getParentRefreshToken,
+  lockParentPortal,
   pFetch,
   storeParentTokens,
 } from "../lib/parent/parent-api";
+import {
+  STRICTNESS_LABEL,
+  toBackendStrictness,
+  toUiStrictness,
+} from "../lib/parent/strictness";
 
 // ----------------------------------------------------------------- harness
 
@@ -51,6 +60,7 @@ function installHarness(): Harness {
 
   const store = new Map<string, string>();
   const fakeWindow = {
+    location: { protocol: "https:", host: "portal.test" },
     sessionStorage: {
       getItem: (key: string) => (store.has(key) ? (store.get(key) as string) : null),
       setItem: (key: string, value: string) => void store.set(key, value),
@@ -180,6 +190,101 @@ test("concurrent 401s share a single in-flight refresh (rotation-safe)", async (
     clearParentTokens();
     h.teardown();
   }
+});
+
+test("verify-pin 401 surfaces verbatim: no refresh, no logout, no auth-lost", async () => {
+  const h = installHarness();
+  try {
+    // No session yet (lock screen) — a wrong PIN must not look like expiry.
+    h.setResponder((url) => {
+      if (url.endsWith("/auth/verify-pin")) {
+        return jsonResponse({ detail: "Invalid PIN. 4 attempts remaining." }, 401);
+      }
+      return jsonResponse({}, 500);
+    });
+
+    const res = await pFetch("/api/v1/parent/auth/verify-pin", {
+      method: "POST",
+      body: JSON.stringify({ pin: "9999", parent_id: "default" }),
+    });
+
+    assert.equal(res.status, 401);
+    assert.equal((await res.json()).detail, "Invalid PIN. 4 attempts remaining.");
+    assert.equal(
+      h.requests.some((r) => r.url.endsWith("/auth/refresh")),
+      false
+    );
+    assert.equal(h.events.some((e) => e.type === PARENT_AUTH_LOST_EVENT), false);
+  } finally {
+    clearParentTokens();
+    h.teardown();
+  }
+});
+
+test("refresh-endpoint 401 never re-triggers a refresh", async () => {
+  const h = installHarness();
+  try {
+    storeParentTokens("stale-access", "dead-refresh");
+    h.setResponder((url) => jsonResponse({ detail: "invalid_refresh_token" }, 401));
+
+    const res = await pFetch("/api/v1/parent/auth/refresh", {
+      method: "POST",
+      body: JSON.stringify({ refresh_token: "dead-refresh" }),
+    });
+
+    assert.equal(res.status, 401);
+    const refreshCalls = h.requests.filter((r) =>
+      r.url.endsWith("/auth/refresh")
+    ).length;
+    assert.equal(refreshCalls, 1); // the call itself — no retry loop
+  } finally {
+    clearParentTokens();
+    h.teardown();
+  }
+});
+
+test("live WS URL carries no token; token travels via subprotocol", async () => {
+  const h = installHarness();
+  try {
+    storeParentTokens("access-abc", "refresh-abc");
+    const url = getParentLiveWsUrl("current", "student-primary");
+    assert.ok(url && !url.includes("access-abc") && !url.includes("token="));
+    assert.ok(url.includes("student_id=student-primary"));
+    assert.deepEqual(getParentLiveWsProtocols(), ["parent.access-abc"]);
+    assert.ok(
+      getParentLiveSnapshotUrl("current", "student-primary").includes(
+        "student_id=student-primary"
+      )
+    );
+  } finally {
+    clearParentTokens();
+    h.teardown();
+  }
+});
+
+test("lockParentPortal wipes the session and fires auth-lost", async () => {
+  const h = installHarness();
+  try {
+    storeParentTokens("access-1", "refresh-1");
+    lockParentPortal();
+    assert.equal(getParentAccessToken(), null);
+    assert.equal(getParentRefreshToken(), null);
+    assert.equal(h.events.some((e) => e.type === PARENT_AUTH_LOST_EVENT), true);
+  } finally {
+    h.teardown();
+  }
+});
+
+test("strictness vocabulary round-trips with safe fallbacks", () => {
+  assert.equal(toBackendStrictness("lenient"), "gentle");
+  assert.equal(toBackendStrictness("normal"), "balanced");
+  assert.equal(toBackendStrictness("strict"), "strict");
+  assert.equal(toUiStrictness("gentle"), "lenient");
+  assert.equal(toUiStrictness("balanced"), "normal");
+  assert.equal(toUiStrictness("strict"), "strict");
+  assert.equal(toUiStrictness("bogus"), "normal");
+  assert.equal(toUiStrictness(undefined), "normal");
+  assert.equal(STRICTNESS_LABEL.lenient, "Gentle");
 });
 
 test("unrecoverable session clears tokens, fires auth-lost, and throws ParentAuthError", async () => {

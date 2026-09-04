@@ -22,10 +22,16 @@
 import { useEffect, type RefObject } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type Lenis from "lenis";
 import { motionOK } from "./useGsapReveal";
 
 gsap.registerPlugin(ScrollTrigger);
+
+interface LenisInstance {
+  raf: (time: number) => void;
+  on: (event: string, callback: () => void) => void;
+  off: (event: string, callback: () => void) => void;
+  destroy: () => void;
+}
 
 interface SmoothScrollOptions {
   /**
@@ -59,13 +65,15 @@ export function useSmoothScroll(
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     let disposed = false;
-    let instance: Lenis | null = null;
+    let instance: LenisInstance | null = null;
     let tick: ((time: number) => void) | null = null;
     const onScroll = () => ScrollTrigger.update();
 
     void (async () => {
-      const { default: LenisCtor } = await import("lenis");
-      if (disposed || !wrapperRef.current) return;
+      // @ts-expect-error Lenis is loaded dynamically
+      const lenisModule = await import("lenis").catch(() => null);
+      if (!lenisModule || disposed || !wrapperRef.current) return;
+      const LenisCtor = lenisModule.default || lenisModule;
 
       const content =
         contentRef?.current ??
@@ -84,7 +92,8 @@ export function useSmoothScroll(
         autoRaf: false,
       });
 
-      if (syncScrollTrigger) instance.on("scroll", onScroll);
+
+      if (syncScrollTrigger) instance!.on("scroll", onScroll);
 
       tick = (time: number) => {
         // GSAP ticker time is seconds; Lenis expects milliseconds.

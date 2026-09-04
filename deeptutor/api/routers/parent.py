@@ -237,7 +237,10 @@ async def set_parent_pin(req: SetPinRequest):
             _audit("pin.change_failed", actor=parent_id, details={"reason": str(e)})
             raise HTTPException(status_code=403, detail=str(e))
         _audit("pin.changed", actor=parent_id)
-        return {"success": True, "message": "Parent passcode updated."}
+        # The PIN epoch bump invalidates every outstanding token by design;
+        # tell the client to re-lock explicitly instead of failing the next
+        # call with a bare parent_auth_required.
+        return {"success": True, "message": "Parent passcode updated.", "reauth_required": True}
 
     try:
         await JWTAuthService.set_parent_pin(req.pin, parent_id)
@@ -257,7 +260,7 @@ async def change_parent_pin(req: ChangePinRequest,
         _audit("pin.change_failed", actor=req.parent_id or "default", details={"reason": str(e)})
         raise HTTPException(status_code=403, detail=str(e))
     _audit("pin.changed", actor=req.parent_id or "default")
-    return {"success": True, "message": "Parent passcode updated."}
+    return {"success": True, "message": "Parent passcode updated.", "reauth_required": True}
 
 
 @router.post("/auth/verify-pin")
@@ -314,24 +317,11 @@ async def logout_parent(request: Request,
 @router.get("/telegram/config", dependencies=[Depends(require_parent)])
 async def get_telegram_config(parent_id: str = "default"):
     """Fetch masked Telegram configuration."""
-    db_path = _get_db_path()
+    from deeptutor.services.remote.telegram_config import TelegramConfigStore
+
     try:
-        async with aiosqlite.connect(db_path) as db:
-            await ensure_kv_settings(db)
-            cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
-            row = await cursor.fetchone()
-            if row and row[0]:
-                data = json.loads(row[0])
-                token = data.get("bot_token", "")
-                masked_token = f"{token[:6]}...{token[-4:]}" if len(token) > 10 else "****"
-                return {
-                    "configured": True,
-                    "bot_token_masked": masked_token,
-                    "chat_id": data.get("chat_id", ""),
-                    "enabled": data.get("enabled", True),
-                }
+        return await TelegramConfigStore.get_masked(parent_id)
     except Exception as exc:  # noqa: BLE001 - unconfigured is a normal state
-        # Never silent: a corrupted settings row should be diagnosable.
         logger.debug("Telegram config load failed for %s: %s", parent_id, exc)
     return {"configured": False, "bot_token_masked": "", "chat_id": "", "enabled": False}
 
@@ -344,50 +334,17 @@ async def save_telegram_config(req: TelegramConfigRequest):
     an empty field when the parent only wants to update the Chat ID, and
     blindly overwriting would silently disable alert delivery.
     """
-    db_path = _get_db_path()
-    bot_token = (req.bot_token or "").strip()
-    async with aiosqlite.connect(db_path) as db:
-        await ensure_kv_settings(db)
-        if not bot_token:
-            cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", (f"telegram_{req.parent_id or 'default'}",)
-            )
-            row = await cursor.fetchone()
-            existing: Dict[str, Any] = {}
-            if row and row[0]:
-                try:
-                    existing = json.loads(row[0])
-                except Exception:  # noqa: BLE001 - corrupted row behaves like absent
-                    existing = {}
-            bot_token = str(existing.get("bot_token") or "")
-            if not bot_token:
-                raise HTTPException(
-                    status_code=400,
-                    detail="Bot Token is required for first-time setup.",
-                )
-        payload = json.dumps({
-            "bot_token": bot_token,
-            "chat_id": req.chat_id,
-            "enabled": req.enabled,
-            "updated_at": time.time(),
-        })
-        await db.execute(
-            "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'telegram', ?)",
-            (f"telegram_{req.parent_id or 'default'}", payload, time.time()),
+    from deeptutor.services.remote.telegram_config import TelegramConfigStore
+
+    try:
+        await TelegramConfigStore.save(
+            req.parent_id or "default",
+            bot_token=req.bot_token,
+            chat_id=req.chat_id,
+            enabled=req.enabled,
         )
-        await db.commit()
-
-    if req.enabled:
-        try:
-            from deeptutor.services.monitoring.notification_queue import start_notification_worker
-            from deeptutor.services.remote.telegram_command_listener import (
-                start_telegram_command_listener,
-            )
-
-            start_telegram_command_listener()
-            start_notification_worker()
-        except Exception as exc:  # noqa: BLE001
-            logger.debug("Worker startup on telegram config save: %s", exc)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
     _audit("telegram.config_saved", actor=req.parent_id or "default")
     try:
@@ -412,19 +369,15 @@ async def save_telegram_config(req: TelegramConfigRequest):
 @router.post("/telegram/test", dependencies=[Depends(require_parent)])
 async def test_telegram_notification(parent_id: str = "default"):
     """Send a test notification to verify Telegram setup."""
-    db_path = _get_db_path()
-    async with aiosqlite.connect(db_path) as db:
-        await ensure_kv_settings(db)
-        cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
-        row = await cursor.fetchone()
+    from deeptutor.services.remote.telegram_config import TelegramConfigStore
 
-    if not row or not row[0]:
+    config = await TelegramConfigStore.get(parent_id)
+    if not config:
         raise HTTPException(status_code=400, detail="Telegram not configured.")
 
-    data = json.loads(row[0])
     success, err_detail = await TelegramNotifier.send_message_detailed(
-        bot_token=data.get("bot_token"),
-        chat_id=data.get("chat_id"),
+        bot_token=config["bot_token"],
+        chat_id=config["chat_id"],
         text=(
             "🎉 <b>AI Guru — Telegram Notifications Connected!</b>\n\n"
             "You will now receive study session start links, real-time distraction alerts, "
@@ -441,61 +394,42 @@ async def test_telegram_notification(parent_id: str = "default"):
 
 
 def _lan_ip() -> str:
-    """Best-effort primary LAN IPv4 (never blocks; loopback fallback)."""
-    import socket
+    """Best-effort primary LAN IPv4 (delegates to portal_urls)."""
+    from deeptutor.services.remote.portal_urls import lan_ip
 
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        s.connect(("8.8.8.8", 80))
-        return str(s.getsockname()[0])
-    except Exception:  # noqa: BLE001
-        return "127.0.0.1"
-    finally:
-        s.close()
+    return lan_ip()
 
 
 def _portal_base_url() -> tuple[str, str]:
-    """(base_url, mode) for the parent portal link.
+    """(base_url, mode) for the parent portal link (delegates to portal_urls)."""
+    from deeptutor.services.remote.portal_urls import portal_base_url
 
-    Public tunnel URL when active; otherwise the honest LAN address of the
-    FRONTEND server (which proxies /api to the backend). Never a fabricated
-    localhost:3000-style guess.
-    """
-    tunnel_url = TunnelGateway.get_tunnel_url()
-    if tunnel_url and TunnelGateway.is_url_public():
-        return tunnel_url, "tunnel"
-    try:
-        from deeptutor.services.setup import get_frontend_port
-
-        port = get_frontend_port()
-    except Exception:  # noqa: BLE001
-        port = 3782
-    return f"http://{_lan_ip()}:{port}", "lan"
+    return portal_base_url()
 
 
 @router.post("/telegram/send-link", dependencies=[Depends(require_parent)])
 async def send_tunnel_link_to_telegram(parent_id: str = "default", student_name: str = "Student"):
-    """Manually dispatch current parent portal link to Telegram."""
+    """Manually dispatch current parent portal link to Telegram.
+
+    Honest errors: 400 when Telegram is not configured, 502 when the Bot
+    API rejects delivery (same contract as /telegram/test).
+    """
+    from deeptutor.services.remote.telegram_config import TelegramConfigStore
+
     portal_url, mode = _portal_base_url()
 
-    db_path = _get_db_path()
-    async with aiosqlite.connect(db_path) as db:
-        await ensure_kv_settings(db)
-        cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",))
-        row = await cursor.fetchone()
-
-    if not row or not row[0]:
+    config = await TelegramConfigStore.get(parent_id)
+    if not config:
         raise HTTPException(status_code=400, detail="Telegram not configured.")
 
-    data = json.loads(row[0])
     access_line = (
         "Reachable via your encrypted outbound tunnel."
         if mode == "tunnel"
         else "Reachable on your home Wi-Fi network only (tunnel not active)."
     )
-    success = await TelegramNotifier.send_message(
-        bot_token=data.get("bot_token"),
-        chat_id=data.get("chat_id"),
+    success, err_detail = await TelegramNotifier.send_message_detailed(
+        bot_token=config["bot_token"],
+        chat_id=config["chat_id"],
         text=(
             f"\U0001F517 <b>AI Guru \u2014 Parent Live Portal Link</b>\n\n"
             f"\U0001F464 <b>Student:</b> {student_name}\n"
@@ -503,8 +437,14 @@ async def send_tunnel_link_to_telegram(parent_id: str = "default", student_name:
             f"<i>{access_line} Access is protected by your Parent Passcode PIN.</i>"
         ),
     )
-    _audit("telegram.link_sent", actor=parent_id, details={"success": success, "mode": mode})
-    return {"success": success, "url": f"{portal_url}/parent", "mode": mode}
+    _audit("telegram.link_sent", actor=parent_id,
+           details={"success": success, "mode": mode, "error": err_detail or ""})
+    if not success:
+        raise HTTPException(
+            status_code=502,
+            detail=err_detail or "Failed to deliver message via Telegram. Check Token and Chat ID.",
+        )
+    return {"success": True, "url": f"{portal_url}/parent", "mode": mode}
 
 
 # ------------------------------- 3. Outbound Encrypted Tunnel Endpoints
@@ -516,26 +456,29 @@ async def get_tunnel_status():
     return TunnelGateway.status_snapshot()
 
 
-@router.post("/tunnel/start", dependencies=[Depends(require_parent)])
-async def start_tunnel(req: StartTunnelRequest = StartTunnelRequest()):
+@router.post("/tunnel/start")
+async def start_tunnel(
+    req: StartTunnelRequest = StartTunnelRequest(),  # noqa: B008
+    _parent: Dict[str, Any] = Depends(require_parent),
+):
     """Start the selected tunnel gateway (Cloudflare or Ngrok)."""
     result = await TunnelGateway.start_tunnel(
         local_port=req.port,
         provider=req.provider,
         ngrok_token=req.ngrok_token,
     )
-    _audit("tunnel.start", actor="default", details={
+    _audit("tunnel.start", actor=str(_parent.get("sub", "default")), details={
         "provider": req.provider, "status": result.get("status"),
         "public": result.get("url_is_public"),
     })
     return result
 
 
-@router.post("/tunnel/stop", dependencies=[Depends(require_parent)])
-async def stop_tunnel():
+@router.post("/tunnel/stop")
+async def stop_tunnel(_parent: Dict[str, Any] = Depends(require_parent)):
     """Stop active tunnel process."""
     await TunnelGateway.stop_tunnel()
-    _audit("tunnel.stop", actor="default")
+    _audit("tunnel.stop", actor=str(_parent.get("sub", "default")))
     return {"status": "inactive"}
 
 
@@ -552,49 +495,135 @@ async def list_vault_snapshots(session_id: Optional[str] = None):
     }
 
 
-@router.post("/vault/seal", dependencies=[Depends(require_parent)])
-async def seal_pending_vault(req: SealVaultRequest):
+@router.post("/vault/seal")
+async def seal_pending_vault(
+    req: SealVaultRequest,
+    _parent: Dict[str, Any] = Depends(require_parent),
+):
     """Encrypt all pending monitoring captures under the parent PIN."""
     try:
         sealed = await VideoVaultManager.seal_pending(req.pin)
     except RuntimeError as e:
         raise HTTPException(status_code=500, detail=str(e))
-    _audit("vault.sealed", details={"count": sealed})
+    _audit("vault.sealed", actor=str(_parent.get("sub", "default")),
+           details={"count": sealed})
     return {"success": True, "sealed": sealed}
 
 
-@router.post("/vault/decrypt", dependencies=[Depends(require_parent)])
-async def decrypt_vault_snapshot(req: DecryptVaultRequest):
+@router.post("/vault/decrypt")
+async def decrypt_vault_snapshot(
+    req: DecryptVaultRequest,
+    _parent: Dict[str, Any] = Depends(require_parent),
+):
     """Decrypt a snapshot/clip using Parent PIN (403 on wrong PIN)."""
+    parent_id = str(_parent.get("sub", "default"))
     try:
         result = await VideoVaultManager.decrypt_snapshot(
             clip_id=req.clip_id,
             parent_pin=req.pin,
         )
     except PermissionError:
-        _audit("vault.decrypt_denied", details={"clip_id": req.clip_id})
+        _audit("vault.decrypt_denied", actor=parent_id, details={"clip_id": req.clip_id})
         raise HTTPException(status_code=403, detail="Invalid Parent PIN.")
     if not result:
         raise HTTPException(status_code=404, detail="Vault item not found or corrupted.")
-    _audit("vault.decrypted", details={"clip_id": req.clip_id})
+    _audit("vault.decrypted", actor=parent_id, details={"clip_id": req.clip_id})
     return result
 
 
 # ------------------------------- 4b. Live Supervision Snapshots --------------
+
+async def _require_live_permission(parent_id: str, session_id: str) -> None:
+    """Enforce pairing ``can_view_live`` for explicit links (raises 403).
+
+    No links → the parent passcode gate alone suffices (single-home setup).
+    Links exist → the session's student must be linked to this parent AND
+    granted live view. Session→student attribution comes from the
+    study-session record; when attribution itself fails we fail open (the
+    passcode was already verified) and audit the gap instead of breaking
+    live view on a study-manager hiccup.
+    """
+    try:
+        links = await PairingService.get_linked_students(parent_id)
+    except Exception as exc:  # noqa: BLE001 - permission check must never break frames
+        logger.debug("Live permission lookup skipped: %s", exc)
+        return
+    if not links:
+        return
+    student_id = ""
+    try:
+        from deeptutor.services.study.session_manager import StudySessionManager
+
+        sess = await StudySessionManager().get_session(session_id)
+        student_id = str((sess or {}).get("student_id") or "")
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Live session attribution skipped for %s: %s", session_id, exc)
+    if not student_id:
+        _audit("live.unattributed_session", actor=parent_id,
+               details={"session_id": session_id})
+        return
+    for link in links:
+        if str(link.get("student_id")) == student_id:
+            perms = link.get("permissions", {}) or {}
+            if not perms.get("can_view_live", True):
+                _audit("live.denied_no_permission", actor=parent_id,
+                       details={"session_id": session_id})
+                raise HTTPException(status_code=403, detail="can_view_live not granted")
+            return
+    _audit("live.denied_not_linked", actor=parent_id,
+           details={"session_id": session_id, "student_id": student_id})
+    raise HTTPException(status_code=403, detail="student_not_linked_to_parent")
+
+
+async def _resolve_live_session(
+    session_id: Optional[str],
+    student_id: Optional[str] = None,
+) -> Optional[str]:
+    """Map (session_id, student_id) to a concrete monitoring session id.
+
+    An explicit student_id wins: the student's in-progress study session
+    (which shares its id with the monitoring socket). Otherwise
+    "current"/empty means the first consented-active session. Returns None
+    when nothing matches — callers turn that into 404.
+    """
+    if student_id:
+        try:
+            from deeptutor.services.study.session_manager import StudySessionManager
+
+            rows = _coerce_session_rows(
+                await StudySessionManager().list_sessions(student_id, limit=10)
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("Live student-session lookup failed for %s: %s", student_id, exc)
+            rows = []
+        in_prog = next((s for s in rows if s.get("status") == "in_progress"), None)
+        if in_prog and in_prog.get("id"):
+            return str(in_prog.get("id"))
+        return None
+    if not session_id or session_id == "current":
+        from deeptutor.services.monitoring.session_registry import list_consented_active
+
+        candidates = list_consented_active()
+        return candidates[0] if candidates else None
+    return session_id
 
 
 @router.get("/live/status", dependencies=[Depends(require_parent)])
 async def live_status(session_id: str = "current") -> Dict[str, Any]:
     """Whether the student's live view is currently consented + streaming."""
     try:
-        from deeptutor.api.routers.monitoring import _active_monitoring_sessions, _live_consent
+        from deeptutor.services.monitoring.session_registry import (
+            has_consent,
+            is_session_active,
+            list_consented_active,
+        )
 
         if session_id == "current":
             # Any single session with consent+socket counts as live.
-            active = [sid for sid in _live_consent if sid in _active_monitoring_sessions]
+            active = list_consented_active()
             return {"available": bool(active), "session_id": active[0] if active else None}
         return {
-            "available": session_id in _live_consent and session_id in _active_monitoring_sessions,
+            "available": has_consent(session_id) and is_session_active(session_id),
             "session_id": session_id,
         }
     except Exception:  # noqa: BLE001
@@ -605,38 +634,45 @@ async def live_status(session_id: str = "current") -> Dict[str, Any]:
 async def live_snapshot(
     _parent: Dict[str, Any] = Depends(require_parent),
     session_id: Optional[str] = None,
+    student_id: Optional[str] = None,
 ):
     """
     Latest consented student frame (JPEG bytes) for the parent portal.
 
-    Permission model: parent-controlled switch on the student side PLUS the
-    standard parent passcode. When a pairing link exists, ``can_view_live``
-    must also be granted.
+    Permission model: standard parent passcode PLUS, when an explicit
+    pairing link exists, ``can_view_live`` for the session's student. The
+    pairing check runs BEFORE any frame bytes are touched, for both the
+    system-camera and browser-upload frame sources.
+
+    Targeting: explicit ``student_id`` resolves to that student's
+    in-progress session; otherwise ``session_id`` (or "current" = first
+    consented-active session).
     """
     from fastapi import Response
 
     try:
-        from deeptutor.api.routers.monitoring import (
-            _active_monitoring_sessions,
-            _live_consent,
-            _live_frames,
-            _purge_stale_frames,
+        from deeptutor.services.monitoring.session_registry import (
+            get_live_frame,
+            has_consent,
+            is_session_active,
+            purge_stale_frames,
         )
     except Exception:  # noqa: BLE001
         raise HTTPException(status_code=503, detail="Live supervision unavailable")
 
-    _purge_stale_frames()
+    purge_stale_frames()
 
-    if not session_id or session_id == "current":
-        candidates = [sid for sid in _live_consent if sid in _active_monitoring_sessions]
-        session_id = candidates[0] if candidates else None
+    session_id = await _resolve_live_session(session_id, student_id)
 
     if (
         not session_id
-        or session_id not in _live_consent
-        or session_id not in _active_monitoring_sessions
+        or not has_consent(session_id)
+        or not is_session_active(session_id)
     ):
         raise HTTPException(status_code=404, detail="No live frame available")
+
+    # Pairing permission check FIRST — before either frame source is read.
+    await _require_live_permission(str(_parent.get("sub", "default")), session_id)
 
     # System-camera sessions have no student-side uploads — serve the engine's
     # raw frame directly while consent is on.
@@ -659,26 +695,11 @@ async def live_snapshot(
                 headers={"Cache-Control": "no-store", "X-Frame-Timestamp": str(time.time())},
             )
 
-    if session_id not in _live_frames:
+    frame = get_live_frame(session_id)
+    if frame is None:
         raise HTTPException(status_code=404, detail="No live frame available")
 
-    # Pairing permission check (only when an explicit link exists).
-    try:
-        links = await PairingService.get_linked_students(str(_parent.get("sub", "default")))
-        if links:
-            perms = next(
-                (link.get("permissions", {}) for link in links if str(link.get("student_id")) == session_id),
-                {},
-            )
-            if perms and not perms.get("can_view_live", True):
-                _audit("live.denied_no_permission", actor=str(_parent.get("sub")))
-                raise HTTPException(status_code=403, detail="can_view_live not granted")
-    except HTTPException:
-        raise
-    except Exception as exc:  # noqa: BLE001 - permission check must never block frames
-        logger.debug("Permission check skipped: %s", exc)
-
-    jpeg_b64, ts = _live_frames[session_id]
+    jpeg_b64, ts = frame
     _audit("live.snapshot_accessed", details={"session_id": session_id})
     import base64 as _b64
 
@@ -689,31 +710,48 @@ async def live_snapshot(
     )
 
 
-@router.post("/live/start", dependencies=[Depends(require_parent)])
+@router.post("/live/start")
 async def parent_start_live_stream(
+    _parent: Dict[str, Any] = Depends(require_parent),
     session_id: str = "current",
+    student_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Parent-initiated live stream — forces consent without student toggle.
 
     Also auto-starts the tunnel if not already active, and returns both
     tunnel and LAN URLs so the parent can share or bookmark them.
+
+    Targeting: explicit ``student_id`` resolves to that student's
+    in-progress session (403 when the student is not linked to this
+    parent); otherwise ``session_id`` ("current" = first active session).
+    Pairing ``can_view_live`` is enforced before consent is forced.
     """
-    from deeptutor.api.routers.monitoring import (
-        _active_monitoring_sessions,
-        _live_consent,
+    from deeptutor.services.monitoring.session_registry import (
+        grant_consent,
+        is_session_active,
+        list_active_sessions,
     )
 
-    if session_id == "current":
-        active = list(_active_monitoring_sessions.keys())
+    parent_id = str(_parent.get("sub", "default"))
+    if student_id:
+        resolved = await _resolve_live_session(session_id, student_id)
+        if not resolved:
+            raise HTTPException(404, "No active study session for this student")
+        session_id = resolved
+    elif session_id == "current":
+        active = list_active_sessions()
         if not active:
             raise HTTPException(404, "No active study session")
         session_id = active[0]
 
-    if session_id not in _active_monitoring_sessions:
+    if not is_session_active(session_id):
         raise HTTPException(404, "Session not found or not active")
 
+    # Pairing gate before forcing consent.
+    await _require_live_permission(parent_id, session_id)
+
     # Force-enable live consent (parent authority)
-    _live_consent.add(session_id)
+    grant_consent(session_id)
 
     # Auto-start tunnel with failure isolation & timeout
     tunnel_url = None
@@ -729,22 +767,13 @@ async def parent_start_live_stream(
     except Exception as exc:  # noqa: BLE001
         logger.warning("Tunnel auto-start in parent_start_live_stream failed: %s", exc)
 
-    # LAN URL with fallback
-    try:
-        from deeptutor.services.setup import get_frontend_port
-        fe_port = get_frontend_port()
-    except Exception:  # noqa: BLE001
-        fe_port = 3782
+    # LAN URL with fallback (shared portal_urls helper).
+    from deeptutor.services.remote.portal_urls import lan_dashboard_url
 
-    try:
-        lan_ip = _lan_ip()
-    except Exception:  # noqa: BLE001
-        lan_ip = "127.0.0.1"
-
-    lan_url = f"http://{lan_ip}:{fe_port}/parent"
+    lan_url = lan_dashboard_url() or "http://127.0.0.1:3782/parent"
     tunnel_portal = f"{tunnel_url}/parent" if tunnel_url else None
 
-    _audit("live.parent_initiated_start", details={
+    _audit("live.parent_initiated_start", actor=parent_id, details={
         "session_id": session_id,
         "tunnel_url": tunnel_url or "",
     })
@@ -762,16 +791,14 @@ async def parent_stop_live_stream(
 ) -> Dict[str, Any]:
     """Parent stops live stream and clears in-memory frames."""
     try:
-        from deeptutor.api.routers.monitoring import _live_consent, _live_frames
+        from deeptutor.services.monitoring.session_registry import clear_all_live, revoke_consent
 
         if session_id == "current":
-            _live_consent.clear()
-            _live_frames.clear()
+            clear_all_live()
             _audit("live.parent_initiated_stop", details={"session_id": "all"})
             return {"stopped": True}
 
-        _live_consent.discard(session_id)
-        _live_frames.pop(session_id, None)
+        revoke_consent(session_id)
         _audit("live.parent_initiated_stop", details={"session_id": session_id})
     except Exception as exc:  # noqa: BLE001
         logger.warning("Error stopping live stream for %s: %s", session_id, exc)
@@ -782,19 +809,35 @@ async def parent_stop_live_stream(
 async def parent_live_ws_stream(
     ws: WebSocket,
     session_id: str = "current",
+    student_id: Optional[str] = None,
 ):
     """High-speed WebSocket live video stream for the parent dashboard.
 
     Pushes JPEG frames as binary messages at up to ~5 fps while the
     session is active and consent is on.  Falls back gracefully when
     no frames are available (sends a JSON keep-alive ping every 2s).
+
+    Auth: parent access token via ``Sec-WebSocket-Protocol: parent.<jwt>``
+    (preferred — keeps tokens out of URLs and proxy logs), falling back to
+    the ``?token=`` query param and the ``aiguru_parent_access`` cookie for
+    older clients. Refresh tokens are rejected.
     """
     import base64 as _b64
 
     from starlette.websockets import WebSocketDisconnect
 
-    # Authenticate the parent via query-param token (WS can't use headers easily)
-    token = ws.query_params.get("token", "")
+    # Authenticate the parent: subprotocol first, query/cookie fallback.
+    token = ""
+    try:
+        offered = ws.headers.get("sec-websocket-protocol", "")
+        for proto in [p.strip() for p in offered.split(",")]:
+            if proto.startswith("parent."):
+                token = proto[len("parent."):]
+                break
+    except Exception:  # noqa: BLE001 - header parsing must never break auth
+        token = ""
+    if not token:
+        token = ws.query_params.get("token", "")
     if not token:
         token = ws.cookies.get("aiguru_parent_access", "")
     try:
@@ -813,10 +856,10 @@ async def parent_live_ws_stream(
         return
 
     try:
-        from deeptutor.api.routers.monitoring import (
-            _active_monitoring_sessions,
-            _live_consent,
-            _live_frames,
+        from deeptutor.services.monitoring.session_registry import (
+            get_live_frame,
+            grant_consent,
+            is_session_active,
         )
     except Exception as exc:
         try:
@@ -826,27 +869,37 @@ async def parent_live_ws_stream(
             pass
         return
 
-    # Resolve session
-    if session_id == "current":
-        candidates = [s for s in _live_consent if s in _active_monitoring_sessions]
-        session_id = candidates[0] if candidates else ""
+    # Resolve session: explicit student wins, else current/first consented.
+    resolved_session = await _resolve_live_session(session_id, student_id)
 
-    if not session_id:
+    if not resolved_session:
         try:
             await ws.send_json({"type": "error", "message": "No active live session"})
             await ws.close()
         except Exception:
             pass
         return
+    session_id = resolved_session
+
+    # Pairing gate before forcing consent (403-style close, distinct code).
+    try:
+        await _require_live_permission(str(_parent.get("sub", "default")), session_id)
+    except HTTPException as exc:
+        try:
+            await ws.send_json({"type": "error", "message": str(exc.detail)})
+            await ws.close(code=4003, reason=str(exc.detail)[:120])
+        except Exception:
+            pass
+        return
 
     # Force consent on (parent-initiated)
-    _live_consent.add(session_id)
+    grant_consent(session_id)
 
     last_ts = 0.0
     try:
         while True:
             # Check session still active
-            if session_id not in _active_monitoring_sessions:
+            if not is_session_active(session_id):
                 try:
                     await ws.send_json({"type": "ended", "message": "Study session ended"})
                 except Exception:
@@ -866,18 +919,18 @@ async def parent_live_ws_stream(
             if jpeg_bytes is not None:
                 await ws.send_bytes(jpeg_bytes)
                 last_ts = time.time()
-            elif session_id in _live_frames:
-                frame_b64, ts = _live_frames[session_id]
-                if ts > last_ts:
-                    try:
-                        await ws.send_bytes(_b64.b64decode(frame_b64))
-                        last_ts = ts
-                    except Exception:
-                        pass
-                else:
-                    await ws.send_json({"type": "keepalive", "ts": time.time()})
             else:
-                await ws.send_json({"type": "waiting", "ts": time.time()})
+                live_frame = get_live_frame(session_id)
+                if live_frame is not None:
+                    frame_b64, ts = live_frame
+                    if ts > last_ts:
+                        try:
+                            await ws.send_bytes(_b64.b64decode(frame_b64))
+                            last_ts = ts
+                        except Exception:
+                            pass
+                        continue
+                await ws.send_json({"type": "keepalive" if live_frame else "waiting", "ts": time.time()})
 
             await asyncio.sleep(0.2)
 
@@ -1032,8 +1085,8 @@ async def get_parent_dashboard(parent_id: str):
     # Live status: a student is 'studying' when they have an open monitoring
     # WebSocket and an in-progress session; otherwise honest 'offline'.
     try:
-        from deeptutor.api.routers.monitoring import _active_monitoring_sessions
-        live_sessions = set(_active_monitoring_sessions.keys())
+        from deeptutor.services.monitoring.session_registry import list_active_sessions
+        live_sessions = set(list_active_sessions())
     except Exception:  # noqa: BLE001
         live_sessions = set()
 
@@ -1099,12 +1152,16 @@ async def get_parent_dashboard(parent_id: str):
     if not students:
         dashboard_data.append(await _build_row("student-primary", fallback_name))
     else:
-        for link in students:
-            student_id = link.get("student_id", "student")
-            name = link.get("student_name") or fallback_name
-            dashboard_data.append(
-                await _build_row(student_id, name, link.get("permissions", {}))
+        # Concurrent per-student lookups (each _build_row is failure-
+        # isolated internally, so one bad student never sinks the board).
+        dashboard_data = list(await asyncio.gather(*(
+            _build_row(
+                link.get("student_id", "student"),
+                link.get("student_name") or fallback_name,
+                link.get("permissions", {}),
             )
+            for link in students
+        )))
 
     return dashboard_data
 
@@ -1138,12 +1195,20 @@ async def get_student_sessions(student_id: str):
         if started >= week_ago:
             # tm_wday: Monday=0 .. Sunday=6 — matches the Mon..Sun labels.
             day_idx = time.localtime(started).tm_wday
-            minutes = round(float(s.get("actual_duration_seconds") or 0) / 60.0, 1)
+            # In-progress sessions count up live (same rule as the
+            # dashboard's today counter); completed ones use stored time.
+            duration_s = float(s.get("actual_duration_seconds") or 0)
+            if s.get("status") == "in_progress":
+                duration_s = max(duration_s, now - started)
+            minutes = round(duration_s / 60.0, 1)
             weekly[day_idx] += minutes
             session_count_week += 1
+            # Trend only from COMPLETED sessions with a real measurement —
+            # live/zero scores would drag the line dishonestly.
             raw_focus = s.get("focus_score")
             try:
-                if raw_focus is not None:
+                if (raw_focus is not None and s.get("status") == "completed"
+                        and float(raw_focus) > 0):
                     focus_trend.append(float(raw_focus))
             except (TypeError, ValueError):
                 pass
@@ -1234,8 +1299,10 @@ async def get_session_report(session_id: str):
 
 @router.get("/audit-log/{parent_id}", dependencies=[Depends(require_parent)])
 async def get_audit_log(parent_id: str, limit: int = Query(20, le=100)):
-    events = await AuditLogger.get_events(actor_id=parent_id, limit=limit)
-    if not events:
-        # Fall back to all parent-portal actions so the log is never mysteriously empty.
-        events = await AuditLogger.get_events(limit=limit)
-    return events
+    """Security activity scoped to one parent — never other actors' events.
+
+    Previously an empty result silently widened to *all* portal events,
+    leaking other parents' actions into a parent-scoped view and masking
+    genuinely empty logs. Empty now honestly means empty.
+    """
+    return await AuditLogger.get_events(actor_id=parent_id, limit=limit)

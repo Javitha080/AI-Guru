@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * New-session sheet — Ember Glass modal. Subject & duration as tactile
+ * New-session sheet — LiquidGlass modal. Subject & duration as tactile
  * chip grids; entrance uses the global overlay/pop keyframes plus a GSAP
  * field stagger. Creation itself stays in the page's pre-flight handler.
  */
@@ -15,12 +15,12 @@ interface CreateSessionModalProps {
   onStart: (title: string, subject: string, duration: number) => void;
 }
 
-const SUBJECTS = ["Math", "Science", "Language", "History", "Programming", "General"];
+const SUBJECTS = ["ICT (A/L)", "ICT (O/L)", "Computer Science", "Mathematics", "Science", "General"];
 const DURATIONS = [15, 25, 30, 45, 60, 90];
 
 export default function CreateSessionModal({ onClose, onStart }: CreateSessionModalProps) {
   const [title, setTitle] = useState("");
-  const [subject, setSubject] = useState("General");
+  const [subject, setSubject] = useState("ICT (A/L)");
   const [duration, setDuration] = useState(25);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -39,38 +39,44 @@ export default function CreateSessionModal({ onClose, onStart }: CreateSessionMo
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-overlay-in"
-      style={{ background: "var(--overlay)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+      style={{ background: "rgba(0, 0, 0, 0.70)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)" }}
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       <div
         ref={revealRoot}
-        className="bento-cell tilt-glare liquid-sheen w-full max-w-md p-7 animate-pop-in"
+        className="liquid-glass liquid-glass--strong liquid-glass--refract relative w-full max-w-md p-7 rounded-3xl shadow-[0_30px_70px_-15px_rgba(0,0,0,0.8)] animate-pop-in overflow-hidden"
         role="dialog"
         aria-modal="true"
         aria-label="New study session"
       >
-        <div className="flex items-center justify-between mb-6" data-reveal>
+        {/* Specular Top Key-light Line */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/35 to-transparent z-20"
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 flex items-center justify-between mb-6" data-reveal>
           <div className="flex items-center gap-3">
-            <span className="w-10 h-10 rounded-xl bg-[var(--ember-0)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--primary)]">
-              <CalendarClock size={19} />
+            <span className="w-10 h-10 rounded-2xl bg-[var(--ember-0)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--primary)] shadow-sm">
+              <CalendarClock size={20} />
             </span>
-            <h2 className="font-display text-xl font-bold">New Study Session</h2>
+            <h2 className="font-display text-xl font-bold tracking-tight">New Study Session</h2>
           </div>
           <button
             onClick={onClose}
             aria-label="Close"
-            className="glass-btn-ghost !rounded-xl"
+            className="w-8 h-8 rounded-full surface-glass-base flex items-center justify-center text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-white/10 transition-colors"
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
           <div data-reveal>
             <label htmlFor="session-title" className="block text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-2">
-              Title <span className="normal-case font-medium tracking-normal">(optional)</span>
+              Title <span className="normal-case font-medium tracking-normal opacity-70">(optional)</span>
             </label>
             <input
               id="session-title"
@@ -93,10 +99,10 @@ export default function CreateSessionModal({ onClose, onStart }: CreateSessionMo
                     type="button"
                     onClick={() => setSubject(sub)}
                     aria-pressed={active}
-                    className={`px-2 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 ${
+                    className={`px-2.5 py-2.5 rounded-2xl text-xs font-semibold border transition-all duration-200 ${
                       active
                         ? "bg-[var(--primary)] text-white border-transparent shadow-[0_4px_16px_var(--glow-primary)] scale-[1.03]"
-                        : "surface-glass-base hover:border-[var(--ember-line)]/50 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                        : "surface-glass-base border-[var(--glass-border)] hover:border-[var(--ember-line)]/50 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
                     }`}
                   >
                     {sub}
@@ -108,7 +114,7 @@ export default function CreateSessionModal({ onClose, onStart }: CreateSessionMo
 
           <div data-reveal>
             <span className="block text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-2">
-              Duration <span className="normal-case font-medium tracking-normal">(minutes)</span>
+              Duration <span className="normal-case font-medium tracking-normal opacity-70">(minutes)</span>
             </span>
             <div className="grid grid-cols-3 gap-2">
               {DURATIONS.map((dur) => {
@@ -119,27 +125,27 @@ export default function CreateSessionModal({ onClose, onStart }: CreateSessionMo
                     type="button"
                     onClick={() => setDuration(dur)}
                     aria-pressed={active}
-                    className={`py-2 rounded-xl text-sm font-bold border transition-all duration-200 ${
+                    className={`py-2.5 rounded-2xl text-sm font-bold border transition-all duration-200 ${
                       active
                         ? "bg-[var(--amber)] text-black border-transparent shadow-[0_4px_16px_var(--amber-glow)] scale-[1.03]"
-                        : "surface-glass-base hover:border-[var(--amber)]/40 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                        : "surface-glass-base border-[var(--glass-border)] hover:border-[var(--amber)]/40 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
                     }`}
                   >
-                    {dur}
+                    {dur}m
                   </button>
                 );
               })}
             </div>
           </div>
 
-          <div className="pt-2 flex justify-end gap-2.5" data-reveal>
-            <button type="button" onClick={onClose} className="glass-btn-secondary !rounded-xl">
+          <div className="pt-3 flex justify-end gap-2.5" data-reveal>
+            <button type="button" onClick={onClose} className="glass-btn-secondary !rounded-2xl px-4 py-2 text-xs">
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className="glass-btn-primary !rounded-xl inline-flex items-center gap-1.5 disabled:opacity-50"
+              className="glass-btn-primary !rounded-2xl px-5 py-2 inline-flex items-center gap-1.5 text-xs disabled:opacity-50"
             >
               <CalendarClock size={15} />
               {isLoading ? "Starting…" : "Start Session"}

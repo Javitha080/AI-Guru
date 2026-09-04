@@ -22,6 +22,7 @@ interface OverviewTabProps {
   onOpenReports: (studentId: string) => void;
   onLiveView: (student: StudentRow) => void;
   onSendTunnelLink: () => void;
+  sendLinkStatus?: { ok: boolean; text: string } | null;
   tunnel: TunnelSnapshot;
   tunnelBusy: boolean;
   onToggleTunnel: () => void;
@@ -29,7 +30,7 @@ interface OverviewTabProps {
 
 export default function OverviewTab({
   students, incidents, incidentsLoading, selectedStudentId,
-  onSelectStudent, onOpenReports, onLiveView, onSendTunnelLink, tunnel, tunnelBusy, onToggleTunnel,
+  onSelectStudent, onOpenReports, onLiveView, onSendTunnelLink, sendLinkStatus, tunnel, tunnelBusy, onToggleTunnel,
 }: OverviewTabProps) {
   const active = tunnel.status === "active" && tunnel.url_is_public;
   const pending = tunnel.status === "starting" || tunnel.status === "reconnecting";
@@ -119,6 +120,18 @@ export default function OverviewTab({
           </button>
         </div>
       </div>
+      {sendLinkStatus && (
+        <p
+          className={`text-xs font-semibold px-3.5 py-2.5 rounded-xl border animate-pop-in ${
+            sendLinkStatus.ok
+              ? "text-[var(--primary)] bg-[var(--ember-0)] border-[var(--ember-line)]/35"
+              : "text-red-300 bg-red-500/[0.08] border-red-500/30"
+          }`}
+          data-reveal
+        >
+          {sendLinkStatus.text}
+        </p>
+      )}
 
       {/* Student bento cells */}
       {students.length === 0 ? (

@@ -15,6 +15,7 @@
  */
 
 import { FaceLandmarker, FilesetResolver } from "@mediapipe/tasks-vision";
+import { WsReconnect, monitoringWsUrl } from "./wsReconnect";
 
 export type VisionState = "idle" | "loading" | "ready" | "error";
 
@@ -95,9 +96,7 @@ const CDN_MODEL =
 
 export class VisionPipeline {
   private landmarker: FaceLandmarker | null = null;
-  private ws: WebSocket | null = null;
-  private wsReconnectTimer: ReturnType<typeof setTimeout> | null = null;
-  private wsBackoffMs = 1000;
+  private conn: WsReconnect | null = null;
   private rafId = 0;
   private lastTick = 0;
   private tickCount = 0;
@@ -166,18 +165,8 @@ export class VisionPipeline {
     this.running = false;
     this.paused = false;
     cancelAnimationFrame(this.rafId);
-    if (this.wsReconnectTimer) {
-      clearTimeout(this.wsReconnectTimer);
-      this.wsReconnectTimer = null;
-    }
-    if (this.ws) {
-      try {
-        this.ws.close();
-      } catch {
-        /* ignore */
-      }
-      this.ws = null;
-    }
+    this.conn?.stop();
+    this.conn = null;
     try {
       this.landmarker?.close();
     } catch {
@@ -189,9 +178,7 @@ export class VisionPipeline {
   setPaused(paused: boolean): void {
     if (this.paused === paused) return;
     this.paused = paused;
-    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify({ type: paused ? "pause" : "resume" }));
-    }
+    this.conn?.send({ type: paused ? "pause" : "resume" });
   }
 
   setTargetFps(fps: number): void {
@@ -200,7 +187,15 @@ export class VisionPipeline {
 
   /** Last N landmark frames (newest last) — used by the pre-flight liveness check. */
   takeRecentLandmarkFrames(n = 6): LandmarkGroups[] {
-    return this.landmarkHistory.slice(-n).map((g) => JSON.parse(JSON.stringify(g)) as LandmarkGroups);
+    const slice = this.landmarkHistory.slice(-n);
+    if (typeof structuredClone === "function") {
+      try {
+        return structuredClone(slice);
+      } catch {
+        /* fall through to JSON clone */
+      }
+    }
+    return slice.map((g) => JSON.parse(JSON.stringify(g)) as LandmarkGroups);
   }
 
   get hasFaceModel(): boolean {
@@ -210,42 +205,27 @@ export class VisionPipeline {
   // ------------------------------------------------------------------ internals
 
   private openSocket(sessionId: string): void {
-    const proto = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const ws = new WebSocket(`${proto}//${window.location.host}/api/v1/monitoring/session/${sessionId}?mode=browser`);
-    ws.onopen = () => {
-      // Healthy connection: reset the backoff so a later drop retries fast.
-      if (this.ws === ws) this.wsBackoffMs = 1000;
-      if (this.paused && ws.readyState === WebSocket.OPEN) {
-        ws.send(JSON.stringify({ type: "pause" }));
-      }
-    };
-    ws.onmessage = (evt) => {
-      try {
-        const msg = JSON.parse(evt.data);
+    this.conn = new WsReconnect({
+      create: () => new WebSocket(monitoringWsUrl(sessionId, "browser")),
+      onOpen: (ws) => {
+        if (this.paused) {
+          try {
+            ws.send(JSON.stringify({ type: "pause" }));
+          } catch {
+            /* ignore */
+          }
+        }
+      },
+      onMessage: (evt) => {
+        const msg = JSON.parse((evt as MessageEvent).data);
         if (msg.type === "telemetry_update") {
           this.recentRemote.push(msg);
           if (this.recentRemote.length > 30) this.recentRemote.shift();
           this.opts.onTelemetry?.(this.lastLocalFrame ?? { detected: false, brightness: 0, confidence: 0 }, msg);
         }
-      } catch {
-        /* ignore malformed frames */
-      }
-    };
-    ws.onclose = () => {
-      if (this.ws !== ws) return; // superseded by a newer socket
-      this.ws = null;
-      // A dropped socket previously killed monitoring for the whole session
-      // (HUD stuck on OFFLINE until restart). Reconnect with capped
-      // exponential backoff while the pipeline is still running.
-      if (!this.running) return;
-      const delay = this.wsBackoffMs;
-      this.wsBackoffMs = Math.min(this.wsBackoffMs * 2, 15000);
-      this.wsReconnectTimer = setTimeout(() => {
-        this.wsReconnectTimer = null;
-        if (this.running && !this.ws) this.openSocket(sessionId);
-      }, delay);
-    };
-    this.ws = ws;
+      },
+    });
+    this.conn.start();
   }
 
   private lastLocalFrame: TelemetryFrame = { detected: false, brightness: 0, confidence: 0 };
@@ -266,7 +246,8 @@ export class VisionPipeline {
     try {
       const result = this.landmarker.detectForVideo(video, now);
       const faces = result?.faceLandmarks ?? [];
-      const brightness = this.computeBrightness(video);
+      const pixels = this.grabGrayscale(video);
+      const brightness = pixels ? pixels.brightness : 0.5;
 
       if (faces.length > 0) {
         const groups = buildLandmarkGroups(faces[0]);
@@ -274,11 +255,12 @@ export class VisionPipeline {
         if (this.landmarkHistory.length > 40) this.landmarkHistory.shift();
         // Anti-spoof texture cue for the backend liveness scorer. Computed
         // every 3rd face frame (~2 Hz at the default 5 FPS target) — cheap
-        // at 64×48 but pointless to repeat every tick.
+        // at 64×48 but pointless to repeat every tick. Reuses the same
+        // grayscale buffer as brightness (single canvas pass).
         let textureVar: number | undefined;
         this.tickCount += 1;
-        if (this.tickCount % 3 === 1) {
-          textureVar = this.computeTextureVariance(video);
+        if (this.tickCount % 3 === 1 && pixels) {
+          textureVar = textureVarianceFromGray(pixels.gray, pixels.w, pixels.h);
         }
         frame = {
           detected: true,
@@ -286,7 +268,7 @@ export class VisionPipeline {
           brightness,
           bbox: this.computeBBox(groups.all_points),
           landmarks: groups,
-          jpeg_b64: this.snapshotJpeg(video),
+          jpeg_b64: this.maybeSnapshot(video),
           texture_laplacian_var: textureVar,
           timestamp: Date.now() / 1000,
         };
@@ -297,7 +279,7 @@ export class VisionPipeline {
           detected: false,
           confidence: 0.0,
           brightness,
-          jpeg_b64: this.snapshotJpeg(video),
+          jpeg_b64: this.maybeSnapshot(video),
           timestamp: Date.now() / 1000,
         };
       }
@@ -307,61 +289,53 @@ export class VisionPipeline {
     }
 
     this.lastLocalFrame = frame;
-    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify({ type: "telemetry", data: frame }));
-    }
+    this.conn?.send({ type: "telemetry", data: frame });
     if (!this.opts.sessionId) {
       // Local-only mode (pre-flight): surface frames directly.
       this.opts.onTelemetry?.(frame);
     }
   };
 
-  private computeBrightness(video: HTMLVideoElement): number {
+  /** Snapshot only when streaming (session WS); pre-flight needs landmarks only. */
+  private maybeSnapshot(video: HTMLVideoElement): string | undefined {
+    if (!this.opts.sessionId) return undefined;
+    const sock = this.conn?.socket ?? null;
+    // Socket reconnecting: skip encode (frames would be dropped anyway).
+    if (sock !== null && sock.readyState !== WebSocket.OPEN) return undefined;
+    return this.snapshotJpeg(video);
+  }
+
+  private grabGrayscale(
+    video: HTMLVideoElement
+  ): { brightness: number; gray: Float32Array; w: number; h: number } | null {
     const c = (this.grayCanvas ??= document.createElement("canvas"));
     c.width = 64;
     c.height = 48;
     const ctx = c.getContext("2d", { willReadFrequently: true });
-    if (!ctx) return 0.5;
+    if (!ctx) return null;
     ctx.drawImage(video, 0, 0, 64, 48);
     const data = ctx.getImageData(0, 0, 64, 48).data;
+    const w = 64;
+    const h = 48;
+    const gray = new Float32Array(w * h);
     let sum = 0;
-    for (let i = 0; i < data.length; i += 4) {
-      sum += 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+    for (let i = 0, p = 0; i < data.length; i += 4, p++) {
+      const g = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+      gray[p] = g;
+      sum += g;
     }
-    return Math.min(1, sum / (data.length / 4) / 255);
+    return { brightness: Math.min(1, sum / (w * h) / 255), gray, w, h };
+  }
+
+  private computeBrightness(video: HTMLVideoElement): number {
+    return this.grabGrayscale(video)?.brightness ?? 0.5;
   }
 
   /** Laplacian variance on a downscaled grayscale copy (anti-spoof texture cue). */
   computeTextureVariance(video: HTMLVideoElement): number {
-    const c = (this.grayCanvas ??= document.createElement("canvas"));
-    c.width = 64;
-    c.height = 48;
-    const ctx = c.getContext("2d", { willReadFrequently: true });
-    if (!ctx) return 0;
-    ctx.drawImage(video, 0, 0, 64, 48);
-    const d = ctx.getImageData(0, 0, 64, 48).data;
-    const w = 64;
-    const h = 48;
-    const gray = new Float32Array(w * h);
-    for (let i = 0, p = 0; i < d.length; i += 4, p++) {
-      gray[p] = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
-    }
-    let sum = 0;
-    let sq = 0;
-    let n = 0;
-    for (let y = 1; y < h - 1; y++) {
-      for (let x = 1; x < w - 1; x++) {
-        const i = y * w + x;
-        const lap =
-          4 * gray[i] - gray[i - 1] - gray[i + 1] - gray[i - w] - gray[i + w];
-        sum += lap;
-        sq += lap * lap;
-        n++;
-      }
-    }
-    if (!n) return 0;
-    const mean = sum / n;
-    return sq / n - mean * mean;
+    const pixels = this.grabGrayscale(video);
+    if (!pixels) return 0;
+    return textureVarianceFromGray(pixels.gray, pixels.w, pixels.h);
   }
 
   private computeBBox(points: LandmarkPoint[]): [number, number, number, number] {
@@ -393,4 +367,22 @@ export class VisionPipeline {
       return undefined;
     }
   }
+}
+
+function textureVarianceFromGray(gray: Float32Array, w: number, h: number): number {
+  let sum = 0;
+  let sq = 0;
+  let n = 0;
+  for (let y = 1; y < h - 1; y++) {
+    for (let x = 1; x < w - 1; x++) {
+      const i = y * w + x;
+      const lap = 4 * gray[i] - gray[i - 1] - gray[i + 1] - gray[i - w] - gray[i + w];
+      sum += lap;
+      sq += lap * lap;
+      n++;
+    }
+  }
+  if (!n) return 0;
+  const mean = sum / n;
+  return sq / n - mean * mean;
 }

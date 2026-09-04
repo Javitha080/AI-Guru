@@ -23,16 +23,28 @@ import collections
 import json
 import logging
 import time
-from typing import Any, Deque, Dict, List, Optional
+from typing import Any, Deque, Dict, Optional
 
 import aiosqlite
 
+from deeptutor.services.monitoring.camera_settings import (
+    CAMERA_SETTINGS_KEY,
+    load_camera_config,
+    save_camera_config,
+)
 from deeptutor.services.monitoring.cv_pipeline import LocalCVPipeline
 from deeptutor.services.monitoring.dispatch import handle_warning
+from deeptutor.services.monitoring.landmarks_codec import landmarks_to_payload
+from deeptutor.services.monitoring.monitoring_config import (
+    DEFAULT_THRESHOLDS,
+    strictness_for,
+)
 from deeptutor.services.monitoring.python_face_processor import (
     PythonFaceProcessor,
     get_python_face_processor,
 )
+from deeptutor.services.monitoring.schemas import TelemetryUpdate
+from deeptutor.services.monitoring.session_scores import EpisodeTracker, ScoreAccumulator
 from deeptutor.services.monitoring.system_camera import (
     SystemCameraManager,
     get_system_camera,
@@ -41,70 +53,34 @@ from deeptutor.services.monitoring.system_camera import (
 
 logger = logging.getLogger(__name__)
 
-_RING_SIZE = 30
-_RING_MIN_INTERVAL = 0.5          # seconds between evidence-ring frame updates
+_RING_SIZE = DEFAULT_THRESHOLDS.ring_size
+_RING_MIN_INTERVAL = DEFAULT_THRESHOLDS.ring_min_interval  # seconds between evidence-ring frame updates
 _SNAPSHOT_JPEG_QUALITY = 70
 
-CAMERA_SETTINGS_KEY = "monitoring_camera"
-_DEFAULT_CAMERA_CONFIG = {"enabled": True, "camera_index": 0, "target_fps": 10}
+# Re-exported for backward-compat (routers import these from system_monitor).
+__all__ = [
+    "CAMERA_SETTINGS_KEY",
+    "load_camera_config",
+    "save_camera_config",
+    "apply_supervision_strictness",
+    "SystemMonitorSession",
+    "get_system_monitor",
+    "active_system_monitors",
+    "start_system_monitor",
+    "stop_system_monitor",
+]
 
 
-async def load_camera_config() -> Dict[str, Any]:
-    """Read the persisted ``monitoring_camera`` kv-settings (defaults enabled)."""
-    try:
-        from deeptutor.services.path_service import get_path_service
-        from deeptutor.services.remote.kv_settings import ensure_kv_settings
-
-        db_path = get_path_service().user_dir / "chat_history.db"
-        async with aiosqlite.connect(db_path) as db:
-            await ensure_kv_settings(db)
-            cur = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", (CAMERA_SETTINGS_KEY,)
-            )
-            row = await cur.fetchone()
-        if row and row[0]:
-            data = json.loads(row[0])
-            if isinstance(data, dict):
-                merged = dict(_DEFAULT_CAMERA_CONFIG)
-                merged.update({k: v for k, v in data.items() if k in _DEFAULT_CAMERA_CONFIG})
-                return merged
-    except Exception as exc:  # noqa: BLE001 - config is optional, defaults are safe
-        logger.debug("Camera config load skipped: %s", exc)
-    return dict(_DEFAULT_CAMERA_CONFIG)
-
-
-async def save_camera_config(config: Dict[str, Any]) -> Dict[str, Any]:
-    merged = dict(_DEFAULT_CAMERA_CONFIG)
-    merged.update({k: v for k, v in config.items() if k in _DEFAULT_CAMERA_CONFIG})
-    try:
-        from deeptutor.services.path_service import get_path_service
-        from deeptutor.services.remote.kv_settings import ensure_kv_settings
-
-        db_path = get_path_service().user_dir / "chat_history.db"
-        async with aiosqlite.connect(db_path) as db:
-            await ensure_kv_settings(db)
-            await db.execute(
-                "INSERT INTO settings (key, value, category, updated_at) VALUES (?, ?, 'monitoring', ?)"
-                " ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at",
-                (CAMERA_SETTINGS_KEY, json.dumps(merged), time.time()),
-            )
-            await db.commit()
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("Camera config save failed: %s", exc)
-    return merged
-
-
-async def apply_supervision_strictness(pipeline: LocalCVPipeline) -> None:
-    """Map the parent wizard's strictness profile onto warning gates.
+async def apply_supervision_strictness(
+    pipeline: LocalCVPipeline, parent_id: str = "default"
+) -> None:
+    """Map a parent's strictness profile onto warning gates.
 
     Shared by the system-monitor path and the legacy browser-driven WS path so
-    both engines enforce identical cooldown/confidence gates.
+    both engines enforce identical cooldown/confidence gates. ``parent_id``
+    selects ``supervision_rules_{parent_id}`` (multi-parent); callers that
+    cannot attribute a session yet pass the default.
     """
-    profiles = {
-        "gentle": (90.0, 0.85),
-        "balanced": (60.0, 0.80),
-        "strict": (30.0, 0.75),
-    }
     try:
         from deeptutor.services.path_service import get_path_service
         from deeptutor.services.remote.kv_settings import ensure_kv_settings
@@ -113,13 +89,13 @@ async def apply_supervision_strictness(pipeline: LocalCVPipeline) -> None:
         async with aiosqlite.connect(db) as conn:
             await ensure_kv_settings(conn)
             cur = await conn.execute(
-                "SELECT value FROM settings WHERE key = 'supervision_rules_default'"
+                "SELECT value FROM settings WHERE key = ?", (f"supervision_rules_{parent_id}",)
             )
             row = await cur.fetchone()
         if not row or not row[0]:
             return
         rules = json.loads(row[0])
-        cooldown, conf = profiles.get(rules.get("alert_strictness", "balanced"), (60.0, 0.80))
+        cooldown, conf = strictness_for(str(rules.get("alert_strictness", "balanced")))
         wm = getattr(pipeline, "warning_manager", None)
         if wm is not None:
             wm.cooldown_seconds = float(cooldown)
@@ -165,15 +141,33 @@ class SystemMonitorSession:
         self.last_result: Any = None
         self.last_focus_score: Optional[float] = None
 
-        # --- Score persistence (mirrors the browser-driven loop) ---
-        self._focus_sum: float = 0.0
-        self._engagement_sum: float = 0.0
-        self._score_ticks: int = 0
-        self._distraction_count: int = 0
-        self._warning_count: int = 0
-        self._active_distractions: set[str] = set()
+        # --- Score persistence (shared kernel with browser-driven loop) ---
+        self._scores = ScoreAccumulator()
+        self._episodes = EpisodeTracker()
+        self._warning_count = 0
         self._last_persist_ts: float = 0.0
         self._persist_interval: float = 10.0  # seconds
+
+    # Backward-compat shims for pre-refactor attribute access.
+    @property
+    def _focus_sum(self) -> float:
+        return self._scores.focus_sum
+
+    @property
+    def _engagement_sum(self) -> float:
+        return self._scores.engagement_sum
+
+    @property
+    def _score_ticks(self) -> int:
+        return self._scores.ticks
+
+    @property
+    def _distraction_count(self) -> int:
+        return self._episodes.distraction_count
+
+    @property
+    def _active_distractions(self) -> set[str]:
+        return self._episodes.active
 
     # ------------------------------------------------------------- listeners
 
@@ -190,12 +184,20 @@ class SystemMonitorSession:
         return len(self._listeners)
 
     async def broadcast(self, message: Dict[str, Any]) -> None:
-        for listener in list(self._listeners):
+        listeners = list(self._listeners)
+        if not listeners:
+            return
+
+        async def _send(listener: _Listener) -> None:
             try:
                 async with listener.lock:
-                    await listener.ws.send_json(message)
-            except Exception:  # noqa: BLE001 - dead sockets drop silently
+                    # Per-consumer timeout: one wedged tab must not stall
+                    # telemetry to every other listener.
+                    await asyncio.wait_for(listener.ws.send_json(message), timeout=1.0)
+            except Exception:  # noqa: BLE001 - dead/slow sockets drop silently
                 self._listeners.discard(listener)
+
+        await asyncio.gather(*(_send(li) for li in listeners), return_exceptions=True)
 
     # -------------------------------------------------------------- lifecycle
 
@@ -228,19 +230,29 @@ class SystemMonitorSession:
             await self._persist_scores()
         except Exception:  # noqa: BLE001
             pass
-        self.camera.stop()
+        # camera.stop() joins the grab thread (up to 3s) — never block the
+        # event loop on it; offload to a worker thread.
+        try:
+            loop = asyncio.get_running_loop()
+            await loop.run_in_executor(None, self.camera.stop)
+        except RuntimeError:
+            # No running loop (sync test teardown): fall back to direct stop.
+            try:
+                self.camera.stop()
+            except Exception:  # noqa: BLE001
+                pass
+        except Exception:  # noqa: BLE001
+            pass
 
     async def _persist_scores(self) -> None:
-        """Flush running-mean focus/engagement to study_sessions (mirrors browser path)."""
+        """Flush running-mean focus/engagement to study_sessions (shared kernel)."""
         try:
             from deeptutor.services.study.session_manager import StudySessionManager
 
-            if self._score_ticks > 0:
-                focus = self._focus_sum / self._score_ticks
-                engagement = self._engagement_sum / self._score_ticks
-            else:
-                focus = float(self.last_focus_score or 0)
-                engagement = float((self.last_telemetry or {}).get("engagement_score", 0))
+            focus = self._scores.mean_focus(float(self.last_focus_score or 0))
+            engagement = self._scores.mean_engagement(
+                float((self.last_telemetry or {}).get("engagement_score", 0))
+            )
             await StudySessionManager().update_scores(
                 self.session_id, focus, engagement,
                 self._distraction_count, self._warning_count,
@@ -314,7 +326,13 @@ class SystemMonitorSession:
 
         now = time.time()
         snapshot_b64 = self._maybe_ring_snapshot(frame, now)
+        payload = self._build_payload(result, now)
+        analysis = self.pipeline.process_telemetry_payload(payload, current_time=now)
+        telemetry = self._handle_analysis(analysis, result, snapshot_b64, now)
+        await self.broadcast(telemetry)
 
+    def _build_payload(self, result: Any, now: float) -> Dict[str, Any]:
+        """Build the canonical telemetry payload from a FaceFrameResult."""
         embedding = None
         if result.detected and result.landmarks is not None:
             embedding = self.pipeline.face_engine.generate_geometric_embedding(result.landmarks)
@@ -337,12 +355,12 @@ class SystemMonitorSession:
                 "confidence": result.gaze.confidence,
             }
 
-        payload: Dict[str, Any] = {
+        return {
             "detected": result.detected,
             "confidence": result.confidence,
             "brightness": result.brightness,
             "texture_laplacian_var": result.texture_laplacian_var,
-            "landmarks": _landmarks_to_payload(result.landmarks),
+            "landmarks": landmarks_to_payload(result.landmarks),
             "embedding": embedding,
             "pose": pose_dict,
             "gaze": gaze_dict,
@@ -353,87 +371,57 @@ class SystemMonitorSession:
             # re-deriving from the 6-point landmark subset.
             "ear_override": round(result.ear, 4) if result.ear > 0 else None,
         }
-        analysis = self.pipeline.process_telemetry_payload(payload, current_time=now)
 
+    def _handle_analysis(
+        self, analysis: Any, result: Any, snapshot_b64: Optional[str], now: float
+    ) -> Dict[str, Any]:
+        """Accumulate scores, log episodes, dispatch warnings, build telemetry."""
         focus_score = float(analysis.distraction.focus_score or 0)
         self.last_focus_score = focus_score
 
-        # --- Score accumulation for periodic DB persistence ---
-        self._focus_sum += focus_score
-        self._engagement_sum += float(analysis.engagement.score or 0)
-        self._score_ticks += 1
+        # --- Score accumulation for periodic DB persistence (shared kernel) ---
+        self._scores.add_frame(focus_score, float(analysis.engagement.score or 0))
 
         # --- Edge-triggered distraction episode logging ---
-        if analysis.distraction.is_distracted:
-            dtype = analysis.distraction.distraction_type.value
-            if dtype not in self._active_distractions:
-                self._active_distractions.add(dtype)
-                self._distraction_count += 1
-                event_type = "PHONE_DETECTED" if "PHONE" in dtype.upper() else "LOOKING_AWAY"
-                from deeptutor.services.background import spawn_bg as _spawn_log
+        dtype = analysis.distraction.distraction_type.value if analysis.distraction.is_distracted else None
+        if self._episodes.on_frame(analysis.distraction.is_distracted, dtype):
+            assert dtype is not None
+            event_type = "PHONE_DETECTED" if "PHONE" in dtype.upper() else "LOOKING_AWAY"
+            from deeptutor.services.background import spawn_bg as _spawn_log
 
-                _spawn_log(
-                    self._log_episode(
-                        event_type, "warning",
-                        float(analysis.distraction.confidence or 0),
-                        float(analysis.distraction.duration_seconds or 0),
-                        str(analysis.distraction.reason or dtype),
-                    ),
-                    name=f"sys-episode-{self.session_id}",
-                )
-        else:
-            self._active_distractions.clear()
+            _spawn_log(
+                self._log_episode(
+                    event_type, "warning",
+                    float(analysis.distraction.confidence or 0),
+                    float(analysis.distraction.duration_seconds or 0),
+                    str(analysis.distraction.reason or dtype),
+                ),
+                name=f"sys-episode-{self.session_id}",
+            )
 
-        telemetry = {
-            "type": "telemetry_update",
-            "session_id": self.session_id,
-            "timestamp": analysis.timestamp,
-            "presence": analysis.presence.state.value,
-            "focus_score": focus_score,
-            "engagement_score": analysis.engagement.score,
-            "engagement_trend": analysis.engagement.trend,
-            "posture": analysis.pose.posture.value,
-            "is_distracted": analysis.distraction.is_distracted,
-            "whitelisted_action": (
+        telemetry_msg = TelemetryUpdate(
+            session_id=self.session_id,
+            timestamp=analysis.timestamp,
+            presence=analysis.presence.state.value,
+            focus_score=focus_score,
+            engagement_score=analysis.engagement.score,
+            engagement_trend=analysis.engagement.trend,
+            posture=analysis.pose.posture.value,
+            is_distracted=analysis.distraction.is_distracted,
+            whitelisted_action=(
                 analysis.distraction.whitelisted_action.value
                 if analysis.distraction.whitelisted_action
                 else None
             ),
-            "ear": round(result.ear, 3),
-            "fps": analysis.fps,
-        }
+            fps=analysis.fps,
+            ear=round(result.ear, 3),
+        )
+        telemetry = telemetry_msg.to_dict()
         self.last_telemetry = telemetry
 
         warning_event = analysis.dispatched_warning
         if warning_event is not None:
-            severity = str(warning_event.severity)
-            telemetry["warning"] = {
-                "warning_id": warning_event.warning_id,
-                "category": warning_event.category,
-                "message": warning_event.message,
-                "severity": severity,
-                "confidence": float(analysis.distraction.confidence),
-                "duration_seconds": float(analysis.distraction.duration_seconds),
-            }
-            # Track actionable warnings (not nudges / info pings)
-            if severity not in ("info", "nudge"):
-                self._warning_count += 1
-            # Nudges flow through handle_warning too — its tiering policy keeps
-            # them local (telemetry-only) while warnings/alerts reach parents.
-            ring = list(self._ring)
-            current = ring[-1] if ring else snapshot_b64
-            from deeptutor.services.background import spawn_bg
-
-            spawn_bg(
-                handle_warning(
-                    session_id=self.session_id,
-                    warning=telemetry["warning"],
-                    current_frame_b64=current,
-                    ring_frames_b64=ring,
-                    photo_jpeg_b64=current,
-                ),
-                name=f"system-warning-{self.session_id}",
-            )
+            self._handle_warning_event(analysis, warning_event, telemetry, snapshot_b64)
 
         # --- Periodic score persistence (every 10s) ---
         if now - self._last_persist_ts >= self._persist_interval:
@@ -445,7 +433,43 @@ class SystemMonitorSession:
                 name=f"sys-persist-{self.session_id}",
             )
 
-        await self.broadcast(telemetry)
+        return telemetry
+
+    def _handle_warning_event(
+        self,
+        analysis: Any,
+        warning_event: Any,
+        telemetry: Dict[str, Any],
+        snapshot_b64: Optional[str],
+    ) -> None:
+        severity = str(warning_event.severity)
+        telemetry["warning"] = {
+            "warning_id": warning_event.warning_id,
+            "category": warning_event.category,
+            "message": warning_event.message,
+            "severity": severity,
+            "confidence": float(analysis.distraction.confidence),
+            "duration_seconds": float(analysis.distraction.duration_seconds),
+        }
+        # Track actionable warnings (not nudges / info pings)
+        if severity not in ("info", "nudge"):
+            self._warning_count += 1
+        # Nudges flow through handle_warning too — its tiering policy keeps
+        # them local (telemetry-only) while warnings/alerts reach parents.
+        ring = list(self._ring)
+        current = ring[-1] if ring else snapshot_b64
+        from deeptutor.services.background import spawn_bg
+
+        spawn_bg(
+            handle_warning(
+                session_id=self.session_id,
+                warning=telemetry["warning"],
+                current_frame_b64=current,
+                ring_frames_b64=ring,
+                photo_jpeg_b64=current,
+            ),
+            name=f"system-warning-{self.session_id}",
+        )
 
     def _maybe_ring_snapshot(self, frame: Any, now: float) -> Optional[str]:
         """Append a throttled JPEG snapshot to the evidence ring; returns it."""
@@ -500,6 +524,11 @@ async def start_system_monitor(
 ) -> Optional[SystemMonitorSession]:
     """Start (or reuse) the system monitor for a session.
 
+    Each session owns a FRESH LocalCVPipeline (never the process-global
+    singleton) so presence timers, liveness history, and warning cooldowns
+    cannot leak across concurrent sessions. The identity baseline enrolled
+    via /enroll-face is inherited once at creation.
+
     Returns None when the CV stack or hardware is unavailable — callers then
     fall back to the browser-driven pipeline.
     """
@@ -519,9 +548,20 @@ async def start_system_monitor(
         release_system_camera(int(cfg.get("camera_index", 0)))
         return None
 
-    from deeptutor.services.monitoring.cv_pipeline import get_cv_pipeline
+    if pipeline is None:
+        pipe = LocalCVPipeline()
+        # Inherit the enrolled identity baseline (if any) so /enroll-face
+        # and /enroll-from-camera keep working with per-session pipelines.
+        try:
+            from deeptutor.services.monitoring.cv_pipeline import get_cv_pipeline
 
-    pipe = pipeline or get_cv_pipeline()
+            baseline = get_cv_pipeline().face_engine.get_enrolled_face()
+            if baseline is not None:
+                pipe.enroll_student_baseline(list(baseline))
+        except Exception:  # noqa: BLE001 - enrollment inheritance is best-effort
+            pass
+    else:
+        pipe = pipeline
     monitor = SystemMonitorSession(
         session_id=session_id,
         camera=camera,
@@ -567,21 +607,5 @@ def _encode_jpeg_b64(frame: Any, quality: int = 70) -> Optional[str]:
 
 
 def _landmarks_to_payload(landmarks: Any) -> Optional[Dict[str, Any]]:
-    """Serialize FaceLandmarks into the exact dict shape cv_pipeline parses."""
-    if landmarks is None:
-        return None
-
-    def _pts(pts: List[Any]) -> List[Dict[str, float]]:
-        return [{"x": p.x, "y": p.y, "z": p.z} for p in pts]
-
-    return {
-        "left_eye": _pts(landmarks.left_eye),
-        "right_eye": _pts(landmarks.right_eye),
-        "mouth": _pts(landmarks.mouth),
-        "all_points": _pts(landmarks.all_points),
-        "nose_tip": {"x": landmarks.nose_tip.x, "y": landmarks.nose_tip.y, "z": landmarks.nose_tip.z},
-        "chin": {"x": landmarks.chin.x, "y": landmarks.chin.y, "z": landmarks.chin.z},
-        "forehead": {"x": landmarks.forehead.x, "y": landmarks.forehead.y, "z": landmarks.forehead.z},
-        "left_cheek": {"x": landmarks.left_cheek.x, "y": landmarks.left_cheek.y, "z": landmarks.left_cheek.z},
-        "right_cheek": {"x": landmarks.right_cheek.x, "y": landmarks.right_cheek.y, "z": landmarks.right_cheek.z},
-    }
+    """Serialize FaceLandmarks (deprecated shim → landmarks_codec)."""
+    return landmarks_to_payload(landmarks)

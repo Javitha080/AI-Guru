@@ -306,7 +306,7 @@ export default function SittingRunner({
   const currentImages = answers[current?.id]?.images ?? [];
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden">
+    <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
       {/* HUD */}
       <div className="surface-glass-base mx-3 mt-3 rounded-2xl px-4 py-3 flex items-center justify-between gap-3 shrink-0 relative z-30">
         <div className="min-w-0">
@@ -363,7 +363,7 @@ export default function SittingRunner({
       )}
 
       {/* Question */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-6">
+      <div className="flex-1 min-h-0 overflow-y-auto p-4 md:p-6 [scrollbar-gutter:stable]">
         {current ? (
           <div className="max-w-3xl mx-auto space-y-5">
             <div className="flex items-center justify-between gap-3">
@@ -606,7 +606,7 @@ export default function SittingRunner({
 function FinalReport({ result, sittingId, onExit }: { result: SittingResult; sittingId: string; onExit: () => void }) {
   const pct = result.pct ?? 0;
   return (
-    <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-5">
+    <div className="flex-1 h-full min-h-0 overflow-y-auto p-4 md:p-8 space-y-5 [scrollbar-gutter:stable]">
       <div className="max-w-3xl mx-auto space-y-5">
         <div className="bento-cell liquid-sheen p-6 text-center space-y-1.5">
           <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--muted-foreground)]">Sitting complete</p>
