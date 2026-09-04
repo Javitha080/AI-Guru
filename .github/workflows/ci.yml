@@ -1,0 +1,416 @@
+# ============================================================
+# CI pipeline — validate every change to AI Guru / DeepTutor.
+#
+# Replaces the older `.github/workflows/tests.yml` with a single,
+# complete gating pipeline:
+#
+#   lint       → Ruff lint + format
+#   typecheck  → mypy (same relaxed profile as pre-commit; non-blocking —
+#                the repo carries type debt, see docs/CI-CD.md)
+#   security   → detect-secrets (baseline audit) + Bandit (high gate)
+#   web        → ESLint, tsc, Node test battery, production build, npm audit
+#   python-tests → pytest on Python 3.11/3.12/3.13 (+ 3.14 experimental)
+#                 with coverage on 3.11 (uploaded as an artifact)
+#   docker     → build production image + run a real container smoke test
+#   summary    → per-job result table + hard failure when any gate fails
+#
+# Triggered on every pull request, on push to the default/release branches,
+# and via manual dispatch. Only `push` is path-filtered — see the note at the
+# `on:` block for why `pull_request` must never be.
+# ============================================================
+
+name: CI
+
+on:
+  # ----------------------------------------------------------
+  # NOTE ON PATH FILTERS — do NOT re-add a `paths:` block here.
+  #
+  # A required status check can only ever be satisfied if the workflow
+  # actually runs, and GitHub does not back-fill a run for a PR head
+  # commit that predates the workflow. Filtering `pull_request` therefore
+  # strands any PR whose changed files all fall outside the filter
+  # (`.github/**`, `docs/**`, `.secrets.baseline`, `README.md`, …) in a
+  # permanent "Expected — Waiting for status to be reported" state: the
+  # required checks never report, so the PR can never be merged.
+  #
+  # Every PR gets the full gate; only the target-branch list narrows it.
+  # `push` keeps a path filter, because that only affects long-lived
+  # branches where burning a full pipeline on a docs-only commit is waste.
+  # ----------------------------------------------------------
+  push:
+    branches:
+      - master
+      - main
+      - dev
+      - multi-user
+    paths:
+      - "deeptutor/**"
+      - "deeptutor_cli/**"
+      - "deeptutor_web/**"
+      - "tests/**"
+      - "requirements/**"
+      - "requirements.txt"
+      - "pyproject.toml"
+      - "uv.lock"
+      - "packaging/**"
+      - "scripts/**"
+      - "web/**"
+      - "Dockerfile"
+      - "Dockerfile.runner"
+      - ".dockerignore"
+      - "compose*.yaml"
+      - "docker-compose*.yml"
+      - ".github/**"
+      - ".pre-commit-config.yaml"
+      - ".secrets.baseline"
+      - "docs/**"
+      - "README.md"
+      - "CONTRIBUTING.md"
+  pull_request:
+    branches:
+      - master
+      - main
+      - dev
+      - multi-user
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: "3.11"
+  NODE_VERSION: "22"
+
+jobs:
+  # ----------------------------------------------------------
+  # Python lint & format
+  # ----------------------------------------------------------
+  lint:
+    name: Lint (Ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Ruff
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff==0.16.0
+
+      - name: Ruff lint
+        run: ruff check .
+
+      - name: Ruff format check
+        run: ruff format --check .
+
+  # ----------------------------------------------------------
+  # Python type checking (same relaxed profile as pre-commit)
+  # ----------------------------------------------------------
+  typecheck:
+    name: Type Check (mypy — non-blocking)
+    runs-on: ubuntu-latest
+    # mypy currently reports pre-existing type debt (winreg stubs on Linux,
+    # tutor_provider stream typing, etc.). It runs on every change and the
+    # errors are published in the log/summary, but it does NOT block the
+    # pipeline yet. Track the backlog in docs/CI-CD.md and flip this to
+    # "false" once the debt is cleared.
+    continue-on-error: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install mypy
+        run: |
+          python -m pip install --upgrade pip
+          pip install "mypy==1.13.0" types-PyYAML types-requests types-croniter
+
+      - name: Run mypy
+        run: |
+          mypy --ignore-missing-imports \
+               --no-error-summary \
+               --no-strict-optional \
+               --exclude '^(tests/|scripts/|deeptutor/agents/|deeptutor/services/rag/|deeptutor/api/routers/)' \
+               .
+
+  # ----------------------------------------------------------
+  # Secret scanning + Python security linter
+  # ----------------------------------------------------------
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install scanners
+        run: |
+          python -m pip install --upgrade pip
+          pip install "detect-secrets==1.5.0" "bandit[toml]==1.8.0"
+
+      - name: Detect secrets — no NEW secrets versus .secrets.baseline
+        # detect-secrets-hook scans the file list passed to it and compares
+        # against the committed baseline. Exit codes:
+        #   0 → clean            2 → invalid args
+        #   1 → NEW secret found 3 → no new secrets, baseline line numbers stale
+        # Note: `detect-secrets scan --baseline` MUTATES the baseline in place
+        # (we observed this), so the hook + git ls-files is used instead.
+        run: |
+          set +e
+          git ls-files -z \
+            | grep -z -vE '^(ictfromabc/|data/)|\.(pdf|zip|lock|tar\.gz)$' \
+            | xargs -0 -r detect-secrets-hook --baseline .secrets.baseline > detect-secrets.log 2>&1
+          code=$?
+          set -e
+          case "$code" in
+            0)
+              echo "✅ No new secrets detected." ;;
+            1)
+              echo "::error::Potential secrets introduced. Inspect the report below; fix them or add an inline \`pragma: allowlist secret\` for verified false positives."
+              cat detect-secrets.log
+              exit 1 ;;
+            3)
+              echo "::warning::No new secrets, but .secrets.baseline line numbers are stale. Run \`pre-commit run detect-secrets --all-files\` locally and commit the refreshed baseline."
+              cat detect-secrets.log
+              exit 0 ;;
+            *)
+              echo "::error::detect-secrets-hook failed with exit code ${code}"
+              cat detect-secrets.log
+              exit 1 ;;
+          esac
+
+      - name: Bandit — hard fail on HIGH severity findings
+        # Medium findings are reported to the log as warnings; the project's
+        # config keeps them intentionally skippable (see [tool.bandit] skips).
+        run: |
+          bandit -c pyproject.toml -q -lll -r deeptutor deeptutor_cli || {
+            echo "::error::Bandit found HIGH severity issues in Python code."
+            exit 1
+          }
+
+  # ----------------------------------------------------------
+  # Frontend: lint, type-check, tests, production build, audit
+  # ----------------------------------------------------------
+  web:
+    name: Web (lint, types, tests, build)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: web
+        run: npm ci --legacy-peer-deps
+
+      - name: ESLint (errors block, warnings allowed)
+        working-directory: web
+        run: npm run lint
+
+      - name: TypeScript check (tsc --noEmit)
+        working-directory: web
+        run: npx tsc --noEmit
+
+      - name: Node test battery
+        working-directory: web
+        run: npm run test:node
+
+      - name: Production build (Next.js)
+        working-directory: web
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+          NEXT_PUBLIC_API_BASE: http://localhost:8001
+          NEXT_PUBLIC_AUTH_ENABLED: "false"
+
+      - name: npm audit (informational — does not block CI)
+        continue-on-error: true
+        working-directory: web
+        run: npm audit --audit-level=high --omit=dev
+
+  # ----------------------------------------------------------
+  # Python tests across supported versions (3.14 experimental)
+  # ----------------------------------------------------------
+  python-tests:
+    name: Python Tests (${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental == true }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+        experimental: [false]
+        coverage: [false]
+        include:
+          - python-version: "3.11"
+            experimental: false
+            coverage: true
+          - python-version: "3.14"
+            experimental: true
+            coverage: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('requirements/server.txt', 'requirements/partners.txt', 'requirements/cli.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements/server.txt
+          pip install -r requirements/partners.txt
+          pip install pytest pytest-asyncio pytest-cov
+
+      - name: Verify dependency tree is consistent
+        run: python -m pip check
+
+      - name: Create minimal runtime config
+        run: |
+          mkdir -p data/user/settings
+          cat > data/user/settings/main.yaml <<'YAML'
+          system:
+            language: en
+          logging:
+            level: WARNING
+          YAML
+
+      - name: Run Python tests
+        run: |
+          COVERAGE_ARGS=""
+          if [ "${{ matrix.coverage }}" = "true" ]; then
+            COVERAGE_ARGS="--cov=deeptutor --cov-report=term-missing --cov-report=xml"
+          fi
+          pytest -q tests deeptutor/learning/tests $COVERAGE_ARGS
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+
+      - name: Upload coverage report (Python 3.11)
+        if: matrix.coverage == 'true' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-python-${{ matrix.python-version }}
+          path: coverage.xml
+          if-no-files-found: warn
+
+  # ----------------------------------------------------------
+  # Docker: build the production image and smoke-test it as a container
+  # ----------------------------------------------------------
+  docker:
+    name: Docker Build & Smoke Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build production image (amd64, cache enabled)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          target: production
+          platforms: linux/amd64
+          push: false
+          load: true
+          tags: deeptutor:ci-${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke-test container (backend health endpoint)
+        run: |
+          IMAGE="deeptutor:ci-${{ github.sha }}"
+          docker run -d --name deeptutor-ci \
+            -p 127.0.0.1:18001:8001 \
+            -p 127.0.0.1:13782:3782 \
+            "${IMAGE}"
+          ok=0
+          for i in $(seq 1 60); do
+            if curl -fsS --max-time 5 http://127.0.0.1:18001/ >/dev/null 2>&1; then
+              ok=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ok" -ne 1 ]; then
+            echo "::error::Container did not become healthy within 120s"
+            docker logs deeptutor-ci || true
+            docker rm -f deeptutor-ci || true
+            exit 1
+          fi
+          echo "✅ Container healthy."
+          docker logs --tail 20 deeptutor-ci || true
+          docker rm -f deeptutor-ci || true
+
+  # ----------------------------------------------------------
+  # Aggregate results into the job summary; fail the run if any gate failed
+  # ----------------------------------------------------------
+  summary:
+    name: CI Summary
+    runs-on: ubuntu-latest
+    needs: [lint, typecheck, security, web, python-tests, docker]
+    if: always()
+
+    steps:
+      - name: Write test results summary
+        run: |
+          {
+            echo "## 🧪 CI Results"
+            echo ""
+            echo "| Gate | Status |"
+            echo "|------|--------|"
+            echo "| Ruff lint & format | ${{ needs.lint.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
+            echo "| mypy type check (non-blocking) | ${{ needs.typecheck.result == 'success' && '✅ Passed' || '⚠️ Warnings — see log' }} |"
+            echo "| Secret & security scan | ${{ needs.security.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
+            echo "| Web lint / types / tests / build | ${{ needs.web.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
+            echo "| Python tests 3.11/3.12/3.13 (3.14 best-effort) | ${{ needs.python-tests.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
+            echo "| Docker build & smoke test | ${{ needs.docker.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail if any gate failed
+        if: >-
+          needs.lint.result == 'failure' ||
+          needs.security.result == 'failure' ||
+          needs.web.result == 'failure' ||
+          needs.python-tests.result == 'failure' ||
+          needs.docker.result == 'failure'
+        run: |
+          echo "::error::One or more CI gates failed. See the job summary above."
+          exit 1

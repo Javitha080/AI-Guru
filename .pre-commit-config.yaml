@@ -68,8 +68,10 @@ repos:
     hooks:
       - id: detect-secrets
         args: ['--baseline', '.secrets.baseline']
-        exclude: package-lock.json
-        pass_filenames: false
+        # Scan only the staged files (default pass_filenames=true). The hook
+        # is a no-op with pass_filenames:false, which silently kept the
+        # baseline stale — that bug is fixed and mirrored in CI (ci.yml).
+        exclude: ^(ictfromabc/|data/)|.*\.(pdf|zip|lock|tar\.gz)$
 
   # Replaced Safety with pip-audit due to version 3.x breakdown
   # NOTE: pip-audit disabled due to pip-api upstream bug with non-ASCII paths on Windows
