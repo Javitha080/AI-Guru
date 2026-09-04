@@ -134,12 +134,22 @@ class TutorProvider(ABC):
         self.provider_name = provider_name
 
     @abstractmethod
-    async def stream(
+    def stream(
         self,
         messages: list[dict[str, Any]],
         params: Optional[dict[str, Any]] = None,
     ) -> AsyncIterator[StreamChunk]:
-        """Stream assistant response chunks asynchronously."""
+        """Stream assistant response chunks asynchronously.
+
+        Subclasses implement this as an *async generator* (``async def`` with
+        ``yield``). The abstract signature is deliberately declared without
+        ``async``: mypy models an ``async def`` generator's return type as the
+        iterator itself, whereas an ``async def`` without ``yield`` is modeled
+        as a coroutine wrapping the iterator — the two would never match and
+        every subclass override would fail (and ``async for`` over the base
+        reference would error). This mirrors the existing pattern in
+        ``deeptutor.services.llm.providers.base_provider``.
+        """
         ...
 
     @abstractmethod

@@ -31,7 +31,7 @@ import os
 from pathlib import Path
 import threading
 import time
-from typing import Deque, List, Optional, Tuple
+from typing import Any, Deque, List, Optional, Tuple
 
 import numpy as np
 
@@ -188,9 +188,12 @@ class PythonFaceProcessor:
         self._texture_every_n = max(1, int(texture_every_n))
         self._phone_detect_every_n = max(1, int(phone_detect_every_n))
 
-        self._mp = None
-        self._landmarker = None
-        self._object_detector = None
+        # Heavy MediaPipe objects load lazily (see _ensure_loaded); typed as
+        # Optional[Any] because mediapipe ships no type stubs and cv2 is
+        # already narrowed to Any above.
+        self._mp: Optional[Any] = None
+        self._landmarker: Optional[Any] = None
+        self._object_detector: Optional[Any] = None
         self._loaded = False
         self._last_ts_ms = 0
         self._tick = 0

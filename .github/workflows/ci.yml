@@ -5,8 +5,8 @@
 # complete gating pipeline:
 #
 #   lint       → Ruff lint + format
-#   typecheck  → mypy (same relaxed profile as pre-commit; non-blocking —
-#                the repo carries type debt, see docs/CI-CD.md)
+#   typecheck  → mypy (same relaxed profile as pre-commit; a real gate now
+#                that the pre-existing type debt is cleared)
 #   security   → detect-secrets (baseline audit) + Bandit (high gate)
 #   web        → ESLint, tsc, Node test battery, production build, npm audit
 #   python-tests → pytest on Python 3.11/3.12/3.13 (+ 3.14 experimental)
@@ -116,14 +116,16 @@ jobs:
   # Python type checking (same relaxed profile as pre-commit)
   # ----------------------------------------------------------
   typecheck:
-    name: Type Check (mypy — non-blocking)
+    name: Type Check (mypy)
     runs-on: ubuntu-latest
-    # mypy currently reports pre-existing type debt (winreg stubs on Linux,
-    # tutor_provider stream typing, etc.). It runs on every change and the
-    # errors are published in the log/summary, but it does NOT block the
-    # pipeline yet. Track the backlog in docs/CI-CD.md and flip this to
-    # "false" once the debt is cleared.
-    continue-on-error: true
+    # Real gate. The pre-existing type debt (winreg stubs on Linux, the
+    # tutor_provider stream typing, and the bank_store / telemetry_logger /
+    # python_face_processor annotations) has been cleared, so this now
+    # reports 0 errors on the CI profile. Do NOT re-add `continue-on-error`
+    # here: at the *job* level it leaves the check conclusion as FAILURE (a
+    # red X on every PR) while only softening the workflow run — see the
+    # "non-blocking" trap documented in docs/CI-CD.md. If this gate regresses,
+    # fix the findings instead.
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -261,17 +263,21 @@ jobs:
     continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
+      # One explicit entry per Python version. The previous matrix listed
+      # 3.11 in the base list *and* added a second 3.11 via `include:` for
+      # coverage, which ran the 3.11 battery twice and reported two check
+      # runs under the same "Python Tests (3.11)" name. Coverage is now keyed
+      # off the version inside the step instead of a matrix axis.
       matrix:
-        python-version: ["3.11", "3.12", "3.13"]
-        experimental: [false]
-        coverage: [false]
         include:
           - python-version: "3.11"
             experimental: false
-            coverage: true
+          - python-version: "3.12"
+            experimental: false
+          - python-version: "3.13"
+            experimental: false
           - python-version: "3.14"
             experimental: true
-            coverage: false
 
     steps:
       - name: Checkout code
@@ -313,7 +319,7 @@ jobs:
       - name: Run Python tests
         run: |
           COVERAGE_ARGS=""
-          if [ "${{ matrix.coverage }}" = "true" ]; then
+          if [ "${{ matrix.python-version }}" = "3.11" ]; then
             COVERAGE_ARGS="--cov=deeptutor --cov-report=term-missing --cov-report=xml"
           fi
           pytest -q tests deeptutor/learning/tests $COVERAGE_ARGS
@@ -321,10 +327,10 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
 
       - name: Upload coverage report (Python 3.11)
-        if: matrix.coverage == 'true' && always()
+        if: matrix.python-version == '3.11' && always()
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-python-${{ matrix.python-version }}
+          name: coverage-python-3.11
           path: coverage.xml
           if-no-files-found: warn
 
@@ -397,7 +403,7 @@ jobs:
             echo "| Gate | Status |"
             echo "|------|--------|"
             echo "| Ruff lint & format | ${{ needs.lint.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
-            echo "| mypy type check (non-blocking) | ${{ needs.typecheck.result == 'success' && '✅ Passed' || '⚠️ Warnings — see log' }} |"
+            echo "| mypy type check | ${{ needs.typecheck.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
             echo "| Secret & security scan | ${{ needs.security.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
             echo "| Web lint / types / tests / build | ${{ needs.web.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
             echo "| Python tests 3.11/3.12/3.13 (3.14 best-effort) | ${{ needs.python-tests.result == 'success' && '✅ Passed' || '❌ Failed' }} |"
@@ -407,6 +413,7 @@ jobs:
       - name: Fail if any gate failed
         if: >-
           needs.lint.result == 'failure' ||
+          needs.typecheck.result == 'failure' ||
           needs.security.result == 'failure' ||
           needs.web.result == 'failure' ||
           needs.python-tests.result == 'failure' ||
