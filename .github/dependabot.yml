@@ -34,8 +34,10 @@ updates:
   - package-ecosystem: pip
     directory: /
     schedule:
+      # `day` is only supported for `weekly` intervals (monday…sunday); a
+      # `monthly` interval always runs on the 1st. Setting `day` here is
+      # invalid configuration for this schedule.
       interval: monthly
-      day: 1
       time: "06:00"
       timezone: Asia/Colombo
     open-pull-requests-limit: 10
