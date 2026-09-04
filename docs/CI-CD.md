@@ -70,8 +70,10 @@ Notes on deliberate choices:
   (bulk OCR corpus), `data/` (runtime), lock files and binaries/PDFs are
   excluded from the scan. `detect-secrets scan --baseline` **rewrites the
   baseline in place**, so CI uses `detect-secrets-hook` over
-  `git ls-files` instead — the hook only fails on **new** secrets (exit 1)
-  and merely warns (exit 3) when baseline line numbers are stale.
+  `git ls-files` instead — the hook fails only on **new** secrets (exit 1)
+  and merely warns (exit 3) when baseline line numbers are stale. The scan
+  list is passed in a single invocation (not `xargs`, which would collapse
+  exit 1 and 3 into 123), so the two outcomes stay distinguishable.
 - **Path filtering** is applied to the `push` trigger only, so docs-only
   commits on long-lived branches do not burn CI minutes. The
   `pull_request` trigger is deliberately **unfiltered**: a required status
@@ -178,6 +180,16 @@ The repository already had `tests.yml`, `pypi-release.yml` and
    and coverage is keyed off `matrix.python-version == '3.11'` (string
    comparison), so the XML actually lands as the `coverage-python-3.11`
    artifact.
+
+10. **detect-secrets: stale baselines failed the gate.** The step piped the
+    scan list through `xargs`, which aggregates any hook exit code in 1–125
+    into `123`. Both "new secret" (hook exit 1) and "baseline line numbers
+    stale, refreshed in place" (hook exit 3) therefore arrived as `123`, so
+    the `case` arms for 1 and 3 were dead code and *any* line-number drift
+    in a baseline-tracked file (e.g. adding a docstring above a secret)
+    failed the whole security job. The step now passes the file list in one
+    invocation so the hook's genuine exit code is preserved: new secrets
+    still fail, stale line numbers warn and pass.
 
 ## Required repository configuration
 

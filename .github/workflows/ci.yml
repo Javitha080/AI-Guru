@@ -169,18 +169,30 @@ jobs:
           pip install "detect-secrets==1.5.0" "bandit[toml]==1.8.0"
 
       - name: Detect secrets — no NEW secrets versus .secrets.baseline
-        # detect-secrets-hook scans the file list passed to it and compares
-        # against the committed baseline. Exit codes:
-        #   0 → clean            2 → invalid args
-        #   1 → NEW secret found 3 → no new secrets, baseline line numbers stale
-        # Note: `detect-secrets scan --baseline` MUTATES the baseline in place
-        # (we observed this), so the hook + git ls-files is used instead.
+        # detect-secrets-hook scans the file list and compares against the
+        # committed baseline. Its real exit codes are:
+        #   0 → clean
+        #   1 → NEW secret found
+        #   3 → no new secrets, but baseline line numbers are stale (the hook
+        #       rewrites .secrets.baseline in place to refresh them)
+        # We collect the file list into a single invocation (instead of
+        # `xargs`, which aggregates any 1-125 exit into 123 and would make
+        # "new secret" and "stale baseline" indistinguishable) so the hook's
+        # genuine exit code survives.
         run: |
+          set -euo pipefail
+          mapfile -d '' -t FILES < <(
+            git ls-files -z \
+              | grep -z -vE '^(ictfromabc/|data/)|\.(pdf|zip|lock|tar\.gz)$' || true
+          )
           set +e
-          git ls-files -z \
-            | grep -z -vE '^(ictfromabc/|data/)|\.(pdf|zip|lock|tar\.gz)$' \
-            | xargs -0 -r detect-secrets-hook --baseline .secrets.baseline > detect-secrets.log 2>&1
-          code=$?
+          if [ "${#FILES[@]}" -gt 0 ]; then
+            detect-secrets-hook --baseline .secrets.baseline "${FILES[@]}" > detect-secrets.log 2>&1
+            code=$?
+          else
+            code=0
+            : > detect-secrets.log
+          fi
           set -e
           case "$code" in
             0)
