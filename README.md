@@ -353,6 +353,11 @@ npm run test:node
 cd ..
 ```
 
+> 🔁 **CI/CD:** Every push/PR runs the same gates automatically
+> (`.github/workflows/ci.yml`), and merges to `master`/`main` publish the
+> `latest` container to GHCR. Architecture, release flow and required checks:
+> [`docs/CI-CD.md`](docs/CI-CD.md).
+
 ---
 
 ## 🔒 Privacy & Zero-Trust Security

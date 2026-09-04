@@ -1,14 +1,18 @@
 name: Docker Release
 
-# Triggered when a GitHub Release is published.
-# Builds a multi-platform Docker image and pushes it to GitHub Container Registry (GHCR).
+# Triggered when a GitHub Release is published (created by release.yml).
+# Builds a multi-platform Docker image and pushes it to THIS repository's
+# GitHub Container Registry (GHCR) namespace.
 #
-# Image: ghcr.io/hkuds/deeptutor
+# Image: ghcr.io/<owner>/<repo> (lowercased automatically)
 # Tags:
 #   - Version tag stripped of 'v' prefix (e.g. release v1.2.3 → image tag 1.2.3)
 #   - latest (always points to the most recently published release)
 #
 # Platforms: linux/amd64, linux/arm64
+#
+# Note: a fork cannot push into an upstream owner's namespace (e.g. hkuds) —
+# GITHUB_TOKEN only grants package access to this repository.
 
 on:
   release:
@@ -42,6 +46,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # Compute the registry image for THIS repository (GHCR requires lowercase)
+      - name: Compute registry image
+        id: registry
+        shell: bash
+        run: echo "image=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+
       # Extract tags from the release:
       #   type=semver strips the leading 'v' (v1.2.3 → 1.2.3)
       #   type=raw adds a 'latest' tag on every published release
@@ -49,7 +59,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/hkuds/deeptutor
+          images: ${{ steps.registry.outputs.image }}
           tags: |
             type=semver,pattern={{version}}
             type=raw,value=latest

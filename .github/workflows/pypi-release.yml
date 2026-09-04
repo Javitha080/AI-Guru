@@ -1,6 +1,6 @@
 name: PyPI Release
 
-# Triggered when a GitHub Release is published.
+# Triggered when a GitHub Release is published (created by release.yml).
 # Publishes the full app package with the version derived from the release tag:
 #   - deeptutor (Python backend/CLI + packaged Next.js standalone assets)
 #

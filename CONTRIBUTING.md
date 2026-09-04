@@ -163,6 +163,21 @@ We use automated tools (configured via `pyproject.toml` and `.pre-commit-config.
 > [!IMPORTANT]
 > Local pre-commit hooks may only show warnings, but **CI will perform strict checks** and automatically reject PRs that fail.
 
+## CI/CD Pipeline
+
+Every push and pull request runs the pipeline in `.github/workflows/ci.yml`:
+Ruff lint + format, mypy (currently non-blocking), secret + security scans,
+ESLint, TypeScript, the node test battery, the Next.js production build,
+Python tests on 3.11–3.13 (and a best-effort 3.14 run), and a Docker
+build + container smoke test. Merges to `master`/`main` also publish the
+`latest` container to GHCR, and a `vX.Y.Z` tag on the default branch creates
+a GitHub Release (which then publishes the Docker image and the PyPI
+package).
+
+> [!TIP]
+> Full architecture, required checks, release flow, and the known type-debt
+> backlog: [`docs/CI-CD.md`](docs/CI-CD.md).
+
 ---
 
 ## Coding Standards
