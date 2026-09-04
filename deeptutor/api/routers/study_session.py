@@ -13,6 +13,13 @@ class CreateSessionRequest(BaseModel):
     subject: Optional[str] = "General"
     duration: Optional[int] = None
     target_duration_seconds: Optional[int] = None
+    # Accepted for backward-compat with the study-room client (silently
+    # ignored by session creation; paper linkage lives in the exam flow).
+    monitoring_enabled: Optional[bool] = None
+    paper_id: Optional[str] = None
+    bank_paper_id: Optional[str] = None
+    grade: Optional[int] = None
+    is_custom_exam: Optional[bool] = None
 
 
 class SessionResponse(BaseModel):
@@ -128,6 +135,7 @@ async def _resolve_student_name(student_id: str, db_path=None) -> str:
 
 @router.post("/", response_model=Dict[str, Any])
 @router.post("", response_model=Dict[str, Any])
+@router.post("/create", response_model=Dict[str, Any])
 async def create_session(req: CreateSessionRequest):
     """Create a new study session."""
     student_id = req.student_id or "student-primary"
@@ -291,23 +299,24 @@ async def start_session(session_id: str):
 
     try:
         from deeptutor.services.monitoring.notification_queue import (
-            enqueue,
+            enqueue_for_student,
             flush_once,
             start_notification_worker,
         )
 
-        student_name = await _resolve_student_name(
-            str(result.get("student_id") or "student-primary")
-        )
+        student_id = str(result.get("student_id") or "student-primary")
+        student_name = await _resolve_student_name(student_id)
         start_notification_worker()
-        await enqueue(
+        await enqueue_for_student(
             "session_start",
             {
                 "session_id": session_id,
+                "student_id": student_id,
                 "student_name": student_name,
                 "subject": result.get("subject", "General"),
                 "target_minutes": round((result.get("target_duration_seconds") or 1500) / 60),
             },
+            student_id,
         )
         from deeptutor.services.background import spawn_bg
 

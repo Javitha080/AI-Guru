@@ -53,8 +53,22 @@ _MAGIC_V2 = b"GURUVAULT02"
 _VERIFIER_INFO = b"aiguru-vault-v2"
 _DEFAULT_ITERATIONS = 600_000
 _FRAMES_MAGIC = b"GURUFRAMES01"
-# {session_id}_{epoch_seconds}_{EVENT_TYPE} — sid/evt may contain underscores.
+# Legacy names: {session_id}_{epoch_seconds}_{EVENT_TYPE} — sid/evt may contain underscores.
 _VAULT_NAME_RE = re.compile(r"^(?P<sid>.+)_(?P<ts>\d{9,})_(?P<evt>.+)$")
+# Current names: {session_id}_{epoch_ms}_{rand8}_{EVENT_TYPE} (unique per item).
+_VAULT_NAME_RE_V2 = re.compile(r"^(?P<sid>.+)_(?P<ts>\d{10,})_(?P<rand>[0-9a-f]{8})_(?P<evt>.+)$")
+
+
+def _unique_stem(session_id: str, event_type: str) -> tuple[str, int]:
+    """Collision-free pending stem + ms timestamp.
+
+    The old ``{session}_{epoch_seconds}_{event}`` stem overwrote itself when
+    two incidents shared a second and event type — silent evidence loss.
+    Millis + 8 random hex digits make collisions infeasible.
+    """
+    ts_ms = int(time.time() * 1000)
+    rand = os.urandom(4).hex()
+    return f"{session_id}_{ts_ms}_{rand}_{event_type}", ts_ms
 
 
 class VideoVaultManager:
@@ -80,9 +94,22 @@ class VideoVaultManager:
 
     @classmethod
     def count_pending(cls) -> int:
-        """Number of staged-but-unsealed items awaiting a parent PIN."""
+        """Staged-but-unsealed items awaiting a parent PIN.
+
+        Only counts metas that still have their sibling payload (`.jpg` or
+        `.framesbin`) — orphan metas from interrupted writes are ignored
+        (and cleaned on the next seal pass).
+        """
         try:
-            return len(list(cls.get_pending_dir().glob("*.meta.json")))
+            pending_dir = cls.get_pending_dir()
+            count = 0
+            for meta_path in pending_dir.glob("*.meta.json"):
+                stem = meta_path.name[: -len(".meta.json")]
+                if (pending_dir / f"{stem}.jpg").exists() or (
+                    pending_dir / f"{stem}.framesbin"
+                ).exists():
+                    count += 1
+            return count
         except OSError:
             return 0
 
@@ -169,8 +196,7 @@ class VideoVaultManager:
         metadata: Optional[Dict[str, Any]] = None,
     ) -> str:
         """Stage a raw JPEG in the private pending folder until a PIN seals it."""
-        ts = int(time.time())
-        stem = f"{session_id}_{ts}_{event_type}"
+        stem, ts_ms = _unique_stem(session_id, event_type)
         base = cls.get_pending_dir() / stem
         base.with_suffix(".jpg").write_bytes(jpeg_bytes)
         base.with_suffix(".meta.json").write_text(
@@ -179,7 +205,7 @@ class VideoVaultManager:
                     "kind": "snapshot",
                     "session_id": session_id,
                     "event_type": event_type,
-                    "created_at": ts,
+                    "created_at": ts_ms / 1000.0,
                     "metadata": metadata or {},
                 }
             ),
@@ -204,8 +230,7 @@ class VideoVaultManager:
         for frame in frames:
             buf += struct.pack(">I", len(frame)) + frame
 
-        ts = int(time.time())
-        stem = f"{session_id}_{ts}_{event_type}"
+        stem, ts_ms = _unique_stem(session_id, event_type)
         base = cls.get_pending_dir() / stem
         base.with_suffix(".framesbin").write_bytes(bytes(buf))
         base.with_suffix(".meta.json").write_text(
@@ -214,7 +239,7 @@ class VideoVaultManager:
                     "kind": "clip",
                     "session_id": session_id,
                     "event_type": event_type,
-                    "created_at": ts,
+                    "created_at": ts_ms / 1000.0,
                     "fps": fps,
                     "frame_count": len(frames),
                     "metadata": metadata or {},
@@ -226,17 +251,37 @@ class VideoVaultManager:
 
     @classmethod
     async def seal_pending(cls, parent_pin: str) -> int:
-        """Encrypt every pending item with the parent PIN and delete raw copies."""
+        """Encrypt every pending item with the parent PIN and delete raw copies.
+
+        Sealed names carry millis + random segments so two pendings from the
+        same second can never overwrite each other. Orphan metas (payload
+        missing after an interrupted write) are removed and counted
+        separately. Returns the sealed count (failed count goes to the log
+        and the audit trail via the router).
+        """
         cls._require_crypto()
         pending_dir = cls.get_pending_dir()
         sealed = 0
+        failed = 0
         for meta_path in sorted(pending_dir.glob("*.meta.json")):
             stem = meta_path.name[: -len(".meta.json")]
             try:
                 meta = json.loads(meta_path.read_text(encoding="utf-8"))
                 kind = meta.get("kind", "snapshot")
                 if kind == "clip":
-                    raw = (pending_dir / f"{stem}.framesbin").read_bytes()
+                    raw_path = pending_dir / f"{stem}.framesbin"
+                else:
+                    kind = "snapshot"
+                    raw_path = pending_dir / f"{stem}.jpg"
+                if not raw_path.exists():
+                    # Orphan meta from an interrupted staging write: drop it
+                    # so pending_count stops reporting phantom captures.
+                    logger.warning("Dropping orphan vault meta %s (no payload)", stem)
+                    meta_path.unlink(missing_ok=True)
+                    failed += 1
+                    continue
+                raw = raw_path.read_bytes()
+                if kind == "clip":
                     inner_meta = {
                         "kind": "clip",
                         "fps": meta.get("fps", 5.0),
@@ -244,24 +289,26 @@ class VideoVaultManager:
                         **(meta.get("metadata") or {}),
                     }
                 else:
-                    raw = (pending_dir / f"{stem}.jpg").read_bytes()
                     inner_meta = {"kind": "snapshot", **(meta.get("metadata") or {})}
 
                 meta_json = json.dumps(inner_meta).encode("utf-8")
                 payload = len(meta_json).to_bytes(4, "big") + meta_json + raw
                 blob = cls._seal_payload(payload, parent_pin)
 
-                out_name = f"{meta.get('session_id', 'session')}_{meta.get('created_at', int(time.time()))}_{meta.get('event_type', 'INCIDENT')}.vault"
-                (cls.get_vault_dir() / out_name).write_bytes(blob)
+                out_stem, _ = _unique_stem(
+                    str(meta.get("session_id", "session")),
+                    str(meta.get("event_type", "INCIDENT")),
+                )
+                (cls.get_vault_dir() / f"{out_stem}.vault").write_bytes(blob)
 
                 meta_path.unlink(missing_ok=True)
-                extra = pending_dir / f"{stem}.{'framesbin' if kind == 'clip' else 'jpg'}"
-                extra.unlink(missing_ok=True)
+                raw_path.unlink(missing_ok=True)
                 sealed += 1
             except Exception as exc:  # noqa: BLE001 - keep sealing remaining items
                 logger.warning("Failed to seal pending vault item %s: %s", stem, exc)
-        if sealed:
-            logger.info("Sealed %d pending vault item(s).", sealed)
+                failed += 1
+        if sealed or failed:
+            logger.info("Vault seal pass: %d sealed, %d failed/orphaned.", sealed, failed)
         return sealed
 
     # ---------------------------------------------------------------- reading
@@ -294,9 +341,15 @@ class VideoVaultManager:
         if parsed is None:
             return None
         payload, kind = parsed
-        meta_len = int.from_bytes(payload[:4], "big")
-        meta = json.loads(payload[4 : 4 + meta_len].decode("utf-8"))
-        body = payload[4 + meta_len :]
+        try:
+            meta_len = int.from_bytes(payload[:4], "big")
+            meta = json.loads(payload[4 : 4 + meta_len].decode("utf-8"))
+            body = payload[4 + meta_len :]
+            if not isinstance(meta, dict):
+                raise ValueError("inner metadata is not an object")
+        except Exception as exc:  # noqa: BLE001 - corrupt payload reads as missing
+            logger.warning("Corrupt vault payload for %s: %s", clip_id, exc)
+            return None
 
         result: Dict[str, Any] = {
             "clip_id": clip_id,
@@ -339,11 +392,16 @@ class VideoVaultManager:
             raise PermissionError("Invalid parent PIN")
         content_key = AESGCM(kek).decrypt(wrap_nonce, wrapped_key, None)
         payload = AESGCM(content_key).decrypt(data_nonce, ciphertext, None)
-        kind = (
-            "clip"
-            if b'"kind": "clip"' in payload[:200] or b'"kind":"clip"' in payload[:200]
-            else "snapshot"
-        )
+        # Kind comes from the length-prefixed inner metadata — never from a
+        # byte-substring sniff (spacing/ordering variants broke that).
+        kind = "snapshot"
+        try:
+            meta_len = int.from_bytes(payload[:4], "big")
+            inner = json.loads(payload[4 : 4 + meta_len].decode("utf-8"))
+            if isinstance(inner, dict) and inner.get("kind") == "clip":
+                kind = "clip"
+        except Exception:  # noqa: BLE001 - undecodable meta defaults to snapshot
+            pass
         return payload, kind
 
     @classmethod
@@ -359,18 +417,31 @@ class VideoVaultManager:
 
     @staticmethod
     def _unpack_frames(body: bytes) -> List[str]:
+        """Split a length-prefixed frames blob; fail soft on corruption.
+
+        A truncated/corrupt clip must surface as a 404-style "missing or
+        corrupted" (handled by the caller), never as an unhandled 500.
+        """
         frames: List[str] = []
         if body[: len(_FRAMES_MAGIC)] != _FRAMES_MAGIC:
             # single legacy image payload inside a clip container
             return [base64.b64encode(body).decode("utf-8")]
-        offset = len(_FRAMES_MAGIC)
-        count = struct.unpack(">I", body[offset : offset + 4])[0]
-        offset += 4
-        for _ in range(count):
-            flen = struct.unpack(">I", body[offset : offset + 4])[0]
+        try:
+            offset = len(_FRAMES_MAGIC)
+            count = struct.unpack(">I", body[offset : offset + 4])[0]
             offset += 4
-            frames.append(base64.b64encode(body[offset : offset + flen]).decode("utf-8"))
-            offset += flen
+            if count > 10_000:
+                raise ValueError(f"implausible frame count {count}")
+            for _ in range(count):
+                flen = struct.unpack(">I", body[offset : offset + 4])[0]
+                offset += 4
+                if flen > len(body) - offset:
+                    raise ValueError("frame length overruns blob")
+                frames.append(base64.b64encode(body[offset : offset + flen]).decode("utf-8"))
+                offset += flen
+        except Exception as exc:  # noqa: BLE001 - corrupt container, not a crash
+            logger.warning("Corrupt frames container (%d bytes): %s", len(body), exc)
+            return []
         return frames
 
     # ---------------------------------------------------------------- listing
@@ -379,23 +450,37 @@ class VideoVaultManager:
     async def list_encrypted_snapshots(
         cls, session_id: Optional[str] = None
     ) -> List[Dict[str, Any]]:
-        """List sealed snapshots/clips (metadata only, never decrypted here)."""
+        """List sealed snapshots/clips (metadata only, never decrypted here).
+
+        Both name generations are understood — current
+        ``{sid}_{epoch_ms}_{rand8}_{evt}`` (ms timestamps) and legacy
+        ``{sid}_{epoch_s}_{evt}``. Session filtering compares the parsed
+        session id exactly: the old ``startswith`` prefix match leaked
+        ``"abc123"`` items into a query for ``"abc"``.
+        """
         snapshots: List[Dict[str, Any]] = []
         for file in cls.get_vault_dir().glob("*.vault"):
             name = file.name
-            if session_id and not name.startswith(session_id):
-                continue
-            # {session_id}_{epoch}_{EVENT_TYPE}.vault — both the session id and
-            # event type may contain underscores; anchor on the all-digit epoch.
-            m = _VAULT_NAME_RE.match(name[: -len(".vault")])
-            if m:
-                sess = m.group("sid")
-                ts = float(m.group("ts"))
-                evt = m.group("evt")
+            stem = name[: -len(".vault")]
+            # Current format first (its rand segment would otherwise parse
+            # as part of a legacy event type with a far-future timestamp).
+            m2 = _VAULT_NAME_RE_V2.match(stem)
+            if m2:
+                sess = m2.group("sid")
+                ts = float(m2.group("ts")) / 1000.0
+                evt = m2.group("evt")
             else:
-                sess = "unknown"
-                ts = file.stat().st_mtime
-                evt = "INCIDENT"
+                m = _VAULT_NAME_RE.match(stem)
+                if m:
+                    sess = m.group("sid")
+                    ts = float(m.group("ts"))
+                    evt = m.group("evt")
+                else:
+                    sess = "unknown"
+                    ts = file.stat().st_mtime
+                    evt = "INCIDENT"
+            if session_id and sess != session_id:
+                continue
             try:
                 magic = file.open("rb").read(len(_MAGIC_V2))
             except OSError:

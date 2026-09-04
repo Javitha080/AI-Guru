@@ -780,7 +780,7 @@ async def _maybe_complete_sitting(
 
     # ---- parent telegram hook (best-effort, durable outbox) ---------------
     try:
-        from deeptutor.services.monitoring.notification_queue import enqueue
+        from deeptutor.services.monitoring.notification_queue import enqueue_for_student
 
         parts_bits: List[str] = []
         for r in ordered:
@@ -789,9 +789,10 @@ async def _maybe_complete_sitting(
             part_awarded = sum(float(a.get("awarded") or 0) for a in part_answers)
             part_pct = round(100 * part_awarded / max(1.0, float(part_paper.total_marks)))
             parts_bits.append(f"P{r['paper_no']}: {part_pct}%")
-        await enqueue(
+        await enqueue_for_student(
             "session_summary",
             {
+                "student_id": student_id,
                 "student_name": student_id,
                 "subject": "Past-Paper Sitting",
                 "duration_minutes": int(
@@ -801,6 +802,7 @@ async def _maybe_complete_sitting(
                 "xp_earned": xp_awarded,
                 "summary": "Sitting complete — " + " · ".join(parts_bits),
             },
+            student_id,
         )
     except Exception as exc:  # noqa: BLE001 - notifications are optional
         logger.debug("Parent sitting notification skipped: %s", exc)

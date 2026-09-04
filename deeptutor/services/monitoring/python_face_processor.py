@@ -26,7 +26,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 import logging
-import math
 import os
 from pathlib import Path
 import time
@@ -35,10 +34,21 @@ from typing import List, Optional, Tuple
 import numpy as np
 
 from deeptutor.services.monitoring.face_engine import FaceLandmarks, Point3D
+from deeptutor.services.monitoring.face_solvers import (
+    build_gaze as _build_gaze_solver,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    build_head_pose as _build_head_pose_solver,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    compute_ear as _compute_ear_solver,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    solve_pnp_angles as _solve_pnp_angles,
+)
 from deeptutor.services.monitoring.pose_gaze import (
     GazeResult,
     HeadPoseResult,
-    PoseGazeEstimator,
 )
 
 logger = logging.getLogger(__name__)
@@ -327,65 +337,22 @@ class PythonFaceProcessor:
 
     @staticmethod
     def _compute_ear(raw: List[Tuple[float, float, float]]) -> float:
-        """Eye aspect ratio from eyelid geometry (mean of both eyes)."""
-
-        def eye_ratio(
-            corner_a: int,
-            corner_b: int,
-            lid_top_a: int,
-            lid_bot_a: int,
-            lid_top_b: int,
-            lid_bot_b: int,
-        ) -> float:
-            pa, pb = raw[corner_a], raw[corner_b]
-            width = math.dist(pa[:2], pb[:2])
-            if width < 1e-9:
-                return 0.0
-            v1 = math.dist(raw[lid_top_a][:2], raw[lid_bot_a][:2])
-            v2 = math.dist(raw[lid_top_b][:2], raw[lid_bot_b][:2])
-            return (v1 + v2) / (2.0 * width)
-
-        try:
-            left = eye_ratio(33, 133, 159, 145, 158, 153)
-            right = eye_ratio(263, 362, 386, 374, 385, 380)
-            return round((left + right) / 2.0, 4)
-        except IndexError:
-            return 0.0
+        """Eye aspect ratio from eyelid geometry (delegates to face_solvers)."""
+        return _compute_ear_solver(raw)
 
     # ------------------------------------------------------------- head pose
 
     def _head_pose_from_pnp(
         self, raw: List[Tuple[float, float, float]], w: int, h: int
     ) -> Tuple[float, float, float]:
-        image_pts = np.array(
-            [(raw[i][0] * w, raw[i][1] * h) for i in _PNP_IMAGE_IDX],
-            dtype=np.float64,
+        yaw, pitch, roll = _solve_pnp_angles(
+            raw, w, h, _PNP_MODEL_POINTS, _PNP_IMAGE_IDX, _FLIP_X, _PITCH_SIGN
         )
-        focal = float(w)
-        cam_matrix = np.array(
-            [[focal, 0.0, w / 2.0], [0.0, focal, h / 2.0], [0.0, 0.0, 1.0]],
-            dtype=np.float64,
-        )
-        dist_coeffs = np.zeros((4, 1), dtype=np.float64)
-
-        ok, rvec, _ = cv2.solvePnP(
-            _PNP_MODEL_POINTS,
-            image_pts,
-            cam_matrix,
-            dist_coeffs,
-            flags=cv2.SOLVEPNP_ITERATIVE,
-        )
-        if not ok:
+        if yaw == 0.0 and pitch == 0.0 and roll == 0.0:
+            # solvePnP failure sentinel (matches legacy behavior).
+            # Ambiguous with a true frontal pose, but callers treat (0,0,0)
+            # as neutral either way.
             return 0.0, 0.0, 0.0
-
-        # Camera-frame rotation → model-frame pose rotation → Euler extraction
-        # matching the canonical model's Z·X·Y composition (verified exactly by
-        # tests/services/test_python_face_processor.py).
-        rmat, _ = cv2.Rodrigues(rvec)
-        m = _FLIP_X @ rmat
-        yaw = -math.degrees(math.atan2(-m[2][0], m[2][2]))
-        pitch = _PITCH_SIGN * math.degrees(math.asin(max(-1.0, min(1.0, float(m[2][1])))))
-        roll = math.degrees(math.atan2(-m[0][1], m[1][1]))
         return self._apply_neutral(yaw, pitch, roll)
 
     def _apply_neutral(self, yaw: float, pitch: float, roll: float) -> Tuple[float, float, float]:
@@ -406,48 +373,14 @@ class PythonFaceProcessor:
         return yaw - ny, pitch - np_, roll - nr
 
     def _build_head_pose(self, yaw: float, pitch: float, roll: float) -> HeadPoseResult:
-        posture, is_facing_screen, is_reading_writing = PoseGazeEstimator.classify(yaw, pitch, roll)
-        return HeadPoseResult(
-            yaw=round(yaw, 1),
-            pitch=round(pitch, 1),
-            roll=round(roll, 1),
-            posture=posture,
-            is_facing_screen=is_facing_screen,
-            is_reading_writing_pose=is_reading_writing,
-        )
+        return _build_head_pose_solver(yaw, pitch, roll)
 
     # ----------------------------------------------------------------- gaze
 
     def _build_gaze(
         self, raw: List[Tuple[float, float, float]], pose: HeadPoseResult
     ) -> GazeResult:
-        iris_dx = iris_dy = 0.0
-        try:
-            # Iris center offset between the eye-corner midpoint, normalized by
-            # eye width (x) — a true eye-only deviation signal.
-            l_mid = ((raw[33][0] + raw[133][0]) / 2.0, (raw[33][1] + raw[133][1]) / 2.0)
-            r_mid = ((raw[263][0] + raw[362][0]) / 2.0, (raw[263][1] + raw[362][1]) / 2.0)
-            l_w = max(1e-6, abs(raw[133][0] - raw[33][0]))
-            r_w = max(1e-6, abs(raw[362][0] - raw[263][0]))
-            iris_dx = (
-                (raw[LEFT_IRIS_IDX][0] - l_mid[0]) / l_w + (raw[RIGHT_IRIS_IDX][0] - r_mid[0]) / r_w
-            ) / 2.0
-            l_h = max(1e-6, abs(raw[159][1] - raw[145][1]) + abs(raw[158][1] - raw[153][1]))
-            iris_dy = (raw[LEFT_IRIS_IDX][1] - l_mid[1]) / l_h
-        except IndexError:
-            iris_dx = iris_dy = 0.0
-
-        gaze_x = max(-1.0, min(1.0, (pose.yaw / 45.0) * 0.75 + iris_dx * 1.5))
-        gaze_y = max(-1.0, min(1.0, (pose.pitch / 40.0) * 0.75 + iris_dy * 1.5))
-        is_focused = abs(gaze_x) <= 0.55 and gaze_y <= 0.62
-        confidence = 0.90 if is_focused else 0.85
-
-        return GazeResult(
-            gaze_x=round(gaze_x, 3),
-            gaze_y=round(gaze_y, 3),
-            is_focused=is_focused,
-            confidence=confidence,
-        )
+        return _build_gaze_solver(raw, pose)
 
     # ------------------------------------------------------- phone detector
 

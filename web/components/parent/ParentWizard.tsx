@@ -23,6 +23,12 @@ import {
   Loader2, Lock, Send, ShieldCheck, Sparkles, User,
 } from "lucide-react";
 import { pFetch, pJson, storeParentTokens } from "@/lib/parent/parent-api";
+import {
+  STRICTNESS_LABEL,
+  toBackendStrictness,
+  UI_STRICTNESS,
+  type UiStrictness as Strictness,
+} from "@/lib/parent/strictness";
 
 interface ParentWizardProps {
   parentId: string;
@@ -31,8 +37,6 @@ interface ParentWizardProps {
   /** Called once setup finished AND the portal holds valid tokens. */
   onEnterPortal: () => void;
 }
-
-type Strictness = "lenient" | "normal" | "strict";
 
 const STEPS = [
   { step: 1, label: "Passcode PIN", icon: KeyRound },
@@ -74,8 +78,6 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
   const [strictness, setStrictness] = useState<Strictness>("normal");
 
   const digitsOnly = (v: string) => v.replace(/\D/g, "");
-
-  const backendStrictness = (s: Strictness) => (s === "lenient" ? "gentle" : s === "strict" ? "strict" : "balanced");
 
   const authenticateWith = async (pin: string): Promise<boolean> => {
     try {
@@ -246,7 +248,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
         body: JSON.stringify({
           student_name: studentName.trim() || "Student",
           daily_goal_minutes: Math.min(600, Math.max(10, Number(dailyGoalMinutes) || 60)),
-          alert_strictness: backendStrictness(strictness),
+          alert_strictness: toBackendStrictness(strictness),
           parent_id: parentId,
         }),
       });
@@ -561,7 +563,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
             <div>
               <label className="block text-xs font-semibold mb-2">AI Nudge Strictness</label>
               <div className="grid grid-cols-3 gap-2">
-                {(["lenient", "normal", "strict"] as const).map((lvl) => (
+                {(UI_STRICTNESS).map((lvl) => (
                   <button
                     key={lvl}
                     onClick={() => setStrictness(lvl)}
@@ -572,7 +574,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
                         : "border-[var(--glass-border)] bg-transparent text-[var(--muted-foreground)] hover:border-[var(--glass-border-highlight)]"
                     }`}
                   >
-                    {lvl === "lenient" ? "Gentle" : lvl === "normal" ? "Balanced" : "Strict"}
+                    {STRICTNESS_LABEL[lvl]}
                   </button>
                 ))}
               </div>

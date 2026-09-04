@@ -163,6 +163,74 @@
   .muted-chip {
     @apply rounded-full bg-[var(--muted)] px-3 py-1 text-xs text-[var(--muted-foreground)];
   }
+
+  /* ─── Apple-Grade Liquid Glass Material System ─── */
+  .apple-glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 40%,
+      rgba(14, 18, 25, 0.65) 100%
+    ), rgba(12, 16, 23, 0.65);
+    backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-top-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 
+      0 12px 32px -4px rgba(0, 0, 0, 0.50),
+      0 4px 12px -2px rgba(0, 0, 0, 0.30),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.20),
+      inset 0 -1px 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .apple-glass-ultra-thin {
+    background: rgba(20, 24, 33, 0.40);
+    backdrop-filter: blur(20px) saturate(200%) brightness(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(200%) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 8px 24px -4px rgba(0, 0, 0, 0.40),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.28);
+  }
+
+  .apple-glass-thick {
+    background: rgba(10, 14, 20, 0.85);
+    backdrop-filter: blur(40px) saturate(180%) contrast(110%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%) contrast(110%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 
+      0 24px 64px -12px rgba(0, 0, 0, 0.75),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.30);
+  }
+
+  .apple-glass-pill {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 ease-out;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top-color: rgba(255, 255, 255, 0.32);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.30),
+      inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  }
+
+  .apple-glass-pill:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.25);
+    border-top-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.40),
+      0 0 16px rgba(224, 109, 68, 0.20),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.50);
+  }
+
+  .apple-glass-pill:active {
+    transform: scale(0.97);
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.40),
+      inset 0 1px 1px rgba(255, 255, 255, 0.20);
+  }
 }
 
 @layer utilities {

@@ -25,7 +25,6 @@ from typing import Any, Dict, Optional
 
 import aiohttp
 
-from deeptutor.services.path_service import get_path_service
 from deeptutor.services.remote.telegram_notifier import TelegramNotifier
 
 logger = logging.getLogger(__name__)
@@ -122,6 +121,8 @@ async def _status_reply() -> str:
     url = TunnelGateway.get_tunnel_url()
     if url and TunnelGateway.is_url_public():
         return f"Tunnel is <b>active</b>.\nPortal: {url}"
+    if TunnelGateway.get_status() in ("starting", "reconnecting"):
+        return "Tunnel is <b>starting</b> (no public URL yet). Send /tunnel status again in a few seconds."
     if url:
         return f"Tunnel is <b>starting</b> (no public URL yet).\nLocal-only address: {url}"
     return "Tunnel is <b>not running</b>. Send /tunnel on to start it."
@@ -181,13 +182,17 @@ async def _notify_started(chat_id: str, url: str) -> None:
         live = TunnelGateway.get_tunnel_url()
         if live and TunnelGateway.is_url_public():
             if live != url:
-                cfg = await _read_config()
-                token = cfg["bot_token"] if cfg else ""
-                await TelegramNotifier.send_message(
-                    token,
-                    chat_id,
-                    f"Portal is now publicly reachable:\n{live}",
-                )
+                token = ""
+                for _, cfg in await _read_configs():
+                    if str(cfg.get("chat_id")) == str(chat_id):
+                        token = str(cfg.get("bot_token") or "")
+                        break
+                if token:
+                    await TelegramNotifier.send_message(
+                        token,
+                        chat_id,
+                        f"Portal is now publicly reachable:\n{live}",
+                    )
             return
 
 
@@ -195,24 +200,29 @@ async def _notify_started(chat_id: str, url: str) -> None:
 
 
 async def _read_config() -> Optional[Dict[str, Any]]:
-    """Read the default parent's Telegram config straight from SQLite."""
-    import aiosqlite
+    """Read the default parent's Telegram config (legacy single-parent path)."""
+    from deeptutor.services.remote.telegram_config import TelegramConfigStore
 
-    from deeptutor.services.remote.kv_settings import ensure_kv_settings
-
-    db_path = get_path_service().user_dir / "chat_history.db"
     try:
-        async with aiosqlite.connect(db_path) as db:
-            await ensure_kv_settings(db)
-            cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?",
-                ("telegram_default",),
-            )
-            row = await cursor.fetchone()
-            return load_parent_telegram_config(row[0] if row else None)
+        return await TelegramConfigStore.get("default")
     except Exception as exc:  # noqa: BLE001 - DB hiccup should not kill loop
         logger.warning("Telegram listener could not read settings: %s", exc)
         return None
+
+
+async def _read_configs() -> list[tuple[str, Dict[str, Any]]]:
+    """All enabled (parent_id, config) pairs, refreshed every poll cycle.
+
+    Saving new credentials in the UI takes effect immediately and
+    revocation is instant — per parent, not just `default`.
+    """
+    from deeptutor.services.remote.telegram_config import TelegramConfigStore
+
+    try:
+        return await TelegramConfigStore.list_enabled()
+    except Exception as exc:  # noqa: BLE001 - DB hiccup should not kill loop
+        logger.warning("Telegram listener could not read settings: %s", exc)
+        return []
 
 
 class TelegramCommandListener:
@@ -221,7 +231,10 @@ class TelegramCommandListener:
     def __init__(self) -> None:
         self._task: Optional[asyncio.Task] = None
         self._loop: Optional[asyncio.AbstractEventLoop] = None
-        self._offset: int = 0
+        # Per-parent getUpdates offsets, keyed by parent_id: two parents may
+        # share nothing (different bots), so a single global offset would
+        # ACK one parent's updates against the other's bot.
+        self._offsets: Dict[str, int] = {}
 
     def start(self) -> Optional[asyncio.Task]:
         try:
@@ -250,37 +263,45 @@ class TelegramCommandListener:
         backoff = _ERROR_BACKOFF_S
         consecutive_errors = 0
         while True:
-            cfg = await _read_config()
-            if not cfg:
+            configs = await _read_configs()
+            if not configs:
                 await asyncio.sleep(_IDLE_CONFIG_RETRY_S)
                 continue
-            try:
-                await self._poll_once(cfg)
-                # Reset backoff on success.
+            progressed = False
+            for parent_id, cfg in configs:
+                try:
+                    await self._poll_once(cfg, parent_id)
+                    # Reset backoff on success.
+                    progressed = True
+                except asyncio.CancelledError:
+                    raise
+                except Exception as exc:  # noqa: BLE001 - one bad token must not starve the others
+                    consecutive_errors += 1
+                    # Log only on first errors and then at exponentially
+                    # decreasing frequency to avoid flooding stderr.
+                    if (
+                        consecutive_errors <= 3
+                        or (consecutive_errors & (consecutive_errors - 1)) == 0
+                    ):
+                        logger.warning(
+                            "Telegram command poll failed for %s (attempt %d, degraded): %s",
+                            parent_id,
+                            consecutive_errors,
+                            exc,
+                        )
+            if progressed:
                 backoff = _ERROR_BACKOFF_S
                 consecutive_errors = 0
-            except asyncio.CancelledError:
-                raise
-            except Exception as exc:  # noqa: BLE001 - keep the loop alive
-                consecutive_errors += 1
-                # Log only on first error and then at exponentially
-                # decreasing frequency to avoid flooding stderr.
-                if consecutive_errors <= 3 or (consecutive_errors & (consecutive_errors - 1)) == 0:
-                    logger.warning(
-                        "Telegram command poll failed (attempt %d, retry in %.0fs): %s",
-                        consecutive_errors,
-                        backoff,
-                        exc,
-                    )
+            else:
                 await asyncio.sleep(backoff)
                 # Exponential backoff: 8 → 16 → 32 → … → 300s cap.
                 backoff = min(backoff * 2, _MAX_BACKOFF_S)
 
-    async def _poll_once(self, cfg: Dict[str, Any]) -> None:
+    async def _poll_once(self, cfg: Dict[str, Any], parent_id: str = "default") -> None:
         url = "https://api.telegram.org/bot{token}/getUpdates".format(token=cfg["bot_token"])
         params = {
             "timeout": int(_POLL_TIMEOUT_S),
-            "offset": self._offset,
+            "offset": self._offsets.get(parent_id, 0),
             "allowed_updates": json.dumps(["message"]),
         }
         timeout = aiohttp.ClientTimeout(total=_POLL_TIMEOUT_S + 15)
@@ -324,7 +345,11 @@ class TelegramCommandListener:
             raise RuntimeError(f"getUpdates rejected: {body}")
 
         for update in body.get("result") or []:
-            self._offset = max(self._offset, int(update.get("update_id", 0)) + 1)
+            try:
+                seen = int(update.get("update_id", 0)) + 1
+            except (TypeError, ValueError):
+                seen = self._offsets.get(parent_id, 0)
+            self._offsets[parent_id] = max(self._offsets.get(parent_id, 0), seen)
             await self._handle_update(update, cfg)
 
     async def _handle_update(self, update: Dict[str, Any], cfg: Dict[str, Any]) -> None:
@@ -380,10 +405,11 @@ async def _composite_status_reply() -> str:
 
     # 1. Active study session status
     try:
-        from deeptutor.api.routers.monitoring import _active_monitoring_sessions
+        from deeptutor.services.monitoring.session_registry import list_active_sessions
 
-        if _active_monitoring_sessions:
-            session_id = next(iter(_active_monitoring_sessions))
+        active_sessions = list_active_sessions()
+        if active_sessions:
+            session_id = active_sessions[0]
             from deeptutor.api.routers.study_session import _resolve_student_name
             from deeptutor.services.study.session_manager import StudySessionManager
 
@@ -426,12 +452,9 @@ async def _composite_status_reply() -> str:
 
     # 3. Live Video status
     try:
-        from deeptutor.api.routers.monitoring import (
-            _active_monitoring_sessions,
-            _live_consent,
-        )
+        from deeptutor.services.monitoring.session_registry import list_consented_active
 
-        active_live = [s for s in _live_consent if s in _active_monitoring_sessions]
+        active_live = list_consented_active()
         if active_live:
             lines.append("📹 <b>Live Video:</b> Active")
         else:
@@ -456,24 +479,10 @@ async def _dispatch(action: str, chat_id: str) -> str:
 
 
 def _get_lan_dashboard_url() -> Optional[str]:
-    """Get the LAN-accessible parent dashboard URL."""
-    import socket as _socket
+    """Get the LAN-accessible parent dashboard URL (delegates to portal_urls)."""
+    from deeptutor.services.remote.portal_urls import lan_dashboard_url
 
-    try:
-        from deeptutor.services.remote.tunnel_gateway import TunnelGateway
-
-        port = TunnelGateway.get_local_port()
-    except Exception:  # noqa: BLE001
-        port = 3782
-    try:
-        s = _socket.socket(_socket.AF_INET, _socket.SOCK_DGRAM)
-        s.settimeout(1.0)
-        s.connect(("8.8.8.8", 80))
-        ip = s.getsockname()[0]
-        s.close()
-        return f"http://{ip}:{port}/parent"
-    except Exception:  # noqa: BLE001
-        return None
+    return lan_dashboard_url()
 
 
 def _compose_live_stream_reply(
@@ -541,25 +550,26 @@ async def _run_live_action(action: str, chat_id: str) -> str:
     if action == "live_stream":
         # 1. Find active monitoring session
         try:
-            from deeptutor.api.routers.monitoring import (
-                _active_monitoring_sessions,
-                _live_consent,
+            from deeptutor.services.monitoring.session_registry import (
+                grant_consent,
+                list_active_sessions,
             )
         except Exception as exc:  # noqa: BLE001
             logger.error("Failed to access monitoring system: %s", exc)
             return "⚠️ Monitoring system is currently initializing or unavailable."
 
-        if not _active_monitoring_sessions:
+        active_sessions = list_active_sessions()
+        if not active_sessions:
             return (
                 "ℹ️ <b>No active study session right now.</b>\n\n"
                 "Live video stream is available whenever your child starts a study session in the Study Room."
             )
 
-        session_id = next(iter(_active_monitoring_sessions))
+        session_id = active_sessions[0]
 
         # 2. Force-enable live consent (parent authority override)
         try:
-            _live_consent.add(session_id)
+            grant_consent(session_id)
         except Exception as exc:  # noqa: BLE001
             logger.warning("Could not register live consent for %s: %s", session_id, exc)
 
@@ -621,13 +631,9 @@ async def _run_live_action(action: str, chat_id: str) -> str:
 
     if action == "live_stop":
         try:
-            from deeptutor.api.routers.monitoring import (
-                _live_consent,
-                _live_frames,
-            )
+            from deeptutor.services.monitoring.session_registry import clear_all_live
 
-            _live_consent.clear()
-            _live_frames.clear()
+            clear_all_live()
         except Exception as exc:  # noqa: BLE001
             logger.warning("Error during live_stop cleanup: %s", exc)
         await _audit("telegram.live_stream_stopped", {"chat_id": chat_id})
@@ -635,17 +641,17 @@ async def _run_live_action(action: str, chat_id: str) -> str:
 
     # live_status
     try:
-        from deeptutor.api.routers.monitoring import (
-            _active_monitoring_sessions,
-            _live_consent,
+        from deeptutor.services.monitoring.session_registry import (
+            list_active_sessions,
+            list_consented_active,
         )
 
-        active_live = [s for s in _live_consent if s in _active_monitoring_sessions]
+        active_live = list_consented_active()
         if active_live:
             return (
                 f"📹 Live stream is <b>active</b> for session <code>{active_live[0][:12]}…</code>"
             )
-        if _active_monitoring_sessions:
+        if list_active_sessions():
             return (
                 "Student is studying but live stream is <b>not active</b>.\n"
                 "Send /live stream to start."

@@ -78,6 +78,7 @@ class TelemetryLogger:
         "IDENTITY_VERIFIED",
         "LIVENESS_CHECK",
         "WARNING_ISSUED",
+        "NUDGE_ISSUED",
         "SESSION_PAUSED",
         "SESSION_RESUMED",
     }

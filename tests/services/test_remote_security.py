@@ -8,6 +8,7 @@ so no fixture from conftest is required and real user data can never be hit.
 
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import os
 from pathlib import Path
@@ -22,6 +23,7 @@ from deeptutor.services.remote import video_vault as vv_mod
 from deeptutor.services.remote.audit_logger import AuditLogger
 from deeptutor.services.remote.auth_jwt import JWTAuthService
 from deeptutor.services.remote.pairing import PairingService
+from deeptutor.services.remote.telegram_config import TelegramConfigStore
 from deeptutor.services.remote.video_vault import VideoVaultManager
 
 
@@ -356,5 +358,283 @@ def test_require_parent_http_gate(isolated_env, monkeypatch):
         secret,
         algorithm="HS256",
     )
+    # A *student*-role token must be rejected even if cryptographically valid.
+    from deeptutor.services.remote import auth_jwt as aj
+
+    pyjwt = aj.jwt
+    secret = asyncio.run(JWTAuthService.get_secret_key())
+    now = int(time.time())
+    forged_student = pyjwt.encode(
+        {
+            "sub": "student-primary",
+            "role": "user",
+            "type": "access",
+            "iat": now,
+            "exp": now + 300,
+            "jti": uuid.uuid4().hex,
+        },
+        secret,
+        algorithm="HS256",
+    )
     res = client.get("/guarded", headers={"Authorization": f"Bearer {forged_student}"})
     assert res.status_code == 401
+
+
+# ------------------------------------------------- refactor regression suite
+
+
+@pytest.fixture()
+def alert_env(isolated_env, monkeypatch):
+    """Extend isolation to the alert pipeline's DB handles (outbox + store)."""
+    from deeptutor.services.monitoring import notification_queue as nq
+    from deeptutor.services.monitoring import outbox_repo as obr
+    from deeptutor.services.remote import telegram_config as tc
+
+    db_path = isolated_env
+    monkeypatch.setattr(tc, "_db_path", lambda: db_path)
+    monkeypatch.setattr(obr, "db_path", lambda: db_path)
+    monkeypatch.setattr(nq, "_db_path", lambda: db_path)
+    return db_path
+
+
+@pytest.mark.asyncio
+async def test_verify_parent_access_token_rejects_refresh(isolated_env):
+    await JWTAuthService.set_parent_pin("3579", "p2")
+    auth = await JWTAuthService.verify_parent_pin("3579", "p2")
+
+    payload = await JWTAuthService.verify_parent_access_token(auth["access_token"])
+    assert payload["type"] == "access"
+
+    with pytest.raises(ValueError, match="Not a parent access token"):
+        await JWTAuthService.verify_parent_access_token(auth["refresh_token"])
+    with pytest.raises(ValueError):
+        await JWTAuthService.verify_parent_access_token("")
+    with pytest.raises(ValueError):
+        await JWTAuthService.verify_parent_access_token("garbage-token")
+
+
+@pytest.mark.asyncio
+async def test_change_pin_wrong_current_locks_out(isolated_env):
+    await JWTAuthService.set_parent_pin("1717", "p3")
+    for _ in range(JWTAuthService.MAX_FAILED_ATTEMPTS):
+        with pytest.raises(ValueError):
+            await JWTAuthService.change_parent_pin("2468", "0000", "p3")
+    # Budget exhausted: even the CORRECT current PIN is now locked out.
+    with pytest.raises(ValueError, match="Too many failed attempts"):
+        await JWTAuthService.change_parent_pin("2468", "1717", "p3")
+
+
+@pytest.mark.asyncio
+async def test_vault_same_second_staging_never_collides(isolated_env):
+    jpeg = b"\xff\xd8fake" + os.urandom(16)
+    s1 = await VideoVaultManager.save_pending_snapshot("sess_c", "PHONE_DETECTED", jpeg)
+    s2 = await VideoVaultManager.save_pending_snapshot("sess_c", "PHONE_DETECTED", jpeg)
+    assert s1 != s2
+    assert VideoVaultManager.count_pending() == 2
+
+    assert await VideoVaultManager.seal_pending("7531") == 2
+    items = await VideoVaultManager.list_encrypted_snapshots(session_id="sess_c")
+    assert len(items) == 2
+
+
+@pytest.mark.asyncio
+async def test_vault_session_filter_is_exact(isolated_env):
+    pin = "7531"
+    await VideoVaultManager.save_encrypted_snapshot(
+        session_id="abc",
+        student_id="s",
+        parent_pin=pin,
+        image_bytes=b"\xff\xd8a",
+        event_type="E",
+    )
+    await VideoVaultManager.save_encrypted_snapshot(
+        session_id="abc123",
+        student_id="s",
+        parent_pin=pin,
+        image_bytes=b"\xff\xd8b",
+        event_type="E",
+    )
+    items = await VideoVaultManager.list_encrypted_snapshots(session_id="abc")
+    assert {i["session_id"] for i in items} == {"abc"}
+
+
+@pytest.mark.asyncio
+async def test_telegram_config_store_crud(alert_env):
+    assert await TelegramConfigStore.get("default") is None
+
+    await TelegramConfigStore.save("default", bot_token="tok123", chat_id="42", enabled=True)
+    assert await TelegramConfigStore.get("default") == {"bot_token": "tok123", "chat_id": "42"}
+
+    masked = await TelegramConfigStore.get_masked("default")
+    assert masked["configured"] is True and masked["chat_id"] == "42"
+    assert "tok123" not in masked["bot_token_masked"]
+
+    # Blank token keeps the saved credential (Chat-ID-only edit).
+    await TelegramConfigStore.save("default", bot_token="  ", chat_id="43", enabled=True)
+    kept = await TelegramConfigStore.get("default")
+    assert kept and kept["bot_token"] == "tok123" and kept["chat_id"] == "43"
+
+    # Disabled rows read as unconfigured but keep their secret for re-enable.
+    await TelegramConfigStore.save("default", bot_token="", chat_id="43", enabled=False)
+    assert await TelegramConfigStore.get("default") is None
+
+    with pytest.raises(ValueError, match="first-time"):
+        await TelegramConfigStore.save("other", bot_token="  ", chat_id="1")
+
+    await TelegramConfigStore.save("p2", bot_token="t2", chat_id="7", enabled=True)
+    assert {p for p, _ in await TelegramConfigStore.list_enabled()} == {"p2"}
+
+
+@pytest.mark.asyncio
+async def test_outbox_enqueue_flush_per_parent(alert_env, monkeypatch):
+    from deeptutor.services.monitoring import notification_queue as nq
+    from deeptutor.services.remote import telegram_notifier as tn
+
+    sent = []
+
+    async def fake_send(*args, **kwargs):
+        sent.append(kwargs)
+        return True
+
+    monkeypatch.setattr(tn.TelegramNotifier, "send_message", fake_send)
+
+    await TelegramConfigStore.save("default", bot_token="t", chat_id="1", enabled=True)
+    payload = {
+        "category": "NOTICE",
+        "message": "m",
+        "severity": "warning",
+        "confidence": 0.9,
+        "duration_seconds": 5,
+    }
+    assert await nq.enqueue("warning", payload) > 0
+    assert await nq.flush_once(limit=5) == 1
+    assert len(sent) == 1 and sent[0]["chat_id"] == "1"
+    # Already sent: second flush is a no-op.
+    assert await nq.flush_once(limit=5) == 0
+    assert len(sent) == 1
+
+
+@pytest.mark.asyncio
+async def test_outbox_concurrent_flush_delivers_once(alert_env, monkeypatch):
+    from deeptutor.services.monitoring import notification_queue as nq
+    from deeptutor.services.remote import telegram_notifier as tn
+
+    delivered = []
+
+    async def slow_send(*args, **kwargs):
+        await asyncio.sleep(0.2)
+        delivered.append(1)
+        return True
+
+    monkeypatch.setattr(tn.TelegramNotifier, "send_message", slow_send)
+
+    await TelegramConfigStore.save("default", bot_token="t", chat_id="1", enabled=True)
+    await nq.enqueue(
+        "warning",
+        {
+            "category": "NOTICE",
+            "message": "m",
+            "severity": "warning",
+            "confidence": 0.9,
+            "duration_seconds": 5,
+        },
+    )
+    results = await asyncio.gather(nq.flush_once(limit=5), nq.flush_once(limit=5))
+    assert sum(results) == 1
+    assert len(delivered) == 1
+
+
+@pytest.mark.asyncio
+async def test_outbox_fans_out_to_linked_parents(alert_env, monkeypatch):
+    from deeptutor.services.monitoring import notification_queue as nq
+    from deeptutor.services.remote import telegram_notifier as tn
+
+    chats = []
+
+    async def fake_send(*args, **kwargs):
+        chats.append(kwargs.get("chat_id"))
+        return True
+
+    monkeypatch.setattr(tn.TelegramNotifier, "send_message", fake_send)
+
+    await TelegramConfigStore.save("mom", bot_token="t", chat_id="100", enabled=True)
+    await TelegramConfigStore.save("dad", bot_token="t", chat_id="200", enabled=True)
+    gen = await PairingService.generate_pairing_code("kid1", "mom")
+    await PairingService.verify_pairing_code("mom", gen["code"])
+    gen2 = await PairingService.generate_pairing_code("kid1", "dad")
+    await PairingService.verify_pairing_code("dad", gen2["code"])
+
+    rows = await nq.enqueue_for_student(
+        "warning",
+        {
+            "category": "NOTICE",
+            "message": "m",
+            "severity": "warning",
+            "confidence": 0.9,
+            "duration_seconds": 5,
+        },
+        "kid1",
+    )
+    assert len(rows) == 2
+    assert await nq.flush_once(limit=10) == 2
+    assert sorted(chats) == ["100", "200"]
+
+
+@pytest.mark.asyncio
+async def test_listener_reads_all_enabled_parents(alert_env):
+    from deeptutor.services.remote import telegram_command_listener as tcl
+
+    await TelegramConfigStore.save("default", bot_token="t", chat_id="1", enabled=True)
+    await TelegramConfigStore.save("p2", bot_token="t", chat_id="2", enabled=True)
+    await TelegramConfigStore.save("off", bot_token="t", chat_id="3", enabled=False)
+    configs = await tcl._read_configs()
+    assert {p for p, _ in configs} == {"default", "p2"}
+    assert tcl.TelegramCommandListener()._offsets == {}
+
+
+@pytest.mark.asyncio
+async def test_pairing_regenerate_keeps_active(isolated_env):
+    gen = await PairingService.generate_pairing_code("student-primary", "default")
+    await PairingService.verify_pairing_code("default", gen["code"])
+    await PairingService.generate_pairing_code("student-primary", "default")
+    students = await PairingService.get_linked_students("default")
+    assert any(s["student_id"] == "student-primary" for s in students)
+
+
+@pytest.mark.asyncio
+async def test_pairing_verify_merges_without_unique_violation(isolated_env):
+    gen_a = await PairingService.generate_pairing_code("studentX", "parentA")
+    gen_b = await PairingService.generate_pairing_code("studentX", "parentB")
+    await PairingService.verify_pairing_code("parentB", gen_b["code"])
+    link = await PairingService.verify_pairing_code("parentB", gen_a["code"])
+    assert link and link["status"] == "active" and link["parent_id"] == "parentB"
+    rows = await PairingService.get_linked_students("parentB")
+    assert sum(1 for r in rows if r["student_id"] == "studentX") == 1
+
+
+@pytest.mark.asyncio
+async def test_live_permission_no_links_passes(isolated_env):
+    from deeptutor.api.routers.parent import _require_live_permission
+
+    assert await _require_live_permission("default", "sess-1") is None
+
+
+@pytest.mark.asyncio
+async def test_live_permission_denied_without_can_view_live(isolated_env, monkeypatch):
+    from fastapi import HTTPException
+
+    from deeptutor.api.routers import parent as parent_router
+
+    async def fake_links(cls, parent_id):
+        return [{"student_id": "s1", "permissions": {"can_view_live": False}}]
+
+    async def fake_get_session(self, session_id):
+        return {"student_id": "s1"}
+
+    monkeypatch.setattr(PairingService, "get_linked_students", classmethod(fake_links))
+    from deeptutor.services.study import session_manager as sm
+
+    monkeypatch.setattr(sm.StudySessionManager, "get_session", fake_get_session)
+    with pytest.raises(HTTPException) as exc_info:
+        await parent_router._require_live_permission("default", "sess-9")
+    assert exc_info.value.status_code == 403

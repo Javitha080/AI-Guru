@@ -13,16 +13,16 @@ Guarantees 100% local execution.
 
 from __future__ import annotations
 
-import collections
 from dataclasses import dataclass, field
 import logging
-from typing import Deque, Dict, List, Optional
+from typing import Dict, List, Optional
 import uuid
 
 from deeptutor.services.monitoring.distraction_analyzer import (
     DistractionAnalysisResult,
     DistractionType,
 )
+from deeptutor.services.monitoring.warning_gates import EpisodeGate, RateLimiter
 
 logger = logging.getLogger(__name__)
 
@@ -97,43 +97,91 @@ class WarningManager:
 
         # Maps category/DistractionType string -> last emitted timestamp
         self._last_alert_timestamps: Dict[str, float] = {}
-        # Sliding history of timestamps for window rate limiting
-        self._alert_history: Deque[float] = collections.deque()
+        self._rate_limiter = RateLimiter(
+            max_events=type(self).MAX_ALERTS_PER_WINDOW,
+            window_seconds=type(self).WINDOW_SECONDS,
+        )
         self._emitted_warnings: List[WarningEvent] = []
-        # Edge-triggering: categories already notified during the CURRENT
-        # continuous distraction episode. Without this, a state that stays
-        # true every frame (STUDENT_AWAY) re-fires on every cooldown expiry —
-        # one identical Telegram ping per minute for the whole absence.
-        self._episode_notified: Dict[str, bool] = {}
-        # Episode gating arms only when a caller feeds frame states via
-        # observe_distraction_state(); bare evaluate_and_dispatch() callers
-        # keep the classic cooldown-only semantics.
-        self._episode_tracking_armed = False
+        # Edge-triggering: one notification per continuous episode.
+        self._episode_gate = EpisodeGate()
         # Per-category last nudge emission time (tier-1 gentle prompt).
         self._nudge_timestamps: Dict[str, float] = {}
+
+    # Backward-compat shims for pre-refactor attribute access.
+    @property
+    def _alert_history(self):  # type: ignore[no-redef]
+        return self._rate_limiter._history
+
+    @property
+    def _episode_notified(self) -> Dict[str, bool]:
+        return self._episode_gate._notified
+
+    @property
+    def _episode_tracking_armed(self) -> bool:
+        return self._episode_gate.armed
+
+    @_episode_tracking_armed.setter
+    def _episode_tracking_armed(self, v: bool) -> None:
+        self._episode_gate.armed = bool(v)
 
     def reset(self) -> None:
         """Reset all cooldowns and warning histories."""
         self._last_alert_timestamps.clear()
-        self._alert_history.clear()
+        self._rate_limiter.reset()
         self._emitted_warnings.clear()
-        self._episode_notified.clear()
+        self._episode_gate.reset()
         self._nudge_timestamps.clear()
-        self._episode_tracking_armed = False
 
     def observe_distraction_state(self, is_distracted: bool, category: object = None) -> None:
         """Feed the current frame's distraction state so episodes can be tracked.
 
         Must be called every analysis tick (before evaluate_and_dispatch).
         A non-distracted frame ends every open episode, re-arming its notify.
+        Prefer ``evaluate()`` which does observe+dispatch atomically.
         """
-        self._episode_tracking_armed = True
-        if not is_distracted or category is None:
-            self._episode_notified.clear()
-            return
-        cat = getattr(category, "value", str(category))
-        if cat in ("NONE", "", None):
-            self._episode_notified.clear()
+        self._episode_gate.observe(is_distracted, category)
+
+    def _build_event(
+        self,
+        warning_id: str,
+        category: str,
+        message: str,
+        severity: str,
+        timestamp: float,
+        confidence: float,
+        duration: float,
+        reason: str,
+        focus_score: float,
+        tier: Optional[str] = None,
+    ) -> WarningEvent:
+        metadata: Dict[str, object] = {"reason": reason, "focus_score": focus_score}
+        if tier is not None:
+            metadata["tier"] = tier
+        event = WarningEvent(
+            warning_id=warning_id,
+            category=category,
+            message=message,
+            severity=severity,
+            timestamp=timestamp,
+            confidence=round(confidence, 3),
+            duration_seconds=round(duration, 1),
+            metadata=metadata,
+        )
+        self._emitted_warnings.append(event)
+        return event
+
+    def evaluate(
+        self, timestamp: float, distraction: DistractionAnalysisResult
+    ) -> Optional[WarningEvent]:
+        """Observe + dispatch in one call (preferred; avoids ordering bugs)."""
+        self.observe_distraction_state(
+            distraction.is_distracted,
+            distraction.distraction_type if distraction.is_distracted else None,
+        )
+        event = self.evaluate_and_dispatch(timestamp=timestamp, distraction=distraction)
+        if event is None:
+            event = self.evaluate_nudge(timestamp=timestamp, distraction=distraction)
+        return event
 
     def get_cooldown_remaining(self, category: str, current_time: float) -> float:
         """Return remaining cooldown seconds for a given category (0.0 if ready)."""
@@ -174,31 +222,25 @@ class WarningManager:
 
         category = dtype.value
         # Episode already escalated to a real notification — nudging is moot.
-        if self._episode_notified.get(category):
+        if self._episode_gate.already_notified(category):
             return None
         last_nudge = self._nudge_timestamps.get(category)
         if last_nudge is not None and (timestamp - last_nudge) < self.NUDGE_COOLDOWN_SECONDS:
             return None
 
-        event = WarningEvent(
+        event = self._build_event(
             warning_id=f"nudge-{uuid.uuid4().hex[:8]}",
             category=category,
-            message=self.NUDGE_MESSAGES.get(
-                dtype,
-                "Gentle focus check ✨",
-            ),
+            message=self.NUDGE_MESSAGES.get(dtype, "Gentle focus check ✨"),
             severity="nudge",
             timestamp=timestamp,
-            confidence=round(distraction.confidence, 3),
-            duration_seconds=round(duration, 1),
-            metadata={
-                "reason": distraction.reason,
-                "focus_score": distraction.focus_score,
-                "tier": "nudge",
-            },
+            confidence=distraction.confidence,
+            duration=duration,
+            reason=distraction.reason,
+            focus_score=distraction.focus_score,
+            tier="nudge",
         )
         self._nudge_timestamps[category] = timestamp
-        self._emitted_warnings.append(event)
         logger.debug("Nudge dispatched [%s] at %.1fs into episode", category, duration)
         return event
 
@@ -238,16 +280,12 @@ class WarningManager:
         # 2b. Episode Gate — one notification per continuous distraction
         # episode, regardless of how long it lasts (only for callers that
         # feed frame states via observe_distraction_state).
-        if self._episode_tracking_armed and self._episode_notified.get(category):
+        if self._episode_gate.already_notified(category):
             logger.debug("Warning '%s' suppressed: already notified this episode", category)
             return None
 
         # 3. Window Rate Limit Gate
-        # Prune older alerts outside window
-        while self._alert_history and (timestamp - self._alert_history[0] > self.WINDOW_SECONDS):
-            self._alert_history.popleft()
-
-        if len(self._alert_history) >= self.MAX_ALERTS_PER_WINDOW:
+        if not self._rate_limiter.allow(timestamp):
             logger.info("Warning '%s' suppressed by 10-minute rate limit window", category)
             return None
 
@@ -258,24 +296,20 @@ class WarningManager:
         )
         severity = self.SEVERITY_LEVELS.get(distraction.distraction_type, "warning")
 
-        event = WarningEvent(
+        event = self._build_event(
             warning_id=f"warn-{uuid.uuid4().hex[:8]}",
             category=category,
             message=message,
             severity=severity,
             timestamp=timestamp,
-            confidence=round(distraction.confidence, 3),
-            duration_seconds=round(distraction.duration_seconds, 1),
-            metadata={
-                "reason": distraction.reason,
-                "focus_score": distraction.focus_score,
-            },
+            confidence=distraction.confidence,
+            duration=distraction.duration_seconds,
+            reason=distraction.reason,
+            focus_score=distraction.focus_score,
         )
 
         self._last_alert_timestamps[category] = timestamp
-        self._alert_history.append(timestamp)
-        self._emitted_warnings.append(event)
-        self._episode_notified[category] = True
+        self._episode_gate.mark_notified(category)
 
         logger.info("Dispatched study warning [%s]: %s (severity=%s)", category, message, severity)
         return event

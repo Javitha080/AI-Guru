@@ -1,9 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useSmoothScroll } from "@/lib/motion/useSmoothScroll";
 
 // Sections that own their full height + scroll (Mastery Path's list/detail
 // console). They must NOT be squeezed into the centered, padded document
@@ -40,10 +42,15 @@ export default function SpaceMain({
   const pathname = usePathname() ?? "";
   const isDashboard = pathname === "/space";
 
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useSmoothScroll(scrollerRef, contentRef);
+
   if (isFullBleed(pathname)) {
     return (
       <div className="flex h-full min-h-0 flex-col bg-[var(--background)]">
-        <div className="shrink-0 border-b border-[var(--border)] px-5 py-2.5">
+        <div className="shrink-0 border-b border-[var(--border)] px-5 py-2.5 surface-glass-base">
           <BackToHub />
         </div>
         <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
@@ -52,8 +59,11 @@ export default function SpaceMain({
   }
 
   return (
-    <div className="h-full overflow-y-auto bg-[var(--background)] [scrollbar-gutter:stable]">
-      <div className="mx-auto max-w-5xl px-8 py-8 pb-12">
+    <div
+      ref={scrollerRef}
+      className="h-full overflow-y-auto bg-[var(--background)] [scrollbar-gutter:stable]"
+    >
+      <div ref={contentRef} className="mx-auto max-w-5xl px-8 py-8 pb-28">
         {!isDashboard && (
           <div className="mb-5">
             <BackToHub />

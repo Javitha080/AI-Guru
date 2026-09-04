@@ -21,6 +21,24 @@ def _db_path():
 class ExamStore:
     """Thin async data-access layer over ``exams`` / ``exam_answers``."""
 
+    # Sitting columns added by migration v5 — mirrored here so this fallback
+    # CREATE never leaves a table that save_paper/get_sitting cannot write.
+    # (Debug probe: on a DB that skipped migrations, save_paper died with
+    # "no column named sitting_id".)
+    _SITTING_COLUMNS: tuple[tuple[str, str], ...] = (
+        ("sitting_id", "TEXT NOT NULL DEFAULT ''"),
+        ("paper_no", "INTEGER"),
+        # NOTE: migration v5 declares this as
+        # ``TEXT REFERENCES paper_bank(id) ON DELETE SET NULL``. The fallback
+        # keeps plain TEXT on purpose: with FK enforcement ON, the REFERENCES
+        # form makes EVERY insert fail with "no such table: paper_bank" on a
+        # DB where v4 never ran. The paper-bank flow (the only writer of
+        # non-NULL values here) cannot run on such a DB anyway.
+        ("bank_paper_id", "TEXT"),
+        ("addon_seconds_used", "INTEGER NOT NULL DEFAULT 0"),
+        ("xp_multiplier", "REAL NOT NULL DEFAULT 1.0"),
+    )
+
     @staticmethod
     async def ensure_tables(db: aiosqlite.Connection) -> None:
         await db.execute(
@@ -60,6 +78,15 @@ class ExamStore:
             )
             """
         )
+        # Idempotent v5 sitting columns (same rationale as the migration:
+        # a table created by the older CREATE above must still accept
+        # save_paper/get_sitting writes). Names are hardcoded constants.
+        cur = await db.execute("PRAGMA table_info(exams)")
+        existing = {row[1] for row in await cur.fetchall()}
+        for column, ddl in ExamStore._SITTING_COLUMNS:
+            if column not in existing:
+                await db.execute(f"ALTER TABLE exams ADD COLUMN {column} {ddl}")
+        await db.execute("CREATE INDEX IF NOT EXISTS idx_exams_sitting ON exams(sitting_id)")
 
     @classmethod
     async def save_paper(
@@ -265,7 +292,7 @@ class ExamStore:
 
     @classmethod
     async def update_fields(cls, exam_id: str, **fields: Any) -> bool:
-        allowed = {"status", "started_at", "ends_at", "submitted_at", "paper_json"}
+        allowed = {"status", "started_at", "ends_at", "submitted_at", "paper_json", "student_id"}
         sets, vals = [], []
         for key, value in fields.items():
             if key not in allowed:

@@ -73,6 +73,8 @@ export default function AppShell({ sidebar, children }: AppShellProps) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [drawerOpen, historyOpen]);
 
+  const isStudyRoom = pathname?.startsWith("/study-room") ?? false;
+
   return (
     <SidebarDrawerContext.Provider value={{ close }}>
       <div className="flex flex-col h-dvh overflow-hidden bg-[var(--background)]" style={{ backgroundImage: 'var(--canvas-gradient)', backgroundAttachment: 'fixed' }}>
@@ -103,14 +105,16 @@ export default function AppShell({ sidebar, children }: AppShellProps) {
         )}
 
         {/* Main content */}
-        <main className="flex-1 min-h-0 overflow-hidden pb-16 md:pb-20">
+        <main className="flex-1 min-h-0 overflow-hidden">
           {children}
         </main>
 
         {/* Floating Dock Navigation */}
-        <FloatingDock
-          onShowHistory={() => setHistoryOpen(!historyOpen)}
-        />
+        {!isStudyRoom && (
+          <FloatingDock
+            onShowHistory={() => setHistoryOpen(!historyOpen)}
+          />
+        )}
       </div>
     </SidebarDrawerContext.Provider>
   );

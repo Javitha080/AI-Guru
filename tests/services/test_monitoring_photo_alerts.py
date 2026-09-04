@@ -131,10 +131,13 @@ class TestDispatchTierPolicy:
     async def test_alert_carries_photo_in_payload(self, fake_session, monkeypatch):
         enqueued = {}
 
-        async def fake_enqueue(kind, payload):
+        async def fake_enqueue(kind, payload, *args, **kwargs):
             enqueued["payload"] = payload
             return 1
 
+        monkeypatch.setattr(
+            "deeptutor.services.monitoring.notification_queue.enqueue_for_student", fake_enqueue
+        )
         monkeypatch.setattr(
             "deeptutor.services.monitoring.notification_queue.enqueue", fake_enqueue
         )
@@ -172,10 +175,13 @@ class TestDispatchTierPolicy:
     async def test_warning_has_no_photo(self, fake_session, monkeypatch):
         enqueued = {}
 
-        async def fake_enqueue(kind, payload):
+        async def fake_enqueue(kind, payload, *args, **kwargs):
             enqueued["payload"] = payload
             return 1
 
+        monkeypatch.setattr(
+            "deeptutor.services.monitoring.notification_queue.enqueue_for_student", fake_enqueue
+        )
         monkeypatch.setattr(
             "deeptutor.services.monitoring.notification_queue.enqueue", fake_enqueue
         )

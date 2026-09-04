@@ -17,6 +17,7 @@ Contract (consumed by the exam-runner frontend):
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from pathlib import Path
 import time
@@ -38,6 +39,22 @@ from deeptutor.services.exams.store import ExamStore
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/exams", tags=["exams"])
+
+# P0 hardening: serialize concurrent submits per exam so two racing requests
+# cannot BOTH run the expensive LLM essay grading before the DB atomic claim
+# rejects the loser. The DB claim remains the authority; this lock only saves
+# the wasted duplicate grading cost within one process.
+_SUBMIT_LOCKS: Dict[str, asyncio.Lock] = {}
+_SUBMIT_LOCKS_GUARD = asyncio.Lock()
+
+
+async def _submit_lock(exam_id: str) -> asyncio.Lock:
+    async with _SUBMIT_LOCKS_GUARD:
+        lock = _SUBMIT_LOCKS.get(exam_id)
+        if lock is None:
+            lock = asyncio.Lock()
+            _SUBMIT_LOCKS[exam_id] = lock
+        return lock
 
 
 class SubmitAnswersRequest(BaseModel):
@@ -229,20 +246,40 @@ async def start_exam(exam_id: str, student_id: str = "student-primary"):
 
 @router.post("/{exam_id}/submit")
 async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
-    data = await ExamStore.load_paper(exam_id)
-    if not data:
-        raise HTTPException(status_code=404, detail="Exam not found")
-    if data.get("status") == "graded":
-        raise HTTPException(status_code=409, detail="Exam already submitted")
+    lock = await _submit_lock(exam_id)
+    async with lock:
+        data = await ExamStore.load_paper(exam_id)
+        if not data:
+            raise HTTPException(status_code=404, detail="Exam not found")
+        if data.get("status") == "graded":
+            raise HTTPException(status_code=409, detail="Exam already submitted")
 
-    paper = ExamPaper.from_json(_dumps(data))
-    result = await submit_and_grade(paper, req.answers)
+        # Late-submit handling: never throw away the student's work, but flag
+        # it honestly so results/reports can distinguish on-time vs overtime.
+        now_submit = time.time()
+        ends_at = float(data.get("ends_at") or 0.0)
+        late_seconds = max(0.0, now_submit - ends_at) if ends_at else 0.0
+        is_late = bool(ends_at) and late_seconds > 0
+        if is_late:
+            logger.info(
+                "Late exam submit %s: %.0fs past ends_at; accepting and flagging",
+                exam_id,
+                late_seconds,
+            )
 
-    # Atomic claim of the "graded" transition: only ONE concurrent submit can
-    # win, so answers/XP can never be double-written under a race.
-    claimed = await ExamStore.claim_for_grading(exam_id)
-    if not claimed:
-        raise HTTPException(status_code=409, detail="Exam already submitted")
+        paper = ExamPaper.from_json(_dumps(data))
+        result = await submit_and_grade(paper, req.answers)
+        result["late"] = is_late
+        result["late_seconds"] = round(late_seconds, 1)
+
+        # Atomic claim of the "graded" transition: only ONE concurrent submit can
+        # win, so answers/XP can never be double-written under a race.
+        # (The per-exam lock above already serialized in-process racers so the
+        # loser never pays for a duplicate LLM grading run; the DB claim stays
+        # authoritative across processes/workers.)
+        claimed = await ExamStore.claim_for_grading(exam_id)
+        if not claimed:
+            raise HTTPException(status_code=409, detail="Exam already submitted")
 
     now = time.time()
     for row in result["results"]:
@@ -281,6 +318,10 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
     )
 
     data["status"], data["submitted_at"] = "graded", now
+    data["late"], data["late_seconds"] = (
+        bool(result.get("late")),
+        float(result.get("late_seconds") or 0.0),
+    )
     await ExamStore.update_fields(exam_id, paper_json=_dumps(data))
 
     try:

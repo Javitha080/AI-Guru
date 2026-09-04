@@ -64,8 +64,11 @@ export function useSmoothScroll(
     const onScroll = () => ScrollTrigger.update();
 
     void (async () => {
-      const { default: LenisCtor } = await import("lenis");
-      if (disposed || !wrapperRef.current) return;
+      // The bundler still tree-shakes the dynamic import, so Lenis never lands
+      // in the initial bundle; failing to load is tolerated below.
+      const lenisModule = await import("lenis").catch(() => null);
+      if (!lenisModule || disposed || !wrapperRef.current) return;
+      const LenisCtor = lenisModule.default || lenisModule;
 
       const content =
         contentRef?.current ??
@@ -84,7 +87,8 @@ export function useSmoothScroll(
         autoRaf: false,
       });
 
-      if (syncScrollTrigger) instance.on("scroll", onScroll);
+
+      if (syncScrollTrigger) instance!.on("scroll", onScroll);
 
       tick = (time: number) => {
         // GSAP ticker time is seconds; Lenis expects milliseconds.

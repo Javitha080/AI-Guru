@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS monitoring_events (
     event_type TEXT NOT NULL CHECK (event_type IN (
         'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED', 
         'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK', 
-        'WARNING_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'
+        'WARNING_ISSUED', 'NUDGE_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'
     )),
     severity TEXT NOT NULL CHECK (severity IN ('info', 'warning', 'alert')) DEFAULT 'info',
     confidence REAL DEFAULT 1.0,
@@ -463,9 +463,9 @@ def v7_exams_review_status(conn) -> None:
             sitting_id, paper_no, bank_paper_id, addon_seconds_used, xp_multiplier
         )
         SELECT id, title, source_filename, paper_json, status,
-               mcq_duration_seconds, essay_duration_seconds, total_marks,
-               student_id, created_at, started_at, ends_at, submitted_at,
-               sitting_id, paper_no, bank_paper_id, addon_seconds_used, xp_multiplier
+                mcq_duration_seconds, essay_duration_seconds, total_marks,
+                student_id, created_at, started_at, ends_at, submitted_at,
+                sitting_id, paper_no, bank_paper_id, addon_seconds_used, xp_multiplier
         FROM exams_v7_old
         """
     )
@@ -473,4 +473,65 @@ def v7_exams_review_status(conn) -> None:
     conn.execute("DROP INDEX IF EXISTS idx_exams_student")
     conn.execute(
         "CREATE INDEX IF NOT EXISTS idx_exams_student ON exams(student_id, created_at DESC)"
+    )
+
+
+# Version 8 Migration: admit 'NUDGE_ISSUED' on monitoring_events.
+# SQLite cannot ALTER a CHECK constraint, so the table is rebuilt in place —
+# all rows, FKs and indexes carry over untouched. Idempotent: returns early
+# when the CHECK already contains NUDGE_ISSUED or the table is missing.
+def v8_monitoring_nudge_event(conn) -> None:
+    row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='monitoring_events'"
+    ).fetchone()
+    create_sql = row[0] if row else ""
+    if not create_sql:
+        return
+    if "NUDGE_ISSUED" in create_sql:
+        return
+    conn.execute("ALTER TABLE monitoring_events RENAME TO monitoring_events_v8_old")
+    new_sql = create_sql.replace("monitoring_events_v8_old", "monitoring_events")
+    if "'WARNING_ISSUED'" in new_sql and "NUDGE_ISSUED" not in new_sql:
+        new_sql = new_sql.replace(
+            "'WARNING_ISSUED'",
+            "'WARNING_ISSUED', 'NUDGE_ISSUED'",
+        )
+    else:
+        # Fallback: recreate with the full canonical contract.
+        new_sql = (
+            "CREATE TABLE monitoring_events ("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            "session_id TEXT NOT NULL REFERENCES study_sessions(id) ON DELETE CASCADE, "
+            "timestamp REAL NOT NULL, "
+            "event_type TEXT NOT NULL CHECK (event_type IN ("
+            "'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED', "
+            "'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK', "
+            "'WARNING_ISSUED', 'NUDGE_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'"
+            ")), "
+            "severity TEXT NOT NULL CHECK (severity IN ('info', 'warning', 'alert')) DEFAULT 'info', "
+            "confidence REAL DEFAULT 1.0, "
+            "duration_seconds REAL DEFAULT 0.0, "
+            "metadata_json TEXT DEFAULT '{}'"
+            ")"
+        )
+    conn.execute(new_sql)
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO monitoring_events (
+            id, session_id, timestamp, event_type, severity,
+            confidence, duration_seconds, metadata_json
+        )
+        SELECT id, session_id, timestamp, event_type, severity,
+               confidence, duration_seconds, metadata_json
+        FROM monitoring_events_v8_old
+        """
+    )
+    conn.execute("DROP TABLE monitoring_events_v8_old")
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_monitoring_events_session "
+        "ON monitoring_events(session_id, timestamp ASC)"
+    )
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_monitoring_events_type "
+        "ON monitoring_events(event_type, timestamp ASC)"
     )

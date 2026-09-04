@@ -15,18 +15,30 @@ import base64
 import json
 import logging
 import time
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 import uuid
 
 import aiosqlite
 
-from deeptutor.services.path_service import get_path_service
+from deeptutor.services.monitoring.monitoring_config import DEFAULT_THRESHOLDS
+from deeptutor.services.monitoring.outbox_repo import (
+    db_path as _db_path,
+)
+from deeptutor.services.monitoring.outbox_repo import (
+    ensure_outbox as _ensure_outbox,
+)
+from deeptutor.services.monitoring.outbox_repo import (
+    load_row as _load_row,
+)
+from deeptutor.services.monitoring.outbox_repo import (
+    mark as _mark,
+)
 
 logger = logging.getLogger(__name__)
 
-_MAX_RETRIES = 8
-_BASE_BACKOFF = 30.0
-_MAX_BACKOFF = 600.0
+_MAX_RETRIES = DEFAULT_THRESHOLDS.outbox_max_retries
+_BASE_BACKOFF = DEFAULT_THRESHOLDS.outbox_base_backoff
+_MAX_BACKOFF = DEFAULT_THRESHOLDS.outbox_max_backoff
 # How long a claimed ('sending') row's lease lasts before another flush may
 # recover it as crash-orphaned. Covers any sane Telegram round-trip.
 _CLAIM_LEASE_SECONDS = 300.0
@@ -34,16 +46,12 @@ _CLAIM_LEASE_SECONDS = 300.0
 # alerts accumulated while Telegram was unconfigured (or while the parent had
 # notifications disabled) all flushed the moment a token was saved — stale
 # "Study Session Started"/warning messages arriving hours later as if live.
-_STALE_AFTER_SECONDS = 3600.0
+_STALE_AFTER_SECONDS = DEFAULT_THRESHOLDS.outbox_stale_after
 # Base64 length cap for an optional alert photo (~400 KB decoded JPEG).
 _MAX_PHOTO_B64_LEN = 550_000
 
 _worker_task: Optional[asyncio.Task] = None
 _worker_task_loop: Optional[asyncio.AbstractEventLoop] = None
-
-
-def _db_path():
-    return get_path_service().user_dir / "chat_history.db"
 
 
 def _backoff_for(retries: int) -> float:
@@ -53,15 +61,9 @@ def _backoff_for(retries: int) -> float:
 def _portal_base_url() -> Optional[str]:
     """Public tunnel base URL when live — so every alert carries a one-tap
     link back to the Parent Portal. None when LAN-only/offline (honest)."""
-    try:
-        from deeptutor.services.remote.tunnel_gateway import TunnelGateway
+    from deeptutor.services.remote.portal_urls import public_tunnel_url
 
-        base = TunnelGateway.get_tunnel_url()
-        if base and TunnelGateway.is_url_public():
-            return str(base)
-    except Exception:  # noqa: BLE001 - link is an enhancement, never a failure
-        pass
-    return None
+    return public_tunnel_url()
 
 
 def _compose_message(kind: str, payload: Dict[str, Any]) -> str:
@@ -123,68 +125,86 @@ def _compose_message(kind: str, payload: Dict[str, Any]) -> str:
     return json.dumps(payload)[:800]
 
 
-_OUTBOX_DDL = (
-    "CREATE TABLE IF NOT EXISTS notification_outbox ("
-    "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-    "created_at REAL NOT NULL,"
-    "kind TEXT NOT NULL,"
-    "payload_json TEXT NOT NULL,"
-    "status TEXT NOT NULL DEFAULT 'pending',"
-    "retries INTEGER NOT NULL DEFAULT 0,"
-    "next_attempt_at REAL NOT NULL DEFAULT 0,"
-    "last_error TEXT,"
-    "sent_at REAL)"
-)
+async def enqueue(kind: str, payload: Dict[str, Any], parent_id: str = "default") -> int:
+    """Queue a notification for resilient delivery to one parent.
 
-
-async def _ensure_outbox(db: aiosqlite.Connection) -> None:
-    await db.execute(_OUTBOX_DDL)
-    await db.execute(
-        "CREATE INDEX IF NOT EXISTS idx_notification_outbox_due ON notification_outbox (status, next_attempt_at)"
-    )
-
-
-async def enqueue(kind: str, payload: Dict[str, Any]) -> int:
-    """Queue a notification for resilient delivery.
-
-    Events produced while Telegram is unconfigured/disabled are dropped on
-    the floor: the outbox exists to survive temporary *network* loss, not to
-    replay everything that happened before the parent finished setup as if
-    it were live.
+    Events produced while that parent's Telegram is unconfigured/disabled
+    are dropped on the floor: the outbox exists to survive temporary
+    *network* loss, not to replay everything that happened before the
+    parent finished setup as if it were live.
     """
-    if await _load_telegram_config() is None:
-        logger.debug("Dropped %s notification: Telegram not configured", kind)
+    if await _load_telegram_config(parent_id) is None:
+        logger.debug("Dropped %s notification for %s: Telegram not configured", kind, parent_id)
         return 0
     async with aiosqlite.connect(_db_path()) as db:
         await _ensure_outbox(db)
         cursor = await db.execute(
-            "INSERT INTO notification_outbox (created_at, kind, payload_json) VALUES (?, ?, ?)",
-            (time.time(), kind, json.dumps(payload)),
+            "INSERT INTO notification_outbox (created_at, kind, payload_json, parent_id)"
+            " VALUES (?, ?, ?, ?)",
+            (time.time(), kind, json.dumps(payload), parent_id or "default"),
         )
         await db.commit()
         row_id = int(cursor.lastrowid or 0)
-    logger.info("Queued %s notification #%d", kind, row_id)
+    logger.info("Queued %s notification #%d for %s", kind, row_id, parent_id)
     return row_id
 
 
-async def _load_telegram_config(parent_id: str = "default") -> Optional[Dict[str, str]]:
-    try:
-        from deeptutor.services.remote.kv_settings import ensure_kv_settings
+async def enqueue_for_parents(
+    kind: str, payload: Dict[str, Any], parent_ids: List[str]
+) -> List[int]:
+    """Fan one event out to several parents; skips unconfigured ones.
 
+    Returns the queued row ids (empty when nobody could receive it).
+    """
+    row_ids: List[int] = []
+    seen: set[str] = set()
+    for parent_id in parent_ids or ["default"]:
+        parent_id = parent_id or "default"
+        if parent_id in seen:
+            continue
+        seen.add(parent_id)
+        if await _load_telegram_config(parent_id) is None:
+            logger.debug("Dropped %s notification for %s: Telegram not configured", kind, parent_id)
+            continue
         async with aiosqlite.connect(_db_path()) as db:
-            await ensure_kv_settings(db)
+            await _ensure_outbox(db)
             cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", (f"telegram_{parent_id}",)
+                "INSERT INTO notification_outbox (created_at, kind, payload_json, parent_id)"
+                " VALUES (?, ?, ?, ?)",
+                (time.time(), kind, json.dumps(payload), parent_id),
             )
-            row = await cursor.fetchone()
-        if not row or not row[0]:
-            return None
-        data = json.loads(row[0])
-        if not data.get("bot_token") or not data.get("chat_id"):
-            return None
-        if not data.get("enabled", True):
-            return None
-        return {"bot_token": data["bot_token"], "chat_id": data["chat_id"]}
+            await db.commit()
+            row_ids.append(int(cursor.lastrowid or 0))
+    if row_ids:
+        logger.info("Queued %s notification for %d parent(s): %s", kind, len(row_ids), row_ids)
+    return row_ids
+
+
+async def enqueue_for_student(kind: str, payload: Dict[str, Any], student_id: str) -> List[int]:
+    """Fan one event out to every parent linked to a student.
+
+    Falls back to the default parent when nobody linked the student yet
+    (single-home setup). Failures in link resolution degrade to default
+    rather than dropping the alert.
+    """
+    try:
+        from deeptutor.services.remote.pairing import PairingService
+
+        parent_ids = await PairingService.get_parent_ids_for_student(
+            student_id or "student-primary"
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Parent fan-out degraded to default: %s", exc)
+        parent_ids = ["default"]
+    return await enqueue_for_parents(kind, payload, parent_ids)
+
+
+async def _load_telegram_config(parent_id: str = "default") -> Optional[Dict[str, str]]:
+    """Legacy accessor — delegates to the shared TelegramConfigStore."""
+    try:
+        from deeptutor.services.remote.telegram_config import TelegramConfigStore
+
+        return await TelegramConfigStore.get(parent_id)
     except Exception as exc:  # noqa: BLE001
         logger.warning("Could not load telegram config: %s", exc)
         return None
@@ -214,19 +234,18 @@ async def flush_once(limit: int = 20) -> int:
 
     from deeptutor.services.remote.telegram_notifier import TelegramNotifier
 
-    config = await _load_telegram_config()
-    if not config:
-        return 0
-
     sent = 0
     claimed: list = []
     async with aiosqlite.connect(_db_path()) as db:
         await _ensure_outbox(db)
-        # Recover rows stuck in 'sending' (crash between claim and mark).
+        # Recover rows stuck in 'sending' (crash between claim and mark)
+        # once their claim lease expires. Pre-upgrade rows have no
+        # claimed_at stamp and are recovered via the NULL branch.
         await db.execute(
             "UPDATE notification_outbox SET status = 'pending'"
-            " WHERE status = 'sending' AND next_attempt_at < ?",
-            (now - 120,),
+            " WHERE status = 'sending'"
+            " AND (claimed_at IS NULL OR claimed_at < ?)",
+            (now - _CLAIM_LEASE_SECONDS,),
         )
         cursor = await db.execute(
             "SELECT id FROM notification_outbox WHERE status = 'pending' AND next_attempt_at <= ?"
@@ -236,33 +255,55 @@ async def flush_once(limit: int = 20) -> int:
         ids = [r[0] for r in await cursor.fetchall()]
         if ids:
             placeholders = ",".join("?" for _ in ids)
-            # Stamp a per-flush claim token into last_error during the claim.
-            # The follow-up select filters on THAT token, so it can never
-            # re-adopt rows another concurrent flush claimed between our
-            # UPDATE and SELECT (the old status-only filter could not tell
-            # the two apart and double-delivered).
+            # Stamp a per-flush claim token into the DEDICATED claimed_by
+            # column during the claim (last_error stays reserved for real
+            # delivery errors). The follow-up select filters on THAT token,
+            # so it can never re-adopt rows another concurrent flush
+            # claimed between our UPDATE and SELECT.
             claim_token = f"claim:{uuid.uuid4().hex}"
-            params = [claim_token, now + _CLAIM_LEASE_SECONDS, *ids]
+            params = [claim_token, now, now + _CLAIM_LEASE_SECONDS, *ids]
             await db.execute(
-                f"UPDATE notification_outbox SET status='sending', last_error=?,"
-                f" next_attempt_at=? WHERE id IN ({placeholders}) AND status='pending'",
+                f"UPDATE notification_outbox SET status='sending', claimed_by=?,"
+                f" claimed_at=?, next_attempt_at=? WHERE id IN ({placeholders}) AND status='pending'",
                 params,
             )
             await db.commit()
-            # NOTE binding order: the IN-list placeholders come FIRST in the
-            # SQL text, then last_error=?
             cur3 = await db.execute(
                 f"SELECT id FROM notification_outbox WHERE id IN ({placeholders})"
-                f" AND status='sending' AND last_error=?",
+                f" AND status='sending' AND claimed_by=?",
                 [*ids, claim_token],
             )
             claimed = [r[0] for r in await cur3.fetchall()]
 
     for row_id in claimed:
-        row = await _load_row(row_id)
+        row = await _load_row(row_id, path=_db_path())
         if row is None:
             continue
         try:
+            try:
+                row_parent = str(row["parent_id"] or "default")
+            except (KeyError, IndexError):
+                row_parent = "default"
+            config = await _load_telegram_config(row_parent)
+            if not config:
+                # Transient config gap (setup in progress, token rotated):
+                # keep the row pending so it delivers as soon as Telegram is
+                # configured again. Only AGE expiry above drops queued
+                # notifications — never a momentary unconfigured window.
+                await _mark(
+                    row_id,
+                    path=_db_path(),
+                    error="telegram config unavailable; kept pending",
+                    retries=int(row["retries"]),
+                    next_attempt=0.0,
+                    back_to_pending=True,
+                )
+                logger.info(
+                    "Deferred notification #%d: telegram unconfigured for %s",
+                    row_id,
+                    row_parent,
+                )
+                continue
             payload = json.loads(row["payload_json"])
             text = _compose_message(row["kind"], payload)
 
@@ -271,11 +312,19 @@ async def flush_once(limit: int = 20) -> int:
             # photo is absent or undecodable so the alert itself never drops.
             photo_b64 = payload.get("photo_b64")
             photo_bytes = None
-            if isinstance(photo_b64, str) and 0 < len(photo_b64) <= _MAX_PHOTO_B64_LEN:
-                try:
-                    photo_bytes = base64.b64decode(photo_b64)
-                except Exception:  # noqa: BLE001
-                    photo_bytes = None
+            if isinstance(photo_b64, str) and photo_b64:
+                if len(photo_b64) > _MAX_PHOTO_B64_LEN:
+                    logger.warning(
+                        "Notification #%d photo %d chars exceeds %d cap; sending text-only",
+                        row_id,
+                        len(photo_b64),
+                        _MAX_PHOTO_B64_LEN,
+                    )
+                else:
+                    try:
+                        photo_bytes = base64.b64decode(photo_b64)
+                    except Exception:  # noqa: BLE001
+                        photo_bytes = None
 
             if photo_bytes:
                 ok = await TelegramNotifier.send_photo(
@@ -298,16 +347,17 @@ async def flush_once(limit: int = 20) -> int:
                 )
             if ok:
                 sent += 1
-                await _mark(row_id, sent=True)
+                await _mark(row_id, sent=True, path=_db_path())
             else:
                 retries = int(row["retries"]) + 1
                 if retries >= _MAX_RETRIES:
-                    await _mark(row_id, dead=True, error="max retries exceeded")
+                    await _mark(row_id, dead=True, path=_db_path(), error="max retries exceeded")
                     logger.warning("Dropped notification #%d after %d retries", row_id, retries)
                 else:
                     delay = _backoff_for(retries)
                     await _mark(
                         row_id,
+                        path=_db_path(),
                         error="send failed",
                         retries=retries,
                         next_attempt=time.time() + delay,
@@ -315,54 +365,10 @@ async def flush_once(limit: int = 20) -> int:
                     )
         except Exception as exc:  # noqa: BLE001 - isolate corrupted or failing item
             logger.warning("Error processing notification #%d: %s", row_id, exc)
-            await _mark(row_id, dead=True, error=f"processing failed: {exc}")
+            await _mark(row_id, dead=True, path=_db_path(), error=f"processing failed: {exc}")
     if claimed:
         logger.info("Outbox flush: %d/%d delivered", sent, len(claimed))
     return sent
-
-
-async def _load_row(row_id: int):
-    async with aiosqlite.connect(_db_path()) as db:
-        db.row_factory = aiosqlite.Row
-        cursor = await db.execute(
-            "SELECT id, kind, payload_json, retries FROM notification_outbox WHERE id = ?",
-            (row_id,),
-        )
-        return await cursor.fetchone()
-
-
-async def _mark(
-    row_id: int,
-    *,
-    sent: bool = False,
-    dead: bool = False,
-    error: Optional[str] = None,
-    retries: int = 0,
-    next_attempt: float = 0.0,
-    back_to_pending: bool = False,
-) -> None:
-    async with aiosqlite.connect(_db_path()) as db:
-        if sent:
-            await db.execute(
-                "UPDATE notification_outbox SET status='sent', sent_at=?, last_error=NULL WHERE id=?",
-                (time.time(), row_id),
-            )
-        elif dead:
-            await db.execute(
-                "UPDATE notification_outbox SET status='dead', last_error=? WHERE id=?",
-                (error, row_id),
-            )
-        elif back_to_pending:
-            await db.execute(
-                "UPDATE notification_outbox SET status='pending', retries=?, next_attempt_at=?, last_error=? WHERE id=?",
-                (retries, next_attempt, error, row_id),
-            )
-        else:
-            await db.execute(
-                "UPDATE notification_outbox SET retries=?, next_attempt_at=?, last_error=? WHERE id=?",
-                (retries, next_attempt, error, row_id),
-            )
-        await db.commit()
 
 
 async def _worker_loop() -> None:

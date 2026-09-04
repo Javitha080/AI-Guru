@@ -266,11 +266,14 @@ class JWTAuthService:
             return False
 
     @classmethod
-    async def verify_parent_pin(
-        cls, pin: str, parent_id: str = "default", device_info: Optional[str] = None
-    ) -> Dict[str, Any]:
-        """Verify Parent PIN with anti-brute-force rate limiting. Returns access token on success."""
-        now = time.time()
+    async def _load_lockout_state(cls, parent_id: str) -> Tuple[int, float]:
+        """In-memory lockout state, hydrated from the persisted row.
+
+        Shared by the verify-PIN and change-PIN flows so brute-force state
+        survives process restarts on both paths (previously only verify-PIN
+        consulted the persisted row — restarting the app reset the
+        change-PIN attempt counter).
+        """
         failed_count, lockout_until = _PIN_ATTEMPT_TRACKER.get(parent_id, (0, 0.0))
         if lockout_until <= 0:
             # Memory tracker empty (e.g. after a restart): fall back to the
@@ -279,6 +282,15 @@ class JWTAuthService:
             if persisted is not None:
                 failed_count, lockout_until = persisted
                 _PIN_ATTEMPT_TRACKER[parent_id] = persisted
+        return failed_count, lockout_until
+
+    @classmethod
+    async def verify_parent_pin(
+        cls, pin: str, parent_id: str = "default", device_info: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """Verify Parent PIN with anti-brute-force rate limiting. Returns access token on success."""
+        now = time.time()
+        failed_count, lockout_until = await cls._load_lockout_state(parent_id)
 
         if now < lockout_until:
             remaining = int(lockout_until - now)
@@ -328,7 +340,12 @@ class JWTAuthService:
     async def change_parent_pin(
         cls, pin: str, current_pin: str, parent_id: str = "default"
     ) -> bool:
-        """Change the Parent PIN only after verifying the current one."""
+        """Change the Parent PIN only after verifying the current one.
+
+        Wrong-current-PIN attempts count toward the same brute-force budget
+        as verify-PIN attempts (5 strikes → 5-minute lockout, persisted
+        across restarts).
+        """
         key = f"parent_pin_{parent_id}"
         db_path = cls._get_db_path()
         async with aiosqlite.connect(db_path) as db:
@@ -337,13 +354,22 @@ class JWTAuthService:
             row = await cursor.fetchone()
 
         if row and row[0]:
-            attempts, lockout_until = _PIN_ATTEMPT_TRACKER.get(parent_id, (0, 0.0))
-            if time.time() < lockout_until:
-                raise ValueError("Too many failed attempts. Locked out temporarily.")
+            now = time.time()
+            attempts, lockout_until = await cls._load_lockout_state(parent_id)
+            if now < lockout_until:
+                remaining = int(lockout_until - now)
+                raise ValueError(f"Too many failed attempts. Try again in {remaining} seconds.")
             if not cls._verify_pin_hash(current_pin, row[0]):
-                _PIN_ATTEMPT_TRACKER[parent_id] = (attempts + 1, 0.0)
-                await cls._persist_lockout(parent_id, attempts + 1, 0.0)
-                raise ValueError("Current PIN is incorrect.")
+                attempts += 1
+                if attempts >= cls.MAX_FAILED_ATTEMPTS:
+                    lockout_until = now + cls.LOCKOUT_DURATION_SECONDS
+                    _PIN_ATTEMPT_TRACKER[parent_id] = (attempts, lockout_until)
+                    await cls._persist_lockout(parent_id, attempts, lockout_until)
+                    raise ValueError("Too many failed attempts. Locked out for 5 minutes.")
+                _PIN_ATTEMPT_TRACKER[parent_id] = (attempts, 0.0)
+                await cls._persist_lockout(parent_id, attempts, 0.0)
+                remaining_tries = cls.MAX_FAILED_ATTEMPTS - attempts
+                raise ValueError(f"Current PIN is incorrect. {remaining_tries} attempts remaining.")
         return await cls.set_parent_pin(pin, parent_id)
 
     # --- JWT Token Generation & Verification ---
@@ -403,6 +429,22 @@ class JWTAuthService:
             )
             if await cursor.fetchone():
                 raise ValueError("Token revoked")
+        return payload
+
+    @classmethod
+    async def verify_parent_access_token(cls, token: str) -> dict:
+        """Verify a parent *access* token for live-supervision entry points.
+
+        Stricter than :meth:`verify_token`: refresh tokens are rejected even
+        though their signature/epoch are valid, so a leaked long-lived
+        refresh token can never open a live video stream or snapshot poll.
+        Raises ``ValueError`` on any failure (callers map to 401/4001).
+        """
+        if not token:
+            raise ValueError("Missing parent access token")
+        payload = await cls.verify_token(token)
+        if payload.get("role") != "parent" or payload.get("type") != "access":
+            raise ValueError("Not a parent access token")
         return payload
 
     @classmethod
