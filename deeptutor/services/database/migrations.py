@@ -128,7 +128,50 @@ def apply_migrations(conn: sqlite3.Connection) -> list[int]:
             conn.rollback()
             raise
 
+    seed_paper_bank_if_empty(conn)
     return newly_applied
+
+
+def seed_paper_bank_if_empty(conn: sqlite3.Connection) -> int:
+    """Seed the paper_bank table from the bundled pristine seed database if empty."""
+    from pathlib import Path
+
+    try:
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='paper_bank'"
+        )
+        if cur.fetchone()[0] == 0:
+            return 0
+        cur.execute("SELECT count(*) FROM paper_bank")
+        if cur.fetchone()[0] > 0:
+            return 0
+
+        seed_db = Path(__file__).resolve().parent / "seeds" / "paper_bank_seed.db"
+        if not seed_db.exists():
+            return 0
+
+        with sqlite3.connect(f"file:{seed_db.as_posix()}?mode=ro", uri=True) as s_conn:
+            rows = s_conn.execute("SELECT * FROM paper_bank").fetchall()
+
+        if not rows:
+            return 0
+
+        placeholders = ",".join(["?"] * len(rows[0]))
+        conn.executemany(
+            f"INSERT OR REPLACE INTO paper_bank VALUES ({placeholders})", rows
+        )
+        conn.commit()
+        seeded_count = len(rows)
+        logger.info(
+            "Auto-seeded paper_bank with %d past papers from %s",
+            seeded_count,
+            seed_db.name,
+        )
+        return seeded_count
+    except Exception as exc:
+        logger.warning("Auto-seed paper_bank skipped/failed: %s", exc)
+        return 0
 
 
 def verify_tables_exist(conn: sqlite3.Connection) -> dict[str, bool]:
@@ -146,5 +189,6 @@ __all__ = [
     "get_applied_migrations",
     "get_db_version",
     "apply_migrations",
+    "seed_paper_bank_if_empty",
     "verify_tables_exist",
 ]

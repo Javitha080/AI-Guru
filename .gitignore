@@ -294,6 +294,7 @@ celerybeat.pid
 *.db
 *.sqlite
 *.sqlite3
+!deeptutor/services/database/seeds/paper_bank_seed.db
 
 # ============================================
 # Compressed Files
