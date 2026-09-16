@@ -116,6 +116,16 @@ class DistractionAnalyzer:
     EAR_CLOSED_THRESHOLD: float = DEFAULT_THRESHOLDS.ear_closed
 
     def __init__(self) -> None:
+        self.looking_away_threshold: float = type(self).LOOKING_AWAY_THRESHOLD
+        self.phone_detected_threshold: float = type(self).PHONE_DETECTED_THRESHOLD
+        self.identity_mismatch_threshold: float = type(self).IDENTITY_MISMATCH_THRESHOLD
+        self.drowsiness_threshold: float = type(self).DROWSINESS_THRESHOLD
+        self.max_drinking_duration: float = type(self).MAX_DRINKING_DURATION
+        self.max_page_turn_duration: float = type(self).MAX_PAGE_TURN_DURATION
+        self.max_posture_shift_duration: float = type(self).MAX_POSTURE_SHIFT_DURATION
+        self.sustained_closed_s: float = type(self).SUSTAINED_CLOSED_S
+        self.current_profile: str = "balanced"
+
         self._timers: Dict[str, Optional[float]] = {
             "looking_away": None,
             "phone": None,
@@ -132,6 +142,31 @@ class DistractionAnalyzer:
         self._ear_baseline_hist: Deque[Tuple[float, float]] = collections.deque()
         self._ear_baseline: Optional[float] = None
         self._last_yawn_start: Optional[float] = None
+
+    def apply_strictness(self, profile_name: str) -> None:
+        """Dynamically adjust perception thresholds according to profile."""
+        from deeptutor.services.monitoring.monitoring_config import perception_profile_for
+
+        p = perception_profile_for(profile_name)
+        self.current_profile = profile_name
+        self.looking_away_threshold = p.looking_away_seconds
+        self.phone_detected_threshold = p.phone_seconds
+        self.identity_mismatch_threshold = p.identity_mismatch_seconds
+        self.drowsiness_threshold = p.drowsiness_seconds
+        self.sustained_closed_s = p.sustained_closed_seconds
+        self.max_drinking_duration = p.max_drinking_seconds
+        self.max_page_turn_duration = p.max_page_turn_seconds
+        self.max_posture_shift_duration = p.max_posture_shift_seconds
+
+        # Also assign upper-case instance attributes so existing references on self resolve
+        self.LOOKING_AWAY_THRESHOLD = p.looking_away_seconds
+        self.PHONE_DETECTED_THRESHOLD = p.phone_seconds
+        self.IDENTITY_MISMATCH_THRESHOLD = p.identity_mismatch_seconds
+        self.DROWSINESS_THRESHOLD = p.drowsiness_seconds
+        self.MAX_DRINKING_DURATION = p.max_drinking_seconds
+        self.MAX_PAGE_TURN_DURATION = p.max_page_turn_seconds
+        self.MAX_POSTURE_SHIFT_DURATION = p.max_posture_shift_seconds
+        self.SUSTAINED_CLOSED_S = p.sustained_closed_seconds
 
     # Backward-compat shims (pre-refactor attribute names).
     @property
@@ -458,6 +493,7 @@ class DistractionAnalyzer:
         if (
             perclos >= self.PERCLOS_THRESHOLD
             or closed_continuously >= self.SUSTAINED_CLOSED_S
+            or (drowsy_dur >= self.DROWSINESS_THRESHOLD and (eyes_closed or perclos > 0.10))
             or self._yawn_sustained(timestamp, jaw_open)
         ):
             return DistractionAnalysisResult(

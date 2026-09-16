@@ -31,6 +31,15 @@ from deeptutor.services.monitoring.face_engine import (
     FaceEngine,
     FaceLandmarks,
 )
+from deeptutor.services.monitoring.face_solvers import (
+    build_gaze as _build_gaze,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    build_head_pose as _build_head_pose_solver,
+)
+from deeptutor.services.monitoring.face_solvers import (
+    euler_from_face_matrix,
+)
 from deeptutor.services.monitoring.liveness_detector import (
     LivenessDetector,
     LivenessResult,
@@ -87,9 +96,7 @@ def _load_sface_identity():
 
 def _build_head_pose(yaw: float, pitch: float, roll: float):
     """Classified HeadPoseResult from calibrated angles (shared thresholds)."""
-    from deeptutor.services.monitoring.face_solvers import build_head_pose as _build
-
-    return _build(yaw, pitch, roll)
+    return _build_head_pose_solver(yaw, pitch, roll)
 
 
 def _optional_float(value: Any) -> Optional[float]:
@@ -253,6 +260,47 @@ class LocalCVPipeline:
     def sface_available(self) -> bool:
         return self._sface is not None and self._sface.available
 
+    @staticmethod
+    def _extract_raw_head_angles(
+        payload: Dict[str, Any], raw_p: Optional[Dict[str, Any]] = None
+    ) -> Optional[Tuple[float, float, float]]:
+        """Extract or calculate raw Euler head angles (yaw, pitch, roll) from payload.
+
+        Reused across SFace frontal gating and HeadPoseResult estimation to avoid duplicate math.
+        """
+        hm = payload.get("head_matrix")
+        if isinstance(hm, (list, tuple)) and len(hm) == 16:
+            try:
+                vals = [float(v) for v in hm]
+                if all(math.isfinite(v) for v in vals):
+                    angles = euler_from_face_matrix(vals)
+                    if all(math.isfinite(a) for a in angles):
+                        return (float(angles[0]), float(angles[1]), float(angles[2]))
+            except (TypeError, ValueError):
+                pass
+
+        har = payload.get("head_angles_raw")
+        if isinstance(har, (list, tuple)) and len(har) == 3:
+            try:
+                vals = [float(v) for v in har]
+                if all(math.isfinite(v) for v in vals):
+                    return (vals[0], vals[1], vals[2])
+            except (TypeError, ValueError):
+                pass
+
+        p = raw_p if raw_p is not None else payload.get("pose")
+        if isinstance(p, dict):
+            try:
+                y = float(p.get("yaw", 0.0))
+                pi = float(p.get("pitch", 0.0))
+                r = float(p.get("roll", 0.0))
+                if all(math.isfinite(v) for v in (y, pi, r)):
+                    return (y, pi, r)
+            except (TypeError, ValueError):
+                pass
+
+        return None
+
     def process_telemetry_payload(
         self,
         payload: Dict[str, Any],
@@ -283,6 +331,8 @@ class LocalCVPipeline:
 
         # 1. Extract Face Detection and Landmarks
         face_res = self.face_engine.extract_landmarks_from_telemetry(payload)
+        raw_p, raw_g = parse_pose_gaze(payload)
+        raw_angles = self._extract_raw_head_angles(payload, raw_p)
 
         # 2. Identity Verification (fail-closed: face claimed but no usable
         # embedding must NOT verify as the enrolled student).
@@ -300,7 +350,9 @@ class LocalCVPipeline:
                 except (TypeError, ValueError):
                     embedding = None
             if embedding is None:
-                embedding = self._maybe_sface_embedding(payload, face_res, now)
+                embedding = self._maybe_sface_embedding(
+                    payload, face_res, now, precomputed_angles=raw_angles
+                )
                 if embedding is not None:
                     identity_mode = "sface"
             if embedding is None and face_res.embedding:
@@ -399,23 +451,6 @@ class LocalCVPipeline:
         # head_matrix, system path via head_angles_raw) → payload pose →
         # geometric fallback estimator. All paths pass through the per-session
         # NeutralCalibrator.
-        raw_p, raw_g = parse_pose_gaze(payload)
-        raw_angles: Optional[Tuple[float, float, float]] = None
-        head_matrix = payload.get("head_matrix")
-        if isinstance(head_matrix, (list, tuple)) and len(head_matrix) == 16:
-            try:
-                from deeptutor.services.monitoring.face_solvers import euler_from_face_matrix
-
-                raw_angles = euler_from_face_matrix([float(v) for v in head_matrix])
-            except (TypeError, ValueError):
-                raw_angles = None
-        if raw_angles is None and isinstance(payload.get("head_angles_raw"), (list, tuple)):
-            try:
-                vals = [float(v) for v in payload["head_angles_raw"]]
-                if len(vals) == 3 and all(math.isfinite(v) for v in vals):
-                    raw_angles = (vals[0], vals[1], vals[2])
-            except (TypeError, ValueError):
-                raw_angles = None
         if raw_angles is not None:
             yaw, pitch, roll = self.neutral_calibrator.apply(*raw_angles)
             pose_res = _build_head_pose(yaw, pitch, roll)
@@ -444,8 +479,6 @@ class LocalCVPipeline:
         gaze_res: Optional[GazeResult] = None
         if face_res.landmarks is not None and face_res.landmarks.all_points:
             try:
-                from deeptutor.services.monitoring.face_solvers import build_gaze as _build_gaze
-
                 raw_list = [(p.x, p.y, p.z) for p in face_res.landmarks.all_points if p is not None]
                 if len(raw_list) > 473:
                     gaze_res = _build_gaze(raw_list, pose_res)
@@ -526,7 +559,11 @@ class LocalCVPipeline:
     # ------------------------------------------------------------ identity
 
     def _maybe_sface_embedding(
-        self, payload: Dict[str, Any], face_res: Any, now: float
+        self,
+        payload: Dict[str, Any],
+        face_res: Any,
+        now: float,
+        precomputed_angles: Optional[Tuple[float, float, float]] = None,
     ) -> Optional[List[float]]:
         """Time-gated SFace neural embedding from the payload's JPEG frame.
 
@@ -539,33 +576,11 @@ class LocalCVPipeline:
         if face_res.landmarks is None:
             return None
         # Frontal gate on the raw pose (matrix, raw angles, or pose dict).
-        raw_angles: Optional[Tuple[float, float, float]] = None
-        hm = payload.get("head_matrix")
-        if isinstance(hm, (list, tuple)) and len(hm) == 16:
-            try:
-                from deeptutor.services.monitoring.face_solvers import euler_from_face_matrix
-
-                raw_angles = euler_from_face_matrix([float(v) for v in hm])
-            except (TypeError, ValueError):
-                raw_angles = None
-        if raw_angles is None:
-            har = payload.get("head_angles_raw")
-            if isinstance(har, (list, tuple)) and len(har) == 3:
-                try:
-                    raw_angles = (float(har[0]), float(har[1]), float(har[2]))
-                except (TypeError, ValueError):
-                    raw_angles = None
-        if raw_angles is None:
-            p = payload.get("pose")
-            if isinstance(p, dict):
-                try:
-                    raw_angles = (
-                        float(p.get("yaw", 0.0)),
-                        float(p.get("pitch", 0.0)),
-                        float(p.get("roll", 0.0)),
-                    )
-                except (TypeError, ValueError):
-                    raw_angles = None
+        raw_angles = (
+            precomputed_angles
+            if precomputed_angles is not None
+            else self._extract_raw_head_angles(payload)
+        )
         if raw_angles is None:
             return None
         if (

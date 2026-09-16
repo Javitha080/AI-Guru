@@ -25,6 +25,7 @@ from typing import Any, Dict, List, Optional
 import uuid
 
 from fastapi import APIRouter, File, Form, HTTPException, Query, UploadFile
+from fastapi import Path as FastApiPath
 from pydantic import BaseModel, Field
 
 from deeptutor.services.exams.engine import (
@@ -57,9 +58,19 @@ async def _submit_lock(exam_id: str) -> asyncio.Lock:
         return lock
 
 
+class AnswerSubmissionItem(BaseModel):
+    """Validated single question answer submission."""
+
+    question_id: str = Field(..., min_length=1, max_length=128, pattern=r"^[a-zA-Z0-9_\-\.:]+$")
+    option_key: Optional[str] = Field(default="", max_length=64)
+    answer_text: Optional[str] = Field(default="", max_length=20000)
+
+
 class SubmitAnswersRequest(BaseModel):
-    student_id: str = "student-primary"
-    answers: List[Dict[str, Any]] = Field(default_factory=list)
+    student_id: str = Field(
+        "student-primary", min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9_\-]+$"
+    )
+    answers: List[AnswerSubmissionItem] = Field(default_factory=list, max_length=500)
 
 
 def _workspace_dir() -> Path:
@@ -86,8 +97,18 @@ async def _persist_upload(upload: UploadFile) -> Path:
         )
     dest = _workspace_dir() / f"upload_{uuid.uuid4().hex[:10]}{raw_suffix}"
     written = 0
+    header_checked = False
     with open(dest, "wb") as fh:
         while chunk := await upload.read(1024 * 512):
+            if not header_checked:
+                if b"%PDF-" not in chunk[:1024]:
+                    fh.close()
+                    dest.unlink(missing_ok=True)
+                    raise HTTPException(
+                        status_code=422,
+                        detail="Uploaded file is not a valid PDF document (missing %PDF- header).",
+                    )
+                header_checked = True
             written += len(chunk)
             if written > _MAX_UPLOAD_BYTES:
                 fh.close()
@@ -97,11 +118,46 @@ async def _persist_upload(upload: UploadFile) -> Path:
                     detail="Past-paper PDF exceeds the 50 MB upload limit.",
                 )
             fh.write(chunk)
+    if not header_checked or written == 0:
+        dest.unlink(missing_ok=True)
+        raise HTTPException(
+            status_code=422,
+            detail="Uploaded file is empty (0 bytes).",
+        )
     return dest
 
 
+async def _extract_gemini_paper(
+    pdf_path: Path,
+    *,
+    title_hint: str | None = None,
+) -> Optional["ExamPaper"]:
+    """Try direct Gemini AI extraction → ExamPaper; returns None on failure.
+
+    This path is preferred over _extract_templates because the Gemini
+    structured output preserves MCQ options, sub-questions, marks, and
+    metadata without the lossy QuizTemplate intermediary.
+    """
+    try:
+        from deeptutor.services.exams.gemini_ocr import (
+            extract_with_gemini,
+            gemini_available,
+        )
+
+        if not gemini_available():
+            return None
+        return await extract_with_gemini(pdf_path, title_hint=title_hint)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Gemini direct extraction failed, will use template pipeline: %s", exc)
+        return None
+
+
 async def _extract_templates(pdf_path: Path, max_questions: int = 200):
-    """Run the shared parse+extract pipeline; raises RuntimeError on failure."""
+    """Run the shared parse+extract pipeline; raises RuntimeError on failure.
+
+    This is the legacy path (MinerU → LLM extractor → QuizTemplates).
+    The Gemini path in mimic_source will be tried first automatically.
+    """
     from deeptutor.agents.question.mimic_source import parse_exam_paper_to_templates
 
     out_dir = _workspace_dir() / f"extract_{uuid.uuid4().hex[:8]}"
@@ -149,38 +205,62 @@ async def parse_preview(file: UploadFile = File(...)):
 @router.post("/upload")
 async def upload_exam(
     file: UploadFile = File(...),
-    title: Optional[str] = Form(None),
-    duration_seconds: int = Form(7200),
-    student_id: str = Form("student-primary"),
+    title: Optional[str] = Form(None, max_length=200),
+    duration_seconds: int = Form(7200, ge=60, le=86400),
+    student_id: str = Form(
+        "student-primary", min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9_\-]+$"
+    ),
     solve_answers: bool = Form(True),
 ):
-    """Parse a past-paper PDF and create a verbatim exam."""
-    pdf_path = await _persist_upload(file)
-    try:
-        templates, trace = await _extract_templates(pdf_path)
-    except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=422, detail=f"extraction_failed: {exc}")
+    """Parse a past-paper PDF and create a verbatim exam.
 
-    if not templates:
+    Tries the Gemini AI direct path first (structured output with options,
+    sub-questions, marks). Falls back to the MinerU + template pipeline.
+    """
+    pdf_path = await _persist_upload(file)
+    title_str = (title or Path(file.filename or "Past Paper").stem)[:120]
+    trace: Dict[str, Any] = {}
+
+    # ── Primary: direct Gemini extraction ──────────────────────────────
+    paper = await _extract_gemini_paper(pdf_path, title_hint=title_str)
+    if paper is not None:
+        paper.student_id = student_id
+        paper.mcq_duration_seconds = max(300, int(duration_seconds))
+        trace = {"extraction_engine": "gemini"}
+    else:
+        # ── Fallback: MinerU + template pipeline ──────────────────────
+        try:
+            templates, trace = await _extract_templates(pdf_path)
+        except Exception as exc:  # noqa: BLE001
+            raise HTTPException(status_code=422, detail=f"extraction_failed: {exc}")
+
+        if not templates:
+            raise HTTPException(
+                status_code=422, detail="No questions could be extracted from this PDF."
+            )
+
+        paper = templates_to_paper(
+            templates,
+            title=title_str,
+            source_filename=str(file.filename or ""),
+            mcq_duration_seconds=max(300, int(duration_seconds)),
+            student_id=student_id,
+        )
+
+    if not paper.questions:
         raise HTTPException(
             status_code=422, detail="No questions could be extracted from this PDF."
         )
 
-    paper = templates_to_paper(
-        templates,
-        title=(title or Path(file.filename or "Past Paper").stem)[:120],
-        source_filename=str(file.filename or ""),
-        mcq_duration_seconds=max(300, int(duration_seconds)),
-        student_id=student_id,
-    )
-
     # One batched LLM pass for papers without an answer key (tolerated failure).
-    if solve_answers:
+    # Skip if Gemini already populated most answers.
+    already_answered = sum(1 for q in paper.questions if q.reference_answer)
+    if solve_answers and already_answered < len(paper.questions) * 0.8:
         solved = await solve_missing_answers(paper)
         if solved:
             for q in paper.questions:
                 entry = solved.get(q.id)
-                if entry:
+                if entry and not (q.reference_answer or "").strip():
                     q.reference_answer = entry["correct_answer"]
                     q.explanation = entry["explanation"]
 
@@ -204,7 +284,7 @@ def _paper_dict(paper: ExamPaper) -> Dict[str, Any]:
 
 
 @router.get("/list")
-async def list_exams(limit: int = Query(20, le=100)):
+async def list_exams(limit: int = Query(20, ge=1, le=100)):
     rows = await ExamStore.list_exams(limit=limit)
     for r in rows:
         r.pop("source_filename", None)
@@ -212,12 +292,16 @@ async def list_exams(limit: int = Query(20, le=100)):
 
 
 @router.get("/{exam_id}")
-async def get_exam(exam_id: str):
+async def get_exam(
+    exam_id: str = FastApiPath(..., min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9_\-]+$"),
+):
     data = await ExamStore.load_paper(exam_id)
     if not data:
         raise HTTPException(status_code=404, detail="Exam not found")
     paper = ExamPaper.from_json(_dumps(data))
     public = paper.public_dict(include_answers=False)
+    if data.get("session_id"):
+        public["session_id"] = data["session_id"]
     return public
 
 
@@ -228,7 +312,12 @@ def _dumps(data: Dict[str, Any]) -> str:
 
 
 @router.post("/{exam_id}/start")
-async def start_exam(exam_id: str, student_id: str = "student-primary"):
+async def start_exam(
+    exam_id: str = FastApiPath(..., min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9_\-]+$"),
+    student_id: str = Query(
+        "student-primary", min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9_\-]+$"
+    ),
+):
     data = await ExamStore.load_paper(exam_id)
     if not data:
         raise HTTPException(status_code=404, detail="Exam not found")
@@ -237,15 +326,88 @@ async def start_exam(exam_id: str, student_id: str = "student-primary"):
 
     now = time.time()
     ends_at = now + int(data.get("mcq_duration_seconds") or 7200)
-    await ExamStore.update_fields(exam_id, status="active", started_at=now, ends_at=ends_at)
 
-    data["status"], data["started_at"], data["ends_at"] = "active", now, ends_at
-    await ExamStore.update_fields(exam_id, paper_json=_dumps(data))
-    return {"exam_id": exam_id, "started_at": now, "ends_at": ends_at}
+    # 1. Ensure linked study session for supervision and telemetry
+    session_id = data.get("session_id")
+    session = None
+    if session_id:
+        try:
+            from deeptutor.services.study.session_manager import StudySessionManager
+
+            session = await StudySessionManager().get_session(session_id)
+            if session and session.get("status") not in ("in_progress", "paused"):
+                session = None
+        except Exception:
+            session = None
+
+    if not session:
+        try:
+            from deeptutor.services.study.session_manager import StudySessionManager
+
+            target_duration = int(data.get("mcq_duration_seconds") or 7200)
+            exam_title = str(data.get("title") or "Exam Paper")
+            session = await StudySessionManager().create_session(
+                student_id=student_id,
+                title=f"Exam: {exam_title}",
+                subject="Examination",
+                target_duration_seconds=target_duration,
+            )
+            session_id = session["id"]
+        except Exception as exc:
+            logger.warning("Could not create study session for exam %s: %s", exam_id, exc)
+            session_id = f"exam-{exam_id}"
+
+    # 2. Attach study monitoring CV pipeline with strict supervision profile
+    try:
+        from deeptutor.services.monitoring.camera_settings import load_camera_config
+        from deeptutor.services.monitoring.cv_pipeline import (
+            LocalCVPipeline,
+            hydrate_identity_baseline,
+        )
+        from deeptutor.services.monitoring.system_monitor import (
+            apply_supervision_strictness,
+            start_system_monitor,
+        )
+
+        camera_cfg = await load_camera_config()
+        if camera_cfg.get("enabled", True):
+            pipeline = LocalCVPipeline()
+            try:
+                await hydrate_identity_baseline(pipeline)
+            except Exception:
+                pass
+            pipeline.reset_session()
+            await apply_supervision_strictness(
+                pipeline, profile_override="strict", session_id=session_id
+            )
+            await start_system_monitor(
+                session_id, camera_cfg, pipeline=pipeline, profile_override="strict"
+            )
+            logger.info("Exam %s connected to strict monitoring session %s", exam_id, session_id)
+    except Exception as exc:
+        logger.warning("Exam monitoring startup non-fatal error for %s: %s", exam_id, exc)
+
+    data["status"], data["started_at"], data["ends_at"], data["session_id"] = (
+        "active",
+        now,
+        ends_at,
+        session_id,
+    )
+    await ExamStore.update_fields(
+        exam_id,
+        status="active",
+        started_at=now,
+        ends_at=ends_at,
+        paper_json=_dumps(data),
+    )
+    return {"exam_id": exam_id, "started_at": now, "ends_at": ends_at, "session_id": session_id}
 
 
 @router.post("/{exam_id}/submit")
-async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
+async def submit_exam(
+    exam_id: str = FastApiPath(..., min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9_\-]+$"),
+    req: SubmitAnswersRequest = ...,
+):
     lock = await _submit_lock(exam_id)
     async with lock:
         data = await ExamStore.load_paper(exam_id)
@@ -268,7 +430,8 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
             )
 
         paper = ExamPaper.from_json(_dumps(data))
-        result = await submit_and_grade(paper, req.answers)
+        answers_dicts = [a.model_dump() for a in req.answers]
+        result = await submit_and_grade(paper, answers_dicts)
         result["late"] = is_late
         result["late_seconds"] = round(late_seconds, 1)
 
@@ -295,7 +458,7 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
                 "option_key": next(
                     (
                         a.get("option_key", "")
-                        for a in req.answers
+                        for a in answers_dicts
                         if a.get("question_id") == row["question_id"]
                     ),
                     "",
@@ -303,7 +466,7 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
                 "answer_text": next(
                     (
                         a.get("answer_text", "")
-                        for a in req.answers
+                        for a in answers_dicts
                         if a.get("question_id") == row["question_id"]
                     ),
                     "",
@@ -333,6 +496,28 @@ async def submit_exam(exam_id: str, req: SubmitAnswersRequest):
         await GamificationService.check_and_award(req.student_id)
     except Exception as exc:  # noqa: BLE001 - gamification is best-effort
         logger.debug("Gamification award skipped: %s", exc)
+
+    # Complete linked study session and stop monitoring CV pipeline
+    session_id = data.get("session_id")
+    if session_id:
+        try:
+            from deeptutor.services.monitoring.dispatch import handle_session_completed
+            from deeptutor.services.monitoring.system_monitor import stop_system_monitor
+            from deeptutor.services.study.session_manager import StudySessionManager
+
+            await stop_system_monitor(session_id)
+            await StudySessionManager().stop_session(session_id)
+            try:
+                await asyncio.wait_for(
+                    handle_session_completed(session_id, req.student_id),
+                    timeout=5.0,
+                )
+            except Exception:
+                pass
+        except Exception as exc:  # noqa: BLE001 - teardown is best-effort
+            logger.warning(
+                "Exam session completion cleanup non-fatal error for %s: %s", session_id, exc
+            )
 
     return result
 

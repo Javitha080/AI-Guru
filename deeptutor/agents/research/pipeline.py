@@ -437,6 +437,10 @@ class ResearchPipeline:
             logger.warning("Failed to load research pipeline prompts: %s", exc)
             self._prompts = {}
 
+        self._block_tool_context_cache: tuple[int, list[dict[str, Any]] | None, str, str] | None = (
+            None
+        )
+
     # ------------------------------------------------------------------
     # Public entry points
     # ------------------------------------------------------------------
@@ -824,6 +828,36 @@ class ResearchPipeline:
     # ------------------------------------------------------------------
     # Phase 3: research one block
     # ------------------------------------------------------------------
+    def _get_block_tool_context(self) -> tuple[int, list[dict[str, Any]] | None, str, str]:
+        if self._block_tool_context_cache is None:
+            block_tool_names = self._block_tool_names()
+            native_block_tools = self._use_native_block_tools(block_tool_names)
+            prompt_tool_names = block_tool_names if native_block_tools else []
+            effective_max_iterations = (
+                max(self.block_max_iterations, 4)
+                if prompt_tool_names
+                else self.block_max_iterations
+            )
+            tool_schemas = (
+                self._build_block_tool_schemas(prompt_tool_names) if native_block_tools else None
+            )
+            tool_list = (
+                self.registry.build_prompt_text(
+                    prompt_tool_names,
+                    format="list_with_usage",
+                    language=self.language,
+                )
+                or self._fallback_empty_tool_list()
+            )
+            kb_note = self._kb_system_note()
+            self._block_tool_context_cache = (
+                effective_max_iterations,
+                tool_schemas,
+                tool_list,
+                kb_note,
+            )
+        return self._block_tool_context_cache
+
     async def _research_block(
         self,
         *,
@@ -843,24 +877,12 @@ class ResearchPipeline:
         """
         queue.mark_researching(block.block_id)
 
-        block_tool_names = self._block_tool_names()
-        native_block_tools = self._use_native_block_tools(block_tool_names)
-        prompt_tool_names = block_tool_names if native_block_tools else []
-        effective_max_iterations = (
-            max(self.block_max_iterations, 4) if prompt_tool_names else self.block_max_iterations
-        )
-        tool_schemas = (
-            self._build_block_tool_schemas(prompt_tool_names) if native_block_tools else None
-        )
-        tool_list = (
-            self.registry.build_prompt_text(
-                prompt_tool_names,
-                format="list_with_usage",
-                language=self.language,
-            )
-            or self._fallback_empty_tool_list()
-        )
-        kb_note = self._kb_system_note()
+        (
+            effective_max_iterations,
+            tool_schemas,
+            tool_list,
+            kb_note,
+        ) = self._get_block_tool_context()
 
         system_prompt = self._t(
             "research_step.system",

@@ -30,6 +30,8 @@ on:
       - "Dockerfile"
       - "Dockerfile.runner"
       - ".dockerignore"
+      - "scripts/**"
+      - "uv.lock"
       - ".github/workflows/docker-latest.yml"
   workflow_dispatch:
     inputs:
@@ -50,6 +52,7 @@ jobs:
   build-and-push:
     name: Build & Push Multi-Platform Image
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Checkout code
@@ -70,6 +73,9 @@ jobs:
 
       - name: Compute image name and tags
         id: meta
+        shell: bash
+        env:
+          EXTRA_TAG: ${{ inputs.image_tag }}
         run: |
           IMAGE="ghcr.io/${GITHUB_REPOSITORY,,}"
           SHA_TAG="sha-${GITHUB_SHA::12}"
@@ -78,8 +84,8 @@ jobs:
           if [[ "$GITHUB_REF_NAME" == "main" || "$GITHUB_REF_NAME" == "master" ]]; then
             TAGS+=("${IMAGE}:latest" "${IMAGE}:${GITHUB_REF_NAME}")
           fi
-          if [[ -n "${{ inputs.image_tag }}" ]]; then
-            TAGS+=("${IMAGE}:${{ inputs.image_tag }}")
+          if [[ -n "$EXTRA_TAG" ]]; then
+            TAGS+=("${IMAGE}:${EXTRA_TAG}")
           fi
           printf 'tags=%s\n' "$(IFS=,; echo "${TAGS[*]}")" >> "$GITHUB_OUTPUT"
 

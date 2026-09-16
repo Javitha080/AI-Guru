@@ -34,7 +34,8 @@ from typing import Any, Dict, List, Optional
 import uuid
 
 from fastapi import APIRouter, HTTPException, Query
-from pydantic import BaseModel, Field
+from fastapi.responses import FileResponse
+from pydantic import BaseModel, Field, field_validator
 
 from deeptutor.services.exams.bank_import import (
     DEFAULT_DURATION_BY_TYPE,
@@ -60,42 +61,62 @@ REVIEW_WINDOW_SECONDS = 600
 
 
 class StartRequest(BaseModel):
-    student_id: str = "student-primary"
+    student_id: str = Field("student-primary", min_length=1, max_length=64)
 
 
 class AddonRequest(BaseModel):
-    minutes: int = Field(..., description="Extra minutes to buy: 15, 30 or 60.")
+    minutes: int = Field(..., ge=15, le=60, description="Extra minutes to buy: 15, 30 or 60.")
+
+    @field_validator("minutes")
+    @classmethod
+    def validate_minutes(cls, v: int) -> int:
+        if v not in (15, 30, 60):
+            raise ValueError("Add-on minutes must be 15, 30, or 60.")
+        return v
+
+
+class AnswerSubmissionItem(BaseModel):
+    question_id: str = Field(..., min_length=1, max_length=128)
+    option_key: Optional[str] = Field(default="", max_length=64)
+    answer_text: Optional[str] = Field(default="", max_length=20000)
 
 
 class DraftRequest(BaseModel):
-    exam_id: str
-    answers: List[Dict[str, Any]] = Field(default_factory=list)
+    exam_id: str = Field(..., min_length=1, max_length=64)
+    answers: List[AnswerSubmissionItem] = Field(default_factory=list, max_length=500)
 
 
 class ExplainRequest(BaseModel):
-    exam_id: str
-    question_id: str
+    exam_id: str = Field(..., min_length=1, max_length=64)
+    question_id: str = Field(..., min_length=1, max_length=128)
 
 
 class SubmitAnswersRequest(BaseModel):
-    exam_id: str
-    student_id: str = "student-primary"
-    answers: List[Dict[str, Any]] = Field(default_factory=list)
+    exam_id: str = Field(..., min_length=1, max_length=64)
+    student_id: str = Field("student-primary", min_length=1, max_length=64)
+    answers: List[AnswerSubmissionItem] = Field(default_factory=list, max_length=500)
 
 
 class PromoteRequest(BaseModel):
-    exam_id: str
-    subject: str = "ict"
-    grade: int = 12
-    year: Optional[int] = None
+    exam_id: str = Field(..., min_length=1, max_length=64)
+    subject: str = Field("ict", min_length=1, max_length=64)
+    grade: int = Field(12, ge=1, le=14)
+    year: Optional[int] = Field(None, ge=1970, le=2100)
 
 
 class ImportRequest(BaseModel):
-    folder: str
-    subject_default: str = "ict"
-    grade_default: Optional[int] = None
-    medium_default: str = "english"
+    folder: str = Field(..., min_length=1, max_length=1024)
+    subject_default: str = Field("ict", min_length=1, max_length=64)
+    grade_default: Optional[int] = Field(None, ge=1, le=14)
+    medium_default: str = Field("english", min_length=1, max_length=32)
     solve_missing: bool = True
+
+    @field_validator("folder")
+    @classmethod
+    def validate_folder(cls, v: str) -> str:
+        if "\x00" in v:
+            raise ValueError("Folder path cannot contain null bytes.")
+        return v
 
 
 def _dumps(data: Dict[str, Any]) -> str:
@@ -231,6 +252,61 @@ async def promote(req: PromoteRequest):
         }
     )
     return {"bank_paper_id": row_id, "group_key": meta.group_key}
+
+
+@router.get("/assets/{bank_paper_id}/{filename:path}")
+async def get_paper_asset(bank_paper_id: str, filename: str):
+    """Serve diagram or media assets for a paper bank paper."""
+    import mimetypes
+
+    from deeptutor.services.exams.master_archive_importer import (
+        _DEFAULT_ARCHIVE_PATH,
+        get_paper_bank_assets_dir,
+    )
+
+    clean_name = Path(filename).name
+    candidates = [
+        get_paper_bank_assets_dir() / bank_paper_id / "images" / clean_name,
+        get_paper_bank_assets_dir() / bank_paper_id / clean_name,
+        _DEFAULT_ARCHIVE_PATH / bank_paper_id / "images" / clean_name,
+        _DEFAULT_ARCHIVE_PATH / bank_paper_id / clean_name,
+    ]
+
+    # Also resolve if bank_paper_id is an active exam_id from a sitting
+    exam_data = await ExamStore.load_paper(bank_paper_id)
+    if exam_data:
+        b_id = exam_data.get("bank_paper_id") or ""
+        if b_id:
+            candidates.extend(
+                [
+                    get_paper_bank_assets_dir() / b_id / "images" / clean_name,
+                    get_paper_bank_assets_dir() / b_id / clean_name,
+                    _DEFAULT_ARCHIVE_PATH / b_id / "images" / clean_name,
+                    _DEFAULT_ARCHIVE_PATH / b_id / clean_name,
+                ]
+            )
+
+    for target in candidates:
+        if target.is_file():
+            media_type, _ = mimetypes.guess_type(target.name)
+            return FileResponse(
+                path=str(target),
+                media_type=media_type or "image/png",
+                headers={"Cache-Control": "public, max-age=86400"},
+            )
+
+    raise HTTPException(
+        status_code=404, detail=f"Asset '{clean_name}' not found for paper '{bank_paper_id}'"
+    )
+
+
+@router.post("/sync-master-archive")
+async def sync_master_archive():
+    """Import and synchronize all 123 modules from Sri Lanka ICT Master Archive."""
+    from deeptutor.services.exams.master_archive_importer import import_master_archive
+
+    res = await import_master_archive()
+    return res
 
 
 @router.get("/{bank_paper_id}")
@@ -550,10 +626,11 @@ async def submit_part(sitting_id: str, req: SubmitAnswersRequest):
     if target["status"] == "graded":
         raise HTTPException(status_code=409, detail="Part already submitted")
 
+    answers_dicts = [a.model_dump() for a in req.answers]
     result = await _finalize_part(
         sitting_id,
         target,
-        req.answers,
+        answers_dicts,
         student_id=req.student_id,
         auto_submitted=False,
     )
@@ -578,7 +655,7 @@ async def save_draft(sitting_id: str, req: DraftRequest):
         raise HTTPException(status_code=404, detail="Exam not part of this sitting")
     if target["status"] == "graded":
         raise HTTPException(status_code=409, detail="Part already submitted")
-    saved = await ExamStore.save_drafts(req.exam_id, req.answers)
+    saved = await ExamStore.save_drafts(req.exam_id, [a.model_dump() for a in req.answers])
     return {"ok": True, "saved": saved}
 
 

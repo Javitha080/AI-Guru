@@ -1,0 +1,342 @@
+[
+  {
+    "id": "al-2013-ict-en-p2-q1",
+    "number": 1,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Complete the partial HTML document for the Sri Lankan Test Cricket records web page.",
+    "diagrams": [
+      {
+        "id": "d_p2_q1_webpage",
+        "src": "images/p2_q1_webpage.png",
+        "alt": "Test Cricket Records webpage",
+        "caption": "Figure 1: Test Cricket Webpage"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "Fill in the blanks with appropriate HTML tags to render the web page with link to 'team.html' and image 'cricket.jpg'.",
+        "marks": 10.0,
+        "expected_answer": "<title>Test Cricket</title>\n<h1>Sri Lankan Test cricket records</h1>\n<img src=\"cricket.jpg\" alt=\"cricket\">\n<a href=\"team.html\">Sri Lankan national cricket team</a>\n<ul><li>Team records</li><li>Individual records</li><li>Partnership records</li></ul>\n<h2>Partnership records</h2>\n<table border=\"1\"><caption>Highest wicket partnerships</caption>...</table>",
+        "marking_guide": "Award marks for title, h1, img tag with src/alt, anchor tag href, ul/li list, table with caption and headers."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Web Technologies & HTML",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q2",
+    "number": 2,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions on memory addressing and operating system process models.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "If a computer system is byte addressable and uses 32-bit addresses, what is the maximum usable size of its memory in Gigabytes (GB)? Show all workings clearly.",
+        "marks": 3.0,
+        "expected_answer": "Addressable bytes = $2^{32} = 4,294,967,296\\text{ bytes}$. In GB: $\\frac{2^{32}}{2^{30}} = 2^2 = 4\\text{ GB}$.",
+        "marking_guide": "Award 3 marks for calculation showing $2^{32}/2^{30} = 4\\text{ GB}$."
+      },
+      {
+        "sub_id": "2.b",
+        "label": "(b)",
+        "stem": "What is the relationship between a program and a process in an operating system?",
+        "marks": 3.0,
+        "expected_answer": "A program is a passive entity (stored code file on disk), whereas a process is an active entity (a program in execution loaded in memory with PC, registers, and stack).",
+        "marking_guide": "Award 3 marks for passive vs active entity distinction."
+      },
+      {
+        "sub_id": "2.c",
+        "label": "(c)",
+        "stem": "What is the need of having 'swapped out and waiting' and 'swapped out and blocked' states in the seven state process model?",
+        "marks": 4.0,
+        "expected_answer": "To free up limited physical main memory (RAM) when overloaded by moving suspended processes to secondary storage (swap space/disk) until memory becomes available or pending I/O completes.",
+        "marking_guide": "Award 4 marks for memory management and swap space justification."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Memory & Operating Systems",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q3",
+    "number": 3,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions on two's complement arithmetic and electronic business models.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "3.a.i",
+        "label": "(a) (i)",
+        "stem": "Convert $13_{10}$ and $-19_{10}$ into 8-bit two's complement numbers.",
+        "marks": 3.0,
+        "expected_answer": "+13 = $00001101_2$. +19 = $00010011_2 \\rightarrow$ 1's comp = $11101100_2 \\rightarrow$ 2's comp (-19) = $11101101_2$.",
+        "marking_guide": "Award 1.5 marks each for +13 and -19."
+      },
+      {
+        "sub_id": "3.a.ii",
+        "label": "(a) (ii)",
+        "stem": "Compute $13_{10} - 19_{10}$ using two's complement and give answer in two's complement form.",
+        "marks": 3.0,
+        "expected_answer": "$00001101_2 + 11101101_2 = 11111010_2$ (which equals $-6_{10}$).",
+        "marking_guide": "Award 3 marks for addition and binary result."
+      },
+      {
+        "sub_id": "3.b",
+        "label": "(b)",
+        "stem": "Give four different examples for B2B, B2C, C2C, and C2B e-business types.",
+        "marks": 4.0,
+        "expected_answer": "- B2B: Alibaba wholesale\n- B2C: Amazon retail\n- C2C: eBay or Ikman.lk\n- C2B: Freelancer.com / Upwork (individuals offering services to businesses)",
+        "marking_guide": "Award 1 mark each for B2B, B2C, C2C, C2B."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Number Systems & e-Business",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q4",
+    "number": 4,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions based on relational databases and student-sport participation.",
+    "diagrams": [
+      {
+        "id": "d_p2_q4_er",
+        "src": "images/p2_q4_er.png",
+        "alt": "Student-Sport ER diagram",
+        "caption": "Figure 2: Student Sport ER Diagram"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "Describe the relationship between a primary key and a foreign key in relational databases.",
+        "marks": 2.0,
+        "expected_answer": "A primary key uniquely identifies tuples in a parent relation. A foreign key in a child relation references that primary key to establish relational association and enforce referential integrity.",
+        "marking_guide": "Award 2 marks for referential linkage explanation."
+      },
+      {
+        "sub_id": "4.b",
+        "label": "(b)",
+        "stem": "Convert the ER diagram to relational database tables.",
+        "marks": 4.0,
+        "expected_answer": "- `Student(studentId [PK], name)`\n- `Sport(sportId [PK], name)`\n- `Participate(studentId [FK], sportId [FK], year, capacity)` with composite PK `(studentId, sportId, year)`.",
+        "marking_guide": "Award 4 marks for 3 relations with correct keys."
+      },
+      {
+        "sub_id": "4.c.i",
+        "label": "(c) (i)",
+        "stem": "Write an SQL statement to get a list of sports that do not have captains.",
+        "marks": 2.0,
+        "expected_answer": "SELECT name FROM Sport WHERE sportId NOT IN (SELECT sportId FROM Participate WHERE capacity = 'captain');",
+        "marking_guide": "Award 2 marks for valid SQL query."
+      },
+      {
+        "sub_id": "4.c.ii",
+        "label": "(c) (ii)",
+        "stem": "Write an SQL statement to obtain a list of students (studentId and name) who participate in any sport as a captain.",
+        "marks": 2.0,
+        "expected_answer": "SELECT DISTINCT s.studentId, s.name FROM Student s, Participate p WHERE s.studentId = p.studentId AND p.capacity = 'captain';",
+        "marking_guide": "Award 2 marks for valid join query."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Relational Databases & SQL",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q5",
+    "number": 5,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 1 of G.C.E. (A/L) 2013 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "Detailed analysis and technical requirements for Question 1.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks according to component criteria."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q6",
+    "number": 6,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 2 of G.C.E. (A/L) 2013 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "Detailed analysis and technical requirements for Question 2.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks according to component criteria."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q7",
+    "number": 7,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 3 of G.C.E. (A/L) 2013 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "3.a",
+        "label": "(a)",
+        "stem": "Detailed analysis and technical requirements for Question 3.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks according to component criteria."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q8",
+    "number": 8,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 4 of G.C.E. (A/L) 2013 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "Detailed analysis and technical requirements for Question 4.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks according to component criteria."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q9",
+    "number": 9,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 5 of G.C.E. (A/L) 2013 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "5.a",
+        "label": "(a)",
+        "stem": "Detailed analysis and technical requirements for Question 5.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks according to component criteria."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p2-q10",
+    "number": 10,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 6 of G.C.E. (A/L) 2013 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "6.a",
+        "label": "(a)",
+        "stem": "Detailed analysis and technical requirements for Question 6.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks according to component criteria."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  }
+]

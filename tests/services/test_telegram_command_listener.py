@@ -47,6 +47,21 @@ class TestParseCommand:
         assert parse_command("/status") == "status"
         assert parse_command("/status@my_guru_bot") == "status"
 
+    def test_boostalert_commands(self):
+        assert parse_command("/boostalert") == "boostalert_status"
+        assert parse_command("/boostalert status") == "boostalert_status"
+        assert parse_command("/boostalert test") == "boostalert_test"
+        assert parse_command("/boostalert strict") == "boostalert_strict"
+        assert parse_command("/boostalert strict 30") == "boostalert_strict:30"
+        assert parse_command("/boostalert strict 30m") == "boostalert_strict:30"
+        assert parse_command("/boostalert strict 30mins") == "boostalert_strict:30"
+        assert parse_command("/boostalert 45") == "boostalert_strict:45"
+        assert parse_command("/boostalert 45m") == "boostalert_strict:45"
+        assert parse_command("/boostalert off") == "boostalert_off"
+        assert parse_command("/boostalert balanced") == "boostalert_off"
+        assert parse_command("/boostalert@my_guru_bot strict 45") == "boostalert_strict:45"
+        assert parse_command("/BOOSTALERT STRICT 15") == "boostalert_strict:15"
+
     def test_unknown_returns_none(self):
         assert parse_command("/tunnel reboot") is None
         assert parse_command("hello") is None

@@ -54,7 +54,7 @@ class BankStore:
                 id TEXT PRIMARY KEY,
                 group_key TEXT NOT NULL,
                 paper_no INTEGER NOT NULL DEFAULT 1 CHECK (paper_no IN (1, 2)),
-                grade INTEGER NOT NULL CHECK (grade IN (12, 13)),
+                grade INTEGER NOT NULL CHECK (grade IN (11, 12, 13)),
                 subject TEXT NOT NULL,
                 year INTEGER NOT NULL,
                 medium TEXT NOT NULL DEFAULT 'english'

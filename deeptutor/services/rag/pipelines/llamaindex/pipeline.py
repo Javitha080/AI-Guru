@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import asyncio
-import json
 import logging
 from pathlib import Path
 import traceback
@@ -178,11 +177,9 @@ class LlamaIndexPipeline:
 
     def _embedding_mismatch_warning(self, kb_name: str) -> str:
         try:
-            cfg_path = Path(self.kb_base_dir) / "kb_config.json"
-            if not cfg_path.exists():
-                return ""
-            with open(cfg_path, encoding="utf-8") as handle:
-                kb_entry = json.load(handle).get("knowledge_bases", {}).get(kb_name, {})
+            from deeptutor.services.rag.provider_binding import load_kb_config_entry
+
+            kb_entry = load_kb_config_entry(self.kb_base_dir, kb_name)
             if not kb_entry.get("embedding_mismatch"):
                 return ""
             stored = kb_entry.get("embedding_model", "unknown")

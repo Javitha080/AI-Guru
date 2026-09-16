@@ -43,15 +43,35 @@ export interface StartResponse {
   }>;
 }
 
+export interface QuestionDiagram {
+  id: string;
+  src: string;
+  alt?: string;
+  caption?: string;
+}
+
+export interface SubQuestion {
+  sub_id: string;
+  label: string;
+  stem: string;
+  marks: number;
+  expected_answer?: string;
+  marking_guide?: string;
+}
+
 export interface BankQuestion {
   id: string;
   number: number;
   question_type: string;
   text: string;
+  stem?: string;
   options: Record<string, string> | null;
   marks: number;
   reference_answer?: string | null;
   explanation?: string | null;
+  diagrams?: QuestionDiagram[];
+  sub_questions?: SubQuestion[];
+  metadata?: Record<string, any>;
 }
 
 export interface BankPaperDetail {
@@ -98,6 +118,7 @@ export interface ResultQuestion {
   number: number;
   question_type: string;
   text: string;
+  stem?: string;
   options: Record<string, string> | null;
   answer_text: string;
   option_key: string;
@@ -108,6 +129,8 @@ export interface ResultQuestion {
   verdict: string;
   feedback: string;
   graded: boolean;
+  diagrams?: QuestionDiagram[];
+  sub_questions?: SubQuestion[];
 }
 
 export interface SittingResult {
@@ -238,6 +261,19 @@ export const papersApi = {
     fetch(
       `/api/v1/paper_bank/my-sessions?student_id=${encodeURIComponent(studentId)}`
     ).then((r) => jsonOrThrow<MySessionsResponse>(r)),
+
+  syncMasterArchive: () =>
+    fetch("/api/v1/paper_bank/sync-master-archive", {
+      method: "POST",
+    }).then((r) =>
+      jsonOrThrow<{
+        success: boolean;
+        imported_papers: number;
+        total_questions: number;
+        total_diagrams_copied: number;
+        errors: string[];
+      }>(r)
+    ),
 };
 
 export interface AnswerImageItem {

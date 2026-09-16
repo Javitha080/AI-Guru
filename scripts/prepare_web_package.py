@@ -7,6 +7,7 @@ import argparse
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 WEB_DIR = PROJECT_ROOT / "web"
@@ -30,7 +31,8 @@ def _clean_package_dir(package_dir: Path) -> None:
 
 def prepare_web_package(*, skip_build: bool = False) -> None:
     if not skip_build:
-        subprocess.run(["npm", "run", "build"], cwd=WEB_DIR, check=True)
+        npm_cmd = "npm.cmd" if sys.platform == "win32" else "npm"
+        subprocess.run([npm_cmd, "run", "build"], cwd=WEB_DIR, check=True)
 
     standalone = WEB_DIR / ".next" / "standalone"
     static_dir = WEB_DIR / ".next" / "static"

@@ -47,13 +47,13 @@ flowchart LR
 
 | Job | Command (essentially) | Blocks merge? |
 |-----|-----------------------|:-------------:|
-| `lint` | `ruff check .` + `ruff format --check .` | ✅ |
-| `typecheck` | `mypy --ignore-missing-imports --no-strict-optional` (pre-commit profile, same excludes) | ✅ |
-| `security` | `detect-secrets-hook` over all tracked files vs `.secrets.baseline` (no NEW secrets) + `bandit -lll` (hard fail on HIGH) | ✅ |
-| `web` | `npm ci && npm run lint && npx tsc --noEmit && npm run test:node && npm run build` + informational `npm audit` | ✅ |
-| `python-tests` | `pytest -q tests deeptutor/learning/tests` on Python 3.11/3.12/3.13; 3.14 best-effort; coverage on 3.11 | ✅ (3.14 non-blocking) |
-| `docker` | `docker/build-push-action` → run the production image → curl the backend until healthy | ✅ |
-| `summary` | Aggregates results and fails the run if any gate failed | — |
+| `lint` | `uv pip install ruff` → `ruff check .` + `ruff format --check .` (with `.ruff_cache` + uv cache-suffix: `lint`) | ✅ |
+| `typecheck` | `uv pip install mypy` → `mypy` (pre-commit profile, with `.mypy_cache` + uv cache-suffix: `typecheck`) | ✅ |
+| `security` | `detect-secrets-hook` vs `.secrets.baseline` (no NEW secrets) + `bandit -lll` (hard fail on HIGH, uv cache-suffix: `security`) | ✅ |
+| `web` | `npm ci --prefer-offline` → ESLint → `tsc --noEmit` → node tests → Next.js build (with comprehensive `.next/cache` key) | ✅ |
+| `python-tests` | `uv pip install` → `pytest -q tests deeptutor/learning/tests --durations=10` (matrix uv cache-suffix: `${{ matrix.python-version }}`) | ✅ (3.14 non-blocking) |
+| `docker` | `docker/build-push-action` → run production image → fail-fast probe backend (`/api/v1/health/ping`) & frontend (3782) | ✅ |
+| `summary` | Aggregates results into `$GITHUB_STEP_SUMMARY` and fails run if any gate failed or cancelled | — |
 
 Notes on deliberate choices:
 
@@ -262,13 +262,24 @@ git tag v1.3.11 && git push origin v1.3.11
 If the version does not match, nothing is published — the gate fails.
 
 ## Local equivalents
-
+ 
 ```bash
-# CI-equivalent checks, locally:
+# Automated local runner (runs all CI gates locally with timings):
+python scripts/ci_check.py                 # fast battery (93 tests)
+python scripts/ci_check.py --all-tests     # full pytest battery
+
+# Or run specific gates:
+python scripts/ci_check.py --fast          # lint + typecheck + web
+python scripts/ci_check.py --gate lint     # ruff lint & format only
+python scripts/ci_check.py --gate web      # eslint + tsc + node tests
+python scripts/ci_check.py --gate security # bandit (+ detect-secrets if in git)
+python scripts/ci_check.py --gate python   # python tests
+
+# Manual individual commands:
 pre-commit run --all-files                # ruff + prettier + secrets + bandit + mypy
 python -m pytest -q tests deeptutor/learning/tests   # Python battery
 cd web && npm ci --legacy-peer-deps && npm run lint && npx tsc --noEmit && npm run test:node && npm run build
-docker build -t deeptutor:local . && docker run -p 127.0.0.1:8001:8001 deeptutor:local
+docker build -t deeptutor:local . && docker run -p 127.0.0.1:8001:8001 -p 127.0.0.1:3782:3782 deeptutor:local
 ```
 
 ## Debugging a failing run

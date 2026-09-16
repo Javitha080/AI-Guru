@@ -100,6 +100,9 @@ class WarningManager:
     ) -> None:
         self.cooldown_seconds = cooldown_seconds
         self.min_confidence = min_confidence
+        self.nudge_cooldown_seconds = type(self).NUDGE_COOLDOWN_SECONDS
+        self.nudge_min_confidence = type(self).NUDGE_MIN_CONFIDENCE
+        self.current_profile = "balanced"
 
         # Maps category/DistractionType string -> last emitted timestamp
         self._last_alert_timestamps: Dict[str, float] = {}
@@ -112,6 +115,19 @@ class WarningManager:
         self._episode_gate = EpisodeGate()
         # Per-category last nudge emission time (tier-1 gentle prompt).
         self._nudge_timestamps: Dict[str, float] = {}
+
+    def apply_strictness(self, profile_name: str) -> None:
+        """Dynamically adjust alert cooldown and confidence thresholds according to profile."""
+        from deeptutor.services.monitoring.monitoring_config import perception_profile_for
+
+        p = perception_profile_for(profile_name)
+        self.current_profile = profile_name
+        self.cooldown_seconds = p.cooldown_seconds
+        self.min_confidence = p.min_confidence
+        self.nudge_cooldown_seconds = p.nudge_cooldown_seconds
+        self.nudge_min_confidence = p.nudge_min_confidence
+        self.NUDGE_COOLDOWN_SECONDS = p.nudge_cooldown_seconds
+        self.NUDGE_MIN_CONFIDENCE = p.nudge_min_confidence
 
     # Backward-compat shims for pre-refactor attribute access.
     @property

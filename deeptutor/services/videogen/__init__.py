@@ -25,12 +25,14 @@ async def generate_video(
     aspect_ratio: str | None = None,
     duration: str | None = None,
     resolution: str | None = None,
+    fps: str | None = None,
+    seed: int | None = None,
     progress: ProgressFn | None = None,
 ) -> tuple[bytes, str]:
     """Generate one video for ``prompt`` using the active videogen selection.
 
     Returns ``(video_bytes, content_type)``. ``aspect_ratio`` / ``duration`` /
-    ``resolution`` override the catalog defaults for this call.
+    ``resolution`` / ``fps`` / ``seed`` override the catalog defaults for this call.
     """
     from deeptutor.services.config.provider_runtime import resolve_videogen_runtime_config
 
@@ -44,6 +46,10 @@ async def generate_video(
         config.duration = duration
     if resolution:
         config.resolution = resolution
+    if fps:
+        config.fps = fps
+    if seed is not None:
+        config.seed = seed
     adapter = get_videogen_adapter(config.adapter)
     return await adapter.generate(prompt, config, progress=progress)
 

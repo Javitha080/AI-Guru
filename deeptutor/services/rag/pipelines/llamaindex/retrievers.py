@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 import shutil
+import threading
 from typing import Any
 
 from llama_index.core.llms.mock import MockLLM
@@ -21,6 +22,22 @@ from .config import (
 logger = logging.getLogger(__name__)
 
 BM25_PERSIST_DIRNAME = "bm25_retriever"
+
+_BM25_CACHE: dict[tuple[str, int], Any] = {}
+_BM25_CACHE_LOCK = threading.Lock()
+
+
+def clear_bm25_cache() -> None:
+    """Clear cached BM25 retriever instances."""
+    with _BM25_CACHE_LOCK:
+        _BM25_CACHE.clear()
+
+
+def _persist_dir_mtime(persist_dir: Path) -> int:
+    try:
+        return persist_dir.stat().st_mtime_ns
+    except OSError:
+        return 0
 
 
 def _import_bm25_retriever():
@@ -70,8 +87,15 @@ def build_bm25_retriever(index: Any, storage_dir: Path, *, top_k: int) -> Any | 
 
     persist_dir = _bm25_persist_dir(storage_dir)
     if persist_dir.exists():
+        cache_key = (str(persist_dir.resolve()), _persist_dir_mtime(persist_dir))
+        with _BM25_CACHE_LOCK:
+            cached = _BM25_CACHE.get(cache_key)
+            if cached is not None:
+                return _set_similarity_top_k(cached, top_k)
         try:
             retriever = bm25_cls.from_persist_dir(str(persist_dir))
+            with _BM25_CACHE_LOCK:
+                _BM25_CACHE[cache_key] = retriever
             return _set_similarity_top_k(retriever, top_k)
         except Exception as exc:
             logger.warning("Failed to load persisted BM25 retriever from %s: %s", persist_dir, exc)
@@ -94,6 +118,7 @@ def persist_bm25_retriever(index: Any, storage_dir: Path, *, top_k: int) -> bool
     if bm25_cls is None:
         return False
 
+    clear_bm25_cache()
     persist_dir = _bm25_persist_dir(storage_dir)
     if persist_dir.exists():
         shutil.rmtree(persist_dir, ignore_errors=True)
@@ -155,5 +180,6 @@ __all__ = [
     "BM25_PERSIST_DIRNAME",
     "build_bm25_retriever",
     "build_retriever",
+    "clear_bm25_cache",
     "persist_bm25_retriever",
 ]

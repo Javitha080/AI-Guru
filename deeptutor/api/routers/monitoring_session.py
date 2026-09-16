@@ -193,7 +193,7 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
             _purge_session_state(session_id)
         return
 
-    _apply_supervision_strictness_bg(pipeline)
+    _apply_supervision_strictness_bg(pipeline, session_id=session_id)
 
     # Delegate to the browser-driven monitoring loop service
     from deeptutor.services.monitoring.browser_session import browser_driven_monitoring_loop
@@ -208,11 +208,14 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     )
 
 
-def _apply_supervision_strictness_bg(pipeline: Any) -> None:
+def _apply_supervision_strictness_bg(pipeline: Any, session_id: Optional[str] = None) -> None:
     """Schedule strictness application on the running loop (legacy WS path)."""
     from deeptutor.services.background import spawn_bg
 
-    spawn_bg(apply_supervision_strictness(pipeline), name="monitoring-strictness")
+    spawn_bg(
+        apply_supervision_strictness(pipeline, session_id=session_id),
+        name="monitoring-strictness",
+    )
 
 
 # --- Live supervision endpoints ----------------------------------------------

@@ -31,6 +31,8 @@ from deeptutor.services.exams.text_cleaner import normalize, split_papers
 logger = logging.getLogger(__name__)
 
 _YEAR_RE = re.compile(r"\b(19|20)\d{2}\b")
+_OL_RE = re.compile(r"\bol\b")
+_OLD_RE = re.compile(r"\bold\b")
 _GRADE12_MAX_YEAR = 2018
 
 _MIN_MCQ_FULL_RATIO = 0.80
@@ -53,14 +55,14 @@ def _year_of(name: str, rel_parts: Tuple[str, ...]) -> Optional[int]:
 
 def _grade_for(meta_year: Optional[int], filename: str) -> Optional[int]:
     low = filename.lower()
-    if "o-l" in low or re.search(r"\bol\b", low):
+    if "o-l" in low or _OL_RE.search(low):
         return 11
     if meta_year is None:
         return None
     if meta_year <= _GRADE12_MAX_YEAR:
         return 12
     if meta_year == 2019:
-        return 12 if re.search(r"\bold\b", low) else 13
+        return 12 if _OLD_RE.search(low) else 13
     return 13
 
 
@@ -69,8 +71,6 @@ def _write_text(path: Path, content: str) -> None:
     try:
         path.write_text(content, encoding="utf-8")
     except OSError:
-        import time
-
         time.sleep(0.1)
         path.write_text(content, encoding="utf-8")
 

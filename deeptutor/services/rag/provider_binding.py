@@ -19,14 +19,13 @@ from deeptutor.services.rag.factory import DEFAULT_PROVIDER, normalize_provider_
 def load_kb_config_entry(kb_base_dir: str | Path, kb_name: str) -> dict[str, Any]:
     """Return the raw ``kb_config.json`` entry for ``kb_name``, if present."""
     config_path = Path(kb_base_dir) / "kb_config.json"
-    if not config_path.exists():
-        return {}
-    try:
-        with open(config_path, encoding="utf-8") as handle:
-            entry = json.load(handle).get("knowledge_bases", {}).get(kb_name, {})
+    from deeptutor.services.rag.pipelines.modes import load_kb_config_cached
+
+    data = load_kb_config_cached(config_path)
+    if data:
+        entry = data.get("knowledge_bases", {}).get(kb_name, {})
         return entry if isinstance(entry, dict) else {}
-    except Exception:
-        return {}
+    return {}
 
 
 def load_metadata_provider(kb_base_dir: str | Path, kb_name: str) -> str | None:
