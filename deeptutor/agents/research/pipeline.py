@@ -437,7 +437,9 @@ class ResearchPipeline:
             logger.warning("Failed to load research pipeline prompts: %s", exc)
             self._prompts = {}
 
-        self._block_tool_context_cache: tuple[int, list[dict[str, Any]] | None, str, str] | None = None
+        self._block_tool_context_cache: tuple[int, list[dict[str, Any]] | None, str, str] | None = (
+            None
+        )
 
     # ------------------------------------------------------------------
     # Public entry points
@@ -832,7 +834,9 @@ class ResearchPipeline:
             native_block_tools = self._use_native_block_tools(block_tool_names)
             prompt_tool_names = block_tool_names if native_block_tools else []
             effective_max_iterations = (
-                max(self.block_max_iterations, 4) if prompt_tool_names else self.block_max_iterations
+                max(self.block_max_iterations, 4)
+                if prompt_tool_names
+                else self.block_max_iterations
             )
             tool_schemas = (
                 self._build_block_tool_schemas(prompt_tool_names) if native_block_tools else None

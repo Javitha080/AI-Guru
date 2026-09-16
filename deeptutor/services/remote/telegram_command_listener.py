@@ -85,7 +85,9 @@ def parse_command(text: Optional[str]) -> Optional[str]:
             return "boostalert_test"
         if arg in ("strict", "on"):
             if len(parts) > 2:
-                raw_min = parts[2].lower().replace("mins", "").replace("min", "").replace("m", "").strip()
+                raw_min = (
+                    parts[2].lower().replace("mins", "").replace("min", "").replace("m", "").strip()
+                )
                 if raw_min.isdigit():
                     return f"boostalert_strict:{raw_min}"
             return "boostalert_strict"
@@ -570,7 +572,9 @@ async def _get_current_strictness(parent_id: str = "default") -> str:
     return "balanced"
 
 
-async def _revert_boost_job(delay_s: float, target_chat_id: str, parent_id: str = "default") -> None:
+async def _revert_boost_job(
+    delay_s: float, target_chat_id: str, parent_id: str = "default"
+) -> None:
     try:
         await asyncio.sleep(delay_s)
         await _set_db_strictness("balanced", parent_id=parent_id)

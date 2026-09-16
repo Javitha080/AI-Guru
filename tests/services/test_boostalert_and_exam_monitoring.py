@@ -128,14 +128,19 @@ class TestBoostAlertCommands:
 
     async def test_boostalert_multitenancy_parent_id(self):
         # parent_id updates both supervision_rules_{parent_id} and default
-        reply = await _run_boostalert_action("boostalert_strict:20", chat_id="555000111", parent_id="parent-alpha")
+        reply = await _run_boostalert_action(
+            "boostalert_strict:20", chat_id="555000111", parent_id="parent-alpha"
+        )
         assert "Boosted to STRICT" in reply
         from deeptutor.services.remote.telegram_command_listener import _get_current_strictness
+
         curr = await _get_current_strictness(parent_id="parent-alpha")
         assert curr == "strict"
 
         # Revert with parent_id
-        off_reply = await _run_boostalert_action("boostalert_off", chat_id="555000111", parent_id="parent-alpha")
+        off_reply = await _run_boostalert_action(
+            "boostalert_off", chat_id="555000111", parent_id="parent-alpha"
+        )
         assert "Reset to Balanced" in off_reply
         curr_off = await _get_current_strictness(parent_id="parent-alpha")
         assert curr_off == "balanced"
@@ -270,4 +275,3 @@ class TestExamStrictnessInvariantAndLifecycle:
         # Verify study session completed
         sess_after = await StudySessionManager().get_session(session_id)
         assert sess_after["status"] == "completed"
-
