@@ -28,6 +28,8 @@ class VideogenConfig:
     aspect_ratio: str = ""  # e.g. "16:9"
     duration: str = ""  # seconds, free-form (e.g. "5")
     resolution: str = ""  # e.g. "720p" | "1080p"
+    fps: str = ""  # frames per second (e.g. "24" | "30")
+    seed: int | None = None
     # Polling budget. ``request_timeout`` bounds each submit/poll HTTP call;
     # ``poll_timeout`` bounds the whole render; ``poll_interval`` is the gap
     # between status checks.

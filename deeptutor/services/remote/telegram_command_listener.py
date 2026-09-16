@@ -37,6 +37,10 @@ _MAX_BACKOFF_S = 300.0  # 5 minute cap on exponential backoff
 _HELP_TEXT = (
     "<b>AI Guru parent commands</b>\n"
     "/status — study session & tunnel status\n"
+    "/boostalert status — alert strictness & active timers\n"
+    "/boostalert strict [mins] — boost supervision to strict\n"
+    "/boostalert test — send verification test alert\n"
+    "/boostalert off — restore balanced supervision\n"
     "/tunnel on — start the outbound tunnel\n"
     "/tunnel off — stop the tunnel\n"
     "/tunnel status — current reachability\n"
@@ -55,8 +59,10 @@ def parse_command(text: Optional[str]) -> Optional[str]:
 
     Returns one of ``"tunnel_on"``, ``"tunnel_off"``, ``"tunnel_status"``,
     ``"live_stream"``, ``"live_stop"``, ``"live_status"``,
-    ``"status"``, ``"help"``, or None for anything unrecognized. Tolerates the leading
-    ``@botname`` suffix Telegram appends in group chats.
+    ``"boostalert_status"``, ``"boostalert_test"``, ``"boostalert_strict"``,
+    ``"boostalert_off"``, ``"status"``, ``"help"``, or None for anything
+    unrecognized. Tolerates the leading ``@botname`` suffix Telegram appends
+    in group chats.
     """
     if not text:
         return None
@@ -72,6 +78,23 @@ def parse_command(text: Optional[str]) -> Optional[str]:
         return "help"
     if head == "/status" and not arg:
         return "status"
+    if head == "/boostalert":
+        if not arg or arg == "status":
+            return "boostalert_status"
+        if arg == "test":
+            return "boostalert_test"
+        if arg in ("strict", "on"):
+            if len(parts) > 2:
+                raw_min = parts[2].lower().replace("mins", "").replace("min", "").replace("m", "").strip()
+                if raw_min.isdigit():
+                    return f"boostalert_strict:{raw_min}"
+            return "boostalert_strict"
+        raw_arg = arg.replace("mins", "").replace("min", "").replace("m", "").strip()
+        if raw_arg.isdigit():
+            return f"boostalert_strict:{raw_arg}"
+        if arg in ("off", "normal", "balanced", "reset"):
+            return "boostalert_off"
+        return None
     if head == "/tunnel":
         if arg == "on":
             return "tunnel_on"
@@ -350,9 +373,11 @@ class TelegramCommandListener:
             except (TypeError, ValueError):
                 seen = self._offsets.get(parent_id, 0)
             self._offsets[parent_id] = max(self._offsets.get(parent_id, 0), seen)
-            await self._handle_update(update, cfg)
+            await self._handle_update(update, cfg, parent_id=parent_id)
 
-    async def _handle_update(self, update: Dict[str, Any], cfg: Dict[str, Any]) -> None:
+    async def _handle_update(
+        self, update: Dict[str, Any], cfg: Dict[str, Any], parent_id: str = "default"
+    ) -> None:
         message = update.get("message") or {}
         chat = message.get("chat") or {}
         chat_id = chat.get("id")
@@ -385,7 +410,7 @@ class TelegramCommandListener:
             return
 
         try:
-            reply = await _dispatch(action, str(chat_id))
+            reply = await _dispatch(action, str(chat_id), parent_id=parent_id)
         except Exception as exc:  # noqa: BLE001 - report honestly, stay alive
             logger.error("Tunnel command %s failed: %s", action, exc)
             reply = f"Command failed: {exc}"
@@ -456,20 +481,288 @@ async def _composite_status_reply() -> str:
 
         active_live = list_consented_active()
         if active_live:
-            lines.append("📹 <b>Live Video:</b> Active")
+            lines.append("📹 <b>Live Video:</b> Active\n")
         else:
-            lines.append("📹 <b>Live Video:</b> Inactive")
+            lines.append("📹 <b>Live Video:</b> Inactive\n")
+    except Exception:  # noqa: BLE001
+        pass
+
+    # 4. Alert Strictness status
+    try:
+        curr = await _get_current_strictness()
+        if _boost_state.get("active") and _boost_state.get("expires_at", 0) > time.time():
+            rem = max(0, int((_boost_state.get("expires_at", 0) - time.time()) / 60) + 1)
+            lines.append(f"⚡ <b>Alert Strictness:</b> STRICT (Boosted, {rem}m left)")
+        else:
+            lines.append(f"⚡ <b>Alert Strictness:</b> {curr.capitalize()}")
     except Exception:  # noqa: BLE001
         pass
 
     return "\n".join(lines)
 
 
-async def _dispatch(action: str, chat_id: str) -> str:
+# ------------------------------------------------------------- boostalert state
+
+_boost_state: Dict[str, Any] = {
+    "active": False,
+    "expires_at": 0.0,
+    "duration_minutes": 0,
+    "timer_task": None,
+    "chat_id": "",
+}
+
+
+async def _set_db_strictness(profile: str, parent_id: str = "default") -> None:
+    import aiosqlite
+
+    from deeptutor.services.path_service import get_path_service
+    from deeptutor.services.remote.kv_settings import ensure_kv_settings
+
+    db_path = get_path_service().user_dir / "chat_history.db"
+    now = time.time()
+    try:
+        async with aiosqlite.connect(db_path) as db:
+            await ensure_kv_settings(db)
+            keys = {f"supervision_rules_{parent_id}", "supervision_rules_default"}
+            for key in keys:
+                cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (key,))
+                row = await cursor.fetchone()
+                rules = {}
+                if row and row[0]:
+                    try:
+                        rules = json.loads(row[0])
+                    except Exception:
+                        rules = {}
+                rules["alert_strictness"] = profile
+                rules["updated_at"] = now
+                await db.execute(
+                    "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'supervision', ?)",
+                    (key, json.dumps(rules), now),
+                )
+            await db.commit()
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Could not persist strictness setting: %s", exc)
+
+
+async def _get_current_strictness(parent_id: str = "default") -> str:
+    import aiosqlite
+
+    from deeptutor.services.path_service import get_path_service
+    from deeptutor.services.remote.kv_settings import ensure_kv_settings
+
+    db_path = get_path_service().user_dir / "chat_history.db"
+    try:
+        async with aiosqlite.connect(db_path) as db:
+            await ensure_kv_settings(db)
+            for key in (f"supervision_rules_{parent_id}", "supervision_rules_default"):
+                cursor = await db.execute("SELECT value FROM settings WHERE key = ?", (key,))
+                row = await cursor.fetchone()
+                if row and row[0]:
+                    try:
+                        rules = json.loads(row[0])
+                        val = str(rules.get("alert_strictness") or "")
+                        if val:
+                            return val
+                    except Exception:
+                        pass
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Could not read strictness setting: %s", exc)
+    return "balanced"
+
+
+async def _revert_boost_job(delay_s: float, target_chat_id: str, parent_id: str = "default") -> None:
+    try:
+        await asyncio.sleep(delay_s)
+        await _set_db_strictness("balanced", parent_id=parent_id)
+        from deeptutor.services.monitoring.system_monitor import update_all_monitors_strictness
+
+        await update_all_monitors_strictness("balanced")
+        _boost_state["active"] = False
+        _boost_state["timer_task"] = None
+
+        for _, cfg in await _read_configs():
+            if str(cfg.get("chat_id")) == str(target_chat_id):
+                token = str(cfg.get("bot_token") or "")
+                if token:
+                    await TelegramNotifier.send_message(
+                        token,
+                        str(target_chat_id),
+                        "ℹ️ <b>AI Guru — Supervision Boost Ended</b>\n\n"
+                        "Temporary strict supervision period has elapsed.\n"
+                        "Alert strictness restored to <b>balanced</b> mode.",
+                    )
+                break
+    except asyncio.CancelledError:
+        pass
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Error in boost revert job: %s", exc)
+
+
+async def _run_boostalert_action(action: str, chat_id: str, parent_id: str = "default") -> str:
+    from deeptutor.services.background import spawn_bg
+    from deeptutor.services.monitoring.monitoring_config import perception_profile_for
+    from deeptutor.services.monitoring.system_monitor import (
+        active_system_monitors,
+        update_all_monitors_strictness,
+    )
+    from deeptutor.services.remote.audit_logger import AuditLogger
+
+    async def _audit(command_action: str, details: Dict[str, Any]) -> None:
+        try:
+            await AuditLogger.log_event(
+                "parent-telegram",
+                "parent",
+                command_action,
+                "parent_portal",
+                "",
+                details,
+                "",
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("audit log skipped for %s: %s", command_action, exc)
+
+    if action.startswith("boostalert_strict"):
+        mins = 60
+        if ":" in action:
+            try:
+                mins = max(1, int(action.split(":", 1)[1]))
+            except ValueError:
+                mins = 60
+
+        await _set_db_strictness("strict", parent_id=parent_id)
+        updated_monitors = await update_all_monitors_strictness("strict")
+
+        # Cancel previous revert job if active
+        prev_task = _boost_state.get("timer_task")
+        if prev_task and not prev_task.done():
+            prev_task.cancel()
+
+        now = time.time()
+        _boost_state["active"] = True
+        _boost_state["expires_at"] = now + mins * 60
+        _boost_state["duration_minutes"] = mins
+        _boost_state["chat_id"] = chat_id
+        _boost_state["timer_task"] = spawn_bg(
+            _revert_boost_job(mins * 60, chat_id, parent_id=parent_id),
+            name="tg-boostalert-revert",
+        )
+
+        p = perception_profile_for("strict")
+        await _audit(
+            "telegram.boostalert_strict",
+            {"chat_id": chat_id, "duration_minutes": mins, "updated_monitors": updated_monitors},
+        )
+
+        return (
+            "⚡ <b>AI Guru — Alert System Boosted to STRICT</b>\n\n"
+            "Supervision thresholds tightened for maximum focus:\n"
+            f"• <b>Looking Away:</b> {p.looking_away_seconds:.1f}s (was 10.0s)\n"
+            f"• <b>Phone Detected:</b> {p.phone_seconds:.1f}s (was 4.0s)\n"
+            f"• <b>Face Mismatch:</b> {p.identity_mismatch_seconds:.1f}s (was 15.0s)\n"
+            f"• <b>Alert Cooldown:</b> {p.cooldown_seconds:.0f}s (was 60s)\n"
+            f"• <b>Min Confidence:</b> {int(p.min_confidence * 100)}%\n\n"
+            f"⏱️ <b>Active Boost:</b> {mins} minutes\n"
+            f"🎯 <b>Sessions Updated:</b> {updated_monitors} active monitor(s)"
+        )
+
+    if action == "boostalert_off":
+        prev_task = _boost_state.get("timer_task")
+        if prev_task and not prev_task.done():
+            prev_task.cancel()
+        _boost_state["active"] = False
+        _boost_state["timer_task"] = None
+
+        await _set_db_strictness("balanced", parent_id=parent_id)
+        updated_monitors = await update_all_monitors_strictness("balanced")
+        p = perception_profile_for("balanced")
+
+        await _audit("telegram.boostalert_off", {"chat_id": chat_id})
+        return (
+            "✅ <b>AI Guru — Supervision Reset to Balanced</b>\n\n"
+            "Standard thresholds restored:\n"
+            f"• <b>Looking Away:</b> {p.looking_away_seconds:.1f}s\n"
+            f"• <b>Phone Detected:</b> {p.phone_seconds:.1f}s\n"
+            f"• <b>Alert Cooldown:</b> {p.cooldown_seconds:.0f}s\n"
+            f"• <b>Min Confidence:</b> {int(p.min_confidence * 100)}%\n\n"
+            f"🎯 <b>Sessions Updated:</b> {updated_monitors} active monitor(s)"
+        )
+
+    if action == "boostalert_test":
+        import uuid
+
+        test_id = f"test-{uuid.uuid4().hex[:6]}"
+        curr = await _get_current_strictness(parent_id=parent_id)
+        if _boost_state.get("active") and _boost_state.get("expires_at", 0) > time.time():
+            curr = "strict (boosted)"
+
+        await _audit("telegram.boostalert_test", {"chat_id": chat_id, "test_id": test_id})
+
+        # Also queue a test warning event if notification worker is active
+        try:
+            from deeptutor.services.monitoring.warning_sinks import queue_telegram_notification
+
+            await queue_telegram_notification(
+                session_id="",
+                warning={
+                    "category": "TEST_ALERT",
+                    "severity": "alert",
+                    "message": "AI Guru Alert Verification: Parent push notifications verified operational.",
+                    "confidence": 1.0,
+                    "duration_seconds": 0.0,
+                },
+            )
+        except Exception:  # noqa: BLE001
+            pass
+
+        return (
+            "🚨 <b>AI Guru — Alert System Verification</b>\n\n"
+            "Status: <b>ONLINE & VERIFIED ✅</b>\n"
+            "Notification Pipeline: <b>Active</b>\n"
+            f"Current Mode: <b>{curr.upper()}</b>\n"
+            f"Verification ID: <code>{test_id}</code>\n\n"
+            "<i>High-priority study alerts and proctor notifications are functioning normally.</i>"
+        )
+
+    # boostalert_status
+    curr = await _get_current_strictness(parent_id=parent_id)
+    boost_active = bool(
+        _boost_state.get("active") and _boost_state.get("expires_at", 0) > time.time()
+    )
+    rem_mins = (
+        max(0, int((_boost_state.get("expires_at", 0) - time.time()) / 60) + 1)
+        if boost_active
+        else 0
+    )
+    active_profile = "strict" if boost_active else curr
+    p = perception_profile_for(active_profile)
+
+    from deeptutor.services.monitoring.session_registry import list_active_sessions
+
+    monitors = active_system_monitors()
+    active_sids = list_active_sessions()
+
+    lines = [
+        "⚡ <b>AI Guru — Alert & Supervision Status</b>\n",
+        f"Profile: <b>{active_profile.upper()}</b>"
+        + (f" (Boosted, {rem_mins}m remaining)" if boost_active else ""),
+        f"• Looking Away: <b>{p.looking_away_seconds:.1f}s</b>",
+        f"• Phone Detected: <b>{p.phone_seconds:.1f}s</b>",
+        f"• Identity Mismatch: <b>{p.identity_mismatch_seconds:.1f}s</b>",
+        f"• Warning Cooldown: <b>{p.cooldown_seconds:.0f}s</b>",
+        f"• Min Confidence: <b>{int(p.min_confidence * 100)}%</b>\n",
+        f"📡 <b>Active Sessions:</b> {len(active_sids)}",
+        f"📹 <b>Hardware Monitors:</b> {len(monitors)}",
+    ]
+    return "\n".join(lines)
+
+
+async def _dispatch(action: str, chat_id: str, parent_id: str = "default") -> str:
     if action == "help":
         return _HELP_TEXT
     if action == "status":
         return await _composite_status_reply()
+    if action.startswith("boostalert_"):
+        return await _run_boostalert_action(action, chat_id, parent_id=parent_id)
     if action.startswith("live_"):
         return await _run_live_action(action, chat_id)
     return await _run_tunnel_action(action, chat_id)

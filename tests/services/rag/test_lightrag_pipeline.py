@@ -348,7 +348,7 @@ def test_build_rag_skips_raganything_parser_install_check(monkeypatch) -> None:
     rag = engine.build_rag(Path("/tmp/kb-wd"))  # noqa: S108
 
     assert rag._parser_installation_checked is True
-    assert captured["config"].working_dir == "/tmp/kb-wd"
+    assert Path(captured["config"].working_dir) == Path("/tmp/kb-wd")
 
 
 def test_lightrag_query_initializes_raganything_before_aquery(monkeypatch) -> None:

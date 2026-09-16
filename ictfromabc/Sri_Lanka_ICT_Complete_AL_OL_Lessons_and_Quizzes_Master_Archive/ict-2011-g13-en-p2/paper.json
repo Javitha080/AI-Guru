@@ -1,0 +1,617 @@
+[
+  {
+    "id": "al-2011-ict-en-p2-q1",
+    "number": 1,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions related to computer generations, the fetch-execute cycle, and two's complement binary arithmetic.",
+    "diagrams": [
+      {
+        "id": "d_q1b_fetch_execute",
+        "src": "images/q1b_fetch_execute.png",
+        "alt": "Fetch, Decode, Execute, and Store cycle",
+        "caption": "Figure 1: CPU Fetch-Execute Cycle"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "State the main technologies used in the first four generations of computers.",
+        "marks": 2.0,
+        "expected_answer": "1. First Generation: Vacuum Tubes\n2. Second Generation: Transistors\n3. Third Generation: Integrated Circuits (ICs)\n4. Fourth Generation: Microprocessors / Very Large Scale Integration (VLSI)",
+        "marking_guide": "Award 0.5 marks for each correct generation technology."
+      },
+      {
+        "sub_id": "1.b",
+        "label": "(b)",
+        "stem": "Draw a diagram to depict the fetch-execute cycle used in program execution.",
+        "marks": 4.0,
+        "expected_answer": "A cyclic diagram showing:\n1. Fetch instruction from Memory\n2. Decode instruction in Control Unit\n3. Execute instruction in ALU/Execution units\n4. Store / Write back result to Memory/Registers\nReturning back in a continuous loop to Fetch.",
+        "marking_guide": "Award 1 mark each for Fetch, Decode, Execute, Store stages correctly connected with cyclic flow arrows."
+      },
+      {
+        "sub_id": "1.c",
+        "label": "(c)",
+        "stem": "Show how the computation $5 + (-3)$ is done in 8-bit two's complement arithmetic. Explain how you deal with the carry generated from the most significant bit.",
+        "marks": 4.0,
+        "expected_answer": "1. $+5$ in 8-bit binary: $00000101_2$\n2. $+3$ in 8-bit binary: $00000011_2$\n3. 1's complement of $+3$: $11111100_2$\n4. 2's complement of $-3$: $11111100_2 + 1 = 11111101_2$\n\nAddition:\n$$\n\\begin{array}{r@{\\quad}l}\n  0000\\,0101_2 & (+5) \\\\\n+ \\; 1111\\,1101_2 & (-3) \\\\\n\\hline\n(1)\\,0000\\,0010_2 & (+2_{10})\n\\end{array}\n$$\n\nThe end-around carry generated beyond the MSB (bit 8) is discarded in two's complement arithmetic. The final 8-bit result is $00000010_2 = +2_{10}$.",
+        "marking_guide": "Award 1 mark for +5 binary, 1 mark for -3 two's complement representation, 1 mark for addition arithmetic, 1 mark for explaining carry discard."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Computer Architecture & Arithmetic",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q2",
+    "number": 2,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding FAT32/NTFS file systems, virtual memory paging, and process state transitions.",
+    "diagrams": [
+      {
+        "id": "d_q2c_process_state",
+        "src": "images/q2c_process_state.png",
+        "alt": "Operating system process state transition diagram",
+        "caption": "Figure 2: OS Process State Transitions"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "Encircle the most suitable entry in the second and third columns corresponding to the properties listed in the first column of the following table with respect to FAT32 and NTFS file systems:\n\n| Property | FAT32 | NTFS |\n| :--- | :---: | :---: |\n| Maximum file size | limited / unlimited | limited / unlimited |\n| Maximum file name length | limited / unlimited | limited / unlimited |\n| Security | yes / no | yes / no |\n| Support of Unicode | yes / no | yes / no |",
+        "marks": 2.0,
+        "expected_answer": "| Property | FAT32 | NTFS |\n| :--- | :---: | :---: |\n| Maximum file size | limited (4 GB) | limited (16 TB) |\n| Maximum file name length | limited (255 chars) | limited (255 chars) |\n| Security | no | yes |\n| Support of Unicode | yes | yes |",
+        "marking_guide": "Award 0.5 marks for each correct row."
+      },
+      {
+        "sub_id": "2.b.i",
+        "label": "(b) (i)",
+        "stem": "A computer has an 18-bit virtual memory address space where six bits are used for a page address. Calculate the total number of pages defined by the above addressing scheme.",
+        "marks": 2.0,
+        "expected_answer": "Total pages = $2^{\\text{page bits}} = 2^6 = 64$ pages.",
+        "marking_guide": "Award 2 marks for correct calculation (64 pages)."
+      },
+      {
+        "sub_id": "2.b.ii",
+        "label": "(b) (ii)",
+        "stem": "Consider the following virtual memory address: `010111000000111100`. What is the page and displacement (Offset) of this address?",
+        "marks": 2.0,
+        "expected_answer": "Splitting the 18 bits into 6 bits page and 12 bits offset:\n- Page Number: `010111` $= 16 + 4 + 2 + 1 = 23_{10}$\n- Displacement / Offset: `000000111100` $= 32 + 16 + 8 + 4 = 60_{10}$ ($3\\text{C}_{16}$)",
+        "marking_guide": "Award 1 mark for page number (23), 1 mark for displacement/offset (60)."
+      },
+      {
+        "sub_id": "2.c",
+        "label": "(c)",
+        "stem": "Draw the operating system process transition diagram from process creation to termination.",
+        "marks": 4.0,
+        "expected_answer": "State transition diagram:\n1. [New] -> [Ready]\n2. [Ready] <-> [Running] (dispatch on right, interrupt on left)\n3. [Running] -> [Terminated] (exit)\n4. [Running] -> [Blocked / Waiting] (I/O or event wait)\n5. [Blocked / Waiting] -> [Ready] (I/O completion)",
+        "marking_guide": "Award 2.5 marks for the 5 states, 1.5 marks for correct transition arrows and labels."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Operating Systems & Memory Management",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q3",
+    "number": 3,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Consider the following scenario:\n\nStudents in a school participate in different sports such as volleyball, track and field athletics, table tennis, etc. The principal wants to maintain a registry with admission number, student name, home address, class, and sports he/she participates. A student can participate in more than one sport. For a particular sport, there can be more than one student. Each student can participate pre-defined number of hours in a sport.",
+    "diagrams": [
+      {
+        "id": "d_q3a_er",
+        "src": "images/q3a_er_diagram.png",
+        "alt": "School sports Entity-Relationship diagram",
+        "caption": "Figure 3: Sports Participation ER Diagram"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "3.a",
+        "label": "(a)",
+        "stem": "Draw an ER diagram for the above scenario.",
+        "marks": 4.0,
+        "expected_answer": "Entities:\n1. `STUDENT` (Attributes: AdmissionNo [PK], StudentName, HomeAddress, Class)\n2. `SPORT` (Attributes: SportName / SportID [PK])\nRelationship: `Participates` (Cardinality: $M:N$) with relationship attribute `Hours`.",
+        "marking_guide": "Award 2 marks for entities and attributes, 2 marks for relationship and Hours attribute."
+      },
+      {
+        "sub_id": "3.b",
+        "label": "(b)",
+        "stem": "Classify with reasons whether the cardinality of relationship(s) identified in section (a) is one-to-one, one-to-many, or many-to-many.",
+        "marks": 2.0,
+        "expected_answer": "Cardinality: Many-to-Many ($M:N$).\nReason: A single student can participate in multiple sports, and a single sport can have multiple participating students.",
+        "marking_guide": "Award 1 mark for M:N, 1 mark for reasoning."
+      },
+      {
+        "sub_id": "3.c",
+        "label": "(c)",
+        "stem": "\"ER diagrams do not allow attributes to be assigned on relationships\". State whether this statement is true or false. Explain your answer by using the given scenario.",
+        "marks": 2.0,
+        "expected_answer": "Statement is False.\nExplanation: In ER modeling, many-to-many relationships frequently hold descriptive attributes. In this scenario, 'Hours' represents the time spent by a specific student playing a specific sport; it cannot belong solely to STUDENT or SPORT, and therefore must be placed on the 'Participates' relationship.",
+        "marking_guide": "Award 1 mark for stating False, 1 mark for explaining why 'Hours' belongs on the relationship."
+      },
+      {
+        "sub_id": "3.d",
+        "label": "(d)",
+        "stem": "A database designer suggested the following relation for the above system:\n`Student_Sport(AdmissionNo, StudentName, HomeAddress, Class, SportName)`\nState two weaknesses of this relation and suggest necessary modifications.",
+        "marks": 2.0,
+        "expected_answer": "Weaknesses:\n1. Data Redundancy: StudentName, HomeAddress, and Class are repeated for every sport a student plays.\n2. Anomalies: Deleting a sport may delete student data (Deletion anomaly), and a student without sports cannot be recorded without NULLs (Insertion anomaly).\n\nModifications (3NF Relations):\n- `Student(AdmissionNo [PK], StudentName, HomeAddress, Class)`\n- `Sport(SportID [PK], SportName)`\n- `Student_Sport(AdmissionNo [FK], SportID [FK], Hours)`",
+        "marking_guide": "Award 1 mark for identifying two weaknesses, 1 mark for proposing normalized 3NF schema."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Database Design & ER Modeling",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q4",
+    "number": 4,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding software classifications, storage media, data validation checks, and legal/ethical concepts.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "Classify the following software as either \"system software\" or as \"application software\":\n* Linux\n* Word Processor\n* Web Browser",
+        "marks": 3.0,
+        "expected_answer": "1. Linux: System software (Operating System)\n2. Word Processor: Application software\n3. Web Browser: Application software",
+        "marking_guide": "Award 1 mark for each correct classification."
+      },
+      {
+        "sub_id": "4.b",
+        "label": "(b)",
+        "stem": "Computer storage devices can be categorized into three types based on the medium used to store /retrieve data. State the three types of media and give an example for each type.",
+        "marks": 3.0,
+        "expected_answer": "1. Magnetic Media - Example: Hard Disk Drive (HDD), Magnetic Tape\n2. Optical Media - Example: CD, DVD, Blu-ray Disc\n3. Solid-state / Semiconductor Media - Example: USB Flash Drive, SSD, SD Card",
+        "marking_guide": "Award 1 mark for each media category with a correct example."
+      },
+      {
+        "sub_id": "4.c",
+        "label": "(c)",
+        "stem": "The transaction file in a company's payroll system includes employee number, hours worked, department code, and week number. Assume that the system maintains an `Employee master` table and a `Department master` table. Encircle the most appropriate validation check for each of the data elements given in the following table:\n\n| Data element | Validation checks |\n| :--- | :--- |\n| employee Number | Presence in Employee master table / Numerical value |\n| hours worked | Presence in Employee master table / Range check |\n| department code | Presence in Department master table / Range check |\n| week number | Length / Range check |",
+        "marks": 2.0,
+        "expected_answer": "- employee Number: Presence in Employee master table\n- hours worked: Range check\n- department code: Presence in Department master table\n- week number: Range check",
+        "marking_guide": "Award 0.5 marks for each correct validation check."
+      },
+      {
+        "sub_id": "4.d",
+        "label": "(d)",
+        "stem": "Describe the terms \"Video conferencing\" and \"Copyright\".",
+        "marks": 2.0,
+        "expected_answer": "1. Video conferencing: A telecommunication technology allowing two or more dispersed parties to transmit real-time bidirectional audio and video streams over computer networks.\n2. Copyright: A legal property right granted to original authors/creators to control reproduction, distribution, and adaptation of their works.",
+        "marking_guide": "Award 1 mark for Video conferencing definition, 1 mark for Copyright definition."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Software Classification, Storage & Data Validation",
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q5",
+    "number": 5,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 1 (CPU Architecture, Compaction & Prime Detector Circuit)\n\nAnswer the following questions on central processing unit design, memory storage compaction, and 4-bit prime detector logic circuit implementation.",
+    "diagrams": [
+      {
+        "id": "d_q1d_prime_circuit",
+        "src": "images/q1d_prime_circuit.png",
+        "alt": "Block diagram of 4-bit prime number detector circuit",
+        "caption": "Figure 4: 4-bit Prime Detector Logic Circuit"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "What are the three (3) main components of a Central Processing Unit (CPU) of a typical computer? List the main functions of these three components.",
+        "marks": 3.0,
+        "expected_answer": "1. Control Unit (CU): Manages instruction fetch, decodes opcodes, and issues timing/control signals.\n2. Arithmetic Logic Unit (ALU): Executes arithmetic math (+, -, *, /) and logical comparisons (AND, OR, NOT).\n3. Registers: High-speed on-chip storage for temporary operands, program counter, and status flags.",
+        "marking_guide": "Award 1 mark for each component with its correct function."
+      },
+      {
+        "sub_id": "1.b",
+        "label": "(b)",
+        "stem": "Briefly explain why storage compaction is needed in memory management.",
+        "marks": 2.0,
+        "expected_answer": "Storage compaction resolves external fragmentation by shifting allocated memory partitions together, consolidating scattered free holes into a single large contiguous block.",
+        "marking_guide": "Award 2 marks for explaining external fragmentation consolidation into contiguous space."
+      },
+      {
+        "sub_id": "1.c",
+        "label": "(c)",
+        "stem": "For a file of size 10400 bits, calculate the wastage in file space due to incomplete filling of the last cluster (Assume that a cluster has a size of 512 bytes.)",
+        "marks": 3.0,
+        "expected_answer": "1. File size in bytes: $10400 / 8 = 1300\\text{ bytes}$\n2. Cluster size: $512\\text{ bytes}$\n3. Required clusters: $\\lceil 1300 / 512 \\rceil = 3\\text{ clusters}$\n4. Total allocated space: $3 \\times 512 = 1536\\text{ bytes}$\n5. Wastage in last cluster: $1536 - 1300 = 236\\text{ bytes}$ (or $1888\\text{ bits}$)",
+        "marking_guide": "Award 1 mark for file byte conversion, 1 mark for cluster calculation, 1 mark for wastage."
+      },
+      {
+        "sub_id": "1.d.i",
+        "label": "(d) (i)",
+        "stem": "A digital circuit takes four binary digits as an input ($A, B, C, D$ from MSB to LSB), and produces 1 if the decimal value is prime, and 0 otherwise. Complete the truth table output column $F(A,B,C,D)$.",
+        "marks": 3.0,
+        "expected_answer": "Primes between 0 and 15 are 2, 3, 5, 7, 11, 13 (0 and 1 are not prime):\n- 0000 (0): 0\n- 0001 (1): 0\n- 0010 (2): 1\n- 0011 (3): 1\n- 0100 (4): 0\n- 0101 (5): 1\n- 0110 (6): 0\n- 0111 (7): 1\n- 1000 (8): 0\n- 1001 (9): 0\n- 1010 (10): 0\n- 1011 (11): 1\n- 1100 (12): 0\n- 1101 (13): 1\n- 1110 (14): 0\n- 1111 (15): 0",
+        "marking_guide": "Award 3 marks for completely correct truth table outputs."
+      },
+      {
+        "sub_id": "1.d.ii",
+        "label": "(d) (ii)",
+        "stem": "Write a Boolean expression to represent the logic function of the above circuit in the sum of products (SOP) form.",
+        "marks": 2.0,
+        "expected_answer": "Canonical SOP:\n$$F = \\bar{A}\\bar{B}C\\bar{D} + \\bar{A}\\bar{B}CD + \\bar{A}B\\bar{C}D + \\bar{A}BCD + A\\bar{B}CD + AB\\bar{C}D$$\n(Simplified via K-map: $F = \\bar{A}\\bar{B}C + \\bar{A}BD + \\bar{B}CD + B\\bar{C}D$)",
+        "marking_guide": "Award 2 marks for canonical or simplified SOP expression."
+      },
+      {
+        "sub_id": "1.d.iii",
+        "label": "(d) (iii)",
+        "stem": "Design a logic circuit for the Boolean expression you have obtained for the above part (ii).",
+        "marks": 2.0,
+        "expected_answer": "Circuit schematic consisting of NOT gates for negated literals, AND gates for product terms, and a multi-input OR gate combining the product outputs.",
+        "marking_guide": "Award 2 marks for correct logic gate connections matching the expression."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Digital Logic Design & Memory Architecture",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q6",
+    "number": 6,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 2 (HTML Elements, CSS & Web Page Design)\n\nAnswer the following questions on HTML structure, CSS paragraph formatting, and wildlife tours web page implementation.",
+    "diagrams": [
+      {
+        "id": "d_q2c_webpage",
+        "src": "images/q2c_wildlife_webpage.png",
+        "alt": "Wildlife Tours to Sri Lanka webpage section",
+        "caption": "Figure 5: Wildlife Tours Web Page Section"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "Describe the terms \"elements\" and \"attributes\" with respect to an HTML document.",
+        "marks": 3.0,
+        "expected_answer": "1. Elements: Fundamental building blocks composed of start tag, content, and end tag defining page structure.\n2. Attributes: Name-value pairs inside opening tags providing configuration, styling, or resource paths.",
+        "marking_guide": "Award 1.5 marks for elements description, 1.5 marks for attributes description."
+      },
+      {
+        "sub_id": "2.b",
+        "label": "(b)",
+        "stem": "Identify each of the following as either an element or an attribute and describe their functionality: (i) `br`, (ii) `href`, (iii) `src`, (iv) `html`.",
+        "marks": 4.0,
+        "expected_answer": "(i) `br`: Element. Inserts a line break.\n(ii) `href`: Attribute. Specifies hypertext target link destination.\n(iii) `src`: Attribute. Specifies external media source path.\n(iv) `html`: Element. Enclosing root element for the entire page.",
+        "marking_guide": "Award 1 mark for each item correctly identified and described."
+      },
+      {
+        "sub_id": "2.c.i",
+        "label": "(c) (i)",
+        "stem": "It is required to format all paragraphs of the HTML document in \"arial\" font, 14 font size and in blue colour. Write the required CSS code segment.",
+        "marks": 2.0,
+        "expected_answer": "```css\np {\n  font-family: Arial, sans-serif;\n  font-size: 14px;\n  color: blue;\n}\n```",
+        "marking_guide": "Award 0.5 marks for selector p, 0.5 each for font-family, font-size, and color properties."
+      },
+      {
+        "sub_id": "2.c.ii",
+        "label": "(c) (ii)",
+        "stem": "Explain the effect of having the following tag in the above HTML document:\n```html\n<a href=\"elephants.jpg\"><img src=\"elephants_tnl.jpg\" ALT=\"Tour to Yala\" width=\"288cm\" height=\"156cm\" style=\"border:none\" /></a>\n```",
+        "marks": 2.0,
+        "expected_answer": "Displays a clickable thumbnail image (`elephants_tnl.jpg`) with alt text 'Tour to Yala'. Clicking on it navigates to the high-resolution image file `elephants.jpg`.",
+        "marking_guide": "Award 2 marks for explaining thumbnail display and hyperlink navigation."
+      },
+      {
+        "sub_id": "2.c.iii",
+        "label": "(c) (iii)",
+        "stem": "Write HTML code segment to create the collection of three radio buttons labelled as 'Blue Whale', 'Leopard' and 'Elephant' as appeared in the web page.",
+        "marks": 2.0,
+        "expected_answer": "```html\n<input type=\"radio\" name=\"wildlife\" value=\"Blue Whale\" id=\"bw\"> Blue Whale<br>\n<input type=\"radio\" name=\"wildlife\" value=\"Leopard\" id=\"leo\"> Leopard<br>\n<input type=\"radio\" name=\"wildlife\" value=\"Elephant\" id=\"ele\"> Elephant\n```",
+        "marking_guide": "Award 2 marks for radio buttons with matching name attribute."
+      },
+      {
+        "sub_id": "2.c.iv",
+        "label": "(c) (iv)",
+        "stem": "The company wants to add a table showing rates with caption 'Wild Sri Lanka' (Days 7: US$910, Days 10: US$1220). Write HTML code segment to create the table.",
+        "marks": 2.0,
+        "expected_answer": "```html\n<table border=\"1\">\n  <caption>Wild Sri Lanka</caption>\n  <tr><th>Days</th><th>Price</th></tr>\n  <tr><td>7</td><td>US$910</td></tr>\n  <tr><td>10</td><td>US$1220</td></tr>\n</table>\n```",
+        "marking_guide": "Award 2 marks for table structure, caption, headers, and rows."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Web Technologies, HTML & CSS",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q7",
+    "number": 7,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 3 (Network Subnetting, Topology & Protocols)\n\nAnswer the following questions regarding subnet design for networks A and B, TCP vs UDP reliability, and networking hardware comparison.",
+    "diagrams": [
+      {
+        "id": "d_q3a_topology",
+        "src": "images/q3a_network_topology.png",
+        "alt": "Inter-network subnet topology with central router",
+        "caption": "Figure 6: Subnet Network Topology"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "3.a.i",
+        "label": "(a) (i)",
+        "stem": "You have been asked to design two physically separated networks, A (`10.32.5.0`) and B (`10.32.6.0`), each having exactly 10 computers. Suggest a suitable subnet mask for each network.",
+        "marks": 2.0,
+        "expected_answer": "For 10 hosts, 4 host bits ($2^4 - 2 = 14$) are needed. Suitable mask: `/28` (`255.255.255.240`) or standard Class C mask `/24` (`255.255.255.0`).",
+        "marking_guide": "Award 2 marks for 255.255.255.240 or 255.255.255.0."
+      },
+      {
+        "sub_id": "3.a.ii",
+        "label": "(a) (ii)",
+        "stem": "Name the device required to connect these two physical networks to communicate with each other.",
+        "marks": 1.0,
+        "expected_answer": "Router.",
+        "marking_guide": "Award 1 mark for Router."
+      },
+      {
+        "sub_id": "3.a.iii",
+        "label": "(a) (iii)",
+        "stem": "Draw a network diagram for the above network and assign suitable IP addresses for the devices in these two networks.",
+        "marks": 4.0,
+        "expected_answer": "Diagram shows Subnet A switch with PCs at 10.32.5.1 to 10.32.5.10 (Gateway: 10.32.5.254) and Subnet B switch with PCs at 10.32.6.1 to 10.32.6.10 (Gateway: 10.32.6.254), both connected to router interfaces.",
+        "marking_guide": "Award 2 marks for topology diagram, 2 marks for valid IP assignments."
+      },
+      {
+        "sub_id": "3.b.i",
+        "label": "(b) (i)",
+        "stem": "Compare TCP and UDP protocols in terms of reliability.",
+        "marks": 3.0,
+        "expected_answer": "TCP is reliable and connection-oriented, utilizing sequence numbers, ACKs, and packet retransmissions. UDP is unreliable and connectionless, sending datagrams with best-effort delivery without acknowledgments.",
+        "marking_guide": "Award 1.5 marks for TCP reliability features, 1.5 marks for UDP features."
+      },
+      {
+        "sub_id": "3.b.ii",
+        "label": "(b) (ii)",
+        "stem": "Peer-to-peer (P2P) and client-server models are distributed application architectures. State the difference between them.",
+        "marks": 2.0,
+        "expected_answer": "In Client-Server, centralized servers store resources and serve client requests. In P2P, each peer node acts as both client and server symmetrically without centralized infrastructure.",
+        "marking_guide": "Award 2 marks for clear distinction."
+      },
+      {
+        "sub_id": "3.b.iii",
+        "label": "(b) (iii)",
+        "stem": "List the differences between hubs and switches in a network.",
+        "marks": 3.0,
+        "expected_answer": "| Feature | Hub | Switch |\n| :--- | :--- | :--- |\n| OSI Layer | Layer 1 (Physical) | Layer 2 (Data Link) |\n| Frame Forwarding | Broadcasts to all ports | Unicasts using MAC address table |\n| Collision Domains | 1 shared domain | Each port is an isolated domain |",
+        "marking_guide": "Award 1 mark each for layer, forwarding mechanism, and collision domains."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Computer Networks & Subnetting",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q8",
+    "number": 8,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 4 (Waterfall SDLC, Requirements & Testing)\n\nAnswer the following questions on software engineering methodologies, functional/non-functional requirements, testing levels, and black box testing.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "Identify and describe the phases of the waterfall model in software development.",
+        "marks": 4.0,
+        "expected_answer": "Phases:\n1. Requirements Analysis: Documenting business needs.\n2. System Design: Architectural and database modeling.\n3. Implementation: Writing source code.\n4. Testing: Defect verification and validation.\n5. Deployment: Product release.\n6. Maintenance: Post-release bug fixes and updates.",
+        "marking_guide": "Award 2 marks for naming phases, 2 marks for descriptions."
+      },
+      {
+        "sub_id": "4.b",
+        "label": "(b)",
+        "stem": "Describe functional and non-functional requirements of a system. Identify two functional and three non-functional requirements for a mobile phone.",
+        "marks": 4.0,
+        "expected_answer": "Definitions:\n- Functional: System capabilities and services (what system does).\n- Non-functional: Quality attributes and constraints (how system performs).\nMobile Phone:\n- Functional: (1) Voice calling, (2) SMS texting.\n- Non-functional: (1) Battery standby > 24 hours, (2) Touch latency < 100ms, (3) Weight < 180g.",
+        "marking_guide": "Award 2 marks for definitions, 1 mark for functional examples, 1 mark for non-functional examples."
+      },
+      {
+        "sub_id": "4.c",
+        "label": "(c)",
+        "stem": "Describe the purpose of unit, integrated and acceptance testing. Who are the people responsible for each testing process?",
+        "marks": 4.0,
+        "expected_answer": "1. Unit Testing: Tests isolated modules/methods. Responsible: Developers.\n2. Integration Testing: Tests interfaces between combined units. Responsible: Developers / QA Engineers.\n3. Acceptance Testing: Tests compliance with user requirements. Responsible: End Users / Clients.",
+        "marking_guide": "Award 1.33 marks for each testing tier with purpose and responsible personnel."
+      },
+      {
+        "sub_id": "4.d",
+        "label": "(d)",
+        "stem": "Suppose you are planning to buy a new mobile phone and would like to test its functionality. Describe how Black Box testing can be used in this process.",
+        "marks": 3.0,
+        "expected_answer": "Black box testing evaluates functionality based solely on inputs and observed outputs without inspecting internal code/circuits:\n1. Insert SIM and place a call to test audio clarity.\n2. Snap a photo and check if saved in gallery.\n3. Plug in charging cable and observe battery charging icon.",
+        "marking_guide": "Award 1.5 marks for black box concept, 1.5 marks for practical test examples."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Software Engineering & Testing",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q9",
+    "number": 9,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 5 (Programming Language Generations & Python Debugging)\n\nAnswer the following questions on program translators, language generations, flow control structures, and Python script debugging.",
+    "diagrams": [
+      {
+        "id": "d_q5c_control",
+        "src": "images/q5c_control_structures.png",
+        "alt": "Flowcharts for Sequence, Selection, and Iteration",
+        "caption": "Figure 7: Structured Programming Control Structures"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "5.a",
+        "label": "(a)",
+        "stem": "Explain the necessity of program translators in computer programming.",
+        "marks": 2.0,
+        "expected_answer": "Computer CPUs can only execute binary machine language (0s and 1s). Translators (compilers, interpreters, assemblers) convert human-readable source code into binary machine code.",
+        "marking_guide": "Award 2 marks for explaining CPU binary execution requirement."
+      },
+      {
+        "sub_id": "5.b",
+        "label": "(b)",
+        "stem": "Give two main features for each of the First-Generation and Second-Generation programming languages.",
+        "marks": 4.0,
+        "expected_answer": "1. 1GL (Machine Language): (1) Written in binary (0s/1s), (2) Directly executed by CPU without translator.\n2. 2GL (Assembly Language): (1) Uses mnemonic codes (MOV, ADD), (2) Requires an Assembler to convert to machine code.",
+        "marking_guide": "Award 2 marks for 1GL features, 2 marks for 2GL features."
+      },
+      {
+        "sub_id": "5.c",
+        "label": "(c)",
+        "stem": "Give three main flow control structures used in a structured programming language. Show how these flow control structures can be represented in a flow chart.",
+        "marks": 4.0,
+        "expected_answer": "Three structures:\n1. Sequence: Sequential step-by-step instruction boxes.\n2. Selection: Conditional diamond branch (IF-THEN-ELSE).\n3. Iteration: Loop condition diamond repeating an action block while true.",
+        "marking_guide": "Award 1.5 marks for naming structures, 2.5 marks for flowchart diagrams."
+      },
+      {
+        "sub_id": "5.d.i",
+        "label": "(d) (i)",
+        "stem": "State the lines with syntactic errors in the binary conversion program and state the error:\n```python\n1   x = int (input (\"Enter an integer ->)\n2   while x != 0:\n3       bn = \"\"\n4       while x > 1:\n5           quotient = int(x / 2)\n6           remainder == x % 2\n7           bn = bn + str(remainder);\n8           x = quotient\n9       bn = str(x) + bn\n10      print (\"Binary Number\", bn)\n11      x = int (input(\"Enter an integer ->)\n```",
+        "marks": 2.0,
+        "expected_answer": "- Line 1: Missing closing quote `\"` in `input` string.\n- Line 6: Uses comparison operator `==` instead of assignment operator `=`.\n- Line 11: Missing closing quote `\"` in `input` string.",
+        "marking_guide": "Award 2 marks for identifying lines 1, 6, and 11 syntax errors."
+      },
+      {
+        "sub_id": "5.d.ii",
+        "label": "(d) (ii)",
+        "stem": "Which lines of the program should be changed and state how they should be changed to obtain the desired results?",
+        "marks": 3.0,
+        "expected_answer": "- Line 1: `x = int(input(\"Enter an integer -> \"))`\n- Line 6: `remainder = x % 2`\n- Line 7: `bn = str(remainder) + bn` (must prepend remainders to form MSB-to-LSB order)\n- Line 11: `x = int(input(\"Enter an integer -> \"))`",
+        "marking_guide": "Award 1 mark for lines 1 & 11, 1 mark for line 6, 1 mark for line 7 string prepend."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "Programming Concepts & Python Debugging",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2011-ict-en-p2-q10",
+    "number": 10,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 6 (e-Commerce Models & Agent Technology)\n\nAnswer the following questions on e-commerce transaction categories, B2E intranet solutions, and autonomous agent systems.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "6.a.i",
+        "label": "(a) (i)",
+        "stem": "Using an example for each category, explain the three types of business: B2B, B2C, and C2C in e-commerce.",
+        "marks": 4.0,
+        "expected_answer": "1. B2B (Business to Business): Direct corporate transactions between companies (e.g., auto manufacturer buying tires via supplier portal, Alibaba).\n2. B2C (Business to Consumer): Retail business selling directly to end consumers (e.g., purchasing books on Amazon).\n3. C2C (Consumer to Consumer): Individual consumers transacting via an intermediary platform (e.g., selling used goods on eBay or Ikman.lk).",
+        "marking_guide": "Award 1.33 marks for each category explanation and example."
+      },
+      {
+        "sub_id": "6.a.ii",
+        "label": "(a) (ii)",
+        "stem": "Chairman of a company is considering fax, e-mail and web as communication tools for a B2E application. Being an ICT student recommend the most appropriate tool with reasons.",
+        "marks": 3.0,
+        "expected_answer": "Recommendation: Web-based portal (Intranet).\nReasons:\n1. Interactive features (allows leave submission, payroll self-service, real-time database updates).\n2. Granular role-based security and authentication.\n3. Reduces paper clutter and email inbox volume.",
+        "marking_guide": "Award 1 mark for Web recommendation, 2 marks for justifying reasons."
+      },
+      {
+        "sub_id": "6.b.i",
+        "label": "(b) (i)",
+        "stem": "In the domain of Agent technology, explain the term 'Agent'.",
+        "marks": 3.0,
+        "expected_answer": "An Agent is an autonomous software entity or computational system situated in an environment, perceiving its state through sensors and acting upon it using effectors to accomplish defined goals.",
+        "marking_guide": "Award 3 marks for sensor, effector, environment, and autonomy description."
+      },
+      {
+        "sub_id": "6.b.ii",
+        "label": "(b) (ii)",
+        "stem": "Give two main characteristics of an Agent.",
+        "marks": 2.0,
+        "expected_answer": "1. Autonomy: Operating independently without continuous direct human control.\n2. Reactivity: Sensing changes in environment and responding promptly in timely fashion.",
+        "marking_guide": "Award 1 mark for each characteristic."
+      },
+      {
+        "sub_id": "6.b.iii",
+        "label": "(b) (iii)",
+        "stem": "Briefly explain an example where Agent technology could be used effectively.",
+        "marks": 3.0,
+        "expected_answer": "Example: Automated e-commerce shopping/bidding agent. It autonomously monitors multiple auction portals, tracks competitor prices, and submits optimal bids within user-defined budget thresholds without manual intervention.",
+        "marking_guide": "Award 3 marks for practical application explanation."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2011,
+      "medium": "english",
+      "topic": "e-Commerce & Agent Technology",
+      "difficulty": "medium"
+    }
+  }
+]

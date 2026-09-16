@@ -1,0 +1,336 @@
+[
+  {
+    "id": "al-2015-ict-en-p2-q1",
+    "number": 1,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions on HTML web forms, image alternative attributes, and CSS styling rules.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "Complete the HTML code segment to generate the 'Send Text Message' web form with phone number input, message textarea, and submit button.",
+        "marks": 4.0,
+        "expected_answer": "<input type=\"text\" name=\"phone\" size=\"20\">\n<textarea name=\"message\" rows=\"7\" cols=\"30\"></textarea>\n<input type=\"submit\" value=\"Send your message\">",
+        "marking_guide": "Award marks for input type text, textarea opening and closing tags, submit button value."
+      },
+      {
+        "sub_id": "1.b",
+        "label": "(b)",
+        "stem": "A browser does not display an image, showing only alt text 'School'. Give two possible reasons.",
+        "marks": 2.0,
+        "expected_answer": "1. The image file path or filename in the `src` attribute is incorrect (wrong path or file not found / 404).\n2. The image file is corrupted or in an unsupported format.",
+        "marking_guide": "Award 1 mark each for two valid reasons."
+      },
+      {
+        "sub_id": "1.c",
+        "label": "(c)",
+        "stem": "Indicate whether CSS rules are correct or incorrect: (i) `p {font-type: Arial;}`, (ii) `body{color: red;} {background-color: yellow;}`, (iii) `h1, h3{color: blue;}`.",
+        "marks": 4.0,
+        "expected_answer": "(i) Incorrect. Correct: `p {font-family: Arial;}`\n(ii) Incorrect. Missing selector for second block. Correct: `body {color: red; background-color: yellow;}`\n(iii) Correct.",
+        "marking_guide": "Award marks for identifying and correcting each CSS rule."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "HTML & CSS",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q2",
+    "number": 2,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding two's complement integer arithmetic and online banking services.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "Represent $10_{10}$ and $-25_{10}$ in 8-bit two's complement and compute $10_{10} - 25_{10}$.",
+        "marks": 4.0,
+        "expected_answer": "+10 = $00001010_2$. +25 = $00011001_2 \\rightarrow$ 1's comp = $11100110_2 \\rightarrow$ 2's comp (-25) = $11100111_2$.\nComputation: $00001010_2 + 11100111_2 = 11110001_2$.\nConverting result to decimal: MSB is 1 (negative). Invert and add 1: $00001110_2 + 1 = 00001111_2 = 15 \\rightarrow -15_{10}$.",
+        "marking_guide": "Award 1 mark for +10, 1 mark for -25, 1 mark for addition, 1 mark for decimal conversion to -15."
+      },
+      {
+        "sub_id": "2.b.i",
+        "label": "(b) (i)",
+        "stem": "State two reasons that can discourage bank customers from using Internet banking services.",
+        "marks": 2.0,
+        "expected_answer": "1. Fear of security threats, phishing, and online fraudulent theft.\n2. Lack of digital literacy or reliable internet connectivity.",
+        "marking_guide": "Award 1 mark each for two valid reasons."
+      },
+      {
+        "sub_id": "2.b.ii",
+        "label": "(b) (ii)",
+        "stem": "Do you agree that providing proposed Internet banking services is a B2C business type? Justify your answer.",
+        "marks": 2.0,
+        "expected_answer": "Yes. The bank is a business organization providing banking services directly to individual consumers.",
+        "marking_guide": "Award 1 mark for Yes, 1 mark for justification."
+      },
+      {
+        "sub_id": "2.b.iii",
+        "label": "(b) (iii)",
+        "stem": "Management proposes an expert system based loan pre-processing tool for customers. Do you agree? Justify your answer.",
+        "marks": 2.0,
+        "expected_answer": "Yes. An expert system applies encoded banking rules and eligibility criteria consistently to evaluate customer loan parameters instantly, saving staff time and preventing disappointment.",
+        "marking_guide": "Award 1 mark for Yes, 1 mark for reasoning."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Arithmetic & e-Banking",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q3",
+    "number": 3,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions on energy systems and relational DDL constraints.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "3.a",
+        "label": "(a)",
+        "stem": "Albert Einstein quoted \"Energy cannot be created or destroyed; it can only be changed from one form to another.\" Is this a closed system? State a reason.",
+        "marks": 2.0,
+        "expected_answer": "Closed system.\nReason: Energy cannot cross the boundary; the total energy content of the universe remains constant with no external mass/energy exchange.",
+        "marking_guide": "Award 1 mark for closed system, 1 mark for reason."
+      },
+      {
+        "sub_id": "3.b",
+        "label": "(b)",
+        "stem": "In DDL `CREATE TABLE unit (...)`, identify the primary key and integrity constraints used.",
+        "marks": 4.0,
+        "expected_answer": "1. Primary Key: Composite key `(instituteCode, unitCode)`\n2. Integrity Constraints: `NOT NULL`, `PRIMARY KEY`, `FOREIGN KEY ... REFERENCES`, `DEFAULT NULL`.",
+        "marking_guide": "Award 2 marks for composite primary key, 2 marks for integrity constraints."
+      },
+      {
+        "sub_id": "3.c",
+        "label": "(c)",
+        "stem": "In the student table (columns: index, name, address, class; 3 rows), what is the cardinality and degree?",
+        "marks": 4.0,
+        "expected_answer": "- Cardinality (number of rows/records) = 3\n- Degree (number of columns/attributes) = 4",
+        "marking_guide": "Award 2 marks for cardinality = 3, 2 marks for degree = 4."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Relational Concepts & DDL",
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q4",
+    "number": 4,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions on 32-bit memory addressability and process state transitions.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "A 32-bit computer has byte addressable memory. After replacing RAM with 8GB, only 4GB is accessible to a process. Explain with calculations why this happens.",
+        "marks": 5.0,
+        "expected_answer": "A 32-bit processor has 32-bit address registers and address bus. Maximum addressable memory space is $2^{32}\\text{ bytes} = 4,294,967,296\\text{ bytes} = 4\\text{ GB}$. Even if physical RAM is expanded to 8GB, the 32-bit address architecture cannot generate address pointers beyond $2^{32}-1$.",
+        "marking_guide": "Award 5 marks for calculation showing $2^{32}\\text{ bytes} = 4\\text{ GB}$ architectural limit."
+      },
+      {
+        "sub_id": "4.b",
+        "label": "(b)",
+        "stem": "In the seven state process model, a process is in `Running` state. State the next possible states and transition conditions.",
+        "marks": 5.0,
+        "expected_answer": "1. Next State: `Terminated` | Condition: Process finishes execution (Exit).\n2. Next State: `Ready` | Condition: Time slice expired (Timer interrupt).\n3. Next State: `Blocked / Waiting` | Condition: Waiting for I/O operation or system event.",
+        "marking_guide": "Award marks for each valid target state and condition."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Architecture & Operating Systems",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q5",
+    "number": 5,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 1 of G.C.E. (A/L) 2015 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 1.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q6",
+    "number": 6,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 2 of G.C.E. (A/L) 2015 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 2.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q7",
+    "number": 7,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 3 of G.C.E. (A/L) 2015 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "3.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 3.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q8",
+    "number": 8,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 4 of G.C.E. (A/L) 2015 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 4.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q9",
+    "number": 9,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 5 of G.C.E. (A/L) 2015 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "5.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 5.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2015-ict-en-p2-q10",
+    "number": 10,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 6 of G.C.E. (A/L) 2015 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "6.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 6.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2015,
+      "medium": "english",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  }
+]

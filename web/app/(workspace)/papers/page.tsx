@@ -21,7 +21,7 @@ import {
 
 const STUDENT_ID = "student-primary";
 
-type GradeFilter = 11 | 13;
+type CategoryFilter = "al" | "ol" | "topic" | "quiz";
 type View =
   | { kind: "hub" }
   | { kind: "run"; sittingId: string; parts: Array<{ exam_id: string; bank_paper_id: string; paper_no: number; title: string }> };
@@ -86,7 +86,7 @@ export default function PapersPage() {
 /* --------------------------------------------------------------------- hub */
 
 function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: string; bank_paper_id: string; paper_no: number; title: string }>) => void }) {
-  const [grade, setGrade] = useState<GradeFilter>(13);
+  const [category, setCategory] = useState<CategoryFilter>("al");
   const [medium, setMedium] = useState<string>("");
   const [rows, setRows] = useState<CatalogRow[] | null>(null);
   const [failed, setFailed] = useState(false);
@@ -101,12 +101,24 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
   const load = useCallback(async () => {
     setRows(null); setFailed(false);
     try {
-      const res = await papersApi.catalog({ subject: grade === 11 ? "ict-ol" : "ict", grade });
+      let subject = "ict";
+      let grade: number | undefined = 13;
+      if (category === "ol") {
+        subject = "ict-ol";
+        grade = 11;
+      } else if (category === "topic") {
+        subject = "ict-topic";
+        grade = undefined;
+      } else if (category === "quiz") {
+        subject = "ict-quiz";
+        grade = undefined;
+      }
+      const res = await papersApi.catalog({ subject, grade });
       setRows(res.papers);
     } catch {
       setFailed(true);
     }
-  }, [grade]);
+  }, [category]);
 
   useEffect(() => { void load(); }, [load]);
 
@@ -120,7 +132,7 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
     }
     return [...map.values()]
       .map((list) => list.sort((a, b) => a.paper_no - b.paper_no))
-      .sort((a, b) => (b[0].year ?? 0) - (a[0].year ?? 0));
+      .sort((a, b) => (b[0].year ?? 0) - (a[0].year ?? 0) || a[0].title.localeCompare(b[0].title));
   }, [rows, medium]);
 
   useScrollReveal(scrollerRef, [rows, failed, groups.length]);
@@ -170,8 +182,10 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
         {/* Filters bar */}
         <div className="flex flex-wrap items-center gap-2.5 p-2 rounded-2xl surface-glass-base backdrop-blur-xl border border-[var(--glass-border)]" data-scroll-reveal>
           <div className="flex items-center gap-1.5 bg-black/20 p-1 rounded-xl">
-            <GradeChip label="A/L" active={grade === 13} onClick={() => setGrade(13)} />
-            <GradeChip label="O/L" active={grade === 11} onClick={() => setGrade(11)} />
+            <GradeChip label="A/L Past Papers" active={category === "al"} onClick={() => setCategory("al")} />
+            <GradeChip label="O/L Past Papers" active={category === "ol"} onClick={() => setCategory("ol")} />
+            <GradeChip label="Topic Modules" active={category === "topic"} onClick={() => setCategory("topic")} />
+            <GradeChip label="Daily Quizzes" active={category === "quiz"} onClick={() => setCategory("quiz")} />
           </div>
 
           <span className="w-px h-5 bg-[var(--glass-border)] mx-1" />

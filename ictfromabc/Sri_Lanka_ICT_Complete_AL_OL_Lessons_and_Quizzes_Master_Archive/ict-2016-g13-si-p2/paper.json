@@ -1,0 +1,336 @@
+[
+  {
+    "id": "al-2016-ict-si-p2-q1",
+    "number": 1,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding HTML hyperlinks, styles, and CSS formatting.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "State the operation of: (i) `<a href=\"coverPage.jpg\" target=\"_blank\">Cover Page</a>`, (ii) `<a href=\"content.html\">Content</a>`, (iii) `<a href=\"figures.html\" target=\"_self\"><img src=\"figures.jpg\"/></a>`.",
+        "marks": 3.0,
+        "expected_answer": "(i) Opens image `coverPage.jpg` in a new browser window/tab.\n(ii) Navigates to `content.html` in the same window/frame.\n(iii) Renders clickable image `figures.jpg` which opens `figures.html` in the current frame.",
+        "marking_guide": "Award 1 mark each for correct link target behaviors."
+      },
+      {
+        "sub_id": "1.b",
+        "label": "(b)",
+        "stem": "Which of the three mechanisms used to apply styles to HTML elements increases the maintainability of a web site?",
+        "marks": 2.0,
+        "expected_answer": "External Style Sheets (linking external `.css` files via `<link>` tag), as it separates content from presentation and allows site-wide styling changes in a single file.",
+        "marking_guide": "Award 2 marks for External Style Sheets."
+      },
+      {
+        "sub_id": "1.c",
+        "label": "(c)",
+        "stem": "Write internal styles to style `h2` with Red text centered, and `p` with font 'Courier New', 14pt.",
+        "marks": 5.0,
+        "expected_answer": "```css\n<style>\n  h2 {\n    color: red;\n    text-align: center;\n  }\n  p {\n    font-family: 'Courier New', monospace;\n    font-size: 14pt;\n  }\n</style>\n```",
+        "marking_guide": "Award marks for correct selector, color, text-align, font-family, font-size properties."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "HTML & CSS",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q2",
+    "number": 2,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding selling an old camera online to an overseas buyer.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "State an example for C2C and B2C e-commerce with respect to the camera sale transaction.",
+        "marks": 4.0,
+        "expected_answer": "- C2C: Individual consumer selling old camera to another individual buyer abroad via eBay or classified site.\n- B2C: The payment gateway service (PayPal) charging service fees to the consumer, or courier company delivering the parcel.",
+        "marking_guide": "Award 2 marks each for C2C and B2C."
+      },
+      {
+        "sub_id": "2.b",
+        "label": "(b)",
+        "stem": "Why is a service like PayPal necessary for this type of transaction?",
+        "marks": 3.0,
+        "expected_answer": "It provides secure financial escrow and authentication without exposing sensitive banking/credit card numbers directly to unknown foreign buyers, reducing fraud risk.",
+        "marking_guide": "Award 3 marks for security and intermediary payment trust."
+      },
+      {
+        "sub_id": "2.c",
+        "label": "(c)",
+        "stem": "State two reasons why some Internet users are reluctant to buy goods online from individual sellers, with examples.",
+        "marks": 3.0,
+        "expected_answer": "1. Risk of counterfeit/defective goods without return warranty (e.g. receiving a broken lens with no refund).\n2. Fraudulent payment or non-delivery scam (e.g. paying upfront and the seller disappears without dispatching parcel).",
+        "marking_guide": "Award 1.5 marks for each reason and example."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "e-Commerce & Trust",
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q3",
+    "number": 3,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding space station life support systems and database normal forms.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "3.a",
+        "label": "(a)",
+        "stem": "A space station recycles water and oxygen ($2\\text{H}_2\\text{O} \\rightarrow 2\\text{H}_2 + \\text{O}_2$; $4\\text{H}_2 + \\text{CO}_2 \\rightarrow 2\\text{H}_2\\text{O} + \\text{CH}_4$). Is the system open or closed? Give two reasons.",
+        "marks": 4.0,
+        "expected_answer": "Closed system (or semi-closed/closed with respect to mass cycle).\nReasons:\n1. It recycles internal metabolic waste ($CO_2$ and $H_2O$) in a closed loop to regenerate oxygen.\n2. It does not import atmospheric gases from the external space vacuum.",
+        "marking_guide": "Award 2 marks for state, 2 marks for reasons."
+      },
+      {
+        "sub_id": "3.b",
+        "label": "(b)",
+        "stem": "State two possible problems faced by an information system having a relational database in zero normal form.",
+        "marks": 3.0,
+        "expected_answer": "1. Multi-valued repeating groups preventing single atomic record lookup.\n2. Severe data redundancy leading to insertion, deletion, and update anomalies.",
+        "marking_guide": "Award 1.5 marks each for two problems."
+      },
+      {
+        "sub_id": "3.c",
+        "label": "(c)",
+        "stem": "Compare and contrast a human brain and a computer based information system.",
+        "marks": 3.0,
+        "expected_answer": "- Similarity: Both take sensory/data inputs, store information in memory, process logic, and generate outputs.\n- Contrast: Computers execute deterministic calculations with high speed and zero fatigue, whereas human brains excel at emotional intelligence, intuition, and unstructured associative learning.",
+        "marking_guide": "Award 1.5 marks for comparison, 1.5 marks for contrast."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Systems & Database Theory",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q4",
+    "number": 4,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions on Python loop logic and 16-bit embedded memory addressing.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a.i",
+        "label": "(a) (i)",
+        "stem": "What would be the output of `total=0; i=1; while(i<=5): i=i+1; total=total+i; print(total)`? Justify.",
+        "marks": 3.0,
+        "expected_answer": "Output: 20.\nJustification: Since `i=i+1` is executed before `total = total + i`, the added values of $i$ are $2, 3, 4, 5, 6$. Total $= 2 + 3 + 4 + 5 + 6 = 20$.",
+        "marking_guide": "Award 1 mark for 20, 2 marks for justification."
+      },
+      {
+        "sub_id": "4.a.ii",
+        "label": "(a) (ii)",
+        "stem": "Modify and rewrite the program without increasing statement count to compute sum of integers from 1 to 10 (inclusive).",
+        "marks": 3.0,
+        "expected_answer": "```python\ntotal = 0\ni = 1\nwhile (i <= 10):\n    total = total + i\n    i = i + 1\nprint(total)\n```",
+        "marking_guide": "Award 3 marks for correct statement reordering and condition `i<=10`."
+      },
+      {
+        "sub_id": "4.b",
+        "label": "(b)",
+        "stem": "An embedded system uses 16-bit wide address bus to access byte addressable memory. What is the maximum usable size in KB? Show computations.",
+        "marks": 4.0,
+        "expected_answer": "$2^{16}\\text{ addresses} = 65,536\\text{ bytes} = \\frac{65536}{1024} = 64\\text{ KB}$.",
+        "marking_guide": "Award 4 marks for $2^{16} = 64\\text{ KB}$ calculation."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Python Programming & Memory",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q5",
+    "number": 5,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 1 of G.C.E. (A/L) 2016 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 1.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q6",
+    "number": 6,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 2 of G.C.E. (A/L) 2016 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 2.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q7",
+    "number": 7,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 3 of G.C.E. (A/L) 2016 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "3.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 3.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q8",
+    "number": 8,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 4 of G.C.E. (A/L) 2016 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 4.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q9",
+    "number": 9,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 5 of G.C.E. (A/L) 2016 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "5.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 5.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2016-ict-si-p2-q10",
+    "number": 10,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 6 of G.C.E. (A/L) 2016 ICT Paper II.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "6.a",
+        "label": "(a)",
+        "stem": "Technical problem analysis and system implementation for Question 6.",
+        "marks": 15.0,
+        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
+        "marking_guide": "Award full marks based on grading rubrics."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2016,
+      "medium": "sinhala",
+      "topic": "Advanced ICT Concepts",
+      "difficulty": "hard"
+    }
+  }
+]

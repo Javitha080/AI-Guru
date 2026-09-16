@@ -37,7 +37,6 @@ from deeptutor.services.monitoring.dispatch import handle_warning
 from deeptutor.services.monitoring.landmarks_codec import landmarks_to_payload
 from deeptutor.services.monitoring.monitoring_config import (
     DEFAULT_THRESHOLDS,
-    strictness_for,
 )
 from deeptutor.services.monitoring.python_face_processor import (
     PythonFaceProcessor,
@@ -65,6 +64,8 @@ __all__ = [
     "load_camera_config",
     "save_camera_config",
     "apply_supervision_strictness",
+    "update_all_monitors_strictness",
+    "is_exam_session",
     "SystemMonitorSession",
     "get_system_monitor",
     "active_system_monitors",
@@ -73,38 +74,122 @@ __all__ = [
 ]
 
 
-async def apply_supervision_strictness(
-    pipeline: LocalCVPipeline, parent_id: str = "default"
-) -> None:
-    """Map a parent's strictness profile onto warning gates.
-
-    Shared by the system-monitor path and the legacy browser-driven WS path so
-    both engines enforce identical cooldown/confidence gates. ``parent_id``
-    selects ``supervision_rules_{parent_id}`` (multi-parent); callers that
-    cannot attribute a session yet pass the default.
-    """
+async def is_exam_session(session_id: Optional[str]) -> bool:
+    """Detect whether a session is an exam room session."""
+    if not session_id:
+        return False
+    s_lower = str(session_id).lower()
+    if s_lower.startswith("exam-") or s_lower.startswith("exam_"):
+        return True
     try:
         from deeptutor.services.path_service import get_path_service
-        from deeptutor.services.remote.kv_settings import ensure_kv_settings
 
         db = get_path_service().user_dir / "chat_history.db"
+        if not db.exists():
+            return False
         async with aiosqlite.connect(db) as conn:
-            await ensure_kv_settings(conn)
             cur = await conn.execute(
-                "SELECT value FROM settings WHERE key = ?", (f"supervision_rules_{parent_id}",)
+                "SELECT title, subject FROM study_sessions WHERE id = ?", (session_id,)
             )
-            row = await cur.fetchone()
-        if not row or not row[0]:
-            return
-        rules = json.loads(row[0])
-        cooldown, conf = strictness_for(str(rules.get("alert_strictness", "balanced")))
+            srow = await cur.fetchone()
+            if srow:
+                title, subj = str(srow[0] or "").lower(), str(srow[1] or "").lower()
+                if title.startswith("exam:") or subj in ("exam", "examination"):
+                    return True
+            cur = await conn.execute(
+                "SELECT id FROM exams WHERE id = ? OR paper_json LIKE ?",
+                (session_id, f'%"session_id": "{session_id}"%'),
+            )
+            erow = await cur.fetchone()
+            if erow:
+                return True
+    except Exception:
+        pass
+    return False
+
+
+async def apply_supervision_strictness(
+    pipeline: LocalCVPipeline,
+    parent_id: str = "default",
+    profile_override: Optional[str] = None,
+    session_id: Optional[str] = None,
+) -> None:
+    """Map a strictness profile onto warning gates and perception analyzers.
+
+    Shared by the system-monitor path, legacy browser-driven WS path, and
+    exam supervision so all engines enforce consistent perception and
+    cooldown/confidence gates. ``parent_id`` selects ``supervision_rules_{parent_id}``;
+    ``profile_override`` explicitly enforces a profile (e.g. 'strict' for exams);
+    ``session_id`` auto-detects exam sessions to enforce strictness invariant.
+    """
+    try:
+        from deeptutor.services.monitoring.monitoring_config import perception_profile_for
+
+        # Invariant: Exam sessions must ALWAYS enforce strict supervision.
+        # Global strictness changes (e.g. /boostalert off or timer expiry)
+        # must never demote an ongoing examination.
+        if session_id and await is_exam_session(session_id):
+            profile_name = "strict"
+        elif profile_override:
+            profile_name = profile_override
+        else:
+            from deeptutor.services.path_service import get_path_service
+            from deeptutor.services.remote.kv_settings import ensure_kv_settings
+
+            db = get_path_service().user_dir / "chat_history.db"
+            async with aiosqlite.connect(db) as conn:
+                await ensure_kv_settings(conn)
+                cur = await conn.execute(
+                    "SELECT value FROM settings WHERE key = ?", (f"supervision_rules_{parent_id}",)
+                )
+                row = await cur.fetchone()
+                if not row or not row[0]:
+                    cur = await conn.execute(
+                        "SELECT value FROM settings WHERE key = 'supervision_rules_default'"
+                    )
+                    row = await cur.fetchone()
+            if row and row[0]:
+                rules = json.loads(row[0])
+                profile_name = str(rules.get("alert_strictness", "balanced"))
+            else:
+                profile_name = "balanced"
+
+        prof = perception_profile_for(profile_name)
+
         wm = getattr(pipeline, "warning_manager", None)
         if wm is not None:
-            wm.cooldown_seconds = float(cooldown)
-            wm.min_confidence = float(conf)
-            logger.info("Supervision strictness applied: %s", rules.get("alert_strictness"))
+            if hasattr(wm, "apply_strictness"):
+                wm.apply_strictness(profile_name)
+            else:
+                wm.cooldown_seconds = float(prof.cooldown_seconds)
+                wm.min_confidence = float(prof.min_confidence)
+
+        da = getattr(pipeline, "distraction_analyzer", None)
+        if da is not None:
+            if hasattr(da, "apply_strictness"):
+                da.apply_strictness(profile_name)
+
+        setattr(pipeline, "strictness_profile", profile_name)
+        logger.info(
+            "Supervision strictness applied: %s (cooldown=%.1fs, conf=%.2f)",
+            profile_name,
+            prof.cooldown_seconds,
+            prof.min_confidence,
+        )
     except Exception as exc:  # noqa: BLE001
         logger.debug("Strictness application skipped: %s", exc)
+
+
+async def update_all_monitors_strictness(profile: str) -> int:
+    """Update all currently active system monitors to a new strictness profile."""
+    updated = 0
+    for sid, monitor in list(_monitors.items()):
+        if monitor and monitor.pipeline:
+            await apply_supervision_strictness(
+                monitor.pipeline, profile_override=profile, session_id=sid
+            )
+            updated += 1
+    return updated
 
 
 class _Listener:
@@ -125,12 +210,14 @@ class SystemMonitorSession:
         processor: PythonFaceProcessor,
         pipeline: Optional[LocalCVPipeline] = None,
         target_fps: int = 10,
+        profile_override: Optional[str] = None,
     ) -> None:
         self.session_id = session_id
         self.camera = camera
         self.processor = processor
         self.pipeline = pipeline or LocalCVPipeline()
         self.target_fps = target_fps
+        self.profile_override = profile_override
 
         self._listeners: set[_Listener] = set()
         self._task: Optional[asyncio.Task] = None
@@ -216,7 +303,13 @@ class SystemMonitorSession:
                 "Monitor %s: camera start failed (%s)", self.session_id, self.camera.last_error
             )
         loop = asyncio.get_running_loop()
-        loop.create_task(apply_supervision_strictness(self.pipeline))
+        loop.create_task(
+            apply_supervision_strictness(
+                self.pipeline,
+                profile_override=self.profile_override,
+                session_id=self.session_id,
+            )
+        )
         self._task = loop.create_task(self._run_loop())
 
     async def stop(self) -> None:
@@ -324,6 +417,9 @@ class SystemMonitorSession:
             started = time.perf_counter()
             try:
                 await self._tick(loop)
+                from deeptutor.services.monitoring.session_registry import notify_new_frame
+
+                notify_new_frame(self.session_id)
             except asyncio.CancelledError:
                 raise
             except Exception as exc:  # noqa: BLE001 - one bad frame never kills monitoring
@@ -367,6 +463,7 @@ class SystemMonitorSession:
 
         analysis = self.pipeline.process_telemetry_payload(payload, current_time=now)
         telemetry = self._handle_analysis(analysis, result, snapshot_b64, now)
+        loop.run_in_executor(None, self._preencode_annotated_frame, frame, now)
         await self.broadcast(telemetry)
 
     def _build_payload(self, result: Any, now: float) -> Dict[str, Any]:
@@ -572,6 +669,18 @@ class SystemMonitorSession:
             )
         return self.processor.draw_overlay(frame, result, focus_state=state, focus_score=score)
 
+    def _preencode_annotated_frame(self, frame: Any, now: float) -> None:
+        """Pre-encode annotated overlay in worker thread to prevent event loop stalls."""
+        try:
+            annotated = self._paint_overlay(frame)
+            from deeptutor.services.monitoring.system_camera import _encode_jpeg
+
+            encoded = _encode_jpeg(annotated, quality=getattr(self.camera, "raw_quality", 75))
+            if encoded is not None:
+                self.camera.update_annotated_jpeg(encoded, now)
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("Pre-encoding annotated frame failed for %s: %s", self.session_id, exc)
+
     # ----------------------------------------------------------- feed helpers
 
     def get_annotated_jpeg(self) -> Optional[bytes]:
@@ -596,6 +705,7 @@ async def start_system_monitor(
     session_id: str,
     camera_config: Optional[Dict[str, Any]] = None,
     pipeline: Optional[LocalCVPipeline] = None,
+    profile_override: Optional[str] = None,
 ) -> Optional[SystemMonitorSession]:
     """Start (or reuse) the system monitor for a session.
 
@@ -642,6 +752,7 @@ async def start_system_monitor(
         processor=processor,
         pipeline=pipe,
         target_fps=int(cfg.get("target_fps", 10)),
+        profile_override=profile_override,
     )
     try:
         monitor.start()

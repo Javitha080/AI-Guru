@@ -24,7 +24,9 @@ import {
   ImagePlus,
   Trash2,
   Paperclip,
+  ShieldCheck,
 } from "lucide-react";
+import { useStudyTelemetry } from "@/hooks/useStudyTelemetry";
 
 // ----------------------------------------------------------------- types
 
@@ -60,6 +62,7 @@ interface ExamPaperView {
   ends_at: number | null;
   questions: ExamQuestionView[];
   section_boundary: number;
+  session_id?: string | null;
 }
 
 interface ResultRow {
@@ -117,6 +120,13 @@ export default function ExamRoomPage() {
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [codeMode, setCodeMode] = useState(false);
   const [activeSubPart, setActiveSubPart] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+
+  const { focusScore, liveWarnings, videoRef } = useStudyTelemetry({
+    sessionId,
+    isActive: phase === "running" && Boolean(sessionId),
+    liveViewEnabled: false,
+  });
 
   const [results, setResults] = useState<ResultRow[] | null>(null);
   const [scoreLine, setScoreLine] = useState<{ total_score: number; total_marks: number } | null>(null);
@@ -172,13 +182,16 @@ export default function ExamRoomPage() {
         }
 
         let endsAt: number | null = typeof meta.ends_at === "number" ? meta.ends_at : null;
+        let sid: string | null = meta.session_id || null;
         if (status !== "active") {
           const startRes = await fetch(`${api}/${encodeURIComponent(id)}/start`, { method: "POST" });
           if (!startRes.ok) throw new Error("Could not start the exam timer");
           const started = await startRes.json();
           endsAt = started.ends_at;
+          sid = started.session_id || sid;
         }
 
+        setSessionId(sid);
         setPaper(meta);
         setCurrentIdx(0);
         const remaining = endsAt ? Math.round(endsAt - Date.now() / 1000) : 60;
@@ -232,6 +245,7 @@ export default function ExamRoomPage() {
       const paperRes = await fetch(`${api}/${meta.exam_id}`);
       if (!paperRes.ok) throw new Error("Could not load the exam paper");
       const paperData: ExamPaperView = await paperRes.json();
+      setSessionId(started.session_id || paperData.session_id || meta.session_id || null);
       setPaper(paperData);
       setSecondsLeft(Math.max(60, Math.round((started.ends_at - Date.now() / 1000))));
       setPhase("running");
@@ -343,6 +357,7 @@ export default function ExamRoomPage() {
   // ------------------------------------------------------------- render
   return (
     <div className="flex-1 h-full overflow-y-auto bg-gray-50 dark:bg-[var(--secondary)] text-[var(--foreground)]">
+      <video ref={videoRef} className="hidden" playsInline muted aria-hidden="true" />
       <div className="max-w-4xl mx-auto p-6 space-y-6">
         <div className="flex items-center gap-3">
           <div className="w-11 h-11 rounded-2xl bg-[var(--accent)] flex items-center justify-center text-[var(--primary)]">
@@ -431,15 +446,31 @@ export default function ExamRoomPage() {
                   Answered {answeredCount}/{orderedQuestions.length}
                 </p>
               </div>
-              <div
-                className={`font-mono font-bold text-lg px-3 py-1 rounded-xl ${
-                  secondsLeft < 300 ? "text-red-500" : "text-[var(--primary)]"
-                }`}
-              >
-                <Clock size={16} className="inline mr-1 -mt-1" />
-                {fmtTime(secondsLeft)}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs text-amber-600 dark:text-amber-400 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="hidden sm:inline">Proctor: Strict Supervision</span>
+                  <span className="sm:hidden">Strict</span>
+                  {focusScore !== null && (
+                    <span className="opacity-80 ml-0.5">({focusScore}%)</span>
+                  )}
+                </div>
+                <div
+                  className={`font-mono font-bold text-lg px-3 py-1 rounded-xl ${
+                    secondsLeft < 300 ? "text-red-500" : "text-[var(--primary)]"
+                  }`}
+                >
+                  <Clock size={16} className="inline mr-1 -mt-1" />
+                  {fmtTime(secondsLeft)}
+                </div>
               </div>
             </div>
+
+            {liveWarnings.length > 0 && (
+              <div className="px-4 py-2.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-700 dark:text-red-300 text-xs font-medium flex items-center justify-between">
+                <span>⚠️ {liveWarnings[0].message}</span>
+              </div>
+            )}
 
             {current && (
               <div className="bg-[var(--card)] rounded-2xl border border-[var(--border)] p-6 space-y-5">

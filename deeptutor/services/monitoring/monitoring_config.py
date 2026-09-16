@@ -99,11 +99,73 @@ class MonitoringThresholds:
 
 DEFAULT_THRESHOLDS = MonitoringThresholds()
 
+
+@dataclass(frozen=True)
+class PerceptionProfile:
+    """Supervision perception and alert threshold profile."""
+
+    cooldown_seconds: float
+    min_confidence: float
+    looking_away_seconds: float
+    phone_seconds: float
+    identity_mismatch_seconds: float
+    drowsiness_seconds: float
+    sustained_closed_seconds: float = 2.5
+    nudge_cooldown_seconds: float = 40.0
+    nudge_min_confidence: float = 0.75
+    max_drinking_seconds: float = 6.0
+    max_page_turn_seconds: float = 4.0
+    max_posture_shift_seconds: float = 4.0
+
+
+PERCEPTION_PROFILES: Dict[str, PerceptionProfile] = {
+    "gentle": PerceptionProfile(
+        cooldown_seconds=90.0,
+        min_confidence=0.85,
+        looking_away_seconds=15.0,
+        phone_seconds=6.0,
+        identity_mismatch_seconds=20.0,
+        drowsiness_seconds=6.0,
+        sustained_closed_seconds=3.5,
+        nudge_cooldown_seconds=60.0,
+        nudge_min_confidence=0.80,
+        max_drinking_seconds=8.0,
+        max_page_turn_seconds=5.0,
+        max_posture_shift_seconds=6.0,
+    ),
+    "balanced": PerceptionProfile(
+        cooldown_seconds=60.0,
+        min_confidence=0.80,
+        looking_away_seconds=10.0,
+        phone_seconds=4.0,
+        identity_mismatch_seconds=15.0,
+        drowsiness_seconds=4.0,
+        sustained_closed_seconds=2.5,
+        nudge_cooldown_seconds=40.0,
+        nudge_min_confidence=0.75,
+        max_drinking_seconds=6.0,
+        max_page_turn_seconds=4.0,
+        max_posture_shift_seconds=4.0,
+    ),
+    "strict": PerceptionProfile(
+        cooldown_seconds=30.0,
+        min_confidence=0.75,
+        looking_away_seconds=5.0,
+        phone_seconds=2.0,
+        identity_mismatch_seconds=8.0,
+        drowsiness_seconds=2.5,
+        sustained_closed_seconds=1.8,
+        nudge_cooldown_seconds=20.0,
+        nudge_min_confidence=0.70,
+        max_drinking_seconds=4.0,
+        max_page_turn_seconds=3.0,
+        max_posture_shift_seconds=3.0,
+    ),
+}
+
 # Parent strictness profiles: (cooldown_seconds, min_confidence).
 STRICTNESS_PROFILES: Dict[str, Tuple[float, float]] = {
-    "gentle": (90.0, 0.85),
-    "balanced": (60.0, 0.80),
-    "strict": (30.0, 0.75),
+    k: (v.cooldown_seconds, v.min_confidence) for k, v in PERCEPTION_PROFILES.items()
 }
 
 
@@ -112,4 +174,17 @@ def strictness_for(name: str) -> Tuple[float, float]:
     return STRICTNESS_PROFILES.get(name, STRICTNESS_PROFILES["balanced"])
 
 
-__all__ = ["MonitoringThresholds", "DEFAULT_THRESHOLDS", "STRICTNESS_PROFILES", "strictness_for"]
+def perception_profile_for(name: str) -> PerceptionProfile:
+    """Return complete PerceptionProfile for a strictness profile name."""
+    return PERCEPTION_PROFILES.get(name, PERCEPTION_PROFILES["balanced"])
+
+
+__all__ = [
+    "MonitoringThresholds",
+    "DEFAULT_THRESHOLDS",
+    "PerceptionProfile",
+    "PERCEPTION_PROFILES",
+    "STRICTNESS_PROFILES",
+    "strictness_for",
+    "perception_profile_for",
+]

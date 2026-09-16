@@ -115,6 +115,7 @@ export class VisionPipeline {
   private paused = false;
   private grayCanvas: HTMLCanvasElement | null = null;
   private snapCanvas: HTMLCanvasElement | null = null;
+  private grayBuffer: Float32Array | null = null;
 
   /** Rolling landmark-group history for pre-flight liveness capture. */
   private landmarkHistory: LandmarkGroups[] = [];
@@ -346,22 +347,23 @@ export class VisionPipeline {
     video: HTMLVideoElement
   ): { brightness: number; gray: Float32Array; w: number; h: number } | null {
     const c = (this.grayCanvas ??= document.createElement("canvas"));
-    c.width = 64;
-    c.height = 48;
+    if (c.width !== 64) c.width = 64;
+    if (c.height !== 48) c.height = 48;
     const ctx = c.getContext("2d", { willReadFrequently: true });
     if (!ctx) return null;
     ctx.drawImage(video, 0, 0, 64, 48);
     const data = ctx.getImageData(0, 0, 64, 48).data;
     const w = 64;
     const h = 48;
-    const gray = new Float32Array(w * h);
+    const totalPixels = w * h;
+    const gray = (this.grayBuffer ??= new Float32Array(totalPixels));
     let sum = 0;
     for (let i = 0, p = 0; i < data.length; i += 4, p++) {
       const g = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
       gray[p] = g;
       sum += g;
     }
-    return { brightness: Math.min(1, sum / (w * h) / 255), gray, w, h };
+    return { brightness: Math.min(1, sum / totalPixels / 255), gray, w, h };
   }
 
   private computeBrightness(video: HTMLVideoElement): number {
@@ -393,12 +395,12 @@ export class VisionPipeline {
     try {
       const c = (this.snapCanvas ??= document.createElement("canvas"));
       const width = 320;
-      const height = Math.round((video.videoHeight || 240) * (width / (video.videoWidth || 320)));
-      c.width = width;
-      c.height = height || 240;
+      const height = Math.round((video.videoHeight || 240) * (width / (video.videoWidth || 320))) || 240;
+      if (c.width !== width) c.width = width;
+      if (c.height !== height) c.height = height;
       const ctx = c.getContext("2d");
       if (!ctx) return undefined;
-      ctx.drawImage(video, 0, 0, c.width, c.height);
+      ctx.drawImage(video, 0, 0, width, height);
       return c.toDataURL("image/jpeg", this.opts.jpegQuality ?? 0.6).split(",")[1];
     } catch {
       return undefined;
@@ -408,13 +410,12 @@ export class VisionPipeline {
 
 /** MediaPipe ships the 4x4 transform column-major; the backend expects row-major. */
 function transpose4x4ToRowMajor(data: Float32Array | number[]): number[] {
-  const out = new Array<number>(16);
-  for (let c = 0; c < 4; c++) {
-    for (let r = 0; r < 4; r++) {
-      out[r * 4 + c] = data[c * 4 + r];
-    }
-  }
-  return out;
+  return [
+    data[0], data[4], data[8],  data[12],
+    data[1], data[5], data[9],  data[13],
+    data[2], data[6], data[10], data[14],
+    data[3], data[7], data[11], data[15],
+  ];
 }
 
 function textureVarianceFromGray(gray: Float32Array, w: number, h: number): number {

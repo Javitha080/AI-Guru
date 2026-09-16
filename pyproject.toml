@@ -173,6 +173,11 @@ parse = [
     "deeptutor[parse-pymupdf4llm]",
 ]
 
+# Gemini AI OCR: direct PDF→structured-exam extraction via the Gemini API.
+# Replaces the multi-stage MinerU→LLM-extractor pipeline with a single
+# multimodal API call. Falls back to MinerU when unavailable.
+gemini-ocr = ["google-genai>=1.0.0"]
+
 # AI Guru system-level study-monitoring CV engine (OpenCV webcam capture +
 # MediaPipe FaceLandmarker/ObjectDetector). Optional: monitoring degrades to
 # browser-side WASM CV when these are absent.
@@ -441,7 +446,9 @@ addopts = [
     "--disable-warnings",
     "--tb=short",
     "--import-mode=importlib",
+    "--basetemp=.pytest_temp",
 ]
+tmp_path_retention_policy = "none"
 
 # ============================================
 # MyPy type checking configuration

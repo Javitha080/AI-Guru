@@ -63,12 +63,21 @@ async def parse_exam_paper_to_templates(
     output_dir: str | Path,
     progress_callback: Callable[[str], None] | None = None,
 ) -> tuple[list[QuizTemplate], dict[str, str]]:
-    """Resolve an exam paper into a list of mimic-mode ``QuizTemplate``\\ s.
+    """Resolve an exam paper into a list of mimic-mode ``QuizTemplate``\\s.
+
+    **Primary path (Gemini AI OCR):** When ``google-genai`` is installed and
+    ``GEMINI_API_KEY`` is set, the raw PDF is sent directly to the Gemini API
+    which returns fully structured questions.  This path is only tried for
+    ``paper_mode="upload"`` (fresh PDF uploads); pre-parsed directories always
+    use the legacy MinerU path.
+
+    **Fallback path (MinerU + LLM extractor):** When Gemini is unavailable or
+    fails, falls through to the original MinerU → question_extractor pipeline.
 
     ``paper_mode``:
 
-    * ``"upload"``  — ``paper_path`` is a freshly-uploaded PDF; the active
-      MinerU backend (local CLI or cloud API) parses it under ``output_dir``.
+    * ``"upload"``  — ``paper_path`` is a freshly-uploaded PDF; Gemini (or
+      MinerU) parses it.
     * ``"parsed"``  — ``paper_path`` is a previously-parsed working dir
       (already contains the MinerU output); skip the parse step.
 
@@ -76,9 +85,40 @@ async def parse_exam_paper_to_templates(
     inclusion in the final ``stream.result`` envelope. ``progress_callback``
     is a plain sync callable invoked from the parser worker thread with live
     parsing progress lines (upload mode only — the parsed path has nothing to
-    report). Raises :class:`MinerUError` (a ``RuntimeError``) when parsing or
-    extraction fails — the caller emits a user-facing error.
+    report). Raises :class:`RuntimeError` when parsing or extraction fails —
+    the caller emits a user-facing error.
     """
+    # ── Gemini AI primary path (upload mode only) ─────────────────────────
+    if paper_mode == "upload":
+        try:
+            from deeptutor.services.exams.gemini_ocr import (
+                extract_with_gemini,
+                gemini_available,
+            )
+
+            if gemini_available():
+                logger.info(
+                    "Gemini OCR available — using AI extraction for %s", Path(paper_path).name
+                )
+                paper = await extract_with_gemini(paper_path)
+                # Convert ExamPaper questions → QuizTemplates for callers that
+                # need the template list (capability.py, coordinator.py).
+                templates = _exam_paper_to_templates(paper, max_questions)
+                trace = {
+                    "paper_dir": str(paper_path),
+                    "question_file": "(gemini-structured-output)",
+                    "template_count": str(len(templates)),
+                    "extraction_engine": "gemini",
+                }
+                return templates, trace
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "Gemini OCR failed for %s, falling back to MinerU pipeline: %s",
+                Path(paper_path).name,
+                exc,
+            )
+
+    # ── Legacy MinerU fallback path ───────────────────────────────────────
     return await asyncio.to_thread(
         _parse_sync,
         Path(paper_path),
@@ -87,6 +127,40 @@ async def parse_exam_paper_to_templates(
         Path(output_dir),
         progress_callback,
     )
+
+
+def _exam_paper_to_templates(
+    paper: "ExamPaper",  # noqa: F821 — lazy import avoids circular
+    max_questions: int,
+) -> list[QuizTemplate]:
+    """Convert an :class:`ExamPaper` (from Gemini) into ``QuizTemplate`` list.
+
+    This bridges the new Gemini output into the existing template-based
+    pipeline so that callers in ``capability.py`` / ``coordinator.py`` see
+    the same interface.
+    """
+
+    templates: list[QuizTemplate] = []
+    questions = paper.questions
+    if max_questions > 0:
+        questions = questions[:max_questions]
+
+    for idx, q in enumerate(questions, 1):
+        q_text = (q.text or "").strip()
+        if not q_text:
+            continue
+        templates.append(
+            QuizTemplate(
+                question_id=q.id or f"q_{idx}",
+                topic=q_text[:_TOPIC_CLIP_CHARS],
+                question_type=_coerce_question_type(q.question_type),
+                difficulty=_DEFAULT_DIFFICULTY,
+                source="mimic",
+                reference_question=q_text,
+                reference_answer=q.reference_answer,
+            )
+        )
+    return templates
 
 
 def _parse_sync(

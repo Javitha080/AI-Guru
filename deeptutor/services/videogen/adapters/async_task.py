@@ -100,6 +100,7 @@ class AsyncTaskVideogenAdapter(BaseVideogenAdapter):
         poll_url = join_api_path(config.base_url, f"{_SUBMIT_PATH}/{task_id}")
         deadline = time.monotonic() + config.poll_timeout
         polls = 0
+        current_interval = min(2.0, config.poll_interval)
         while True:
             resp = await client.get(poll_url, headers=headers)
             raise_for_provider(resp, "Video task status")
@@ -118,18 +119,14 @@ class AsyncTaskVideogenAdapter(BaseVideogenAdapter):
             polls += 1
             if progress and polls % 3 == 0:
                 await self._notify(progress, f"Still rendering video… (status: {status or '…'})")
-            await asyncio.sleep(config.poll_interval)
+            await asyncio.sleep(current_interval)
+            current_interval = min(config.poll_interval, current_interval + 0.5)
 
     # --- provider-specific shaping -------------------------------------------
 
     @staticmethod
     def _build_submit_payload(prompt: str, config: VideogenConfig) -> dict[str, Any]:
-        """Build the submit body (Volcengine Seedance convention).
-
-        Seedance reads generation knobs as text commands appended to the prompt
-        (``--ratio 16:9 --resolution 720p --duration 5``). Other task-style
-        providers that take structured fields can override this.
-        """
+        """Build the submit body supporting both Seedance text commands and structured API shapes."""
         commands = []
         if config.aspect_ratio:
             commands.append(f"--ratio {config.aspect_ratio}")
@@ -137,20 +134,43 @@ class AsyncTaskVideogenAdapter(BaseVideogenAdapter):
             commands.append(f"--resolution {config.resolution}")
         if config.duration:
             commands.append(f"--duration {config.duration}")
+        if config.fps:
+            commands.append(f"--fps {config.fps}")
+        if config.seed is not None:
+            commands.append(f"--seed {config.seed}")
         text = f"{prompt} {' '.join(commands)}".strip() if commands else prompt
-        return {"model": config.model, "content": [{"type": "text", "text": text}]}
+        payload: dict[str, Any] = {
+            "model": config.model,
+            "content": [{"type": "text", "text": text}],
+            "prompt": text,
+        }
+        if config.aspect_ratio:
+            payload["aspect_ratio"] = config.aspect_ratio
+        if config.duration:
+            payload["duration"] = config.duration
+        if config.resolution:
+            payload["resolution"] = config.resolution
+        if config.fps:
+            payload["fps"] = config.fps
+        if config.seed is not None:
+            payload["seed"] = config.seed
+        return payload
 
     @staticmethod
     def _extract_task_id(resp: httpx.Response) -> str:
         data = resp.json()
         if isinstance(data, dict):
-            for key in ("id", "task_id"):
+            for key in ("id", "task_id", "taskId", "uuid", "job_id"):
                 value = data.get(key)
                 if isinstance(value, str) and value:
                     return value
-            nested = data.get("data")
-            if isinstance(nested, dict) and isinstance(nested.get("id"), str):
-                return nested["id"]
+            for nest_key in ("data", "result", "output"):
+                nested = data.get(nest_key)
+                if isinstance(nested, dict):
+                    for k in ("id", "task_id", "taskId", "uuid"):
+                        val = nested.get(k)
+                        if isinstance(val, str) and val:
+                            return val
         raise GenerationProviderError("Video task submission returned no task id.")
 
     @staticmethod
@@ -159,16 +179,37 @@ class AsyncTaskVideogenAdapter(BaseVideogenAdapter):
         data = resp.json()
         if not isinstance(data, dict):
             raise GenerationProviderError("Malformed video task status response.")
-        status = str(data.get("status") or data.get("state") or "").lower()
-        video_url = ""
-        for container in (data.get("content"), data.get("data"), data):
-            if isinstance(container, dict):
-                video_url = str(container.get("video_url") or container.get("url") or "")
-                if video_url:
-                    break
+        status = str(
+            data.get("status") or data.get("state") or data.get("task_status") or ""
+        ).lower()
+
+        def _find_video_url(val: Any) -> str:
+            if isinstance(val, str) and (val.startswith("http://") or val.startswith("https://")):
+                return val
+            if isinstance(val, list):
+                for item in val:
+                    found = _find_video_url(item)
+                    if found:
+                        return found
+            elif isinstance(val, dict):
+                for key in ("video_url", "video", "url", "download_url", "file_url"):
+                    item = val.get(key)
+                    if isinstance(item, str) and (
+                        item.startswith("http://") or item.startswith("https://")
+                    ):
+                        return item
+                for sub in ("content", "data", "result", "output", "videos"):
+                    if sub in val:
+                        found = _find_video_url(val[sub])
+                        if found:
+                            return found
+            return ""
+
+        video_url = _find_video_url(data)
+
         err = data.get("error")
         if isinstance(err, dict):
-            error = str(err.get("message") or "")
+            error = str(err.get("message") or err.get("detail") or "")
         else:
             error = str(err or "")
         return status, video_url, error

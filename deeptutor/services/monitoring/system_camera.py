@@ -69,6 +69,7 @@ class SystemCameraManager:
         self._annotated_jpeg: Optional[bytes] = None
         self._annotated_jpeg_ts: float = 0.0
         self._annotator: Optional[Callable[["np.ndarray"], "np.ndarray"]] = None
+        self.raw_quality: int = _RAW_JPEG_QUALITY
 
         self.last_error: str = ""
 
@@ -188,15 +189,24 @@ class SystemCameraManager:
                 return float("inf")
             return max(0.0, time.time() - self._frame_ts)
 
-    def get_raw_jpeg(self) -> Optional[bytes]:
+    def update_annotated_jpeg(self, jpeg: bytes, ts: float) -> None:
+        """Store pre-encoded annotated JPEG (written from executor thread)."""
+        with self._lock:
+            self._annotated_jpeg = jpeg
+            self._annotated_jpeg_ts = ts
+
+    def get_raw_jpeg(self, quality: Optional[int] = None) -> Optional[bytes]:
+        q = quality or self.raw_quality
         with self._lock:
             frame = self._latest_frame
             cached = self._raw_jpeg
             cached_ts = self._raw_jpeg_ts
-        # Re-encode only when the cache lags the newest frame (JPEG encode of a
-        # 640x480 frame costs a few ms; MJPEG consumers poll faster than grabs).
-        if frame is not None and (cached is None or cached_ts < self._frame_ts_unlocked()):
-            encoded = _encode_jpeg(frame, quality=_RAW_JPEG_QUALITY)
+        # Fast path: pre-encoded in background grab thread
+        if cached is not None and cached_ts >= self._frame_ts_unlocked():
+            return cached
+        # Fallback path if cache lags newest frame
+        if frame is not None:
+            encoded = _encode_jpeg(frame, quality=q)
             if encoded is not None:
                 with self._lock:
                     self._raw_jpeg = encoded
@@ -209,7 +219,11 @@ class SystemCameraManager:
             frame = self._latest_frame
             cached = self._annotated_jpeg
             cached_ts = self._annotated_jpeg_ts
-        if frame is not None and (cached is None or cached_ts < self._frame_ts_unlocked()):
+        # Fast path: pre-encoded in executor thread
+        if cached is not None and cached_ts >= self._frame_ts_unlocked():
+            return cached
+        # Fallback path if cache lags
+        if frame is not None:
             painter = self._annotator
             annotated = frame
             if painter is not None:
@@ -218,7 +232,7 @@ class SystemCameraManager:
                 except Exception as exc:  # noqa: BLE001 - feed must survive paint bugs
                     logger.debug("Overlay painting failed: %s", exc)
                     annotated = frame
-            encoded = _encode_jpeg(annotated, quality=_RAW_JPEG_QUALITY)
+            encoded = _encode_jpeg(annotated, quality=self.raw_quality)
             if encoded is not None:
                 with self._lock:
                     self._annotated_jpeg = encoded
@@ -259,9 +273,13 @@ class SystemCameraManager:
                     break
             else:
                 failures = 0
+                raw_encoded = _encode_jpeg(frame, quality=self.raw_quality)
                 with self._lock:
                     self._latest_frame = frame
                     self._frame_ts = time.time()
+                    if raw_encoded is not None:
+                        self._raw_jpeg = raw_encoded
+                        self._raw_jpeg_ts = self._frame_ts
 
             delay = next_tick - time.perf_counter()
             if delay > 0:

@@ -20,6 +20,7 @@ import {
   AnswerImageItem, AnswerItem, AnswerMap, BankPaperDetail, papersApi,
   ResultQuestion, SittingResult, SittingState,
 } from "@/lib/papers/paper-api";
+import MarkdownRenderer from "@/components/common/MarkdownRenderer";
 
 type Phase = "loading" | "running" | "submitting" | "results";
 
@@ -97,6 +98,13 @@ export default function SittingRunner({
   // Sub-parts detected in current question
   const subParts = useMemo(() => {
     if (!current || current.question_type === "choice") return [];
+    if (current.sub_questions && current.sub_questions.length > 0) {
+      return current.sub_questions.map((sq) => ({
+        label: sq.label,
+        title: sq.stem,
+        marks: sq.marks,
+      }));
+    }
     return extractSubParts(current.text);
   }, [current]);
 
@@ -408,7 +416,40 @@ export default function SittingRunner({
               )}
             </div>
 
-            <p className="text-sm leading-relaxed whitespace-pre-wrap font-normal">{current.text}</p>
+            {/* Question Stem (Supports KaTeX LaTeX & Markdown) */}
+            <div className="text-sm leading-relaxed font-normal">
+              <MarkdownRenderer content={current.text || current.stem || ""} enableMath />
+            </div>
+
+            {/* Question Diagrams / Circuit schematics / Flowcharts */}
+            {current.diagrams && current.diagrams.length > 0 && (
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 my-3">
+                {current.diagrams.map((diag, dIdx) => {
+                  const cleanSrc = (diag.src || "").replace(/^\/?images\//, "");
+                  const bankId = partMeta?.bank_paper_id || paper?.bank_paper_id || "";
+                  const assetUrl = `/api/v1/paper_bank/assets/${bankId}/${cleanSrc}`;
+                  return (
+                    <figure
+                      key={diag.id || dIdx}
+                      className="rounded-2xl border border-[var(--glass-border)] p-3 surface-glass-base shadow-sm max-w-full overflow-hidden flex flex-col items-center"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={assetUrl}
+                        alt={diag.alt || diag.caption || `Diagram for Question ${current.number}`}
+                        className="max-h-80 max-w-full object-contain rounded-xl bg-white p-2"
+                        loading="lazy"
+                      />
+                      {diag.caption && (
+                        <figcaption className="text-xs text-center text-[var(--muted-foreground)] mt-2 font-medium">
+                          {diag.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  );
+                })}
+              </div>
+            )}
 
             {isMcq ? (
               <div className="space-y-2">
@@ -430,7 +471,9 @@ export default function SittingRunner({
                       }`}>
                         {isSinhalaMedium && NUM_TO_LETTER[key] ? `(${key})` : isSinhalaMedium && LETTER_TO_NUM[key] ? `(${LETTER_TO_NUM[key]})` : key}
                       </span>
-                      <span className="text-sm leading-snug pt-0.5">{val}</span>
+                      <span className="text-sm leading-snug pt-0.5 flex-1">
+                        <MarkdownRenderer content={val} enableMath className="inline-block" />
+                      </span>
                     </button>
                   );
                 })}
@@ -666,15 +709,33 @@ function PartQuestions({ questions, partExamId, sittingId }: {
               : "border-[var(--glass-border)] surface-glass-base"
             }`}>
             <div className="flex items-start justify-between gap-2">
-              <p className="text-xs font-semibold leading-relaxed line-clamp-2">
-                <span className="font-mono mr-1.5">{q.number}.</span>{q.text.slice(0, 160)}
-              </p>
+              <div className="text-xs font-semibold leading-relaxed line-clamp-3 flex-1">
+                <span className="font-mono mr-1.5">{q.number}.</span>
+                <MarkdownRenderer content={q.text || q.stem || ""} enableMath className="inline" />
+              </div>
               <span className={`shrink-0 flex items-center gap-1 text-[11px] font-bold ${
                 correct ? "text-emerald-400" : partial ? "text-[var(--amber)]" : "text-red-400"}`}>
                 {correct ? <CheckCircle2 size={13} /> : partial || (!q.option_key && !q.answer_text) ? <CircleHelp size={13} /> : <XCircle size={13} />}
                 {q.awarded}/{q.max_marks}
               </span>
             </div>
+            {q.diagrams && q.diagrams.length > 0 && (
+              <div className="flex flex-wrap gap-2 my-2">
+                {q.diagrams.map((d, dIdx) => {
+                  const cleanSrc = (d.src || "").replace(/^\/?images\//, "");
+                  const assetUrl = `/api/v1/paper_bank/assets/${partExamId}/${cleanSrc}`;
+                  return (
+                    <img
+                      key={d.id || dIdx}
+                      src={assetUrl}
+                      alt={d.alt || "Diagram"}
+                      className="max-h-40 max-w-xs object-contain rounded-lg border border-[var(--glass-border)] bg-white p-1"
+                      loading="lazy"
+                    />
+                  );
+                })}
+              </div>
+            )}
             <div className="text-[11px] space-y-0.5 text-[var(--muted-foreground)]">
               <p>Your answer: <span className="font-semibold text-[var(--foreground)]">{q.option_key || q.answer_text?.slice(0, 120) || "—"}</span></p>
               {q.reference_answer && (

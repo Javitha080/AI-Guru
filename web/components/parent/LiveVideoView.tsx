@@ -47,6 +47,7 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
   const wsRef = useRef<WebSocket | null>(null);
   const pollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const objectUrlRef = useRef<string | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const hiddenRef = useRef(false);
   const frameCountRef = useRef(0);
   const fpsTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -78,11 +79,6 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
   }, []);
 
   const handleNewFrameBlob = useCallback((blob: Blob, tsHeader?: string | null) => {
-    const url = URL.createObjectURL(blob);
-    if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
-    objectUrlRef.current = url;
-    setFrameUrl(url);
-
     frameCountRef.current += 1;
     lastFrameTimeRef.current = Date.now();
 
@@ -93,6 +89,38 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
     }
     setPhase("live");
     setErrorMessage(null);
+
+    // Hardware-accelerated zero-copy canvas rendering
+    if (typeof createImageBitmap === "function") {
+      void createImageBitmap(blob)
+        .then((bitmap) => {
+          const canvas = canvasRef.current;
+          if (canvas) {
+            if (canvas.width !== bitmap.width || canvas.height !== bitmap.height) {
+              canvas.width = bitmap.width;
+              canvas.height = bitmap.height;
+            }
+            const ctx = canvas.getContext("2d");
+            if (ctx) {
+              ctx.drawImage(bitmap, 0, 0);
+            }
+          }
+          bitmap.close();
+        })
+        .catch(() => {
+          // Fallback to object URL if bitmap creation fails
+          const url = URL.createObjectURL(blob);
+          if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+          objectUrlRef.current = url;
+          setFrameUrl(url);
+        });
+      return;
+    }
+
+    const url = URL.createObjectURL(blob);
+    if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+    objectUrlRef.current = url;
+    setFrameUrl(url);
   }, []);
 
   // Fallback HTTP snapshot poll
@@ -376,13 +404,19 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
 
         {/* Video Canvas / Display */}
         <div className="aspect-video bg-black flex items-center justify-center relative z-[2]">
+          <canvas
+            ref={canvasRef}
+            className={`w-full h-full object-contain select-none ${phase === "live" ? "block" : "hidden"}`}
+          />
           {phase === "live" && frameUrl && (
+            <img
+              src={frameUrl}
+              alt="Live student camera feed"
+              className="w-full h-full object-contain select-none"
+            />
+          )}
+          {phase === "live" && (
             <>
-              <img
-                src={frameUrl}
-                alt="Live student camera feed"
-                className="w-full h-full object-contain select-none"
-              />
               <div className="scanline-bar !h-[14%]" style={{ opacity: 0.35 }} aria-hidden />
 
               {/* Stream Telemetry Overlay */}

@@ -29,6 +29,7 @@ jobs:
   build-and-publish:
     name: Build and Publish PyPI Package
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment:
       name: pypi
       url: https://pypi.org/project/deeptutor/
@@ -65,10 +66,14 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-suffix: pypi
+
       - name: Install build tools
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade build packaging twine
+        run: uv pip install --system build packaging twine
 
       - name: Verify release tag matches deeptutor/__version__.py
         id: version
@@ -108,7 +113,15 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: web
-        run: npm ci --legacy-peer-deps
+        run: npm ci --legacy-peer-deps --prefer-offline --no-audit
+
+      - name: Restore Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/web/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('web/package-lock.json') }}-${{ hashFiles('web/app/**', 'web/components/**', 'web/context/**', 'web/features/**', 'web/hooks/**', 'web/lib/**', 'web/types/**', 'web/locales/**', 'web/next.config.js', 'web/tailwind.config.js', 'web/tsconfig.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('web/package-lock.json') }}-
 
       - name: Build packaged Web assets
         run: python scripts/prepare_web_package.py

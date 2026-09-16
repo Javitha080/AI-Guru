@@ -31,6 +31,7 @@ jobs:
   verify-and-release:
     name: Verify Tag and Create GitHub Release
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout release tag
@@ -58,13 +59,18 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-suffix: release
+
       - name: Verify tag matches deeptutor/__version__.py
         id: version
         shell: bash
         run: |
           set -euo pipefail
-          python -m pip install --quiet --upgrade pip
-          python -m pip install --quiet packaging
+          uv pip install --system packaging
           python - <<'PY'
           import os
           import re

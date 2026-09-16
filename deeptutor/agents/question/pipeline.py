@@ -573,6 +573,12 @@ class QuestionPipeline:
         # ----- Phase 3: Quiz (per-question) -----
         qa_pairs: list[QuizPair] = []
         async with stream.stage(STAGE_QUIZZING, source=SOURCE):
+            cached_plan_summary = self._render_plan_summary(plan)
+            cached_kb_note = self._kb_system_note()
+            cached_tool_list = self._tool_list_text(context)
+            cached_tool_schemas = (
+                self._build_llm_tool_schemas(context) if self._use_native_tools(context) else None
+            )
             for index, template in enumerate(plan.templates):
                 qa_pair = await self._quiz_one(
                     template=template,
@@ -585,6 +591,10 @@ class QuestionPipeline:
                     context=context,
                     stream=stream,
                     client=client,
+                    cached_plan_summary=cached_plan_summary,
+                    cached_kb_note=cached_kb_note,
+                    cached_tool_list=cached_tool_list,
+                    cached_tool_schemas=cached_tool_schemas,
                 )
                 await self._emit_quiz_question(
                     stream=stream,
@@ -830,15 +840,28 @@ class QuestionPipeline:
         context: UnifiedContext,
         stream: StreamBus,
         client: Any,
+        cached_plan_summary: str | None = None,
+        cached_kb_note: str | None = None,
+        cached_tool_list: str | None = None,
+        cached_tool_schemas: list[dict[str, Any]] | None = None,
     ) -> QuizPair:
+        kb_note = cached_kb_note if cached_kb_note is not None else self._kb_system_note()
+        tool_list = (
+            cached_tool_list if cached_tool_list is not None else self._tool_list_text(context)
+        )
         system_prompt = self._t(
             "quiz_step.system",
             question_number=question_number,
             total_questions=total_questions,
-            kb_note=self._kb_system_note(),
-            tool_list=self._tool_list_text(context),
+            kb_note=kb_note,
+            tool_list=tool_list,
         )
         system_prompt = append_language_directive(system_prompt, self.language)
+        plan_summary = (
+            cached_plan_summary
+            if cached_plan_summary is not None
+            else self._render_plan_summary(plan)
+        )
         user_prompt = self._t(
             "quiz_step.user_template",
             question_id=template.question_id,
@@ -846,7 +869,7 @@ class QuestionPipeline:
             question_type=template.question_type,
             difficulty=template.difficulty,
             exploration_trace=exploration_trace or self._t("empty.no_exploration_trace"),
-            plan_summary=self._render_plan_summary(plan),
+            plan_summary=plan_summary,
             previous_questions=self._render_previous_questions(previous_pairs),
             reference_block=self._render_reference_block(template),
         )
@@ -855,7 +878,11 @@ class QuestionPipeline:
         )
 
         tool_schemas = (
-            self._build_llm_tool_schemas(context) if self._use_native_tools(context) else None
+            cached_tool_schemas
+            if cached_tool_schemas is not None
+            else (
+                self._build_llm_tool_schemas(context) if self._use_native_tools(context) else None
+            )
         )
         host = _QuizLoopHost(
             pipeline=self,

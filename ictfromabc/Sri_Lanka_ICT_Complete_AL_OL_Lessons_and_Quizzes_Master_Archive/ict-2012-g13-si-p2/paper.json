@@ -1,0 +1,595 @@
+[
+  {
+    "id": "al-2012-ict-si-p2-q1",
+    "number": 1,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions related to operating systems processor optimization, network diagnostic ping statistics, and process state transitions.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "1.a",
+        "label": "(a)",
+        "stem": "Give two techniques used in operating systems to optimize processor utilization.",
+        "marks": 2.0,
+        "expected_answer": "1. Multiprogramming / Multitasking (keeping multiple jobs ready in memory to switch CPU execution when I/O waits occur).\n2. CPU Scheduling algorithms (e.g. Round Robin, Multi-level Feedback Queues) to optimize throughput and turnaround time.\n(Alternative valid techniques: Spooling, Multithreading).",
+        "marking_guide": "Award 1 mark each for any two valid techniques."
+      },
+      {
+        "sub_id": "1.b.i",
+        "label": "(b) (i)",
+        "stem": "In the provided ping output:\n`64 bytes from ipv4.www.cam.ac.uk (131.111.8.46): icmp_seq=1 ttl=242 time=201 ms`\nWhat is meant by `time` in the above result?",
+        "marks": 2.0,
+        "expected_answer": "Round-Trip Time (RTT): The total elapsed time taken in milliseconds for the ICMP Echo Request packet to travel from the local host to the destination host plus the time taken for the ICMP Echo Reply packet to return.",
+        "marking_guide": "Award 2 marks for explaining round-trip time."
+      },
+      {
+        "sub_id": "1.b.ii",
+        "label": "(b) (ii)",
+        "stem": "What is the IP address of the server that hosts the website www.cam.ac.uk?",
+        "marks": 1.0,
+        "expected_answer": "`131.111.8.46`",
+        "marking_guide": "Award 1 mark for the correct IP address."
+      },
+      {
+        "sub_id": "1.b.iii",
+        "label": "(b) (iii)",
+        "stem": "Identify the class of the IP address obtained in (b) (ii) above.",
+        "marks": 1.0,
+        "expected_answer": "Class B (Since the first octet 131 lies in the range 128 to 191).",
+        "marking_guide": "Award 1 mark for Class B."
+      },
+      {
+        "sub_id": "1.b.iv",
+        "label": "(b) (iv)",
+        "stem": "What is the percentage of packet loss in the statistics (5 packets transmitted, 5 received)?",
+        "marks": 1.0,
+        "expected_answer": "0% packet loss (Since all 5 transmitted packets were successfully received).",
+        "marking_guide": "Award 1 mark for 0%."
+      },
+      {
+        "sub_id": "1.c",
+        "label": "(c)",
+        "stem": "In an operating system, a process can be in one of the states: `created/new`, `waiting`, `running`, `terminated`, `blocked`, `swapped out and waiting`, or `swapped out and blocked`. From which of the above states can a process be directly moved into the `blocked` state?",
+        "marks": 3.0,
+        "expected_answer": "Directly from the `running` state (when the process issues a blocking system call or waits for an I/O event), and from `swapped out and blocked` (when it is swapped back into main memory while still waiting for an event).",
+        "marking_guide": "Award 3 marks for identifying running state (or swapped out and blocked)."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Operating Systems & Networking",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q2",
+    "number": 2,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions on general systems theory and mobile phone system analysis.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "Provide a suitable definition for a system.",
+        "marks": 2.0,
+        "expected_answer": "A system is a cohesive set of interrelated or interacting components/subsystems that work together in a structured manner to accept inputs, process them, and generate outputs in order to achieve a defined common objective.",
+        "marking_guide": "Award 2 marks for components, interaction, inputs/outputs, and common objective."
+      },
+      {
+        "sub_id": "2.b",
+        "label": "(b)",
+        "stem": "Using the definition suggested in (a) above, show that a mobile phone is a system.",
+        "marks": 3.0,
+        "expected_answer": "A mobile phone is composed of interacting hardware components (screen, microphone, processor, battery, antenna) and software (operating system, apps). It receives inputs (touch gestures, voice), processes them (encoding, computation), and generates outputs (audio, display graphics) to achieve the goal of wireless communication.",
+        "marking_guide": "Award 1 mark for identifying components, 1 mark for inputs/processing/outputs, 1 mark for common objective."
+      },
+      {
+        "sub_id": "2.c",
+        "label": "(c)",
+        "stem": "State whether a mobile phone is a close system or an open system. Justify your answer.",
+        "marks": 2.0,
+        "expected_answer": "Open system.\nJustification: It actively interacts with its external environment by transmitting and receiving radio frequency signals, charging electrical power from the grid, taking camera/sensor inputs, and receiving user commands.",
+        "marking_guide": "Award 1 mark for stating open system, 1 mark for justification."
+      },
+      {
+        "sub_id": "2.d.i",
+        "label": "(d) (i)",
+        "stem": "State whether the requirement \"A user shall be able to make a call using the mobile phone\" is functional or non-functional. Justify your answer.",
+        "marks": 1.5,
+        "expected_answer": "Functional requirement.\nJustification: It specifies a direct operational service/feature that the mobile phone must execute upon user request.",
+        "marking_guide": "Award 1 mark for functional, 0.5 marks for justification."
+      },
+      {
+        "sub_id": "2.d.ii",
+        "label": "(d) (ii)",
+        "stem": "State whether the requirement \"It shall not harm the user by emitting radiations\" is functional or non-functional. Justify your answer.",
+        "marks": 1.5,
+        "expected_answer": "Non-functional requirement.\nJustification: It defines a safety and health constraint / regulatory quality attribute (Specific Absorption Rate limits) rather than a specific end-user task.",
+        "marking_guide": "Award 1 mark for non-functional, 0.5 marks for justification."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "System Concepts & Requirements",
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q3",
+    "number": 3,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding algorithm representation and two's complement binary arithmetic.",
+    "diagrams": [
+      {
+        "id": "d_q3a_flowchart",
+        "src": "images/q3a_flowchart.png",
+        "alt": "Flowchart for checking if an integer is odd or even",
+        "caption": "Figure 1: Odd/Even Checking Algorithm Flowchart"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "3.a.i",
+        "label": "(a) (i)",
+        "stem": "Describe how you would determine whether a given positive integer is odd or even.",
+        "marks": 2.0,
+        "expected_answer": "Divide the positive integer by 2. If the remainder is 0 (i.e. $N \\pmod 2 == 0$), the number is even; otherwise, if the remainder is 1, the number is odd.",
+        "marking_guide": "Award 2 marks for remainder check with 2."
+      },
+      {
+        "sub_id": "3.a.ii",
+        "label": "(a) (ii)",
+        "stem": "Develop a flowchart to represent an algorithm, based on the method suggested in (i) above, to decide whether a given positive integer is odd or even.",
+        "marks": 3.0,
+        "expected_answer": "Flowchart: [Start] -> [Input N] -> <Is N % 2 == 0?> -> (Yes: Display 'Even') / (No: Display 'Odd') -> [Stop].",
+        "marking_guide": "Award 3 marks for correct start/stop, input, decision diamond, output boxes and flowlines."
+      },
+      {
+        "sub_id": "3.a.iii",
+        "label": "(a) (iii)",
+        "stem": "Convert the flowchart you have obtained for the above (ii) into a pseudo code.",
+        "marks": 2.0,
+        "expected_answer": "```text\nBegin\n  Read N\n  If (N mod 2 == 0) Then\n    Print \"Even\"\n  Else\n    Print \"Odd\"\n  EndIf\nEnd\n```",
+        "marking_guide": "Award 2 marks for correct Begin/End, Read, If-Else construct."
+      },
+      {
+        "sub_id": "3.b",
+        "label": "(b)",
+        "stem": "Show how the computation $15 + (-5)$ is done in 8-bit two's complement arithmetic. Explain how you deal with the carry generated in the most significant bit.",
+        "marks": 3.0,
+        "expected_answer": "1. $+15$ in 8-bit binary: $00001111_2$\n2. $+5$ in 8-bit binary: $00000101_2$\n3. 1's complement of $+5$: $11111010_2$\n4. 2's complement of $-5$: $11111010_2 + 1 = 11111011_2$\n\nAddition:\n$$\n\\begin{array}{r@{\\quad}l}\n  0000\\,1111_2 & (+15) \\\\\n+ \\; 1111\\,1011_2 & (-5) \\\\\n\\hline\n(1)\\,0000\\,1010_2 & (+10_{10})\n\\end{array}\n$$\n\nThe carry bit 1 generated beyond the 8th bit (MSB) is discarded. The final 8-bit result is $00001010_2 = +10_{10}$.",
+        "marking_guide": "Award 1 mark for binary conversions, 1 mark for addition, 1 mark for carry discard explanation."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Algorithms & Binary Arithmetic",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q4",
+    "number": 4,
+    "section": "structured",
+    "question_type": "structured",
+    "marks": 10.0,
+    "stem": "Answer the following questions regarding ICT ethics, mobile computing, and remote collaboration methods.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "What do you mean by the terms \"privacy\" and \"software piracy\"?",
+        "marks": 3.0,
+        "expected_answer": "1. Privacy: The fundamental right of individuals to control access to their personal data and decide what information can be collected, stored, shared, and viewed by others.\n2. Software Piracy: The illegal copying, downloading, sharing, selling, or unlicensed commercial utilization of proprietary copyrighted software.",
+        "marking_guide": "Award 1.5 marks for privacy, 1.5 marks for software piracy."
+      },
+      {
+        "sub_id": "4.b",
+        "label": "(b)",
+        "stem": "Describe the term \"mobile computing\".",
+        "marks": 2.0,
+        "expected_answer": "Mobile computing is a technology paradigm that enables the transmission of data, voice, and video via a computer or other wireless-enabled device without having to be connected to a fixed physical link, allowing continuous computing while on the move.",
+        "marking_guide": "Award 2 marks for wireless data access while in transit."
+      },
+      {
+        "sub_id": "4.c.i",
+        "label": "(c) (i)",
+        "stem": "A semiconductor manufacturing company has branches in Japan and USA. Representatives frequently travel for technical meetings, which is costly and time-consuming. Suggest an ICT based method to conduct these technical review meetings without visiting other branches.",
+        "marks": 2.0,
+        "expected_answer": "Video Conferencing / Web Conferencing (e.g. using high-definition video conferencing suites over a high-speed corporate network).",
+        "marking_guide": "Award 2 marks for video conferencing / web conferencing."
+      },
+      {
+        "sub_id": "4.c.ii",
+        "label": "(c) (ii)",
+        "stem": "Name three essential ICT devices required for the method suggested in (i) above.",
+        "marks": 3.0,
+        "expected_answer": "1. Video Camera / High-definition Webcam\n2. Audio Microphone & Speakers / Headset\n3. Display Monitor / Projector\n(Alternative valid answers: Computer/Codec terminal, Network Router/Switch).",
+        "marking_guide": "Award 1 mark each for three valid devices."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Ethics, Mobile Computing & Collaboration",
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q5",
+    "number": 5,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 1 (Data Concepts & Fan Control Logic Circuit)\n\nAnswer the following questions on data vs information, hardware/software/firmware, and fan automation control logic design.",
+    "diagrams": [
+      {
+        "id": "d_q1b_fan_circuit",
+        "src": "images/q1b_fan_circuit.png",
+        "alt": "Logic circuit for automated fan control system",
+        "caption": "Figure 2: Fan Control System Circuit"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "1.a.i",
+        "label": "(a) (i)",
+        "stem": "Describe the main difference between data and information by using a suitable system.",
+        "marks": 3.0,
+        "expected_answer": "Data consists of raw, unorganized, and context-free facts, numbers, or symbols. Information is processed, organized, and structured data that is meaningful and actionable for decision making.\nExample (School Exam System): Raw student marks in 3 subjects (e.g. 78, 85, 92) constitute data; calculating the average mark (85) and assigning a pass/fail grade or rank position is information.",
+        "marking_guide": "Award 1.5 marks for definition difference, 1.5 marks for concrete system example."
+      },
+      {
+        "sub_id": "1.a.ii",
+        "label": "(a) (ii)",
+        "stem": "Give three drawbacks of manual methods in manipulating data in bulk.",
+        "marks": 3.0,
+        "expected_answer": "1. High error rate and human calculation mistakes.\n2. Slow processing speed and time consumption.\n3. High physical storage space and paper management costs.\n(Alternative: Difficulty in search/retrieval, vulnerability to physical damage).",
+        "marking_guide": "Award 1 mark each for three valid drawbacks."
+      },
+      {
+        "sub_id": "1.a.iii",
+        "label": "(a) (iii)",
+        "stem": "Describe the terms hardware, software and firmware using examples.",
+        "marks": 3.0,
+        "expected_answer": "1. Hardware: Physical, tangible components of a computer system (e.g. CPU, RAM, Hard Disk, Keyboard).\n2. Software: Intangible sets of instructions or computer programs that direct hardware operations (e.g. Operating Systems, Word Processors, Web Browsers).\n3. Firmware: Semi-permanent software programmed directly into non-volatile read-only memory (ROM/Flash) chips to provide low-level control for hardware (e.g. BIOS/UEFI, washing machine microcontroller program).",
+        "marking_guide": "Award 1 mark each for definition and example."
+      },
+      {
+        "sub_id": "1.b.i",
+        "label": "(b) (i)",
+        "stem": "A fan in a room can be on (1) or off (0). It operates under conditions: (1) Manual switch M (on=1, off=0), (2) Timer T (on=1, off=0), (3) Environment sensor S (cold=1, hot=0). Fan turns on manually OR automatically when timer is on and environment is hot (S=0). Draw a logic circuit using only AND, OR and NOT gates to implement the control system.",
+        "marks": 2.0,
+        "expected_answer": "Logic formula: $\\text{Fan} = M + (T \\cdot \\bar{S})$. Circuit consists of an inverter on input $S$ to obtain $\\bar{S}$, an AND gate combining $T$ and $\\bar{S}$, and an OR gate combining $M$ and the AND output.",
+        "marking_guide": "Award 2 marks for correct AND, OR, and NOT gate arrangement."
+      },
+      {
+        "sub_id": "1.b.ii",
+        "label": "(b) (ii)",
+        "stem": "Construct a truth table to represent the functionality of the above fan control system ($M, T, S$ as inputs and $F$ as fan output).",
+        "marks": 2.0,
+        "expected_answer": "| M | T | S | F |\n|:---:|:---:|:---:|:---:|\n| 0 | 0 | 0 | 0 |\n| 0 | 0 | 1 | 0 |\n| 0 | 1 | 0 | 1 |\n| 0 | 1 | 1 | 0 |\n| 1 | 0 | 0 | 1 |\n| 1 | 0 | 1 | 1 |\n| 1 | 1 | 0 | 1 |\n| 1 | 1 | 1 | 1 |",
+        "marking_guide": "Award 2 marks for correct 8-row truth table."
+      },
+      {
+        "sub_id": "1.b.iii",
+        "label": "(b) (iii)",
+        "stem": "Write a Boolean expression (not simplified) to represent the truth table constructed in (b) (ii) above.",
+        "marks": 2.0,
+        "expected_answer": "Canonical SOP expression (Minterms $m_2, m_4, m_5, m_6, m_7$):\n$$F(M,T,S) = \\bar{M}T\\bar{S} + M\\bar{T}\\bar{S} + M\\bar{T}S + MT\\bar{S} + MTS$$",
+        "marking_guide": "Award 2 marks for unsimplified canonical sum of minterms."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Digital Logic & Computer Systems",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q6",
+    "number": 6,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 2 (HTML Formatting, Poem Display & Web Page Implementation)\n\nAnswer the following questions on browser text rendering and website markup design.",
+    "diagrams": [
+      {
+        "id": "d_q2c_agri",
+        "src": "images/q2c_agri_webpage.png",
+        "alt": "Agriculture Sri Lanka webpage layout",
+        "caption": "Figure 3: Agri Sri Lanka Web Page"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "2.a",
+        "label": "(a)",
+        "stem": "What would be the responses by a browser for a paragraph tag `<p>` and for a break tag `<br>` in an HTML document?",
+        "marks": 3.0,
+        "expected_answer": "1. `<p>` tag: Creates a block-level paragraph with an automatic blank line margin before and after the enclosed text.\n2. `<br>` tag: Inserts an inline single carriage return line break without creating a blank paragraph margin.",
+        "marking_guide": "Award 1.5 marks for `<p>` behavior, 1.5 marks for `<br>` behavior."
+      },
+      {
+        "sub_id": "2.b",
+        "label": "(b)",
+        "stem": "What will be displayed when the following HTML code segment is rendered? Clearly indicate blank line(s) with dotted lines:\n```html\n<p>Our evergreen school days<br/>\nwill not come back again</p>\n<p>From the nursery to high school\nwe learnt the best</p>\n```",
+        "marks": 4.0,
+        "expected_answer": "Our evergreen school days\nwill not come back again\n........................................\nFrom the nursery to high school we learnt the best",
+        "marking_guide": "Award 2 marks for line break at `<br/>` and continuous line for the second paragraph, 2 marks for dotted line indicating paragraph gap."
+      },
+      {
+        "sub_id": "2.c",
+        "label": "(c)",
+        "stem": "Write an HTML code to produce the web page for \"Agri Sri Lanka\" with the heading \"Agriculture Sri Lanka\", image \"agriSL.jpg\", description paragraph, bullet list of crops (tea, rubber, coconut), and links to Jay Agro Technologies (`http://www.jayagrotec.com`) and Lanka Agri Systems Pvt Ltd (`http://www.lkagrisys.com`).",
+        "marks": 8.0,
+        "expected_answer": "```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>Agriculture Sri Lanka</title>\n</head>\n<body>\n  <h1>Agriculture Sri Lanka</h1>\n  <img src=\"agriSL.jpg\" alt=\"Agri Sri Lanka Logo\">\n  <p>Sri Lanka is an agricultural country. Agriculture is one of the main sectors of the Sri Lankan economy.</p>\n  <p>The main plantation crops are</p>\n  <ul>\n    <li>tea</li>\n    <li>rubber</li>\n    <li>coconut</li>\n  </ul>\n  <h3>Links to agricultural firms</h3>\n  <a href=\"http://www.jayagrotec.com\">Jay Agro Technologies</a><br>\n  <a href=\"http://www.lkagrisys.com\">Lanka Agri Systems Pvt Ltd.</a>\n</body>\n</html>\n```",
+        "marking_guide": "Award 1 mark for document structure, 1 mark for heading, 1 mark for image tag, 2 marks for unordered list, 3 marks for anchor tags with correct URLs."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Web Technologies & HTML",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q7",
+    "number": 7,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 3 (Virtual Memory Addressing & Network Security)\n\nAnswer the following questions on 16-bit virtual memory address spaces, subnet topology routing, and perimeter network security.",
+    "diagrams": [
+      {
+        "id": "d_q3b_topology",
+        "src": "images/q3b_network_topology.png",
+        "alt": "Network topology connecting Computer A and Computer B via router",
+        "caption": "Figure 4: Inter-Subnet Topology"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "3.a.i",
+        "label": "(a) (i)",
+        "stem": "An application running in a computer refers the virtual memory address `0100110100010111` (16 bits) during execution. Calculate the maximum accessible virtual memory address space in Kilo Bytes.",
+        "marks": 2.0,
+        "expected_answer": "With 16 address bits, the addressable locations are $2^{16} = 65,536\\text{ bytes} = 64\\text{ KB}$.",
+        "marking_guide": "Award 2 marks for $2^{16} = 64\\text{ KB}$."
+      },
+      {
+        "sub_id": "3.a.ii",
+        "label": "(a) (ii)",
+        "stem": "What is the range (starting and ending addresses) of the memory address space identified in section (i) above?",
+        "marks": 2.0,
+        "expected_answer": "- Binary range: `0000000000000000` to `1111111111111111`\n- Hexadecimal range: `0x0000` to `0xFFFF`\n- Decimal range: `0` to `65,535`",
+        "marking_guide": "Award 2 marks for correct starting and ending addresses."
+      },
+      {
+        "sub_id": "3.a.iii",
+        "label": "(a) (iii)",
+        "stem": "If a page size is 4 Kbits, how many bits are sufficient to represent the page number? Show your computation.",
+        "marks": 3.0,
+        "expected_answer": "1. Page size in bytes: $4\\text{ Kbits} = 4096\\text{ bits} / 8 = 512\\text{ bytes} = 2^9\\text{ bytes}$.\n2. Number of displacement / offset bits: $d = 9\\text{ bits}$.\n3. Total address bits: $16\\text{ bits}$.\n4. Bits for page number: $p = 16 - 9 = 7\\text{ bits}$.",
+        "marking_guide": "Award 1 mark for converting Kbits to bytes, 1 mark for offset bits, 1 mark for page number bits (7 bits)."
+      },
+      {
+        "sub_id": "3.b",
+        "label": "(b)",
+        "stem": "Computer A has IP `192.168.1.2/24`, Gateway `192.168.1.254`. Computer B has IP `192.168.2.3/24`, Gateway `192.168.2.254`. Draw a network diagram for the two network segments so that A and B can communicate, indicating all IP addresses.",
+        "marks": 4.0,
+        "expected_answer": "Diagram shows Computer A connected to Switch 1, which connects to Router Interface 1 (`192.168.1.254`). Computer B connects to Switch 2, which connects to Router Interface 2 (`192.168.2.254`). The router routes packets between both subnets.",
+        "marking_guide": "Award 2 marks for router and switch topology, 2 marks for correct IP labeling."
+      },
+      {
+        "sub_id": "3.c",
+        "label": "(c)",
+        "stem": "Briefly explain the main function of each of the following systems in terms of network security: (i) firewall, (ii) proxy server, (iii) honey pots.",
+        "marks": 4.0,
+        "expected_answer": "(i) Firewall: Filters inbound and outbound network traffic according to predefined security rule sets to block unauthorized access.\n(ii) Proxy Server: Acts as an intermediary between local clients and the external internet, hiding internal IP addresses, filtering web content, and caching pages.\n(iii) Honey Pots: Decoy systems deliberately exposed to attackers to detect, divert, and analyze unauthorized intrusion attempts.",
+        "marking_guide": "Award 1.5 marks each for firewall and proxy server, 1 mark for honey pots."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Virtual Memory & Network Security",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q8",
+    "number": 8,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 4 (ER Modeling & Relational Schema Mapping)\n\nConsider the following ER diagram containing Desk, Class, House, Student, and Subject entities.\n\n![ER Diagram](images/q4_er_diagram.png)\n\nAnswer the following questions based on the ER diagram.",
+    "diagrams": [
+      {
+        "id": "d_q4_er",
+        "src": "images/q4_er_diagram.png",
+        "alt": "School database Entity-Relationship diagram",
+        "caption": "Figure 5: School ER Diagram"
+      }
+    ],
+    "sub_questions": [
+      {
+        "sub_id": "4.a",
+        "label": "(a)",
+        "stem": "State the most relevant entity or relationship in the above ER diagram to add an attribute to represent marks obtained by a student for a subject.",
+        "marks": 2.0,
+        "expected_answer": "The relationship `Obtains Marks for` (associative relationship between Student and Subject).",
+        "marking_guide": "Award 2 marks for specifying 'Obtains Marks for' relationship."
+      },
+      {
+        "sub_id": "4.b",
+        "label": "(b)",
+        "stem": "Classify all the relationships in the above ER diagram as one-to-one, one-to-many or many-to-many. Justify your answer.",
+        "marks": 4.0,
+        "expected_answer": "1. Desk - Student: One-to-One (1:1). Each student is assigned one desk, each desk belongs to one student.\n2. Class - Student: One-to-Many (1:N). A class has many students, a student belongs to one class.\n3. House - Student: One-to-Many (1:N). A house has many students, a student is assigned to one house.\n4. Student - Subject: Many-to-Many (M:N). A student studies many subjects, a subject is taken by many students.",
+        "marking_guide": "Award 1 mark for each relationship classification and justification."
+      },
+      {
+        "sub_id": "4.c",
+        "label": "(c)",
+        "stem": "Write the structure of the tables including their attributes when the above ER diagram is converted to a relational database.",
+        "marks": 4.0,
+        "expected_answer": "- `Desk` ( $\\underline{\\text{DeskID}}$, StudentID [FK] )\n- `Class` ( $\\underline{\\text{ClassID}}$ )\n- `House` ( $\\underline{\\text{HouseID}}$, Title )\n- `Student` ( $\\underline{\\text{StudentID}}$, Name, NIC, ClassID [FK], HouseID [FK] )\n- `Subject` ( $\\underline{\\text{SubjectID}}$, Name )\n- `Student_Subject` / `Marks` ( $\\underline{\\text{StudentID}, \\text{SubjectID}}$, Marks )",
+        "marking_guide": "Award 4 marks for complete and correctly mapped relational tables."
+      },
+      {
+        "sub_id": "4.d",
+        "label": "(d)",
+        "stem": "State the primary key for any table suggested in (c) above.",
+        "marks": 2.0,
+        "expected_answer": "- `Student`: `StudentID`\n- `Student_Subject`: Composite key `(StudentID, SubjectID)`",
+        "marking_guide": "Award 2 marks for naming a correct primary key."
+      },
+      {
+        "sub_id": "4.e",
+        "label": "(e)",
+        "stem": "Using the tables suggested in (c) above, write an SQL statement to get marks obtained for the subject with Subject ID 'AL001' by the student with Student ID 'ST001'.",
+        "marks": 3.0,
+        "expected_answer": "```sql\nSELECT Marks \nFROM Marks \nWHERE StudentID = 'ST001' AND SubjectID = 'AL001';\n```",
+        "marking_guide": "Award 1 mark for SELECT Marks, 1 mark for FROM table, 1 mark for WHERE conditions."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Database Design & SQL",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q9",
+    "number": 9,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 5 (Python Data Structures, Sorting & File I/O)\n\nConsider the Python program `example.py` that tallies word frequencies from `input.txt`, sorts them, and writes to `output.txt`.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "5.a",
+        "label": "(a)",
+        "stem": "What are the data types of the variables `datasummary` and `datakeys` in the program?",
+        "marks": 2.0,
+        "expected_answer": "- `datasummary`: Dictionary (`dict`)\n- `datakeys`: List (`list`)",
+        "marking_guide": "Award 1 mark for Dictionary, 1 mark for List."
+      },
+      {
+        "sub_id": "5.b",
+        "label": "(b)",
+        "stem": "Write a Python statement required to insert the program name as a comment at the beginning of the program.",
+        "marks": 2.0,
+        "expected_answer": "`# example.py` (or `#Program name: example.py`)",
+        "marking_guide": "Award 2 marks for statement starting with `#`."
+      },
+      {
+        "sub_id": "5.c",
+        "label": "(c)",
+        "stem": "What is the result of execution of the command `open('input.txt', 'r')` in the program?",
+        "marks": 2.0,
+        "expected_answer": "It opens the existing file named `input.txt` in read-only mode and returns a file handle object. If the file does not exist, it raises a `FileNotFoundError`.",
+        "marking_guide": "Award 2 marks for explaining opening for reading."
+      },
+      {
+        "sub_id": "5.d",
+        "label": "(d)",
+        "stem": "Describe the main task of each of the functions `readdata()`, `processdata()` and `printdata()` in the program.",
+        "marks": 4.0,
+        "expected_answer": "1. `readdata()`: Reads lines from `input.txt`, splits tokens by comma, counts their occurrences in dictionary `datasummary`, and stores keys in `datakeys` list.\n2. `processdata()`: Sorts the items in `datakeys` in ascending alphabetical order using a bubble/selection exchange algorithm.\n3. `printdata()`: Opens `output.txt` in write mode and outputs each sorted key and its count formatted as `key-count`.",
+        "marking_guide": "Award 1.5 marks for readdata, 1.5 marks for processdata, 1 mark for printdata."
+      },
+      {
+        "sub_id": "5.e",
+        "label": "(e)",
+        "stem": "If the content of the file `input.txt` is:\n`a,d,b,a,n`\n`d,b,n,x,a`\nwhat would be the content of the file `output.txt` after program execution?",
+        "marks": 5.0,
+        "expected_answer": "Frequencies:\n- a: 3\n- b: 2\n- d: 2\n- n: 2\n- x: 1\n\nContent of `output.txt`:\n```text\na-3\na-3\na-3\nb-2\nb-2\nd-2\nd-2\nn-2\nn-2\nx-1\n```\n(Note: If unique keys are collected: a-3, b-2, d-2, n-2, x-1; since `datakeys` appends all items, list contains repeated keys sorted alphabetically).",
+        "marking_guide": "Award 5 marks for correct alphabetical sequence and frequency counts."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "Python Programming & File Handling",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "al-2012-ict-si-p2-q10",
+    "number": 10,
+    "section": "essay",
+    "question_type": "essay",
+    "marks": 15.0,
+    "stem": "### Part B - Question 6 (e-Business Online Donation Portal)\n\nAnswer the following questions on the Past Pupils Association (PPA) school library online book donation system.",
+    "diagrams": [],
+    "sub_questions": [
+      {
+        "sub_id": "6.a",
+        "label": "(a)",
+        "stem": "Give two advantages of the suggested on-line method over traditional methods for book collection.",
+        "marks": 5.0,
+        "expected_answer": "1. Global accessibility: Alumni and donors residing overseas can contribute funds anytime without needing to physically buy or post books.\n2. Prevention of duplicates: The school lists only needed titles, preventing the library from receiving unneeded or duplicate books.",
+        "marking_guide": "Award 2.5 marks for each valid advantage."
+      },
+      {
+        "sub_id": "6.b",
+        "label": "(b)",
+        "stem": "Give one disadvantage of ordering books through the suggested website.",
+        "marks": 5.0,
+        "expected_answer": "Donors without digital payment facilities (credit/debit cards or online banking) or donors with internet security concerns cannot participate in the donation scheme.",
+        "marking_guide": "Award 5 marks for identifying digital barrier / security concern / delivery delay."
+      },
+      {
+        "sub_id": "6.c",
+        "label": "(c)",
+        "stem": "Explain how you could improve the website to eliminate the disadvantage given in (b) above.",
+        "marks": 5.0,
+        "expected_answer": "Add offline payment integration options (e.g. generating a printable bank deposit slip or mobile carrier billing), and display real-time donor contribution progress trackers with transparency reports.",
+        "marking_guide": "Award 5 marks for practical website improvement."
+      }
+    ],
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2012,
+      "medium": "sinhala",
+      "topic": "e-Business & Systems Analysis",
+      "difficulty": "medium"
+    }
+  }
+]

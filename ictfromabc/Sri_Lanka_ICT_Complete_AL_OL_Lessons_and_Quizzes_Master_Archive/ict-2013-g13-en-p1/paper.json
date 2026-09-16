@@ -1,0 +1,1323 @@
+[
+  {
+    "id": "al-2013-ict-en-p1-q01",
+    "number": 1,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "The Boolean expression $(x+y) \\cdot (x+z)$ simplifies to",
+    "diagrams": [],
+    "options": {
+      "A": "$x$",
+      "B": "$x \\cdot (y+z)$",
+      "C": "$x \\cdot y \\cdot z$",
+      "D": "$x + y \\cdot z$",
+      "E": "$x + y + z$"
+    },
+    "reference_answer": "D",
+    "explanation": "$(x+y)(x+z) = xx + xz + yx + yz = x + x(z+y) + yz = x(1 + z+y) + yz = x + yz$.",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q02",
+    "number": 2,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Which of the following Boolean expressions represents the output (Q) of the circuit shown below?\n\n![Logic Circuit](images/q02_circuit.png)",
+    "diagrams": [
+      {
+        "id": "d_q02_circuit",
+        "src": "images/q02_circuit.png",
+        "alt": "Logic circuit for Q2",
+        "caption": "Figure 1: Logic Circuit"
+      }
+    ],
+    "options": {
+      "A": "$A'B' + AB'$",
+      "B": "$A'B' + AB$",
+      "C": "$AB + A'B'$",
+      "D": "$A'B + AB'$",
+      "E": "$A'B + A'B'$"
+    },
+    "reference_answer": "A",
+    "explanation": "Simplifying circuit expression gives $\\overline{A'B + B} = (A + B')B' = AB' + B' = B'(A+1) = B'$, matching $A'B' + AB' = B'(A'+A) = B'$.",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q03",
+    "number": 3,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "A high speed temporary storage, which is a part of the microprocessor that holds data and instructions during execution, is called",
+    "diagrams": [],
+    "options": {
+      "A": "Registers.",
+      "B": "RAM.",
+      "C": "Virtual Memory.",
+      "D": "EPROM.",
+      "E": "Flash Memory."
+    },
+    "reference_answer": "A",
+    "explanation": "Registers are internal, ultra-fast memory units inside the microprocessor.",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q04",
+    "number": 4,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 4 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q05",
+    "number": 5,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Typically the cache memory is used to store",
+    "diagrams": [],
+    "options": {
+      "A": "a large volume of data temporarily.",
+      "B": "the least frequently accessed data permanently.",
+      "C": "the least frequently accessed data temporarily.",
+      "D": "the most frequently accessed data temporarily.",
+      "E": "the most frequently accessed data permanently."
+    },
+    "reference_answer": "D",
+    "explanation": "Cache memory stores frequently accessed instructions and data to reduce latency.",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q06",
+    "number": 6,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 6 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q07",
+    "number": 7,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 7 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "A",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (1).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q08",
+    "number": 8,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 8 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q09",
+    "number": 9,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 9 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q10",
+    "number": 10,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 10 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q11",
+    "number": 11,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 11 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q12",
+    "number": 12,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 12 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q13",
+    "number": 13,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 13 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q14",
+    "number": 14,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 14 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q15",
+    "number": 15,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 15 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q16",
+    "number": 16,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 16 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q17",
+    "number": 17,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 17 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q18",
+    "number": 18,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 18 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [
+      {
+        "id": "d_q18_flowchart",
+        "src": "images/q18_flowchart.png",
+        "alt": "Algorithm flowchart",
+        "caption": "Figure 2: Flowchart"
+      }
+    ],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q19",
+    "number": 19,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 19 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [
+      {
+        "id": "d_q18_flowchart",
+        "src": "images/q18_flowchart.png",
+        "alt": "Algorithm flowchart",
+        "caption": "Figure 2: Flowchart"
+      }
+    ],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q20",
+    "number": 20,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "The binary number equivalent to $25_{10}$ is",
+    "diagrams": [],
+    "options": {
+      "A": "$0100101_2$",
+      "B": "$0100111_2$",
+      "C": "$0011001_2$",
+      "D": "$0010110_2$",
+      "E": "$0010111_2$"
+    },
+    "reference_answer": "C",
+    "explanation": "$25 = 16 + 8 + 1 = 11001_2$, which in 7 bits is $0011001_2$.",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q21",
+    "number": 21,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "$124_8 + 165_8 =$",
+    "diagrams": [],
+    "options": {
+      "A": "$201_8$",
+      "B": "$289_{10}$",
+      "C": "$289_8$",
+      "D": "$311_8$",
+      "E": "$389_8$"
+    },
+    "reference_answer": "D",
+    "explanation": "$4+5 = 11_8$ (carry 1); $2+6+1 = 11_8$ (carry 1); $1+1+1 = 3_8$. Result: $311_8$.",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q22",
+    "number": 22,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 22 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q23",
+    "number": 23,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 23 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q24",
+    "number": 24,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 24 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q25",
+    "number": 25,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 25 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q26",
+    "number": 26,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 26 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "E",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (5).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q27",
+    "number": 27,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 27 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "E",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (5).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q28",
+    "number": 28,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 28 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q29",
+    "number": 29,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 29 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "E",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (5).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q30",
+    "number": 30,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 30 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q31",
+    "number": 31,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 31 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q32",
+    "number": 32,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 32 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "E",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (5).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q33",
+    "number": 33,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 33 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "A",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (1).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q34",
+    "number": 34,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 34 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q35",
+    "number": 35,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 35 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "E",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (5).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q36",
+    "number": 36,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 36 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "A",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (1).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q37",
+    "number": 37,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 37 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q38",
+    "number": 38,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 38 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "A",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (1).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q39",
+    "number": 39,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 39 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q40",
+    "number": 40,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 40 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "A",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (1).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q41",
+    "number": 41,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 41 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "E",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (5).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q42",
+    "number": 42,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 42 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q43",
+    "number": 43,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 43 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q44",
+    "number": 44,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 44 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q45",
+    "number": 45,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 45 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q46",
+    "number": 46,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 46 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q47",
+    "number": 47,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 47 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "C",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (3).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q48",
+    "number": 48,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 48 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "B",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (2).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q49",
+    "number": 49,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "What is the two's complement of $-6_{10}$ in 8-bit notation?",
+    "diagrams": [],
+    "options": {
+      "A": "$11111010_2$",
+      "B": "$00000110_2$",
+      "C": "$11111001_2$",
+      "D": "$01011111_2$",
+      "E": "$00000101_2$"
+    },
+    "reference_answer": "A",
+    "explanation": "$+6 = 00000110_2 \\rightarrow$ 1's comp $= 11111001_2 \\rightarrow$ 2's comp $= 11111010_2$.",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "al-2013-ict-en-p1-q50",
+    "number": 50,
+    "section": "mcq",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Question 50 of G.C.E. (A/L) 2013 ICT Paper I.",
+    "diagrams": [],
+    "options": {
+      "A": "Option (1)",
+      "B": "Option (2)",
+      "C": "Option (3)",
+      "D": "Option (4)",
+      "E": "Option (5)"
+    },
+    "reference_answer": "D",
+    "explanation": "Reference answer according to official Department of Examinations marking scheme is alternative (4).",
+    "metadata": {
+      "subject": "ict",
+      "grade": 13,
+      "year": 2013,
+      "medium": "english",
+      "topic": "General ICT",
+      "difficulty": "medium"
+    }
+  }
+]

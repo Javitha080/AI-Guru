@@ -269,6 +269,7 @@ def clear_index_cache() -> None:
     """Drop all cached indexes (used by tests and after destructive edits)."""
     with _INDEX_CACHE_LOCK:
         _INDEX_CACHE.clear()
+    retrievers.clear_bm25_cache()
 
 
 def prune_index_cache() -> int:

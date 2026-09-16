@@ -8,13 +8,42 @@ Lazy imports avoid router↔service cycles.
 
 from __future__ import annotations
 
-from typing import Any, List, Optional
+import asyncio
+from typing import Any, Dict, List, Optional
+
+_frame_events: Dict[str, asyncio.Event] = {}
 
 
 def _mod():
     from deeptutor.api.routers import monitoring_session as _m
 
     return _m
+
+
+def get_frame_event(session_id: str) -> asyncio.Event:
+    ev = _frame_events.get(session_id)
+    if ev is None:
+        ev = asyncio.Event()
+        _frame_events[session_id] = ev
+    return ev
+
+
+def notify_new_frame(session_id: str) -> None:
+    """Notify any subscribers (e.g. parent live stream) that a new frame is ready."""
+    ev = _frame_events.get(session_id)
+    if ev is not None:
+        ev.set()
+
+
+async def wait_for_frame(session_id: str, timeout: float = 2.0) -> bool:
+    """Asynchronously wait for the next frame on session_id, returning True if notified or False on timeout."""
+    ev = get_frame_event(session_id)
+    try:
+        await asyncio.wait_for(ev.wait(), timeout=timeout)
+        ev.clear()
+        return True
+    except (asyncio.TimeoutError, TimeoutError):
+        return False
 
 
 def register_session(session_id: str, ws: Any) -> None:
@@ -25,6 +54,9 @@ def unregister_session(session_id: str) -> None:
     _mod()._active_monitoring_sessions.pop(session_id, None)
     _mod()._frame_rings.pop(session_id, None)
     _mod()._purge_session_state(session_id)
+    ev = _frame_events.pop(session_id, None)
+    if ev is not None:
+        ev.set()
 
 
 def is_session_active(session_id: str) -> bool:
@@ -55,6 +87,7 @@ def list_consented_active() -> List[str]:
 
 def store_live_frame(session_id: str, jpeg_b64: str, ts: float) -> None:
     _mod()._live_frames[session_id] = (jpeg_b64, ts)
+    notify_new_frame(session_id)
 
 
 def get_live_frame(session_id: str) -> Optional[tuple[str, float]]:
@@ -69,6 +102,9 @@ def clear_all_live() -> None:
     m = _mod()
     m._live_consent.clear()
     m._live_frames.clear()
+    for ev in _frame_events.values():
+        ev.set()
+    _frame_events.clear()
 
 
 def get_frame_ring(session_id: str) -> List[str]:
@@ -90,4 +126,7 @@ __all__ = [
     "purge_stale_frames",
     "clear_all_live",
     "get_frame_ring",
+    "notify_new_frame",
+    "wait_for_frame",
+    "get_frame_event",
 ]

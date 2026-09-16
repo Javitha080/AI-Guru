@@ -64,6 +64,9 @@ class ExamQuestion:
     explanation: Optional[str] = None
     section: str = "mcq"
     section_number: int = 1
+    diagrams: List[Dict[str, Any]] = field(default_factory=list)
+    sub_questions: List[Dict[str, Any]] = field(default_factory=list)
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self, *, include_answers: bool = False) -> Dict[str, Any]:
         d = {
@@ -73,6 +76,9 @@ class ExamQuestion:
             "text": self.text,
             "options": self.options,
             "marks": self.marks,
+            "diagrams": self.diagrams,
+            "sub_questions": self.sub_questions,
+            "metadata": self.metadata,
         }
         if include_answers:
             d["reference_answer"] = self.reference_answer
@@ -151,10 +157,52 @@ class ExamPaper:
     @classmethod
     def from_json(cls, raw: str) -> "ExamPaper":
         data = json.loads(raw)
-        questions = [ExamQuestion(**q) for q in data.pop("questions", [])]
+        if isinstance(data, list):
+            questions_raw = data
+            data = {}
+        else:
+            questions_raw = data.pop("questions", [])
+
+        known_q_fields = {f.name for f in dataclass_fields(ExamQuestion)}
+        parsed_questions: List[ExamQuestion] = []
+        for i, q in enumerate(questions_raw, start=1):
+            if not isinstance(q, dict):
+                continue
+            text = str(q.get("text") or q.get("stem") or "").strip()
+            diagrams = q.get("diagrams") or []
+            if not diagrams and q.get("images"):
+                raw_imgs = q.get("images")
+                if isinstance(raw_imgs, list):
+                    diagrams = [
+                        img if isinstance(img, dict) else {"id": f"d_{i}_{idx}", "src": str(img)}
+                        for idx, img in enumerate(raw_imgs)
+                    ]
+            q_kwargs = {
+                "id": str(q.get("id") or f"q_{i}"),
+                "number": int(q.get("number") or i),
+                "question_type": str(q.get("question_type") or "choice"),
+                "text": text,
+                "options": q.get("options"),
+                "marks": float(q.get("marks") or 1.0),
+                "reference_answer": q.get("reference_answer"),
+                "explanation": q.get("explanation"),
+                "section": str(q.get("section") or "mcq"),
+                "section_number": int(q.get("section_number") or i),
+                "diagrams": diagrams,
+                "sub_questions": q.get("sub_questions") or [],
+                "metadata": q.get("metadata") or {},
+            }
+            parsed_questions.append(
+                ExamQuestion(**{k: v for k, v in q_kwargs.items() if k in known_q_fields})
+            )
+
         known = {f.name for f in dataclass_fields(cls)}
         kwargs = {k: v for k, v in data.items() if k in known}
-        return cls(questions=questions, **kwargs)
+        if "exam_id" not in kwargs:
+            kwargs["exam_id"] = f"exam-{uuid.uuid4().hex[:12]}"
+        if "title" not in kwargs:
+            kwargs["title"] = "Exam Paper"
+        return cls(questions=parsed_questions, **kwargs)
 
     def order_questions(self) -> List[ExamQuestion]:
         """Order questions: choice/concept first (Paper 1), written/coding after."""
@@ -200,6 +248,8 @@ class ExamPaper:
                     "marks": q.marks,
                     "section": sec,
                     "section_number": sec_num,
+                    "diagrams": q.diagrams,
+                    "sub_questions": q.sub_questions,
                 }
             )
         return {

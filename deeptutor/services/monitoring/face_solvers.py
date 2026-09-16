@@ -37,6 +37,28 @@ def euler_from_face_matrix(mat) -> Tuple[float, float, float]:
     (tests/services/test_cv_fixes.py::TestEulerFromFaceMatrix) which projects
     rotation matrices through this extractor and asserts zero recovery error.
     """
+    if isinstance(mat, (list, tuple)) and len(mat) == 16:
+        m00 = float(mat[0])
+        m10 = float(mat[4])
+        m20 = float(mat[8])
+        m21 = float(mat[9])
+        m22 = float(mat[10])
+        pitch = math.degrees(math.atan2(m21, m22))
+        yaw = math.degrees(math.atan2(-m20, math.hypot(m21, m22)))
+        roll = math.degrees(math.atan2(m10, m00))
+        return yaw, -pitch, roll
+
+    if isinstance(mat, np.ndarray) and mat.size == 16 and mat.ndim == 1:
+        m00 = float(mat[0])
+        m10 = float(mat[4])
+        m20 = float(mat[8])
+        m21 = float(mat[9])
+        m22 = float(mat[10])
+        pitch = math.degrees(math.atan2(m21, m22))
+        yaw = math.degrees(math.atan2(-m20, math.hypot(m21, m22)))
+        roll = math.degrees(math.atan2(m10, m00))
+        return yaw, -pitch, roll
+
     m = np.asarray(mat, dtype=np.float64).reshape(4, 4)[:3, :3]
     pitch = math.degrees(math.atan2(m[2, 1], m[2, 2]))
     yaw = math.degrees(math.atan2(-m[2, 0], math.hypot(m[2, 1], m[2, 2])))

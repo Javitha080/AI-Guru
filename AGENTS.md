@@ -11,8 +11,8 @@
 1. **Dual branding is intentional.** Internal identifiers stay `deeptutor`
    (package name, imports, env vars `DEEPTUTOR_*`, DB names). User-visible copy
    says "AI Guru". Do NOT rename internals.
-2. **No git repo here.** Never run git commands. A pre-change backup pattern is:
-   robocopy to `%TEMP%\opencode\` excluding `.venv node_modules .next __pycache__`.
+2. **Git repository active.** Origin is `https://github.com/Javitha080/AI-Guru.git`.
+   Verify tests and safety before committing or pushing changes.
 3. **LSP lies about `aiosqlite`** (`Import could not be resolved`) — environmental,
    not real. Verify with: `.venv\Scripts\python.exe -c "import deeptutor.api.main"`.
 4. **PowerShell 5.1 shell**: no `&&`; use `if ($?) { ... }`. Avoid inline regex with

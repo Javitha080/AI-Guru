@@ -189,6 +189,8 @@ async def monitoring_feed(session_id: str, _user: Any = Depends(require_auth)) -
     header = f"--{boundary}\r\nContent-Type: image/jpeg\r\nContent-Length: ".encode("ascii")
 
     async def frame_stream():
+        from deeptutor.services.monitoring.session_registry import wait_for_frame
+
         idle = 0
         interval = 1.0 / _FEED_MAX_FPS
         try:
@@ -202,7 +204,12 @@ async def monitoring_feed(session_id: str, _user: Any = Depends(require_auth)) -
                     continue
                 idle = 0
                 yield b"".join([header, str(len(jpeg)).encode(), b"\r\n\r\n", jpeg, b"\r\n"])
-                await asyncio.sleep(interval)
+                # Paced delivery capped at _FEED_MAX_FPS, waking immediately if a new frame arrives
+                t0 = time.perf_counter()
+                await wait_for_frame(session_id, timeout=interval)
+                rem = interval - (time.perf_counter() - t0)
+                if rem > 0.005:
+                    await asyncio.sleep(rem)
         except (asyncio.CancelledError, GeneratorExit):
             raise
 

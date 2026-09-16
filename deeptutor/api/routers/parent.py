@@ -924,7 +924,10 @@ async def parent_live_ws_stream(
     # Force consent on (parent-initiated)
     grant_consent(session_id)
 
+    from deeptutor.services.monitoring.session_registry import wait_for_frame
+
     last_ts = 0.0
+    last_ping_ts = 0.0
     try:
         while True:
             # Check session still active
@@ -937,34 +940,49 @@ async def parent_live_ws_stream(
 
             # Try system camera direct frame first
             jpeg_bytes = None
+            frame_ts = 0.0
             try:
                 from deeptutor.services.monitoring.system_monitor import get_system_monitor
 
                 sys_mon = get_system_monitor(session_id)
                 if sys_mon is not None:
-                    jpeg_bytes = sys_mon.get_snapshot_jpeg()
+                    # Check camera frame timestamp to avoid duplicate transmissions
+                    cam_ts = getattr(sys_mon.camera, "_frame_ts", 0.0)
+                    if cam_ts > last_ts or last_ts == 0.0:
+                        jpeg_bytes = sys_mon.get_snapshot_jpeg()
+                        frame_ts = cam_ts or time.time()
             except Exception:
                 pass
 
             if jpeg_bytes is not None:
                 await ws.send_bytes(jpeg_bytes)
-                last_ts = time.time()
+                last_ts = frame_ts or time.time()
+                last_ping_ts = time.time()
+                await asyncio.sleep(0.033)  # Adaptive throttle (cap at ~30 FPS)
             else:
                 live_frame = get_live_frame(session_id)
                 if live_frame is not None:
                     frame_b64, ts = live_frame
-                    if ts > last_ts:
+                    if ts > last_ts or last_ts == 0.0:
                         try:
                             await ws.send_bytes(_b64.b64decode(frame_b64))
                             last_ts = ts
+                            last_ping_ts = time.time()
+                            await asyncio.sleep(0.033)
+                            continue
                         except Exception:
                             pass
-                        continue
-                await ws.send_json(
-                    {"type": "keepalive" if live_frame else "waiting", "ts": time.time()}
-                )
 
-            await asyncio.sleep(0.2)
+                now = time.time()
+                if last_ts == 0.0 or now - last_ping_ts >= 2.0:
+                    await ws.send_json(
+                        {"type": "keepalive" if live_frame else "waiting", "ts": now}
+                    )
+                    last_ping_ts = now
+
+            # Await next frame event or timeout for next keepalive
+            time_until_ping = max(0.1, 2.0 - (time.time() - last_ping_ts))
+            await wait_for_frame(session_id, timeout=time_until_ping)
 
     except WebSocketDisconnect:
         logger.debug("Parent live stream WS disconnected normally")
