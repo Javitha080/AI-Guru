@@ -37,7 +37,10 @@ def main() -> int:
     for url in URLS:
         try:
             print(f"Downloading {url} ...")
-            with urllib.request.urlopen(url, timeout=120) as resp, open(DEST, "wb") as out:
+            # `url` iterates only over the hardcoded https-only URLS mirror
+            # list above; no user input ever reaches urlopen, and the download
+            # is size-validated before use.
+            with urllib.request.urlopen(url, timeout=120) as resp, open(DEST, "wb") as out:  # nosec B310
                 while True:
                     chunk = resp.read(1 << 20)
                     if not chunk:

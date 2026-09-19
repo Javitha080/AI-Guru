@@ -229,15 +229,10 @@ def test_importer_links_loose_images(isolated_workspace, tmp_path):
 
     import asyncio
 
-    res = asyncio.get_event_loop().run_until_complete(
-        import_master_archive(src.parent, copy_assets=True)
-    )
+    res = asyncio.run(import_master_archive(src.parent, copy_assets=True))
     assert res["success"] and res["imported_papers"] == 1
 
-    async def _row():
-        return await BankStore.get_by_hash("master-archive-ut-2023-g13-en-p1")
-
-    row = asyncio.get_event_loop().run_until_complete(_row())
+    row = asyncio.run(BankStore.get_by_hash("master-archive-ut-2023-g13-en-p1"))
     assert row is not None
     import json as _json
 

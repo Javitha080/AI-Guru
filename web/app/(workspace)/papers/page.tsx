@@ -101,8 +101,13 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
   useSmoothScroll(scrollerRef, contentRef);
 
   const [seeding, setSeeding] = useState(false);
+  const seedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const load = useCallback(async () => {
+    if (seedTimer.current) {
+      clearTimeout(seedTimer.current);
+      seedTimer.current = null;
+    }
     setRows(null); setFailed(false);
     try {
       let subject = "ict";
@@ -121,7 +126,7 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
       setRows(res.papers);
       if (res.seeding) {
         setSeeding(true);
-        setTimeout(() => { void load(); }, 2000);
+        seedTimer.current = setTimeout(() => { void load(); }, 2000);
       } else {
         setSeeding(false);
       }
@@ -131,6 +136,9 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
   }, [category]);
 
   useEffect(() => { void load(); }, [load]);
+  useEffect(() => () => {
+    if (seedTimer.current) clearTimeout(seedTimer.current);
+  }, []);
 
   const groups = useMemo(() => {
     const filtered = (rows ?? []).filter((r) => !medium || r.medium === medium);

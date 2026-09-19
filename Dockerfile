@@ -414,6 +414,8 @@ RUN sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 RUN cat > /app/healthcheck.py <<'EOF'
 from pathlib import Path
 import json
+import sys
+import urllib.error
 import urllib.request
 
 port = 8001
@@ -424,7 +426,19 @@ try:
 except Exception:
     pass
 
-urllib.request.urlopen(f"http://localhost:{port}/", timeout=5).close()
+# The API liveness probe is REQUIRED: a backend whose root `/` responds but
+# `/api/v1/health/ping` does not has broken route mounting and must report
+# unhealthy (same strictness as the CI container smoke test).
+try:
+    urllib.request.urlopen(f"http://localhost:{port}/api/v1/health/ping", timeout=5).close()
+except Exception as exc:
+    try:
+        urllib.request.urlopen(f"http://localhost:{port}/", timeout=5).close()
+        print(f"UNHEALTHY: root '/' responds but /api/v1/health/ping failed: {exc}",
+              file=sys.stderr)
+    except Exception as root_exc:
+        print(f"UNHEALTHY: backend unreachable: {root_exc}", file=sys.stderr)
+    raise SystemExit(1)
 EOF
 
 # Expose ports

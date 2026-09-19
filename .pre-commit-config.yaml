@@ -40,11 +40,13 @@ repos:
   # Python code formatting and linting
   # ============================================
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.7
+    rev: v0.16.0
     hooks:
       - id: ruff
-        # Added --quiet to suppress logs; --exit-zero makes it a "soft fail" if desired
-        args: [--fix, --quiet, --exit-zero]
+        # Pinned to the same Ruff as CI (ci.yml installs ruff==0.16.0) so
+        # local results match the gate. No --exit-zero: lint findings must
+        # block the commit locally, otherwise they only surface as red CI.
+        args: [--fix, --quiet]
 
       - id: ruff-format
         args: [--quiet]
@@ -100,8 +102,10 @@ repos:
     rev: v1.13.0
     hooks:
       - id: mypy
+        # Same exclusion profile as the CI typecheck gate (ci.yml) and
+        # scripts/ci_check.py: api/routers/ is INCLUDED, data/ excluded.
         args: [--ignore-missing-imports, --no-error-summary, --no-strict-optional]
-        exclude: ^(tests/|scripts/|deeptutor/agents/|deeptutor/services/rag/|deeptutor/api/routers/)
+        exclude: ^(tests/|scripts/|data/|deeptutor/agents/|deeptutor/services/rag/)
         additional_dependencies:
           - types-PyYAML
           - types-requests

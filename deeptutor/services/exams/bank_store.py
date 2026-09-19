@@ -154,6 +154,9 @@ class BankStore:
         """Auto-seed paper_bank from master archive on fresh installs if empty."""
         if cls._seeded_checked or cls._is_seeding:
             return
+        # Claim the flag BEFORE any await: concurrent first-requests must see it
+        # and not spawn duplicate imports (single loop => check+set is atomic).
+        cls._is_seeding = True
         try:
             async with aiosqlite.connect(_db_path()) as db:
                 await cls.ensure_tables(db)
@@ -163,9 +166,9 @@ class BankStore:
 
             if count > 0:
                 cls._seeded_checked = True
+                cls._is_seeding = False
                 return
 
-            cls._is_seeding = True
             logger.info("Paper bank empty. Auto-seeding from master archive...")
 
             async def _seed():

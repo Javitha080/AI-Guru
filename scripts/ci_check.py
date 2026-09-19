@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -47,9 +48,20 @@ class GateResult:
     output: str = ""
 
 
-def _run_cmd(cmd: list[str], cwd: Path | None = None) -> tuple[bool, str, float]:
+def _run_cmd(
+    cmd: list[str], cwd: Path | None = None, env: dict[str, str] | None = None
+) -> tuple[bool, str, float]:
     start = time.perf_counter()
     try:
+        run_env = dict(os.environ)
+        # Force UTF-8 child output: on Windows consoles with a legacy code
+        # page, tools printing non-ASCII (e.g. Bandit echoing matched source
+        # lines) crash with UnicodeEncodeError instead of reporting findings.
+        run_env.setdefault("PYTHONIOENCODING", "utf-8")
+        if env:
+            run_env.update(env)
+        # shell=True is constrained to the npm/npx shims (argv[0] allowlist);
+        # remaining argv are fixed gate commands, never user input.
         proc = subprocess.run(
             cmd,
             cwd=cwd or PROJECT_ROOT,
@@ -58,7 +70,8 @@ def _run_cmd(cmd: list[str], cwd: Path | None = None) -> tuple[bool, str, float]
             text=True,
             encoding="utf-8",
             errors="replace",
-            shell=(sys.platform == "win32" and cmd[0] in ("npm", "npx", "npm.cmd", "npx.cmd")),
+            env=run_env,
+            shell=(sys.platform == "win32" and cmd[0] in ("npm", "npx", "npm.cmd", "npx.cmd")),  # nosec B602
         )
         duration = time.perf_counter() - start
         return proc.returncode == 0, proc.stdout, duration
@@ -100,7 +113,9 @@ def check_typecheck() -> GateResult:
         "--no-error-summary",
         "--no-strict-optional",
         "--exclude",
-        "^(tests/|scripts/|data/|deeptutor/agents/|deeptutor/services/rag/|deeptutor/api/routers/)",
+        # Same exclusion profile as the CI typecheck gate (ci.yml) and the
+        # pre-commit mypy hook: api/routers/ is INCLUDED.
+        "^(tests/|scripts/|data/|deeptutor/agents/|deeptutor/services/rag/)",
         ".",
     ]
     ok, out, duration = _run_cmd(cmd)
@@ -123,6 +138,7 @@ def check_security() -> GateResult:
         "-r",
         "deeptutor",
         "deeptutor_cli",
+        "scripts",
     ]
     ok_bandit, out_bandit, _ = _run_cmd(bandit_cmd)
 
@@ -157,6 +173,23 @@ def check_security() -> GateResult:
                     out_secrets = (
                         f"detect-secrets found new secrets:\n{ds_proc.stdout}\n{ds_proc.stderr}\n"
                     )
+                elif ds_proc.returncode == 3:
+                    # Stale baseline line numbers only: no new secrets, but
+                    # warn like CI does and refresh the baseline on request.
+                    # (CI step exits 0 with a warning; mirror that here.)
+                    out_secrets = (
+                        "detect-secrets: no new secrets, but .secrets.baseline "
+                        "line numbers are stale. Run "
+                        "`pre-commit run detect-secrets --all-files` and commit "
+                        "the refreshed baseline.\n"
+                        f"{ds_proc.stdout}\n{ds_proc.stderr}\n"
+                    )
+                elif ds_proc.returncode not in (0, 1, 3):
+                    ok_secrets = False
+                    out_secrets = (
+                        f"detect-secrets-hook failed with exit code {ds_proc.returncode}:\n"
+                        f"{ds_proc.stdout}\n{ds_proc.stderr}\n"
+                    )
         except Exception as exc:
             out_secrets = f"detect-secrets check error: {exc}\n"
     elif not is_git_repo:
@@ -169,6 +202,10 @@ def check_security() -> GateResult:
         out += f"Bandit security issues:\n{out_bandit}\n"
     if not ok_secrets:
         out += out_secrets
+    elif out_secrets:
+        # Non-blocking warning (exit 3, stale baseline): surface it without
+        # failing the gate, mirroring the CI security step.
+        print(f"  ⚠️ {out_secrets.splitlines()[0]}")
 
     status = "✅ PASSED" if passed else "❌ FAILED"
     print(f"  {status} ({duration:.1f}s)")

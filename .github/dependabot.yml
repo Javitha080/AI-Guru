@@ -1,12 +1,25 @@
 # ============================================================
-# Dependabot — automated dependency updates for the CI/CD pipeline.
-#   - GitHub Actions versions (weekly, grouped into one PR)
-#   - npm dependencies for web/ (weekly, grouped)
-#   - Python dependencies from pyproject.toml / requirements.txt (monthly)
+# Dependabot — automated dependency updates for AI Guru / DeepTutor
+#   - github-actions: GitHub Actions workflow versions (weekly)
+#   - npm: frontend dependencies under /web (weekly)
+#   - pip: Python packages from pyproject.toml / requirements (monthly)
+#   - docker: container base images in / (monthly)
+#
+# NOTE: Dependabot has no `uv` ecosystem, so uv.lock is NOT covered below.
+# Refresh it manually (`uv lock --upgrade`) on a monthly cadence until a
+# Renovate config or equivalent lands (tracked in docs/CI-CD.md backlog).
+#
+# Grouping Strategy:
+#   Non-breaking patch and minor updates are grouped together to
+#   minimize PR volume and enable automated CI verification and auto-merge.
+#   Major updates are grouped separately to allow targeted review.
 # ============================================================
 
 version: 2
 updates:
+  # ----------------------------------------------------------
+  # GitHub Actions (weekly on Mondays)
+  # ----------------------------------------------------------
   - package-ecosystem: github-actions
     directory: /
     schedule:
@@ -14,11 +27,25 @@ updates:
       day: monday
       time: "06:00"
       timezone: Asia/Colombo
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
+    rebase-strategy: "auto"
     groups:
-      github-actions:
+      actions-minor-patch:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
+      actions-major:
+        patterns: ["*"]
+        update-types: ["major"]
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
 
+  # ----------------------------------------------------------
+  # Web Frontend (npm, weekly on Mondays)
+  # ----------------------------------------------------------
   - package-ecosystem: npm
     directory: /web
     schedule:
@@ -26,18 +53,73 @@ updates:
       day: monday
       time: "06:00"
       timezone: Asia/Colombo
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 15
+    rebase-strategy: "auto"
     groups:
-      npm:
+      npm-minor-patch:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
+      npm-major:
+        patterns: ["*"]
+        update-types: ["major"]
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
 
+  # ----------------------------------------------------------
+  # Python Backend (pip, monthly on 1st)
+  # ----------------------------------------------------------
   - package-ecosystem: pip
     directory: /
     schedule:
       # `day` is only supported for `weekly` intervals (monday…sunday); a
-      # `monthly` interval always runs on the 1st. Setting `day` here is
-      # invalid configuration for this schedule.
+      # `monthly` interval always runs on the 1st.
       interval: monthly
       time: "06:00"
       timezone: Asia/Colombo
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 15
+    rebase-strategy: "auto"
+    groups:
+      pip-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      pip-major:
+        patterns: ["*"]
+        update-types: ["major"]
+    labels:
+      - "dependencies"
+      - "python"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+
+  # ----------------------------------------------------------
+  # Docker Container Base Images (monthly on 1st)
+  # ----------------------------------------------------------
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: monthly
+      time: "06:00"
+      timezone: Asia/Colombo
+    open-pull-requests-limit: 5
+    rebase-strategy: "auto"
+    groups:
+      docker-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      docker-major:
+        patterns: ["*"]
+        update-types: ["major"]
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"

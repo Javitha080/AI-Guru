@@ -1,0 +1,228 @@
+# ============================================================
+# Dependabot Automation — AI Guru / DeepTutor
+#
+# Boosts dependabot[bot] pull requests with:
+#   1. Metadata extraction via dependabot/fetch-metadata@v3
+#   2. Intelligent granular labeling (semver level, dep type, ecosystem, grouped)
+#   3. Automated approval for safe updates (patch, minor, github-actions, dev-deps, grouped minor-patch)
+#   4. Auto-merge enablement (waits for all required CI checks to pass)
+#   5. Step summary report for transparent auditability
+#
+# Security:
+#   - Confused Deputy defense: triggered on `pull_request_target` with strict
+#     verification that the PR author is `dependabot[bot]`. Using `pull_request_target`
+#     is required because standard `pull_request` runs with read-only tokens for
+#     Dependabot, causing auto-approval, labeling, and auto-merge to fail with 403.
+#   - Safety gate: major version updates are NEVER auto-approved or
+#     auto-merged (strictly excluded even for dev dependencies or actions);
+#     they are flagged for human review.
+# ============================================================
+
+name: Dependabot Automation
+
+'on':
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+# One triage run per PR: a new synchronize cancels the previous run so label /
+# approve / merge attempts never stack up (and the major-bump notice comment
+# below is posted at most once per push, not once per event delivery).
+concurrency:
+  group: dependabot-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  dependabot:
+    name: Dependabot Triage & Auto-Merge
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+
+    steps:
+      - name: Fetch Dependabot Metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v3
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      # --------------------------------------------------------
+      # 0. Ensure the labels below exist (idempotent)
+      # --------------------------------------------------------
+      # `gh pr edit --add-label` fails for labels that were never created in
+      # the repo, and the labeling step swallows that failure — leaving PRs
+      # silently unlabeled. `gh label create --force` creates-or-updates each
+      # label so the triage below always has something to attach.
+      - name: Ensure Triage Labels Exist
+        run: |
+          ensure_label() {
+            gh label create "$1" --force --color "$2" --description "$3" >/dev/null || \
+              echo "Note: could not create label '$1'."
+          }
+          ensure_label "dependencies"   "0366d6" "Pull requests that update a dependency file"
+          ensure_label "github-actions" "000000" "GitHub Actions updates"
+          ensure_label "npm"            "cb3837" "npm frontend updates"
+          ensure_label "python"         "3572A5" "Python updates"
+          ensure_label "docker"         "2496ED" "Docker base-image updates"
+          ensure_label "grouped"        "ededed" "Grouped dependency update"
+          ensure_label "semver:patch"   "0e8a16" "Patch-level update (safe)"
+          ensure_label "semver:minor"   "1d76db" "Minor-level update (safe)"
+          ensure_label "semver:minor-patch" "1d76db" "Grouped minor/patch update (safe)"
+          ensure_label "semver:major"   "b60205" "Major-level update (needs human review)"
+          ensure_label "needs-review"   "b60205" "Requires human review before merge"
+          ensure_label "type:dev"       "fbca04" "Development dependency"
+          ensure_label "type:prod"      "d4c5f9" "Production dependency"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # --------------------------------------------------------
+      # 1. Smart Labeling based on update type, ecosystem & grouping
+      # --------------------------------------------------------
+      - name: Label Update Type & Ecosystem
+        run: |
+          LABELS=()
+
+          # Grouped label & group-level SemVer
+          if [ -n "$DEP_GROUP" ]; then
+            LABELS+=("grouped")
+            if [[ "$DEP_GROUP" == *"major"* ]]; then
+              LABELS+=("semver:major" "needs-review")
+            elif [[ "$DEP_GROUP" == *"minor-patch"* ]]; then
+              LABELS+=("semver:minor-patch")
+            fi
+          fi
+
+          # SemVer labels (for individual updates)
+          if [ "$UPDATE_TYPE" = "version-update:semver-patch" ]; then
+            LABELS+=("semver:patch")
+          elif [ "$UPDATE_TYPE" = "version-update:semver-minor" ]; then
+            LABELS+=("semver:minor")
+          elif [ "$UPDATE_TYPE" = "version-update:semver-major" ]; then
+            LABELS+=("semver:major" "needs-review")
+          fi
+
+          # Dependency scope
+          if [ "$DEP_TYPE" = "direct:development" ]; then
+            LABELS+=("type:dev")
+          elif [ "$DEP_TYPE" = "direct:production" ]; then
+            LABELS+=("type:prod")
+          fi
+
+          # Ecosystem label
+          if [ -n "$ECOSYSTEM" ]; then
+            if [ "$ECOSYSTEM" = "pip" ]; then
+              LABELS+=("python")
+            else
+              LABELS+=("$ECOSYSTEM")
+            fi
+          fi
+
+          if [ ${#LABELS[@]} -gt 0 ]; then
+            LABEL_ARGS=()
+            for l in "${LABELS[@]}"; do
+              LABEL_ARGS+=(--add-label "$l")
+            done
+            gh pr edit "$PR_URL" "${LABEL_ARGS[@]}" || echo "Note: Labels could not be applied automatically."
+          fi
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+          DEP_TYPE: ${{ steps.metadata.outputs.dependency-type }}
+          ECOSYSTEM: ${{ steps.metadata.outputs.package-ecosystem }}
+          DEP_GROUP: ${{ steps.metadata.outputs.dependency-group }}
+
+      # --------------------------------------------------------
+      # 2. Automated Approval (strictly non-major safe updates only)
+      # --------------------------------------------------------
+      - name: Auto-Approve Safe PRs
+        if: >-
+          steps.metadata.outputs.update-type != 'version-update:semver-major' &&
+          !contains(steps.metadata.outputs.dependency-group, 'major') &&
+          (
+            steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+            steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
+            contains(steps.metadata.outputs.dependency-group, 'minor-patch') ||
+            steps.metadata.outputs.package-ecosystem == 'github-actions' ||
+            steps.metadata.outputs.dependency-type == 'direct:development'
+          )
+        run: |
+          TARGET="${DEP_GROUP:-$UPDATE_TYPE}"
+          TARGET="${TARGET:-$ECOSYSTEM}"
+          gh pr review --approve "$PR_URL" \
+            --body "Automated approval by Dependabot Automation: verified safe non-major dependency update (${TARGET:-safe-update})." || \
+            echo "Note: Auto-approval could not be submitted (check branch protection and token permissions)."
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+          DEP_GROUP: ${{ steps.metadata.outputs.dependency-group }}
+          ECOSYSTEM: ${{ steps.metadata.outputs.package-ecosystem }}
+
+      # --------------------------------------------------------
+      # 3. Enable Auto-Merge (waits for all required CI checks)
+      # --------------------------------------------------------
+      - name: Enable Auto-Merge for Safe PRs
+        if: >-
+          steps.metadata.outputs.update-type != 'version-update:semver-major' &&
+          !contains(steps.metadata.outputs.dependency-group, 'major') &&
+          (
+            steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+            steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
+            contains(steps.metadata.outputs.dependency-group, 'minor-patch') ||
+            steps.metadata.outputs.package-ecosystem == 'github-actions' ||
+            steps.metadata.outputs.dependency-type == 'direct:development'
+          )
+        run: |
+          gh pr merge --auto --squash "$PR_URL" || \
+          gh pr merge --auto --merge "$PR_URL" || \
+          gh pr merge --auto --rebase "$PR_URL" || \
+          echo "Note: Auto-merge could not be set (ensure repository has 'Allow auto-merge' enabled in Settings)."
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # --------------------------------------------------------
+      # 4. Human Review Flag for Major Updates
+      # --------------------------------------------------------
+      - name: Flag Major Update for Manual Review
+        if: >-
+          steps.metadata.outputs.update-type == 'version-update:semver-major' ||
+          contains(steps.metadata.outputs.dependency-group, 'major')
+        run: |
+          DEP_LABEL="${DEP_NAMES:-$DEP_GROUP}"
+          gh pr comment "$PR_URL" \
+            --body "⚠️ **Major Version Update Detected** (${DEP_LABEL:-major-update})
+          This pull request contains breaking changes according to SemVer. Auto-merge is deliberately disabled.
+          Please verify test coverage, changelog entries, and migration guides before merging." || \
+            echo "Note: Major update notice comment could not be posted."
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEP_NAMES: ${{ steps.metadata.outputs.dependency-names }}
+          DEP_GROUP: ${{ steps.metadata.outputs.dependency-group }}
+
+      # --------------------------------------------------------
+      # 5. Step Summary Table
+      # --------------------------------------------------------
+      - name: Generate Workflow Summary
+        run: |
+          cat << 'EOF' >> "$GITHUB_STEP_SUMMARY"
+          ## 🤖 Dependabot Automation Summary
+
+          | Property | Value |
+          |---|---|
+          | **Dependency Names** | `${{ steps.metadata.outputs.dependency-names || 'N/A' }}` |
+          | **Dependency Group** | `${{ steps.metadata.outputs.dependency-group || 'none' }}` |
+          | **Package Ecosystem** | `${{ steps.metadata.outputs.package-ecosystem }}` |
+          | **Update Type** | `${{ steps.metadata.outputs.update-type || 'grouped/unspecified' }}` |
+          | **Dependency Type** | `${{ steps.metadata.outputs.dependency-type || 'unspecified' }}` |
+          | **Auto-Merge Action** | ${{ (steps.metadata.outputs.update-type != 'version-update:semver-major' && !contains(steps.metadata.outputs.dependency-group, 'major') && (steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor' || contains(steps.metadata.outputs.dependency-group, 'minor-patch') || steps.metadata.outputs.package-ecosystem == 'github-actions' || steps.metadata.outputs.dependency-type == 'direct:development')) && '✅ Enabled (awaiting CI checks)' || '⏸️ Manual review required (Major bump / manual gate)' }} |
+          EOF

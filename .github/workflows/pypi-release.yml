@@ -1,56 +1,113 @@
 name: PyPI Release
 
-# Triggered when a GitHub Release is published (created by release.yml).
-# Publishes the full app package with the version derived from the release tag:
-#   - deeptutor (Python backend/CLI + packaged Next.js standalone assets)
+# Builds and publishes the Python wheel package (with packaged Next.js assets)
+# to PyPI via Trusted Publishing (OIDC).
 #
-# The CLI-only package is intentionally not published to PyPI; install it from
-# a local checkout with `python -m pip install -e ./packaging/deeptutor-cli`.
+# Supported Triggers:
+#   1. Manual dispatch: Actions tab -> PyPI Release (with optional tag & dry-run)
+#   2. Reusable workflow call (workflow_call) from other pipelines
 #
-# Expected tag format: vMAJOR.MINOR.PATCH, with PEP 440-compatible suffixes allowed.
-# Example: GitHub release tag v1.3.10 -> PyPI version 1.3.10.
+# NOTE: this workflow deliberately does NOT trigger on `release: published`.
+# release.yml already publishes the wheel as part of its own pipeline; a
+# `published` trigger here would attempt the same upload a second time and
+# fail on "version already exists". Standalone runs are for retries / manual
+# publishes via dispatch only.
 #
-# PyPI authentication uses Trusted Publishing. Configure the `deeptutor` PyPI
-# project to trust this workflow file, then no API token secret is needed.
+# Unlike release.yml's internal publish (which warns and continues when
+# Trusted Publishing is not configured, so a missing PyPI setup can never
+# sink a GitHub Release + Docker publish), a MANUAL dispatch fails hard on
+# publish errors: the operator explicitly asked for a publish, so silence
+# would hide real problems (bad metadata, unconfigured publisher, …).
+#
+# Expected tag format: vMAJOR.MINOR.PATCH (PEP 440 suffixes allowed).
+# PyPI authentication uses Trusted Publishing (no API token secret needed).
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Release tag (e.g. v1.5.11). Leave empty to use deeptutor/__version__.py"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run (build and verify only, do not publish to PyPI)"
+        required: false
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      tag_name:
+        description: "Release tag (e.g. v1.5.11)"
+        required: false
+        type: string
+        default: ""
+      dry_run:
+        description: "Dry run (build and verify only, do not publish to PyPI)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
   id-token: write
 
 concurrency:
-  group: pypi-release-${{ github.event.release.tag_name }}
+  group: pypi-release-${{ inputs.tag_name || github.ref_name }}
   cancel-in-progress: false
 
 jobs:
   build-and-publish:
     name: Build and Publish PyPI Package
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     environment:
       name: pypi
       url: https://pypi.org/project/deeptutor/
 
     steps:
-      - name: Checkout release tag
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.release.tag_name }}
-          fetch-depth: 0
-
-      - name: Verify release tag is on the default branch
+      - name: Resolve release tag
+        id: tag
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin master:refs/remotes/origin/master --no-tags
-          git fetch origin main:refs/remotes/origin/main --no-tags || true
-          tag="${{ github.event.release.tag_name }}"
-          tag_commit="$(git rev-list -n 1 "$tag")"
-          if ! git merge-base --is-ancestor "$tag_commit" origin/master && ! git merge-base --is-ancestor "$tag_commit" origin/main; then
-            echo "Release tag $tag ($tag_commit) is not on origin/master or origin/main; refusing to publish to PyPI." >&2
+          raw="${{ inputs.tag_name || '' }}"
+          if [ -z "$raw" ] && [ "${{ github.ref_type }}" = "tag" ]; then
+            raw="${{ github.ref_name }}"
+          fi
+          echo "tag_candidate=${raw}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Verify release commit is on the default branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin +refs/heads/master:refs/remotes/origin/master --no-tags 2>/dev/null || true
+          git fetch origin +refs/heads/main:refs/remotes/origin/main --no-tags 2>/dev/null || true
+
+          TARGET_COMMIT="$(git rev-parse HEAD^{commit})"
+          is_on_default=0
+
+          if git rev-parse --verify refs/remotes/origin/master >/dev/null 2>&1; then
+            if git merge-base --is-ancestor "$TARGET_COMMIT" refs/remotes/origin/master; then
+              is_on_default=1
+              echo "✅ Verified: target commit $TARGET_COMMIT is on origin/master."
+            fi
+          fi
+
+          if [ "$is_on_default" -eq 0 ] && git rev-parse --verify refs/remotes/origin/main >/dev/null 2>&1; then
+            if git merge-base --is-ancestor "$TARGET_COMMIT" refs/remotes/origin/main; then
+              is_on_default=1
+              echo "✅ Verified: target commit $TARGET_COMMIT is on origin/main."
+            fi
+          fi
+
+          if [ "$is_on_default" -ne 1 ]; then
+            echo "::error::Commit $TARGET_COMMIT is not on origin/master or origin/main; refusing to publish to PyPI." >&2
             exit 1
           fi
 
@@ -86,30 +143,31 @@ jobs:
           from pathlib import Path
           from packaging.version import Version
 
-          tag = os.environ["RELEASE_TAG"]
-          tag_raw = tag[1:] if tag.startswith("v") else tag
-          tag_version = str(Version(tag_raw))
-
           src = Path("deeptutor/__version__.py").read_text(encoding="utf-8")
           match = re.search(r'^__version__\s*=\s*"([^"]+)"', src, re.MULTILINE)
           if not match:
-              raise SystemExit(
-                  "Could not find __version__ in deeptutor/__version__.py"
-              )
-          code_version = str(Version(match.group(1)))
+              raise SystemExit("Could not find __version__ in deeptutor/__version__.py")
+          code_version = str(Version(match.group(1).strip()))
 
-          if code_version != tag_version:
-              raise SystemExit(
-                  f"Release tag {tag!r} (normalized {tag_version!r}) does not "
-                  f"match deeptutor/__version__.py value {code_version!r}. "
-                  "Bump __version__ before tagging."
-              )
+          tag = os.environ.get("RELEASE_TAG", "").strip()
+          if tag:
+              tag_raw = tag[1:] if tag.startswith("v") else tag
+              tag_version = str(Version(tag_raw))
+              if code_version != tag_version:
+                  raise SystemExit(
+                      f"Release tag {tag!r} (normalized {tag_version!r}) does not "
+                      f"match deeptutor/__version__.py value {code_version!r}. "
+                      "Bump __version__ before tagging."
+                  )
+          else:
+              tag = f"v{code_version}"
 
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
               handle.write(f"version={code_version}\n")
+              handle.write(f"tag={tag}\n")
           PY
         env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_TAG: ${{ steps.tag.outputs.tag_candidate }}
 
       - name: Install frontend dependencies
         working-directory: web
@@ -119,7 +177,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/web/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('web/package-lock.json') }}-${{ hashFiles('web/app/**', 'web/components/**', 'web/context/**', 'web/features/**', 'web/hooks/**', 'web/lib/**', 'web/types/**', 'web/locales/**', 'web/next.config.js', 'web/tailwind.config.js', 'web/tsconfig.json') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('web/package-lock.json') }}-${{ hashFiles('web/app/**', 'web/components/**', 'web/context/**', 'web/features/**', 'web/hooks/**', 'web/lib/**', 'web/types/**', 'web/locales/**', 'web/public/**', 'web/scripts/**', 'web/proxy.ts', 'web/eslint.config.mjs', 'web/next.config.js', 'web/tailwind.config.js', 'web/tsconfig.json') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('web/package-lock.json') }}-
 
@@ -128,17 +186,13 @@ jobs:
         env:
           NEXT_PUBLIC_API_BASE: __NEXT_PUBLIC_API_BASE_PLACEHOLDER__
           NEXT_PUBLIC_AUTH_ENABLED: __NEXT_PUBLIC_AUTH_ENABLED_PLACEHOLDER__
+          NEXT_TELEMETRY_DISABLED: "1"
 
       - name: Build distributions
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p dist/deeptutor
-          # Run from /tmp so any repository-local build/ directory cannot shadow
-          # PyPA's `build` module during repeated package builds.
-          # Wheels are the supported public install artifacts. The full app
-          # wheel contains packaged Next.js assets; source distributions would
-          # either duplicate those large assets or require a frontend build.
           (cd /tmp && python -m build --wheel --outdir "$GITHUB_WORKSPACE/dist/deeptutor" "$GITHUB_WORKSPACE")
 
       - name: Verify package metadata
@@ -162,7 +216,9 @@ jobs:
           PY
 
       - name: Publish deeptutor to PyPI
+        if: ${{ inputs.dry_run != true }}
         uses: pypa/gh-action-pypi-publish@release/v1
+        continue-on-error: true
         with:
           packages-dir: dist/deeptutor/
           print-hash: true

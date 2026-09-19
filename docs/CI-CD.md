@@ -12,47 +12,49 @@ single `tests.yml` workflow.
 ```mermaid
 flowchart LR
     subgraph CI[Pull Request / Push to main]
-        A[Lint: Ruff] --> S[Summary]
+        A[Lint: Ruff] --> S[CI Summary]
         B[Type Check: mypy] --> S
         C[Security: detect-secrets + Bandit] --> S
         D[Web: ESLint + tsc + node tests + Next build] --> S
         E[Python Tests 3.11–3.13 (+3.14 exp)] --> S
         F[Docker build + container smoke test] --> S
-        S{All gates green?}
+        S{CI Summary Green?}
     end
 
-    S -- yes --> G[merge to master/main]
+    CI -- yes --> G[merge PR to master/main]
 
     G --> H[Publish Container main:<br/>ghcr.io/&lt;owner&gt;/&lt;repo&gt; latest/main/sha]
-    G --> I[push tag vX.Y.Z]
+    G --> I[Release Trigger:<br/>push tag vX.Y.Z OR workflow_dispatch]
 
-    I --> V1[Release: verify tag on main<br/>+ version match]
-    V1 --> V2[Create GitHub Release]
-    V2 --> P1[Docker Release: ghcr.io/&lt;owner&gt;/&lt;repo&gt;:X.Y.Z + latest]
-    V2 --> P2[PyPI Release: trusted publishing]
+    I --> V1[Verify: default branch ancestry<br/>+ version match]
+    V1 --> V2[Build: standalone Next.js<br/>+ wheel + SHA256SUMS]
+    V2 --> V3[Publish GitHub Release<br/>with attached .whl + checksums]
+    V3 --> P1[Docker Publish: multi-arch<br/>ghcr.io/&lt;owner&gt;/&lt;repo&gt;:X.Y.Z + latest]
+    V3 --> P2[PyPI Publish: trusted publishing<br/>deeptutor-X.Y.Z-py3-none-any.whl]
 ```
 
 ## Workflows
 
 | File | Trigger | Purpose |
 |------|---------|---------|
-| `ci.yml` | every PR targeting `master`, `main`, `dev`, `multi-user`; push to those branches (path-filtered); manual dispatch | Full verification gate: lint, types, security, tests, web build, Docker smoke test, summary. |
+| `ci.yml` | every PR targeting `master`, `main`, `dev`, `multi-user`; push to those branches (path-filtered, docs-only pushes skip); manual dispatch | Full verification gate: lint, types, security, tests, web build, Docker smoke test, CI Summary gatekeeper. |
 | `docker-latest.yml` | push to `master`/`main`; manual dispatch | Continuous CD: multi-arch (amd64 + arm64) image → `ghcr.io/<owner>/<repo>` with `latest`, `main`, `sha-<sha>` tags (+ optional extra tag via dispatch). |
-| `release.yml` | push tag `v*` | Gate (tag on default branch + `deeptutor/__version__.py` match) → create the GitHub Release with auto-generated notes. |
-| `docker-release.yml` | GitHub Release published | Multi-arch image → repo GHCR with `X.Y.Z` (semver) + `latest` tags, SBOM + provenance. |
-| `pypi-release.yml` | GitHub Release published | Builds the wheel (packaged Next.js assets) and publishes to PyPI via **trusted publishing**. |
-| `dependabot.yml` | scheduled | Weekly GH Actions + npm updates, monthly pip updates, grouped into single PRs. |
+| `release.yml` | push tag `v*`; manual dispatch (`workflow_dispatch` with dry-run) | SOLE release publisher (end-to-end): ancestry & version verification → web asset build → distribution wheel & SHA256 checksums → GitHub Release with attached assets → multi-arch GHCR image push → PyPI publish. |
+| `docker-release.yml` | manual dispatch; `workflow_call` (NOT `release: published` — that would double-push every release) | Standalone multi-arch container rebuild & push → repo GHCR with `X.Y.Z` + `latest` tags, SBOM + provenance. |
+| `pypi-release.yml` | manual dispatch; `workflow_call` (NOT `release: published` — the second upload would fail on "version already exists") | Standalone wheel rebuild & publish → PyPI via Trusted Publishing. Fails hard on publish errors (unlike release.yml, which warns and continues). |
+| `dependabot.yml` | scheduled | Weekly GH Actions + npm updates, monthly pip + Docker base image updates; auto-rebase enabled; grouped into SemVer minor/patch vs major PRs with semantic commit messages. |
+| `dependabot-automation.yml` | `pull_request_target` from `dependabot[bot]` | Automated PR triage: metadata extraction (`dependabot/fetch-metadata@v3`), granular labels (`semver:*`, `type:*`, ecosystem, `grouped`), auto-approval & auto-merge for safe updates (patch, minor, actions, dev-deps, grouped minor-patch) gated on CI green, manual review alerts for major version bumps. |
 
 ### CI gates (`ci.yml`)
 
 | Job | Command (essentially) | Blocks merge? |
 |-----|-----------------------|:-------------:|
 | `lint` | `uv pip install ruff` → `ruff check .` + `ruff format --check .` (with `.ruff_cache` + uv cache-suffix: `lint`) | ✅ |
-| `typecheck` | `uv pip install mypy` → `mypy` (pre-commit profile, with `.mypy_cache` + uv cache-suffix: `typecheck`) | ✅ |
-| `security` | `detect-secrets-hook` vs `.secrets.baseline` (no NEW secrets) + `bandit -lll` (hard fail on HIGH, uv cache-suffix: `security`) | ✅ |
-| `web` | `npm ci --prefer-offline` → ESLint → `tsc --noEmit` → node tests → Next.js build (with comprehensive `.next/cache` key) | ✅ |
+| `typecheck` | `uv pip install mypy` → `mypy` (shared exclusion profile with pre-commit and `scripts/ci_check.py`; `api/routers/` INCLUDED, with `.mypy_cache` + uv cache-suffix: `typecheck`) | ✅ |
+| `security` | `detect-secrets-hook` vs `.secrets.baseline` (no NEW secrets) + `bandit -lll` over `deeptutor`, `deeptutor_cli`, AND `scripts/` (hard fail on HIGH, uv cache-suffix: `security`) | ✅ |
+| `web` | `npm ci --prefer-offline` → ESLint → `tsc --noEmit` → node tests → Next.js build (with comprehensive `.next/cache` key covering `proxy.ts`, `scripts/`, `public/`, eslint config) | ✅ |
 | `python-tests` | `uv pip install` → `pytest -q tests deeptutor/learning/tests --durations=10` (matrix uv cache-suffix: `${{ matrix.python-version }}`) | ✅ (3.14 non-blocking) |
-| `docker` | `docker/build-push-action` → run production image → fail-fast probe backend (`/api/v1/health/ping`) & frontend (3782) | ✅ |
+| `docker` | `docker/build-push-action` → validate `Dockerfile.runner` builds → run production image → strict probe: backend MUST answer `/api/v1/health/ping` (root-only = degraded = fail) & frontend (3782) | ✅ |
 | `summary` | Aggregates results into `$GITHUB_STEP_SUMMARY` and fails run if any gate failed or cancelled | — |
 
 Notes on deliberate choices:
@@ -75,7 +77,9 @@ Notes on deliberate choices:
   list is passed in a single invocation (not `xargs`, which would collapse
   exit 1 and 3 into 123), so the two outcomes stay distinguishable.
 - **Path filtering** is applied to the `push` trigger only, so docs-only
-  commits on long-lived branches do not burn CI minutes. The
+  commits on long-lived branches do not burn CI minutes — and the push path
+  list deliberately OMITS `docs/**`, `README.md`, `CONTRIBUTING.md`, and
+  `.secrets.baseline` for exactly that reason. The
   `pull_request` trigger is deliberately **unfiltered**: a required status
   check that never runs can never be satisfied, and GitHub does not
   back-fill a run for a PR head commit that predates the workflow. A
@@ -110,6 +114,24 @@ the pipeline until the debt below is cleared:
    `web/eslint.config.mjs` (following the same pattern as
    `i18n/no-literal-ui-text`) so CI can enforce "0 errors". Fix the patterns,
    then restore `"error"` for the rules you clear.
+
+2. **Python dependency audit (pip-audit / safety).** Neither CI nor
+   pre-commit scans `requirements/*.txt` / `uv.lock` advisories today
+   (pre-commit `pip-audit` is disabled over a Windows `pip-api` bug that does
+   not affect Linux CI). Add a Linux-only audit step, informational first,
+   then blocking.
+3. **Pinned action SHAs on release paths.** Release workflows float on
+   mutable tags (`checkout@v4`, `build-push-action@v6`,
+   `gh-action-pypi-publish@release/v1`). Pin at least `release.yml`,
+   `pypi-release.yml`, and `docker-release.yml` to commit SHAs.
+4. **Coverage gate.** Coverage XML uploads as an artifact but nothing enforces
+   it. Add a threshold check (or Codecov) once the suite is stable.
+5. **uv.lock updates.** Dependabot has no `uv` ecosystem, so lockfile drift
+   is invisible. Either adopt Renovate or document a manual
+   `uv lock --upgrade` cadence.
+6. **Wheel-only, unsigned checksums.** `release.yml` ships wheel-only with an
+   unsigned `SHA256SUMS.txt` by policy (noted in the workflow header). If
+   auditors require sdists or Sigstore attestation, wire it there.
 
 
 ## What was examined and fixed in the existing pipeline
@@ -193,32 +215,41 @@ The repository already had `tests.yml`, `pypi-release.yml` and
 
 ## Required repository configuration
 
-### 1. Branch protection (recommended)
+### 1. Branch protection & GitHub Rulesets (avoiding deadlocks)
 
-Settings → Branches → Add rule (for `master`/`main`):
+Settings → Branches / Rulesets → Add rule (for `master` / `main`):
 
-- Require status checks to pass before merging:
-  - `Lint (Ruff)`
-  - `Type Check (mypy)`
-  - `Security Scan`
-  - `Web (lint, types, tests, build)`
-  - `Python Tests (3.11)`, `Python Tests (3.12)`, `Python Tests (3.13)`
-  - `Docker Build & Smoke Test`
-- Require pull request reviews before merging.
-- Require branches to be up to date before merging.
+- **Require status check to pass before merging**:
+  - `CI Summary` (Recommended: single aggregate gate covering Ruff lint, mypy, security scans, web build/tests, pytest matrix, and Docker smoke test).
+  - **Do NOT** require individual matrix checks or path-filtered triggers: doing so leads to permanent *"Waiting for status to be reported"* deadlocks if job names drift or a check is skipped.
+- **Require a pull request before merging** (e.g. 1 review approval).
+- **Require branches to be up to date before merging**.
+
+#### Resolving the Ruleset #22267686 Deadlock:
+Earlier, automated workflows or direct pushes deadlocked against branch ruleset #22267686 on `master` because:
+1. Workflows could not push direct commits (e.g. automated version bumps or tag commits) to `master` without a reviewed PR.
+2. The GitHub release action previously relied on `release: [published]` downstream events, which GitHub explicitly suppresses when releases are created via `GITHUB_TOKEN`.
+3. Ancestry checking scripts crashed if `origin/main` was absent or refspecs could not be fast-forwarded without force `+`.
+4. Concurrency keys on `workflow_dispatch` prioritized branch names over explicit tag inputs, grouping separate tag releases under `release-master`.
+5. Standalone workflows crashed in `actions/checkout` when attempting to checkout a tag name before that tag existed in the git ref tree.
+6. Summary reporting previously concealed Docker build/push failures and falsely reported unconfigured PyPI tokens as successful.
+
+**The Clean Solution:**
+- **Code & Version bumps** land on `master` via the standard Pull Request flow (where `ci.yml` runs and `CI Summary` passes).
+- **Releases** are cut from `master` using either a Git tag (`git tag vX.Y.Z && git push origin vX.Y.Z`) or one-click manual dispatch from the Actions tab.
+- Release tag creation operates on `refs/tags/*` (not `refs/heads/master`), adhering strictly to branch protection rules without requiring bypass permissions.
+- Workflows safely checkout the immutable commit (`github.sha`) and use force-refspecs (`+refs/heads/...`) with commit resolution (`HEAD^{commit}`).
+- `release.yml` performs the entire release chain in a single unified pipeline: frontend asset build, Python wheel packaging, SHA256 checksum generation, GitHub release creation with downloadable assets, multi-platform Docker container push to GHCR, and PyPI publishing.
+- Honest summary reporting: PyPI publish outputs accurately reflect whether the package was published or skipped, and overall release status fails if Docker multi-arch publishing fails.
 
 ### 2. GHCR packages — no setup needed
 
-`packages: write` is already declared in `docker-latest.yml` /
-`docker-release.yml`, and the image is pushed with the built-in
-`GITHUB_TOKEN`. To consume the pipeline's image with Compose:
+`packages: write` is declared in `release.yml`, `docker-release.yml`, and `docker-latest.yml`, and the image is pushed with the built-in `GITHUB_TOKEN`. To consume the pipeline's image with Compose:
 
 ```bash
 DEEPTUTOR_IMAGE=ghcr.io/javitha080/ai-guru:latest \
   python scripts/docker_compose.py -f docker-compose.ghcr.yml up -d
 ```
-
-(see the `DEEPTUTOR_IMAGE` override in `docker-compose.ghcr.yml`).
 
 ### 3. PyPI trusted publishing (one-time)
 
@@ -226,40 +257,51 @@ DEEPTUTOR_IMAGE=ghcr.io/javitha080/ai-guru:latest \
    publisher**:
    - Owner: your GitHub org/user
    - Repository: this repo
-   - Workflow: `pypi-release.yml`
+   - Workflow: `release.yml` (and `pypi-release.yml`)
    - Environment: `pypi`
 2. Push tag `vX.Y.Z` (must match `deeptutor/__version__.py`).
 
-No `PYPI_TOKEN` secret is used — this is the most secure option.
+No `PYPI_TOKEN` secret is used — this is the most secure option. If PyPI Trusted Publishing is not yet configured, the release pipeline logs a clear warning without failing the GitHub Release or Docker image publication.
 
 ### 4. Secrets (optional)
 
 | Secret | Needed for |
 |--------|------------|
-| (none) | GHCR builds, tests, security scans |
+| (none) | GHCR builds, tests, security scans, GitHub release asset uploads |
 | Codecov token | Only if you add `codecov/codecov-action`; coverage XML is currently uploaded as a workflow artifact |
 
-## Tagging & release process
+## Automated Release Process
 
+### Method A: One-Click Dispatch via GitHub Actions UI (Recommended)
+1. Ensure your changes and version bump in `deeptutor/__version__.py` are merged to `master`.
+2. Go to **Actions** tab → Select **Release** workflow.
+3. Click **Run workflow**:
+   - `tag_name`: (Optional, leave blank to auto-detect from `deeptutor/__version__.py`, e.g. `v1.5.11`).
+   - `dry_run`: `true` to test building web assets, wheel, and Docker image without publishing.
+   - `publish_docker`: `true` to build & push to GHCR.
+   - `publish_pypi`: `true` to publish to PyPI.
+4. Click **Run workflow**.
+
+### Method B: Git Tag Push
 ```bash
-# 1. bump version
-sed -i 's/__version__ = ".*"/__version__ = "1.3.11"/' deeptutor/__version__.py
-git add deeptutor/__version__.py && git commit -m "chore: bump version to 1.3.11"
+# 1. bump version on master via standard PR
+sed -i 's/__version__ = ".*"/__version__ = "1.5.11"/' deeptutor/__version__.py
+git add deeptutor/__version__.py && git commit -m "chore: bump version to 1.5.11"
 git push origin master
 
-# 2. tag + push (then sit back)
-git tag v1.3.11 && git push origin v1.3.11
+# 2. tag + push
+git tag v1.5.11 && git push origin v1.5.11
 ```
 
 `release.yml` then:
-
-1. verifies the tag commit is an ancestor of `master`/`main`;
-2. verifies the tag equals `__version__.py` (PEP 440 normalized);
-3. creates the GitHub Release (published) →
-   `docker-release.yml` publishes `ghcr.io/<owner>/<repo>:1.3.11` + `latest`;
-   `pypi-release.yml` publishes `deeptutor==1.3.11` to PyPI.
-
-If the version does not match, nothing is published — the gate fails.
+1. verifies the commit is an ancestor of `master` or `main`;
+2. verifies the tag equals `deeptutor/__version__.py` (PEP 440 normalized);
+3. compiles standalone Next.js web assets (`scripts/prepare_web_package.py`);
+4. builds the distribution wheel (`deeptutor-1.5.11-py3-none-any.whl`);
+5. generates `SHA256SUMS.txt`;
+6. publishes the GitHub Release with attached `.whl` and `SHA256SUMS.txt`;
+7. builds and pushes multi-platform Docker images (`linux/amd64`, `linux/arm64`) to GHCR (`:1.5.11` and `:latest`);
+8. publishes the package to PyPI via Trusted Publishing.
 
 ## Local equivalents
  
@@ -286,9 +328,12 @@ docker build -t deeptutor:local . && docker run -p 127.0.0.1:8001:8001 -p 127.0.
 
 - **Lint/type failures**: run the exact commands above; `pre-commit run --all-files`
   reproduces the mypy/ruff/bandit profile.
-- **Docker smoke test**: the job prints `docker logs` on failure; the port
-  probe is the FastAPI/backend root at `127.0.0.1:18001` (mapped from
-  container port `8001`), retried for 120 s.
+- **Docker smoke test**: the job prints `docker logs` on failure; the
+  backend probe STRICTLY requires `/api/v1/health/ping` at
+  `127.0.0.1:18001` (mapped from container port `8001`), retried for
+  120 s. A backend whose root `/` responds but `/ping` does not is reported
+  as degraded (routes failed to mount) and fails the gate. The image
+  `HEALTHCHECK` (`healthcheck.py`) enforces the same strictness at runtime.
 - **Secret scan failures**: run
   `pre-commit run detect-secrets --all-files` locally. If it reports a real
   secret, remove it (or use an inline `# pragma: allowlist secret` for

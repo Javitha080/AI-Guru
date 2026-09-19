@@ -1,16 +1,30 @@
 # ============================================================
-# Release pipeline — tag vX.Y.Z on the default branch.
+# Release pipeline — Automated GitHub Release for AI Guru / DeepTutor
 #
-# Flow:
-#   1. Verify the tag points to a commit on master/main.
-#   2. Verify the tag matches deeptutor/__version__.py.
-#   3. Create the GitHub Release (published → triggers the release chain):
-#        - docker-release.yml → ghcr.io/<owner>/<repo>:X.Y.Z + latest
-#        - pypi-release.yml  → PyPI trusted publishing (configure the
-#                              `deeptutor` project's trusted publisher for
-#                              this workflow file, then no token is needed)
+# Supported Triggers:
+#   1. Push tag: git tag vX.Y.Z && git push origin vX.Y.Z
+#   2. Manual dispatch: GitHub Actions UI -> Run workflow (with optional dry-run)
 #
-# Expected tag format: vMAJOR.MINOR.PATCH (PEP 440 suffixes allowed).
+# Flow (single orchestrator — no duplicate publishing):
+#   1. verify-and-release:
+#      - Verify commit is on default branch (origin/master or origin/main).
+#      - Verify tag matches deeptutor/__version__.py (single source of truth).
+#      - Compile standalone Next.js frontend package (deeptutor_web).
+#      - Build distribution wheel (deeptutor-<version>-py3-none-any.whl,
+#        wheel only by policy — no sdist).
+#      - Generate SHA256 checksums (SHA256SUMS.txt, unsigned).
+#      - Create GitHub Release with attached distributions (.whl + checksums).
+#   2. docker-publish:
+#      - Build multi-arch image (linux/amd64, linux/arm64) via Buildx + QEMU.
+#      - Push to GitHub Container Registry: ghcr.io/<owner>/<repo>:<version> + latest.
+#   3. pypi-publish:
+#      - Publish distribution wheel to PyPI via Trusted Publishing (OIDC).
+#   4. summary:
+#      - Aggregate status table to $GITHUB_STEP_SUMMARY.
+#
+# docker-release.yml / pypi-release.yml do NOT subscribe to the Release they
+# create here (no `release: published` trigger): this file is the sole
+# publisher, and a second subscriber would re-push the same artifacts.
 # ============================================================
 
 name: Release
@@ -19,38 +33,92 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Release tag (e.g. v1.5.11). Leave empty to auto-detect from deeptutor/__version__.py"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run (build assets and wheel, verify integrity, skip publishing)"
+        required: false
+        type: boolean
+        default: false
+      publish_docker:
+        description: "Build and push multi-platform Docker image to GHCR"
+        required: false
+        type: boolean
+        default: true
+      publish_pypi:
+        description: "Publish Python wheel to PyPI"
+        required: false
+        type: boolean
+        default: true
+      prerelease:
+        description: "Mark as pre-release"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+  packages: write
+  id-token: write
 
 concurrency:
-  group: release-${{ github.ref_name }}
+  # Known limitation: concurrency is evaluated before any job runs, so the
+  # auto-detected version is not available here yet. A manual dispatch with a
+  # blank tag_name groups under `release-<branch>` (e.g. release-master) and
+  # queues behind other blank-tag dispatches instead of running in parallel.
+  # Same-tag re-runs still serialize correctly, which is the case that matters
+  # (two concurrent publishes of one tag must never race). Prefer passing an
+  # explicit tag_name when cutting several releases in a row.
+  group: release-${{ inputs.tag_name || github.ref_name }}
   cancel-in-progress: false
 
 jobs:
   verify-and-release:
-    name: Verify Tag and Create GitHub Release
+    name: Package and Create GitHub Release
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
+
+    outputs:
+      tag_name: ${{ steps.version.outputs.tag_name }}
+      version: ${{ steps.version.outputs.version }}
+      prerelease: ${{ steps.version.outputs.prerelease }}
 
     steps:
-      - name: Checkout release tag
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
-      - name: Verify release tag is on the default branch
+      - name: Verify release commit is on the default branch
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin master:refs/remotes/origin/master --no-tags
-          git fetch origin main:refs/remotes/origin/main --no-tags || true
-          tag="${{ github.ref_name }}"
-          tag_commit="$(git rev-list -n 1 "$tag")"
-          if ! git merge-base --is-ancestor "$tag_commit" origin/master && \
-             ! git merge-base --is-ancestor "$tag_commit" origin/main; then
-            echo "Release tag $tag ($tag_commit) is not on origin/master or origin/main; refusing to release." >&2
+          git fetch origin +refs/heads/master:refs/remotes/origin/master --no-tags 2>/dev/null || true
+          git fetch origin +refs/heads/main:refs/remotes/origin/main --no-tags 2>/dev/null || true
+
+          TARGET_COMMIT="$(git rev-parse HEAD^{commit})"
+          is_on_default=0
+
+          if git rev-parse --verify refs/remotes/origin/master >/dev/null 2>&1; then
+            if git merge-base --is-ancestor "$TARGET_COMMIT" refs/remotes/origin/master; then
+              is_on_default=1
+              echo "✅ Verified: release commit $TARGET_COMMIT is an ancestor of origin/master."
+            fi
+          fi
+
+          if [ "$is_on_default" -eq 0 ] && git rev-parse --verify refs/remotes/origin/main >/dev/null 2>&1; then
+            if git merge-base --is-ancestor "$TARGET_COMMIT" refs/remotes/origin/main; then
+              is_on_default=1
+              echo "✅ Verified: release commit $TARGET_COMMIT is an ancestor of origin/main."
+            fi
+          fi
+
+          if [ "$is_on_default" -ne 1 ]; then
+            echo "::error::Release commit $TARGET_COMMIT is not on origin/master or origin/main; refusing to release." >&2
             exit 1
           fi
 
@@ -58,6 +126,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
@@ -77,31 +152,296 @@ jobs:
           from pathlib import Path
           from packaging.version import Version
 
-          tag = os.environ["RELEASE_TAG"]
-          tag_raw = tag[1:] if tag.startswith("v") else tag
-          tag_version = str(Version(tag_raw))
-
           src = Path("deeptutor/__version__.py").read_text(encoding="utf-8")
           match = re.search(r'^__version__\s*=\s*"([^"]+)"', src, re.MULTILINE)
           if not match:
               raise SystemExit("Could not find __version__ in deeptutor/__version__.py")
-          code_version = str(Version(match.group(1)))
+          code_version_str = match.group(1).strip()
+          code_version = str(Version(code_version_str))
+
+          ref_name = os.environ.get("GITHUB_REF_NAME", "").strip()
+          input_tag = os.environ.get("INPUT_TAG_NAME", "").strip()
+          event_name = os.environ.get("GITHUB_EVENT_NAME", "").strip()
+          is_tag_push = os.environ.get("GITHUB_REF_TYPE", "") == "tag"
+
+          if is_tag_push:
+              tag_candidate = ref_name
+              final_tag = ref_name
+          elif input_tag:
+              tag_candidate = input_tag
+              final_tag = input_tag
+          else:
+              tag_candidate = f"v{code_version_str}"
+              final_tag = f"v{code_version_str}"
+
+          tag_raw = tag_candidate[1:] if tag_candidate.startswith("v") else tag_candidate
+          tag_version = str(Version(tag_raw))
 
           if code_version != tag_version:
               raise SystemExit(
-                  f"Release tag {tag!r} (normalized {tag_version!r}) does not "
+                  f"Release tag {tag_candidate!r} (normalized {tag_version!r}) does not "
                   f"match deeptutor/__version__.py value {code_version!r}. "
-                  "Bump __version__ before tagging."
+                  "Bump __version__ before releasing."
               )
+
+          is_prerelease = (
+              Version(tag_version).is_prerelease
+              or bool(re.search(r"[-_](alpha|beta|rc|dev|preview)", tag_candidate, re.I))
+          )
+          input_prerelease = os.environ.get("INPUT_PRERELEASE", "").lower() == "true"
+          final_prerelease = "true" if (is_prerelease or input_prerelease) else "false"
+
+          print(f"Validated release tag: {final_tag} (version: {code_version}, prerelease: {final_prerelease})")
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              fh.write(f"tag_name={final_tag}\n")
+              fh.write(f"version={code_version}\n")
+              fh.write(f"prerelease={final_prerelease}\n")
           PY
         env:
-          RELEASE_TAG: ${{ github.ref_name }}
+          INPUT_TAG_NAME: ${{ inputs.tag_name }}
+          INPUT_PRERELEASE: ${{ inputs.prerelease }}
 
-      - name: Create GitHub release
+      - name: Install frontend dependencies
+        working-directory: web
+        run: npm ci --legacy-peer-deps --prefer-offline --no-audit
+
+      - name: Restore Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/web/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('web/package-lock.json') }}-${{ hashFiles('web/app/**', 'web/components/**', 'web/context/**', 'web/features/**', 'web/hooks/**', 'web/lib/**', 'web/types/**', 'web/locales/**', 'web/public/**', 'web/scripts/**', 'web/proxy.ts', 'web/eslint.config.mjs', 'web/next.config.js', 'web/tailwind.config.js', 'web/tsconfig.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('web/package-lock.json') }}-
+
+      - name: Build packaged Web assets
+        run: python scripts/prepare_web_package.py
+        env:
+          NEXT_PUBLIC_API_BASE: __NEXT_PUBLIC_API_BASE_PLACEHOLDER__
+          NEXT_PUBLIC_AUTH_ENABLED: __NEXT_PUBLIC_AUTH_ENABLED_PLACEHOLDER__
+          NEXT_TELEMETRY_DISABLED: "1"
+
+      - name: Install build tools
+        run: uv pip install --system build packaging twine
+
+      - name: Build distribution wheel
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/deeptutor
+          # Run from /tmp so any local build/ directory cannot shadow PyPA build module
+          (cd /tmp && python -m build --wheel --outdir "$GITHUB_WORKSPACE/dist/deeptutor" "$GITHUB_WORKSPACE")
+
+      - name: Verify distribution metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m twine check dist/deeptutor/*
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          expected = "${{ steps.version.outputs.version }}"
+          files = sorted(p.name for p in Path("dist/deeptutor").glob("*.whl"))
+          expected_wheel = f"deeptutor-{expected}-py3-none-any.whl"
+          if expected_wheel not in files:
+              raise SystemExit(f"Missing expected distribution: {expected_wheel}. Found: {files}")
+          print(f"✅ Verified wheel distribution: {expected_wheel}")
+          PY
+
+      - name: Generate SHA256 checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+
+          dist_dir = Path("dist/deeptutor")
+          checksum_file = dist_dir / "SHA256SUMS.txt"
+          lines = []
+          for path in sorted(dist_dir.glob("*")):
+              if path.is_file() and path.name != "SHA256SUMS.txt":
+                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                  lines.append(f"{digest}  {path.name}")
+
+          checksum_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print("✅ Generated SHA256 checksums:")
+          print(checksum_file.read_text(encoding="utf-8"))
+          PY
+
+      - name: Upload distribution artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dist-${{ steps.version.outputs.version }}
+          path: dist/deeptutor/
+          retention-days: 14
+
+      - name: Create GitHub Release
+        if: ${{ inputs.dry_run != true }}
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
+          tag_name: ${{ steps.version.outputs.tag_name }}
+          name: Release ${{ steps.version.outputs.tag_name }}
+          target_commitish: ${{ github.sha }}
+          files: |
+            dist/deeptutor/*
           generate_release_notes: true
           draft: false
-          # Mark pre-releases (e.g. v1.2.3-rc.1) automatically
-          prerelease: ${{ contains(github.ref_name, '-') }}
+          prerelease: ${{ steps.version.outputs.prerelease == 'true' }}
+          make_latest: ${{ steps.version.outputs.prerelease != 'true' }}
+
+  docker-publish:
+    name: Build & Push Multi-Platform Docker Image
+    needs: verify-and-release
+    if: ${{ always() && needs.verify-and-release.result == 'success' && inputs.publish_docker != false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        if: ${{ inputs.dry_run != true }}
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute registry image and tags
+        id: meta
+        shell: bash
+        run: |
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY,,}"
+          VERSION="${{ needs.verify-and-release.outputs.version }}"
+          PRERELEASE="${{ needs.verify-and-release.outputs.prerelease }}"
+          TAGS=("${IMAGE}:${VERSION}")
+          if [ "$PRERELEASE" != "true" ]; then
+            TAGS+=("${IMAGE}:latest")
+          fi
+          printf 'tags=%s\n' "$(IFS=,; echo "${TAGS[*]}")" >> "$GITHUB_OUTPUT"
+          echo "Built tags: ${TAGS[*]}"
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          target: production
+          platforms: linux/amd64,linux/arm64
+          push: ${{ inputs.dry_run != true }}
+          provenance: mode=max
+          sbom: true
+          tags: ${{ steps.meta.outputs.tags }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  pypi-publish:
+    name: Publish to PyPI
+    needs: verify-and-release
+    if: ${{ always() && needs.verify-and-release.result == 'success' && inputs.publish_pypi != false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      id-token: write
+      contents: read
+    environment:
+      name: pypi
+      url: https://pypi.org/project/deeptutor/
+
+    outputs:
+      published: ${{ steps.pypi.outcome == 'success' }}
+
+    steps:
+      - name: Download distribution artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: release-dist-${{ needs.verify-and-release.outputs.version }}
+          path: dist/deeptutor/
+
+      - name: Publish deeptutor to PyPI
+        id: pypi
+        if: ${{ inputs.dry_run != true }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        continue-on-error: true
+        with:
+          packages-dir: dist/deeptutor/
+          print-hash: true
+
+  summary:
+    name: Release Summary
+    needs: [verify-and-release, docker-publish, pypi-publish]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Write release summary
+        run: |
+          format_status() {
+            case "$1" in
+              success) echo "✅ Succeeded" ;;
+              failure) echo "❌ Failed" ;;
+              cancelled) echo "⏹️ Cancelled" ;;
+              skipped) echo "⏭️ Skipped" ;;
+              *) echo "❓ $1" ;;
+            esac
+          }
+
+          pypi_status() {
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              echo "🔍 Dry Run (Skipped)"
+            elif [ "${{ inputs.publish_pypi }}" = "false" ]; then
+              echo "⏭️ Skipped"
+            elif [ "${{ needs.pypi-publish.outputs.published }}" = "true" ]; then
+              echo "✅ Published"
+            elif [ "${{ needs.pypi-publish.result }}" = "success" ]; then
+              echo "⚠️ Not configured / Warning (see logs)"
+            elif [ "${{ needs.pypi-publish.result }}" = "failure" ]; then
+              echo "❌ Failed"
+            else
+              format_status "${{ needs.pypi-publish.result }}"
+            fi
+          }
+
+          {
+            echo "## 📦 Release Pipeline Results"
+            echo ""
+            echo "Tag: \`${{ needs.verify-and-release.outputs.tag_name }}\` | Version: \`${{ needs.verify-and-release.outputs.version }}\` | Event: \`${{ github.event_name }}\`"
+            echo ""
+            echo "| Stage | Status | Details |"
+            echo "|-------|--------|---------|"
+            echo "| Package & GitHub Release | $(format_status '${{ needs.verify-and-release.result }}') | Frontend assets, Python wheel (.whl), checksums, GitHub Release |"
+            echo "| Docker Multi-Arch (GHCR) | $(format_status '${{ needs.docker-publish.result }}') | ghcr.io/${{ github.repository }} (amd64 + arm64) |"
+            echo "| PyPI Publish | $(pypi_status) | Trusted Publishing to pypi.org (OIDC) |"
+            echo ""
+            if [ "${{ needs.verify-and-release.result }}" = "success" ] && [ "${{ needs.docker-publish.result }}" != "failure" ]; then
+              if [ "${{ inputs.dry_run }}" = "true" ]; then
+                echo "🔍 **Dry-run completed successfully! All assets built and verified.**"
+              else
+                echo "🎉 **Release completed successfully!**"
+              fi
+            else
+              echo "⚠️ **Release pipeline failed. Inspect the logs above for details.**"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check overall release status
+        if: >-
+          needs.verify-and-release.result != 'success' ||
+          needs.docker-publish.result == 'failure'
+        run: |
+          echo "::error::Release pipeline failed. See summary and job logs above."
+          exit 1
