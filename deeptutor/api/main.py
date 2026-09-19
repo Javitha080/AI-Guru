@@ -1,3 +1,4 @@
+import asyncio
 from contextlib import asynccontextmanager
 import logging
 import sys
@@ -134,6 +135,14 @@ async def lifespan(app: FastAPI):
                 )
     except Exception as e:
         logger.warning("Failed to auto-migrate database on startup: %s", e)
+
+    # Auto-seed Paper Bank from master archive in background on fresh install if empty
+    try:
+        from deeptutor.services.exams.bank_store import BankStore
+
+        asyncio.create_task(BankStore.ensure_seeded(block=True))
+    except Exception as e:
+        logger.warning("Failed to initialize paper bank seed task: %s", e)
 
     # Initialize LLM client early so OPENAI_* env vars are available before
     # any downstream provider integrations start.
@@ -393,6 +402,7 @@ from deeptutor.api.routers import (
     subagents,
     system,
     unified_ws,
+    user_profile,
     voice,
 )
 from deeptutor.api.routers import (
@@ -559,6 +569,12 @@ app.include_router(quiz_judge.router, prefix="/api/v1", tags=["quiz-judge"])
 app.include_router(monitoring.router, prefix="/api/v1/monitoring", tags=["monitoring"])
 app.include_router(
     study_session.router, prefix="/api/v1/study-session", tags=["study-session"], dependencies=_auth
+)
+app.include_router(
+    user_profile.router,
+    prefix="/api/v1/user/profile",
+    tags=["user-profile"],
+    dependencies=_auth,
 )
 
 from deeptutor.api.routers import parent

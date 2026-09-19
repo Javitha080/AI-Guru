@@ -8,9 +8,10 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import {
-  BookOpenCheck, ChevronRight, Clock, FileText, History,
+  BookOpen, BookOpenCheck, ChevronRight, Clock, FileText, History,
   Languages, Loader2, Play, RefreshCw, ShieldCheck,
 } from "lucide-react";
+import PaperStudyModal from "@/components/papers/PaperStudyModal";
 import SittingRunner from "@/components/papers/SittingRunner";
 import { BentoGrid, BentoCard } from "@/components/ui/BentoGrid";
 import { useScrollReveal } from "@/lib/motion/useScrollReveal";
@@ -92,11 +93,14 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
   const [failed, setFailed] = useState(false);
   const [startingId, setStartingId] = useState("");
   const [startError, setStartError] = useState("");
+  const [studyPaperId, setStudyPaperId] = useState<string | null>(null);
 
   const scrollerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useSmoothScroll(scrollerRef, contentRef);
+
+  const [seeding, setSeeding] = useState(false);
 
   const load = useCallback(async () => {
     setRows(null); setFailed(false);
@@ -115,6 +119,12 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
       }
       const res = await papersApi.catalog({ subject, grade });
       setRows(res.papers);
+      if (res.seeding) {
+        setSeeding(true);
+        setTimeout(() => { void load(); }, 2000);
+      } else {
+        setSeeding(false);
+      }
     } catch {
       setFailed(true);
     }
@@ -221,6 +231,13 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
           </button>
         </div>
 
+        {seeding && (
+          <div className="p-4 rounded-2xl border border-[var(--primary)]/30 bg-[var(--ember-0)] text-xs text-[var(--primary)] flex items-center gap-2 backdrop-blur-md" data-scroll-reveal>
+            <Loader2 size={15} className="animate-spin text-[var(--primary)]" />
+            <span className="font-semibold">Setting up paper bank from archive… Initializing past papers in the background.</span>
+          </div>
+        )}
+
         {failed && (
           <div className="p-4 rounded-2xl border border-red-500/30 bg-red-500/10 text-xs text-red-300 backdrop-blur-md" data-scroll-reveal>
             Couldn&apos;t reach the paper bank. Make sure the AI Guru backend is running.
@@ -253,43 +270,77 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
                 spotlight
                 reveal
                 interactive
-                as="button"
-                onClick={() => void startSitting(targetId)}
-                className="text-left w-full group relative overflow-hidden focus:outline-none"
+                as="div"
+                className="text-left w-full group relative overflow-hidden flex flex-col justify-between"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0 space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-display text-base font-bold group-hover:text-[var(--primary)] transition-colors">
-                        ICT {head.year}
-                      </span>
-                      <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase tracking-wide bg-[var(--muted)] text-[var(--foreground)] border border-[var(--glass-border)]">
-                        {head.grade === 11 ? "O/L" : "A/L"}
-                      </span>
+                <div
+                  className="cursor-pointer"
+                  onClick={() => setStudyPaperId(targetId)}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-display text-base font-bold group-hover:text-[var(--primary)] transition-colors">
+                          ICT {head.year}
+                        </span>
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase tracking-wide bg-[var(--muted)] text-[var(--foreground)] border border-[var(--glass-border)]">
+                          {head.grade === 11 ? "O/L" : "A/L"}
+                        </span>
+                      </div>
+                      <p className="text-[12px] text-[var(--muted-foreground)] capitalize">
+                        {head.medium === "sinhala" ? "සිංහල medium" : `${head.medium} medium`}
+                      </p>
                     </div>
-                    <p className="text-[12px] text-[var(--muted-foreground)] capitalize">
-                      {head.medium === "sinhala" ? "සිංහල medium" : `${head.medium} medium`}
-                    </p>
+                    <div className="w-8 h-8 rounded-full surface-glass-base flex items-center justify-center text-[var(--muted-foreground)] group-hover:text-[var(--primary)] group-hover:scale-105 transition-all">
+                      <ChevronRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                    </div>
                   </div>
-                  <div className="w-8 h-8 rounded-full surface-glass-base flex items-center justify-center text-[var(--muted-foreground)] group-hover:text-[var(--primary)] group-hover:scale-105 transition-all">
-                    <ChevronRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+
+                  <div className="mt-4 flex flex-wrap gap-1.5 text-[11px] font-semibold">
+                    {mcqPart && (
+                      <span className="px-2.5 py-1 rounded-xl bg-[var(--ember-0)] text-[var(--primary)] border border-[var(--ember-line)]/30 flex items-center gap-1.5 shadow-sm">
+                        <FileText size={12} /> P1 MCQ · {mcqPart.question_count}Q · <Clock size={12} /> 2h
+                      </span>
+                    )}
+                    {essayPart && (
+                      <span className="px-2.5 py-1 rounded-xl surface-glass-base text-[var(--muted-foreground)] border border-[var(--glass-border)] flex items-center gap-1.5">
+                        P2 Essay · {essayPart.question_count}Q · <Clock size={12} /> 3h
+                      </span>
+                    )}
+                    <span className="px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 flex items-center gap-1">
+                      Keys Included
+                    </span>
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5 text-[11px] font-semibold">
-                  {mcqPart && (
-                    <span className="px-2.5 py-1 rounded-xl bg-[var(--ember-0)] text-[var(--primary)] border border-[var(--ember-line)]/30 flex items-center gap-1.5 shadow-sm">
-                      <FileText size={12} /> P1 MCQ · {mcqPart.question_count}Q · <Clock size={12} /> 2h
-                    </span>
-                  )}
-                  {essayPart && (
-                    <span className="px-2.5 py-1 rounded-xl surface-glass-base text-[var(--muted-foreground)] border border-[var(--glass-border)] flex items-center gap-1.5">
-                      P2 Essay · {essayPart.question_count}Q · <Clock size={12} /> 3h
-                    </span>
-                  )}
-                  <span className="px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 flex items-center gap-1">
-                    Keys Included
-                  </span>
+                <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setStudyPaperId(targetId);
+                    }}
+                    className="flex-1 py-2 px-3 rounded-xl surface-glass-base border border-[var(--glass-border)] text-xs font-semibold text-[var(--foreground)] hover:text-[var(--primary)] hover:border-[var(--ember-line)] transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <BookOpen size={13} />
+                    <span>Study Paper</span>
+                  </button>
+                  <button
+                    type="button"
+                    disabled={isStarting}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      void startSitting(targetId);
+                    }}
+                    className="flex-1 py-2 px-3 rounded-xl bg-[var(--primary)] text-white text-xs font-bold shadow-[0_2px_10px_var(--glow-primary)] hover:opacity-95 disabled:opacity-50 transition-all flex items-center justify-center gap-1.5"
+                  >
+                    {isStarting ? (
+                      <Loader2 size={13} className="animate-spin" />
+                    ) : (
+                      <Play size={13} className="fill-current" />
+                    )}
+                    <span>Timed Exam</span>
+                  </button>
                 </div>
 
                 {isStarting && (
@@ -308,6 +359,17 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
         )}
 
         <MySessions onOpen={(sid, parts) => onStarted(sid, parts)} />
+
+        {studyPaperId && (
+          <PaperStudyModal
+            bankPaperId={studyPaperId}
+            onClose={() => setStudyPaperId(null)}
+            onStartExam={(id) => {
+              setStudyPaperId(null);
+              void startSitting(id);
+            }}
+          />
+        )}
       </div>
     </div>
   );

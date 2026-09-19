@@ -149,7 +149,11 @@ async def catalog(
         group_key=group_key,
         limit=limit,
     )
-    return {"papers": rows, "count": len(rows)}
+    return {
+        "papers": rows,
+        "count": len(rows),
+        "seeding": BankStore.is_seeding(),
+    }
 
 
 @router.get("/my-sessions")
@@ -265,26 +269,47 @@ async def get_paper_asset(bank_paper_id: str, filename: str):
     )
 
     clean_name = Path(filename).name
-    candidates = [
-        get_paper_bank_assets_dir() / bank_paper_id / "images" / clean_name,
-        get_paper_bank_assets_dir() / bank_paper_id / clean_name,
-        _DEFAULT_ARCHIVE_PATH / bank_paper_id / "images" / clean_name,
-        _DEFAULT_ARCHIVE_PATH / bank_paper_id / clean_name,
-    ]
+    assets_dir = get_paper_bank_assets_dir()
+
+    folder_ids = {bank_paper_id}
 
     # Also resolve if bank_paper_id is an active exam_id from a sitting
     exam_data = await ExamStore.load_paper(bank_paper_id)
     if exam_data:
         b_id = exam_data.get("bank_paper_id") or ""
         if b_id:
-            candidates.extend(
-                [
-                    get_paper_bank_assets_dir() / b_id / "images" / clean_name,
-                    get_paper_bank_assets_dir() / b_id / clean_name,
-                    _DEFAULT_ARCHIVE_PATH / b_id / "images" / clean_name,
-                    _DEFAULT_ARCHIVE_PATH / b_id / clean_name,
-                ]
-            )
+            folder_ids.add(b_id)
+
+    # Check BankStore to get source_filename (e.g. ict-2023-g13-en-p1/paper.json)
+    for fid in list(folder_ids):
+        row = await BankStore.get_paper(fid)
+        if row and row.get("source_filename"):
+            src_folder = Path(row["source_filename"]).parent.name
+            if src_folder:
+                folder_ids.add(src_folder)
+
+    # Add medium/grade variants (e.g. ict-2023-g13-p1 <-> ict-2023-g13-en-p1 / ict-2023-g13-si-p1)
+    for fid in list(folder_ids):
+        if "-p" in fid and "-en-p" not in fid and "-si-p" not in fid:
+            folder_ids.add(fid.replace("-p", "-en-p"))
+            folder_ids.add(fid.replace("-p", "-si-p"))
+        if "-g13-" in fid and "-g13-en-" not in fid and "-g13-si-" not in fid:
+            folder_ids.add(fid.replace("-g13-", "-g13-en-"))
+            folder_ids.add(fid.replace("-g13-", "-g13-si-"))
+        if "-g11-" in fid and "-g11-en-" not in fid and "-g11-si-" not in fid:
+            folder_ids.add(fid.replace("-g11-", "-g11-en-"))
+            folder_ids.add(fid.replace("-g11-", "-g11-si-"))
+
+    candidates = []
+    for fid in folder_ids:
+        candidates.extend(
+            [
+                assets_dir / fid / "images" / clean_name,
+                assets_dir / fid / clean_name,
+                _DEFAULT_ARCHIVE_PATH / fid / "images" / clean_name,
+                _DEFAULT_ARCHIVE_PATH / fid / clean_name,
+            ]
+        )
 
     for target in candidates:
         if target.is_file():
@@ -310,13 +335,13 @@ async def sync_master_archive():
 
 
 @router.get("/{bank_paper_id}")
-async def get_bank_paper(bank_paper_id: str):
+async def get_bank_paper(bank_paper_id: str, include_answers: bool = Query(False)):
     row = await BankStore.get_paper(bank_paper_id)
     if not row:
         raise HTTPException(status_code=404, detail="Bank paper not found")
 
     paper = _paper_from_row(row)
-    public = paper.public_dict(include_answers=False)
+    public = paper.public_dict(include_answers=include_answers)
     return {
         "bank_paper_id": row["id"],
         "group_key": row["group_key"],

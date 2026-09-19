@@ -1,5 +1,15 @@
 # AI GURU — Run & Deploy Guide
 
+## Fresh clone notes
+
+- `ictfromabc/` is large on disk (~330 MB: source PDFs + OCR artifacts). The app only
+  needs `Sri_Lanka_ICT_Complete_AL_OL_Lessons_and_Quizzes_Master_Archive` (~9 MB),
+  which seeds the paper bank automatically on first boot — no manual import.
+  Impatient cloners: `git clone --depth 1 <url>`.
+- `data/` (SQLite DB, paper-bank assets) is gitignored and rebuilt locally:
+  first visit to `/papers` shows "Preparing paper bank…" for ~1 min while 123 papers
+  import in the background, then the catalog appears with zero commands.
+
 ## Quick start (Windows, this repo)
 
 ```powershell

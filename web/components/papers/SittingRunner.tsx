@@ -417,7 +417,7 @@ export default function SittingRunner({
             </div>
 
             {/* Question Stem (Supports KaTeX LaTeX & Markdown) */}
-            <div className="text-sm leading-relaxed font-normal">
+            <div className="text-sm leading-relaxed font-normal whitespace-pre-wrap break-words">
               <MarkdownRenderer content={current.text || current.stem || ""} enableMath />
             </div>
 
@@ -471,7 +471,7 @@ export default function SittingRunner({
                       }`}>
                         {isSinhalaMedium && NUM_TO_LETTER[key] ? `(${key})` : isSinhalaMedium && LETTER_TO_NUM[key] ? `(${LETTER_TO_NUM[key]})` : key}
                       </span>
-                      <span className="text-sm leading-snug pt-0.5 flex-1">
+                      <span className="text-sm leading-snug pt-0.5 flex-1 whitespace-pre-wrap break-words">
                         <MarkdownRenderer content={val} enableMath className="inline-block" />
                       </span>
                     </button>

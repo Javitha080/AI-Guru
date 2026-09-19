@@ -151,6 +151,35 @@ async def import_master_archive(
                         shutil.copy2(img_file, target_img_dir / img_file.name)
                         total_diagrams += 1
 
+            # 2b. Index loose images by question number from filename
+            # (e.g. q12_circuit.png -> Q12, p2_q3a_flowchart.png -> Q3).
+            # Covers archive folders whose paper.json has empty `diagrams`.
+            # Archive JSON on disk is never modified — links live in the DB row.
+            loose_by_qnum: Dict[int, List[str]] = {}
+            if img_dir.is_dir():
+                for img_file in sorted(img_dir.glob("*")):
+                    if not img_file.is_file():
+                        continue
+                    m = re.search(r"q(\d+)", img_file.stem.lower())
+                    if m:
+                        loose_by_qnum.setdefault(int(m.group(1)), []).append(img_file.name)
+
+            # O/L Paper-1 convention: generic filenames map to fixed questions
+            # (logic circuit -> Q10, star topology -> Q20, flowchart -> Q30).
+            # Only fills questions that still have no diagrams.
+            if "-g11-" in folder.name and "-p1" in folder.name and img_dir.is_dir():
+                _ol_p1_map = (("logic_circuit", 10), ("star_topology", 20), ("flowchart", 30))
+                for img_file in sorted(img_dir.glob("*")):
+                    if not img_file.is_file():
+                        continue
+                    if re.search(r"q(\d+)", img_file.stem.lower()):
+                        continue
+                    stem_l = img_file.stem.lower()
+                    for key, qnum in _ol_p1_map:
+                        if key in stem_l:
+                            loose_by_qnum.setdefault(qnum, []).append(img_file.name)
+                            break
+
             # 3. Process questions and format
             normalized_questions: List[Dict[str, Any]] = []
             scheme_answers: Dict[str, str] = {}
@@ -179,12 +208,33 @@ async def import_master_archive(
                                 "caption": "",
                             }
                         )
+                if not diagrams and q_num in loose_by_qnum:
+                    for idx, fname in enumerate(loose_by_qnum[q_num]):
+                        diagrams.append(
+                            {
+                                "id": f"d_{q_num}_{idx}",
+                                "src": f"images/{fname}",
+                                "alt": f"Diagram for Question {q_num}",
+                                "caption": "",
+                            }
+                        )
 
-                # Ensure image paths are relative to paper assets
+                # Ensure image paths are relative to paper assets.
+                # Drop entries whose file is absent (e.g. q37_timetable.png in
+                # 2012 P1) so viewers never render broken images. DB-only;
+                # archive JSON on disk is untouched.
                 clean_diagrams = []
                 for d in diagrams:
                     src_val = str(d.get("src") or "")
                     fname = Path(src_val).name
+                    if img_dir.is_dir() and not (img_dir / fname).is_file():
+                        logger.warning(
+                            "Dangling diagram ref %s in %s q%s — skipped",
+                            fname,
+                            folder.name,
+                            q_num,
+                        )
+                        continue
                     clean_diagrams.append(
                         {
                             "id": str(d.get("id") or f"d_{q_num}"),

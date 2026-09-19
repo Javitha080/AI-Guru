@@ -14,6 +14,8 @@ import type {
   FloatingChatStoreLike,
 } from "./floatingChatStore";
 
+export type { FloatingChatSnapshot, FloatingChatStoreLike };
+
 export const FLOATING_CHANNEL_NAME = "aiguru-floating";
 
 interface WireBase {

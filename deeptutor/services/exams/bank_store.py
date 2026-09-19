@@ -142,8 +142,57 @@ class BankStore:
             rows = await cur.fetchall()
         return [_deserialize(dict(r)) for r in rows]
 
+    _seeded_checked: bool = False
+    _is_seeding: bool = False
+
+    @classmethod
+    def is_seeding(cls) -> bool:
+        return cls._is_seeding
+
+    @classmethod
+    async def ensure_seeded(cls, *, block: bool = True) -> None:
+        """Auto-seed paper_bank from master archive on fresh installs if empty."""
+        if cls._seeded_checked or cls._is_seeding:
+            return
+        try:
+            async with aiosqlite.connect(_db_path()) as db:
+                await cls.ensure_tables(db)
+                cur = await db.execute("SELECT COUNT(*) FROM paper_bank")
+                row = await cur.fetchone()
+                count = row[0] if row else 0
+
+            if count > 0:
+                cls._seeded_checked = True
+                return
+
+            cls._is_seeding = True
+            logger.info("Paper bank empty. Auto-seeding from master archive...")
+
+            async def _seed():
+                try:
+                    from deeptutor.services.exams.master_archive_importer import (
+                        import_master_archive,
+                    )
+                    await import_master_archive(copy_assets=True)
+                    cls._seeded_checked = True
+                    logger.info("Paper bank auto-seed complete.")
+                except Exception as ex:
+                    logger.error("Failed to auto-seed paper bank: %s", ex)
+                finally:
+                    cls._is_seeding = False
+
+            if block:
+                await _seed()
+            else:
+                import asyncio
+                asyncio.create_task(_seed())
+        except Exception as e:
+            cls._is_seeding = False
+            logger.error("Failed to check seed status: %s", e)
+
     @classmethod
     async def get_paper(cls, bank_paper_id: str) -> Optional[Dict[str, Any]]:
+        await cls.ensure_seeded(block=False)
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
             db.row_factory = aiosqlite.Row
@@ -163,6 +212,7 @@ class BankStore:
         limit: int = 500,
     ) -> List[Dict[str, Any]]:
         """Filtered catalog listing WITHOUT the heavy paper_json blob."""
+        await cls.ensure_seeded(block=False)
         where: List[str] = []
         vals: List[Any] = []
         if subject:
@@ -197,6 +247,7 @@ class BankStore:
     @classmethod
     async def facets(cls) -> Dict[str, Any]:
         """Distinct subjects/grades/years/mediums present in the bank."""
+        await cls.ensure_seeded(block=False)
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
 

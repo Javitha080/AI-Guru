@@ -182,14 +182,16 @@ export const papersApi = {
     if (params.year) q.set("year", String(params.year));
     if (params.medium) q.set("medium", params.medium);
     return fetch(`/api/v1/paper_bank/catalog?${q.toString()}`).then((r) =>
-      jsonOrThrow<{ papers: CatalogRow[]; count: number }>(r)
+      jsonOrThrow<{ papers: CatalogRow[]; count: number; seeding?: boolean }>(r)
     );
   },
 
-  getPaper: (bankPaperId: string) =>
-    fetch(`/api/v1/paper_bank/${encodeURIComponent(bankPaperId)}`).then((r) =>
+  getPaper: (bankPaperId: string, includeAnswers = false) => {
+    const q = includeAnswers ? "?include_answers=true" : "";
+    return fetch(`/api/v1/paper_bank/${encodeURIComponent(bankPaperId)}${q}`).then((r) =>
       jsonOrThrow<BankPaperDetail>(r)
-    ),
+    );
+  },
 
   start: (bankPaperId: string, studentId = "student-primary") =>
     fetch(`/api/v1/paper_bank/${encodeURIComponent(bankPaperId)}/start`, {
