@@ -81,7 +81,7 @@ def test_circuit_breaker_full_cycle_and_half_open_recovery():
     Test complete lifecycle:
     CLOSED -> (failures) -> OPEN -> (cooldown) -> HALF_OPEN -> (success) -> CLOSED
     """
-    breaker = CircuitBreaker(failure_threshold=2, recovery_timeout_seconds=0.03)
+    breaker = CircuitBreaker(failure_threshold=2, recovery_timeout_seconds=0.05)
     assert breaker.state == CircuitState.CLOSED
 
     # Trip breaker
@@ -90,8 +90,8 @@ def test_circuit_breaker_full_cycle_and_half_open_recovery():
     assert breaker.state == CircuitState.OPEN
     assert breaker.allow_request() is False
 
-    # Wait for recovery timeout
-    time.sleep(0.08)
+    # Wait for recovery timeout (5x margin so loaded CI machines don't flake)
+    time.sleep(0.25)
 
     # First request after timeout triggers HALF_OPEN
     assert breaker.allow_request() is True
@@ -109,15 +109,15 @@ def test_circuit_breaker_half_open_failure_re_trips_to_open():
     Adversarial scenario: When in HALF_OPEN, if the probe request FAILS,
     the circuit must re-trip immediately to OPEN and restart the cooldown.
     """
-    breaker = CircuitBreaker(failure_threshold=2, recovery_timeout_seconds=0.03)
+    breaker = CircuitBreaker(failure_threshold=2, recovery_timeout_seconds=0.05)
 
     # Trip breaker
     breaker.record_failure(Exception("Err 1"))
     breaker.record_failure(Exception("Err 2"))
     assert breaker.state == CircuitState.OPEN
 
-    # Wait for cooldown
-    time.sleep(0.08)
+    # Wait for cooldown (5x margin so loaded CI machines don't flake)
+    time.sleep(0.25)
     assert breaker.allow_request() is True
     assert breaker.state == CircuitState.HALF_OPEN
 

@@ -1,5 +1,10 @@
 """
 Verify complete AI Guru SQLite Database setup and table presence.
+
+Manual script (NOT a pytest test — defines no test_ functions, never
+collected). Run directly:
+
+    .venv\\Scripts\\python.exe tests/verify_db_setup.py
 """
 
 import sqlite3

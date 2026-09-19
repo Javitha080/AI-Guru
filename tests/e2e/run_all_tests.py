@@ -9,6 +9,11 @@ Executes all 4 Tiers of requirement-driven E2E tests:
 
 Usage:
     python tests/e2e/run_all_tests.py
+
+NOTE: ``pytest tests/e2e`` is the source of truth. This runner exists for
+human-readable tier summaries only and manually reconstructs the fixtures
+from ``conftest.py``. If you add a fixture parameter or an async test, update
+``run_tier`` below in lockstep — or prefer pytest.
 """
 
 from __future__ import annotations
@@ -84,6 +89,7 @@ def run_tier(tier_name: str, test_class_or_module) -> StructuredE2ETestResult:
                 class DynamicTestCase(unittest.TestCase):
                     def runTest(self, m=method):
                         # Instantiate fixtures
+                        import asyncio
                         import inspect
 
                         from tests.e2e.conftest import (
@@ -114,8 +120,26 @@ def run_tier(tier_name: str, test_class_or_module) -> StructuredE2ETestResult:
                         if "gamification_engine" in sig.parameters:
                             kwargs["gamification_engine"] = GamificationEngine()
 
+                        unknown = set(sig.parameters) - {
+                            "self",
+                            "isolated_db",
+                            "cv_pipeline",
+                            "tutor_provider",
+                            "parent_gateway",
+                            "connectivity_manager",
+                            "gamification_engine",
+                        }
+                        if unknown:
+                            raise TypeError(
+                                f"run_all_tests.py cannot provide fixtures {sorted(unknown)} "
+                                f"for {test_class_or_module.__name__}.{attr}; run via pytest instead."
+                            )
+
                         try:
-                            m(**kwargs)
+                            if asyncio.iscoroutinefunction(m):
+                                asyncio.run(m(**kwargs))
+                            else:
+                                m(**kwargs)
                         finally:
                             if db_instance:
                                 db_instance.close()

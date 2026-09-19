@@ -13,11 +13,7 @@ Runs against an isolated workspace; never touches real user data.
 from __future__ import annotations
 
 import asyncio
-import json
-import os
 from pathlib import Path
-import sys
-import tempfile
 
 import pytest
 
@@ -27,8 +23,16 @@ pytestmark = [pytest.mark.asyncio]
 async def _run(tmp: Path) -> dict:
     from deeptutor.services import path_service as ps
 
+    previous = ps.PathService._instance
     svc = ps.PathService(workspace_root=tmp)
     ps.PathService._instance = svc
+    try:
+        return await _run_isolated(tmp, svc)
+    finally:
+        ps.PathService._instance = previous
+
+
+async def _run_isolated(tmp: Path, svc) -> dict:
 
     db = svc.user_dir / "chat_history.db"
     db.parent.mkdir(parents=True, exist_ok=True)
@@ -40,7 +44,7 @@ async def _run(tmp: Path) -> dict:
     applied = apply_migrations(conn)
     conn.commit()
     conn.close()
-    assert 2 in applied, f"expected migrations [1,2], got {applied}"
+    assert {1, 2} <= set(applied), f"expected migrations [1,2] applied, got {applied}"
 
     results: dict = {}
 
@@ -70,6 +74,18 @@ async def _run(tmp: Path) -> dict:
     summary = await tel.get_session_summary(session["id"])
     assert summary["by_type"].get("WARNING_ISSUED", 0) >= 1
     results["events"] = summary["total_events"]
+
+    # ---- Encrypted vault staging -> seal ------------------------------------
+    from deeptutor.services.remote.video_vault import VideoVaultManager
+
+    await VideoVaultManager.save_pending_snapshot(
+        session["id"], "PHONE_DETECTED", b"\xff\xd8smoke" + b"\x00" * 16
+    )
+    assert VideoVaultManager.count_pending() == 1
+    sealed = await VideoVaultManager.seal_pending("5926")
+    assert sealed == 1
+    assert VideoVaultManager.count_pending() == 0
+    results["vault_sealed"] = sealed
 
     # ---- Report generation --------------------------------------------------
     from deeptutor.services.study.report_generator import ReportGenerator
@@ -112,21 +128,9 @@ def sqlite3_connect(db: Path):
     return sqlite3.connect(db)
 
 
-def test_fresh_install_full_chain():
-    tmp = Path(tempfile.mkdtemp(prefix="aiguru_smoke_"))
-    try:
-        results = asyncio.run(_run(tmp))
-        assert results["parent_jwt"] is True
-        assert results["events"] >= 1
-        assert "first_session" in results["badges"]
-    finally:
-        for root, _dirs, files in os.walk(tmp, topdown=False):
-            for f in files:
-                try:
-                    os.remove(os.path.join(root, f))
-                except OSError:
-                    pass
-            try:
-                os.rmdir(root)
-            except OSError:
-                pass
+def test_fresh_install_full_chain(tmp_path: Path):
+    results = asyncio.run(_run(tmp_path / "smoke_ws"))
+    assert results["parent_jwt"] is True
+    assert results["events"] >= 1
+    assert results["vault_sealed"] == 1
+    assert "first_session" in results["badges"]

@@ -204,6 +204,13 @@ class AIGuruTestDB:
     # errors. Instead of patching every suite, execute() detects the failure
     # and provisions minimal parent rows for the ids the statement touches,
     # then retries once.
+    #
+    # WARNING: this masks production IntegrityErrors by design — a tier test
+    # that forgets to create its identities still passes here while the same
+    # insert would 500 against the real DB. Anything exercising a NEW
+    # table/relationship must also add an explicit FK test (see
+    # tests/services/test_remote_security.py patterns) rather than relying
+    # on this fallback.
 
     _ID_TOKEN_RE = re.compile(r"'([A-Za-z][A-Za-z0-9_\-]{1,40})'")
 
@@ -348,7 +355,27 @@ class MockCVPipeline:
     Simulates the local computer vision pipeline running at 5-10 FPS rate-limited sampling
     with face detection, anti-spoof liveness, presence state machine, distraction filtering,
     engagement score estimation, and warning cooldown.
+
+    Thresholds mirror deeptutor.services.monitoring.monitoring_config.DEFAULT_THRESHOLDS
+    (single source of truth in production): presence 5s/20s, phone 4s, looking-away 10s,
+    identity-mismatch 15s, liveness EAR variance 0.001, warning cooldown 60s.
+    Keep this class in sync when production thresholds change.
     """
+
+    # Production-parity thresholds (see monitoring_config.DEFAULT_THRESHOLDS).
+    TEMP_ABSENT_SECONDS = 5.0
+    AWAY_SECONDS = 20.0
+    PHONE_THRESHOLD_SECONDS = 4.0
+    LOOKING_AWAY_THRESHOLD_SECONDS = 10.0
+    IDENTITY_MISMATCH_THRESHOLD_SECONDS = 15.0
+    MIN_EAR_VARIANCE = 0.001
+    # Per-activity warning durations: phone fires at 4s, looking-away at 10s.
+    # Anything not listed falls back to the looking-away threshold.
+    WARNING_DURATION_SECONDS = {
+        "PHONE_USAGE": 4.0,
+        "LOOKING_AWAY": 10.0,
+        "ABSENT": 10.0,
+    }
 
     def __init__(self, warning_cooldown_seconds: float = 60.0):
         self.warning_cooldown_seconds = warning_cooldown_seconds
@@ -380,19 +407,21 @@ class MockCVPipeline:
             return True, "insufficient_samples"
         mean_ear = sum(ear_samples) / len(ear_samples)
         variance = sum((x - mean_ear) ** 2 for x in ear_samples) / len(ear_samples)
-        if variance < 0.00005:
+        if variance < self.MIN_EAR_VARIANCE:
             return False, "static_image_spoof_detected"
         return True, "live_human_confirmed"
 
     def update_presence(self, face_detected: bool, timestamp: float) -> PresenceState:
-        """4-State Hysteresis Presence State Machine."""
+        """3-state hysteresis presence machine (production parity: PRESENT <5s, TEMP 5-20s, AWAY >=20s)."""
         if face_detected:
             self.last_face_seen_time = timestamp
             self.current_presence_state = PresenceState.PRESENT
             return PresenceState.PRESENT
 
         elapsed_since_face = timestamp - self.last_face_seen_time
-        if elapsed_since_face < 10.0:
+        if elapsed_since_face < self.TEMP_ABSENT_SECONDS:
+            self.current_presence_state = PresenceState.PRESENT
+        elif elapsed_since_face < self.AWAY_SECONDS:
             self.current_presence_state = PresenceState.TEMPORARILY_NOT_VISIBLE
         else:
             self.current_presence_state = PresenceState.AWAY
@@ -401,8 +430,8 @@ class MockCVPipeline:
     def classify_activity(self, frame: CVFrameTelemetry) -> PostureActivity:
         """
         Classifies activity while enforcing false-positive whitelisting for study behaviors.
-        Whitelisted:
-        - Downward pitch 25° - 55° (writing/reading on desk)
+        Whitelisted (production parity, see monitoring_config pitch_reading_min/max):
+        - Downward pitch 18° - 55° (writing/reading on desk)
         - Drinking water
         - Turning pages (short transient movements)
         Flagged:
@@ -420,7 +449,7 @@ class MockCVPipeline:
             return PostureActivity.DRINKING_WATER
 
         # Writing / Reading whitelist (downward pitch with hand at desk)
-        if 20.0 <= frame.pitch <= 60.0 and abs(frame.yaw) <= 30.0:
+        if 18.0 <= frame.pitch <= 55.0 and abs(frame.yaw) <= 30.0:
             if frame.hand_at_desk:
                 return PostureActivity.WRITING
             return PostureActivity.READING
@@ -459,6 +488,7 @@ class MockCVPipeline:
     ) -> Optional[Dict[str, Any]]:
         """
         Evaluates whether a warning alert should be emitted, respecting the 60s cooldown window.
+        Duration thresholds are per-activity production parity (phone 4s, looking-away 10s).
         """
         # Whitelisted activities never trigger warnings
         if activity in (
@@ -470,8 +500,9 @@ class MockCVPipeline:
         ):
             return None
 
-        # Check duration threshold (> 15 seconds)
-        if duration_seconds < 15.0:
+        # Per-activity duration threshold (production parity)
+        required = self.WARNING_DURATION_SECONDS.get(activity.value, self.LOOKING_AWAY_THRESHOLD_SECONDS)
+        if duration_seconds < required:
             return None
 
         warning_key = activity.value

@@ -41,10 +41,13 @@ class XPEngine:
         now = time.time()
 
         async with aiosqlite.connect(self.db_path) as db:
+            # Real rewards contract (see database/schema.py): amount_xp /
+            # unlocked_at — never the legacy amount / created_at names.
             await db.execute(
-                """INSERT INTO rewards (id, student_id, session_id, reward_type, amount, created_at)
-                   VALUES (?, ?, ?, 'xp', ?, ?)""",
-                (reward_id, student_id, session_id, earned_xp, now),
+                """INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,
+                                        badge_id, badge_name, badge_icon, reason, unlocked_at)
+                   VALUES (?, ?, ?, 'xp', ?, '', '', '', ?, ?)""",
+                (reward_id, student_id, session_id, earned_xp, f"session:{session_id}", now),
             )
 
             # Update student total XP (assuming table students exists or similar; adapting based on requirements)

@@ -1,5 +1,5 @@
 """
-Live LLM connectivity test.
+Live LLM connectivity test (MANUAL script — not collected by pytest).
 
 Run directly to verify your data/user/settings model config is working:
 
@@ -15,6 +15,8 @@ import asyncio
 from pathlib import Path
 import sys
 import time
+
+__test__ = False  # never collect this manual script even if test_ helpers are added
 
 # ensure project root is on sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))

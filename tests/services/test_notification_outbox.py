@@ -102,8 +102,15 @@ async def test_foreign_claim_is_never_adopted(isolated_outbox, monkeypatch):
 
 
 @pytest.mark.asyncio
-async def test_enqueue_drops_events_while_telegram_unconfigured(isolated_outbox):
+async def test_enqueue_drops_events_while_telegram_unconfigured(isolated_outbox, monkeypatch):
     """No ghost delivery: events produced before setup must never be queued."""
+    # Hermetic unconfigured state: the real TelegramConfigStore resolves from
+    # the developer's own database, which may well be configured — so an
+    # explicit None stub is the only honest "before setup" simulation.
+    async def _none(parent_id: str = "default"):
+        return None
+
+    monkeypatch.setattr(nq, "_load_telegram_config", _none)
     row_id = await nq.enqueue("session_start", {"session_id": "s3", "student_name": "Primary"})
 
     assert row_id == 0, "unconfigured events must not enter the outbox"

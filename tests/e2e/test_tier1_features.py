@@ -202,21 +202,25 @@ class TestTier1FeatureCoverage:
         assert is_live is False
         assert reason == "static_image_spoof_detected"
 
-        # 3. Presence State Machine Hysteresis
+        # 3. Presence State Machine Hysteresis (production parity: PRESENT <5s, TEMP 5-20s, AWAY >=20s)
         t0 = time.time()
         assert (
             cv_pipeline.update_presence(face_detected=True, timestamp=t0) == PresenceState.PRESENT
         )
         assert (
             cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 4.0)
-            == PresenceState.TEMPORARILY_NOT_VISIBLE
+            == PresenceState.PRESENT
         )
         assert (
             cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 15.0)
+            == PresenceState.TEMPORARILY_NOT_VISIBLE
+        )
+        assert (
+            cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 25.0)
             == PresenceState.AWAY
         )
         assert (
-            cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 16.0)
+            cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 26.0)
             == PresenceState.PRESENT
         )
 
@@ -232,7 +236,7 @@ class TestTier1FeatureCoverage:
         assert activity == PostureActivity.WRITING
         assert cv_pipeline.evaluate_warning(activity, duration_seconds=60.0, timestamp=t0) is None
 
-        # 5. Distraction Flagging & Warning Cooldown (Phone detected sustained > 15s)
+        # 5. Distraction Flagging & Warning Cooldown (phone fires at 4s production parity)
         phone_frame = CVFrameTelemetry(timestamp=t0, face_detected=True, phone_detected=True)
         activity_phone = cv_pipeline.classify_activity(phone_frame)
         assert activity_phone == PostureActivity.PHONE_USAGE

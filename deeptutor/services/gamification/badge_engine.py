@@ -37,14 +37,18 @@ class BadgeEngine:
         self.db_path = get_path_service().user_dir / "chat_history.db"
 
     async def _get_earned_badge_ids(self, student_id: str) -> Set[str]:
+        # Real rewards contract: badges are rows with reward_type='badge' and
+        # the badge key in badge_id (the CHECK constraint forbids 'badge_*'
+        # reward_type values).
         earned = set()
         async with aiosqlite.connect(self.db_path) as db:
             async with db.execute(
-                "SELECT reward_type FROM rewards WHERE student_id = ? AND reward_type LIKE 'badge_%'",
+                "SELECT badge_id FROM rewards WHERE student_id = ? AND reward_type = 'badge'",
                 (student_id,),
             ) as cursor:
                 async for row in cursor:
-                    earned.add(row[0].replace("badge_", ""))
+                    if row[0]:
+                        earned.add(row[0])
         return earned
 
     async def _award_badge(self, student_id: str, badge_id: str, session_id: str = None) -> None:
@@ -52,9 +56,18 @@ class BadgeEngine:
         now = time.time()
         async with aiosqlite.connect(self.db_path) as db:
             await db.execute(
-                """INSERT INTO rewards (id, student_id, session_id, reward_type, amount, created_at)
-                   VALUES (?, ?, ?, ?, 0, ?)""",
-                (reward_id, student_id, session_id, f"badge_{badge_id}", now),
+                """INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,
+                                        badge_id, badge_name, badge_icon, reason, unlocked_at)
+                   VALUES (?, ?, ?, 'badge', 0, ?, ?, '', ?, ?)""",
+                (
+                    reward_id,
+                    student_id,
+                    session_id,
+                    badge_id,
+                    self.BADGE_CATALOG.get(badge_id, badge_id),
+                    f"badge:{badge_id}",
+                    now,
+                ),
             )
             await db.commit()
 

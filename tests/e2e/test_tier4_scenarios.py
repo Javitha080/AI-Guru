@@ -220,12 +220,15 @@ class TestTier4RealWorldScenarios:
         # Anchor presence at the moment the break starts.
         st0 = cv_pipeline.update_presence(face_detected=True, timestamp=now + 900)
         assert st0 == PresenceState.PRESENT
-        # At 5s absent: TEMPORARILY_NOT_VISIBLE (mock hysteresis threshold: <10s)
+        # At 5s absent: TEMPORARILY_NOT_VISIBLE (production parity: TEMP 5-20s)
         st1 = cv_pipeline.update_presence(face_detected=False, timestamp=now + 905)
         assert st1 == PresenceState.TEMPORARILY_NOT_VISIBLE
-        # At 15s: AWAY
+        # At 15s: still TEMPORARILY_NOT_VISIBLE (AWAY only at >=20s)
         st2 = cv_pipeline.update_presence(face_detected=False, timestamp=now + 915)
-        assert st2 == PresenceState.AWAY
+        assert st2 == PresenceState.TEMPORARILY_NOT_VISIBLE
+        # At 25s: AWAY
+        st2b = cv_pipeline.update_presence(face_detected=False, timestamp=now + 925)
+        assert st2b == PresenceState.AWAY
 
         # Student returns at 45s
         st3 = cv_pipeline.update_presence(face_detected=True, timestamp=now + 945)

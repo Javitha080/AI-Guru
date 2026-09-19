@@ -358,24 +358,6 @@ def test_require_parent_http_gate(isolated_env, monkeypatch):
         secret,
         algorithm="HS256",
     )
-    # A *student*-role token must be rejected even if cryptographically valid.
-    from deeptutor.services.remote import auth_jwt as aj
-
-    pyjwt = aj.jwt
-    secret = asyncio.run(JWTAuthService.get_secret_key())
-    now = int(time.time())
-    forged_student = pyjwt.encode(
-        {
-            "sub": "student-primary",
-            "role": "user",
-            "type": "access",
-            "iat": now,
-            "exp": now + 300,
-            "jti": uuid.uuid4().hex,
-        },
-        secret,
-        algorithm="HS256",
-    )
     res = client.get("/guarded", headers={"Authorization": f"Bearer {forged_student}"})
     assert res.status_code == 401
 

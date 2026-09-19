@@ -1,3 +1,10 @@
+"""
+Manual latency probe (NOT a pytest test — this file defines no test_ functions
+and is never collected). Run directly to measure a configured provider:
+
+    .venv\\Scripts\\python.exe tests/test_latency.py
+"""
+
 import asyncio
 import time
 

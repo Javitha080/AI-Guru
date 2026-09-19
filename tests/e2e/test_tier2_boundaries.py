@@ -69,9 +69,10 @@ class TestTier2BoundariesAndCornerCases:
     # -----------------------------------------------------------------------
     def test_boundary_presence_state_hysteresis_and_debouncing(self, cv_pipeline: MockCVPipeline):
         """
-        Verify state machine hysteresis:
-        - Face missing for 2s does NOT trigger AWAY (remains TEMPORARILY_NOT_VISIBLE).
-        - Face missing for 12s transitions to AWAY.
+        Verify state machine hysteresis (production parity: PRESENT <5s, TEMP 5-20s, AWAY >=20s):
+        - Face missing for 2s stays PRESENT (grace period).
+        - Face missing for 8s transitions to TEMPORARILY_NOT_VISIBLE.
+        - Face missing for 25s transitions to AWAY.
         - Immediate face reappearance transitions back to PRESENT in 0s.
         """
         t0 = 1000.0
@@ -80,27 +81,33 @@ class TestTier2BoundariesAndCornerCases:
             cv_pipeline.update_presence(face_detected=True, timestamp=t0) == PresenceState.PRESENT
         )
 
-        # Missing for 2s (transient head scratch/blink) -> TEMPORARILY_NOT_VISIBLE
+        # Missing for 2s (transient head scratch/blink) -> PRESENT (grace)
         assert (
             cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 2.0)
-            == PresenceState.TEMPORARILY_NOT_VISIBLE
+            == PresenceState.PRESENT
         )
 
-        # Missing for 8s (still under 10s threshold) -> TEMPORARILY_NOT_VISIBLE
+        # Missing for 8s (past 5s threshold) -> TEMPORARILY_NOT_VISIBLE
         assert (
             cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 8.0)
             == PresenceState.TEMPORARILY_NOT_VISIBLE
         )
 
-        # Missing for 12s (exceeded 10s threshold) -> AWAY
+        # Missing for 12s (still under 20s threshold) -> TEMPORARILY_NOT_VISIBLE
         assert (
             cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 12.0)
+            == PresenceState.TEMPORARILY_NOT_VISIBLE
+        )
+
+        # Missing for 25s (exceeded 20s threshold) -> AWAY
+        assert (
+            cv_pipeline.update_presence(face_detected=False, timestamp=t0 + 25.0)
             == PresenceState.AWAY
         )
 
         # Face reappears -> Immediately PRESENT
         assert (
-            cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 13.0)
+            cv_pipeline.update_presence(face_detected=True, timestamp=t0 + 26.0)
             == PresenceState.PRESENT
         )
 
@@ -172,14 +179,14 @@ class TestTier2BoundariesAndCornerCases:
             if warn:
                 warnings_emitted.append((elapsed, warn))
 
-        # First warning at >= 15s (elapsed = 15)
-        # Next at elapsed = 75 (15 + 60)
-        # Next at elapsed = 135 (75 + 60)
-        # Next at elapsed = 195 (135 + 60)
-        # Next at elapsed = 255 (195 + 60)
+        # First warning at >= 10s (LOOKING_AWAY production threshold, elapsed = 10)
+        # Next at elapsed = 70 (10 + 60)
+        # Next at elapsed = 130 (70 + 60)
+        # Next at elapsed = 190 (130 + 60)
+        # Next at elapsed = 250 (190 + 60)
         assert len(warnings_emitted) == 5
         warning_times = [w[0] for w in warnings_emitted]
-        assert warning_times == [15, 75, 135, 195, 255]
+        assert warning_times == [10, 70, 130, 190, 250]
 
     # -----------------------------------------------------------------------
     # 5. Anti-Spoof Passive Liveness Extremes

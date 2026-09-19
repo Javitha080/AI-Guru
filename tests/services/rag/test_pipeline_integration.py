@@ -67,13 +67,16 @@ def print_info(text: str):
 
 class PipelineIntegrationTest:
     """
-    Integration test for a specific RAG pipeline.
+    MANUAL integration runner (not collected by pytest — class name
+    intentionally does not start with ``Test``).
 
     Tests:
     1. Knowledge base initialization with test file
     2. Search/retrieval
     3. Knowledge base deletion
     """
+
+    __test__ = False
 
     def __init__(self, pipeline_name: str, test_file: Path = TEST_FILE):
         self.pipeline_name = pipeline_name

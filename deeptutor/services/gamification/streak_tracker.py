@@ -7,6 +7,7 @@ from typing import Any, Dict, Optional
 import aiosqlite
 
 from deeptutor.services.path_service import get_path_service
+from deeptutor.services.remote.kv_settings import ensure_kv_settings
 
 logger = logging.getLogger(__name__)
 
@@ -36,6 +37,9 @@ class StreakTracker:
         today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
 
         async with aiosqlite.connect(self.db_path) as db:
+            # settings has a dual shape (value vs value_json); never hand-roll
+            # SELECTs without bridging first.
+            await ensure_kv_settings(db)
             last_date_str = await self._get_setting(db, f"streak_last_study_{student_id}")
 
             if last_date_str == today:
@@ -89,6 +93,7 @@ class StreakTracker:
         today = datetime.datetime.now(datetime.timezone.utc).date()
 
         async with aiosqlite.connect(self.db_path) as db:
+            await ensure_kv_settings(db)
             last_date_str = await self._get_setting(db, f"streak_last_study_{student_id}")
 
             streak_count = 0
@@ -121,6 +126,7 @@ class StreakTracker:
     async def use_freeze(self, student_id: str) -> bool:
         """Uses a streak freeze."""
         async with aiosqlite.connect(self.db_path) as db:
+            await ensure_kv_settings(db)
             freezes = int(await self._get_setting(db, f"freezes_{student_id}") or "0")
             if freezes < 1:
                 return False
@@ -134,6 +140,7 @@ class StreakTracker:
         streak = await self.check_streak(student_id)
 
         async with aiosqlite.connect(self.db_path) as db:
+            await ensure_kv_settings(db)
             last_date = await self._get_setting(db, f"streak_last_study_{student_id}")
             freezes = int(await self._get_setting(db, f"freezes_{student_id}") or "0")
 
