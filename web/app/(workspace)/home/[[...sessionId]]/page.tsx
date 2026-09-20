@@ -97,6 +97,7 @@ import {
 import { listKnowledgeBases } from "@/lib/knowledge-api";
 import { getSubagentSettings } from "@/lib/subagents-api";
 import { useLLMOptions } from "@/hooks/useLLMOptions";
+import { useUserProfile } from "@/hooks/useUserProfile";
 import {
   getEnabledOptionalTools,
   invalidateEnabledOptionalToolsCache,
@@ -344,6 +345,7 @@ export default function ChatPage() {
   const params = useParams<{ sessionId?: string[] }>();
   const router = useRouter();
   const { t } = useTranslation();
+  const { profile } = useUserProfile();
   const sessionIdParam = params.sessionId?.[0] ?? null;
   const { setActiveSessionId, language: appLanguage } = useAppShell();
 
@@ -658,34 +660,38 @@ export default function ChatPage() {
   );
   useEffect(() => {
     const hour = new Date().getHours();
+    const name =
+      profile?.is_configured && profile?.display_name
+        ? `, ${profile.display_name}`
+        : "";
     let bucket: string[];
     if (hour >= 5 && hour < 12) {
       bucket = [
-        "Good morning.",
-        "Morning — let's learn something.",
-        "What would you like to learn?",
+        `Good morning${name}.`,
+        `Morning${name} — let's learn something.`,
+        `What would you like to learn${name}?`,
       ];
     } else if (hour >= 12 && hour < 17) {
       bucket = [
-        "Good afternoon.",
-        "Afternoon — what's on your mind?",
-        "What would you like to learn?",
+        `Good afternoon${name}.`,
+        `Afternoon${name} — what's on your mind?`,
+        `What would you like to learn${name}?`,
       ];
     } else if (hour >= 17 && hour < 22) {
       bucket = [
-        "Good evening.",
-        "Evening — what shall we explore?",
-        "What would you like to learn?",
+        `Good evening${name}.`,
+        `Evening${name} — what shall we explore?`,
+        `What would you like to learn${name}?`,
       ];
     } else {
       bucket = [
-        "It's late today.",
-        "Burning the midnight oil?",
-        "What would you like to learn?",
+        `It's late today${name}.`,
+        `Burning the midnight oil${name}?`,
+        `What would you like to learn${name}?`,
       ];
     }
     setWelcomeGreeting(bucket[Math.floor(Math.random() * bucket.length)]);
-  }, []);
+  }, [profile?.is_configured, profile?.display_name]);
   const firstUserTitle = useMemo(
     () =>
       state.messages
@@ -1958,18 +1964,34 @@ export default function ChatPage() {
               </div>
             ) : !hasMessages ? (
               <div className="flex w-full flex-1 min-h-0 items-end justify-center pb-14 animate-fade-in px-6">
-                <div className="w-full max-w-[960px] flex items-center justify-center gap-4">
-                  <img
-                    src="/logo.png"
-                    alt="AI Guru"
-                    width={40}
-                    height={40}
-                    className="h-10 w-10 select-none"
-                    draggable={false}
-                  />
-                  <h1 className="font-display text-[38px] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--foreground)]">
-                    {t(welcomeGreeting)}
-                  </h1>
+                <div className="w-full max-w-[960px] flex flex-col items-center justify-center gap-3">
+                  <div className="flex items-center justify-center gap-4">
+                    <img
+                      src="/logo.png"
+                      alt="AI Guru"
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 select-none"
+                      draggable={false}
+                    />
+                    <h1 className="font-display text-[38px] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--foreground)] text-center">
+                      {t(welcomeGreeting)}
+                    </h1>
+                  </div>
+                  {profile?.is_configured && (
+                    <div className="flex items-center gap-2 text-xs text-[var(--muted-foreground)] font-medium">
+                      {profile.grade_level ? (
+                        <span className="px-2.5 py-0.5 rounded-full bg-[var(--card)] border border-[var(--border)]/60">
+                          {profile.grade_level}
+                        </span>
+                      ) : null}
+                      {profile.learning_style ? (
+                        <span className="capitalize px-2.5 py-0.5 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20">
+                          {profile.learning_style.replace(/_/g, " ")} {t("learner")}
+                        </span>
+                      ) : null}
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (

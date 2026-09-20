@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { fetchAuthStatus, type AuthStatus } from "@/lib/auth";
+import { useUserProfile } from "@/hooks/useUserProfile";
 import { UserAvatar } from "@/components/UserAvatar";
 
 interface ProfileLinkProps {
@@ -14,24 +15,42 @@ interface ProfileLinkProps {
 export function ProfileLink({ collapsed = false }: ProfileLinkProps) {
   const pathname = usePathname();
   const { t } = useTranslation();
-  const [status, setStatus] = useState<AuthStatus | null>(null);
+  const [authStatus, setAuthStatus] = useState<AuthStatus | null>(null);
+  const { profile } = useUserProfile();
 
   useEffect(() => {
     fetchAuthStatus().then((next) => {
-      // Only surface the link when auth is on AND the user is signed in.
-      if (next?.enabled && next?.authenticated) setStatus(next);
+      setAuthStatus(next);
     });
   }, []);
 
-  if (!status?.username) return null;
+  // When auth is enabled, require authenticated session.
+  // When auth is disabled, allow local mode student profile.
+  const isAuthEnabled = Boolean(authStatus?.enabled);
+  const isAuthenticated = Boolean(authStatus?.authenticated);
+
+  if (isAuthEnabled && !isAuthenticated) {
+    return null;
+  }
+
+  // Precedence: when auth is enabled, prefer auth identity; when disabled, use userProfile
+  const displayName = isAuthEnabled
+    ? authStatus?.username || ""
+    : profile?.display_name || "Student";
+
+  const userId = isAuthEnabled ? authStatus?.user_id : profile?.student_id;
+  const avatarMarker = isAuthEnabled ? authStatus?.avatar : profile?.avatar;
+  const role = isAuthEnabled ? authStatus?.role : profile?.role;
+
+  if (!displayName) return null;
 
   const active = pathname.startsWith("/profile");
   const avatar = (
     <UserAvatar
-      username={status.username}
-      userId={status.user_id}
-      avatar={status.avatar}
-      role={status.role}
+      username={displayName}
+      userId={userId}
+      avatar={avatarMarker}
+      role={role}
       size={collapsed ? 18 : 16}
     />
   );
@@ -40,14 +59,13 @@ export function ProfileLink({ collapsed = false }: ProfileLinkProps) {
     return (
       <Link
         href="/profile"
-        className={`rounded-lg p-2 transition-colors
-          ${
-            active
-              ? "bg-[var(--primary)]/10 text-[var(--primary)]"
-              : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
-          }`}
+        className={`rounded-lg p-2 transition-colors ${
+          active
+            ? "bg-[var(--primary)]/10 text-[var(--primary)]"
+            : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
+        }`}
         aria-label={t("My profile")}
-        title={`${t("My profile")} — ${status.username}`}
+        title={`${t("My profile")} — ${displayName}`}
       >
         {avatar}
       </Link>
@@ -57,16 +75,15 @@ export function ProfileLink({ collapsed = false }: ProfileLinkProps) {
   return (
     <Link
       href="/profile"
-      className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13.5px] transition-colors
-        ${
-          active
-            ? "bg-[var(--primary)]/10 text-[var(--primary)]"
-            : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
-        }`}
+      className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13.5px] transition-colors ${
+        active
+          ? "bg-[var(--primary)]/10 text-[var(--primary)]"
+          : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
+      }`}
       title={t("My profile")}
     >
       {avatar}
-      <span className="truncate">{status.username}</span>
+      <span className="truncate">{displayName}</span>
     </Link>
   );
 }

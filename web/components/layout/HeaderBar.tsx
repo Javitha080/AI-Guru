@@ -5,6 +5,8 @@ import { Search, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { openCommandPalette } from "@/components/common/CommandPalette";
+import { useUserProfile } from "@/hooks/useUserProfile";
+import { UserAvatar } from "@/components/UserAvatar";
 
 interface HeaderBarProps {
   /** Current workspace/page title */
@@ -15,6 +17,9 @@ interface HeaderBarProps {
 
 export default function HeaderBar({ title, actionSlot }: HeaderBarProps) {
   const { t } = useTranslation();
+  const { profile } = useUserProfile();
+
+  const isConfigured = Boolean(profile?.is_configured && profile?.display_name);
 
   return (
     <header className="relative flex h-14 shrink-0 items-center justify-between px-4 md:px-6 z-30">
@@ -74,14 +79,35 @@ export default function HeaderBar({ title, actionSlot }: HeaderBarProps) {
         </button>
 
         {actionSlot}
-        <Link
-          href="/profile"
-          className="surface-glass-base flex h-8.5 w-8.5 items-center justify-center rounded-full text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:border-[var(--glass-border-highlight)] transition-all border border-[var(--glass-border)] active:scale-95"
-          aria-label={t("Profile")}
-          title={t("Profile")}
-        >
-          <User size={16} strokeWidth={1.8} />
-        </Link>
+
+        {isConfigured ? (
+          <Link
+            href="/profile"
+            className="surface-glass-base flex h-8.5 items-center gap-2 rounded-full px-2.5 text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:border-[var(--glass-border-highlight)] transition-all border border-[var(--glass-border)] active:scale-95 group"
+            aria-label={t("Profile")}
+            title={`${t("Profile")} — ${profile?.display_name}`}
+          >
+            <UserAvatar
+              username={profile?.display_name || "Student"}
+              userId={profile?.student_id}
+              avatar={profile?.avatar}
+              role={profile?.role}
+              size={20}
+            />
+            <span className="hidden md:inline font-body text-xs font-semibold text-[var(--foreground)] max-w-[120px] truncate group-hover:text-[var(--primary)] transition-colors">
+              {profile?.display_name}
+            </span>
+          </Link>
+        ) : (
+          <Link
+            href="/profile"
+            className="surface-glass-base flex h-8.5 w-8.5 items-center justify-center rounded-full text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:border-[var(--glass-border-highlight)] transition-all border border-[var(--glass-border)] active:scale-95"
+            aria-label={t("Profile")}
+            title={t("Profile")}
+          >
+            <User size={16} strokeWidth={1.8} />
+          </Link>
+        )}
       </div>
     </header>
   );
