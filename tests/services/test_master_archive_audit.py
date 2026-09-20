@@ -1,10 +1,9 @@
 """Read-only audit of the Sri Lanka ICT Master Archive + importer linking.
 
 Guards (without ever writing to the archive):
-- every ``images/*`` file is either referenced by a question's ``diagrams[]``,
-  filename-matchable to a question (``q{N}`` convention), or covered by the
-  O/L Paper-1 generic-name convention (logic_circuit->Q10, star_topology->Q20,
-  flowchart->Q30);
+- every ``images/*`` file is either referenced by a question's ``diagrams[]``
+  or filename-matchable to a question (``q{N}`` convention — the importer
+  links these at import time);
 - every ``diagrams[].src`` resolves to a real file on disk;
 - no template-filler stems or legacy-font mojibake (regression gate for the
   2026-09 degraded-tree incident: 600 filler stems + 626 mojibake questions);
@@ -42,8 +41,6 @@ _GEN_ALT_RE = re.compile(r"^Alternative \(\d+\)$")
 # Pinned 2026-09-19 baseline: 30 all-generic P1 folders (2017-2025), 1380 questions.
 _MAX_GENERIC_QUESTIONS = 1380
 _MAX_GENERIC_FOLDERS = 30
-# O/L Paper-1 generic-name convention (importer maps these at import time).
-_OL_P1_MAP = (("logic_circuit", 10), ("star_topology", 20), ("flowchart", 30))
 
 
 def _folders():
@@ -62,7 +59,7 @@ def test_archive_present():
 
 
 def test_every_image_accounted_for():
-    """Each images/* file must be referenced, q-number matchable, or O/L-P1 mappable."""
+    """Each images/* file must be referenced or q-number matchable (importer links those)."""
     violations = []
     for folder in _folders():
         img_dir = folder / "images"
@@ -74,7 +71,6 @@ def test_every_image_accounted_for():
             for d in q.get("diagrams") or []:
                 referenced.add(Path(str(d.get("src") or "")).name)
         qnums = {int(q.get("number") or 0) for q in raw}
-        is_ol_p1 = "-g11-" in folder.name and "-p1" in folder.name
         for img in sorted(img_dir.glob("*")):
             if not img.is_file():
                 continue
@@ -82,8 +78,6 @@ def test_every_image_accounted_for():
                 continue
             m = _QNUM_RE.search(img.stem)
             if m and int(m.group(1)) in qnums:
-                continue
-            if is_ol_p1 and any(k in img.stem.lower() for k, _ in _OL_P1_MAP):
                 continue
             violations.append(f"{folder.name}/{img.name}")
     assert not violations, "Unaccounted images:\n" + "\n".join(violations)

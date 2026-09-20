@@ -10,6 +10,15 @@
   first visit to `/papers` shows "Preparing paper bank…" for ~1 min while 123 papers
   import in the background, then the catalog appears with zero commands.
 
+## Exam integrity note (by design)
+
+- `/papers` Study mode fetches marking schemes via `?include_answers=true`, and the
+  paper-bank API (catalog, sittings, re-import) shares the app's global auth
+  (`require_auth`, a no-op when `AUTH_ENABLED=false`). On a single-user device this
+  is the accepted local-first tradeoff — but anyone with HTTP access can pull keys
+  mid-sitting. For supervised exams: set `AUTH_ENABLED=true` and keep LAN access
+  (`lan_access_enabled`) off.
+
 ## Quick start (Windows, this repo)
 
 ```powershell

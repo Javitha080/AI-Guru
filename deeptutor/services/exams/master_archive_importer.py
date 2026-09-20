@@ -164,21 +164,11 @@ async def import_master_archive(
                     if m:
                         loose_by_qnum.setdefault(int(m.group(1)), []).append(img_file.name)
 
-            # O/L Paper-1 convention: generic filenames map to fixed questions
-            # (logic circuit -> Q10, star topology -> Q20, flowchart -> Q30).
-            # Only fills questions that still have no diagrams.
-            if "-g11-" in folder.name and "-p1" in folder.name and img_dir.is_dir():
-                _ol_p1_map = (("logic_circuit", 10), ("star_topology", 20), ("flowchart", 30))
-                for img_file in sorted(img_dir.glob("*")):
-                    if not img_file.is_file():
-                        continue
-                    if re.search(r"q(\d+)", img_file.stem.lower()):
-                        continue
-                    stem_l = img_file.stem.lower()
-                    for key, qnum in _ol_p1_map:
-                        if key in stem_l:
-                            loose_by_qnum.setdefault(qnum, []).append(img_file.name)
-                            break
+            # NOTE (2026-09-20): a static Q10/Q20/Q30 map for O/L generic
+            # filenames was tried and REMOVED — OCR sources prove the numbers
+            # vary by year (logic: Q34/35 in 2020, Q39/40 in 2021, Q11 in
+            # 2022/2023; flowcharts: Q25-27 in 2022, Q25-28 in 2025; star: Q5
+            # in 2023). Wrong-question attachment is worse than unlinked.
 
             # 3. Process questions and format
             normalized_questions: List[Dict[str, Any]] = []
