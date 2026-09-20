@@ -298,3 +298,33 @@ def test_ci_smoke_requires_api_ping():
     assert "backend_degraded" in smoke or "failed to mount" in smoke, (
         "smoke test must distinguish a degraded backend (root-only) from a healthy one"
     )
+
+
+def test_release_publish_gates_fire_on_tag_push():
+    """Docker/PyPI publish gates must not depend on dispatch-only inputs.
+
+    On a tag-push event the `inputs` context is absent, and
+    `inputs.publish_docker != false` evaluates to false for a missing input
+    — which once skipped Docker + PyPI on every real tag release (v1.5.11
+    shipped only the GitHub Release). Every publish gate must therefore
+    name the push event explicitly.
+    """
+    wf = _load_workflow("release.yml")
+    jobs = wf.get("jobs", {})
+    for job_name in ("docker-publish", "pypi-publish"):
+        condition = jobs[job_name].get("if", "")
+        assert "github.event_name" in condition and "push" in condition, (
+            f"release.yml {job_name} condition must fire on tag-push "
+            "events, not only on dispatch inputs"
+        )
+        assert "!= false" not in condition, (
+            f"release.yml {job_name} must not use `inputs.* != false`: "
+            "a missing input evaluates the whole gate to false"
+        )
+
+    raw = (REPO_ROOT / ".github" / "workflows" / "release.yml").read_text(encoding="utf-8")
+    for step_anchor in ("Log in to GitHub Container Registry", "Build and push Docker image"):
+        assert "github.event_name == 'push'" in raw, (
+            f"release.yml step '{step_anchor}' must push on tag-push events "
+            "even though `inputs.dry_run` is absent there"
+        )

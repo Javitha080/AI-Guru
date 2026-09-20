@@ -293,7 +293,13 @@ jobs:
   docker-publish:
     name: Build & Push Multi-Platform Docker Image
     needs: verify-and-release
-    if: ${{ always() && needs.verify-and-release.result == 'success' && inputs.publish_docker != false }}
+    # NOTE on `inputs.*` here: on a tag-push event the `inputs` context is
+    # absent, and `inputs.publish_docker != false` evaluates to FALSE for a
+    # missing input — so a bare `!= false` silently SKIPS this job on every
+    # real tag release (observed: v1.5.11 published the GitHub Release but
+    # skipped Docker + PyPI). Gate explicitly on the event instead: tag
+    # pushes always publish; dispatches honor the boolean inputs.
+    if: ${{ always() && needs.verify-and-release.result == 'success' && (github.event_name == 'push' || inputs.publish_docker == true) }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -313,7 +319,9 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to GitHub Container Registry
-        if: ${{ inputs.dry_run != true }}
+        # Same missing-inputs trap as the job condition: on tag-push,
+        # `inputs.dry_run` is absent, so spell out the push event explicitly.
+        if: ${{ github.event_name == 'push' || inputs.dry_run != true }}
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -341,7 +349,8 @@ jobs:
           file: ./Dockerfile
           target: production
           platforms: linux/amd64,linux/arm64
-          push: ${{ inputs.dry_run != true }}
+          # Tag pushes always push; dispatches push unless dry_run.
+          push: ${{ github.event_name == 'push' || inputs.dry_run != true }}
           provenance: mode=max
           sbom: true
           tags: ${{ steps.meta.outputs.tags }}
@@ -351,7 +360,8 @@ jobs:
   pypi-publish:
     name: Publish to PyPI
     needs: verify-and-release
-    if: ${{ always() && needs.verify-and-release.result == 'success' && inputs.publish_pypi != false }}
+    # Same missing-inputs trap as docker-publish: tag pushes must publish.
+    if: ${{ always() && needs.verify-and-release.result == 'success' && (github.event_name == 'push' || inputs.publish_pypi == true) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -373,7 +383,9 @@ jobs:
 
       - name: Publish deeptutor to PyPI
         id: pypi
-        if: ${{ inputs.dry_run != true }}
+        # Tag pushes always attempt the publish (warn-and-continue below if
+        # Trusted Publishing is not configured); dispatches skip on dry_run.
+        if: ${{ github.event_name == 'push' || inputs.dry_run != true }}
         uses: pypa/gh-action-pypi-publish@release/v1
         continue-on-error: true
         with:
