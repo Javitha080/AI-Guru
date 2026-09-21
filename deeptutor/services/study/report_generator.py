@@ -67,17 +67,24 @@ class ReportGenerator:
         # session) — a zero-telemetry stub must record 0 (unmeasured), never
         # a synthesized 100 that the parent board would render as perfect.
         measured_focus = None
-        try:
-            candidate = float(session.get("focus_score") or 0)
-            measured_focus = candidate if candidate > 0 else None
-        except (TypeError, ValueError):
-            measured_focus = None
+        raw_focus = session.get("focus_score")
+        if raw_focus is not None:
+            try:
+                candidate = float(raw_focus)
+                if candidate > 0 or (candidate == 0.0 and len(events) > 0):
+                    measured_focus = candidate
+            except (TypeError, ValueError):
+                measured_focus = None
+
         measured_engagement = None
-        try:
-            candidate = float(session.get("engagement_score") or 0)
-            measured_engagement = candidate if candidate > 0 else None
-        except (TypeError, ValueError):
-            measured_engagement = None
+        raw_eng = session.get("engagement_score")
+        if raw_eng is not None:
+            try:
+                candidate = float(raw_eng)
+                if candidate > 0 or (candidate == 0.0 and len(events) > 0):
+                    measured_engagement = candidate
+            except (TypeError, ValueError):
+                measured_engagement = None
 
         has_signal = warning_count > 0 or distracted_seconds > 0
         meaningful = actual_duration >= MIN_MEASURABLE_SECONDS

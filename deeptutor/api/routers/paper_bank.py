@@ -33,10 +33,16 @@ import time
 from typing import Any, Dict, List, Optional
 import uuid
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field, field_validator
 
+from deeptutor.api.routers.auth import require_admin, require_auth
+from deeptutor.api.routers.ownership import (
+    _is_local_admin,
+    require_sitting_owner,
+    resolve_student_id,
+)
 from deeptutor.services.exams.bank_import import (
     DEFAULT_DURATION_BY_TYPE,
     classify_filename,
@@ -47,6 +53,7 @@ from deeptutor.services.exams.bank_import import (
 from deeptutor.services.exams.bank_store import BankStore
 from deeptutor.services.exams.engine import ExamPaper
 from deeptutor.services.exams.store import ExamStore
+from deeptutor.services.exams.student_dto import to_student_safe_paper
 
 logger = logging.getLogger(__name__)
 
@@ -159,11 +166,21 @@ async def catalog(
 
 
 @router.get("/my-sessions")
-async def my_sessions(student_id: str = "student-primary", limit: int = Query(50, le=200)):
+async def my_sessions(
+    student_id: Optional[str] = None,
+    limit: int = Query(50, le=200),
+    user: Any = Depends(require_auth),
+):
     """Past bank sittings for the sessions list (grouped Paper1+Paper2)."""
     import aiosqlite
 
     from deeptutor.services.path_service import get_path_service
+
+    resolved_student = (
+        resolve_student_id(user)
+        if not _is_local_admin(user)
+        else (student_id or resolve_student_id(user))
+    )
 
     db_path = get_path_service().user_dir / "chat_history.db"
     async with aiosqlite.connect(db_path) as db:
@@ -177,7 +194,7 @@ async def my_sessions(student_id: str = "student-primary", limit: int = Query(50
             " FROM exams e LEFT JOIN paper_bank p ON e.bank_paper_id = p.id"
             " WHERE e.bank_paper_id IS NOT NULL AND e.student_id = ?"
             " ORDER BY e.created_at DESC LIMIT ?",
-            (student_id, int(limit)),
+            (resolved_student, int(limit)),
         )
         rows = [dict(r) for r in await cur.fetchall()]
 
@@ -337,7 +354,7 @@ async def sync_master_archive():
 
 
 @router.get("/{bank_paper_id}")
-async def get_bank_paper(bank_paper_id: str, include_answers: bool = Query(False)):
+async def get_bank_paper(bank_paper_id: str):
     from deeptutor.services.exams.bank_store import is_placeholder_paper
 
     row = await BankStore.get_paper(bank_paper_id)
@@ -350,7 +367,41 @@ async def get_bank_paper(bank_paper_id: str, include_answers: bool = Query(False
         )
 
     paper = _paper_from_row(row)
-    public = paper.public_dict(include_answers=include_answers)
+    public = to_student_safe_paper(paper.public_dict(include_answers=False))
+    return {
+        "bank_paper_id": row["id"],
+        "group_key": row["group_key"],
+        "paper_no": row["paper_no"],
+        "grade": row["grade"],
+        "subject": row["subject"],
+        "year": row["year"],
+        "medium": row["medium"],
+        "paper_type": row["paper_type"],
+        "default_duration_seconds": row["default_duration_seconds"],
+        "has_scheme_keys": bool(row.get("scheme_answers_json")),
+        "paper": public,
+    }
+
+
+@router.get("/{bank_paper_id}/with-answers")
+async def get_bank_paper_with_answers(
+    bank_paper_id: str,
+    _admin: Any = Depends(require_admin),
+):
+    """Admin-only: fetch paper with complete reference answers and explanations."""
+    from deeptutor.services.exams.bank_store import is_placeholder_paper
+
+    row = await BankStore.get_paper(bank_paper_id)
+    if not row:
+        raise HTTPException(status_code=404, detail="Bank paper not found")
+    if is_placeholder_paper(row.get("paper_json")):
+        raise HTTPException(
+            status_code=410,
+            detail="This paper is a placeholder stub, not a real past paper.",
+        )
+
+    paper = _paper_from_row(row)
+    public = paper.public_dict(include_answers=True)
     return {
         "bank_paper_id": row["id"],
         "group_key": row["group_key"],
@@ -367,7 +418,11 @@ async def get_bank_paper(bank_paper_id: str, include_answers: bool = Query(False
 
 
 @router.post("/{bank_paper_id}/start")
-async def start_sitting(bank_paper_id: str, req: StartRequest):
+async def start_sitting(
+    bank_paper_id: str,
+    req: StartRequest,
+    user: Any = Depends(require_auth),
+):
     """Create the P1+P2 sitting and start the Paper-1 timer immediately."""
     from deeptutor.services.exams.bank_store import is_placeholder_paper
 
@@ -379,6 +434,13 @@ async def start_sitting(bank_paper_id: str, req: StartRequest):
             status_code=410,
             detail="This paper is a placeholder stub, not a real past paper.",
         )
+
+    student_id = (
+        resolve_student_id(user)
+        if not _is_local_admin(user)
+        else (req.student_id or "student-primary")
+    )
+    req.student_id = student_id
 
     await _ensure_welcome_grant(req.student_id)
 
@@ -433,7 +495,10 @@ async def start_sitting(bank_paper_id: str, req: StartRequest):
 
 
 @router.get("/sittings/{sitting_id}")
-async def sitting_state(sitting_id: str):
+async def sitting_state(
+    sitting_id: str,
+    _owner: str = Depends(require_sitting_owner),
+):
     await _advance_sitting_clock(sitting_id)
     rows = await ExamStore.get_sitting(sitting_id)
     if not rows:
@@ -452,6 +517,7 @@ async def sitting_state(sitting_id: str):
         parts.append(
             {
                 "exam_id": r["id"],
+                "bank_paper_id": r.get("bank_paper_id"),
                 "paper_no": r["paper_no"],
                 "title": r["title"],
                 "status": r["status"],
@@ -657,7 +723,12 @@ async def _finalize_part(
 
 
 @router.post("/sittings/{sitting_id}/submit")
-async def submit_part(sitting_id: str, req: SubmitAnswersRequest):
+async def submit_part(
+    sitting_id: str,
+    req: SubmitAnswersRequest,
+    _owner: str = Depends(require_sitting_owner),
+    user: Any = Depends(require_auth),
+):
     """Grade one sitting part, reveal its answers, chain-start the next part."""
     await _advance_sitting_clock(sitting_id)
     rows = await ExamStore.get_sitting(sitting_id)
@@ -667,18 +738,24 @@ async def submit_part(sitting_id: str, req: SubmitAnswersRequest):
     if target["status"] == "graded":
         raise HTTPException(status_code=409, detail="Part already submitted")
 
+    student_id = (
+        resolve_student_id(user)
+        if not _is_local_admin(user)
+        else (req.student_id or _owner)
+    )
+    req.student_id = student_id
     answers_dicts = [a.model_dump() for a in req.answers]
     result = await _finalize_part(
         sitting_id,
         target,
         answers_dicts,
-        student_id=req.student_id,
+        student_id=student_id,
         auto_submitted=False,
     )
 
     # ---- final XP once the WHOLE sitting is graded ------------------------
     ordered = sorted(await ExamStore.get_sitting(sitting_id), key=lambda r: r["paper_no"] or 1)
-    xp_awarded = await _maybe_complete_sitting(sitting_id, ordered, req.student_id)
+    xp_awarded = await _maybe_complete_sitting(sitting_id, ordered, student_id)
 
     return {
         **result,
@@ -688,7 +765,11 @@ async def submit_part(sitting_id: str, req: SubmitAnswersRequest):
 
 
 @router.put("/sittings/{sitting_id}/draft")
-async def save_draft(sitting_id: str, req: DraftRequest):
+async def save_draft(
+    sitting_id: str,
+    req: DraftRequest,
+    _owner: str = Depends(require_sitting_owner),
+):
     """Autosave in-progress answers while a part is active or in review."""
     rows = await ExamStore.get_sitting(sitting_id)
     target = next((r for r in rows if r["id"] == req.exam_id), None)
@@ -701,7 +782,11 @@ async def save_draft(sitting_id: str, req: DraftRequest):
 
 
 @router.post("/sittings/{sitting_id}/explain")
-async def explain_question(sitting_id: str, req: ExplainRequest):
+async def explain_question(
+    sitting_id: str,
+    req: ExplainRequest,
+    _owner: str = Depends(require_sitting_owner),
+):
     """Grounded AI explanation for a graded question (anti-cheat gated)."""
     rows = await ExamStore.get_sitting(sitting_id)
     target = next((r for r in rows if r["id"] == req.exam_id), None)
@@ -741,7 +826,6 @@ async def explain_question(sitting_id: str, req: ExplainRequest):
     )
     try:
         from deeptutor.services.llm.factory import complete
-
         explanation = await complete(prompt=prompt, system_prompt=system_prompt)
     except Exception as exc:  # noqa: BLE001 - fail honest
         raise HTTPException(status_code=502, detail=f"explain_unavailable: {exc}")
@@ -749,7 +833,11 @@ async def explain_question(sitting_id: str, req: ExplainRequest):
 
 
 @router.post("/sittings/{sitting_id}/addon")
-async def addon_time(sitting_id: str, req: AddonRequest):
+async def addon_time(
+    sitting_id: str,
+    req: AddonRequest,
+    _owner: str = Depends(require_sitting_owner),
+):
     factor = ADDON_MENU.get(int(req.minutes))
     if factor is None:
         raise HTTPException(status_code=422, detail=f"minutes must be one of {sorted(ADDON_MENU)}")
@@ -980,7 +1068,10 @@ async def _award_sitting_xp(student_id: str, xp: int, sitting_id: str) -> None:
 
 
 @router.get("/sittings/{sitting_id}/result")
-async def sitting_result(sitting_id: str):
+async def sitting_result(
+    sitting_id: str,
+    _owner: str = Depends(require_sitting_owner),
+):
     """Google-Forms-style review across all parts of the sitting."""
     rows = await ExamStore.get_sitting(sitting_id)
     if not rows:

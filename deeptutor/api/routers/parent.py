@@ -182,6 +182,7 @@ class TelegramConfigRequest(BaseModel):
     chat_id: str
     enabled: bool = True
     parent_id: Optional[str] = "default"
+    send_photos: Optional[bool] = False
 
 
 class StartTunnelRequest(BaseModel):
@@ -369,6 +370,7 @@ async def save_telegram_config(req: TelegramConfigRequest):
             bot_token=req.bot_token,
             chat_id=req.chat_id,
             enabled=req.enabled,
+            send_photos=req.send_photos,
         )
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))

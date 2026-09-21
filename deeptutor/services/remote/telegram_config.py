@@ -71,6 +71,23 @@ class TelegramConfigStore:
         return cls.parse(row[0] if row else None)
 
     @classmethod
+    async def is_photo_enabled(cls, parent_id: str = "default") -> bool:
+        """Whether the parent explicitly opted into Telegram photo alerts (default: False)."""
+        async with aiosqlite.connect(_db_path()) as db:
+            await ensure_kv_settings(db)
+            cursor = await db.execute(
+                "SELECT value FROM settings WHERE key = ?", (cls.key_for(parent_id),)
+            )
+            row = await cursor.fetchone()
+        if not row or not row[0]:
+            return False
+        try:
+            cfg = json.loads(row[0])
+            return bool(cfg.get("send_photos", False))
+        except Exception:
+            return False
+
+    @classmethod
     async def get_masked(cls, parent_id: str = "default") -> Dict[str, Any]:
         """UI-safe view: masked token + chat id + flags, never the secret."""
         async with aiosqlite.connect(_db_path()) as db:
@@ -80,7 +97,13 @@ class TelegramConfigStore:
             )
             row = await cursor.fetchone()
         if not row or not row[0]:
-            return {"configured": False, "bot_token_masked": "", "chat_id": "", "enabled": False}
+            return {
+                "configured": False,
+                "bot_token_masked": "",
+                "chat_id": "",
+                "enabled": False,
+                "send_photos": False,
+            }
         try:
             data = json.loads(row[0])
         except Exception:  # noqa: BLE001
@@ -90,6 +113,7 @@ class TelegramConfigStore:
                 "bot_token_masked": "",
                 "chat_id": "",
                 "enabled": False,
+                "send_photos": False,
                 "corrupt": True,
             }
         token = str(data.get("bot_token") or "")
@@ -99,6 +123,7 @@ class TelegramConfigStore:
                 "bot_token_masked": "",
                 "chat_id": "",
                 "enabled": bool(data.get("enabled", False)),
+                "send_photos": bool(data.get("send_photos", False)),
             }
         masked = f"{token[:6]}...{token[-4:]}" if len(token) > 10 else "****"
         return {
@@ -106,6 +131,7 @@ class TelegramConfigStore:
             "bot_token_masked": masked,
             "chat_id": str(data.get("chat_id") or ""),
             "enabled": bool(data.get("enabled", True)),
+            "send_photos": bool(data.get("send_photos", False)),
             "last_verified_at": data.get("last_verified_at"),
             "last_verified_ok": data.get("last_verified_ok"),
             "last_verified_detail": data.get("last_verified_detail") or "",
@@ -120,6 +146,7 @@ class TelegramConfigStore:
         bot_token: str,
         chat_id: str,
         enabled: bool = True,
+        send_photos: Optional[bool] = None,
     ) -> None:
         """Persist credentials; blank token keeps the previously saved one.
 
@@ -150,14 +177,15 @@ class TelegramConfigStore:
                 token = existing["bot_token"]
             if not token:
                 raise ValueError("Bot Token is required for first-time setup.")
-        payload = json.dumps(
-            {
-                "bot_token": token,
-                "chat_id": (chat_id or "").strip(),
-                "enabled": bool(enabled),
-                "updated_at": time.time(),
-            }
-        )
+        payload_dict: Dict[str, Any] = {
+            "bot_token": token,
+            "chat_id": (chat_id or "").strip(),
+            "enabled": bool(enabled),
+            "updated_at": time.time(),
+        }
+        if send_photos is not None:
+            payload_dict["send_photos"] = bool(send_photos)
+        payload = json.dumps(payload_dict)
         async with aiosqlite.connect(_db_path()) as db:
             await ensure_kv_settings(db)
             # Preserve prior verification stamp across Chat-ID-only edits so

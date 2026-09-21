@@ -317,7 +317,7 @@ export function MonitoringSidebar({
               {wsConnected
                 ? monitorMode === "system"
                   ? "On-device · photos only on alerts"
-                  : "0 Bytes (Local)"
+                  : "Browser Processing · local"
                 : "—"}
             </span>
           </TelemetryRow>

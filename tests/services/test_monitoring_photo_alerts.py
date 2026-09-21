@@ -212,3 +212,77 @@ class TestDispatchTierPolicy:
             photo_jpeg_b64=_FAKE_JPEG_B64,
         )
         assert "photo_b64" not in enqueued["payload"]
+
+
+class TestPhotoAlertOptIn:
+    async def test_photos_disabled_by_default_sends_text_only(self, monkeypatch):
+        import deeptutor.services.monitoring.notification_queue as nq
+        from deeptutor.services.remote.telegram_config import TelegramConfigStore
+        from deeptutor.services.remote.telegram_notifier import TelegramNotifier
+
+        messages = []
+        photos = []
+
+        async def fake_msg(bot_token, chat_id, text, **kwargs):
+            messages.append({"bot_token": bot_token, "chat_id": chat_id, "text": text})
+            return True
+
+        async def fake_photo(bot_token, chat_id, photo_bytes, caption, **kwargs):
+            photos.append({"bot_token": bot_token, "chat_id": chat_id, "photo_bytes": photo_bytes})
+            return True
+
+        monkeypatch.setattr(TelegramNotifier, "send_message", fake_msg)
+        monkeypatch.setattr(TelegramNotifier, "send_photo", fake_photo)
+        async def fake_load_off(parent):
+            return {"bot_token": "T", "chat_id": "C"}
+        monkeypatch.setattr(nq, "_load_telegram_config", fake_load_off)
+        async def fake_photo_opt_in_off(parent):
+            return False
+        monkeypatch.setattr(TelegramConfigStore, "is_photo_enabled", fake_photo_opt_in_off)
+
+        payload = {
+            "category": "PHONE_DETECTED",
+            "message": "Phone in hand",
+            "severity": "alert",
+            "confidence": 0.95,
+            "duration_seconds": 5.0,
+            "photo_b64": _FAKE_JPEG_B64,
+        }
+        await nq.enqueue("warning", payload, parent_id="default")
+        sent = await nq.flush_once(limit=1)
+        assert sent == 1
+        assert len(photos) == 0  # No photo sent!
+        assert len(messages) == 1  # Text only!
+
+    async def test_photos_opted_in_sends_photo(self, monkeypatch):
+        import deeptutor.services.monitoring.notification_queue as nq
+        from deeptutor.services.remote.telegram_config import TelegramConfigStore
+        from deeptutor.services.remote.telegram_notifier import TelegramNotifier
+
+        photos = []
+
+        async def fake_photo(bot_token, chat_id, photo_bytes, caption, **kwargs):
+            photos.append({"bot_token": bot_token, "chat_id": chat_id, "photo_bytes": photo_bytes})
+            return True
+
+        monkeypatch.setattr(TelegramNotifier, "send_photo", fake_photo)
+        async def fake_load(parent):
+            return {"bot_token": "T", "chat_id": "C"}
+        monkeypatch.setattr(nq, "_load_telegram_config", fake_load)
+        async def fake_photo_opt_in(parent):
+            return True
+        monkeypatch.setattr(TelegramConfigStore, "is_photo_enabled", fake_photo_opt_in)
+
+        payload = {
+            "category": "PHONE_DETECTED",
+            "message": "Phone in hand",
+            "severity": "alert",
+            "confidence": 0.95,
+            "duration_seconds": 5.0,
+            "photo_b64": _FAKE_JPEG_B64,
+        }
+        await nq.enqueue("warning", payload, parent_id="default")
+        sent = await nq.flush_once(limit=1)
+        assert sent == 1
+        assert len(photos) == 1  # Photo sent because parent opted in!
+

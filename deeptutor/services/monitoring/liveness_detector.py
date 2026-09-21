@@ -65,13 +65,17 @@ class LivenessDetector:
     # (a brief still moment must never be judged a photograph).
     STATIC_SPOOF_MIN_HISTORY_S: float = DEFAULT_THRESHOLDS.static_spoof_min_history_seconds
 
-    def __init__(self, window_size: int = 30) -> None:
+    def __init__(self, window_size: int = 30, window_duration_seconds: float = 3.0) -> None:
         """
-        Initialize detector with a sliding history window (default 30 frames ~ 3-5 seconds).
+        Initialize detector with a sliding history window (default 30 frames / 3.0 seconds).
+        Time-based pruning ensures consistent observation windows across variable FPS (e.g. 5-30 FPS).
         """
         self.window_size = window_size
-        self._ear_history: Deque[float] = collections.deque(maxlen=window_size)
-        self._landmark_history: Deque[Tuple[float, float]] = collections.deque(maxlen=window_size)
+        self.window_duration_seconds = window_duration_seconds
+        self._ear_history: Deque[Tuple[float, float]] = collections.deque(maxlen=max(window_size * 2, 150))
+        self._landmark_history: Deque[Tuple[float, Tuple[float, float]]] = collections.deque(
+            maxlen=max(window_size * 2, 150)
+        )
         self._blink_count: int = 0
         self._was_closed: bool = False
         self._last_blink_time: float = 0.0
@@ -152,10 +156,23 @@ class LivenessDetector:
             avg_ear = (left_ear + right_ear) / 2.0
 
         # Update EAR history
-        self._ear_history.append(avg_ear)
+        self._ear_history.append((timestamp, avg_ear))
 
         # Track nose tip micro-displacement
-        self._landmark_history.append((landmarks.nose_tip.x, landmarks.nose_tip.y))
+        self._landmark_history.append((timestamp, (landmarks.nose_tip.x, landmarks.nose_tip.y)))
+
+        # Prune older entries: use time window if timestamps are progressing, else bound by window_size
+        if timestamp > 0.0:
+            cutoff = timestamp - self.window_duration_seconds
+            while len(self._ear_history) > 5 and self._ear_history[0][0] < cutoff:
+                self._ear_history.popleft()
+            while len(self._landmark_history) > 5 and self._landmark_history[0][0] < cutoff:
+                self._landmark_history.popleft()
+        else:
+            while len(self._ear_history) > self.window_size:
+                self._ear_history.popleft()
+            while len(self._landmark_history) > self.window_size:
+                self._landmark_history.popleft()
 
         # 2. Blink detection state machine
         blink_just_occurred = False
@@ -171,8 +188,8 @@ class LivenessDetector:
             self._first_frame_time = timestamp
 
         # 3. Calculate historical variance metrics
-        ear_var = self._compute_variance(list(self._ear_history))
-        motion_var = self._compute_motion_variance(list(self._landmark_history))
+        ear_var = self._compute_variance([e for _, e in self._ear_history])
+        motion_var = self._compute_motion_variance([c for _, c in self._landmark_history])
 
         # 4. Texture / Laplacian Score
         # Typical live webcam frames have Laplacian variance in [80.0, 500.0]

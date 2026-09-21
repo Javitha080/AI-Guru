@@ -23,7 +23,9 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from deeptutor.api.routers.auth import require_auth
+from deeptutor.api.routers.ownership import _is_local_admin, require_session_owner
 from deeptutor.services.monitoring import get_cv_pipeline
+from deeptutor.services.monitoring.session_registry import has_consent
 from deeptutor.services.monitoring.system_monitor import (
     get_system_monitor,
     load_camera_config,
@@ -129,7 +131,7 @@ async def get_camera_status(_user: Any = Depends(require_auth)) -> Dict[str, Any
         "mode": "system" if (available and enabled) else "browser",
         "camera_index": int(cfg.get("camera_index", 0)),
         "target_fps": int(cfg.get("target_fps", 10)),
-        "active_sessions": sorted(active_system_monitors().keys()),
+        "active_sessions_count": len(active_system_monitors()),
     }
 
 
@@ -143,9 +145,19 @@ async def set_camera_config(
 
 
 @router.get("/snapshot/{session_id}")
-async def get_camera_snapshot(session_id: str, _user: Any = Depends(require_auth)) -> Any:
+async def get_camera_snapshot(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+    _user: Any = Depends(require_auth),
+) -> Any:
     """Latest raw camera JPEG for one session (parent live view / diagnostics)."""
     from fastapi import Response
+
+    if not _is_local_admin(_user) and not has_consent(session_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Live monitoring consent not granted for this session",
+        )
 
     monitor = get_system_monitor(session_id)
     if monitor is None:
@@ -166,12 +178,22 @@ _FEED_IDLE_LIMIT = 300  # ~25s without frames before the stream closes
 
 
 @router.get("/feed/{session_id}")
-async def monitoring_feed(session_id: str, _user: Any = Depends(require_auth)) -> StreamingResponse:
+async def monitoring_feed(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+    _user: Any = Depends(require_auth),
+) -> StreamingResponse:
     """Live MJPEG feed of the system camera with face-mesh overlay.
 
     Consumed directly by an ``<img>`` element — auth rides the session cookie,
     so the browser never touches getUserMedia or asks for camera permission.
     """
+    if not _is_local_admin(_user) and not has_consent(session_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Live monitoring consent not granted for this session",
+        )
+
     monitor = get_system_monitor(session_id)
     if monitor is None:
         # The monitor registers a beat after the WS handshake starts it; give

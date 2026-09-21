@@ -401,7 +401,7 @@ export default function IdleLobby({
               </div>
               <p className="text-sm text-[var(--muted-foreground)] leading-relaxed max-w-sm">
                 Intelligent, privacy-first study companion — local AI monitoring, PDF past-paper
-                workspace, and real-time focus feedback. Nothing leaves your device.
+                workspace, and real-time focus feedback. Camera frames are processed on-device.
               </p>
             </div>
 

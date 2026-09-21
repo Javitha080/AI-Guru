@@ -189,7 +189,9 @@ async def browser_driven_monitoring_loop(
                 analysis_ts = wall_now
 
             try:
-                analysis = pipeline.process_telemetry_payload(payload, current_time=analysis_ts)
+                analysis = pipeline.process_telemetry_payload(
+                    payload, current_time=analysis_ts, trusted_source=False
+                )
             except Exception as exc:  # noqa: BLE001 - one bad frame never kills the session
                 logger.debug("CV frame skipped for %s: %s", session_id, exc)
                 try:

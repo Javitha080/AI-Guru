@@ -142,6 +142,7 @@ class DistractionAnalyzer:
         self._ear_baseline_hist: Deque[Tuple[float, float]] = collections.deque()
         self._ear_baseline: Optional[float] = None
         self._last_yawn_start: Optional[float] = None
+        self._reading_unobserved_eyes_since: Optional[float] = None
 
     def apply_strictness(self, profile_name: str) -> None:
         """Dynamically adjust perception thresholds according to profile."""
@@ -315,6 +316,7 @@ class DistractionAnalyzer:
         self._ear_baseline_hist.clear()
         self._ear_baseline = None
         self._last_yawn_start = None
+        self._reading_unobserved_eyes_since = None
 
     def check_whitelist(
         self,
@@ -323,6 +325,7 @@ class DistractionAnalyzer:
         writing_gesture: bool,
         hand_to_mouth_gesture: bool,
         page_turn_gesture: bool,
+        eyes_visible: bool = True,
     ) -> Optional[DistractionAnalysisResult]:
         """Return whitelisted-study result when matched, else None."""
         from deeptutor.services.monitoring.pose_gaze import PostureCategory as _Posture
@@ -333,6 +336,24 @@ class DistractionAnalyzer:
                 if writing_gesture
                 else WhitelistedAction.READING_DOWNWARDS
             )
+            if action == WhitelistedAction.READING_DOWNWARDS and not eyes_visible:
+                if self._reading_unobserved_eyes_since is None:
+                    self._reading_unobserved_eyes_since = timestamp
+                unobserved_dur = max(0.0, timestamp - self._reading_unobserved_eyes_since)
+                if unobserved_dur >= 30.0:
+                    self._clear("looking_away")
+                    return DistractionAnalysisResult(
+                        is_distracted=False,
+                        distraction_type=DistractionType.NONE,
+                        focus_score=50.0,
+                        confidence=0.75,
+                        duration_seconds=unobserved_dur,
+                        whitelisted_action=action,
+                        reason="Reading downwards with unconfirmed eyes for >30s (possible slumber)",
+                    )
+            else:
+                self._reading_unobserved_eyes_since = None
+
             self._clear("looking_away")
             return DistractionAnalysisResult(
                 is_distracted=False,
@@ -513,8 +534,17 @@ class DistractionAnalyzer:
 
         # 6. Whitelisted Study Gestures. A pending phone keeps its marker so
         # the nudge tier can still fire during a whitelisted action.
+        eyes_visible = bool(
+            eye_closure is not None
+            or (liveness is not None and getattr(liveness, "ear", 0.0) and float(liveness.ear) > 0.0)
+        )
         whitelisted = self.check_whitelist(
-            timestamp, pose, writing_gesture, hand_to_mouth_gesture, page_turn_gesture
+            timestamp,
+            pose,
+            writing_gesture,
+            hand_to_mouth_gesture,
+            page_turn_gesture,
+            eyes_visible=eyes_visible,
         )
         if whitelisted is not None:
             if phone_object_detected:

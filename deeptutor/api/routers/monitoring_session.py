@@ -28,6 +28,7 @@ from fastapi import APIRouter, Depends, HTTPException, WebSocket, WebSocketDisco
 from pydantic import BaseModel, Field
 
 from deeptutor.api.routers.auth import require_auth
+from deeptutor.api.routers.ownership import require_session_owner
 from deeptutor.services.monitoring.cv_pipeline import LocalCVPipeline
 from deeptutor.services.monitoring.system_monitor import (
     apply_supervision_strictness,
@@ -123,10 +124,15 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
       frames; the server analyzes on receive (legacy behavior, unchanged).
     """
     from deeptutor.api.routers.auth import ws_auth_failed, ws_require_auth
+    from deeptutor.api.routers.ownership import check_session_owner_ws
 
     user_token = await ws_require_auth(websocket)
     if user_token is ws_auth_failed:
         return  # socket already rejected/closed by the auth helper
+
+    if not await check_session_owner_ws(session_id):
+        await websocket.close(code=4003)
+        return
 
     await websocket.accept()
     _active_monitoring_sessions[session_id] = websocket
@@ -280,6 +286,7 @@ def _apply_supervision_strictness_bg(pipeline: Any, session_id: Optional[str] = 
 async def set_live_consent(
     req: LiveConsentRequest,
     session_id: str,
+    _owner: str = Depends(require_session_owner),
     _user: Any = Depends(require_auth),
 ) -> Dict[str, Any]:
     """Student-side opt-in/out for the current session's live view."""
@@ -299,6 +306,7 @@ async def set_live_consent(
 async def upload_live_frame(
     req: LiveFrameRequest,
     session_id: str,
+    _owner: str = Depends(require_session_owner),
     _user: Any = Depends(require_auth),
 ) -> Dict[str, Any]:
     """Student client uploads its latest frame (~1/s) while consent is on."""
@@ -329,6 +337,7 @@ async def upload_live_frame(
 async def get_session_monitoring_events(
     session_id: str,
     limit: int = 100,
+    _owner: str = Depends(require_session_owner),
     _user: Any = Depends(require_auth),
 ) -> Dict[str, Any]:
     """
@@ -385,6 +394,7 @@ class VoiceStudentSignalRequest(BaseModel):
 @router.get("/voice/incoming")
 async def voice_incoming(
     session_id: str,
+    _owner: str = Depends(require_session_owner),
     _user: Any = Depends(require_auth),
 ) -> Dict[str, Any]:
     """Student poll: active parent call + pending signals + announcements."""
@@ -411,6 +421,8 @@ async def voice_student_signal(
 ) -> Dict[str, Any]:
     """Student posts WebRTC answer/ICE (or bye) for the parent to collect."""
     from deeptutor.services.monitoring import voice_intercom as _voice
+
+    await require_session_owner(req.session_id, _user)
 
     if not _voice.valid_session_id(req.session_id):
         raise HTTPException(status_code=404, detail="Session not found")

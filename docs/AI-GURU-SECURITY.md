@@ -8,7 +8,7 @@ Audience: developers + reviewers. Non-technical parent setup lives in
 | Asset | Where it lives | Protection |
 |---|---|---|
 | Study sessions / events / reports / rewards / exams | `data/user/chat_history.db` (SQLite) | Local-only; FK constraints ON; never exposed over network — only via API routes |
-| Camera frames | RAM only (vision pipeline → WS → in-memory ring) | **Zero cloud egress**: frames are processed on-device; raw frames are never written to disk or uploaded |
+| Camera frames | RAM only (vision pipeline → WS → in-memory ring) | **Local-first on-device processing**: frames are processed on-device; unencrypted frames are never written to disk. Remote Telegram alerts are text-only by default (photos require explicit parent opt-in). |
 | Incident evidence | `video_vault/pending/` → sealed `.vault` blobs | Staging dir is private to the OS user; sealed files use AES-256-GCM envelope: random 32-byte content key wrapped by PBKDF2-HMAC-SHA256(parent PIN, salt, 600k) KEK; HMAC verifier detects wrong PIN pre-decrypt; legacy v1 read-only |
 | Parent passcode | settings table (`parent_pin_*`) | PBKDF2-HMAC-SHA256 100k + per-id lockout (5 fails → 5 min), constant-time compare |
 | Parent sessions | JWT HS256 (secret in settings) | access 15 min / refresh 7 days, jti revocation list, device field; refresh rotation endpoint |

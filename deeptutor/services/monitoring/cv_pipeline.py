@@ -241,7 +241,10 @@ class LocalCVPipeline:
         )
 
     def embed_sface_sync(
-        self, frame_bgr: Any, normalized_landmarks: List[Tuple[float, float, float]]
+        self,
+        frame_bgr: Any,
+        normalized_landmarks: List[Tuple[float, float, float]],
+        timestamp: Optional[float] = None,
     ) -> Optional[List[float]]:
         """Embed a raw BGR frame (normalized MediaPipe landmarks) with SFace.
 
@@ -249,7 +252,7 @@ class LocalCVPipeline:
         """
         if self._sface is None:
             return None
-        self._sface_last_run = time.time()
+        self._sface_last_run = timestamp if timestamp is not None else time.time()
         try:
             emb = self._sface.embed_normalized(frame_bgr, normalized_landmarks)
         except Exception as exc:  # noqa: BLE001 - identity must not break the frame
@@ -319,6 +322,7 @@ class LocalCVPipeline:
         self,
         payload: Dict[str, Any],
         current_time: Optional[float] = None,
+        trusted_source: bool = True,
     ) -> FrameAnalysisResult:
         """
         Process structured frame telemetry received from client-side WebWorker / MediaPipe.
@@ -336,12 +340,15 @@ class LocalCVPipeline:
             now = time.time()
         self._frame_count += 1
 
-        # Calculate FPS
+        # Calculate FPS (guarded against zero/negative dt and timestamp inversions)
         if self._last_process_time > 0.0:
-            dt = max(0.001, now - self._last_process_time)
-            instant_fps = 1.0 / dt
-            self._actual_fps = 0.9 * self._actual_fps + 0.1 * instant_fps
-        self._last_process_time = now
+            dt = now - self._last_process_time
+            if dt > 0.001:
+                instant_fps = 1.0 / dt
+                self._actual_fps = 0.9 * self._actual_fps + 0.1 * instant_fps
+                self._last_process_time = now
+        else:
+            self._last_process_time = now
 
         # 1. Extract Face Detection and Landmarks
         face_res = self.face_engine.extract_landmarks_from_telemetry(payload)
@@ -531,12 +538,18 @@ class LocalCVPipeline:
         )
 
         # 6. Distraction Analysis with False-Positive Whitelist
-        phone_detected = bool(payload.get("phone_detected", False))
-        hand_to_mouth = bool(payload.get("hand_to_mouth_gesture", False))
-        page_turn = bool(payload.get("page_turn_gesture", False))
-        writing_gesture = (
-            bool(payload.get("writing_gesture", False)) or pose_res.is_reading_writing_pose
-        )
+        if trusted_source:
+            phone_detected = bool(payload.get("phone_detected", False))
+            hand_to_mouth = bool(payload.get("hand_to_mouth_gesture", False))
+            page_turn = bool(payload.get("page_turn_gesture", False))
+            writing_gesture = (
+                bool(payload.get("writing_gesture", False)) or pose_res.is_reading_writing_pose
+            )
+        else:
+            phone_detected = False
+            hand_to_mouth = False
+            page_turn = False
+            writing_gesture = pose_res.is_reading_writing_pose
 
         distraction_res = self.distraction_analyzer.analyze(
             timestamp=now,
@@ -553,12 +566,13 @@ class LocalCVPipeline:
             jaw_open=_optional_float(payload.get("jaw_open")),
         )
 
-        # 7. Engagement Estimation
+        # 7. Engagement Estimation (rate-normalized with frame timestamp)
         engagement_res = self.engagement_estimator.update(
             presence_state=presence_res.state,
             pose=pose_res,
             gaze_focused=gaze_res.is_focused,
             is_distracted=distraction_res.is_distracted,
+            timestamp=now,
         )
 
         # 8. Warning Dispatcher & Cooldown (episode-aware: observe first so a

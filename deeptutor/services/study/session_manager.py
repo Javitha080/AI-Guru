@@ -490,12 +490,15 @@ class StudySessionManager:
 
         def _honest_score(raw: Any, stored_value: Any = None) -> float | None:
             """Map unmeasured 0/NULL to None; keep real measurements."""
+            has_telem = bool(
+                summary_counts.get("total_events", 0) > 0 or warnings > 0 or distraction_count > 0
+            )
             for candidate in (stored_value, raw):
                 try:
                     value = float(candidate) if candidate is not None else None
                 except (TypeError, ValueError):
                     continue
-                if value is not None and value > 0:
+                if value is not None and (value > 0 or (value == 0.0 and has_telem)):
                     return round(value, 1)
             return None
 

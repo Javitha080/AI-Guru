@@ -57,7 +57,7 @@
 
 ### 🛡️ Why AI Guru?
 
-1. **Zero Biometrics in the Cloud:** Face detection, gaze estimation, head pose tracking, and study posture analysis run **100% in the client browser** via MediaPipe WASM. No video feeds or face landmarks ever leave your hardware.
+1. **Zero Biometrics in the Cloud:** Face detection, gaze estimation, head pose tracking, and study posture analysis execute **locally on-device** via browser MediaPipe WASM and the loopback backend. No raw video feeds or face landmarks are sent to third-party AI cloud services.
 2. **Local-First Persistence:** All session telemetry, notebooks, past papers, and gamification metrics are committed to local SQLite databases with write-ahead logging (WAL).
 3. **Zero-Config Remote Supervision:** Parents can monitor focus metrics, receive alert notifications on Telegram, or securely connect via Cloudflare/ngrok tunnels with strict PBKDF2-derived token auth.
 4. **Resilient AI Execution:** Integrates cloud models (OpenAI, Anthropic, Gemini, DeepSeek, Groq) or local LLMs (Ollama) with intelligent fallback chains for fully offline study sessions.
@@ -362,7 +362,7 @@ cd ..
 
 ## 🔒 Privacy & Zero-Trust Security
 
-- 🚫 **No Cloud Biometrics:** MediaPipe FaceLandmarker runs strictly inside the user's browser sandbox. No camera frames or face meshes are transmitted across the network or saved unencrypted.
+- 🚫 **No Cloud Biometrics:** MediaPipe FaceLandmarker runs on-device in the browser sandbox. Camera frames stay local; incident evidence is AES-256 encrypted in the local vault. Remote Telegram alerts are text-only by default (photo snapshots require explicit parent opt-in).
 - 🔐 **Encrypted Incident Vault:** Monitoring flags and snapshots are encrypted with the `GURUVAULT02` scheme using a per-item key derived with PBKDF2 (600,000 rounds) from the parent PIN.
 - 🛑 **Rate-Limited PIN Gate:** Parent portal implements progressive lockout backoffs to prevent brute-force attacks.
 - 📡 **Loopback by Default:** Backend binds strictly to `127.0.0.1`. Network exposure is disabled unless explicitly enabled via `lan_access_enabled`.

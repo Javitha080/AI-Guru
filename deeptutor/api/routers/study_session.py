@@ -2,8 +2,16 @@ import logging
 import re
 from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, field_validator
+
+from deeptutor.api.routers.auth import require_auth
+from deeptutor.api.routers.ownership import (
+    _is_local_admin,
+    require_session_owner,
+    require_student_owner,
+    resolve_student_id,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -214,9 +222,16 @@ async def _resolve_student_name(student_id: str, db_path=None) -> str:
 @router.post("/", response_model=Dict[str, Any])
 @router.post("", response_model=Dict[str, Any])
 @router.post("/create", response_model=Dict[str, Any])
-async def create_session(req: CreateSessionRequest):
+async def create_session(
+    req: CreateSessionRequest,
+    user: Any = Depends(require_auth),
+):
     """Create a new study session (paper linkage persisted via v10 columns)."""
-    student_id = (req.student_id or "student-primary").strip() or "student-primary"
+    student_id = (
+        resolve_student_id(user)
+        if not _is_local_admin(user)
+        else (req.student_id or "student-primary").strip() or "student-primary"
+    )
     _check_student_id(student_id)
     target_secs = req.target_duration_seconds or ((req.duration or 25) * 60)
     if target_secs < MIN_TARGET_SECONDS or target_secs > MAX_TARGET_SECONDS:
@@ -257,7 +272,10 @@ async def create_session(req: CreateSessionRequest):
 
 @router.get("/history/{student_id}", response_model=PaginatedSessionHistory)
 async def list_past_sessions(
-    student_id: str, limit: int = Query(20, ge=1, le=100), offset: int = Query(0, ge=0)
+    student_id: str,
+    _owner: str = Depends(require_student_owner),
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
 ):
     """List past sessions with pagination."""
     _check_student_id(student_id)
@@ -269,7 +287,10 @@ async def list_past_sessions(
 
 
 @router.get("/gamification/{student_id}/profile", response_model=ProfileResponse)
-async def get_profile(student_id: str):
+async def get_profile(
+    student_id: str,
+    _owner: str = Depends(require_student_owner),
+):
     """Get gamification profile."""
     from deeptutor.services.gamification.gamification_service import GamificationService
 
@@ -281,7 +302,10 @@ async def get_profile(student_id: str):
 
 
 @router.get("/gamification/{student_id}/badges", response_model=List[BadgeResponse])
-async def get_badges(student_id: str):
+async def get_badges(
+    student_id: str,
+    _owner: str = Depends(require_student_owner),
+):
     """Get all badges with earned/locked status."""
     from deeptutor.services.gamification.gamification_service import GamificationService
 
@@ -293,7 +317,10 @@ async def get_badges(student_id: str):
 
 
 @router.get("/gamification/{student_id}/rewards", response_model=RewardHistoryResponse)
-async def get_rewards(student_id: str):
+async def get_rewards(
+    student_id: str,
+    _owner: str = Depends(require_student_owner),
+):
     """Get recent reward history."""
     from deeptutor.services.gamification.gamification_service import GamificationService
 
@@ -305,14 +332,21 @@ async def get_rewards(student_id: str):
 
 
 @router.get("/student/name", response_model=StudentNameResponse)
-async def get_student_name(student_id: str = "student-primary"):
+async def get_student_name(
+    student_id: str = "student-primary",
+    user: Any = Depends(require_auth),
+):
     """Get the configured display name for the student."""
-    name = await _resolve_student_name(student_id)
-    return StudentNameResponse(student_id=student_id, student_name=name)
+    resolved = resolve_student_id(user) if not _is_local_admin(user) else student_id
+    name = await _resolve_student_name(resolved)
+    return StudentNameResponse(student_id=resolved, student_name=name)
 
 
 @router.post("/student/name", response_model=StudentNameResponse)
-async def set_student_name(req: StudentNameRequest):
+async def set_student_name(
+    req: StudentNameRequest,
+    user: Any = Depends(require_auth),
+):
     """Set the display name for the student, updating settings and users table.
 
     Legacy compatibility shim over the canonical ``/api/v1/user/profile``
@@ -323,7 +357,11 @@ async def set_student_name(req: StudentNameRequest):
     """
     raw_name = req.student_name.strip()
     name = raw_name if raw_name else "Student"
-    student_id = (req.student_id or "student-primary").strip() or "student-primary"
+    student_id = (
+        resolve_student_id(user)
+        if not _is_local_admin(user)
+        else (req.student_id or "student-primary").strip() or "student-primary"
+    )
 
     try:
         import time as _time
@@ -411,7 +449,10 @@ async def set_student_name(req: StudentNameRequest):
 
 
 @router.get("/{session_id}", response_model=Dict[str, Any])
-async def get_session(session_id: str):
+async def get_session(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+):
     """Get session details."""
     _check_session_id(session_id)
     session = await _mgr().get_session(session_id)
@@ -436,7 +477,11 @@ class RetargetSessionRequest(BaseModel):
 
 
 @router.patch("/{session_id}/target", response_model=Dict[str, Any])
-async def retarget_session(session_id: str, req: RetargetSessionRequest):
+async def retarget_session(
+    session_id: str,
+    req: RetargetSessionRequest,
+    _owner: str = Depends(require_session_owner),
+):
     """Adopt a new countdown target for an open session.
 
     Used when a student starts a past paper mid-session: the paper's own
@@ -462,7 +507,10 @@ async def retarget_session(session_id: str, req: RetargetSessionRequest):
 
 
 @router.post("/{session_id}/start", response_model=Dict[str, Any])
-async def start_session(session_id: str):
+async def start_session(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+):
     """Start session timer + notify parent (queued, survives offline)."""
     _check_session_id(session_id)
 
@@ -511,7 +559,10 @@ async def start_session(session_id: str):
 
 
 @router.post("/{session_id}/pause", response_model=Dict[str, Any])
-async def pause_session(session_id: str):
+async def pause_session(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+):
     """Pause session."""
     _check_session_id(session_id)
     try:
@@ -531,7 +582,10 @@ async def pause_session(session_id: str):
 
 
 @router.post("/{session_id}/resume", response_model=Dict[str, Any])
-async def resume_session(session_id: str):
+async def resume_session(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+):
     """Resume session."""
     _check_session_id(session_id)
     try:
@@ -551,16 +605,21 @@ async def resume_session(session_id: str):
 
 
 @router.post("/{session_id}/stop", response_model=Dict[str, Any])
-async def stop_session(session_id: str):
+async def stop_session(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+):
     """Stop session, then await report generation + XP award (bounded).
 
     Awaiting keeps the completion screen's immediate GET /report truthful:
     stored feedback and xp_earned are already persisted when this returns.
-    Re-stopping a completed session is a no-op success (no double XP).
+    Re-stopping a completed session is a no-op success (no double XP, no duplicate side-effects).
     """
     import asyncio
 
     _check_session_id(session_id)
+    session_before = await _mgr().get_session(session_id)
+    was_completed = bool(session_before and session_before.get("status") == "completed")
     try:
         result = await _mgr().stop_session(session_id)
     except KeyError:
@@ -574,25 +633,29 @@ async def stop_session(session_id: str):
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Failed to stop session: {exc}") from exc
 
-    try:
-        from deeptutor.services.monitoring.dispatch import handle_session_completed
+    if not was_completed:
+        try:
+            from deeptutor.services.monitoring.dispatch import handle_session_completed
 
-        student_id = str((result or {}).get("student_id") or "student-primary")
-        await asyncio.wait_for(
-            handle_session_completed(session_id, student_id),
-            timeout=8.0,
-        )
-    except asyncio.TimeoutError:
-        # Report generation still finishes in the background task spawned by
-        # handle_session_completed internals; the client falls back gracefully.
-        pass
-    except Exception:  # noqa: BLE001
-        pass  # completion side-effects are failure-isolated by design
+            student_id = str((result or {}).get("student_id") or "student-primary")
+            await asyncio.wait_for(
+                handle_session_completed(session_id, student_id),
+                timeout=8.0,
+            )
+        except asyncio.TimeoutError:
+            # Report generation still finishes in the background task spawned by
+            # handle_session_completed internals; the client falls back gracefully.
+            pass
+        except Exception:  # noqa: BLE001
+            pass  # completion side-effects are failure-isolated by design
     return result
 
 
 @router.post("/{session_id}/abandon", response_model=Dict[str, Any])
-async def abandon_session(session_id: str):
+async def abandon_session(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+):
     """Abandon session (no XP). Terminal: completed rows reject with 409."""
     _check_session_id(session_id)
     try:
@@ -610,7 +673,10 @@ async def abandon_session(session_id: str):
 
 
 @router.get("/{session_id}/report", response_model=SessionReportResponse)
-async def get_session_report(session_id: str):
+async def get_session_report(
+    session_id: str,
+    _owner: str = Depends(require_session_owner),
+):
     """Get session report (honest nulls when unmeasured/pending)."""
     _check_session_id(session_id)
     try:

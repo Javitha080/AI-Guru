@@ -464,7 +464,7 @@ class SystemMonitorSession:
         ):
             try:
                 emb = await loop.run_in_executor(
-                    None, self.pipeline.embed_sface_sync, frame, result.raw_landmarks
+                    None, self.pipeline.embed_sface_sync, frame, result.raw_landmarks, now
                 )
                 if emb is not None:
                     payload["sface_embedding"] = emb
