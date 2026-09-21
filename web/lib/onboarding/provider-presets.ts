@@ -9,7 +9,15 @@
 
 export type WizardMode = "auto" | "cloud" | "ollama" | "offline";
 
-export type CloudProviderId = "openai" | "deepseek" | "anthropic" | "dashscope" | "custom";
+export type CloudProviderId =
+  | "openai"
+  | "deepseek"
+  | "anthropic"
+  | "dashscope"
+  | "gemini"
+  | "groq"
+  | "openrouter"
+  | "custom";
 
 export interface CloudProviderPreset {
   id: CloudProviderId;
@@ -57,6 +65,43 @@ export const CLOUD_PROVIDER_PRESETS: CloudProviderPreset[] = [
     binding: "openai",
     defaultModel: "qwen-plus",
     models: ["qwen-plus", "qwen-turbo", "qwen-max"],
+  },
+  {
+    id: "gemini",
+    label: "Gemini",
+    hint: "Google Gemini with a free AI Studio key; thinking shown in chat",
+    baseUrl: "https://generativelanguage.googleapis.com/v1beta/openai/",
+    binding: "gemini",
+    defaultModel: "gemini-2.5-flash",
+    models: ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"],
+  },
+  {
+    id: "groq",
+    label: "Groq",
+    hint: "Fast free-tier inference (Llama, Qwen, GPT-OSS)",
+    baseUrl: "https://api.groq.com/openai/v1",
+    binding: "groq",
+    defaultModel: "llama-3.3-70b-versatile",
+    models: [
+      "llama-3.3-70b-versatile",
+      "openai/gpt-oss-20b",
+      "qwen/qwen3-32b",
+      "deepseek-r1-distill-llama-70b",
+    ],
+  },
+  {
+    id: "openrouter",
+    label: "OpenRouter",
+    hint: "One key for many models, including free :free variants",
+    baseUrl: "https://openrouter.ai/api/v1",
+    binding: "openrouter",
+    defaultModel: "meta-llama/llama-3.3-70b-instruct:free",
+    models: [
+      "meta-llama/llama-3.3-70b-instruct:free",
+      "deepseek/deepseek-r1:free",
+      "qwen/qwen3-32b:free",
+      "google/gemma-3-27b-it:free",
+    ],
   },
   {
     id: "custom",

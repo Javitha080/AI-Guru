@@ -158,7 +158,7 @@ class TunnelGateway:
     async def start_tunnel(
         cls,
         local_port: Optional[int] = None,
-        provider: str = "cloudflare",
+        provider: Optional[str] = None,
         ngrok_token: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Start the selected outbound tunnel gateway (serialized).
@@ -166,6 +166,11 @@ class TunnelGateway:
         Concurrent callers (portal button, watchdog restart, Telegram
         command) queue on the start lock and share the single outcome
         instead of spawning duplicate tunnel processes.
+
+        ``provider`` of None/"" means "reuse the saved preference"
+        (persisted on the last successful start), defaulting to
+        ``"cloudflare"`` on fresh installs — so the portal toggle (which
+        sends no provider) honors a previously chosen ngrok setup.
         """
         if cls._start_lock is None:
             cls._start_lock = asyncio.Lock()
@@ -175,20 +180,46 @@ class TunnelGateway:
             )
 
     @classmethod
+    async def load_saved_provider(cls) -> Optional[str]:
+        """Last successfully used provider (``cloudflare``/``ngrok``), if any."""
+        try:
+            import aiosqlite
+
+            from deeptutor.services.path_service import get_path_service
+            from deeptutor.services.remote.kv_settings import ensure_kv_settings
+
+            db_path = get_path_service().user_dir / "chat_history.db"
+            async with aiosqlite.connect(db_path) as db:
+                await ensure_kv_settings(db)
+                cur = await db.execute(
+                    "SELECT value FROM settings WHERE key = 'tunnel_provider'"
+                )
+                row = await cur.fetchone()
+            saved = str(row[0]).strip().lower() if row and row[0] else ""
+            return saved if saved in ("cloudflare", "ngrok") else None
+        except Exception:  # noqa: BLE001 - persistence is best-effort
+            return None
+
+    @classmethod
     async def _do_start_tunnel(
         cls,
         local_port: Optional[int] = None,
-        provider: str = "cloudflare",
+        provider: Optional[str] = None,
         ngrok_token: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Start the selected outbound tunnel gateway.
 
         ``local_port`` defaults to the configured FRONTEND port — never the
         raw API port — so remote parents land on the actual portal UI.
+        ``provider`` of None/"" resolves to the saved preference
+        (see :meth:`load_saved_provider`), then ``"cloudflare"``.
         """
         if local_port is None:
             local_port = cls._default_local_port()
         local_port = int(local_port)
+        if not provider:
+            provider = await cls.load_saved_provider() or "cloudflare"
+        provider = str(provider).strip().lower() or "cloudflare"
 
         if (
             cls._process
@@ -214,6 +245,11 @@ class TunnelGateway:
                 await cls._process.wait()
             except Exception:  # noqa: BLE001 - process may have just exited
                 pass
+        if cls._read_task and not cls._read_task.done():
+            # Drop the previous stderr reader before spawning a replacement:
+            # otherwise two readers race on cls._tunnel_url across processes.
+            cls._read_task.cancel()
+            cls._read_task = None
         cls._tunnel_url = None
         cls._url_is_public = False
         cls._last_message = None
@@ -262,6 +298,9 @@ class TunnelGateway:
                     cls._last_message = None
 
                     # Start background stream parser to capture dynamic trycloudflare URL
+                    if cls._read_task and not cls._read_task.done():
+                        cls._read_task.cancel()
+                        cls._read_task = None
                     cls._read_task = asyncio.create_task(cls._read_cloudflared_output())
 
                     # Wait up to 8 seconds for URL discovery
@@ -331,13 +370,17 @@ class TunnelGateway:
                     # Query local ngrok API (bounded: never hang the start).
                     public_url: Optional[str] = None
                     ngrok_timeout = aiohttp.ClientTimeout(total=5.0)
-                    async with aiohttp.ClientSession(timeout=ngrok_timeout) as session:
-                        async with session.get("http://127.0.0.1:4040/api/tunnels") as resp:
-                            if resp.status == 200:
-                                data = await resp.json()
-                                tunnels = data.get("tunnels") or []
-                                if tunnels:
-                                    public_url = tunnels[0].get("public_url")
+                    try:
+                        async with aiohttp.ClientSession(timeout=ngrok_timeout) as session:
+                            async with session.get("http://127.0.0.1:4040/api/tunnels") as resp:
+                                if resp.status == 200:
+                                    data = await resp.json()
+                                    tunnels = data.get("tunnels") or []
+                                    if tunnels:
+                                        public_url = tunnels[0].get("public_url")
+                    except (aiohttp.ClientError, asyncio.TimeoutError) as api_exc:
+                        logger.warning("ngrok local API unreachable: %s", api_exc)
+                        public_url = None
 
                     if public_url:
                         cls._tunnel_url = public_url
@@ -351,9 +394,27 @@ class TunnelGateway:
                             "provider": "ngrok",
                             "url_is_public": cls._url_is_public,
                         }
+                    # ngrok process started but API gave no URL: clean up the
+                    # orphan so a retry starts fresh instead of stacking.
+                    try:
+                        if cls._process and cls._process.returncode is None:
+                            cls._process.terminate()
+                            await asyncio.wait_for(cls._process.wait(), timeout=5.0)
+                    except Exception:  # noqa: BLE001 - cleanup best-effort
+                        pass
+                    cls._process = None
+                    cls._status = "error"
+                    cls._last_message = "ngrok started but reported no public URL."
                 except Exception as e:
                     logger.error("Failed to start ngrok tunnel: %s", e)
                     cls._status = "error"
+                    cls._last_message = "ngrok tunnel could not start. Try Cloudflare."
+                    try:
+                        if cls._process and cls._process.returncode is None:
+                            cls._process.terminate()
+                    except Exception:  # noqa: BLE001
+                        pass
+                    cls._process = None
 
         # 3. Honest failure — an explicitly requested tunnel must never be
         # dressed up as a working LAN-only mode.
@@ -501,6 +562,42 @@ class TunnelGateway:
         cls._watchdog_task = asyncio.create_task(cls._watchdog_loop())
 
     @classmethod
+    def _notify_url_rotated(cls, old_url: Optional[str], new_url: str) -> None:
+        """Best-effort Telegram notice when a watchdog restart rotates the URL.
+
+        The portal UI recovers via polling, but remote parents holding the old
+        link would otherwise keep a dead address. Failures never propagate
+        into the watchdog loop.
+        """
+
+        async def _run() -> None:
+            try:
+                from deeptutor.services.remote.telegram_config import TelegramConfigStore
+                from deeptutor.services.remote.telegram_notifier import TelegramNotifier
+
+                for _, cfg in await TelegramConfigStore.list_enabled():
+                    try:
+                        await TelegramNotifier.send_message(
+                            str(cfg.get("bot_token") or ""),
+                            str(cfg.get("chat_id") or ""),
+                            "🔄 <b>AI Guru — Remote link rotated</b>\n\n"
+                            "The encrypted tunnel restarted with a new address:\n"
+                            f'🔗 <a href="{new_url}/parent">{new_url}/parent</a>\n\n'
+                            "<i>The previous link no longer works — please use the new one.</i>",
+                        )
+                    except Exception:  # noqa: BLE001 - one parent must not block others
+                        continue
+            except Exception as exc:  # noqa: BLE001 - observability only
+                logger.debug("Tunnel rotation notice skipped: %s", exc)
+
+        try:
+            from deeptutor.services.background import spawn_bg
+
+            spawn_bg(_run(), name="tunnel-url-rotated-notice")
+        except Exception:  # noqa: BLE001
+            pass
+
+    @classmethod
     async def _watchdog_loop(cls):
         """Auto-restart the tunnel process if it dies (URL rotates on cloudflared)."""
         while True:
@@ -521,6 +618,7 @@ class TunnelGateway:
                 cls._restart_attempts += 1
                 cls._status = "reconnecting"
                 logger.info("Tunnel died; restarting (attempt %d)...", cls._restart_attempts)
+                old_url = cls._tunnel_url
                 result = await cls.start_tunnel(
                     local_port=cls._last_port,
                     provider=cls._provider,
@@ -528,6 +626,9 @@ class TunnelGateway:
                 )
                 if result.get("url_is_public"):
                     cls._restart_attempts = 0
+                    new_url = str(result.get("url") or "")
+                    if new_url and new_url != (old_url or ""):
+                        cls._notify_url_rotated(old_url, new_url)
                 elif result.get("status") == "error":
                     cls._status = "failed"
                     cls._last_message = (

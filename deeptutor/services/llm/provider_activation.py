@@ -62,6 +62,24 @@ PROVIDER_DEFAULTS: dict[str, dict[str, str]] = {
         "binding": "openai",
         "model": "qwen-plus",
     },
+    "gemini": {
+        "label": "Gemini",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+        "binding": "gemini",
+        "model": "gemini-2.5-flash",
+    },
+    "groq": {
+        "label": "Groq",
+        "base_url": "https://api.groq.com/openai/v1",
+        "binding": "groq",
+        "model": "llama-3.3-70b-versatile",
+    },
+    "openrouter": {
+        "label": "OpenRouter",
+        "base_url": "https://openrouter.ai/api/v1",
+        "binding": "openrouter",
+        "model": "meta-llama/llama-3.3-70b-instruct:free",
+    },
 }
 
 DEFAULT_OLLAMA_BASE_URL = "http://127.0.0.1:11434"

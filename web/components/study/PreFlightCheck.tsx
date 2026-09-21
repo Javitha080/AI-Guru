@@ -12,9 +12,11 @@ import {
   Loader2, RefreshCw, AlertTriangle, VideoOff, Sparkles, BookOpen
 } from "lucide-react";
 import { monitoringApi, FACE_ENROLLED_KEY } from "@/lib/monitoring/monitoringApi";
+import { apiFetch } from "@/lib/api";
+import IdentityEnrollmentCard from "@/components/study/IdentityEnrollmentCard";
 
 interface PreFlightCheckProps {
-  onReady: () => void;
+  onReady: (result: { offline: boolean }) => void;
   onCancel: () => void;
 }
 
@@ -37,6 +39,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
+  const pipelineRef = useRef<{ stop: () => void } | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -44,7 +47,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
     /** System-camera pre-flight: zero browser getUserMedia involvement. */
     const runSystemPreflight = async (): Promise<boolean> => {
       try {
-        const st = await fetch(monitoringApi.cameraStatus);
+        const st = await apiFetch(monitoringApi.cameraStatus);
         if (!st.ok) return false;
         const s = await st.json();
         if (s.mode !== "system") return false;
@@ -60,7 +63,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
       for (let i = 0; i < 24; i++) {
         if (!active) return true;
         try {
-          const res = await fetch(monitoringApi.cameraProbe, { method: "POST" });
+          const res = await apiFetch(monitoringApi.cameraProbe, { method: "POST" });
           if (!res.ok) return false; // endpoint missing → legacy flow
           const d = await res.json();
           if (typeof d.snapshot_b64 === "string" && d.snapshot_b64.length > 32) {
@@ -69,7 +72,9 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
           if (d.reason === "camera_unavailable") {
             setCameraStatus("failed");
             setFaceStatus("failed");
-            setErrorMessage("The AI Guru camera engine is running but no webcam responded.");
+            setLivenessStatus("failed");
+            setErrorMessage("The AI Guru camera engine is running but no webcam responded. You can retry or continue offline (unmonitored).");
+            setOfflineModeAllowed(true);
             return true;
           }
           if (d.detected) {
@@ -85,7 +90,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
                 typeof window !== "undefined" &&
                 window.localStorage.getItem(FACE_ENROLLED_KEY) === "1";
               if (!alreadyEnrolled) {
-                const enrollRes = await fetch(monitoringApi.enrollFromCamera, { method: "POST" });
+                const enrollRes = await apiFetch(monitoringApi.enrollFromCamera(), { method: "POST" });
                 if (enrollRes.ok) {
                   const ej = await enrollRes.json().catch(() => ({}));
                   if (ej?.enrolled) {
@@ -109,7 +114,9 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
       }
 
       setFaceStatus("failed");
-      setErrorMessage("No face detected by the system camera. Please sit centered in view and retry.");
+      setLivenessStatus("failed");
+      setErrorMessage("No face detected by the system camera. Please sit centered in view and retry — or continue offline.");
+      setOfflineModeAllowed(true);
       return true;
     };
 
@@ -158,10 +165,12 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
 
         const { VisionPipeline } = await import("@/lib/monitoring/visionPipeline");
         const pipeline = new VisionPipeline({ video, targetFps: 5 });
+        pipelineRef.current = pipeline;
         await pipeline.start();
 
         if (!active) {
           pipeline.stop();
+          pipelineRef.current = null;
           return;
         }
 
@@ -202,12 +211,15 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
 
         if (!brightnessOk || !sawFace) {
           pipeline.stop();
+          pipelineRef.current = null;
           setFaceStatus("failed");
+          setLivenessStatus("failed");
           setErrorMessage(
             !brightnessOk
-              ? "Camera appears dark or covered. Please ensure adequate lighting."
-              : "No face detected. Please center your face in the camera view."
+              ? "Camera appears dark or covered. Please ensure adequate lighting — or continue offline."
+              : "No face detected. Please center your face in the camera view — or continue offline."
           );
+          setOfflineModeAllowed(true);
           return;
         }
         setFaceStatus("passed");
@@ -219,11 +231,12 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         }
         const seq = pipeline.takeRecentLandmarkFrames(6);
         pipeline.stop();
+        pipelineRef.current = null;
 
         let livenessPassed = false;
         let livenessReachable = false;
         try {
-          const res = await fetch(monitoringApi.verifyLiveness, {
+          const res = await apiFetch(monitoringApi.verifyLiveness, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ frames_landmarks: seq }),
@@ -242,7 +255,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         // Enroll once per device so in-session identity checks work.
         try {
           if (typeof window !== "undefined" && !window.localStorage.getItem(FACE_ENROLLED_KEY) && seq.length > 0) {
-            const enrollRes = await fetch(monitoringApi.enrollFace, {
+            const enrollRes = await apiFetch(monitoringApi.enrollFace, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ landmarks: seq[seq.length - 1], student_id: "student-primary" }),
@@ -283,9 +296,22 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
 
     return () => {
       active = false;
+      try {
+        pipelineRef.current?.stop();
+      } catch {
+        /* best-effort */
+      }
+      pipelineRef.current = null;
       if (streamRef.current) {
         streamRef.current.getTracks().forEach((track) => track.stop());
         streamRef.current = null;
+      }
+      if (videoRef.current) {
+        try {
+          videoRef.current.srcObject = null;
+        } catch {
+          /* ignore */
+        }
       }
     };
   }, [attempt]);
@@ -293,6 +319,25 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
   const handleRetry = () => {
     // Re-runs the effect (fresh camera + checks) without nuking page state.
     setAttempt((n) => n + 1);
+  };
+
+  // Current preview as a JPEG data URL for identity enrollment / re-verify
+  // (system snapshots already are data URLs; browser video is captured).
+  const capturePreview = (): string | null => {
+    if (systemMode && probeSnapshot) return probeSnapshot;
+    const v = videoRef.current;
+    if (!v || v.readyState < 2 || v.videoWidth === 0) return null;
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = v.videoWidth;
+      canvas.height = v.videoHeight;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return null;
+      ctx.drawImage(v, 0, 0);
+      return canvas.toDataURL("image/jpeg", 0.8);
+    } catch {
+      return null;
+    }
   };
 
   const allPassed = cameraStatus === "passed" && faceStatus === "passed" && livenessStatus === "passed";
@@ -323,12 +368,14 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
     );
   };
 
-  const checkRowTone = (status: CheckStatus) =>
-    status === "passed"
-      ? "border-[var(--ember-line)]/30 bg-[var(--ember-0)]"
-      : status === "failed"
-        ? "border-red-500/25 bg-red-500/[0.06]"
-        : "";
+  const checkRowTone = (status: CheckStatus, amber = false) =>
+    status === "failed"
+      ? "border-red-500/25 bg-red-500/[0.06]"
+      : amber
+        ? "border-[var(--amber)]/30 bg-[var(--amber-glow)]/40"
+        : status === "passed"
+          ? "border-[var(--ember-line)]/30 bg-[var(--ember-0)]"
+          : "";
 
   return (
     <div className="bento-cell liquid-sheen w-full max-w-md mx-auto p-6 space-y-5">
@@ -401,15 +448,28 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
         <CheckRow icon={<UserCheck size={16} />} label="Face & Lighting Check" tone={checkRowTone(faceStatus)}>
           {renderIcon(faceStatus)}
         </CheckRow>
-        <CheckRow icon={<Shield size={16} />} label="Liveness & Anti-Spoof" tone={checkRowTone(livenessStatus)}>
+        <CheckRow
+          icon={<Shield size={16} />}
+          label={livenessVerified === null && livenessStatus === "passed" ? "Liveness & Anti-Spoof (unverified)" : "Liveness & Anti-Spoof"}
+          tone={checkRowTone(livenessStatus, livenessVerified === null && livenessStatus === "passed")}
+        >
           {renderLivenessCell()}
         </CheckRow>
       </div>
 
+      {/* Student identity enrollment (photo upload + live re-verify) */}
+      <IdentityEnrollmentCard getSnapshot={capturePreview} systemMode={systemMode} />
+
       {errorMessage && (
         <div className="p-3 rounded-xl bg-[var(--amber-glow)]/50 border border-[var(--amber)]/35 text-xs text-[var(--amber)] flex items-start gap-2">
           <AlertTriangle size={15} className="mt-0.5 shrink-0" />
-          <span>{errorMessage}</span>
+          <span className="flex-1">{errorMessage}</span>
+          <button
+            onClick={handleRetry}
+            className="shrink-0 underline font-bold hover:brightness-110"
+          >
+            Retry
+          </button>
         </div>
       )}
 
@@ -425,7 +485,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
 
         {offlineModeAllowed ? (
           <button
-            onClick={onReady}
+            onClick={() => onReady({ offline: true })}
             className="flex-1 py-2.5 rounded-xl bg-[var(--amber)] hover:brightness-110 text-black text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-[0_6px_20px_var(--amber-glow)]"
           >
             <BookOpen size={14} />
@@ -433,7 +493,7 @@ export default function PreFlightCheck({ onReady, onCancel }: PreFlightCheckProp
           </button>
         ) : (
           <button
-            onClick={onReady}
+            onClick={() => onReady({ offline: false })}
             disabled={!allPassed}
             className="group flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] disabled:from-[var(--muted)] disabled:to-[var(--muted)] disabled:text-[var(--muted-foreground)] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-[0_6px_24px_var(--glow-primary)] enabled:hover:-translate-y-0.5 disabled:shadow-none"
           >

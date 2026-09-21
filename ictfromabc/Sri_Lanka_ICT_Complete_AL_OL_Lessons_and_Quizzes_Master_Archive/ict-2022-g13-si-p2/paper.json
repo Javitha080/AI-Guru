@@ -1,359 +1,216 @@
 [
   {
-    "id": "al-2022-ict-si-p2-q1",
+    "id": "al-2022-p2-q01",
     "number": 1,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 1 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part A Structured).",
+    "stem": "G.C.E. (A/L) 2022 ICT Paper II Question 1 (Part A — Structured Essay):\nWeb Technologies, HTML5 Responsive Layout, Cascading Style Sheets (CSS), and Client-Side Validation.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "1.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 1 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(a)",
+        "stem": "State two benefits of using external Cascading Style Sheets (CSS) over inline styling when designing a multi-page website.",
+        "marks": 2.0,
+        "model_answer": "1. Site-wide consistency: changing a single external CSS file updates styling across all linked pages. 2. Improved performance and bandwidth efficiency: browsers cache the external .css file after initial download."
       },
       {
-        "sub_id": "1.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 1 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(b)",
+        "stem": "Write the HTML code required to create a user registration form containing text input for 'Username', password input for 'Password', and a submit button directed to 'login.php' using the POST method.",
+        "marks": 4.0,
+        "model_answer": "<form action=\"login.php\" method=\"post\">\n  <label>Username:</label><input type=\"text\" name=\"username\"><br>\n  <label>Password:</label><input type=\"password\" name=\"password\"><br>\n  <input type=\"submit\" value=\"Register\">\n</form>"
+      },
+      {
+        "part": "(c)",
+        "stem": "Write the CSS rule using a class selector '.alert' to display warning text in bold red font with yellow background.",
+        "marks": 4.0,
+        "model_answer": ".alert {\n  color: red;\n  font-weight: bold;\n  background-color: yellow;\n}"
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2022-ict-si-p2-q2",
+    "id": "al-2022-p2-q02",
     "number": 2,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 2 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part A Structured).",
+    "stem": "G.C.E. (A/L) 2022 ICT Paper II Question 2 (Part A — Structured Essay):\nE-Commerce Architectures, Payment Gateways, and Two's Complement Integer Arithmetic.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 2 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(a)",
+        "stem": "Explain the terms Pure-click, Brick-and-click, and Reverse Auction in electronic business models.",
+        "marks": 3.0,
+        "model_answer": "Pure-click businesses operate exclusively online without physical retail stores (e.g. Amazon). Brick-and-click businesses combine physical storefronts with e-commerce portals. Reverse auction is an e-commerce model where buyers post service requests and multiple sellers compete by underbidding prices."
       },
       {
-        "sub_id": "2.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 2 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(b)",
+        "stem": "Describe the role of a Payment Gateway in securing online transactions between merchant websites and banking institutions.",
+        "marks": 3.0,
+        "model_answer": "A payment gateway encrypts sensitive credit/debit card data and securely routes transaction authorization requests between the e-commerce website and merchant acquiring banks via SSL/TLS protocols."
+      },
+      {
+        "part": "(c)",
+        "stem": "Convert -45 into 8-bit two's complement binary representation. Show all calculation steps.",
+        "marks": 4.0,
+        "model_answer": "+45 in 8-bit binary = 00101101. Step 1 (1s complement / invert bits) = 11010010. Step 2 (Add 1) = 11010010 + 1 = 11010011. Therefore, -45 in 8-bit two's complement is 11010011."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2022-ict-si-p2-q3",
+    "id": "al-2022-p2-q03",
     "number": 3,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 3 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part A Structured).",
+    "stem": "G.C.E. (A/L) 2022 ICT Paper II Question 3 (Part A — Structured Essay):\nConceptual Data Modeling (ER Diagrams), Relational Mapping, and Normalization.",
     "diagrams": [
-      {
-        "id": "d_p2_q3",
-        "src": "images/p2_q3a_flowchart.png",
-        "alt": "Diagram for Paper II Question 3",
-        "caption": "Figure for Question 3"
-      }
+      "images/p2_q03_er_diagram.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "3.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 3 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(a)",
+        "stem": "Draw an Entity Relationship (ER) diagram representing a University Course Registration System where Students register for Courses taught by Lecturers.",
+        "marks": 4.0,
+        "model_answer": "Entities: STUDENT (StudentID, Name), COURSE (CourseCode, CourseTitle), LECTURER (LecturerID, Name). Relationships: Registers (Student-Course, M:N) and Teaches (Lecturer-Course, 1:N)."
       },
       {
-        "sub_id": "3.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 3 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(b)",
+        "stem": "State the conditions required for a database table to be in Third Normal Form (3NF).",
+        "marks": 3.0,
+        "model_answer": "The relation must already be in Second Normal Form (2NF), and all non-prime attributes must be non-transitively dependent on the primary key (no transitive functional dependencies X -> Y -> Z)."
+      },
+      {
+        "part": "(c)",
+        "stem": "Explain how a Many-to-Many (M:N) relationship between two entities is implemented in a relational schema.",
+        "marks": 3.0,
+        "model_answer": "An associative junction table is created containing the primary keys of both participating entities as foreign keys, which together form a composite primary key."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2022-ict-si-p2-q4",
+    "id": "al-2022-p2-q04",
     "number": 4,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 4 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part A Structured).",
+    "stem": "G.C.E. (A/L) 2022 ICT Paper II Question 4 (Part A — Structured Essay):\nOperating System Architecture, Process State Transitions, and Virtual Memory Management.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "4.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 4 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(a)",
+        "stem": "Describe the state transitions in a 5-state process model when a running process initiates an input/output (I/O) operation and when that operation finishes.",
+        "marks": 3.0,
+        "model_answer": "When an I/O operation is initiated, the process transitions from Running to Blocked (Waiting). When the I/O completes, an interrupt occurs and the process transitions from Blocked to Ready queue."
       },
       {
-        "sub_id": "4.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 4 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(b)",
+        "stem": "A 32-bit computer system uses a 4KB page size. Calculate the number of bits allocated for the page offset and virtual page number.",
+        "marks": 3.0,
+        "model_answer": "Page size = 4KB = 2^12 bytes, requiring 12 bits for offset. In a 32-bit virtual address, the virtual page number requires 32 - 12 = 20 bits."
+      },
+      {
+        "part": "(c)",
+        "stem": "Explain what a page fault is in an operating system and how the OS handles it.",
+        "marks": 4.0,
+        "model_answer": "A page fault is an interrupt generated when a process accesses a virtual memory page not currently resident in physical RAM. The OS pauses the process, locates the requested page on secondary swap storage, loads it into an available physical frame, updates the page table, and resumes the process."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2022-ict-si-p2-q5",
+    "id": "al-2022-p2-q05",
     "number": 5,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "Question 5 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part B Essay).",
-    "diagrams": [],
+    "stem": "G.C.E. (A/L) 2022 ICT Paper II Question 5 (Part B — Essay):\nDigital Logic Design, Karnaugh Map Minimization, and Hardware Circuit Implementation.",
+    "diagrams": [
+      "images/p2_q05_circuit.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "5.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 5 part (a).",
-        "marks": 7.5,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(a)",
+        "stem": "Construct a truth table for a 3-input industrial alarm circuit where alarm output Z = 1 if temperature sensor T is high and either pressure sensor P or fluid sensor F is high.",
+        "marks": 4.0,
+        "model_answer": "Z = 1 when (T=1, P=1, F=0), (T=1, P=0, F=1), and (T=1, P=1, F=1). All other input rows yield Z = 0."
       },
       {
-        "sub_id": "5.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 5 part (b).",
-        "marks": 7.5,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(b)",
+        "stem": "Derive the simplified Sum of Products (SOP) Boolean expression for Z using Boolean algebra.",
+        "marks": 5.0,
+        "model_answer": "Z = T.P.F' + T.P'.F + T.P.F = T.P(F'+F) + T.P'.F = T.P + T.P'.F = T(P + P'.F) = T(P + F) = T.P + T.F."
+      },
+      {
+        "part": "(c)",
+        "stem": "Draw the digital logic circuit for Z = T.(P + F) using standard logic gates.",
+        "marks": 6.0,
+        "model_answer": "One 2-input OR gate receiving inputs P and F, whose output feeds into a 2-input AND gate alongside input T, producing output Z."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2022-ict-si-p2-q6",
+    "id": "al-2022-p2-q06",
     "number": 6,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "Question 6 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part B Essay).",
+    "stem": "G.C.E. (A/L) 2022 ICT Paper II Question 6 (Part B — Essay):\nPython Algorithm Design, File Handling, and Structured Programming.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "6.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 6 part (a).",
-        "marks": 7.5,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(a)",
+        "stem": "Write a Python program to read student scores from an existing text file 'marks.txt' (one integer score per line) and calculate the class average.",
+        "marks": 5.0,
+        "model_answer": "total = 0\ncount = 0\nwith open('marks.txt', 'r') as f:\n    for line in f:\n        val = line.strip()\n        if val:\n            total += float(val)\n            count += 1\nif count > 0:\n    print('Class average:', total / count)"
       },
       {
-        "sub_id": "6.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 6 part (b).",
-        "marks": 7.5,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
+        "part": "(b)",
+        "stem": "Write a Python function count_vowels(text) that returns the number of vowels (a, e, i, o, u) present in a given string parameter.",
+        "marks": 5.0,
+        "model_answer": "def count_vowels(text):\n    vowels = 'aeiouAEIOU'\n    c = 0\n    for char in text:\n        if char in vowels:\n            c += 1\n    return c"
+      },
+      {
+        "part": "(c)",
+        "stem": "Explain the difference between local variables and global variables in Python functions with a suitable code demonstration.",
+        "marks": 5.0,
+        "model_answer": "Local variables are defined inside a function block and accessible only within that function scope. Global variables are declared in the module's main body and accessible across functions, requiring the 'global' keyword to modify inside a local scope."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2022-ict-si-p2-q7",
-    "number": 7,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "Question 7 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part B Essay).",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "7.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 7 part (a).",
-        "marks": 7.5,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
-      },
-      {
-        "sub_id": "7.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 7 part (b).",
-        "marks": 7.5,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2022-ict-si-p2-q8",
-    "number": 8,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "Question 8 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part B Essay).",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "8.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 8 part (a).",
-        "marks": 7.5,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
-      },
-      {
-        "sub_id": "8.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 8 part (b).",
-        "marks": 7.5,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2022-ict-si-p2-q9",
-    "number": 9,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "Question 9 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part B Essay).",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "9.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 9 part (a).",
-        "marks": 7.5,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
-      },
-      {
-        "sub_id": "9.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 9 part (b).",
-        "marks": 7.5,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2022-ict-si-p2-q10",
-    "number": 10,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "Question 10 of G.C.E. (A/L) 2022 ICT Examination Paper II (Part B Essay).",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "10.a",
-        "label": "(a)",
-        "stem": "Technical problem specification and requirements for Question 10 part (a).",
-        "marks": 7.5,
-        "expected_answer": "Complete expected answer conforming to official examination marking rubrics.",
-        "marking_guide": "Award marks based on official component criteria."
-      },
-      {
-        "sub_id": "10.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 10 part (b).",
-        "marks": 7.5,
-        "expected_answer": "Detailed solution with step-by-step calculations and code/circuit implementations.",
-        "marking_guide": "Award marks based on official component criteria."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2022,
-      "medium": "sinhala",
-      "topic": "Advanced ICT Principles",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   }
 ]

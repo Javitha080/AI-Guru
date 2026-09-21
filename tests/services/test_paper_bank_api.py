@@ -293,7 +293,32 @@ def test_promote_upload_into_bank(client) -> None:
                 "source_filename": "",
                 "status": "graded",
                 "mcq_duration_seconds": 7200,
-                "questions": [],
+                "total_marks": 2,
+                # Honest fixture: a promoted upload must carry real questions —
+                # zero-question rows can never render and are excluded from
+                # the honest catalog (same rule as production uploads).
+                "questions": [
+                    {
+                        "id": "q1",
+                        "number": 1,
+                        "question_type": "choice",
+                        "text": "1. Which device forwards packets between networks?",
+                        "options": {"A": "Hub", "B": "Router", "C": "Repeater"},
+                        "marks": 1,
+                        "reference_answer": "B",
+                        "explanation": "Routers forward packets between networks.",
+                    },
+                    {
+                        "id": "q2",
+                        "number": 2,
+                        "question_type": "choice",
+                        "text": "2. What does DNS resolve?",
+                        "options": {"A": "IP to MAC", "B": "Names to IPs", "C": "Ports to apps"},
+                        "marks": 1,
+                        "reference_answer": "B",
+                        "explanation": "DNS maps names to IPs.",
+                    },
+                ],
             }
         )
     )

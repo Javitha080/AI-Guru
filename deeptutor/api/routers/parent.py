@@ -185,7 +185,13 @@ class TelegramConfigRequest(BaseModel):
 
 
 class StartTunnelRequest(BaseModel):
-    provider: str = Field(default="cloudflare", description="'cloudflare' or 'ngrok'")
+    provider: Optional[str] = Field(
+        default=None,
+        description="'cloudflare', 'ngrok' or 'auto'. None reuses the saved "
+        "preference (persisted on the last successful start), defaulting to "
+        "'cloudflare' on fresh installs — so the portal toggle (which sends "
+        "no provider) honors a previously chosen ngrok setup.",
+    )
     ngrok_token: Optional[str] = None
     port: Optional[int] = Field(
         default=None,
@@ -212,6 +218,7 @@ class SupervisionRulesRequest(BaseModel):
     student_name: str = Field("Student", max_length=60)
     daily_goal_minutes: int = Field(60, ge=10, le=600)
     alert_strictness: str = Field("balanced", pattern="^(gentle|balanced|strict)$")
+    allow_parent_voice: bool = True
     parent_id: Optional[str] = "default"
 
 
@@ -343,11 +350,16 @@ async def get_telegram_config(parent_id: str = "default"):
 
 @router.post("/telegram/config", dependencies=[Depends(require_parent)])
 async def save_telegram_config(req: TelegramConfigRequest):
-    """Save Telegram bot credentials.
+    """Save Telegram bot credentials + validate the token via ``getMe``.
 
     A blank ``bot_token`` means "keep the saved one" — the settings UI sends
     an empty field when the parent only wants to update the Chat ID, and
     blindly overwriting would silently disable alert delivery.
+
+    The token is verified (cheap ``getMe``) so the UI can distinguish
+    "saved but invalid" from "saved and verified" instead of discovering it
+    on the next failed alert. Invalid tokens still save (chat-id fixes
+    shouldn't be blocked) but return ``verified: False`` with the reason.
     """
     from deeptutor.services.remote.telegram_config import TelegramConfigStore
 
@@ -361,7 +373,68 @@ async def save_telegram_config(req: TelegramConfigRequest):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-    _audit("telegram.config_saved", actor=req.parent_id or "default")
+    parent_id = req.parent_id or "default"
+    verified = False
+    verify_detail = ""
+    bot_username = ""
+    try:
+        stored = await TelegramConfigStore.get(parent_id)
+        # Disabled rows read as unconfigured via get(); fall back to the raw
+        # row's token so "save disabled, then enable" still validates.
+        token_to_check = (stored or {}).get("bot_token") or ""
+        if not token_to_check and not req.enabled:
+            from deeptutor.services.path_service import get_path_service
+
+            async with aiosqlite.connect(
+                get_path_service().user_dir / "chat_history.db"
+            ) as _db:
+                await ensure_kv_settings(_db)
+                _cur = await _db.execute(
+                    "SELECT value FROM settings WHERE key = ?",
+                    (TelegramConfigStore.key_for(parent_id),),
+                )
+                _row = await _cur.fetchone()
+                if _row and _row[0]:
+                    try:
+                        token_to_check = str((json.loads(_row[0]) or {}).get("bot_token") or "")
+                    except Exception:
+                        token_to_check = ""
+        if token_to_check:
+            verified, verify_detail = await TelegramNotifier.validate_bot_token(token_to_check)
+            if verified:
+                bot_username = verify_detail
+                verify_detail = f"Verified as {verify_detail}" if verify_detail else "Verified."
+        else:
+            verify_detail = "Saved without a token — alerts disabled until a token is set."
+        await TelegramConfigStore.record_verification(
+            parent_id, ok=verified, detail=verify_detail, bot_username=bot_username
+        )
+    except Exception as exc:  # noqa: BLE001 - verification never blocks save
+        logger.debug("Telegram token verification skipped: %s", exc)
+        verify_detail = verify_detail or "Saved; verification unavailable offline."
+
+    _audit(
+        "telegram.config_saved",
+        actor=parent_id,
+        details={"verified": verified, "enabled": bool(req.enabled)},
+    )
+    # Same-token conflict: the partners tutor-bot (SDK long-polling) and this
+    # parent listener (raw getUpdates) fight forever over one token (409).
+    same_token_warning = ""
+    if token_to_check and bool(req.enabled):
+        clash = _find_partner_using_token(token_to_check)
+        if clash:
+            same_token_warning = (
+                f" Warning: this token is also used by the tutor-chat bot '{clash}'. "
+                "Both bots poll Telegram with the same token, so commands and tutor "
+                "replies will fight (Telegram error 409). Create a second bot via "
+                "@BotFather and use one token per bot."
+            )
+            _audit(
+                "telegram.token_clash",
+                actor=parent_id,
+                details={"partner": clash},
+            )
     try:
         from deeptutor.services.background import spawn_bg
         from deeptutor.services.monitoring.notification_queue import (
@@ -375,10 +448,34 @@ async def save_telegram_config(req: TelegramConfigRequest):
         start_notification_worker()
         start_telegram_command_listener()
         spawn_bg(flush_once(limit=5), name="tg-config-saved-flush")
+        # Register the `/` command menu on the parent bot so Telegram clients
+        # autocomplete /status /tunnel /live /boostalert /help (best-effort).
+        if token_to_check and bool(req.enabled):
+            async def _register_menu(_tok: str = token_to_check) -> None:
+                try:
+                    await TelegramNotifier.set_bot_commands(_tok)
+                except Exception:  # noqa: BLE001 - menu is cosmetic
+                    pass
+
+            spawn_bg(_register_menu(), name="tg-config-saved-menu")
     except Exception as exc:  # noqa: BLE001
         logger.debug("Background worker activation skipped on config save: %s", exc)
 
-    return {"success": True, "message": "Telegram notifications configured."}
+    message = (
+        "Telegram notifications configured."
+        if verified
+        else f"Saved. {verify_detail or 'Token could not be verified — check it via Send Test Alert.'}"
+    )
+    if same_token_warning:
+        message += same_token_warning
+    return {
+        "success": True,
+        "message": message,
+        "verified": verified,
+        "verify_detail": verify_detail,
+        "bot_username": bot_username,
+        "same_token_warning": same_token_warning,
+    }
 
 
 @router.post("/telegram/test", dependencies=[Depends(require_parent)])
@@ -420,6 +517,48 @@ def _portal_base_url() -> tuple[str, str]:
     from deeptutor.services.remote.portal_urls import portal_base_url
 
     return portal_base_url()
+
+
+def _find_partner_using_token(bot_token: str, *, base_dir=None) -> str:
+    """Name of the partners tutor-bot using this token, or "".
+
+    The partners Telegram channel (python-telegram-bot, long-polling) and the
+    parent command listener (raw getUpdates) fight over getUpdates when they
+    share one BotFather token (eternal 409). Best-effort: never raises, scans
+    ``data/partners/*/config.yaml`` for an enabled telegram channel with the
+    same token. ``base_dir`` exists for tests.
+    """
+    token = (bot_token or "").strip()
+    if not token:
+        return ""
+    try:
+        from pathlib import Path as _Path
+
+        import yaml
+
+        if base_dir is None:
+            from deeptutor.multi_user.paths import get_admin_path_service
+
+            base = get_admin_path_service().workspace_root / "partners"
+        else:
+            base = _Path(base_dir)
+        if not base.is_dir():
+            return ""
+        for cfg_path in sorted(base.glob("*/config.yaml")):
+            try:
+                data = yaml.safe_load(cfg_path.read_text(encoding="utf-8")) or {}
+            except Exception:  # noqa: BLE001 - one bad file skips
+                continue
+            if not isinstance(data, dict):
+                continue
+            tg = (data.get("channels") or {}).get("telegram") or {}
+            if not isinstance(tg, dict) or not tg.get("enabled"):
+                continue
+            if str(tg.get("token") or "").strip() == token:
+                return str(data.get("name") or cfg_path.parent.name)
+    except Exception as exc:  # noqa: BLE001 - warning is cosmetic
+        logger.debug("Partner token scan skipped: %s", exc)
+    return ""
 
 
 @router.post("/telegram/send-link", dependencies=[Depends(require_parent)])
@@ -465,6 +604,48 @@ async def send_tunnel_link_to_telegram(parent_id: str = "default", student_name:
     return {"success": True, "url": f"{portal_url}/parent", "mode": mode}
 
 
+@router.get("/telegram/outbox", dependencies=[Depends(require_parent)])
+async def get_telegram_outbox(parent_id: str = "default"):
+    """Outbox depth for the portal offline badge (real query, never fabricated).
+
+    Returns per-status counts so the UI can show "N alerts queued offline"
+    instead of silently swallowing network loss. Scoped to one parent when
+    linked; falls back to global counts when attribution is unavailable.
+    """
+    try:
+        from deeptutor.services.monitoring.outbox_repo import get_counts
+
+        try:
+            scoped = await get_counts(parent_id=parent_id)
+        except TypeError:
+            scoped = await get_counts()
+        # Global depth as context (multi-parent homes share one worker).
+        try:
+            overall = await get_counts()
+        except Exception:  # noqa: BLE001
+            overall = scoped
+        return {
+            "parent_id": parent_id,
+            "pending": int(scoped.get("pending", 0)),
+            "sending": int(scoped.get("sending", 0)),
+            "dead": int(scoped.get("dead", 0)),
+            "sent": int(scoped.get("sent", 0)),
+            "total": int(scoped.get("total", 0)),
+            "overall_pending": int(overall.get("pending", 0)),
+        }
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Outbox counts unavailable: %s", exc)
+        return {
+            "parent_id": parent_id,
+            "pending": 0,
+            "sending": 0,
+            "dead": 0,
+            "sent": 0,
+            "total": 0,
+            "overall_pending": 0,
+        }
+
+
 # ------------------------------- 3. Outbound Encrypted Tunnel Endpoints
 
 
@@ -489,7 +670,7 @@ async def start_tunnel(
         "tunnel.start",
         actor=str(_parent.get("sub", "default")),
         details={
-            "provider": req.provider,
+            "provider": result.get("provider") or req.provider,
             "status": result.get("status"),
             "public": result.get("url_is_public"),
         },
@@ -527,7 +708,8 @@ async def seal_pending_vault(
     try:
         sealed = await VideoVaultManager.seal_pending(req.pin)
     except RuntimeError as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.warning("Vault seal failed: %s", e)
+        raise HTTPException(status_code=500, detail="Could not seal vault. Try again.")
     _audit("vault.sealed", actor=str(_parent.get("sub", "default")), details={"count": sealed})
     return {"success": True, "sealed": sealed}
 
@@ -622,7 +804,7 @@ async def _resolve_live_session(
         except Exception as exc:  # noqa: BLE001
             logger.debug("Live student-session lookup failed for %s: %s", student_id, exc)
             rows = []
-        in_prog = next((s for s in rows if s.get("status") == "in_progress"), None)
+        in_prog = next((s for s in rows if s.get("status") in ("in_progress", "paused")), None)
         if in_prog and in_prog.get("id"):
             return str(in_prog.get("id"))
         return None
@@ -727,9 +909,16 @@ async def live_snapshot(
     jpeg_b64, ts = frame
     _audit("live.snapshot_accessed", details={"session_id": session_id})
     import base64 as _b64
+    import binascii as _binascii
+
+    try:
+        jpeg_bytes = _b64.b64decode(jpeg_b64, validate=True)
+    except (_binascii.Error, ValueError, TypeError) as exc:  # noqa: BLE001 - corrupt frame
+        logger.debug("Corrupt live frame for %s: %s", session_id, exc)
+        raise HTTPException(status_code=404, detail="No live frame available")
 
     return Response(
-        content=_b64.b64decode(jpeg_b64),
+        content=jpeg_bytes,
         media_type="image/jpeg",
         headers={"Cache-Control": "no-store", "X-Frame-Timestamp": str(ts)},
     )
@@ -780,17 +969,35 @@ async def parent_start_live_stream(
 
     # Auto-start tunnel with failure isolation & timeout
     tunnel_url = None
+    tunnel_mode = "lan"
+    tunnel_message: Optional[str] = None
     try:
         if TunnelGateway.is_url_public():
             tunnel_url = TunnelGateway.get_tunnel_url()
+            tunnel_mode = "tunnel"
         else:
-            result = await asyncio.wait_for(TunnelGateway.start_tunnel(), timeout=8.0)
+            result = await asyncio.wait_for(TunnelGateway.start_tunnel(), timeout=20.0)
             if result.get("url_is_public"):
                 tunnel_url = result.get("url")
+                tunnel_mode = "tunnel"
+            else:
+                # Honest LAN-only: still negotiating / local_only / error.
+                tunnel_mode = "lan"
+                tunnel_message = str(
+                    result.get("message")
+                    or "Remote tunnel not active — live view works on home Wi-Fi only."
+                )
     except asyncio.TimeoutError:
-        logger.info("Tunnel auto-start taking longer than 8s; continuing with LAN endpoint")
+        logger.info("Tunnel auto-start taking longer than 20s; continuing with LAN endpoint")
+        tunnel_mode = "lan"
+        tunnel_message = (
+            "Tunnel is still negotiating its public URL — live view works "
+            "on home Wi-Fi; retry shortly for remote access."
+        )
     except Exception as exc:  # noqa: BLE001
         logger.warning("Tunnel auto-start in parent_start_live_stream failed: %s", exc)
+        tunnel_mode = "lan"
+        tunnel_message = "Tunnel could not start — live view works on home Wi-Fi only."
 
     # LAN URL with fallback (shared portal_urls helper).
     from deeptutor.services.remote.portal_urls import lan_dashboard_url
@@ -804,6 +1011,7 @@ async def parent_start_live_stream(
         details={
             "session_id": session_id,
             "tunnel_url": tunnel_url or "",
+            "mode": tunnel_mode,
         },
     )
     return {
@@ -811,6 +1019,12 @@ async def parent_start_live_stream(
         "enabled": True,
         "tunnel_url": tunnel_portal,
         "lan_url": lan_url,
+        # Explicit connectivity contract for the portal UI: remote parents
+        # outside home Wi-Fi must see a LAN-only banner instead of an
+        # infinite "connecting" spinner.
+        "mode": tunnel_mode,
+        "reachable_remotely": bool(tunnel_url and tunnel_mode == "tunnel"),
+        "message": tunnel_message,
     }
 
 
@@ -955,7 +1169,10 @@ async def parent_live_ws_stream(
                 pass
 
             if jpeg_bytes is not None:
-                await ws.send_bytes(jpeg_bytes)
+                try:
+                    await ws.send_bytes(jpeg_bytes)
+                except Exception:  # noqa: BLE001 - dead socket ends loop
+                    break
                 last_ts = frame_ts or time.time()
                 last_ping_ts = time.time()
                 await asyncio.sleep(0.033)  # Adaptive throttle (cap at ~30 FPS)
@@ -965,19 +1182,24 @@ async def parent_live_ws_stream(
                     frame_b64, ts = live_frame
                     if ts > last_ts or last_ts == 0.0:
                         try:
-                            await ws.send_bytes(_b64.b64decode(frame_b64))
+                            await ws.send_bytes(_b64.b64decode(frame_b64, validate=True))
                             last_ts = ts
                             last_ping_ts = time.time()
                             await asyncio.sleep(0.033)
                             continue
+                        except WebSocketDisconnect:
+                            break
                         except Exception:
                             pass
 
                 now = time.time()
                 if last_ts == 0.0 or now - last_ping_ts >= 2.0:
-                    await ws.send_json(
-                        {"type": "keepalive" if live_frame else "waiting", "ts": now}
-                    )
+                    try:
+                        await ws.send_json(
+                            {"type": "keepalive" if live_frame else "waiting", "ts": now}
+                        )
+                    except Exception:
+                        break
                     last_ping_ts = now
 
             # Await next frame event or timeout for next keepalive
@@ -1002,17 +1224,16 @@ async def parent_live_ws_stream(
 
 @router.get("/supervision-rules", dependencies=[Depends(require_parent)])
 async def get_supervision_rules(parent_id: str = "default"):
-    """Persisted wizard step-4 rules (student name, daily goal, strictness)."""
-    db_path = _get_db_path()
+    """Persisted wizard step-4 rules (student name, daily goal, strictness).
+
+    Falls back parent-specific → default so multi-parent homes and
+    student-side writes (which target the canonical default row) never
+    diverge into fabricated defaults.
+    """
     try:
-        async with aiosqlite.connect(db_path) as db:
-            await ensure_kv_settings(db)
-            cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", (f"supervision_rules_{parent_id}",)
-            )
-            row = await cursor.fetchone()
-        if row and row[0]:
-            return json.loads(row[0])
+        from deeptutor.services.remote.supervision_rules import load_rules
+
+        return await load_rules(parent_id)
     except Exception as exc:  # noqa: BLE001
         logger.warning("Could not load supervision rules: %s", exc)
     return {"student_name": "Student", "daily_goal_minutes": 60, "alert_strictness": "balanced"}
@@ -1020,22 +1241,35 @@ async def get_supervision_rules(parent_id: str = "default"):
 
 @router.put("/supervision-rules", dependencies=[Depends(require_parent)])
 async def save_supervision_rules(req: SupervisionRulesRequest):
+    import sqlite3 as _sqlite3
+
     db_path = _get_db_path()
     payload = json.dumps(
         {
             "student_name": req.student_name.strip() or "Student",
             "daily_goal_minutes": int(req.daily_goal_minutes),
             "alert_strictness": req.alert_strictness,
+            "allow_parent_voice": bool(req.allow_parent_voice),
             "updated_at": time.time(),
         }
     )
-    async with aiosqlite.connect(db_path) as db:
-        await ensure_kv_settings(db)
-        await db.execute(
-            "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'supervision', ?)",
-            (f"supervision_rules_{req.parent_id or 'default'}", payload, time.time()),
-        )
-        await db.commit()
+    try:
+        async with aiosqlite.connect(db_path) as db:
+            await ensure_kv_settings(db)
+            await db.execute(
+                "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'supervision', ?)",
+                (f"supervision_rules_{req.parent_id or 'default'}", payload, time.time()),
+            )
+            await db.commit()
+    except _sqlite3.OperationalError as exc:
+        logger.warning("Supervision rules save busy: %s", exc)
+        raise HTTPException(status_code=503, detail="Storage busy. Try again shortly.")
+    except _sqlite3.IntegrityError as exc:
+        logger.warning("Supervision rules save conflict: %s", exc)
+        raise HTTPException(status_code=409, detail="Rules conflict. Try again.")
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Supervision rules save failed: %s", exc)
+        raise HTTPException(status_code=500, detail="Could not save rules. Try again.")
     _audit(
         "rules.updated",
         actor=req.parent_id or "default",
@@ -1062,7 +1296,15 @@ async def generate_pairing_code(req: GeneratePairingRequest):
 
 @router.post("/pair/verify", dependencies=[Depends(require_parent)])
 async def verify_pairing_code(req: VerifyPairingRequest):
-    link = await PairingService.verify_pairing_code(req.parent_id, req.code)
+    try:
+        link = await PairingService.verify_pairing_code(req.parent_id, req.code)
+    except ValueError as exc:
+        _audit(
+            "pair.verify_locked",
+            actor=req.parent_id,
+            details={"reason": str(exc)},
+        )
+        raise HTTPException(status_code=429, detail=str(exc))
     if not link:
         _audit("pair.verify_failed", actor=req.parent_id, details={"code_prefix": req.code[:5]})
         raise HTTPException(status_code=400, detail="Invalid or expired code")
@@ -1113,7 +1355,9 @@ def _coerce_session_rows(result: Any) -> List[Dict[str, Any]]:
 
 
 def _today_seconds(rows: List[Dict[str, Any]]) -> float:
-    """Sum of study seconds for sessions started today (live in-progress counts up)."""
+    """Sum of study seconds for sessions started today (pause-aware live count)."""
+    from deeptutor.services.remote.supervision_rules import live_duration_seconds
+
     midnight = _local_midnight()
     now = time.time()
     total = 0.0
@@ -1121,10 +1365,7 @@ def _today_seconds(rows: List[Dict[str, Any]]) -> float:
         started = float(s.get("start_time") or s.get("created_at") or 0)
         if started < midnight:
             continue
-        duration = float(s.get("actual_duration_seconds") or 0)
-        if s.get("status") == "in_progress":
-            duration = max(duration, now - started)
-        total += max(0.0, duration)
+        total += max(0.0, live_duration_seconds(s, now))
     return total
 
 
@@ -1147,8 +1388,11 @@ def _latest_focus_score(rows: List[Dict[str, Any]]) -> Optional[float]:
 async def get_parent_dashboard(parent_id: str):
     students = await PairingService.get_linked_students(parent_id)
 
-    # Live status: a student is 'studying' when they have an open monitoring
-    # WebSocket and an in-progress session; otherwise honest 'offline'.
+    # Live status: a student is 'studying' whenever they have an OPEN
+    # study session (in_progress OR paused) in the database. The monitoring
+    # WebSocket is only enrichment (monitoring_live) — it must never gate
+    # the status, because camera blips / reconnects / unmonitored sessions
+    # otherwise flip an ongoing session to 'offline' on the parent board.
     try:
         from deeptutor.services.monitoring.session_registry import list_active_sessions
 
@@ -1156,20 +1400,15 @@ async def get_parent_dashboard(parent_id: str):
     except Exception:  # noqa: BLE001
         live_sessions = set()
 
-    # Fallback display name comes from the persisted supervision rules.
+    # Fallback display name comes from the persisted supervision rules
+    # (parent-specific override wins, canonical default row second).
     fallback_name = "Student"
-    db_path = _get_db_path()
     try:
-        async with aiosqlite.connect(db_path) as db:
-            await ensure_kv_settings(db)
-            cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", (f"supervision_rules_{parent_id}",)
-            )
-            row = await cursor.fetchone()
-        if row and row[0]:
-            rules = json.loads(row[0])
-            if str(rules.get("student_name") or "").strip():
-                fallback_name = str(rules["student_name"]).strip()
+        from deeptutor.services.remote.supervision_rules import load_rules
+
+        rules = await load_rules(parent_id)
+        if str(rules.get("student_name") or "").strip():
+            fallback_name = str(rules["student_name"]).strip()
     except Exception as exc:  # noqa: BLE001
         logger.debug("Supervision rules unavailable for dashboard name: %s", exc)
 
@@ -1187,7 +1426,10 @@ async def get_parent_dashboard(parent_id: str):
             logger.debug("activity lookup failed for %s: %s", student_id, exc)
 
         in_progress = next((s for s in rows if s.get("status") == "in_progress"), None)
-        studying = bool(in_progress) and str(in_progress.get("id")) in live_sessions
+        open_session = in_progress or next((s for s in rows if s.get("status") == "paused"), None)
+        session_id = str((open_session or {}).get("id") or "")
+        monitoring_live = bool(session_id) and session_id in live_sessions
+        studying = bool(open_session)
 
         gam = {"streak": 0, "xp": 0, "level": 1}
         try:
@@ -1206,7 +1448,10 @@ async def get_parent_dashboard(parent_id: str):
             "student_id": student_id,
             "name": name,
             "status": "studying" if studying else "offline",
-            "current_subject": (in_progress or {}).get("subject") or "",
+            "current_subject": (open_session or {}).get("subject") or "",
+            "session_id": session_id or None,
+            "session_status": (open_session or {}).get("status") or None,
+            "monitoring_live": monitoring_live,
             "today_study_time": round(_today_seconds(rows) / 60.0, 1),
             "focus_score": _latest_focus_score(rows),
             **gam,
@@ -1266,11 +1511,11 @@ async def get_student_sessions(student_id: str):
         if started >= week_ago:
             # tm_wday: Monday=0 .. Sunday=6 — matches the Mon..Sun labels.
             day_idx = time.localtime(started).tm_wday
-            # In-progress sessions count up live (same rule as the
-            # dashboard's today counter); completed ones use stored time.
-            duration_s = float(s.get("actual_duration_seconds") or 0)
-            if s.get("status") == "in_progress":
-                duration_s = max(duration_s, now - started)
+            # Pause-aware live duration (worked + open stretch); completed
+            # rows use their stored actual time. Never counts paused gaps.
+            from deeptutor.services.remote.supervision_rules import live_duration_seconds
+
+            duration_s = live_duration_seconds(s, now)
             minutes = round(duration_s / 60.0, 1)
             weekly[day_idx] += minutes
             session_count_week += 1
@@ -1292,6 +1537,35 @@ async def get_student_sessions(student_id: str):
         for s in (history or [])
         if float(s.get("start_time") or s.get("created_at") or 0) >= month_ago
     )
+
+    # Report availability per session so the portal renders "Pending…" for
+    # open/short sessions instead of nulls or fabricated scores.
+    try:
+        import aiosqlite as _aiosqlite2
+
+        _sids = [str(s.get("id")) for s in (history or []) if s.get("id")]
+        _reported: set[str] = set()
+        if _sids:
+            _ph = ",".join("?" for _ in _sids)
+            async with _aiosqlite2.connect(_get_db_path()) as _db2:
+                _cur2 = await _db2.execute(
+                    f"SELECT session_id FROM session_reports WHERE session_id IN ({_ph})",
+                    _sids,
+                )
+                _reported = {str(r[0]) for r in await _cur2.fetchall()}
+        for s in history or []:
+            sid = str(s.get("id") or "")
+            s["has_report"] = sid in _reported
+            if s.get("status") == "abandoned":
+                s["report_reason"] = "abandoned"
+            elif not s.get("has_report"):
+                s["report_reason"] = (
+                    "in_progress" if s.get("status") in ("in_progress", "paused") else "not_generated"
+                )
+            else:
+                s["report_reason"] = ""
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Report-availability enrichment skipped: %s", exc)
 
     # Live incident feed: latest WARNING_ISSUED telemetry across this
     # student's sessions (real data; empty state when none).
@@ -1344,7 +1618,16 @@ async def get_student_sessions(student_id: str):
 
 @router.get("/reports/{session_id}", dependencies=[Depends(require_parent)])
 async def get_session_report(session_id: str):
-    """Session report assembled from real stored data when available."""
+    """Session report assembled from real stored data when available.
+
+    Honest-null contract: ``available:false`` carries a machine-readable
+    ``reason`` (in_progress/abandoned/not_generated) so the portal renders a
+    pending state instead of nulls or fabricated scores.
+    """
+    import re as _re
+
+    if not _re.match(r"^[A-Za-z0-9_-]{1,128}$", session_id or ""):
+        raise HTTPException(status_code=422, detail="Invalid session_id format")
     from deeptutor.services.study.report_generator import ReportGenerator
     from deeptutor.services.study.telemetry_logger import TelemetryLogger
 
@@ -1358,6 +1641,7 @@ async def get_session_report(session_id: str):
         return {
             "session_id": session_id,
             "available": True,
+            "reason": "",
             **stored,
         }
 
@@ -1366,11 +1650,32 @@ async def get_session_report(session_id: str):
         events_summary = await TelemetryLogger().get_session_summary(session_id)
     except Exception:
         events_summary = {}
+    try:
+        from deeptutor.services.study.session_manager import StudySessionManager
+
+        session = await StudySessionManager().get_session(session_id) or {}
+        status = str(session.get("status") or "")
+    except Exception:
+        session = {}
+        status = ""
+    if status == "abandoned":
+        reason = "abandoned"
+        message = "This session was abandoned — no report was generated and no XP was awarded."
+    elif status in ("in_progress", "paused"):
+        reason = "in_progress"
+        message = "Report is generated when the study session completes."
+    elif session:
+        reason = "not_generated"
+        message = "Report is generated when the study session completes."
+    else:
+        reason = "not_found"
+        message = "Session not found."
     return {
         "session_id": session_id,
         "available": False,
+        "reason": reason,
         "telemetry_summary": events_summary,
-        "message": "Report is generated when the study session completes.",
+        "message": message,
     }
 
 

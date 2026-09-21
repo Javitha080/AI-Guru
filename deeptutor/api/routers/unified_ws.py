@@ -41,6 +41,13 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 
+def _safe_seq(value: object, default: int = 0) -> int:
+    try:
+        return max(0, int(value or 0))
+    except (TypeError, ValueError):
+        return default
+
+
 @router.websocket("/ws")
 async def unified_websocket(ws: WebSocket) -> None:
     from deeptutor.api.routers.auth import ws_auth_failed, ws_require_auth
@@ -146,7 +153,7 @@ async def unified_websocket(ws: WebSocket) -> None:
                 if not turn_id:
                     await safe_send({"type": "error", "content": "Missing turn_id."})
                     continue
-                await subscribe_turn(turn_id, after_seq=int(msg.get("after_seq") or 0))
+                await subscribe_turn(turn_id, after_seq=_safe_seq(msg.get("after_seq")))
                 continue
 
             if msg_type == "subscribe_session":
@@ -154,7 +161,7 @@ async def unified_websocket(ws: WebSocket) -> None:
                 if not session_id:
                     await safe_send({"type": "error", "content": "Missing session_id."})
                     continue
-                await subscribe_session(session_id, after_seq=int(msg.get("after_seq") or 0))
+                await subscribe_session(session_id, after_seq=_safe_seq(msg.get("after_seq")))
                 continue
 
             if msg_type == "check_active_turn":
@@ -162,10 +169,15 @@ async def unified_websocket(ws: WebSocket) -> None:
                 if not session_id:
                     await safe_send({"type": "error", "content": "Missing session_id."})
                     continue
-                from deeptutor.services.session import get_turn_runtime_manager
+                try:
+                    from deeptutor.services.session import get_turn_runtime_manager
 
-                runtime = get_turn_runtime_manager()
-                active_turn = await runtime.store.get_active_turn(session_id)
+                    runtime = get_turn_runtime_manager()
+                    active_turn = await runtime.store.get_active_turn(session_id)
+                except Exception as exc:  # noqa: BLE001 - store hiccup never kills WS
+                    logger.debug("check_active_turn failed: %s", exc)
+                    await safe_send({"type": "error", "content": "Could not check turn. Try again."})
+                    continue
                 if active_turn:
                     # Verify the turn has a live execution; stale persisted
                     # "running" rows (e.g. after server restart) have none.
@@ -197,7 +209,7 @@ async def unified_websocket(ws: WebSocket) -> None:
                 if not turn_id:
                     await safe_send({"type": "error", "content": "Missing turn_id."})
                     continue
-                await subscribe_turn(turn_id, after_seq=int(msg.get("seq") or 0))
+                await subscribe_turn(turn_id, after_seq=_safe_seq(msg.get("seq")))
                 continue
 
             if msg_type == "unsubscribe":
@@ -214,10 +226,15 @@ async def unified_websocket(ws: WebSocket) -> None:
                 if not turn_id:
                     await safe_send({"type": "error", "content": "Missing turn_id."})
                     continue
-                from deeptutor.services.session import get_turn_runtime_manager
+                try:
+                    from deeptutor.services.session import get_turn_runtime_manager
 
-                runtime = get_turn_runtime_manager()
-                cancelled = await runtime.cancel_turn(turn_id)
+                    runtime = get_turn_runtime_manager()
+                    cancelled = await runtime.cancel_turn(turn_id)
+                except Exception as exc:  # noqa: BLE001
+                    logger.debug("cancel_turn failed for %s: %s", turn_id, exc)
+                    await safe_send({"type": "error", "content": "Could not cancel turn. Try again."})
+                    continue
                 if not cancelled:
                     await safe_send({"type": "error", "content": f"Turn not found: {turn_id}"})
                 continue
@@ -248,7 +265,12 @@ async def unified_websocket(ws: WebSocket) -> None:
                 from deeptutor.services.session import get_turn_runtime_manager
 
                 runtime = get_turn_runtime_manager()
-                accepted = await runtime.submit_user_reply(turn_id, text=text_str, answers=answers)
+                try:
+                    accepted = await runtime.submit_user_reply(turn_id, text=text_str, answers=answers)
+                except Exception as exc:  # noqa: BLE001
+                    logger.debug("submit_user_reply failed for %s: %s", turn_id, exc)
+                    await safe_send({"type": "error", "content": "Could not deliver reply. Try again."})
+                    continue
                 if not accepted:
                     await safe_send(
                         {

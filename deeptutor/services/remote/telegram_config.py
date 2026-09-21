@@ -106,6 +106,10 @@ class TelegramConfigStore:
             "bot_token_masked": masked,
             "chat_id": str(data.get("chat_id") or ""),
             "enabled": bool(data.get("enabled", True)),
+            "last_verified_at": data.get("last_verified_at"),
+            "last_verified_ok": data.get("last_verified_ok"),
+            "last_verified_detail": data.get("last_verified_detail") or "",
+            "bot_username": data.get("bot_username") or "",
         }
 
     @classmethod
@@ -156,12 +160,75 @@ class TelegramConfigStore:
         )
         async with aiosqlite.connect(_db_path()) as db:
             await ensure_kv_settings(db)
+            # Preserve prior verification stamp across Chat-ID-only edits so
+            # the UI doesn't flip to "never verified" when the token is kept.
+            try:
+                cur = await db.execute(
+                    "SELECT value FROM settings WHERE key = ?", (cls.key_for(parent_id),)
+                )
+                prow = await cur.fetchone()
+                if prow and prow[0]:
+                    try:
+                        prev = json.loads(prow[0]) or {}
+                    except Exception:
+                        prev = {}
+                    if isinstance(prev, dict):
+                        merged = json.loads(payload)
+                        for k in (
+                            "last_verified_at",
+                            "last_verified_ok",
+                            "last_verified_detail",
+                            "bot_username",
+                        ):
+                            if prev.get(k) is not None and merged.get(k) is None:
+                                merged[k] = prev.get(k)
+                        payload = json.dumps(merged)
+            except Exception:  # noqa: BLE001 - verification stamp is best-effort
+                pass
             await db.execute(
                 "INSERT OR REPLACE INTO settings (key, value, category, updated_at)"
                 " VALUES (?, ?, 'telegram', ?)",
                 (cls.key_for(parent_id), payload, time.time()),
             )
             await db.commit()
+
+    @classmethod
+    async def record_verification(
+        cls,
+        parent_id: str,
+        *,
+        ok: bool,
+        detail: str = "",
+        bot_username: str = "",
+    ) -> None:
+        """Stamp the last ``getMe`` result onto the stored row (best-effort)."""
+        try:
+            async with aiosqlite.connect(_db_path()) as db:
+                await ensure_kv_settings(db)
+                cur = await db.execute(
+                    "SELECT value FROM settings WHERE key = ?", (cls.key_for(parent_id),)
+                )
+                row = await cur.fetchone()
+                if not row or not row[0]:
+                    return
+                try:
+                    data = json.loads(row[0]) or {}
+                except Exception:
+                    return
+                if not isinstance(data, dict):
+                    return
+                data["last_verified_at"] = time.time()
+                data["last_verified_ok"] = bool(ok)
+                data["last_verified_detail"] = str(detail or "")[:200]
+                data["bot_username"] = str(bot_username or "")[:64]
+                await db.execute(
+                    "INSERT OR REPLACE INTO settings (key, value, category, updated_at)"
+                    " VALUES (?, ?, 'telegram', ?)",
+                    (cls.key_for(parent_id), json.dumps(data), time.time()),
+                )
+                await db.commit()
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("Verification stamp skipped for %s: %s", parent_id, exc)
 
     @classmethod
     async def list_enabled(cls) -> List[Tuple[str, Dict[str, str]]]:

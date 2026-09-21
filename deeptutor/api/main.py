@@ -4,6 +4,7 @@ import logging
 import sys
 
 from fastapi import Depends, FastAPI
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 
 from deeptutor.logging import configure_logging
@@ -323,6 +324,52 @@ if not any(getattr(h, "_deeptutor_access_handler", False) for h in _access_logge
 
 
 @app.middleware("http")
+async def request_id_middleware(request, call_next):
+    import uuid as _uuid
+
+    request_id = _uuid.uuid4().hex[:12]
+    request.state.request_id = request_id
+    try:
+        response = await call_next(request)
+    except Exception:
+        logger.exception("Unhandled error [request_id=%s] %s %s", request_id, request.method, request.url.path)
+        from deeptutor.api.errors import envelope as _envelope
+
+        return _envelope("internal_error", "Internal error. Try again.", request_id, status=500)
+    response.headers["X-Request-ID"] = request_id
+    return response
+
+
+@app.exception_handler(Exception)
+async def _unhandled_exception_handler(request, exc: Exception):
+    from fastapi import HTTPException as _HTTPException
+
+    if isinstance(exc, _HTTPException):
+        raise exc
+    request_id = str(getattr(request.state, "request_id", "") or "")
+    logger.exception(
+        "Unhandled error [request_id=%s] %s %s", request_id or "-", request.method, request.url.path
+    )
+    from deeptutor.api.errors import envelope as _envelope
+
+    return _envelope("internal_error", "Internal error. Try again.", request_id, status=500)
+
+
+@app.exception_handler(RequestValidationError)
+async def _validation_exception_handler(request, exc: RequestValidationError):
+    request_id = str(getattr(request.state, "request_id", "") or "")
+    from deeptutor.api.errors import envelope as _envelope
+
+    return _envelope(
+        "validation_error",
+        "Invalid request. Check the highlighted fields and try again.",
+        request_id,
+        status=422,
+        details={"errors": exc.errors()},
+    )
+
+
+@app.middleware("http")
 async def selective_access_log(request, call_next):
     response = await call_next(request)
     if response.status_code != 200:
@@ -577,7 +624,7 @@ app.include_router(
     dependencies=_auth,
 )
 
-from deeptutor.api.routers import parent
+from deeptutor.api.routers import parent, parent_voice
 
 # parent_context (NOT require_auth) installs the per-user workspace context:
 # the documented bootstrap trio (has-pin/set-pin/verify-pin/refresh) must stay
@@ -587,6 +634,12 @@ app.include_router(
     parent.router,
     prefix="/api/v1/parent",
     tags=["parent"],
+    dependencies=[Depends(parent.parent_context)],
+)
+app.include_router(
+    parent_voice.router,
+    prefix="/api/v1/parent/voice",
+    tags=["parent-voice"],
     dependencies=[Depends(parent.parent_context)],
 )
 

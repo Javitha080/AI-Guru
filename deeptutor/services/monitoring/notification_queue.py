@@ -66,6 +66,20 @@ def _portal_base_url() -> Optional[str]:
     return public_tunnel_url()
 
 
+def _safe_float(value: Any, default: float = 0.0) -> float:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _safe_int(value: Any, default: int = 0) -> int:
+    try:
+        return int(float(value))
+    except (TypeError, ValueError):
+        return default
+
+
 def _compose_message(kind: str, payload: Dict[str, Any]) -> str:
     # Single source of formatting truth: the TelegramNotifier composers.
     # The outbox only maps its durable payload onto them and injects the
@@ -85,8 +99,8 @@ def _compose_message(kind: str, payload: Dict[str, Any]) -> str:
                 f"{emoji} <b>AI Guru — {TelegramNotifier._esc(category.replace('_', ' ').title())}</b>",
                 "",
                 TelegramNotifier._esc(message),
-                f"<i>Confidence: {int(float(payload.get('confidence', 0)) * 100)}% · "
-                f"Duration: {float(payload.get('duration_seconds', 0)):.0f}s</i>",
+                f"<i>Confidence: {_safe_int(payload.get('confidence', 0))}% · "
+                f"Duration: {_safe_float(payload.get('duration_seconds', 0)):.0f}s</i>",
             ]
             portal_section = TelegramNotifier._portal_section(portal)
             if portal_section:
@@ -98,8 +112,8 @@ def _compose_message(kind: str, payload: Dict[str, Any]) -> str:
             subject=str(payload.get("subject") or "General"),
             details=message,
             tunnel_url=portal,
-            confidence=payload.get("confidence"),
-            duration_seconds=payload.get("duration_seconds"),
+            confidence=_safe_float(payload.get("confidence"), 0.0),
+            duration_seconds=_safe_float(payload.get("duration_seconds"), 0.0),
             session_id=str(payload.get("session_id", "")),
             severity=severity,
         )
@@ -107,22 +121,25 @@ def _compose_message(kind: str, payload: Dict[str, Any]) -> str:
         return TelegramNotifier.compose_session_summary(
             student_name=str(payload.get("student_name") or payload.get("student_id") or "Student"),
             subject=str(payload.get("subject") or "Study Session"),
-            duration_minutes=float(payload.get("duration_minutes", 0)),
-            focus_score=float(payload.get("focus_score", 0)),
-            xp_earned=int(payload.get("xp_earned", 0) or 0),
+            duration_minutes=_safe_float(payload.get("duration_minutes", 0)),
+            focus_score=_safe_float(payload.get("focus_score", 0)),
+            xp_earned=_safe_int(payload.get("xp_earned", 0)),
             ai_summary=str(payload.get("summary") or ""),
-            engagement_score=payload.get("engagement_score"),
-            warning_count=payload.get("warning_count"),
+            engagement_score=_safe_float(payload.get("engagement_score"), 0.0),
+            warning_count=_safe_int(payload.get("warning_count", 0)),
             tunnel_url=portal,
         )
     if kind == "session_start":
         return TelegramNotifier.compose_session_start(
             student_name=str(payload.get("student_name", "Student")),
             subject=str(payload.get("subject", "General")),
-            target_minutes=int(float(payload.get("target_minutes", 25))),
+            target_minutes=_safe_int(payload.get("target_minutes", 25), 25),
             tunnel_url=portal,
         )
-    return json.dumps(payload)[:800]
+    try:
+        return json.dumps(payload)[:800]
+    except (TypeError, ValueError):
+        return kind
 
 
 async def enqueue(kind: str, payload: Dict[str, Any], parent_id: str = "default") -> int:

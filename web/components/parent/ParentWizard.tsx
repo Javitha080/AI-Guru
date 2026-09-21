@@ -70,6 +70,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
   const [ngrokToken, setNgrokToken] = useState("");
   const [tunnelStatus, setTunnelStatus] = useState<string | null>(null);
   const [tunnelUrl, setTunnelUrl] = useState<string | null>(null);
+  const [tunnelPublic, setTunnelPublic] = useState(false);
   const [tunnelMsg, setTunnelMsg] = useState<string | null>(null);
 
   // Step 4 — Rules
@@ -203,6 +204,11 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
   };
 
   const handleToggleTunnel = async () => {
+    // Guard: starting/reconnecting already has a backend negotiation in
+    // flight (serialized by the server start-lock) — re-clicking would only
+    // queue duplicate work and flicker the status. Aligned with the portal
+    // page: any "active" tunnel stops (even while negotiating its URL).
+    if (tunnelStatus === "starting" || tunnelStatus === "reconnecting") return;
     setBusy(true);
     setTunnelMsg(null);
     try {
@@ -210,6 +216,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
         await pFetch("/api/v1/parent/tunnel/stop", { method: "POST" });
         setTunnelStatus("inactive");
         setTunnelUrl(null);
+        setTunnelPublic(false);
       } else {
         // The start request is synchronous: the first run downloads the
         // cloudflared engine (~18 MB) before the URL is negotiated, so set
@@ -226,6 +233,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
         if (ok && data) {
           setTunnelStatus(data.status ?? "unknown");
           setTunnelUrl(data.url ?? null);
+          setTunnelPublic(Boolean(data.url_is_public));
           setTunnelMsg(
             data.url_is_public ? null : data.message || null
           );
@@ -233,6 +241,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
       }
     } catch {
       setTunnelStatus("error");
+      setTunnelPublic(false);
       setTunnelMsg("Could not reach the tunnel gateway — check your connection.");
     } finally {
       setBusy(false);
@@ -510,7 +519,7 @@ export default function ParentWizard({ parentId, hasExistingPin, onCancel, onEnt
                 }`}>
                   {(tunnelStatus ?? "not started").toUpperCase()}
                 </span>
-                {tunnelUrl && <p className="text-[10px] text-[var(--amber)] font-mono mt-0.5 truncate">{tunnelUrl}/parent</p>}
+                {tunnelUrl && tunnelPublic && <p className="text-[10px] text-[var(--amber)] font-mono mt-0.5 truncate">{tunnelUrl}/parent</p>}
                 {tunnelMsg && (
                   <p className="text-[10px] text-[var(--amber)] mt-0.5 break-words">{tunnelMsg}</p>
                 )}

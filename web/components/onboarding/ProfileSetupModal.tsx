@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -15,13 +15,14 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { UserAvatar, AVATAR_ICONS } from "@/components/UserAvatar";
-import { AVATAR_COLORS, AVATAR_ICON_NAMES } from "@/lib/avatar";
+import { AVATAR_COLORS, AVATAR_ICON_NAMES, parseAvatarMarker } from "@/lib/avatar";
 import {
   DAILY_GOAL_OPTIONS,
   FOCUS_SUBJECT_OPTIONS,
   GRADE_LEVEL_OPTIONS,
   LEARNING_STYLE_OPTIONS,
   TUTOR_TONE_OPTIONS,
+  getUserProfile,
   updateUserProfile,
 } from "@/lib/user-profile-api";
 
@@ -56,6 +57,72 @@ export function ProfileSetupModal({
     "ICT / Computer Science",
   ]);
   const [tutorTone, setTutorTone] = useState<string>("encouraging");
+  const [prefilling, setPrefilling] = useState(false);
+  const hydratedRef = useRef(false);
+
+  // Hydrate from the canonical server profile so reopening the wizard never
+  // clobbers real values with hardcoded defaults. Runs once per open.
+  useEffect(() => {
+    if (!isOpen) {
+      hydratedRef.current = false;
+      return;
+    }
+    if (hydratedRef.current) return;
+    hydratedRef.current = true;
+    let cancelled = false;
+    setPrefilling(true);
+    getUserProfile()
+      .then((profile) => {
+        if (cancelled || !profile) return;
+        const name = String(profile.display_name ?? "").trim();
+        if (name && name !== "Student") setDisplayName(name);
+        const descriptor = parseAvatarMarker(profile.avatar);
+        if (descriptor.kind === "icon") {
+          setSelectedIcon(descriptor.icon);
+          setSelectedColor(descriptor.color);
+        }
+        const grade = String(profile.grade_level ?? "").trim();
+        if (grade) setGradeLevel(grade);
+        const style = String(profile.learning_style ?? "").trim();
+        if (style && LEARNING_STYLE_OPTIONS.some((o) => o.id === style)) {
+          setLearningStyle(style);
+        }
+        const minutes = Number(profile.target_daily_minutes);
+        if (
+          Number.isFinite(minutes) &&
+          (DAILY_GOAL_OPTIONS as readonly number[]).includes(minutes)
+        ) {
+          setTargetMinutes(minutes);
+        } else if (Number.isFinite(minutes) && minutes >= 15 && minutes <= 480) {
+          // Preserve out-of-preset but valid server values instead of forcing 60.
+          setTargetMinutes(minutes);
+        }
+        if (Array.isArray(profile.preferred_subjects) && profile.preferred_subjects.length > 0) {
+          const valid = profile.preferred_subjects
+            .map((s) => String(s).trim())
+            .filter((s) => s && (FOCUS_SUBJECT_OPTIONS as readonly string[]).includes(s));
+          // Keep server values even if custom (e.g. legacy subjects).
+          setSelectedSubjects(
+            valid.length > 0
+              ? valid
+              : profile.preferred_subjects.map((s) => String(s).trim()).filter(Boolean).slice(0, 10),
+          );
+        }
+        const tone = String(profile.tutor_tone ?? "").trim();
+        if (tone && TUTOR_TONE_OPTIONS.some((o) => o.id === tone)) {
+          setTutorTone(tone);
+        }
+      })
+      .catch(() => {
+        /* best effort — defaults remain */
+      })
+      .finally(() => {
+        if (!cancelled) setPrefilling(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -116,7 +183,7 @@ export function ProfileSetupModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-center justify-center overflow-y-auto bg-black/75 p-4 backdrop-blur-md">
+    <div className="fixed inset-0 z-[var(--z-onboarding)] flex items-center justify-center overflow-y-auto bg-black/75 p-4 backdrop-blur-md">
       <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-[var(--glass-border-highlight)] bg-[var(--card)] p-6 shadow-2xl md:p-8">
         {/* Ambient background glow */}
         <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-96 -translate-x-1/2 rounded-full bg-[var(--glow-primary)]/15 blur-3xl" />
@@ -269,7 +336,8 @@ export function ProfileSetupModal({
               </button>
               <button
                 type="submit"
-                className="flex items-center gap-2 rounded-xl bg-[var(--primary)] px-5 py-2.5 text-xs font-bold text-[var(--primary-foreground)] shadow-md transition-transform hover:brightness-110 active:scale-95"
+                disabled={prefilling}
+                className="flex items-center gap-2 rounded-xl bg-[var(--primary)] px-5 py-2.5 text-xs font-bold text-[var(--primary-foreground)] shadow-md transition-transform hover:brightness-110 active:scale-95 disabled:opacity-50"
               >
                 <span>{t("Next: Personalization")}</span>
                 <ArrowRight size={14} />
@@ -449,7 +517,7 @@ export function ProfileSetupModal({
               <button
                 type="button"
                 onClick={handleSave}
-                disabled={busy}
+                disabled={busy || prefilling}
                 className="flex items-center gap-2 rounded-xl bg-[var(--primary)] px-6 py-2.5 text-xs font-bold text-[var(--primary-foreground)] shadow-md transition-transform hover:brightness-110 active:scale-95 disabled:opacity-50"
               >
                 {busy ? (

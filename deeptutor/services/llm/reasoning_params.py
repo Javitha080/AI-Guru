@@ -8,6 +8,21 @@ _THINKING_STYLE_MAP = {
     "thinking_type": lambda enabled: {"thinking": {"type": "enabled" if enabled else "disabled"}},
     "enable_thinking": lambda enabled: {"enable_thinking": enabled},
     "reasoning_split": lambda enabled: {"reasoning_split": enabled},
+    # Gemini (OpenAI-compat): thought summaries are opt-in per request. The
+    # top-level ``reasoning_effort`` (sent separately below) selects the
+    # thinking level/budget; ``include_thoughts`` controls whether the
+    # thoughts stream back inline as <think> blocks.
+    "google_thinking": lambda enabled: {
+        "google": {"thinking_config": {"include_thoughts": enabled}}
+    },
+    # OpenRouter: unified ``reasoning`` control (also accepted top-level, but
+    # extra_body is the documented OpenAI-SDK path). Reasoning is returned
+    # by default; the flag is only needed to set effort or exclude it.
+    "openrouter_reasoning": lambda enabled: (
+        {"reasoning": {"enabled": True, "exclude": False}}
+        if enabled
+        else {"reasoning": {"exclude": True}}
+    ),
 }
 _PROVIDER_THINKING_STYLES = {
     "deepseek": "thinking_type",
@@ -17,6 +32,13 @@ _PROVIDER_THINKING_STYLES = {
     "byteplus_coding_plan": "thinking_type",
     "dashscope": "enable_thinking",
     "minimax": "reasoning_split",
+    "gemini": "google_thinking",
+    "openrouter": "openrouter_reasoning",
+    # Groq is intentionally absent: its reasoning knobs are model-specific
+    # (reasoning_format is rejected by gpt-oss, reasoning_effort only exists
+    # on gpt-oss/qwen3.6) and are resolved per model in
+    # build_openai_compatible_reasoning_kwargs below. Groq includes reasoning
+    # by default, so no flag is needed to turn thinking on.
 }
 _PROVIDER_REASONING_PATTERNS = {
     "deepseek": ("deepseek-v4-pro", "deepseek-reasoner"),
@@ -26,16 +48,23 @@ _PROVIDER_REASONING_PATTERNS = {
 # `max_tokens` budget on reasoning unless we explicitly turn it off via the
 # top-level ``reasoning_effort`` field. Substring match — also catches the
 # ``models/``-prefixed Gemini aliases and is case-insensitive (see
-# :func:`_matches`). Legacy Gemini 1.5/2.0 models (which do not think by
-# default) intentionally do not match these patterns.
-_PROVIDER_DEFAULT_OFF_PATTERNS: dict[str, tuple[str, ...]] = {
-    "gemini": ("gemini-2.5", "gemini-3.0"),
-}
+# :func:`_matches`).
+#
+# NOTE: intentionally empty. Gemini 2.5/3.x used to live here ("none" on
+# Auto) to save output tokens, but that hid model thinking entirely while
+# vendor sites show it. Thinking now defaults ON at the model-default
+# budget via the ``google_thinking`` style (include_thoughts); users opt
+# out per model with reasoning_effort=none.
+_PROVIDER_DEFAULT_OFF_PATTERNS: dict[str, tuple[str, ...]] = {}
 _CUSTOM_MODEL_THINKING_STYLES: tuple[tuple[tuple[str, ...], str], ...] = (
     (("qwen3", "qwen-3", "qwq", "qwen-plus"), "enable_thinking"),
     (("deepseek-v4-pro", "deepseek-reasoner"), "thinking_type"),
 )
 _THINKING_DISABLED_BY_DEFAULT: tuple[tuple[str, str], ...] = (("deepseek", "deepseek-v4-flash"),)
+
+# Gemini families with native thinking (thought summaries). Legacy 1.5/2.0
+# models neither think nor accept thinking flags.
+_GEMINI_THINKING_PATTERNS = ("gemini-2.5", "gemini-3")
 
 
 def _spec_name(spec: Any, binding: str | None) -> str:
@@ -127,23 +156,155 @@ def build_openai_compatible_reasoning_kwargs(
         suppress_top_level = bool(
             thinking_style and (semantic_effort == "minimal" or thinking_style == "enable_thinking")
         )
+        if thinking_style in ("google_thinking", "openrouter_reasoning"):
+            # Effort values map 1:1 onto Gemini thinking levels and
+            # OpenRouter gateway efforts — never suppress them.
+            suppress_top_level = False
+        if thinking_style == "groq_reasoning":
+            # Placeholder: the real groq branch below decides. Top-level
+            # reasoning_effort only exists on gpt-oss / qwen3.6.
+            suppress_top_level = True
         if not suppress_top_level:
             kwargs["reasoning_effort"] = resolved_effort
 
+    if provider_name == "groq":
+        _apply_groq_reasoning_kwargs(
+            kwargs, model_name=model_name, resolved_effort=resolved_effort
+        )
+        return kwargs
+
     if thinking_style and resolved_effort is not None:
-        thinking_enabled = semantic_effort != "minimal"
-        extra = _THINKING_STYLE_MAP.get(thinking_style, lambda _enabled: None)(thinking_enabled)
+        if thinking_style == "openrouter_reasoning":
+            # Effort-aware: the gateway normalizes these onto the target
+            # model (effort none disables; minimal is a real 10% level).
+            if semantic_effort == "none":
+                extra: dict[str, Any] | None = {"reasoning": {"effort": "none"}}
+            else:
+                extra = {
+                    "reasoning": {"effort": resolved_effort, "exclude": False}
+                }
+        else:
+            thinking_enabled = semantic_effort not in ("minimal", "none")
+            extra = _THINKING_STYLE_MAP.get(thinking_style, lambda _enabled: None)(
+                thinking_enabled
+            )
         if extra:
             kwargs.setdefault("extra_body", {}).update(extra)
     elif thinking_style and _disable_thinking_by_default(provider_name, model_name):
         extra = _THINKING_STYLE_MAP.get(thinking_style, lambda _enabled: None)(False)
         if extra:
             kwargs.setdefault("extra_body", {}).update(extra)
+    elif thinking_style == "google_thinking":
+        # Auto (no explicit effort): thinking stays at the model-default
+        # budget, but thought summaries must be requested or nothing streams
+        # back to the trace. Only for thinking-capable families — legacy
+        # models (1.5/2.0) neither think nor accept the flag.
+        if _matches(model_name, _GEMINI_THINKING_PATTERNS):
+            extra = _THINKING_STYLE_MAP["google_thinking"](True)
+            kwargs.setdefault("extra_body", {}).update(extra)
 
     return kwargs
+
+
+# Groq models that accept a top-level ``reasoning_effort`` (per Groq docs).
+_GROQ_EFFORT_MODELS = ("gpt-oss", "qwen3.6", "qwen3-6")
+# Groq Qwen models that document ``reasoning_format``. Other Groq reasoning
+# models (deepseek distills, llama) must NOT receive it — unknown params risk
+# a 400 — they already include reasoning by default.
+_GROQ_REASONING_FORMAT_MODELS = ("qwen",)
+
+
+def _apply_groq_reasoning_kwargs(
+    kwargs: dict[str, Any],
+    *,
+    model_name: str,
+    resolved_effort: str | None,
+) -> None:
+    """Fill ``kwargs`` with Groq's model-specific reasoning controls.
+
+    Groq includes reasoning by default (``include_reasoning`` defaults true),
+    so Auto sends nothing except ``reasoning_format: parsed`` for the Qwen
+    family — required there once tools/JSON mode enter the request, and it is
+    what separates thinking into the ``reasoning`` delta field our trace
+    reads instead of inline tags.
+    """
+    if resolved_effort is None:
+        if _matches(model_name, _GROQ_REASONING_FORMAT_MODELS) and not _matches(
+            model_name, ("gpt-oss",)
+        ):
+            kwargs.setdefault("extra_body", {}).update(
+                {"reasoning_format": "parsed", "include_reasoning": True}
+            )
+        return
+    semantic = resolved_effort.lower()
+    if semantic == "none":
+        kwargs.setdefault("extra_body", {}).update({"include_reasoning": False})
+        return
+    if _matches(model_name, _GROQ_EFFORT_MODELS):
+        kwargs["reasoning_effort"] = resolved_effort
+    if _matches(model_name, _GROQ_REASONING_FORMAT_MODELS) and not _matches(
+        model_name, ("gpt-oss",)
+    ):
+        kwargs.setdefault("extra_body", {}).update(
+            {"reasoning_format": "parsed", "include_reasoning": True}
+        )
+
+
+def _coerce_reasoning_text(value: Any) -> str:
+    """Best-effort stringify of a provider reasoning payload.
+
+    Handles plain strings (DeepSeek ``reasoning_content``, Groq/OpenRouter
+    ``reasoning``), Ollama-style ``thinking``/``thought`` strings, and
+    block lists (Anthropic-style ``[{type, text}]``) by joining text parts.
+    """
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        parts: list[str] = []
+        for item in value:
+            if isinstance(item, str):
+                parts.append(item)
+            elif isinstance(item, dict):
+                text = item.get("text") or item.get("thinking") or item.get("summary")
+                if isinstance(text, str):
+                    parts.append(text)
+            else:
+                text = getattr(item, "text", None) or getattr(item, "thinking", None)
+                if isinstance(text, str):
+                    parts.append(text)
+        return "".join(parts)
+    return ""
+
+
+def extract_delta_reasoning_text(delta: Any) -> str:
+    """Return the thinking text carried by one streaming delta, if any.
+
+    Field order mirrors provider conventions: DeepSeek/vLLM
+    ``reasoning_content`` first, then Groq/OpenRouter/Cerebras ``reasoning``,
+    then Ollama-compat ``thinking`` / ``thought``. Works for both SDK
+    objects and plain dicts.
+    """
+    if delta is None:
+        return ""
+    if isinstance(delta, dict):
+        for key in ("reasoning_content", "reasoning", "thinking", "thought"):
+            text = _coerce_reasoning_text(delta.get(key))
+            if text:
+                return text
+        return ""
+    for attr in ("reasoning_content", "reasoning", "thinking", "thought"):
+        try:
+            value = getattr(delta, attr, None)
+        except Exception:
+            continue
+        text = _coerce_reasoning_text(value)
+        if text:
+            return text
+    return ""
 
 
 __all__ = [
     "build_openai_compatible_reasoning_kwargs",
     "default_reasoning_effort_for",
+    "extract_delta_reasoning_text",
 ]

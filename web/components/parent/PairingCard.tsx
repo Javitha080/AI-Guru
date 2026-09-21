@@ -32,6 +32,7 @@ interface PairingCardProps {
 
 export default function PairingCard({ parentId, onLinkedChanged }: PairingCardProps) {
   const [linked, setLinked] = useState<LinkedStudent[]>([]);
+  const [studentIdInput, setStudentIdInput] = useState("student-primary");
   const [code, setCode] = useState<{ code: string; expiresAt: number | null } | null>(null);
   const [verifyInput, setVerifyInput] = useState("");
   const [busy, setBusy] = useState(false);
@@ -51,12 +52,13 @@ export default function PairingCard({ parentId, onLinkedChanged }: PairingCardPr
   }, [refreshLinked]);
 
   const handleGenerate = async () => {
+    const studentId = studentIdInput.trim() || "student-primary";
     setBusy(true);
     setStatus(null);
     try {
       const { ok, data } = await pJson<GeneratePayload>("/api/v1/parent/pair/generate", {
         method: "POST",
-        body: JSON.stringify({ student_id: "student-primary", parent_id: parentId }),
+        body: JSON.stringify({ student_id: studentId, parent_id: parentId }),
       });
       if (ok && data?.code) {
         // Backend returns a TTL (expires_in seconds), not a timestamp.
@@ -128,6 +130,15 @@ export default function PairingCard({ parentId, onLinkedChanged }: PairingCardPr
       </p>
 
       <div className="flex flex-wrap gap-2 relative z-[2]">
+        <input
+          type="text"
+          placeholder="Student ID (e.g. student-primary)"
+          value={studentIdInput}
+          onChange={(e) => setStudentIdInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && void handleGenerate()}
+          className="glass-input flex-1 min-w-40 !py-2 text-xs font-mono"
+          aria-label="Student ID for pairing code"
+        />
         <button
           onClick={() => void handleGenerate()}
           disabled={busy}
@@ -181,7 +192,7 @@ export default function PairingCard({ parentId, onLinkedChanged }: PairingCardPr
       <div className="relative z-[2]">
         <span className="text-[11px] uppercase tracking-wide text-[var(--muted-foreground)] block mb-1.5">Linked students</span>
         {linked.length === 0 ? (
-          <p className="text-xs text-[var(--muted-foreground)]">No students paired yet — the portal monitors this computer&apos;s primary student.</p>
+          <p className="text-xs text-[var(--muted-foreground)]">No students paired yet. The portal monitors this computer&apos;s primary student.</p>
         ) : (
           <ul className="space-y-1.5">
             {linked.map((s) => (

@@ -49,6 +49,16 @@ def portal_env(tmp_path: Path, monkeypatch):
 
     monkeypatch.setattr(sm_mod, "get_path_service", lambda: SimpleNamespace(user_dir=tmp_path))
 
+    # Every other lazy importer (supervision_rules, telegram config store,
+    # gamification, identity store) must resolve to the SAME temp DB —
+    # otherwise tests read the developer's real data/user/chat_history.db
+    # (real student names, real Telegram credentials) and fail spuriously.
+    import deeptutor.services.path_service as ps_mod
+
+    monkeypatch.setattr(
+        ps_mod, "get_path_service", lambda: SimpleNamespace(user_dir=tmp_path)
+    )
+
     # Fresh brute-force tracker per test.
     from deeptutor.services.remote import auth_jwt as aj2
 
@@ -194,6 +204,8 @@ async def test_dashboard_sums_all_of_todays_sessions(portal_env):
         id="live",
         status="in_progress",
         actual_duration_seconds=300,
+        worked_seconds=0.0,
+        last_resume_time=now - 600,
         start_time=now - 600,
         created_at=now - 600,
     )
@@ -252,6 +264,16 @@ async def test_telegram_config_survives_legacy_settings_shape(tmp_path, monkeypa
         conn.commit()
 
     monkeypatch.setattr(parent_router, "_get_db_path", lambda: db_path)
+    # get_telegram_config reads via TelegramConfigStore's own path service,
+    # not the router helper — pin that too or the developer's real
+    # data/user/chat_history.db leaks in (real bot token → configured=True).
+    from types import SimpleNamespace
+
+    import deeptutor.services.remote.telegram_config as tc_mod
+
+    monkeypatch.setattr(
+        tc_mod, "get_path_service", lambda: SimpleNamespace(user_dir=tmp_path)
+    )
 
     config = await parent_router.get_telegram_config("default")
     assert config["configured"] is False  # no crash, honest unconfigured state

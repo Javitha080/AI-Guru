@@ -143,54 +143,109 @@ async def monitoring_session_websocket(websocket: WebSocket, session_id: str) ->
     pipeline.reset_session()
 
     mode_param = websocket.query_params.get("mode")
-    camera_cfg = await load_camera_config()
+    try:
+        camera_cfg = await load_camera_config()
+    except Exception as exc:  # noqa: BLE001 - config is optional
+        logger.debug("Camera config load failed for %s: %s", session_id, exc)
+        camera_cfg = {"enabled": False}
     monitor = None
     if mode_param != "browser" and camera_cfg.get("enabled", True):
-        monitor = await start_system_monitor(session_id, camera_cfg, pipeline=pipeline)
+        try:
+            monitor = await start_system_monitor(session_id, camera_cfg, pipeline=pipeline)
+        except Exception as exc:  # noqa: BLE001 - fall back to browser mode
+            logger.warning("System monitor start failed for %s: %s", session_id, exc)
+            monitor = None
 
     if monitor is not None:
         listener = monitor.register(websocket)
         try:
-            await websocket.send_json(
-                {
-                    "type": "session_init",
-                    "session_id": session_id,
-                    "mode": "system",
-                    "target_fps": monitor.target_fps,
-                    "zero_cloud_egress": True,
-                    "message": "AI Guru System Camera Monitoring Active",
-                }
-            )
+            try:
+                await websocket.send_json(
+                    {
+                        "type": "session_init",
+                        "session_id": session_id,
+                        "mode": "system",
+                        "target_fps": monitor.target_fps,
+                        "zero_cloud_egress": True,
+                        "message": "AI Guru System Camera Monitoring Active",
+                    }
+                )
+            except Exception as exc:  # noqa: BLE001 - dead socket on init
+                logger.debug("session_init send failed for %s: %s", session_id, exc)
+                return
             while True:
-                raw_text = await websocket.receive_text()
+                try:
+                    raw_text = await websocket.receive_text()
+                except WebSocketDisconnect:
+                    raise
+                except Exception as exc:  # noqa: BLE001 - transport hiccup
+                    logger.debug("WS receive failed for %s: %s", session_id, exc)
+                    break
                 try:
                     msg = json.loads(raw_text)
                 except Exception:
+                    try:
+                        await websocket.send_json({"type": "error", "message": "Invalid frame."})
+                    except Exception:
+                        pass
                     continue
                 if not isinstance(msg, dict):
                     continue
                 msg_type = msg.get("type", "")
-                if msg_type == "ping":
-                    await websocket.send_json({"type": "pong", "timestamp": time.time()})
-                elif msg_type == "pause":
-                    monitor.paused = True
-                elif msg_type == "resume":
-                    monitor.paused = False
-                elif msg_type == "telemetry":
-                    # Legacy client chatter is harmless here: the engine reads
-                    # the camera directly and ignores browser payloads.
-                    continue
+                try:
+                    if msg_type == "ping":
+                        await websocket.send_json({"type": "pong", "timestamp": time.time()})
+                    elif msg_type == "pause":
+                        monitor.paused = True
+                    elif msg_type == "resume":
+                        monitor.paused = False
+                    elif msg_type == "telemetry":
+                        # Legacy client chatter is harmless here: the engine reads
+                        # the camera directly and ignores browser payloads.
+                        continue
+                    elif msg_type:
+                        await websocket.send_json(
+                            {"type": "error", "message": f"Unknown type: {msg_type}"}
+                        )
+                except WebSocketDisconnect:
+                    raise
+                except Exception as exc:  # noqa: BLE001 - one bad control msg never kills session
+                    logger.debug("Control-msg send failed for %s: %s", session_id, exc)
+                    break
         except WebSocketDisconnect:
             logger.info("Monitoring WebSocket disconnected for session: %s", session_id)
         except Exception as e:
             logger.warning("Monitoring WS error for session %s: %s", session_id, e)
+            try:
+                await websocket.send_json({"type": "error", "message": "Stream error. Reconnect."})
+            except Exception:
+                pass
         finally:
-            monitor.unregister(listener)
-            if monitor.listener_count == 0:
-                await stop_system_monitor(session_id)
+            try:
+                monitor.unregister(listener)
+            except Exception:  # noqa: BLE001 - teardown best-effort
+                pass
+            try:
+                if monitor.listener_count == 0:
+                    await stop_system_monitor(session_id)
+            except Exception:  # noqa: BLE001
+                pass
             _active_monitoring_sessions.pop(session_id, None)
             _frame_rings.pop(session_id, None)
             _purge_session_state(session_id)
+            # Bank the open study stretch so a dropped socket never leaves an
+            # 'in_progress' row accruing phantom minutes (parent dashboard
+            # sums live durations). Best-effort: never raises into WS teardown.
+            try:
+                from deeptutor.services.background import spawn_bg
+                from deeptutor.services.study.session_manager import StudySessionManager
+
+                spawn_bg(
+                    StudySessionManager().pause_on_disconnect(session_id),
+                    name=f"monitoring-disconnect-pause-{session_id}",
+                )
+            except Exception:  # noqa: BLE001
+                pass
         return
 
     _apply_supervision_strictness_bg(pipeline, session_id=session_id)
@@ -316,3 +371,49 @@ async def get_session_monitoring_events(
         "items": sanitized[: max(0, min(limit, 500))],
         "total": len(sanitized),
     }
+
+
+# --- Parent voice drop-in (student side) --------------------------------------
+
+
+class VoiceStudentSignalRequest(BaseModel):
+    session_id: str
+    type: str = Field(..., pattern="^(offer|answer|ice|bye|heartbeat)$")
+    payload: str = Field(default="", max_length=12000)
+
+
+@router.get("/voice/incoming")
+async def voice_incoming(
+    session_id: str,
+    _user: Any = Depends(require_auth),
+) -> Dict[str, Any]:
+    """Student poll: active parent call + pending signals + announcements."""
+    import time as _time
+
+    from deeptutor.services.monitoring import voice_intercom as _voice
+
+    if not _voice.valid_session_id(session_id):
+        return {"session_id": session_id, "call": None, "signals": [], "announcements": []}
+    call = _voice.get_call(session_id)
+    return {
+        "session_id": session_id,
+        "call": _voice.call_to_dict(call) if call else None,
+        "signals": _voice.drain_signals(session_id, "student"),
+        "announcements": _voice.drain_announcements(session_id),
+        "ts": _time.time(),
+    }
+
+
+@router.post("/voice/signal")
+async def voice_student_signal(
+    req: VoiceStudentSignalRequest,
+    _user: Any = Depends(require_auth),
+) -> Dict[str, Any]:
+    """Student posts WebRTC answer/ICE (or bye) for the parent to collect."""
+    from deeptutor.services.monitoring import voice_intercom as _voice
+
+    if not _voice.valid_session_id(req.session_id):
+        raise HTTPException(status_code=404, detail="Session not found")
+    if not _voice.push_signal(req.session_id, "student", req.type, req.payload):
+        raise HTTPException(status_code=400, detail="Invalid signal")
+    return {"accepted": True}

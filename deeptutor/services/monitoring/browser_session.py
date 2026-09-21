@@ -38,6 +38,16 @@ _RING_SIZE = DEFAULT_THRESHOLDS.ring_size
 
 _FRAME_KEYS = ("jpeg_b64", "jpeg", "frame_b64", "frame", "image_b64", "image")
 
+# Episode severity mirrors WarningManager.SEVERITY_LEVELS so info-level
+# presence pings (STUDENT_AWAY) never inflate actionable warning counts.
+_EPISODE_SEVERITIES = {
+    "LOOKING_AWAY": "warning",
+    "PHONE_DETECTED": "alert",
+    "STUDENT_AWAY": "info",
+    "IDENTITY_MISMATCH": "alert",
+    "DROWSINESS": "warning",
+}
+
 
 def _extract_frame(payload: Dict[str, Any]) -> Optional[str]:
     for key in _FRAME_KEYS:
@@ -178,7 +188,17 @@ async def browser_driven_monitoring_loop(
             else:
                 analysis_ts = wall_now
 
-            analysis = pipeline.process_telemetry_payload(payload, current_time=analysis_ts)
+            try:
+                analysis = pipeline.process_telemetry_payload(payload, current_time=analysis_ts)
+            except Exception as exc:  # noqa: BLE001 - one bad frame never kills the session
+                logger.debug("CV frame skipped for %s: %s", session_id, exc)
+                try:
+                    await websocket.send_json(
+                        {"type": "error", "message": "Frame skipped. Streaming continues."}
+                    )
+                except Exception:
+                    pass
+                continue
 
             # Accumulate for the session-mean scores persisted periodically
             # (and once more on disconnect in the finally block).
@@ -215,13 +235,16 @@ async def browser_driven_monitoring_loop(
                 # Log the REAL episode type — every non-phone episode used to
                 # be collapsed into LOOKING_AWAY, corrupting reports/dashboards.
                 event_type = dtype
+                # Severity follows the warning tier so info-level presence pings
+                # (STUDENT_AWAY) never inflate actionable warning counts.
+                episode_severity = _EPISODE_SEVERITIES.get(dtype, "warning")
                 # DB write runs in a background task: blocking the WS receive
                 # loop here stalled telemetry to the client (the system path
                 # already used spawn_bg).
                 spawn_bg(
                     _log_episode(
                         event_type,
-                        "warning",
+                        episode_severity,
                         float(analysis.distraction.confidence or 0),
                         float(analysis.distraction.duration_seconds or 0),
                         str(analysis.distraction.reason or dtype),
@@ -281,15 +304,33 @@ async def browser_driven_monitoring_loop(
                     name=f"warning-dispatch-{session_id}",
                 )
 
-            await websocket.send_json(response_data)
+            try:
+                await websocket.send_json(response_data)
+            except WebSocketDisconnect:
+                raise
+            except Exception as exc:  # noqa: BLE001 - dead socket ends loop cleanly
+                logger.debug("Telemetry send failed for %s: %s", session_id, exc)
+                break
 
     except WebSocketDisconnect:
         logger.info("Monitoring WebSocket disconnected for session: %s", session_id)
     except Exception as e:
         logger.warning("Monitoring WebSocket error for session %s: %s", session_id, e)
+        try:
+            await websocket.send_json({"type": "error", "message": "Stream error. Reconnect."})
+        except Exception:
+            pass
     finally:
         try:
             await _persist_scores()
+        except Exception:  # noqa: BLE001
+            pass
+        # Bank the open study stretch so a dropped socket never leaves an
+        # 'in_progress' row accruing phantom minutes. Best-effort.
+        try:
+            from deeptutor.services.study.session_manager import StudySessionManager
+
+            await StudySessionManager().pause_on_disconnect(session_id)
         except Exception:  # noqa: BLE001
             pass
         active_sessions.pop(session_id, None)

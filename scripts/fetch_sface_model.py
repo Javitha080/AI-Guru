@@ -49,7 +49,7 @@ def main() -> int:
             size = DEST.stat().st_size
             if size < 10_000_000:
                 raise RuntimeError(f"suspiciously small download ({size} bytes)")
-            print(f"Saved {size / 1e6:.1f} MB → {DEST}")
+            print(f"Saved {size / 1e6:.1f} MB to {DEST}")
             print("Restart the backend to activate SFace identity verification.")
             return 0
         except Exception as exc:  # noqa: BLE001

@@ -11,6 +11,7 @@ import {
 
 import type { Capability } from "@/lib/capability-routes";
 import { apiFetch, apiUrl } from "@/lib/api";
+import { withClientCache } from "@/lib/client-cache";
 import { listLLMOptions } from "@/lib/llm-options";
 
 type CapabilityAccessValue = {
@@ -40,6 +41,30 @@ const DEFAULT_VALUE: CapabilityAccessValue = {
 const CapabilityAccessContext =
   createContext<CapabilityAccessValue>(DEFAULT_VALUE);
 
+/**
+ * Shared single-flight cache for the access probe. Parallel mounts (workspace
+ * layout remounts on every session switch) and focus/visibility re-probes
+ * share one round-trip within the TTL instead of each firing their own
+ * `GET /api/v1/settings` and competing with the session fetch for the
+ * browser's six connections per origin.
+ */
+const SETTINGS_PROBE_CACHE_KEY = "settings:access-probe";
+
+async function fetchSettingsProbe(): Promise<{ catalog?: unknown }> {
+  return withClientCache<{ catalog?: unknown }>(
+    SETTINGS_PROBE_CACHE_KEY,
+    async () => {
+      const res = await apiFetch(apiUrl("/api/v1/settings"), {
+        cache: "no-store",
+      });
+      if (!res.ok) {
+        throw new Error(`Settings probe failed: HTTP ${res.status}`);
+      }
+      return (await res.json()) as { catalog?: unknown };
+    },
+  );
+}
+
 export function useCapabilityAccess(): CapabilityAccessValue {
   return useContext(CapabilityAccessContext);
 }
@@ -58,10 +83,9 @@ export function CapabilityAccessProvider({
   const refresh = useCallback(async () => {
     try {
       // The settings payload only exposes the catalog to admins, so its
-      // presence is our admin signal — admins are never gated.
-      const res = await apiFetch(apiUrl("/api/v1/settings"));
-      if (!res.ok) return;
-      const payload = (await res.json()) as { catalog?: unknown };
+      // presence is our admin signal — admins are never gated. Served from
+      // the shared single-flight cache (30s TTL) — see fetchSettingsProbe.
+      const payload = await fetchSettingsProbe();
       if (payload.catalog) {
         setIsAdmin(true);
         setHasLlm(true);

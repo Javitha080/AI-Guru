@@ -9,7 +9,10 @@ import uuid
 import aiosqlite
 
 from deeptutor.services.path_service import get_path_service
-from deeptutor.services.study.session_manager import StudySessionManager
+from deeptutor.services.study.session_manager import (
+    MIN_MEASURABLE_SECONDS,
+    StudySessionManager,
+)
 from deeptutor.services.study.telemetry_logger import TelemetryLogger
 
 logger = logging.getLogger(__name__)
@@ -27,6 +30,10 @@ class ReportGenerator:
 
     def __init__(self) -> None:
         self.db_path = get_path_service().user_dir / "chat_history.db"
+        try:
+            self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        except OSError as exc:
+            logger.warning("Report DB parent not writable: %s", exc)
         self.session_manager = StudySessionManager()
         self.telemetry_logger = TelemetryLogger()
 
@@ -54,11 +61,42 @@ class ReportGenerator:
             if e["event_type"] == "WARNING_ISSUED" and e.get("severity") in ("warning", "alert")
         )
 
-        focus_score = float(
-            session.get("focus_score")
-            or max(0.0, 100.0 - 5.0 * warning_count - distracted_seconds / 60.0 * 2.0)
-        )
-        engagement_score = float(session.get("engagement_score") or focus_score)
+        # Honest scoring: a live-measured session score (>0, persisted by the
+        # monitoring loop) wins. Otherwise the formula applies ONLY when there
+        # is real signal (warnings or distracted seconds on a meaningful
+        # session) — a zero-telemetry stub must record 0 (unmeasured), never
+        # a synthesized 100 that the parent board would render as perfect.
+        measured_focus = None
+        try:
+            candidate = float(session.get("focus_score") or 0)
+            measured_focus = candidate if candidate > 0 else None
+        except (TypeError, ValueError):
+            measured_focus = None
+        measured_engagement = None
+        try:
+            candidate = float(session.get("engagement_score") or 0)
+            measured_engagement = candidate if candidate > 0 else None
+        except (TypeError, ValueError):
+            measured_engagement = None
+
+        has_signal = warning_count > 0 or distracted_seconds > 0
+        meaningful = actual_duration >= MIN_MEASURABLE_SECONDS
+        if measured_focus is not None:
+            focus_score = measured_focus
+        elif has_signal and meaningful:
+            focus_score = max(
+                0.0, 100.0 - 5.0 * warning_count - distracted_seconds / 60.0 * 2.0
+            )
+        else:
+            focus_score = 0.0  # unmeasured — no fake perfect score
+        if measured_engagement is not None:
+            engagement_score = measured_engagement
+        elif focus_score > 0:
+            engagement_score = focus_score
+        else:
+            engagement_score = 0.0
+        focus_score = round(min(100.0, max(0.0, focus_score)), 1)
+        engagement_score = round(min(100.0, max(0.0, engagement_score)), 1)
 
         # AI summary is best-effort: a real LLM call when configured (bounded
         # so session completion stays snappy), an honest deterministic
@@ -85,6 +123,14 @@ class ReportGenerator:
             )
 
         now = time.time()
+        if focus_score <= 0:
+            # Unmeasured stub (too short / monitoring never ran): persist the
+            # row for shape-compat but say so honestly instead of faking 100.
+            ai_summary = (
+                f"You studied {session.get('subject', 'General')} for "
+                f"{actual_duration // 60} minute(s). Focus could not be measured "
+                f"— the session was too short or monitoring was not active."
+            )
         async with aiosqlite.connect(self.db_path) as db:
             await db.execute("DELETE FROM session_reports WHERE session_id = ?", (session_id,))
             await db.execute(

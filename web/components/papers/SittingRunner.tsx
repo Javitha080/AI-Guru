@@ -299,9 +299,25 @@ export default function SittingRunner({
 
   if (phase === "loading" || !paper) {
     return (
-      <div className="flex-1 flex items-center justify-center text-sm text-[var(--muted-foreground)] gap-2">
-        <Loader2 size={16} className="animate-spin" /> Preparing your paper…
-        {error && <span className="text-red-400 ml-2">{error}</span>}
+      <div className="flex-1 min-h-0 flex flex-col overflow-hidden" role="status" aria-busy="true">
+        <span className="sr-only">Preparing your paper…</span>
+        <div className="surface-glass-base mx-3 mt-3 rounded-2xl px-4 py-3 flex items-center justify-between gap-3 shrink-0" aria-hidden="true">
+          <div className="space-y-2 flex-1">
+            <div className="h-4 w-48 rounded bg-[var(--muted)] animate-pulse" />
+            <div className="h-3 w-64 rounded bg-[var(--muted)] animate-pulse" />
+          </div>
+          <div className="h-8 w-24 rounded-xl bg-[var(--muted)] animate-pulse shrink-0" />
+        </div>
+        <div className="flex-1 min-h-0 overflow-hidden p-4 space-y-3" aria-hidden="true">
+          <div className="h-5 w-2/3 rounded bg-[var(--muted)] animate-pulse" />
+          <div className="h-24 rounded-2xl bg-[var(--muted)]/60 animate-pulse border border-[var(--glass-border)]" />
+          <div className="grid gap-2">
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="h-11 rounded-xl bg-[var(--muted)]/60 animate-pulse border border-[var(--glass-border)]" />
+            ))}
+          </div>
+        </div>
+        {error && <span className="text-red-400 ml-2 text-sm px-4 pb-2">{error}</span>}
       </div>
     );
   }
@@ -593,7 +609,15 @@ export default function SittingRunner({
             </div>
           </div>
         ) : (
-          <p className="text-center text-sm text-[var(--muted-foreground)]">No questions in this paper.</p>
+          <div className="text-center py-6">
+            <p className="text-sm text-[var(--foreground)] font-semibold">This paper has no questions to show.</p>
+            <p className="text-xs text-[var(--muted-foreground)] mt-1 mb-4">
+              The import may have produced an empty paper. Pick another paper or re-import it.
+            </p>
+            <button onClick={onExit} className="glass-btn-secondary !rounded-xl text-xs">
+              Back to papers
+            </button>
+          </div>
         )}
       </div>
 

@@ -7,11 +7,11 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useRouter } from "next/navigation";
 import {
   BookOpen, BookOpenCheck, ChevronRight, Clock, FileText, History,
   Languages, Loader2, Play, RefreshCw, ShieldCheck,
 } from "lucide-react";
-import PaperStudyModal from "@/components/papers/PaperStudyModal";
 import SittingRunner from "@/components/papers/SittingRunner";
 import { BentoGrid, BentoCard } from "@/components/ui/BentoGrid";
 import { useScrollReveal } from "@/lib/motion/useScrollReveal";
@@ -86,14 +86,22 @@ export default function PapersPage() {
 
 /* --------------------------------------------------------------------- hub */
 
+function fmtDur(totalSeconds: number | null | undefined): string {
+  const s = Math.max(0, Math.round(Number(totalSeconds) || 0));
+  if (!s) return "—";
+  const h = Math.floor(s / 3600);
+  const m = Math.round((s % 3600) / 60);
+  if (h > 0 && m > 0) return `${h}h ${m}m`;
+  if (h > 0) return `${h}h`;
+  return `${m}m`;
+}
+
 function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: string; bank_paper_id: string; paper_no: number; title: string }>) => void }) {
+  const router = useRouter();
   const [category, setCategory] = useState<CategoryFilter>("al");
   const [medium, setMedium] = useState<string>("");
   const [rows, setRows] = useState<CatalogRow[] | null>(null);
   const [failed, setFailed] = useState(false);
-  const [startingId, setStartingId] = useState("");
-  const [startError, setStartError] = useState("");
-  const [studyPaperId, setStudyPaperId] = useState<string | null>(null);
 
   const scrollerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -102,6 +110,8 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
 
   const [seeding, setSeeding] = useState(false);
   const seedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [syncing, setSyncing] = useState(false);
+  const [syncMsg, setSyncMsg] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     if (seedTimer.current) {
@@ -140,6 +150,24 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
     if (seedTimer.current) clearTimeout(seedTimer.current);
   }, []);
 
+  const syncArchive = useCallback(async () => {
+    setSyncing(true);
+    setSyncMsg(null);
+    try {
+      const res = await papersApi.syncMasterArchive();
+      const skipped = (res.errors ?? []).length;
+      setSyncMsg(
+        `Synced ${res.imported_papers} papers (${res.total_questions} questions)` +
+          (skipped ? ` · ${skipped} skipped` : "")
+      );
+    } catch (e) {
+      setSyncMsg(e instanceof Error ? `Sync failed: ${e.message}` : "Sync failed");
+    } finally {
+      setSyncing(false);
+      void load();
+    }
+  }, [load]);
+
   const groups = useMemo(() => {
     const filtered = (rows ?? []).filter((r) => !medium || r.medium === medium);
     const map = new Map<string, CatalogRow[]>();
@@ -155,22 +183,15 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
 
   useScrollReveal(scrollerRef, [rows, failed, groups.length]);
 
-  const startSitting = async (firstPaperId: string) => {
-    setStartingId(firstPaperId); setStartError("");
-    try {
-      const started = await papersApi.start(firstPaperId, STUDENT_ID);
-      onStarted(
-        started.sitting_id,
-        started.parts.map((p) => ({
-          exam_id: p.exam_id, bank_paper_id: p.bank_paper_id,
-          paper_no: p.paper_no, title: p.title,
-        }))
-      );
-    } catch (e) {
-      setStartError(e instanceof Error ? e.message : String(e));
-    } finally {
-      setStartingId("");
-    }
+  const startSitting = (firstPaperId: string) => {
+    // Timed exams run INSIDE a study-room session (same timer, same
+    // monitoring WS) — never in this hub, which would split supervision.
+    router.push(`/study-room?bankPaperId=${encodeURIComponent(firstPaperId)}&mode=timed`);
+  };
+
+  const openStudyPage = (paperId: string) => {
+    // Study mode is a dedicated page: full paper + marking keys + AI tutor.
+    router.push(`/papers/${encodeURIComponent(paperId)}`);
   };
 
   return (
@@ -237,7 +258,29 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
           >
             <RefreshCw size={14} className={rows === null && !failed ? "animate-spin" : ""} />
           </button>
+          <button
+            onClick={() => void syncArchive()}
+            disabled={syncing}
+            className="px-3 py-1.5 rounded-xl surface-glass-base glow-ring text-xs font-bold text-[var(--muted-foreground)] hover:text-[var(--primary)] disabled:opacity-50 flex items-center gap-1.5"
+            title="Re-import the master archive (picks up new folders)"
+          >
+            {syncing ? <Loader2 size={13} className="animate-spin" /> : <RefreshCw size={13} />}
+            {syncing ? "Syncing…" : "Sync archive"}
+          </button>
         </div>
+
+        {rows !== null && !failed && (
+          <p className="text-[11px] text-[var(--muted-foreground)] px-1" data-scroll-reveal>
+            {rows.length} papers in {groups.length} groups (Paper 1 + Paper 2 paired per year)
+            {medium ? ` · ${medium === "sinhala" ? "සිංහල" : "English"} only` : ""}
+          </p>
+        )}
+
+        {syncMsg && (
+          <div className="p-3 rounded-2xl border border-[var(--glass-border)] surface-glass-base text-xs text-[var(--muted-foreground)] backdrop-blur-md" data-scroll-reveal>
+            {syncMsg}
+          </div>
+        )}
 
         {seeding && (
           <div className="p-4 rounded-2xl border border-[var(--primary)]/30 bg-[var(--ember-0)] text-xs text-[var(--primary)] flex items-center gap-2 backdrop-blur-md" data-scroll-reveal>
@@ -267,7 +310,6 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
             const mcqPart = group.find((g) => g.paper_no === 1);
             const essayPart = group.find((g) => g.paper_no === 2);
             const targetId = mcqPart?.id ?? head.id;
-            const isStarting = startingId === targetId;
 
             return (
               <BentoCard
@@ -283,7 +325,7 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
               >
                 <div
                   className="cursor-pointer"
-                  onClick={() => setStudyPaperId(targetId)}
+                  onClick={() => openStudyPage(targetId)}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 space-y-1">
@@ -307,17 +349,27 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
                   <div className="mt-4 flex flex-wrap gap-1.5 text-[11px] font-semibold">
                     {mcqPart && (
                       <span className="px-2.5 py-1 rounded-xl bg-[var(--ember-0)] text-[var(--primary)] border border-[var(--ember-line)]/30 flex items-center gap-1.5 shadow-sm">
-                        <FileText size={12} /> P1 MCQ · {mcqPart.question_count}Q · <Clock size={12} /> 2h
+                        <FileText size={12} /> P1 MCQ · {mcqPart.question_count}Q · <Clock size={12} /> {fmtDur(mcqPart.default_duration_seconds)}
                       </span>
                     )}
                     {essayPart && (
                       <span className="px-2.5 py-1 rounded-xl surface-glass-base text-[var(--muted-foreground)] border border-[var(--glass-border)] flex items-center gap-1.5">
-                        P2 Essay · {essayPart.question_count}Q · <Clock size={12} /> 3h
+                        P2 Essay · {essayPart.question_count}Q · <Clock size={12} /> {fmtDur(essayPart.default_duration_seconds)}
                       </span>
                     )}
-                    <span className="px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 flex items-center gap-1">
-                      Keys Included
-                    </span>
+                    {mcqPart?.has_scheme_keys && essayPart?.has_scheme_keys ? (
+                      <span className="px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 flex items-center gap-1">
+                        Keys Included
+                      </span>
+                    ) : mcqPart?.has_scheme_keys ? (
+                      <span className="px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 flex items-center gap-1">
+                        P1 Keys · P2 AI-graded
+                      </span>
+                    ) : (
+                      <span className="px-2.5 py-1 rounded-xl bg-sky-500/10 text-sky-300 border border-sky-500/25 flex items-center gap-1">
+                        AI-graded · No official key
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -326,7 +378,7 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      setStudyPaperId(targetId);
+                      openStudyPage(targetId);
                     }}
                     className="flex-1 py-2 px-3 rounded-xl surface-glass-base border border-[var(--glass-border)] text-xs font-semibold text-[var(--foreground)] hover:text-[var(--primary)] hover:border-[var(--ember-line)] transition-all flex items-center justify-center gap-1.5 shadow-sm"
                   >
@@ -335,49 +387,23 @@ function Hub({ onStarted }: { onStarted: (sid: string, parts: Array<{ exam_id: s
                   </button>
                   <button
                     type="button"
-                    disabled={isStarting}
                     onClick={(e) => {
                       e.stopPropagation();
-                      void startSitting(targetId);
+                      startSitting(targetId);
                     }}
+                    title="Open in the Study Room — same timer, same monitoring"
                     className="flex-1 py-2 px-3 rounded-xl bg-[var(--primary)] text-white text-xs font-bold shadow-[0_2px_10px_var(--glow-primary)] hover:opacity-95 disabled:opacity-50 transition-all flex items-center justify-center gap-1.5"
                   >
-                    {isStarting ? (
-                      <Loader2 size={13} className="animate-spin" />
-                    ) : (
-                      <Play size={13} className="fill-current" />
-                    )}
+                    <Play size={13} className="fill-current" />
                     <span>Timed Exam</span>
                   </button>
                 </div>
-
-                {isStarting && (
-                  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center text-xs font-bold gap-2 z-20">
-                    <Loader2 size={16} className="animate-spin text-[var(--primary)]" />
-                    <span>Preparing Exam Room…</span>
-                  </div>
-                )}
               </BentoCard>
             );
           })}
         </BentoGrid>
 
-        {startError && (
-          <p className="text-xs text-red-400 p-3 rounded-xl bg-red-500/10 border border-red-500/20">{startError}</p>
-        )}
-
         <MySessions onOpen={(sid, parts) => onStarted(sid, parts)} />
-
-        {studyPaperId && (
-          <PaperStudyModal
-            bankPaperId={studyPaperId}
-            onClose={() => setStudyPaperId(null)}
-            onStartExam={(id) => {
-              setStudyPaperId(null);
-              void startSitting(id);
-            }}
-          />
-        )}
       </div>
     </div>
   );

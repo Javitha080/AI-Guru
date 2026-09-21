@@ -33,7 +33,7 @@ export default function ThinkingOrbsShowcase() {
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <div>
           <h2 className="flex items-center gap-2 text-xl font-bold tracking-tight text-zinc-100">
-            <Sparkles className="h-5 w-5 text-[#E06D44]" />
+            <Sparkles className="h-5 w-5 text-[var(--primary)]" />
             AI Guru Thinking Orbs & Animation Suite
           </h2>
           <p className="text-xs text-zinc-400">
@@ -44,7 +44,7 @@ export default function ThinkingOrbsShowcase() {
         {/* Global Controls */}
         <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-zinc-800/80 bg-zinc-900/90 p-2 text-xs">
           <div className="flex items-center gap-2 px-2">
-            <Gauge className="h-3.5 w-3.5 text-[#E06D44]" />
+            <Gauge className="h-3.5 w-3.5 text-[var(--primary)]" />
             <span className="text-zinc-400">Speed:</span>
             <input
               type="range"
@@ -53,7 +53,7 @@ export default function ThinkingOrbsShowcase() {
               step="0.1"
               value={speed}
               onChange={(e) => setSpeed(parseFloat(e.target.value))}
-              className="h-1.5 w-20 accent-[#E06D44]"
+              className="h-1.5 w-20 accent-[var(--primary)]"
             />
             <span className="w-8 font-mono text-zinc-200">{speed.toFixed(1)}x</span>
           </div>
@@ -66,7 +66,7 @@ export default function ThinkingOrbsShowcase() {
               onClick={() => setSize(64)}
               className={`rounded-lg px-2 py-1 font-mono text-xs transition ${
                 size === 64
-                  ? "bg-[#E06D44] font-bold text-white shadow-md shadow-[#E06D44]/30"
+                  ? "bg-[var(--primary)] font-bold text-white shadow-md shadow-[var(--glow-primary)]"
                   : "text-zinc-400 hover:text-zinc-200"
               }`}
             >
@@ -76,7 +76,7 @@ export default function ThinkingOrbsShowcase() {
               onClick={() => setSize(20)}
               className={`rounded-lg px-2 py-1 font-mono text-xs transition ${
                 size === 20
-                  ? "bg-[#E06D44] font-bold text-white shadow-md shadow-[#E06D44]/30"
+                  ? "bg-[var(--primary)] font-bold text-white shadow-md shadow-[var(--glow-primary)]"
                   : "text-zinc-400 hover:text-zinc-200"
               }`}
             >
@@ -173,7 +173,7 @@ export default function ThinkingOrbsShowcase() {
                 onClick={() => setSelectedState(item.state)}
                 className={`group cursor-pointer rounded-2xl border p-4 transition-all duration-300 ${
                   isSelected
-                    ? "border-[#E06D44]/60 bg-zinc-900 shadow-xl shadow-[#E06D44]/10"
+                    ? "border-[var(--ember-line)] bg-zinc-900 shadow-xl shadow-[var(--glow-primary)]"
                     : "border-zinc-800/80 bg-[#121316]/70 hover:border-zinc-700 hover:bg-[#15161a]"
                 }`}
               >

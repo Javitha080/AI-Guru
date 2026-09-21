@@ -21,7 +21,7 @@ from deeptutor.services.monitoring.system_monitor import (
 )
 from deeptutor.services.monitoring.warning_manager import WarningManager
 from deeptutor.services.remote.telegram_command_listener import (
-    _boost_state,
+    _boost_for,
     _run_boostalert_action,
     parse_command,
 )
@@ -110,8 +110,8 @@ class TestBoostAlertCommands:
         reply = await _run_boostalert_action("boostalert_strict:45", chat_id="555000111")
         assert "Boosted to STRICT" in reply
         assert "45 minutes" in reply
-        assert _boost_state["active"] is True
-        assert _boost_state["duration_minutes"] == 45
+        assert _boost_for("default")["active"] is True
+        assert _boost_for("default")["duration_minutes"] == 45
 
         status_reply = await _run_boostalert_action("boostalert_status", chat_id="555000111")
         assert "STRICT" in status_reply
@@ -119,12 +119,37 @@ class TestBoostAlertCommands:
 
         off_reply = await _run_boostalert_action("boostalert_off", chat_id="555000111")
         assert "Reset to Balanced" in off_reply
-        assert _boost_state["active"] is False
+        assert _boost_for("default")["active"] is False
+
+    async def test_boost_state_isolated_per_parent(self):
+        off_a = await _run_boostalert_action(
+            "boostalert_off", chat_id="chat-a", parent_id="parent-iso-a"
+        )
+        assert "Reset to Balanced" in off_a
+        strict_a = await _run_boostalert_action(
+            "boostalert_strict:30", chat_id="chat-a", parent_id="parent-iso-a"
+        )
+        assert "30 minutes" in strict_a
+        # A second parent boosting must not touch the first parent's timer.
+        strict_b = await _run_boostalert_action(
+            "boostalert_strict:10", chat_id="chat-b", parent_id="parent-iso-b"
+        )
+        assert "10 minutes" in strict_b
+        assert _boost_for("parent-iso-a")["active"] is True
+        assert _boost_for("parent-iso-a")["duration_minutes"] == 30
+        assert _boost_for("parent-iso-a")["chat_id"] == "chat-a"
+        assert _boost_for("parent-iso-b")["duration_minutes"] == 10
+        await _run_boostalert_action("boostalert_off", chat_id="chat-a", parent_id="parent-iso-a")
+        await _run_boostalert_action("boostalert_off", chat_id="chat-b", parent_id="parent-iso-b")
+        assert _boost_for("parent-iso-a")["active"] is False
+        assert _boost_for("parent-iso-b")["active"] is False
 
     async def test_boostalert_test_command(self):
         reply = await _run_boostalert_action("boostalert_test", chat_id="555000111")
         assert "Alert System Verification" in reply
-        assert "ONLINE & VERIFIED" in reply
+        # Honest verification: delivered when flush succeeds, QUEUED otherwise
+        # (test env has no Telegram config, so delivery can't confirm).
+        assert ("ONLINE & VERIFIED" in reply) or ("QUEUED" in reply)
 
     async def test_boostalert_multitenancy_parent_id(self):
         # parent_id updates both supervision_rules_{parent_id} and default
@@ -215,8 +240,39 @@ class TestExamStrictnessInvariantAndLifecycle:
         assert res1.distraction_type == "DROWSINESS"
         assert res1.duration_seconds >= 2.5
 
-    async def test_exam_room_lifecycle_integration(self):
+    async def test_exam_room_lifecycle_integration(self, tmp_path, monkeypatch):
         """Verify exam start creates study session, get returns session_id, and submit completes session."""
+        import sqlite3 as _sqlite3
+
+        from deeptutor.services.database.migrations import apply_migrations
+
+        db_path = tmp_path / "chat_history.db"
+        conn = _sqlite3.connect(db_path)
+        apply_migrations(conn)
+        conn.close()
+
+        class _FakePathService:
+            user_dir = tmp_path
+
+        monkeypatch.setattr(
+            "deeptutor.services.study.session_manager.get_path_service",
+            lambda: _FakePathService(),
+        )
+        monkeypatch.setattr(
+            "deeptutor.services.study.telemetry_logger.get_path_service",
+            lambda: _FakePathService(),
+        )
+        monkeypatch.setattr(
+            "deeptutor.services.study.report_generator.get_path_service",
+            lambda: _FakePathService(),
+        )
+        from deeptutor.services.exams import store as _exam_store
+
+        monkeypatch.setattr(_exam_store, "_db_path", lambda: db_path)
+        from deeptutor.services.gamification import gamification_service as _gam
+
+        monkeypatch.setattr(_gam, "_db_path", lambda: db_path)
+
         from deeptutor.api.routers.exams import (
             SubmitAnswersRequest,
             get_exam,

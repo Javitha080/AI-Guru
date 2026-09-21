@@ -10,7 +10,10 @@ export function useMonitorMode(isActive: boolean, sessionId: string | null) {
   const [monitorMode, setMonitorMode] = useState<MonitorMode | null>(null);
 
   useEffect(() => {
-    if (!isActive || monitorMode !== null) return;
+    // Wait for the backend session row: probing before sessionId exists locks
+    // in "browser" (sessionId null forces the fallback branch) and the
+    // `monitorMode !== null` guard then never re-probes.
+    if (!isActive || !sessionId || monitorMode !== null) return;
     let cancelled = false;
     (async () => {
       try {

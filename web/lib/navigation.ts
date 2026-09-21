@@ -7,6 +7,7 @@ import {
   LayoutGrid,
   Brain,
   BookOpen,
+  BookOpenCheck,
   Timer,
   Trophy,
   Shield,
@@ -27,6 +28,7 @@ export interface NavEntry {
 export const DOCK_NAV: NavEntry[] = [
   { href: "/home", label: "Home", icon: House, tooltipKey: "Home tooltip", requires: "llm" },
   { href: "/study-room", label: "Study Room", icon: Timer, tooltipKey: "Study Room" },
+  { href: "/papers", label: "Paper Bank", icon: BookOpenCheck, tooltipKey: "Paper Bank tooltip" },
   { href: "/achievements", label: "Achievements", icon: Trophy, tooltipKey: "Achievements" },
   { href: "/partners", label: "Partners", icon: HeartHandshake, tooltipKey: "Partners tooltip", requires: "llm" },
   { href: "/agents", label: "My Agents", icon: Bot, tooltipKey: "Agents tooltip" },

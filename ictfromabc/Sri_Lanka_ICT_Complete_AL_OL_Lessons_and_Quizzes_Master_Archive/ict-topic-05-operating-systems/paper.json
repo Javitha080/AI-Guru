@@ -1,0 +1,577 @@
+[
+  {
+    "id": "ict-topic-05-operating-systems-q01",
+    "number": 1,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 1: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 1 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 1
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q02",
+    "number": 2,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 2: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 2 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 2
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q03",
+    "number": 3,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 3: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 3 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 3
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q04",
+    "number": 4,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 4: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 4 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 4
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q05",
+    "number": 5,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 5: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 5 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 5
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q06",
+    "number": 6,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 6: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 6 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 6
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q07",
+    "number": 7,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 7: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 7 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 7
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q08",
+    "number": 8,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 8: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 8 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 8
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q09",
+    "number": 9,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 9: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 9 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 9
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q10",
+    "number": 10,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 10: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 10 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 10
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q11",
+    "number": 11,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 11: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 11 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 11
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q12",
+    "number": 12,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 12: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 12 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 12
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q13",
+    "number": 13,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 13: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 13 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 13
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q14",
+    "number": 14,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 14: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 14 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 14
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q15",
+    "number": 15,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 15: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 15 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 15
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q16",
+    "number": 16,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 16: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 16 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 16
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q17",
+    "number": 17,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 17: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 17 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 17
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q18",
+    "number": 18,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 18: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 18 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 18
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q19",
+    "number": 19,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 19: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 19 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 19
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q20",
+    "number": 20,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 20: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 20 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 20
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q21",
+    "number": 21,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 21: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 21 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 21
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q22",
+    "number": 22,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 22: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 22 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 22
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q23",
+    "number": 23,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 23: What is the primary purpose of Virtual Memory in modern operating systems?",
+    "diagrams": [],
+    "options": {
+      "A": "To replace physical RAM permanently",
+      "B": "To allow processes to execute whose memory requirement exceeds physical RAM",
+      "C": "To speed up CPU clock frequency",
+      "D": "To prevent virus execution",
+      "E": "To increase hard drive rotational speed"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 23 Analysis: Virtual memory uses secondary storage as an extension of physical RAM via paging or segmentation.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 23
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q24",
+    "number": 24,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 24: When a running process requests disk input/output, its state transitions from",
+    "diagrams": [],
+    "options": {
+      "A": "Running to Ready",
+      "B": "Running to Blocked (Waiting)",
+      "C": "Blocked to Running",
+      "D": "Ready to Blocked",
+      "E": "Running to Terminated"
+    },
+    "reference_answer": "B",
+    "explanation": "Question 24 Analysis: A process waiting for an I/O event is moved to the Blocked/Waiting state until the transfer completes.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 24
+    }
+  },
+  {
+    "id": "ict-topic-05-operating-systems-q25",
+    "number": 25,
+    "section": "topic_bank",
+    "question_type": "choice",
+    "marks": 1.0,
+    "stem": "Item 25: Which operating system scheduler is responsible for selecting a process from the Ready queue and allocating the CPU?",
+    "diagrams": [],
+    "options": {
+      "A": "Long-term scheduler",
+      "B": "Medium-term scheduler",
+      "C": "Short-term (CPU) scheduler",
+      "D": "I/O dispatcher",
+      "E": "Virtual memory pager"
+    },
+    "reference_answer": "C",
+    "explanation": "Question 25 Analysis: The short-term scheduler (CPU scheduler) frequently dispatches ready processes to execute on the CPU.",
+    "metadata": {
+      "subject": "ict",
+      "topic": "ict-topic-05-operating-systems",
+      "curriculum_unit": 25
+    }
+  }
+]

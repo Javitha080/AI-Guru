@@ -30,10 +30,9 @@ export default function PlaceholderBlock({ block }: PlaceholderBlockProps) {
       <div>
         <div className="font-medium text-[var(--foreground)]">{t(label)}</div>
         <div className="text-xs">
-          {t(
-            "Coming in Phase 2 – {{type}} block will appear here once the generator is wired.",
-            { type: t(intended) },
-          )}
+          {t("Custom block ({{type}}): content preview currently unavailable.", {
+            type: t(intended),
+          })}
         </div>
       </div>
     </div>

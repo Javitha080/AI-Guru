@@ -23,11 +23,20 @@ import aiosqlite
 
 from deeptutor.services.path_service import get_path_service
 
-DEFAULT_PERMISSIONS = {"can_view_live": True, "can_view_reports": True, "can_manage_goals": True}
+DEFAULT_PERMISSIONS = {"can_view_live": True, "can_view_reports": True, "can_manage_goals": True, "can_voice_interrupt": True}
+
+# In-memory verify-code attempt tracker: parent_id -> (failed_count, lockout_until).
+# Success clears the budget; lockout raises before any DB lookup.
+_VERIFY_ATTEMPTS: Dict[str, tuple[int, float]] = {}
 
 
 class PairingService:
     CODE_TTL_SECONDS = 15 * 60
+    # Brute-force budget for code guessing: 10 bad codes per parent per
+    # 5 minutes, then a temporary lockout. The code space is 900k values —
+    # without a budget an authenticated caller could sweep it.
+    MAX_VERIFY_ATTEMPTS = 10
+    VERIFY_LOCKOUT_SECONDS = 300.0
 
     @staticmethod
     def _get_db_path():
@@ -163,6 +172,12 @@ class PairingService:
     @classmethod
     async def verify_pairing_code(cls, parent_id: str, code: str) -> Optional[Dict[str, Any]]:
         now = time.time()
+        pid = (parent_id or "default").strip() or "default"
+        failed, locked_until = _VERIFY_ATTEMPTS.get(pid, (0, 0.0))
+        if now < locked_until:
+            raise ValueError(
+                f"Too many invalid pairing attempts. Try again in {int(locked_until - now)} seconds."
+            )
         async with aiosqlite.connect(cls._get_db_path()) as db:
             # Tables first (lookup needs them); identity rows for the ACTUAL
             # pair afterwards — the code names the student, not a hardcoded id.
@@ -175,7 +190,14 @@ class PairingService:
             )
             link = await cursor.fetchone()
             if not link:
+                failed += 1
+                if failed >= cls.MAX_VERIFY_ATTEMPTS:
+                    _VERIFY_ATTEMPTS[pid] = (failed, now + cls.VERIFY_LOCKOUT_SECONDS)
+                else:
+                    _VERIFY_ATTEMPTS[pid] = (failed, 0.0)
                 return None
+            # Success clears the brute-force budget for this parent.
+            _VERIFY_ATTEMPTS.pop(pid, None)
 
             student_id = str(link["student_id"])
             await cls._ensure_identity_rows(db, parent_id=parent_id, student_id=student_id)

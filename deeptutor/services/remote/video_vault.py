@@ -82,15 +82,23 @@ class VideoVaultManager:
 
     @classmethod
     def get_vault_dir(cls) -> Path:
-        vault_dir = get_path_service().user_dir / cls.VAULT_DIR_NAME
-        vault_dir.mkdir(parents=True, exist_ok=True)
-        return vault_dir
+        try:
+            vault_dir = get_path_service().user_dir / cls.VAULT_DIR_NAME
+            vault_dir.mkdir(parents=True, exist_ok=True)
+            return vault_dir
+        except OSError as exc:
+            logger.warning("Vault dir unavailable: %s", exc)
+            raise RuntimeError("Vault storage unavailable. Check disk permissions.") from exc
 
     @classmethod
     def get_pending_dir(cls) -> Path:
-        pending_dir = cls.get_vault_dir() / cls.PENDING_DIR_NAME
-        pending_dir.mkdir(parents=True, exist_ok=True)
-        return pending_dir
+        try:
+            pending_dir = cls.get_vault_dir() / cls.PENDING_DIR_NAME
+            pending_dir.mkdir(parents=True, exist_ok=True)
+            return pending_dir
+        except (OSError, RuntimeError) as exc:
+            logger.warning("Vault pending dir unavailable: %s", exc)
+            raise RuntimeError("Vault storage unavailable. Check disk permissions.") from exc
 
     @classmethod
     def count_pending(cls) -> int:
@@ -459,7 +467,12 @@ class VideoVaultManager:
         ``"abc123"`` items into a query for ``"abc"``.
         """
         snapshots: List[Dict[str, Any]] = []
-        for file in cls.get_vault_dir().glob("*.vault"):
+        try:
+            vault_files = list(cls.get_vault_dir().glob("*.vault"))
+        except RuntimeError as exc:  # noqa: BLE001 - storage unavailable reads as empty
+            logger.debug("Vault list skipped: %s", exc)
+            return []
+        for file in vault_files:
             name = file.name
             stem = name[: -len(".vault")]
             # Current format first (its rand segment would otherwise parse
@@ -485,13 +498,17 @@ class VideoVaultManager:
                 magic = file.open("rb").read(len(_MAGIC_V2))
             except OSError:
                 magic = b""
+            try:
+                size_bytes = file.stat().st_size
+            except OSError:  # noqa: BLE001 - raced deletion reads as skipped
+                continue
             snapshots.append(
                 {
                     "clip_id": name,
                     "session_id": sess,
                     "timestamp": ts,
                     "event_type": evt,
-                    "size_bytes": file.stat().st_size,
+                    "size_bytes": size_bytes,
                     "is_encrypted": True,
                     "format": "v2"
                     if magic == _MAGIC_V2

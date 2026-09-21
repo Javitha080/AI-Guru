@@ -74,8 +74,7 @@ test("Gemini 2.5 Flash can explicitly disable reasoning", () => {
   ]);
 });
 
-test("known reasoning families get conservative provider-specific choices", () => {
-  assert.deepEqual(values("openai", "gpt-5.2"), [
+test("known reasoning families get conservative provider-specific choices", () => {  assert.deepEqual(values("openai", "gpt-5.2"), [
     "",
     "minimal",
     "low",
@@ -106,8 +105,42 @@ test("unknown models stay hidden unless they already carry an override", () => {
   ]);
 });
 
-test("Auto removes the catalog field instead of persisting an empty string", () => {
-  const model: { reasoning_effort?: string } = {
+test("free providers expose effort only where the API accepts it", () => {
+  // Groq gpt-oss / qwen3.6 take reasoning_effort; other Groq reasoning
+  // models include thoughts by default with no switch.
+  assert.deepEqual(values("groq", "openai/gpt-oss-20b"), [
+    "",
+    "low",
+    "medium",
+    "high",
+  ]);
+  assert.deepEqual(values("groq", "qwen/qwen3.6-27b"), [
+    "",
+    "none",
+    "low",
+    "medium",
+    "high",
+  ]);
+  assert.deepEqual(values("groq", "llama-3.3-70b-versatile"), []);
+  assert.deepEqual(values("groq", "deepseek-r1-distill-llama-70b"), []);
+
+  // OpenRouter reasoning models (incl. :free) get a full scale;
+  // non-reasoning ids stay hidden.
+  assert.deepEqual(values("openrouter", "deepseek/deepseek-r1:free"), [
+    "",
+    "minimal",
+    "low",
+    "medium",
+    "high",
+  ]);
+  assert.deepEqual(values("openrouter", "meta-llama/llama-3.3-70b-instruct:free"), []);
+
+  // Local servers stream <think> inline with no effort switch.
+  assert.deepEqual(values("ollama", "qwen3:8b"), []);
+  assert.deepEqual(values("ollama", "deepseek-r1:7b"), []);
+});
+
+test("Auto removes the catalog field instead of persisting an empty string", () => {  const model: { reasoning_effort?: string } = {
     reasoning_effort: "high",
   };
   setModelReasoningEffort(model, "");

@@ -640,7 +640,6 @@ function FollowupChatComposerImpl({ context }: FollowupChatComposerProps) {
         isVisualizeMode={false}
         capabilityNeedsConfig={false}
         capabilityConfigConfirmed={true}
-        onRequestConfigConfirm={() => {}}
         capabilities={FOLLOWUP_CAPABILITIES}
         onSetCapMenuOpen={setCapMenuOpen}
         onSetSpaceMenuOpen={setSpaceMenuOpen}
@@ -650,7 +649,6 @@ function FollowupChatComposerImpl({ context }: FollowupChatComposerProps) {
         onSelectBookPicker={handleSelectBookPicker}
         onSelectHistoryPicker={handleSelectHistoryPicker}
         agentsAvailable={false}
-        onSelectAgentsPicker={() => {}}
         onSelectQuestionBankPicker={handleSelectQuestionBankPicker}
         onSelectPersonaPicker={handleSelectPersonaPicker}
         onSelectMemoryPicker={handleSelectMemoryPicker}
@@ -659,7 +657,6 @@ function FollowupChatComposerImpl({ context }: FollowupChatComposerProps) {
         onSend={handleSend}
         onRemoveAttachment={removeAttachment}
         onRemoveHistory={handleRemoveHistory}
-        onRemoveAgent={() => {}}
         onRemoveBookReference={handleRemoveBookReference}
         onRemoveNotebook={handleRemoveNotebook}
         onRemoveQuestion={handleRemoveQuestion}
@@ -669,7 +666,6 @@ function FollowupChatComposerImpl({ context }: FollowupChatComposerProps) {
         onDrop={handleDrop}
         onPaste={handlePaste}
         onAddFiles={handleAddFiles}
-        onSelectCapability={() => {}}
         onCancelStreaming={handleCancelStreaming}
         inputPlaceholder={t(
           "Ask anything about this question, your answer, or the AI judgment.",

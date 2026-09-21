@@ -220,7 +220,7 @@ async def create_book(req: CreateBookRequest) -> dict[str, Any]:
         )
     except Exception as exc:  # noqa: BLE001
         logger.error(f"create_book failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     return {
         "book": book.model_dump(mode="json"),
         "proposal": proposal.model_dump(mode="json"),
@@ -243,7 +243,7 @@ async def confirm_proposal(req: ConfirmProposalRequest) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
         logger.error(f"confirm_proposal failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     return {
         "book": book.model_dump(mode="json"),
         "spine": spine.model_dump(mode="json"),
@@ -270,7 +270,7 @@ async def confirm_spine(req: ConfirmSpineRequest) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
         logger.error(f"confirm_spine failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     return {"pages": [p.model_dump(mode="json") for p in pages]}
 
 
@@ -284,7 +284,7 @@ async def compile_page(req: CompilePageRequest) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
         logger.error(f"compile_page failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     return {"page": page.model_dump(mode="json")}
 
 
@@ -300,7 +300,7 @@ async def regenerate_block(req: RegenerateBlockRequest) -> dict[str, Any]:
         )
     except Exception as exc:  # noqa: BLE001
         logger.error(f"regenerate_block failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     if block is None:
         raise HTTPException(status_code=404, detail="Block not found")
     return {"block": block.model_dump(mode="json")}
@@ -335,7 +335,7 @@ async def insert_block(req: InsertBlockRequest) -> dict[str, Any]:
         )
     except Exception as exc:  # noqa: BLE001
         logger.error(f"insert_block failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     if block is None:
         raise HTTPException(status_code=404, detail="Page or chapter not found")
     return {"block": block.model_dump(mode="json")}
@@ -378,7 +378,7 @@ async def change_block_type(req: ChangeBlockTypeRequest) -> dict[str, Any]:
         )
     except Exception as exc:  # noqa: BLE001
         logger.error(f"change_block_type failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     if block is None:
         raise HTTPException(status_code=404, detail="Block not found")
     return {"block": block.model_dump(mode="json")}
@@ -398,7 +398,7 @@ async def deep_dive(req: DeepDiveRequest) -> dict[str, Any]:
         )
     except Exception as exc:  # noqa: BLE001
         logger.error(f"deep_dive failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     if page is None:
         raise HTTPException(status_code=404, detail="Parent page not found")
     return {"page": page.model_dump(mode="json")}
@@ -446,7 +446,7 @@ async def supplement(req: SupplementRequest) -> dict[str, Any]:
         )
     except Exception as exc:  # noqa: BLE001
         logger.error(f"supplement failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     if block is None:
         raise HTTPException(status_code=404, detail="Page not found")
     return {"block": block.model_dump(mode="json")}
@@ -474,7 +474,7 @@ async def rebuild_book(req: RebuildBookRequest) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
         logger.error(f"rebuild_book failed: {exc}", exc_info=True)
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     return {"pages": [p.model_dump(mode="json") for p in pages]}
 
 

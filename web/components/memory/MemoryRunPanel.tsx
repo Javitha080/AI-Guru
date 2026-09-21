@@ -89,6 +89,7 @@ export default function MemoryRunPanel({
   const [modelOptions, setModelOptions] = useState<LLMOption[]>([]);
   const [modelLoading, setModelLoading] = useState(true);
   const [modelError, setModelError] = useState(false);
+  const [resetError, setResetError] = useState<string | null>(null);
   const [settings, setSettings] = useState<MemorySettingsDTO | null>(null);
 
   // Load LLM options + memory settings once.
@@ -223,6 +224,7 @@ export default function MemoryRunPanel({
 
   const handleReset = useCallback(async () => {
     if (isRunning) return;
+    setResetError(null);
     const ok =
       typeof window !== "undefined" &&
       window.confirm(
@@ -249,13 +251,11 @@ export default function MemoryRunPanel({
       clear();
       onDocUpdated?.();
     } catch (e) {
-      if (typeof window !== "undefined") {
-        window.alert(
-          t("Reset failed: {{msg}}", {
-            msg: e instanceof Error ? e.message : t("unknown error"),
-          }),
-        );
-      }
+      setResetError(
+        t("Reset failed: {{msg}}", {
+          msg: e instanceof Error ? e.message : t("unknown error"),
+        }),
+      );
     }
   }, [isRunning, t, layer, docKey, clear, onDocUpdated]);
 
@@ -305,6 +305,24 @@ export default function MemoryRunPanel({
           </button>
         </div>
       </header>
+
+      {resetError && (
+        <div
+          role="alert"
+          className="flex items-center gap-1.5 border-b border-red-200 bg-red-50 px-3 py-1.5 text-[11.5px] text-red-700 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300"
+        >
+          <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+          <span className="min-w-0 flex-1 truncate">{resetError}</span>
+          <button
+            type="button"
+            onClick={() => setResetError(null)}
+            className="shrink-0 rounded px-1 hover:bg-red-100 dark:hover:bg-red-900/40"
+            aria-label={t("Dismiss")}
+          >
+            ×
+          </button>
+        </div>
+      )}
 
       {/* Composer — two evenly-distributed rows pinned at the top */}
       <div className="space-y-2 border-b border-[var(--border)] bg-[var(--background)]/40 px-3 py-2.5">

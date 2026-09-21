@@ -1,617 +1,218 @@
 [
   {
-    "id": "al-2011-ict-si-p2-q1",
+    "id": "al-2011-p2-q01",
     "number": 1,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "ප්‍රථම පරිගණක පරම්පරා, ක්‍රමලේඛ ක්‍රියාත්මක වීමේ ආභරණ-ක්‍රියාකරවුම් චක්‍රය සහ දෙකෙහි අනුපූරක ද්විමය අංක ගණිතය පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
+    "stem": "G.C.E. (A/L) 2011 ICT Paper II Question 1 (Structured Essay): Computer Architecture, Memory Hierarchy, and Data Representation.",
     "diagrams": [
-      {
-        "id": "d_fetch_execute",
-        "src": "images/q1b_fetch_execute.png",
-        "alt": "ආභරණ-ක්‍රියාකරවුම් චක්‍රය (Fetch-Decode-Execute-Store Cycle) නිරූපණය කෙරෙන රූපසටහන",
-        "caption": "රූපය 1: ආභරණ-ක්‍රියාකරවුම් චක්‍රය"
-      }
+      "images/p2_q01_fetch_execute.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "1.a",
-        "label": "(a)",
-        "stem": "ප්‍රථම පරිගණක පරම්පරා හතර සඳහා භාවිත කර ඇති ප්‍රධාන තාක්ෂණ සඳහන් කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "1. පළමුවන පරම්පරාව (First Generation): රික්තක නළ (Vacuum Tubes)\n2. දෙවන පරම්පරාව (Second Generation): ට්‍රාන්සිස්ටර (Transistors)\n3. තෙවන පරම්පරාව (Third Generation): අනුකලිත පරිපථ [Integrated Circuits (ICs)]\n4. සිව්වන පරම්පරාව (Fourth Generation): ක්ෂුද්‍ර සකසන (Microprocessors) / අතිවිශාල පරිමාණ අනුකලිත පරිපථ (VLSI)",
-        "marking_guide": "පරම්පරා 4 හි ප්‍රධාන තාක්ෂණයන් නිවැරදිව නම් කිරීම සඳහා එක් පරම්පරාවකට ලකුණු 0.5 බැගින් (උපරිම ලකුණු 2.0)."
+        "part": "(a)",
+        "stem": "Explain the primary differences between static RAM (SRAM) and dynamic RAM (DRAM) in terms of construction, speed, and typical use.",
+        "marks": 3.0,
+        "model_answer": "SRAM is constructed from flip-flops (transistors), does not require periodic electrical refresh cycles, operates at significantly higher speeds, and is used for CPU cache memory. DRAM uses capacitor-transistor memory cells that require continuous refreshing, operates slower, and is used for main system RAM."
       },
       {
-        "sub_id": "1.b",
-        "label": "(b)",
-        "stem": "ක්‍රමලේඛ ක්‍රියාත්මක වීමේදී භාවිත වන ආභරණ ක්‍රියාකරවුම් චක්‍රය (Fetch-execute cycle) නිරූපණය කිරීමට රූපසටහනක් අඳින්න.",
-        "marks": 4.0,
-        "expected_answer": "චක්‍රීය රූප සටහන:\n1. මතකයෙන් උපදෙස් ලබා ගැනීම (Fetch Instruction from Memory)\n2. උපදෙස් විකේතනය කිරීම (Decode Instruction in Control Unit)\n3. උපදෙස් ක්‍රියාත්මක කිරීම (Execute Instruction in ALU / Execution Units)\n4. ප්‍රතිඵල ආචයනය / නැවත ලිවීම (Store / Write-back Result)\n\nමෙම පියවර අවසානයේ නැවත ඊළඟ උපදෙස ලබා ගැනීමට (Fetch වෙත) චක්‍රීයව ගමන් කරයි.",
-        "marking_guide": "Fetch, Decode, Execute, Store යන ප්‍රධාන පියවර 4 නිවැරදි අනුපිළිවෙළින් හා චක්‍රීය ඊතල සහිතව නිරූපණය කිරීම සඳහා ලකුණු 4.0."
+        "part": "(b)",
+        "stem": "Describe the role of the Program Counter (PC), Instruction Register (IR), and Memory Address Register (MAR) during instruction fetch.",
+        "marks": 3.0,
+        "model_answer": "The Program Counter holds the memory address of the next instruction to execute. During fetch, this address is copied into the MAR, which places it on the address bus. The retrieved instruction word is held in the MBR and placed in the IR for decoding by the Control Unit."
       },
       {
-        "sub_id": "1.c",
-        "label": "(c)",
-        "stem": "බිටු අටේ ($8\\text{-bit}$) දෙකෙහි අනුපූරක (Two's complement) අංක ගණිතය මගින් $5 + (-3)$ ආගණනය කරන අයුරු පෙන්වන්න. වැඩිම වෙසෙසි බිටුව (Most significant bit - MSB) මගින් උත්පාදනය වූ ආගීතය (Carry) සමග ඔබ කටයුතු කරන ආකාරය පැහැදිලි කරන්න.",
+        "part": "(c)",
+        "stem": "Represent -28 in 8-bit two's complement format. Show all intermediate steps.",
         "marks": 4.0,
-        "expected_answer": "1. $+5$ හි $8\\text{-bit}$ නිරූපණය: $0000\\,0101_2$\n2. $+3$ හි $8\\text{-bit}$ නිරූපණය: $0000\\,0011_2$\n3. $+3$ හි 1 හි අනුපූරකය: $1111\\,1100_2$\n4. $-3$ හි 2 හි අනුපූරකය: $1111\\,1100_2 + 1 = 1111\\,1101_2$\n\nදෙකෙහි අනුපූරක එකතු කිරීම:\n$$\n\\begin{array}{r@{\\quad}l}\n  0000\\,0101_2 & (+5) \\\\\n+ \\; 1111\\,1101_2 & (-3) \\\\\n\\hline\n(1)\\,0000\\,0010_2 & (+2_{10})\n\\end{array}\n$$\n\nවැඩිම වෙසෙසි බිටුවෙන් (MSB) ඔබ්බට උත්පාදනය වන ආගීත බිටුව (Carry bit = 1) දෙකෙහි අනුපූරක ක්‍රමයේදී ඉවත් කරනු ලැබේ (Discard කරනු ලැබේ). අවසන් ප්‍රතිඵලය $0000\\,0010_2 = +2_{10}$ වේ.",
-        "marking_guide": "+5 ලිවීමට ලකුණු 1.0, -3 හි 2 හි අනුපූරකය සෙවීමට ලකුණු 1.0, එකතු කර නිවැරදි ප්‍රතිඵලය ලබාගැනීමට ලකුණු 1.0, Carry බිටුව ඉවත් කරන බව පැහැදිලි කිරීමට ලකුණු 1.0."
+        "model_answer": "+28 in 8-bit binary is 00011100. Step 1 (Invert bits to form 1s complement) gives 11100011. Step 2 (Add 1 to least significant bit) gives 11100011 + 1 = 11100100. Therefore, -28 in 8-bit two's complement representation is 11100100."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2011,
-      "medium": "sinhala",
-      "topic": "Computer Architecture & Arithmetic",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2011-ict-si-p2-q2",
+    "id": "al-2011-p2-q02",
     "number": 2,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "ගොනු පද්ධති (FAT32, NTFS), අතථ්‍යරූපී මතක යොමු කිරීම් සහ මෙහෙයුම් පද්ධති ක්‍රියායන තත්ව පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
-    "diagrams": [
-      {
-        "id": "d_process_state",
-        "src": "images/q2c_process_state.png",
-        "alt": "මෙහෙයුම් පද්ධති ක්‍රියායන තත්ව රූප සටහන",
-        "caption": "රූපය 2: මෙහෙයුම් පද්ධති ක්‍රියායන තත්ව රූප සටහන"
-      }
-    ],
+    "stem": "G.C.E. (A/L) 2011 ICT Paper II Question 2 (Structured Essay): Operating Systems, Process Management, and Storage File Systems.",
+    "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "FAT32 හා NTFS ගොනු පද්ධතිවලට අනුකූලව, පහත දක්වා ඇති වගුවෙහි පළමුවන තීරයෙහි දක්වා ඇති ලක්ෂණ වලට අනුරූප වන දෙවැනි හා තෙවැනි තීරුවල අඩංගු දෑ අතුරෙන් වඩාත් සුදුසු දෙය තෝරන්න:\n\n| ලක්ෂණය | FAT32 | NTFS |\n| :--- | :---: | :---: |\n| ගොනුවක උපරිම ප්‍රමාණය (Maximum file size) | සීමිත / අසීමිත | සීමිත / අසීමිත |\n| ගොනු නාමයේ උපරිම දිග (Maximum file name length) | සීමිත / අසීමිත | සීමිත / අසීමිත |\n| සුරක්ෂිත භාවය (Security) | ඔව් / නැත | ඔව් / නැත |\n| යුනිකේත සඳහා සහාය (Support of Unicode) | ඔව් / නැත | ඔව් / නැත |",
-        "marks": 2.0,
-        "expected_answer": "| ලක්ෂණය | FAT32 | NTFS |\n| :--- | :---: | :---: |\n| ගොනුවක උපරිම ප්‍රමාණය | සීමිත (4 GB) | සීමිත (16 TB) |\n| ගොනු නාමයේ උපරිම දිග | සීමිත (අක්ෂර 255) | සීමිත (අක්ෂර 255) |\n| සුරක්ෂිත භාවය | නැත | ඔව් |\n| යුනිකේත සඳහා සහාය | ඔව් | ඔව් |",
-        "marking_guide": "සෑම නිවැරදි පේළියක් සඳහාම ලකුණු 0.5 බැගින් (උපරිම ලකුණු 2.0)."
-      },
-      {
-        "sub_id": "2.b.i",
-        "label": "(b) (i)",
-        "stem": "පරිගණකයකට බිටු-18 ($18\\text{-bit}$) අතථ්‍යරූපී මතක යොමු අවකාශයක් (Virtual memory address space) ඇති අතර බිටු හයක් පිටු යොමුව (Page address) සඳහා භාවිත කර ඇත.\n\nඉහත යොමු කිරීමේ ක්‍රමය මගින් නිර්වචනය කරන ලද මුළු පිටු සංඛ්‍යාව ගණනය කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "පිටු අංකය සඳහා බිටු 6ක් වෙන් කර ඇති බැවින්:\n$$\\text{මුළු පිටු සංඛ්‍යාව} = 2^6 = 64$$",
-        "marking_guide": "නිවැරදි සූත්‍රය සහ ගණනය කිරීම සඳහා ලකුණු 2.0."
-      },
-      {
-        "sub_id": "2.b.ii",
-        "label": "(b) (ii)",
-        "stem": "පහත දක්වා ඇති අතථ්‍යරූපී මතක යොමුව සලකන්න:\n`010111000000111100`\n\nමෙම යොමුවේ (Address), පිටුව (Page) හා විස්ථාපනය (අනුලම්බය) [Displacement (Offset)] කුමක්ද?",
-        "marks": 2.0,
-        "expected_answer": "යොමුව බිටු කාණ්ඩ දෙකකට වෙන් කිරීම:\n- පිටු අංකය (පළමු බිටු 6): `010111`\n  $$\\text{පිටු අංකය} = 010111_2 = 16 + 4 + 2 + 1 = 23_{10}$$\n- විස්ථාපනය / අනුලම්බය (ඉතිරි බිටු 12): `000000111100`\n  $$\\text{විස්ථාපනය} = 000000111100_2 = 32 + 16 + 8 + 4 = 60_{10} \\quad (3\\text{C}_{16})$$",
-        "marking_guide": "පිටු අංකය නිවැරදිව දැක්වීමට ලකුණු 1.0, විස්ථාපනය නිවැරදිව දැක්වීමට ලකුණු 1.0."
-      },
-      {
-        "sub_id": "2.c",
-        "label": "(c)",
-        "stem": "ක්‍රියායන නිර්මාණයේ සිට අවසන් වීම දක්වා මෙහෙයුම් පද්ධති ක්‍රියායන තත්ව රූප සටහන (Operating system process transition diagram) අඳින්න.",
+        "part": "(a)",
+        "stem": "Explain what a Process Control Block (PCB) is and state four essential pieces of information stored within it.",
         "marks": 4.0,
-        "expected_answer": "ක්‍රියායන තත්ව 5 සහ සංක්‍රාන්ති (Transitions):\n1. [නව (New)] $\\xrightarrow{\\text{admit}}$ [සූදානම් (Ready)]\n2. [සූදානම් (Ready)] $\\xrightarrow{\\text{dispatch}}$ [ධාවනය (Running)]\n3. [ධාවනය (Running)] $\\xrightarrow{\\text{interrupt}}$ [සූදානම් (Ready)]\n4. [ධාවනය (Running)] $\\xrightarrow{\\text{I/O or event wait}}$ [අවහිර/පොරොත්තු (Blocked/Waiting)]\n5. [අවහිර/පොරොත්තු (Blocked/Waiting)] $\\xrightarrow{\\text{I/O or event completion}}$ [සූදානම් (Ready)]\n6. [ධාවනය (Running)] $\\xrightarrow{\\text{exit}}$ [අවසන් (Terminated)]",
-        "marking_guide": "ප්‍රධාන තත්ව 5 ඇඳීමට ලකුණු 2.5, නිවැරදි සංක්‍රාන්ති ඊතල සහ ලේබල් සඳහා ලකුණු 1.5."
+        "model_answer": "A Process Control Block (PCB) is an operating system data structure storing execution context for a process. Key fields: 1. Process ID (PID), 2. Process State (Ready, Running, Blocked), 3. Program Counter (PC), 4. CPU Registers, 5. Memory Management Information."
+      },
+      {
+        "part": "(b)",
+        "stem": "Explain the difference between preemptive and non-preemptive CPU scheduling algorithms with examples.",
+        "marks": 3.0,
+        "model_answer": "In non-preemptive scheduling (e.g. FCFS), once a process gets the CPU, it holds it until termination or I/O request. In preemptive scheduling (e.g. Round Robin, SRTF), the OS can interrupt a running process and assign the CPU to a higher-priority or ready process."
+      },
+      {
+        "part": "(c)",
+        "stem": "A disk has a block size of 4KB. If a file has size 10KB, calculate the internal fragmentation.",
+        "marks": 3.0,
+        "model_answer": "File size = 10KB. Number of 4KB blocks required = ceil(10/4) = 3 blocks (12KB allocated). Internal fragmentation = 12KB - 10KB = 2KB (2048 bytes)."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2011,
-      "medium": "sinhala",
-      "topic": "File Systems & Virtual Memory",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2011-ict-si-p2-q3",
+    "id": "al-2011-p2-q03",
     "number": 3,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "පහත දක්වා ඇති සංසිද්ධිය සලකන්න:\n\nපාසලක සිසුහු වොලිබෝල්, ජවන හා පිටිය මලල ක්‍රීඩා, මේස පන්දු ආදී විවිධ ක්‍රීඩා සඳහා සහභාගි වෙති. ක්‍රීඩා සඳහා සහභාගි වන සිසු සිසුවියන්ගේ ඇතුළත්වීමේ අංකය, ශිෂ්‍ය නාමය, නිවසේ ලිපිනය, පන්තිය හා සහභාගි වන ක්‍රීඩා ඇතුළත් නාම ලේඛනයක් පවත්වාගෙන යාමට විදුහල්පතිවරයාට අවශ්‍යව ඇත. එක් සිසුවකුට එක් ක්‍රීඩාවකට වඩා සහභාගි විය හැකිය. එක් නිශ්චිත ක්‍රීඩාවක් සඳහා එක් සිසුවකුට වඩා වැඩි සංඛ්‍යාවක් සිටිය හැකිය. එක් එක් ශිෂ්‍යයාට කලින් නියම කරන ලද පැය ගණනක් ක්‍රීඩාවක් සඳහා සහභාගී විය හැකිය.",
+    "stem": "G.C.E. (A/L) 2011 ICT Paper II Question 3 (Structured Essay): Relational Database Design, ER Modeling, and Normalization.",
     "diagrams": [
-      {
-        "id": "d_er_diagram",
-        "src": "images/q3a_er_diagram.png",
-        "alt": "පාසල් ක්‍රීඩා පද්ධතිය සඳහා ER සටහන",
-        "caption": "රූපය 3: පාසල් ක්‍රීඩා පද්ධතියේ ER සටහන"
-      }
+      "images/p2_q03_er_diagram.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "3.a",
-        "label": "(a)",
-        "stem": "ඉහත සංසිද්ධිය සඳහා ER සටහනක් අඳින්න.",
+        "part": "(a)",
+        "stem": "Draw an ER diagram for a Hospital Clinic where Doctors treat Patients, specifying entities, primary keys, and cardinality.",
         "marks": 4.0,
-        "expected_answer": "ER සටහන:\n- **භූතාර්ථ (Entities)**:\n  1. `ශිෂ්‍යයා (Student)`: උපලක්ෂණ -> `ඇතුළත්වීමේ අංකය` (ප්‍රාථමික යතුර), `ශිෂ්‍ය නාමය`, `නිවසේ ලිපිනය`, `පන්තිය`\n  2. `ක්‍රීඩාව (Sport)`: උපලක්ෂණ -> `ක්‍රීඩා අංකය / ක්‍රීඩාවේ නම` (ප්‍රාථමික යතුර)\n- **සම්බන්ධතාව (Relationship)**: `සහභාගී වේ (Participates)` (ගණනීයතාව: $M:N$)\n- **සම්බන්ධතා උපලක්ෂණය (Relationship Attribute)**: `පැය ගණන (Hours)`",
-        "marking_guide": "භූතාර්ථ දෙක සහ උපලක්ෂණ නිවැරදිව දැක්වීමට ලකුණු 2.0, සම්බන්ධතාව සහ 'පැය ගණන' උපලක්ෂණය නිවැරදිව දැක්වීමට ලකුණු 2.0."
+        "model_answer": "Entities: DOCTOR (DoctorID, Name, Specialty) and PATIENT (PatientID, Name, Contact). Relationship: Treats with Many-to-Many cardinality (M:N) and treatment attributes (Date, Diagnosis)."
       },
       {
-        "sub_id": "3.b",
-        "label": "(b)",
-        "stem": "ඉහත (a) කොටසේදී හඳුනාගත් සම්බන්ධතාවෙහි/සම්බන්ධතාවල ගණනීයතාව එකට-එකක් (one-to-one), එකට-බොහෝමයක් (one-to-many) හෝ බොහෝමයකට-බොහෝමයක් (many-to-many) වන්නේ දැයි හේතු දක්වමින් වර්ගීකරණය කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "ගණනීයතාව: බොහෝමයකට-බොහෝමයක් (Many-to-Many හෙවත් $M:N$).\n\nහේතුව: එක් ශිෂ්‍යයෙකුට ක්‍රීඩා එකකට වඩා වැඩි ගණනකට සහභාගී විය හැකි අතර, එක් නිශ්චිත ක්‍රීඩාවක් සඳහා සිසුන් විශාල සංඛ්‍යාවකට සහභාගී විය හැකි බැවිනි.",
-        "marking_guide": "ගණනීයතාව $M:N$ ලෙස හඳුනා ගැනීමට ලකුණු 1.0, හේතුව පැහැදිලි කිරීමට ලකුණු 1.0."
+        "part": "(b)",
+        "stem": "Explain the three anomalies (Insertion, Deletion, Update) that occur in unnormalized database relations.",
+        "marks": 3.0,
+        "model_answer": "1. Insertion anomaly: Inability to insert information about an entity without adding unrelated data. 2. Deletion anomaly: Deletion of one piece of data causes unintended loss of other critical data. 3. Update anomaly: Inconsistency when data redundancy requires multiple rows to be updated simultaneously."
       },
       {
-        "sub_id": "3.c",
-        "label": "(c)",
-        "stem": "\"ER සටහන් තුළ, සම්බන්ධතා (Relationships) මත උපලක්ෂණ (Attributes) පැවරීමට ඉඩ නොදේ.\" මෙම කියමන සත්‍ය හෝ අසත්‍ය දැයි ප්‍රකාශ කරන්න. දී ඇති සංසිද්ධිය භාවිත කරමින් ඔබේ පිළිතුර පැහැදිලි කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "ප්‍රකාශය: අසත්‍ය වේ.\n\nපැහැදිලි කිරීම: ER ආකෘතිකරණයේදී බොහෝමයකට-බොහෝමයක් ($M:N$) සම්බන්ධතාවලදී සම්බන්ධතාවය මත උපලක්ෂණ පැවතිය හැක. දී ඇති සංසිද්ධියෙහි \"පැය ගණන (Hours)\" යනු ශිෂ්‍යයාට පමණක් හෝ ක්‍රීඩාවට පමණක් තනිව අයිති ගුණාංගයක් නොවේ; එය නිශ්චිත ශිෂ්‍යයෙකු නිශ්චිත ක්‍රීඩාවක නිරත වන කාලය වන බැවින් එය 'සහභාගී වේ' යන සම්බන්ධතාවය මත රඳා පවතින උපලක්ෂණයකි.",
-        "marking_guide": "අසත්‍ය බව ප්‍රකාශ කිරීමට ලකුණු 1.0, 'පැය ගණන' සම්බන්ධතාවයේ උපලක්ෂණයක් බව පැහැදිලි කිරීමට ලකුණු 1.0."
-      },
-      {
-        "sub_id": "3.d",
-        "label": "(d)",
-        "stem": "දත්ත සමුදාය සැලසුම්කරුවෙක් ඉහත පද්ධතිය සඳහා පහත දැක්වෙන සම්බන්ධය (Relation) යෝජනා කළේය. මෙම සම්බන්ධයේ ඇති දුර්වලතා දෙකක් දක්වා, ඒ සඳහා අවශ්‍ය වෙනස් කිරීම් යෝජනා කරන්න:\n\n`Student_Sport(ඇතුළත් වීමේ අංකය, සිසුවාගේ නම, නිවසේ ලිපිනය, පන්තිය, ක්‍රීඩාවේ නම)`",
-        "marks": 2.0,
-        "expected_answer": "දුර්වලතා:\n1. දත්ත අතිරික්තතාව (Data Redundancy) සහ යාවත්කාලීන කිරීමේ විෂමතා: සිසුවෙකු ක්‍රීඩා කිහිපයකට සහභාගී වන විට සිසුවාගේ නම, ලිපිනය, පන්තිය නැවත නැවතත් ගබඩා කිරීමට සිදුවේ.\n2. ඇතුළත් කිරීමේ හා මැකීමේ විෂමතා (Insertion/Deletion Anomalies): කිසිදු ක්‍රීඩාවකට සහභාගී නොවන සිසුවෙකු ඇතුළත් කිරීමට හෝ ක්‍රීඩාවක් ඉවත් කිරීමේදී අදාළ සිසුවාගේ තොරතුරුද මැකී යාම.\n\nඅවශ්‍ය වෙනස් කිරීම් (3NF ප්‍රමතකරණය):\n1. `Student(ඇතුළත්වීමේ අංකය, ශිෂ්‍ය නාමය, නිවසේ ලිපිනය, පන්තිය)` - ප්‍රාථමික යතුර: `ඇතුළත්වීමේ අංකය`\n2. `Sport(ක්‍රීඩා අංකය, ක්‍රීඩාවේ නම)` - ප්‍රාථමික යතුර: `ක්‍රීඩා අංකය`\n3. `Student_Sport(ඇතුළත්වීමේ අංකය, ක්‍රීඩා අංකය, පැය ගණන)` - සංයුක්ත ප්‍රාථමික යතුර: `(ඇතුළත්වීමේ අංකය, ක්‍රීඩා අංකය)`",
-        "marking_guide": "දුර්වලතා දෙක නම් කිරීමට ලකුණු 1.0, වගු 3 කට ප්‍රමතකරණය කර යෝජනා කිරීමට ලකුණු 1.0."
+        "part": "(c)",
+        "stem": "Convert the unnormalized relation Patient_Treatment into Second Normal Form (2NF).",
+        "marks": 3.0,
+        "model_answer": "Separate partial dependencies into two tables: Patient(PatientID, PatientName, Contact) and Treatment(PatientID, DoctorID, TreatmentDate, Diagnosis), where PatientID is a foreign key referencing Patient."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2011,
-      "medium": "sinhala",
-      "topic": "Database Design & ER Modeling",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2011-ict-si-p2-q4",
+    "id": "al-2011-p2-q04",
     "number": 4,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "මෘදුකාංග වර්ගීකරණය, ආචයන මාධ්‍ය, වැටුප් ලැයිස්තු පද්ධතියක දත්ත සප්‍රමාණතාව සහ නෛතික කරුණු පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
+    "stem": "G.C.E. (A/L) 2011 ICT Paper II Question 4 (Structured Essay): Computer Networks, TCP/IP Suite, and Web Communication Protocols.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "4.a",
-        "label": "(a)",
-        "stem": "පහත දක්වා ඇති මෘදුකාංග \"පද්ධති මෘදුකාංග\" (System software) හෝ \"යෙදුම් මෘදුකාංග\" (Application software) ලෙස වර්ගීකරණය කරන්න:\n* ලිනක්ස් (Linux)\n* වදන් සකසනය (Word Processor)\n* වෙබ් අතිරික්සුව (Web Browser)",
+        "part": "(a)",
+        "stem": "State the roles of DNS, DHCP, and HTTP protocols in establishing web communication for a client PC.",
         "marks": 3.0,
-        "expected_answer": "1. ලිනක්ස් (Linux): පද්ධති මෘදුකාංග (System software - Operating System)\n2. වදන් සකසනය (Word Processor): යෙදුම් මෘදුකාංග (Application software)\n3. වෙබ් අතිරික්සුව (Web Browser): යෙදුම් මෘදුකාංග (Application software)",
-        "marking_guide": "එක් එක් නිවැරදි වර්ගීකරණය සඳහා ලකුණු 1.0 බැගින් මුළු ලකුණු 3.0."
+        "model_answer": "DHCP assigns a dynamic IP address, subnet mask, and gateway to the client. DNS translates the entered URL domain name into a destination IP address. HTTP sends web requests and receives web page content over TCP port 80."
       },
       {
-        "sub_id": "4.b",
-        "label": "(b)",
-        "stem": "දත්ත ගබඩා කිරීම/සමුද්ධරණය (Retrieve) සඳහා භාවිත වන මාධ්‍යය (Medium) පාදක කරගෙන පරිගණක ආචයන (Storage) පද්ධති ආකාර තුනකට වර්ග කළ හැකිය. මෙම ආකාර තුන සඳහන් කර, එක් එක් ආකාරයට උදාහරණය බැගින් ලබා දෙන්න.",
+        "part": "(b)",
+        "stem": "A company is assigned the Class C network address 192.168.10.0/24 and needs 4 subnets. State the subnet mask and available host range.",
+        "marks": 4.0,
+        "model_answer": "To create 4 subnets, 2 bits are borrowed: subnet mask = 255.255.255.192 (/26). Each subnet has 64 total addresses, with 62 usable host addresses."
+      },
+      {
+        "part": "(c)",
+        "stem": "Compare TCP and UDP protocols in terms of connection establishment, reliability, and application suitability.",
         "marks": 3.0,
-        "expected_answer": "1. චුම්බක ආචයන මාධ්‍ය (Magnetic Media) - උදාහරණ: දෘඪ තැටිය (Hard Disk Drive), චුම්බක පටි (Magnetic Tape)\n2. ප්‍රකාශ ආචයන මාධ්‍ය (Optical Media) - උදාහරණ: සංයුක්ත තැටිය (CD), DVD, Blu-ray තැටිය\n3. ඝන-තත්ව / අර්ධ සන්නායක මාධ්‍ය (Solid-state / Semiconductor Media) - උදාහරණ: USB ෆ්ලෑෂ් ධාවකය (Pen drive), SSD, මතක පත් (SD/Flash Cards)",
-        "marking_guide": "එක් එක් මාධ්‍ය වර්ගය සහ නිවැරදි උදාහරණය සඳහා ලකුණු 1.0 බැගින් මුළු ලකුණු 3.0."
-      },
-      {
-        "sub_id": "4.c",
-        "label": "(c)",
-        "stem": "සමාගමක වැටුප් ලැයිස්තු පද්ධතියෙහි ගනුදෙනු ගොනුවේ (Transaction file) සේවක අංකය, වැඩකළ පැය ගණන, දෙපාර්තමේන්තු කේතය හා සති අංකය අඩංගු වේ. පද්ධතියෙහි \"Employee master\" හා \"Department master\" යන වගු පවතී යැයි උපකල්පනය කරන්න. පහත වගුවේ එක් එක් දත්ත අයිතමය සඳහා වඩාත් ම සුදුසු සප්‍රමාණතා පිරික්සුම (Validation check) තෝරන්න:\n\n| දත්ත අවයවය (Data element) | සප්‍රමාණතා පිරික්සුම (Validation check) |\n| :--- | :--- |\n| සේවක අංකය | Employee master වගුව තුළ පවතින බව / සංඛ්‍යාත්මක අගයක් බව (Numeric value) |\n| වැඩකළ පැය ගණන | Employee master වගුව තුළ පවතින බව / පරාස පිරික්සුමක් |\n| දෙපාර්තමේන්තු කේතය | Department master වගුව තුළ පවතින බව / පරාස පිරික්සුමක් |\n| සති අංකය | දිග / පරාස පිරික්සුමක් |",
-        "marks": 2.0,
-        "expected_answer": "| දත්ත අවයවය | නිවැරදි සප්‍රමාණතා පිරික්සුම |\n| :--- | :--- |\n| සේවක අංකය | Employee master වගුව තුළ පවතින බව (Presence check) |\n| වැඩකළ පැය ගණන | පරාස පිරික්සුමක් (Range check) |\n| දෙපාර්තමේන්තු කේතය | Department master වගුව තුළ පවතින බව (Presence check) |\n| සති අංකය | පරාස පිරික්සුමක් (Range check - 1 සිට 52 දක්වා) |",
-        "marking_guide": "සෑම නිවැරදි තේරීමකටම ලකුණු 0.5 බැගින් මුළු ලකුණු 2.0."
-      },
-      {
-        "sub_id": "4.d",
-        "label": "(d)",
-        "stem": "\"වීඩියෝ සම්මන්ත්‍රණ පැවැත්වීම\" (Video conferencing) සහ \"කර්තෘ හිමිකම\" (Copyright) යන පද විස්තර කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "1. වීඩියෝ සම්මන්ත්‍රණ පැවැත්වීම: විවිධ භූගෝලීය ස්ථානවල විසිරී සිටින පුද්ගලයන් දෙදෙනෙකුට හෝ වැඩි පිරිසකට පරිගණක ජාල හා අන්තර්ජාලය ඔස්සේ එකවර ශ්‍රව්‍ය (audio) සහ දෘශ්‍ය (video) තොරතුරු තත්‍ය කාලීනව (real-time) හුවමාරු කර ගනිමින් මුහුණට මුහුණ ලා සන්නිවේදනය කිරීමේ තාක්ෂණයයි.\n2. කර්තෘ හිමිකම: යම් මෘදුකාංගයක්, ග්‍රන්ථයක්, සංගීතයක් හෝ වෙනත් මුල් කෘතියක් නිර්මාණය කළ කර්තෘවරයාට එම නිර්මාණය පිටපත් කිරීම, ප්‍රකාශනය කිරීම, වෙනස් කිරීම හෝ බෙදාහැරීම පාලනය කිරීම සඳහා නීතියෙන් හිමිවන තනි අයිතියයි.",
-        "marking_guide": "වීඩියෝ සම්මන්ත්‍රණ පැහැදිලි කිරීමට ලකුණු 1.0, කර්තෘ හිමිකම පැහැදිලි කිරීමට ලකුණු 1.0."
+        "model_answer": "TCP is connection-oriented, reliable (guarantees delivery via ACKs and retransmission), and suited for web browsing, email, and file transfers. UDP is connectionless, faster with lower overhead, but unreliable, and suited for streaming and VoIP."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2011,
-      "medium": "sinhala",
-      "topic": "Software Classification, Storage & Data Validation",
-      "difficulty": "easy"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2011-ict-si-p2-q5",
+    "id": "al-2011-p2-q05",
     "number": 5,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "### B කොටස - ප්‍රශ්න අංක 1 (CPU සංරචක, මතක කළමනාකරණය සහ තාර්කික පරිපථ නිර්මාණය)\n\nමධ්‍ය සැකසුම් ඒකකය, මතක සුසංහිතකරණය, පොකුරු ඉඩ නාස්තිය සහ ප්‍රථමක සංඛ්‍යා අනාවරක පරිපථය පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
+    "stem": "G.C.E. (A/L) 2011 ICT Paper II Question 5 (Essay): Digital Electronics, Combinational Logic Simplification, and Circuit Implementation.",
     "diagrams": [
-      {
-        "id": "d_prime_circuit",
-        "src": "images/q1d_prime_circuit.png",
-        "alt": "බිටු 4 ප්‍රථමක සංඛ්‍යා අනාවරක තාර්කික පරිපථය",
-        "caption": "රූපය 4: බිටු 4 ප්‍රථමක සංඛ්‍යා අනාවරක තාර්කික පරිපථය"
-      }
+      "images/p2_q05_logic_circuit.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "1.a",
-        "label": "(a)",
-        "stem": "ආකෘතික පරිගණකයක (Typical computer) මධ්‍ය සැකසුම් ඒකකයේ (CPU) ප්‍රධාන සංරචක තුන මොනවා ද? මෙම සංරචක තුනෙහි ප්‍රධාන කාර්යයන් ලැයිස්තුගත කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "1. පාලන ඒකකය (Control Unit - CU): ප්‍රධාන මතකයෙන් උපදෙස් ලබා ගැනීම, විකේතනය කිරීම සහ පරිගණකයේ අනෙකුත් සියලු උපාංග පාලනය සඳහා කාල සහ පාලන සංඥා නිකුත් කිරීම.\n2. අංකගණිත හා තාර්කික ඒකකය (Arithmetic and Logic Unit - ALU): මූලික ගණිතමය කර්ම (+, -, *, /) සහ තාර්කික සැසඳීම් (AND, OR, NOT) ක්‍රියාත්මක කිරීම.\n3. රෙජිස්ටර (Registers): සකසනය තුළ දත්ත, ලිපින, උපදෙස් සහ පාලන තොරතුරු තාවකාලිකව රඳවා තබා ගන්නා අධිවේගී මතක ස්ථාන.",
-        "marking_guide": "සංරචක 3 නම් කිරීමට සහ ඒවායේ ප්‍රධාන කාර්යයන් පැහැදිලි කිරීමට එක් සංරචකයකට ලකුණු 1.0 බැගින් මුළු ලකුණු 3.0."
+        "part": "(a)",
+        "stem": "Construct a truth table for a 3-input voting system where output F = 1 if at least two inputs (A, B, C) are 1.",
+        "marks": 4.0,
+        "model_answer": "Inputs A,B,C. F = 1 for minterms 011, 101, 110, 111 (all cases with at least two 1s), and F = 0 for 000, 001, 010, 100."
       },
       {
-        "sub_id": "1.b",
-        "label": "(b)",
-        "stem": "මතකය කළමනාකරණයේදී ආචයනය සුසංහිතකරණය (Storage compaction) අවශ්‍ය වන්නේ මන්දැයි කෙටියෙන් පැහැදිලි කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "මතක ඛණ්ඩනය (External fragmentation) නිසා මතකයේ විසිරී පවතින කුඩා නිදහස් ඉඩකඩවල් එකතු කර එක් අඛණ්ඩ විශාල මතක කුට්ටියක් (Single contiguous block of free memory) බවට පත් කිරීම සඳහා ආචයන සුසංහිතකරණය (Storage compaction) අවශ්‍ය වේ.",
-        "marking_guide": "බාහිර ඛණ්ඩනය විසඳා අඛණ්ඩ ඉඩක් ලබාගැනීමට බව පැහැදිලි කිරීම සඳහා ලකුණු 2.0."
+        "part": "(b)",
+        "stem": "Simplify the Boolean expression for the majority voting function using Boolean algebra or Karnaugh map.",
+        "marks": 5.0,
+        "model_answer": "F = AB + BC + AC. Minterms grouped on 3-variable K-map: pair (110, 111) gives AB, pair (011, 111) gives BC, pair (101, 111) gives AC."
       },
       {
-        "sub_id": "1.c",
-        "label": "(c)",
-        "stem": "අවසාන පොකුර (Cluster) අසම්පූර්ණ ලෙසින් පිරවුමකදී ප්‍රමාණය බිටු 10400 ක් වූ ගොනුවක ගොනු අවකාශයෙහි (File space) සිදුවන නාස්තිය ගණනය කරන්න. (පොකුරක ප්‍රමාණය බයිට් 512 ක් ලෙස උපකල්පනය කරන්න.)",
-        "marks": 3.0,
-        "expected_answer": "ගණනය කිරීම:\n1. ගොනුවේ ප්‍රමාණය බයිට් බවට හැරවීම: $\\frac{10400\\text{ bits}}{8} = 1300\\text{ bytes}$\n2. පොකුරක ප්‍රමාණය $= 512\\text{ bytes}$\n3. අවශ්‍ය වන පොකුරු ගණන: $\\lceil 1300 / 512 \\rceil = \\lceil 2.539 \\rceil = 3\\text{ ක්}$\n4. වෙන් කරන ලද මුළු ගොනු අවකාශය: $3 \\times 512 = 1536\\text{ bytes}$\n5. අවසාන පොකුරේ නාස්ති වන ඉඩ (Internal Fragmentation): $1536 - 1300 = 236\\text{ bytes}$ (හෝ $236 \\times 8 = 1888\\text{ bits}$)",
-        "marking_guide": "බයිට් බවට හැරවීමට ලකුණු 1.0, පොකුරු ගණන සහ මුළු ඉඩ සෙවීමට ලකුණු 1.0, නාස්තිය ගණනය කිරීමට ලකුණු 1.0."
-      },
-      {
-        "sub_id": "1.d.i",
-        "label": "(d) (i)",
-        "stem": "අංකිත පරිපථයක (Digital circuit) ආදානය ලෙස ද්විමය සංඛ්‍යාංක හතරක් ගෙන, එම ද්විමය සංඛ්‍යාංක හතරෙන් නිරූපිත දශමය අගය ප්‍රථමක සංඛ්‍යාවක් (Prime number) නම් (1න් සහ එම සංඛ්‍යාවෙන් පමණක් බෙදෙන සංඛ්‍යා) ප්‍රතිදානය ලෙස 1 ලබා දෙන අතර, අන් සැම විටම 0 ලබා දේ. සත්‍යතා වගුව පිටපත් කරගෙන ප්‍රතිදාන තීරුව $F(A,B,C,D)$ සම්පූර්ණ කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "0 සිට 15 දක්වා ප්‍රථමක සංඛ්‍යා: 2, 3, 5, 7, 11, 13 (සංඛ්‍යා 0 සහ 1 ප්‍රථමක නොවේ):\n\n| A | B | C | D | F(A,B,C,D) |\n|:---:|:---:|:---:|:---:|:---:|\n| 0 | 0 | 0 | 0 | 0 |\n| 0 | 0 | 0 | 1 | 0 |\n| 0 | 0 | 1 | 0 | **1** |\n| 0 | 0 | 1 | 1 | **1** |\n| 0 | 1 | 0 | 0 | 0 |\n| 0 | 1 | 0 | 1 | **1** |\n| 0 | 1 | 1 | 0 | 0 |\n| 0 | 1 | 1 | 1 | **1** |\n| 1 | 0 | 0 | 0 | 0 |\n| 1 | 0 | 0 | 1 | 0 |\n| 1 | 0 | 1 | 0 | 0 |\n| 1 | 0 | 1 | 1 | **1** |\n| 1 | 1 | 0 | 0 | 0 |\n| 1 | 1 | 0 | 1 | **1** |\n| 1 | 1 | 1 | 0 | 0 |\n| 1 | 1 | 1 | 1 | 0 |",
-        "marking_guide": "ප්‍රථමක සංඛ්‍යා 6 (2, 3, 5, 7, 11, 13) සඳහා 1 ද අනෙක් සියල්ල සඳහා 0 ද නිවැරදිව පිරවීම සඳහා ලකුණු 3.0."
-      },
-      {
-        "sub_id": "1.d.ii",
-        "label": "(d) (ii)",
-        "stem": "ඉහත පරිපථයේ බූලීය ප්‍රකාශනය, ගුණිතවල එකතුවක් (Sum of products - SOP) ලෙස නිරූපණය කිරීමට බූලීය ප්‍රකාශනයක් ලියන්න.",
-        "marks": 2.0,
-        "expected_answer": "මූලික SOP ප්‍රකාශනය (Minterms $m_2, m_3, m_5, m_7, m_{11}, m_{13}$):\n$$\nF(A,B,C,D) = \\bar{A}\\bar{B}C\\bar{D} + \\bar{A}\\bar{B}CD + \\bar{A}B\\bar{C}D + \\bar{A}BCD + A\\bar{B}CD + AB\\bar{C}D\n$$\n(කානෝ සිතියම මගින් සුළු කළ විට: $F = \\bar{A}\\bar{B}C + \\bar{A}BD + \\bar{B}CD + B\\bar{C}D$)",
-        "marking_guide": "Minterm 6 නිවැරදිව හඳුනාගෙන SOP ආකාරයෙන් ලිවීම සඳහා ලකුණු 2.0."
-      },
-      {
-        "sub_id": "1.d.iii",
-        "label": "(d) (iii)",
-        "stem": "ඉහත (ii) කොටස සඳහා ඔබ ලබා ගත් බූලීය ප්‍රකාශනය සඳහා තාර්කික පරිපථයක් (Logic gate circuit) අඳින්න.",
-        "marks": 2.0,
-        "expected_answer": "ආදාන $A, B, C, D$ සඳහා NOT ද්වාර (Inverters), ගුණිත පද සඳහා AND ද්වාර සහ අවසන් එකතුව සඳහා OR ද්වාරයක් යොදා ගනිමින් තාර්කික පරිපථය ඇඳීම.",
-        "marking_guide": "නිවැරදි ද්වාර වර්ග සහ සම්බන්ධතා සහිත පරිපථයක් ඇඳීම සඳහා ලකුණු 2.0."
+        "part": "(c)",
+        "stem": "Draw the logic circuit for F = AB + BC + AC using only basic AND and OR gates.",
+        "marks": 6.0,
+        "model_answer": "Three 2-input AND gates producing terms AB, BC, AC, connected into a 3-input OR gate producing output F."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2011,
-      "medium": "sinhala",
-      "topic": "Digital Logic Design & Memory Architecture",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2011-ict-si-p2-q6",
+    "id": "al-2011-p2-q06",
     "number": 6,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "### B කොටස - ප්‍රශ්න අංක 2 (වෙබ් සංවර්ධනය, HTML සහ CSS)\n\nHTML මූලාංග සහ උපලක්ෂණ, CSS මෝස්තරකරණය සහ ශ්‍රී ලංකා සංචාරක වෙබ් පිටුවක් නිර්මාණය කිරීම පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
-    "diagrams": [
-      {
-        "id": "d_wildlife_webpage",
-        "src": "images/q2c_wildlife_webpage.png",
-        "alt": "සංචාරක වෙබ් පිටුවේ කොටසක්",
-        "caption": "රූපය 5: සංචාරක වෙබ් පිටුවේ කොටසක්"
-      }
-    ],
-    "sub_questions": [
-      {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "HTML ලේඛනයක් සම්බන්ධයෙන් \"මූලාංග\" (Elements) සහ \"උපලක්ෂණ\" (Attributes) යන පද විස්තර කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "1. මූලාංග (Elements): ආරම්භක ටැගය, අන්තර්ගතය සහ අවසාන ටැගය මගින් අර්ථ දක්වන වෙබ් පිටුවක මූලික ව්‍යුහාත්මක ඒකකයකි (උදා: `<p>ඡේදය</p>`).\n2. උපලක්ෂණ (Attributes): මූලාංගයක ආරම්භක ටැගය තුළ ඇතුළත් කරමින් එම මූලාංගයේ හැසිරීම හෝ අතිරේක තොරතුරු සපයන නාම-අගය යුගල වේ (උදා: `src`, `href`).",
-        "marking_guide": "මූලාංග විස්තර කිරීමට ලකුණු 1.5, උපලක්ෂණ විස්තර කිරීමට ලකුණු 1.5."
-      },
-      {
-        "sub_id": "2.b",
-        "label": "(b)",
-        "stem": "පහත දක්වා ඇති එක එකක් මූලාංගයක් හෝ උපලක්ෂණයක් හෝ ලෙස හඳුනාගෙන ඒවායේ කාර්යයන් විස්තර කරන්න:\n(i) `br`\n(ii) `href`\n(iii) `src`\n(iv) `html`",
-        "marks": 4.0,
-        "expected_answer": "(i) `br`: මූලාංගයකි (Element). නව ඡේදයක් ආරම්භ නොකර පේළි කඩනයක් ඇතුළත් කරයි.\n(ii) `href`: උපලක්ෂණයකි (Attribute). `<a>` ටැගය මගින් යොමු වන සබැඳියේ ගමනාන්ත ලිපිනය (URL) දක්වයි.\n(iii) `src`: උපලක්ෂණයකි (Attribute). `<img>` ටැගය මගින් ඇතුළත් කළ යුතු බාහිර ගොනුවේ ලිපිනය දක්වයි.\n(iv) `html`: මූලාංගයකි (Element). සම්පූර්ණ HTML ලේඛනයම ආවරණය කරන ප්‍රධානතම මූල මූලද්‍රව්‍යය වේ.",
-        "marking_guide": "එක් එක් අයිතමය හඳුනා ගැනීමට ලකුණු 0.5 බැගින් සහ කාර්යය විස්තර කිරීමට ලකුණු 0.5 බැගින් මුළු ලකුණු 4.0."
-      },
-      {
-        "sub_id": "2.c.i",
-        "label": "(c) (i)",
-        "stem": "ඉහත HTML ලේඛනයේ සියලුම ඡේද ඒරියල් අකුරු වර්ගය (Arial font), අකුරු ප්‍රමාණය 14 සහ නිල් පැහැයෙන් හැඩහුරු ගැන්වීමට අවශ්‍යව තිබේ. ඡේදය සඳහා අවශ්‍ය CSS කේත ඛණ්ඩය ලියා දක්වන්න.",
-        "marks": 2.0,
-        "expected_answer": "```css\np {\n  font-family: Arial, sans-serif;\n  font-size: 14px;\n  color: blue;\n}\n```",
-        "marking_guide": "selector p සඳහා ලකුණු 0.5, font-family, font-size, color සඳහා ලකුණු 1.5."
-      },
-      {
-        "sub_id": "2.c.ii",
-        "label": "(c) (ii)",
-        "stem": "ඉහත දැක්වෙන HTML ලේඛනය තුළ පහත දැක්වෙන ලේබලය මගින් ඇති කෙරෙන බලපෑම විස්තර කරන්න:\n```html\n<a href=\"elephants.jpg\"><img src=\"elephants_tnl.jpg\" ALT=\"Tour to Yala\" width=\"288cm\" height=\"156cm\" style=\"border:none\" /></a>\n```",
-        "marks": 2.0,
-        "expected_answer": "පිටුවෙහි `elephants_tnl.jpg` කුඩා රූපය පෙන්වන අතර එය ක්ලික් කළ විට `elephants.jpg` විශාල රූපය විවෘත වේ. රූපය නොපෙන්වන විට 'Tour to Yala' පෙළ දිස්වේ.",
-        "marking_guide": "රූපය සබැඳියක් ලෙස ක්‍රියා කරන බව පැහැදිලි කිරීමට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "2.c.iii",
-        "label": "(c) (iii)",
-        "stem": "'Blue Whale', 'Leopard' සහ 'Elephant' ලෙස ලේබල් කර ඇති රේඩියෝ බොත්තම් තුනෙහි එකතුව ඉහත HTML ලේඛනයේ නිර්මාණය කිරීම සඳහා අවශ්‍ය HTML කේත ඛණ්ඩය ලියන්න.",
-        "marks": 2.0,
-        "expected_answer": "```html\n<input type=\"radio\" name=\"wildlife\" value=\"Blue Whale\"> Blue Whale<br>\n<input type=\"radio\" name=\"wildlife\" value=\"Leopard\"> Leopard<br>\n<input type=\"radio\" name=\"wildlife\" value=\"Elephant\"> Elephant\n```",
-        "marking_guide": "සමාන name අනුලක්ෂණය සහිතව input type=\"radio\" බොත්තම් 3 නිර්මාණයට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "2.c.iv",
-        "label": "(c) (iv)",
-        "stem": "'Wild Sri Lanka' යන ශීර්ෂය සහිතව මිල ගණන් දැක්වෙන වගුවක් (Days 7: US$910, Days 10: US$1220) නිර්මාණය කිරීමට අවශ්‍ය HTML කේත ඛණ්ඩය ලියන්න.",
-        "marks": 2.0,
-        "expected_answer": "```html\n<table border=\"1\">\n  <caption>Wild Sri Lanka</caption>\n  <tr><th>Days</th><th>Price</th></tr>\n  <tr><td>7</td><td>US$910</td></tr>\n  <tr><td>10</td><td>US$1220</td></tr>\n</table>\n```",
-        "marking_guide": "table, caption, headers සහ rows නිවැරදිව ලිවීම සඳහා ලකුණු 2.0."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2011,
-      "medium": "sinhala",
-      "topic": "Web Technologies, HTML & CSS",
-      "difficulty": "medium"
-    }
-  },
-  {
-    "id": "al-2011-ict-si-p2-q7",
-    "number": 7,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### B කොටස - ප්‍රශ්න අංක 3 (පරිගණක ජාලකරණය සහ අනුජාලකරණය)\n\nභෞතික ජාල සැලසුම් කිරීම, IP ලිපින පැවරීම, TCP/UDP සැසඳීම, P2P/Client-Server සහ Hub/Switch සංසන්දනය පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
-    "diagrams": [
-      {
-        "id": "d_network_topology",
-        "src": "images/q3a_network_topology.png",
-        "alt": "රවුටරයක් මගින් සම්බන්ධ කළ අනුජාල දෙකක ස්ථලකය",
-        "caption": "රූපය 6: අන්තර් ජාලකරණ රූප සටහන"
-      }
-    ],
-    "sub_questions": [
-      {
-        "sub_id": "3.a.i",
-        "label": "(a) (i)",
-        "stem": "A (`10.32.5.0`) සහ B (`10.32.6.0`) ජාල සඳහා පරිගණක 10 බැගින් වන පරිදි යෝග්‍ය උපජාල වසනයක් (Subnet mask) යෝජනා කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "පරිගණක 10ක් සඳහා සත්කාරක බිටු $h=4$ ක් ($2^4 - 2 = 14$) අවශ්‍ය වේ. එබැවින් `/28` ($255.255.255.240$) හෝ සම්මත `/24` ($255.255.255.0$) යෝජනා කළ හැක.",
-        "marking_guide": "255.255.255.240 හෝ 255.255.255.0 නිවැරදිව දැක්වීම සඳහා ලකුණු 2.0."
-      },
-      {
-        "sub_id": "3.a.ii",
-        "label": "(a) (ii)",
-        "stem": "මෙම භෞතික ජාල දෙක එකිනෙක සන්නිවේදනය සඳහා සම්බන්ධ කිරීමට අවශ්‍ය ආම්පන්නය (Device) නම් කරන්න.",
-        "marks": 1.0,
-        "expected_answer": "රවුටරය (Router).",
-        "marking_guide": "රවුටරය නම් කිරීම සඳහා ලකුණු 1.0."
-      },
-      {
-        "sub_id": "3.a.iii",
-        "label": "(a) (iii)",
-        "stem": "ඉහත ජාලය සඳහා ජාල රූප සටහනක් ඇඳ මෙම ජාල දෙකෙහි පවතින ආම්පන්න සඳහා පැවරීමට යෝග්‍ය IP ලිපින ලියා දක්වන්න.",
-        "marks": 4.0,
-        "expected_answer": "A ජාලය: Switch A හරහා PC 10ක් (10.32.5.1 - 10.32.5.10), රවුටර Gateway = 10.32.5.254.\nB ජාලය: Switch B හරහා PC 10ක් (10.32.6.1 - 10.32.6.10), රවුටර Gateway = 10.32.6.254.\nරවුටරය මගින් ජාල දෙක සම්බන්ධ කරයි.",
-        "marking_guide": "ජාල ස්ථලකය ඇඳීමට ලකුණු 2.0, නිවැරදි IP ලිපින පැවරීමට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "3.b.i",
-        "label": "(b) (i)",
-        "stem": "විශ්වස්‍යතාව පදනම් කරගෙන TCP හා UDP නියමාවලි සසඳන්න.",
-        "marks": 3.0,
-        "expected_answer": "TCP: සම්බන්ධතා-නැඹුරු (Connection-oriented) වන අතර ACKs, පැකට් නැවත එවීම සහ අනුක්‍රමික අංක මගින් ඉහළ විශ්වස්‍යතාවක් සහතික කරයි.\nUDP: සම්බන්ධතා-විමුක්ත (Connectionless) වන අතර දත්ත ලැබීම තහවුරු නොකරයි (Best-effort), නමුත් වේගවත්ය.",
-        "marking_guide": "TCP විශ්වස්‍යතාවට ලකුණු 1.5, UDP විශ්වස්‍යතාවට ලකුණු 1.5."
-      },
-      {
-        "sub_id": "3.b.ii",
-        "label": "(b) (ii)",
-        "stem": "P2P සහ Client-server ආකෘති අතර වෙනස දක්වන්න.",
-        "marks": 2.0,
-        "expected_answer": "Client-Server හි මධ්‍යගත සේවාදායකයක් පවතින අතර සේවාලාභීන් එයින් සේවා ලබා ගනී. P2P හි මධ්‍යගත සේවාදායකයක් නොමැති අතර සෑම නෝඩයක්ම එකවර සේවාලාභියෙකු සහ සේවාදායකයෙකු ලෙස ක්‍රියා කරයි.",
-        "marking_guide": "ආකෘති දෙකෙහි මූලික වෙනස පැහැදිලි කිරීමට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "3.b.iii",
-        "label": "(b) (iii)",
-        "stem": "ජාලයක පවතින නාභි (Hubs) සහ ස්විච (Switches) අතර වෙනස්කම් ලැයිස්තුගත කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "1. Hub භෞතික ස්ථරයේ (Layer 1) ක්‍රියාත්මක වන අතර Switch දත්ත සම්බන්ධක ස්ථරයේ (Layer 2) ක්‍රියාත්මක වේ.\n2. Hub ලැබෙන රාමු සියලුම පෝට් වෙත විකාශය (Broadcast) කරන අතර Switch නියමිත MAC ලිපිනයට පමණක් යවයි (Unicast).\n3. Hub හි සියලු පෝට් එක් ගැටුම් වසමකි; Switch හි සෑම පෝට් එකක්ම වෙනම ගැටුම් වසමකි.",
-        "marking_guide": "වෙනස්කම් 3ක් පැහැදිලි කිරීමට ලකුණු 3.0."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2011,
-      "medium": "sinhala",
-      "topic": "Computer Networks & Subnetting",
-      "difficulty": "medium"
-    }
-  },
-  {
-    "id": "al-2011-ict-si-p2-q8",
-    "number": 8,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### B කොටස - ප්‍රශ්න අංක 4 (මෘදුකාංග ඉංජිනේරු විද්‍යාව සහ පිරික්සුම්)\n\nදිය ඇලි ආකෘතිය, පද්ධති අවශ්‍යතා, පිරික්සුම් ක්‍රියාවලිය සහ කළු මංජුසා පිරික්සුම පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
+    "stem": "G.C.E. (A/L) 2011 ICT Paper II Question 6 (Essay): Python Programming, Algorithm Design, and Control Structures.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "4.a",
-        "label": "(a)",
-        "stem": "දිය ඇලි (Waterfall) මෘදුකාංග ක්‍රියාවලි සංවර්ධන ආකෘතියෙහි අවස්ථා හඳුනාගෙන විස්තර කරන්න.",
-        "marks": 4.0,
-        "expected_answer": "අවස්ථා:\n1. අවශ්‍යතා හඳුනාගැනීම සහ විශ්ලේෂණය (Requirements Analysis)\n2. පද්ධති සැලසුම්කරණය (System Design)\n3. කේතනය / ක්‍රියාත්මක කිරීම (Implementation)\n4. පිරික්සුම (Testing)\n5. ස්ථාපනය (Deployment)\n6. නඩත්තුව (Maintenance)",
-        "marking_guide": "අදියර නම් කර කෙටියෙන් විස්තර කිරීමට ලකුණු 4.0."
+        "part": "(a)",
+        "stem": "Write a Python function find_max(numbers) that takes a list of integers and returns the maximum value without using the built-in max() function.",
+        "marks": 5.0,
+        "model_answer": "def find_max(numbers):\n    m = numbers[0]\n    for n in numbers:\n        if n > m:\n            m = n\n    return m"
       },
       {
-        "sub_id": "4.b",
-        "label": "(b)",
-        "stem": "පද්ධතියක කාර්යබද්ධ සහ කාර්යබද්ධ නොවන අවශ්‍යතා විස්තර කර ජංගම දුරකථනයක නිදසුන් දක්වන්න.",
-        "marks": 4.0,
-        "expected_answer": "කාර්යබද්ධ: පද්ධතිය කුමක් කළ යුතුද යන්න (උදා: ඇමතුම් ලබා ගැනීම, SMS යැවීම).\nකාර්යබද්ධ නොවන: පද්ධතියේ ගුණාත්මක ලක්ෂණ හා සීමාවන් (උදා: බැටරි ආයුකාලය > පැය 24, තිර ප්‍රතිචාර කාලය < 0.1s, බර < 180g).",
-        "marking_guide": "අවශ්‍යතා විස්තරයට ලකුණු 2.0, දුරකථන නිදසුන් වලට ලකුණු 2.0."
+        "part": "(b)",
+        "stem": "Write a Python program that reads 10 numbers from the user and prints the count of even numbers.",
+        "marks": 5.0,
+        "model_answer": "even_count = 0\nfor i in range(10):\n    n = int(input())\n    if n % 2 == 0:\n        even_count += 1\nprint(even_count)"
       },
       {
-        "sub_id": "4.c",
-        "label": "(c)",
-        "stem": "ඒකක, අනුකලිත සහ පිළිගැනුම් පිරික්සුම්වල අරමුණු සහ වගකිවයුත්තන් විස්තර කරන්න.",
-        "marks": 4.0,
-        "expected_answer": "1. ඒකක පිරික්සුම: තනි මොඩියුල පරීක්ෂා කිරීම. වගකීම: මෘදුකාංග සංවර්ධකයින්.\n2. අනුකලිත පිරික්සුම: මොඩියුල අතර අතුරුමුහුණත් පරීක්ෂා කිරීම. වගකීම: සංවර්ධකයින් / QA ඉංජිනේරුවන්.\n3. පිළිගැනුම් පිරික්සුම: පාරිභෝගික අවශ්‍යතාවලට ගැළපේදැයි බැලීම. වගකීම: අවසාන පරිශීලකයින් / සේවාදායකයා.",
-        "marking_guide": "එක් එක් පිරික්සුම සඳහා ලකුණු 1.33 බැගින් (මුළු ලකුණු 4.0)."
-      },
-      {
-        "sub_id": "4.d",
-        "label": "(d)",
-        "stem": "නව ජංගම දුරකථනයක ක්‍රියාකාරිත්වය පරීක්ෂා කිරීමට කළු මංජුසා පිරික්සුම යොදාගන්නා ආකාරය විස්තර කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "අභ්‍යන්තර පරිපථ හෝ කේත ගැන නොසලකා, බාහිර ආදාන ලබාදී නිවැරදි ප්‍රතිදාන ලැබේදැයි පරීක්ෂා කිරීම:\n1. SIM පතක් දමා ඇමතුමක් ගෙන හඬ පැහැදිලිදැයි බැලීම.\n2. කැමරාවෙන් ඡායාරූපයක් ගෙන සුරැකේදැයි බැලීම.\n3. ආරෝපකය සම්බන්ධ කර තිරයේ පෙන්වයිදැයි බැලීම.",
-        "marking_guide": "සංකල්පය පැහැදිලි කිරීමට ලකුණු 1.5, නිදසුන් පරීක්ෂණ වලට ලකුණු 1.5."
+        "part": "(c)",
+        "stem": "Explain the difference between mutable and immutable data types in Python with examples.",
+        "marks": 5.0,
+        "model_answer": "Mutable data types can be modified after creation in-place without changing object identity (e.g. lists, dictionaries). Immutable data types cannot be altered once created; any modification produces a new object (e.g. integers, strings, tuples)."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2011,
-      "medium": "sinhala",
-      "topic": "Software Engineering & Testing",
-      "difficulty": "medium"
-    }
-  },
-  {
-    "id": "al-2011-ict-si-p2-q9",
-    "number": 9,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### B කොටස - ප්‍රශ්න අංක 5 (ක්‍රමලේඛන මූලධර්ම සහ Python දෝෂ නිවැරදි කිරීම)\n\nක්‍රමලේඛ පරිවර්තක, භාෂා පරම්පරා, ගැලීම් පාලක ව්‍යුහ සහ Python ද්විමය පරිවර්තන කේතයක් නිවැරදි කිරීම පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
-    "diagrams": [
-      {
-        "id": "d_control_structures",
-        "src": "images/q5c_control_structures.png",
-        "alt": "අනුක්‍රමය, වරණය සහ පුනරාවර්තනය සඳහා සම්මත ගැලීම් සටහන්",
-        "caption": "රූපය 7: ව්‍යුහගත ක්‍රමලේඛ ගැලීම් පාලක ව්‍යුහ"
-      }
-    ],
-    "sub_questions": [
-      {
-        "sub_id": "5.a",
-        "label": "(a)",
-        "stem": "පරිගණක ක්‍රමලේඛයේදී ක්‍රමලේඛ පරිවර්තකවල අවශ්‍යතාව පැහැදිලි කරන්න.",
-        "marks": 2.0,
-        "expected_answer": "පරිගණකයට තේරුම් ගත හැක්කේ ද්විමය යන්ත්‍ර භාෂාව (0 සහ 1) පමණි. මිනිසා ලියන ඉහළ මට්ටමේ භාෂා කේත යන්ත්‍ර භාෂාවට පරිවර්තනය කිරීමට පරිවර්තක අත්‍යවශ්‍ය වේ.",
-        "marking_guide": "යන්ත්‍ර භාෂා අවශ්‍යතාව පැහැදිලි කිරීමට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "5.b",
-        "label": "(b)",
-        "stem": "පළමුවන පරම්පරාවේ සහ දෙවන පරම්පරාවේ ක්‍රමලේඛ භාෂා සඳහා ප්‍රධාන ලක්ෂණ දෙකක් බැගින් දක්වන්න.",
-        "marks": 4.0,
-        "expected_answer": "1GL (යන්ත්‍ර භාෂාව): ද්විමය කේතවලින් යුක්ත වීම, පරිවර්තක අවශ්‍ය නොවීම.\n2GL (ඇසෙම්බ්ලි භාෂාව): කෙටි සංකේතාත්මක වදන් (Mnemonics) භාවිතය, ඇසෙම්බ්ලර් පරිවර්තකය අවශ්‍ය වීම.",
-        "marking_guide": "1GL ලක්ෂණ 2ට ලකුණු 2.0, 2GL ලක්ෂණ 2ට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "5.c",
-        "label": "(c)",
-        "stem": "ව්‍යුහගත ක්‍රමලේඛ භාෂාවක ප්‍රධාන ගැලීම් පාලක ව්‍යුහ තුන දක්වා ඒවා ගැලීම් සටහනක නිරූපණය කර දක්වන්න.",
-        "marks": 4.0,
-        "expected_answer": "1. අනුක්‍රමය (Sequence): පියවරෙන් පියවර ක්‍රියාත්මක වීම.\n2. වරණය (Selection): කොන්දේසියක් මත තීරණ ගැනීම (IF-THEN-ELSE).\n3. පුනරාවර්තනය (Iteration): කොන්දේසියක් සත්‍ය වන තුරු ලූපයක් ඔස්සේ නැවත නැවත ක්‍රියාත්මක වීම.",
-        "marking_guide": "ව්‍යුහ 3 නම් කිරීමට ලකුණු 1.5, ගැලීම් සටහන් ඇඳීමට ලකුණු 2.5."
-      },
-      {
-        "sub_id": "5.d.i",
-        "label": "(d) (i)",
-        "stem": "ද්විමය පරිවර්තන Python ක්‍රමලේඛයේ වාක්‍යරීති දෝෂ සහිත පේළි නම් කර දෝෂ දක්වන්න.",
-        "marks": 2.0,
-        "expected_answer": "පේළිය 1: `input` හි උද්ධෘත පාඨය අවසන් කර නොමැත.\nපේළිය 6: පැවරුම් ක්‍රියාකරු වෙනුවට `==` සැසඳුම් ක්‍රියාකරු යොදා තිබීම.\nපේළිය 11: `input` හි උද්ධෘත පාඨය අවසන් කර නොමැත.",
-        "marking_guide": "පේළි 1, 6, 11 දෝෂ හඳුනා ගැනීමට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "5.d.ii",
-        "label": "(d) (ii)",
-        "stem": "අපේක්ෂිත ප්‍රතිඵලය ලබාගැනීමට ක්‍රමලේඛයේ වෙනස් කළ යුතු පේළි සහ ඒවා වෙනස් කළ යුතු ආකාරය දක්වන්න.",
-        "marks": 3.0,
-        "expected_answer": "පේළිය 1: `x = int(input(\"Enter an integer -> \"))`\nපේළිය 6: `remainder = x % 2`\nපේළිය 7: `bn = str(remainder) + bn`\nපේළිය 11: `x = int(input(\"Enter an integer -> \"))`",
-        "marking_guide": "පේළි 1, 6, 7, 11 නිවැරදි කිරීමට ලකුණු 3.0."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2011,
-      "medium": "sinhala",
-      "topic": "Programming Concepts & Python Debugging",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2011-ict-si-p2-q10",
-    "number": 10,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### B කොටස - ප්‍රශ්න අංක 6 (ඊ-වාණිජ්‍යය සහ කාරක තාක්ෂණවේදය)\n\nඊ-වාණිජ්‍ය ආකෘති, B2E සන්නිවේදන මෙවලම් නිර්දේශය, කාරක (Agent) තාක්ෂණවේදය සහ ප්‍රායෝගික යෙදුම් පිළිබඳ පහත ප්‍රශ්නවලට පිළිතුරු සපයන්න.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "6.a.i",
-        "label": "(a) (i)",
-        "stem": "B2B, B2C සහ C2C යන ව්‍යාපාර වර්ග තුන නිදසුන් සහිතව පැහැදිලි කරන්න.",
-        "marks": 4.0,
-        "expected_answer": "1. B2B: ව්‍යාපාර අතර ගනුදෙනු (උදා: Alibaba තොග වෙළෙඳපොළ).\n2. B2C: ව්‍යාපාරයක් හා පාරිභෝගිකයෙකු අතර ගනුදෙනු (උදා: Amazon හරහා භාණ්ඩ මිලදී ගැනීම).\n3. C2C: පාරිභෝගිකයින් අතර අතරමැදි වේදිකාවක් ඔස්සේ ගනුදෙනු (උදා: Ikman.lk හරහා පාවිච්චි කළ භාණ්ඩ විකිණීම).",
-        "marking_guide": "එක් එක් වර්ගයට ලකුණු 1.33 බැගින් (මුළු ලකුණු 4.0)."
-      },
-      {
-        "sub_id": "6.a.ii",
-        "label": "(a) (ii)",
-        "stem": "B2E යෙදුමක් සඳහා ෆැක්ස්, විද්‍යුත් තැපෑල සහ වෙබ් අතරින් වඩාත්ම ගැළපෙන මෙවලම හේතු සහිතව නිර්දේශ කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "නිර්දේශය: වෙබ් (Web-based intranet portal).\nහේතු: (1) ද්විපාර්ශ්වික අන්තර්ක්‍රියාකාරී සේවා මධ්‍යගතව ලබාගත හැකි වීම, (2) කාර්යභාර පදනම් කරගත් ආරක්ෂාව සහ පරිශීලක සත්‍යාපනය, (3) ලිපිගොනු අවුල් සහගත නොවී දත්ත සමුදායක සුරැකීම.",
-        "marking_guide": "වෙබ් නිර්දේශයට ලකුණු 1.0, හේතු දෙකට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "6.b.i",
-        "label": "(b) (i)",
-        "stem": "කාරක තාක්ෂණවේද වසම තුළ 'කාරකය' (Agent) යන පදය පැහැදිලි කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "කාරකය යනු කිසියම් පරිසරයක් තුළ පිහිටා, සංවේදක (Sensors) මගින් පරිසරය ග්‍රහණය කර ගනිමින්, නිශ්චිත අරමුණු සාක්ෂාත් කර ගැනීමට ක්‍රියාකාරක (Actuators) භාවිතයෙන් ස්වාධීනව ක්‍රියාත්මක වන පරිගණක පද්ධතියකි.",
-        "marking_guide": "සංවේදක, ක්‍රියාකාරක සහ ස්වාධීනත්වය පැහැදිලි කිරීමට ලකුණු 3.0."
-      },
-      {
-        "sub_id": "6.b.ii",
-        "label": "(b) (ii)",
-        "stem": "කාරකයක ප්‍රධාන ලක්ෂණ දෙකක් දෙන්න.",
-        "marks": 2.0,
-        "expected_answer": "1. ස්වාධීනත්වය (Autonomy): මිනිස් මැදිහත්වීමකින් තොරව තීරණ ගෙන ක්‍රියාත්මක වීම.\n2. ප්‍රතික්‍රියාශීලී බව (Reactivity): පරිසරයේ වෙනස්කම් හඳුනාගෙන ක්ෂණිකව ප්‍රතිචාර දැක්වීම.",
-        "marking_guide": "ලක්ෂණ දෙකට ලකුණු 2.0."
-      },
-      {
-        "sub_id": "6.b.iii",
-        "label": "(b) (iii)",
-        "stem": "කාරක තාක්ෂණවේදය ඵලදායි ලෙස යොදාගත හැකි අවස්ථාවක් සඳහා නිදසුනක් කෙටියෙන් පැහැදිලි කරන්න.",
-        "marks": 3.0,
-        "expected_answer": "නිදසුන: ස්වයංක්‍රීය මිල සැසඳුම් සහ ලංසු තැබීමේ කාරකය (Price comparison & bidding agent). විවිධ වෙබ් අඩවිවල මිල ගණන් නිරීක්ෂණය කර පාරිභෝගිකයා නියම කළ සීමාවන්ට යටත්ව ස්වයංක්‍රීයව ලංසු තබා භාණ්ඩය මිලදී ගැනීම.",
-        "marking_guide": "ප්‍රායෝගික උදාහරණයට ලකුණු 3.0."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2011,
-      "medium": "sinhala",
-      "topic": "e-Commerce & Agent Technology",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   }
 ]

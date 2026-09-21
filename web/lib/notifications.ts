@@ -3,6 +3,10 @@
  * the workspace layout) subscribes and renders any toast emitted by
  * `notify()`.
  *
+ * NOTE: this is the in-app toast system only — it is NOT the Telegram
+ * parent-alert pipeline (backend `notification_queue` outbox → Bot API).
+ * Do not wire Telegram delivery through here.
+ *
  * Why pub-sub instead of a context: emitters can be outside React (WS
  * handlers, fetch wrappers, plain utility code). Coupling a context would
  * force every non-React caller into a hook-friendly shape it doesn't need.

@@ -23,17 +23,30 @@ export default function CreateSessionModal({ onClose, onStart }: CreateSessionMo
   const [subject, setSubject] = useState("ICT (A/L)");
   const [duration, setDuration] = useState(25);
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<{ title?: string; subject?: string; duration?: string }>({});
 
   const revealRoot = useRevealStagger<HTMLDivElement>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const nextErrors: typeof errors = {};
+    const cleanTitle = title.trim();
+    if (cleanTitle.length > 120) nextErrors.title = "Title must be at most 120 characters.";
+    if (subject.trim().length === 0) nextErrors.subject = "Pick a subject.";
+    else if (subject.trim().length > 60) nextErrors.subject = "Subject must be at most 60 characters.";
+    if (!Number.isInteger(duration) || duration < 1 || duration > 480)
+      nextErrors.duration = "Duration must be 1–480 minutes.";
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) return;
     setIsLoading(true);
-    const finalTitle = title.trim() || `${subject} Study Session`;
-    // Session creation happens once, in the page's pre-flight completion
-    // handler (single source of truth — no double-create).
-    onStart(finalTitle, subject, duration);
-    setIsLoading(false);
+    try {
+      const finalTitle = cleanTitle || `${subject.trim()} Study Session`;
+      // Session creation happens once, in the page's pre-flight completion
+      // handler (single source of truth — no double-create).
+      onStart(finalTitle.slice(0, 120), subject.trim().slice(0, 60), duration);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -82,14 +95,29 @@ export default function CreateSessionModal({ onClose, onStart }: CreateSessionMo
               id="session-title"
               type="text"
               value={title}
+              maxLength={120}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="E.g., Calculus Midterm Prep"
+              aria-invalid={Boolean(errors.title)}
+              aria-describedby={errors.title ? "session-title-error" : undefined}
               className="glass-input w-full"
             />
+            {errors.title && (
+              <p id="session-title-error" role="alert" className="mt-1 text-[11px] text-red-400">
+                {errors.title}
+              </p>
+            )}
           </div>
 
           <div data-reveal>
             <span className="block text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-2">Subject</span>
+            <p className="mb-2 text-[10px] text-[var(--muted-foreground)] opacity-80">
+              Tutoring, monitoring and notes work for every subject. Built-in past papers
+              exist for ICT (A/L) and ICT (O/L) only.
+            </p>
+            {errors.subject && (
+              <p role="alert" className="mb-1 text-[11px] text-red-400">{errors.subject}</p>
+            )}
             <div className="grid grid-cols-3 gap-2">
               {SUBJECTS.map((sub) => {
                 const active = subject === sub;
@@ -116,6 +144,9 @@ export default function CreateSessionModal({ onClose, onStart }: CreateSessionMo
             <span className="block text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-2">
               Duration <span className="normal-case font-medium tracking-normal opacity-70">(minutes)</span>
             </span>
+            {errors.duration && (
+              <p role="alert" className="mb-1 text-[11px] text-red-400">{errors.duration}</p>
+            )}
             <div className="grid grid-cols-3 gap-2">
               {DURATIONS.map((dur) => {
                 const active = duration === dur;

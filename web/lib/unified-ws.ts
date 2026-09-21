@@ -153,6 +153,7 @@ const HEARTBEAT_INTERVAL_MS = 30_000;
 const HEARTBEAT_TIMEOUT_MS = 45_000;
 const MAX_RECONNECT_ATTEMPTS = 5;
 const BASE_RECONNECT_DELAY_MS = 200;
+const MAX_QUEUED_MESSAGES = 50;
 
 export class UnifiedWSClient {
   private ws: WebSocket | null = null;
@@ -244,10 +245,17 @@ export class UnifiedWSClient {
 
   send(msg: ChatMessage): void {
     if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify(msg));
+      try {
+        this.ws.send(JSON.stringify(msg));
+      } catch {
+        // Socket died mid-send: queue for reconnect rather than dropping.
+        if (this.messageQueue.length < MAX_QUEUED_MESSAGES) this.messageQueue.push(msg);
+      }
       return;
     }
-    // Queue message and ensure connection is established
+    // Queue message and ensure connection is established (bounded: prolonged
+    // offline no longer grows memory without bound — oldest drops first).
+    if (this.messageQueue.length >= MAX_QUEUED_MESSAGES) this.messageQueue.shift();
     this.messageQueue.push(msg);
     if (!this.ws || this.ws.readyState > WebSocket.CONNECTING) {
       this.connect();

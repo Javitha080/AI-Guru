@@ -29,6 +29,12 @@ interface UseStudyTelemetryOptions {
    * parent a "child left" notification.
    */
   isPaused?: boolean;
+  /**
+   * False for honest offline sessions (pre-flight without a camera): no
+   * engine is started at all, so Vision Guard can never show guessed
+   * Presence/Posture/Focus values.
+   */
+  monitoringEnabled?: boolean;
   onNotice?: (notice: { kind: "error" | "warn"; text: string } | null) => void;
 }
 
@@ -37,6 +43,7 @@ export function useStudyTelemetry({
   isActive,
   liveViewEnabled,
   isPaused,
+  monitoringEnabled = true,
   onNotice,
 }: UseStudyTelemetryOptions) {
   const [focusScore, setFocusScore] = useState<number | null>(null);
@@ -48,8 +55,15 @@ export function useStudyTelemetry({
   const [postureLabel, setPostureLabel] = useState<string>("—");
   const [wsConnected, setWsConnected] = useState(false);
   const [feedAttempt, setFeedAttempt] = useState(0);
+  // True once at least one real telemetry_update arrived this session.
+  // Vision Guard gates every displayed metric on this: before first signal
+  // (offline, probing, camera dead) all values render as "—", never zeros.
+  const [hasTelemetry, setHasTelemetry] = useState(false);
 
-  const { monitorMode, setMonitorMode } = useMonitorMode(isActive, sessionId);
+  const { monitorMode, setMonitorMode } = useMonitorMode(
+    isActive && monitoringEnabled,
+    sessionId
+  );
   const {
     liveWarnings,
     pushWarning,
@@ -75,6 +89,7 @@ export function useStudyTelemetry({
   // Shared telemetry message handler for both system and browser paths
   const applyRemote = useCallback(
     (msg: Record<string, unknown>) => {
+      setHasTelemetry(true);
       if (typeof msg.engagement_score === "number")
         setEngagementScore(Math.round(msg.engagement_score));
       if (typeof msg.focus_score === "number")
@@ -177,12 +192,16 @@ export function useStudyTelemetry({
           "@/lib/monitoring/visionPipeline"
         );
         let lastLiveUpload = 0;
+        const rawFps = Number(
+          window.localStorage.getItem(VISION_FPS_KEY) || 5
+        );
+        const targetFps = Number.isFinite(rawFps)
+          ? Math.max(1, Math.min(15, Math.round(rawFps)))
+          : 5;
         const pipeline = new VisionPipeline({
           video,
           sessionId: sessionId ?? undefined,
-          targetFps: Number(
-            window.localStorage.getItem(VISION_FPS_KEY) || 5
-          ),
+          targetFps,
           onState: (s) => setWsConnected(s === "ready"),
           onTelemetry: (frame, remote) => {
             if (remote) {
@@ -220,11 +239,24 @@ export function useStudyTelemetry({
 
     return () => {
       cancelled = true;
-      pipelineRefLocal.current?.stop();
+      try {
+        pipelineRefLocal.current?.stop();
+      } catch {
+        /* best-effort */
+      }
       pipelineRef.current = null;
       const stream = streamRef.current;
       stream?.getTracks().forEach((t) => t.stop());
       streamRef.current = null;
+      const video = videoRef.current;
+      if (video) {
+        try {
+          video.pause();
+          video.srcObject = null;
+        } catch {
+          /* ignore */
+        }
+      }
       setWsConnected(false);
     };
   }, [isActive, monitorMode, sessionId, applyRemote, onNotice]);
@@ -233,10 +265,14 @@ export function useStudyTelemetry({
     if (feedRetryRef.current < 3) {
       feedRetryRef.current += 1;
       setFeedAttempt(feedRetryRef.current);
-    } else {
+    } else if (monitorMode !== "browser") {
       setMonitorMode("browser");
+      onNotice?.({
+        kind: "warn",
+        text: "System camera feed failed — switched to on-device monitoring.",
+      });
     }
-  }, [setMonitorMode]);
+  }, [setMonitorMode, monitorMode, onNotice]);
 
   const resetTelemetry = useCallback(() => {
     setFocusScore(null);
@@ -245,6 +281,7 @@ export function useStudyTelemetry({
     setWhitelistedAction(null);
     setPresenceState("unknown");
     setPostureLabel("—");
+    setHasTelemetry(false);
     resetWarnings();
     setWsConnected(false);
     setMonitorMode(null);
@@ -263,6 +300,8 @@ export function useStudyTelemetry({
     postureLabel,
     liveWarnings,
     wsConnected,
+    /** At least one real telemetry_update arrived — metrics are measured. */
+    hasTelemetry,
     monitorMode,
     setMonitorMode,
     feedAttempt,

@@ -309,13 +309,37 @@ class ExamStore:
             return cursor.rowcount > 0
 
     @classmethod
-    async def list_exams(cls, limit: int = 20) -> List[Dict[str, Any]]:
+    async def list_exams(cls, limit: int = 20, *, only_uploads: bool = False) -> List[Dict[str, Any]]:
+        """List exams newest-first.
+
+        only_uploads=True returns just user-uploaded papers: rows with no
+        sitting link (Paper-Bank sittings live under "Your Sittings" in the
+        Paper Bank, not under "Your Uploaded Papers"). Test-harness rows
+        (ids like 'test-exam-%') are never real uploads and are always
+        excluded so CI runs can never pollute the UI.
+        """
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
             db.row_factory = aiosqlite.Row
+            where = ["id NOT LIKE 'test-exam-%'"]
+            if only_uploads:
+                where.append("(sitting_id IS NULL OR sitting_id = '')")
+            clause = f"WHERE {' AND '.join(where)}" if where else ""
+            try:
+                cursor = await db.execute(
+                    "SELECT id, title, status, total_marks, created_at, started_at, ends_at,"
+                    " source_filename,"
+                    " COALESCE(json_array_length(paper_json, '$.questions'), 0)"
+                    " AS question_count"
+                    f" FROM exams {clause} ORDER BY created_at DESC LIMIT ?",
+                    (int(limit),),
+                )
+                return [dict(r) for r in await cursor.fetchall()]
+            except Exception:  # noqa: BLE001 - SQLite without json1: fall back below
+                pass
             cursor = await db.execute(
                 "SELECT id, title, status, total_marks, created_at, started_at, ends_at, source_filename"
-                " FROM exams ORDER BY created_at DESC LIMIT ?",
+                f" FROM exams {clause} ORDER BY created_at DESC LIMIT ?",
                 (int(limit),),
             )
             rows = [dict(r) for r in await cursor.fetchall()]
@@ -323,11 +347,22 @@ class ExamStore:
         for r in rows:
             try:
                 paper = json.loads((await cls._paper_json_raw(r["id"])) or "{}")
-                r["question_count"] = len(paper.get("questions", []))
+                questions = paper.get("questions", [])
+                r["question_count"] = len(questions) if isinstance(questions, list) else 0
             except Exception:  # noqa: BLE001
                 r["question_count"] = 0
             out.append(r)
         return out
+
+    @classmethod
+    async def delete_exam(cls, exam_id: str) -> bool:
+        """Delete one uploaded exam + its answers (FK cascade). Returns True if removed."""
+        async with aiosqlite.connect(_db_path()) as db:
+            await cls.ensure_tables(db)
+            await db.execute("PRAGMA foreign_keys = ON;")
+            cur = await db.execute("DELETE FROM exams WHERE id = ?", (exam_id,))
+            await db.commit()
+            return cur.rowcount > 0
 
     @classmethod
     async def _paper_json_raw(cls, exam_id: str) -> Optional[str]:

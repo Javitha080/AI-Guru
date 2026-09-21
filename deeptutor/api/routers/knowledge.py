@@ -1006,7 +1006,8 @@ async def health_check():
             "knowledge_bases_count": kb_count,
         }
     except Exception as e:
-        return {"status": "error", "error": str(e), "traceback": traceback.format_exc()}
+        logger.exception("Knowledge health check failed: %s", e)
+        return {"status": "error", "error": "Knowledge service unavailable. Try again."}
 
 
 @router.get("/rag-providers")
@@ -1030,7 +1031,7 @@ async def get_rag_providers():
         return {"providers": providers}
     except Exception as e:
         logger.error(f"Error getting RAG providers: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 class ProviderModeUpdate(BaseModel):
@@ -1091,7 +1092,7 @@ async def get_pageindex_pipeline_config():
         return _pageindex_config_payload()
     except Exception as e:
         logger.error(f"Error reading PageIndex config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.put("/rag-pipelines/pageindex/config")
@@ -1126,7 +1127,7 @@ async def update_pageindex_pipeline_config(payload: PageIndexConfigUpdate):
         return _pageindex_config_payload()
     except Exception as e:
         logger.error(f"Error updating PageIndex config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 class LlamaIndexConfigUpdate(BaseModel):
@@ -1149,7 +1150,7 @@ async def get_llamaindex_pipeline_config():
         return get_runtime_settings_service().load_llamaindex()
     except Exception as e:
         logger.error(f"Error reading LlamaIndex config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.put("/rag-pipelines/llamaindex/config")
@@ -1169,7 +1170,7 @@ async def update_llamaindex_pipeline_config(payload: LlamaIndexConfigUpdate):
         return service.save_llamaindex({**current, **updates})
     except Exception as e:
         logger.error(f"Error updating LlamaIndex config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 class GraphRagConfigUpdate(BaseModel):
@@ -1189,7 +1190,7 @@ async def get_graphrag_pipeline_config():
         return get_runtime_settings_service().load_graphrag()
     except Exception as e:
         logger.error(f"Error reading GraphRAG config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.put("/rag-pipelines/graphrag/config")
@@ -1204,7 +1205,7 @@ async def update_graphrag_pipeline_config(payload: GraphRagConfigUpdate):
         return service.save_graphrag({**current, **updates})
     except Exception as e:
         logger.error(f"Error updating GraphRAG config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 class LightRagConfigUpdate(BaseModel):
@@ -1223,7 +1224,7 @@ async def get_lightrag_pipeline_config():
         return get_runtime_settings_service().load_lightrag()
     except Exception as e:
         logger.error(f"Error reading LightRAG config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.put("/rag-pipelines/lightrag/config")
@@ -1238,7 +1239,7 @@ async def update_lightrag_pipeline_config(payload: LightRagConfigUpdate):
         return service.save_lightrag({**current, **updates})
     except Exception as e:
         logger.error(f"Error updating LightRAG config: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/rag-pipelines/{provider}/preflight")
@@ -1254,7 +1255,7 @@ async def get_rag_pipeline_preflight(provider: str):
         return engine_preflight(provider)
     except Exception as e:
         logger.error(f"Error running preflight for '{provider}': {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 # Model kinds an engine page is allowed to read/switch. ``vision`` is not a
@@ -1314,7 +1315,7 @@ async def get_rag_model_options(kinds: str = "llm,embedding"):
         return _model_options_payload(requested)
     except Exception as e:
         logger.error(f"Error reading model options: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 class ActiveModelUpdate(BaseModel):
@@ -1360,7 +1361,7 @@ async def set_rag_active_model(payload: ActiveModelUpdate):
         raise
     except Exception as e:
         logger.error(f"Error setting active model: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/supported-file-types", response_model=SupportedFileTypesInfo)
@@ -1389,7 +1390,7 @@ async def get_all_kb_configs():
         return service.get_all_configs()
     except Exception as e:
         logger.error(f"Error getting KB configs: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/{kb_name}/config")
@@ -1403,7 +1404,7 @@ async def get_kb_config(kb_name: str):
         return {"kb_name": kb_name, "config": config}
     except Exception as e:
         logger.error(f"Error getting config for KB '{kb_name}': {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.put("/{kb_name}/config")
@@ -1453,7 +1454,7 @@ async def update_kb_config(kb_name: str, config: dict):
         raise
     except Exception as e:
         logger.error(f"Error updating config for KB '{kb_name}': {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.post("/configs/sync")
@@ -1467,7 +1468,7 @@ async def sync_configs_from_metadata():
         return {"status": "success", "message": "Configurations synced from metadata files"}
     except Exception as e:
         logger.error(f"Error syncing configs: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/default")
@@ -1479,7 +1480,7 @@ async def get_default_kb():
         return {"default_kb": default_kb}
     except Exception as e:
         logger.error(f"Error getting default KB: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.put("/default/{kb_name}")
@@ -1498,7 +1499,7 @@ async def set_default_kb(kb_name: str):
         raise
     except Exception as e:
         logger.error(f"Error setting default KB: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 class ConnectObsidianRequest(BaseModel):
@@ -1530,7 +1531,7 @@ async def connect_obsidian_vault(payload: ConnectObsidianRequest):
         raise
     except Exception as e:
         logger.error(f"Error connecting Obsidian vault: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 class ProbeFolderRequest(BaseModel):
@@ -1603,7 +1604,7 @@ async def connect_linked_folder_route(payload: ConnectFolderRequest):
         raise
     except Exception as e:
         logger.error(f"Error connecting linked folder: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
     return {
         "status": "connected",
@@ -1682,7 +1683,7 @@ async def connect_lightrag_server_route(payload: ConnectLightRagServerRequest):
         raise
     except Exception as e:
         logger.error(f"Error connecting LightRAG server: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
     return {
         "status": "connected",
@@ -1763,7 +1764,7 @@ async def connect_ima_route(payload: ConnectImaRequest):
         raise
     except Exception as e:
         logger.error(f"Error connecting IMA knowledge base: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
     return {
         "status": "connected",
@@ -1970,7 +1971,7 @@ async def get_knowledge_base_details(kb_name: str):
     except ValueError:
         raise HTTPException(status_code=404, detail=f"Knowledge base '{kb_name}' not found")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 def _resolve_kb_raw_dir(kb_name: str, *, allow_unsupported: bool = False) -> Path | None:
@@ -2198,7 +2199,7 @@ async def delete_knowledge_base(kb_name: str):
     except ValueError:
         raise HTTPException(status_code=404, detail=f"Knowledge base '{kb_name}' not found")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/tasks/{task_id}/stream")
@@ -2386,7 +2387,7 @@ async def create_knowledge_base(
     except Exception as e:
         logger.error(f"Failed to create KB: {e}")
         logger.debug(traceback.format_exc())
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 async def run_reindex_task(kb_name: str, base_dir: str, task_id: str, signature_hash: str) -> None:
@@ -2659,7 +2660,7 @@ async def get_progress(kb_name: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.post("/{kb_name}/progress/clear")
@@ -2673,7 +2674,7 @@ async def clear_progress(kb_name: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.websocket("/{kb_name}/progress/ws")
@@ -2849,7 +2850,7 @@ async def link_folder(kb_name: str, request: LinkFolderRequest):
             raise HTTPException(status_code=404, detail=error_msg)
         raise HTTPException(status_code=400, detail=error_msg)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/{kb_name}/linked-folders", response_model=list[LinkedFolderInfo])
@@ -2865,7 +2866,7 @@ async def get_linked_folders(kb_name: str):
     except ValueError:
         raise HTTPException(status_code=404, detail=f"Knowledge base '{kb_name}' not found")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.delete("/{kb_name}/linked-folders/{folder_id}")
@@ -2883,7 +2884,7 @@ async def unlink_folder(kb_name: str, folder_id: str):
     except ValueError:
         raise HTTPException(status_code=404, detail=f"Knowledge base '{kb_name}' not found")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.post("/{kb_name}/sync-folder/{folder_id}")
@@ -2959,4 +2960,4 @@ async def sync_folder(kb_name: str, folder_id: str, background_tasks: Background
     except ValueError:
         raise HTTPException(status_code=404, detail=f"Knowledge base '{kb_name}' not found")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")

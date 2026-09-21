@@ -33,12 +33,17 @@ export function isBackendPath(pathname: string): boolean {
 const STATIC_ASSET =
   /\.(?:png|jpe?g|gif|svg|ico|webp|avif|woff2?|ttf|otf|txt|json|map|css|js)$/i;
 
-// Paths the auth gate must never block: the auth pages themselves, Next.js
-// internals, and public static assets (see STATIC_ASSET above).
+// Paths the auth gate must never block: the auth pages themselves, the
+// standalone Parent Portal (a remote parent holds a parent PIN-JWT, never a
+// student JWT — gating /parent here would bounce them to /login before the
+// Ask-Pass gate; the backend still enforces require_parent on every
+// sensitive route), Next.js internals, and public static assets
+// (see STATIC_ASSET above).
 export function isAuthExempt(pathname: string): boolean {
   return (
     pathname.startsWith(LOGIN_PATH) ||
     pathname.startsWith("/register") ||
+    pathname.startsWith("/parent") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/favicon") ||
     STATIC_ASSET.test(pathname)

@@ -33,13 +33,21 @@ export function ProfileLink({ collapsed = false }: ProfileLinkProps) {
     return null;
   }
 
-  // Precedence: when auth is enabled, prefer auth identity; when disabled, use userProfile
-  const displayName = isAuthEnabled
-    ? authStatus?.username || ""
-    : profile?.display_name || "Student";
+  // Precedence: prefer the friendly student profile name when the user has
+  // configured one; fall back to the auth identity (often an email/username).
+  const hasFriendlyName =
+    Boolean(profile?.is_configured) &&
+    Boolean(profile?.display_name) &&
+    profile?.display_name !== "Student";
+  const displayName = hasFriendlyName
+    ? String(profile?.display_name)
+    : isAuthEnabled
+      ? authStatus?.username || ""
+      : profile?.display_name || "Student";
 
   const userId = isAuthEnabled ? authStatus?.user_id : profile?.student_id;
-  const avatarMarker = isAuthEnabled ? authStatus?.avatar : profile?.avatar;
+  const avatarMarker =
+    hasFriendlyName && profile?.avatar ? profile.avatar : isAuthEnabled ? authStatus?.avatar : profile?.avatar;
   const role = isAuthEnabled ? authStatus?.role : profile?.role;
 
   if (!displayName) return null;

@@ -129,16 +129,62 @@ export function reasoningEffortOptions(
       : options([], current);
   }
 
+  if (provider === "groq") {
+    // Only gpt-oss / qwen3.6 accept reasoning_effort; every other Groq
+    // reasoning model includes thoughts by default with no switch.
+    if (includesAny(modelName, ["gpt-oss"])) {
+      return options(["low", "medium", "high"], current);
+    }
+    if (includesAny(modelName, ["qwen3.6", "qwen3-6"])) {
+      return options(["none", "low", "medium", "high"], current);
+    }
+    return options([], current);
+  }
+
+  if (provider === "openrouter") {
+    // Gateway reasoning models (incl. :free variants); non-reasoning ids
+    // stay hidden so we never send a reasoning flag they reject.
+    const reasoning = includesAny(modelName, [
+      "r1",
+      "qwq",
+      "qwen3",
+      "qwen-3",
+      "thinking",
+      "reasoner",
+      "deepseek-r1",
+      "o1",
+      "o3",
+      "gpt-5",
+    ]);
+    return reasoning
+      ? options(["minimal", "low", "medium", "high"], current)
+      : options([], current);
+  }
+
+  if (
+    provider === "ollama" ||
+    provider === "lm_studio" ||
+    provider === "vllm" ||
+    provider === "llama_cpp"
+  ) {
+    // Local servers stream <think> inline automatically; there is no
+    // effort switch to send, so no selector.
+    return options([], current);
+  }
+
   if (BINARY_THINKING_PROVIDERS.has(provider) || provider === "custom") {
     const supported =
       provider === "minimax" ||
       includesAny(modelName, [
         "deepseek-reasoner",
         "deepseek-v4-pro",
+        "r1",
         "qwen3",
         "qwen-3",
         "qwq",
         "qwen-plus",
+        "thinking",
+        "gpt-oss",
       ]);
     if (supported) {
       return options(["minimal", "high"], current);

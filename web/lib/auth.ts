@@ -1,4 +1,5 @@
 import { apiFetch, apiUrl, setRuntimeAuthEnabled } from "@/lib/api";
+import { clearProfileCache } from "@/hooks/useUserProfile";
 
 // Auth state is resolved at runtime from the backend (`/api/v1/auth/status`),
 // not from a build-time/env constant: the browser bundle never sees
@@ -132,5 +133,8 @@ export async function logout(): Promise<void> {
     });
   } catch {
     // Ignore — we'll redirect regardless
+  } finally {
+    // Never leak one user's profile into the next session on this browser.
+    clearProfileCache();
   }
 }

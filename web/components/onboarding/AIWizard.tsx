@@ -25,6 +25,8 @@ import {
   type CloudProviderId,
   type WizardMode,
 } from "@/lib/onboarding/provider-presets";
+import { apiFetch, apiUrl } from "@/lib/api";
+import { getUserProfile, updateUserProfile } from "@/lib/user-profile-api";
 
 interface AIWizardProps {
   isOpen: boolean;
@@ -123,24 +125,60 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
 
   useEffect(() => {
     if (!isOpen) return;
+    let cancelled = false;
     setLoading(true);
-    fetch("/api/v1/ai-provider/hardware-profile")
-      .then((res) => res.json())
-      .then((data) => setHardware(data))
-      .catch((err) => console.error("Hardware probe failed:", err))
-      .finally(() => setLoading(false));
-
-    // Load initial student name
-    const cachedName = typeof window !== "undefined" ? window.localStorage.getItem("aiguru.student_name") : null;
-    if (cachedName) setStudentName(cachedName);
-    fetch("/api/v1/study-session/student/name")
+    apiFetch(apiUrl("/api/v1/ai-provider/hardware-profile"))
       .then((res) => res.json())
       .then((data) => {
-        if (data?.student_name && data.student_name !== "Student") {
-          setStudentName(data.student_name);
+        if (!cancelled) setHardware(data);
+      })
+      .catch((err) => console.error("Hardware probe failed:", err))
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    // Load initial student name from the canonical profile store.
+    // Falls back to the legacy study-session endpoint (pre-profile DBs) and
+    // finally to the stale per-browser cache for instant placeholder only.
+    const cachedName =
+      typeof window !== "undefined" ? window.localStorage.getItem("aiguru.student_name") : null;
+    if (cachedName && cachedName !== "Student") setStudentName(cachedName);
+    getUserProfile()
+      .then((profile) => {
+        if (cancelled) return;
+        const name = String(profile?.display_name ?? "").trim();
+        if (name && name !== "Student") {
+          setStudentName(name);
+          try {
+            window.localStorage.setItem("aiguru.student_name", name);
+          } catch {
+            /* ignore */
+          }
+        } else {
+          // Migration path: name may exist only in supervision_rules_default.
+          apiFetch(apiUrl("/api/v1/study-session/student/name"))
+            .then((res) => res.json())
+            .then((data) => {
+              if (cancelled) return;
+              const legacy = String(data?.student_name ?? "").trim();
+              if (legacy && legacy !== "Student") setStudentName(legacy);
+            })
+            .catch(() => {});
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        apiFetch(apiUrl("/api/v1/study-session/student/name"))
+          .then((res) => res.json())
+          .then((data) => {
+            if (cancelled) return;
+            const legacy = String(data?.student_name ?? "").trim();
+            if (legacy && legacy !== "Student") setStudentName(legacy);
+          })
+          .catch(() => {});
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -163,8 +201,10 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
   const loadOllamaModels = async () => {
     setOllamaLoading(true);
     try {
-      const res = await fetch(
-        `/api/v1/ai-provider/ollama/models?host=${encodeURIComponent(ollamaUrl.trim() || "http://127.0.0.1:11434")}`,
+      const res = await apiFetch(
+        apiUrl(
+          `/api/v1/ai-provider/ollama/models?host=${encodeURIComponent(ollamaUrl.trim() || "http://127.0.0.1:11434")}`,
+        ),
       );
       const data = await res.json();
       setOllamaModels(Array.isArray(data?.installed_models) ? data.installed_models : []);
@@ -199,7 +239,7 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
         if (ollamaUrl.trim()) body.ollama_base_url = ollamaUrl.trim();
       }
 
-      const res = await fetch("/api/v1/ai-provider/activate", {
+      const res = await apiFetch(apiUrl("/api/v1/ai-provider/activate"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -240,18 +280,26 @@ export function AIWizard({ isOpen, onClose, onComplete }: AIWizardProps) {
 
   const saveStudentName = async () => {
     const trimmed = studentName.trim();
-    if (!trimmed) return;
+    // Never persist the "Student" placeholder — it would mask onboarding state.
+    if (!trimmed || trimmed === "Student") return;
     try {
       if (typeof window !== "undefined") {
         window.localStorage.setItem("aiguru.student_name", trimmed);
       }
-      await fetch("/api/v1/study-session/student/name", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ student_name: trimmed, student_id: "student-primary" }),
-      });
+      // Canonical store: marks profile configured and syncs supervision rules.
+      await updateUserProfile({ display_name: trimmed });
     } catch {
-      /* best effort */
+      // Best effort: fall back to the legacy endpoint so older backends still
+      // record the name (it now mirrors into the canonical store server-side).
+      try {
+        await apiFetch(apiUrl("/api/v1/study-session/student/name"), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ student_name: trimmed, student_id: "student-primary" }),
+        });
+      } catch {
+        /* best effort */
+      }
     }
   };
 

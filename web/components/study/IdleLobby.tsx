@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
+  ArrowLeft,
   Plus,
   BookOpen,
   BookOpenCheck,
@@ -16,6 +18,7 @@ import {
   Binary,
 } from "lucide-react";
 import { motionOK, useRevealStagger, useMagneticTilt } from "@/lib/motion/useGsapReveal";
+import { apiFetch, apiUrl } from "@/lib/api";
 
 const STUDENT_ID = "student-primary";
 const cssVars = (o: Record<string, string>) => o as unknown as React.CSSProperties;
@@ -40,6 +43,9 @@ export interface PastSessionRow {
   status: string;
   target_duration_seconds: number;
   actual_duration_seconds: number;
+  worked_seconds?: number;
+  last_resume_time?: number | null;
+  start_time?: number;
   focus_score: number;
   created_at: number;
 }
@@ -109,13 +115,15 @@ export default function IdleLobby({
   const [historyFailed, setHistoryFailed] = useState(false);
   const [presets, setPresets] = useState<RealStudyPreset[] | null>(null);
   const [presetsLoading, setPresetsLoading] = useState(true);
+  const [presetsFailed, setPresetsFailed] = useState(false);
+  const [presetsRetry, setPresetsRetry] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch(
-          `/api/v1/study-session/history/${STUDENT_ID}?limit=5&offset=0`
+        const res = await apiFetch(
+          apiUrl(`/api/v1/study-session/history/${STUDENT_ID}?limit=5&offset=0`),
         );
         if (!res.ok) throw new Error(String(res.status));
         const data = await res.json();
@@ -130,19 +138,50 @@ export default function IdleLobby({
   }, []);
 
   useEffect(() => {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
     let cancelled = false;
     (async () => {
       setPresetsLoading(true);
+      setPresetsFailed(false);
       try {
-        const [alRes, olRes, examRes] = await Promise.all([
-          fetch("/api/v1/paper_bank/catalog?grade=13&medium=english&limit=4"),
-          fetch("/api/v1/paper_bank/catalog?grade=11&medium=english&limit=4"),
-          fetch("/api/v1/exams/list"),
+        // allSettled: one slow/hanging source (e.g. /exams/list under DB
+        // contention) must not kill the paper-bank tiles that did succeed.
+        const results = await Promise.allSettled([
+          apiFetch(apiUrl("/api/v1/paper_bank/catalog?subject=ict-ol&medium=english&limit=8"), {
+            signal: ctrl.signal,
+          }),
+          apiFetch(apiUrl("/api/v1/paper_bank/catalog?subject=ict&medium=english&limit=8"), {
+            signal: ctrl.signal,
+          }),
+          apiFetch(apiUrl("/api/v1/exams/list"), { signal: ctrl.signal }),
         ]);
 
-        const alData = alRes.ok ? await alRes.json() : { papers: [] };
-        const olData = olRes.ok ? await olRes.json() : { papers: [] };
-        const examsData = examRes.ok ? await examRes.json() : [];
+        const readJson = async <T,>(r: PromiseSettledResult<Response>, fallback: T) => {
+          if (r.status !== "fulfilled")
+            return { data: fallback, ok: false, status: 0, reason: String(r.reason) };
+          try {
+            if (!r.value.ok)
+              return { data: fallback, ok: false, status: r.value.status, reason: r.value.statusText };
+            return { data: (await r.value.json()) as T, ok: true, status: r.value.status, reason: "" };
+          } catch (e) {
+            return { data: fallback, ok: false, status: r.value.status, reason: String(e) };
+          }
+        };
+
+        const [ol, al, ex] = await Promise.all([
+          readJson<{ papers?: unknown }>(results[0], { papers: [] }),
+          readJson<{ papers?: unknown }>(results[1], { papers: [] }),
+          readJson<unknown>(results[2], []),
+        ]);
+        if (!ol.ok && !al.ok && !ex.ok)
+          throw new Error(
+            `all preset sources failed (ol=${ol.status} al=${al.status} ex=${ex.status})`
+          );
+
+        const olData = ol.data as { papers?: unknown };
+        const alData = al.data as { papers?: unknown };
+        const examsData = ex.data as unknown;
 
         const alPapers: Array<{
           id: string;
@@ -280,18 +319,23 @@ export default function IdleLobby({
         console.warn("Failed to load real presets:", err);
         if (!cancelled) {
           setPresets([]);
+          setPresetsFailed(true);
           setPresetsLoading(false);
         }
+      } finally {
+        clearTimeout(timer);
       }
     })();
     return () => {
       cancelled = true;
+      ctrl.abort();
+      clearTimeout(timer);
     };
-  }, []);
+  }, [presetsRetry]);
 
-  const resumeCandidate = recent?.find(
-    (r) => r.status === "in_progress" || r.status === "paused"
-  );
+  const resumeCandidate = (recent ?? [])
+    .filter((r) => r.status === "in_progress" || r.status === "paused")
+    .sort((a, b) => (b.created_at || 0) - (a.created_at || 0))[0];
 
   const revealRoot = useRevealStagger<HTMLDivElement>([recent, presets]);
 
@@ -321,6 +365,14 @@ export default function IdleLobby({
         {/* Header row */}
         <div className="flex items-end justify-between gap-4" data-reveal>
           <div>
+            <Link
+              href="/home"
+              className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors mb-2"
+              aria-label="Back to Home"
+            >
+              <ArrowLeft size={14} />
+              <span>Back</span>
+            </Link>
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
               AI Guru · Privacy-first
             </p>
@@ -436,7 +488,22 @@ export default function IdleLobby({
             ))
           )}
 
-          {!presetsLoading && (!presets || presets.length === 0) && (
+          {!presetsLoading && presetsFailed && (!presets || presets.length === 0) && (
+            <div data-reveal className="col-span-2 bento-cell p-5 flex flex-col items-center justify-center min-h-[145px] text-center text-xs text-[var(--muted-foreground)]">
+              <FileText size={22} className="opacity-40 mb-2" />
+              <p className="font-bold">Couldn&apos;t load past papers</p>
+              <p className="text-[10px] opacity-75 mt-0.5">Backend slow or unreachable — nothing was made up.</p>
+              <button
+                onClick={() => setPresetsRetry((c) => c + 1)}
+                className="mt-2.5 text-[11px] font-bold px-3 py-1.5 rounded-lg surface-glass-base hover:text-[var(--primary)] inline-flex items-center gap-1.5"
+              >
+                <RefreshCw size={12} />
+                Retry
+              </button>
+            </div>
+          )}
+
+          {!presetsLoading && !presetsFailed && (!presets || presets.length === 0) && (
             <div data-reveal className="col-span-2 bento-cell p-5 flex flex-col items-center justify-center min-h-[145px] text-center text-xs text-[var(--muted-foreground)]">
               <FileText size={22} className="opacity-40 mb-2" />
               <p className="font-bold">No past papers available</p>
@@ -457,9 +524,17 @@ export default function IdleLobby({
             )}
 
             {historyFailed && (
-              <p className="text-xs text-[var(--muted-foreground)] py-2">
-                History unavailable — backend offline.
-              </p>
+              <div className="flex items-center justify-between gap-2 py-2">
+                <p className="text-xs text-[var(--muted-foreground)]">
+                  History unavailable — backend offline.
+                </p>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="text-[11px] font-bold px-2.5 py-1 rounded-lg surface-glass-base hover:text-[var(--primary)]"
+                >
+                  Retry
+                </button>
+              </div>
             )}
 
             {recent !== null && recent.length === 0 && !historyFailed && (
@@ -469,10 +544,16 @@ export default function IdleLobby({
             )}
 
             <div className="space-y-1.5">
-              {recent?.map((r) => (
+              {recent?.map((r) => {
+                const resumable = r.status === "in_progress" || r.status === "paused";
+                return (
                 <button
                   key={r.id}
-                  onClick={() => router.push("/achievements")}
+                  onClick={() => {
+                    if (resumable) onResume(r);
+                    else router.push("/achievements");
+                  }}
+                  title={resumable ? `Resume ${r.title}` : `View achievements`}
                   className="w-full text-left p-3 rounded-xl border border-transparent hover:border-[var(--glass-border)] hover:bg-[var(--ember-0)] transition-all duration-200 flex items-center justify-between gap-3 group"
                 >
                   <div className="min-w-0 flex items-center gap-3">
@@ -502,7 +583,8 @@ export default function IdleLobby({
                     className="shrink-0 text-[var(--muted-foreground)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--primary)]"
                   />
                 </button>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

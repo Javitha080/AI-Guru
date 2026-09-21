@@ -11,10 +11,12 @@ import {
   Award, Clock, FileText, Flame, Radio, Send, ShieldAlert, Sparkles, Video,
 } from "lucide-react";
 import { useRevealStagger } from "@/lib/motion/useGsapReveal";
-import type { IncidentItem, StudentRow, TunnelSnapshot } from "@/lib/parent/types";
+import type { IncidentItem, OutboxSnapshot, StudentRow, TunnelSnapshot } from "@/lib/parent/types";
 
 interface OverviewTabProps {
   students: StudentRow[];
+  studentsError?: string | null;
+  onRetryStudents?: () => void;
   incidents: IncidentItem[];
   incidentsLoading: boolean;
   selectedStudentId: string | null;
@@ -26,25 +28,40 @@ interface OverviewTabProps {
   tunnel: TunnelSnapshot;
   tunnelBusy: boolean;
   onToggleTunnel: () => void;
+  outbox?: OutboxSnapshot | null;
 }
 
+const TUNNEL_LABELS: Record<string, string> = {
+  active: "Active",
+  starting: "Starting",
+  reconnecting: "Reconnecting",
+  inactive: "Inactive",
+  local_only: "LAN only",
+  failed: "Failed",
+  error: "Error",
+};
+
 export default function OverviewTab({
-  students, incidents, incidentsLoading, selectedStudentId,
-  onSelectStudent, onOpenReports, onLiveView, onSendTunnelLink, sendLinkStatus, tunnel, tunnelBusy, onToggleTunnel,
+  students, studentsError, onRetryStudents, incidents, incidentsLoading, selectedStudentId,
+  onSelectStudent, onOpenReports, onLiveView, onSendTunnelLink, sendLinkStatus, tunnel, tunnelBusy, onToggleTunnel, outbox,
 }: OverviewTabProps) {
+  const [severityFilter, setSeverityFilter] = React.useState<"all" | "alert" | "warning" | "info">("all");
   const active = tunnel.status === "active" && tunnel.url_is_public;
   const pending = tunnel.status === "starting" || tunnel.status === "reconnecting";
-  const degraded = !active && !pending;
-  // Honest reason line: backend-provided message (download progress, failure,
-  // give-up) wins; otherwise fall back to the LAN hint.
-  const reasonLine = degraded
-    ? tunnel.message ||
-      (tunnel.url
-        ? `${tunnel.url}/parent (local only)`
-        : `LAN only · http://<your-ip>:${tunnel.local_port ?? ""}/parent`)
-    : active && tunnel.url
-      ? `${tunnel.url}/parent`
-      : `LAN only · http://<your-ip>:${tunnel.local_port ?? ""}/parent`;
+  const failed = tunnel.status === "failed" || tunnel.status === "error";
+  const lanOnly = tunnel.status === "local_only" || (!active && !pending && !failed);
+  // Honest reason line: backend portal_hint (public URL) wins when active;
+  // backend message (negotiation progress / failure) second; LAN fallback
+  // uses the real port when known, never a broken ":/parent" placeholder.
+  const portalLink = tunnel.portal_hint || (active && tunnel.url ? `${tunnel.url}/parent` : null);
+  const lanLine = tunnel.local_port
+    ? `LAN only · http://<your-ip>:${tunnel.local_port}/parent (same Wi-Fi)`
+    : `LAN only · same Wi-Fi — start the tunnel for remote access`;
+  const reasonLine = active && portalLink ? portalLink : tunnel.message || lanLine;
+  const showSendLink = !pending; // LAN links are sendable too (marked home-Wi-Fi-only)
+  const filteredIncidents = severityFilter === "all"
+    ? incidents
+    : incidents.filter((i) => String(i.severity || "warning") === severityFilter);
 
   // Fresh staggered entrance each time this tab mounts.
   const revealRoot = useRevealStagger<HTMLDivElement>([]);
@@ -82,41 +99,61 @@ export default function OverviewTab({
                       : "bg-[var(--muted)] text-[var(--muted-foreground)] border-[var(--glass-border)]"
                 }`}
               >
-                {tunnel.status.toUpperCase()}
+                {TUNNEL_LABELS[tunnel.status] ?? tunnel.status.toUpperCase()}
               </span>
+              {tunnel.provider && (
+                <span className="text-[11px] text-[var(--muted-foreground)] font-mono">
+                  {tunnel.provider}
+                  {typeof tunnel.restart_attempts === "number" && tunnel.restart_attempts > 0
+                    ? ` · retry ${tunnel.restart_attempts}`
+                    : ""}
+                </span>
+              )}
             </div>
-            <p
-              className={`text-xs font-mono mt-0.5 break-all ${
-                degraded && tunnel.message
-                  ? "text-[var(--amber)]"
-                  : "text-[var(--muted-foreground)]"
-              }`}
-            >
-              {reasonLine}
-            </p>
+            {portalLink ? (
+              <a
+                href={portalLink}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs font-mono mt-0.5 break-all text-[var(--primary)] hover:underline"
+              >
+                {portalLink}
+              </a>
+            ) : (
+              <p
+                className={`text-xs font-mono mt-0.5 break-all ${
+                  !lanOnly && tunnel.message
+                    ? "text-[var(--amber)]"
+                    : "text-[var(--muted-foreground)]"
+                }`}
+              >
+                {reasonLine}
+              </p>
+            )}
           </div>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          {tunnel.url_is_public && (
+          {showSendLink && (
             <button
               onClick={onSendTunnelLink}
+              title={active ? "Send the public portal link" : "Send the LAN portal link (home Wi-Fi only)"}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--amber-glow)]/60 hover:bg-[var(--amber-glow)] text-[var(--amber)] border border-[var(--amber)]/35 text-xs font-semibold transition-colors glow-ring"
             >
               <Send size={13} />
-              <span>Link via Telegram</span>
+              <span>Link via Telegram{active ? "" : " (Wi-Fi)"}</span>
             </button>
           )}
           <button
             onClick={onToggleTunnel}
-            disabled={tunnelBusy}
+            disabled={tunnelBusy || pending}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all disabled:opacity-50 ${
               active
                 ? "surface-glass-base hover:border-red-500/40 hover:text-red-300"
                 : "bg-gradient-to-r from-[var(--primary)] to-[#E8895F] text-white shadow-[0_4px_16px_var(--glow-primary)] hover:brightness-110 active:scale-95"
             }`}
           >
-            {tunnelBusy ? "Working…" : active ? "Stop Tunnel" : "Start Tunnel"}
+            {tunnelBusy || pending ? "Working…" : active ? "Stop Tunnel" : failed ? "Retry Tunnel" : "Start Tunnel"}
           </button>
         </div>
       </div>
@@ -132,9 +169,37 @@ export default function OverviewTab({
           {sendLinkStatus.text}
         </p>
       )}
+      {outbox && (outbox.pending > 0 || outbox.sending > 0 || outbox.dead > 0) && (
+        <p
+          className="text-xs font-semibold px-3.5 py-2.5 rounded-xl border animate-pop-in text-[var(--amber)] bg-[var(--amber-glow)]/50 border-[var(--amber)]/35"
+          data-reveal
+        >
+          {outbox.pending + outbox.sending > 0
+            ? `${outbox.pending + outbox.sending} Telegram alert(s) queued offline — they will deliver automatically when the connection recovers.`
+            : ""}
+          {outbox.dead > 0
+            ? `${outbox.pending + outbox.sending > 0 ? " " : ""}${outbox.dead} alert(s) failed permanently — check Telegram setup in Settings.`
+            : ""}
+          {typeof outbox.overall_pending === "number" && outbox.overall_pending > outbox.pending
+            ? ` (${outbox.overall_pending} total across parents)`
+            : ""}
+        </p>
+      )}
 
       {/* Student bento cells */}
-      {students.length === 0 ? (
+      {studentsError && students.length === 0 ? (
+        <div className="py-12 text-center space-y-3" data-reveal>
+          <p className="text-[var(--muted-foreground)] text-sm">{studentsError}</p>
+          {onRetryStudents && (
+            <button
+              onClick={onRetryStudents}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] text-white text-xs font-bold hover:brightness-110 active:scale-95 transition-all"
+            >
+              Retry
+            </button>
+          )}
+        </div>
+      ) : students.length === 0 ? (
         <div className="py-12 text-center text-[var(--muted-foreground)] text-sm" data-reveal>
           Loading students…
         </div>
@@ -175,7 +240,9 @@ export default function OverviewTab({
                           }`}
                         >
                           {student.status === "studying"
-                            ? student.current_subject || "Studying"
+                            ? student.session_status === "paused"
+                              ? `Paused · ${student.current_subject || "Studying"}`
+                              : student.current_subject || "Studying"
                             : "Not studying right now"}
                         </p>
                       </div>
@@ -183,7 +250,7 @@ export default function OverviewTab({
                     {student.status === "studying" ? (
                       <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[var(--ember-0)] text-[var(--primary)] border border-[var(--ember-line)]/40 flex items-center gap-1.5 shrink-0">
                         <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] ember-dot" />
-                        Studying
+                        {student.monitoring_live ? "Studying · Live" : "Studying"}
                       </span>
                     ) : (
                       <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-[var(--muted)] text-[var(--muted-foreground)] border border-[var(--glass-border)] flex items-center gap-1.5 shrink-0">
@@ -247,10 +314,30 @@ export default function OverviewTab({
 
       {/* Incident timeline — severity rail */}
       <div className="bento-cell p-6" data-reveal>
-        <h3 className="font-display text-lg font-bold mb-5 flex items-center gap-2">
-          <ShieldAlert className="text-[var(--primary)]" size={19} />
-          <span>Distraction &amp; Warning Timeline{selectedStudentId ? "" : " (select a student)"}</span>
-        </h3>
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <h3 className="font-display text-lg font-bold flex items-center gap-2">
+            <ShieldAlert className="text-[var(--primary)]" size={19} />
+            <span>Distraction &amp; Warning Timeline{selectedStudentId ? "" : " (select a student)"}</span>
+          </h3>
+          {incidents.length > 0 && (
+            <div className="flex gap-1.5" role="group" aria-label="Filter by severity">
+              {(["all", "alert", "warning", "info"] as const).map((sev) => (
+                <button
+                  key={sev}
+                  onClick={() => setSeverityFilter(sev)}
+                  aria-pressed={severityFilter === sev}
+                  className={`px-2.5 py-1 rounded-full text-[11px] font-bold capitalize transition-all ${
+                    severityFilter === sev
+                      ? "bg-[var(--primary)] text-white shadow-[0_4px_14px_var(--glow-primary)]"
+                      : "surface-glass-base text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                  }`}
+                >
+                  {sev}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
 
         {incidentsLoading ? (
           <div className="py-8 text-center text-[var(--muted-foreground)] text-sm">Loading incidents…</div>
@@ -259,16 +346,21 @@ export default function OverviewTab({
             <ShieldAlert size={30} className="mx-auto mb-2 opacity-40" />
             <p className="text-sm">No incidents recorded yet. Warnings from monitored sessions will appear here.</p>
           </div>
+        ) : filteredIncidents.length === 0 ? (
+          <div className="py-8 text-center text-[var(--muted-foreground)]">
+            <p className="text-sm">No {severityFilter} incidents — try another filter.</p>
+          </div>
         ) : (
           <div className="relative pl-7 space-y-3 before:absolute before:left-[9px] before:top-2 before:bottom-2 before:w-px before:bg-[var(--glass-border-highlight)]">
-            {incidents.map((item, idx) => {
+            {filteredIncidents.map((item, idx) => {
               const sev = String(item.severity || "warning");
               const nodeColor =
                 sev === "alert" ? "var(--destructive)" : sev === "warning" ? "var(--amber)" : "var(--primary)";
               const tag =
                 sev === "alert" ? "Alert sent" : sev === "warning" ? "Warning logged" : "Logged";
+              const fullDate = item.timestamp ? new Date(item.timestamp * 1000).toLocaleString() : item.time;
               return (
-                <div key={`${item.timestamp}-${idx}`} className="relative animate-pop-in">
+                <div key={`${item.session_id}-${item.timestamp}-${idx}`} className="relative animate-pop-in">
                   {/* Rail node */}
                   <span
                     aria-hidden
@@ -290,17 +382,28 @@ export default function OverviewTab({
                       <div className="min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-semibold text-sm">{item.event}</span>
-                          <span className="text-xs font-mono text-[var(--muted-foreground)]">({item.time})</span>
+                          <span className="text-xs font-mono text-[var(--muted-foreground)]" title={fullDate}>({item.time})</span>
                         </div>
-                        <p className="text-xs text-[var(--muted-foreground)] mt-0.5 truncate">
+                        <p className="text-xs text-[var(--muted-foreground)] mt-0.5 truncate" title={item.message || undefined}>
                           {item.message ||
                             `Confidence ${Math.round((item.confidence || 0) * 100)}% · ${Math.round(item.duration_seconds || 0)}s`}
                         </p>
                       </div>
                     </div>
-                    <span className="text-[11px] px-2.5 py-1 rounded-full font-medium bg-[var(--muted)] text-[var(--muted-foreground)] border border-[var(--glass-border)] shrink-0">
-                      {tag}
-                    </span>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="text-[11px] px-2.5 py-1 rounded-full font-medium bg-[var(--muted)] text-[var(--muted-foreground)] border border-[var(--glass-border)]">
+                        {tag}
+                      </span>
+                      {selectedStudentId && (
+                        <button
+                          onClick={() => onOpenReports(selectedStudentId)}
+                          className="text-[11px] px-2.5 py-1 rounded-full font-semibold surface-glass-base glow-ring hover:text-[var(--primary)] transition-colors"
+                          title="Open session reports"
+                        >
+                          Reports
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               );

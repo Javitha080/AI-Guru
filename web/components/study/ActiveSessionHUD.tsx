@@ -41,6 +41,8 @@ export interface ActiveSessionHUDProps {
   } | null;
   sessionId: string | null;
   wsConnected: boolean;
+  /** At least one real telemetry_update arrived — displayed values are measured. */
+  hasTelemetry: boolean;
   monitorMode: MonitorMode | null;
   timeLeft: number | null;
   isPaused: boolean;
@@ -52,13 +54,16 @@ export interface ActiveSessionHUDProps {
   postureLabel: string;
   whitelistedAction: string | null;
   liveWarnings: LiveWarning[];
-  liveViewEnabled: boolean;
+  /** Parent live supervision stays enabled in the background (no student toggle). */
+  liveViewEnabled?: boolean;
+  voiceEnabled?: boolean;
   telegramBadgeVisible: boolean;
   feedAttempt: number;
   videoRef: React.RefObject<HTMLVideoElement | null>;
   onPauseToggle: () => void;
   onFinish: () => void;
-  onToggleLiveView: (next: boolean) => void;
+  onToggleLiveView?: (next: boolean) => void;
+  onToggleVoice?: (next: boolean) => void;
   onFeedError: () => void;
 }
 
@@ -78,12 +83,14 @@ export default function ActiveSessionHUD({
   whitelistedAction,
   liveWarnings,
   liveViewEnabled,
+  voiceEnabled,
   telegramBadgeVisible,
   feedAttempt,
   videoRef,
   onPauseToggle,
   onFinish,
   onToggleLiveView,
+  onToggleVoice,
   onFeedError,
 }: ActiveSessionHUDProps) {
   return (
@@ -169,6 +176,7 @@ export function MonitoringSidebar({
   sessionData,
   sessionId,
   wsConnected,
+  hasTelemetry,
   monitorMode,
   timeLeft,
   isPaused,
@@ -179,14 +187,18 @@ export function MonitoringSidebar({
   postureLabel,
   whitelistedAction,
   liveWarnings,
-  liveViewEnabled,
+  voiceEnabled,
   telegramBadgeVisible,
   feedAttempt,
   videoRef,
   onPauseToggle,
-  onToggleLiveView,
+  onToggleVoice,
   onFeedError,
-}: Omit<ActiveSessionHUDProps, "stopping" | "onFinish">) {
+}: Omit<ActiveSessionHUDProps, "stopping" | "onFinish" | "liveViewEnabled" | "onToggleLiveView">) {
+  // Honesty gate: before the first real telemetry frame, every metric is
+  // unmeasured. Showing backend zeros (Away / 0% / head-center) as facts
+  // would be fabricated data — render "—" until the camera proves otherwise.
+  const monitored = wsConnected && hasTelemetry;
   return (
     <aside className="w-full lg:w-[340px] shrink-0 flex flex-col gap-4 p-4 pt-2 lg:pl-1 pb-28 overflow-y-auto max-h-[48vh] lg:max-h-none border-t border-[var(--glass-border)] lg:border-t-0 lg:border-l">
       {/* Timer Clock */}
@@ -218,23 +230,37 @@ export function MonitoringSidebar({
         </div>
 
         <div className="space-y-2 text-xs">
+          {!monitored && (
+            <p
+              role="status"
+              className="p-2 rounded-lg bg-[var(--muted)]/60 border border-[var(--glass-border)] text-[11px] text-[var(--muted-foreground)] leading-relaxed"
+            >
+              {!wsConnected
+                ? "Unmonitored — no camera signal. Metrics stay blank; nothing here is estimated."
+                : "Waiting for the first camera frame — metrics appear once monitoring measures them."}
+            </p>
+          )}
           <TelemetryRow label="Presence">
             <span
               className={`font-semibold capitalize ${
-                presenceState.toUpperCase() === "PRESENT"
+                !monitored
+                  ? "text-[var(--muted-foreground)]"
+                  : presenceState.toUpperCase() === "PRESENT"
                   ? "text-[var(--primary)]"
                   : presenceState.toUpperCase() === "AWAY"
                   ? "text-red-400"
                   : "text-[var(--foreground)]"
               }`}
             >
-              {presenceState.replace(/_/g, " ").toLowerCase()}
+              {monitored ? presenceState.replace(/_/g, " ").toLowerCase() : "—"}
             </span>
           </TelemetryRow>
           <TelemetryRow label="Posture">
-            <span className="font-semibold capitalize">{postureLabel}</span>
+            <span className="font-semibold capitalize">
+              {monitored ? postureLabel : "—"}
+            </span>
           </TelemetryRow>
-          {whitelistedAction && (
+          {monitored && whitelistedAction && (
             <TelemetryRow label="Recognized">
               <span className="font-semibold text-[var(--primary)]">
                 {WHITELIST_LABELS[whitelistedAction] ||
@@ -244,34 +270,40 @@ export function MonitoringSidebar({
           )}
           <TelemetryRow label="Focus">
             <span className="font-semibold text-[var(--primary)] font-mono">
-              {focusScore === null ? "—" : `${focusScore}%`}
+              {monitored && focusScore !== null ? `${focusScore}%` : "—"}
             </span>
           </TelemetryRow>
           <TelemetryRow label="Engagement">
             <span className="flex items-center gap-1.5 font-semibold text-[var(--primary)] font-mono">
-              <span
-                title={
-                  focusTrend === "RISING"
-                    ? "Engagement rising"
-                    : focusTrend === "FALLING"
-                    ? "Engagement falling"
-                    : "Steady"
-                }
-                className={
-                  focusTrend === "FALLING"
-                    ? "text-red-400"
-                    : focusTrend === "RISING"
-                    ? "text-[var(--primary)]"
-                    : "text-[var(--muted-foreground)]"
-                }
-              >
-                {focusTrend === "RISING"
-                  ? "↑"
-                  : focusTrend === "FALLING"
-                  ? "↓"
-                  : "→"}
-              </span>
-              {engagementScore === null ? "—" : `${engagementScore}%`}
+              {monitored ? (
+                <>
+                  <span
+                    title={
+                      focusTrend === "RISING"
+                        ? "Engagement rising"
+                        : focusTrend === "FALLING"
+                        ? "Engagement falling"
+                        : "Steady"
+                    }
+                    className={
+                      focusTrend === "FALLING"
+                        ? "text-red-400"
+                        : focusTrend === "RISING"
+                        ? "text-[var(--primary)]"
+                        : "text-[var(--muted-foreground)]"
+                    }
+                  >
+                    {focusTrend === "RISING"
+                      ? "↑"
+                      : focusTrend === "FALLING"
+                      ? "↓"
+                      : "→"}
+                  </span>
+                  {engagementScore === null ? "—" : `${engagementScore}%`}
+                </>
+              ) : (
+                "—"
+              )}
             </span>
           </TelemetryRow>
           <TelemetryRow label="Data Privacy">
@@ -289,28 +321,27 @@ export function MonitoringSidebar({
                 : "—"}
             </span>
           </TelemetryRow>
-          <div className="flex justify-between items-center pt-1.5 border-t border-[var(--glass-border)]">
+          <div className="flex justify-between items-center pt-1.5">
             <span className="text-[var(--muted-foreground)]">
-              Parent Live View
+              Parent Voice Check-ins
             </span>
             <button
-              onClick={() => onToggleLiveView(!liveViewEnabled)}
-              disabled={!wsConnected}
-              aria-label="Toggle parent live view"
+              onClick={() => onToggleVoice?.(!(voiceEnabled ?? true))}
+              aria-label="Toggle parent voice check-ins"
               className={`relative w-9 h-5 rounded-full transition-colors duration-300 ${
-                liveViewEnabled
+                (voiceEnabled ?? true)
                   ? "bg-[var(--primary)] shadow-[0_0_12px_var(--glow-primary)]"
                   : "bg-[var(--muted)] border border-[var(--glass-border)]"
-              } ${!wsConnected ? "opacity-40 cursor-not-allowed" : ""}`}
+              }`}
               title={
-                liveViewEnabled
-                  ? "Parent can view live snapshots"
-                  : "Allow parent to view this session"
+                (voiceEnabled ?? true)
+                  ? "Parent calls auto-answer — select to turn off"
+                  : "Allow parent voice check-ins"
               }
             >
               <span
                 className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-all duration-300 ${
-                  liveViewEnabled ? "left-[18px]" : "left-0.5"
+                  (voiceEnabled ?? true) ? "left-[18px]" : "left-0.5"
                 }`}
               />
             </button>
@@ -346,7 +377,7 @@ export function MonitoringSidebar({
         {wsConnected && <div className="scanline-bar" />}
         {monitorMode === "system" && sessionId && wsConnected ? (
           <img
-            key={sessionId}
+            key={`${sessionId}-${feedAttempt}`}
             src={monitoringApi.feed(sessionId, feedAttempt || undefined)}
             alt="Live AI Guru monitoring feed with face mesh overlay"
             className="absolute inset-0 h-full w-full object-cover opacity-95"

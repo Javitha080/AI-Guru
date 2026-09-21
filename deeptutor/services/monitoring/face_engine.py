@@ -91,6 +91,10 @@ class FaceEngine:
         """Return the enrolled baseline feature vector."""
         return self._enrolled_embedding
 
+    def clear_enrolled_face(self) -> None:
+        """Drop the enrolled baseline (used when the student re-enrolls)."""
+        self._enrolled_embedding = None
+
     @staticmethod
     def _normalize_vector(vec: List[float]) -> List[float]:
         """L2-normalize a feature vector."""
@@ -127,10 +131,15 @@ class FaceEngine:
         self,
         current_embedding: List[float],
         baseline_embedding: Optional[List[float]] = None,
+        threshold: Optional[float] = None,
     ) -> Tuple[bool, float]:
         """
         Verify if current face matches enrolled student baseline.
         Returns (is_match, similarity_score).
+
+        ``threshold`` overrides the geometric default — SFace neural vectors
+        live on a different cosine scale (0.363) and must not be judged
+        against the geometric cut (0.65).
         """
         target_baseline = baseline_embedding or self._enrolled_embedding
         if target_baseline is None:
@@ -138,7 +147,8 @@ class FaceEngine:
             return True, 1.0
 
         sim = self.compute_cosine_similarity(current_embedding, target_baseline)
-        is_match = sim >= self.match_threshold
+        cut = self.match_threshold if threshold is None else threshold
+        is_match = sim >= cut
         return is_match, round(sim, 4)
 
     def extract_landmarks_from_telemetry(self, raw_data: dict[str, Any]) -> FaceDetectionResult:
@@ -172,6 +182,24 @@ class FaceEngine:
                 embedding=embedding,
                 brightness=_coerce_float(raw_data.get("brightness", 0.5), 0.5),
             )
+
+        # Browser pre-flight posts bare LandmarkGroups (no `detected` wrapper —
+        # see visionPipeline.takeRecentLandmarkFrames + landmarks_to_payload).
+        # Accept that shape here so the verify-liveness endpoint can score it.
+        if (
+            isinstance(raw_data, dict)
+            and "detected" not in raw_data
+            and isinstance(raw_data.get("left_eye"), list)
+            and isinstance(raw_data.get("nose_tip"), dict)
+        ):
+            raw_data = {
+                "detected": True,
+                "confidence": raw_data.get("confidence", 0.95),
+                "brightness": raw_data.get("brightness", 0.5),
+                "bbox": raw_data.get("bbox", [0.2, 0.2, 0.6, 0.6]),
+                "landmarks": raw_data,
+                "embedding": raw_data.get("embedding"),
+            }
 
         if not isinstance(raw_data, dict) or not raw_data.get("detected", False):
             brightness = 0.5

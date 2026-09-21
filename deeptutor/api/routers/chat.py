@@ -230,15 +230,20 @@ async def websocket_chat(websocket: WebSocket):
                 logger.info(f"Chat completed: session={session_id}, {len(full_response)} chars")
 
             except Exception as e:
-                logger.error(f"Chat processing error: {e}")
-                await websocket.send_json({"type": "error", "message": str(e)})
+                logger.exception("Chat processing error: %s", e)
+                try:
+                    await websocket.send_json(
+                        {"type": "error", "message": "Chat failed. Try again."}
+                    )
+                except Exception:
+                    pass
 
     except WebSocketDisconnect:
         logger.debug("Client disconnected from chat")
     except Exception as e:
-        logger.error(f"WebSocket error: {e}")
+        logger.exception("WebSocket error: %s", e)
         try:
-            await websocket.send_json({"type": "error", "message": str(e)})
+            await websocket.send_json({"type": "error", "message": "Connection error. Reconnect."})
         except Exception:
             pass
     finally:

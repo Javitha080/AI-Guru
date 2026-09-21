@@ -47,6 +47,7 @@ from deeptutor.core.stream_bus import StreamBus
 from deeptutor.core.trace import build_trace_metadata, merge_trace_metadata, new_call_id
 from deeptutor.services.llm import clean_thinking_tags
 from deeptutor.services.llm.multimodal import should_degrade_to_text, strip_image_parts_inplace
+from deeptutor.services.llm.reasoning_params import extract_delta_reasoning_text
 from deeptutor.services.llm.request_compat import (
     is_image_input_unsupported,
     is_stream_options_unsupported,
@@ -689,11 +690,7 @@ class AgentLoop:
                 if delta is None:
                     continue
 
-                reasoning_text = getattr(delta, "reasoning_content", None) or getattr(
-                    delta,
-                    "reasoning",
-                    None,
-                )
+                reasoning_text = extract_delta_reasoning_text(delta)
                 if reasoning_text:
                     reasoning_parts.append(reasoning_text)
                     output_chars += len(reasoning_text)

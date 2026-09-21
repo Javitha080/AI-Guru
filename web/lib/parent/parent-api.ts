@@ -69,11 +69,14 @@ export function lockParentPortal(): void {
 }
 
 async function doRefresh(refresh: string): Promise<boolean> {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 10_000);
   try {
     const res = await fetch("/api/v1/parent/auth/refresh", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refresh_token: refresh }),
+      signal: ctrl.signal,
     });
     if (!res.ok) return false;
     const data = await res.json();
@@ -85,6 +88,8 @@ async function doRefresh(refresh: string): Promise<boolean> {
     return false;
   } catch {
     return false;
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -134,26 +139,31 @@ export async function pFetch(
   const token = getParentAccessToken();
   const headers = new Headers(init?.headers || {});
   if (token) headers.set("Authorization", `Bearer ${token}`);
-  const res = await fetch(input, { ...init, headers });
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 20_000);
+  let res: Response;
+  try {
+    res = await fetch(input, { ...init, headers, signal: init?.signal ?? ctrl.signal });
+  } catch (err) {
+    // Network/offline/timeout: honest typed error so pages render a retry
+    // banner instead of an unhandled rejection.
+    throw new Error("Parent portal unreachable. Check connection and try again.", {
+      cause: err,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
   const isParentRoute = input.includes("/api/v1/parent/");
   if (res.status === 401 && !_retried && isParentRoute && !isRefreshExempt(input)) {
-    // Refresh on ANY 401 from a parent route: the backend phrases expiry
-    // differently across endpoints ("parent_auth_required", "Token
-    // superseded by a PIN change", raw JWT errors) — all mean "try the
-    // refresh token once, then fall back to the PIN gate".
-    let detail = "";
-    try {
-      detail = (await res.clone().json())?.detail ?? "";
-    } catch {
-      /* ignore body parse issues */
-    }
-    if (detail !== "invalid_refresh_token") {
-      const ok = await tryRefresh();
-      if (ok) return pFetch(input, init, true);
-      clearParentTokens();
-      notifyAuthLost();
-      throw new ParentAuthError();
-    }
+    // Any 401 from a gated parent route means "try the refresh token once,
+    // then fall back to the PIN gate". Backend phrases expiry differently
+    // across endpoints ("parent_auth_required", "Token superseded by a PIN
+    // change", raw JWT errors) — all recoverable via rotation.
+    const ok = await tryRefresh();
+    if (ok) return pFetch(input, init, true);
+    clearParentTokens();
+    notifyAuthLost();
+    throw new ParentAuthError();
   }
   return res;
 }
@@ -182,6 +192,9 @@ export interface LiveStreamStartResult {
   enabled?: boolean;
   tunnel_url?: string | null;
   lan_url?: string | null;
+  mode?: "tunnel" | "lan" | string;
+  reachable_remotely?: boolean;
+  message?: string | null;
 }
 
 export async function startParentLiveStream(
@@ -218,6 +231,10 @@ export function getParentLiveWsUrl(
   studentId?: string | null
 ): string | null {
   if (typeof window === "undefined") return null;
+  // Same-origin WS through the Next /api rewrite. Note: Next rewrites proxy
+  // HTTP but NOT WebSocket upgrades, so the live view treats this transport
+  // as opportunistic — LiveVideoView always runs the HTTP snapshot poll in
+  // parallel and falls back to it when the socket fails.
   const proto = window.location.protocol === "https:" ? "wss:" : "ws:";
   return `${proto}//${window.location.host}/api/v1/parent/live/stream?${liveStreamQuery(sessionId, studentId)}`;
 }
@@ -237,4 +254,83 @@ export function getParentLiveSnapshotUrl(
   studentId?: string | null
 ): string {
   return `/api/v1/parent/live/snapshot?${liveStreamQuery(sessionId, studentId)}`;
+}
+
+export interface ParentVoiceCall {
+  call_id?: string;
+  session_id?: string;
+  parent_id?: string;
+  student_id?: string;
+  mode?: string;
+  started_at?: number;
+  ends_at?: number;
+  seconds_left?: number;
+  active?: boolean;
+  end_reason?: string;
+}
+
+export interface VoiceSignalItem {
+  type: string;
+  payload: string;
+  ts: number;
+}
+
+export async function startParentVoiceCall(
+  sessionId = "current",
+  studentId?: string | null
+): Promise<{ ok: boolean; status: number; data: { call?: ParentVoiceCall } | null }> {
+  const q =
+    `session_id=${encodeURIComponent(sessionId)}` +
+    (studentId ? `&student_id=${encodeURIComponent(studentId)}` : "");
+  return pJson<{ call?: ParentVoiceCall }>(`/api/v1/parent/voice/call?${q}`, { method: "POST" });
+}
+
+export async function endParentVoiceCall(
+  sessionId = "current"
+): Promise<{ ok: boolean; status: number; data: unknown }> {
+  return pJson(`/api/v1/parent/voice/end?session_id=${encodeURIComponent(sessionId)}`, {
+    method: "POST",
+  });
+}
+
+export async function getParentVoiceStatus(
+  sessionId = "current",
+  studentId?: string | null
+): Promise<{ ok: boolean; status: number; data: { active?: boolean; call?: ParentVoiceCall; session_id?: string } | null }> {
+  const q =
+    `session_id=${encodeURIComponent(sessionId)}` +
+    (studentId ? `&student_id=${encodeURIComponent(studentId)}` : "");
+  return pJson(`/api/v1/parent/voice/status?${q}`);
+}
+
+export async function postParentVoiceSignal(
+  sessionId: string,
+  type: string,
+  payload: string
+): Promise<{ ok: boolean; status: number }> {
+  const { ok, status } = await pJson("/api/v1/parent/voice/signal", {
+    method: "POST",
+    body: JSON.stringify({ session_id: sessionId, type, payload }),
+  });
+  return { ok, status };
+}
+
+export async function pollParentVoiceSignal(
+  sessionId = "current"
+): Promise<{ ok: boolean; data: { signals?: VoiceSignalItem[]; call?: ParentVoiceCall | null } | null }> {
+  const { ok, data } = await pJson<{ signals?: VoiceSignalItem[]; call?: ParentVoiceCall | null }>(
+    `/api/v1/parent/voice/signal?session_id=${encodeURIComponent(sessionId)}`
+  );
+  return { ok, data };
+}
+
+export async function sendParentVoiceAnnouncement(
+  sessionId: string,
+  text: string,
+  studentId?: string | null
+): Promise<{ ok: boolean; status: number; data: unknown }> {
+  return pJson("/api/v1/parent/voice/announce", {
+    method: "POST",
+    body: JSON.stringify({ session_id: sessionId, student_id: studentId ?? null, text }),
+  });
 }

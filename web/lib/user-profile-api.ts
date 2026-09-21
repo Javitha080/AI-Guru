@@ -66,15 +66,26 @@ export async function updateUserProfile(
   });
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({}));
-    const detail =
-      typeof errorData?.detail === "string"
-        ? errorData.detail
-        : "Failed to update profile";
-    throw new Error(detail);
+    throw new Error(extractProfileDetail(errorData));
   }
   const updated: UserProfile = await res.json();
   notifyProfileUpdated(updated);
   return updated;
+}
+
+function extractProfileDetail(data: unknown): string {
+  if (typeof data === "object" && data !== null && "detail" in data) {
+    const detail = (data as { detail: unknown }).detail;
+    if (typeof detail === "string" && detail) return detail;
+    // FastAPI 422 validation errors arrive as an array of {msg,...} objects.
+    if (Array.isArray(detail) && detail.length > 0) {
+      const first = detail[0];
+      if (typeof first === "object" && first !== null && "msg" in first) {
+        return String((first as { msg: unknown }).msg);
+      }
+    }
+  }
+  return "Failed to update profile";
 }
 
 export async function getUserProfileStatus(): Promise<UserProfileStatus> {

@@ -96,6 +96,18 @@ class MonitoringThresholds:
     outbox_max_backoff: float = 600.0
     outbox_stale_after: float = 3600.0
 
+    # Parent voice drop-in (auto-answer intercom safeguards)
+    voice_max_duration_seconds: float = 120.0
+    voice_cooldown_seconds: float = 60.0
+    voice_max_per_window: int = 5
+    voice_window_seconds: float = 600.0
+    voice_max_text_chars: int = 280
+    # Text announcements are the no-mic fallback — they get their own light
+    # spam guard so a recent voice call cooldown never blocks them.
+    voice_announce_cooldown_seconds: float = 5.0
+    voice_announce_max_per_window: int = 10
+    voice_announce_window_seconds: float = 300.0
+
 
 DEFAULT_THRESHOLDS = MonitoringThresholds()
 

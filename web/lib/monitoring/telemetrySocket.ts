@@ -22,6 +22,7 @@ export class TelemetrySocket {
   private conn: WsReconnect | null = null;
   private pingTimer: ReturnType<typeof setInterval> | null = null;
   private running = false;
+  private paused = false;
 
   constructor(private opts: TelemetrySocketOptions) {}
 
@@ -31,6 +32,18 @@ export class TelemetrySocket {
     const sessionId = this.opts.sessionId;
     this.conn = new WsReconnect({
       create: () => new WebSocket(monitoringWsUrl(sessionId)),
+      onOpen: (ws) => {
+        // Replay a pause that raced the handshake — otherwise a pause
+        // toggled before OPEN is silently dropped and the engine keeps
+        // recording (and alerting) during a legitimate break.
+        if (this.paused) {
+          try {
+            ws.send(JSON.stringify({ type: "pause" }));
+          } catch {
+            /* ignore */
+          }
+        }
+      },
       onState: (ok) => this.opts.onState?.(ok),
       onMessage: (evt) => {
         try {
@@ -57,10 +70,12 @@ export class TelemetrySocket {
   }
 
   sendPause(): void {
+    this.paused = true;
     this.send({ type: "pause" });
   }
 
   sendResume(): void {
+    this.paused = false;
     this.send({ type: "resume" });
   }
 

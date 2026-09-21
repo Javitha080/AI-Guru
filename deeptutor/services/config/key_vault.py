@@ -111,6 +111,9 @@ class KeyVaultService:
             "anthropic": "ANTHROPIC_API_KEY",
             "deepseek": "DEEPSEEK_API_KEY",
             "dashscope": "DASHSCOPE_API_KEY",
+            "gemini": "GEMINI_API_KEY",
+            "groq": "GROQ_API_KEY",
+            "openrouter": "OPENROUTER_API_KEY",
             "default": "OPENAI_API_KEY",
         }
         env_var = env_map.get(provider_key)
@@ -160,6 +163,12 @@ class KeyVaultService:
             os.environ["DEEPSEEK_API_KEY"] = clean_key
         elif provider_key == "dashscope":
             os.environ["DASHSCOPE_API_KEY"] = clean_key
+        elif provider_key == "gemini":
+            os.environ["GEMINI_API_KEY"] = clean_key
+        elif provider_key == "groq":
+            os.environ["GROQ_API_KEY"] = clean_key
+        elif provider_key == "openrouter":
+            os.environ["OPENROUTER_API_KEY"] = clean_key
 
     def delete_key(self, provider_name: str) -> bool:
         """Remove an API key from the local vault."""

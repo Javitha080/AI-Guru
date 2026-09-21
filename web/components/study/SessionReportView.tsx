@@ -5,7 +5,7 @@
  * Numbers tween up via GSAP when real data lands; null stays an honest dash.
  */
 
-import { Award, Target, AlertTriangle, ChevronRight, Loader2 } from "lucide-react";
+import { Award, Target, AlertTriangle, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useCountUp, useRevealStagger } from "@/lib/motion/useGsapReveal";
 
@@ -18,6 +18,7 @@ interface SessionStats {
   xpEarned: number | null;
   badgesUnlocked: string[];
   summary: string | null;
+  reportReason?: string;
 }
 
 interface SessionReportViewProps {
@@ -70,7 +71,7 @@ export default function SessionReportView({ stats, error, onHome }: SessionRepor
         <h1 className="font-display text-3xl font-extrabold tracking-tight mt-1.5 mb-2">
           Session{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--amber)]">
-            Complete!
+            complete
           </span>
         </h1>
         <p className="text-sm text-[var(--muted-foreground)]">Great job staying focused. Here is your summary.</p>
@@ -87,9 +88,25 @@ export default function SessionReportView({ stats, error, onHome }: SessionRepor
       )}
 
       {loading ? (
-        <div className="flex items-center justify-center gap-2 py-12 text-sm text-[var(--muted-foreground)]">
-          <Loader2 size={16} className="animate-spin text-[var(--primary)]" />
-          Compiling your session report…
+        <div role="status" aria-busy="true" className="mb-6">
+          <span className="sr-only">Compiling your session report…</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-6" aria-hidden="true">
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="bento-cell p-4 flex flex-col items-center justify-center gap-2">
+                <div className="h-3.5 w-3.5 rounded-full bg-[var(--muted)] animate-pulse" />
+                <div className="h-7 w-16 rounded-md bg-[var(--muted)] animate-pulse" />
+                <div className="h-2.5 w-20 rounded bg-[var(--muted)] animate-pulse" />
+              </div>
+            ))}
+          </div>
+          <div className="bento-cell rounded-2xl p-5 flex items-start gap-4" aria-hidden="true">
+            <div className="h-[46px] w-[46px] rounded-xl bg-[var(--muted)] animate-pulse shrink-0" />
+            <div className="flex-1 space-y-2 py-1">
+              <div className="h-3.5 w-24 rounded bg-[var(--muted)] animate-pulse" />
+              <div className="h-3 w-full rounded bg-[var(--muted)] animate-pulse" />
+              <div className="h-3 w-5/6 rounded bg-[var(--muted)] animate-pulse" />
+            </div>
+          </div>
         </div>
       ) : (
         stats && (
@@ -119,8 +136,19 @@ export default function SessionReportView({ stats, error, onHome }: SessionRepor
                 <p className="text-sm text-[var(--muted-foreground)] leading-relaxed whitespace-pre-line break-words">
                   {stats.summary?.trim()
                     ? stats.summary
-                    : `Distractions detected: ${stats.distractionCount ?? 0}. Warnings issued: ${stats.warningCount ?? 0}.`}
+                    : stats.reportReason === "abandoned"
+                      ? "Session was abandoned — no summary generated."
+                      : stats.reportReason === "in_progress"
+                        ? "Session is still open — finish it to generate the full report."
+                        : stats.focusScore === null && stats.engagementScore === null
+                          ? "Focus could not be measured — monitoring was not active or the session was too short."
+                          : `Distractions detected: ${stats.distractionCount ?? "—"}. Warnings issued: ${stats.warningCount ?? "—"}.`}
                 </p>
+                {(stats.durationMinutes === null || stats.focusScore === null) && (
+                  <p className="mt-2 text-[11px] text-[var(--muted-foreground)] opacity-80">
+                    Dashes (—) mean unmeasured, not zero.
+                  </p>
+                )}
               </div>
             </div>
 
@@ -130,15 +158,22 @@ export default function SessionReportView({ stats, error, onHome }: SessionRepor
                   Badges Unlocked
                 </h3>
                 <div className="flex gap-2.5 flex-wrap">
-                  {stats.badgesUnlocked.map((badge, idx) => (
-                    <span
-                      key={idx}
-                      className="flex items-center gap-2 bg-[var(--amber-glow)] text-[var(--amber)] px-4 py-2 rounded-full border border-[var(--amber)]/25 text-xs font-semibold shadow-[0_0_16px_var(--amber-glow)]"
-                    >
-                      <Award size={16} />
-                      {badge}
-                    </span>
-                  ))}
+                  {stats.badgesUnlocked.map((badge, idx) => {
+                    const isNewest = idx === stats.badgesUnlocked.length - 1;
+                    return (
+                      <span
+                        key={idx}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-semibold ${
+                          isNewest
+                            ? "bg-[var(--amber-glow)] text-[var(--amber)] border-[var(--amber)]/25 shadow-[0_0_16px_var(--amber-glow)]"
+                            : "bg-[var(--muted)] text-[var(--foreground)] border-[var(--glass-border)]"
+                        }`}
+                      >
+                        <Award size={16} />
+                        {badge}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             )}

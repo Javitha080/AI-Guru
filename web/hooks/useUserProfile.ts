@@ -23,6 +23,15 @@ export interface UserProfileState {
 let inflightPromise: Promise<UserProfile | null> | null = null;
 let cachedProfile: UserProfile | null = null;
 
+/** Clear the module-level cache — must be called on logout/user-switch. */
+export function clearProfileCache(): void {
+  cachedProfile = null;
+  inflightPromise = null;
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent(PROFILE_UPDATED_EVENT, { detail: null }));
+  }
+}
+
 function loadUserProfile(): Promise<UserProfile | null> {
   if (cachedProfile) {
     return Promise.resolve(cachedProfile);
@@ -95,10 +104,14 @@ export function useUserProfile(): UserProfileState {
     }
 
     const handleProfileUpdated = (event: Event) => {
-      const customEvent = event as CustomEvent<UserProfile>;
+      const customEvent = event as CustomEvent<UserProfile | null>;
       if (customEvent.detail) {
         cachedProfile = customEvent.detail;
         setProfile(customEvent.detail);
+      } else if (customEvent.detail === null) {
+        // Cache was cleared (logout/user-switch): reset local state.
+        setProfile(null);
+        setLoading(false);
       } else {
         void refresh();
       }

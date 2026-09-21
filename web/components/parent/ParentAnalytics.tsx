@@ -236,7 +236,9 @@ export default function ParentAnalytics({ studentId, onViewReport }: ParentAnaly
                       {started ? new Date(started * 1000).toLocaleString() : "—"} · {mins} min
                       {s.focus_score != null && s.focus_score > 0
                         ? ` · focus ${Math.round(s.focus_score)}%`
-                        : ""}
+                        : s.status === "completed" && s.has_report === false
+                          ? " · report pending"
+                          : ""}
                     </div>
                   </div>
                   {onViewReport && (

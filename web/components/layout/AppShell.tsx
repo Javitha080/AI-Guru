@@ -26,6 +26,12 @@ export function useSidebarDrawer() {
   return useContext(SidebarDrawerContext);
 }
 
+/** Dispatched by the Study Room page: `{ active: true }` only while a
+ * timed session is running. AppShell hides the FloatingDock in that
+ * focus-mode window but keeps it visible in the idle lobby so users can
+ * always navigate back to Home. */
+export const STUDY_ACTIVE_EVENT = "aiguru:study-active";
+
 interface AppShellProps {
   /** The route group's sidebar content (used for session history panel). */
   sidebar?: ReactNode;
@@ -47,6 +53,7 @@ export default function AppShell({ sidebar, children }: AppShellProps) {
   const { isMobile } = useDevice();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [studyActive, setStudyActive] = useState(false);
 
   const close = useCallback(() => {
     setDrawerOpen(false);
@@ -62,6 +69,23 @@ export default function AppShell({ sidebar, children }: AppShellProps) {
   }
 
   useEffect(() => {
+    const onStudyActive = (event: Event) => {
+      setStudyActive(
+        Boolean((event as CustomEvent<{ active?: boolean }>).detail?.active),
+      );
+    };
+    window.addEventListener(STUDY_ACTIVE_EVENT, onStudyActive);
+    return () =>
+      window.removeEventListener(STUDY_ACTIVE_EVENT, onStudyActive);
+  }, []);
+
+  // Leaving the Study Room always restores the dock, even if the page
+  // unmounted without dispatching its reset event.
+  useEffect(() => {
+    if (!pathname?.startsWith("/study-room")) setStudyActive(false);
+  }, [pathname]);
+
+  useEffect(() => {
     if (!drawerOpen && !historyOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -74,6 +98,9 @@ export default function AppShell({ sidebar, children }: AppShellProps) {
   }, [drawerOpen, historyOpen]);
 
   const isStudyRoom = pathname?.startsWith("/study-room") ?? false;
+  // Focus mode: hide the dock only while a timed session is running.
+  // The idle lobby keeps the dock so users can always get back to Home.
+  const hideDock = isStudyRoom && studyActive;
 
   return (
     <SidebarDrawerContext.Provider value={{ close }}>
@@ -109,8 +136,8 @@ export default function AppShell({ sidebar, children }: AppShellProps) {
           {children}
         </main>
 
-        {/* Floating Dock Navigation */}
-        {!isStudyRoom && (
+        {/* Floating Dock Navigation (hidden only in active focus mode) */}
+        {!hideDock && (
           <FloatingDock
             onShowHistory={() => setHistoryOpen(!historyOpen)}
           />

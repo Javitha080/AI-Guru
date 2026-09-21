@@ -7,7 +7,7 @@
  * Ember Glass forms on bento cells.
  */
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { KeyRound, Loader2, Send, ShieldAlert } from "lucide-react";
 import AuditLogPanel from "./AuditLogPanel";
 import PairingCard from "./PairingCard";
@@ -31,12 +31,17 @@ interface TelegramConfigPayload {
   bot_token_masked?: string;
   chat_id?: string;
   enabled?: boolean;
+  last_verified_at?: number | null;
+  last_verified_ok?: boolean | null;
+  last_verified_detail?: string;
+  bot_username?: string;
 }
 
 interface RulesPayload {
   student_name?: string;
   daily_goal_minutes?: number;
   alert_strictness?: string; // gentle | balanced | strict
+  allow_parent_voice?: boolean;
 }
 
 type Strictness = UiStrictness;
@@ -53,6 +58,8 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
   const [tgEnabled, setTgEnabled] = useState(true);
   const [tgBusy, setTgBusy] = useState(false);
   const [tgStatus, setTgStatus] = useState<{ ok: boolean; text: string } | null>(null);
+  const [tgVerified, setTgVerified] = useState<string | null>(null);
+  const [outboxPending, setOutboxPending] = useState<number | null>(null);
 
   // Change PIN
   const [currentPin, setCurrentPin] = useState("");
@@ -65,8 +72,18 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
   const [studentName, setStudentName] = useState("Student");
   const [dailyGoalMinutes, setDailyGoalMinutes] = useState(60);
   const [strictness, setStrictness] = useState<Strictness>("normal");
+  const [allowVoice, setAllowVoice] = useState(true);
   const [rulesBusy, setRulesBusy] = useState(false);
   const [rulesStatus, setRulesStatus] = useState<{ ok: boolean; text: string } | null>(null);
+  // PIN-change re-lock timer: the PIN epoch invalidates the session, so we
+  // re-lock with an explanation — cancelled on unmount so navigating away
+  // doesn't log the user out from a stale timer.
+  const lockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    return () => {
+      if (lockTimerRef.current) clearTimeout(lockTimerRef.current);
+    };
+  }, []);
 
   const digitsOnly = (v: string) => v.replace(/\D/g, "");
 
@@ -81,9 +98,27 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
           setTgMasked(data.bot_token_masked || "");
           setTgChatId(data.chat_id || "");
           setTgEnabled(data.enabled !== false);
+          if (data.last_verified_ok) {
+            setTgVerified(
+              data.bot_username
+                ? `Verified ${data.bot_username}`
+                : data.last_verified_detail || "Verified."
+            );
+          } else if (data.last_verified_detail) {
+            setTgVerified(null);
+            setTgStatus({ ok: false, text: data.last_verified_detail });
+          }
         }
       } catch {
         /* leave defaults */
+      }
+      try {
+        const { ok, data } = await pJson<{ pending?: number }>(
+          `/api/v1/parent/telegram/outbox?parent_id=${encodeURIComponent(parentId)}`
+        );
+        if (ok && data && typeof data.pending === "number") setOutboxPending(data.pending);
+      } catch {
+        /* badge is best-effort */
       }
     })();
   }, [parentId]);
@@ -97,6 +132,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
         if (data.student_name) setStudentName(data.student_name);
         if (typeof data.daily_goal_minutes === "number") setDailyGoalMinutes(data.daily_goal_minutes);
         setStrictness(toUiStrictness(data.alert_strictness));
+        if (typeof data.allow_parent_voice === "boolean") setAllowVoice(data.allow_parent_voice);
       }
     } catch {
       /* keep defaults */
@@ -115,7 +151,13 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
       setTgStatus({ ok: false, text: "Fill in BOTH the Bot Token and Chat ID." });
       return false;
     }
-    const { ok, data } = await pJson<{ detail?: string }>("/api/v1/parent/telegram/config", {
+    const { ok, data } = await pJson<{
+      detail?: string;
+      message?: string;
+      verified?: boolean;
+      verify_detail?: string;
+      bot_username?: string;
+    }>("/api/v1/parent/telegram/config", {
       method: "POST",
       body: JSON.stringify({
         bot_token: tgToken.trim(),
@@ -130,15 +172,18 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
     }
     setTgConfigured(true);
     setTgToken("");
+    setTgMasked("saved");
+    const verified = Boolean(data?.verified);
+    const detail = String(data?.verify_detail || data?.message || "Telegram credentials saved.");
+    setTgVerified(verified ? detail : null);
+    setTgStatus({ ok: verified, text: detail });
     return true;
   };
 
   const handleSaveTelegram = async () => {
     setTgBusy(true);
     setTgStatus(null);
-    if (await saveTelegram()) {
-      setTgStatus({ ok: true, text: "Telegram credentials saved." });
-    }
+    await saveTelegram();
     setTgBusy(false);
   };
 
@@ -196,7 +241,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
         if (data?.reauth_required) {
           // The PIN epoch invalidates this session by design — re-lock now
           // with an explanation instead of failing the next call opaquely.
-          setTimeout(() => lockParentPortal(), 1200);
+          lockTimerRef.current = setTimeout(() => lockParentPortal(), 1200);
         }
       } else {
         const detail = String(data?.detail || `Update failed (${status}).`);
@@ -224,6 +269,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
           student_name: studentName.trim() || "Student",
           daily_goal_minutes: Math.min(600, Math.max(10, Number(dailyGoalMinutes) || 60)),
           alert_strictness: toBackendStrictness(strictness),
+          allow_parent_voice: allowVoice,
           parent_id: parentId,
         }),
       });
@@ -265,6 +311,14 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
             </span>
           )}
         </h4>
+        {tgVerified && (
+          <p className="text-[11px] font-semibold text-[var(--primary)] relative z-[2]">✅ {tgVerified}</p>
+        )}
+        {outboxPending !== null && outboxPending > 0 && (
+          <p className="text-[11px] font-semibold text-[var(--amber)] bg-[var(--amber-glow)]/50 border border-[var(--amber)]/35 rounded-lg px-3 py-2 relative z-[2]">
+            {outboxPending} alert(s) queued offline — delivery resumes automatically.
+          </p>
+        )}
         <p className="text-xs text-[var(--muted-foreground)] relative z-[2]">
           Create a free bot via @BotFather, then paste the Bot Token and your Chat ID to receive instant alerts and portal links.
         </p>
@@ -393,6 +447,20 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
             ))}
           </div>
         </div>
+        <label className="flex items-center gap-2.5 cursor-pointer select-none relative z-[2]">
+          <input
+            type="checkbox"
+            checked={allowVoice}
+            onChange={(e) => setAllowVoice(e.target.checked)}
+            className="w-4 h-4 rounded accent-[var(--primary)]"
+          />
+          <span className="text-xs font-medium">Allow parent voice check-ins (auto-answer intercom)</span>
+        </label>
+        {!allowVoice && (
+          <p className="text-[11px] text-[var(--muted-foreground)] relative z-[2]">
+            Off: the study room will not auto-answer parent calls for this home.
+          </p>
+        )}
         {rulesStatus && <div className="relative z-[2]">{statusBanner(rulesStatus)}</div>}
         <button
           onClick={() => void handleSaveRules()}

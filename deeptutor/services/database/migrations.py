@@ -22,6 +22,12 @@ from deeptutor.services.database.schema import (
     v6_paper_bank_grade11,
     v7_exams_review_status,
     v8_monitoring_nudge_event,
+    v9_notification_outbox,
+    v10_study_paper_link,
+    v11_paper_bank_grade10,
+    v12_purge_dummy_exam_data,
+    v13_study_monitoring_flag,
+    v14_monitoring_distraction_events,
 )
 
 logger = logging.getLogger(__name__)
@@ -39,6 +45,12 @@ MIGRATIONS: list[tuple[int, str, str | Callable[[sqlite3.Connection], None]]] = 
     (6, "006_paper_bank_grade11", v6_paper_bank_grade11),
     (7, "007_exams_review_status", v7_exams_review_status),
     (8, "008_monitoring_nudge_event", v8_monitoring_nudge_event),
+    (9, "009_notification_outbox", v9_notification_outbox),
+    (10, "010_study_paper_link", v10_study_paper_link),
+    (11, "011_paper_bank_grade10", v11_paper_bank_grade10),
+    (12, "012_purge_dummy_exam_data", v12_purge_dummy_exam_data),
+    (13, "013_study_monitoring_flag", v13_study_monitoring_flag),
+    (14, "014_monitoring_distraction_events", v14_monitoring_distraction_events),
 ]
 
 

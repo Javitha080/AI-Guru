@@ -446,9 +446,7 @@ addopts = [
     "--disable-warnings",
     "--tb=short",
     "--import-mode=importlib",
-    "--basetemp=.pytest_temp",
 ]
-tmp_path_retention_policy = "none"
 
 # ============================================
 # MyPy type checking configuration

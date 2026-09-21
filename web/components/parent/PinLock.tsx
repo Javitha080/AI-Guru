@@ -7,7 +7,7 @@
  * Ember Glass vault card with a GSAP shake on rejected PINs.
  */
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AlertTriangle, KeyRound, Loader2, Lock, ShieldCheck } from "lucide-react";
 import { shakeEl } from "@/lib/motion/useGsapReveal";
 import { pJson, storeParentTokens } from "@/lib/parent/parent-api";
@@ -28,11 +28,23 @@ export default function PinLock({ parentId, onUnlocked, onOpenWizard }: PinLockP
   const [pin, setPin] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [lockoutSecs, setLockoutSecs] = useState(0);
   const cardRef = useRef<HTMLDivElement | null>(null);
+
+  // Lockout countdown: backend reports e.g. "Locked out. Retry in 42s."
+  // — disable the form and count down so parents aren't guessing.
+  useEffect(() => {
+    if (lockoutSecs <= 0) return;
+    const t = setTimeout(() => setLockoutSecs((s) => Math.max(0, s - 1)), 1000);
+    return () => clearTimeout(t);
+  }, [lockoutSecs]);
+
+  const locked = lockoutSecs > 0;
+  const tooShort = pin.length > 0 && pin.length < 4;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!pin || busy) return;
+    if (!pin || busy || locked || pin.length < 4) return;
     setBusy(true);
     setError(null);
     try {
@@ -45,7 +57,11 @@ export default function PinLock({ parentId, onUnlocked, onOpenWizard }: PinLockP
         onUnlocked();
         return;
       }
-      setError(data?.detail || "Invalid Passcode PIN.");
+      const detail = data?.detail || "Invalid Passcode PIN.";
+      setError(detail);
+      // Surface brute-force lockouts as a countdown, not a static string.
+      const m = /(\d+)\s*s/i.exec(detail);
+      if (/lock/i.test(detail)) setLockoutSecs(m ? parseInt(m[1], 10) : 30);
       shakeEl(cardRef.current);
     } catch {
       setError("Connection error. Please retry.");
@@ -79,20 +95,24 @@ export default function PinLock({ parentId, onUnlocked, onOpenWizard }: PinLockP
             autoFocus
             placeholder="••••"
             value={pin}
+            disabled={locked}
             onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))}
             className="glass-input w-full px-4 py-3.5 text-center text-3xl tracking-[0.6em] font-mono focus:!shadow-[0_0_0_3px_var(--glow-primary),inset_0_2px_4px_rgba(0,0,0,0.04)]"
           />
+          {tooShort && !locked && (
+            <p className="text-[11px] text-[var(--muted-foreground)]">Passcodes are 4–8 digits.</p>
+          )}
 
           {error && (
             <div className="p-3 rounded-xl bg-red-500/[0.08] border border-red-500/30 text-xs text-red-300 flex items-center gap-2 justify-center animate-pop-in">
               <AlertTriangle size={14} className="shrink-0" />
-              <span>{error}</span>
+              <span>{error}{locked ? ` Retrying in ${lockoutSecs}s…` : ""}</span>
             </div>
           )}
 
           <button
             type="submit"
-            disabled={busy || !pin}
+            disabled={busy || locked || pin.length < 4}
             className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] hover:brightness-110 disabled:opacity-50 disabled:saturate-50 text-white font-bold transition-all duration-[var(--duration-fast,250ms)] ease-[var(--ease-smooth-out)] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_var(--glow-primary)] shadow-[0_8px_28px_var(--glow-primary)] disabled:shadow-none disabled:hover:translate-y-0 flex items-center justify-center gap-2 active:scale-[0.96] active:translate-y-0"
           >
             {busy ? <Loader2 size={17} className="animate-spin" /> : <KeyRound size={17} />}
@@ -105,7 +125,7 @@ export default function PinLock({ parentId, onUnlocked, onOpenWizard }: PinLockP
             onClick={onOpenWizard}
             className="text-[var(--primary)] hover:brightness-125 hover:underline underline-offset-2"
           >
-            Change setup / PIN
+            Forgot passcode / change setup
           </button>
           <span className="text-[var(--muted-foreground)] flex items-center gap-1.5">
             <ShieldCheck size={13} />

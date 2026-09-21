@@ -686,7 +686,7 @@ export default function ExamRoomPage() {
         {/* PHASE: RESULTS */}
         {phase === "results" && results && (
           <div className="space-y-4">
-            <div className="bg-gradient-to-r from-[#E06D44] to-[#C8613C] rounded-2xl p-6 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#B94E28] to-[#A34A28] rounded-2xl p-6 text-white flex items-center justify-between">
               <div>
                 <p className="text-xs uppercase tracking-wide opacity-80">Total Score</p>
                 <p className="text-4xl font-extrabold font-mono">

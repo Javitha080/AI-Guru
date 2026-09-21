@@ -6,6 +6,7 @@ import RewardCard from "./RewardCard";
 import { BentoGrid, BentoCard, type BentoSpan } from "@/components/ui/BentoGrid";
 import { useCountUp } from "@/lib/motion/useGsapReveal";
 import { useScrollReveal } from "@/lib/motion/useScrollReveal";
+import { apiFetch } from "@/lib/api";
 
 interface Profile {
   student_id: string;
@@ -162,8 +163,8 @@ export default function GamificationDashboard({ scrollerRef }: GamificationDashb
       try {
         const base = "/api/v1/study-session/gamification/student-primary";
         const [pRes, bRes] = await Promise.all([
-          fetch(`${base}/profile`),
-          fetch(`${base}/badges`),
+          apiFetch(`${base}/profile`),
+          apiFetch(`${base}/badges`),
         ]);
         if (!pRes.ok || !bRes.ok) throw new Error("gamification api unavailable");
         const profile: Profile = await pRes.json();

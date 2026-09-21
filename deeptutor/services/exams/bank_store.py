@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import time
 from typing import Any, Dict, List, Optional
 
@@ -20,6 +21,15 @@ logger = logging.getLogger(__name__)
 
 
 _JSON_COLUMNS = ("paper_json", "scheme_answers_json", "topic_tags_json")
+
+# Placeholder stubs shipped in the master archive for A/L years whose real
+# papers were never captured (2017-2025 A/L): stems like
+# "Question N of G.C.E. (A/L) YYYY ICT Examination Paper ..." with options
+# "Alternative (1..5)". They are not real past papers and must never render
+# as such — detect and exclude them honestly.
+_PLACEHOLDER_STEM_RE = re.compile(
+    r"^Question \d+ of G\.C\.E\. .*Examination Paper", re.IGNORECASE
+)
 
 
 def _db_path():
@@ -41,6 +51,27 @@ def _deserialize(row: Dict[str, Any]) -> Dict[str, Any]:
             except json.JSONDecodeError:  # pragma: no cover - corrupt row
                 logger.warning("Unparseable %s in paper_bank row %s", col, row.get("id"))
     return row
+
+
+def is_placeholder_paper(paper_json: Any) -> bool:
+    """True when a bank paper is an archive placeholder stub, not a real paper.
+
+    Markers: first-question stems like "Question N of G.C.E. ... Examination
+    Paper ...". Real past-paper stems are the actual question text and never
+    match this pattern, so the stem gate alone is decisive for both MCQ
+    (options "Alternative (1..5)") and structured stubs (no options).
+    """
+    try:
+        questions = (paper_json or {}).get("questions", []) if isinstance(paper_json, dict) else []
+        if not questions:
+            return False
+        sample = questions[:3]
+        stub_stems = sum(
+            1 for q in sample if _PLACEHOLDER_STEM_RE.match(str(q.get("stem") or q.get("text") or "").strip())
+        )
+        return stub_stems >= min(2, len(sample))
+    except Exception:  # noqa: BLE001 - detection must never break catalog
+        return False
 
 
 class BankStore:
@@ -144,6 +175,8 @@ class BankStore:
 
     _seeded_checked: bool = False
     _is_seeding: bool = False
+    _last_missing_check: float = 0.0
+    _MISSING_CHECK_INTERVAL: float = 60.0
 
     @classmethod
     def is_seeding(cls) -> bool:
@@ -151,25 +184,73 @@ class BankStore:
 
     @classmethod
     async def ensure_seeded(cls, *, block: bool = True) -> None:
-        """Auto-seed paper_bank from master archive on fresh installs if empty."""
-        if cls._seeded_checked or cls._is_seeding:
+        """Auto-seed paper_bank from master archive, plus top-up when missing.
+
+        The original empty-check left existing installs stale when the archive
+        grew (new folders never imported because COUNT > 0). Now a cheap
+        check compares ``master-archive-<folder>`` hashes against the archive
+        directory and re-runs the importer when folders are missing.
+        """
+        if cls._is_seeding:
             return
-        # Claim the flag BEFORE any await: concurrent first-requests must see it
-        # and not spawn duplicate imports (single loop => check+set is atomic).
+        import os as _os
+        import time as _time
+
+        # Pytest workspaces are throwaway (tmp_path): fixtures own their data
+        # and must never trigger a real-archive import in the background.
+        if _os.environ.get("PYTEST_CURRENT_TEST"):
+            return
+
+        now = _time.time()
+        if cls._seeded_checked and (now - cls._last_missing_check) < cls._MISSING_CHECK_INTERVAL:
+            return
+        # Claim the flags BEFORE any await: concurrent first-requests must see
+        # them and not spawn duplicate imports (single loop => check+set atomic).
         cls._is_seeding = True
+        cls._last_missing_check = now
         try:
             async with aiosqlite.connect(_db_path()) as db:
                 await cls.ensure_tables(db)
                 cur = await db.execute("SELECT COUNT(*) FROM paper_bank")
                 row = await cur.fetchone()
                 count = row[0] if row else 0
+                existing_hashes: set[str] = set()
+                try:
+                    cur2 = await db.execute(
+                        "SELECT file_hash FROM paper_bank WHERE file_hash LIKE 'master-archive-%'"
+                    )
+                    existing_hashes = {r[0] for r in await cur2.fetchall() if r[0]}
+                except Exception:  # noqa: BLE001 - hash check is best-effort
+                    existing_hashes = set()
 
-            if count > 0:
+            missing: set[str] = set()
+            try:
+                from pathlib import Path as _Path
+
+                from deeptutor.services.exams.master_archive_importer import (
+                    _DEFAULT_ARCHIVE_PATH as _ARCH,
+                )
+
+                arch = _Path(_ARCH)
+                if arch.is_dir():
+                    for d in arch.iterdir():
+                        if d.is_dir() and (d / "paper.json").is_file():
+                            h = f"master-archive-{d.name}"
+                            if h not in existing_hashes:
+                                missing.add(h)
+            except Exception:  # noqa: BLE001 - never break catalog for sync check
+                missing = set()
+
+            if count == 0:
+                logger.info("Paper bank empty. Auto-seeding from master archive...")
+            elif missing:
+                logger.info(
+                    "Paper bank missing %d archive folder(s). Top-up sync...", len(missing)
+                )
+            else:
                 cls._seeded_checked = True
                 cls._is_seeding = False
                 return
-
-            logger.info("Paper bank empty. Auto-seeding from master archive...")
 
             async def _seed():
                 try:
@@ -213,8 +294,17 @@ class BankStore:
         medium: Optional[str] = None,
         group_key: Optional[str] = None,
         limit: int = 500,
+        honest_only: bool = True,
     ) -> List[Dict[str, Any]]:
-        """Filtered catalog listing WITHOUT the heavy paper_json blob."""
+        """Filtered catalog listing WITHOUT the heavy paper_json blob.
+
+        honest_only=True drops rows that can never render honestly:
+        zero questions or zero total marks (bad imports / legacy promotes),
+        plus placeholder archive stubs (generic "Question N of ... /
+        Alternative (1..5)" content — never real past papers).
+        Papers without official keys (all P2 structured essays) are KEPT —
+        they grade via the LLM essay judge — but flagged via has_scheme_keys.
+        """
         await cls.ensure_seeded(block=False)
         where: List[str] = []
         vals: List[Any] = []
@@ -233,6 +323,9 @@ class BankStore:
         if group_key:
             where.append("group_key = ?")
             vals.append(group_key)
+        if honest_only:
+            where.append("question_count > 0")
+            where.append("total_marks > 0")
         clause = f"WHERE {' AND '.join(where)}" if where else ""
         async with aiosqlite.connect(_db_path()) as db:
             await cls.ensure_tables(db)
@@ -240,11 +333,38 @@ class BankStore:
             cur = await db.execute(
                 "SELECT id, group_key, paper_no, grade, subject, year, medium, paper_type,"
                 " title, question_count, mcq_count, essay_count, total_marks,"
-                " default_duration_seconds, created_at"
+                " default_duration_seconds, created_at,"
+                " (COALESCE(scheme_answers_json, '{}') NOT IN ('{}', '')) AS has_scheme_keys"
                 f" FROM paper_bank {clause} ORDER BY subject, year DESC, paper_no LIMIT ?",
                 (*vals, max(1, min(int(limit), 2000))),
             )
             rows = [dict(r) for r in await cur.fetchall()]
+            for r in rows:
+                r["has_scheme_keys"] = bool(r.get("has_scheme_keys"))
+        if honest_only and rows:
+            # Placeholder stubs pass the numeric gate (50Q / marks > 0) so
+            # they need a content check against paper_json. Bounded to the
+            # page size so the catalog stays cheap.
+            try:
+                async with aiosqlite.connect(_db_path()) as db2:
+                    db2.row_factory = aiosqlite.Row
+                    kept: List[Dict[str, Any]] = []
+                    for r in rows:
+                        cur2 = await db2.execute(
+                            "SELECT paper_json FROM paper_bank WHERE id = ?", (r["id"],)
+                        )
+                        prow = await cur2.fetchone()
+                        try:
+                            payload = json.loads(prow["paper_json"]) if prow and prow["paper_json"] else {}
+                        except (json.JSONDecodeError, TypeError, KeyError):
+                            payload = {}
+                        if not is_placeholder_paper(payload):
+                            kept.append(r)
+                        else:
+                            logger.info("Paper bank hides placeholder stub %s", r["id"])
+                    rows = kept
+            except Exception as exc:  # noqa: BLE001 - filter is best-effort
+                logger.debug("Placeholder filter skipped: %s", exc)
         return rows
 
     @classmethod

@@ -466,7 +466,7 @@ function ToolExecutor({
         <select
           value={values[p.name] ?? ""}
           onChange={(e) => setParam(p.name, e.target.value)}
-          className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40"
+          className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)]"
         >
           <option value="">{t("Select knowledge base...")}</option>
           {knowledgeBases.map((kb) => (
@@ -484,7 +484,7 @@ function ToolExecutor({
         <select
           value={values[p.name] ?? ""}
           onChange={(e) => setParam(p.name, e.target.value)}
-          className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40"
+          className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)]"
         >
           <option value="">{t("Select...")}</option>
           {p.enum.map((v) => (
@@ -502,7 +502,7 @@ function ToolExecutor({
         value={values[p.name] ?? ""}
         onChange={(e) => setParam(p.name, e.target.value)}
         placeholder={p.description || p.name}
-        className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 placeholder:text-[var(--muted-foreground)]"
+        className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
       />
     );
   };
@@ -547,7 +547,7 @@ function ToolExecutor({
               onChange={(e) => setParam(queryParam.name, e.target.value)}
               placeholder={queryParam.description || t("Enter your input...")}
               rows={queryParam.name === "topic" ? 5 : 4}
-              className="w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 font-mono text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 placeholder:text-[var(--muted-foreground)]"
+              className="w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 font-mono text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
             />
           ) : (
             <input
@@ -558,7 +558,7 @@ function ToolExecutor({
                 if (e.key === "Enter" && !executing) execute();
               }}
               placeholder={queryParam.description || t("Enter your query...")}
-              className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-[14px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 placeholder:text-[var(--muted-foreground)]"
+              className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-[14px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
             />
           )}
         </div>
@@ -979,7 +979,7 @@ function DeepQuestionTester({
                 onChange={(e) => updateConfig("topic", e.target.value)}
                 rows={3}
                 placeholder={t("e.g. Gradient Descent Optimization")}
-                className="w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 placeholder:text-[var(--muted-foreground)]"
+                className="w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
               />
             </div>
             <div className="grid gap-3 md:grid-cols-3">
@@ -998,7 +998,7 @@ function DeepQuestionTester({
                       Math.max(1, Number(e.target.value) || 1),
                     )
                   }
-                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40"
+                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)]"
                 />
               </div>
               <div>
@@ -1008,7 +1008,7 @@ function DeepQuestionTester({
                 <select
                   value={config.difficulty}
                   onChange={(e) => updateConfig("difficulty", e.target.value)}
-                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40"
+                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)]"
                 >
                   <option value="auto">{t("Auto")}</option>
                   <option value="easy">{t("Easy")}</option>
@@ -1025,7 +1025,7 @@ function DeepQuestionTester({
                   onChange={(e) =>
                     updateConfig("question_type", e.target.value)
                   }
-                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40"
+                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)]"
                 >
                   <option value="auto">{t("Auto")}</option>
                   <option value="choice">{t("Multiple Choice")}</option>
@@ -1043,7 +1043,7 @@ function DeepQuestionTester({
                 onChange={(e) => updateConfig("preference", e.target.value)}
                 rows={3}
                 placeholder={t("Extra constraints, style, focus areas...")}
-                className="w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 placeholder:text-[var(--muted-foreground)]"
+                className="w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2.5 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
               />
             </div>
           </div>
@@ -1090,7 +1090,7 @@ function DeepQuestionTester({
                     updateConfig("paper_path", e.target.value);
                   }}
                   placeholder={t("e.g. 2211asm1")}
-                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] py-2 pl-9 pr-3 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 placeholder:text-[var(--muted-foreground)]"
+                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] py-2 pl-9 pr-3 text-[13px] text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
                 />
               </div>
             </div>
@@ -1109,7 +1109,7 @@ function DeepQuestionTester({
                     Math.max(1, Number(e.target.value) || 1),
                   )
                 }
-                className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40"
+                className="w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)]"
               />
             </div>
           </div>
@@ -1183,6 +1183,7 @@ function DeepResearchTester({
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<TesterMessage[]>([]);
   const [streaming, setStreaming] = useState(false);
+  const [researchConfigCollapsed, setResearchConfigCollapsed] = useState(false);
   const validation = useMemo(() => validateResearchConfig(config), [config]);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -1341,9 +1342,9 @@ function DeepResearchTester({
       <ResearchConfigPanel
         value={config}
         errors={validation.errors}
-        collapsed={false}
+        collapsed={researchConfigCollapsed}
         onChange={onConfigChange}
-        onToggleCollapsed={() => {}}
+        onToggleCollapsed={() => setResearchConfigCollapsed((prev) => !prev)}
       />
       <div className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-3">
         <textarea
@@ -1357,7 +1358,7 @@ function DeepResearchTester({
           }}
           rows={3}
           placeholder={t("Describe the research topic...")}
-          className="w-full resize-none bg-transparent text-[13px] leading-relaxed text-[var(--foreground)] outline-none placeholder:text-[var(--muted-foreground)]"
+          className="w-full resize-none bg-transparent text-[13px] leading-relaxed text-[var(--foreground)] outline-none placeholder:text-[var(--muted-foreground)] focus:ring-2 focus:ring-[var(--primary)]"
         />
         <div className="mt-2 flex justify-end">
           <button
@@ -1627,7 +1628,7 @@ function CapabilityTester({
           }}
           rows={2}
           placeholder={`${t("Try")} ${t(getCapabilityLabel(capability.name))}...`}
-          className="w-full resize-none bg-transparent text-[13px] leading-relaxed text-[var(--foreground)] outline-none placeholder:text-[var(--muted-foreground)]"
+          className="w-full resize-none bg-transparent text-[13px] leading-relaxed text-[var(--foreground)] outline-none placeholder:text-[var(--muted-foreground)] focus:ring-2 focus:ring-[var(--primary)]"
         />
         <div className="mt-2 flex justify-end">
           <button
@@ -1842,7 +1843,7 @@ export default function PlaygroundPage() {
               </button>
               <button
                 onClick={() => setActiveKind("orbs")}
-                className={`rounded-md px-3.5 py-1.5 text-[13px] font-medium transition-all ${activeKind === "orbs" ? "bg-[var(--card)] text-[#E06D44] font-semibold shadow-sm" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"}`}
+                className={`rounded-md px-3.5 py-1.5 text-[13px] font-medium transition-all ${activeKind === "orbs" ? "bg-[var(--card)] text-[var(--primary)] font-semibold shadow-sm" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"}`}
               >
                 {t("Thinking Orbs")}
               </button>
@@ -2001,7 +2002,7 @@ export default function PlaygroundPage() {
                                     onChange={(e) =>
                                       setCapabilityKnowledgeBase(e.target.value)
                                     }
-                                    className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40"
+                                    className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[13px] text-[var(--foreground)] outline-none focus:border-[var(--primary)]/40 focus:ring-2 focus:ring-[var(--primary)]"
                                   >
                                     <option value="">
                                       {t("Select knowledge base...")}

@@ -755,7 +755,8 @@ function buildDisplayItems(traceGroups: TraceItem[]): DisplayItem[] {
     const stepId = meta.step_id ? String(meta.step_id) : "";
     const kind = getTraceCallKind(group.events);
 
-    if (kind === "llm_final_response") continue;
+    if (kind === "llm_final_response" && !getTraceText(group.events, ["thinking"]))
+      continue;
     // Some pipelines keep a hidden sub-trace for text that is also emitted as
     // final response content. Drop those absorbed rows so the answer does not
     // appear twice.
@@ -1270,7 +1271,11 @@ function TraceRowItem({
   const kind = getTraceCallKind(callEvents);
   const header = getTraceHeader(callEvents, nested, t);
 
-  if (kind === "llm_final_response") return null;
+  if (
+    kind === "llm_final_response" &&
+    !getTraceText(callEvents, ["thinking"])
+  )
+    return null;
   const expandable = hasExpandableContent(callEvents, group, role);
   if (!expandable && !active) return null;
 
@@ -1588,7 +1593,11 @@ export function CallTracePanel({
                     const trRole = getTraceRole(trace.events);
                     const trMeta = getTraceMeta(trace.events[0]);
 
-                    if (trKind === "llm_final_response") return null;
+                    if (
+                      trKind === "llm_final_response" &&
+                      !getTraceText(trace.events, ["thinking"])
+                    )
+                      return null;
 
                     if (trGroup === "react_round") {
                       const roundNum = trMeta.round;
@@ -2067,7 +2076,8 @@ type StreamingMode =
  * mid-iteration flips the label back to reasoning, a planning chunk
  * arriving after a tool flips it to planning, etc. Per-mode mapping:
  *
- *   ``agent_loop_round``     → exploring  (chat exploring loop)
+ *   ``agent_loop_round``     → exploring for loop signals, responding
+ *     for answer text, reasoning for thinking chunks
  *   ``llm_planning`` chunks  → planning   (solve plan / replan / pre-retrieve)
  *   ``tool_call`` event      → tool_using (any explicit tool call)
  *   ``llm_final_response``
@@ -2107,8 +2117,10 @@ function detectStreamingMode(
     if (callKind === "agent_loop_round") {
       // The chat loop streams user-facing text as `content` (a short
       // narration before a tool call, or the finish answer): show
-      // "responding" while text is flowing; thinking keeps "exploring".
-      return event.type === "content" ? "responding" : "exploring";
+      // "responding" while text is flowing; thinking reads as reasoning.
+      if (event.type === "content") return "responding";
+      if (event.type === "thinking") return "reasoning";
+      return "exploring";
     }
     if (callKind === "quiz_question_emitted") return "quizzing";
     // Question pipeline's Tool Summarizer (Phase 1 reflection over a raw
@@ -2435,25 +2447,30 @@ export function StreamingStatus({
 
 /**
  * Whether ``events`` contain at least one renderable trace group — i.e. a
- * call_id whose group is NOT a pure final-response and NOT absorbed into the
+ * call_id whose group is NOT a pure final-response (a final-response group
+ * that carried model thinking still counts) and NOT absorbed into the
  * final answer. Mirrors the gate ``TraceFlow``/``CallTracePanel`` use to
  * decide whether anything will actually render, so callers (e.g. the
  * activity header) can show a disclosure affordance only when there is a
  * trace to disclose.
  */
 function hasRenderableCallTrace(events: StreamEvent[]): boolean {
-  const seen = new Map<string, { hasFinal: boolean; hasAbsorbed: boolean }>();
+  const seen = new Map<string, { hasFinal: boolean; hasAbsorbed: boolean; hasThinking: boolean }>();
   for (const event of events) {
     const meta = (event.metadata ?? {}) as Record<string, unknown>;
     const cid = String(meta.call_id || "");
     if (!cid) continue;
-    const entry = seen.get(cid) ?? { hasFinal: false, hasAbsorbed: false };
+    const entry = seen.get(cid) ?? { hasFinal: false, hasAbsorbed: false, hasThinking: false };
     if (meta.call_kind === "llm_final_response") entry.hasFinal = true;
     if (meta.absorbed_into_final === true) entry.hasAbsorbed = true;
+    if (event.type === "thinking" && event.content.trim().length > 0) entry.hasThinking = true;
     seen.set(cid, entry);
   }
-  for (const { hasFinal, hasAbsorbed } of seen.values()) {
+  for (const { hasFinal, hasAbsorbed, hasThinking } of seen.values()) {
     if (!hasFinal && !hasAbsorbed) return true;
+    // A final-response round that also carried model thinking still has
+    // something to disclose — the thinking card.
+    if (hasFinal && hasThinking && !hasAbsorbed) return true;
   }
   return false;
 }
@@ -2570,14 +2587,25 @@ export function AssistantActivity({
 }) {
   const hasTrace = useMemo(() => hasRenderableCallTrace(events), [events]);
   const hasFinalContent = Boolean(content && content.trim().length > 0);
+  // Model thinking stays disclosed: unlike tool progress (folded once the
+  // answer lands), the thinking card remains expanded after the turn so the
+  // reasoning is always one glance away, matching vendor chat surfaces.
+  const hasThinking = useMemo(
+    () =>
+      events.some(
+        (event) => event.type === "thinking" && event.content.trim().length > 0,
+      ),
+    [events],
+  );
   const finalPhase = useMemo(
     () => isFinalAnswerPhase(events, Boolean(isStreaming), hasFinalContent),
     [events, isStreaming, hasFinalContent],
   );
   // null = follow the phase automatically (open while working, collapsed
-  // once answered). A click pins the user's choice for this message.
+  // once answered — unless the turn carried thinking, which stays open).
+  // A click pins the user's choice for this message.
   const [userOpen, setUserOpen] = useState<boolean | null>(null);
-  const open = hasTrace && (userOpen ?? !finalPhase);
+  const open = hasTrace && (userOpen ?? (!finalPhase || hasThinking));
 
   // Match StreamingStatus's own null-guard: nothing to show for an empty,
   // non-streaming shell with no trace either.

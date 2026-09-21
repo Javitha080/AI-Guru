@@ -71,39 +71,49 @@ class GamificationService:
     async def _totals(student_id: str) -> Dict[str, Any]:
         import aiosqlite
 
-        async with aiosqlite.connect(_db_path()) as db:
-            db.row_factory = aiosqlite.Row
-            cur = await db.execute(
-                "SELECT COALESCE(SUM(amount_xp), 0) AS xp FROM rewards"
-                " WHERE student_id = ? AND reward_type = 'xp'",
-                (student_id,),
-            )
-            xp = int((await cur.fetchone())["xp"])
+        try:
+            async with aiosqlite.connect(_db_path()) as db:
+                db.row_factory = aiosqlite.Row
+                cur = await db.execute(
+                    "SELECT COALESCE(SUM(amount_xp), 0) AS xp FROM rewards"
+                    " WHERE student_id = ? AND reward_type = 'xp'",
+                    (student_id,),
+                )
+                xp = int((await cur.fetchone())["xp"])
 
-            cur = await db.execute(
-                "SELECT COUNT(*) AS n FROM study_sessions"
-                " WHERE student_id = ? AND status = 'completed'",
-                (student_id,),
-            )
-            total_sessions = int((await cur.fetchone())["n"])
+                cur = await db.execute(
+                    "SELECT COUNT(*) AS n FROM study_sessions"
+                    " WHERE student_id = ? AND status = 'completed'",
+                    (student_id,),
+                )
+                total_sessions = int((await cur.fetchone())["n"])
 
-            cur = await db.execute(
-                "SELECT MAX(focus_score) AS best FROM study_sessions WHERE student_id = ?",
-                (student_id,),
-            )
-            best_focus = float((await cur.fetchone())["best"] or 0)
+                cur = await db.execute(
+                    "SELECT MAX(focus_score) AS best FROM study_sessions WHERE student_id = ?",
+                    (student_id,),
+                )
+                best_focus = float((await cur.fetchone())["best"] or 0)
 
-            cur = await db.execute(
-                "SELECT start_time, actual_duration_seconds FROM study_sessions"
-                " WHERE student_id = ? AND status IN ('completed','in_progress')",
-                (student_id,),
-            )
-            rows = await cur.fetchall()
+                cur = await db.execute(
+                    "SELECT start_time, actual_duration_seconds FROM study_sessions"
+                    " WHERE student_id = ? AND status IN ('completed','in_progress')",
+                    (student_id,),
+                )
+                rows = await cur.fetchall()
+        except Exception as exc:  # noqa: BLE001 - corrupt/locked DB degrades, never 500s
+            logger.warning("Gamification totals unavailable for %s: %s", student_id, exc)
+            return {"xp": 0, "total_sessions": 0, "best_focus": 0.0, "streak": 0, "max_session_minutes": 0}
 
         # Consecutive-day streak (a day counts when any session started on it).
-        days = sorted({datetime.fromtimestamp(r["start_time"]).date() for r in rows})
+        days: set[Any] = set()
+        for r in rows:
+            try:
+                days.add(datetime.fromtimestamp(float(r["start_time"])).date())
+            except (TypeError, ValueError, OSError, OverflowError):
+                continue
+        days_sorted = sorted(days)
         streak = 0
-        if days:
+        if days_sorted:
             today = datetime.now().date()
             cursor_day = today if today in days else today - timedelta(days=1)
             day_set = set(days)
@@ -111,7 +121,12 @@ class GamificationService:
                 streak += 1
                 cursor_day -= timedelta(days=1)
 
-        max_minutes = max((int((r["actual_duration_seconds"] or 0) / 60) for r in rows), default=0)
+        try:
+            max_minutes = max(
+                (int(float(r["actual_duration_seconds"] or 0) / 60) for r in rows), default=0
+            )
+        except (TypeError, ValueError):
+            max_minutes = 0
         return {
             "xp": xp,
             "total_sessions": total_sessions,
@@ -143,26 +158,41 @@ class GamificationService:
         """Insert an XP reward row (FK-safe). Idempotency is the caller's duty."""
         if xp <= 0:
             return False
-        conn = sqlite3.connect(_db_path())
+        import aiosqlite
+
         try:
-            _ensure_student(conn, student_id)
-            conn.execute(
-                "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,"
-                " badge_id, badge_name, badge_icon, reason, unlocked_at)"
-                " VALUES (?, ?, ?, 'xp', ?, '', '', '', ?, ?)",
-                (
-                    f"reward-{uuid.uuid4().hex[:12]}",
-                    student_id,
-                    session_id,
-                    int(xp),
-                    reason,
-                    time.time(),
-                ),
-            )
-            conn.commit()
-            return True
-        finally:
-            conn.close()
+            async with aiosqlite.connect(_db_path()) as db:
+                await db.execute("PRAGMA foreign_keys = ON")
+                now = time.time()
+                user_id = f"user-{student_id}"
+                await db.execute(
+                    "INSERT OR IGNORE INTO users (id, username, password_hash, role, display_name,"
+                    " avatar_url, created_at, updated_at) VALUES (?, ?, '', 'student', ?, '', ?, ?)",
+                    (user_id, f"student:{student_id}", student_id, now, now),
+                )
+                await db.execute(
+                    "INSERT OR IGNORE INTO students (id, user_id, created_at, updated_at)"
+                    " VALUES (?, ?, ?, ?)",
+                    (student_id, user_id, now, now),
+                )
+                await db.execute(
+                    "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,"
+                    " badge_id, badge_name, badge_icon, reason, unlocked_at)"
+                    " VALUES (?, ?, ?, 'xp', ?, '', '', '', ?, ?)",
+                    (
+                        f"reward-{uuid.uuid4().hex[:12]}",
+                        student_id,
+                        session_id,
+                        int(xp),
+                        reason,
+                        time.time(),
+                    ),
+                )
+                await db.commit()
+                return True
+        except Exception as exc:  # noqa: BLE001 - locked/corrupt DB never raises into request
+            logger.warning("award_xp skipped for %s: %s", student_id, exc)
+            return False
 
     @staticmethod
     async def check_and_award(student_id: str, session_id: Optional[str] = None) -> List[str]:
@@ -186,34 +216,48 @@ class GamificationService:
         }
 
         newly: List[str] = []
-        conn = sqlite3.connect(_db_path())
+        import aiosqlite
+
         try:
-            _ensure_student(conn, student_id)
-            now = time.time()
-            for badge_id, achieved in conditions.items():
-                if not achieved or badge_id in earned:
-                    continue
-                description = BadgeEngine.BADGE_CATALOG.get(
-                    badge_id, badge_id.replace("_", " ").title()
+            async with aiosqlite.connect(_db_path()) as db:
+                await db.execute("PRAGMA foreign_keys = ON")
+                now = time.time()
+                user_id = f"user-{student_id}"
+                await db.execute(
+                    "INSERT OR IGNORE INTO users (id, username, password_hash, role, display_name,"
+                    " avatar_url, created_at, updated_at) VALUES (?, ?, '', 'student', ?, '', ?, ?)",
+                    (user_id, f"student:{student_id}", student_id, now, now),
                 )
-                conn.execute(
-                    "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,"
-                    " badge_id, badge_name, badge_icon, reason, unlocked_at)"
-                    " VALUES (?, ?, ?, 'badge', 0, ?, ?, '', ?, ?)",
-                    (
-                        f"reward-{uuid.uuid4().hex[:12]}",
-                        student_id,
-                        session_id,
-                        badge_id,
-                        description,
-                        f"badge:{badge_id}",
-                        now,
-                    ),
+                await db.execute(
+                    "INSERT OR IGNORE INTO students (id, user_id, created_at, updated_at)"
+                    " VALUES (?, ?, ?, ?)",
+                    (student_id, user_id, now, now),
                 )
-                newly.append(badge_id)
-            conn.commit()
-        finally:
-            conn.close()
+                for badge_id, achieved in conditions.items():
+                    if not achieved or badge_id in earned:
+                        continue
+                    description = BadgeEngine.BADGE_CATALOG.get(
+                        badge_id, badge_id.replace("_", " ").title()
+                    )
+                    await db.execute(
+                        "INSERT INTO rewards (id, student_id, session_id, reward_type, amount_xp,"
+                        " badge_id, badge_name, badge_icon, reason, unlocked_at)"
+                        " VALUES (?, ?, ?, 'badge', 0, ?, ?, '', ?, ?)",
+                        (
+                            f"reward-{uuid.uuid4().hex[:12]}",
+                            student_id,
+                            session_id,
+                            badge_id,
+                            description,
+                            f"badge:{badge_id}",
+                            now,
+                        ),
+                    )
+                    newly.append(badge_id)
+                await db.commit()
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("check_and_award skipped for %s: %s", student_id, exc)
+            return []
         if newly:
             logger.info("Awarded badges %s to %s", newly, student_id)
         return newly

@@ -27,7 +27,7 @@ const PALETTES: Record<Theme, Palette> = {
     bg: "#F6F7F9",
     fg: "#1C1F26",
     card: "rgba(255,255,255,0.80)",
-    primary: "#C8613C",
+    primary: "#A34A28",
     muted: "rgba(255,255,255,0.55)",
     border: "rgba(28,31,38,0.10)",
     glass: true,
@@ -36,7 +36,7 @@ const PALETTES: Record<Theme, Palette> = {
     bg: "#F6F7F9",
     fg: "#1C1F26",
     card: "rgba(255,255,255,0.80)",
-    primary: "#C8613C",
+    primary: "#A34A28",
     muted: "rgba(255,255,255,0.55)",
     border: "rgba(28,31,38,0.10)",
     glass: true,
@@ -45,7 +45,7 @@ const PALETTES: Record<Theme, Palette> = {
     bg: "#06080C",
     fg: "#F1F3F7",
     card: "rgba(14,18,25,0.70)",
-    primary: "#E06D44",
+    primary: "#B94E28",
     muted: "rgba(22,28,38,0.60)",
     border: "rgba(255,255,255,0.08)",
     glass: true,
@@ -54,7 +54,7 @@ const PALETTES: Record<Theme, Palette> = {
     bg: "#06080C",
     fg: "#F1F3F7",
     card: "rgba(14,18,25,0.70)",
-    primary: "#E06D44",
+    primary: "#B94E28",
     muted: "rgba(22,28,38,0.60)",
     border: "rgba(255,255,255,0.08)",
     glass: true,
@@ -75,8 +75,8 @@ function MiniPreview({ palette }: { palette: Palette }) {
         <>
           <defs>
             <radialGradient id="glass-shine" cx="20%" cy="0%" r="80%">
-              <stop offset="0%" stopColor="rgba(224,109,68,0.30)" />
-              <stop offset="100%" stopColor="rgba(224,109,68,0)" />
+              <stop offset="0%" stopColor="rgba(185,78,40,0.30)" />
+              <stop offset="100%" stopColor="rgba(185,78,40,0)" />
             </radialGradient>
           </defs>
           <rect

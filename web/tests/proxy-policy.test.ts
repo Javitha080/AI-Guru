@@ -82,6 +82,13 @@ test("isAuthExempt does NOT exempt protected app routes", () => {
   assert.equal(isAuthExempt("/knowledge"), false);
 });
 
+test("isAuthExempt allows the standalone Parent Portal (remote PIN-JWT flow)", () => {
+  // A remote parent holds a parent PIN-JWT, never a student JWT. Gating
+  // /parent here would bounce them to /login before the Ask-Pass gate.
+  assert.equal(isAuthExempt("/parent"), true);
+  assert.equal(isAuthExempt("/parent/"), true);
+});
+
 test("classifyToken reports missing for absent or empty cookie", () => {
   const now = 1_000_000_000_000;
   assert.equal(classifyToken(undefined, now), "missing");

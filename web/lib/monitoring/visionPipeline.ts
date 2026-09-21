@@ -14,7 +14,7 @@
  * channel to the LOCAL backend.
  */
 
-import { FaceLandmarker, FilesetResolver } from "@mediapipe/tasks-vision";
+import type { FaceLandmarker } from "@mediapipe/tasks-vision";
 import { WsReconnect, monitoringWsUrl } from "./wsReconnect";
 
 export type VisionState = "idle" | "loading" | "ready" | "error";
@@ -124,7 +124,8 @@ export class VisionPipeline {
   targetFps: number;
 
   constructor(private opts: VisionPipelineOptions) {
-    this.targetFps = opts.targetFps ?? 5;
+    const fps = Number(opts.targetFps ?? 5);
+    this.targetFps = Number.isFinite(fps) ? Math.max(1, Math.min(15, Math.round(fps))) : 5;
   }
 
   // -------------------------------------------------------------- lifecycle
@@ -148,6 +149,14 @@ export class VisionPipeline {
         modelPath = CDN_MODEL;
       }
 
+      // Dynamic import: keeps the ~1MB vision_bundle.mjs out of the initial
+      // page chunks (faster dev compiles, smaller first load) and loads it
+      // only when the camera actually starts. Static import would also drag
+      // its "Critical dependency: the request of a dependency is an
+      // expression" webpack warning into every page compile.
+      const { FaceLandmarker, FilesetResolver } = await import(
+        "@mediapipe/tasks-vision"
+      );
       const fileset = await FilesetResolver.forVisionTasks(wasmPath);
       // Blendshapes (eye closure → PERCLOS drowsiness) and the facial
       // transformation matrix (true 3D head pose) ride on both delegates;
@@ -176,6 +185,7 @@ export class VisionPipeline {
       this.opts.onState?.("ready");
       this.loop();
     } catch (err) {
+      this.running = false;
       console.warn("[vision] init failed", err);
       this.opts.onState?.("error", err instanceof Error ? err.message : String(err));
     }
@@ -237,7 +247,13 @@ export class VisionPipeline {
         }
       },
       onMessage: (evt) => {
-        const msg = JSON.parse((evt as MessageEvent).data);
+        let msg: { type?: string };
+        try {
+          msg = JSON.parse((evt as MessageEvent).data);
+        } catch {
+          console.warn("Unparseable monitoring message — skipped");
+          return;
+        }
         if (msg.type === "telemetry_update") {
           this.recentRemote.push(msg);
           if (this.recentRemote.length > 30) this.recentRemote.shift();

@@ -5,6 +5,12 @@ export interface StudentRow {
   name: string;
   status: "studying" | "offline";
   current_subject: string;
+  /** Concrete open study-session id (in_progress or paused), if any. */
+  session_id?: string | null;
+  /** Raw open-session status: in_progress | paused | null. */
+  session_status?: string | null;
+  /** True when the monitoring WebSocket is currently streaming. */
+  monitoring_live?: boolean;
   today_study_time: number; // minutes
   focus_score: number | null; // null = never measured (renders as —)
   streak: number;
@@ -35,6 +41,15 @@ export interface TunnelSnapshot {
   portal_hint?: string | null;
 }
 
+export interface OutboxSnapshot {
+  pending: number;
+  sending: number;
+  dead: number;
+  sent: number;
+  total: number;
+  overall_pending?: number;
+}
+
 export interface VaultItem {
   clip_id: string;
   timestamp: number;
@@ -51,6 +66,8 @@ export interface SessionSummaryRow {
   created_at?: number;
   actual_duration_seconds?: number;
   focus_score?: number | null;
+  has_report?: boolean;
+  report_reason?: string;
 }
 
 export interface AuditEvent {

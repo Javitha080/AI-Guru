@@ -89,7 +89,8 @@ CREATE TABLE IF NOT EXISTS study_sessions (
     ai_summary TEXT DEFAULT '',
     worked_seconds REAL NOT NULL DEFAULT 0,
     last_resume_time REAL,
-    created_at REAL NOT NULL
+    created_at REAL NOT NULL,
+    monitoring_enabled INTEGER NOT NULL DEFAULT 1
 );
 
 CREATE INDEX IF NOT EXISTS idx_study_sessions_student ON study_sessions(student_id, start_time DESC);
@@ -99,9 +100,10 @@ CREATE TABLE IF NOT EXISTS monitoring_events (
     session_id TEXT NOT NULL REFERENCES study_sessions(id) ON DELETE CASCADE,
     timestamp REAL NOT NULL,
     event_type TEXT NOT NULL CHECK (event_type IN (
-        'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED', 
-        'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK', 
-        'WARNING_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'
+        'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED',
+        'STUDENT_AWAY', 'IDENTITY_MISMATCH', 'DROWSINESS',
+        'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK',
+        'WARNING_ISSUED', 'NUDGE_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'
     )),
     severity TEXT NOT NULL CHECK (severity IN ('info', 'warning', 'alert')) DEFAULT 'info',
     confidence REAL DEFAULT 1.0,

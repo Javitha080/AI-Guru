@@ -1,332 +1,313 @@
 [
   {
-    "id": "ol-2025-ict-en-p2-q01",
+    "id": "ol-2025-p2-q01",
     "number": 1,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 20.0,
-    "stem": "Question 1 (Compulsory) of G.C.E. (O/L) 2025 Information & Communication Technology Paper II.",
+    "stem": "G.C.E. (O/L) 2025 ICT Paper II Question 1 (Compulsory Structured Essay):\nFundamental Computer Systems, Hardware, Data Representation, and Number Systems.",
     "diagrams": [
-      {
-        "id": "d_ol_p2_q1_circuit",
-        "src": "images/p2_logic_circuit.png",
-        "alt": "Logic Circuit for Question 1",
-        "caption": "Figure: Logic Circuit"
-      }
+      "images/p2_q01_hardware.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "1.i",
-        "label": "(i)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (i).",
+        "part": "(i)",
+        "stem": "State two facilities provided by a Learning Management System (LMS) for students.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (i).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "1. Accessing course materials, lecture notes, and video recordings anytime remotely. 2. Submitting assignments online and viewing grades/feedback."
       },
       {
-        "sub_id": "1.ii",
-        "label": "(ii)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (ii).",
+        "part": "(ii)",
+        "stem": "Match terms: (a) The primary internal storage device of a desktop computer. (b) An operating system is an example for systems software.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (ii).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "(a) Hard Disk / SSD. (b) Systems software."
       },
       {
-        "sub_id": "1.iii",
-        "label": "(iii)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (iii).",
+        "part": "(iii)",
+        "stem": "Convert octal number 57 to its 6-bit binary equivalent.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (iii).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "5 = 101, 7 = 111. Thus 57 octal = 101111 in binary."
       },
       {
-        "sub_id": "1.iv",
-        "label": "(iv)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (iv).",
+        "part": "(iv)",
+        "stem": "Draw the truth table for a 2-input NAND gate.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (iv).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "Inputs A, B: 0,0->1; 0,1->1; 1,0->1; 1,1->0."
       },
       {
-        "sub_id": "1.v",
-        "label": "(v)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (v).",
+        "part": "(v)",
+        "stem": "State two health problems associated with improper sitting posture during prolonged computer use.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (v).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "1. Musculoskeletal strain and back/neck pain. 2. Repetitive Strain Injury (RSI) in wrists and fingers."
       },
       {
-        "sub_id": "1.vi",
-        "label": "(vi)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (vi).",
+        "part": "(vi)",
+        "stem": "Identify toolbar icons in word processing: B for Bold, I for Italic, U for Underline, and Center alignment.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (vi).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "Bold = Bold icon; Italic = Slanted I icon; Underline = U icon; Center = centered horizontal bar lines."
       },
       {
-        "sub_id": "1.vii",
-        "label": "(vii)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (vii).",
+        "part": "(vii)",
+        "stem": "In a database table Student(StudentID, Name, DateOfBirth, Marks), state the most suitable data types for DateOfBirth and Marks.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (vii).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "DateOfBirth: Date/Time data type. Marks: Number (Integer or Decimal)."
       },
       {
-        "sub_id": "1.viii",
-        "label": "(viii)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (viii).",
+        "part": "(viii)",
+        "stem": "Write the output of: sum = 0; for i in range(1, 4): sum = sum + i; print(sum).",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (viii).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "sum = 1 + 2 + 3 = 6."
       },
       {
-        "sub_id": "1.ix",
-        "label": "(ix)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (ix).",
+        "part": "(ix)",
+        "stem": "List two benefits of a Local Area Network (LAN) for a school computer lab.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (ix).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "1. Resource sharing (shared laser printers, internet connection). 2. Centralized file management and software deployment."
       },
       {
-        "sub_id": "1.x",
-        "label": "(x)",
-        "stem": "Problem specification and analytical requirements for Question 1 part (x).",
+        "part": "(x)",
+        "stem": "State two differences between RAM and ROM.",
         "marks": 2.0,
-        "expected_answer": "Detailed expected response conforming to official O/L marking rubric for part (x).",
-        "marking_guide": "Award 2 marks for complete and accurate solution."
+        "model_answer": "RAM is volatile (loses data on power loss) and read/write. ROM is non-volatile (retains data permanently) and read-only."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2025,
-      "medium": "english",
-      "topic": "Fundamentals of ICT",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "ol-2025-ict-en-p2-q02",
+    "id": "ol-2025-p2-q02",
     "number": 2,
-    "section": "essay",
-    "question_type": "essay",
+    "section": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 2 of G.C.E. (O/L) 2025 Information & Communication Technology Paper II.",
+    "stem": "G.C.E. (O/L) 2025 ICT Paper II Question 2:\nComputer Security, Ethics, Social Implications, and Cyber Threats.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "Technical problem specification for Question 2 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected solution adhering to official marking standards.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(i)",
+        "stem": "Define the terms Phishing, Identity Theft, and Software Piracy.",
+        "marks": 3.0,
+        "model_answer": "Phishing is fraudulent communication designed to deceive victims into revealing passwords. Identity Theft is impersonating another individual for financial or personal gain. Software Piracy is unauthorized copying or distribution of copyrighted software."
       },
       {
-        "sub_id": "2.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 2 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Step-by-step calculations, diagrams, and written explanation.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(ii)",
+        "stem": "State three security measures that should be implemented to safeguard a home Wi-Fi router.",
+        "marks": 3.0,
+        "model_answer": "1. Change default administrator username and password. 2. Enable WPA2/WPA3 wireless encryption. 3. Disable WPS and change default SSID."
+      },
+      {
+        "part": "(iii)",
+        "stem": "Explain what the Digital Divide is and describe two strategies to reduce it in rural communities.",
+        "marks": 4.0,
+        "model_answer": "The Digital Divide is the economic and social gap between individuals with access to modern ICT and those without. Strategies: 1. Establishing rural tele-centers and subsidized broadband. 2. Conducting digital literacy training programs."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2025,
-      "medium": "english",
-      "topic": "Spreadsheet Modeling & Formulas",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "ol-2025-ict-en-p2-q03",
+    "id": "ol-2025-p2-q03",
     "number": 3,
-    "section": "essay",
-    "question_type": "essay",
+    "section": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 3 of G.C.E. (O/L) 2025 Information & Communication Technology Paper II.",
-    "diagrams": [],
+    "stem": "G.C.E. (O/L) 2025 ICT Paper II Question 3:\nRelational Database Management Systems and SQL Queries.",
+    "diagrams": [
+      "images/p2_q03_database.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "3.a",
-        "label": "(a)",
-        "stem": "Technical problem specification for Question 3 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected solution adhering to official marking standards.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(i)",
+        "stem": "State the primary key of the Book table (BookID, Title, Price) and the Member table (MemberID, Name, Phone).",
+        "marks": 2.0,
+        "model_answer": "Book table primary key: BookID. Member table primary key: MemberID."
       },
       {
-        "sub_id": "3.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 3 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Step-by-step calculations, diagrams, and written explanation.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(ii)",
+        "stem": "Identify the foreign key required to link book borrowing transactions to members.",
+        "marks": 2.0,
+        "model_answer": "MemberID and BookID are foreign keys in the Issue_Return table referencing Member and Book tables."
+      },
+      {
+        "part": "(iii)",
+        "stem": "Write an SQL query to select the titles and prices of all books with Price greater than 500.",
+        "marks": 3.0,
+        "model_answer": "SELECT Title, Price FROM Book WHERE Price > 500;"
+      },
+      {
+        "part": "(iv)",
+        "stem": "Write an SQL statement to insert a new book with BookID 'B101', Title 'ICT Basics', Price 650.",
+        "marks": 3.0,
+        "model_answer": "INSERT INTO Book (BookID, Title, Price) VALUES ('B101', 'ICT Basics', 650);"
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2025,
-      "medium": "english",
-      "topic": "Relational Database Systems",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "ol-2025-ict-en-p2-q04",
+    "id": "ol-2025-p2-q04",
     "number": 4,
-    "section": "essay",
-    "question_type": "essay",
+    "section": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 4 of G.C.E. (O/L) 2025 Information & Communication Technology Paper II.",
+    "stem": "G.C.E. (O/L) 2025 ICT Paper II Question 4:\nWeb Design, HTML Document Structure, and Hyperlinks.",
     "diagrams": [
-      {
-        "id": "d_ol_p2_q4_flow",
-        "src": "images/p2_flowchart.png",
-        "alt": "Algorithm Flowchart",
-        "caption": "Figure: Algorithm Flowchart"
-      }
+      "images/p2_q04_webpage.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "4.a",
-        "label": "(a)",
-        "stem": "Technical problem specification for Question 4 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected solution adhering to official marking standards.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(i)",
+        "stem": "Write the essential skeleton tags required for any valid HTML5 document.",
+        "marks": 3.0,
+        "model_answer": "<!DOCTYPE html><html><head><title>Page Title</title></head><body>Content</body></html>"
       },
       {
-        "sub_id": "4.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 4 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Step-by-step calculations, diagrams, and written explanation.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(ii)",
+        "stem": "Write the HTML code to display an image 'school.jpg' with width 200, height 150, and alternate text 'School Crest'.",
+        "marks": 3.0,
+        "model_answer": "<img src=\"school.jpg\" width=\"200\" height=\"150\" alt=\"School Crest\">"
+      },
+      {
+        "part": "(iii)",
+        "stem": "Write the HTML code to create a 2-row, 2-column table with headers 'Subject' and 'Grade', and one record row 'ICT', 'A'.",
+        "marks": 4.0,
+        "model_answer": "<table border=\"1\"><tr><th>Subject</th><th>Grade</th></tr><tr><td>ICT</td><td>A</td></tr></table>"
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2025,
-      "medium": "english",
-      "topic": "Algorithms, Flowcharts & Pseudo-code",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "ol-2025-ict-en-p2-q05",
+    "id": "ol-2025-p2-q05",
     "number": 5,
-    "section": "essay",
-    "question_type": "essay",
+    "section": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 5 of G.C.E. (O/L) 2025 Information & Communication Technology Paper II.",
+    "stem": "G.C.E. (O/L) 2025 ICT Paper II Question 5:\nSpreadsheet Applications, Formulas, Functions, and Charts.",
     "diagrams": [
-      {
-        "id": "d_ol_p2_q5_star",
-        "src": "images/star_topology.png",
-        "alt": "Network Topology",
-        "caption": "Figure: Network Topology"
-      }
+      "images/p2_q05_spreadsheet.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "5.a",
-        "label": "(a)",
-        "stem": "Technical problem specification for Question 5 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected solution adhering to official marking standards.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(i)",
+        "stem": "Write the spreadsheet formula using a built-in function to find the sum of numbers in cells B2 to B10.",
+        "marks": 2.0,
+        "model_answer": "=SUM(B2:B10)"
       },
       {
-        "sub_id": "5.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 5 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Step-by-step calculations, diagrams, and written explanation.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(ii)",
+        "stem": "Write the spreadsheet formula to find the average of numbers in cells B2 to B10.",
+        "marks": 2.0,
+        "model_answer": "=AVERAGE(B2:B10)"
+      },
+      {
+        "part": "(iii)",
+        "stem": "Explain the difference between relative and absolute cell references with examples.",
+        "marks": 3.0,
+        "model_answer": "Relative cell references (e.g. A1) adjust automatically when copied to other cells based on relative position. Absolute references (e.g. $A$1) stay fixed on the specific cell when copied."
+      },
+      {
+        "part": "(iv)",
+        "stem": "Which chart type is best suited to show percentage proportions of a monthly family expenditure budget?",
+        "marks": 3.0,
+        "model_answer": "Pie Chart (or Donut Chart) because it clearly illustrates proportions of a whole."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2025,
-      "medium": "english",
-      "topic": "Web Development & HTML",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "ol-2025-ict-en-p2-q06",
+    "id": "ol-2025-p2-q06",
     "number": 6,
-    "section": "essay",
-    "question_type": "essay",
+    "section": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 6 of G.C.E. (O/L) 2025 Information & Communication Technology Paper II.",
-    "diagrams": [],
+    "stem": "G.C.E. (O/L) 2025 ICT Paper II Question 6:\nAlgorithms, Flowcharts, and Control Structures.",
+    "diagrams": [
+      "images/p2_q06_flowchart.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "6.a",
-        "label": "(a)",
-        "stem": "Technical problem specification for Question 6 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected solution adhering to official marking standards.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(i)",
+        "stem": "State the three fundamental control structures used in algorithm design.",
+        "marks": 3.0,
+        "model_answer": "1. Sequence. 2. Selection (Decision). 3. Iteration (Repetition / Looping)."
       },
       {
-        "sub_id": "6.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 6 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Step-by-step calculations, diagrams, and written explanation.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(ii)",
+        "stem": "Draw flowchart symbols for: (a) Start/Stop, (b) Input/Output, (c) Decision, (d) Process.",
+        "marks": 4.0,
+        "model_answer": "(a) Oval (terminator). (b) Parallelogram. (c) Diamond. (d) Rectangle."
+      },
+      {
+        "part": "(iii)",
+        "stem": "Write pseudocode to input marks of 5 students and calculate the average mark.",
+        "marks": 3.0,
+        "model_answer": "BEGIN\n  total = 0\n  FOR i = 1 TO 5\n    INPUT mark\n    total = total + mark\n  ENDFOR\n  avg = total / 5\n  OUTPUT avg\nEND"
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2025,
-      "medium": "english",
-      "topic": "System Analysis & Design",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "ol-2025-ict-en-p2-q07",
+    "id": "ol-2025-p2-q07",
     "number": 7,
-    "section": "essay",
-    "question_type": "essay",
+    "section": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Question 7 of G.C.E. (O/L) 2025 Information & Communication Technology Paper II.",
-    "diagrams": [],
+    "stem": "G.C.E. (O/L) 2025 ICT Paper II Question 7:\nComputer Networking, Transmission Media, and Cloud Computing.",
+    "diagrams": [
+      "images/p2_q07_network.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "7.a",
-        "label": "(a)",
-        "stem": "Technical problem specification for Question 7 part (a).",
-        "marks": 5.0,
-        "expected_answer": "Complete expected solution adhering to official marking standards.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(i)",
+        "stem": "State two differences between a hub and a network switch.",
+        "marks": 3.0,
+        "model_answer": "A hub broadcasts incoming frames to all ports regardless of destination, creating collisions. A switch inspects MAC addresses and forwards packets unicast directly to the destination device port."
       },
       {
-        "sub_id": "7.b",
-        "label": "(b)",
-        "stem": "Implementation details and analysis for Question 7 part (b).",
-        "marks": 5.0,
-        "expected_answer": "Step-by-step calculations, diagrams, and written explanation.",
-        "marking_guide": "Award 5 marks based on specified rubrics."
+        "part": "(ii)",
+        "stem": "Compare fiber optic cables and unshielded twisted pair (UTP) cables in terms of speed, transmission distance, and noise immunity.",
+        "marks": 4.0,
+        "model_answer": "Fiber optic uses light pulses, supports multi-gigabit speeds over dozens of kilometers, and is completely immune to electromagnetic interference (EMI). UTP uses electrical signals, is limited to 100 meters, and is susceptible to EMI."
+      },
+      {
+        "part": "(iii)",
+        "stem": "Define Cloud Computing and state two practical benefits for small businesses.",
+        "marks": 3.0,
+        "model_answer": "Cloud Computing is the on-demand delivery of computing resources (servers, storage, software) over the internet. Benefits: 1. Reduced hardware infrastructure and maintenance costs. 2. Scalable resources on demand."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2025,
-      "medium": "english",
-      "topic": "Word Processing & Office Tools",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   }
 ]

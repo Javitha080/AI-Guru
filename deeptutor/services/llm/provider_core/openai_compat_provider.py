@@ -30,6 +30,7 @@ from deeptutor.services.llm.provider_core.openai_responses import (
 )
 from deeptutor.services.llm.reasoning_params import (
     build_openai_compatible_reasoning_kwargs,
+    extract_delta_reasoning_text,
 )
 
 if TYPE_CHECKING:
@@ -542,8 +543,8 @@ class OpenAICompatProvider(LLMProvider):
             )
 
         reasoning_content = getattr(msg, "reasoning_content", None) or None
-        if not reasoning_content and getattr(msg, "reasoning", None):
-            reasoning_content = msg.reasoning
+        if not reasoning_content:
+            reasoning_content = extract_delta_reasoning_text(msg) or None
 
         usage = self._extract_usage(response)
 
@@ -600,9 +601,7 @@ class OpenAICompatProvider(LLMProvider):
             if delta and delta.content:
                 content_parts.append(delta.content)
             if delta:
-                reasoning = getattr(delta, "reasoning_content", None)
-                if not reasoning:
-                    reasoning = getattr(delta, "reasoning", None)
+                reasoning = extract_delta_reasoning_text(delta)
                 if reasoning:
                     reasoning_parts.append(reasoning)
             for tc in (delta.tool_calls or []) if delta else []:
@@ -840,9 +839,7 @@ class OpenAICompatProvider(LLMProvider):
                 if chunk.choices:
                     delta = chunk.choices[0].delta
                     if on_reasoning_delta and delta is not None:
-                        reasoning_text = getattr(delta, "reasoning_content", None) or getattr(
-                            delta, "reasoning", None
-                        )
+                        reasoning_text = extract_delta_reasoning_text(delta)
                         if reasoning_text:
                             await on_reasoning_delta(reasoning_text)
                     if on_content_delta and delta is not None:

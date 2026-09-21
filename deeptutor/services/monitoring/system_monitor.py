@@ -58,6 +58,16 @@ _RING_MIN_INTERVAL = (
 )  # seconds between evidence-ring frame updates
 _SNAPSHOT_JPEG_QUALITY = 70
 
+# Episode severity mirrors WarningManager.SEVERITY_LEVELS so info-level
+# presence pings (STUDENT_AWAY) never inflate actionable warning counts.
+_EPISODE_SEVERITIES = {
+    "LOOKING_AWAY": "warning",
+    "PHONE_DETECTED": "alert",
+    "STUDENT_AWAY": "info",
+    "IDENTITY_MISMATCH": "alert",
+    "DROWSINESS": "warning",
+}
+
 # Re-exported for backward-compat (routers import these from system_monitor).
 __all__ = [
     "CAMERA_SETTINGS_KEY",
@@ -550,7 +560,7 @@ class SystemMonitorSession:
             _spawn_log(
                 self._log_episode(
                     event_type,
-                    "warning",
+                    _EPISODE_SEVERITIES.get(dtype, "warning"),
                     float(analysis.distraction.confidence or 0),
                     float(analysis.distraction.duration_seconds or 0),
                     str(analysis.distraction.reason or dtype),

@@ -111,6 +111,7 @@ export interface CatalogRow {
   essay_count: number;
   total_marks: number;
   default_duration_seconds: number;
+  has_scheme_keys?: boolean;
 }
 
 export interface ResultQuestion {
@@ -181,6 +182,7 @@ export const papersApi = {
     if (params.grade) q.set("grade", String(params.grade));
     if (params.year) q.set("year", String(params.year));
     if (params.medium) q.set("medium", params.medium);
+    q.set("honest_only", "true");
     return fetch(`/api/v1/paper_bank/catalog?${q.toString()}`).then((r) =>
       jsonOrThrow<{ papers: CatalogRow[]; count: number; seeding?: boolean }>(r)
     );

@@ -397,7 +397,7 @@ async def edit_text(request: EditRequest):
 
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.post("/edit_react", response_model=ReactEditResponse)
@@ -408,7 +408,7 @@ async def edit_text_react(request: ReactEditRequest):
         raise
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.post("/edit_react/stream")
@@ -439,7 +439,7 @@ async def auto_mark_text(request: AutoMarkRequest):
         return result
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/history")
@@ -449,7 +449,7 @@ async def get_history():
         history = load_history()
         return {"history": history, "total": len(history)}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/history/{operation_id}")
@@ -464,7 +464,7 @@ async def get_operation(operation_id: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/tool_calls/{operation_id}")
@@ -479,7 +479,7 @@ async def get_tool_call(operation_id: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -552,7 +552,7 @@ async def list_documents() -> dict[str, list[DocumentSummaryResponse]]:
         return {"documents": [DocumentSummaryResponse.from_summary(s) for s in summaries]}
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.post("/documents", response_model=DocumentResponse)
@@ -564,7 +564,7 @@ async def create_document(request: CreateDocumentRequest) -> DocumentResponse:
         return DocumentResponse.from_model(document)
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.get("/documents/{doc_id}", response_model=DocumentResponse)
@@ -580,7 +580,7 @@ async def get_document(doc_id: str) -> DocumentResponse:
         raise
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.put("/documents/{doc_id}", response_model=DocumentResponse)
@@ -598,7 +598,7 @@ async def update_document(doc_id: str, request: UpdateDocumentRequest) -> Docume
         raise
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
 
 
 @router.delete("/documents/{doc_id}")
@@ -615,4 +615,4 @@ async def delete_document(doc_id: str) -> dict[str, bool]:
         raise
     except Exception as e:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")

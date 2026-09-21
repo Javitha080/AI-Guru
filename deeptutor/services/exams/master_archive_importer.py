@@ -2,8 +2,8 @@
 
 Populates SQLite ``paper_bank`` catalog with:
 - 84 A/L (Grade 13) and O/L (Grade 11) Past Papers in English & Sinhala (P1 & P2)
-- 30 Daily Quizzes (2027 series)
-- 9 Modular Topic Papers
+- Daily Quizzes (2027 series)
+- Modular Topic Papers
 - Diagram assets, KaTeX math formulas, structured sub-questions, marking schemes.
 """
 
@@ -36,6 +36,41 @@ def get_paper_bank_assets_dir() -> Path:
     return dest
 
 
+def _grade_from_folder(name: str) -> int:
+    """Infer the school grade from an archive folder name.
+
+    O/L spans grades 10-11, A/L spans 12-13. Unknown names fall back to 13
+    (the historical default) so imports never crash on new naming.
+    """
+    lowered = name.lower()
+    for grade in (10, 11, 12, 13):
+        if f"-g{grade}-" in lowered:
+            return grade
+    return 13
+
+
+def _is_placeholder_stub(raw_data: List[Dict[str, Any]]) -> bool:
+    """True when an archive folder holds a placeholder stub, not real questions.
+
+    Stubs look like: stem "Question N of G.C.E. (A/L) ... Examination Paper ..."
+    Real stems are the actual question text and never match, so the stem gate
+    alone is decisive for both MCQ and structured stubs.
+    """
+    if not raw_data:
+        return False
+    sample = raw_data[:3]
+    stubs = sum(
+        1
+        for q in sample
+        if re.match(
+            r"^Question \d+ of G\.C\.E\. .*Examination Paper",
+            str(q.get("stem") or q.get("text") or "").strip(),
+            re.IGNORECASE,
+        )
+    )
+    return stubs >= min(2, len(sample))
+
+
 def _generate_title(folder_name: str, questions: List[Dict[str, Any]]) -> str:
     """Derive a human-readable title from folder name and question metadata."""
     name = folder_name.lower()
@@ -64,9 +99,9 @@ def _generate_title(folder_name: str, questions: List[Dict[str, Any]]) -> str:
         if re.search(r"\b(20\d{2})\b", name)
         else 2023
     )
-    grade = meta.get("grade") or (11 if "-g11-" in name else 13)
+    grade = meta.get("grade") or _grade_from_folder(name)
     medium = "Sinhala" if "-si-" in name or meta.get("medium") == "sinhala" else "English"
-    level = "O/L" if grade == 11 else "A/L"
+    level = "O/L" if grade in (10, 11) else "A/L"
     paper_no = "Paper I (MCQ)" if "-p1" in name else "Paper II (Structured/Essay)"
     return f"G.C.E. ({level}) {year} ICT {paper_no} ({medium})"
 
@@ -76,7 +111,7 @@ async def import_master_archive(
     *,
     copy_assets: bool = True,
 ) -> Dict[str, Any]:
-    """Imports all 123 modules from the master archive into the paper_bank catalog."""
+    """Imports all modules from the master archive into the paper_bank catalog."""
     src = Path(archive_path) if archive_path else _DEFAULT_ARCHIVE_PATH
     if not src.is_dir():
         return {"success": False, "error": f"Archive directory not found: {src}"}
@@ -94,6 +129,13 @@ async def import_master_archive(
                 raw_data = json.load(f)
 
             if not isinstance(raw_data, list) or not raw_data:
+                errors.append(f"{folder.name}: empty paper.json — skipped (no honest questions)")
+                continue
+
+            if _is_placeholder_stub(raw_data):
+                errors.append(
+                    f"{folder.name}: placeholder stub — skipped (no real past-paper content)"
+                )
                 continue
 
             folder_name = folder.name
@@ -121,8 +163,8 @@ async def import_master_archive(
                 row_id = folder_name
                 duration = 3600  # 1 hour
             else:
-                grade = 11 if "-g11-" in folder_name else 13
-                subject = "ict-ol" if grade == 11 else "ict"
+                grade = _grade_from_folder(folder_name)
+                subject = "ict-ol" if grade in (10, 11) else "ict"
                 y_match = re.search(r"\b(20\d{2})\b", folder_name)
                 year = int(first_meta.get("year") or (y_match.group(1) if y_match else 2023))
                 medium = (
@@ -186,8 +228,17 @@ async def import_master_archive(
                 if meta.get("topic"):
                     topic_tags.add(str(meta["topic"]))
 
-                # Normalize diagrams
-                diagrams = q.get("diagrams") or []
+                # Normalize diagrams: archive uses dicts ({src,alt,...}) but
+                # older P2/O/L folders store plain strings ("images/....png").
+                diagrams_raw = q.get("diagrams") or []
+                diagrams: List[Dict[str, Any]] = []
+                for d in diagrams_raw:
+                    if isinstance(d, str):
+                        diagrams.append({"id": "", "src": d, "alt": "", "caption": ""})
+                    elif isinstance(d, dict):
+                        diagrams.append(d)
+                    else:
+                        continue
                 if not diagrams and q.get("images"):
                     for idx, img in enumerate(q["images"]):
                         diagrams.append(
@@ -261,6 +312,12 @@ async def import_master_archive(
             mcq_count = sum(1 for q in normalized_questions if q["question_type"] == "choice")
             essay_count = len(normalized_questions) - mcq_count
             total_marks = sum(float(q["marks"]) for q in normalized_questions)
+            if not any(str(q.get("text") or "").strip() for q in normalized_questions):
+                errors.append(f"{folder_name}: all question stems empty — skipped")
+                continue
+            if total_marks <= 0:
+                errors.append(f"{folder_name}: zero total marks — skipped")
+                continue
 
             paper_payload = {
                 "exam_id": row_id,

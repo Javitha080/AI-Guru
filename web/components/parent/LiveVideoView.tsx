@@ -15,9 +15,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Activity, AlertTriangle, Radio, RefreshCw, ShieldAlert, StopCircle, Video, XCircle } from "lucide-react";
 import {
+  getParentAccessToken,
   getParentLiveSnapshotUrl,
   getParentLiveWsProtocols,
   getParentLiveWsUrl,
+  ParentAuthError,
+  PARENT_AUTH_LOST_EVENT,
   pFetch,
   startParentLiveStream,
   stopParentLiveStream,
@@ -43,6 +46,10 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
   const [isWsMode, setIsWsMode] = useState<boolean>(false);
   const [stopping, setStopping] = useState<boolean>(false);
   const [retryCount, setRetryCount] = useState<number>(0);
+  const [lanOnlyNotice, setLanOnlyNotice] = useState<string | null>(null);
+  // Concrete session id resolved by /live/start — used for stop so "current"
+  // never kills other students' streams (backend clears ALL on "current").
+  const [resolvedSessionId, setResolvedSessionId] = useState<string | null>(null);
 
   const wsRef = useRef<WebSocket | null>(null);
   const pollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -89,6 +96,11 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
     }
     setPhase("live");
     setErrorMessage(null);
+    // Cancel the "taking longer than expected" guard once frames flow.
+    if (connectTimeoutRef.current) {
+      clearTimeout(connectTimeoutRef.current);
+      connectTimeoutRef.current = null;
+    }
 
     // Hardware-accelerated zero-copy canvas rendering
     if (typeof createImageBitmap === "function") {
@@ -106,6 +118,13 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
             }
           }
           bitmap.close();
+          // Drop any stale object-URL fallback so the canvas is the only
+          // visible frame (previously both rendered stacked).
+          if (objectUrlRef.current) {
+            URL.revokeObjectURL(objectUrlRef.current);
+            objectUrlRef.current = null;
+          }
+          setFrameUrl(null);
         })
         .catch(() => {
           // Fallback to object URL if bitmap creation fails
@@ -144,10 +163,19 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
         setErrorMessage(`Server returned HTTP ${res.status}`);
       }
     } catch (err) {
+      if (err instanceof ParentAuthError) {
+        // Session unrecoverable — re-lock to the PIN gate with an
+        // explanation instead of a generic "Connection dropped".
+        setPhase("denied");
+        setErrorMessage("Parent session expired. Close and re-enter your Parent Passcode.");
+        stopHttpPoll();
+        cleanupWs();
+        return;
+      }
       setPhase((p) => (p === "live" ? p : "error"));
       setErrorMessage(err instanceof Error ? err.message : "Connection dropped");
     }
-  }, [targetSessionId, targetStudentId, handleNewFrameBlob, stopHttpPoll]);
+  }, [targetSessionId, targetStudentId, handleNewFrameBlob, stopHttpPoll, cleanupWs]);
 
   // Connect WebSocket stream (token via subprotocol, not URL)
   const connectWs = useCallback(() => {
@@ -224,6 +252,20 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
   const startStreamPipeline = useCallback(() => {
     setPhase("connecting");
     setErrorMessage(null);
+    setLanOnlyNotice(null);
+
+    // Missing portal token (new tab / expired sessionStorage): never spin
+    // forever on polling — re-lock to the PIN gate with an explanation.
+    if (typeof window !== "undefined" && !getParentAccessToken()) {
+      setPhase("denied");
+      setErrorMessage("Parent session expired. Close and re-enter your Parent Passcode.");
+      try {
+        window.dispatchEvent(new Event(PARENT_AUTH_LOST_EVENT));
+      } catch {
+        /* non-browser */
+      }
+      return;
+    }
 
     // Timeout guard: if still connecting after 14s, surface actionable state
     if (connectTimeoutRef.current) clearTimeout(connectTimeoutRef.current);
@@ -241,7 +283,26 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
     void startParentLiveStream(targetSessionId, targetStudentId)
       .then((res) => {
         if (res.ok) {
+          // Explicit LAN-only contract: remote parents outside home Wi-Fi
+          // still get a working local feed — banner it instead of silently
+          // polling forever.
+          const mode = res.data?.mode;
+          const reachable = res.data?.reachable_remotely;
+          if (res.data?.session_id) setResolvedSessionId(res.data.session_id);
+          if (mode === "lan" || reachable === false) {
+            setLanOnlyNotice(
+              res.data?.message ||
+                "Home Wi-Fi only — tunnel not active. Remote viewing outside this network is unavailable."
+            );
+          }
           connectWs();
+          // Run the HTTP poll in parallel: Next rewrites proxy HTTP but not
+          // WS upgrades, so on deployments where the socket can't connect
+          // the poll is the working transport, not a fallback after failure.
+          if (!pollTimerRef.current) {
+            void pollSnapshot();
+            pollTimerRef.current = setInterval(() => void pollSnapshot(), 500);
+          }
         } else if (res.status === 403) {
           setPhase("denied");
           setErrorMessage("Live view is not permitted for this student.");
@@ -326,7 +387,9 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
   const handleStopStream = async () => {
     setStopping(true);
     try {
-      await stopParentLiveStream(targetSessionId);
+      // Prefer the concrete session id so only THIS stream stops —
+      // "current" clears every live session server-side.
+      await stopParentLiveStream(resolvedSessionId ?? targetSessionId);
     } catch {
       /* best-effort */
     } finally {
@@ -335,6 +398,16 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
     }
   };
 
+  // Esc closes the overlay; background scroll is already owned by the
+  // portal layout's scroll container, so no body lock is needed.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   return (
     <div
       className="fixed inset-0 z-[999] flex items-center justify-center p-4 animate-overlay-in"
@@ -342,7 +415,7 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
     >
       <div className="w-full max-w-3xl bento-cell liquid-sheen !rounded-2xl overflow-hidden animate-pop-in shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
         {/* Header */}
-        <div className="relative z-[2] px-5 py-3.5 bg-gradient-to-r from-[var(--primary)] to-[#E8895F] text-white flex items-center justify-between">
+        <div className="relative z-[2] px-5 py-3.5 bg-gradient-to-r from-[var(--primary)] to-[#E8895F] text-white flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2.5">
             <span className="p-1.5 bg-white/20 rounded-lg backdrop-blur-sm">
               <Video size={18} />
@@ -483,6 +556,13 @@ export default function LiveVideoView({ studentName, sessionId, studentId, onClo
             </div>
           )}
         </div>
+
+        {/* LAN-only notice */}
+        {lanOnlyNotice && (
+          <div className="relative z-[2] px-5 py-2.5 bg-[var(--amber-glow)]/60 border-b border-[var(--amber)]/30 text-[11px] text-[var(--amber)] font-semibold">
+            {lanOnlyNotice}
+          </div>
+        )}
 
         {/* Footer */}
         <div className="relative z-[2] px-5 py-2.5 border-t border-[var(--glass-border)] bg-[var(--glass-0)] text-[11px] text-[var(--muted-foreground)] flex items-center justify-between">

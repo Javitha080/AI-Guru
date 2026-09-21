@@ -88,8 +88,64 @@ VALID_TUTOR_TONES = frozenset(
     }
 )
 
-_ICON_MARKER_RE = re.compile(r"^icon:([a-z_]+):([a-z]+)$")
+_ICON_MARKER_RE = re.compile(r"^icon:([a-z0-9_-]+):([a-z0-9_-]+)$")
 _IMG_MARKER_RE = re.compile(r"^img:\d+$")
+
+
+def _is_raw_fallback_name(name: str, student_id: str) -> bool:
+    """True when display_name was never set by the user (empty or auto-seed)."""
+    if not name:
+        return True
+    if name == student_id:
+        return True
+    if name.startswith("student:"):
+        return True
+    return False
+
+
+def _display_name_for_response(
+    raw_name: str, *, student_id: str, is_configured: bool
+) -> str:
+    """Mask internal fallback IDs: '' when onboarding, 'Student' once configured."""
+    if _is_raw_fallback_name(raw_name, student_id):
+        return "Student" if is_configured else ""
+    return raw_name
+
+
+# Local single-user installs historically used these global keys. Multi-user
+# installs scope them per student (suffix ":<student_id>") so one user's
+# onboarding/personalization never leaks into another's. Reads try the scoped
+# key first, then fall back to the legacy global for backward compatibility.
+_LEGACY_CONFIGURED_KEY = "user_profile_configured"
+_LEGACY_PERSONALIZATIONS_KEY = "student_personalizations_default"
+_DEFAULT_STUDENT_ID = "student-primary"
+
+
+def _configured_key(student_id: str) -> str:
+    if student_id == _DEFAULT_STUDENT_ID:
+        return _LEGACY_CONFIGURED_KEY
+    return f"{_LEGACY_CONFIGURED_KEY}:{student_id}"
+
+
+def _personalizations_key(student_id: str) -> str:
+    if student_id == _DEFAULT_STUDENT_ID:
+        return _LEGACY_PERSONALIZATIONS_KEY
+    return f"{_LEGACY_PERSONALIZATIONS_KEY}:{student_id}"
+
+
+async def _kv_get_scoped(db: aiosqlite.Connection, key: str, legacy_key: str) -> Any:
+    """Read scoped key first, fall back to legacy global (pre-multi-user DBs)."""
+    value = await kv_get(db, key)
+    if value is not None:
+        return value
+    if key != legacy_key:
+        return await kv_get(db, legacy_key)
+    return None
+
+
+def _auth_role_to_user_role(role: str) -> str:
+    """Map auth-layer roles ('admin'/'user') onto users-table roles."""
+    return "admin" if role == "admin" else "student"
 
 
 def validate_avatar_marker(marker: str) -> bool:
@@ -181,17 +237,24 @@ async def _ensure_student_profile(
     username: str,
     default_name: str = "",
     default_avatar: str = "",
+    role: str = "student",
 ) -> None:
-    """Ensure prerequisite users and students rows exist before any read/write."""
+    """Ensure prerequisite users and students rows exist before any read/write.
+
+    Fresh rows store an EMPTY display_name (never the raw student_id) so the
+    API can distinguish "never set" from a real name. The users-table role
+    follows the auth identity (admin stays admin).
+    """
     now = time.time()
+    user_role = _auth_role_to_user_role(role)
     await db.execute("PRAGMA foreign_keys = ON;")
     await db.execute(
         """
         INSERT OR IGNORE INTO users (
             id, username, password_hash, role, display_name, avatar_url, created_at, updated_at
-        ) VALUES (?, ?, '', 'student', ?, ?, ?, ?)
+        ) VALUES (?, ?, '', ?, ?, ?, ?, ?)
         """,
-        (user_id, username, default_name or student_id, default_avatar, now, now),
+        (user_id, username, user_role, default_name or "", default_avatar, now, now),
     )
     await db.execute(
         """
@@ -227,10 +290,14 @@ async def get_user_profile(
                 student_id=student_id,
                 user_id=user_id,
                 username=username,
+                role=role,
             )
+            await db.commit()
 
-            # Check configuration flag
-            configured_flag = await kv_get(db, "user_profile_configured")
+            # Check configuration flag (scoped per student, legacy fallback)
+            configured_flag = await _kv_get_scoped(
+                db, _configured_key(student_id), _LEGACY_CONFIGURED_KEY
+            )
             is_configured = str(configured_flag or "").strip().lower() == "true"
 
             # Query users table
@@ -239,17 +306,20 @@ async def get_user_profile(
                 (user_id, username),
             )
             user_row = await user_cur.fetchone()
-            display_name = str(user_row["display_name"] or "").strip() if user_row else ""
+            raw_display_name = (
+                str(user_row["display_name"] or "").strip() if user_row else ""
+            )
             avatar = str(user_row["avatar_url"] or "").strip() if user_row else ""
-            user_role = str(user_row["role"] or role) if user_row else role
+            # Token identity is authoritative for role when signed in; the
+            # auto-provisioned row must never downgrade an admin to student.
+            if AUTH_ENABLED and payload is not None:
+                user_role = _auth_role_to_user_role(role)
+            else:
+                user_role = str(user_row["role"] or role) if user_row else role
 
-            # If display_name is the raw ID fallback, treat as empty until set
-            if (
-                not display_name
-                or display_name == student_id
-                or display_name.startswith("student:")
-            ):
-                display_name = "Student" if not is_configured else "Student"
+            display_name = _display_name_for_response(
+                raw_display_name, student_id=student_id, is_configured=is_configured
+            )
 
             # Query students table
             student_cur = await db.execute(
@@ -265,8 +335,10 @@ async def get_user_profile(
             target_minutes = int(student_row["target_daily_minutes"] or 60) if student_row else 60
             school = str(student_row["school"] or "") if student_row else ""
 
-            # Query settings for personalizations
-            pers_raw = await kv_get(db, "student_personalizations_default")
+            # Query settings for personalizations (scoped, legacy fallback)
+            pers_raw = await _kv_get_scoped(
+                db, _personalizations_key(student_id), _LEGACY_PERSONALIZATIONS_KEY
+            )
             preferred_subjects: List[str] = []
             tutor_tone = "encouraging"
             if pers_raw:
@@ -317,8 +389,8 @@ async def update_user_profile(
     body: UserProfileUpdateRequest,
     payload: TokenPayload | None = Depends(require_auth),
 ) -> UserProfileResponse:
-    """Create or update student profile, personalizations, and mark configured."""
-    student_id, user_id, username, _ = _resolve_identity(payload)
+    """Create or update student profile; marks configured only once a name exists."""
+    student_id, user_id, username, role = _resolve_identity(payload)
     db_file = _db_path()
     now = time.time()
 
@@ -329,19 +401,33 @@ async def update_user_profile(
             detail="Invalid avatar marker format or unrecognized icon/color name.",
         )
 
-    # Validate learning style if provided
+    # Reject empty names (whitespace-only) instead of storing them.
+    if body.display_name is not None and not body.display_name.strip():
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Display name cannot be empty.",
+        )
+
+    # Strict validation (matches avatar/minutes behavior): unknown values are
+    # client bugs and must surface as 422, not silent coercion.
     learning_style = body.learning_style
     if learning_style is not None:
         learning_style = learning_style.strip().lower()
         if learning_style not in VALID_LEARNING_STYLES:
-            learning_style = "visual"
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail=f"Invalid learning_style. Choose one of: {sorted(VALID_LEARNING_STYLES)}.",
+            )
 
     # Validate tutor tone if provided
     tutor_tone = body.tutor_tone
     if tutor_tone is not None:
         tutor_tone = tutor_tone.strip().lower()
         if tutor_tone not in VALID_TUTOR_TONES:
-            tutor_tone = "encouraging"
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail=f"Invalid tutor_tone. Choose one of: {sorted(VALID_TUTOR_TONES)}.",
+            )
 
     try:
         async with aiosqlite.connect(db_file) as db:
@@ -351,6 +437,16 @@ async def update_user_profile(
                 student_id=student_id,
                 user_id=user_id,
                 username=username,
+                role=role,
+            )
+
+            # Read existing configured flag: avatar-only or partial patches must
+            # not complete onboarding on their own.
+            existing_flag = await _kv_get_scoped(
+                db, _configured_key(student_id), _LEGACY_CONFIGURED_KEY
+            )
+            already_configured = (
+                str(existing_flag or "").strip().lower() == "true"
             )
 
             # Update users table
@@ -399,11 +495,28 @@ async def update_user_profile(
                 query = f"UPDATE students SET {', '.join(student_updates)} WHERE id = ?"
                 await db.execute(query, tuple(student_params))
 
-            # Mark configured in settings kv
-            await kv_set(db, "user_profile_configured", "true", category="user_profile")
+            # Mark configured only when a real display name now exists:
+            # a fresh name in this patch, or an already-configured profile.
+            # Avatar-only / preference-only patches never complete onboarding.
+            if display_name:
+                await kv_set(
+                    db,
+                    _configured_key(student_id),
+                    "true",
+                    category="user_profile",
+                )
+            elif already_configured:
+                await kv_set(
+                    db,
+                    _configured_key(student_id),
+                    "true",
+                    category="user_profile",
+                )
 
-            # Update personalizations in settings kv
-            pers_existing_raw = await kv_get(db, "student_personalizations_default")
+            # Update personalizations in settings kv (scoped per student)
+            pers_existing_raw = await _kv_get_scoped(
+                db, _personalizations_key(student_id), _LEGACY_PERSONALIZATIONS_KEY
+            )
             pers_dict: dict[str, Any] = {}
             if pers_existing_raw:
                 try:
@@ -426,7 +539,7 @@ async def update_user_profile(
             pers_dict["updated_at"] = now
             await kv_set(
                 db,
-                "student_personalizations_default",
+                _personalizations_key(student_id),
                 json.dumps(pers_dict),
                 category="user_profile",
             )
@@ -482,7 +595,9 @@ async def get_user_profile_status(
             db.row_factory = aiosqlite.Row
             await ensure_kv_settings(db)
 
-            configured_flag = await kv_get(db, "user_profile_configured")
+            configured_flag = await _kv_get_scoped(
+                db, _configured_key(student_id), _LEGACY_CONFIGURED_KEY
+            )
             is_configured = str(configured_flag or "").strip().lower() == "true"
 
             if not is_configured:
@@ -497,11 +612,18 @@ async def get_user_profile_status(
                 (user_id, username),
             )
             row = await cur.fetchone()
-            name = str(row["display_name"] or "").strip() if row else ""
+            raw_name = str(row["display_name"] or "").strip() if row else ""
             avatar = str(row["avatar_url"] or "").strip() if row else ""
+            # Mask auto-seeded IDs exactly like GET (never leak student_id).
+            if _is_raw_fallback_name(raw_name, student_id):
+                return UserProfileStatusResponse(
+                    is_configured=True,
+                    display_name="Student",
+                    avatar=avatar,
+                )
             return UserProfileStatusResponse(
                 is_configured=True,
-                display_name=name,
+                display_name=raw_name,
                 avatar=avatar,
             )
     except Exception:

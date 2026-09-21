@@ -85,7 +85,7 @@ export default function StudyTimer({
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div ref={wrapRef} className="relative w-60 h-60 flex items-center justify-center">
+      <div ref={wrapRef} className="relative w-60 h-60 flex items-center justify-center" role="timer" aria-live="off" aria-label={isPaused ? `Paused, ${formatTime(remaining)} remaining` : `${formatTime(remaining)} remaining`}>
         {/* Ambient halo behind the ring */}
         <div
           aria-hidden
@@ -144,6 +144,7 @@ export default function StudyTimer({
 
       <button
         onClick={onTogglePause}
+        aria-label={isPaused ? "Resume session timer" : "Pause session timer"}
         className="glow-ring mt-6 flex items-center gap-2 px-6 py-2.5 rounded-full surface-glass-base font-semibold transition-colors hover:text-[var(--primary)]"
       >
         {isPaused ? (

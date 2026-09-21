@@ -708,7 +708,9 @@ export default function QuizViewer({
               ? `${finalText}\n\n[AI Score] ${gradeInfo.verdict} (${Math.round(gradeInfo.score * 100)}%)`
               : finalText;
             void updateNotebookEntry(eId, { ai_judgment: payload }).catch(
-              () => {},
+              (err) => {
+                console.debug("QuizViewer: notebook persist failed", err);
+              },
             );
           }
         },

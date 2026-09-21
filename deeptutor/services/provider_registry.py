@@ -153,6 +153,7 @@ PROVIDERS: tuple[ProviderSpec, ...] = (
         detect_by_base_keyword="openrouter",
         default_api_base="https://openrouter.ai/api/v1",
         supports_prompt_caching=True,
+        thinking_style="openrouter_reasoning",
     ),
     ProviderSpec(
         name="edenai",
@@ -306,6 +307,7 @@ PROVIDERS: tuple[ProviderSpec, ...] = (
         display_name="Gemini",
         backend="openai_compat",
         default_api_base="https://generativelanguage.googleapis.com/v1beta/openai/",
+        thinking_style="google_thinking",
     ),
     ProviderSpec(
         name="zhipu",

@@ -177,7 +177,10 @@ async def parse_preview(file: UploadFile = File(...)):
     try:
         templates, trace = await _extract_templates(pdf_path)
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=422, detail=f"extraction_failed: {exc}")
+        logger.warning("Preview extraction failed: %s", exc)
+        raise HTTPException(
+            status_code=422, detail="Could not extract questions from this PDF. Try another file."
+        )
     detected: Dict[str, int] = {}
     for t in templates:
         qtype = getattr(t, "question_type", "written")
@@ -232,7 +235,11 @@ async def upload_exam(
         try:
             templates, trace = await _extract_templates(pdf_path)
         except Exception as exc:  # noqa: BLE001
-            raise HTTPException(status_code=422, detail=f"extraction_failed: {exc}")
+            logger.warning("Upload extraction failed: %s", exc)
+            raise HTTPException(
+                status_code=422,
+                detail="Could not extract questions from this PDF. Try another file.",
+            )
 
         if not templates:
             raise HTTPException(
@@ -284,11 +291,33 @@ def _paper_dict(paper: ExamPaper) -> Dict[str, Any]:
 
 
 @router.get("/list")
-async def list_exams(limit: int = Query(20, ge=1, le=100)):
-    rows = await ExamStore.list_exams(limit=limit)
+async def list_exams(
+    limit: int = Query(20, ge=1, le=100),
+    only_uploads: bool = Query(
+        False,
+        description="When true, return only user-uploaded papers (exclude Paper-Bank sittings).",
+    ),
+):
+    rows = await ExamStore.list_exams(limit=limit, only_uploads=only_uploads)
     for r in rows:
         r.pop("source_filename", None)
     return rows
+
+
+@router.delete("/{exam_id}")
+async def delete_exam(
+    exam_id: str = FastApiPath(..., min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9_\-]+$"),
+):
+    """Delete one uploaded exam (lets users remove dummy/failed uploads)."""
+    data = await ExamStore.load_paper(exam_id)
+    if not data:
+        raise HTTPException(status_code=404, detail="Exam not found")
+    if str(data.get("status") or "") == "active":
+        raise HTTPException(status_code=409, detail="Cannot delete a running exam")
+    ok = await ExamStore.delete_exam(exam_id)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Exam not found")
+    return {"ok": True, "exam_id": exam_id}
 
 
 @router.get("/{exam_id}")
@@ -323,6 +352,16 @@ async def start_exam(
         raise HTTPException(status_code=404, detail="Exam not found")
     if data.get("status") == "graded":
         raise HTTPException(status_code=409, detail="Exam already submitted")
+    if data.get("status") == "active":
+        # Duplicate Start (double-click / retry): never spawn a second study
+        # session or orphan the first monitor — return the existing attempt.
+        return {
+            "exam_id": exam_id,
+            "started_at": data.get("started_at"),
+            "ends_at": data.get("ends_at"),
+            "session_id": data.get("session_id"),
+            "already_active": True,
+        }
 
     now = time.time()
     ends_at = now + int(data.get("mcq_duration_seconds") or 7200)
@@ -330,15 +369,29 @@ async def start_exam(
     # 1. Ensure linked study session for supervision and telemetry
     session_id = data.get("session_id")
     session = None
+    previous_session_id: str | None = None
     if session_id:
         try:
             from deeptutor.services.study.session_manager import StudySessionManager
 
             session = await StudySessionManager().get_session(session_id)
             if session and session.get("status") not in ("in_progress", "paused"):
+                # Completed/abandoned rows are never reused — remember the old
+                # id so its monitor can be torn down before we overwrite it.
+                previous_session_id = str(session_id)
                 session = None
         except Exception:
             session = None
+
+    # Tear down any stale monitor for the previous session before the paper
+    # row is repointed — otherwise its camera loop leaks.
+    if previous_session_id:
+        try:
+            from deeptutor.services.monitoring.system_monitor import stop_system_monitor
+
+            await stop_system_monitor(previous_session_id)
+        except Exception as exc:  # noqa: BLE001 - teardown is best-effort
+            logger.debug("Stale exam monitor teardown skipped: %s", exc)
 
     if not session:
         try:

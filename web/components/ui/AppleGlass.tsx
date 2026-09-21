@@ -51,7 +51,7 @@ export function AppleGlassCard({
           className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
             background:
-              'radial-gradient(450px circle at var(--glare-x, 0px) var(--glare-y, 0px), rgba(255, 255, 255, 0.12), rgba(224, 109, 68, 0.05) 40%, transparent 80%)',
+              'radial-gradient(450px circle at var(--glare-x, 0px) var(--glare-y, 0px), rgba(255, 255, 255, 0.12), rgba(185, 78, 40, 0.05) 40%, transparent 80%)',
           }}
           aria-hidden="true"
         />

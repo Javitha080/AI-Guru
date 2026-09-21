@@ -208,7 +208,8 @@ async def reset_doc(layer: str, key: str):
             meta_path.unlink()
             removed_meta = True
     except OSError as exc:
-        raise HTTPException(status_code=500, detail=f"reset failed: {exc}") from exc
+        logger.warning("Memory reset failed: %s", exc)
+        raise HTTPException(status_code=500, detail="Could not reset memory. Try again.") from exc
 
     return {
         "layer": lyr,
@@ -718,7 +719,7 @@ async def clear_trace_day(surface: str, day: str):
     try:
         path.unlink()
     except OSError as exc:
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail="Operation failed. Try again.")
     return {"surface": surf, "day": day, "deleted": True}
 
 

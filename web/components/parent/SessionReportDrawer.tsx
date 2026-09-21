@@ -14,6 +14,7 @@ import { pFetch } from "@/lib/parent/parent-api";
 interface ReportPayload {
   session_id?: string;
   available?: boolean;
+  reason?: string;
   focus_score?: number;
   engagement_score?: number;
   total_study_seconds?: number;
@@ -79,8 +80,14 @@ export default function SessionReportDrawer({ sessionId, onClose }: SessionRepor
   if (!sessionId) return null;
 
   const storedMetrics = report?.metrics ?? {};
-  const focus = report?.available ? report.focus_score : storedMetrics.focus_score ?? undefined;
-  const engagement = report?.available ? report.engagement_score : storedMetrics.engagement_score ?? undefined;
+  // Stored zeros mean "unmeasured" (short session / monitoring never ran),
+  // not a real 0% — render an honest dash instead of a fake score.
+  const asMeasured = (v: unknown): number | undefined =>
+    typeof v === "number" && Number.isFinite(v) && v > 0 ? v : undefined;
+  const focus = report?.available ? asMeasured(report.focus_score) : asMeasured(storedMetrics.focus_score);
+  const engagement = report?.available
+    ? asMeasured(report.engagement_score)
+    : asMeasured(storedMetrics.engagement_score);
   const totalSeconds =
     (report?.available ? report.total_study_seconds : undefined) ??
     storedMetrics.actual_duration_seconds ??
@@ -152,7 +159,13 @@ export default function SessionReportDrawer({ sessionId, onClose }: SessionRepor
                 </div>
               ) : (
                 <div className="p-4 rounded-xl bg-[var(--amber-glow)]/40 border border-[var(--amber)]/25 text-xs text-[var(--foreground)] space-y-1.5">
-                  <strong className="block text-[var(--amber)]">Report not generated yet</strong>
+                  <strong className="block text-[var(--amber)]">
+                    {report.reason === "abandoned"
+                      ? "Session abandoned"
+                      : report.reason === "in_progress"
+                        ? "Session still in progress"
+                        : "Report not generated yet"}
+                  </strong>
                   <span>{report.message || "The report is generated when the study session completes."}</span>
                   {storedMetrics.subject && (
                     <span className="block text-[var(--muted-foreground)]">Subject: {storedMetrics.subject}</span>

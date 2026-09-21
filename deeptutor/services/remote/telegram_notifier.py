@@ -30,6 +30,44 @@ class TelegramNotifier:
     TELEGRAM_API_BASE = "https://api.telegram.org/bot{token}/sendMessage"
     SEND_PHOTO_API_BASE = "https://api.telegram.org/bot{token}/sendPhoto"
 
+    # Parent remote-control command menu. Registered via ``setMyCommands`` so
+    # Telegram clients show an autocomplete `/` menu (the raw getUpdates
+    # listener previously never registered one, leaving users to guess args
+    # like `/tunnel on`). Descriptions stay short (Telegram caps at 256).
+    PARENT_BOT_COMMANDS = [
+        {"command": "status", "description": "Study + tunnel + live status"},
+        {"command": "tunnel", "description": "Usage: /tunnel on | off | status"},
+        {"command": "live", "description": "Usage: /live stream | stop | status"},
+        {"command": "boostalert", "description": "Alert strictness + test"},
+        {"command": "help", "description": "List all parent commands"},
+    ]
+
+    @classmethod
+    async def set_bot_commands(cls, bot_token: str) -> bool:
+        """Register the parent command menu via ``setMyCommands``.
+
+        Best-effort: returns True on success, False on any failure, never
+        raises — menu registration must never break alert delivery or the
+        command poll loop.
+        """
+        if not (bot_token or "").strip():
+            return False
+        url = f"https://api.telegram.org/bot{(bot_token or '').strip()}/setMyCommands"
+        try:
+            timeout = aiohttp.ClientTimeout(total=10.0)
+            async with aiohttp.ClientSession(timeout=timeout) as session:
+                async with session.post(
+                    url, json={"commands": cls.PARENT_BOT_COMMANDS}
+                ) as resp:
+                    if resp.status == 200:
+                        return True
+                    body = await resp.text()
+                    logger.debug("setMyCommands rejected (%d): %s", resp.status, body[:200])
+                    return False
+        except Exception as exc:  # noqa: BLE001 - menu is cosmetic
+            logger.debug("setMyCommands skipped: %s", exc)
+            return False
+
     # ------------------------------------------------------------ plumbing
 
     @classmethod
@@ -194,6 +232,42 @@ class TelegramNotifier:
         except Exception as e:
             logger.warning("Failed to dispatch Telegram photo: %s", e)
             return False
+
+    @classmethod
+    async def validate_bot_token(
+        cls, bot_token: str
+    ) -> tuple[bool, str]:
+        """Cheap ``getMe`` check: is this Bot Token real and usable?
+
+        Returns (ok, detail) — detail is the bot username on success or a
+        human-readable reason on failure. 10s timeout, never raises.
+        """
+        if not (bot_token or "").strip():
+            return False, "Bot Token is missing."
+        url = f"https://api.telegram.org/bot{(bot_token or '').strip()}/getMe"
+        try:
+            timeout = aiohttp.ClientTimeout(total=10.0)
+            async with aiohttp.ClientSession(timeout=timeout) as session:
+                async with session.get(url) as resp:
+                    body = await resp.text()
+                    try:
+                        data = json.loads(body)
+                    except Exception:
+                        data = {}
+                    if resp.status == 200 and data.get("ok"):
+                        username = str(((data.get("result") or {}).get("username")) or "")
+                        return True, f"@{username}" if username else "valid"
+                    try:
+                        desc = str(data.get("description") or body)[:200]
+                    except Exception:
+                        desc = body[:200]
+                    if resp.status == 401:
+                        return False, "Invalid Bot Token. Check the token from @BotFather."
+                    if resp.status == 404:
+                        return False, "Invalid Bot Token (Telegram returned 404)."
+                    return False, f"Telegram rejected the token ({resp.status}): {desc}"
+        except Exception as e:
+            return False, f"Could not reach Telegram: {e}"
 
     @staticmethod
     def _esc(value: object) -> str:

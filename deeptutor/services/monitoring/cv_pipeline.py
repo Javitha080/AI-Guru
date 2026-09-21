@@ -31,6 +31,7 @@ from deeptutor.services.monitoring.face_engine import (
     FaceEngine,
     FaceLandmarks,
 )
+from deeptutor.services.monitoring.face_identity import SFACE_COSINE_THRESHOLD
 from deeptutor.services.monitoring.face_solvers import (
     build_gaze as _build_gaze,
 )
@@ -183,6 +184,7 @@ class LocalCVPipeline:
         # subject and must prove liveness from scratch).
         self._static_since: Optional[float] = None
         self._prev_identity_match: Optional[bool] = None
+        self._prev_identity_sim: float = 1.0
 
     def reset_session(self) -> None:
         """Reset all stateful detectors for a fresh study session."""
@@ -198,6 +200,7 @@ class LocalCVPipeline:
         self._sface_last_run = 0.0
         self._static_since = None
         self._prev_identity_match = None
+        self._prev_identity_sim = 1.0
 
     def enroll_student_baseline(
         self, embedding: List[float], identity_mode: str = "geometric"
@@ -206,6 +209,17 @@ class LocalCVPipeline:
         self._enrolled_face_vector = embedding
         self._enrolled_identity_mode = identity_mode
         self.face_engine.enroll_face(embedding)
+        # A new baseline invalidates verdict history scored against the old one.
+        self._prev_identity_match = None
+        self._prev_identity_sim = 1.0
+
+    def clear_identity_baseline(self) -> None:
+        """Drop the enrolled baseline from memory (DB clear is the caller's duty)."""
+        self._enrolled_face_vector = None
+        self._enrolled_identity_mode = "unenrolled"
+        self.face_engine.clear_enrolled_face()
+        self._prev_identity_match = None
+        self._prev_identity_sim = 1.0
 
     def get_current_target_fps(self) -> int:
         """Calculate dynamic target FPS governed by system load."""
@@ -360,14 +374,22 @@ class LocalCVPipeline:
                 identity_mode = "geometric"
             if embedding is not None and self._enrolled_face_vector is not None:
                 if identity_mode == self._enrolled_identity_mode:
+                    # Same-space compare with the mode's OWN threshold: SFace
+                    # cosine lives on a different scale (0.363, OpenCV Zoo)
+                    # than geometric ratios (0.65) — judging neural vectors
+                    # against the geometric cut false-flags genuine students.
+                    threshold = (
+                        SFACE_COSINE_THRESHOLD if identity_mode == "sface" else None
+                    )
                     is_identity_match, identity_sim = self.face_engine.verify_identity(
                         embedding,
                         self._enrolled_face_vector,
+                        threshold=threshold,
                     )
-                else:
-                    # SFace and geometric vectors live in DIFFERENT spaces —
-                    # cross-mode cosine (both happen to be 128-d!) is garbage.
-                    # Fall back to geometric-vs-geometric for legacy baselines.
+                elif self._enrolled_identity_mode == "geometric":
+                    # Legacy baseline: judge with the geometric vector (same
+                    # space) — SFace and geometric vectors live in DIFFERENT
+                    # spaces, cross-mode cosine is garbage.
                     geo_now = face_res.embedding
                     if geo_now is None and face_res.landmarks is not None:
                         try:
@@ -383,6 +405,16 @@ class LocalCVPipeline:
                         )
                     else:
                         is_identity_match, identity_sim = False, 0.0
+                else:
+                    # SFace baseline but this tick carries no neural embedding
+                    # (cadence-gated / non-frontal / no frame bytes): the frame
+                    # is UNJUDGEABLE — hold the last verdict instead of scoring
+                    # a cross-space mismatch that flags genuine students.
+                    if self._prev_identity_match is not None:
+                        is_identity_match = self._prev_identity_match
+                        identity_sim = self._prev_identity_sim
+                    else:
+                        is_identity_match, identity_sim = True, 1.0
             elif self._enrolled_face_vector is not None:
                 # No embedding and no landmarks-derived vector: cannot verify
                 # an enrolled baseline — that is a mismatch (fail-closed).
@@ -438,6 +470,7 @@ class LocalCVPipeline:
                 sustained_static = False
         if face_res.detected:
             self._prev_identity_match = is_identity_match
+            self._prev_identity_sim = identity_sim
 
         spoof_suspect = sustained_static
         if spoof_suspect and self._enrolled_face_vector is not None:

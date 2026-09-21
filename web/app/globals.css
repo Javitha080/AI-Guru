@@ -22,19 +22,19 @@
     --card-foreground: #F1F3F7;
     --popover: rgba(10, 13, 18, 0.95);
     --popover-foreground: #F1F3F7;
-    --primary: #E06D44;
+    --primary: #B94E28;
     --primary-foreground: #ffffff;
     --secondary: rgba(22, 28, 38, 0.55);
     --secondary-foreground: #F1F3F7;
     --muted: rgba(22, 28, 38, 0.60);
     --muted-foreground: #94A3B8;
-    --accent: rgba(224, 109, 68, 0.12);
+    --accent: rgba(185, 78, 40, 0.12);
     --accent-foreground: #F1F3F7;
     --destructive: #EF4444;
     --destructive-foreground: #ffffff;
     --border: rgba(255, 255, 255, 0.08);
     --input: rgba(255, 255, 255, 0.06);
-    --ring: #E06D44;
+    --ring: #B94E28;
     --overlay: rgba(0, 0, 0, 0.75);
 
     /* LiquidGlass surface tokens */
@@ -46,20 +46,20 @@
     --glass-border-highlight: rgba(255, 255, 255, 0.16);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.50);
     --glass-shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.65);
-    --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(224, 109, 68, 0.03) 100%);
-    --glow-primary: rgba(224, 109, 68, 0.18);
+    --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(185, 78, 40, 0.03) 100%);
+    --glow-primary: rgba(185, 78, 40, 0.18);
 
     /* Ember bento system — orange primary · amber secondary */
-    --ember-0: rgba(224, 109, 68, 0.08);
-    --ember-1: rgba(224, 109, 68, 0.16);
-    --ember-line: rgba(224, 109, 68, 0.42);
+    --ember-0: rgba(185, 78, 40, 0.08);
+    --ember-1: rgba(185, 78, 40, 0.16);
+    --ember-line: rgba(185, 78, 40, 0.42);
     --amber: #F0B429;
     --amber-glow: rgba(240, 180, 41, 0.22);
     --grain-opacity: 0.05;
 
     --canvas-gradient:
-      radial-gradient(ellipse 62% 46% at 16% -10%, rgba(224, 109, 68, 0.11) 0%, transparent 56%),
-      radial-gradient(ellipse 48% 42% at 86% 112%, rgba(224, 109, 68, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 62% 46% at 16% -10%, rgba(185, 78, 40, 0.11) 0%, transparent 56%),
+      radial-gradient(ellipse 48% 42% at 86% 112%, rgba(185, 78, 40, 0.08) 0%, transparent 60%),
       radial-gradient(ellipse 36% 30% at 68% 18%, rgba(240, 180, 41, 0.04) 0%, transparent 55%);
   }
 
@@ -71,19 +71,19 @@
     --card-foreground: #1C1F26;
     --popover: rgba(255, 255, 255, 0.92);
     --popover-foreground: #1C1F26;
-    --primary: #C8613C;
+    --primary: #A34A28;
     --primary-foreground: #ffffff;
     --secondary: rgba(255, 255, 255, 0.65);
     --secondary-foreground: #1C1F26;
     --muted: rgba(255, 255, 255, 0.55);
     --muted-foreground: #6B7280;
-    --accent: rgba(200, 97, 60, 0.08);
+    --accent: rgba(163, 74, 40, 0.08);
     --accent-foreground: #1C1F26;
     --destructive: #DC2626;
     --destructive-foreground: #ffffff;
     --border: rgba(255, 255, 255, 0.70);
     --input: rgba(255, 255, 255, 0.55);
-    --ring: #C8613C;
+    --ring: #A34A28;
     --overlay: rgba(28, 31, 38, 0.42);
 
     --glass-0: rgba(255, 255, 255, 0.55);
@@ -95,19 +95,30 @@
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
     --glass-shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.10);
     --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.60) 0%, transparent 50%);
-    --glow-primary: rgba(200, 97, 60, 0.15);
+    --glow-primary: rgba(163, 74, 40, 0.15);
 
     /* Ember bento system — light porcelain variant */
-    --ember-0: rgba(200, 97, 60, 0.07);
-    --ember-1: rgba(200, 97, 60, 0.14);
-    --ember-line: rgba(200, 97, 60, 0.34);
+    --ember-0: rgba(163, 74, 40, 0.07);
+    --ember-1: rgba(163, 74, 40, 0.14);
+    --ember-line: rgba(163, 74, 40, 0.34);
     --amber: #B07C08;
     --amber-glow: rgba(176, 124, 8, 0.16);
     --grain-opacity: 0.03;
 
     --canvas-gradient:
       radial-gradient(ellipse 55% 42% at 82% -12%, rgba(223, 141, 111, 0.10) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 34% at 12% 108%, rgba(200, 97, 60, 0.05) 0%, transparent 58%);
+      radial-gradient(ellipse 40% 34% at 12% 108%, rgba(163, 74, 40, 0.05) 0%, transparent 58%);
+  }
+
+  /* ── Layer scale (systemic z-index — use these, never arbitrary z-[…]) ──
+     modal < visualizer < toast < floating panel < floating < onboarding */
+  :root {
+    --z-modal: 50;
+    --z-visualizer: 120;
+    --z-toast: 200;
+    --z-floating-panel: 8999;
+    --z-floating: 9000;
+    --z-onboarding: 10000;
   }
 
   * {
@@ -221,7 +232,7 @@
     border-top-color: rgba(255, 255, 255, 0.45);
     box-shadow: 
       0 8px 24px rgba(0, 0, 0, 0.40),
-      0 0 16px rgba(224, 109, 68, 0.20),
+      0 0 16px rgba(185, 78, 40, 0.20),
       inset 0 1px 1.5px rgba(255, 255, 255, 0.50);
   }
 

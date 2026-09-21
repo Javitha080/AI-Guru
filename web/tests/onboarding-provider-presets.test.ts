@@ -14,7 +14,10 @@ test("every preset has a unique id and consistent shape", () => {
     assert.ok(preset.label.length > 0, `${preset.id} needs a label`);
     assert.ok(preset.hint.length > 0, `${preset.id} needs a hint`);
     assert.match(preset.baseUrl, /^($|https:\/\/)/, `${preset.id} base URL must be https or empty`);
-    assert.ok(["openai", "anthropic"].includes(preset.binding), `${preset.id} binding must be known`);
+    assert.ok(
+      ["openai", "anthropic", "gemini", "groq", "openrouter"].includes(preset.binding),
+      `${preset.id} binding must be known`,
+    );
   }
 });
 
@@ -36,6 +39,20 @@ test("native providers carry their expected endpoints and models", () => {
     "https://dashscope.aliyuncs.com/compatible-mode/v1",
   );
   assert.equal(byId.get("dashscope")?.defaultModel, "qwen-plus");
+
+  // Free-tier presets carry native bindings so thinking flags resolve.
+  assert.equal(byId.get("gemini")?.binding, "gemini");
+  assert.equal(byId.get("gemini")?.defaultModel, "gemini-2.5-flash");
+  assert.equal(byId.get("groq")?.binding, "groq");
+  assert.equal(
+    byId.get("groq")?.baseUrl,
+    "https://api.groq.com/openai/v1",
+  );
+  assert.equal(byId.get("openrouter")?.binding, "openrouter");
+  assert.equal(
+    byId.get("openrouter")?.baseUrl,
+    "https://openrouter.ai/api/v1",
+  );
 
   // Custom requires the user to supply everything meaningful.
   assert.equal(byId.get("custom")?.baseUrl, "");

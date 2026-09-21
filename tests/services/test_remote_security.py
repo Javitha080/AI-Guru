@@ -32,6 +32,10 @@ def isolated_env(tmp_path: Path, monkeypatch):
     """Point every remote-service DB + vault dir at a temp location."""
     db_path = tmp_path / "chat_history.db"
     vault_dir = tmp_path / "video_vault"
+    # Belt-and-braces: aiosqlite reports a missing parent dir as a bare
+    # OperationalError ("unable to open database file"), so ensure it here
+    # rather than relying on pytest having created tmp_path.
+    db_path.parent.mkdir(parents=True, exist_ok=True)
 
     monkeypatch.setattr(JWTAuthService, "_get_db_path", staticmethod(lambda: db_path))
     monkeypatch.setattr(PairingService, "_get_db_path", staticmethod(lambda: db_path))

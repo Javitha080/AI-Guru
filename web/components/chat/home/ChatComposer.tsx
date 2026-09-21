@@ -304,7 +304,7 @@ export default memo(function ChatComposer({
    * but not yet confirmed. The page uses this to surface the config card
    * (open the Activity panel, scroll to it, etc.).
    */
-  onRequestConfigConfirm: () => void;
+  onRequestConfigConfirm?: () => void;
   capabilities: CapabilityDef[];
   onSetCapMenuOpen: (open: boolean | ((prev: boolean) => boolean)) => void;
   onSetSpaceMenuOpen: (open: boolean | ((prev: boolean) => boolean)) => void;
@@ -313,7 +313,7 @@ export default memo(function ChatComposer({
   onSelectNotebookPicker: () => void;
   onSelectBookPicker: () => void;
   onSelectHistoryPicker: () => void;
-  onSelectAgentsPicker: () => void;
+  onSelectAgentsPicker?: () => void;
   onSelectQuestionBankPicker: () => void;
   onSelectPersonaPicker: () => void;
   onSelectMemoryPicker: () => void;
@@ -335,7 +335,7 @@ export default memo(function ChatComposer({
   onRemoveAttachment: (index: number) => void;
   onPreviewAttachment?: (index: number) => void;
   onRemoveHistory: (sessionId: string) => void;
-  onRemoveAgent: (sessionId: string) => void;
+  onRemoveAgent?: (sessionId: string) => void;
   onRemoveBookReference: (bookId: string) => void;
   onRemoveNotebook: (notebookId: string) => void;
   onRemoveQuestion: (entryId: number) => void;
@@ -345,7 +345,7 @@ export default memo(function ChatComposer({
   onDrop: (event: React.DragEvent) => void;
   onPaste: (event: React.ClipboardEvent) => void;
   onAddFiles: (files: File[]) => void;
-  onSelectCapability: (value: string) => void;
+  onSelectCapability?: (value: string) => void;
   onCancelStreaming: () => void;
   /**
    * Optional ref the composer writes its ``prefillInput`` function into
@@ -462,7 +462,7 @@ export default memo(function ChatComposer({
   const handleSelectCapability = useCallback(
     (value: string) => {
       setMoreCapsOpen(false);
-      onSelectCapability(value);
+      onSelectCapability?.(value);
     },
     [onSelectCapability],
   );
@@ -584,7 +584,7 @@ export default memo(function ChatComposer({
         icon: Bot,
         kind: t("My Agents"),
         label: session.title,
-        onRemove: () => onRemoveAgent(session.sessionId),
+        onRemove: () => onRemoveAgent?.(session.sessionId),
       }),
     ),
     ...selectedQuestionEntries.map(
@@ -622,7 +622,7 @@ export default memo(function ChatComposer({
     if (isConfigBlocked) {
       // Don't silently fail — surface the config card so the user knows
       // they need to confirm settings first.
-      onRequestConfigConfirm();
+      onRequestConfigConfirm?.();
       return;
     }
     if (!canSend) return;
@@ -1018,7 +1018,7 @@ export default memo(function ChatComposer({
                           if (key === "attach") handlePickFiles();
                           else if (key === "chat_history")
                             onSelectHistoryPicker();
-                          else if (key === "my_agents") onSelectAgentsPicker();
+                          else if (key === "my_agents") onSelectAgentsPicker?.();
                           else if (key === "books") onSelectBookPicker();
                           else if (key === "notebooks")
                             onSelectNotebookPicker();

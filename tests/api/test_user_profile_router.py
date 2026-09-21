@@ -163,3 +163,54 @@ def test_target_minutes_validation(client):
     # Greater than 480 mins
     res = test_client.post("/api/v1/user/profile", json={"target_daily_minutes": 600})
     assert res.status_code == 422
+
+
+def test_avatar_only_patch_does_not_complete_onboarding(client):
+    test_client, _ = client
+    res = test_client.post("/api/v1/user/profile", json={"avatar": "icon:star:blue"})
+    assert res.status_code == 200
+    assert res.json()["is_configured"] is False
+    status_res = test_client.get("/api/v1/user/profile/status")
+    assert status_res.json()["is_configured"] is False
+
+
+def test_empty_display_name_rejected(client):
+    test_client, _ = client
+    res = test_client.post("/api/v1/user/profile", json={"display_name": "   "})
+    assert res.status_code == 422
+
+
+def test_invalid_style_and_tone_rejected(client):
+    test_client, _ = client
+    res = test_client.post("/api/v1/user/profile", json={"learning_style": "analytical"})
+    assert res.status_code == 422
+    res = test_client.post("/api/v1/user/profile", json={"tutor_tone": "strict"})
+    assert res.status_code == 422
+
+
+def test_status_masks_unset_display_name(client):
+    test_client, _ = client
+    test_client.post("/api/v1/user/profile", json={"avatar": "icon:star:blue"})
+    status_data = test_client.get("/api/v1/user/profile/status").json()
+    assert status_data["display_name"] == ""
+    assert "student-primary" not in status_data["display_name"]
+
+
+def test_get_persists_provisioned_rows(client):
+    test_client, db_path = client
+    res = test_client.get("/api/v1/user/profile")
+    assert res.status_code == 200
+    conn = sqlite3.connect(db_path)
+    try:
+        user_row = conn.execute(
+            "SELECT id, display_name FROM users WHERE id = 'user-student-primary'"
+        ).fetchone()
+        assert user_row is not None
+        # Fresh rows must not seed the raw student_id as a display name.
+        assert user_row[1] == ""
+        student_row = conn.execute(
+            "SELECT id FROM students WHERE id = 'student-primary'"
+        ).fetchone()
+        assert student_row is not None
+    finally:
+        conn.close()

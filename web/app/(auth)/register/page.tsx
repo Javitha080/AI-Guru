@@ -120,7 +120,7 @@ export default function RegisterPage() {
                          placeholder:text-[var(--muted-foreground)]
                          focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent
                          transition-shadow text-sm"
-              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+              placeholder="••••••••"
             />
             <p className="mt-1 text-xs text-[var(--muted-foreground)]">
               {t("At least 8 characters")}
@@ -147,7 +147,7 @@ export default function RegisterPage() {
                          placeholder:text-[var(--muted-foreground)]
                          focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent
                          transition-shadow text-sm"
-              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+              placeholder="••••••••"
             />
           </div>
 
@@ -168,7 +168,7 @@ export default function RegisterPage() {
                        disabled:opacity-50 disabled:cursor-not-allowed
                        transition-opacity"
           >
-            {loading ? t("Creating accountâ€¦") : t("Create account")}
+            {loading ? t("Creating account…") : t("Create account")}
           </button>
         </form>
       </div>
@@ -184,7 +184,7 @@ export default function RegisterPage() {
       </p>
 
       <p className="mt-3 text-center text-xs text-[var(--muted-foreground)]">
-        AI Guru Â· Agent-Native Learning
+        AI Guru · Agent-Native Learning
       </p>
     </div>
   );

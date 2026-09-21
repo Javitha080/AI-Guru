@@ -7,7 +7,7 @@ interface VersionBadgeProps {
   collapsed?: boolean;
 }
 
-const RELEASES_URL = "https://github.com/HKUDS/DeepTutor/releases";
+const RELEASES_URL = "https://github.com/Javitha080/AI-Guru/releases";
 
 export function VersionBadge({ collapsed = false }: VersionBadgeProps) {
   // Keep the collapsed sidebar entirely free of version chrome.

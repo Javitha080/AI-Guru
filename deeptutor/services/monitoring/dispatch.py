@@ -73,7 +73,20 @@ async def handle_session_completed(
     session_id: str,
     student_id: str = "student-primary",
 ) -> None:
-    """Generate the stored report and queue the parent summary notification."""
+    """Generate the stored report and queue the parent summary notification.
+
+    Abandoned sessions earn nothing and generate no report. Completion
+    side-effects are idempotent: a retried stop must never double-award XP.
+    """
+    try:
+        from deeptutor.services.study.session_manager import StudySessionManager
+
+        session = await StudySessionManager().get_session(session_id) or {}
+        if str(session.get("status") or "") == "abandoned":
+            logger.info("Skipping completion side-effects for abandoned %s", session_id)
+            return
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Completion status check skipped for %s: %s", session_id, exc)
     summary_text = await _build_session_report(session_id, student_id)
     metrics = await _aggregate_session_metrics(session_id)
     xp_earned = await _award_session_xp(
@@ -105,11 +118,27 @@ async def _aggregate_session_metrics(session_id: str) -> Dict[str, Any]:
 
         session: Dict[str, Any] = await StudySessionManager().get_session(session_id) or {}
         if session:
-            focus_score = float(session.get("focus_score") or 0)
-            engagement_score = float(session.get("engagement_score") or 0)
             warning_count = int(session.get("warning_count") or 0)
             duration_minutes = float(session.get("actual_duration_seconds") or 0) / 60.0
             subject = str(session.get("subject") or "General")
+        # Prefer the stored report's measured scores over the live session
+        # row (which stays 0 when monitoring never ran).
+        try:
+            from deeptutor.services.study.report_generator import ReportGenerator
+
+            stored = await ReportGenerator().get_report(session_id) or {}
+            if float(stored.get("focus_score") or 0) > 0:
+                focus_score = float(stored["focus_score"])
+            else:
+                focus_score = float(session.get("focus_score") or 0)
+            if float(stored.get("engagement_score") or 0) > 0:
+                engagement_score = float(stored["engagement_score"])
+            else:
+                engagement_score = float(session.get("engagement_score") or 0)
+        except Exception as exc:  # noqa: BLE001
+            logger.debug("Stored-report score read-back skipped: %s", exc)
+            focus_score = float(session.get("focus_score") or 0)
+            engagement_score = float(session.get("engagement_score") or 0)
         tel_summary = await TelemetryLogger().get_session_summary(session_id)
         warning_count = max(warning_count, int(tel_summary.get("actionable_warnings", 0)))
     except Exception as exc:  # noqa: BLE001
@@ -126,11 +155,30 @@ async def _aggregate_session_metrics(session_id: str) -> Dict[str, Any]:
 async def _award_session_xp(
     session_id: str, student_id: str, duration_minutes: float, focus_score: float
 ) -> int:
+    """Award completion XP — idempotent and honestly scaled.
+
+    - Already-awarded sessions (rewards row with the session_completed
+      reason) return the persisted total without inserting again, so retried
+      stops can never double-pay.
+    - Unmeasured focus (0) contributes no bonus: previously a 0-minute stub
+      with a synthesized 100 focus paid ~80 fake XP.
+    """
+    try:
+        from deeptutor.services.study.session_manager import StudySessionManager
+
+        if await StudySessionManager()._session_xp(session_id) > 0:
+            return await StudySessionManager()._session_xp(session_id)
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("XP idempotency check skipped for %s: %s", session_id, exc)
     try:
         from deeptutor.services.gamification.gamification_service import GamificationService
 
-        focus = focus_score or 0
-        xp_guess = int(max(5, min(200, duration_minutes * 2 + focus * 0.8)))
+        focus = float(focus_score or 0)
+        if focus <= 0:
+            focus_bonus = 0.0
+        else:
+            focus_bonus = min(80.0, max(0.0, focus * 0.8))
+        xp_guess = int(max(5, min(200, duration_minutes * 2 + focus_bonus)))
         await GamificationService.award_xp(
             student_id, xp_guess, f"session_completed:{session_id}", session_id=session_id
         )

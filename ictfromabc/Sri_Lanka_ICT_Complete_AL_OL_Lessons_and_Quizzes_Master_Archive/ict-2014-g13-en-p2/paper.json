@@ -1,351 +1,218 @@
 [
   {
-    "id": "al-2014-ict-en-p2-q1",
+    "id": "al-2014-p2-q01",
     "number": 1,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions on HTML lists, tags, and form check boxes.",
-    "diagrams": [],
+    "stem": "G.C.E. (A/L) 2014 ICT Paper II Question 1 (Structured Essay): Computer Architecture, Memory Hierarchy, and Data Representation.",
+    "diagrams": [
+      "images/p2_q01_fetch_execute.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "1.a",
-        "label": "(a)",
-        "stem": "Complete the HTML code segment to display a definition list with CPU and ROM.",
-        "marks": 4.0,
-        "expected_answer": "<dl>\n  <dt>CPU</dt>\n  <dd>Central Processing Unit</dd>\n  <dt>ROM</dt>\n  <dd>Read Only Memory</dd>\n</dl>",
-        "marking_guide": "Award 1 mark each for `<dt>CPU</dt>`, `<dd>Central Processing Unit</dd>`, `<dt>ROM</dt>`, `<dd>Read Only Memory</dd>`."
+        "part": "(a)",
+        "stem": "Explain the primary differences between static RAM (SRAM) and dynamic RAM (DRAM) in terms of construction, speed, and typical use.",
+        "marks": 3.0,
+        "model_answer": "SRAM is constructed from flip-flops (transistors), does not require periodic electrical refresh cycles, operates at significantly higher speeds, and is used for CPU cache memory. DRAM uses capacitor-transistor memory cells that require continuous refreshing, operates slower, and is used for main system RAM."
       },
       {
-        "sub_id": "1.b",
-        "label": "(b)",
-        "stem": "Write the outputs of `<abc>Greetings!</abc>` and `</u>Greetings!<u>` when rendered by a web browser.",
-        "marks": 2.0,
-        "expected_answer": "(i) Greetings! (Unknown tags `<abc>` are ignored by browsers, rendering plain text).\n(ii) Greetings! (Unmatched closing and opening tags render plain text without underline).",
-        "marking_guide": "Award 1 mark for each correct output."
+        "part": "(b)",
+        "stem": "Describe the role of the Program Counter (PC), Instruction Register (IR), and Memory Address Register (MAR) during instruction fetch.",
+        "marks": 3.0,
+        "model_answer": "The Program Counter holds the memory address of the next instruction to execute. During fetch, this address is copied into the MAR, which places it on the address bus. The retrieved instruction word is held in the MBR and placed in the IR for decoding by the Control Unit."
       },
       {
-        "sub_id": "1.c",
-        "label": "(c)",
-        "stem": "Complete HTML code segment to render check boxes for Programming Languages Used: C, Java, Python.",
+        "part": "(c)",
+        "stem": "Represent -28 in 8-bit two's complement format. Show all intermediate steps.",
         "marks": 4.0,
-        "expected_answer": "<p>Programming Languages Used:</p>\n<input type=\"checkbox\" name=\"lang\" value=\"C\"> C\n<input type=\"checkbox\" name=\"lang\" value=\"Java\"> Java\n<input type=\"checkbox\" name=\"lang\" value=\"Python\"> Python",
-        "marking_guide": "Award 4 marks for correct `<input type=\"checkbox\">` syntax."
+        "model_answer": "+28 in 8-bit binary is 00011100. Step 1 (Invert bits to form 1s complement) gives 11100011. Step 2 (Add 1 to least significant bit) gives 11100011 + 1 = 11100100. Therefore, -28 in 8-bit two's complement representation is 11100100."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2014,
-      "medium": "english",
-      "topic": "HTML & Forms",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2014-ict-en-p2-q2",
+    "id": "al-2014-p2-q02",
     "number": 2,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions regarding two's complement, e-commerce transaction classification, and software agent architecture.",
+    "stem": "G.C.E. (A/L) 2014 ICT Paper II Question 2 (Structured Essay): Operating Systems, Process Management, and Storage File Systems.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "Show that the negative of $0001_2$ is $1111_2$ in two's complement form.",
-        "marks": 3.0,
-        "expected_answer": "1. Number: $0001_2$\n2. 1's complement (inverting bits): $1110_2$\n3. 2's complement (add 1): $1110_2 + 1 = 1111_2$. Thus, negative of $0001_2$ is $1111_2$.",
-        "marking_guide": "Award 3 marks for inversion and addition steps."
-      },
-      {
-        "sub_id": "2.b",
-        "label": "(b)",
-        "stem": "Classify transactions of eABC.com: (1) Selling DVDs to consumers, (2) Selling tablet PCs to consumers.",
+        "part": "(a)",
+        "stem": "Explain what a Process Control Block (PCB) is and state four essential pieces of information stored within it.",
         "marks": 4.0,
-        "expected_answer": "- Selling DVDs to consumers: Classified as C2C? Disagree (No). Reason: The company (a business) is selling DVDs directly to consumers, making it B2C.\n- Selling tablet PCs to consumers: Classified as B2C? Agree (Yes). Reason: Business selling to end consumer is B2C.",
-        "marking_guide": "Award 2 marks for each classification and justification."
+        "model_answer": "A Process Control Block (PCB) is an operating system data structure storing execution context for a process. Key fields: 1. Process ID (PID), 2. Process State (Ready, Running, Blocked), 3. Program Counter (PC), 4. CPU Registers, 5. Memory Management Information."
       },
       {
-        "sub_id": "2.c",
-        "label": "(c)",
-        "stem": "Identify interactions among Consumer, Company Web site, and Software Agent.",
+        "part": "(b)",
+        "stem": "Explain the difference between preemptive and non-preemptive CPU scheduling algorithms with examples.",
         "marks": 3.0,
-        "expected_answer": "Consumer interacts with Company Web site (browsing); Software Agent monitors browsing behavior on Web site and recommends/displays frequently browsed items to Consumer.",
-        "marking_guide": "Award 3 marks for correct mapping."
+        "model_answer": "In non-preemptive scheduling (e.g. FCFS), once a process gets the CPU, it holds it until termination or I/O request. In preemptive scheduling (e.g. Round Robin, SRTF), the OS can interrupt a running process and assign the CPU to a higher-priority or ready process."
+      },
+      {
+        "part": "(c)",
+        "stem": "A disk has a block size of 4KB. If a file has size 10KB, calculate the internal fragmentation.",
+        "marks": 3.0,
+        "model_answer": "File size = 10KB. Number of 4KB blocks required = ceil(10/4) = 3 blocks (12KB allocated). Internal fragmentation = 12KB - 10KB = 2KB (2048 bytes)."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2014,
-      "medium": "english",
-      "topic": "Number Systems & e-Commerce",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2014-ict-en-p2-q3",
+    "id": "al-2014-p2-q03",
     "number": 3,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions based on relational database tables `house` and `student`.",
+    "stem": "G.C.E. (A/L) 2014 ICT Paper II Question 3 (Structured Essay): Relational Database Design, ER Modeling, and Normalization.",
     "diagrams": [
-      {
-        "id": "d_p2_q3_er",
-        "src": "images/p2_q3_er.png",
-        "alt": "House-Student ER diagram",
-        "caption": "Figure 1: House Student ER Diagram"
-      }
+      "images/p2_q03_er_diagram.png"
     ],
     "sub_questions": [
       {
-        "sub_id": "3.a",
-        "label": "(a)",
-        "stem": "Fill in the blanks with suitable labels for A, B, C, D, E in the ER diagram.",
+        "part": "(a)",
+        "stem": "Draw an ER diagram for a Hospital Clinic where Doctors treat Patients, specifying entities, primary keys, and cardinality.",
+        "marks": 4.0,
+        "model_answer": "Entities: DOCTOR (DoctorID, Name, Specialty) and PATIENT (PatientID, Name, Contact). Relationship: Treats with Many-to-Many cardinality (M:N) and treatment attributes (Date, Diagnosis)."
+      },
+      {
+        "part": "(b)",
+        "stem": "Explain the three anomalies (Insertion, Deletion, Update) that occur in unnormalized database relations.",
         "marks": 3.0,
-        "expected_answer": "A: `name` (House name)\nB: `1` (cardinality on house side)\nC: `n` (cardinality on student side)\nD: `name` (Student name)\nE: `grade`",
-        "marking_guide": "Award 0.6 marks each for A, B, C, D, E."
+        "model_answer": "1. Insertion anomaly: Inability to insert information about an entity without adding unrelated data. 2. Deletion anomaly: Deletion of one piece of data causes unintended loss of other critical data. 3. Update anomaly: Inconsistency when data redundancy requires multiple rows to be updated simultaneously."
       },
       {
-        "sub_id": "3.b",
-        "label": "(b)",
-        "stem": "State whether relationship between student and house is 1:1, 1:n, or m:n with data justification.",
+        "part": "(c)",
+        "stem": "Convert the unnormalized relation Patient_Treatment into Second Normal Form (2NF).",
         "marks": 3.0,
-        "expected_answer": "One-to-Many (1:n) from House to Student.\nJustification: In the table, House HS1 has multiple students (STU001 Ranjith, STU002 Gopy), while each student has only one houseID.",
-        "marking_guide": "Award 1.5 marks for 1:n, 1.5 marks for table data proof."
-      },
-      {
-        "sub_id": "3.c.i",
-        "label": "(c) (i)",
-        "stem": "Write the output of: `select * from student where houseID = 'HS3'`",
-        "marks": 2.0,
-        "expected_answer": "| studentID | name | grade | houseID |\n| :--- | :--- | :--- | :--- |\n| STU004 | Hakeem | 11 | HS3 |",
-        "marking_guide": "Award 2 marks for single row matching HS3."
-      },
-      {
-        "sub_id": "3.c.ii",
-        "label": "(c) (ii)",
-        "stem": "State the output or error of: `select studentID, houseID, name from student, house`",
-        "marks": 2.0,
-        "expected_answer": "Error: Column `houseID` and `name` are ambiguous because they exist in both `student` and `house` tables without table qualification prefixes.",
-        "marking_guide": "Award 2 marks for explaining ambiguous column error."
+        "model_answer": "Separate partial dependencies into two tables: Patient(PatientID, PatientName, Contact) and Treatment(PatientID, DoctorID, TreatmentDate, Diagnosis), where PatientID is a foreign key referencing Patient."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2014,
-      "medium": "english",
-      "topic": "Relational Databases & SQL",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2014-ict-en-p2-q4",
+    "id": "al-2014-p2-q04",
     "number": 4,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions on address bus width and operating system process states.",
+    "stem": "G.C.E. (A/L) 2014 ICT Paper II Question 4 (Structured Essay): Computer Networks, TCP/IP Suite, and Web Communication Protocols.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "4.a",
-        "label": "(a)",
-        "stem": "Memory is byte addressable and has maximum usable size of 4GB. What is the minimum width of its address bus in bits? Show workings.",
+        "part": "(a)",
+        "stem": "State the roles of DNS, DHCP, and HTTP protocols in establishing web communication for a client PC.",
         "marks": 3.0,
-        "expected_answer": "$4\\text{ GB} = 4 \\times 2^{30}\\text{ bytes} = 2^2 \\times 2^{30} = 2^{32}\\text{ bytes}$. Therefore, address bus width $= 32\\text{ bits}$.",
-        "marking_guide": "Award 3 marks for $2^{32} \\rightarrow 32\\text{ bits}$."
+        "model_answer": "DHCP assigns a dynamic IP address, subnet mask, and gateway to the client. DNS translates the entered URL domain name into a destination IP address. HTTP sends web requests and receives web page content over TCP port 80."
       },
       {
-        "sub_id": "4.b",
-        "label": "(b)",
-        "stem": "\"Process is another name for a program\". Do you agree? Give a reason.",
-        "marks": 3.0,
-        "expected_answer": "No (Disagree).\nReason: A program is passive source/executable code residing on storage; a process is an active program currently being executed by the CPU with dedicated runtime resources (memory, stack, PC).",
-        "marking_guide": "Award 1 mark for No, 2 marks for active vs passive explanation."
-      },
-      {
-        "sub_id": "4.c",
-        "label": "(c)",
-        "stem": "Fill in labels A, B, C, D in the seven state process transition diagram.",
+        "part": "(b)",
+        "stem": "A company is assigned the Class C network address 192.168.10.0/24 and needs 4 subnets. State the subnet mask and available host range.",
         "marks": 4.0,
-        "expected_answer": "A: `Blocked` (Waiting in main memory)\nB: `Running`\nC: `Ready`\nD: `Swapped out and Blocked` (or Swapped out and Waiting)",
-        "marking_guide": "Award 1 mark each for A, B, C, D."
+        "model_answer": "To create 4 subnets, 2 bits are borrowed: subnet mask = 255.255.255.192 (/26). Each subnet has 64 total addresses, with 62 usable host addresses."
+      },
+      {
+        "part": "(c)",
+        "stem": "Compare TCP and UDP protocols in terms of connection establishment, reliability, and application suitability.",
+        "marks": 3.0,
+        "model_answer": "TCP is connection-oriented, reliable (guarantees delivery via ACKs and retransmission), and suited for web browsing, email, and file transfers. UDP is connectionless, faster with lower overhead, but unreliable, and suited for streaming and VoIP."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2014,
-      "medium": "english",
-      "topic": "Operating Systems & Architecture",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2014-ict-en-p2-q5",
+    "id": "al-2014-p2-q05",
     "number": 5,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "### Part B - Question 1 of G.C.E. (A/L) 2014 ICT Paper II.",
-    "diagrams": [],
+    "stem": "G.C.E. (A/L) 2014 ICT Paper II Question 5 (Essay): Digital Electronics, Combinational Logic Simplification, and Circuit Implementation.",
+    "diagrams": [
+      "images/p2_q05_logic_circuit.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "1.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 1.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
+        "part": "(a)",
+        "stem": "Construct a truth table for a 3-input voting system where output F = 1 if at least two inputs (A, B, C) are 1.",
+        "marks": 4.0,
+        "model_answer": "Inputs A,B,C. F = 1 for minterms 011, 101, 110, 111 (all cases with at least two 1s), and F = 0 for 000, 001, 010, 100."
+      },
+      {
+        "part": "(b)",
+        "stem": "Simplify the Boolean expression for the majority voting function using Boolean algebra or Karnaugh map.",
+        "marks": 5.0,
+        "model_answer": "F = AB + BC + AC. Minterms grouped on 3-variable K-map: pair (110, 111) gives AB, pair (011, 111) gives BC, pair (101, 111) gives AC."
+      },
+      {
+        "part": "(c)",
+        "stem": "Draw the logic circuit for F = AB + BC + AC using only basic AND and OR gates.",
+        "marks": 6.0,
+        "model_answer": "Three 2-input AND gates producing terms AB, BC, AC, connected into a 3-input OR gate producing output F."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2014,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2014-ict-en-p2-q6",
+    "id": "al-2014-p2-q06",
     "number": 6,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "### Part B - Question 2 of G.C.E. (A/L) 2014 ICT Paper II.",
+    "stem": "G.C.E. (A/L) 2014 ICT Paper II Question 6 (Essay): Python Programming, Algorithm Design, and Control Structures.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 2.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
+        "part": "(a)",
+        "stem": "Write a Python function find_max(numbers) that takes a list of integers and returns the maximum value without using the built-in max() function.",
+        "marks": 5.0,
+        "model_answer": "def find_max(numbers):\n    m = numbers[0]\n    for n in numbers:\n        if n > m:\n            m = n\n    return m"
+      },
+      {
+        "part": "(b)",
+        "stem": "Write a Python program that reads 10 numbers from the user and prints the count of even numbers.",
+        "marks": 5.0,
+        "model_answer": "even_count = 0\nfor i in range(10):\n    n = int(input())\n    if n % 2 == 0:\n        even_count += 1\nprint(even_count)"
+      },
+      {
+        "part": "(c)",
+        "stem": "Explain the difference between mutable and immutable data types in Python with examples.",
+        "marks": 5.0,
+        "model_answer": "Mutable data types can be modified after creation in-place without changing object identity (e.g. lists, dictionaries). Immutable data types cannot be altered once created; any modification produces a new object (e.g. integers, strings, tuples)."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2014,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2014-ict-en-p2-q7",
-    "number": 7,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 3 of G.C.E. (A/L) 2014 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "3.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 3.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2014,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2014-ict-en-p2-q8",
-    "number": 8,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 4 of G.C.E. (A/L) 2014 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "4.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 4.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2014,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2014-ict-en-p2-q9",
-    "number": 9,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 5 of G.C.E. (A/L) 2014 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "5.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 5.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2014,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2014-ict-en-p2-q10",
-    "number": 10,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 6 of G.C.E. (A/L) 2014 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "6.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 6.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2014,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   }
 ]

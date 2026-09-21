@@ -110,8 +110,9 @@ CREATE TABLE IF NOT EXISTS monitoring_events (
     session_id TEXT NOT NULL REFERENCES study_sessions(id) ON DELETE CASCADE,
     timestamp REAL NOT NULL,
     event_type TEXT NOT NULL CHECK (event_type IN (
-        'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED', 
-        'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK', 
+        'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED',
+        'STUDENT_AWAY', 'IDENTITY_MISMATCH', 'DROWSINESS',
+        'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK',
         'WARNING_ISSUED', 'NUDGE_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'
     )),
     severity TEXT NOT NULL CHECK (severity IN ('info', 'warning', 'alert')) DEFAULT 'info',
@@ -535,3 +536,245 @@ def v8_monitoring_nudge_event(conn) -> None:
         "CREATE INDEX IF NOT EXISTS idx_monitoring_events_type "
         "ON monitoring_events(event_type, timestamp ASC)"
     )
+
+
+# Version 10 Migration: paper linkage on study_sessions (additive).
+# Lets a study-room session remember which past paper it targets without
+# a separate join table. All columns nullable so legacy rows stay valid.
+def v10_study_paper_link(conn) -> None:
+    _add_column_if_missing(conn, "study_sessions", "paper_id", "TEXT")
+    _add_column_if_missing(conn, "study_sessions", "bank_paper_id", "TEXT")
+    _add_column_if_missing(conn, "study_sessions", "grade", "INTEGER")
+    _add_column_if_missing(conn, "study_sessions", "is_custom_exam", "INTEGER NOT NULL DEFAULT 0")
+
+
+# Version 11 Migration: admit grade 10 in paper_bank (O/L spans 10-11).
+# Same rebuild-in-place pattern as v6: SQLite cannot ALTER a CHECK.
+def v11_paper_bank_grade10(conn) -> None:
+    cols = [r[1] for r in conn.execute("PRAGMA table_info(paper_bank)").fetchall()]
+    if not cols:
+        return  # v4 has not run yet; fresh installs create the wide CHECK below
+    row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='paper_bank'"
+    ).fetchone()
+    create_sql = row[0] if row else ""
+    if not create_sql or "(10," in create_sql or "(10 ," in create_sql:
+        return
+    conn.execute(
+        """
+        CREATE TABLE paper_bank_v11 (
+            id TEXT PRIMARY KEY,
+            group_key TEXT NOT NULL,
+            paper_no INTEGER NOT NULL DEFAULT 1 CHECK (paper_no IN (1, 2)),
+            grade INTEGER NOT NULL CHECK (grade IN (10, 11, 12, 13)),
+            subject TEXT NOT NULL,
+            year INTEGER NOT NULL,
+            medium TEXT NOT NULL DEFAULT 'english'
+                CHECK (medium IN ('english', 'sinhala', 'tamil')),
+            paper_type TEXT NOT NULL DEFAULT 'mcq'
+                CHECK (paper_type IN ('mcq', 'structured', 'essay', 'mixed')),
+            title TEXT NOT NULL,
+            source_filename TEXT DEFAULT '',
+            file_hash TEXT UNIQUE,
+            question_count INTEGER NOT NULL DEFAULT 0,
+            mcq_count INTEGER NOT NULL DEFAULT 0,
+            essay_count INTEGER NOT NULL DEFAULT 0,
+            total_marks REAL NOT NULL DEFAULT 0,
+            default_duration_seconds INTEGER NOT NULL DEFAULT 7200,
+            paper_json TEXT NOT NULL,
+            scheme_answers_json TEXT DEFAULT '{}',
+            topic_tags_json TEXT DEFAULT '[]',
+            created_at REAL NOT NULL,
+            updated_at REAL,
+            UNIQUE (group_key, paper_no)
+        )
+        """
+    )
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO paper_bank_v11 (
+            id, group_key, paper_no, grade, subject, year, medium, paper_type,
+            title, source_filename, file_hash, question_count, mcq_count,
+            essay_count, total_marks, default_duration_seconds, paper_json,
+            scheme_answers_json, topic_tags_json, created_at, updated_at
+        )
+        SELECT id, group_key, paper_no, grade, subject, year, medium, paper_type,
+               title, source_filename, file_hash, question_count, mcq_count,
+               essay_count, total_marks, default_duration_seconds, paper_json,
+               scheme_answers_json, topic_tags_json, created_at, updated_at
+        FROM paper_bank
+        """
+    )
+    conn.execute("DROP TABLE paper_bank")
+    conn.execute("ALTER TABLE paper_bank_v11 RENAME TO paper_bank")
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_paper_bank_catalog"
+        " ON paper_bank(subject, grade, year, paper_no)"
+    )
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_paper_bank_group ON paper_bank(group_key)")
+
+
+# Version 12 Migration: purge dummy/fake exam data (idempotent cleanup).
+# - Test-harness rows written by CI into the real user DB
+#   (ids like 'test-exam-<epoch>', title 'Mathematics Final Exam' with the
+#   'What is 5 x 5?' stub, and the 'Test Paper' / 'What is 2+2?' stub).
+# - Placeholder Paper-Bank stubs imported from the master archive
+#   (stems like 'Question N of G.C.E. (A/L) ... Examination Paper ...' —
+#   these were never real past papers; MCQ stubs also carry options
+#   'Alternative (1..5)').
+# - Exam attempts copied from those placeholder bank rows (their paper_json
+#   carries the same stub markers).
+# Real user uploads and real bank papers never match these markers, so the
+# deletes are safe to rerun on every startup.
+def v12_purge_dummy_exam_data(conn) -> None:
+    tables = {row[0] for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+    if "exams" not in tables:
+        return
+    # 1. Test-harness exam rows (any status).
+    try:
+        conn.execute("DELETE FROM exams WHERE id LIKE 'test-exam-%'")
+    except Exception:  # noqa: BLE001 - cleanup is best-effort
+        pass
+    try:
+        conn.execute(
+            "DELETE FROM exams WHERE title = 'Test Paper' AND paper_json LIKE '%What is 2+2?%'"
+        )
+    except Exception:  # noqa: BLE001
+        pass
+    # 2. Exam attempts built from placeholder bank stubs. The stem marker
+    # ("Question 1 of G.C.E. ... Examination Paper ...") catches both MCQ
+    # stubs (options "Alternative (1..5)") and structured stubs (no options);
+    # real question text never matches this pattern.
+    try:
+        conn.execute(
+            "DELETE FROM exams WHERE paper_json LIKE '%Question 1 of G.C.E.%Examination Paper%'"
+        )
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        conn.execute(
+            "DELETE FROM exams WHERE paper_json LIKE '%Alternative (1)%'"
+            " AND paper_json LIKE '%Examination Paper%'"
+        )
+    except Exception:  # noqa: BLE001
+        pass
+    if "paper_bank" not in tables:
+        return
+    # 3. Placeholder bank catalog rows themselves.
+    try:
+        conn.execute(
+            "DELETE FROM paper_bank WHERE paper_json LIKE '%Question 1 of G.C.E.%Examination Paper%'"
+        )
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        conn.execute(
+            "DELETE FROM paper_bank WHERE paper_json LIKE '%Alternative (1)%'"
+            " AND paper_json LIKE '%Examination Paper%'"
+        )
+    except Exception:  # noqa: BLE001
+        pass
+
+
+# Version 13 Migration: monitoring flag on study_sessions (additive).
+# Records whether a session runs with camera monitoring or as an honest
+# unmonitored (offline) session, so reports and the parent dashboard never
+# present zero-signal rows as measured focus data. Nullable-tolerant: 1 =
+# monitored (legacy default), 0 = offline continuation without a camera.
+def v13_study_monitoring_flag(conn) -> None:
+    _add_column_if_missing(conn, "study_sessions", "monitoring_enabled", "INTEGER NOT NULL DEFAULT 1")
+
+
+# Version 14 Migration: admit real distraction episode types on monitoring_events.
+# browser_session + system_monitor log the REAL DistractionType
+# (STUDENT_AWAY / IDENTITY_MISMATCH / DROWSINESS) per edge-triggered episode,
+# but the CHECK only admitted the legacy 10 + NUDGE_ISSUED — every such episode
+# was rejected by TelemetryLogger AND would violate the DB CHECK on raw insert.
+# Same rebuild-in-place pattern as v8. Idempotent: returns early when all three
+# types are already present or the table is missing.
+def v14_monitoring_distraction_events(conn) -> None:
+    row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='monitoring_events'"
+    ).fetchone()
+    create_sql = row[0] if row else ""
+    if not create_sql:
+        return
+    if "STUDENT_AWAY" in create_sql and "IDENTITY_MISMATCH" in create_sql and "DROWSINESS" in create_sql:
+        return
+    conn.execute("ALTER TABLE monitoring_events RENAME TO monitoring_events_v14_old")
+    new_sql = (
+        "CREATE TABLE monitoring_events ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        "session_id TEXT NOT NULL REFERENCES study_sessions(id) ON DELETE CASCADE, "
+        "timestamp REAL NOT NULL, "
+        "event_type TEXT NOT NULL CHECK (event_type IN ("
+        "'PRESENCE_CHANGE', 'LOOKING_AWAY', 'PHONE_DETECTED', "
+        "'STUDENT_AWAY', 'IDENTITY_MISMATCH', 'DROWSINESS', "
+        "'POSTURE_SHIFT', 'IDENTITY_VERIFIED', 'LIVENESS_CHECK', "
+        "'WARNING_ISSUED', 'NUDGE_ISSUED', 'SESSION_PAUSED', 'SESSION_RESUMED'"
+        ")), "
+        "severity TEXT NOT NULL CHECK (severity IN ('info', 'warning', 'alert')) DEFAULT 'info', "
+        "confidence REAL DEFAULT 1.0, "
+        "duration_seconds REAL DEFAULT 0.0, "
+        "metadata_json TEXT DEFAULT '{}'"
+        ")"
+    )
+    conn.execute(new_sql)
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO monitoring_events (
+            id, session_id, timestamp, event_type, severity,
+            confidence, duration_seconds, metadata_json
+        )
+        SELECT id, session_id, timestamp, event_type, severity,
+               confidence, duration_seconds, metadata_json
+        FROM monitoring_events_v14_old
+        """
+    )
+    conn.execute("DROP TABLE monitoring_events_v14_old")
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_monitoring_events_session "
+        "ON monitoring_events(session_id, timestamp ASC)"
+    )
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_monitoring_events_type "
+        "ON monitoring_events(event_type, timestamp ASC)"
+    )
+# Version 9 Migration: version the Telegram notification outbox.
+# Previously created lazily by outbox_repo.ensure_outbox (outside the
+# versioned migration chain). Fresh installs now get the table via
+# migrations; existing DBs upgrade in place. Idempotent: CREATE IF NOT
+# EXISTS plus per-column ADDs mirroring outbox_repo._OUTBOX_LAZY_COLUMNS.
+V9_OUTBOX_SCHEMA_DDL = """
+CREATE TABLE IF NOT EXISTS notification_outbox (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created_at REAL NOT NULL,
+    kind TEXT NOT NULL,
+    payload_json TEXT NOT NULL,
+    parent_id TEXT NOT NULL DEFAULT 'default',
+    status TEXT NOT NULL DEFAULT 'pending',
+    retries INTEGER NOT NULL DEFAULT 0,
+    next_attempt_at REAL NOT NULL DEFAULT 0,
+    claimed_by TEXT,
+    claimed_at REAL,
+    last_error TEXT,
+    sent_at REAL
+);
+CREATE INDEX IF NOT EXISTS idx_notification_outbox_due
+    ON notification_outbox (status, next_attempt_at);
+"""
+
+
+def v9_notification_outbox(conn) -> None:
+    conn.executescript(V9_OUTBOX_SCHEMA_DDL)
+    existing = {row[1] for row in conn.execute("PRAGMA table_info(notification_outbox)").fetchall()}
+    for column, decl in (
+        ("parent_id", "TEXT NOT NULL DEFAULT 'default'"),
+        ("claimed_by", "TEXT"),
+        ("claimed_at", "REAL"),
+    ):
+        if column not in existing:
+            try:
+                conn.execute(f"ALTER TABLE notification_outbox ADD COLUMN {column} {decl}")
+            except Exception:  # noqa: BLE001 - concurrent ALTER race
+                pass

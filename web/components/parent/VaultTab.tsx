@@ -9,7 +9,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { KeyRound, Loader2, Lock, RefreshCw, ShieldCheck } from "lucide-react";
 import PinPromptModal from "./PinPromptModal";
-import { pJson } from "@/lib/parent/parent-api";
+import { ParentAuthError, lockParentPortal, pJson } from "@/lib/parent/parent-api";
 import type { VaultItem } from "@/lib/parent/types";
 
 interface VaultListPayload {
@@ -31,7 +31,10 @@ export default function VaultTab() {
   const [notice, setNotice] = useState<string | null>(null);
 
   const fetchSnapshots = useCallback(async () => {
-    setLoading(true);
+    // Only flash the full spinner on first load; refreshes reconcile
+    // silently so scroll position and open previews survive.
+    const firstLoad = items.length === 0;
+    if (firstLoad) setLoading(true);
     setError(null);
     try {
       const { ok, data } = await pJson<VaultListPayload>("/api/v1/parent/vault/snapshots");
@@ -39,54 +42,84 @@ export default function VaultTab() {
         setError("Failed to load vault contents.");
         return;
       }
-      setItems(Array.isArray(data.items) ? data.items : []);
+      const list = Array.isArray(data.items) ? data.items : [];
+      list.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+      setItems(list);
       setPendingCount(typeof data.pending_count === "number" ? data.pending_count : 0);
     } catch {
       setError("Network error loading the vault.");
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [items.length]);
 
   useEffect(() => {
     void fetchSnapshots();
   }, [fetchSnapshots]);
 
   const handleSeal = async (pin: string): Promise<string | null> => {
-    const { ok, status, data } = await pJson<{ sealed?: number; detail?: string }>("/api/v1/parent/vault/seal", {
-      method: "POST",
-      body: JSON.stringify({ pin }),
-    });
-    if (!ok) return String(data?.detail || `Sealing failed (${status}).`);
-    setSealOpen(false);
-    setNotice(`Sealed ${data?.sealed ?? 0} capture(s) into the encrypted vault.`);
-    await fetchSnapshots();
-    return null;
+    try {
+      const { ok, status, data } = await pJson<{ sealed?: number; detail?: string }>("/api/v1/parent/vault/seal", {
+        method: "POST",
+        body: JSON.stringify({ pin }),
+      });
+      if (status === 401) {
+        lockParentPortal();
+        return "Portal session expired — re-enter your Parent Passcode to continue.";
+      }
+      if (!ok) return String(data?.detail || `Sealing failed (${status}).`);
+      setSealOpen(false);
+      setNotice(`Sealed ${data?.sealed ?? 0} capture(s) into the encrypted vault.`);
+      await fetchSnapshots();
+      return null;
+    } catch (err) {
+      if (err instanceof ParentAuthError) {
+        lockParentPortal();
+        return "Portal session expired — re-enter your Parent Passcode to continue.";
+      }
+      return "Network error sealing captures. Please retry.";
+    }
   };
 
   const handleDecrypt = async (pin: string): Promise<string | null> => {
     if (!decryptTarget) return null;
-    const { ok, status, data } = await pJson<{
-      kind?: string;
-      frames_base64?: string[];
-      fps?: number;
-      image_base64?: string;
-      detail?: string;
-    }>("/api/v1/parent/vault/decrypt", {
-      method: "POST",
-      body: JSON.stringify({ clip_id: decryptTarget.clip_id, pin }),
-    });
-    if (status === 403) return "Wrong Parent Passcode.";
-    if (!ok || !data) return "Decryption failed — item missing or corrupted.";
-    setDecryptTarget(null);
-    if (data.kind === "clip" && Array.isArray(data.frames_base64)) {
-      setPreviewClip({ frames: data.frames_base64, fps: Number(data.fps ?? 5) });
-      setPreviewImage(null);
-    } else if (data.image_base64) {
-      setPreviewImage(`data:image/jpeg;base64,${data.image_base64}`);
-      setPreviewClip(null);
+    try {
+      const { ok, status, data } = await pJson<{
+        kind?: string;
+        frames_base64?: string[];
+        fps?: number;
+        image_base64?: string;
+        detail?: string;
+      }>("/api/v1/parent/vault/decrypt", {
+        method: "POST",
+        body: JSON.stringify({ clip_id: decryptTarget.clip_id, pin }),
+      });
+      // 401 = portal JWT expired (re-lock to PIN gate); 403 = vault PIN
+      // mismatch for THIS recording (sealed under a different passcode).
+      if (status === 401) {
+        lockParentPortal();
+        return "Portal session expired — re-enter your Parent Passcode to continue.";
+      }
+      if (status === 403)
+        return "Wrong vault passcode for this recording. If you changed your passcode recently, try the older one used when it was sealed.";
+      if (status === 404) return "Item missing or corrupted — it may have been removed.";
+      if (!ok || !data) return "Decryption failed — item missing or corrupted.";
+      setDecryptTarget(null);
+      if (data.kind === "clip" && Array.isArray(data.frames_base64)) {
+        setPreviewClip({ frames: data.frames_base64, fps: Number(data.fps ?? 5) });
+        setPreviewImage(null);
+      } else if (data.image_base64) {
+        setPreviewImage(`data:image/jpeg;base64,${data.image_base64}`);
+        setPreviewClip(null);
+      }
+      return null;
+    } catch (err) {
+      if (err instanceof ParentAuthError) {
+        lockParentPortal();
+        return "Portal session expired — re-enter your Parent Passcode to continue.";
+      }
+      return "Network error decrypting. Please retry.";
     }
-    return null;
   };
 
   return (
@@ -139,14 +172,16 @@ export default function VaultTab() {
         </p>
       )}
 
-      {/* Decrypted previews */}
+      {/* Decrypted previews (capped: large clips render the first frames
+          plus a count so a long recording can't OOM the browser tab) */}
       {previewClip && (
         <div className="rounded-xl p-4 border border-[var(--amber)]/25 bg-black/40 relative z-[2] animate-pop-in">
           <h4 className="text-sm font-semibold text-[var(--amber)] mb-3">
             Decrypted clip · {previewClip.frames.length} frames @ {previewClip.fps} fps
+            {previewClip.frames.length > 12 ? " (showing first 12)" : ""}
           </h4>
           <div className="flex gap-2 overflow-x-auto pb-2">
-            {previewClip.frames.map((f, i) => (
+            {previewClip.frames.slice(0, 12).map((f, i) => (
               <img
                 key={i}
                 src={`data:image/jpeg;base64,${f}`}
@@ -221,7 +256,7 @@ export default function VaultTab() {
       <PinPromptModal
         open={sealOpen}
         title="Encrypt Pending Captures"
-        description="Enter your Parent Passcode to encrypt all staged monitoring captures into the vault."
+        description="Enter your Parent Passcode to encrypt all staged monitoring captures into the vault. Use the SAME passcode you will decrypt with — clips sealed under an older passcode still need that older passcode to open."
         confirmLabel="Seal Captures"
         onSubmit={handleSeal}
         onClose={() => setSealOpen(false)}

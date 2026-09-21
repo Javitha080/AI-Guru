@@ -47,25 +47,26 @@ export default function FloatingStudyBar({
   };
 
   // Keep an open PiP window in sync (timer + focus) instead of writing static
-  // HTML once. Cleared automatically when the user closes the PiP window.
-  React.useEffect(() => {
-    const pip = pipWindowRef.current;
-    if (!pip || pip.closed) return;
-    const tick = () => {
-      if (pip.closed) return;
-      try {
-        const el = pip.document.getElementById("aiguru-pip-timer");
-        if (el) el.textContent = formatTime(timeLeft);
-        const f = pip.document.getElementById("aiguru-pip-focus");
-        if (f) f.textContent = focusScore === null ? "Focus: —" : `Focus: ${focusScore}%`;
-      } catch {
-        /* window went away mid-update */
-      }
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [timeLeft, focusScore]);
+  // HTML once. The interval starts when the PiP window opens (the mount-time
+  // effect cannot see it — the ref is still null then) and clears when the
+  // user closes the PiP window or this component unmounts.
+  const timeLeftRef = React.useRef(timeLeft);
+  timeLeftRef.current = timeLeft;
+  const focusRef = React.useRef(focusScore);
+  focusRef.current = focusScore;
+  const pipTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const stopPipSync = () => {
+    if (pipTimerRef.current) {
+      clearInterval(pipTimerRef.current);
+      pipTimerRef.current = null;
+    }
+  };
+
+  React.useEffect(() => stopPipSync, []);
+
+  const escapeHtml = (s: string) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
   const handleOpenPiP = async () => {
     if (typeof window !== "undefined" && "documentPictureInPicture" in window) {
@@ -85,21 +86,40 @@ export default function FloatingStudyBar({
         pipWindow.document.body.innerHTML = `
           <div style="font-family: system-ui, sans-serif; background: #0B0E14; color: #F1F3F7; padding: 16px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 11px; font-weight: bold; color: #F0956A; text-transform: uppercase;">AI GURU • ${subject}</span>
-              <span id="aiguru-pip-focus" style="font-size: 11px; background: rgba(224,109,68,0.16); color: #F0B429; padding: 2px 8px; border-radius: 9999px;">${focusScore === null ? "Focus: —" : `Focus: ${focusScore}%`}</span>
+              <span style="font-size: 11px; font-weight: bold; color: #F0956A; text-transform: uppercase;">AI GURU • ${escapeHtml(subject)}</span>
+              <span id="aiguru-pip-focus" style="font-size: 11px; background: rgba(185,78,40,0.16); color: #F0B429; padding: 2px 8px; border-radius: 9999px;">${focusScore === null ? "Focus: —" : `Focus: ${focusScore}%`}</span>
             </div>
             <div style="text-align: center; margin: 8px 0;">
-              <div id="aiguru-pip-timer" style="font-size: 32px; font-weight: 800; font-family: monospace; letter-spacing: 2px; color: #E06D44;">
+              <div id="aiguru-pip-timer" style="font-size: 32px; font-weight: 800; font-family: monospace; letter-spacing: 2px; color: #B94E28;">
                 ${formatTime(timeLeft)}
               </div>
-              <div style="font-size: 11px; color: #94A3B8;">${sessionTitle}</div>
+              <div style="font-size: 11px; color: #94A3B8;">${escapeHtml(sessionTitle)}</div>
             </div>
             <div style="font-size: 10px; color: #64748b; text-align: center;">
-              &#128293; Local AI Vision Guard Active (0 Cloud Egress)
+              Local AI Vision Guard Active (0 Cloud Egress)
             </div>
           </div>
         `;
+        stopPipSync();
+        pipTimerRef.current = setInterval(() => {
+          if (pipWindow.closed) {
+            stopPipSync();
+            pipWindowRef.current = null;
+            return;
+          }
+          try {
+            const el = pipWindow.document.getElementById("aiguru-pip-timer");
+            if (el) el.textContent = formatTime(timeLeftRef.current);
+            const f = pipWindow.document.getElementById("aiguru-pip-focus");
+            if (f)
+              f.textContent =
+                focusRef.current === null ? "Focus: —" : `Focus: ${focusRef.current}%`;
+          } catch {
+            /* window went away mid-update */
+          }
+        }, 1000);
         pipWindow.addEventListener("pagehide", () => {
+          stopPipSync();
           pipWindowRef.current = null;
         });
       } catch (err) {

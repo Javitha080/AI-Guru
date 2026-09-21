@@ -135,11 +135,12 @@ async def facets():
 @router.get("/catalog")
 async def catalog(
     subject: Optional[str] = Query(None),
-    grade: Optional[int] = Query(None, ge=11, le=13),
+    grade: Optional[int] = Query(None, ge=10, le=13),
     year: Optional[int] = Query(None),
     medium: Optional[str] = Query(None),
     group_key: Optional[str] = Query(None),
     limit: int = Query(500, le=2000),
+    honest_only: bool = Query(True),
 ):
     rows = await BankStore.catalog(
         subject=subject,
@@ -148,6 +149,7 @@ async def catalog(
         medium=medium,
         group_key=group_key,
         limit=limit,
+        honest_only=honest_only,
     )
     return {
         "papers": rows,
@@ -247,7 +249,7 @@ async def promote(req: PromoteRequest):
             # Stable content hash (no original file bytes available here).
             "file_hash": "promoted-" + hashlib.sha256(_dumps(data).encode()).hexdigest()[:16],
             **counts,
-            "total_marks": counts["question_count"],
+            "total_marks": float(paper.total_marks or 0),
             "default_duration_seconds": paper.mcq_duration_seconds,
             "paper_json": json.loads(_dumps(data)),
             "scheme_answers": scheme,
@@ -327,7 +329,7 @@ async def get_paper_asset(bank_paper_id: str, filename: str):
 
 @router.post("/sync-master-archive")
 async def sync_master_archive():
-    """Import and synchronize all 123 modules from Sri Lanka ICT Master Archive."""
+    """Import and synchronize all modules from Sri Lanka ICT Master Archive."""
     from deeptutor.services.exams.master_archive_importer import import_master_archive
 
     res = await import_master_archive()
@@ -336,9 +338,16 @@ async def sync_master_archive():
 
 @router.get("/{bank_paper_id}")
 async def get_bank_paper(bank_paper_id: str, include_answers: bool = Query(False)):
+    from deeptutor.services.exams.bank_store import is_placeholder_paper
+
     row = await BankStore.get_paper(bank_paper_id)
     if not row:
         raise HTTPException(status_code=404, detail="Bank paper not found")
+    if is_placeholder_paper(row.get("paper_json")):
+        raise HTTPException(
+            status_code=410,
+            detail="This paper is a placeholder stub, not a real past paper.",
+        )
 
     paper = _paper_from_row(row)
     public = paper.public_dict(include_answers=include_answers)
@@ -360,9 +369,16 @@ async def get_bank_paper(bank_paper_id: str, include_answers: bool = Query(False
 @router.post("/{bank_paper_id}/start")
 async def start_sitting(bank_paper_id: str, req: StartRequest):
     """Create the P1+P2 sitting and start the Paper-1 timer immediately."""
+    from deeptutor.services.exams.bank_store import is_placeholder_paper
+
     row = await BankStore.get_paper(bank_paper_id)
     if not row:
         raise HTTPException(status_code=404, detail="Bank paper not found")
+    if is_placeholder_paper(row.get("paper_json")):
+        raise HTTPException(
+            status_code=410,
+            detail="This paper is a placeholder stub, not a real past paper.",
+        )
 
     await _ensure_welcome_grant(req.student_id)
 
@@ -882,7 +898,11 @@ async def _maybe_complete_sitting(
 
     # ---- parent telegram hook (best-effort, durable outbox) ---------------
     try:
-        from deeptutor.services.monitoring.notification_queue import enqueue_for_student
+        from deeptutor.services.monitoring.notification_queue import (
+            enqueue_for_student,
+            flush_once,
+            start_notification_worker,
+        )
 
         parts_bits: List[str] = []
         for r in ordered:
@@ -891,11 +911,18 @@ async def _maybe_complete_sitting(
             part_awarded = sum(float(a.get("awarded") or 0) for a in part_answers)
             part_pct = round(100 * part_awarded / max(1.0, float(part_paper.total_marks)))
             parts_bits.append(f"P{r['paper_no']}: {part_pct}%")
+        try:
+            from deeptutor.api.routers.study_session import _resolve_student_name
+
+            student_name = await _resolve_student_name(student_id)
+        except Exception:  # noqa: BLE001 - name is cosmetic, never block the alert
+            student_name = student_id
+        start_notification_worker()
         await enqueue_for_student(
             "session_summary",
             {
                 "student_id": student_id,
-                "student_name": student_id,
+                "student_name": student_name,
                 "subject": "Past-Paper Sitting",
                 "duration_minutes": int(
                     sum((r.get("mcq_duration_seconds") or 0) for r in ordered) // 60
@@ -906,6 +933,12 @@ async def _maybe_complete_sitting(
             },
             student_id,
         )
+        # Best-effort immediate delivery (mirrors the study-session path);
+        # failures stay queued for the 20s worker.
+        try:
+            asyncio.get_running_loop().create_task(flush_once(limit=3))
+        except RuntimeError:
+            pass
     except Exception as exc:  # noqa: BLE001 - notifications are optional
         logger.debug("Parent sitting notification skipped: %s", exc)
     return xp_awarded

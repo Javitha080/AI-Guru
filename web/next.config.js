@@ -44,6 +44,33 @@ function localNetworkHosts() {
   return hosts;
 }
 
+/** Extra dev hosts via ALLOWED_DEV_ORIGINS env or system.json
+ *  `allowed_dev_origins` (comma/space-separated). Accepts bare hostnames,
+ *  wildcards (`*.trycloudflare.com`), or full origins (`https://host`) —
+ *  origins are reduced to hostnames to match what Next expects. */
+function extraDevHosts(systemSettings) {
+  const raw = firstNonEmpty(
+    process.env.ALLOWED_DEV_ORIGINS,
+    systemSettings && systemSettings.allowed_dev_origins,
+    "",
+  );
+  return String(raw)
+    .split(/[\s,]+/)
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((entry) => {
+      try {
+        if (/^https?:\/\//i.test(entry)) {
+          return new URL(entry).hostname;
+        }
+      } catch {
+        // Fall through and keep the raw entry.
+      }
+      return entry;
+    })
+    .filter(Boolean);
+}
+
 const SETTINGS_DIR = path.resolve(__dirname, "..", "data", "user", "settings");
 const SYSTEM_SETTINGS = readJsonFile(path.join(SETTINGS_DIR, "system.json"));
 const AUTH_SETTINGS = readJsonFile(path.join(SETTINGS_DIR, "auth.json"));
@@ -139,7 +166,21 @@ const nextConfig = {
   // follows whatever network this machine is on. Dev-only: `allowedDevOrigins`
   // has no effect on `next build`/`next start`, and anyone who can reach the
   // dev server on these addresses is already inside the LAN.
-  allowedDevOrigins: ["127.0.0.1", ...localNetworkHosts()],
+  // Tunnel hosts (Cloudflare Quick Tunnel rotates `*.trycloudflare.com` on
+  // every restart, ngrok similar) must be covered by wildcards — listing a
+  // single tunnel hostname goes stale on the next reconnect. Extra hosts can
+  // also be injected without editing this file via ALLOWED_DEV_ORIGINS.
+  allowedDevOrigins: [
+    "localhost",
+    "127.0.0.1",
+    ...localNetworkHosts(),
+    "*.trycloudflare.com",
+    "*.cfargotunnel.com",
+    "*.ngrok-free.app",
+    "*.ngrok.io",
+    "*.loca.lt",
+    ...extraDevHosts(SYSTEM_SETTINGS),
+  ],
 
   // Turbopack configuration (used when running `npm run dev:turbo`)
   turbopack: {
@@ -159,6 +200,21 @@ const nextConfig = {
         "node_modules/cytoscape/dist/cytoscape.cjs.js",
       ),
     };
+    // @mediapipe/tasks-vision's vision_bundle.mjs uses a dynamic
+    // require(expression) for its WASM loader. Harmless at runtime but
+    // webpack logs "Critical dependency: the request of a dependency is an
+    // expression" on every page compile. Silence only that upstream warning.
+    config.ignoreWarnings = [
+      ...(config.ignoreWarnings ?? []),
+      {
+        module: /vision_bundle\.mjs/,
+        message: /Critical dependency/,
+      },
+      {
+        module: /@mediapipe\/tasks-vision/,
+        message: /Critical dependency/,
+      },
+    ];
     return config;
   },
 };

@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { Search, User } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { BookOpenCheck, Search, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { openCommandPalette } from "@/components/common/CommandPalette";
@@ -17,9 +18,11 @@ interface HeaderBarProps {
 
 export default function HeaderBar({ title, actionSlot }: HeaderBarProps) {
   const { t } = useTranslation();
+  const pathname = usePathname();
   const { profile } = useUserProfile();
 
   const isConfigured = Boolean(profile?.is_configured && profile?.display_name);
+  const onPapers = pathname.startsWith("/papers");
 
   return (
     <header className="relative flex h-14 shrink-0 items-center justify-between px-4 md:px-6 z-30">
@@ -79,6 +82,21 @@ export default function HeaderBar({ title, actionSlot }: HeaderBarProps) {
         </button>
 
         {actionSlot}
+
+        <Link
+          href="/papers"
+          aria-label="Paper Bank"
+          title="Paper Bank — built-in past papers"
+          aria-current={onPapers ? "page" : undefined}
+          className={`surface-glass-base hidden sm:flex h-8.5 items-center gap-2 rounded-full px-3.5 text-xs font-bold transition-all border active:scale-95 ${
+            onPapers
+              ? "text-[var(--primary)] border-[var(--ember-line)]/50 shadow-[0_0_16px_var(--glow-primary)]"
+              : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] border-[var(--glass-border)] hover:border-[var(--glass-border-highlight)]"
+          }`}
+        >
+          <BookOpenCheck size={15} strokeWidth={2} className={onPapers ? "text-[var(--primary)]" : ""} />
+          <span>Paper Bank</span>
+        </Link>
 
         {isConfigured ? (
           <Link

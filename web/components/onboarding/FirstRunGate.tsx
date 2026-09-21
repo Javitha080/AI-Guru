@@ -56,10 +56,11 @@ export default function FirstRunGate() {
 
   const checkProviderNeedsSetup = useCallback(async (): Promise<boolean> => {
     try {
-      if (window.localStorage.getItem(FLAG_PROVIDER_KEY) === "1") return false;
       if (window.sessionStorage.getItem(SESSION_PROVIDER_SUPPRESS_KEY) === "1")
         return false;
 
+      // Always consult the server: a per-browser localStorage flag from a
+      // previous user must never skip setup for a new user on this browser.
       const res = await apiFetch(apiUrl("/api/v1/ai-provider/status"));
       if (!res.ok) return false;
       const status: ProviderStatus | null = await res.json().catch(() => null);
@@ -74,6 +75,17 @@ export default function FirstRunGate() {
         hasLocalOllama ||
         offlineChosen;
 
+      try {
+        if (configured) {
+          window.localStorage.setItem(FLAG_PROVIDER_KEY, "1");
+        } else {
+          // Clear a stale "onboarded" flag left by a previous user.
+          window.localStorage.removeItem(FLAG_PROVIDER_KEY);
+        }
+      } catch {
+        /* ignore */
+      }
+
       return !configured;
     } catch {
       return false; // Backend unreachable — don't block
@@ -85,18 +97,24 @@ export default function FirstRunGate() {
 
     const run = async () => {
       try {
-        // 1. Check Profile Configuration
+        // 1. Check Profile Configuration — always consult the server when the
+        // onboarding gate is reachable. A stale per-browser localStorage flag
+        // from a previous user must never skip setup for a new user.
         const profileSuppressed =
           window.sessionStorage.getItem(SESSION_PROFILE_SUPPRESS_KEY) === "1";
-        const profileFlagDone =
-          window.localStorage.getItem(FLAG_PROFILE_KEY) === "1";
 
         let profileNeedsSetup = false;
-        if (!profileFlagDone && !profileSuppressed) {
+        if (!profileSuppressed) {
           const status = await getUserProfileStatus();
           if (cancelled) return;
           if (!status.is_configured) {
             profileNeedsSetup = true;
+            // Clear a stale "configured" flag left by a previous user.
+            try {
+              window.localStorage.removeItem(FLAG_PROFILE_KEY);
+            } catch {
+              /* ignore */
+            }
           } else {
             // Self-heal localStorage flag if server says it's already configured
             try {
@@ -162,7 +180,7 @@ export default function FirstRunGate() {
       )}
 
       {showWizard && (
-        <div className="fixed inset-0 z-[10000] overflow-auto bg-black/70 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[var(--z-onboarding)] overflow-auto bg-black/70 backdrop-blur-sm">
           <div className="min-h-full flex items-center justify-center p-4">
             <div className="w-full max-w-2xl">
               <AIWizard

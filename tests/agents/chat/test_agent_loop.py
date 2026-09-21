@@ -35,8 +35,14 @@ def _llm_chunk(
     tool_calls: list[dict[str, Any]] | None = None,
     usage: Any = None,
     finish_reason: str | None = None,
+    reasoning_content: str | None = None,
+    reasoning: str | None = None,
 ) -> SimpleNamespace:
     delta_fields: dict[str, Any] = {"content": content}
+    if reasoning_content is not None:
+        delta_fields["reasoning_content"] = reasoning_content
+    if reasoning is not None:
+        delta_fields["reasoning"] = reasoning
     if tool_calls is not None:
         delta_fields["tool_calls"] = [
             SimpleNamespace(
@@ -275,6 +281,37 @@ async def test_inline_think_streams_to_trace_not_bubble(
     result = _result(events)
     assert result.metadata["response"] == "The answer."
     assert result.metadata["completed"] is True
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("field", ["reasoning_content", "reasoning"])
+async def test_provider_reasoning_delta_streams_to_trace_not_bubble(
+    monkeypatch: pytest.MonkeyPatch, field: str
+) -> None:
+    """DeepSeek-style reasoning_content and Groq/OpenRouter-style reasoning
+    deltas must stream as thinking events, never into the answer bubble."""
+    registry = _Registry()
+    client = _ScriptedChatClient(
+        [
+            [
+                _llm_chunk(**{field: "first thought "}),  # type: ignore[arg-type]
+                _llm_chunk(**{field: "second thought"}),  # type: ignore[arg-type]
+                _llm_chunk(content="The answer."),
+            ]
+        ]
+    )
+    pipeline = AgenticChatPipeline(language="en")
+    pipeline.registry = registry
+    monkeypatch.setattr(pipeline, "_compose_enabled_tools", lambda _context: [])
+    monkeypatch.setattr(pipeline, "_build_openai_client", lambda: client)
+
+    events = await _run(pipeline, UnifiedContext(session_id="s1", user_message="Hi"))
+
+    assert _contents(events) == ["The answer."]
+    thinking = "".join(e.content for e in events if e.type == StreamEventType.THINKING)
+    assert thinking == "first thought second thought"
+    result = _result(events)
+    assert result.metadata["response"] == "The answer."
 
 
 @pytest.mark.asyncio

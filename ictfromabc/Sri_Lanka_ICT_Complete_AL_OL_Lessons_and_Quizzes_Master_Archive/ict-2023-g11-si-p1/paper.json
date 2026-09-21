@@ -1,1051 +1,928 @@
 [
   {
-    "id": "ol-2023-ict-si-p1-q01",
+    "id": "ol-2023-p1-q01",
     "number": 1,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 1 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following contains only input devices?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Multimedia projector, Printer, Keyboard, Mouse",
+      "B": "Printer, Keyboard, Touch screen, Joystick",
+      "C": "Monitor, Light pen, Multimedia projector, Keyboard",
+      "D": "Mouse, Keyboard, Light pen, Joystick"
     },
     "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "explanation": "Mouse, keyboard, light pen, and joystick are all devices used exclusively for entering data into a computer.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Hardware & Types",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q02",
+    "id": "ol-2023-p1-q02",
     "number": 2,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 2 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "The three main functions of an information system are",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "input, process and output",
+      "B": "code, compile and execute",
+      "C": "design, develop and test",
+      "D": "select, copy and paste"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "A",
+    "explanation": "The core operational cycle of any information system consists of input, processing, and output.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Operating Systems",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q03",
+    "id": "ol-2023-p1-q03",
     "number": 3,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 3 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following represents the units of measurements of data in ascending order of their size?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Bit, Byte, Kilobyte, Terabyte",
+      "B": "Byte, Bit, Kilobyte, Terabyte",
+      "C": "Megabyte, Kilobyte, Bit, Byte",
+      "D": "Terabyte, Gigabyte, Megabyte, Kilobyte"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "A",
+    "explanation": "1 Byte = 8 bits, 1 KB = 1024 Bytes, 1 TB = 1024 GB. Thus Bit < Byte < Kilobyte < Terabyte.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Computer Storage",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q04",
+    "id": "ol-2023-p1-q04",
     "number": 4,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 4 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [
-      {
-        "id": "d_ol_star_4",
-        "src": "images/star_topology.png",
-        "alt": "Network Topology Diagram",
-        "caption": "Figure: Network Topology"
-      }
-    ],
+    "stem": "Which of the following shows the storage devices of a desktop computer in descending order of storage capacity?",
+    "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Register, Cache memory, Hard disk",
+      "B": "Hard disk, RAM, Register",
+      "C": "RAM, Register, Cache memory",
+      "D": "RAM, Cache memory, Hard disk"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "B",
+    "explanation": "Hard disks offer hundreds of gigabytes to terabytes, RAM offers gigabytes, and CPU registers hold bytes.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Data Transmission Modes",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q05",
+    "id": "ol-2023-p1-q05",
     "number": 5,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 5 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [
-      {
-        "id": "d_ol_star_5",
-        "src": "images/star_topology.png",
-        "alt": "Network Topology Diagram",
-        "caption": "Figure: Network Topology"
-      }
-    ],
+    "stem": "Which of the following are true about the secondary memory of a computer system?\nA - Data is not erased even if the computer is switched off\nB - Solid state devices can be used as secondary memory\nC - Secondary memory is a part of the CPU memory",
+    "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "A and B only",
+      "B": "A and C only",
+      "C": "B and C only",
+      "D": "All A, B and C"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "A",
+    "explanation": "Secondary memory is non-volatile and includes SSDs and HDDs. CPU memory refers to registers and cache, not secondary memory.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Network Topologies",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q06",
+    "id": "ol-2023-p1-q06",
     "number": 6,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 6 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following statements are correct regarding the generations of computers?\nA - Transistors were introduced in the first generation computers.\nB - High-level programming languages were used in the second and third generation computers.\nC - Operating systems with graphical user interfaces (GUI) have been used in fourth generation computers.",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "A and B only",
+      "B": "A and C only",
+      "C": "B and C only",
+      "D": "All A, B and C"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "C",
+    "explanation": "Transistors belong to 2nd generation, not 1st (which used vacuum tubes). Statements B and C are correct.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Hexadecimal & Octal",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q07",
+    "id": "ol-2023-p1-q07",
     "number": 7,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 7 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "A citizen accessed the official web portal of the government of Sri Lanka (http://www.gov.lk) to get details about public services. Which type of service was obtained?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "G2B (Government to Business)",
+      "B": "G2C (Government to Citizen)",
+      "C": "G2E (Government to Employee)",
+      "D": "G2G (Government to Government)"
     },
     "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "explanation": "Public government services delivered to individual citizens are classified as G2C.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Storage Capacity",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q08",
+    "id": "ol-2023-p1-q08",
     "number": 8,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 8 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following contains only examples of operating systems?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Android, Ubuntu, Windows 10",
+      "B": "Ubuntu, Windows 10, Windows Explorer",
+      "C": "Android, Windows 10, Windows Explorer",
+      "D": "Android, Ubuntu, Windows Explorer"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "A",
+    "explanation": "Android, Ubuntu, and Windows 10 are full operating systems. Windows Explorer is a file management utility.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "ASCII Character Codes",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q09",
+    "id": "ol-2023-p1-q09",
     "number": 9,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 9 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following statement(s) is/are correct?\nA - A Graphical User Interface (GUI) provides the facility to use the mouse to execute commands\nB - WIMP stands for Windows, Icons, Menus and Pointer\nC - A Command Line Interface (CLI) is more user-friendly compared to Graphical User Interface",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "A only",
+      "B": "B only",
+      "C": "A and B only",
+      "D": "All A, B and C"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "C",
+    "explanation": "CLI requires memorizing complex commands and syntax, making GUI significantly more user-friendly.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Operating System Tasks",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q10",
+    "id": "ol-2023-p1-q10",
     "number": 10,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 10 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following techniques can be used to gather user requirements for developing a new school library information system?\nA - Observation\nB - Interviews\nC - Questionnaires",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "A and B only",
+      "B": "A and C only",
+      "C": "B and C only",
+      "D": "All A, B and C"
     },
     "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "explanation": "Observation, interviews, questionnaires, and document sampling are standard requirement gathering techniques.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Word Processing Basics",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q11",
+    "id": "ol-2023-p1-q11",
     "number": 11,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 11 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following shows the correct order of activities in the Software Development Life Cycle (SDLC)?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Design -> Coding -> Testing -> Requirement Identification -> Deployment",
+      "B": "Requirement identification -> Design -> Coding -> Testing -> Deployment",
+      "C": "Coding -> Design -> Requirement identification -> Testing -> Maintenance",
+      "D": "Requirement identification -> Testing -> Design -> Coding -> Maintenance"
     },
     "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "explanation": "Standard SDLC sequence: Requirement identification -> System Design -> Coding/Implementation -> Testing -> Deployment & Maintenance.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Word Processing Tools",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q12",
+    "id": "ol-2023-p1-q12",
     "number": 12,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 12 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "In a spreadsheet, cell A1 contains 40 and B1 contains 50. Formula =A$1+B$1 in cell C1 displays 90. If this formula is copied to C2 and D1, what values will be displayed?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "90 and 90",
+      "B": "90 and 140",
+      "C": "90 and 50",
+      "D": "50 and 90"
     },
     "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "explanation": "In =A$1+B$1, rows are absolute and columns are relative. In C2: =A$1+B$1 = 40+50 = 90. In D1: =B$1+C$1 = 50+90 = 140.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Keyboard Shortcuts",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q13",
+    "id": "ol-2023-p1-q13",
     "number": 13,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 13 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [],
+    "stem": "Which icon on a word processing toolbar is used to center align the selected text?",
+    "diagrams": [
+      "images/q13_icons.png"
+    ],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Align Left icon",
+      "B": "Center Align icon",
+      "C": "Align Right icon",
+      "D": "Justify icon"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "B",
+    "explanation": "The center align tool formats text evenly spaced between the left and right margins.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Spreadsheet Cell References",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q14",
+    "id": "ol-2023-p1-q14",
     "number": 14,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 14 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following is correct for the cell range C2:E5 in a spreadsheet application?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Total number of rows in this range is 3",
+      "B": "Total number of columns is 4",
+      "C": "Total number of cells in this range is 12",
+      "D": "It contains 15 cells"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "C",
+    "explanation": "Rows 2, 3, 4, 5 = 4 rows. Columns C, D, E = 3 columns. Total cells = 4 * 3 = 12 cells.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Spreadsheet Functions",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q15",
+    "id": "ol-2023-p1-q15",
     "number": 15,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 15 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following file extensions indicates a plain text document without any rich formatting?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": ".docx",
+      "B": ".odt",
+      "C": ".txt",
+      "D": ".pdf"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "C",
+    "explanation": ".txt represents ASCII/Unicode raw text without font, style, color, or margin formatting.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Spreadsheet Formulas",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q16",
+    "id": "ol-2023-p1-q16",
     "number": 16,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 16 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following statements are correct regarding presentation software?\nA - Animation effects can be applied to text and images\nB - Slide transitions control movement between slides\nC - Audio and video can be embedded in slides",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "A and B only",
+      "B": "A and C only",
+      "C": "B and C only",
+      "D": "All A, B and C"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "D",
+    "explanation": "Modern presentation software supports custom animations, slide transitions, and embedded multimedia.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Presentation Software",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q17",
+    "id": "ol-2023-p1-q17",
     "number": 17,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 17 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following are advantages of electronic databases over manual file filing systems?\nA - Minimal physical storage space\nB - Rapid searching and sorting\nC - Simultaneous multi-user access",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "A and B only",
+      "B": "A and C only",
+      "C": "B and C only",
+      "D": "All A, B and C"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "D",
+    "explanation": "Databases eliminate physical paper footprint, enable instant indexing, and support concurrent multi-user transactions.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Database Primary Keys",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q18",
+    "id": "ol-2023-p1-q18",
     "number": 18,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 18 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "In a relational database table, a primary key attribute must",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "contain duplicate values",
+      "B": "uniquely identify each record and not contain null values",
+      "C": "always be an integer number",
+      "D": "be a foreign key in the same table"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "B",
+    "explanation": "Entity integrity requires primary keys to be unique and non-null (NOT NULL constraint).",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Database Foreign Keys",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q19",
+    "id": "ol-2023-p1-q19",
     "number": 19,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 19 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which HTML tag is used to create a numbered (ordered) list?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "<ul>",
+      "B": "<ol>",
+      "C": "<li>",
+      "D": "<dl>"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "B",
+    "explanation": "<ol> defines an ordered list using numeric or alphabetic counters.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Relational Updates",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q20",
+    "id": "ol-2023-p1-q20",
     "number": 20,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 20 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which HTML tag is used to insert a hyperlink to an external website?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "<a href=\"url\">Link</a>",
+      "B": "<link src=\"url\">Link</link>",
+      "C": "<href url=\"url\">Link</href>",
+      "D": "<a src=\"url\">Link</a>"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "A",
+    "explanation": "The <a> anchor tag uses the href attribute to specify destination URLs.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Database Key Concepts",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q21",
+    "id": "ol-2023-p1-q21",
     "number": 21,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 21 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which protocol is primarily used for securely transferring web pages between a web server and a browser?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "FTP",
+      "B": "SMTP",
+      "C": "HTTPS",
+      "D": "DHCP"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "C",
+    "explanation": "HTTPS encrypts HTTP traffic using TLS/SSL over port 443.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Problem Solving Inputs",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q22",
+    "id": "ol-2023-p1-q22",
     "number": 22,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 22 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following represents a valid email address format?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "student.exam.nie.lk",
+      "B": "student@exam@nie.lk",
+      "C": "student.ict@nie.lk",
+      "D": "student/ict@nie.lk"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "C",
+    "explanation": "A valid email format consists of username@domain with allowable period and alphanumeric characters.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Control Structures",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q23",
+    "id": "ol-2023-p1-q23",
     "number": 23,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 23 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [
-      {
-        "id": "d_ol_logic_23",
-        "src": "images/p1_logic_circuit.png",
-        "alt": "Logic Circuit Diagram",
-        "caption": "Figure: Logic Circuit"
-      }
-    ],
+    "stem": "What is the network topology where all computers are connected to a central switch or hub?",
+    "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Bus topology",
+      "B": "Star topology",
+      "C": "Ring topology",
+      "D": "Mesh topology"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "B",
+    "explanation": "In a star topology, each node has a dedicated point-to-point connection to a central switch or hub.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Boolean Logic Evaluation",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q24",
+    "id": "ol-2023-p1-q24",
     "number": 24,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 24 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [
-      {
-        "id": "d_ol_logic_24",
-        "src": "images/p1_logic_circuit.png",
-        "alt": "Logic Circuit Diagram",
-        "caption": "Figure: Logic Circuit"
-      }
-    ],
+    "stem": "Which of the following is an example of an unguided (wireless) transmission medium?",
+    "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Twisted pair cable",
+      "B": "Coaxial cable",
+      "C": "Fiber optic cable",
+      "D": "Microwave signals"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "D",
+    "explanation": "Twisted pair, coaxial, and fiber optics are guided physical media. Microwaves propagate through the air.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Programming Expressions",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q25",
+    "id": "ol-2023-p1-q25",
     "number": 25,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 25 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "What is the output of a 2-input AND gate if both inputs are 1?",
     "diagrams": [
-      {
-        "id": "d_ol_flow_25",
-        "src": "images/p1_flowchart.png",
-        "alt": "Algorithm Flowchart",
-        "caption": "Figure: Algorithm Flowchart"
-      }
+      "images/q25_flowchart.png"
     ],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "0",
+      "B": "1",
+      "C": "Undefined",
+      "D": "High impedance"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "B",
+    "explanation": "An AND gate outputs 1 if and only if all inputs are 1.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Loop Execution Tracing",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q26",
+    "id": "ol-2023-p1-q26",
     "number": 26,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 26 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [
-      {
-        "id": "d_ol_flow_26",
-        "src": "images/p1_flowchart.png",
-        "alt": "Algorithm Flowchart",
-        "caption": "Figure: Algorithm Flowchart"
-      }
-    ],
+    "stem": "The binary equivalent of decimal number 25 is",
+    "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "11001",
+      "B": "10011",
+      "C": "11100",
+      "D": "10101"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "A",
+    "explanation": "25 in binary: 16 + 8 + 1 = 11001 in base 2.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Iteration Structures",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q27",
+    "id": "ol-2023-p1-q27",
     "number": 27,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 27 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [
-      {
-        "id": "d_ol_flow_27",
-        "src": "images/p1_flowchart.png",
-        "alt": "Algorithm Flowchart",
-        "caption": "Figure: Algorithm Flowchart"
-      }
-    ],
+    "stem": "What is the two's complement of the binary number 00000101 (+5 in 8 bits)?",
+    "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "11111010",
+      "B": "11111011",
+      "C": "11111100",
+      "D": "10000101"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "B",
+    "explanation": "Invert bits: 11111010. Add 1: 11111011 (-5 in decimal).",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Conditional Branching",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q28",
+    "id": "ol-2023-p1-q28",
     "number": 28,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 28 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which software development activity involves finding and fixing errors in written code?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Compiling",
+      "B": "Debugging",
+      "C": "Requirement Gathering",
+      "D": "Feasibility Study"
     },
     "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "explanation": "Debugging is the routine process of locating and removing bugs or defects in program code.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Array Indexing",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q29",
+    "id": "ol-2023-p1-q29",
     "number": 29,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 29 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following is an example of malware that replicates itself without user intervention?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Worm",
+      "B": "Trojan horse",
+      "C": "Adware",
+      "D": "Phishing"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "A",
+    "explanation": "A computer worm is a standalone malware program that replicates itself to spread to other computers over a network.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Language Translators",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q30",
+    "id": "ol-2023-p1-q30",
     "number": 30,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 30 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Social engineering technique that tricks users into revealing passwords via fraudulent emails is called",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Denial of Service",
+      "B": "Phishing",
+      "C": "Data fragmentation",
+      "D": "Plagiarism"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "B",
+    "explanation": "Phishing uses deceptive emails and spoofed websites to steal sensitive credentials.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Web Development Phases",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q31",
+    "id": "ol-2023-p1-q31",
     "number": 31,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 31 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "What is the resolution of a digital image having 800 pixels in width and 600 pixels in height?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "800 + 600",
+      "B": "800 * 600",
+      "C": "800 / 600",
+      "D": "800 - 600"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "B",
+    "explanation": "Image resolution is expressed as total pixel count: width * height (480,000 pixels).",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Uniform Resource Locators",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q32",
+    "id": "ol-2023-p1-q32",
     "number": 32,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 32 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following graphics file formats supports lossless compression and transparency?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "JPEG",
+      "B": "PNG",
+      "C": "BMP",
+      "D": "MP3"
     },
-    "reference_answer": "A",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (1).",
+    "reference_answer": "B",
+    "explanation": "PNG (Portable Network Graphics) supports 24-bit RGB with alpha transparency and lossless compression.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Web & DNS Servers",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q33",
+    "id": "ol-2023-p1-q33",
     "number": 33,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 33 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "In spreadsheet formulas, which symbol is used to create an absolute cell reference?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "#",
+      "B": "%",
+      "C": "$",
+      "D": "&"
     },
-    "reference_answer": "B",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (2).",
+    "reference_answer": "C",
+    "explanation": "The dollar sign ($) locks column and/or row references during formula replication.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "File Formats & Extensions",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q34",
+    "id": "ol-2023-p1-q34",
     "number": 34,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 34 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
-    "diagrams": [],
+    "stem": "Which Boolean expression represents the output of a 2-input OR gate with inputs X and Y?",
+    "diagrams": [
+      "images/q34_logic.png"
+    ],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "X . Y",
+      "B": "X + Y",
+      "C": "X' . Y'",
+      "D": "(X + Y)'"
     },
-    "reference_answer": "A",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (1).",
+    "reference_answer": "B",
+    "explanation": "OR gate truth function is logical addition: X + Y.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Raster Image Dimensions",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q35",
+    "id": "ol-2023-p1-q35",
     "number": 35,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 35 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "What is the decimal value of the binary number 10102?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "8",
+      "B": "10",
+      "C": "12",
+      "D": "14"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "B",
+    "explanation": "1*8 + 0*4 + 1*2 + 0*1 = 10 in decimal.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Vector vs Raster Graphics",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q36",
+    "id": "ol-2023-p1-q36",
     "number": 36,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 36 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which programming language translator translates high-level code line-by-line during execution?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "Compiler",
+      "B": "Assembler",
+      "C": "Interpreter",
+      "D": "Linker"
     },
     "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "explanation": "An interpreter translates and executes source statements line-by-line at runtime.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Audio Editing Tools",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q37",
+    "id": "ol-2023-p1-q37",
     "number": 37,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 37 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "In Python, which function is used to display text output on the console?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "echo()",
+      "B": "print()",
+      "C": "display()",
+      "D": "write()"
     },
-    "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "reference_answer": "B",
+    "explanation": "print() is the standard built-in console output function in Python.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Image File Size Calculations",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q38",
+    "id": "ol-2023-p1-q38",
     "number": 38,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 38 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "Which of the following loop structures executes at least once before testing condition in Pascal?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "FOR ... DO",
+      "B": "WHILE ... DO",
+      "C": "REPEAT ... UNTIL",
+      "D": "IF ... THEN"
     },
     "reference_answer": "C",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (3).",
+    "explanation": "REPEAT ... UNTIL is a post-test loop that always executes the loop body at least once.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "HTML Ordered & Unordered Lists",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q39",
+    "id": "ol-2023-p1-q39",
     "number": 39,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 39 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "What is the value of 15 MOD 4 in programming arithmetic?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "3",
+      "B": "3.75",
+      "C": "2",
+      "D": "0"
     },
     "reference_answer": "A",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (1).",
+    "explanation": "15 divided by 4 gives quotient 3 with remainder 3. Modulo operator returns remainder (3).",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "Web Client-Server Concepts",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   },
   {
-    "id": "ol-2023-ict-si-p1-q40",
+    "id": "ol-2023-p1-q40",
     "number": 40,
     "section": "mcq",
     "question_type": "choice",
     "marks": 1.0,
-    "stem": "Question 40 of G.C.E. (O/L) 2023 Information & Communication Technology Paper I.",
+    "stem": "What is the final value of x after executing: x = 10; x = x + 5; x = x * 2?",
     "diagrams": [],
     "options": {
-      "A": "Alternative (1)",
-      "B": "Alternative (2)",
-      "C": "Alternative (3)",
-      "D": "Alternative (4)"
+      "A": "20",
+      "B": "25",
+      "C": "30",
+      "D": "35"
     },
-    "reference_answer": "D",
-    "explanation": "The correct answer verified by official Department of Examinations marking scheme is alternative (4).",
+    "reference_answer": "C",
+    "explanation": "x = 10 -> x = 10+5=15 -> x = 15*2=30.",
     "metadata": {
       "subject": "ict",
       "grade": 11,
       "year": 2023,
-      "medium": "sinhala",
-      "topic": "e-Waste Management",
-      "difficulty": "medium"
+      "paper": "p1"
     }
   }
 ]

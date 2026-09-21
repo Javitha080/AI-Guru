@@ -107,4 +107,38 @@ async def mark(
         await db.commit()
 
 
-__all__ = ["db_path", "ensure_outbox", "load_row", "mark"]
+async def get_counts(*, path: Optional[str] = None, parent_id: Optional[str] = None) -> dict:
+    """Honest outbox depth for the portal badge: pending/sending/dead/sent.
+
+    Optionally scoped to one parent; never raises (observability is
+    best-effort — callers fall back to zeros).
+    """
+    db_file = path or db_path()
+    counts = {"pending": 0, "sending": 0, "dead": 0, "sent": 0, "total": 0}
+    try:
+        async with aiosqlite.connect(db_file) as db:
+            await ensure_outbox(db)
+            if parent_id:
+                cur = await db.execute(
+                    "SELECT status, COUNT(*) FROM notification_outbox"
+                    " WHERE parent_id = ? GROUP BY status",
+                    (parent_id,),
+                )
+            else:
+                cur = await db.execute(
+                    "SELECT status, COUNT(*) FROM notification_outbox GROUP BY status"
+                )
+            async for status, n in cur:
+                try:
+                    counts[str(status)] = int(n)
+                except (TypeError, ValueError):
+                    continue
+            counts["total"] = sum(
+                int(counts.get(k) or 0) for k in ("pending", "sending", "dead", "sent")
+            )
+    except Exception:  # noqa: BLE001
+        pass
+    return counts
+
+
+__all__ = ["db_path", "ensure_outbox", "load_row", "mark", "get_counts"]

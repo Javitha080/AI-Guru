@@ -127,6 +127,7 @@ export default function ProfilePage() {
   const [displayName, setDisplayName] = useState("");
   const [selectedAvatar, setSelectedAvatar] = useState("");
   const [gradeLevel, setGradeLevel] = useState("Grade 12 (A/L)");
+  const [school, setSchool] = useState("");
   const [learningStyle, setLearningStyle] = useState("visual");
   const [targetMinutes, setTargetMinutes] = useState(60);
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
@@ -149,9 +150,10 @@ export default function ProfilePage() {
         const prof = await getUserProfile();
         if (!cancelled && prof) {
           setProfile(prof);
-          setDisplayName(prof.display_name);
+          setDisplayName(prof.display_name === "Student" ? "" : prof.display_name);
           setSelectedAvatar(prof.avatar);
           if (prof.grade_level) setGradeLevel(prof.grade_level);
+          setSchool(prof.school || "");
           if (prof.learning_style) setLearningStyle(prof.learning_style);
           if (prof.target_daily_minutes) setTargetMinutes(prof.target_daily_minutes);
           if (prof.preferred_subjects) setSelectedSubjects(prof.preferred_subjects);
@@ -242,6 +244,7 @@ export default function ProfilePage() {
         display_name: displayName.trim(),
         avatar: selectedAvatar,
         grade_level: gradeLevel,
+        school: school.trim(),
         learning_style: learningStyle,
         target_daily_minutes: targetMinutes,
         preferred_subjects: selectedSubjects,
@@ -570,6 +573,25 @@ export default function ProfilePage() {
                     );
                   })}
                 </div>
+              </div>
+
+              {/* Learning Style */}
+              <div>
+                <label
+                  htmlFor="profile-school-input"
+                  className="block text-xs font-semibold text-[var(--foreground)]"
+                >
+                  {t("School (optional)")}
+                </label>
+                <input
+                  id="profile-school-input"
+                  type="text"
+                  value={school}
+                  onChange={(e) => setSchool(e.target.value)}
+                  placeholder={t("e.g. Royal College")}
+                  maxLength={100}
+                  className="mt-2 w-full max-w-md rounded-xl border border-[var(--border)] bg-[var(--background)] px-3.5 py-2 text-sm font-medium text-[var(--foreground)] outline-none transition-all focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                />
               </div>
 
               {/* Learning Style */}

@@ -40,35 +40,48 @@ function redirectToLogin(
 }
 
 export function proxy(req: NextRequest): NextResponse {
-  const { pathname, search } = req.nextUrl;
+  try {
+    const { pathname, search } = req.nextUrl;
 
-  if (isCodexCallbackPath(pathname)) {
-    return NextResponse.rewrite(
-      new URL(CODEX_CALLBACK_API_PATH + search, API_BASE_URL),
-    );
-  }
+    if (isCodexCallbackPath(pathname)) {
+      return NextResponse.rewrite(
+        new URL(CODEX_CALLBACK_API_PATH + search, API_BASE_URL),
+      );
+    }
 
-  // 1. Bridge the origin gap: forward backend-relative paths to the API server.
-  //    This keeps the URL knowledge in one place (the entrypoint + system.json)
-  //    rather than baked into the frontend bundle.
-  if (isBackendPath(pathname)) {
-    return NextResponse.rewrite(new URL(pathname + search, API_BASE_URL));
-  }
+    // 1. Bridge the origin gap: forward backend-relative paths to the API server.
+    //    This keeps the URL knowledge in one place (the entrypoint + system.json)
+    //    rather than baked into the frontend bundle.
+    if (isBackendPath(pathname)) {
+      return NextResponse.rewrite(new URL(pathname + search, API_BASE_URL));
+    }
 
-  // 2. Auth gate — multi-user mode only. Disabled by default, and never blocks
-  //    auth pages, Next.js internals, or public static assets (see
-  //    isAuthExempt: that exemption is what keeps the logo/banner images
-  //    loading once login is enabled — issue #599).
-  if (!AUTH_ENABLED || isAuthExempt(pathname)) {
+    // 2. Auth gate — multi-user mode only. Disabled by default, and never blocks
+    //    auth pages, Next.js internals, or public static assets (see
+    //    isAuthExempt: that exemption is what keeps the logo/banner images
+    //    loading once login is enabled — issue #599).
+    if (!AUTH_ENABLED || isAuthExempt(pathname)) {
+      return NextResponse.next();
+    }
+
+    const token = req.cookies.get(COOKIE_NAME)?.value;
+    if (classifyToken(token, Date.now()) !== "valid") {
+      return redirectToLogin(req, { clearCookie: Boolean(token) });
+    }
+
+    return NextResponse.next();
+  } catch {
+    // Proxy must never crash the request: backend-down rewrite failures
+    // surface downstream and are caught by app/error.tsx boundaries.
+    // For direct API calls return an honest 503 JSON instead of a crash.
+    if (req.nextUrl.pathname.startsWith("/api/")) {
+      return NextResponse.json(
+        { code: "backend_unavailable", message: "Backend unavailable. Try again." },
+        { status: 503 },
+      );
+    }
     return NextResponse.next();
   }
-
-  const token = req.cookies.get(COOKIE_NAME)?.value;
-  if (classifyToken(token, Date.now()) !== "valid") {
-    return redirectToLogin(req, { clearCookie: Boolean(token) });
-  }
-
-  return NextResponse.next();
 }
 
 export const config = {

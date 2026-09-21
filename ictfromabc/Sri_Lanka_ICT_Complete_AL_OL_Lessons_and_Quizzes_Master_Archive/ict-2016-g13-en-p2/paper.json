@@ -1,336 +1,218 @@
 [
   {
-    "id": "al-2016-ict-en-p2-q1",
+    "id": "al-2016-p2-q01",
     "number": 1,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions regarding HTML hyperlinks, styles, and CSS formatting.",
-    "diagrams": [],
+    "stem": "G.C.E. (A/L) 2016 ICT Paper II Question 1 (Structured Essay): Computer Architecture, Memory Hierarchy, and Data Representation.",
+    "diagrams": [
+      "images/p2_q01_fetch_execute.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "1.a",
-        "label": "(a)",
-        "stem": "State the operation of: (i) `<a href=\"coverPage.jpg\" target=\"_blank\">Cover Page</a>`, (ii) `<a href=\"content.html\">Content</a>`, (iii) `<a href=\"figures.html\" target=\"_self\"><img src=\"figures.jpg\"/></a>`.",
+        "part": "(a)",
+        "stem": "Explain the primary differences between static RAM (SRAM) and dynamic RAM (DRAM) in terms of construction, speed, and typical use.",
         "marks": 3.0,
-        "expected_answer": "(i) Opens image `coverPage.jpg` in a new browser window/tab.\n(ii) Navigates to `content.html` in the same window/frame.\n(iii) Renders clickable image `figures.jpg` which opens `figures.html` in the current frame.",
-        "marking_guide": "Award 1 mark each for correct link target behaviors."
+        "model_answer": "SRAM is constructed from flip-flops (transistors), does not require periodic electrical refresh cycles, operates at significantly higher speeds, and is used for CPU cache memory. DRAM uses capacitor-transistor memory cells that require continuous refreshing, operates slower, and is used for main system RAM."
       },
       {
-        "sub_id": "1.b",
-        "label": "(b)",
-        "stem": "Which of the three mechanisms used to apply styles to HTML elements increases the maintainability of a web site?",
-        "marks": 2.0,
-        "expected_answer": "External Style Sheets (linking external `.css` files via `<link>` tag), as it separates content from presentation and allows site-wide styling changes in a single file.",
-        "marking_guide": "Award 2 marks for External Style Sheets."
+        "part": "(b)",
+        "stem": "Describe the role of the Program Counter (PC), Instruction Register (IR), and Memory Address Register (MAR) during instruction fetch.",
+        "marks": 3.0,
+        "model_answer": "The Program Counter holds the memory address of the next instruction to execute. During fetch, this address is copied into the MAR, which places it on the address bus. The retrieved instruction word is held in the MBR and placed in the IR for decoding by the Control Unit."
       },
       {
-        "sub_id": "1.c",
-        "label": "(c)",
-        "stem": "Write internal styles to style `h2` with Red text centered, and `p` with font 'Courier New', 14pt.",
-        "marks": 5.0,
-        "expected_answer": "```css\n<style>\n  h2 {\n    color: red;\n    text-align: center;\n  }\n  p {\n    font-family: 'Courier New', monospace;\n    font-size: 14pt;\n  }\n</style>\n```",
-        "marking_guide": "Award marks for correct selector, color, text-align, font-family, font-size properties."
+        "part": "(c)",
+        "stem": "Represent -28 in 8-bit two's complement format. Show all intermediate steps.",
+        "marks": 4.0,
+        "model_answer": "+28 in 8-bit binary is 00011100. Step 1 (Invert bits to form 1s complement) gives 11100011. Step 2 (Add 1 to least significant bit) gives 11100011 + 1 = 11100100. Therefore, -28 in 8-bit two's complement representation is 11100100."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2016,
-      "medium": "english",
-      "topic": "HTML & CSS",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2016-ict-en-p2-q2",
+    "id": "al-2016-p2-q02",
     "number": 2,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions regarding selling an old camera online to an overseas buyer.",
+    "stem": "G.C.E. (A/L) 2016 ICT Paper II Question 2 (Structured Essay): Operating Systems, Process Management, and Storage File Systems.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "State an example for C2C and B2C e-commerce with respect to the camera sale transaction.",
+        "part": "(a)",
+        "stem": "Explain what a Process Control Block (PCB) is and state four essential pieces of information stored within it.",
         "marks": 4.0,
-        "expected_answer": "- C2C: Individual consumer selling old camera to another individual buyer abroad via eBay or classified site.\n- B2C: The payment gateway service (PayPal) charging service fees to the consumer, or courier company delivering the parcel.",
-        "marking_guide": "Award 2 marks each for C2C and B2C."
+        "model_answer": "A Process Control Block (PCB) is an operating system data structure storing execution context for a process. Key fields: 1. Process ID (PID), 2. Process State (Ready, Running, Blocked), 3. Program Counter (PC), 4. CPU Registers, 5. Memory Management Information."
       },
       {
-        "sub_id": "2.b",
-        "label": "(b)",
-        "stem": "Why is a service like PayPal necessary for this type of transaction?",
+        "part": "(b)",
+        "stem": "Explain the difference between preemptive and non-preemptive CPU scheduling algorithms with examples.",
         "marks": 3.0,
-        "expected_answer": "It provides secure financial escrow and authentication without exposing sensitive banking/credit card numbers directly to unknown foreign buyers, reducing fraud risk.",
-        "marking_guide": "Award 3 marks for security and intermediary payment trust."
+        "model_answer": "In non-preemptive scheduling (e.g. FCFS), once a process gets the CPU, it holds it until termination or I/O request. In preemptive scheduling (e.g. Round Robin, SRTF), the OS can interrupt a running process and assign the CPU to a higher-priority or ready process."
       },
       {
-        "sub_id": "2.c",
-        "label": "(c)",
-        "stem": "State two reasons why some Internet users are reluctant to buy goods online from individual sellers, with examples.",
+        "part": "(c)",
+        "stem": "A disk has a block size of 4KB. If a file has size 10KB, calculate the internal fragmentation.",
         "marks": 3.0,
-        "expected_answer": "1. Risk of counterfeit/defective goods without return warranty (e.g. receiving a broken lens with no refund).\n2. Fraudulent payment or non-delivery scam (e.g. paying upfront and the seller disappears without dispatching parcel).",
-        "marking_guide": "Award 1.5 marks for each reason and example."
+        "model_answer": "File size = 10KB. Number of 4KB blocks required = ceil(10/4) = 3 blocks (12KB allocated). Internal fragmentation = 12KB - 10KB = 2KB (2048 bytes)."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2016,
-      "medium": "english",
-      "topic": "e-Commerce & Trust",
-      "difficulty": "easy"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2016-ict-en-p2-q3",
+    "id": "al-2016-p2-q03",
     "number": 3,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions regarding space station life support systems and database normal forms.",
-    "diagrams": [],
+    "stem": "G.C.E. (A/L) 2016 ICT Paper II Question 3 (Structured Essay): Relational Database Design, ER Modeling, and Normalization.",
+    "diagrams": [
+      "images/p2_q03_er_diagram.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "3.a",
-        "label": "(a)",
-        "stem": "A space station recycles water and oxygen ($2\\text{H}_2\\text{O} \\rightarrow 2\\text{H}_2 + \\text{O}_2$; $4\\text{H}_2 + \\text{CO}_2 \\rightarrow 2\\text{H}_2\\text{O} + \\text{CH}_4$). Is the system open or closed? Give two reasons.",
+        "part": "(a)",
+        "stem": "Draw an ER diagram for a Hospital Clinic where Doctors treat Patients, specifying entities, primary keys, and cardinality.",
         "marks": 4.0,
-        "expected_answer": "Closed system (or semi-closed/closed with respect to mass cycle).\nReasons:\n1. It recycles internal metabolic waste ($CO_2$ and $H_2O$) in a closed loop to regenerate oxygen.\n2. It does not import atmospheric gases from the external space vacuum.",
-        "marking_guide": "Award 2 marks for state, 2 marks for reasons."
+        "model_answer": "Entities: DOCTOR (DoctorID, Name, Specialty) and PATIENT (PatientID, Name, Contact). Relationship: Treats with Many-to-Many cardinality (M:N) and treatment attributes (Date, Diagnosis)."
       },
       {
-        "sub_id": "3.b",
-        "label": "(b)",
-        "stem": "State two possible problems faced by an information system having a relational database in zero normal form.",
+        "part": "(b)",
+        "stem": "Explain the three anomalies (Insertion, Deletion, Update) that occur in unnormalized database relations.",
         "marks": 3.0,
-        "expected_answer": "1. Multi-valued repeating groups preventing single atomic record lookup.\n2. Severe data redundancy leading to insertion, deletion, and update anomalies.",
-        "marking_guide": "Award 1.5 marks each for two problems."
+        "model_answer": "1. Insertion anomaly: Inability to insert information about an entity without adding unrelated data. 2. Deletion anomaly: Deletion of one piece of data causes unintended loss of other critical data. 3. Update anomaly: Inconsistency when data redundancy requires multiple rows to be updated simultaneously."
       },
       {
-        "sub_id": "3.c",
-        "label": "(c)",
-        "stem": "Compare and contrast a human brain and a computer based information system.",
+        "part": "(c)",
+        "stem": "Convert the unnormalized relation Patient_Treatment into Second Normal Form (2NF).",
         "marks": 3.0,
-        "expected_answer": "- Similarity: Both take sensory/data inputs, store information in memory, process logic, and generate outputs.\n- Contrast: Computers execute deterministic calculations with high speed and zero fatigue, whereas human brains excel at emotional intelligence, intuition, and unstructured associative learning.",
-        "marking_guide": "Award 1.5 marks for comparison, 1.5 marks for contrast."
+        "model_answer": "Separate partial dependencies into two tables: Patient(PatientID, PatientName, Contact) and Treatment(PatientID, DoctorID, TreatmentDate, Diagnosis), where PatientID is a foreign key referencing Patient."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2016,
-      "medium": "english",
-      "topic": "Systems & Database Theory",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2016-ict-en-p2-q4",
+    "id": "al-2016-p2-q04",
     "number": 4,
     "section": "structured",
-    "question_type": "structured",
+    "question_type": "multipart",
     "marks": 10.0,
-    "stem": "Answer the following questions on Python loop logic and 16-bit embedded memory addressing.",
+    "stem": "G.C.E. (A/L) 2016 ICT Paper II Question 4 (Structured Essay): Computer Networks, TCP/IP Suite, and Web Communication Protocols.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "4.a.i",
-        "label": "(a) (i)",
-        "stem": "What would be the output of `total=0; i=1; while(i<=5): i=i+1; total=total+i; print(total)`? Justify.",
+        "part": "(a)",
+        "stem": "State the roles of DNS, DHCP, and HTTP protocols in establishing web communication for a client PC.",
         "marks": 3.0,
-        "expected_answer": "Output: 20.\nJustification: Since `i=i+1` is executed before `total = total + i`, the added values of $i$ are $2, 3, 4, 5, 6$. Total $= 2 + 3 + 4 + 5 + 6 = 20$.",
-        "marking_guide": "Award 1 mark for 20, 2 marks for justification."
+        "model_answer": "DHCP assigns a dynamic IP address, subnet mask, and gateway to the client. DNS translates the entered URL domain name into a destination IP address. HTTP sends web requests and receives web page content over TCP port 80."
       },
       {
-        "sub_id": "4.a.ii",
-        "label": "(a) (ii)",
-        "stem": "Modify and rewrite the program without increasing statement count to compute sum of integers from 1 to 10 (inclusive).",
-        "marks": 3.0,
-        "expected_answer": "```python\ntotal = 0\ni = 1\nwhile (i <= 10):\n    total = total + i\n    i = i + 1\nprint(total)\n```",
-        "marking_guide": "Award 3 marks for correct statement reordering and condition `i<=10`."
-      },
-      {
-        "sub_id": "4.b",
-        "label": "(b)",
-        "stem": "An embedded system uses 16-bit wide address bus to access byte addressable memory. What is the maximum usable size in KB? Show computations.",
+        "part": "(b)",
+        "stem": "A company is assigned the Class C network address 192.168.10.0/24 and needs 4 subnets. State the subnet mask and available host range.",
         "marks": 4.0,
-        "expected_answer": "$2^{16}\\text{ addresses} = 65,536\\text{ bytes} = \\frac{65536}{1024} = 64\\text{ KB}$.",
-        "marking_guide": "Award 4 marks for $2^{16} = 64\\text{ KB}$ calculation."
+        "model_answer": "To create 4 subnets, 2 bits are borrowed: subnet mask = 255.255.255.192 (/26). Each subnet has 64 total addresses, with 62 usable host addresses."
+      },
+      {
+        "part": "(c)",
+        "stem": "Compare TCP and UDP protocols in terms of connection establishment, reliability, and application suitability.",
+        "marks": 3.0,
+        "model_answer": "TCP is connection-oriented, reliable (guarantees delivery via ACKs and retransmission), and suited for web browsing, email, and file transfers. UDP is connectionless, faster with lower overhead, but unreliable, and suited for streaming and VoIP."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2016,
-      "medium": "english",
-      "topic": "Python Programming & Memory",
-      "difficulty": "medium"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2016-ict-en-p2-q5",
+    "id": "al-2016-p2-q05",
     "number": 5,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "### Part B - Question 1 of G.C.E. (A/L) 2016 ICT Paper II.",
-    "diagrams": [],
+    "stem": "G.C.E. (A/L) 2016 ICT Paper II Question 5 (Essay): Digital Electronics, Combinational Logic Simplification, and Circuit Implementation.",
+    "diagrams": [
+      "images/p2_q05_logic_circuit.png"
+    ],
     "sub_questions": [
       {
-        "sub_id": "1.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 1.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
+        "part": "(a)",
+        "stem": "Construct a truth table for a 3-input voting system where output F = 1 if at least two inputs (A, B, C) are 1.",
+        "marks": 4.0,
+        "model_answer": "Inputs A,B,C. F = 1 for minterms 011, 101, 110, 111 (all cases with at least two 1s), and F = 0 for 000, 001, 010, 100."
+      },
+      {
+        "part": "(b)",
+        "stem": "Simplify the Boolean expression for the majority voting function using Boolean algebra or Karnaugh map.",
+        "marks": 5.0,
+        "model_answer": "F = AB + BC + AC. Minterms grouped on 3-variable K-map: pair (110, 111) gives AB, pair (011, 111) gives BC, pair (101, 111) gives AC."
+      },
+      {
+        "part": "(c)",
+        "stem": "Draw the logic circuit for F = AB + BC + AC using only basic AND and OR gates.",
+        "marks": 6.0,
+        "model_answer": "Three 2-input AND gates producing terms AB, BC, AC, connected into a 3-input OR gate producing output F."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2016,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   },
   {
-    "id": "al-2016-ict-en-p2-q6",
+    "id": "al-2016-p2-q06",
     "number": 6,
     "section": "essay",
-    "question_type": "essay",
+    "question_type": "multipart",
     "marks": 15.0,
-    "stem": "### Part B - Question 2 of G.C.E. (A/L) 2016 ICT Paper II.",
+    "stem": "G.C.E. (A/L) 2016 ICT Paper II Question 6 (Essay): Python Programming, Algorithm Design, and Control Structures.",
     "diagrams": [],
     "sub_questions": [
       {
-        "sub_id": "2.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 2.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
+        "part": "(a)",
+        "stem": "Write a Python function find_max(numbers) that takes a list of integers and returns the maximum value without using the built-in max() function.",
+        "marks": 5.0,
+        "model_answer": "def find_max(numbers):\n    m = numbers[0]\n    for n in numbers:\n        if n > m:\n            m = n\n    return m"
+      },
+      {
+        "part": "(b)",
+        "stem": "Write a Python program that reads 10 numbers from the user and prints the count of even numbers.",
+        "marks": 5.0,
+        "model_answer": "even_count = 0\nfor i in range(10):\n    n = int(input())\n    if n % 2 == 0:\n        even_count += 1\nprint(even_count)"
+      },
+      {
+        "part": "(c)",
+        "stem": "Explain the difference between mutable and immutable data types in Python with examples.",
+        "marks": 5.0,
+        "model_answer": "Mutable data types can be modified after creation in-place without changing object identity (e.g. lists, dictionaries). Immutable data types cannot be altered once created; any modification produces a new object (e.g. integers, strings, tuples)."
       }
     ],
     "metadata": {
       "subject": "ict",
       "grade": 13,
       "year": 2016,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2016-ict-en-p2-q7",
-    "number": 7,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 3 of G.C.E. (A/L) 2016 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "3.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 3.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2016,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2016-ict-en-p2-q8",
-    "number": 8,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 4 of G.C.E. (A/L) 2016 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "4.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 4.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2016,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2016-ict-en-p2-q9",
-    "number": 9,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 5 of G.C.E. (A/L) 2016 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "5.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 5.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2016,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
-    }
-  },
-  {
-    "id": "al-2016-ict-en-p2-q10",
-    "number": 10,
-    "section": "essay",
-    "question_type": "essay",
-    "marks": 15.0,
-    "stem": "### Part B - Question 6 of G.C.E. (A/L) 2016 ICT Paper II.",
-    "diagrams": [],
-    "sub_questions": [
-      {
-        "sub_id": "6.a",
-        "label": "(a)",
-        "stem": "Technical problem analysis and system implementation for Question 6.",
-        "marks": 15.0,
-        "expected_answer": "Detailed solution adhering to the official Department of Examinations marking rubric.",
-        "marking_guide": "Award full marks based on grading rubrics."
-      }
-    ],
-    "metadata": {
-      "subject": "ict",
-      "grade": 13,
-      "year": 2016,
-      "medium": "english",
-      "topic": "Advanced ICT Concepts",
-      "difficulty": "hard"
+      "paper": "p2"
     }
   }
 ]

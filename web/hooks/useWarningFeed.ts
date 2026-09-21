@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { notify } from "@/lib/notifications";
 import { useStudyAudio, type ChimeSeverity } from "./useStudyAudio";
 
@@ -17,6 +17,7 @@ export function useWarningFeed() {
   const { playChime } = useStudyAudio();
   const [liveWarnings, setLiveWarnings] = useState<LiveWarning[]>([]);
   const [telegramBadgeAt, setTelegramBadgeAt] = useState<number | null>(null);
+  const [now, setNow] = useState(() => Date.now());
 
   const pushWarning = useCallback(
     (warn: { warning_id?: string; category?: string; message?: string; severity?: string } | undefined) => {
@@ -40,7 +41,14 @@ export function useWarningFeed() {
     setTelegramBadgeAt(null);
   }, []);
 
-  const telegramBadgeVisible = telegramBadgeAt !== null && Date.now() - telegramBadgeAt < 8000;
+  // Re-render so the Telegram badge auto-hides after 8s without new alerts.
+  useEffect(() => {
+    if (telegramBadgeAt === null) return;
+    const id = setTimeout(() => setNow(Date.now()), 8000 - (Date.now() - telegramBadgeAt) + 50);
+    return () => clearTimeout(id);
+  }, [telegramBadgeAt, liveWarnings.length]);
+
+  const telegramBadgeVisible = telegramBadgeAt !== null && now - telegramBadgeAt < 8000;
 
   return { liveWarnings, pushWarning, reset, telegramBadgeAt, setTelegramBadgeAt, telegramBadgeVisible };
 }

@@ -16,6 +16,7 @@ import { Lock, RefreshCw, Settings, ShieldCheck } from "lucide-react";
 import gsap from "gsap";
 import AnalyticsTab from "@/components/parent/AnalyticsTab";
 import OverviewTab from "@/components/parent/OverviewTab";
+import VoiceTab from "@/components/parent/VoiceTab";
 import ParentWizard from "@/components/parent/ParentWizard";
 import PinLock from "@/components/parent/PinLock";
 import SettingsTab from "@/components/parent/SettingsTab";
@@ -30,13 +31,14 @@ import {
   pFetch,
   pJson,
 } from "@/lib/parent/parent-api";
-import type { IncidentItem, StudentRow, TunnelSnapshot } from "@/lib/parent/types";
+import type { IncidentItem, OutboxSnapshot, StudentRow, TunnelSnapshot } from "@/lib/parent/types";
 
-type Tab = "overview" | "analytics" | "vault" | "settings";
+type Tab = "overview" | "analytics" | "voice" | "vault" | "settings";
 
 const TAB_LABELS: Record<Tab, string> = {
   overview: "Overview",
   analytics: "Analytics",
+  voice: "Voice",
   vault: "Vault",
   settings: "Settings",
 };
@@ -46,6 +48,7 @@ export default function ParentPortalPage() {
 
   // Gate state
   const [hasPinConfigured, setHasPinConfigured] = useState<boolean | null>(null);
+  const [bootstrapError, setBootstrapError] = useState<string | null>(null);
   const [showWizard, setShowWizard] = useState(false);
 
   const isAuthenticated = () => Boolean(getParentAccessToken());
@@ -54,6 +57,7 @@ export default function ParentPortalPage() {
 
   // Dashboard data
   const [students, setStudents] = useState<StudentRow[]>([]);
+  const [studentsError, setStudentsError] = useState<string | null>(null);
   const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
   const [incidents, setIncidents] = useState<IncidentItem[]>([]);
   const [incidentsLoading, setIncidentsLoading] = useState(true);
@@ -62,6 +66,9 @@ export default function ParentPortalPage() {
   // Tunnel
   const [tunnel, setTunnel] = useState<TunnelSnapshot>({ status: "inactive", url: null });
   const [tunnelBusy, setTunnelBusy] = useState(false);
+
+  // Telegram outbox depth (offline badge)
+  const [outbox, setOutbox] = useState<OutboxSnapshot | null>(null);
 
   const [activeTab, setActiveTab] = useState<Tab>("overview");
   // Dedicated in-flight guard for the send-link action (previously reused a
@@ -91,7 +98,43 @@ export default function ParentPortalPage() {
     { dependencies: [activeTab] }
   );
 
+  // Keep the sliding tab indicator aligned across resize/font-load.
+  // The GSAP tween above only runs on tab change; without this the capsule
+  // drifts off the active tab after a viewport resize.
+  useEffect(() => {
+    const reposition = () => {
+      const btn = tabRefs.current[activeTab];
+      const ind = indicatorRef.current;
+      if (!btn || !ind) return;
+      gsap.set(ind, { x: btn.offsetLeft, width: btn.offsetWidth });
+    };
+    window.addEventListener("resize", reposition);
+    // Fonts/layout settle after first paint — re-sync once.
+    const t = setTimeout(reposition, 300);
+    return () => {
+      window.removeEventListener("resize", reposition);
+      clearTimeout(t);
+    };
+  }, [activeTab]);
+
+  const TAB_ORDER: Tab[] = ["overview", "analytics", "voice", "vault", "settings"];
+  const handleTabKeyDown = (e: React.KeyboardEvent, tab: Tab) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    e.preventDefault();
+    const idx = TAB_ORDER.indexOf(tab);
+    const next = e.key === "ArrowRight"
+      ? TAB_ORDER[(idx + 1) % TAB_ORDER.length]
+      : TAB_ORDER[(idx - 1 + TAB_ORDER.length) % TAB_ORDER.length];
+    setActiveTab(next);
+    // Move focus to the newly active tab for screen-reader users.
+    requestAnimationFrame(() => tabRefs.current[next]?.focus());
+  };
   // ------------------------------------------------------------- bootstrap
+  // Three states: null = loading, true/false = reached backend, plus a
+  // distinct offline error (backend unreachable) that must NOT be confused
+  // with "no PIN configured" — previously any network failure opened the
+  // setup wizard, misleading parents into re-creating their passcode.
+  const [bootstrapRetry, setBootstrapRetry] = useState(0);
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -99,18 +142,24 @@ export default function ParentPortalPage() {
         const { ok, data } = await pJson<{ has_pin?: boolean }>(
           `/api/v1/parent/auth/has-pin?parent_id=${parentId}`
         );
-        if (!cancelled && ok) setHasPinConfigured(Boolean(data?.has_pin));
+        if (!cancelled) {
+          if (ok) {
+            setHasPinConfigured(Boolean(data?.has_pin));
+            setBootstrapError(null);
+          } else {
+            setBootstrapError("The AI Guru service is unreachable. Check that the app is running, then retry.");
+          }
+        }
       } catch {
         if (!cancelled) {
-          setHasPinConfigured(false);
-          setShowWizard(true); // backend unreachable → setup entry point still visible
+          setBootstrapError("The AI Guru service is unreachable. Check that the app is running, then retry.");
         }
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [parentId]);
+  }, [parentId, bootstrapRetry]);
 
   // Auto-lock when any pFetch exhausts token recovery.
   useEffect(() => {
@@ -122,18 +171,22 @@ export default function ParentPortalPage() {
   const refreshDashboard = useCallback(async () => {
     if (!isAuthenticated()) return;
     try {
-      const { ok, data } = await pJson<StudentRow[]>(`/api/v1/parent/dashboard/${parentId}`);
+      const { ok, status, data } = await pJson<StudentRow[]>(`/api/v1/parent/dashboard/${parentId}`);
       if (ok && Array.isArray(data)) {
         setStudents(data);
+        setStudentsError(null);
         setSelectedStudentId((prev) =>
           prev && data.some((s) => s.student_id === prev)
             ? prev
             : data[0]?.student_id ?? null
         );
+      } else if (!ok) {
+        setStudentsError(`Could not load students (${status}). Retrying automatically.`);
       }
     } catch {
       // ParentAuthError (exhausted refresh) is surfaced globally via
       // PARENT_AUTH_LOST_EVENT; network blips keep the last good board.
+      setStudentsError("Network error loading students. Retrying automatically.");
     }
   }, [parentId]);
 
@@ -164,9 +217,12 @@ export default function ParentPortalPage() {
         setTunnel({
           status: data.status ?? "inactive",
           url: data.url ?? null,
+          provider: data.provider,
           url_is_public: data.url_is_public,
           message: data.message ?? null,
           local_port: data.local_port,
+          portal_hint: data.portal_hint ?? null,
+          restart_attempts: data.restart_attempts,
         });
       }
     } catch {
@@ -174,14 +230,35 @@ export default function ParentPortalPage() {
     }
   }, []);
 
-  // Authenticated data bootstrap + tunnel polling.
+  const refreshOutbox = useCallback(async () => {
+    if (!isAuthenticated()) return;
+    try {
+      const { ok, data } = await pJson<OutboxSnapshot>(
+        `/api/v1/parent/telegram/outbox?parent_id=${encodeURIComponent(parentId)}`
+      );
+      if (ok && data) setOutbox(data);
+    } catch {
+      /* badge is best-effort; keep last known counts */
+    }
+  }, [parentId]);
+
+  // Authenticated data bootstrap + polling. Dashboard re-polls so a
+  // student going live after the portal opened flips to "Studying"
+  // without a manual reload; tunnel/outbox keep their own cadences.
   useEffect(() => {
     if (!authed) return;
     void refreshDashboard();
     void refreshTunnel();
+    void refreshOutbox();
     const iv = setInterval(() => void refreshTunnel(), 15000);
-    return () => clearInterval(iv);
-  }, [authed, authedTick, refreshDashboard, refreshTunnel]);
+    const iv2 = setInterval(() => void refreshOutbox(), 30000);
+    const iv3 = setInterval(() => void refreshDashboard(), 12000);
+    return () => {
+      clearInterval(iv);
+      clearInterval(iv2);
+      clearInterval(iv3);
+    };
+  }, [authed, authedTick, refreshDashboard, refreshTunnel, refreshOutbox]);
 
   useEffect(() => {
     if (!authed) return;
@@ -217,12 +294,19 @@ export default function ParentPortalPage() {
   };
 
   const handleToggleTunnel = async () => {
+    // Guard: starting/reconnecting already has a backend negotiation in
+    // flight (serialized by the server start-lock) — re-clicking would only
+    // queue duplicate work and flicker the status. Aligned with the setup
+    // wizard: any "active" tunnel stops, even while still negotiating.
+    if (tunnel.status === "starting" || tunnel.status === "reconnecting") return;
     setTunnelBusy(true);
     try {
-      if (tunnel.status === "active" && tunnel.url_is_public) {
+      if (tunnel.status === "active") {
         await pFetch("/api/v1/parent/tunnel/stop", { method: "POST" });
         setTunnel({ status: "inactive", url: null, message: null });
       } else {
+        // No provider is sent: the backend reuses the saved preference
+        // (persisted on the last successful start), defaulting to cloudflare.
         const { ok, data } = await pJson<TunnelSnapshot & { message?: string | null }>(
           "/api/v1/parent/tunnel/start",
           { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) }
@@ -231,9 +315,12 @@ export default function ParentPortalPage() {
           setTunnel({
             status: data.status ?? "inactive",
             url: data.url ?? null,
+            provider: (data as TunnelSnapshot).provider,
             url_is_public: data.url_is_public,
             message: data.message ?? null,
             local_port: data.local_port,
+            portal_hint: (data as TunnelSnapshot).portal_hint ?? null,
+            restart_attempts: (data as TunnelSnapshot).restart_attempts,
           });
         }
       }
@@ -241,6 +328,9 @@ export default function ParentPortalPage() {
       /* status poll will reconcile */
     } finally {
       setTunnelBusy(false);
+      // Reconcile immediately so failed/starting states surface without
+      // waiting for the 15s poll.
+      void refreshTunnel();
     }
   };
 
@@ -267,10 +357,31 @@ export default function ParentPortalPage() {
   };
 
   // ----------------------------------------------------------------- render
-  if (hasPinConfigured === null) {
+  if (hasPinConfigured === null && !bootstrapError) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <RefreshCw size={22} className="animate-spin text-[var(--primary)]" />
+      </div>
+    );
+  }
+
+  if (bootstrapError && hasPinConfigured === null) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="w-full max-w-md bento-cell liquid-sheen !rounded-3xl p-8 text-center space-y-4">
+          <h1 className="font-display text-xl font-bold">Service unreachable</h1>
+          <p className="text-sm text-[var(--muted-foreground)]">{bootstrapError}</p>
+          <button
+            onClick={() => {
+              setBootstrapError(null);
+              setHasPinConfigured(null);
+              setBootstrapRetry((n) => n + 1);
+            }}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#E8895F] text-white text-sm font-bold hover:brightness-110 active:scale-[0.98] transition-all"
+          >
+            Retry connection
+          </button>
+        </div>
       </div>
     );
   }
@@ -280,7 +391,7 @@ export default function ParentPortalPage() {
       return (
         <ParentWizard
           parentId={parentId}
-          hasExistingPin={hasPinConfigured}
+          hasExistingPin={hasPinConfigured ?? false}
           onCancel={hasPinConfigured ? () => setShowWizard(false) : undefined}
           onEnterPortal={() => {
             setShowWizard(false);
@@ -358,7 +469,9 @@ export default function ParentPortalPage() {
                     }}
                     role="tab"
                     aria-selected={active}
+                    tabIndex={active ? 0 : -1}
                     onClick={() => setActiveTab(tab)}
+                    onKeyDown={(e) => handleTabKeyDown(e, tab)}
                     className={`relative z-10 px-4 py-2 rounded-full text-sm font-bold transition-colors duration-200 ${
                       active
                         ? "text-[var(--primary)]"
@@ -378,6 +491,8 @@ export default function ParentPortalPage() {
         {activeTab === "overview" && (
           <OverviewTab
             students={students}
+            studentsError={studentsError}
+            onRetryStudents={() => void refreshDashboard()}
             incidents={incidents}
             incidentsLoading={incidentsLoading}
             selectedStudentId={selectedStudentId}
@@ -392,6 +507,7 @@ export default function ParentPortalPage() {
             tunnel={tunnel}
             tunnelBusy={tunnelBusy}
             onToggleTunnel={() => void handleToggleTunnel()}
+            outbox={outbox}
           />
         )}
 
@@ -399,10 +515,23 @@ export default function ParentPortalPage() {
           <AnalyticsTab studentId={selectedStudentId} />
         )}
 
+        {activeTab === "voice" && (
+          <VoiceTab
+            studentId={selectedStudentId}
+            studentName={students.find((s) => s.student_id === selectedStudentId)?.name}
+          />
+        )}
+
         {activeTab === "vault" && <VaultTab />}
 
         {activeTab === "settings" && (
-          <SettingsTab parentId={parentId} onRulesChanged={() => void refreshDashboard()} />
+          <SettingsTab
+            parentId={parentId}
+            onRulesChanged={() => {
+              void refreshDashboard();
+              void refreshOutbox();
+            }}
+          />
         )}
       </main>
 

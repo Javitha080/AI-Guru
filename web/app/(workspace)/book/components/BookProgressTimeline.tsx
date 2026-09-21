@@ -47,9 +47,9 @@ const STATE_TONE = {
   },
   running: {
     fg: "text-sky-700 dark:text-sky-200",
-    bg: "bg-gradient-to-br from-[rgba(224,109,68,0.20)] to-[rgba(200,97,60,0.12)]",
+    bg: "bg-gradient-to-br from-[rgba(185,78,40,0.20)] to-[rgba(163,74,40,0.12)]",
     ring: "ring-sky-400/60",
-    bar: "bg-gradient-to-r from-[#E06D44] to-[#C8613C]",
+    bar: "bg-gradient-to-r from-[#B94E28] to-[#A34A28]",
   },
   completed: {
     fg: "text-emerald-700 dark:text-emerald-200",
@@ -317,7 +317,7 @@ export default function BookProgressTimeline({
         {/* Continuous gradient progress bar */}
         <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--muted)]/60">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-[#E06D44] via-[#DF8D6F] to-emerald-400 transition-all duration-700 ease-out"
+            className="h-full rounded-full bg-gradient-to-r from-[#B94E28] via-[#DF8D6F] to-emerald-400 transition-all duration-700 ease-out"
             style={{ width: `${Math.max(2, fraction * 100)}%` }}
           />
         </div>

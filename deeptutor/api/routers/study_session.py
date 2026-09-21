@@ -1,9 +1,31 @@
+import logging
+import re
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException, Query
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(tags=["study-session"])
+
+_SESSION_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,128}$")
+_STUDENT_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+
+# Target durations outside this window are rejected: <=0/negative would
+# corrupt averages, multi-day values are never real study sessions.
+MIN_TARGET_SECONDS = 60
+MAX_TARGET_SECONDS = 8 * 3600
+
+
+def _check_session_id(session_id: str) -> None:
+    if not _SESSION_ID_RE.match(session_id or ""):
+        raise HTTPException(status_code=422, detail="Invalid session_id format")
+
+
+def _check_student_id(student_id: str) -> None:
+    if not _STUDENT_ID_RE.match(student_id or ""):
+        raise HTTPException(status_code=422, detail="Invalid student_id format")
 
 
 # Pydantic models for Study Sessions
@@ -13,13 +35,89 @@ class CreateSessionRequest(BaseModel):
     subject: Optional[str] = "General"
     duration: Optional[int] = None
     target_duration_seconds: Optional[int] = None
-    # Accepted for backward-compat with the study-room client (silently
-    # ignored by session creation; paper linkage lives in the exam flow).
+    # Paper linkage persisted via v10 columns on study_sessions.
     monitoring_enabled: Optional[bool] = None
     paper_id: Optional[str] = None
     bank_paper_id: Optional[str] = None
     grade: Optional[int] = None
     is_custom_exam: Optional[bool] = None
+
+    @field_validator("paper_id", "bank_paper_id")
+    @classmethod
+    def paper_id_valid(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        v = v.strip()
+        if not v:
+            return None
+        if not _SESSION_ID_RE.match(v):
+            raise ValueError("Invalid paper id format")
+        return v
+
+    @field_validator("grade")
+    @classmethod
+    def grade_valid(cls, v: Optional[int]) -> Optional[int]:
+        if v is None:
+            return v
+        if not isinstance(v, int) or isinstance(v, bool):
+            raise ValueError("grade must be an integer")
+        if v < 1 or v > 13:
+            raise ValueError("grade must be 1-13")
+        return v
+
+    @field_validator("student_id")
+    @classmethod
+    def student_id_valid(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        v = v.strip()
+        if not _STUDENT_ID_RE.match(v):
+            raise ValueError("Invalid student_id format")
+        return v
+
+    @field_validator("title")
+    @classmethod
+    def title_valid(cls, v: str) -> str:
+        v = (v or "").strip()
+        if not v:
+            raise ValueError("title must not be empty")
+        if len(v) > 120:
+            raise ValueError("title must be at most 120 characters")
+        return v
+
+    @field_validator("subject")
+    @classmethod
+    def subject_valid(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        v = v.strip()
+        if len(v) > 60:
+            raise ValueError("subject must be at most 60 characters")
+        return v or "General"
+
+    @field_validator("duration")
+    @classmethod
+    def duration_valid(cls, v: Optional[int]) -> Optional[int]:
+        if v is None:
+            return v
+        if not isinstance(v, int) or isinstance(v, bool):
+            raise ValueError("duration must be an integer number of minutes")
+        if v < 1 or v > 480:
+            raise ValueError("duration must be 1-480 minutes")
+        return v
+
+    @field_validator("target_duration_seconds")
+    @classmethod
+    def target_valid(cls, v: Optional[int]) -> Optional[int]:
+        if v is None:
+            return v
+        if not isinstance(v, int) or isinstance(v, bool):
+            raise ValueError("target_duration_seconds must be an integer")
+        if v < MIN_TARGET_SECONDS or v > MAX_TARGET_SECONDS:
+            raise ValueError(
+                f"target_duration_seconds must be {MIN_TARGET_SECONDS}-{MAX_TARGET_SECONDS}"
+            )
+        return v
 
 
 class SessionResponse(BaseModel):
@@ -91,43 +189,23 @@ def _not_found(session_id: str) -> HTTPException:
     return HTTPException(status_code=404, detail=f"Study session '{session_id}' not found")
 
 
+def _state_conflict(exc: Exception) -> HTTPException:
+    """Maps SessionStateError to 409 (terminal/illegal transitions)."""
+    detail = getattr(exc, "detail", None) or str(exc) or "Illegal session transition"
+    return HTTPException(status_code=409, detail=detail)
+
+
 async def _resolve_student_name(student_id: str, db_path=None) -> str:
-    """Display name for parent notifications & reports: the wizard's supervision-rules
-    entry when present, else users.display_name, else a capitalized tail of student id."""
+    """Display name for parent notifications & reports.
+
+    Delegates to the shared supervision-rules resolver: linked parents'
+    overrides first, then the canonical default row, then users table.
+    Never raises — notification naming is best-effort.
+    """
     try:
-        import json as _json
+        from deeptutor.services.remote.supervision_rules import resolve_student_name
 
-        import aiosqlite
-
-        if db_path is None:
-            from deeptutor.services.path_service import get_path_service
-
-            db_path = get_path_service().user_dir / "chat_history.db"
-        async with aiosqlite.connect(db_path) as db:
-            from deeptutor.services.remote.kv_settings import ensure_kv_settings
-
-            await ensure_kv_settings(db)
-            cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", ("supervision_rules_default",)
-            )
-            row = await cursor.fetchone()
-            if row and row[0]:
-                rules = _json.loads(row[0])
-                name = str(rules.get("student_name") or "").strip()
-                if name:
-                    return name
-
-            # Fallback to users table display_name
-            user_id = f"user-{student_id}"
-            cursor2 = await db.execute(
-                "SELECT display_name FROM users WHERE id = ? OR username = ?",
-                (user_id, f"student:{student_id}"),
-            )
-            user_row = await cursor2.fetchone()
-            if user_row and user_row[0]:
-                u_name = str(user_row[0]).strip()
-                if u_name and u_name != student_id and not u_name.startswith("student:"):
-                    return u_name
+        return await resolve_student_name(student_id, db_path=db_path)
     except Exception:  # noqa: BLE001 - notification naming is best-effort
         pass
     return (student_id or "Student").split("-")[-1].capitalize() or "Student"
@@ -137,11 +215,25 @@ async def _resolve_student_name(student_id: str, db_path=None) -> str:
 @router.post("", response_model=Dict[str, Any])
 @router.post("/create", response_model=Dict[str, Any])
 async def create_session(req: CreateSessionRequest):
-    """Create a new study session."""
-    student_id = req.student_id or "student-primary"
+    """Create a new study session (paper linkage persisted via v10 columns)."""
+    student_id = (req.student_id or "student-primary").strip() or "student-primary"
+    _check_student_id(student_id)
     target_secs = req.target_duration_seconds or ((req.duration or 25) * 60)
-    subject = req.subject or "General"
-    title = req.title or "Study Session"
+    if target_secs < MIN_TARGET_SECONDS or target_secs > MAX_TARGET_SECONDS:
+        raise HTTPException(
+            status_code=422,
+            detail=f"target_duration_seconds must be {MIN_TARGET_SECONDS}-{MAX_TARGET_SECONDS}",
+        )
+    subject = (req.subject or "General").strip() or "General"
+    title = (req.title or "Study Session").strip() or "Study Session"
+    paper_id = (req.paper_id or "").strip() or None
+    bank_paper_id = (req.bank_paper_id or "").strip() or None
+    for pid, label in ((paper_id, "paper_id"), (bank_paper_id, "bank_paper_id")):
+        if pid is not None and not _SESSION_ID_RE.match(pid):
+            raise HTTPException(status_code=422, detail=f"Invalid {label} format")
+    grade = req.grade
+    if grade is not None and (not isinstance(grade, int) or isinstance(grade, bool) or grade < 1 or grade > 13):
+        raise HTTPException(status_code=422, detail="grade must be 1-13")
 
     try:
         return await _mgr().create_session(
@@ -149,6 +241,11 @@ async def create_session(req: CreateSessionRequest):
             title=title,
             subject=subject,
             target_duration_seconds=target_secs,
+            paper_id=paper_id,
+            bank_paper_id=bank_paper_id,
+            grade=grade,
+            is_custom_exam=bool(req.is_custom_exam),
+            monitoring_enabled=False if req.monitoring_enabled is False else True,
         )
     except HTTPException:
         raise
@@ -160,13 +257,15 @@ async def create_session(req: CreateSessionRequest):
 
 @router.get("/history/{student_id}", response_model=PaginatedSessionHistory)
 async def list_past_sessions(
-    student_id: str, limit: int = Query(20, ge=1), offset: int = Query(0, ge=0)
+    student_id: str, limit: int = Query(20, ge=1, le=100), offset: int = Query(0, ge=0)
 ):
     """List past sessions with pagination."""
+    _check_student_id(student_id)
     try:
         return await _mgr().list_sessions(student_id, limit, offset)
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=500, detail=f"Failed to list sessions: {exc}") from exc
+        logger.exception("List sessions failed for %s: %s", student_id, exc)
+        raise HTTPException(status_code=500, detail="Could not list sessions. Try again.") from exc
 
 
 @router.get("/gamification/{student_id}/profile", response_model=ProfileResponse)
@@ -177,7 +276,8 @@ async def get_profile(student_id: str):
     try:
         return await GamificationService.get_profile(student_id)
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=500, detail=f"Failed to load profile: {exc}") from exc
+        logger.exception("Load profile failed for %s: %s", student_id, exc)
+        raise HTTPException(status_code=500, detail="Could not load profile. Try again.") from exc
 
 
 @router.get("/gamification/{student_id}/badges", response_model=List[BadgeResponse])
@@ -188,7 +288,8 @@ async def get_badges(student_id: str):
     try:
         return await GamificationService.get_badges(student_id)
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=500, detail=f"Failed to load badges: {exc}") from exc
+        logger.exception("Load badges failed for %s: %s", student_id, exc)
+        raise HTTPException(status_code=500, detail="Could not load badges. Try again.") from exc
 
 
 @router.get("/gamification/{student_id}/rewards", response_model=RewardHistoryResponse)
@@ -199,7 +300,8 @@ async def get_rewards(student_id: str):
     try:
         return await GamificationService.get_rewards(student_id)
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=500, detail=f"Failed to load rewards: {exc}") from exc
+        logger.exception("Load rewards failed for %s: %s", student_id, exc)
+        raise HTTPException(status_code=500, detail="Could not load rewards. Try again.") from exc
 
 
 @router.get("/student/name", response_model=StudentNameResponse)
@@ -211,19 +313,29 @@ async def get_student_name(student_id: str = "student-primary"):
 
 @router.post("/student/name", response_model=StudentNameResponse)
 async def set_student_name(req: StudentNameRequest):
-    """Set the display name for the student, updating settings and users table."""
+    """Set the display name for the student, updating settings and users table.
+
+    Legacy compatibility shim over the canonical ``/api/v1/user/profile``
+    store: writes through the shared kv helper (dual-shape safe) and mirrors
+    the name into ``users`` + ``supervision_rules_default``. When a real name
+    (not the ``"Student"`` placeholder) is provided the per-student
+    ``user_profile_configured`` flag is also set so onboarding gates agree.
+    """
     raw_name = req.student_name.strip()
     name = raw_name if raw_name else "Student"
     student_id = (req.student_id or "student-primary").strip() or "student-primary"
 
     try:
-        import json as _json
         import time as _time
 
         import aiosqlite
 
         from deeptutor.services.path_service import get_path_service
-        from deeptutor.services.remote.kv_settings import ensure_kv_settings
+        from deeptutor.services.remote.kv_settings import (
+            ensure_kv_settings,
+            kv_get,
+            kv_set,
+        )
 
         db_path = get_path_service().user_dir / "chat_history.db"
         now = _time.time()
@@ -232,28 +344,26 @@ async def set_student_name(req: StudentNameRequest):
         async with aiosqlite.connect(db_path) as db:
             await ensure_kv_settings(db)
 
-            # 1. Update supervision_rules_default in settings table
-            cursor = await db.execute(
-                "SELECT value FROM settings WHERE key = ?", ("supervision_rules_default",)
-            )
-            row = await cursor.fetchone()
+            # 1. Update supervision_rules_default via the shared kv helper
+            # (dual-shape safe — never hand-roll settings SQL).
+            import json as _json
+
+            rules_raw = await kv_get(db, "supervision_rules_default")
             rules = {}
-            if row and row[0]:
+            if rules_raw:
                 try:
-                    rules = _json.loads(row[0])
+                    rules = _json.loads(rules_raw) if isinstance(rules_raw, str) else {}
                 except Exception:
                     rules = {}
+            if not isinstance(rules, dict):
+                rules = {}
             rules["student_name"] = name
             rules["updated_at"] = now
             if "daily_goal_minutes" not in rules:
                 rules["daily_goal_minutes"] = 60
             if "alert_strictness" not in rules:
                 rules["alert_strictness"] = "balanced"
-
-            await db.execute(
-                "INSERT OR REPLACE INTO settings (key, value, category, updated_at) VALUES (?, ?, 'supervision', ?)",
-                ("supervision_rules_default", _json.dumps(rules), now),
-            )
+            await kv_set(db, "supervision_rules_default", _json.dumps(rules), category="supervision")
 
             # 2. Update users table and students table (FK safe)
             await db.execute("PRAGMA foreign_keys = ON;")
@@ -270,6 +380,29 @@ async def set_student_name(req: StudentNameRequest):
                 "INSERT OR IGNORE INTO students (id, user_id, created_at, updated_at) VALUES (?, ?, ?, ?)",
                 (student_id, user_id, now, now),
             )
+
+            # 3. Keep onboarding gates consistent: a real name completes the
+            # profile flag (placeholder "Student" never does on its own).
+            if raw_name:
+                from deeptutor.api.routers.user_profile import (
+                    _LEGACY_CONFIGURED_KEY,
+                    _configured_key,
+                )
+
+                await kv_set(
+                    db,
+                    _configured_key(student_id),
+                    "true",
+                    category="user_profile",
+                )
+                # Backward-compat: legacy global readers check the unscoped key.
+                if _configured_key(student_id) != _LEGACY_CONFIGURED_KEY:
+                    await kv_set(
+                        db,
+                        _LEGACY_CONFIGURED_KEY,
+                        "true",
+                        category="user_profile",
+                    )
             await db.commit()
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Failed to save student name: {exc}") from exc
@@ -280,20 +413,71 @@ async def set_student_name(req: StudentNameRequest):
 @router.get("/{session_id}", response_model=Dict[str, Any])
 async def get_session(session_id: str):
     """Get session details."""
+    _check_session_id(session_id)
     session = await _mgr().get_session(session_id)
     if not session:
         raise _not_found(session_id)
     return session
 
 
+class RetargetSessionRequest(BaseModel):
+    target_duration_seconds: int
+
+    @field_validator("target_duration_seconds")
+    @classmethod
+    def target_valid(cls, v: int) -> int:
+        if not isinstance(v, int) or isinstance(v, bool):
+            raise ValueError("target_duration_seconds must be an integer")
+        if v < MIN_TARGET_SECONDS or v > MAX_TARGET_SECONDS:
+            raise ValueError(
+                f"target_duration_seconds must be {MIN_TARGET_SECONDS}-{MAX_TARGET_SECONDS}"
+            )
+        return v
+
+
+@router.patch("/{session_id}/target", response_model=Dict[str, Any])
+async def retarget_session(session_id: str, req: RetargetSessionRequest):
+    """Adopt a new countdown target for an open session.
+
+    Used when a student starts a past paper mid-session: the paper's own
+    duration becomes the session target so the HUD clock and the server
+    reconcile agree. Open sessions only — terminal rows reject with 409.
+    """
+    _check_session_id(session_id)
+    try:
+        return await _mgr().retarget_session(session_id, req.target_duration_seconds)
+    except KeyError:
+        raise _not_found(session_id)
+    except ValueError as exc:
+        from deeptutor.services.study.session_manager import SessionStateError
+
+        if isinstance(exc, SessionStateError):
+            raise _state_conflict(exc)
+        raise HTTPException(status_code=422, detail=str(exc) or "Invalid target")
+    except HTTPException:
+        raise
+    except Exception:  # noqa: BLE001
+        logger.exception("Retarget failed for %s", session_id)
+        raise HTTPException(status_code=500, detail="Could not update session target. Try again.")
+
+
 @router.post("/{session_id}/start", response_model=Dict[str, Any])
 async def start_session(session_id: str):
     """Start session timer + notify parent (queued, survives offline)."""
+    _check_session_id(session_id)
 
     try:
         result = await _mgr().start_session(session_id)
     except KeyError:
         raise _not_found(session_id)
+    except ValueError as exc:
+        # SessionStateError subclasses ValueError — import locally to avoid
+        # router/service cycles at module import time.
+        from deeptutor.services.study.session_manager import SessionStateError
+
+        if isinstance(exc, SessionStateError):
+            raise _state_conflict(exc)
+        raise
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Failed to start session: {exc}") from exc
 
@@ -329,10 +513,17 @@ async def start_session(session_id: str):
 @router.post("/{session_id}/pause", response_model=Dict[str, Any])
 async def pause_session(session_id: str):
     """Pause session."""
+    _check_session_id(session_id)
     try:
         result = await _mgr().pause_session(session_id)
     except KeyError:
         raise _not_found(session_id)
+    except ValueError as exc:
+        from deeptutor.services.study.session_manager import SessionStateError
+
+        if isinstance(exc, SessionStateError):
+            raise _state_conflict(exc)
+        raise
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Failed to pause session: {exc}") from exc
     await _log_lifecycle_event(session_id, "SESSION_PAUSED")
@@ -342,10 +533,17 @@ async def pause_session(session_id: str):
 @router.post("/{session_id}/resume", response_model=Dict[str, Any])
 async def resume_session(session_id: str):
     """Resume session."""
+    _check_session_id(session_id)
     try:
         result = await _mgr().resume_session(session_id)
     except KeyError:
         raise _not_found(session_id)
+    except ValueError as exc:
+        from deeptutor.services.study.session_manager import SessionStateError
+
+        if isinstance(exc, SessionStateError):
+            raise _state_conflict(exc)
+        raise
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Failed to resume session: {exc}") from exc
     await _log_lifecycle_event(session_id, "SESSION_RESUMED")
@@ -358,13 +556,21 @@ async def stop_session(session_id: str):
 
     Awaiting keeps the completion screen's immediate GET /report truthful:
     stored feedback and xp_earned are already persisted when this returns.
+    Re-stopping a completed session is a no-op success (no double XP).
     """
     import asyncio
 
+    _check_session_id(session_id)
     try:
         result = await _mgr().stop_session(session_id)
     except KeyError:
         raise _not_found(session_id)
+    except ValueError as exc:
+        from deeptutor.services.study.session_manager import SessionStateError
+
+        if isinstance(exc, SessionStateError):
+            raise _state_conflict(exc)
+        raise
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Failed to stop session: {exc}") from exc
 
@@ -387,18 +593,26 @@ async def stop_session(session_id: str):
 
 @router.post("/{session_id}/abandon", response_model=Dict[str, Any])
 async def abandon_session(session_id: str):
-    """Abandon session (no XP)."""
+    """Abandon session (no XP). Terminal: completed rows reject with 409."""
+    _check_session_id(session_id)
     try:
         return await _mgr().abandon_session(session_id)
     except KeyError:
         raise _not_found(session_id)
+    except ValueError as exc:
+        from deeptutor.services.study.session_manager import SessionStateError
+
+        if isinstance(exc, SessionStateError):
+            raise _state_conflict(exc)
+        raise
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Failed to abandon session: {exc}") from exc
 
 
 @router.get("/{session_id}/report", response_model=SessionReportResponse)
 async def get_session_report(session_id: str):
-    """Get session report."""
+    """Get session report (honest nulls when unmeasured/pending)."""
+    _check_session_id(session_id)
     try:
         report = await _mgr().get_session_report(session_id)
     except Exception as exc:  # noqa: BLE001
