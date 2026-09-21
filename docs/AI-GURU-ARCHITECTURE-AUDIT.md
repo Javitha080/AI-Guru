@@ -15,7 +15,7 @@
 ### 1.2 Transformation Philosophy: Evolution Without Regression
 The transformation from DeepTutor to AI Guru adheres to four core architectural tenets:
 1. **Preservation of Core Agent-Native Strengths**: All 7 multi-stage capabilities (`chat`, `deep_solve`, `deep_question`, `deep_research`, `visualize`, `math_animator`, `mastery_path`), all 43 registered tools, and all 33 existing API router endpoints are 100% retained and fully functional.
-2. **Zero-Biometric-Cloud-Egress & Local-First Mandate**: All computer vision inference (face detection, identity verification, anti-spoof liveness, gaze/pose estimation, distraction classification) runs on the user's local machine. Raw camera frames, audio recordings, face crops, and biometric embedding vectors are never transmitted to third-party cloud services. Remote Telegram alerts are text-only by default (photos require explicit parent opt-in).
+2. **Zero-Biometric-Cloud-Egress & Local-First Mandate**: All computer vision inference (face detection, identity verification, anti-spoof liveness, gaze/pose estimation, distraction classification) runs on the user's local machine. Raw camera frames, audio recordings, face crops, and biometric embedding vectors are never transmitted to third-party cloud services. Remote Telegram alerts include incident photo snapshots by default (configurable in parent settings).
 3. **Dual-Mode AI & Hardware Self-Adaptation**: The platform operates seamlessly across Cloud APIs (OpenAI, Claude, DashScope, DeepSeek, Gemini, Perplexity) and Local On-Device LLMs (Ollama with quantized Qwen-2.5, Llama-3.2, DeepSeek-R1), adapting runtime behavior based on active hardware profiling (`LOW`, `MEDIUM`, `HIGH`).
 4. **Clean Brand Transformation Boundary**: All user-visible surfaces (HTML metadata, page titles, localized translation bundles, navigation docks, CLI banners, user documentation) are rebranded to **AI Guru**, while internal Python package namespaces (`deeptutor.*`) remain stable to prevent dependency breakage and packaging drift.
 
@@ -678,7 +678,7 @@ On startup, `HardwareProfiler` queries system resources and assigns a classifica
 ### 4.8 Subsystem 8: Security, Privacy & Threat Model
 
 1. **Threat Mitigation Matrix**:
-   - *Biometric Egress Threat*: Camera frames or embeddings intercepted $\implies$ Mitigated by local in-memory CV inference and AES-GCM encrypted incident vault; no camera feeds are emitted to third-party cloud services; Telegram alert photos are strictly opt-in.
+   - *Biometric Egress Threat*: Camera frames or embeddings intercepted $\implies$ Mitigated by local in-memory CV inference and AES-GCM encrypted incident vault; no camera feeds are emitted to third-party cloud services; Telegram alert photos are enabled by default and can be disabled in parent settings.
    - *Parent Impersonation Threat*: Unauthorized remote access $\implies$ Mitigated by 6-digit cryptographic pairing, short-lived JWTs (15 min), device fingerprints, and revocation hooks.
    - *Database Tampering*: Local file access $\implies$ Bound strictly to `127.0.0.1`, encrypted backups, and audit logs.
 2. **Encrypted Local Backup & Restore**:

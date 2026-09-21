@@ -31,6 +31,7 @@ interface TelegramConfigPayload {
   bot_token_masked?: string;
   chat_id?: string;
   enabled?: boolean;
+  send_photos?: boolean;
   last_verified_at?: number | null;
   last_verified_ok?: boolean | null;
   last_verified_detail?: string;
@@ -56,6 +57,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
   const [tgToken, setTgToken] = useState("");
   const [tgChatId, setTgChatId] = useState("");
   const [tgEnabled, setTgEnabled] = useState(true);
+  const [tgSendPhotos, setTgSendPhotos] = useState(true);
   const [tgBusy, setTgBusy] = useState(false);
   const [tgStatus, setTgStatus] = useState<{ ok: boolean; text: string } | null>(null);
   const [tgVerified, setTgVerified] = useState<string | null>(null);
@@ -98,6 +100,9 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
           setTgMasked(data.bot_token_masked || "");
           setTgChatId(data.chat_id || "");
           setTgEnabled(data.enabled !== false);
+          if (typeof data.send_photos === "boolean") {
+            setTgSendPhotos(data.send_photos);
+          }
           if (data.last_verified_ok) {
             setTgVerified(
               data.bot_username
@@ -163,6 +168,7 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
         bot_token: tgToken.trim(),
         chat_id: tgChatId.trim(),
         enabled: tgEnabled,
+        send_photos: tgSendPhotos,
         parent_id: parentId,
       }),
     });
@@ -345,6 +351,20 @@ export default function SettingsTab({ parentId, onRulesChanged }: SettingsTabPro
               Disabled: warnings and session reports stay on this computer and nothing is queued for delivery.
             </p>
           )}
+          <label className="flex items-center gap-2.5 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={tgSendPhotos}
+              onChange={(e) => setTgSendPhotos(e.target.checked)}
+              className="w-4 h-4 rounded accent-[var(--primary)]"
+            />
+            <span className="text-xs font-medium">Include incident photos with alerts</span>
+          </label>
+          <p className="text-[11px] text-[var(--muted-foreground)]">
+            {tgSendPhotos
+              ? "Critical alerts include a camera snapshot of the detected incident."
+              : "Alerts are sent as text notifications without camera snapshots."}
+          </p>
           {tgStatus && statusBanner(tgStatus)}
           <div className="flex flex-wrap gap-2 pt-1">
             <button

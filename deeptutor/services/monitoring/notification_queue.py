@@ -326,18 +326,18 @@ async def flush_once(limit: int = 20) -> int:
 
             # Alert rows may carry the incident snapshot: deliver via sendPhoto with
             # the composed text as caption; fall back to a plain message when the
-            # photo is absent, parent has not opted in, or undecodable so the alert itself never drops.
+            # photo is absent, parent disabled photos, or undecodable so the alert itself never drops.
             photo_b64 = payload.get("photo_b64")
             photo_bytes = None
-            photos_opted_in = False
+            photos_enabled = True
             try:
                 from deeptutor.services.remote.telegram_config import TelegramConfigStore
 
-                photos_opted_in = await TelegramConfigStore.is_photo_enabled(row_parent)
+                photos_enabled = await TelegramConfigStore.is_photo_enabled(row_parent)
             except Exception:
-                photos_opted_in = False
+                photos_enabled = True
 
-            if isinstance(photo_b64, str) and photo_b64 and photos_opted_in:
+            if isinstance(photo_b64, str) and photo_b64 and photos_enabled:
                 if len(photo_b64) > _MAX_PHOTO_B64_LEN:
                     logger.warning(
                         "Notification #%d photo %d chars exceeds %d cap; sending text-only",

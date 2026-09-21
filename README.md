@@ -362,7 +362,7 @@ cd ..
 
 ## 🔒 Privacy & Zero-Trust Security
 
-- 🚫 **No Cloud Biometrics:** MediaPipe FaceLandmarker runs on-device in the browser sandbox. Camera frames stay local; incident evidence is AES-256 encrypted in the local vault. Remote Telegram alerts are text-only by default (photo snapshots require explicit parent opt-in).
+- 🚫 **No Cloud Biometrics:** MediaPipe FaceLandmarker runs on-device in the browser sandbox. Camera frames stay local; incident evidence is AES-256 encrypted in the local vault. Remote Telegram alerts include incident photo snapshots by default (configurable in parent settings).
 - 🔐 **Encrypted Incident Vault:** Monitoring flags and snapshots are encrypted with the `GURUVAULT02` scheme using a per-item key derived with PBKDF2 (600,000 rounds) from the parent PIN.
 - 🛑 **Rate-Limited PIN Gate:** Parent portal implements progressive lockout backoffs to prevent brute-force attacks.
 - 📡 **Loopback by Default:** Backend binds strictly to `127.0.0.1`. Network exposure is disabled unless explicitly enabled via `lan_access_enabled`.

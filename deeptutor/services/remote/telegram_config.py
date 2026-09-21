@@ -72,7 +72,7 @@ class TelegramConfigStore:
 
     @classmethod
     async def is_photo_enabled(cls, parent_id: str = "default") -> bool:
-        """Whether the parent explicitly opted into Telegram photo alerts (default: False)."""
+        """Whether Telegram photo alerts are enabled (default: True)."""
         async with aiosqlite.connect(_db_path()) as db:
             await ensure_kv_settings(db)
             cursor = await db.execute(
@@ -80,12 +80,12 @@ class TelegramConfigStore:
             )
             row = await cursor.fetchone()
         if not row or not row[0]:
-            return False
+            return True
         try:
             cfg = json.loads(row[0])
-            return bool(cfg.get("send_photos", False))
+            return bool(cfg.get("send_photos", True))
         except Exception:
-            return False
+            return True
 
     @classmethod
     async def get_masked(cls, parent_id: str = "default") -> Dict[str, Any]:
@@ -102,7 +102,7 @@ class TelegramConfigStore:
                 "bot_token_masked": "",
                 "chat_id": "",
                 "enabled": False,
-                "send_photos": False,
+                "send_photos": True,
             }
         try:
             data = json.loads(row[0])
@@ -113,7 +113,7 @@ class TelegramConfigStore:
                 "bot_token_masked": "",
                 "chat_id": "",
                 "enabled": False,
-                "send_photos": False,
+                "send_photos": True,
                 "corrupt": True,
             }
         token = str(data.get("bot_token") or "")
@@ -123,7 +123,7 @@ class TelegramConfigStore:
                 "bot_token_masked": "",
                 "chat_id": "",
                 "enabled": bool(data.get("enabled", False)),
-                "send_photos": bool(data.get("send_photos", False)),
+                "send_photos": bool(data.get("send_photos", True)),
             }
         masked = f"{token[:6]}...{token[-4:]}" if len(token) > 10 else "****"
         return {
@@ -131,7 +131,7 @@ class TelegramConfigStore:
             "bot_token_masked": masked,
             "chat_id": str(data.get("chat_id") or ""),
             "enabled": bool(data.get("enabled", True)),
-            "send_photos": bool(data.get("send_photos", False)),
+            "send_photos": bool(data.get("send_photos", True)),
             "last_verified_at": data.get("last_verified_at"),
             "last_verified_ok": data.get("last_verified_ok"),
             "last_verified_detail": data.get("last_verified_detail") or "",
@@ -210,9 +210,15 @@ class TelegramConfigStore:
                         ):
                             if prev.get(k) is not None and merged.get(k) is None:
                                 merged[k] = prev.get(k)
+                        if "send_photos" not in merged and "send_photos" in prev:
+                            merged["send_photos"] = bool(prev["send_photos"])
                         payload = json.dumps(merged)
             except Exception:  # noqa: BLE001 - verification stamp is best-effort
                 pass
+            merged = json.loads(payload)
+            if "send_photos" not in merged:
+                merged["send_photos"] = True
+            payload = json.dumps(merged)
             await db.execute(
                 "INSERT OR REPLACE INTO settings (key, value, category, updated_at)"
                 " VALUES (?, ?, 'telegram', ?)",

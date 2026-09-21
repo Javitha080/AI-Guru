@@ -8,7 +8,7 @@
 
 There is **no custom trained model**. The pipeline is **2 pretrained MediaPipe
 models** + classical CV math (solvePnP, EAR, Laplacian, cosine similarity) +
-heuristic state machines. 100% on-device processing; zero third-party cloud egress (parent Telegram alerts text-only unless photos opted-in).
+heuristic state machines. 100% on-device processing; zero third-party cloud egress (parent Telegram alerts include incident photos by default, configurable in settings).
 
 ### Pretrained models (the only AI models in the loop)
 

@@ -182,7 +182,7 @@ class TelegramConfigRequest(BaseModel):
     chat_id: str
     enabled: bool = True
     parent_id: Optional[str] = "default"
-    send_photos: Optional[bool] = False
+    send_photos: Optional[bool] = True
 
 
 class StartTunnelRequest(BaseModel):
