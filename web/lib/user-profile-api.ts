@@ -49,11 +49,45 @@ export function notifyProfileUpdated(profile?: UserProfile): void {
 }
 
 export async function getUserProfile(): Promise<UserProfile> {
-  const res = await apiFetch(apiUrl("/api/v1/user/profile"));
+  let res: Response;
+  try {
+    res = await apiFetch(apiUrl("/api/v1/user/profile"));
+  } catch (err) {
+    const cause = err instanceof Error ? err.message : String(err);
+    throw new Error(`Failed to fetch user profile: ${cause}`);
+  }
   if (!res.ok) {
-    throw new Error("Failed to fetch user profile");
+    const data = await res.json().catch(() => null);
+    const detail = extractFetchDetail(data);
+    const message = detail
+      ? `Failed to fetch user profile (HTTP ${res.status}): ${detail}`
+      : `Failed to fetch user profile (HTTP ${res.status})`;
+    const error = new Error(message) as Error & { status?: number };
+    error.status = res.status;
+    throw error;
   }
   return res.json();
+}
+
+function extractFetchDetail(data: unknown): string {
+  if (typeof data !== "object" || data === null) return "";
+  if ("detail" in data) {
+    const detail = (data as { detail: unknown }).detail;
+    if (typeof detail === "string" && detail) return detail;
+    // FastAPI 422 validation errors arrive as an array of {msg,...} objects.
+    if (Array.isArray(detail) && detail.length > 0) {
+      const first = detail[0];
+      if (typeof first === "object" && first !== null && "msg" in first) {
+        return String((first as { msg: unknown }).msg);
+      }
+    }
+  }
+  // Backend envelope ({code, message}) and proxy 503 ({code, message}).
+  if ("message" in data) {
+    const message = (data as { message: unknown }).message;
+    if (typeof message === "string" && message) return message;
+  }
+  return "";
 }
 
 export async function updateUserProfile(

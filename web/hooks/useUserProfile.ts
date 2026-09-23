@@ -32,18 +32,59 @@ export function clearProfileCache(): void {
   }
 }
 
+function statusOf(err: unknown): number | null {
+  if (typeof err === "object" && err !== null && "status" in err) {
+    const status = (err as { status: unknown }).status;
+    if (typeof status === "number" && Number.isFinite(status)) return status;
+  }
+  const msg = err instanceof Error ? err.message : String(err ?? "");
+  const match = /HTTP\s+(\d{3})/.exec(msg);
+  return match ? Number(match[1]) : null;
+}
+
+function isTransientProfileError(err: unknown): boolean {
+  const status = statusOf(err);
+  // No status = network failure / backend unreachable (startup race).
+  if (status === null) return true;
+  return status === 502 || status === 503 || status === 504 || status >= 500;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchProfileWithRetry(attempts = 3): Promise<UserProfile> {
+  let lastError: unknown = null;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      return await getUserProfile();
+    } catch (err) {
+      lastError = err;
+      // 401 means logged-out (redirect pending) — never retry, never log loudly.
+      if (statusOf(err) === 401) throw err;
+      if (attempt >= attempts || !isTransientProfileError(err)) throw err;
+      await sleep(attempt === 1 ? 400 : 800);
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error(String(lastError));
+}
+
 function loadUserProfile(): Promise<UserProfile | null> {
   if (cachedProfile) {
     return Promise.resolve(cachedProfile);
   }
   if (!inflightPromise) {
-    inflightPromise = getUserProfile()
+    inflightPromise = fetchProfileWithRetry()
       .then((data) => {
         cachedProfile = data;
         return data;
       })
       .catch((err) => {
-        console.error("Failed to load user profile:", err);
+        // 401 is an expected logged-out state (apiFetch redirects to /login);
+        // don't spam the console for it.
+        if (statusOf(err) !== 401) {
+          console.error("Failed to load user profile:", err);
+        }
         return null;
       })
       .finally(() => {

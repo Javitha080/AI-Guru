@@ -133,6 +133,31 @@ export default function ProfilePage() {
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
   const [tutorTone, setTutorTone] = useState("encouraging");
 
+  const loadProfile = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const prof = await getUserProfile();
+      setProfile(prof);
+      setDisplayName(prof.display_name === "Student" ? "" : prof.display_name);
+      setSelectedAvatar(prof.avatar);
+      if (prof.grade_level) setGradeLevel(prof.grade_level);
+      setSchool(prof.school || "");
+      if (prof.learning_style) setLearningStyle(prof.learning_style);
+      if (prof.target_daily_minutes) setTargetMinutes(prof.target_daily_minutes);
+      if (prof.preferred_subjects) setSelectedSubjects(prof.preferred_subjects);
+      if (prof.tutor_tone) setTutorTone(prof.tutor_tone);
+    } catch (err) {
+      // Surface the backend's status/detail when available; fall back to i18n.
+      const msg = err instanceof Error && /HTTP \d{3}/.test(err.message)
+        ? err.message
+        : t("Failed to load profile");
+      setError(msg);
+    } finally {
+      setLoading(false);
+    }
+  }, [t]);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -147,18 +172,7 @@ export default function ProfilePage() {
           return;
         }
 
-        const prof = await getUserProfile();
-        if (!cancelled && prof) {
-          setProfile(prof);
-          setDisplayName(prof.display_name === "Student" ? "" : prof.display_name);
-          setSelectedAvatar(prof.avatar);
-          if (prof.grade_level) setGradeLevel(prof.grade_level);
-          setSchool(prof.school || "");
-          if (prof.learning_style) setLearningStyle(prof.learning_style);
-          if (prof.target_daily_minutes) setTargetMinutes(prof.target_daily_minutes);
-          if (prof.preferred_subjects) setSelectedSubjects(prof.preferred_subjects);
-          if (prof.tutor_tone) setTutorTone(prof.tutor_tone);
-        }
+        await loadProfile();
       } catch {
         if (!cancelled) setError(t("Failed to load profile"));
       } finally {
@@ -168,6 +182,7 @@ export default function ProfilePage() {
     return () => {
       cancelled = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router, t]);
 
   const toggleSubject = (subj: string) => {
@@ -338,7 +353,23 @@ export default function ProfilePage() {
             <Loader2 size={24} className="mr-2 animate-spin text-[var(--primary)]" />
             <span>{t("Loading profile…")}</span>
           </div>
-        ) : !profile ? null : (
+        ) : !profile ? (
+          <div className="flex flex-col items-center justify-center rounded-3xl border border-[var(--border)] bg-[var(--card)] px-6 py-16 text-center shadow-sm">
+            <p className="text-sm font-semibold text-[var(--foreground)]">
+              {t("Could not load your profile")}
+            </p>
+            <p className="mt-1 max-w-sm text-xs text-[var(--muted-foreground)]">
+              {error ?? t("The server may still be starting. Try again in a moment.")}
+            </p>
+            <button
+              type="button"
+              onClick={() => void loadProfile()}
+              className="mt-4 rounded-xl bg-[var(--primary)] px-5 py-2 text-xs font-bold text-[var(--primary-foreground)] shadow-md transition-transform hover:brightness-110 active:scale-95"
+            >
+              {t("Retry")}
+            </button>
+          </div>
+        ) : (
           <div className="space-y-6">
             {/* 1. Identity Card */}
             <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
