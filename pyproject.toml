@@ -43,7 +43,7 @@ dependencies = [
     "perplexityai>=0.1.0",
     "oauth-cli-kit>=0.1.1",
     "llama-index>=0.14.12",
-    "llama-index-retrievers-bm25>=0.7.1,<0.8.0",
+    "llama-index-retrievers-bm25>=0.7.1,<0.9.0",
     # FAISS vector store: vectorized ANN retrieval that replaces SimpleVectorStore's
     # brute-force per-query scan for large knowledge bases (issue #552). The
     # pipeline imports it lazily and falls back to SimpleVectorStore if absent.
@@ -89,7 +89,7 @@ cli = [
     "oauth-cli-kit>=0.1.1",
     # RAG (LlamaIndex)
     "llama-index>=0.14.12",
-    "llama-index-retrievers-bm25>=0.7.1,<0.8.0",
+    "llama-index-retrievers-bm25>=0.7.1,<0.9.0",
     # FAISS vector store: vectorized ANN retrieval that replaces SimpleVectorStore's
     # brute-force per-query scan for large knowledge bases (issue #552). The
     # pipeline imports it lazily and falls back to SimpleVectorStore if absent.
