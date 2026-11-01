@@ -234,7 +234,7 @@ rag-lightrag = ["raganything>=1.0.1,<2.0.0; python_version < '3.14'"]
 dev = [
     "deeptutor[server]",
     "pytest>=7.0.0",
-    "pytest-asyncio>=0.23.0",
+    "pytest-asyncio>=1.4.1",
     "pre-commit>=3.0.0",
     "safety<3.0.0",
     "bandit>=1.8.0",
