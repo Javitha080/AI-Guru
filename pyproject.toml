@@ -160,7 +160,7 @@ partners = [
 # not a pip dependency. Engines import lazily, so these stay opt-in and an
 # absent engine simply reports unavailable in Settings → Document Parsing.
 parse-markitdown = ["markitdown[pdf,docx,pptx,xlsx]>=0.0.1a2"]
-parse-docling = ["docling>=2.0.0"]
+parse-docling = ["docling>=2.144.0"]
 # PyMuPDF4LLM rides on PyMuPDF (already a core dep); the extra adds only the
 # thin Markdown layer, so it is the lightest image-capable engine. Pinned to the
 # pre-1.0 line on purpose: 1.x defaults to an onnxruntime layout-AI path that
