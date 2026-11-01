@@ -49,7 +49,7 @@ arxiv>=2.0.0
 
 # --- Document text extraction (chat attachments) + office-skill authoring libs ---
 python-docx>=1.1.0
-openpyxl>=3.1.0
+openpyxl>=3.1.5
 python-pptx>=1.0.0
 pypdf>=4.0.0
 pdfplumber>=0.11.0,<0.11.8  # 0.11.8+ pins pdfminer.six==20251230, conflicts with mineru (via raganything)
