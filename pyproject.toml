@@ -186,7 +186,7 @@ monitoring = [
     "mediapipe>=1.0,<2.0",
     # Imported transitively by mediapipe.tasks' audio init; must be importable
     # or `import mediapipe` itself fails.
-    "sounddevice>=0.5,<1.0",
+    "sounddevice>=0.5.6,<1.0",
 ]
 
 # Legacy alias kept for one release: `pip install deeptutor[tutorbot]`.
